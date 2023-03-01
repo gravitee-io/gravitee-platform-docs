@@ -1,0 +1,33 @@
+[[gravitee-admin-guide-orgs-and-envs]]
+= Organizations and environments
+:page-sidebar: am_3_x_sidebar
+:page-permalink: am/current/am_adminguide_organizations_and_environments.html
+:page-folder: am/admin-guide
+:page-description: Gravitee.io API Management - Admin Guide - Organizations and Environments
+:page-keywords: Gravitee.io, oauth2, openid, organization, environment
+:page-layout: am
+
+== Overview
+Two concepts apply to the setup of *Gravitee.io Access Management* (AM) installation. Organization and environment. 
+
+== Organization
+A logical part of your company in the way that makes most sense in your setup, for example a region or business unit. In the context of an AM installation it is the level at which shared configurations for environments are managed, such as:
+
+* User permissions to access the AM console
+* Roles
+* Identity providers to access the AM console
+
+
+== Environment
+An environment in an IT infrastructure, such as development or production. There can be multiple environments linked to one organization. In the context of an AM installation, it is the workspace in which users can manage their security domains and applications.
+
+Examples of environments:
+
+* technical environments such as DEV / TEST / PRODUCTION
+* functional environments such as PRIVATE DOMAINS / PUBLIC DOMAINS / PARTNERSHIP
+
+An environment belongs to one organization.
+
+
+
+NOTE: By default, the OSS version of AM comes with a default organization and a default environment. For a multi-environment setup, you need an integration with link:{% link pages/cockpit/overview/introduction.adoc %}[Cockpit].

@@ -1,0 +1,358 @@
+= Upgrade AM
+:page-sidebar: am_3_x_sidebar
+:page-permalink: am/current/am_installguide_migration.html
+:page-folder: am/installation-guide
+:page-layout: am
+
+NOTE: Files specified in this guide can be found at https://github.com/gravitee-io/graviteeio-access-management/tree/master/docs/upgrades
+
+WARNING: If you plan to skip versions when you upgrade, ensure that you read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
+
+WARNING: Be sure to run scripts on the correct database since `gravitee-am` is not always the default database! Check your db name by running `show dbs;`
+
+== Upgrade to 3.17.2 - 3.17.3 - 3.17.4 - 3.18.0 - 3.18.1 - 3.18.2 - 3.18.3
+
+NOTE: For more information about the breaking changes of this version, see
+- link:{{ '/am/current/am_breaking_changes_3.17.2.html' | relative_url }}[Breaking changes in 3.17.2]
+- link:{{ '/am/current/am_breaking_changes_3.17.3.html' | relative_url }}[Breaking changes in 3.17.3]
+- link:{{ '/am/current/am_breaking_changes_3.17.4.html' | relative_url }}[Breaking changes in 3.17.4]
+- link:{{ '/am/current/am_breaking_changes_3.18.html' | relative_url }}[Breaking changes in 3.18.0]
+- link:{{ '/am/current/am_breaking_changes_3.18.1.html' | relative_url }}[Breaking changes in 3.18.1]
+- link:{{ '/am/current/am_breaking_changes_3.18.2.html' | relative_url }}[Breaking changes in 3.18.2]
+- link:{{ '/am/current/am_breaking_changes_3.18.3.html' | relative_url }}[Breaking changes in 3.18.3]
+
+=== Warning
+
+We strongly advise to not upgrade to 3.17.2, 3.17.3, 3.17.4, 3.18.0, 3.18.1, 3.18.2 and 3.18.3 since we detected a critical bug which impact the reset password feature of AM.
+
+This has been fixed in 3.17.5 and 3.18.4 versions of AM.
+
+We apologize for this inconvenience.
+
+GitHub issue: link:https://github.com/gravitee-io/issues/issues/8391[8391]
+
+== Upgrade to 3.18
+
+NOTE: For more information about the breaking changes of this version, see link:{{ '/am/current/am_breaking_changes_3.18.html' | relative_url }}[Breaking changes in 3.18]
+
+=== EE deployments
+
+Starting from AM 3.18, there are no more distinction between CE and EE bundle. To take benefit of the Enterprise Edition, you will have to deploy by yourself your EE plugins in addition of the license key. See the link:{{ '/am/current/am_breaking_changes_3.18.html' | relative_url }}[Breaking changes in 3.18] for more details
+
+=== Webauthn (passwordless) V2 JavaScript files
+
+If you are using webauthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version. See the link:{{ '/am/current/am_breaking_changes_3.18.html' | relative_url }}[Breaking changes in 3.18] for more details.
+
+----
+WebAuthn Register
+
+--- <script th:src="@{../assets/js/webauthn.auth.js"></script>
+--- <script th:src="@{../assets/js/webauthn-register.js}"></script>
+
++++ <script th:src="@{../assets/js/webauthn.auth-v2.js"></script>
++++ <script th:src="@{../assets/js/webauthn-register-v2.js}"></script>
+----
+
+----
+WebAuthn Login
+
+--- <script th:src="@{../assets/js/webauthn.auth.js"></script>
+--- <script th:src="@{../assets/js/webauthn-login.js}"></script>
+
++++ <script th:src="@{../assets/js/webauthn.auth-v2.js"></script>
++++ <script th:src="@{../assets/js/webauthn-login-v2.js}"></script>
+----
+
+== Upgrade to 3.15.6
+
+WARNING: For security reason, default values for the duration of the email mfaChallenge code and the resetPassword token have been reduced to 5 minutes. If you want to restore previous values, please update the gravitee.yaml file for the management and gateway service for these two values "`user.resetPassword.token`" and "`user.mfaChallenge.token`".
+
+== Upgrade to 3.17
+
+NOTE: For more information about the breaking changes of this version, see link:{{ '/am/current/am_breaking_changes_3.17.html' | relative_url }}[Breaking changes in 3.17]
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.17.0/mongodb/1-migrate-application-identities.js[upgrades/3.x/3.17.0/mongodb/1-migrate-application-identities.js]::
+
+This script will migrate data structure of the application settings to manage the selection rules and ordering of the identity providers.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.17.0/mongodb/1-add-saml2-permissions.js[upgrades/3.x/3.17.0/mongodb/1-add-saml2-permissions.js]::
+
+This script will create the DOMAIN_SAML and APPLICATION_SAML permission.
+
+==== JDBC
+
+The liquibase scripts will update data automatically on the REST API startup.
+
+== Upgrade to 3.15
+
+NOTE: For more information about the breaking changes of this version, see link:{{ '/am/current/am_breaking_changes_3.15.html' | relative_url }}[Breaking changes in 3.15]
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.15.0/mongodb/1-add-authdevice-notifier-permissions.js[upgrades/3.x/3.15.0/mongodb/1-add-authdevice-notifier-permissions.js]::
+
+This script will create the DOMAIN_AUTHDEVICE_NOTIFIER permission.
+
+==== JDBC
+
+The liquibase scripts will update data automatically on the REST API startup.
+
+== Upgrade to 3.14.5
+
+NOTE: For more information about the breaking changes of this version, see link:{{ '/am/current/am_breaking_changes_3.14.5.html' | relative_url }}[Breaking changes in 3.14.5]
+
+=== Warning
+
+For JDBC users, we strongly advise to not upgrade to 3.14.5 since we detected a critical bug which can block the AM management API (the AM gateway is not impacted).
+
+This has been fixed in 3.14.6.
+
+We apologize for this inconvenience.
+
+GitHub issue: link:https://github.com/gravitee-io/issues/issues/7080[7080]
+
+== Upgrade to 3.13
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.13.0/mongodb/1-add-device-identifier-permissions.js[upgrades/3.x/3.13.0/mongodb/1-add-device-identifier-permissions.js]::
+
+This script will create the DOMAIN_DEVICE_IDENTIFIER permission.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.13.0/mongodb/1-add-device-permissions.js[upgrades/3.x/3.13.0/mongodb/1-add-device-permissions.js]::
+
+This script will create the DOMAIN_USER_DEVICE permission.
+
+==== JDBC
+
+The liquibase scripts will update data automatically on the REST API startup.
+
+== Upgrade to 3.12
+
+NOTE: For more information about the breaking changes of this version, see link:{{ '/am/current/am_breaking_changes_3.12.html' | relative_url }}[Breaking changes in 3.12]
+
+== Upgrade to 3.10.14
+
+NOTE: For more information about the breaking changes of this version, see link:{{ '/am/current/am_breaking_changes_3.10.14.html' | relative_url }}[Breaking changes in 3.10.14]
+
+=== Warning
+
+For JDBC users, we strongly advise to not upgrade to 3.10.14 since we detected a critical bug which can block the AM management API (the AM gateway is not impacted).
+
+This has been fixed in 3.10.15.
+
+We apologize for this inconvenience.
+
+GitHub issue: link:https://github.com/gravitee-io/issues/issues/7080[7080]
+
+== Upgrade to 3.10.7
+
+NOTE: For more information about the breaking changes of this version, see link:{{ '/am/current/am_breaking_changes_3.10.7.html' | relative_url }}[Breaking changes in 3.10.7]
+
+=== Warning
+
+For everyone, please don’t upgrade to 3.10.7 since we detected a critical bug introduced by our release process which leads to a corrupted version of AM.
+
+This has been fixed in 3.10.8.
+
+We apologize for this inconvenience.
+
+GitHub issue: link:https://github.com/gravitee-io/issues/issues/6504[6504]
+
+== Upgrade to 3.10.6
+
+NOTE: For more information about the breaking changes of this version, see link:{{ '/am/current/am_breaking_changes_3.10.6.html' | relative_url }}[Breaking changes in 3.10.6]
+
+== Upgrade to 3.10.4
+
+NOTE: For more information about the breaking changes of this version please visit link:{{ '/am/current/am_breaking_changes_3.10.4.html' | relative_url }}[Breaking changes in 3.10.4]
+
+== Upgrade to 3.10.0
+
+NOTE: For more information about the breaking changes of this version please visit link:{{ '/am/current/am_breaking_changes_3.10.html' | relative_url }}[Breaking changes in 3.10]
+
+=== Warning
+
+For JDBC users only, please don’t upgrade to 3.10.0 since we detected a critical bug in a liquibase script that could lead to data loss.
+
+This has been fixed in 3.10.1.
+
+We apologize for this inconvenience.
+
+GitHub issue: link:https://github.com/gravitee-io/issues/issues/5957[5957]
+
+
+=== REST API
+
+`Clients` endpoints have been removed since there are deprecated from 3.0.0.
+
+With previous versions the administrator user for the Management API was created on startup using hard coded values for username and password. Starting from 3.10.0 it is possible to define your own values thanks to the link:{{ '/am/current/am_installguide_management_api_configuration.html#security' | relative_url }}[security] section of the `gravitee.yml` file. By default, this configuration section use the same behaviour as AM 3.9 and earlier.
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/graviteeio-access-management/master/docs/upgrades/3.x/3.10.0/mongodb/1-move-organization-users.js[upgrades/3.x/3.10.0/mongodb/1-move-organization-users.js]::
+
+This script will move users linked to an organization to a dedicated collection.
+
+https://raw.githubusercontent.com/gravitee-io/graviteeio-access-management/master/docs/upgrades/3.x/3.10.0/mongodb/2-add-default-scopes.js[upgrades/3.x/3.10.0/mongodb/2-add-default-scopes.js]::
+
+This script will create default scopes for applications.
+
+==== JDBC
+
+Before you run any scripts, create a dump of your existing database.
+
+The liquibase scripts will update data automatically on the REST API startup.
+
+If you disabled the liquibase execution using the `liquibase.enabled` option, please apply changes via the following liquibase descriptors :
+
+- https://github.com/gravitee-io/gravitee-access-management/blob/master/gravitee-am-repository/gravitee-am-repository-jdbc/src/main/resources/liquibase/changelogs/v3_10_0/schema.yml[v3_10_0/schema.yml]
+- https://github.com/gravitee-io/gravitee-access-management/blob/master/gravitee-am-repository/gravitee-am-repository-jdbc/src/main/resources/liquibase/changelogs/v3_10_0/users-migration.yml[v3_10_0/users-migration.yml]
+- https://github.com/gravitee-io/gravitee-access-management/blob/master/gravitee-am-repository/gravitee-am-repository-jdbc/src/main/resources/liquibase/changelogs/v3_10_0/schema-add-default-scopes.yml[v3_10_0/schema-add-default-scopes.yml]
+- https://github.com/gravitee-io/gravitee-access-management/blob/master/gravitee-am-repository/gravitee-am-repository-jdbc/src/main/resources/liquibase/changelogs/v3_10_0/schema-add-self-service-account-settings.yml[v3_10_0/schema-add-self-service-account-settings.yml]
+
+
+== Upgrade to 3.9.2
+
+NOTE: For users of Gravitee Enterprise Edition with Alert Engine, please check your gravitee configuration to ensure that the alert engine feature is explicitly enabled. Starting from this version, the alert engine connector is disabled by default if the option `alerts.alert-engine-enabled` is missing from the `gravitee.yml` file. (see link:{% link pages/ae/am/am-configuration.adoc %}[AM configuration for AE])
+
+== Upgrade to 3.9.0
+
+NOTE: For more information about the breaking changes of this version please visit link:{{ '/am/current/am_breaking_changes_3.9.html' | relative_url }}[Breaking changes in 3.9]
+
+=== REST API
+
+If you are using the Management API to list domains, scopes or roles, please note that the output has been changed to return a page of result with default size set to 50 elements.
+
+=== HEAP SIZE
+
+Starting from this new version, the default Xms and Xmx parameters has been fixed to 256m.
+
+== Upgrade to 3.8.6
+
+NOTE: For users of Gravitee Enterprise Edition with Alert Engine, please check your gravitee configuration to ensure that the alert engine feature is explicitly enabled. Starting from this version, the alert engine connector is disabled by default if the option `alerts.alert-engine-enabled` is missing from the `gravitee.yml` file. (see link:{% link pages/ae/am/am-configuration.adoc %}[AM configuration for AE])
+
+== Upgrade to 3.8.0
+
+NOTE: For more information about the breaking changes of this version please visit link:{{ '/am/current/am_breaking_changes_3.8.html' | relative_url }}[Breaking changes in 3.8]
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.8.0/mongodb/1-add-domain-hrid.js[upgrades/3.x/3.8.0/mongodb/1-add-domain-hrid.js]::
+This script updates the database to reflect the following changes :
+
+* Add hrid field to the security domains
+
+== Upgrade to 3.7.0
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.7.0/mongodb/1-add-alert-permissions.js[upgrades/3.x/3.7.0/mongodb/1-add-alert-permissions.js]::
+This script updates the database to reflect the following changes :
+
+* Enable alerting support
+
+== Upgrade to 3.6.0
+
+NOTE: For more information about the breaking changes of this version please visit link:{{ '/am/current/am_breaking_changes_3.6.html' | relative_url }}[Breaking changes in 3.6]
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.6.0/mongodb/1-add-environment-permissions.js[upgrades/3.x/3.6.0/mongodb/1-add-environment-permissions.js]::
+This script updates the database to reflect the following changes :
+
+* Addition of new permissions related to the multi environments feature
+* Update existing users permissions according to their role in order to grant access to the default organization and environment
+
+==== JDBC
+
+Before you start for the first time the AM Management API and AM Gateway in version 3.6.0, create a dump of your existing database.
+
+https://github.com/gravitee-io/graviteeio-access-management/tree/master/gravitee-am-repository/gravitee-am-repository-jdbc/src/main/resources/liquibase/changelogs/cockpit[Liquibase scripts]::
+These script are executed automatically on startup of AM gateway and AM management console. This script updates the database to reflect the following changes :
+
+* Addition of new permissions related to the multi environments feature
+* Update existing users permissions according to their role in order to grant access to the default organization and environment
+
+== Upgrade to 3.4.0
+
+NOTE: For more information about the breaking changes of this version please visit link:{{ '/am/current/am_breaking_changes_3.4.html' | relative_url }}[Breaking changes in 3.4]
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.4.0/mongodb/1-form-templates-migration.js[upgrades/3.x/3.4.0/mongodb/1-form-templates-migration]::
+This script updates the database to reflect the following changes :
+
+* Update form actions and links to make it work with the new cookie session
+
+== Upgrade to 3.1.0
+
+NOTE: For more information about the breaking changes of this version please visit link:{{ '/am/current/am_breaking_changes_3.1.html' | relative_url }}[Breaking changes in 3.1]
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/graviteeio-access-management/master/docs/upgrades/3.x/3.1.0/mongodb/1-email-templates-migration.js[upgrades/3.x/3.1.0/mongodb/1-email-templates-migration]::
+This script updates the database to reflect the following changes :
+
+* New email service
+
+== Upgrade to 3.0.0
+
+NOTE: For more information about the breaking changes of this version please visit link:{{ '/am/current/am_breaking_changes_3.0.html' | relative_url }}[Breaking changes in 3.0]
+
+WARNING: We highly recommend that you run the MongoDB database script before starting the Management API.
+
+=== Repository
+
+==== Mongodb
+
+Before you run any scripts, create a dump of your existing database.
+
+https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/docs/upgrades/3.x/3.0.0/mongodb/1-migration-v3.js[upgrades/3.x/3.0.0/mongodb/1-migration-v3]::
+This script updates the database to reflect the following changes :
+
+* Adds new fields that refer the default environment and the default organization.
+* Attach data to their environment and organization
+* Remove unnecessary data
+
+WARNING: During the migration, AM V2 Gateways will still continue to work without any problem. Just make sure to not stop or restart them until the migration is fully completed.
+
+WARNING: Do not forget to update plugins and re-install your custom plugins.

@@ -1,0 +1,63 @@
+= Introduction
+:page-sidebar: cockpit_sidebar
+:page-permalink: cockpit/3.x/cockpit_overview_introduction.html
+:page-folder: cockpit/overview
+:page-description: Gravitee.io Cockpit - Introduction
+:page-keywords: Gravitee.io, API Platform, API Management, Cockpit, documentation, manual, guides
+
+== Overview
+
+Gravitee Cockpit is a centralized, multi-environment tool for managing all your Gravitee API Management and Access Management installations in a single place.
+
+image::{% link images/cockpit/cockpit-dashboard.png %}[]
+
+[[organizational-hierarchy]]
+== Cockpit hierarchy
+
+Cockpit is based on a hierarchy of the following entity types:
+
+image::{% link images/cockpit/entity-hierarchy.png %}[]
+
+|===
+|Entity | Description | Additional information
+
+|Account
+|The top level entity, your company. One user can have multiple accounts.
+|
+
+|Organization
+|A logical part of your company in the way that makes most sense in your setup, for example a region or business unit. There can be multiple organizations linked to one account.
+.2+|The organization and environment entities defined in Cockpit are equivalent to the same entities in APIM and AM, including the roles you can define for them (for example, the `ORGNIZATION_OWNER` role exists in both APIM and AM).
+
+Learn more about organizations and environments in link:{{ '/apim/3.x/apim_adminguide_organizations_and_environments.html' | relative_url }}[APIM^] and link:{{ '/am/current/am_adminguide_organizations_and_environments.html' | relative_url }}[AM^].
+
+|Environment
+|An environment in an IT infrastructure, such as development or production. There can be multiple environments linked to one organization.
+
+|Installation
+
+Node
+|APIM and AM installations, linked to environments in Cockpit.
+Each linked APIM and AM installation automatically reports its REST API and Gateway nodes to Cockpit.
+|Nodes can belong to multiple environments. You can configure the organizations and environments associated with Gateway nodes in APIM and AM, by updating the Gateway configuration files.
+
+Only Gateway nodes are configurable in this way, not REST API nodes.
+
+Learn more about updating a Gateway configuration in the `gravitee.yml` file in link:{{ '/apim/3.x/apim_installguide_gateway_configuration.html' | relative_url }}[APIM^] and link:{{ '/am/current/am_installguide_gateway_configuration.html' | relative_url }}[AM^].
+|===
+
+Each entity managed in Cockpit has some common properties:
+
+* ID: an internal ID that is never shown in the Cockpit UI, but that you can find if you look at the API responses.
+* HRID: a human readable ID of the entity. This ID is unique (no two environments in the same organization can have the same HRID), and they are used to provide readable URLs.
+* Name: the name of the entity.
+* Description: a description of the entity.
+
+== Example hierarchy
+
+The Cockpit hierarchy pictured below has the following setup:
+
+- One APIM installation, with two Gateway nodes and one REST API node.
+- One AM installation, with one Gateway node and one REST API node.
+
+image::{% link images/cockpit/apim-am-nodes.png %}[]

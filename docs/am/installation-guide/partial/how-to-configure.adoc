@@ -1,0 +1,103 @@
+= How to configure
+
+There are three different ways to configure AM Gateway components. These are:
+
+ - environment variables
+ - system properties
+ - `gravitee.yml`
+
+The order in which they are listed above corresponds to their order of precedence. In other words, environment variables override the other two configuration types, and system properties override `gravitee.yml`.
+
+== gravitee.yml
+
+The `gravitee.yml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure AM.
+
+WARNING: YAML (`yml`) format is very sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
+
+== System properties
+
+You can override the default AM configuration (`gravitee.yml`) by defining system properties.
+
+To override this property:
+
+[source,yaml]
+----
+management:
+  mongodb:
+    dbname: myDatabase
+----
+
+Add this property to the JVM:
+
+----
+-Dmanagement.mongodb.dbname=myDatabase
+----
+
+
+== Environment variables
+
+You can override the default AM configuration (`gravitee.yml`) and system properties by defining environment variables.
+
+To override this property:
+
+[source,yaml]
+----
+management:
+  mongodb:
+    dbname: myDatabase
+----
+
+Define one of the following variables:
+
+----
+GRAVITEE_MANAGEMENT_MONGODB_DBNAME=myDatabase
+GRAVITEE.MANAGEMENT.MONGODB.DBNAME=myDatabase
+gravitee_management_mongodb_dbname=myDatabase
+gravitee.management.mongodb.dbname=myDatabase
+----
+
+WARNING: Some properties are case sensitive and cannot be written in uppercase (for example,
+`gravitee_security_providers_0_tokenIntrospectionEndpoint`. We advise you to define environment variables in lowercase and use the correct syntax for each property.
+
+TIP: In some systems, hyphens are not allowed in variable names. For example, you may need to write `gravitee_http_cookie_allow-credentials` as `gravitee_http_cookie_allowcredentials` .
+
+=== How to manage arrays?
+
+Some properties are arrays. For example:
+[source,yaml]
+----
+http:
+  ssl:
+    endpoints:
+      - token_endpoint
+      - registration_endpoint
+
+security:
+  providers:
+    - type: ldap
+      context-source-username: "cn=Directory Manager"
+      context-source-password: "password"
+----
+
+Below are some examples of how to write your environment variables. In case of doubt, we recommend you try both.
+
+----
+gravitee_http_ssl_endpoints_0=token_endpoint
+gravitee_http_ssl_endpoints_1=registration_endpoint
+
+gravitee_security_providers_0_type=ldap
+gravitee_security_providers_0_context-source-username=cn=Directory Manager
+gravitee_security_providers_0_context-source-password=password
+----
+
+or
+
+----
+gravitee.http.ssl.endpoints[0]=token_endpoint
+gravitee.http.ssl.endpoints[1]=registration_endpoint
+
+gravitee.security.providers[0]type=ldap
+gravitee.security.providers[0]context-source-username=cn=Directory Manager
+gravitee.security.providers[0]context-source-password=password
+gravitee.security.providers[0].users[1].password=password
+----

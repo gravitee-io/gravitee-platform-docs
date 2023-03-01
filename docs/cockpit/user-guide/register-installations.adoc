@@ -1,0 +1,59 @@
+= Register installations
+:page-sidebar: cockpit_sidebar
+:page-permalink: cockpit/3.x/cockpit_userguide_register_installations.html
+:page-folder: cockpit/userguide
+:page-description: Gravitee.io Cockpit - Register installation
+:page-keywords: Gravitee.io, API Platform, API Management, Cockpit, documentation, manual, guide
+
+== Overview
+
+Existing on-premise installations of APIM and AM can be registered in Cockpit. This allows users to create and propagate new organizations and environments to these existing installations.
+
+A registered installation communicates with Cockpit via a WebSocket connection, secured with TLS.
+
+When you register a new installation, its REST API and Gateway nodes are automatically linked to Cockpit, including any nodes you add to your APIM and AM installations later on.
+
+== How to register a new installation
+
+To register new APIM or AM installations with Cockpit, you need to:
+
+* Have a Cockpit connector in your installation plugins.
+* Download the certificate to allow secure connection via Cockpit UI.
+* Install the certificate, and restart your installation.
+
+These steps are explained in detail when you register the installation.
+
+=== Register the installation
+
+Register the installation using the detailed instructions in the *How to register a new installation* link, below *Installations* in the dashboard.
+After registration, the installation is displayed as a pending installation in Cockpit:
+
+image::{% link images/cockpit/pending-installations.png %}[]
+
+=== Add the installation to Cockpit
+
+. Accept the installation:
+.. Click the pending installation.
+.. Select the environment to which to link the installation.
+.. Click *ACCEPT*.
++
+image::{% link images/cockpit/accept-installation.png %}[]
++
+The installation is added to the hierarchy map with a link to the environment.
+
+. Link the accepted installation to other environments in Cockpit as needed, from the link:{{ '/cockpit/3.x/cockpit_quickstart_setup.html#update_entity_settings' | relative_url }}[environment settings^] page.
++
+image::{% link images/cockpit/linked-installations.png %}[]
+
+== Log in to an installation
+
+There are two ways to log in to an installation in Cockpit:
+
+- Click the login icon image:{% link images/icons/cockpit-login-icon.png %}[role="icon"] on the installation in the hierarchy map
+- Click *LOGIN* on the environment settings page of the linked environment:
+
+image::{% link images/cockpit/linked-installations-login.png %}[]
+
+You are redirected to the Console login page of the APIM or AM instance.
+
+NOTE: If multiple APIM or AM installations are linked, the Console login page of the first installation linked to the environment opens.

@@ -1,0 +1,164 @@
+= Custom email templates
+:page-sidebar: am_3_x_sidebar
+:page-permalink: am/current/am_userguide_branding_email_templates.html
+:page-folder: am/user-guide
+:page-layout: am
+
+== Overview
+
+AM comes with a list of predefined email templates, used for identity and access-related tasks during the authorization process, which you can override to create custom templates.
+
+=== List of email templates
+
+[width="80%",cols="2,4,8",options="header"]
+|=========================================================
+|Email |Description| Context data
+
+|Registration confirmation
+|Registration email to confirm user account
+|<</am/current/am_userguide_branding_email_templates#domain,Domain>>
+
+<</am/current/am_userguide_branding_email_templates#client,Client>>
+
+<</am/current/am_userguide_branding_email_templates#user,User>>
+
+|Blocked account
+|Recover account after it has been blocked
+|<</am/current/am_userguide_branding_email_templates#domain,Domain>>
+
+<</am/current/am_userguide_branding_email_templates#client,Client>>
+
+<</am/current/am_userguide_branding_email_templates#user,User>>
+
+|Reset password
+|Reset password email to request a new one
+|<</am/current/am_userguide_branding_email_templates#domain,Domain>>
+
+<</am/current/am_userguide_branding_email_templates#client,Client>>
+
+<</am/current/am_userguide_branding_email_templates#user,User>>
+
+
+
+|=========================================================
+
+== Customize an email template
+
+You can customize email templates for an entire security domain or for an individual application.
+
+. link:{{ '/am/current/am_userguide_authentication.html' | relative_url }}[Log in to AM Console^].
+. To customize email templates:
+
+* for a security domain, click *Settings*
+* for an application, click *Applications* and select your application, then click the *Design* tab
+
+. In the *Emails* section, click the edit icon image:{% link images/icons/edit-icon.png %}[role="icon"] of the email template.
+. Update the HTML as required. You can preview the result in the *Preview* tab.
++
+image::{% link images/am/current/graviteeio-am-userguide-um-emails.png %}[]
+
+NOTE: Each email requires a minimum configuration. You can retrieve contextual documentation on the HTML needed for each type of page by clicking the image:{% link images/icons/am-info-icon.png %}[role="icon"] information icon.
+
+== Execution context
+
+Each email template has access to the `Execution Context`, this means you can render the template based on anything in the context including the request or context data.
+
+Here are some examples:
+
+----
+<p>${domain.name}</p>
+<p>${client.clientName}</p>
+<p>${user.username}</p>
+----
+
+Please consult the link:https://freemarker.apache.org/[Apache FreeMarker documentation] for how to write Apache FreeMarker templates.
+
+This section describes the objects provided by the execution context.
+
+NOTE: Execution context also provides both `${url}` and `${token}` data to redirect your users back to the Access Management server.
+
+=== Domain
+==== Properties
+|===
+|Property |Description |Type |Always present
+
+.^|id
+|Domain technical identifier
+^.^|string
+^.^|X
+
+.^|name
+|Domain's name
+^.^|string
+^.^|X
+
+.^|path
+|Domain's path
+^.^|string
+^.^|
+
+|===
+
+=== Client
+==== Properties
+|===
+|Property |Description |Type |Always present
+
+.^|id
+|Client technical identifier
+^.^|string
+^.^|X
+
+.^|clientId
+|Client OAuth 2.0 client_id headers
+^.^|string
+^.^|X
+
+.^|clientName
+|Client's name
+^.^|string
+^.^|
+
+|===
+
+=== User
+==== Properties
+|===
+|Property |Description |Type |Always present
+
+.^|id
+|User technical identifier
+^.^|string
+^.^|X
+
+.^|username
+|User's username
+^.^|string
+^.^|X
+
+.^|email
+|User's email
+^.^|string
+^.^|
+
+.^|firstName
+|User's first name
+^.^|string
+^.^|
+
+.^|lastName
+|User's last name
+^.^|string
+^.^|
+
+.^|displayName
+|User's display name
+^.^|string
+^.^|
+
+.^|additionalInformation
+|User additional attributes
+^.^|key / value
+^.^|X
+
+|===

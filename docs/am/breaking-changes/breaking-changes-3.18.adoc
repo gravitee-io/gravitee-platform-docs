@@ -1,0 +1,126 @@
+= Breaking changes in 3.18
+:page-sidebar: am_3_x_sidebar
+:page-permalink: am/current/am_breaking_changes_3.18.html
+:page-folder: am/installation-guide
+:page-layout: am
+
+WARNING: AM versions from 3.18.0 to 3.18.3 haven been impacted by a regression introduced in the 3.17.2 version of AM, we strongly advise you to upgrade directly to the 3.18.4 minimum.
+See link:{{ '/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3' | relative_url }}[here] for more detail.
+
+NOTE: To take advantage of these new features and incorporate these breaking changes, **use the migration guide available link:{{ '/am/current/am_installguide_migration.html' | relative_url }}[here]**.
+
+== Bundle CE & EE
+
+Starting from the version 3.18.0, Gravitee will provide a single bundle for AM Community and Enterprise Edition. By default, this bundle (or docker image) will provide CE features and will not contains EE plugins. If you want to start AM EE with plugins you paid for, you will have to deploy the license key and EE plugin you need.
+
+
+=== Start AM EE with Docker
+
+If you are using docker to start AM, you will find here after a docker-compose snipet that mount two volumes :
+
+* to deploy enterprise plugins in an additional plugin directory
+* to deploy the license file
+
+[source,yaml]
+----
+  management:
+    image: graviteeio/am-management-api:3.18.0
+    container_name: gio_am_management
+    volumes:
+      - /path/to/plugins-dir:/opt/graviteeio-am-management-api/plugins-ee
+      - /path/to/license-dir/license.key:/opt/graviteeio-am-management-api/license/license.key
+    environment:
+      - GRAVITEE_PLUGINS_PATH_0=/opt/graviteeio-am-management-api/plugins
+      - GRAVITEE_PLUGINS_PATH_1=/opt/graviteeio-am-management-api/plugins-ee
+
+  gateway:
+    image: graviteeio/am-gateway:3.18.0
+    container_name: gio_am_gateway
+    restart: always
+    volumes:
+      - /path/to/plugins-dir:/opt/graviteeio-am-gateway/plugins-ee
+      - /path/to/license/license.key:/opt/graviteeio-am-gateway/license/license.key
+    environment:
+      - GRAVITEE_PLUGINS_PATH_0=/opt/graviteeio-am-gateway/plugins
+      - GRAVITEE_PLUGINS_PATH_1=/opt/graviteeio-am-gateway/plugins-ee
+----
+
+=== Deploy AM EE with Helm
+
+If you are using helm, you will have to mount the license file using a secret and specify which EE plugin to download in the `additionalPlugins` section for the gateway and the api.
+
+[source,yaml]
+----
+gateway:
+  additionalPlugins:
+  - https://download.gravitee.io/graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-saml2-generic/gravitee-am-identityprovider-saml2-generic-<version>.zip
+  extraVolumeMounts: |
+    - name: graviteeio-license
+      mountPath: /opt/graviteeio-am-gateway/license
+      readOnly: true
+  extraVolumes: |
+    - name: graviteeio-license
+      secret:
+        secretName: graviteeio-license
+
+api:
+  additionalPlugins:
+  - https://download.gravitee.io/graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-saml2-generic/gravitee-am-identityprovider-saml2-generic-<version>.zip
+  extraVolumeMounts: |
+    - name: graviteeio-license
+      mountPath: /opt/graviteeio-am-management-api/license
+      readOnly: true
+  extraVolumes: |
+    - name: graviteeio-license
+      secret:
+        secretName: graviteeio-license
+----
+
+== WebAuthn (passwordless) V2 JavaScript files
+
+To better match the link:https://bugs.webkit.org/show_bug.cgi?id=213595[recommendation] asked by Apple to use biometric devices for WebAuthn (passwordless) feature,
+backend APIs and JavaScript scripts have been updated to reflect that change.
+
+If you are using webauthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
+
+----
+WebAuthn Register
+
+--- <script th:src="@{../assets/js/webauthn.auth.js"></script>
+--- <script th:src="@{../assets/js/webauthn-register.js}"></script>
+
++++ <script th:src="@{../assets/js/webauthn.auth-v2.js"></script>
++++ <script th:src="@{../assets/js/webauthn-register-v2.js}"></script>
+----
+
+----
+WebAuthn Login
+
+--- <script th:src="@{../assets/js/webauthn.auth.js"></script>
+--- <script th:src="@{../assets/js/webauthn-login.js}"></script>
+
++++ <script th:src="@{../assets/js/webauthn.auth-v2.js"></script>
++++ <script th:src="@{../assets/js/webauthn-login-v2.js}"></script>
+----
+
+
+== IP, User Agent and User consent
+
+The User IP and User-Agent used for audit logs require the user to consent to exploit the information.
+
+- `uc_geoip` : consent for IP and geolocation
+- `uc_ua` : consent for User Agent
+
+You can use
+```html
+    <input class="mdl-checkbox__input" type="checkbox" th:checked="${uc_geoip}" id="uc_geoip" name="uc_geoip">
+    <input class="mdl-checkbox__input" type="checkbox" th:checked="${uc_ua}" id="uc_ua" name="uc_ua">
+```
+
+If they already have consented to these, you can simply add those inputs as `hidden` form fields
+```html
+    <input class="mdl-checkbox__input" type="hidden" th:value="${my-param}"  id="uc_geoip" name="uc_geoip">
+    <input class="mdl-checkbox__input" type="hidden" th:value="${my-param}"  id="uc_ua" name="uc_ua">
+```
+
+More information about this topic:  link:{{ '/am/current/am_userguide_mfa_risk_based.html#user_activity_and_consent' | relative_url }}[Risk-based MFA]

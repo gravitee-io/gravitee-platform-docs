@@ -1,0 +1,39 @@
+= Get started with Cockpit
+:page-sidebar: cockpit_sidebar
+:page-permalink: cockpit/3.x/cockpit_quickstart_getstarted.html
+:page-folder: cockpit/quickstart
+:page-description: Gravitee.io Cockpit - Get started
+:page-keywords: Gravitee.io, API Platform, API Management, Cockpit, documentation, manual, guide
+
+== Overview
+
+You can access Cockpit in SaaS mode or install it on-premise.
+
+- To get started with Cockpit in SaaS mode, access this link: https://cockpit.gravitee.io.
+- To install Cockpit on-premise, follow the instructions in the link:{{ '/cockpit/3.x/cockpit_installguide_introduction.html' | relative_url }}[Installation Guide^].
+
+After installation, you need to register a new user account. You can also choose to log in with an existing Google or GitHub account.
+
+== Quick tour
+
+=== Dashboard
+
+After login, Cockpit opens the dashboard, which displays some analytics about your account organizations, environments, and installations. You can access the dashboard at any time by clicking *Home* in the left-hand menu.
+
+image::{% link images/cockpit/cockpit-add-organizations-or-environments.png %}[]
+
+In the Dashboard, you can create one or more organizations within your account and one or more environments within your organizations.
+Each environment can then be linked to existing APIM or AM installations.
+
+- link:{{ '/cockpit/3.x/cockpit_quickstart_setup.html' | relative_url }}[Learn more about setting up your Cockpit hierarchy^]
+- link:{{ '/cockpit/3.x/cockpit_userguide_register_installations.html' | relative_url }}[Learn more about registering APIM and AM installations^]
+
+=== Hierarchy
+
+You can click your organization name in the left-hand menu to access an interactive map of the organizational hierarchy associated with your account.
+
+image::{% link images/cockpit/cockpit-dashboard.png %}[]
+
+Click the settings icon image:{% link images/icons/cockpit-settings-icon.png %}[role="icon"] of any entity in the map to update its settings.
+
+link:{{ '/cockpit/3.x/cockpit_quickstart_setup.html#update_entity_settings' | relative_url }}[Learn more about updating the settings^]

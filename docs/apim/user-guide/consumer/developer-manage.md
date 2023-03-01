@@ -1,0 +1,261 @@
+# What is an application?
+
+Consumers who want to use APIs need to register an application that will
+allow API publishers to control and regulate access to their APIs.
+Typical applications are web applications, native applications or
+bash/job applications which access data.
+
+You can manage applications in both APIM Console and APIM Portal.
+
+# Prerequisites
+
+To create applications, you need to enable the correct options in the
+**Settings &gt; Client registration** page.
+
+To create a simple application, enable the **Simple** option in the
+**Allowed application types** section:
+
+image::{% link
+images/apim/3.x/api-consumer-guide/developer-manage/graviteeio-create-application-settings-1.png
+%}\[\]
+
+To create browser, web, native or backend-to-backend applications:
+
+-   define at least one client registration provider
+
+-   enable the following options:
+
+    image::{% link
+    images/apim/3.x/api-consumer-guide/developer-manage/graviteeio-create-application-settings-2.png
+    %}\[\]
+
+# Create an application
+
+Only users with the required permissions can create an application. For
+more details, see the link:{{
+*/apim/3.x/apim\_adminguide\_roles\_and\_permissions.html* |
+relative\_url }}\[Roles and permissions\] section of the Administration
+Guide.
+
+1.  Log in to APIM Portal.
+
+2.  Click **Dashboard** in the top menu.
+
+3.  Click the **CREATE AN APPLICATION** button.
+
+    image::{% link
+    images/apim/3.x/api-consumer-guide/developer-manage/graviteeio-create-app-1.png
+    %}\[\]
+
+4.  Enter the application name and description, and upload an image, if
+    required. Click **NEXT**.
+
+    image::{% link
+    images/apim/3.x/api-consumer-guide/developer-manage/graviteeio-create-app-2.png
+    %}\[\]
+
+5.  (Optional) If you want to subscribe to an API’s OAuth 2.0/JWT plan
+    and you have an OAuth 2.0 client, make a note of your **client\_id**
+    and complete the security part.
+
+6.  Select the type of application and complete the details. Click
+    **NEXT**.
+
+    image::{% link
+    images/apim/3.x/api-consumer-guide/developer-manage/graviteeio-create-app-3.png
+    %}\[\]
+
+7.  (Optional) Search for an API and request a subscription (see link:{{
+    */apim/3.x/apim\_quickstart\_consume\_ui.html* | relative\_url
+    }}\[Consume an API with APIM Portal\]) in the Quick Start Guide.
+    Click **NEXT**.
+
+8.  Check your application information in the summary, then click
+    **CREATE THE APP**.
+
+    image::{% link
+    images/apim/3.x/api-consumer-guide/developer-manage/graviteeio-create-app-4.png
+    %}\[\]
+
+    If the selected plan requires the acceptance of general conditions,
+    these will be displayed on the right.
+
+    image::{% link
+    images/apim/3.x/api-consumer-guide/developer-manage/app-subscribe-general-conditions.png
+    %}\[\]
+
+    Congratulations! Your new application has been created.
+
+    image::{% link
+    images/apim/3.x/api-consumer-guide/developer-manage/graviteeio-create-app-5.png
+    %}\[\]
+
+# Manage members
+
+When a new application is created, only the application’s creator
+(PRIMARY OWNER) can see and manage the application. Most of the time an
+application is shared through a developer application and will retrieve
+information such as API keys and API analytics.
+
+By default, APIM includes three membership roles:
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Role</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><p><strong>Primary owner</strong></p></td>
+<td style="text-align: left;"><p>When an application is created, the
+primary owner is the creator of the applcation. Primary owner can do all
+possible actions for an API.</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p><strong>Owner</strong></p></td>
+<td style="text-align: left;"><p>Owner is a lightest version of the
+primary owner role. Owner can do all possible actions except delete the
+application.</p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><p><strong>User</strong></p></td>
+<td style="text-align: left;"><p>A user is a person who can access the
+application in read only mode and use the application to subscribe to an
+API.</p></td>
+</tr>
+</tbody>
+</table>
+
+Only users with the required permissions can manage application members.
+For more details, see the link:{{
+*/apim/3.x/apim\_adminguide\_roles\_and\_permissions.html* |
+relative\_url }}\[Roles and permissions\] section of the Administration
+Guide.
+
+To manage members:
+
+1.  Log in to APIM Portal.
+
+2.  Click **Applications** in the top menu.
+
+3.  In the **Applications** screen, select your application and go to
+    the **Members** page.
+
+    image::{% link
+    images/apim/3.x/api-consumer-guide/developer-manage/manage-members.png
+    %}\[\]
+
+## Add and remove users
+
+You can add new users by searching for them:
+
+image::{% link
+images/apim/3.x/api-consumer-guide/developer-manage/manage-members-add.png
+%}\[\]
+
+You can remove users by clicking the trash icon:
+
+image::{% link
+images/apim/3.x/api-consumer-guide/developer-manage/manage-members-remove.png
+%}\[\]
+
+## Transfer ownership
+
+You can transfer ownership to another user, when the current primary
+owner leaves the project, for example.
+
+image::{% link
+images/apim/3.x/api-consumer-guide/developer-manage/manage-members-transfer-ownership.png
+%}\[\]
+
+# Manage subscriptions
+
+Subscriptions represent the plans the application has subscribed to. In
+the Subscriptions page, application members can see if their access to
+the APIs is still valid, has not been revoked or is in the API publisher
+approval process.
+
+image::{% link
+images/apim/3.x/api-consumer-guide/developer-manage/app-subscriptions.png
+%}\[\]
+
+# Analytics
+
+For each API you have subscribed to, APIM provides some analytics to
+show API usage in your application.
+
+The table below lists the analytics available.
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><p>Analytics</p></td>
+<td style="text-align: left;"><p>Description</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p>Top API</p></td>
+<td style="text-align: left;"><p>Top APIs sorted by the number of API
+calls</p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><p>Status</p></td>
+<td style="text-align: left;"><p>HTTP status distribution
+summary</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p>Top paths</p></td>
+<td style="text-align: left;"><p>Hits by path</p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><p>Top mapped paths</p></td>
+<td style="text-align: left;"><p>Hits by mapped path</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p>Response status</p></td>
+<td style="text-align: left;"><p>Hits by status</p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><p>Response times</p></td>
+<td style="text-align: left;"><p>Average response time</p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p>Hits by API</p></td>
+<td style="text-align: left;"><p>Hits by API</p></td>
+</tr>
+</tbody>
+</table>
+
+# Restore an archived application
+
+When a user deletes an application, it is in `ARCHIVED` status.
+
+It means that:
+
+-   The link to the primary owner of the application is deleted.
+
+-   The subscriptions are closed. In case of subscription to an API-Key
+    plan, the keys are revoked.
+
+-   Notification settings are deleted.
+
+As an `ADMIN`, you can restore application in the APIM Console.
+
+The `ADMIN` user will become the primary owner of the application.
+
+Every application’s subscriptions will be restored in `PENDING` status.
+The API publisher will have to reactivate manually the needed
+subscriptions.
+
+image::{% link
+images/apim/3.x/api-consumer-guide/developer-manage/app-restore.png
+%}\[\]

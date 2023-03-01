@@ -1,0 +1,17 @@
+= MFA factors
+:page-sidebar: am_3_x_sidebar
+:page-permalink: am/current/am_userguide_mfa_factors.html
+:page-folder: am/user-guide
+:page-layout: am
+
+== Overview
+
+AM supports various MFA factors for protecting user account access out of the box.
+
+To create a new MFA Factors, visit your Security Domain *Settings > Multifactor Auth* section and configure the factor of your choice.
+
+- link:{{ '/am/current/am_userguide_mfa_factors_otp.html' | relative_url }}[Secure your application with an OTP factor]
+- link:{{ '/am/current/am_userguide_mfa_factors_sms.html' | relative_url }}[Secure your application with an SMS factor]
+- link:{{ '/am/current/am_userguide_mfa_factors_voice_call.html' | relative_url }}[Secure your application with a Voice Call factor]
+- link:{{ '/am/current/am_userguide_mfa_factors_email.html' | relative_url }}[Secure your application with an Email factor]
+- link:{{ '/am/current/am_userguide_mfa_factors_http.html' | relative_url }}[Secure your application with an HTTP factor]

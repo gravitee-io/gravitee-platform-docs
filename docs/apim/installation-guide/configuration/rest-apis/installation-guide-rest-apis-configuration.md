@@ -1,0 +1,456 @@
+# APIM API Configuration
+
+There are three different ways to configure this component:
+
+-   environment variables
+
+-   system properties
+
+-   `gravitee.yml`
+
+The order in which they are listed above corresponds to their order of
+precedence. In other words, environment variables override the other two
+configuration types, and system properties override `gravitee.yml`.
+
+## Environment variables
+
+You can override the default APIM configuration (`gravitee.yml`) and
+system properties by defining environment variables.
+
+To override this property:
+
+    management:
+      mongodb:
+        dbname: myDatabase
+
+Define one of the following variables:
+
+    GRAVITEE_MANAGEMENT_MONGODB_DBNAME=myDatabase
+    gravitee_management_mongodb_dbname=myDatabase
+
+Some properties are case-sensitive and cannot be written in uppercase
+(for example,
+`gravitee_security_providers_0_tokenIntrospectionEndpoint`). We advise
+you to define environment variables in lowercase. You must ensure you
+use the correct syntax for each property.
+
+In some systems, hyphens are not allowed in variable names. For example,
+you may need to write `gravitee_policy_api-key_header` as
+`gravitee_policy_apikey_header`. We recommend you check your system
+documentation.
+
+Some properties are arrays. For example:
+
+    analytics:
+      elasticsearch:
+        endpoints:
+          - https://my.first.endpoint.com
+          - https://my.second.endpoint.com
+
+    security:
+      providers:
+        - type: ldap
+          context-source-username: "cn=Directory Manager"
+          context-source-password: "password"
+
+Below are some example of how to write your environment variables. In
+case of doubt, we recommend you try both.
+
+    gravitee_analytics_elasticsearch_endpoints_0=https://my.first.endpoint.com
+    gravitee_analytics_elasticsearch_endpoints_1=https://my.second.endpoint.com
+
+    gravitee_security_providers_0_type=ldap
+    gravitee_security_providers_0_contextsourceusername=cn=Directory Manager
+    gravitee_security_providers_0_contextsourcepassword=password
+
+or
+
+    gravitee.analytics.elasticsearch.endpoints[0]=https://my.first.endpoint.com
+    gravitee.analytics.elasticsearch.endpoints[1]=https://my.second.endpoint.com
+
+    gravitee.security.providers[0]type=ldap
+    gravitee.security.providers[0]context-source-username=cn=Directory Manager
+    gravitee.security.providers[0]context-source-password=password
+    gravitee.security.providers[0].users[1].password=password
+
+## System properties
+
+You can override the default APIM configuration (`gravitee.yml`) by
+defining system properties.
+
+To override this property:
+
+    management:
+      mongodb:
+        dbname: myDatabase
+
+Add this property to the JVM:
+
+    -Dmanagement.mongodb.dbname=myDatabase
+
+## gravitee.yml
+
+The `gravitee.yml` file, found in `GRAVITEE_HOME/config/`, is the
+default way to configure APIM.
+
+YAML (`yml`) format is very sensitive to indentation. Ensure you include
+the correct number of spaces and use spaces instead of tabs.
+
+## General configuration
+
+The following sections show how to update the general settings in the
+`gravitee.yml` file.
+
+### Configure HTTP Server
+
+You configure the HTTP Server configuration in the following section of
+the `gravitee.yml` file:
+
+    jetty:
+      port: 8083
+      idleTimeout: 30000
+      acceptors: -1
+      selectors: -1
+      pool:
+        minThreads: 10
+        maxThreads: 200
+        idleTimeout: 60000
+        queueSize: 6000
+      jmx: false
+      statistics: false
+      accesslog:
+        enabled: true
+        path: ${gravitee.home}/logs/gravitee_accesslog_yyyy_mm_dd.log
+
+### Enable HTTPS support
+
+First, you need to provide a keystore. If you do not have one, you can
+generate it:
+
+    keytool -genkey \
+      -alias test \
+      -keyalg RSA \
+      -keystore server-keystore.jks \
+      -keysize 2048 \
+      -validity 360 \
+      -dname CN=localhost \
+      -keypass secret \
+      -storepass secret
+
+You then need to enable secure mode in `gravitee.yml`:
+
+    jetty:
+      ...
+      secured: true
+      ssl:
+        keystore:
+          path: ${gravitee.home}/security/keystore.jks
+          password: secret
+        truststore:
+          path: ${gravitee.home}/security/truststore.jks
+          password: secret
+
+Truststore and Keystore settings defined within the `jetty` section are
+only used to secure access to APIM API. These are not used by HTTP
+client calls for any other purpose (such as Fetch and DCR).
+
+### Configure the Management and Portal APIs
+
+You can configure APIM API to start only the Management or Portal API.
+You can also change the API endpoints from their default values of
+`/management` and `/portal`.
+
+    http:
+      api:
+        # Configure the listening path for the API. Default to /
+    #    entrypoint: /
+        # Configure Management API.
+    #    management:
+    #      enabled: true
+    #      entrypoint: ${http.api.entrypoint}management
+    #      cors: ...
+        # Configure Portal API.
+    #    portal:
+    #      enabled: true
+    #      entrypoint: ${http.api.entrypoint}portal
+    #      cors: ...
+
+## CORS configuration
+
+CORS (Cross-Origin Resource Sharing) is a mechanism that allows
+resources on a web page to be requested from another domain.
+
+For more information on CORS, take a look at the [CORS
+specification^](https://www.w3.org/TR/cors).
+
+You can configure CORS using `gravitee.yml`, environment variables or
+directly in APIM Console.
+
+### Configure in `gravitee.yml`
+
+    http:
+      api:
+        # Configure the listening path for the API. Default to /
+    #    entrypoint: /
+        # Configure Management API.
+    #    management:
+    #      enabled: true
+    #      entrypoint: ${http.api.entrypoint}management
+    #      cors:
+        # Allows to configure the header Access-Control-Allow-Origin (default value: *)
+        # '*' is a valid value but is considered as a security risk as it will be opened to cross origin requests from anywhere.
+    #       allow-origin: http://developer.mycompany.com
+        # Allows to define how long the result of the preflight request should be cached for (default value; 1728000 [20 days])
+    #       max-age: 864000
+        # Which methods to allow (default value: OPTIONS, GET, POST, PUT, DELETE)
+    #      allow-methods: 'OPTIONS, GET, POST, PUT, DELETE'
+        # Which headers to allow (default values: Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With, If-Match, X-Xsrf-Token)
+    #      allow-headers: 'X-Requested-With'
+      # Configure Portal API.
+    #    portal:
+    #      enabled: true
+    #      entrypoint: ${http.api.entrypoint}portal
+    #      cors:
+        # Allows to configure the header Access-Control-Allow-Origin (default value: *)
+        # '*' is a valid value but is considered as a security risk as it will be opened to cross origin requests from anywhere.
+    #       allow-origin: http://developer.mycompany.com
+        # Allows to define how long the result of the preflight request should be cached for (default value; 1728000 [20 days])
+    #       max-age: 864000
+        # Which methods to allow (default value: OPTIONS, GET, POST, PUT, DELETE)
+    #      allow-methods: 'OPTIONS, GET, POST, PUT, DELETE'
+        # Which headers to allow (default values: Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With, If-Match, X-Xsrf-Token)
+    #      allow-headers: 'X-Requested-With'
+
+### Configure the Plugins repository
+
+You can configure the APIM Gateway [plugins](#gravitee-plugins)
+directory.
+
+    plugins:
+      path: ${gravitee.home}/plugins
+
+### Configure the Management repository
+
+The Management repository is used to store global configuration such as
+APIs, applications and apikeys. The default configuration uses MongoDB
+(single server). For more information about MongoDB configuration, see:
+
+<http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html>
+
+    management:
+      type: mongodb
+      mongodb:
+        dbname: ${ds.mongodb.dbname}
+        host: ${ds.mongodb.host}
+        port: ${ds.mongodb.port}
+    #    username:
+    #    password:
+    #    connectionsPerHost: 0
+    #    connectTimeout: 500
+    #    maxWaitTime: 120000
+    #    socketTimeout: 500
+    #    socketKeepAlive: false
+    #    maxConnectionLifeTime: 0
+    #    maxConnectionIdleTime: 0
+    #    serverSelectionTimeout: 0
+    #    description: gravitee.io
+    #    heartbeatFrequency: 10000
+    #    minHeartbeatFrequency: 500
+    #    heartbeatConnectTimeout: 1000
+    #    heartbeatSocketTimeout: 20000
+    #    localThreshold: 15
+    #    minConnectionsPerHost: 0
+    #    threadsAllowedToBlockForConnectionMultiplier: 5
+    #    cursorFinalizerEnabled: true
+    ## SSL settings (Available in APIM 3.10.14+, 3.15.8+, 3.16.4+, 3.17.2+, 3.18+)
+    #    sslEnabled:
+    #    keystore:
+    #      path:
+    #      type:
+    #      password:
+    #      keyPassword:
+    #    truststore:
+    #      path:
+    #      type:
+    #      password:
+    ## Deprecated SSL settings that will be removed in 3.19.0
+    #    sslEnabled:
+    #    keystore:
+    #    keystorePassword:
+    #    keyPassword:
+
+    # Management repository: single MongoDB using URI
+    # For more information about MongoDB configuration using URI, please have a look to:
+    # - http://api.mongodb.org/java/current/com/mongodb/MongoClientURI.html
+    #management:
+    #  type: mongodb
+    #  mongodb:
+    #    uri: mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+
+    # Management repository: clustered MongoDB
+    #management:
+    #  type: mongodb
+    #  mongodb:
+    #    servers:
+    #      - host: mongo1
+    #        port: 27017
+    #      - host: mongo2
+    #        port: 27017
+    #    dbname: ${ds.mongodb.dbname}
+    #    connectTimeout: 500
+    #    socketTimeout: 250
+
+### Configure the Analytics repository
+
+The Analytics repository is used to store all reporting, metrics and
+health-checks stored by APIM Gateway instances. The default
+configuration uses
+[Elasticsearch](https://www.elastic.co/products/elasticsearch).
+
+      type: elasticsearch
+      elasticsearch:
+        endpoints:
+          - http://localhost:9200
+    #    index: gravitee
+    #    security:
+    #       username:
+    #       password:
+
+### Default configuration
+
+You can configure various default properties of APIM API in your
+`gravitee.yml` file.
+
+## Authentication configuration
+
+See the link:{{ */apim/3.x/apim\_installguide\_authentication.html* |
+relative\_url }}\[Authentication configuration^\] section.
+
+### Configure in APIM Console
+
+You configure CORS in the **CORS** section of the APIM Console and APIM
+Portal **Settings** pages:
+
+-   For APIM Portal, go to **Settings &gt; Settings**
+
+image::{% link
+images/apim/3.x/installation/configuration/graviteeio-installation-environment-configuration-cors.png
+%}\[\]
+
+-   For APIM Console, go to **Organization Settings &gt; Settings**
+
+image::{% link
+images/apim/3.x/installation/configuration/graviteeio-installation-organization-configuration-cors.png
+%}\[\]
+
+There is no inheritance between the two configurations.
+
+## SMTP configuration
+
+This section shows the SMTP configuration used for sending email.
+
+You can configure SMTP using `gravitee.yml`, environment variables or
+directly in APIM Console.
+
+### Configure in `gravitee.yml`
+
+    email:
+      host: smtp.my.domain
+      port: 465
+      from: noreply@my.domain
+      subject: "[Gravitee.io] %s"
+      username: user@my.domain
+      password: password
+
+### Configure in APIM Console
+
+You configure SMTP in the **SMTP** section of the APIM Console and APIM
+Portal **Settings** pages:
+
+-   For APIM Portal, go to **Settings &gt; Settings**
+
+image::{% link
+images/apim/3.x/installation/configuration/graviteeio-installation-environment-configuration-smtp.png
+%}\[\]
+
+-   For APIM Console, go to **Organization Settings &gt; Settings**
+
+image::{% link
+images/apim/3.x/installation/configuration/graviteeio-installation-organization-configuration-smtp.png
+%}\[\]
+
+-   If no email configuration is set for APIM Portal, then the APIM
+    Console configuration is used.
+
+-   If SMTP is configured with `gravitee.yml` or environment variables,
+    then that configuration will be used, even if settings exist in the
+    database.
+
+### Configure the GMAIL SMTP server
+
+If required, you can configure the GMAIL SMTP server in `gravitee.yml`
+as follows:
+
+    email:
+      enabled: true
+      host: smtp.gmail.com
+      port: 587
+      from: user@gmail.com
+      subject: "[Gravitee.io] %s"
+      username: user@gmail.com
+      password: xxxxxxxx
+      properties:
+        auth: true
+        starttls.enable: true
+        ssl.trust: smtp.gmail.com
+
+If you are using 2-Factor Authentication (which is recommended), you
+need to generate an application password:
+<https://security.google.com/settings/security/apppasswords> .
+
+## User configuration
+
+You can configure various user options:
+
+user.login.defaultApplication  
+boolean (default: true) — creates a new application for all new users
+
+user.creation.token.expire-after  
+number (default: 86400) — number of seconds before the user registration
+token expires
+
+user.reference.secret  
+32 characters (default: s3cR3t4grAv1t33.1Ous3D4R3f3r3nc3) — secret used
+to generate a unique anonymous reference to a user; **You must change
+this value**
+
+user.anonymize-on-delete:enabled  
+boolean (default: false) - If true, the user **firstname**, **lastname**
+and **email** are anonymized when a user is deleted
+
+## Management configuration
+
+You can configure various management settings in the APIM Console
+**Settings** page with environment variables. For a complete list of
+these settings, see [Management settings
+list](#management_settings_list) below. Once you override these
+properties with environment variables, APIM Console configures them as
+read-only to prevent you overwriting the new values in the interface.
+
+-   For array properties, separate your environment variable properties
+    with a comma. For example: `my_var=item1,item2,item3`.
+
+-   We recommend you prefix Gravitee variables with `gravitee.` to avoid
+    conflicts with other variables.
+
+### Example
+
+For example, you can override the analytics client timeout with the
+following variables:
+
+    GRAVITEE_ANALYTICS_CLIENT_TIMEOUT=15000
+    GRAVITEE.ANALYTICS.CLIENT.TIMEOUT=15000
+    gravitee_analytics_client_timeout=15000
+    gravitee.analytics.client.timeout=15000
+
+### Management settings list
