@@ -1,2 +1,6 @@
-# Platform Overview
+---
+description: What is Gravitee?
+---
+
+# Introduction
 

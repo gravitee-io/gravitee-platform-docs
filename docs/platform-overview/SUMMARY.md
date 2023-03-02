@@ -1,14 +1,18 @@
 # Table of contents
 
-* [Platform Overview](README.md)
-  * [Introduction](README.md)
-  * [Global Architecture](platform-overview/global-architecture.md)
-  * [Getting Started](platform-overview/getting-started.md)
-* [Gravitee Essentials](gravitee-essentials/README.md)
-  * [API Fundamentals](gravitee-essentials/api-fundamentals.md)
-  * [Key Concepts](gravitee-essentials/key-concepts.md)
-  * [Glossary](gravitee-essentials/glossary.md)
-* [Community](community/README.md)
-  * [Support](https://community.gravitee.io/c/support/11)
-  * [Announcement & Events](https://community.gravitee.io/c/announcements/5)
-  * [Roadmap & Feedback](https://gravitee.productboard.com/portal/3-internal-gravitee-io-roadmap/tabs/6aa173be-1ba7-4984-b790-4c920e09e6b0)
+* [Introduction](README.md)
+* [About the Docs](about-the-docs.md)
+
+## Gravitee Essentials
+
+* [Overview](gravitee-essentials/overview.md)
+* [API Fundamentals](gravitee-essentials/api-fundamentals.md)
+* [Core Concepts](gravitee-essentials/core-concepts.md)
+* [Gravitee Glossary](gravitee-essentials/gravitee-glossary.md)
+
+## Community
+
+* [About the Community](community/about-the-community.md)
+* [Support](https://community.gravitee.io/c/support/11)
+* [Roadmap & Feedback](https://gravitee.productboard.com/portal/3-internal-gravitee-io-roadmap/tabs/6aa173be-1ba7-4984-b790-4c920e09e6b0)
+* [Announcement & Events](https://community.gravitee.io/c/announcements/5)
