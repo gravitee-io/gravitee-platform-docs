@@ -128,11 +128,13 @@ For example, if you wanted to make a Kafka topic consumable over Websockets, you
 {% hint style="info" %}
 For example, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint and "Kafka" as your endpoint, as the Gateway will establish a persistent connection with your Kafka topic and then stream messages in real-time via a Websocket connection to the consumer.
 {% endhint %}
+{% endtab %}
 
+{% tab title="Protocol mediation" %}
 Another important feature of decoupling entrypoints and endpoints is the ability for Gravitee to mediate between different protocols, API styles, and communication patterns. Gravitee is able to mediate between any entrypoint and endpoint that we currently support.
 
 {% hint style="info" %}
-For example, you could make a Kafka topic (via Kafka endpoint) consumable over WebSocket, Webhook, REST API, or SSE (all of these are supported entrypoints).
+For example, you could make a Kafka topic (via Kafka endpoint) consumable over WebSocket, Webhook, REST API, or SSE (all of these are supported entrypoints). to see an example where Gravitee is mediating between MQTT (supported endpoint) and various supported entrypoints, [check out this tutorial](https://community.gravitee.io/t/gravitee-3-20-release-tutorials-http-post-over-mqtt-websocket-over-mqtt-and-more/1427).&#x20;
 {% endhint %}
 {% endtab %}
 {% endtabs %}
