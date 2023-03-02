@@ -6,6 +6,16 @@ description: A description of the various API creation concepts in Gravitee.
 
 ## Different ways to create APIs in Gravitee
 
+Gravitee offers three methods for getting started with API creation:
+
+* Create an API from scratch using the Gravitee API creation wizard
+* Import an API definition using one of the three supported import methods (more in the ["Import API" section](concepts.md#import-api) below)
+* Start by designing an API data model with Gravitee API Designer
+
+{% hint style="info" %}
+While not for everybody, we recommend Gravitee API Designer for those that are interested in taking a design-first approach to their API initiatives. If you want to learn more about the benefits of API Design first, you can do so here.&#x20;
+{% endhint %}
+
 ### The API creation wizard
 
 Gravitee's API creation wizard is an easy-to-use UI. To learn more about the various API creation wizard components and concepts, please feel free to use our interactive UI exploration tool, or, use the text descriptions.
