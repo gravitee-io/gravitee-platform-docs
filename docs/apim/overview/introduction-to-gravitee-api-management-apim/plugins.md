@@ -4,7 +4,7 @@
 
 Plugins are additional components that can be _plugged into_ [APIM Gateway](broken-reference) or [APIM API](broken-reference). They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
-For more information about plugins, including how to deploy them and details of their directory structure, see the [Plugins Developer Guide](../dev-guide/dev-guide-plugins.md).
+For more information about plugins, including how to deploy them and details of their directory structure, see the [Plugins Developer Guide](../../dev-guide/dev-guide-plugins.md).
 
 ## Types of Plugins
 
@@ -39,11 +39,11 @@ A **policy** modifies the behavior of the request or response handled by APIM Ga
 
 Examples of a policy are:
 
-* Authorization using an API key (see the [api-key policy documentation](../policy-reference/policy-apikey.md))
+* Authorization using an API key (see the [api-key policy documentation](../../policy-reference/policy-apikey.md))
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
-Want to know how to create, use, and deploy a custom policy? Check out the [Policies Developer Guide](../dev-guide/dev-guide-policies.md).
+Want to know how to create, use, and deploy a custom policy? Check out the [Policies Developer Guide](../../dev-guide/dev-guide-policies.md).
 
 ### Reporters
 
@@ -58,11 +58,11 @@ _Out-of-the-box_ reporters are :
 * Elasticsearch Reporter
 * File Reporter
 
-As with all plugins, you can create, use and deploy custom reporters as described in the [Plugins Developer Guide](../dev-guide/dev-guide-plugins.md).
+As with all plugins, you can create, use and deploy custom reporters as described in the [Plugins Developer Guide](../../dev-guide/dev-guide-plugins.md).
 
 ### Repositories
 
-A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](../getting-started/configuration/configuration/repositories/installation-guide-repositories.md) section of the Installation Guide.
+A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](../../getting-started/configuration/configuration/repositories/installation-guide-repositories.md) section of the Installation Guide.
 
 ### Resources
 
@@ -72,7 +72,7 @@ A **resource** can be added to an API for its whole lifecycle. APIM comes with t
 * OAuth2 - Gravitee Access Management
 * OAuth2 - Generic Authorization Server
 
-You can find more information in the [Resources](../user-guide/publisher/resources/resources-overview.md) section of the API Publisher Guide.
+You can find more information in the [Resources](../../user-guide/publisher/resources/resources-overview.md) section of the API Publisher Guide.
 
 ### Notifiers
 

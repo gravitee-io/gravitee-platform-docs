@@ -147,7 +147,7 @@ The most common settings are described below. Not all of these settings need to 
 
 Perform the following steps in APIM Console:
 
-1. [Log in to APIM Console](../quickstart/quickstart-console-login.md).
+1. [Log in to APIM Console](../getting-started/tutorials/basic/quickstart-console-login.md).
 2. Click **Settings**.
 3. In the **PORTAL** section:
    1. Click **Settings**.

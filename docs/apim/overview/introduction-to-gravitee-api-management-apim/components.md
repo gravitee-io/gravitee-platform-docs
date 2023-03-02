@@ -15,7 +15,7 @@ Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply [polic
 
 **Gravitee.io - Internal Gateway**
 
-![Gravitee.io — Internal Gateway](../../../images/apim/3.x/overview/components/new-components-apim-gateway-internal-gateway.png)
+![Gravitee.io — Internal Gateway](../../../../images/apim/3.x/overview/components/new-components-apim-gateway-internal-gateway.png)
 
 ## APIM API
 

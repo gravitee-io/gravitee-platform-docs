@@ -8,4 +8,4 @@ Before you install and use the product, take a few moments to familiarize yourse
 
 **Gravitee.io APIM - Global Architecture**
 
-![Gravitee.io APIM - Global Architecture](../../../images/apim/3.x/overview/architecture/new-gravitee-global-architecture-schema.png)
+![Gravitee.io APIM - Global Architecture](../../../../images/apim/3.x/overview/architecture/new-gravitee-global-architecture-schema.png)
