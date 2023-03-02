@@ -7,7 +7,7 @@
 
 * [Overview](gravitee-essentials/overview.md)
 * [API Fundamentals](gravitee-essentials/api-fundamentals.md)
-* [Core Concepts and Offering](gravitee-essentials/core-concepts-and-offering.md)
+* [Core Concepts and Offering](gravitee-essentials/key-concepts.md)
 * [Gravitee Glossary](gravitee-essentials/glossary.md)
 
 ## Community
