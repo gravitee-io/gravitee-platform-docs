@@ -26,14 +26,26 @@ The API creation wizard is comprised of the following modules:
 * **Security:** how you regulate access to your API by configuring plans and access controls. The Security section will allow you to define:
   * **Plan information:** basic plan details, the "Security level" or authentication type, subscription validation (either automatic or manual), and terms of service.
   * **Configuration**: where you can define your [Gravitee Access Management](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/) Configuration, or external IdP/IAM configuration.
-  * **Limitations:** where you can easily define initial API consumption limitations, such as rate limits and quotas, path authorizations, and exceptions. What you define will be dependent on what you choose during the Plan information and Configuration modules. For example, if you were to choose OAuth2 as your security level, you would be able to define:
-    * **Rate limit:** configures the number of requests allowed over either seconds or minutes
-      * **Quota:** configures the number of requests allowed over either hours, days, weeks, or months
-      * **Path authorizations:** define IP addresses that you will allow or deny.&#x20;
-      * Exceptions: define certain consumer profiles or characteristics that will be treated as "exceptions" as they relate to your security settings.
-* **Documentation:**&#x20;
+  * **Limitations:** where you can easily define initial API consumption limitations, such as rate limits and quotas, path authorizations, and exceptions.
+
+{% hint style="info" %}
+What you define will be dependent on what you choose during the Plan information and Configuration modules. For example, if you were to choose OAuth2 as your security level, you would be able to define:
+
+* **Rate limit:** configures the number of requests allowed over either seconds or minutes
+  * **Quota:** configures the number of requests allowed over either hours, days, weeks, or months
+  * **Path authorizations:** define IP addresses that you will allow or deny.&#x20;
+  * Exceptions: define certain consumer profiles or characteristics that will be treated as "exceptions" as they relate to your security settings.
+{% endhint %}
+
+* **Documentation:** this is where you upload your API specification documents. Gravitee supports either markdown or OpenAPI for this step.
+
+{% hint style="warning" %}
+While you can skip this step, we highly reccommend creating documentation for every API that you create, as this is best practice.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
+
+
 
 ### Import API
 
