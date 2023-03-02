@@ -65,3 +65,22 @@ One thing to keep in mind: Gravitee offers much more in the way of securing APIs
 
 ### Import API
 
+In addition to "Creating your API from scratch" with the API creation wizard, Gravitee supports Gravitee API creation via import. You will have four options for API import. To learn more, please feel free to use our interactive UI exploration tool, or, use the text descriptions.
+
+{% tabs %}
+{% tab title="Interactive UI exploration" %}
+Insert arcade once we have access to new UI
+{% endtab %}
+
+{% tab title="Text descriptions" %}
+Gravitee allows you to import an API definition via:
+
+* OpenAPI: One of the most powerful features of APIM is its ability to import an OpenAPI specification to create an API. When you import an existing specification you do not have to complete all the fields required when you create a new API.
+  * Swagger
+  * URL
+  * File
+* WSDL file: APIM can import a WSDL to create an API. This means you do not have to declare all the routing and policies to interact with your service.
+* Existing API as a template: use an already-created Gravitee API as a template and simply edit certain details in the configuration
+* Using a model from [Gravitee API Designer](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/3DqdkbBufOGIYC4eu2tC/): import a data model that you created using the Gravitee API Designer to reduce the amount of configuration necessary.&#x20;
+{% endtab %}
+{% endtabs %}
