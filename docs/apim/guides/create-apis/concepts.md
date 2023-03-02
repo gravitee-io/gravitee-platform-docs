@@ -35,7 +35,7 @@ The API creation wizard is comprised of the following modules:
 For example, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint, as this is how consumers will consume data from your target or source, which is Kafka.
 {% endhint %}
 
-* **API endpoints:** the target or source (often a backend system, but _not always_) that the Gateway will route a request to, or, in the case of asynchronous API use cases, establish a persistent connection with and field messages from.
+* **Gateway endpoints:** the target or source (often a backend system, but _not always_) that the Gateway will route a request to, or, in the case of asynchronous API use cases, establish a persistent connection with and field messages from.
 
 {% hint style="info" %}
 For example, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint and "Kafka" as your endpoint, as the Gateway will establish a persistent connection with your Kafka topic and then stream messages in real-time via a Websocket connection to the consumer.
@@ -98,11 +98,55 @@ Gravitee allows you to import an API definition via:
 One of Gravitee's major differentiators is an ability to create, manage, and secure synchronous and asynchronous APIs. This is made possible via a variety of Gravitee features and functionality, but, as it pertains to API creation, it is important to understand the following concepts related to support for synchronous and asynchronous APIs:
 
 {% tabs %}
-{% tab title="Choosing your API architecture" %}
-I
+{% tab title="Selecting your API architecture" %}
+If using the API creation wizard, you will be asked to **Select your API architecture. You will have two options:**
+
+1. HTTP proxy: this will be used if you want to proxy Web APIs can **** be accessed via the HTTP protocol. If you choose this option, you will define endpoints and valid request and response formats.
+
+{% hint style="info" %}
+If you are hoping to use Gravitee to manage, secure, govern, and expose REST APIs, pure Websocket proxy, SOAP APIs, or pure gRPC proxy, this is typically your best option.&#x20;
+{% endhint %}
+
+2. Message: this includes asynchronous/streaming/event-driven API entrypoints[^1]. These are typically used for streaming APIs.
+
+{% hint style="info" %}
+Supported asynchronous API entrypoints are WebSocket, Webhook, gRPC, and SSE.
+{% endhint %}
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="Entrypoints and endpoints" %}
+With our support for asynchronous APIs, we released support for decoupling entrypoints and endpoints. In Gravitee, entrypoints and endpoints are:
 
+* **Gateway Entrypoints**: how API consumers will "access" the Gravitee Gateway and ultimately consume data from a target or source.
+
+{% hint style="info" %}
+For example, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint, as this is how consumers will consume data from your target or source, which is Kafka.
+{% endhint %}
+
+* **Gateway endpoints:** the target or source (often a backend system, but _not always_) that the Gateway will route a request to, or, in the case of asynchronous API use cases, establish a persistent connection with and field messages from.
+
+{% hint style="info" %}
+For example, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint and "Kafka" as your endpoint, as the Gateway will establish a persistent connection with your Kafka topic and then stream messages in real-time via a Websocket connection to the consumer.
+{% endhint %}
+
+Another important feature of decoupling entrypoints and endpoints is the ability for Gravitee to mediate between different protocols, API styles, and communication patterns. Gravitee is able to mediate between any entrypoint and endpoint that we currently support.
+
+{% hint style="info" %}
+For example, you could make a Kafka topic (via Kafka endpoint) consumable over WebSocket, Webhook, REST API, or SSE (all of these are supported entrypoints).
+{% endhint %}
+
+Supported entrypoints and endpoints:
+
+| Entrypoints |   |   |
+| ----------- | - | - |
+| HTTP        |   |   |
+|             |   |   |
+|             |   |   |
 {% endtab %}
 {% endtabs %}
+
+[^1]: Remember, Gravitee entrypoints are how API consumers will "access" the Gravitee Gateway and ultimately consume data from a target or source.
+
+
+
+    **For example**, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint, as this is how consumers will consume data from your target or source, which is Kafka.
