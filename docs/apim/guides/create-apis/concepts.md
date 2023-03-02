@@ -134,14 +134,6 @@ Another important feature of decoupling entrypoints and endpoints is the ability
 {% hint style="info" %}
 For example, you could make a Kafka topic (via Kafka endpoint) consumable over WebSocket, Webhook, REST API, or SSE (all of these are supported entrypoints).
 {% endhint %}
-
-Supported entrypoints and endpoints:
-
-| Entrypoints |   |   |
-| ----------- | - | - |
-| HTTP        |   |   |
-|             |   |   |
-|             |   |   |
 {% endtab %}
 {% endtabs %}
 
