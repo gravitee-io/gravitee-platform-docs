@@ -21,6 +21,7 @@ The table below lists the different types of plugins you can use with APIM, with
 | Services                                                 | <p>APIM API<br>APIM Gateway</p> | Sync, local-registry, health-check, monitor |
 | [Notifiers](plugins.md#gravitee-plugins-notifiers)       | Alert Engine                    | Email                                       |
 | [Alerts](plugins.md#gravitee-plugins-alerts)             | <p>APIM API<br>APIM Gateway</p> | Vertx                                       |
+| Connectors                                               | <p>APIM API<br>APIM Gateway</p> | Kafka, MQTT, Websocket                      |
 
 ### Identity Providers
 
@@ -81,3 +82,7 @@ A **notifier** is used to send notifications. Currently, the only notifier avail
 ### Alerts
 
 An **alert** is used to send triggers or events to the Alert Engine which can be processed to send a notification using the configured plugin notifier. Configuring the notifier is the responsibility of the trigger.
+
+### Connectors
+
+A connector is used to "Add" support for specific protocols, API styles, event brokers, and/or message queue services. For example, if you have the "Websocket" and "Kafka" connector plugins, you are able to "front" a Kafka topic with a Websocket API, making that Kafka topic consumable over a Websocket connection.&#x20;
