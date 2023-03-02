@@ -4,20 +4,10 @@
   * [Introduction](README.md)
   * [Global Architecture](platform-overview/global-architecture.md)
   * [Getting Started](platform-overview/getting-started.md)
-
-##
-
-***
-
 * [Gravitee Essentials](gravitee-essentials/README.md)
   * [API Fundamentals](gravitee-essentials/api-fundamentals.md)
   * [Key Concepts](gravitee-essentials/key-concepts.md)
   * [Glossary](gravitee-essentials/glossary.md)
-
-##
-
-***
-
 * [Community](community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Announcement & Events](https://community.gravitee.io/c/announcements/5)
