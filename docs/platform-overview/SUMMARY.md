@@ -1,14 +1,14 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [About the Docs](about-the-docs.md)
+* [About the Docs](platform-overview/getting-started.md)
 
 ## Gravitee Essentials
 
 * [Overview](gravitee-essentials/overview.md)
 * [API Fundamentals](gravitee-essentials/api-fundamentals.md)
-* [Core Concepts](gravitee-essentials/core-concepts.md)
-* [Gravitee Glossary](gravitee-essentials/gravitee-glossary.md)
+* [Core Concepts and Offering](gravitee-essentials/core-concepts-and-offering.md)
+* [Gravitee Glossary](gravitee-essentials/glossary.md)
 
 ## Community
 
