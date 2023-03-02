@@ -1,5 +1,2 @@
-# Gravitee.io Platform Overview
+# Intro
 
-The Gravitee platform is an event-native platform for "API everything".
-
-_Creation in progress._
