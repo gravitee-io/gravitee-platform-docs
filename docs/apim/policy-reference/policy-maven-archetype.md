@@ -1,0 +1,2 @@
+# policy-maven-archetype
+
