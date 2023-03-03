@@ -30,4 +30,16 @@ The "Dashboard" in Gravitee is made up of several modules:
 {% endtab %}
 {% endtabs %}
 
-###
+### The APIs menu
+
+While there is less "measurement" here, the APIs menu is crucial for being able to track information per each API that you are mangaging in Gravitee. Check out the interactive UI exploration or the text descriptions of the API menu to learn more.
+
+{% tabs %}
+{% tab title="Interactive UI exploration" %}
+{% @arcade/embed flowId="6XNg5xzEOEkNwJRZ6Ogm" url="https://app.arcade.software/share/6XNg5xzEOEkNwJRZ6Ogm" %}
+{% endtab %}
+
+{% tab title="Second Tab" %}
+
+{% endtab %}
+{% endtabs %}
