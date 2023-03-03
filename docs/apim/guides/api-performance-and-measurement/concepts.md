@@ -58,7 +58,7 @@ The **Applications** page is where you can keep track of and view various inform
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-
+{% @arcade/embed flowId="WvD0RpAfXJIdCJQBSSOz" url="https://app.arcade.software/share/WvD0RpAfXJIdCJQBSSOz" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -69,5 +69,35 @@ The **Applications** page is comprised of the following resources for active and
 * Owner of the application(s)
 * The ability to edit the application(s)
 * The ability to add an application
+{% endtab %}
+{% endtabs %}
+
+### The Audit trail
+
+The **Audit** trail is where you can audit API consumption and activity, per event and type for your Gravitee APIs. You can use the **Audit trail** for monitoring the behavior of your API and platform over time.&#x20;
+
+For example, you can use it in conjunction with the analytics feature to identify a point at which your API behavior changed, view the configuration which caused the change, and roll back to an earlier configuration if required. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+
+{% tabs %}
+{% tab title="Interactive UI exploration" %}
+{% @arcade/embed flowId="8cTbVX8QGEQ3XsLURvW0" url="https://app.arcade.software/share/8cTbVX8QGEQ3XsLURvW0" %}
+{% endtab %}
+
+{% tab title="Text descriptions" %}
+The **Audits** page is comprised of a table and filtering mechanisms. You are able to do the following:
+
+* Filter activity by **Event** and **Type**
+  * **Event** refers to a specific change in state related to API or application consumption/us
+  * **Type** refers to either an API or application
+    * You can further filter your **Type** by individual APIs or individual applications
+* Filter activity by a date range
+* View the following information per auditable event:
+  * Date
+  * Name
+  * Type
+  * Reference
+  * Event
+  * Target
+  * Patch
 {% endtab %}
 {% endtabs %}
