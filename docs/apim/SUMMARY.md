@@ -207,6 +207,7 @@
     * [Event-native API Management (V4 BETA) User Guide](v4-beta/v4-beta-event-native-apim-user-guide.md)
     * [V3 and V4 (BETA) policy execution engines compared](v4-beta/v4-beta-new-policy-execution-engine-evolution.md)
     * [V4 policy execution engine (V4 BETA)](v4-beta/v4-beta-new-policy-execution-engine-introduction.md)
+* [API configuration](guides/api-configuration.md)
 * [Policy Design](guides/policy-design/README.md)
   * [Concepts](guides/policy-design/concepts.md)
   * [How-to](guides/policy-design/how-to.md)

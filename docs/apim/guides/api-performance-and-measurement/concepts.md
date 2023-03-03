@@ -15,7 +15,9 @@ Gravitee offers several ways to measure, track and analyze APIs, in addition to 
 
 The Gravitee "Dashboard" is an area in the UI where you'll be able to create custom dashboards around API performance, status, lifecycle stage, and more. The dashboard includes several sub-modules across different tabs, each with various features. To explore in depth, feel free to use the interactive UI exploration tool or the text descriptions provided below.
 
-[https://app.arcade.software/share/5zfoNz6KCHqs2XS8RZ1b](https://app.arcade.software/share/5zfoNz6KCHqs2XS8RZ1b)
+{% @arcade/embed flowId="5zfoNz6KCHqs2XS8RZ1b" url="https://app.arcade.software/share/5zfoNz6KCHqs2XS8RZ1b" %}
+
+{% @arcade/embed flowId="5zfoNz6KCHqs2XS8RZ1b" url="https://app.arcade.software/share/5zfoNz6KCHqs2XS8RZ1b" %}
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
