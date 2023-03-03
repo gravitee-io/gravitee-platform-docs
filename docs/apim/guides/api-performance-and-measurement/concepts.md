@@ -40,6 +40,14 @@ While there is less "measurement" here, the APIs menu is crucial for being able 
 {% endtab %}
 
 {% tab title="Second Tab" %}
+The APIs menu includes several key bits of information that you can use to keep track of and search for your APIs that are being managed in Gravitee. The page lists information around:
 
+* API name
+* API context path
+* Tags
+* Quality (this is determined by your Gravitee API quality settings)
+* Owner
+* Mode (this essentially refers to the Gravitee API definition that is used for that API and manner of policy application that comes with that definition)
+* Visibility settings&#x20;
 {% endtab %}
 {% endtabs %}
