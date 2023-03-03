@@ -51,3 +51,49 @@ The APIs menu includes several key bits of information that you can use to keep 
 * Visibility settings&#x20;
 {% endtab %}
 {% endtabs %}
+
+## Navigating the APIs menu
+
+[**Made by Alex Drag with Scribe**](https://scribehow.com/shared/Navigating\_the\_APIs\_menu\_\_scS7AryiQQKXTF9ERROJbQ)
+
+**1. Navigate to https://apim-master-console.team-apim.gravitee.dev/#!/environments/DEFAULT/apis/?page=1\&size=10**
+
+**2. Click here.**
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-03/e096385d-af89-4d3c-b62c-d3717d38aa89/ascreenshot.jpeg?tl\_px=0,10\&br\_px=1493,850\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=74,139)
+
+**3. Click here.**
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-03/45f98d55-3164-428c-b097-33748c9f3f5c/ascreenshot.jpeg?tl\_px=125,54\&br\_px=1618,894\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,139)
+
+**4. Click here.**
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-03/f5d087c8-05f3-4dd7-947a-5796f5444012/ascreenshot.jpeg?tl\_px=831,54\&br\_px=2324,894\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,139)
+
+**5. Click "Tags"**
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-03/15eac6f1-b158-4f7d-8ed7-df7a762e5d79/ascreenshot.jpeg?tl\_px=1277,52\&br\_px=2770,892\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,139)
+
+**6. Click "Quality"**
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-03/25d956f4-5d8f-465f-9ec6-d210e3bd5374/ascreenshot.jpeg?tl\_px=1483,50\&br\_px=2976,890\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,139)
+
+**7. Click "Owner"**
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-03/8a215264-34ca-43e5-9735-b21d910c58f2/ascreenshot.jpeg?tl\_px=1753,64\&br\_px=3246,904\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,139)
+
+**8. Click "Mode"**
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-03/7329a4d2-b094-4667-afba-727caaec55d5/ascreenshot.jpeg?tl\_px=1962,62\&br\_px=3455,902\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=350,139)
+
+**9. Click here.**
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-03/24267c6f-fa37-4bac-a450-b2fd8f1d895b/ascreenshot.jpeg?tl\_px=1962,58\&br\_px=3455,898\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=465,139)
+
+**10. Click "add Add API"**
+
+![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-03/a2485ad4-4406-40c0-820f-4685863ebb4f/ascreenshot.jpeg?tl\_px=1962,0\&br\_px=3455,840\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=461,73)
+
+### The Applications menu
+
+The Applications menu is where you can keep track of and view various information&#x20;
