@@ -133,7 +133,7 @@ Load balancing is a technique used to distribute incoming traffic across multipl
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-
+{% @arcade/embed flowId="q2cetEPiktDGaSv7t4gM" url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
