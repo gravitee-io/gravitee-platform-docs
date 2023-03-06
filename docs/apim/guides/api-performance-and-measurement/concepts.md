@@ -126,3 +126,36 @@ You can configure scoring mechanisms in the **Settings > API Quality** menu. Her
 In addition to the pre-baked characteristics, you can also create manual quality rules, where you create and assign weight to custom characteristics.&#x20;
 {% endtab %}
 {% endtabs %}
+
+### Load balancing, failover, and healthchecks
+
+Gravitee offers three backend services to help you ensure that APIs and systems are more performant, reliable, and resilient to failure:
+
+* Load balancing
+* Failover
+* Healthchecks
+
+Let's explore each in concept-level detail.
+
+#### Load balancing
+
+Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+
+{% tabs %}
+{% tab title="Interactive UI exploration" %}
+
+{% endtab %}
+
+{% tab title="Text descriptions" %}
+Load balancing is a technique used to distribute incoming traffic across multiple backend servers. The goal of load balancing is to optimize resource utilization, maximize throughput, minimize response time, and avoid overloading any single server. The Gravitee Gateway comes with a built-in load balancer, which you can enable and configure for your API endpoints according to your requirements. In order to successfully use Gravitee load balancing, you'll need to understand two key concepts:
+
+* **Endpoint groups:** a logical grouping of endpoints that share a load balancing algorithm
+* **Load balancing types:** Gravitee offers four different types of load balancing:
+  * **Round robin:** The algorithm works by maintaining a list of backend servers and assigning each incoming request to the next server in the list. Once the last server in the list has been reached, the algorithm starts again from the beginning of the list, cycling through the servers in a circular fashion.
+  * **Random:** The algorithm works by maintaining a list of backend servers and assigning each incoming request to a random server from that list.
+  * **Weighted round robin:** The algorithm works similarly to the Round Robin mode, but doesn't assign incoming requests in a ciricular fashion, but, instead, assisgns requests based of a specified weight that you have given each backend server.
+    * For example, if you have endpoint 1 with a weight of 9 and endpoint 2 with a weight of 1, endpoint 1 is selected 9 times out of 10, whereas endpoint 2 is selected only 1 time out of 10.
+  * **Weighted random:** Weighted random load balancing leverages an algorithm that distributes incoming traffic across multiple backend servers based on a predefined weight assigned to each server. The weight represents the relative capacity or processing power of each server, with higher weights indicating a higher capacity to handle incoming requests. The algorithm works by generating a random number within a defined range, based on the total sum of all server weights. The random number is then used to select one of the backend servers for processing the incoming request.
+    * For example, if you have a group of three backend servers A, B, and C, with weights of 1, 2, and 3, respectively. The total weight of all servers is 6. When an incoming request arrives, the load balancer generates a random number between 1 and 6. If the number is between 1 and 1 (inclusive), server A is selected. If the number is between 2 and 3, server B is selected. If the number is between 4 and 6, server C is selected.
+{% endtab %}
+{% endtabs %}
