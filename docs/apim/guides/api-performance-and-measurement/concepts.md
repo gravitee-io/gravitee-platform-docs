@@ -117,7 +117,7 @@ You can view and configure API quality scoring in multiple areas in product. You
 * APIs menu
 * On the individual API's details
 
-You can configure scoring mechanisms in the **Settings > API Quality** menu. Here, you can set certain weights to certain API characteristics that will impact the overall quality scoring. Gravitee comes pre-baked with a set of certain characteristics. You give a certain amount of points (correlates to weight) to each of the following categories and subcategories:
+You can configure scoring mechanisms in the **Settings > API Quality** menu. Here, you can set certain weights to certain API characteristics that will impact the overall quality scoring and decide whether or not you will require review from an API reviewer before being able to publish that API. Gravitee comes pre-baked with a set of certain characteristics. You give a certain amount of points (correlates to weight) to each of the following categories and subcategories:
 
 * General: defines quality requirements for API details such as description, labels, and categories
 * Documentation: defines quality requirements for documentation quality
