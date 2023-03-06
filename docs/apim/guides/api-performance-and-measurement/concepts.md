@@ -108,7 +108,7 @@ The Gravitee **API Quality** feature enables you to create and automatically ass
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-
+{% @arcade/embed flowId="crEmd5VTMLuJSdb8c9aM" url="https://app.arcade.software/share/crEmd5VTMLuJSdb8c9aM" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
