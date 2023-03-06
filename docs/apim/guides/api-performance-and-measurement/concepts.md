@@ -127,19 +127,9 @@ In addition to the pre-baked characteristics, you can also create manual quality
 {% endtab %}
 {% endtabs %}
 
-### Load balancing, failover, and healthchecks
+### Load balancing
 
-Gravitee offers three backend services to help you ensure that APIs and systems are more performant, reliable, and resilient to failure:
-
-* Load balancing
-* Failover
-* Healthchecks
-
-Let's explore each in concept-level detail.
-
-#### Load balancing
-
-Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+Load balancing is a technique used to distribute incoming traffic across multiple backend servers. The goal of load balancing is to optimize resource utilization, maximize throughput, minimize response time, and avoid overloading any single server. The Gravitee Gateway comes with a built-in load balancer, which you can enable and configure for your API endpoints according to your requirements. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
@@ -147,7 +137,7 @@ Check out the interactive UI exploration or the text descriptions to learn more.
 {% endtab %}
 
 {% tab title="Text descriptions" %}
-Load balancing is a technique used to distribute incoming traffic across multiple backend servers. The goal of load balancing is to optimize resource utilization, maximize throughput, minimize response time, and avoid overloading any single server. The Gravitee Gateway comes with a built-in load balancer, which you can enable and configure for your API endpoints according to your requirements. In order to successfully use Gravitee load balancing, you'll need to understand two key concepts:
+In order to successfully use Gravitee load balancing, you'll need to understand two key concepts:
 
 * **Endpoint groups:** a logical grouping of endpoints that share a load balancing algorithm
 * **Load balancing types:** Gravitee offers four different types of load balancing:
