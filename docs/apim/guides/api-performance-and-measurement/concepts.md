@@ -101,3 +101,28 @@ The **Audits** page is comprised of a table and filtering mechanisms. You are ab
   * Patch
 {% endtab %}
 {% endtabs %}
+
+### API Quality
+
+The Gravitee **API Quality** feature enables you to create and automatically assign customizable scores based on certain variables that you feel impact an API's overall quality. When enabled, APIs that you create in Gravitee will automatically be assigned an API quality score. This feature is incredibly valuable for organizations interested in API governance, as it allows them to ensure that certain standards are met, where these standards are treated as score-relevant variables. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+
+{% tabs %}
+{% tab title="Interactive UI exploration" %}
+
+{% endtab %}
+
+{% tab title="Test descriptions" %}
+You can view and configure API quality scoring in multiple areas in product. You can see your APIs' quality scores in the:
+
+* APIs menu
+* On the individual API's details
+
+You can configure scoring mechanisms in the **Settings > API Quality** menu. Here, you can set certain weights to certain API characteristics that will impact the overall quality scoring. Gravitee comes pre-baked with a set of certain characteristics. You give a certain amount of points (correlates to weight) to each of the following categories and subcategories:
+
+* General: defines quality requirements for API details such as description, labels, and categories
+* Documentation: defines quality requirements for documentation quality
+* Endpoint: defines quality requirements for reliability and healthcheck performance
+
+In addition to the pre-baked characteristics, you can also create manual quality rules, where you create and assign weight to custom characteristics.&#x20;
+{% endtab %}
+{% endtabs %}
