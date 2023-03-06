@@ -111,7 +111,7 @@ The Gravitee **API Quality** feature enables you to create and automatically ass
 
 {% endtab %}
 
-{% tab title="Test descriptions" %}
+{% tab title="Text descriptions" %}
 You can view and configure API quality scoring in multiple areas in product. You can see your APIs' quality scores in the:
 
 * APIs menu
@@ -121,7 +121,7 @@ You can configure scoring mechanisms in the **Settings > API Quality** menu. Her
 
 * General: defines quality requirements for API details such as description, labels, and categories
 * Documentation: defines quality requirements for documentation quality
-* Endpoint: defines quality requirements for reliability and healthcheck performance
+* Endpoint: defines a quality requirement that states a healthcheck must be configured for your API
 
 In addition to the pre-baked characteristics, you can also create manual quality rules, where you create and assign weight to custom characteristics.&#x20;
 {% endtab %}
