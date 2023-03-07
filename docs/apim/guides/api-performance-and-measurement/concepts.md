@@ -166,3 +166,10 @@ Once you have configured your endpoints as a part of your load-balancing configu
 * **Timeout**: limits the time allowed to try another attempt
 {% endtab %}
 {% endtabs %}
+
+### Healthchecks&#x20;
+
+A health check is a mechanism used in API management to monitor the availability and health of backend servers, microservices, or other components that make up an API. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+
+{% @arcade/embed flowId="VaRhvOcOU39TQb3PtfRd" url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" %}
+
