@@ -171,5 +171,4 @@ Once you have configured your endpoints as a part of your load-balancing configu
 
 A health check is a mechanism used in API management to monitor the availability and health of backend servers, microservices, or other components that make up an API. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
 
-{% @arcade/embed flowId="VaRhvOcOU39TQb3PtfRd" url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" %}
-
+{% @arcade/embed flowId="avH7UAq3TvazBb73uliM" url="https://app.arcade.software/share/avH7UAq3TvazBb73uliM" %}
