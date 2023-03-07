@@ -47,7 +47,7 @@ Once you have configured your endpoints as a part of your load-balancing configu
 {% endtab %}
 {% endtabs %}
 
-### Healthchecks&#x20;
+### Health checks&#x20;
 
 A health check is a mechanism used to monitor the availability and health of your endpoints and/or your API gateways. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
 

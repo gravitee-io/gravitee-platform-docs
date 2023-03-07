@@ -210,7 +210,7 @@
 * [API configuration](guides/api-configuration/README.md)
   * [Concepts](guides/api-configuration/concepts.md)
   * [How-to](guides/api-configuration/how-to.md)
-    * [Configure load-balancing, failover, and health checks for your APIs](guides/api-configuration/how-to/configure-load-balancing-failover-and-health-checks-for-your-apis.md)
+    * [Configure Load-balancing, Failover, and Health Checks for your APIs](guides/api-configuration/how-to/configure-load-balancing-failover-and-health-checks-for-your-apis.md)
 * [Policy Design](guides/policy-design/README.md)
   * [Concepts](guides/policy-design/concepts.md)
   * [How-to](guides/policy-design/how-to.md)
