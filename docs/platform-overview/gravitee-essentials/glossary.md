@@ -47,8 +47,8 @@ All core Gravitee and related web API terminology defined. Use the search functi
 
 ### Gravitee Terminology
 
-* **Enterprise Edition:** Built on top of our open-source foundations, the enterprise event-native API Management platform enables organizations to fully manage, secure, monitor, and govern their entire API ecosystem. Learn more [here](community-edition-vs-enterprise-edition-offering.md).
-* **Community Edition:** comprised of Gravitee’s open source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products. Learn more [here](community-edition-vs-enterprise-edition-offering.md).
+* **Enterprise Edition:** Built on top of our open-source foundations, the enterprise event-native API Management platform enables organizations to fully manage, secure, monitor, and govern their entire API ecosystem. Learn more [here](gravitee-offering-ce-vs-ee.md).
+* **Community Edition:** comprised of Gravitee’s open source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products. Learn more [here](gravitee-offering-ce-vs-ee.md).
 * **API definition:** a JSON representation of everything that the Gravitee Gateway needs to know in order for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic -- a gateway specification
 * **gateway entrypoint:** how the consumer “calls” or “subscribes” to the gateway. This essentially defines how a consumer will end up consuming data from a producer/provider
 * **gateway endpoint:** the datasource from/to which the gateway will fetch/post data for/from the consumer that calls or subscribes to the gateway

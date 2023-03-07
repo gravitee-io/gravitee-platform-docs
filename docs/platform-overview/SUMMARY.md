@@ -6,7 +6,7 @@
 ## Gravitee Essentials
 
 * [Overview](gravitee-essentials/overview.md)
-* [Community Edition vs Enterprise Edition Offering](gravitee-essentials/community-edition-vs-enterprise-edition-offering.md)
+* [Gravitee Offering: CE vs EE](gravitee-essentials/gravitee-offering-ce-vs-ee.md)
 * [API Fundamentals](gravitee-essentials/api-fundamentals.md)
 * [Core Concepts](gravitee-essentials/core-concepts.md)
 * [Gravitee Glossary](gravitee-essentials/glossary.md)

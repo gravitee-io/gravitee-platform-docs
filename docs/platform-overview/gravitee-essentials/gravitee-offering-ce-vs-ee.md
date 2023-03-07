@@ -1,10 +1,12 @@
 ---
-description: Everything you need to know about the Gravitee offering
+description: >-
+  Everything you need to know about the Gravitee Community Edition and
+  Enterprise Edition
 ---
 
-# Community Edition vs Enterprise Edition Offering
+# Gravitee Offering: CE vs EE
 
-Gravitee was founded as an open-source project and a large part of the overall platform remains so to this day. However, additional functionality such as the Gravitee Cockpit is not open source but has a free-to-use version in the **Gravitee Community Edition**. Additionally, there is also a [Gravitee Enterprise Edition](https://www.gravitee.io/pricing) that adds additional capabilities targeting commercial end users through offerings like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
+Gravitee was founded as an open-source project and a large part of the overall platform remains so to this day. However, additional functionality such as the Gravitee Cockpit is not open source but has a free-to-use version in the **Gravitee Community Edition**. Additionally, there is also a [**Gravitee Enterprise Edition**](https://www.gravitee.io/pricing) that adds additional capabilities targeting commercial end users through offerings like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 
 {% hint style="info" %}
 **Open Core Product**
@@ -32,7 +34,7 @@ For more information on the differences between Gravitee Community and OSS produ
 
 #### Gravitee Enterprise Edition <a href="#gravitee-enterprise-edition-16" id="gravitee-enterprise-edition-16"></a>
 
-Built on top of our open-source foundations, the enterprise event-native API Management platform enables organizations to fully manage, secure, monitor, and govern their entire API ecosystem. Enterprise gets you everything in the community version, plus:
+Built on top of our open-source foundations, the enterprise event-native API Management platform enables organizations to fully manage, secure, monitor, and govern their entire API ecosystem. The Enterprise Edition focuses on the needs of our commercial end users. Enterprise gets you everything in the community version, plus:
 
 * **Advanced support for asynchronous APIs**: The Gravitee community edition supports various forms of protocol mediation and asynchronous API support; the enterprise edition includes this, plus quality of service for supported backend event brokers, advanced message-level policies, and more
 * **Enterprise API Designer**: design, document, and publish an unlimited amount of API data models
