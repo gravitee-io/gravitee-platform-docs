@@ -7,7 +7,7 @@ description: >-
 
 # Concepts
 
-## Measurement, tracking, analytics, auditing, and logging
+Measurement, tracking, analytics, auditing, and logging
 
 Gravitee offers several ways to measure, track and analyze APIs, in addition to capturing logs so that you can easily stay on top of your APIs and retain visibility into performance and consumption. Let's explore the various platform components and features that enable this—at a conceptual level.
 
@@ -169,6 +169,45 @@ Once you have configured your endpoints as a part of your load-balancing configu
 
 ### Healthchecks&#x20;
 
-A health check is a mechanism used in API management to monitor the availability and health of backend servers, microservices, or other components that make up an API. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+A health check is a mechanism used to monitor the availability and health of your endpoints and/or your API gateways. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
 
-{% @arcade/embed flowId="avH7UAq3TvazBb73uliM" url="https://app.arcade.software/share/avH7UAq3TvazBb73uliM" %}
+{% tabs %}
+{% tab title="Interactive UI exploration" %}
+{% @arcade/embed flowId="awIKYCvN2m1DusBD9W7a" url="https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a" %}
+{% endtab %}
+
+{% tab title="Text descriptions" %}
+Gravitee enables you to configure health checks for both endpoints and Gravitee API gateways. Like load-balancing and failover, health checks are Gravitee backend services. To ensure that you are prepared to use Gravitee health checks, you will want to make sure that you are familiar with the following concepts:
+
+* **Trigger**: define what triggers the health checks. Triggers are:
+  * HTTP methods
+  * Paths
+  * Headers
+* **Schedule**: the schedule at which health checks can be triggered. These can be configured at the levels of seconds, minutes, hours, days, weeks, months, and years.&#x20;
+* **From root path:** this is an option that you can enable to apply the specified path at the root URL leel. For example, if your endpoint is URL is `www.test.com/api`, this option removes /api before appending the path.
+* **Assertions:** where you specify any specify conditions to test for in the API response that will trigger a health check. Assertions are written in the Gravitee Expression Language. An assertion can be a simple 200 response (`#response.status == 200`) but you can also test for specific content.
+
+After you've configured health checks, you can view health check information and results in the **Health-check dashboard** for that specific API. Here, you have multiple charts to track:
+
+* **Global availability**: average availability and average response times for _all_ health-checked endpoints
+* **Per-endpoint availability:** average availability and average response times for _specific_ endpoints
+* **Per-gateway availability:** average availability and response times per API gateway where health-check is enabled
+* **Latest check:** a running list of most recent health checks. [You can choose to show only status transitions](https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a)[https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a](https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a)
+{% endtab %}
+{% endtabs %}
+
+### Alert Engine and API Monitoring
+
+In addition to Gravitee API Management and all of its features to measure, track, log, audit, etc. API consumption and performance, Gravitee also offers an enterprise-grade API Monitoring and Alerting solution called Gravitee Alert Engine (AE). To learn more about Gravitee AE, please refer to the [Gravitee AE documentation](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/WAKqxjzYogMr1tk18evT/).&#x20;
+
+### Making APIs more performant and reliable
+
+In addition to features used to measure API reliability and performance, Gravitee offers several features and technology support that are meant to actively improve API reliability and performance. We will include brief descriptions of each here, but we recommend referring to their specific documentation to learn more about how implement them:
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong></strong><a href="../../policy-reference/policy-ratelimit.md"><strong>Rate limiting policies</strong></a><strong></strong></td><td>While also useful for security measures, capping the amount of calls or requests per a given amount of time can ensure that an API is not "over consumed" and inducing too much load on backend systems, which can result in both poor performance and reliability incidents like downtime.</td><td></td></tr><tr><td><p><strong></strong><a href="../../policy-reference/policy-cache.md"><strong>Cache policy</strong></a><strong></strong></p><p></p><p>The cache policy allows the Gateway to cache upstream responses (content, status, and headers) to eliminate the need for subsequent calls to the back end. This can help you avoid you calling the backend (and therefore inducing load) for non-changing requests.</p></td><td></td><td></td></tr><tr><td><p><strong></strong><a href="../create-apis/concepts.md#creating-synchronous-asynchronous-event-based-and-streaming-apis-in-gravitee"><strong>Support for asynchronous APIs and communication</strong></a><strong></strong></p><p></p><p>Gravitee's support for a variety of asynchronous APIs allows you to introduce APIs that can deliver real-time customer experiences and real-time data without constantly having to poll your backend resources.</p></td><td></td><td></td></tr></tbody></table>
+
+|   |   |   |
+| - | - | - |
+|   |   |   |
+|   |   |   |
+|   |   |   |
