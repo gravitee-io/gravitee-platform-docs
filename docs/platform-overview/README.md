@@ -20,7 +20,7 @@ Grok Gravitee by learning the main concepts of our platform or learn by doing an
 
 ### Platform Concetps
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Gravitee Essentials</strong></td><td>Grok the core concepts fundamental to web APIs and the Gravitee ecosystem.</td><td></td><td><a href="broken-reference">Broken link</a></td><td></td></tr><tr><td><strong>Gravitee Enterprise Edition</strong></td><td>Commercial end-user looking to move beyond the open-source offering? Learn more here</td><td></td><td><a href="community-edition-vs-enterprise-edition-offering.md">community-edition-vs-enterprise-edition-offering.md</a></td><td></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Gravitee Essentials</strong></td><td>Grok the core concepts fundamental to web APIs and the Gravitee ecosystem.</td><td></td><td><a href="broken-reference">Broken link</a></td><td></td></tr><tr><td><strong>Gravitee Enterprise Edition</strong></td><td>Commercial end-user looking to move beyond the open-source offering? Learn more here</td><td></td><td><a href="gravitee-essentials/community-edition-vs-enterprise-edition-offering.md">community-edition-vs-enterprise-edition-offering.md</a></td><td></td></tr></tbody></table>
 
 ### Installation Guides
 
