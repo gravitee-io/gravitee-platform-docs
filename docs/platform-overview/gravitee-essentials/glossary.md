@@ -73,60 +73,66 @@ All core Gravitee and related web API terminology defined. Use the search functi
 * **Application programming interface (API):** a set of _publicly_ exposed interface conventions for the **** application programmer to interact with
   * **Web API:** the interacting parties run on separate machines and communicate over a network
   * **Local API:** both interacting parties run on the same machine
-  * **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
-  * **HTTP API endpoint:** the URL combined with a HTTP method used to access and operate on a resource
-    * Example: `GET http://foo.com/api/user/1`
-  * **API entrypoint:** a special type of endpoint — it’s a resource that exists outside of any other collection and houses all other collections of resources
-  * **Synchronous APIs**: employ tightly coupled communication between a client's _request_ and a server's _response_. Clients initiate all communication.&#x20;
-    * Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
-  * **Asynchronous APIs**: break up the linear, sequential communication by employing an event broker which allows information producers to _publish_ messages to the broker and information consumers to _subscribe_ to receive messages from the broker. Events (i.e., changes in state) initiate all communication.
-    * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
-  * **API specification**
-    * **OpenAPI specification**
-    * **AsyncAPI specification**: AsyncAPI is a specification for building and documenting asynchronous APIs. It defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API. It is similar to OpenAPI specification (formerly Swagger) but is specifically designed for messaging and event-driven APIs.
-    * **CloudEvents:** specification specification for describing event data in a common way. It defines an envelope for your API’s actual data as opposed to the structure of the overall API.
-      * Example: Let's draw a quick metaphor to the postal service. You can think of the AsyncAPI specification as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the payload, does not fall under the jurisdiction of either specification.
-  * **API definition:** implementation of an API specification in an API description file
-  * **API design-first:** the API definition is written first and then the code follows. The  advantages are that the code already has a skeleton upon which to build, and that some tools can provide boilerplate code automatically. Addtionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
-  * **API lifecycle:** process of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
-* **Event-native:** event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs
+
+{% hint style="warning" %}
+In Gravitee's documentation, you can assume web APIs and APIs are synonymous; otherwise, we will explicitly refer to them as **local** APIs.
+{% endhint %}
+
+* **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
+* **HTTP API endpoint:** the URL combined with a HTTP method used to access and operate on a resource
+  * Example: `GET http://foo.com/api/user/1`
+* **API entrypoint:** a special type of endpoint — it’s a resource that exists outside of any other collection and houses all other collections of resources
+* **Synchronous APIs**: APIs that require linear, sequential communication between a tightly-coupled client and server. Clients initiate all communication.&#x20;
+  * Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
+* **Asynchronous APIs**: APIs that break up the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication.
+  * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
+* **API specification:** provides a broad understanding of how an API behaves and how the API links with other APIs. It explains how the API functions and the results to expect when using the API.
+  * **OpenAPI specification:** defines a standard, language-agnostic interface to HTTP APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection
+  * **AsyncAPI specification**: a specification for building and documenting asynchronous APIs that defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API.&#x20;
+  * **CloudEvents:** specification specification for describing event data in a common way. It defines an envelope for your API’s actual data as opposed to the structure of the overall API.
+    * Example: Let's draw a quick metaphor to the postal service. You can think of the AsyncAPI specification as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the payload, does not fall under the jurisdiction of either specification.
+* **API definition:** implementation of an API specification
+* **API design-first:** the API definition is written first and then the code follows. The  advantages are that the code already has a skeleton upon which to build, and that some tools can provide boilerplate code automatically. Addtionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
+* **API lifecycle:** process of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
+* **System architectures and design patterns:** a general, reusable description or template to a commonly occurring problem within a given context in software design
+  * **Monolithic architecture:** traditional model of a software program, which is built as a unified and tightly coupled unit that is self-contained and independent from other applications
+  * **Microservices architecture:** software development model where software is composed of small independent services that communicate over well-defined APIs
+  * **Event-driven architecture (EDA):** uses events, or changes in state, to trigger asynchronous communication between decoupled services&#x20;
+* **Network communication model:** a design or architecture to accomplish communication between different systems
+  * **Request-response:** tightly-coupled, synchronous communication model where the _client_ computer initiates communication by making a request directly to the _server_ computer which responds by serving data or a service. The basis for synchronous APIs.
+  * **Event/message driven:** loosely-coupled, asynchronous communication model where a change in state initiates communication. The basis for asynchronous APIs.
+
+{% hint style="info" %}
+**Events vs Messages**
+
+Although often used synonymously, you can draw a distinction between an event and a message. Sometimes people will say a message is the directed carrier of the event, while the event is the actual change in state to be observed. However, these terms actually have a deeper, technical distinction which is outlined well by the [Reactive Manifesto](https://www.reactivemanifesto.org/glossary#Message-Driven):
+
+> "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
+{% endhint %}
+
 * **Internet:** the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the physical means by which information travels
 * **World wide web (web):** information system on the internet which allows documents to be connected to other documents in the form of **hypermedia** (e.g., web pages)
 * **Network protocol:** standard for communication
-* **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
+  * **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
   * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
   * **Application layer:** a layer responsible for establishing protocols that detail what should be done with the data transferred over the network
-* Network communication model
-  * Request-response
-    * Client
-    * Server
-  * Event/message streaming
-    * Event
-    * Message
-    * Publisher
-    * Subscriber
-    * Broker
-* System architectural style
-  * Monolithic architecture: traditional model of a software program, which is built as a unified and tightly coupled unit that is self-contained and independent from other applications
-  * Microservices architecture: software development model where software is composed of small independent services that communicate over well-defined APIs
-  * Event-driven architecture (EDA): uses events, or changes in state, to trigger asynchrounous communication between decoupled services&#x20;
-* API architectural style
-  * REST: stateless architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _**** representation of the state_ of the requested resource&#x20;
-  * RPC
-  * Pub/sub
-  * GraphQL architectural style
-* Synchronous programming
-* Asynchronous programming
-* Synchronous web APIs
-* Asynchronous web APIs
+* **API architectural style:** guidelines and/or constraints around API design
+  * **Representational state transfer (REST)**: stateless architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _**** representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
+    * Example: `GET http://foo/user/1`
+  * **Remote procedure call (RPC):** a less rigid architectural style that employs action-centric URLs. These URLs represent remote functions and RPC APIs communicate over the network to invoke them remotely. The HTTP verb employed has no real bearing on functionality as every action will have a unique URL.
+    * Example: `GET http://foo/getUser`
+  * **Publish-subscribe patter (pub/sub):** an architectural style where a computer known as the event _broker_ allows information producers, or _publishers_, to publish messages to the broker and information consumers, or _subscribers_, to subscribe to receive messages from the broker
+* **GraphQL:** an architectural style, a [query language](https://www.techopedia.com/definition/3948/query-language) for APIs, and a runtime for fulfilling those queries
+* **Event-native:** event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs
+* **Synchronous programming:** a linear, sequential execution of tasks
+* **Asynchronous programming:** a concurrent execution of tasks
+* **Parallelism vs Concurrency:** the key concept  is that concurrency is about _dealing with_ lots of things at once. Parallelism is about _doing_ lots of things at once. **Add a link with more detail**
 * Stateful web APIs
 * Stateless web APIs
 * Reactive programming
 * Queues
 * Logs
 * Stream processing
-* Concurrency
-* Parallelism
 * Data-interchange format
 * Serialization/deserialization
 * Fully qualified domain name (fqdn)
