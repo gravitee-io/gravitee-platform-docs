@@ -25,47 +25,52 @@ All core Gravitee and related web API terminology defined. Use the search functi
 
 #### AM
 
-* developer portal
-* gateway
-* management API
-* management UI
+*
 
 #### AE
 
-* management UI
-* management API
+*
 
 #### APID
 
-* gateway
-* developer portal
+*
 
 #### GC
 
-* gateway
-* developer portal
+*
 
 ### Gravitee terminology
 
-* **Enterprise Edition:** Built on top of our open-source foundations, the enterprise event-native API Management platform enables organizations to fully manage, secure, monitor, and govern their entire API ecosystem. Learn more [here](gravitee-offerings-ce-vs-ee.md).
-* **Community Edition:** comprised of Gravitee’s open source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products. Learn more [here](gravitee-offerings-ce-vs-ee.md).
-* **API definition:** a JSON representation of everything that the Gravitee Gateway needs to know in order for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic -- a gateway specification
-* **Gateway entrypoint:** how the consumer “calls” or “subscribes” to the gateway. This essentially defines how a consumer will end up consuming data from a producer/provider
-* **Gateway endpoint:** the datasource from/to which the gateway will fetch/post data for/from the consumer that calls or subscribes to the gateway
-* **API publisher**
-* **API consumer**
-* **Application**
-* **Plan**
-* **Subscription**
+* ****[**Community Edition:**](gravitee-offerings-ce-vs-ee.md) **** comprised of Gravitee’s open source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products
+* ****[**Enterprise Edition:**](gravitee-offerings-ce-vs-ee.md) **** built on top of our open-source foundations, the enterprise event-native API Management platform enables commercial end-users to fully manage, secure, monitor, and govern their entire API ecosystem
+* **API definition:** a JSON representation of everything that the Gravitee Gateway needs to know in order for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic — a gateway specification
+* **Gateway API:** an API that is deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs have a unique context-path, at least one entrypoint, and an endpoint.
+* **Context-path:** unique route to target a specific gateway API. The context path does not include the domain.
+  * Example: If the fully qualified domain name is `https://apim-gateway:8082/my-context-path`, then `/my-context-path` is the context path.
+* **Gateway entrypoint:** defines the protocol and configuration by which the API consumer accesses the gateway. This essentially defines how the backend API is exposed through the gateway.
+* **Gateway endpoint:** defines protocol and configuration by which gateway will fetch data from, or post data to, the backend API
+* **Backend APIs:** source or target API that is proxied by the gateway
+* **API publisher:** the creator, designer, and/or manager of a gateway API
+* **API consumer:** the user accessing the gateway API
+* **Plan:** access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access
+  * **Staging** - Generally, this is the first state of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
+  * **Published** - Once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
+  * **Deprecated** - You can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remains so it doesn’t impact your existing API consumers.
+  * **Closed** - Once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
+* **Application:** allows an API consumer to register and agree to a plan
+* **Subscription:** a contract between an API plan and application
 * **Plugin:** components that additional functionality by _plugging into_ the Gravitee ecosystem
 * **Policy:** rules or logic that can be executed by the API gateway during the request or the response of an API call. The functionality of the plugin is enabled through plugins
-* Context-path
-* Backend APIs
-*
+* **API design studio:** UI that helps you create a gateway API
+* **Flow:** method to enact policies on the request or response of an API call
+* **Sharding tags:** a tag that can be assigned to gateway APIs and Gravitee gateways to provide a method to deploy a gateway API to a subset of gateways. Sharding tags are mapped to a gateway’s fully qualified domain name which allows the developer portal to intelligently display different gateway entrypoints depending on the API’s sharding tags
+* **Tenants:** a tag that can be assigned to gateways and and gateway endpoints to allow the same API to target different backend APIs based on the gateway receiving the request
+* **Expression language (EL):**
+* **Execution context:**&#x20;
 
 ### General API terminology
 
-* **API:** an application programming interface
+* **Application programming interface (API):** a set of _publicly_ exposed interface conventions for the **** application programmer to interact with
   * **Web API:** the interacting parties run on separate machines and communicate over a network
   * **Local API:** both interacting parties run on the same machine
   * API endpoint
@@ -76,18 +81,20 @@ All core Gravitee and related web API terminology defined. Use the search functi
     * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
   * API design-first
   * API lifecycle
-* E
 * **Event-native:** event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs
 * **API specification**
   * **OpenAPI specification**
   * **AsyncAPI specification**: AsyncAPI is a specification for building and documenting asynchronous APIs. It defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API. It is similar to OpenAPI specification (formerly Swagger) but is specifically designed for messaging and event-driven APIs.
   * CloudEvents
 * API description file
-* World wide web
-* Internet
-* Layered networking model
-  * Transport layer protocol
-  * Application layer protocol
+* **Internet:** the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the physical means by which information travels
+* **World wide web (web):** information system on the internet which allows documents to be connected to other documents in the form of **hypermedia** (e.g., web pages)
+* Microservices:
+* Monolithic applications:
+* **Network protocol:** standard for communication
+* **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
+  * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
+  * **Application layer:** a layer responsible for establishing protocols that detail what should be done with the data transferred over the network
 * Network communication model
   * Request-response
     * Client
@@ -125,4 +132,10 @@ All core Gravitee and related web API terminology defined. Use the search functi
   * topics
   * partitions
   * schema registry
+* Fully qualified domain name (fqdn)
+* API route
+* Domain
+* URL
+* URI
+* URN
 
