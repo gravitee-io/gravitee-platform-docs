@@ -43,7 +43,7 @@ All core Gravitee and related web API terminology defined. Use the search functi
 
 * ****[**Community Edition:**](gravitee-offerings-ce-vs-ee.md) **** comprised of Gravitee’s open source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products
 * ****[**Enterprise Edition:**](gravitee-offerings-ce-vs-ee.md) **** built on top of our open-source foundations, the enterprise event-native API Management platform enables commercial end-users to fully manage, secure, monitor, and govern their entire API ecosystem
-* **API definition:** a JSON representation of everything that the Gravitee Gateway needs to know in order for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic — a gateway specification
+* **Gravitee API definition:** a JSON representation of everything that the Gravitee Gateway needs to know in order for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic — a gateway specification
 * **Gateway API:** an API that is deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs have a unique context-path, at least one entrypoint, and an endpoint.
 * **Context-path:** unique route to target a specific gateway API. The context path does not include the domain.
   * Example: If the fully qualified domain name is `https://apim-gateway:8082/my-context-path`, then `/my-context-path` is the context path.
@@ -65,32 +65,33 @@ All core Gravitee and related web API terminology defined. Use the search functi
 * **Flow:** method to enact policies on the request or response of an API call
 * **Sharding tags:** a tag that can be assigned to gateway APIs and Gravitee gateways to provide a method to deploy a gateway API to a subset of gateways. Sharding tags are mapped to a gateway’s fully qualified domain name which allows the developer portal to intelligently display different gateway entrypoints depending on the API’s sharding tags
 * **Tenants:** a tag that can be assigned to gateways and and gateway endpoints to allow the same API to target different backend APIs based on the gateway receiving the request
-* **Expression language (EL):**
-* **Execution context:**&#x20;
+* **Expression language (EL):** language used by API publishers to configure various aspects and services of an API that supports querying and manipulating an object graph and is based on the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language)
+* **Execution context:** data available during the request/response flow of an API call
 
 ### General API terminology
 
 * **Application programming interface (API):** a set of _publicly_ exposed interface conventions for the **** application programmer to interact with
   * **Web API:** the interacting parties run on separate machines and communicate over a network
   * **Local API:** both interacting parties run on the same machine
-  * API endpoint
-  * API entrypoint
-  * **Synchronous APIs**: A synchronous API is an application programming interface (API) that processes a request and requires a response.&#x20;
+  * **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
+  * **HTTP API endpoint:** the URL combined with a HTTP method used to access and operate on a resource
+    * Example: `GET http://foo.com/api/user/1`
+  * **API entrypoint:** a special type of endpoint — it’s a resource that exists outside of any other collection and houses all other collections of resources
+  * **Synchronous APIs**: employ tightly coupled communication between a client's _request_ and a server's _response_. Clients initiate all communication.&#x20;
     * Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
-  * **Asynchronous APIs**: An asynchronous API allows for an application (consumer) to subscribe to a feed of data. All that app has to do is ask for updates once, and then updates are sent when an event occurs, regardless of whether there are any future requests. In other words, the consumers’ requests do not dictate the sending of data or messages after that initial subscription. Events (updates or changes in state) are what dictate the sending of data.
+  * **Asynchronous APIs**: break up the linear, sequential communication by employing an event broker which allows information producers to _publish_ messages to the broker and information consumers to _subscribe_ to receive messages from the broker. Events (i.e., changes in state) initiate all communication.
     * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
-  * API design-first
-  * API lifecycle
+  * **API specification**
+    * **OpenAPI specification**
+    * **AsyncAPI specification**: AsyncAPI is a specification for building and documenting asynchronous APIs. It defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API. It is similar to OpenAPI specification (formerly Swagger) but is specifically designed for messaging and event-driven APIs.
+    * **CloudEvents:** specification specification for describing event data in a common way. It defines an envelope for your API’s actual data as opposed to the structure of the overall API.
+      * Example: Let's draw a quick metaphor to the postal service. You can think of the AsyncAPI specification as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the payload, does not fall under the jurisdiction of either specification.
+  * **API definition:** implementation of an API specification in an API description file
+  * **API design-first:** the API definition is written first and then the code follows. The  advantages are that the code already has a skeleton upon which to build, and that some tools can provide boilerplate code automatically. Addtionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
+  * **API lifecycle:** process of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
 * **Event-native:** event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs
-* **API specification**
-  * **OpenAPI specification**
-  * **AsyncAPI specification**: AsyncAPI is a specification for building and documenting asynchronous APIs. It defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API. It is similar to OpenAPI specification (formerly Swagger) but is specifically designed for messaging and event-driven APIs.
-  * CloudEvents
-* API description file
 * **Internet:** the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the physical means by which information travels
 * **World wide web (web):** information system on the internet which allows documents to be connected to other documents in the form of **hypermedia** (e.g., web pages)
-* Microservices:
-* Monolithic applications:
 * **Network protocol:** standard for communication
 * **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
   * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
@@ -106,10 +107,11 @@ All core Gravitee and related web API terminology defined. Use the search functi
     * Subscriber
     * Broker
 * System architectural style
-  * Service-oriented architecture (SOA)
-  * Event-driven architecture (EDA)
+  * Monolithic architecture: traditional model of a software program, which is built as a unified and tightly coupled unit that is self-contained and independent from other applications
+  * Microservices architecture: software development model where software is composed of small independent services that communicate over well-defined APIs
+  * Event-driven architecture (EDA): uses events, or changes in state, to trigger asynchrounous communication between decoupled services&#x20;
 * API architectural style
-  * REST
+  * REST: stateless architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _**** representation of the state_ of the requested resource&#x20;
   * RPC
   * Pub/sub
   * GraphQL architectural style
@@ -127,11 +129,6 @@ All core Gravitee and related web API terminology defined. Use the search functi
 * Parallelism
 * Data-interchange format
 * Serialization/deserialization
-* Infrastructure as Code (IaC)
-* Kafka
-  * topics
-  * partitions
-  * schema registry
 * Fully qualified domain name (fqdn)
 * API route
 * Domain
