@@ -149,3 +149,20 @@ In order to successfully use Gravitee load balancing, you'll need to understand 
     * For example, if you have a group of three backend servers A, B, and C, with weights of 1, 2, and 3, respectively. The total weight of all servers is 6. When an incoming request arrives, the load balancer generates a random number between 1 and 6. If the number is between 1 and 1 (inclusive), server A is selected. If the number is between 2 and 3, server B is selected. If the number is between 4 and 6, server C is selected.
 {% endtab %}
 {% endtabs %}
+
+### Failover
+
+Failover is a mechanism to ensure high availability and reliability of APIs by redirecting incoming traffic to a secondary server or backup system in the event of a primary server failure. Gravitee includes built-in failover mechanisms and capabilities. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+
+{% tabs %}
+{% tab title="Interactive UI exploration" %}
+{% @arcade/embed flowId="VaRhvOcOU39TQb3PtfRd" url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" %}
+{% endtab %}
+
+{% tab title="Text descriptions" %}
+Once you have configured your endpoints as a part of your load-balancing configuration, you can configure failover for those endpoints and whichever load balancing algorithm that you chose. You'll need to understand the following concepts to make the most of Gravitee failover mechanisms:
+
+* **Max attempts**: limits the number of possible tries before returning an error. Each try gets an endpoint according to the load balancing algorithm.
+* **Timeout**: limits the time allowed to try another attempt
+{% endtab %}
+{% endtabs %}
