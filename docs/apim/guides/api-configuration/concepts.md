@@ -76,3 +76,5 @@ After you've configured health checks, you can view health check information and
 {% endtab %}
 {% endtabs %}
 
+### Service Discovery
+
