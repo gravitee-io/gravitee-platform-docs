@@ -6,7 +6,7 @@ description: Gravitee defined
 
 All core Gravitee and related web API terminology defined. Use the search function to quickly look up a definition.
 
-### Products
+### Gravitee products
 
 * **Gravitee API Management (APIM):** event-native API management platform that helps you design, deploy, manage, and secure synchronous and asynchronous APIs throughout the entire lifecycle
 * **Gravitee Access Management (AM):** apply identity and access management (multi-factor authentication, biometric, etc.) at the API and application levels
@@ -14,14 +14,14 @@ All core Gravitee and related web API terminology defined. Use the search functi
 * **Gravitee API Designer (APID):** design, document, and publish API data models; the community version is limited to one data model
 * **Gravitee Cloud (GC):** centrally manage Gravitee environments and installations and promote APIs across various environments; the community version is limited to one managed environment
 
-### Product components
+### Gravitee product components
 
 #### APIM
 
-* **management UI:** a console UI that teams can use to configure their Gateway, design and create APIs, design policies, and publish documentation. Every action in the API management console is tied to a REST API that can be accessed outside the console
-* **management API:** REST API that can be used to configure and manage APIs and various Gravitee resources
-* **gateway:** reverse proxy layer that brokers, secures, and hardens access to APIs and data streams; natively supports both synchronous and asynchronous APIs
-* **developer portal:** build an API catalog and marketplace for API consumers fit with documentation, API analytics, and more
+* **Management UI:** a console UI that teams can use to configure their Gateway, design and create APIs, design policies, and publish documentation. Every action in the API management console is tied to a REST API that can be accessed outside the console
+* **Management API:** REST API that can be used to configure and manage APIs and various Gravitee resources
+* **API Gateway:** reverse proxy layer that brokers, secures, and hardens access to APIs and data streams; natively supports both synchronous and asynchronous APIs
+* **API developer portal:** build an API catalog and marketplace for API consumers fit with documentation, API analytics, and more
 
 #### AM
 
@@ -45,7 +45,7 @@ All core Gravitee and related web API terminology defined. Use the search functi
 * gateway
 * developer portal
 
-### Gravitee Terminology
+### Gravitee terminology
 
 * **Enterprise Edition:** Built on top of our open-source foundations, the enterprise event-native API Management platform enables organizations to fully manage, secure, monitor, and govern their entire API ecosystem. Learn more [here](gravitee-offerings-ce-vs-ee.md).
 * **Community Edition:** comprised of Gravitee’s open source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products. Learn more [here](gravitee-offerings-ce-vs-ee.md).
@@ -54,8 +54,13 @@ All core Gravitee and related web API terminology defined. Use the search functi
 * **Gateway endpoint:** the datasource from/to which the gateway will fetch/post data for/from the consumer that calls or subscribes to the gateway
 * **API publisher**
 * **API consumer**
+* **Application**
+* **Plan**
+* **Subscription**
 * **Plugin:** components that additional functionality by _plugging into_ the Gravitee ecosystem
 * **Policy:** rules or logic that can be executed by the API gateway during the request or the response of an API call. The functionality of the plugin is enabled through plugins
+* Context-path
+* Backend APIs
 *
 
 ### General API terminology
@@ -63,15 +68,61 @@ All core Gravitee and related web API terminology defined. Use the search functi
 * **API:** an application programming interface
   * **Web API:** the interacting parties run on separate machines and communicate over a network
   * **Local API:** both interacting parties run on the same machine
+  * API endpoint
+  * API entrypoint
   * **Synchronous APIs**: A synchronous API is an application programming interface (API) that processes a request and requires a response.&#x20;
     * Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
   * **Asynchronous APIs**: An asynchronous API allows for an application (consumer) to subscribe to a feed of data. All that app has to do is ask for updates once, and then updates are sent when an event occurs, regardless of whether there are any future requests. In other words, the consumers’ requests do not dictate the sending of data or messages after that initial subscription. Events (updates or changes in state) are what dictate the sending of data.
     * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
   * API design-first
   * API lifecycle
+* E
 * **Event-native:** event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs
 * **API specification**
   * **OpenAPI specification**
   * **AsyncAPI specification**: AsyncAPI is a specification for building and documenting asynchronous APIs. It defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API. It is similar to OpenAPI specification (formerly Swagger) but is specifically designed for messaging and event-driven APIs.
-* Architectural style
+  * CloudEvents
+* API description file
+* World wide web
+* Internet
+* Layered networking model
+  * Transport layer protocol
+  * Application layer protocol
+* Network communication model
+  * Request-response
+    * Client
+    * Server
+  * Event/message streaming
+    * Event
+    * Message
+    * Publisher
+    * Subscriber
+    * Broker
+* System architectural style
+  * Service-oriented architecture (SOA)
+  * Event-driven architecture (EDA)
+* API architectural style
+  * REST
+  * RPC
+  * Pub/sub
+  * GraphQL architectural style
+* Synchronous programming
+* Asynchronous programming
+* Synchronous web APIs
+* Asynchronous web APIs
+* Stateful web APIs
+* Stateless web APIs
+* Reactive programming
+* Queues
+* Logs
+* Stream processing
+* Concurrency
+* Parallelism
+* Data-interchange format
+* Serialization/deserialization
+* Infrastructure as Code (IaC)
+* Kafka
+  * topics
+  * partitions
+  * schema registry
 
