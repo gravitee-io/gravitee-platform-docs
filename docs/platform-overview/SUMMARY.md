@@ -1,13 +1,14 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Community Edition vs Enterprise Edition Offering](community-edition-vs-enterprise-edition-offering.md)
 * [About the Docs](platform-overview/getting-started.md)
 
 ## Gravitee Essentials
 
 * [Overview](gravitee-essentials/overview.md)
 * [API Fundamentals](gravitee-essentials/api-fundamentals.md)
-* [Core Concepts and Offering](gravitee-essentials/key-concepts.md)
+* [Core Concepts](gravitee-essentials/core-concepts.md)
 * [Gravitee Glossary](gravitee-essentials/glossary.md)
 
 ## Community
