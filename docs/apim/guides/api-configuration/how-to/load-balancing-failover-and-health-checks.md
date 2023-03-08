@@ -1,19 +1,10 @@
 ---
 description: >-
-  This section focuses on configuring API proxy settings once an API has been
-  created in Gravitee.
+  This section focuses on configuring load-balancing, failover, and health
+  checks as Gravitee backend services.
 ---
 
-# Configure API proxy settings
-
-### Introduction: the Proxy section
-
-In Gravitee, each API has several categories of configuration. One of those categories is the Proxy **** category, configured in the **Proxy** section for that API. Within the Proxy section, you can configure:
-
-* General settings: Entrypoints, CORS, Deployments, and response templates
-* Backend services: load-balancing, failover, and health checks
-
-You can also view the API's **Health-check dashboard**. This is a centralized place to view information around availability and response times, as measured by health check results.
+# Load-balancing, failover, and health checks
 
 ### Backend services: load-balancing, failover, and health checks
 
@@ -25,7 +16,7 @@ Gravitee API Management (APIM) offers three main backend services for managing y
 
 All of these capabilities are built in to the Gravitee APIM platform. The rest of this article will focus on how to configure these services; if you want more conceptual explanations of the services, please refer to the [Concepts sections on load-balancing, failover, and health checks](../concepts.md#load-balancing).&#x20;
 
-#### How to configure load-balancing in Gravitee
+### How to configure load-balancing in Gravitee
 
 To configure load-balancing in Gravitee, follow these steps:
 
@@ -115,7 +106,7 @@ Please refer to the [load-balancing concepts section](../concepts.md#load-balanc
 Congrats! Once you're done with your HTTP configuration, you can set up a health check for your endpoint. To learn more about setting up health checks, please refer to the "Health checks" section of this article.
 {% endhint %}
 
-#### How to configure failover
+### How to configure failover
 
 To configure failover, follow these steps:
 
@@ -151,7 +142,7 @@ To configure failover, follow these steps:
 Congrats! Once you hit **Save,** you will have configured failover successfully.&#x20;
 {% endhint %}
 
-#### Configure Gravitee health checks
+### Configure Gravitee health checks
 
 To configure health checks in Gravitee, follow these steps:
 
