@@ -79,9 +79,11 @@ In Gravitee's documentation, you can assume web APIs and APIs are synonymous ter
 {% endhint %}
 
 * **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
-* **HTTP API endpoint:** one end of a communication channel. It is the URL combined with an HTTP method used to access and operate on a resource
+* **HTTP API route:** URL used to access a resource
+  * Example: `http://foo.com/api/user/1`
+* **HTTP API endpoint:** one end of a communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
   * Example: `GET http://foo.com/api/user/1`
-* **HTTP API entrypoint:** a special type of resource — it’s a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entrypoint per API.
+* **HTTP API entry point:** a special type of resource — it’s a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API.
   * Example: `http://foo.com/api`
 * **Synchronous APIs**: APIs that require linear, sequential communication between a tightly-coupled client and server. Clients initiate all communication.&#x20;
   * Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
@@ -145,16 +147,19 @@ These are two really tricky concepts to disambiguate, largely due to how similar
 * **Stateful web APIs:** the server stores information about the client making the request. In other words, the session is stored on the server where the session is an encapsulation of a particular client and server interaction
 * **Stateless web APIs:** the server does not store any information about the client making the request. In other words, the session is stored on the client where the session is an encapsulation of a particular client and server interaction
 * **Reactive programming:** making _asynchronous data streams the spine_ of your application. Events are now the main orchestrators of your application’s flow. The reactive programmer manages the logic around manipulating and performing operations on the data streams.
-* Queues
-* Logs
+* **Queue:** a transient, linear data structure that uses the first in first out (FIFO) approach to accessing elements. Generally, each application has its own queue as messages are lost when consumed.
+  * Example: RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are all queue-based
+* **Log:** an immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature.
+  * Example: Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based
 * **Batch processing:** processing and analysis on a large (large in comparison to stream processing) set of data that has already been stored for a period of time
 * **Stream processing:** applying complex logic to an array of input streams as they flow through the system that can be joined, aggregated, filtered, etc.
-* Data-interchange format
-* Serialization/deserialization
-* Fully qualified domain name (fqdn)
-* API route
-* Domain
-* URL
-* URI
-* URN
+* **Data-interchange format:** text or binary serialized formats for storing and transferring data
+* **Serialization:** the **** process of converting an object in memory to a stream of bytes for storage or transport
+* **Deserialization:** the inverse process of serialization that converts a stream of bytes back into a complex object
+* **Domain name:** part of a network address that identifies a realm of administrative autonomy, authority or control
+* **Fully qualified domain name (FQDN):** a domain name that specifies its exact location in the tree hierarchy of the Domain Name System
+
+
+
+
 
