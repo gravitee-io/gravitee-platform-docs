@@ -1,7 +1,7 @@
 ---
 description: >-
   This article walks through how to configure service discovery if using either
-  the Gravitee-supported Eureka or Hashicorp Consul Service Discovery solutions.
+  the Gravitee-supported Eureka or HashiCorp Consul Service Discovery solutions.
 ---
 
 # Configure Service Discovery
@@ -10,7 +10,7 @@ description: >-
 
 
 
-### Configure Hashicorp Consul Service Discovery
+### Configure HashiCorp Consul Service Discovery
 
 Gravitee.io Service discovery for HashiCorp Consul allows you to bind the backend endpoints of your API to a service managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.
 
@@ -20,7 +20,7 @@ We will be using docker-compose to setup an integration between Gravitee.io APIM
 
 Refer to this [guide](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_compose.html) to install Gravitee thanks to docker-compose.
 
-#### Install Hashicorp Consul Server
+#### Install HashiCorp Consul Server
 
 The first step is to install a Consul server. Consul agents that run in server mode become the centralized registry for service discovery information in your network. They answer queries from other Consul agents about where a particular service can be found. For example, if you ask them where the log service is running, they may return to you that it is running on three machines, with these IP addresses, on these ports. Meanwhile, services such as the log service register themselves with the Consul clients so that they can become discoverable.
 
@@ -75,7 +75,7 @@ The `addresses` field specifies the address that the agent will listen on for co
 
 By default, this is `0.0.0.0`, meaning Consul will bind to all addresses on the local machine and will advertise the private IPv4 address to the rest of the cluster.
 
-#### Register a Service with Haashcorp Consul
+#### Register a Service with HashiCorp Consul
 
 An easy way to register a service in Consul is to request the `/v1/agent/service/register` endpoint of Consul’s [Catalog HTTP API](https://www.consul.io/api-docs/catalog).
 
@@ -191,6 +191,48 @@ Now that you've successfully registered your service instances in Hashicorp Cons
 Select **Save** to finish configuring your Service discovery settings. Your API should now appear out of sync in the top banner. Be sure to click **deploy your API**.
 {% endhint %}
 
-Please note that endpoints configured through the APIM console before service discovery was enabled are not removed. The Gravitee.io gateway will continue to consider those endpoints in addition to the ones discovered through Consul integration. The endpoints dynamically discovered through Consul are not displayed in the Gravitee API Management (APIM) UI. You can remove the defined endpoints through the Gravitee APIM UI. However, we encourage you to keep at least one endpoint declared as secondary. Secondary endpoints are not included in the load-balancer pool and are only selected to handle requests if Consul is no longer responding. To declare an endpoint as secondary, please see this documentation.&#x20;
+Please note that endpoints configured through the APIM console before service discovery was enabled are not removed. The Gravitee.io gateway will continue to consider those endpoints in addition to the ones discovered through Consul integration. The endpoints dynamically discovered through Consul are not displayed in the Gravitee API Management (APIM) UI. You can remove the defined endpoints through the Gravitee APIM UI. However, we encourage you to keep at least one endpoint declared as secondary. Secondary endpoints are not included in the load-balancer pool and are only selected to handle requests if Consul is no longer responding. To declare an endpoint as secondary, please follow these steps:
+
+1\. In the **Backend services** section, locate your endpoint that you want to define as secondary. For that endpoint, select **Edit endpoint**.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/373fcf82-31ee-4b3b-96ac-a3272c3e24a2/1.5/92.523758499711/38.38616244195?0)
+
+2\. Select the **Secondary endpoint** checkbox. Select **Save**.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/ef0dd779-712f-4dfd-9d8c-938f000d3dbe/2.5/35.474537037037/76.989809081527?0)
+
+#### Verify that your service is properly discovered by the Gravitee API Gateway
+
+You can check API gateway’s logs to verify that your service have been successfully discovered thanks to HashiCorp Consul:
+
+{% code overflow="wrap" %}
+```
+INFO  i.g.g.h.a.m.impl.ApiManagerImpl - API id[194c560a-fcd1-4e26-8c56-0afcd17e2630] name[Time] version[1.0.0] has been updated
+INFO  i.g.d.consul.ConsulServiceDiscovery - Register a new service from Consul.io: id[whattimeisit] name[whattimeisit]
+INFO  i.g.g.s.e.d.v.EndpointDiscoveryVerticle - Receiving a service discovery event id[consul:whattimeisit] type[REGISTER]
+```
+{% endcode %}
+
+You can now try to call your API to make sure that incoming API requests are properly routed to the proper backend service.
+
+You can also deregister your service instance from Consul by refering to their ID and call your API again to observe how APIM dynamically routes the trafic based on Consul’s Service Catalog. To do, execute the following curl command:
+
+```
+curl -X PUT -v "http://localhost:8500/v1/agent/service/deregister/whattimeisit"
+```
+
+If you encounter any issues, enable logs in order to troubleshoot.
+
+{% hint style="success" %}
+You've now integrated the Gravitee.io API Gateway with HashiCorp Consul, which enables dynamic load balancer configuration changes that are pulled directly from Consul’s service discovery registry.
+{% endhint %}
+
+{% hint style="info" %}
+#### **Additional considerations if integrating Gravitee with HashiCorp Consul:**&#x20;
+
+If you have integrated Gravitee and HashiCorp Consul for Service Discovery, you may want to enable health checks for your API. This will allow you to view the status of all endpoints under the Per-endpoint availability section in Gravitee, including the endpoints managed by HashiCorp Consul. For more details on how to enable Gravitee health checks, refer to [this documentation](load-balancing-failover-and-health-checks.md#configure-gravitee-health-checks).
+
+<img src="../../../.gitbook/assets/enable health check to monitor backend endpoints managed by Hashicorp Consul.png" alt="" data-size="original">
+{% endhint %}
 
 ### Eureka Service Discovery
