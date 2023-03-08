@@ -25,7 +25,7 @@ Gravitee API Management (APIM) offers three main backend services for managing y
 
 All of these capabilities are built in to the Gravitee APIM platform. The rest of this article will focus on how to configure these services; if you want more conceptual explanations of the services, please refer to the [Concepts sections on load-balancing, failover, and health checks](../concepts.md#load-balancing).&#x20;
 
-### How to configure load-balancing in Gravitee
+#### How to configure load-balancing in Gravitee
 
 To configure load-balancing in Gravitee, follow these steps:
 
@@ -79,15 +79,15 @@ Please refer to the [load-balancing concepts section](../concepts.md#load-balanc
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/e338a81b-8c36-4cf1-b927-3f4b7204cea6/ascreenshot.jpeg?tl\_px=489,0\&br\_px=1982,840\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,78)
 
-\*\*13. You'll see your endpoint group. To add endpoints to this group, **select** + Add endpoint. \*\*
+13\. You'll see your endpoint group. To add endpoints to this group, **select** + Add endpoint.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/323033e1-0584-474a-87f4-4f9ad075a8e8/ascreenshot.jpeg?tl\_px=1823,560\&br\_px=3316,1400\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,139)
 
-**14. In the General tab, define your endpoint name, target URL, weight (if you chose a weighted load-balancing algorithm), and your tenants. Click here.**
+14\. In the General tab, define your endpoint name, target URL, weight (if you chose a weighted load-balancing algorithm), and your tenants.
 
 ![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/accdc8c6-ee91-4bd6-a351-9c3a2656360f/stack\_animation.webp)
 
-**15.** Optional: **select** Secondary endpoint to define this endpoint outside the main load balancing pool. This will make the endpoint used for load balancing only if all the primary endpoints are marked as down by the health check.
+15\. **** Optional: **select** Secondary endpoint to define this endpoint outside the main load balancing pool. This will make the endpoint used for load balancing only if all the primary endpoints are marked as down by the health check.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/49f626c6-5ee4-45df-a8f3-5cb76bbcb15d/ascreenshot.jpeg?tl\_px=763,1098\&br\_px=2256,1938\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,141)
 
@@ -115,7 +115,7 @@ Please refer to the [load-balancing concepts section](../concepts.md#load-balanc
 Congrats! Once you're done with your HTTP configuration, you can set up a health check for your endpoint. To learn more about setting up health checks, please refer to the "Health checks" section of this article.
 {% endhint %}
 
-### How to configure failover
+#### How to configure failover
 
 To configure failover, follow these steps:
 
@@ -151,7 +151,7 @@ To configure failover, follow these steps:
 Congrats! Once you hit **Save,** you will have configured failover successfully.&#x20;
 {% endhint %}
 
-### Configure Gravitee health checks
+#### Configure Gravitee health checks
 
 To configure health checks in Gravitee, follow these steps:
 
