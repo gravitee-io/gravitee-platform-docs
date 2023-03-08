@@ -1,12 +1,21 @@
 ---
 description: >-
-  This page walks you through how to configure load-balancing, failover, and
-  health checks for your Gravitee APIs and endpoints.
+  This section focuses on configuring API proxy settings once an API has been
+  created in Gravitee.
 ---
 
-# Configure Load-balancing, Failover, and Health Checks for your APIs
+# Configure API proxy settings
 
-### Introduction: load-balancing, failover, and health checks
+### Introduction: the Proxy section
+
+In Gravitee, each API has several categories of configuration. One of those categories is the Proxy **** category, configured in the **Proxy** section for that API. Within the Proxy section, you can configure:
+
+* General settings: Entrypoints, CORS, Deployments, and response templates
+* Backend services: load-balancing, failover, and health checks
+
+You can also view the API's **Health-check dashboard**. This is a centralized place to view information around availability and response times, as measured by health check results.
+
+### Backend services: load-balancing, failover, and health checks
 
 Gravitee API Management (APIM) offers three main backend services for managing your APIs. These services are:&#x20;
 
@@ -114,11 +123,11 @@ To configure failover, follow these steps:
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/c49cd12d-c15a-4336-bd9f-c47d12bae8f5/2.5/18.634259259259/19.148284313725?0)
 
-2\. Select the Edit API icon.
+2\. Select the **Edit API** icon.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/45a34f5e-3580-4a1e-8c8a-b0375d25be07/2.5/95.833333333333/49.307436790506?0)
 
-3\. Like load-balancing, failover is a backend service. To make failover configurations, select Backend services in the Proxy section.
+3\. Like load-balancing, failover is a backend service. To make failover configurations, select **Backend services** in the **Proxy** section.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/52c7ec53-d5b7-486c-86ac-e9012ecaa972/1.5/15.046296296296/55.830753353973?0)
 
@@ -195,3 +204,4 @@ To configure health checks in Gravitee, follow these steps:
 {% hint style="success" %}
 To finish up, select **Save**. You can see a visual summary of the health check configuration you specified on the right.
 {% endhint %}
+
