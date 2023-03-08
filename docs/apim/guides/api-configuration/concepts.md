@@ -7,6 +7,30 @@ description: >-
 
 # Concepts
 
+### API Proxy configuration overview
+
+In Gravitee, you can configure several API proxy settings. You can use the interactive UI explorer or the text descriptions to learn more:&#x20;
+
+{% tabs %}
+{% tab title="Interactive UI exploration" %}
+{% @arcade/embed flowId="tn8DhyHNq83ZWp8pyqOC" url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" %}
+{% endtab %}
+
+{% tab title="Text descriptions" %}
+In the Proxy section, you can configure the following settings:
+
+* General settings
+  * **Entrypoints**: define the Context Path, or the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
+  * **CORS**: CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served. For more information on CORS, refer to the [CORS specification](https://fetch.spec.whatwg.org/).&#x20;
+  * **Deployments**: choose to use sharding tags to control where your APIs are deployed.
+  * **Response templates**: define your own response templates if you're looking to override default responses from the gateway.
+* Backend services (more information on each of these in the next section of this article)
+  * Load-balancing
+  * Failover
+  * Health checks
+{% endtab %}
+{% endtabs %}
+
 ### Load balancing
 
 Load balancing is a technique used to distribute incoming traffic across multiple backend servers. The goal of load balancing is to optimize resource utilization, maximize throughput, minimize response time, and avoid overloading any single server. The Gravitee Gateway comes with a built-in load balancer, which you can enable and configure for your API endpoints according to your requirements. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
@@ -77,4 +101,14 @@ After you've configured health checks, you can view health check information and
 {% endtabs %}
 
 ### Service Discovery
+
+Gravitee comes with built-in support for the following Service Discovery solutions:
+
+* **Eureka Service Discovery**: Eureka is a service discovery tool developed by Netflix that allows services to find and communicate with each other in a distributed system. Eureka provides a central registry where services can register themselves and their availability. Gravitee.io Service discovery for Eureka allows you to bind the backend endpoints of your API to a service managed by Eureka.
+*   **Hashicorp Service Discovery:** HashiCorp Consul is a service mesh solution providing a full featured control plane with service discovery, configuration, and segmentation functionality. Hashicopr consul offers the following features:
+
+    * **Service Discovery:** One of the main goals of service discovery is to provide a catalog of available services and to potentially associate it with a health check. Clients of HashiCorp Consul can register a service, such as a backend api, and other clients can use HashiCorp Consul to discover providers of a given service. Using either DNS or HTTP, applications can easily find the services they depend upon.
+    * **Health Checking:** HashiCorp Consul clients can provide any number of health checks, either associated with a given service ("is the webserver returning 200 OK"), or with the local node ("is memory utilization below 90%"). This information is used by the service discovery components to route traffic away from unhealthy hosts.
+
+    Gravitee.io Service discovery for HashiCorp Consul allows you to bind the backend endpoints of your API to a service managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.
 
