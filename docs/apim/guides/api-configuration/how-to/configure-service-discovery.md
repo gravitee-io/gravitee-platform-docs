@@ -8,7 +8,12 @@ description: >-
 
 ### Introduction
 
+Gravitee supports the following Service Discovery solutions:
 
+* HashiCorp Consul
+* Eureka
+
+Please read the following documentation to learn how to configure both.
 
 ### Configure HashiCorp Consul Service Discovery
 
@@ -236,3 +241,4 @@ If you have integrated Gravitee and HashiCorp Consul for Service Discovery, you 
 {% endhint %}
 
 ### Eureka Service Discovery
+
