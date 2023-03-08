@@ -139,7 +139,7 @@ The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subsc
 * **Parallelism vs Concurrency:** the key concept is that concurrency is about _dealing with_ lots of things at once. Parallelism is about _doing_ lots of things at once.&#x20;
 
 {% hint style="info" %}
-Concurrency vs parallelism
+**Concurrency vs parallelism**
 
 These are two really tricky concepts to disambiguate, largely due to how similar they are and all the terminology (e.g., processes, threads, tasks, etc.) that can have slightly different meanings in different contexts. If you’re interested in developing a more intuitive understanding, our recommendation is to take a deep dive until you find an explanation that really clicks. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) is a great starting place.
 {% endhint %}
