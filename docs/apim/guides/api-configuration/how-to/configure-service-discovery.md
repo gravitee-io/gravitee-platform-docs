@@ -134,6 +134,63 @@ curl -X PUT -d '{ "ID": "whattimeisit_2", "Name": "whattimeisit", "Address": "ap
 ```
 {% endcode %}
 
+#### Enable Consul Service Discovery in Gravitee API Management
 
+Now that you've successfully registered your service instances in Hashicorp Consul, you can enable Hashicorp Consul Service discovery in the Gravitee AP Management UI. To do so, follow these steps:
+
+1. Log in to your Gravitee API Management UI.
+2. Either create or select an existing API.
+
+![](https://dubble-prod-01.s3.amazonaws.com/assets/c0164628-49f4-42df-8823-5621fa9339b7.png?0)
+
+3\. Select the **Edit API** icon.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/3e87572b-26b0-4f4e-8f76-99c099d47aa9/1/95.833333333333/49.307436790506?0)
+
+4\. In the **Proxy** section, select **Backend services**.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/0beadecd-489d-4200-b39a-ac23ad3f033a/1/15.046296296296/55.830753353973?0)
+
+5\. In the **Endpoints** tab, select **Edit group**.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/143d94ca-f2f6-4b91-9598-941d251b1006/1.5/87.883391203704/26.625386996904?0)
+
+6\. Select **Service discovery**
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/935ba02e-2c16-4313-8c51-00d5b5ce43f9/2.5/52.611626519097/15.376676986584?0)
+
+7\. Toggle **Enabled service discovery** ON.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/cc47712b-d288-46eb-ace9-c63bf88c88c8/2.5/35.619212962963/25.386996904025?0)
+
+8\. Select **Consul.io Service Discovery** from the **Type** dropdown.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/d17cb969-d679-4960-8806-a5d1bc5646b0/1.2507598784195/64.178240740741/32.992292311662?0)
+
+9\. Enter the name of the service registered in Consul. For this article, it is "whattimeisit."
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/f23c9553-10b2-4ef0-96c4-44bc3fb1fd14/1/64.178240740741/106.73374613003?0)
+
+10\. Define your **DC** setting. "DC" refers to the consul datacenter. This is an optional part of the Fully Qualified Domain Name (FQDN). If not provided, it defaults to the datacenter of the agent. Refer to [this documentation](https://developer.hashicorp.com/consul/docs/architecture) for more details.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/dab3173b-6d55-45c0-8770-6b8e4c270ed5/1/64.178240740741/105.16560242518?0)
+
+11\. Define **ACL** settings. This is where you provide the ACL token if you’ve secured the access to Consul. For more information on how to setup ACLs, refer to [this ACL tutorial](https://developer.hashicorp.com/consul/tutorials/security/access-control-setup-production).
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/bce05dbf-c51c-46f5-8256-413abe3c2f48/1/64.178240740741/105.16560242518?0)
+
+12\. Define your **Truststore Type**. You can select the type of truststore (Java KeyStore or PKCS#12) storing the certificates that will be presented from the Consul agent to Gravitee during the secure connection handshake (SSL/TLS). When selecting None (Trust All) you configure Gravitee.io to trust all certificates presented by Consul during the connection handshake. You can either copy/paste the content of your Truststore directly in the Truststore content field or provide the path to you external Truststore in the Truststore path field. At least one of the two must be provided.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/9b92b3a6-d5a3-46c6-a6de-9977c0948dd6/1/64.178240740741/81.636190660475?0)
+
+13\. Define your **KeyStore Type**. You can select the type of keystore (Java KeyStore or PKCS#12) storing certificates that will be presented by Gravitee.io to the Consul agent during the secure connection handshake (SSL/TLS). You can either copy/paste the content of your keystore directly in the KeyStore content field or provide the path to you external Keystore in the KeyStore path field. At least one of the two must be provided.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/f0085922-f6da-4ee7-8606-93fadeee3747/1/64.178240740741/47.786861455108?0)
+
+{% hint style="success" %}
+Select **Save** to finish configuring your Service discovery settings. Your API should now appear out of sync in the top banner. Be sure to click **deploy your API**.
+{% endhint %}
+
+Please note that endpoints configured through the APIM console before service discovery was enabled are not removed. The Gravitee.io gateway will continue to consider those endpoints in addition to the ones discovered through Consul integration. The endpoints dynamically discovered through Consul are not displayed in the Gravitee API Management (APIM) UI. You can remove the defined endpoints through the Gravitee APIM UI. However, we encourage you to keep at least one endpoint declared as secondary. Secondary endpoints are not included in the load-balancer pool and are only selected to handle requests if Consul is no longer responding. To declare an endpoint as secondary, please see this documentation.&#x20;
 
 ### Eureka Service Discovery
