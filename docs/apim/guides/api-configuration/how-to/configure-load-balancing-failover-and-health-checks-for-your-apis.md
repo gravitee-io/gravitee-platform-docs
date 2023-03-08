@@ -109,3 +109,89 @@ Congrats! Once you're done with your HTTP configuration, you can set up a health
 ### How to configure failover
 
 To configure failover, follow these steps:
+
+1\. First, search for the API whose endpoints you want to configure failover for.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/c49cd12d-c15a-4336-bd9f-c47d12bae8f5/2.5/18.634259259259/19.148284313725?0)
+
+2\. Select the Edit API icon.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/45a34f5e-3580-4a1e-8c8a-b0375d25be07/2.5/95.833333333333/49.307436790506?0)
+
+3\. Like load-balancing, failover is a backend service. To make failover configurations, select Backend services in the Proxy section.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/52c7ec53-d5b7-486c-86ac-e9012ecaa972/1.5/15.046296296296/55.830753353973?0)
+
+4\. Select the **Failover** tab.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/87522d51-7e88-4e61-9f16-6c75c1efd846/2.5/39.467592592593/9.5975232198142?0)
+
+5\. Toggle **Enable Failover** ON.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/213683b2-cd69-4004-83ef-09d68578019c/2.5/36.082175925926/23.735810113519?0)
+
+6\. Next, you'll need to define your Max attempts setting. This setting defines the upper limit for the number of possible Gravitee API Gateway attempts to find a suitable endpoint, according to the load balancing algorithm, before returning an error.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/b35939dc-685a-411b-afe1-fe1320e9a988/1.2507598784195/64.178240740741/36.532507739938?0)
+
+7\. After you define your Max attempts setting, define your Timeout setting. The Timeout setting defines the upper limit for time spent (in ms) between each attempt before timing out.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/c1a1ba3a-bb99-476a-bd25-46adb82564a1/1.2507598784195/64.178240740741/56.883707430341?0)
+
+{% hint style="success" %}
+Congrats! Once you hit **Save,** you will have configured failover successfully.&#x20;
+{% endhint %}
+
+### Configure Gravitee health checks
+
+To configure health checks in Gravitee, follow these steps:
+
+1\. Select the API whose endpoints you want to configure a health check for.
+
+![](https://dubble-prod-01.s3.amazonaws.com/assets/95835132-46be-42d5-9fa3-9fd374e2b23a.png?0)
+
+2\. Select the **Edit API** icon.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/d5ae9220-2c42-4cd0-9527-b37afe875169/1.5/95.833333333333/49.307436790506?0)
+
+3\. Like load-balancing and failover, health checks are a backend service provided out-of-the-box by Gravitee. Select **Backend services** within the **Proxy** section.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/654ff309-c168-40e0-82e2-a4e38aaed173/1/13.888888888889/56.862745098039?0)
+
+4\. In the Backend services menu, select **Health-check**.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/733bdda1-a849-4ed8-a193-018ff3f14568/1.5/53.356481481481/9.5975232198142?0)
+
+5\. Toggle **Enable health-check** ON.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/8f5b6037-f3b0-4e16-8e63-3d8d52b10335/2.5/36.545138888889/37.203302373581?0)
+
+6\. Now, you'll need to define your Trigger settings. The first step is to define the Trigger schedule, which will define a time interval between each health check.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/1619e966-8fda-407f-bdc8-36f230e805d5/1.2252234684804/64.178240740741/52.671891124871?0)
+
+7\. Next, enter the HTTP method that will trigger the health check.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/a9a03a97-cd64-4b4d-8e03-11b5fafe0d4c/1.2507598784195/64.178240740741/70.915570175439?0)
+
+8\. Next, define the Path that will trigger the health check. Optionally, you can choose to toggle **From root path ('/')** ON. This will apply the path specified at the root URL level. For example, if your endpoint URL is `www.test.com/api`, this option removes /api before appending the path.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/f3b66f85-49b5-42fd-bd88-14b51181550c/2.5/35.624757317802/63.466686016512?0)
+
+9\. In the HTTP Headers section, you can specify any headers that you want to trigger a health check. You can use the Gravitee Expression Language to configure a header. Available variables are dictionaries and API’s properties access.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/04225d0c-29bf-4d83-b1c3-7d0e9cbcae6e/2.5/49.956597222222/69.513512641899?0)
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/2b6db031-54e1-42ea-9f65-e668712a835c/2.5/49.956597222222/90.15334752322?0)
+
+11\. In the Assertions section, you can specify any conditions to test for in the API response in order to trigger a health check. Assertions are written in Gravitee Expression Language. An assertion can be a simple 200 response (#response.status == 200), but you can also test for specific content.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/3e574674-2b01-4f8f-bf29-8f9000a86851/1.3402555910543/62.789351851852/72.078173374613?0)
+
+12\. To add an assertion, select **+ Add assertion**.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/fcdc7f5a-01de-4865-bf38-8e09268ef122/2.5/35.9375/80.366357069143?0)
+
+{% hint style="success" %}
+To finish up, select **Save**. You can see a visual summary of the health check configuration you specified on the right.
+{% endhint %}
