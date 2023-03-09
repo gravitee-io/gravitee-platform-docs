@@ -212,7 +212,7 @@
   * [How-to](guides/api-configuration/how-to.md)
     * [Load-balancing, failover, and health checks](guides/api-configuration/how-to/load-balancing-failover-and-health-checks.md)
     * [Configure Service Discovery](guides/api-configuration/how-to/configure-service-discovery.md)
-    * [Configure CORS](guides/api-configuration/how-to/configure-cors.md)
+    * [Configure General Proxy settings](guides/api-configuration/how-to/configure-general-proxy-settings.md)
 * [Policy Design](guides/policy-design/README.md)
   * [Concepts](guides/policy-design/concepts.md)
   * [How-to](guides/policy-design/how-to.md)

@@ -1,14 +1,32 @@
 ---
-description: This article focuses on how to configure CORS
+description: >-
+  This article focuses on how to configure the General Proxy settings for an
+  API, which includes Entrypoints, CORS, Deployments, and Response Templates
+  configurations.
 ---
 
-# Configure CORS
+# Configure General Proxy settings
 
 ### Introduction
 
-CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API. If you want to know more about CORS at the conceptual level, refer to the CORS "Concepts" article.
+In Gravitee, there is a **General** subsection of the **Proxy** section. In the **General** section, you can configure the following settings per API:
+
+* Entrypoints
+* CORS
+* Deployments
+* Response Templates
+
+This article walks through how to configure each of the above.
+
+### Configure Entrypoints
+
+To configure Entrypoints, follow the below interactive tutorial, or, follow the numbered steps below.
+
+
 
 ### Configure CORS
+
+CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API. If you want to know more about CORS at the conceptual level, refer to the CORS "Concepts" article. If you want to learn more about CORS at a conceptual level, we recommend referring to the [CORS section](../concepts.md#cors) of the "Concepts" article for this section.
 
 To configure CORS for an API, follow these steps:
 
