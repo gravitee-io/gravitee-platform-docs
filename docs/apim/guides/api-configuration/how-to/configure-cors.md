@@ -125,7 +125,7 @@ You've configured your CORS settings for your API. When you are done, select **S
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-![](../../../.gitbook/assets/graviteeio-troubleshooting-cors.png)
+![](<../../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png>)
 {% endhint %}
 
 ### Configure Deployments

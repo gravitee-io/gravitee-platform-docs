@@ -124,3 +124,12 @@ CORS is valuable because it enables web developers to build web applications tha
 While beneficial for certain use cases, there are also risks to CORS. One risk is that by allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data. To mitigate this risk, servers can use more restrictive CORS policies, or avoid exposing sensitive data altogether.
 {% endhint %}
 
+### Sharding tags
+
+The sharding tags mechanism allows you to specify which “shard” of of your Gravitee API Gateway an API should be deployed too. This feature is useful when you have many API Gateways dedicated to different networks, audiences, programs, and so forth. To explain this further, let’s dive into an example scenario.\
+\
+In the diagram below we have an example of a typical deployment an organization may use for their API Management. This scenario looks to deploy two APIs in a distributed manner, providing high availability across different regions and in different network environments.
+
+<figure><img src="../../.gitbook/assets/Example architecture.png" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
+
+If using sharding tags, you could tag these Gateways with specific keywords. Once the Gateways are tagged, you can [select that tag in an APIs Deployments proxy settings](how-to/configure-cors.md#configure-deployments). Whatever tag you select for that API will end up being the Gateway where that API is deployed.
