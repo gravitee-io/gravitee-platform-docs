@@ -128,3 +128,50 @@ All requests rejected because of CORS issues will generate logs that you can vie
 ![](../../../.gitbook/assets/graviteeio-troubleshooting-cors.png)
 {% endhint %}
 
+### Configure Deployments
+
+The **Deployments** tab is where you can choose to use Sharding tags to control where your API is deployed. For more information on Sharding tags, what they are useful for, and how to configure them, please refer to our "How-to" article on configuring Sharding tags.
+
+To choose Sharding tags, follow the below interactive tutorial, or, follow the numbered steps below.
+
+{% @arcade/embed flowId="d6TOgaGsnGu4ycqJ4PUr" url="https://app.arcade.software/share/d6TOgaGsnGu4ycqJ4PUr" %}
+
+1\. Log in to the API Management UI.
+
+![](https://dubble-prod-01.s3.amazonaws.com/assets/c21bd268-c8c7-4716-a0b4-897b5ff9a96b.png?0)
+
+2\. Select the **APIs** menu.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/9ab2716a-118b-4eb0-b1f1-b0961edf401a/1/1.3333333333333/23.301549463647?0)
+
+3\. Select the API for which you want to configure Deployments.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/8f848b27-8130-4f2a-9b4b-979e61138eee/1/24.166666666667/22.11524135876?0)
+
+4\. Select the **Edit API** icon.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/0c93469f-f6a1-45cf-a30e-98abaa26b355/1/96.666666666667/58.377719010727?0)
+
+5\. Under **Proxy**, select **General**.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/9203d84f-2fdc-4448-a42f-a8688d989a4a/1/20/61.144219308701?0)
+
+6\. Select the **Deployments** tab.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/04d84637-14ed-4147-ab3a-ad01a01de22e/1.5/83.5/11.084624553039?0)
+
+7\. Select the **Sharding tags** drop down menu.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/2b14b4dd-bbb5-4f59-95c8-5b4966ff8ee0/1.5/98.26953125/31.236032479142?0)
+
+8\. Choose the Sharding tag that you want to assign to the API. This will dictate where it is deployed.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/d019ecb2-ac33-417e-abe5-76a8f04dcabb/1.5/41.708333333333/53.003016984505?0)
+
+{% hint style="success" %}
+Select Save. You will have successfully configured your API deployment settings via choosing a sharding tag.
+{% endhint %}
+
+### Configure Response Templates
+
+If you want to define your own response templa
