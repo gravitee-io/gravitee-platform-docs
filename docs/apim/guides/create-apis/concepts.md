@@ -4,7 +4,7 @@ description: A description of the various API creation concepts in Gravitee.
 
 # Concepts
 
-## Different ways to create APIs in Gravitee
+### Different ways to create APIs in Gravitee
 
 Gravitee offers three methods for getting started with API creation:
 

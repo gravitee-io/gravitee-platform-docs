@@ -6,6 +6,8 @@ description: >-
 
 # Concepts
 
+API exposure revolves around three core components: plans, applications, and subscriptions. Once an API is started and published, it will be visible in the developer portal, but can not be consumed until a plan is published. A plan with no authentication can be consumed immediately. However, adding any form of authentication requires the API consumer to register an application and subscribe to one of the published plans for that API. This allows the API producer to closely monitor and control access to their APIs at a much more granular level.&#x20;
+
 ### Plans
 
 There are many possible types of API access scenarios, which can be difficult to encode into your APIs. Different types of access scenarios often require external tools. In Gravitee API Management (APIM), however, you can manage access with plans.
@@ -27,9 +29,9 @@ Exposing an API to a consumer requires at least one plan, but can support as man
 
 <figure><img src="../../.gitbook/assets/plan-diagram.png" alt=""><figcaption><p>Plan diagram</p></figcaption></figure>
 
+#### Create a Plan
 
-
-
+You can create plans in the management UI as part of the [API creation process](../../user-guide/publisher/create-api.md#create-an-api-from-scratch). You can also create them later with the **Portal > Plans** function.&#x20;
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
@@ -37,7 +39,11 @@ Exposing an API to a consumer requires at least one plan, but can support as man
 {% endtab %}
 
 {% tab title="Text descriptions" %}
-You can create plans in APIM Console as part of the API creation process. You can also create them later with the **Portal > Plans** function. The workflow is as follows:
+
+{% endtab %}
+{% endtabs %}
+
+
 
 *   Step 1 - Create the basic plan definition.
 
@@ -54,11 +60,6 @@ You can create plans in APIM Console as part of the API creation process. You ca
 *   Step 5 - Publish the plan.
 
     [Learn more about publishing plans](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_plan\_publish.html)
-
-\
-
-{% endtab %}
-{% endtabs %}
 
 ### Applications
 
