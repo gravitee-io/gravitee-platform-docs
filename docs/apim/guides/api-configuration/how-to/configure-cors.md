@@ -125,12 +125,12 @@ You've configured your CORS settings for your API. When you are done, select **S
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-![](<../../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png>)
+![](../../../.gitbook/assets/graviteeio-troubleshooting-cors.png)
 {% endhint %}
 
 ### Configure Deployments
 
-The **Deployments** tab is where you can choose to use Sharding tags to control where your API is deployed. For more information on Sharding tags, what they are useful for, and how to configure them, please refer to our "How-to" article on configuring Sharding tags.
+The **Deployments** tab is where you can choose to use Sharding tags to control where your API is deployed. Sharding tags are configured at the **Organization** level in Gravitee; for more information on Sharding tags, what they are useful for, and how to configure them, please refer to our ["How-to" article on configuring Sharding tags](../../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
 
 To choose Sharding tags, follow the below interactive tutorial, or, follow the numbered steps below.
 

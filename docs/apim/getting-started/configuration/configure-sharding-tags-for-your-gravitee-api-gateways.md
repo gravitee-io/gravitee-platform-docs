@@ -15,7 +15,7 @@ Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a G
 
 The following section focuses on how to configure sharding tags. We will explain the steps assuming that our architecture includes both DMZ gateways and internal, corporate gateways. We want to tag these gateways as external only and internal only, respectively. Please see the corresponding diagram below:
 
-<figure><img src="../../.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Example architecture.png" alt=""><figcaption></figcaption></figure>
 
 Before you can start defining sharding tags in the Gravitee API Management UI, you will need to do some work in your API gateway `gravitee.yaml` file. To assign a Gravitee API Gateway to a specific sharding tag for the above scenario and architecture, make the following changes in the `gravitee.yaml` file:
 
@@ -87,8 +87,10 @@ Once the gateways have been tagged, you will need to define the same sharding ta
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/23db58e8-6576-49aa-a51f-9fdcd37073cb/1.5/60.272442853009/69.892447110423?0)
 
-{% hint style="success" %}
 You'll now see your entrypoint mapping in the Entrypoint mappings section.
 
-![](../../.gitbook/assets/image.png)
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+You've now learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs (in order to control where those APIs are deployed), refer to [this documentation](../../guides/api-configuration/how-to/configure-cors.md#configure-deployments).
 {% endhint %}
