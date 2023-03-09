@@ -21,7 +21,7 @@ In the Proxy section, you can configure the following settings:
 
 * General settings
   * **Entrypoints**: define the Context Path, or the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-  * **CORS**: CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served. For more information on CORS, refer to the [CORS specification](https://fetch.spec.whatwg.org/).&#x20;
+  * **CORS**: CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served. For more information on CORS, refer to the [CORS specification](https://fetch.spec.whatwg.org/) and/or read the [CORS section of this article](concepts.md#cors).&#x20;
   * **Deployments**: choose to use sharding tags to control where your APIs are deployed.
   * **Response templates**: define your own response templates if you're looking to override default responses from the gateway.
 * Backend services (more information on each of these in the next section of this article)
@@ -111,4 +111,16 @@ Gravitee comes with built-in support for the following Service Discovery solutio
     * **Health Checking:** HashiCorp Consul clients can provide any number of health checks, either associated with a given service ("is the webserver returning 200 OK"), or with the local node ("is memory utilization below 90%"). This information is used by the service discovery components to route traffic away from unhealthy hosts.
 
     Gravitee.io Service discovery for HashiCorp Consul allows you to bind the backend endpoints of your API to a service managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.
+
+### CORS
+
+CORS, or Cross-Origin Resource Sharing, is a mechanism that allows web pages to make requests to a different domain than the one that served the original content. It is a security feature implemented by web browsers to prevent malicious websites from making unauthorized requests to another website, and is enforced by default by most modern browsers.
+
+CORS works by adding an extra HTTP header to the response sent by the server, which tells the browser whether or not the request is allowed. This header is known as the Access-Control-Allow-Origin header, and it specifies which domains are allowed to access the resource. For example, if the header is set to "Access-Control-Allow-Origin: https://example.com", then only requests from the https://example.com domain will be allowed.
+
+CORS is valuable because it enables web developers to build web applications that interact with multiple domains and APIs, without compromising security. Without CORS, web applications would only be able to make requests to the same domain that served the original content, which would severely limit the functionality of many modern web applications.
+
+{% hint style="danger" %}
+While beneficial for certain use cases, there are also risks to CORS. One risk is that by allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data. To mitigate this risk, servers can use more restrictive CORS policies, or avoid exposing sensitive data altogether.
+{% endhint %}
 
