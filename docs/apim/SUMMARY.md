@@ -213,6 +213,7 @@
     * [Load-balancing, failover, and health checks](guides/api-configuration/how-to/load-balancing-failover-and-health-checks.md)
     * [Configure Service Discovery](guides/api-configuration/how-to/configure-service-discovery.md)
     * [Configure General Proxy settings](guides/api-configuration/how-to/configure-cors.md)
+    * [Configure Sharding Tags](guides/api-configuration/how-to/configure-sharding-tags.md)
 * [Policy Design](guides/policy-design/README.md)
   * [Concepts](guides/policy-design/concepts.md)
   * [How-to](guides/policy-design/how-to.md)
