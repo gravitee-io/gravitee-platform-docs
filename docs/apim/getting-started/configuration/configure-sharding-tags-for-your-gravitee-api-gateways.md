@@ -29,7 +29,7 @@ Internal Network Gateways:
 tags: ‘internal’
 ```
 
-You can also add more nuance to this sharding tag strategy. Gateways can be tagged with one or more sharding tags. You can also specify exclusion rules. For example, imagine you have Gateways tagged as “external” and also as “partner”. If you wanted to configure a Gateway so that it can host external APIs that are not dedicated to partners (maybe you have different Gateways assigned to partners), you would configure the sharding tag like this:
+You can also add more nuance to this sharding tag strategy. Gateways can be tagged with one or more sharding tags. You can also specify exclusion rules by including the`!` symbol before the tag name. For example, imagine you have Gateways tagged as “external” and also as “partner”. If you wanted to configure a Gateway so that it can host external APIs that are not dedicated to partners (maybe you have different Gateways assigned to partners), you would configure the sharding tag like this:
 
 ```
 tags: ‘product,store,!partner’
