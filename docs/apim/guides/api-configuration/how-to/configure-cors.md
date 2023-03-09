@@ -22,7 +22,39 @@ This article walks through how to configure each of the above.
 
 To configure Entrypoints, follow the below interactive tutorial, or, follow the numbered steps below.
 
+{% @arcade/embed flowId="4353kgHZvdMRtEEL5xy9" url="https://app.arcade.software/share/4353kgHZvdMRtEEL5xy9" %}
 
+If you prefer to use a written list of steps, follow these steps:
+
+1\. Log in to the Gravitee API Management UI.
+
+2\. In the **APIs** menu, select the API for whom you want to configure Entrypoints.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/665c071d-8767-48ce-8690-c3261769fda0/1/24.166666666667/22.11524135876?0)
+
+3\. Select the **Edit API** icon.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/0c8fd2c2-43d7-4985-9b69-31dc00f385d8/1/96.666666666667/58.377719010727?0)
+
+4\. Find the **Proxy** section in the left-hand nav. Select **General**.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/e7e8492f-4889-42ec-a420-5dcc08d39a15/1/20/61.144219308701?0)
+
+5\. The **Entrypoints** tab is automatically selected.
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/e2d81981-357a-4d7d-a985-0eff3aba449d/1/50.166666666667/11.084624553039?0)
+
+6\. Define your **Context path**. This is the URL location of your API. So if your URL is \[https://apim-master-gateway.team-apim.gravitee.dev/myAPI], then \[/myAPI] is the context path.
+
+{% hint style="info" %}
+This is the path where your API is exposed. It must start with a '/' and can only contain any letter, capitalized letter, number, dash, or underscore.
+{% endhint %}
+
+![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/5d7e90d7-3bf8-4abd-b7eb-3c0a3dbab79c/1/57.771484375/42.353247914184?0)
+
+{% hint style="success" %}
+Select **Save**. You've now configured your Entrypoints.
+{% endhint %}
 
 ### Configure CORS
 
