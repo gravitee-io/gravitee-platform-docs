@@ -61,40 +61,26 @@ Creating a plan is broken down into three main stages:
 {% endtab %}
 {% endtabs %}
 
-#### Configure policies on a plan
-
-As detailed in the Policy Design section, the design studio can be used to configure policies on the plan level. Additionally, a subset of policies focused on regulating access to an API can be configured during the creation of a plan as mentioned in the previous section.
+#### Publish a plan
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-
+{% @arcade/embed flowId="vOBfQE9VInuyA1g7b4kF" url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
-Creating a plan is broken down into three main stages:
+Similar to an API, a plan can also be published. Publishing is one of four stages of a plan: staging, published, deprecated, and closed.
 
-* **General:** enter basic details about your plan. The only requirement for this stage is proving a name for your plan.
-  * The initial section lets you set a name, description, and characteristics for your plan. Characteristics are optional labels you can use to tag your plan. &#x20;
-  * **Conditions:** select a page containing the general conditions for use of your plan. You can learn more about creating general condition pages here.
-  * **Subscriptions:** modify basic settings around a subscription for plans requiring authentication&#x20;
-    * **Auto validate subscription:** accepts any and all subscriptions to a plan without the API publisher's review. These subscriptions can still be revoked at any time
-    * The API publisher can require all subscription requests from API consumers to include a comment detailing their request. Additionally, with this option enabled, the API publisher can leave a default message explaining what is expected in the API consumer's comment
-  * **Deployment:** the plan can be selectively deployed to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
-  * **Access-Control:** exclude certain groups from accessing this plan. You can learn more about user management and how to configure groups here.
-* **Secure:** choose one of four authentication types to secure your API. You can learn more about configuring each of these authentication types here.
-  * **Keyless:** allows public access to the API and bypasses any security mechanisms on the whole request process
-  * **API key:** allows only apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
-  * **JSON web token (JWT):** open method for representing claims securely between two parties. JWT are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
-  * **Oauth 2.0:** open standard that apps can use to provide client applications with secure delegated access. OAuth works over HTTPS and authorizes devices, APIs, servers, and applications with access tokens rather than credentials.
-* **Restrictions:** policies to regulate access to your APIs. Like any policy, restrictions can also be applied to a plan through the design studio. You can learn more about configuring these particular policies here.
+* **Staging** - Generally, this is the first state of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
+* **Published** - Once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
+* **Deprecated** - You can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remains so it doesn’t impact your existing API consumers.
+* **Closed** - Once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
+
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/6/6333ad2d86aae2ceb0cac422dd9015c75c3e6fb5_2_689x197.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
 ####
-
-#### Publish a plan
-
-
 
 ### Applications
 

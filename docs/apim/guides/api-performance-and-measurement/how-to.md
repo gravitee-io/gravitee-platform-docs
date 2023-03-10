@@ -16,7 +16,7 @@ This article focuses on how to set up and use the following API measurement, tra
 * The Audit trail
 * API Quality
 
-This article will focus primarily on the "how-to's" of these features and modules. For a more in-depth conceptual explanation of each, please refer to the "[Concepts" section](concepts.md).
+This article will focus primarily on the "how-to's" of these features and modules. For a more in-depth conceptual explanation of each, please refer to the "[Concepts" section](../api-measurement-tracking-and-analytics/concepts.md).
 
 ### The Dashboard <a href="#the-dashboard" id="the-dashboard"></a>
 
@@ -130,7 +130,7 @@ To add a dashboard to your Analytics tab, follow these steps:
 {% hint style="success" %}
 If you followed the above steps, you'll see your new dashboard and widget.
 
-![](<../../.gitbook/assets/image (1).png>)
+![](../../.gitbook/assets/image.png)
 {% endhint %}
 
 #### Edit existing Analytics dashboards
