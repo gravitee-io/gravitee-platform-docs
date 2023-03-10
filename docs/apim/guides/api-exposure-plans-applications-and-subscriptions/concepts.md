@@ -29,37 +29,38 @@ Exposing an API to a consumer requires at least one plan, but can support as man
 
 <figure><img src="../../.gitbook/assets/plan-diagram.png" alt=""><figcaption><p>Plan diagram</p></figcaption></figure>
 
-#### Create a Plan
+#### Create a plan
 
 You can create plans in the management UI as part of the [API creation process](../../user-guide/publisher/create-api.md#create-an-api-from-scratch). You can also create them later with the **Portal > Plans** function.&#x20;
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="MBQnmOgspMcSFS0Gcm8J" url="https://app.arcade.software/share/MBQnmOgspMcSFS0Gcm8J" %}
+{% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
+Creating a plan is broken down into three main stages:
 
+* **General:** enter basic details about your plan. The only requirement for this stage is proving a name for your plan.
+  * The initial section lets you set a name, description, and characteristics for your plan. Characteristics are optional labels you can use to tag your plan. &#x20;
+  * **Conditions:** select a page containing the general conditions for use of your plan. You can learn more about creating general condition pages here.
+  * **Subscriptions:** modify basic settings around a subscription for plans requiring authentication&#x20;
+    * **Auto validate subscription:** accepts any and all subscriptions to a plan without the API publisher's review. These subscriptions can still be revoked at any time
+    * The API publisher can require all subscription requests from API consumers to include a comment detailing their request. Additionally, with this option enabled, the API publisher can leave a default message explaining what is expected in the API consumer's comment
+  * **Deployment:** the plan can be selectively deployed to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
+  * **Access-Control:** exclude certain groups from accessing this plan. You can learn more about user management and how to configure groups here.
+* **Security**
+* **Restrictions**
 {% endtab %}
 {% endtabs %}
 
 
 
-*   Step 1 - Create the basic plan definition.
+#### Configure policies on a plan
 
-    [Learn more about creating plan definitions](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_create\_plan.html)
-*   Step 2 - Specify details of the plan security.
+#### Publish a plan
 
-    [Learn more about configuring plan security](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_plan\_security.html)
-*   Step 3 - (Optional) Specify details of plan restrictions.
 
-    [Learn more about configuring plan restrictions](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_plan\_restrictions.html)
-*   Step 4 - (Optional) Configure flows and policies.
-
-    [Learn more about configuring plan policies](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_plan\_policies.html)
-*   Step 5 - Publish the plan.
-
-    [Learn more about publishing plans](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_plan\_publish.html)
 
 ### Applications
 
