@@ -89,7 +89,7 @@ Once the gateways have been tagged, you will need to define the same sharding ta
 
 You'll now see your entrypoint mapping in the Entrypoint mappings section.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 You've now learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs (in order to control where those APIs are deployed), refer to [this documentation](../../guides/api-configuration/how-to/configure-cors.md#configure-deployments).

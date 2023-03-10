@@ -41,7 +41,7 @@ You are able to control what kinds of information and charts are presented on yo
 
 To do so follow along with the interactive tutorial or follow the written steps. Both are below.
 
-
+{% @arcade/embed flowId="nnYHELNaqBTNKvxqrQIL" url="https://app.arcade.software/share/nnYHELNaqBTNKvxqrQIL" %}
 
 To add a dashboard to your Analytics tab, follow these steps:
 
