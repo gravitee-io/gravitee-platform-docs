@@ -2,46 +2,57 @@
 description: How to expose your APIs
 ---
 
-# Publish APIs
+# Plans
 
-Gravitee API management (APIM) allows you to expose APIs to both internal and external consumers using the developer portal. The _developer portal_ is a centralized catalog where internal/external API consumers can discover, find, and subscribe to APIs that are developed, managed, and deployed by API publishers.&#x20;
+### Create a plan
 
-### Internal Exposure <a href="#internal-exposure-3" id="internal-exposure-3"></a>
+You can create plans in the management UI as part of the [API creation process](../../user-guide/publisher/create-api.md#create-an-api-from-scratch). You can also create them later with the **Portal > Plans** function as shown below.
 
-To expose an API to internal consumers, click on an API you've already created.
+{% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/a/abb243adb20f8a37aa000b391890436a860e8811_2_690x312.png" alt=""><figcaption></figcaption></figure>
+Creating a plan is broken down into three main stages:
 
-The **Dev Guide API** was started and deployed to the gateway, but it was never _published_. Publishing an API simply means making it available on the developer portal. Before we do that, let’s take a look at the API’s associated plans.
+{% tabs %}
+{% tab title="General" %}
+Enter basic details about your plan. The only requirement for this stage is proving a name for your plan.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/4/4fab35dbe069ca73e06e14a0b5ee4d8b3bb89819_2_690x311.png" alt=""><figcaption></figcaption></figure>
+* The initial section lets you set a name, description, and characteristics for your plan. Characteristics are optional labels you can use to tag your plan. &#x20;
+* **Conditions:** select a page containing the general conditions for use of your plan. You can learn more about creating general condition pages here.
+* **Subscriptions:** modify basic settings around a subscription for plans requiring authentication&#x20;
+  * **Auto validate subscription:** accepts any and all subscriptions to a plan without the API publisher's review. These subscriptions can still be revoked at any time
+  * The API publisher can require all subscription requests from API consumers to include a comment detailing their request. Additionally, with this option enabled, the API publisher can leave a default message explaining what is expected in the API consumer's comment
+* **Deployment:** the plan can be selectively deployed to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
+* **Access-Control:** exclude certain groups from accessing this plan. You can learn more about user management and how to configure groups here.
+{% endtab %}
 
-Currently, the **Dev Guide API** has a single **Open** plan. Similar to an API, a plan can also be published. Publishing is one of four stages of a plan: staging, published, deprecated, and closed.
+{% tab title="Secure" %}
+Choose one of four authentication types to secure your API. You can learn more about configuring each of these authentication types here.
+
+* **Keyless:** allows public access to the API and bypasses any security mechanisms on the whole request process
+* **API key:** allows only apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
+* **JSON web token (JWT):** open method for representing claims securely between two parties. JWT are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
+* **Oauth 2.0:** open standard that apps can use to provide client applications with secure delegated access. OAuth works over HTTPS and authorizes devices, APIs, servers, and applications with access tokens rather than credentials.
+{% endtab %}
+
+{% tab title="Restrictions" %}
+Policies to regulate access to your APIs. Like any policy, restrictions can also be applied to a plan through the design studio. You can learn more about configuring these particular policies here.
+
+* **Rate Limiting:** limit how many HTTP requests an application can make in a specified period of seconds or minutes. This policy is meant to help avoid unmanageable spikes in traffic.
+* **Quota:** specifies the number of requests allowed to call an API backend during a specified time interval. The policy is generally used to tier access to APIs based on subscription level.
+* **Resource Filtering:** limit access to a subset of API resources
+{% endtab %}
+{% endtabs %}
+
+### Publish a plan
+
+Similar to an API, a plan can also be published. Publishing is one of four stages of a plan: staging, published, deprecated, and closed.
 
 * **Staging** - Generally, this is the first state of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
 * **Published** - Once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
 * **Deprecated** - You can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remains so it doesn’t impact your existing API consumers.
 * **Closed** - Once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/6/6333ad2d86aae2ceb0cac422dd9015c75c3e6fb5_2_689x197.png" alt=""><figcaption></figcaption></figure>
-
-If you don’t remember publishing this plan, don’t worry, your memory is fine. The original POST request to the management API to create this plan had the following JSON payload:
-
-```
-{
-    "name": "Open",
-    "description": "Keyless",
-    "status": "PUBLISHED",
-    "characteristics": [],
-    "security": "KEY_LESS"
-}
-```
-
-Providing the `"PUBLISHED"` status allowed us to bypass the staging portion of the lifecycle as it wasn’t necessary for the tutorial. Similarly, deprecation won’t be necessary for us at this stage of the tutorial as we’re not concerned with managing existing consumers.
-
-In this tutorial, we’ll implement a plan with a bit of security so we no longer need the **Open** plan. Click the **red X icon** and follow the prompt to close the plan. This is a permanent operation.
-
-[![Screen Shot 2023-02-16 at 4.04.10 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/d/d09e619c9cb43908b41989f8ff0ae06754d531ab\_2\_690x311.png)](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/d/d09e619c9cb43908b41989f8ff0ae06754d531ab.png)
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/6/6333ad2d86aae2ceb0cac422dd9015c75c3e6fb5_2_689x197.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
 
 > ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) **The Benefits of Deprecation**
 >
