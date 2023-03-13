@@ -6,6 +6,12 @@ description: Gravitee defined
 
 All core Gravitee and related web API terminology defined. Use the search function to quickly look up a definition.
 
+| Term          | Definition          |
+| ------------- | ------------------- |
+| Test          | this is a def       |
+|      Sub-term | this is another def |
+| Term 3        | final def           |
+
 ### Gravitee products
 
 * **Gravitee API Management (APIM):** event-native API management platform that helps you design, deploy, manage, and secure synchronous and asynchronous APIs throughout the entire lifecycle
