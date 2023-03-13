@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Release Stability](release-stability.md)
 * [About the Docs](platform-overview/getting-started.md)
 
 ## Gravitee Essentials
