@@ -1,2 +1,0 @@
-# policy-xml-threat-protection
-
