@@ -328,6 +328,7 @@
   * [Console API](reference/management-api-reference/console-api.md)
   * [Portal API](reference/management-api-reference/portal-api.md)
 * [Policy Reference](reference/policy-reference/README.md)
+  * [Full Policy Reference](reference/policy-reference/full-policy-reference.md)
   * [Gravitee Policies](reference/policy-reference/gravitee-policies/README.md)
     * [Security](reference/policy-reference/gravitee-policies/security/README.md)
       * [API Key](reference/policy-reference/gravitee-policies/security/policy-apikey.md)
@@ -393,7 +394,6 @@
       * [Page 2](reference/policy-reference/gravitee-policies/other/page-2.md)
       * [Page 1](reference/policy-reference/gravitee-policies/other/page-1.md)
   * [Community Policies](reference/policy-reference/community-policies.md)
-  * [Full Reference](reference/policy-reference/full-reference.md)
 
 ## Releases & Changelog
 
