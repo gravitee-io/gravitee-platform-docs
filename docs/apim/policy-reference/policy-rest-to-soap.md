@@ -1,2 +1,0 @@
-# policy-rest-to-soap
-

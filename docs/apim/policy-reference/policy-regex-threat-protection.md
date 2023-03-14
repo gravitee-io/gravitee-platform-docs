@@ -1,2 +1,0 @@
-# policy-regex-threat-protection
-

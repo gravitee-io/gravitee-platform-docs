@@ -1,2 +1,0 @@
-# policy-data-logging-masking
-

@@ -1,2 +1,0 @@
-# policy-openid-connect-userinfo
-
