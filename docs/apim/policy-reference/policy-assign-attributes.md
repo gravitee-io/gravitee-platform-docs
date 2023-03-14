@@ -1,2 +1,0 @@
-# policy-assign-attributes
-
