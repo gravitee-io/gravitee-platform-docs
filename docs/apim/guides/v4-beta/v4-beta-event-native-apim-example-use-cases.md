@@ -10,7 +10,7 @@ This page describes some example use cases for event-native API management.
 
 These examples all depend on Kafka. To set up a Kafka Docker container with the [AKHQ](https://github.com/tchiotludo/akhq) UI, follow these steps.
 
-1. Download [https://raw.githubusercontent.com/tchiotludo/akhq/master/docker-compose.yml](docker-compose.yml).
+1. Download [https://raw.githubusercontent.com/tchiotludo/akhq/master/docker-compose.yml](../../v4-beta/docker-compose.yml).
 2. Run it locally.
 
 ```bash
@@ -43,7 +43,7 @@ This collection uses the following four variables:
 
 Some data ingestion examples are illustrated in the following diagram.
 
-![Event-native API Management - Data Ingestion](../../../images/apim/3.x/event-native/event-native-api-management-data-ingestion.png)
+![Event-native API Management - Data Ingestion](../../../../images/apim/3.x/event-native/event-native-api-management-data-ingestion.png)
 
 For data ingestion, run the requests in the _01 - Data Ingestion_ folder of the Postman Collection.
 

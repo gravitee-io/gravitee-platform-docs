@@ -18,7 +18,7 @@ Gravitee can act as a bridge between synchronous and asynchronous APIs.
 
 For example, Gravitee can subscribe to a Kafka topic and then allow filtered HTTP GET subscriptions from clients as shown in the following diagram.
 
-![Event-native API Management - Gateway](../../../images/apim/3.x/event-native/event-native-api-management-gateway.png)
+![Event-native API Management - Gateway](../../../../images/apim/3.x/event-native/event-native-api-management-gateway.png)
 
 ## BETA Features
 
@@ -34,7 +34,7 @@ With the HTTP POST workflow, a client application running on HTTP can post conte
 
 The diagram below shows the workflow for this use case:
 
-![Event-native API Management - HTTP POST](../../../images/apim/3.x/event-native/event-native-api-management-use-case-http-post.png)
+![Event-native API Management - HTTP POST](../../../../images/apim/3.x/event-native/event-native-api-management-use-case-http-post.png)
 
 The HTTP POST entrypoint enables you to push messages to any supported event broker via a "sync call" (post) - it can be used in combination with specific Asynchronous API endpoints in different ways, depending on what publish and subscribe mode actions are possible between the two when using a connector.
 
@@ -48,7 +48,7 @@ For example, if an API consumer cannot connect to a native Kafka instance due to
 
 The diagram below shows the workflow for this use case:
 
-![Event-native API Management - Streaming](../../../images/apim/3.x/event-native/event-native-api-management-use-case-event-consumption-streaming.png)
+![Event-native API Management - Streaming](../../../../images/apim/3.x/event-native/event-native-api-management-use-case-event-consumption-streaming.png)
 
 This feature enables you to potentially cover use cases in the fields of Event-Driven Architecture (EDA) and Internet of Things (IoT) without the Gateway and API Management components becoming a bottleneck.
 
@@ -62,7 +62,7 @@ With Webhook support, an API consumer subscribes to the Webhook API, which basic
 
 The diagram below shows the workflow for this use case:
 
-![Event-native API Management - Event Consumption - Webhook](../../../images/apim/3.x/event-native/event-native-api-management-use-case-event-consumption-webhook.png)
+![Event-native API Management - Event Consumption - Webhook](../../../../images/apim/3.x/event-native/event-native-api-management-use-case-event-consumption-webhook.png)
 
 ## Security
 

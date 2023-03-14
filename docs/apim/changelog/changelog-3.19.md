@@ -79,14 +79,14 @@ _**Management**_
 * Start/stop an API on gateway using CRD [#8136](https://github.com/gravitee-io/issues/issues/8136)
 * Update an API using CRD [#7981](https://github.com/gravitee-io/issues/issues/7981)
 
-[Beta - New gateway execution engine](../v4-beta/v4-beta-new-policy-execution-engine-introduction.md)
+[Beta - New gateway execution engine](../guides/v4-beta/v4-beta-new-policy-execution-engine-introduction.md)
 
 * Issue with response template and invoker timeout [#8075](https://github.com/gravitee-io/issues/issues/8075)
 * Reactive Timeout [#7988](https://github.com/gravitee-io/issues/issues/7988)
 * Security plan execution [#7991](https://github.com/gravitee-io/issues/issues/7991)
 * Support Failover [#8086](https://github.com/gravitee-io/issues/issues/8086)
 
-[Alpha - Introducing Event-Native API Management](../v4-beta/v4-beta-event-native-apim-introduction.md)
+[Alpha - Introducing Event-Native API Management](../guides/v4-beta/v4-beta-event-native-apim-introduction.md)
 
 * Introduce v4 api defitinion to support sync & async APIs [#8068](https://github.com/gravitee-io/issues/issues/8068)
 * Deploy v4 api definition [#8009](https://github.com/gravitee-io/issues/issues/8009)

@@ -8,7 +8,7 @@ Before running any of the examples on this page, work through some of the [examp
 
 In this release, you can create asynchronous APIs and connect to event brokers and asynchronous data sources. You can configure asynchronous API connections using the RESTful interface to the management API.
 
-The OpenAPI specification for the management API is available at [`swagger.json`](../../../api-ref/apim/3.x/management-api/3.20/swagger.json) ([reference documentation](broken-reference)). Examples of how to use the management API to configure asynchronous APIs can be found in the [Gravitee Postman Collections](https://www.postman.com/gravitee-io/workspace/gravitee-public-workspace/overview), which are described in [example use cases](event\_native\_apim\_example\_use\_cases.md).
+The OpenAPI specification for the management API is available at [`swagger.json`](../../../../api-ref/apim/3.x/management-api/3.20/swagger.json) ([reference documentation](broken-reference)). Examples of how to use the management API to configure asynchronous APIs can be found in the [Gravitee Postman Collections](https://www.postman.com/gravitee-io/workspace/gravitee-public-workspace/overview), which are described in [example use cases](../../v4-beta/event\_native\_apim\_example\_use\_cases.md).
 
 The management API is in beta and it may change.
 
@@ -121,7 +121,7 @@ The quality-of-service levels are described in the following table.
 
 ### Setting quality of service
 
-You can set quality of service levels with the `qos` object in the `entrypoints` object, as shown in the following example. See the [`swagger.json`](../../../api-ref/apim/3.x/management-api/3.20/swagger.json) definition of the Management API for a list of possible `qos` values you can specify.
+You can set quality of service levels with the `qos` object in the `entrypoints` object, as shown in the following example. See the [`swagger.json`](../../../../api-ref/apim/3.x/management-api/3.20/swagger.json) definition of the Management API for a list of possible `qos` values you can specify.
 
 ```
   "entrypoints": [
@@ -175,4 +175,4 @@ For an example, see _04 - Event Consumption - Webhook_ > _Webhook Messaging Filt
 
 ## Use cases
 
-The [Gravitee V4 BETA Postman Collection](https://www.postman.com/gravitee-io/workspace/gravitee-public-workspace/overview) contains several examples of how end users can work with your asynchronous APIs. Some examples are described on [Event consumption](event\_native\_apim\_example\_use\_cases.md#event\_consumption).
+The [Gravitee V4 BETA Postman Collection](https://www.postman.com/gravitee-io/workspace/gravitee-public-workspace/overview) contains several examples of how end users can work with your asynchronous APIs. Some examples are described on [Event consumption](../../v4-beta/event\_native\_apim\_example\_use\_cases.md#event\_consumption).
