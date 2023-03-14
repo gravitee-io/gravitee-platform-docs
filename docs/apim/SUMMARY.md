@@ -392,7 +392,6 @@
       * [Traffic Shadowing](reference/policy-reference/gravitee-policies/other/traffic-shadowing.md)
       * [Page 2](reference/policy-reference/gravitee-policies/other/page-2.md)
       * [Page 1](reference/policy-reference/gravitee-policies/other/page-1.md)
-  * [policy-assign-metrics](policy-reference/policy-assign-metrics.md)
   * [policy-cache](policy-reference/policy-cache.md)
   * [policy-callout-http](policy-reference/policy-callout-http.md)
   * [policy-circuit-breaker](policy-reference/policy-circuit-breaker.md)

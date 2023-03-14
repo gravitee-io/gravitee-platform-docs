@@ -15,7 +15,7 @@ Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a G
 
 The following section focuses on how to configure sharding tags. We will explain the steps assuming that our architecture includes both DMZ gateways and internal, corporate gateways. We want to tag these gateways as external only and internal only, respectively. Please see the corresponding diagram below:
 
-<figure><img src="../../.gitbook/assets/Example architecture.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
 
 Before you can start defining sharding tags in the Gravitee API Management UI, you will need to do some work in your API gateway `gravitee.yaml` file. To assign a Gravitee API Gateway to a specific sharding tag for the above scenario and architecture, make the following changes in the `gravitee.yaml` file:
 

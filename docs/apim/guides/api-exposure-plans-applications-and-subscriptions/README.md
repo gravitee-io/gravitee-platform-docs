@@ -27,7 +27,7 @@ Exposing an API to a consumer requires at least one plan, but can support as man
 
 
 
-<figure><img src="../../.gitbook/assets/plan-diagram.png" alt=""><figcaption><p>Plan diagram</p></figcaption></figure>
+<figure><img src="../../../images/apim/3.x/api-publisher-guide/plans-subscriptions/plan-diagram.png" alt=""><figcaption><p>Plan diagram</p></figcaption></figure>
 
 ### Applications
 
