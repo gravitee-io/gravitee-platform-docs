@@ -79,7 +79,7 @@ Once you select your entrypoints from the entrypoints page, there will be furthe
 
 {% tabs %}
 {% tab title="HTTP GET" %}
-If you chose HTTP GET as an entrypoint, you will be brought to a page where you can configure:
+If you chose **HTTP GET** as an entrypoint, you will be brought to a page where you can configure:
 
 * The context path: the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
 * Enabling virtual hosts
@@ -94,7 +94,7 @@ If you chose HTTP GET as an entrypoint, you will be brought to a page where you 
 {% endtab %}
 
 {% tab title="HTTP POST" %}
-If you chose HTTP POST as an entrypoint, you will be brought to a page where you can configure:
+If you chose **HTTP POST** as an entrypoint, you will be brought to a page where you can configure:
 
 * **The context path:** the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
 * **Enabling virtual hosts**
@@ -104,8 +104,8 @@ If you chose HTTP POST as an entrypoint, you will be brought to a page where you
 <figure><img src="../../.gitbook/assets/HTTP POST entrypoint config (1).gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
-{% tab title="Server-sent events (SSE)" %}
-If you chose HTTP POST as an entrypoint, you will be brought to a page where you can configure:
+{% tab title="Server-sent events (SSE) or SSE advanced" %}
+If you chose **SSE** as an entrypoint, you will be brought to a page where you can configure:
 
 * **The context path:** the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
 * **Enabling virtual hosts**
@@ -119,10 +119,37 @@ If you chose HTTP POST as an entrypoint, you will be brought to a page where you
 <figure><img src="../../.gitbook/assets/SSE entrypoint config.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
-{% tab title="Untitled" %}
+{% tab title="Webhook" %}
+If you chose **Webhook** as an entrypoint, you will be brought to a page where you can configure:
 
+* **HTTP Options**
+  * **Connect timeout:** maximum time to connect to the webhook in milliseconds. Either type a numerical value or use the arrows on the right of the text field.
+  * **Read timeout:** maximum time given to the webhook to complete the request (including response) in milliseconds. Either type a numerical value or use the arrows on the right of the text field.
+  * **Idle timeout:** maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, allowing to free the associated resources. Either type a numerical value or use the arrows on the right of the text field.
+* **Proxy options**
+  * **Use proxy:** choose whether or not to use a proxy for client connections. To enable this, toggle Use proxy ON.
+    * If you enable Use proxy, you will need to select the Proxy type in the **Proxy type** drop-down. You choose between:
+      * HTTP proxy
+      * SOCKS4
+      * SOCKS5
+  * **Use system proxy:** choose to use the proxy configured at system level. If you enable this, you'll need to define the:
+    * Proxy host: enter your proxy host in the **Proxy host** text field.
+    * Proxy port: enter your proxy port in the **Proxy port** text field.
+    * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
+    * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
+
+{% hint style="info" %}
+**SOCKS proxy**\
+****[A SOCKS proxy](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/Webhook entrypoint config.gif" alt=""><figcaption><p>Webhook entrypoint config</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
+
+
+
+
 
 #### Endpoints
 
