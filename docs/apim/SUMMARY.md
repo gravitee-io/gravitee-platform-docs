@@ -214,6 +214,7 @@
 * [API Exposure: Plans, Applications, & Subscriptions](guides/api-exposure-plans-applications-and-subscriptions/README.md)
   * [Plans](guides/api-exposure-plans-applications-and-subscriptions/plans.md)
   * [Applications](guides/api-exposure-plans-applications-and-subscriptions/applications.md)
+  * [Subscriptions](guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md)
 * [Developer Portal](guides/developer-portal/README.md)
   * [Publish APIs](guides/developer-portal/publish-apis/README.md)
     * [Concepts](guides/developer-portal/publish-apis/concepts.md)
