@@ -8,13 +8,6 @@ description: Learn more about creating Gateway APIs in Gravitee
 
 Gravitee enables teams to create Gateway APIs. Gateway APIs are what your API consumers will call or subscribe to in order to retrieve data, functionality, etc. from your backend APIs. Your backend APIs are essentially the data source or functionality that you want to expose to your consumers.&#x20;
 
-### API architectures
-
-When creating Gateway APIs in Gravitee, you will choose between different API architectures. Your API architecture essentially defines the kind of backend resource that you want to expose and how you will expose it. As of now, there are two API architectures:
-
-* HTTP proxy: this will be used for "pure" REST, gRPC, SOAP, and WebSocket use cases, where you want to expose a backend REST API as a Gateway REST API, a backend WebSocket Server as a Gateway WebSocket, and so on.
-* Message-based: this will be used when the kind of backend resource that you want to expose is an event-broker&#x20;
-
 ### Entrypoints and endpoints
 
 During the API creation process, you will need to define your Gateway entrypoints and endpoints. In Gravitee, Gateway entrypoints are endpoints are:
@@ -23,6 +16,37 @@ During the API creation process, you will need to define your Gateway entrypoint
 * &#x20;**Gateway endpoints:** define the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API.
 
 For example, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint and Kafka endpoint. If you wanted to expose a backend REST API as a Gateway REST API (i.e. a "pure" RESt API use case), your entrypoint would be your context path (the URL location of your Gateway API) and the endpoint would be your target url (the url for the backend resource that you want to expose).&#x20;
+
+### API architectures
+
+When creating Gateway APIs in Gravitee, you will choose between different API architectures. Your API architecture essentially defines the kind of backend resource that you want to expose and how you will expose it. As of now, there are two API architectures:
+
+* **HTTP proxy:** this will be used for "pure" REST, gRPC, SOAP, and WebSocket use cases, where you want to expose a backend REST API as a Gateway REST API, a backend WebSocket Server as a Gateway WebSocket, and so on.
+* **Message-based:** this will be used when the kind of backend resource that you want to expose is an event-broker.
+
+Depending on the the architecture that you choose, you will be limited to certain kinds of entrypoints and endpoints. Please see the tables below for more information:
+
+#### HTTP proxy
+
+| Entrypoints                                                            | Endpoints        |
+| ---------------------------------------------------------------------- | ---------------- |
+| Context path that will REST, GraphQL, gRPC, and WebSocket Gateway APIs | REST             |
+|                                                                        | SOAP             |
+|                                                                        | WebSocket Server |
+|                                                                        | gRPC             |
+|                                                                        | GraphQL          |
+
+#### Message-based
+
+| Entrypoints        | Endpoints                                                          |
+| ------------------ | ------------------------------------------------------------------ |
+| HTTP GET           | Kafka (this endpoint will support Confluent-managed Kafka as well) |
+| HTTP POST          | Solace                                                             |
+| WebSocket          | MQTT                                                               |
+| Webhooks           |                                                                    |
+| Server-sent events |                                                                    |
+
+Please note that you can combine any supported entrypoint with any supported endpoint when choosing the message-based architecture. For example, you could expose a Kafka topic as a REST API using HTTP GET, as WebSocket API, as an SSE API, etc.
 
 ### Supported API styles, event brokers, and communication patterns
 
