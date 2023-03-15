@@ -166,4 +166,73 @@ Select Save. You will have successfully configured your API deployment settings 
 
 ### Configure Response Templates
 
-{% @arcade/embed flowId="gjzRqNfSladxmw4olxSX" url="https://app.arcade.software/share/gjzRqNfSladxmw4olxSX" %}
+{% @arcade/embed flowId="5v4I7T6RoqgUFaQpk7gL" url="https://app.arcade.software/share/5v4I7T6RoqgUFaQpk7gL" %}
+
+You can use response templates to override the default values sent in response to consumer calls to an API. Response template overrides are triggered by error keys, which are specific to policies. Each response template defines the new values to be returned for one or more status codes when the template is triggered. Because Response templates are dependent on policies, you will need to know the following before attempting to define Response templates:
+
+* Which policies have been applied to the API. This can be viewed in the [API's plan](../../api-exposure-plans-applications-and-subscriptions/plans.md).
+* Which error keys you can override per policy associated with your API. Refer to the table below to see the Policy error keys that you can override by configuring Response templates.
+
+**Policy error keys that you can override**
+
+| Key                                     | Policy                                 |
+| --------------------------------------- | -------------------------------------- |
+| `API_KEY_MISSING`                       | API key                                |
+| `API_KEY_INVALID`                       | API key                                |
+| `QUOTA_TOO_MANY_REQUESTS`               | Rate limiting                          |
+| `RATE_LIMIT_TOO_MANY_REQUESTS`          | Rate limiting                          |
+| `REQUEST_CONTENT_LIMIT_TOO_LARGE`       | Request content limit                  |
+| `REQUEST_CONTENT_LIMIT_LENGTH_REQUIRED` | Request content limit                  |
+| `REQUEST_TIMEOUT`                       | Mock, Callout HTTP, Request validation |
+| `REQUEST_VALIDATION_INVALID`            | Request validation                     |
+| `RESOURCE_FILTERING_METHOD_NOT_ALLOWED` | Resource filtering                     |
+| `RBAC_INVALID_USER_ROLES`               | Role-based access control              |
+| `RESOURCE_FILTERING_FORBIDDEN`          | Resource filtering                     |
+| `RBAC_FORBIDDEN`                        | Role-based access control              |
+| `RBAC_NO_USER_ROLE`                     | Role-based access control              |
+| `OAUTH2_MISSING_SERVER`                 | OAuth2                                 |
+| `OAUTH2_MISSING_HEADER`                 | OAuth2                                 |
+| `OAUTH2_MISSING_ACCESS_TOKEN`           | OAuth2                                 |
+| `OAUTH2_INVALID_ACCESS_TOKEN`           | OAuth2                                 |
+| `OAUTH2_INSUFFICIENT_SCOPE`             | OAuth2                                 |
+| `OAUTH2_INVALID_SERVER_RESPONSE`        | OAuth2                                 |
+| `OAUTH2_SERVER_UNAVAILABLE`             | OAuth2                                 |
+| `HTTP_SIGNATURE_INVALID_SIGNATURE`      | HTTP Signature                         |
+| `JWT_MISSING_TOKEN`                     | JWT                                    |
+| `JWT_INVALID_TOKEN`                     | JWT                                    |
+| `JSON_INVALID_PAYLOAD`                  | JSON validation                        |
+| `JSON_INVALID_FORMAT`                   | JSON validation                        |
+| `JSON_INVALID_RESPONSE_PAYLOAD`         | JSON validation                        |
+| `JSON_INVALID_RESPONSE_FORMAT`          | JSON validation                        |
+| `GATEWAY_INVALID_REQUEST`               | All                                    |
+| `GATEWAY_INVALID_RESPONSE`              | All                                    |
+| `GATEWAY_OAUTH2_ACCESS_DENIED`          | All                                    |
+| `GATEWAY_OAUTH2_SERVER_ERROR`           | All                                    |
+| `GATEWAY_OAUTH2_INVALID_CLIENT`         | All                                    |
+| `GATEWAY_MISSING_SECURITY_PROVIDER`     | All                                    |
+| `GATEWAY_PLAN_UNRESOLVABLE`             | All                                    |
+| `GATEWAY_POLICY_INTERNAL_ERROR`         | All                                    |
+
+Response templates are configured in an API's General Proxy settings. You'll find the Response templates tab. Here, you can define:
+
+* Multiple templates for one API (for multiple policies and/or multiple error keys sent by the same policy)
+* Multiple template definitions for the same error key in a single template (for different content types or status codes)
+
+To configure Response templates, follow these few steps:
+
+1. Choose the template key by using the **Template key** drop-down.&#x20;
+2. Choose the requests header that should trigger your response template to be used. By default, the value is `*/*`. However, if you want to send the template override values only for JSON or XML requests, specify `JSON` or `XML.`
+3. Specify the status code that you want to send to the API consumer using **Status code** drop-down.
+4. Specify the override values to send to the API consumer. These can either be:
+   * One or more HTTP headers to include in the response
+   * A response template body
+
+<figure><img src="../../../.gitbook/assets/Response templates.gif" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
+
+{% hint style="success" %}
+**Success!**&#x20;
+
+From here, you can either finish up or add more Response templates by following the above steps.&#x20;
+{% endhint %}
+
+\
