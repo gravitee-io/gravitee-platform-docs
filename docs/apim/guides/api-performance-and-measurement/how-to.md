@@ -1,22 +1,14 @@
 ---
 description: >-
-  Learn how to set up and use Gravitee's various API measurement, tracking, and
-  analytics capabilities
+  Learn how to set up your Dashboard and various analytics options for APIs and
+  applications.
 ---
 
-# How-to
+# Configure the Dashboard with Custom API Analytics.
 
-Introduction
+### Introduction
 
-This article focuses on how to set up and use the following API measurement, tracking, and analytics capabilities that Gravitee has on offer:
-
-* The Dashboard
-* The APIs menu
-* The Applications page
-* The Audit trail
-* API Quality
-
-This article will focus primarily on the "how-to's" of these features and modules. For a more in-depth conceptual explanation of each, please refer to the "[Concepts" section](../api-measurement-tracking-and-analytics/concepts.md).
+This article focuses on how to customize and build your Gravitee Dashboard, complete with analytics and charts for your APIs and applications.
 
 ### The Dashboard <a href="#the-dashboard" id="the-dashboard"></a>
 
@@ -162,21 +154,3 @@ In addition to adding new dashboards, you can also configure and re-configure ex
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/37671ced-2937-4906-bb49-b18ba90527b7/2/41.765676336619/74.354274681779?0)
 
 7. Once you're done, select **Save**. Depending on how many charts you have, this might require some scrolling all the way down to the bottom of this page.
-
-\###
-
-### The APIs menu <a href="#the-apis-menu" id="the-apis-menu"></a>
-
-While there is less "measurement" here, the APIs menu is crucial for being able to track information per each API that you are mangaging in Gravitee. Check out the interactive UI exploration or the text descriptions of the API menu to learn more.Interactive UI explorationSecond Tab
-
-### The Applications page <a href="#the-applications-page" id="the-applications-page"></a>
-
-The **Applications** page is where you can keep track of and view various information related to applications that are subscribed to your APIs. Check out the interactive UI exploration or the text descriptions to learn more.Interactive UI explorationText descriptions
-
-### The Audit trail <a href="#the-audit-trail" id="the-audit-trail"></a>
-
-The **Audit** trail is where you can audit API consumption and activity, per event and type for your Gravitee APIs. You can use the **Audit trail** for monitoring the behavior of your API and platform over time.For example, you can use it in conjunction with the analytics feature to identify a point at which your API behavior changed, view the configuration which caused the change, and roll back to an earlier configuration if required. Check out the interactive UI exploration or the text descriptions to learn more.Interactive UI explorationText descriptions
-
-### API Quality <a href="#api-quality" id="api-quality"></a>
-
-The Gravitee **API Quality** feature enables you to create and automatically assign customizable scores based on certain variables that you feel impact an API's overall quality. When enabled, APIs that you create in Gravitee will automatically be assigned an API quality score. This feature is incredibly valuable for organizations interested in API governance, as it allows them to ensure that certain standards are met, where these standards are treated as score-relevant variables. Check out the interactive UI exploration or the text descriptions to learn more.Interactive UI explorationText descriptions

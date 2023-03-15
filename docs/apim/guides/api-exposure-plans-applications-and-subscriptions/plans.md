@@ -137,36 +137,36 @@ You can provide a custom API key when:
 {% endtab %}
 
 {% tab title="Shared API key" %}
-The shared API key mode makes consumers reuse the same API key across all API subscriptions of an application.
+The shared API key mode allows consumers to reuse the same API key across all API subscriptions of an application.&#x20;
 
-This mode can be enabled in environment settings:
+However, this has an important consequence. Because the shared API key may be used to call APIs that are owned by another group of API publishers, shared API keys cannot be edited from the API publisher subscription view. This means that while they are still readable, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared mode.
 
-![shared api key 1](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-1.png)
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-3.png" alt=""><figcaption><p>Shared API key adminstration changes</p></figcaption></figure>
 
-With this mode enabled, consumers will be asked on their second subscription to choose between reusing their key across all subscriptions or generate one different API key for each subscription (which is the default mode).
+Instead, it is the responsibility of the application owner to perform such operations, and for this reason, shared API keys can only be revoked from the application owner subscription view in either the management UI or the developer portal.
 
-![shared api key 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2.png)Figure 1. When subscribing in the console![shared api key 2 portal](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png)Figure 2. When subscribing in the portal
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API key in the management UI</p></figcaption></figure>
 
-This choice is permanent and consumers will not be able to switch back to one key per subscription for their application.
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API key in the developer portal</p></figcaption></figure>
 
-|   | When disabling the shared API key mode in environment settings, applications that have already been configured to use a shared key will continue to work this way, but consumers will stop being asked to choose between one mode or the other on their second subscription. |
-| - | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+With this mode enabled, consumers will be asked on their second subscription to choose between reusing their key across all subscriptions or generating one different API key for each subscription (which is the default mode).
 
-|   | For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct APIs. This means that if subscribing to two API key plans on the same API while creating an application, no prompt will be made to choose for a mode and the default mode will be used automatically. |
-| - | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the developer portal</p></figcaption></figure>
 
-Because they may be used to call APIs that are owned by another group of publishers, shared API keys cannot be edited from the API publisher subscription view. This means that while they are still readable, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared mode.
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2.png" alt=""><figcaption><p>Subscribing in the managment UI</p></figcaption></figure>
 
-![shared api key 3](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-3.png)
+This choice is permanent and consumers will not be able to switch back to one key per subscription for their application. When disabling the shared API key mode in environment settings, applications that have already been configured to use a shared key will continue to work this way, but consumers will stop being asked to choose between one mode or the other on their second subscription.
 
-Instead, it is the responsability of the application owner to perform such operations, and for this reason, shared API keys can only be revoked from the application owner subscription view.
+{% hint style="info" %}
+**Multiple API key plan limitations**
 
-![shared api key 4](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4.png)Figure 3. Manage your shared API in the console![shared api key 4 portal](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4-portal.png)Figure 4. Manage your shared API in the portal\
+For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct APIs. This means that if subscribing to two API key plans on the same API while creating an application, no prompt will be made to choose for a mode and the default mode will be used automatically.
+{% endhint %}
+
+\
 
 {% endtab %}
 {% endtabs %}
-
-
 
 #### JWT
 
