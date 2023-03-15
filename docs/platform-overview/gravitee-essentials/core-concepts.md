@@ -2,7 +2,9 @@
 description: The problems Gravitee solves
 ---
 
-# Core Concepts and Offering
+# Core Concepts
+
+### Introduction
 
 The **API lifecycle** includes aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security. The need to manage the full API lifecycle is why comprehensive API management solutions like Gravitee were developed.
 
