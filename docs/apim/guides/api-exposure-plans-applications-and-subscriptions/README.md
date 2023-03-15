@@ -50,10 +50,12 @@ Deprecating plans allow consumers of the API time to migrate without breaking th
 
 To access your APIs, consumers must register an application and subscribe to a published API plan (unless the plan is keyless, as described above). Typical applications are web applications, native applications, or bash/job applications that want to access data or functionality from backend APIs.
 
-Applications are essential in allowing the API publishers to control and regulate access to their APIs by making them aware of all consumers of their API. If one consumer turns out to be a bad actor engaging in malicious activity, then API publishers require granular control to revoke access for that one consumer instead of shutting the API down for all consumers. Additionally, more advanced authentication methods like OAuth 2.0 require the client to provide information such as a client id when subscribing to an API.
+Applications are essential in allowing API publishers to control and regulate access to their APIs by providing visibility and granular control of all consumers of their APIs. If one consumer turns out to be a bad actor engaging in malicious activity, then API publishers strongly prefer to revoke access for that one consumer instead of shutting the API down for all consumers. Additionally, more advanced authentication methods like OAuth 2.0 require the client to provide information such as a client id when subscribing to an API.
 
 Applications and plans go together like developers and repurposing code from stack overflow. Remember, plans are an access layer around APIs that provide the API publishers a method to secure, monitor, and transparently communicate details around access. An application allows an API consumer to register and agree to this plan. The result is a successful contract or _subscription_.
 
 ### Subscriptions
 
-APIM uses the subscription to decide whether to accept or deny an incoming request. Subscriptions can be modified at any time by the API producer.
+APIM uses the subscription to decide whether to accept or deny an incoming request. Subscriptions are created when an API consumer creates a subscription request to a published plan with a registered application, and an API publisher either manually or automatically accepts the subscription.
+
+API producers can modify a subscription at any time which includes transferring to a different plan, pausing, setting an expiration date, or permanently closing a subscription. Additionally, authentication can be managed for individual subscriptions by, for example, setting an expiration date for, revoking, or renewing a subscribed application's API key.
