@@ -6,7 +6,7 @@ description: How to expose your APIs
 
 ### Create a plan
 
-Plans are always created by the API publisher. You can create plans in the management UI as part of the [API creation process](../../user-guide/publisher/create-api.md#create-an-api-from-scratch). You can also create them later with the **Portal > Plans** function as shown below.
+Plans are always created by the API publisher. You can create plans in the management UI as part of the [API creation process](../../../user-guide/publisher/create-api.md#create-an-api-from-scratch). You can also create them later with the **Portal > Plans** function as shown below.
 
 {% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
 
@@ -22,19 +22,19 @@ In the **General** stage, you enter basic details about your plan. The only requ
 
 The initial section lets you set a name, description, and characteristics for your plan. Characteristics are optional labels you can use to tag your plan. &#x20;
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.49.56 PM.png" alt=""><figcaption><p>First step in plan creation</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.49.56 PM.png" alt=""><figcaption><p>First step in plan creation</p></figcaption></figure>
 
 The next section in the **General** stage is **Conditions.** Here you can optionally select a page containing the general conditions for use of your plan. If included, these conditions must be accepted by the user to finalize the subscription process. To associate general conditions of use with a plan, you need to specify a markdown page where these conditions are specified.&#x20;
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.55.52 PM.png" alt=""><figcaption><p>Selecting general conditions for your plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.55.52 PM.png" alt=""><figcaption><p>Selecting general conditions for your plan</p></figcaption></figure>
 
 To create a general conditions plan, navigate to the **Documentation** page and select the plus icon in the bottom right. You must create a markdown page and publish it to use as the general conditions page of your plan.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.57.42 PM.png" alt=""><figcaption><p>Creating general conditions for a plan</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.57.42 PM.png" alt=""><figcaption><p>Creating general conditions for a plan</p></figcaption></figure>
 
 The **Subscriptions** section lets you configure basic settings around a subscription for plans requiring authentication.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.07.37 PM.png" alt=""><figcaption><p>Basic subscription setting</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 1.07.37 PM.png" alt=""><figcaption><p>Basic subscription setting</p></figcaption></figure>
 
 Toggling **Auto validate subscription** means you will **** accept any and all subscriptions to a plan without the API publisher's review. These subscriptions can be modified at any time.
 
@@ -42,9 +42,9 @@ You can require all subscription requests from API consumers to include a commen
 
 The final two sections in the **General** stage are **Deployment** and **Access-Control**.
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.10.04 PM.png" alt=""><figcaption><p>Deployment and Access-Control settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 1.10.04 PM.png" alt=""><figcaption><p>Deployment and Access-Control settings</p></figcaption></figure>
 
-The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
+The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](../../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
 
 **Access-Control** lets you **** prevent specified groups from accessing this plan. You can learn more about user management and how to configure groups here.
 
@@ -64,12 +64,12 @@ Enter basic details about your plan. The only requirement for this stage is prov
 * The initial section lets you set a name, description, and characteristics for your plan. Characteristics are optional labels you can use to tag your plan. &#x20;
 * **Conditions:** select a page containing the general conditions for use of your plan. If included, these conditions must be accepted by the user to finalize the subscription process. To associate general conditions of use with a plan, you need to specify a markdown page where these conditions are specified which you can learn about in the plan documentation section. Plans with general conditions are identified by a **With general conditions** label.
 
-<figure><img src="../../.gitbook/assets/general-conditions-plans.png" alt=""><figcaption><p>Plan with general conditions</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/general-conditions-plans.png" alt=""><figcaption><p>Plan with general conditions</p></figcaption></figure>
 
 * **Subscriptions:** modify basic settings around a subscription for plans requiring authentication&#x20;
   * **Auto validate subscription:** accepts any and all subscriptions to a plan without the API publisher's review. These subscriptions can still be revoked at any time
   * The API publisher can require all subscription requests from API consumers to include a comment detailing their request. Additionally, with this option enabled, the API publisher can leave a default message explaining what is expected in the API consumer's comment
-* **Deployment:** the plan can be selectively deployed to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
+* **Deployment:** the plan can be selectively deployed to particular APIs using sharding tags which you can learn more about [here](../../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
 * **Access-Control:** exclude certain groups from accessing this plan. You can learn more about user management and how to configure groups here.
 {% endtab %}
 

@@ -82,14 +82,44 @@ Once you select your entrypoints from the entrypoints page, there will be furthe
 If you chose HTTP GET as an entrypoint, you will be brought to a page where you can configure:
 
 * The context path: the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
+* Enabling virtual hosts
+  * This will then require you to define your **Virtual host** and optionally enable **override access.**
 * Your HTTP GET characteristics
   * **Limit messages count:** this defines the maximum number of messages to retrieve via HTTP GET. Default is 500. To set a custom limit, enter in your limit as a numerical value in the **Limit messages count** text field.
   * **Limit messages duration:** this defines the maximum duration in milliseconds to wait to retrieve the expected number of messages (See Limit messages count). The effective number of retrieved messages could be less than expected it maximum duration is reached. To set a custom limit, enter in your limit as a numerical value in the **Limit messages count** text field.
   * **HTTP GET permissions:** you can define whether or not to Allow sending messages headers to client in payload or Allow sending messages metadata to client in payload.&#x20;
     * To allow or disallow these actions, toggle either **Allow sending messages headers to client in payload** or **Allow sending messages metadata to client in payload** to either ON or OFF.&#x20;
+
+<figure><img src="../../.gitbook/assets/HTTP GET entrypoint config.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="HTTP POST" %}
+If you chose HTTP POST as an entrypoint, you will be brought to a page where you can configure:
+
+* **The context path:** the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
+* **Enabling virtual hosts**
+  * This will then require you to define your **Virtual host** and optionally enable **override access.**
+* **HTTP POST permissions:** here, you can choose to allow add request Headers to the generated message. To do this toggle, **Allow add request Headers to the generated message** ON or OFF**.**
+
+<figure><img src="../../.gitbook/assets/HTTP POST entrypoint config (1).gif" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Server-sent events (SSE)" %}
+If you chose HTTP POST as an entrypoint, you will be brought to a page where you can configure:
+
+* **The context path:** the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
+* **Enabling virtual hosts**
+  * This will then require you to define your **Virtual host** and optionally enable **override access.**
+* **SSE characteristics and permissions:**&#x20;
+  * **Heartbeat intervals:** define the interval in which heartbeats are sent to the client. Intervals must be higher or equal than 2000ms. To configure this, enter a numerical value into the **Define the interval in which heartbeats** **are sent to client** text field either by typing a numerical value or by using the arrows in the text field. Each heartbeat will be sent as extra empty comment: `''`
+  * Permissions:
+    * Choose to allow or disallow sending messages metadata to client as SSE comments. To allow or disallow this, toggle **Allow sending messages metadata to client as SSE comments** ON or OFF.
+    * Choose to allow or disallow sending messages headers to client as SSE comments. To allow or disallow this, toggle **Allow sending messages headers to client as SSE comments** ON or OFF.
+
+<figure><img src="../../.gitbook/assets/SSE entrypoint config.gif" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Untitled" %}
 
 {% endtab %}
 {% endtabs %}
