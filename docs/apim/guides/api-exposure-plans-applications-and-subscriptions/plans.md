@@ -104,38 +104,39 @@ You use the API key authentication type to enforce verification of API keys duri
 
 API key plans offer only a basic level of security, acting more as a unique identifier than a security token. For a higher level of security, see JWT and OAuth 2.0 plans below.
 
-There are two ways to implement API key security:
+When configuring API key authentication, there are two main options:
 
-* Custom API key
-* Shared API key
+* **Propogate API key to upstream API:** toggling this setting on ensures the request to the backend API includes the API key header sent by the API consumer. This is setting is useful for backend APIs that already have integrated API key authentication.
+* **Additional selection rule:** this setting allows you to use Gravitee Expression Language (EL) to filter by contextual data (request headers, tokens, attributes, etc.) for plans of the same type. For example, if you have two API key plans, you can set different selection rules on each plan to determine which plan handles each request.
 
-**Use a custom API key**
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.22.29 PM.png" alt=""><figcaption><p>API key plan configuration</p></figcaption></figure>
 
-You can specify a custom API key for an API key plan. This is particularly useful when you want to silently migrate to APIM and have a pre-defined API key.
+Typically, API keys are randomly generated for each subscription. However, Gravitee provides two other options for API key generation: custom API key and shared API key. Both of these settings can be enabled at the environment level by selecting **Settings** in the main sidebar and then selecting **Settings** again under the **Portal** group in the nested sidebar.
 
-|   | The custom API key feature can be enabled in the global settings of APIM. |
-| - | ------------------------------------------------------------------------- |
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.49.04 PM.png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
 
-The custom API key must have more than 8 characters, less than 64 characters and be URL compliant (^ # % @ \ / ; = ? | \~ , (space) are all invalid characters).
+{% tabs %}
+{% tab title="Custom API key" %}
+You can specify a custom API key for an API key plan. This is particularly useful when you want to silently migrate to APIM and have a pre-defined API key. The custom API key must have more than 8 characters, less than 64 characters, and be URL compliant. `^ # % @ \ / ; = ? | ~ , space` are all invalid characters.
 
 When prompted, you can choose to provide your custom API key or let APIM generate one for you by leaving the field empty.
 
 You can provide a custom API key when:
 
-* creating a subscription:
+* Creating a subscription
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/custom-api-key-1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.54.21 PM.png" alt=""><figcaption><p>Manually creating a subscription</p></figcaption></figure>
 
-* accepting a subscription:
+* Accepting a subscription
 
-![custom api key 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/custom-api-key-2.png)
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.57.18 PM.png" alt=""><figcaption><p>Accepting a subscription</p></figcaption></figure>
 
-* renewing a subscription:
+* Renewing a subscription
 
-![custom api key 3](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/custom-api-key-3.png)
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.58.35 PM.png" alt=""><figcaption><p>Renewing a subscription</p></figcaption></figure>
+{% endtab %}
 
-**Use a shared API key**
-
+{% tab title="Shared API key" %}
 The shared API key mode makes consumers reuse the same API key across all API subscriptions of an application.
 
 This mode can be enabled in environment settings:
@@ -161,6 +162,10 @@ Because they may be used to call APIs that are owned by another group of publish
 Instead, it is the responsability of the application owner to perform such operations, and for this reason, shared API keys can only be revoked from the application owner subscription view.
 
 ![shared api key 4](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4.png)Figure 3. Manage your shared API in the console![shared api key 4 portal](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4-portal.png)Figure 4. Manage your shared API in the portal\
+
+{% endtab %}
+{% endtabs %}
+
 
 
 #### JWT
