@@ -65,7 +65,7 @@ All core Gravitee and related web API terminology defined. Use the search functi
 * **Flow:** method to control where and under what conditions policies act on an API call
 * **Sharding tags:** a tag that can be assigned to gateway and gateway APIs to provide a method to deploy a gateway API to a subset of gateways. Sharding tags can be mapped to a gateway’s fully qualified domain name which allows the developer portal to intelligently display different access URLs depending on the API’s sharding tags.
 * **Tenants:** a tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on the gateway receiving the request
-* **Gravitee Expression language (GEL):** language used by API publishers to configure various aspects and services of an API that supports querying and manipulating an object graph and is a superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language)
+* **Gravitee Expression language (EL):** language used by API publishers to configure various aspects and services of an API that supports querying and manipulating an object graph and is a superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language)
 * **Execution context:** data available during the request/response flow of an API call that can be accessed using the GEL
 
 ### General API terminology
