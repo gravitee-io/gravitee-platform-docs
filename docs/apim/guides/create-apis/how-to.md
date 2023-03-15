@@ -172,6 +172,16 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
   * Choose to propagate client Accept-Encoding header: toggle **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Add HTTP headers: select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
 * **Define your Proxy options**
+  * **Use proxy:** choose whether or not to use a proxy for client connections. To enable this, toggle Use proxy ON.
+    * If you enable Use proxy, you will need to select the Proxy type in the **Proxy type** drop-down. You choose between:
+      * HTTP proxy
+      * SOCKS4
+      * SOCKS5
+  * **Use system proxy:** choose to use the proxy configured at system level. If you enable this, you'll need to define the:
+    * Proxy host: enter your proxy host in the **Proxy host** text field.
+    * Proxy port: enter your proxy port in the **Proxy port** text field.
+    * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
+    * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
 * **Define your SSL options**
 * **Define your Key store**
 

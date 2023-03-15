@@ -79,7 +79,14 @@ Restrictions are just policies to regulate access to your APIs. Like any policy,
 
 ### Configure plan security
 
-Plans can sele
+The most important part of plan configuration is security. APIM supports the following four authentication types:
+
+* Keyless (public)
+* API Key
+* JWT
+* OAuth 2.0
+
+#### Keyless plan
 
 The **Keyless** authentication type **** does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback. Due to not requiring a subscription and a lack of a consumer identifier token, keyless consumers are set as `unknown application` in the API analytics section.
 
@@ -91,7 +98,78 @@ The **Keyless** authentication type **** does _not_ require authentication and a
 You can configure basic authentication for keyless plans, by associating a basic authentication policy with either an LDAP or inline resource. For more details, see [Basic authentication policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_basic\_authentication.html).
 {% endhint %}
 
-The next authentication type is **API key** which only allows apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
+#### API key plan
+
+You use the API key authentication type to enforce verification of API keys during request processing, allowing only apps with approved API keys to access your APIs. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
+
+API key plans offer only a basic level of security, acting more as a unique identifier than a security token. For a higher level of security, see JWT and OAuth 2.0 plans below.
+
+There are two ways to implement API key security:
+
+* Custom API key
+* Shared API key
+
+**Use a custom API key**
+
+You can specify a custom API key for an API key plan. This is particularly useful when you want to silently migrate to APIM and have a pre-defined API key.
+
+|   | The custom API key feature can be enabled in the global settings of APIM. |
+| - | ------------------------------------------------------------------------- |
+
+The custom API key must have more than 8 characters, less than 64 characters and be URL compliant (^ # % @ \ / ; = ? | \~ , (space) are all invalid characters).
+
+When prompted, you can choose to provide your custom API key or let APIM generate one for you by leaving the field empty.
+
+You can provide a custom API key when:
+
+* creating a subscription:
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/custom-api-key-1.png" alt=""><figcaption></figcaption></figure>
+
+* accepting a subscription:
+
+![custom api key 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/custom-api-key-2.png)
+
+* renewing a subscription:
+
+![custom api key 3](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/custom-api-key-3.png)
+
+**Use a shared API key**
+
+The shared API key mode makes consumers reuse the same API key across all API subscriptions of an application.
+
+This mode can be enabled in environment settings:
+
+![shared api key 1](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-1.png)
+
+With this mode enabled, consumers will be asked on their second subscription to choose between reusing their key across all subscriptions or generate one different API key for each subscription (which is the default mode).
+
+![shared api key 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2.png)Figure 1. When subscribing in the console![shared api key 2 portal](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png)Figure 2. When subscribing in the portal
+
+This choice is permanent and consumers will not be able to switch back to one key per subscription for their application.
+
+|   | When disabling the shared API key mode in environment settings, applications that have already been configured to use a shared key will continue to work this way, but consumers will stop being asked to choose between one mode or the other on their second subscription. |
+| - | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+|   | For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct APIs. This means that if subscribing to two API key plans on the same API while creating an application, no prompt will be made to choose for a mode and the default mode will be used automatically. |
+| - | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+Because they may be used to call APIs that are owned by another group of publishers, shared API keys cannot be edited from the API publisher subscription view. This means that while they are still readable, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared mode.
+
+![shared api key 3](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-3.png)
+
+Instead, it is the responsability of the application owner to perform such operations, and for this reason, shared API keys can only be revoked from the application owner subscription view.
+
+![shared api key 4](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4.png)Figure 3. Manage your shared API in the console![shared api key 4 portal](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4-portal.png)Figure 4. Manage your shared API in the portal\
+
+
+#### JWT
+
+
+
+#### Oauth 2.0
+
+
 
 ### Publish a plan
 
