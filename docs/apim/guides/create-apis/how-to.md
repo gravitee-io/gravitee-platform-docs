@@ -1,21 +1,14 @@
 ---
-description: >-
-  Learn how to create your Gravitee APIs using the Gravitee Management Console
-  UI
+description: Learn how to create your Gravitee APIs using the Gravitee API creation wizard
 ---
 
-# How-to
+# The API Creation Wizard
 
 ### Introduction
 
-Gravitee offers two ways to create Gateway APIs using the APIM UI:
+The API creation wizard makes it easy to create new Gateway API's from scratch.&#x20;
 
-* The API creation wizard
-* Importing an API
-
-You can also use the API Designer for API creation. However, the API Designer is used to create data models for local or web APIs and not for creating Gateway APIs. Because of this, we have written specific documentation for using the API Designer, and we will focus on only the creation wizard and the API import options in this section.
-
-### API creation wizard
+### Create your Gateway API
 
 {% @arcade/embed flowId="gjzRqNfSladxmw4olxSX" url="https://app.arcade.software/share/gjzRqNfSladxmw4olxSX" %}
 
