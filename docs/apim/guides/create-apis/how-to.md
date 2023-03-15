@@ -6,7 +6,7 @@ description: >-
 
 # How-to
 
-### Create APIs using the API Management (APIM) UI
+### Introduction
 
 Gravitee offers two ways to create Gateway APIs using the APIM UI:
 
@@ -15,7 +15,7 @@ Gravitee offers two ways to create Gateway APIs using the APIM UI:
 
 You can also use the API Designer for API creation. However, the API Designer is used to create data models for local or web APIs and not for creating Gateway APIs. Because of this, we have written specific documentation for using the API Designer, and we will focus on only the creation wizard and the API import options in this section.
 
-### Create a Gateway API using the API creation wizard
+### API creation wizard
 
 {% @arcade/embed flowId="gjzRqNfSladxmw4olxSX" url="https://app.arcade.software/share/gjzRqNfSladxmw4olxSX" %}
 
@@ -101,7 +101,7 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
   * This will then require you to define your **Virtual host** and optionally enable **override access.**
 * **HTTP POST permissions:** here, you can choose to allow add request Headers to the generated message. To do this toggle, **Allow add request Headers to the generated message** ON or OFF**.**
 
-<figure><img src="../../.gitbook/assets/HTTP POST entrypoint config (1).gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/HTTP POST entrypoint config.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Server-sent events (SSE) or SSE advanced" %}
@@ -145,11 +145,20 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 <figure><img src="../../.gitbook/assets/Webhook entrypoint config.gif" alt=""><figcaption><p>Webhook entrypoint config</p></figcaption></figure>
 {% endtab %}
+
+{% tab title="WebSocket" %}
+If you chose **WebSocket** as an entrypoint, you will be brought to a page where you can configure:
+
+* **The context path:** the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
+* **Enabling virtual hosts**
+  * This will then require you to define your **Virtual host** and optionally enable **override access.**
+* **WebSocket configuration**
+  * **Publisher configuration:** choose to either enable or disable the publication capability. By disabling it, you assume that the application will never be able to publish any message. To do this, toggle **Enable the publication capability** ON or OFF.
+  * **Subscriber configuration:** choose to enable or disable the subscription capability. By disabling it, you assume that the application will never receive any message. To do this, toggle **Enable the subscription capability** ON or OFF.
+
+<figure><img src="../../.gitbook/assets/WebSocket entrypoint config.gif" alt=""><figcaption><p>WebSocket entrypoint config</p></figcaption></figure>
+{% endtab %}
 {% endtabs %}
-
-
-
-
 
 #### Endpoints
 
