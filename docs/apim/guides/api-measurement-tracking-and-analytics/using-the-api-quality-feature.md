@@ -56,3 +56,11 @@ Once created, you can enforce this custom rule manually across your APIs.
 ### View and review APIs based on API Quality scoring
 
 An APIs quality score is visible in its **General** details page. To view an API Quality score, follow these steps:&#x20;
+
+1. Log in to the API Management UI.
+2. On the APIs page, select the API for which you want to view a Quality score.
+3. Select General under Portal.&#x20;
+
+You'll see the Quality score along with the various Quality rules that are impacting the score.&#x20;
+
+<figure><img src="../../.gitbook/assets/View quality score.gif" alt=""><figcaption></figcaption></figure>
