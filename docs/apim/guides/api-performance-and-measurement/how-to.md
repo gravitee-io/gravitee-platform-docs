@@ -4,7 +4,7 @@ description: >-
   applications.
 ---
 
-# Configure the Dashboard with Custom API Analytics.
+# Configure the Dashboard with Custom API Analytics
 
 ### Introduction
 
@@ -12,12 +12,12 @@ This article focuses on how to customize and build your Gravitee Dashboard, comp
 
 ### The Dashboard <a href="#the-dashboard" id="the-dashboard"></a>
 
-The Gravitee "Dashboard" is an area in the UI where you'll be able to create custom dashboards around API performance, status, lifecycle stage, and more. The Dashboard is comprised of four main tabs:
+The Gravitee "Dashboard" is an area in the UI where you'll be able to create custom dashboards around API performance, status, lifecycle stage, and more. The Dashboard is comprised of four main modules:
 
-* Home
-* APIs status
-* Analytics
-* Alerts
+* **The "Home" board module:** This is your "Metrics and analytics homepage." You can configure this page to show chosen charts, filter chart data based on time range, and configure how regularly the charts should be refreshed.
+* **The "API Status" module:** this module shows you status and availability of your APIs across time. You can filter which APIs to view and what for time range you want to view API status and availability.
+* **The "Analytics" module:** the analytics module is where you can see and slightly configure all of the various dashboards, charts, etc. that refer to your Gravitee API analytics. You can build multiple anayltics dashboards and view them all from this page. Your "Home board" will be pulling charts from these various dashboards.
+* **The "Alerts" module:** this module is for keeping track of all API alerts over a given amount of time.&#x20;
 
 To see what the Gravitee Dashboard is like, feel free to explore the UI via the interactive tutorial below:
 
