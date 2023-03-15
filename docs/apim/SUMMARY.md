@@ -222,7 +222,7 @@
     * [How-to](guides/developer-portal/consume-apis/how-to.md)
   * [Advanced Developer Portal Configuration](guides/api-exposure-plans-applications-and-subscriptions/how-to/advanced-developer-portal-configuration.md)
 * [API Measurement, Tracking, and Analytics](guides/api-measurement-tracking-and-analytics/README.md)
-  * [Configure the Dashboard with Custom API Analytics.](guides/api-performance-and-measurement/how-to.md)
+  * [Configure the Dashboard with Custom API Analytics](guides/api-performance-and-measurement/how-to.md)
   * [Using the API Quality feature](guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md)
 * [Administration](guides/administration/README.md)
   * [Concepts](guides/administration/concepts.md)
