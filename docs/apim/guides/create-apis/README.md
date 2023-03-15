@@ -64,9 +64,7 @@ Gravitee offers support for a variety of API styles, event brokers, and communic
 | Solace                                                     | <p>The Gravitee Gateway can establish a persistent connection with a backend Solace resource as a data source. From here, the Gateway can be used to expose messages streamed from Solace to consumers via:</p><ul><li>REST API (limited to HTTP GET and HTTP POST commands for now)</li><li>WebSocket API</li><li>Webhooks</li><li>Sever-sent events API (SSE)</li></ul>                                                      |
 | MQTT                                                       | <p>The Gravitee Gateway can establish a persistent connection with a backend MQTT broker (as long as that MQTT broker is running MQTT 5) as a data source. From here, the Gateway can be used to expose messages streamed from the MQTT broker to consumers via:</p><ul><li>REST API (limited to HTTP GET and HTTP POST commands for now)</li><li>WebSocket API</li><li>Webhooks</li><li>Sever-sent events API (SSE)</li></ul> |
 
-* Synchronous and asynchronous APIs
-  * Gravitee supports REST, SOAP, gRPC (limited to simple proxy for now), GraphQL (limited to simple proxy for now), Websockets, Webhooks, and Server-sent events (SSE) as API types
-* Event brokers as backend data sources
+*
   * Gravitee currently supports Kafka, Confluent, Solace, MQTT, and MQTT brokers
 
 {% hint style="info" %}
