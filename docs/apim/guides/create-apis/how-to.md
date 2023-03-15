@@ -155,4 +155,18 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
 
 #### Endpoints
 
-**Gateway endpoints** define the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API. Your endpoints will be dictated by the entrypoints that you select.&#x20;
+**Gateway endpoints** define the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API. Your endpoints will be dictated by the API architecture that you selected earlier. If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To configure this endpoint, you will be brough to a page where you can:
+
+* **Define your target url:** enter your target url in the **Target url** text field.
+* **Define your HTTP options**
+  * Choose to either allow or diallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
+    * You'll need to select the HTTP protocol version to use. As of now, HTTP/1.1 or HTTP/2 are options.
+  * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF
+    * If you enable this, you'll need to define a timeout value by entering a numerical value in the **Connect timeout** text field by either typing in a numerical value or using the arrow keys in the text field.
+  * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.&#x20;
+    * If you enable this, you'll need to define a read timeout value by entering a numerical value in the **Read timeout** text field by either typing in a numerical value or using the arrow keys in the text field.
+  * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.&#x20;
+* **Define your Proxy options**
+* **Define your SSL options**
+* **Define your Key store**
+

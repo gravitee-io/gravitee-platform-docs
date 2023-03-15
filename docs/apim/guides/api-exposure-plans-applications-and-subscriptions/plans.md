@@ -10,11 +10,19 @@ Plans are always created by the API publisher. You can create plans in the manag
 
 {% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
 
+Creating a plan begins by navigating to your API, selecting **Plans** in the sidebar, and then selecting **Add new plan** in the top right of the page.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.36.23 PM.png" alt=""><figcaption><p>Create a new plan</p></figcaption></figure>
+
+This will take you to the plan creation wizard.&#x20;
+
 Creating a plan is broken down into three main stages:
 
 1. **General**
 2. **Secure**&#x20;
 3. **Restrictions**
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.37.47 PM.png" alt=""><figcaption><p>Plan creation wizard</p></figcaption></figure>
 
 #### General
 
@@ -50,41 +58,40 @@ The **Deployment** section allows you to selectively deploy the plan to particul
 
 #### Secure
 
-During the **Secure** stage of plan creation, the API publisher selects one of four authentication types to secure their API. You can learn more about configuring each of these authentication types here.
+During the **Secure** stage of plan creation, the API publisher selects one of four authentication types to secure their API. You can learn more about how to configure plan security in the following section.
 
-* **Keyless:** allows public access to the API and bypasses any security mechanisms on the whole request process
-* **API key:** allows only apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.49.42 PM.png" alt=""><figcaption><p>Select authentication type</p></figcaption></figure>
+
+* **Keyless (public):**  does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback.&#x20;
+* **API key:** only allows apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
 * **JSON web token (JWT):** open method for representing claims securely between two parties. JWT are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
 * **Oauth 2.0:** open standard that apps can use to provide client applications with secure delegated access. OAuth works over HTTPS and authorizes devices, APIs, servers, and applications with access tokens rather than credentials.
 
-{% tabs %}
-{% tab title="General" %}
-Enter basic details about your plan. The only requirement for this stage is proving a name for your plan.
+#### Restrictions
 
-* The initial section lets you set a name, description, and characteristics for your plan. Characteristics are optional labels you can use to tag your plan. &#x20;
-* **Conditions:** select a page containing the general conditions for use of your plan. If included, these conditions must be accepted by the user to finalize the subscription process. To associate general conditions of use with a plan, you need to specify a markdown page where these conditions are specified which you can learn about in the plan documentation section. Plans with general conditions are identified by a **With general conditions** label.
+Restrictions are just policies to regulate access to your APIs. Like any policy, restrictions can also be applied to a plan through the design studio. You can learn more about configuring these particular policies here.
 
-<figure><img src="../../.gitbook/assets/general-conditions-plans.png" alt=""><figcaption><p>Plan with general conditions</p></figcaption></figure>
-
-* **Subscriptions:** modify basic settings around a subscription for plans requiring authentication&#x20;
-  * **Auto validate subscription:** accepts any and all subscriptions to a plan without the API publisher's review. These subscriptions can still be revoked at any time
-  * The API publisher can require all subscription requests from API consumers to include a comment detailing their request. Additionally, with this option enabled, the API publisher can leave a default message explaining what is expected in the API consumer's comment
-* **Deployment:** the plan can be selectively deployed to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
-* **Access-Control:** exclude certain groups from accessing this plan. You can learn more about user management and how to configure groups here.
-{% endtab %}
-
-{% tab title="Secure" %}
-
-{% endtab %}
-
-{% tab title="Restrictions" %}
-Policies to regulate access to your APIs. Like any policy, restrictions can also be applied to a plan through the design studio. You can learn more about configuring these particular policies here.
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.52.54 PM.png" alt=""><figcaption><p>Configure restrictions</p></figcaption></figure>
 
 * **Rate Limiting:** limit how many HTTP requests an application can make in a specified period of seconds or minutes. This policy is meant to help avoid unmanageable spikes in traffic.
 * **Quota:** specifies the number of requests allowed to call an API backend during a specified time interval. The policy is generally used to tier access to APIs based on subscription level.
 * **Resource Filtering:** limit access to a subset of API resources
-{% endtab %}
-{% endtabs %}
+
+### Configure plan security
+
+Plans can sele
+
+The **Keyless** authentication type **** does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback. Due to not requiring a subscription and a lack of a consumer identifier token, keyless consumers are set as `unknown application` in the API analytics section.
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.39.10 PM.png" alt=""><figcaption><p>Keyless authentication type</p></figcaption></figure>
+
+{% hint style="info" %}
+**Basic authentication and keyless plans**
+
+You can configure basic authentication for keyless plans, by associating a basic authentication policy with either an LDAP or inline resource. For more details, see [Basic authentication policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_basic\_authentication.html).
+{% endhint %}
+
+The next authentication type is **API key** which only allows apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
 
 ### Publish a plan
 
