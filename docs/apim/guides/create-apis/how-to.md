@@ -166,6 +166,11 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
   * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.&#x20;
     * If you enable this, you'll need to define a read timeout value by entering a numerical value in the **Read timeout** text field by either typing in a numerical value or using the arrow keys in the text field.
   * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.&#x20;
+  * **Configure your idle timeout settings**: defiens the maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, allowing to free the associated resources. To configure this, enter in a numerical value or using the arrow keys in the text field.
+  * Choose to follow HTTP redirects or not: toggle **Follow HTTP redirects** ON or OFF.
+  * Define the number of max concurent connections: enter in a numerical value or using the arrow keys in the text field.
+  * Choose to propagate client Accept-Encoding header: toggle **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
+  * Add HTTP headers: select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
 * **Define your Proxy options**
 * **Define your SSL options**
 * **Define your Key store**
