@@ -201,7 +201,6 @@
 
 * [Prologue](guides/prologue.md)
 * [Create APIs](guides/create-apis/README.md)
-  * [Concepts](guides/create-apis/concepts.md)
   * [How-to](guides/create-apis/how-to.md)
 * [API configuration](guides/api-configuration/README.md)
   * [Concepts](guides/api-configuration/concepts.md)
