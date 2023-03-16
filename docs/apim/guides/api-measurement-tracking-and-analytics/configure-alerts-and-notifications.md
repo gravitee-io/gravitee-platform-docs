@@ -32,15 +32,13 @@ To configure email notifications, select **Default Mail Notifications** and then
 
 ### Configure alerts
 
+{% hint style="info" %}
+The following documentation is only relevant if you have Gravitee Alert Engine enabled, which is an Enterprise only capability. If you want the full extent of the following alerting capabilities, please reach out to Gravitee by [contacting us here](https://www.gravitee.io/contact-us), or, by speaking with your CSM.
+{% endhint %}
+
 {% @arcade/embed flowId="5HCcKbjuS7rfjlFsxPTI" url="https://app.arcade.software/share/5HCcKbjuS7rfjlFsxPTI" %}
 
 In addition to notifications, you can set up alerting conditions for the Gateway. Like notifications, this done as a part of configuring an APIs settings.
-
-{% hint style="info" %}
-**Alert Engine**
-
-While the Gateway and MAnagement UI offer some pre-built alerting capabilities, we recommend that organizations with a need for robust, eneterprise API monitoring nad alerting check out the [Gravitee Alert Engine documentation](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/WAKqxjzYogMr1tk18evT/).&#x20;
-{% endhint %}
 
 To configure alerts for your APIs, select your API from the **APIs** menu. Then, under **Notifications,** select **Alerts**.&#x20;
 
