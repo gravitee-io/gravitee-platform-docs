@@ -139,9 +139,9 @@ You can provide a custom API key when:
 {% tab title="Shared API key" %}
 The shared API key mode allows consumers to reuse the same API key across all API subscriptions of an application.&#x20;
 
-However, this has an important consequence. Because the shared API key may be used to call APIs that are owned by another group of API publishers, shared API keys cannot be edited from the API publisher subscription view. This means that while they are still readable, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared mode.
+However, this has an important consequence. Because the shared API key may be used to call APIs that are owned by another group of API publishers, shared API keys cannot be edited from the API publisher subscription view. This means that while shared API keys are still readable, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared mode.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-3.png" alt=""><figcaption><p>Shared API key adminstration changes</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-3.png" alt=""><figcaption><p>Shared API key adminstration limitations</p></figcaption></figure>
 
 Instead, it is the responsibility of the application owner to perform such operations, and for this reason, shared API keys can only be revoked from the application owner subscription view in either the management UI or the developer portal.
 
@@ -153,7 +153,7 @@ With this mode enabled, consumers will be asked on their second subscription to 
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the developer portal</p></figcaption></figure>
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2.png" alt=""><figcaption><p>Subscribing in the managment UI</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2.png" alt=""><figcaption><p>Subscribing in the management UI</p></figcaption></figure>
 
 This choice is permanent and consumers will not be able to switch back to one key per subscription for their application. When disabling the shared API key mode in environment settings, applications that have already been configured to use a shared key will continue to work this way, but consumers will stop being asked to choose between one mode or the other on their second subscription.
 

@@ -205,7 +205,7 @@
   * [Import APIs](guides/create-apis/import-apis.md)
 * [API configuration](guides/api-configuration/README.md)
   * [Load-balancing, failover, and health checks](guides/api-configuration/load-balancing-failover-and-health-checks.md)
-  * [Configure Service Discovery](guides/api-configuration/configure-service-discovery.md)
+  * [Configure Service Discovery](guides/api-configuration/how-to/configure-service-discovery.md)
   * [Configure General Proxy settings](guides/api-configuration/configure-cors.md)
 * [Policy Design](guides/policy-design/README.md)
   * [Concepts](guides/policy-design/concepts.md)
