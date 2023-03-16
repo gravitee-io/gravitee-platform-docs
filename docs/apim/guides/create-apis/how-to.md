@@ -8,6 +8,10 @@ description: Learn how to create your Gravitee APIs using the Gravitee API creat
 
 The API creation wizard makes it easy to create new Gateway API's from scratch.&#x20;
 
+
+
+change
+
 ### Create your Gateway API
 
 {% @arcade/embed flowId="gjzRqNfSladxmw4olxSX" url="https://app.arcade.software/share/gjzRqNfSladxmw4olxSX" %}
