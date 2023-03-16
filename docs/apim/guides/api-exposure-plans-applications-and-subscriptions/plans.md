@@ -199,16 +199,30 @@ The policy searches for a client ID in the payload as follows:
 * Next in the `aud` claim
 * Finally in the `client_id` claim
 
-**Add JWT security to a plan**
+{% hint style="info" %}
+**Client ID**
 
-1. In APIM Console, select your API and click **Portal > Plans**.
-2. On the **Secure** page, choose **JWT** as the authorization type.
-3.  Specify the public key used to verify the incoming JWT token.
+Client IDs are used to recognize applications that have subscribed to either a JWT or OAuth 2.0 plan. You can learn more under Subscriptions.
+{% endhint %}
 
-    |   | You can also set the public key in the `gravitee.yml` file. See [JWT policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_jwt.html) for more information. APIM only supports the RSA Public Key format. |
-    | - | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+Configuring a JWT plan presents the following options:
 
-    ![create jwt plan](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/create-jwt-plan.png)
+* **Signature:** select the algorithm used to hash and encrypt your JWT
+* **JSON Web Key Set (JWKS) resolver:** to validate the signature of the JSON web token, the gateway needs to use the associated Authorization Server's public key. Gravitee has three methods for providing this key:
+  * `GIVEN_KEY` — You provide the key in `ssh-rsa`, `pem`, `crt` or `public-key` format wh
+  * `GIVEN_ISSUER` — If you want to filter on several authorization servers then you only need to specify the issuer name; the gateway will only accept JWTs with a permitted issuer attribute. If `GATEWAY_KEYS` is set, the issuer is also used to retrieve the public key from the `gravitee.yml` file.
+  * `GATEWAY_KEYS` — You can set some public keys in the APIM Gateway `gravitee.yml` file
+  *
+
+<figure><img src="../../.gitbook/assets/JWT plan configuration.png" alt=""><figcaption><p>JWT plan configuration</p></figcaption></figure>
+
+{% hint style="info" %}
+**Public key configuration**
+
+You can also set the public key in the `gravitee.yml` file. See [JWT policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_jwt.html) for more information. APIM only supports the RSA Public Key format.
+{% endhint %}
+
+
 
 Your API is now JWT secured and consumers must call the API with an `Authorization Bearer :JWT Token:` HTTP header to access the API resources.
 
