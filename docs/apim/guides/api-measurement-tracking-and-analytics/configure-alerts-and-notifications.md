@@ -127,3 +127,52 @@ If you want to choose Webhook as your notification channel, you will need to def
 <figure><img src="../../.gitbook/assets/Webhook notifications.png" alt=""><figcaption><p>Webhook notifications</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
+
+### Example alerts
+
+To help aid in your alert configuration, here are some example alert templates that we find useful for many teams:
+
+#### Response time greater than X ms
+
+This is how you would configure an alert for response times to requests exceeding a threshold of 1500ms:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_response_time_threshold.png" alt=""><figcaption></figcaption></figure>
+
+#### Invalid API key
+
+This is how you would configure an alert to be triggered when an invalid API key is passed to the Gateway along with a request:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_key_invalid.png" alt=""><figcaption><p>Invalid API key alert</p></figcaption></figure>
+
+#### 50th percentile of response time greater than X ms
+
+This is how you would configure an alert for the 50th percentile of response times exceeding a threshold of 200 ms in the last 5 minutes:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_50percentile.png" alt=""><figcaption><p>Alert for 50th percentile of response time greater than X ms</p></figcaption></figure>
+
+#### No API requests in the last minute
+
+This is how you would configure an alert for no requests made to the API during the last minute:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests in the last minute</p></figcaption></figure>
+
+#### No API requests from my-application in the last minute
+
+The following example is the same as above, but filters on `my-application`:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_application_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests from my application in the last minute</p></figcaption></figure>
+
+#### Quota too many requests
+
+This how you would configure an alert for reaching the quota limit on requests:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_quota_too_many_requests.png" alt=""><figcaption><p>Alert for reaching the quota limit on requests</p></figcaption></figure>
+
+#### Too many errors in the last 5 minutes
+
+This is how you configure an alert for the number of 5xx errors reaching a threshold of 10 in the last 5 minutes:
+
+\
+
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_too_many_errors.png" alt=""><figcaption><p>Alert for too many errors in the last five minutes</p></figcaption></figure>
