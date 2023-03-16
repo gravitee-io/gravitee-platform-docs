@@ -207,26 +207,34 @@ Client IDs are used to recognize applications that have subscribed to either a J
 
 Configuring a JWT plan presents the following options:
 
-* **Signature:** select the algorithm used to hash and encrypt your JWT
-* **JSON Web Key Set (JWKS) resolver:** to validate the signature of the JSON web token, the gateway needs to use the associated Authorization Server's public key. Gravitee has three methods for providing this key:
-  * `GIVEN_KEY` — You provide the key in `ssh-rsa`, `pem`, `crt` or `public-key` format wh
-  * `GIVEN_ISSUER` — If you want to filter on several authorization servers then you only need to specify the issuer name; the gateway will only accept JWTs with a permitted issuer attribute. If `GATEWAY_KEYS` is set, the issuer is also used to retrieve the public key from the `gravitee.yml` file.
-  * `GATEWAY_KEYS` — You can set some public keys in the APIM Gateway `gravitee.yml` file
-  *
-
 <figure><img src="../../.gitbook/assets/JWT plan configuration.png" alt=""><figcaption><p>JWT plan configuration</p></figcaption></figure>
 
-{% hint style="info" %}
-**Public key configuration**
+* **Signature:** select the algorithm used to hash and encrypt your JWT
+* **JSON Web Key Set (JWKS) resolver:** to validate the signature of the JSON web token, the gateway needs to use the associated authorization server's JWKS. Gravitee has three methods for providing the JWKS:
+  * `GIVEN_KEY` : you provide the key in `ssh-rsa`, `pem`, `crt` or `public-key` format which must match the signature algorithm
+  * `GIVEN_ISSUER` : you can set public keys in the APIM Gateway `gravitee.yml` file that are associated with an authorization server. The gateway will only accept JWTs with an`iss` (issuer) JWT payload [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims) that matches an authorization server listed in the APIM Gateway `gravitee.yml`. Additionally, you can filter between an authorization server's keys based on the `kid` (key ID) JWT header [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims).&#x20;
+  * `JWKS_URL` : you can provide a URL for the gateway to retrieve the necessary JWKS (basically, a URL ending with `/.well-known/jwks.json` )
 
-You can also set the public key in the `gravitee.yml` file. See [JWT policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_jwt.html) for more information. APIM only supports the RSA Public Key format.
-{% endhint %}
+```yaml
+jwt:
+  issuer:
+    my.authorization.server:
+      default: ssh-rsa myValidationKey anEmail@domain.com
+      kid-2016: ssh-rsa myCurrentValidationKey anEmail@domain.com
+```
 
+* **Use system proxy: unkown**
+*   **Extract JWT claims:** allow claims to be accessed in the `jwt.claims` context attribute during request-response with the Gravitee Expression Language (EL). For example, when enabled, you can extract the issuer claim from JWT using the following EL statement:
 
+    ```
+    {#context.attributes['jwt.claims']['iss']}
+    ```
+* **Propagate Authorization header:** propagate the header containing the JWT token to the backend APIs
+* **User claim:** payload claim where the user can be extracted. The default `sub` value is standard with JWTs
+* **Client ID claim:** override the default claim where the client ID can be extracted. By default, the gateway checks the `azp` claim, then the `aud` claim, and finally the `client_id` claim.
+* **Additional selection rule:** this setting allows you to use the EL to filter by contextual data (request headers, tokens, attributes, etc.) for plans of the same type. For example, if you have two JWT plans, you can set different selection rules on each plan to determine which plan handles each request.
 
-Your API is now JWT secured and consumers must call the API with an `Authorization Bearer :JWT Token:` HTTP header to access the API resources.
-
-
+Once JWT configuration is complete and the plan is created and published, your API will be JWT secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.
 
 #### Oauth 2.0
 
