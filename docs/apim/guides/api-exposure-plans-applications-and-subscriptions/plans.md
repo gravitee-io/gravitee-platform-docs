@@ -139,7 +139,29 @@ You can provide a custom API key when:
 {% tab title="Shared API key" %}
 The shared API key mode allows consumers to reuse the same API key across all API subscriptions of an application.&#x20;
 
-However, this has an important consequence. Because the shared API key may be used to call APIs that are owned by another group of API publishers, shared API keys cannot be edited from the API publisher subscription view. This means that while shared API keys are still readable, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared mode.
+With this mode enabled, consumers will be asked on their second subscription to choose between reusing their key across all subscriptions or generating one different API key for each subscription (which is the default mode). This is known as the application API key type.
+
+{% hint style="info" %}
+**Shared API key limitations**
+
+For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
+{% endhint %}
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the developer portal</p></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption><p>Subscribing in the managment UI</p></figcaption></figure>
+
+This choice is _permanent_ for that application and consumers will not be able to switch between application API key types after the initial decision.
+
+When disabling the shared API key mode in environment settings, applications that have already been configured to use a shared key will continue to work this way, but consumers will stop being asked to choose between one mode or the other on their second subscription.
+
+{% hint style="warning" %}
+**Missing API key type selection menu?**
+
+Shared API key mode must be enabled in settings before creating an application in order to have this option show up. If you are having issues, the best option is to create a new application and immediately subscribe to two API key plans.
+{% endhint %}
+
+Shared API key mode also has an important consequence you should be aware of before enabling. Because the shared API key may be used to call APIs that are owned by another group of API publishers, shared API keys cannot be edited from the API publisher subscription view. So while shared API keys are still readable by API publishers, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared API key mode.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-3.png" alt=""><figcaption><p>Shared API key adminstration limitations</p></figcaption></figure>
 
@@ -149,22 +171,11 @@ Instead, it is the responsibility of the application owner to perform such opera
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API key in the developer portal</p></figcaption></figure>
 
-With this mode enabled, consumers will be asked on their second subscription to choose between reusing their key across all subscriptions or generating one different API key for each subscription (which is the default mode).
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the developer portal</p></figcaption></figure>
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2.png" alt=""><figcaption><p>Subscribing in the management UI</p></figcaption></figure>
-
-This choice is permanent and consumers will not be able to switch back to one key per subscription for their application. When disabling the shared API key mode in environment settings, applications that have already been configured to use a shared key will continue to work this way, but consumers will stop being asked to choose between one mode or the other on their second subscription.
-
 {% hint style="info" %}
-**Multiple API key plan limitations**
+**Shared API key limitations**
 
-For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct APIs. This means that if subscribing to two API key plans on the same API while creating an application, no prompt will be made to choose for a mode and the default mode will be used automatically.
+For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 {% endhint %}
-
-\
-
 {% endtab %}
 {% endtabs %}
 
