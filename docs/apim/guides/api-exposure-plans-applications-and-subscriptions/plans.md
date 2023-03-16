@@ -86,6 +86,12 @@ The most important part of plan configuration is security. APIM supports the fol
 * JWT
 * OAuth 2.0
 
+{% hint style="info" %}
+**Policies vs authentication types**
+
+Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio.
+{% endhint %}
+
 #### Keyless plan
 
 The Keyless **** authentication type **** does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback. Due to not requiring a subscription and a lack of a consumer identifier token, keyless consumers are set as `unknown application` in the API analytics section.
@@ -181,12 +187,11 @@ For technical reasons, in shared mode, API keys can only be shared across API ke
 
 #### JSON Web Token (JWT) plan
 
-The JWT authentication type ensure that JWT tokens issued by third parties are valid. Only applications with approved JWT tokens can access APIs associated with a JWT plan.
+The JWT authentication type ensures that JWTs issued by third parties are valid. Only applications with approved JWTs can access APIs associated with a JWT plan.
 
-[JSON Web Tokens](https://tools.ietf.org/html/rfc7519) are an open method for representing claims securely between two parties. JWT are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
+[JSON Web Tokens](https://tools.ietf.org/html/rfc7519) are an open method for representing claims securely between two parties. JWTs are digitally signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
 
-|   | JWT define some [registered claim names](https://tools.ietf.org/html/rfc7519#section-4.1) including subject, issuer, audience, expiration time and not-before time. In addition to these claims, the inbound JWT payload must include the `client_id` claim (see below) to establish a connection between the JWT and the APIM application subscription. |
-| - | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+JWT defines some [registered claim names](https://tools.ietf.org/html/rfc7519#section-4.1) including subject, issuer, audience, expiration time, and not-before time. In addition to these claims, the inbound JWT payload must include the `client_id` claim (see below) to establish a connection between the JWT and the APIM application subscription.
 
 The policy searches for a client ID in the payload as follows:
 
