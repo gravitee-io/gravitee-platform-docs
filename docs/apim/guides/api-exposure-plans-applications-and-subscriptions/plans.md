@@ -88,7 +88,7 @@ The most important part of plan configuration is security. APIM supports the fol
 
 #### Keyless plan
 
-The **Keyless** authentication type **** does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback. Due to not requiring a subscription and a lack of a consumer identifier token, keyless consumers are set as `unknown application` in the API analytics section.
+The Keyless **** authentication type **** does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback. Due to not requiring a subscription and a lack of a consumer identifier token, keyless consumers are set as `unknown application` in the API analytics section.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.39.10 PM.png" alt=""><figcaption><p>Keyless authentication type</p></figcaption></figure>
 
@@ -100,7 +100,7 @@ You can configure basic authentication for keyless plans, by associating a basic
 
 #### API key plan
 
-You use the API key authentication type to enforce verification of API keys during request processing, allowing only apps with approved API keys to access your APIs. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
+The API key authentication type enforces verification of API keys during request processing, allowing only apps with approved API keys to access your APIs. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
 
 API key plans offer only a basic level of security, acting more as a unique identifier than a security token. For a higher level of security, see JWT and OAuth 2.0 plans below.
 
@@ -179,13 +179,82 @@ For technical reasons, in shared mode, API keys can only be shared across API ke
 {% endtab %}
 {% endtabs %}
 
-#### JWT
+#### JSON Web Token (JWT) plan
+
+The JWT authentication type ensure that JWT tokens issued by third parties are valid. Only applications with approved JWT tokens can access APIs associated with a JWT plan.
+
+[JSON Web Tokens](https://tools.ietf.org/html/rfc7519) are an open method for representing claims securely between two parties. JWT are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
+
+|   | JWT define some [registered claim names](https://tools.ietf.org/html/rfc7519#section-4.1) including subject, issuer, audience, expiration time and not-before time. In addition to these claims, the inbound JWT payload must include the `client_id` claim (see below) to establish a connection between the JWT and the APIM application subscription. |
+| - | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+The policy searches for a client ID in the payload as follows:
+
+* First in the `azp` claim
+* Next in the `aud` claim
+* Finally in the `client_id` claim
+
+**Add JWT security to a plan**
+
+1. In APIM Console, select your API and click **Portal > Plans**.
+2. On the **Secure** page, choose **JWT** as the authorization type.
+3.  Specify the public key used to verify the incoming JWT token.
+
+    |   | You can also set the public key in the `gravitee.yml` file. See [JWT policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_jwt.html) for more information. APIM only supports the RSA Public Key format. |
+    | - | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+
+    ![create jwt plan](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/create-jwt-plan.png)
+
+Your API is now JWT secured and consumers must call the API with an `Authorization Bearer :JWT Token:` HTTP header to access the API resources.
 
 
 
 #### Oauth 2.0
 
+To configure an OAuth 2.0 plan for an API, you need to:
 
+* create an OAuth 2.0 client resource that represents your OAuth 2.0 authorization server
+* create a new plan for it or apply it to an existing plan
+
+**Create and specify an OAuth 2.0 authorization server**
+
+|   | The instructions below explain how to create an OAuth 2.0 resource in Design Studio. For APIs not migrated to Design Studio, you can create resources with the **Design > Resources** menu option. |
+| - | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+1. Open your API in APIM Console and click **Design**.
+2.  Click the **RESOURCES** tab and create a new **Generic OAuth2 Authorization Server** resource.
+
+    |   | If you use [Gravitee.io Access Management](https://gravitee.io/), we provide a dedicated OAuth 2.0 AM resource. |
+    | - | --------------------------------------------------------------------------------------------------------------- |
+
+    ![Gravitee.io - Create OAuth 2.0 resource](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/create-oauth2-resource.png)
+3. Enter the **Resource name**.
+4. Set the **OAuth 2.0 Authorization server URL**.
+5. Set the [Token introspection endpoint](https://tools.ietf.org/html/rfc7662) URI with the correct HTTP method and [scope](https://tools.ietf.org/html/rfc6749#section-3.3) delimiter.
+6. Enter the **Scope separator**.
+7. If you want to retrieve consented claims about the end user, enter the [UserInfo Endpoint](http://openid.net/specs/openid-connect-core-1\_0.html#UserInfo) URI.
+8.  Enter the **Client Id** and **Client Secret** used for token introspection.
+
+    |   | Why do I need this? As defined in [RFC 7662](https://tools.ietf.org/html/rfc7662#section-2.1), to prevent token scanning attacks, the introspection endpoint must also require some form of authorization to access this endpoint, such as client authentication. |
+    | - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+9. Enter any other required information, then click the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png).
+10. Click **SAVE** to save the resource.
+
+**Add OAuth 2.0 security to a plan**
+
+|   | If you already have a suitable plan defined, you can add your OAuth2 resource to one of the flows defined for it in Design Studio, by following the steps in [Add policies to a flow](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#flow-policies). |
+| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+1. In APIM Console, select your API and click **Portal > Plans**.
+2. On the **Secure** page, choose **OAuth2** as the authorization type.
+3.  Specify the OAuth2 resource name you created and check any [scopes](https://tools.ietf.org/html/rfc6749#section-3.3) to access the API.
+
+    ![create oauth2 plan](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/create-oauth2-plan.png)
+
+Your API is now OAuth 2.0 secured and consumers must call the API with an `Authorization Bearer :token:` HTTP header to access the API resources.
+
+|   | Any applications wanting to subscribe to an OAuth 2.0 plan must have an existing client with a valid `client_id` registered in the OAuth 2.0 authorization server. The `client_id` will be used to establish a connection between the OAuth 2.0 client and the APIM consumer application. |
+| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ### Publish a plan
 
