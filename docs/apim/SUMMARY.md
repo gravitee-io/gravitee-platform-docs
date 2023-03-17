@@ -230,7 +230,7 @@
   * [Configure Alerts and Notifications](guides/api-measurement-tracking-and-analytics/configure-alerts-and-notifications.md)
   * [Expression language](guides/api-measurement-tracking-and-analytics/expression-language.md)
 * [Administration](guides/administration/README.md)
-  * [Administering organizations, environments, users, and groups](guides/administration/how-to.md)
+  * [Administering organizations and environments](guides/administration/how-to.md)
 * [Developer Contributions](guides/developer-contributions/README.md)
   * [Concepts](guides/developer-contributions/concepts.md)
   * [How-to](guides/developer-contributions/how-to.md)
