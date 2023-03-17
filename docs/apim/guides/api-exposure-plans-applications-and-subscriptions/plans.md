@@ -238,6 +238,8 @@ Once JWT configuration is complete and the plan is created and published, your A
 
 #### Oauth 2.0
 
+The OAuth 2.0 authentication type checks access token validity during request processing using token introspection. If the access token is valid, the request is allowed to proceed. If not, the process stops and rejects the request.
+
 To configure an OAuth 2.0 plan for an API, you need to:
 
 * create an OAuth 2.0 client resource that represents your OAuth 2.0 authorization server
@@ -245,16 +247,13 @@ To configure an OAuth 2.0 plan for an API, you need to:
 
 **Create and specify an OAuth 2.0 authorization server**
 
-|   | The instructions below explain how to create an OAuth 2.0 resource in Design Studio. For APIs not migrated to Design Studio, you can create resources with the **Design > Resources** menu option. |
-| - | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
 1. Open your API in APIM Console and click **Design**.
-2.  Click the **RESOURCES** tab and create a new **Generic OAuth2 Authorization Server** resource.
+2. Click the **RESOURCES** tab and create a new **Generic OAuth2 Authorization Server** resource.
 
-    |   | If you use [Gravitee.io Access Management](https://gravitee.io/), we provide a dedicated OAuth 2.0 AM resource. |
-    | - | --------------------------------------------------------------------------------------------------------------- |
+{% hint style="info" %}
+If you use [Gravitee.io Access Management](https://gravitee.io/), we provide a dedicated OAuth 2.0 AM resource.
+{% endhint %}
 
-    ![Gravitee.io - Create OAuth 2.0 resource](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/create-oauth2-resource.png)
 3. Enter the **Resource name**.
 4. Set the **OAuth 2.0 Authorization server URL**.
 5. Set the [Token introspection endpoint](https://tools.ietf.org/html/rfc7662) URI with the correct HTTP method and [scope](https://tools.ietf.org/html/rfc6749#section-3.3) delimiter.
