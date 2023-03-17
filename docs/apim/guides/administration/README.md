@@ -27,6 +27,16 @@ In the context of an APIM installation, it is the level at which shared configur
 
 Gravitee Organizations can include multiple environments.&#x20;
 
+#### Managing platform access
+
+As a part of Organization administration, Gravitee offers multiple manners of managing and controlling access to the Gravitee platform. This is done by configuring Identity providers and login/registration settings.
+
+{% hint style="info" %}
+This is different than Gravitee Access Management
+{% endhint %}
+
+This should _not_ be confused with Gravitee Access Management, which is a fully-featured Identity and Access Management solution that is used for controlling access to applications and APIs. To learn more about the Access Management product, please refer to the [Gravitee Access Management documentation](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/).
+
 ### Environments
 
 In Gravitee, **Environments** are flexible and act as the workspace in which users can manage their APIs, applications, and subscriptions. An environment handles its own categories, groups, documentation pages, and quality rules.
@@ -39,9 +49,5 @@ Examples of environments:
 ### User and groups
 
 In Gravitee, a **User** is just a user of the Gravitee platform. You can create **User groups,** which are defined by a set of permissions and roles as they pertain to configuring and managing APIs and Applications in Gravitee.
-
-### Managing platform access
-
-Gravitee offers multiple manners of managing and controlling access to the Gravitee platform. This should _not_ be confused with Gravitee Access Management, which is a fully-featured Identity and Access Management solution that is used for controlling access to applications and APIs. To learn more about the Access Management product, please refer to the [Gravitee Access Management documentation](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/).
 
 \
