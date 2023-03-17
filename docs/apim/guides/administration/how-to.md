@@ -58,7 +58,9 @@ CORS can also be configured at the API level. To configure CORS at the API level
 
 ### Defining Organization authentication and access settings
 
-You can also configure your Organization's authentication and access settings. To do this, log-in to your Gravitee API Management UI and select Organization from the left-hand nav. Then, select **Authentication** underneath **Console.** From here, you will be brought to the **Authentication** page. Here, you can:
+{% @arcade/embed flowId="iVIQA53PE3vtm6hoNo7b" url="https://app.arcade.software/share/iVIQA53PE3vtm6hoNo7b" %}
+
+Gravitee makes it easy to set up and configure your Organization's authentication and access settings. To do this, log-in to your Gravitee API Management UI and select Organization from the left-hand nav. Then, select **Authentication** underneath **Console.** From here, you will be brought to the **Authentication** page. Here, you can:
 
 * Enable or disable a log-in form for the API Management UI by toggling **Show login form on management console** ON or OFF
 * Manage Identity Providers for logging in and registering Gravitee platform users
