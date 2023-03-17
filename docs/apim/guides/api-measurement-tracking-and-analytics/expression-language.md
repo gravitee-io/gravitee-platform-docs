@@ -12,3 +12,19 @@ The Gravitee API Management (APIM) Expression Language (EL) is a powerful langua
 
 ### Using the APIM EL
 
+Before you start using the EL, you need to know that the basic EL syntax is as follows:
+
+{#request.id}
+
+### Examples of the Gravitee EL in use
+
+The following sections illustrate examples of using the EL for:
+
+* API properties
+* API request properties
+* SSL object properties
+* Principal object properties
+*
+
+
+
