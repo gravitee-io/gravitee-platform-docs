@@ -161,3 +161,71 @@ To create a custom "Writer" role, follow these steps:
 
     <figure><img src="../../.gitbook/assets/Writer role.gif" alt=""><figcaption><p>Define the "Writer" role permissions</p></figcaption></figure>
 
+{% hint style="success" %}
+**Success!**
+
+Once you're done, you'll see the "**Writer**" role in the **API** Scope section.
+{% endhint %}
+
+### Users and user groups
+
+In Gravitee, users are simply profiles for individuals that use the platform. User groups are groupings of users that share the same role(s) for the **API** and/or **Application** Scope(s).&#x20;
+
+#### Create and manage users
+
+There are two main ways for users to be created:
+
+* System Administrators can create users
+* Users can self-register via a registration form
+
+To create a user via the System administrator flow, follow these steps:
+
+1. Log-in to the API Management UI, and select Organization from the left-hand nav.
+2. Select **Users** under **User Management.**
+3. Select **+ Add user** from the top left corner of the **Users** page.\\
+4. From here, you will define the user profile for this user. To define the user profile:
+   * Define the IdP for the user by using the IdP name that you configured as a part of your [IdP configuration](how-to.md#defining-organization-authentication-and-access-settings).
+   * Define the user's info:
+     * First name
+     * Last name
+     * Email
+   * Select whether the user will be a normal **User** or a **Service Account**
+     * Setting up a user as a service account will essentially enable somebody from a Gravitee servicer (perhaps a partner or consultant) to subscribe to email notifications coming from the Gravitee platform
+5. Select **Create** at the bottom of the page.
+
+To delete a user from your Organization, select the **Delete user** icon from the table on the **Users** page.
+
+<figure><img src="../../.gitbook/assets/Delete a user.png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
+
+#### Create and manage User groups
+
+To create and manage User groups, follow these steps:
+
+1. Log-in to the API Management UI, and select **Settings** from the left-hand nav.&#x20;
+2. Under **User Management,** select **Groups**.
+3. You'll be brought to a list of User groups. Here, you can create, edit, and delete User groups. To:
+   * Create groups: select the + icon at the bottom right corner of the page
+   * Edit groups: select the hyperlinked group name
+   * Delete groups: select the Delete icon.
+4. If you are creating or editing a User group, you will need to dedfine:
+   * General info: this is just the name of the User group
+   * Roles and members: define the maximum amount of members and choose whether or not to allow:
+     * Invitations via user search
+     * Email invitations
+     * The group admin to change the API role
+     * The group admin to change the application role
+     * Notifications when members are added to this group
+   * Associations: choose whether or not to associate this group to every new API and/or application
+5. Under **Actions,** select **Create.**
+
+Once a User group is created, you will be able to:
+
+* Define a default API role by selecting the role from the **Default API Role** drop-down
+* Define default application roles by selecting the role from the **Default Application Role** drop-down
+* Choose to associate the User group with existing APIs or Applications by selecting **Associate to existing APIs** and/or **Associate to existing applications**
+* View all members, associated APIs, and associated applications in the **Dependents** section
+
+If you are making a change to your User group, you can either:
+
+* Reset the User group settings by selecting **Reset** under **Actions**
+* Update the User group **** to save new settings by selecting **Update** under **Actions**

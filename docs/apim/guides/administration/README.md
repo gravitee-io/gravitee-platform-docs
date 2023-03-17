@@ -12,7 +12,6 @@ Gravitee offers a robust set of platform and user administration capabilities. I
 
 * Administering organizations and environments
 * Administering users and user groups
-* Managing access to the Gravitee API Management (APIM) UI
 
 ### Organizations
 
@@ -46,8 +45,8 @@ Examples of environments:
 * Technical environments such as DEV / TEST / PRODUCTION
 * Functional environments such as PRIVATE APIS / PUBLIC APIS / PARTNERSHIP
 
-### User and groups
+### Users and user groups
 
-In Gravitee, a **User** is just a user of the Gravitee platform. You can create **User groups,** which are defined by a set of permissions and roles as they pertain to configuring and managing APIs and Applications in Gravitee.
+In Gravitee, a **User** is just a user of the Gravitee platform. You can create **User groups,** which are defined by a set of permissions and roles as they pertain to configuring and managing Organizations, Environments, APIs, and Applications in Gravitee. These four levels are referred to as **Scopes.**
 
 \
