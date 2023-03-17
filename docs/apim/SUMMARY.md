@@ -227,6 +227,7 @@
   * [Using the API Quality feature](guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md)
   * [Configure and Use API Logging](guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md)
   * [Configure Alerts and Notifications](guides/api-measurement-tracking-and-analytics/configure-alerts-and-notifications.md)
+  * [Expression language](guides/api-measurement-tracking-and-analytics/expression-language.md)
 * [Administration](guides/administration/README.md)
   * [Concepts](guides/administration/concepts.md)
   * [How-to](guides/administration/how-to.md)
