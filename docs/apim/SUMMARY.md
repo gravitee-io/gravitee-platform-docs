@@ -233,6 +233,7 @@
 * [Administration](guides/administration/README.md)
   * [Administering organizations and environments](guides/administration/how-to.md)
   * [User Management and Permissions](guides/administration/user-management-and-permissions.md)
+  * [Authentication and SSO](guides/administration/authentication-and-sso.md)
 * [Developer Contributions](guides/developer-contributions/README.md)
   * [Concepts](guides/developer-contributions/concepts.md)
   * [How-to](guides/developer-contributions/how-to.md)
