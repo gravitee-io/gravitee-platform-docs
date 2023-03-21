@@ -89,7 +89,7 @@ The most important part of plan configuration is security. APIM supports the fol
 {% hint style="info" %}
 **Policies vs authentication types**
 
-Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio.
+Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio by following the steps in [Add policies to a flow](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#flow-policies).
 {% endhint %}
 
 ### Keyless plan
@@ -242,47 +242,32 @@ Once JWT configuration is complete and the plan is created and published, your A
 
 The OAuth 2.0 authentication type checks access token validity during request processing using token introspection. If the access token is valid, the request is allowed to proceed. If not, the process stops and rejects the request.
 
-To configure an OAuth 2.0 plan for an API, you need to:
+To configure an OAuth 2.0 plan for an API, you need to first create an OAuth 2.0 client resource that represents your OAuth 2.0 authorization server. Learn more about creating an OAuth resource here.
 
-* create an OAuth 2.0 client resource that represents your OAuth 2.0 authorization server
-* create a new plan for it or apply it to an existing plan
+Configuring an OAuth 2.0 plan presents the following options:
 
-**Create and specify an OAuth 2.0 authorization server**
+<figure><img src="../../.gitbook/assets/OAuth plan configuration.png" alt=""><figcaption><p>Configuring OAuth 2.0 plan</p></figcaption></figure>
 
-1. Open your API in APIM Console and click **Design**.
-2. Click the **RESOURCES** tab and create a new **Generic OAuth2 Authorization Server** resource.
 
-{% hint style="info" %}
-If you use [Gravitee.io Access Management](https://gravitee.io/), we provide a dedicated OAuth 2.0 AM resource.
-{% endhint %}
 
-3. Enter the **Resource name**.
-4. Set the **OAuth 2.0 Authorization server URL**.
-5. Set the [Token introspection endpoint](https://tools.ietf.org/html/rfc7662) URI with the correct HTTP method and [scope](https://tools.ietf.org/html/rfc6749#section-3.3) delimiter.
-6. Enter the **Scope separator**.
-7. If you want to retrieve consented claims about the end user, enter the [UserInfo Endpoint](http://openid.net/specs/openid-connect-core-1\_0.html#UserInfo) URI.
-8.  Enter the **Client Id** and **Client Secret** used for token introspection.
+* **OAuth2 resource:** specify the name of the OAuth2 resource to use as the authorization server
+* **Cache resource:** optionally specify the name of the cache resource to store responses from the authorization server
+*   **Extract OAuth2 payload:** allow OAuth2 payload to be accessed in the `oauth.payload` context attribute during request-response with the Gravitee Expression Language (EL). For example, when enabled, you can access the payload using the following EL statement:
 
-    |   | Why do I need this? As defined in [RFC 7662](https://tools.ietf.org/html/rfc7662#section-2.1), to prevent token scanning attacks, the introspection endpoint must also require some form of authorization to access this endpoint, such as client authentication. |
-    | - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-9. Enter any other required information, then click the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png).
-10. Click **SAVE** to save the resource.
-
-**Add OAuth 2.0 security to a plan**
-
-|   | If you already have a suitable plan defined, you can add your OAuth2 resource to one of the flows defined for it in Design Studio, by following the steps in [Add policies to a flow](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#flow-policies). |
-| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
-1. In APIM Console, select your API and click **Portal > Plans**.
-2. On the **Secure** page, choose **OAuth2** as the authorization type.
-3.  Specify the OAuth2 resource name you created and check any [scopes](https://tools.ietf.org/html/rfc6749#section-3.3) to access the API.
-
-    ![create oauth2 plan](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/create-oauth2-plan.png)
+    ```
+    {#context.attributes['oauth.payload']}
+    ```
+* **Check scopes:** an authorization server can grant access tokens with a [scopes](https://tools.ietf.org/html/rfc6749#section-3.3) parameter. With this setting enabled, the gateway will check the scopes parameter against the provided **Required scopes** to determine if the client application is allowed to access the API
+* **Mode strict:** enabled by default. With mode strict disabled, the gateway will validate the API call if it access token contains one scope from the **Required scopes** list
+* **Propagate Authorization header:** propagate the header containing the access token to the backend APIs
 
 Your API is now OAuth 2.0 secured and consumers must call the API with an `Authorization Bearer :token:` HTTP header to access the API resources.
 
-|   | Any applications wanting to subscribe to an OAuth 2.0 plan must have an existing client with a valid `client_id` registered in the OAuth 2.0 authorization server. The `client_id` will be used to establish a connection between the OAuth 2.0 client and the APIM consumer application. |
-| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+{% hint style="info" %}
+**Subscription requirements**
+
+Any applications wanting to subscribe to an OAuth 2.0 plan must have an existing client with a valid `client_id` registered in the OAuth 2.0 authorization server. The `client_id` will be used to establish a connection between the OAuth 2.0 client and the APIM consumer application. You can learn more about setting up client applications here.
+{% endhint %}
 
 ### Publish a plan
 
