@@ -4,7 +4,7 @@ description: How to expose your APIs
 
 # Plans
 
-### Create a plan
+## Create a plan
 
 Plans are always created by the API publisher. You can create plans in the management UI as part of the [API creation process](../../user-guide/publisher/create-api.md#create-an-api-from-scratch). You can also create them later with the **Portal > Plans** function as shown below.
 
@@ -24,7 +24,7 @@ Creating a plan is broken down into three main stages:
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.37.47 PM.png" alt=""><figcaption><p>Plan creation wizard</p></figcaption></figure>
 
-#### General
+### General
 
 In the **General** stage, you enter basic details about your plan. The only requirement for this stage is providing a name for your plan.
 
@@ -56,7 +56,7 @@ The **Deployment** section allows you to selectively deploy the plan to particul
 
 **Access-Control** lets you **** prevent specified groups from accessing this plan. You can learn more about user management and how to configure groups here.
 
-#### Secure
+### Secure
 
 During the **Secure** stage of plan creation, the API publisher selects one of four authentication types to secure their API. You can learn more about how to configure plan security in the following section.
 
@@ -67,7 +67,7 @@ During the **Secure** stage of plan creation, the API publisher selects one of f
 * **JSON web token (JWT):** open method for representing claims securely between two parties. JWT are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
 * **Oauth 2.0:** open standard that apps can use to provide client applications with secure delegated access. OAuth works over HTTPS and authorizes devices, APIs, servers, and applications with access tokens rather than credentials.
 
-#### Restrictions
+### Restrictions
 
 Restrictions are just policies to regulate access to your APIs. Like any policy, restrictions can also be applied to a plan through the design studio. You can learn more about configuring these particular policies here.
 
@@ -77,7 +77,7 @@ Restrictions are just policies to regulate access to your APIs. Like any policy,
 * **Quota:** specifies the number of requests allowed to call an API backend during a specified time interval. The policy is generally used to tier access to APIs based on subscription level.
 * **Resource Filtering:** limit access to a subset of API resources
 
-### Configure plan security
+## Configure plan security
 
 The most important part of plan configuration is security. APIM supports the following four authentication types:
 
@@ -92,7 +92,7 @@ The most important part of plan configuration is security. APIM supports the fol
 Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio.
 {% endhint %}
 
-#### Keyless plan
+### Keyless plan
 
 The Keyless **** authentication type **** does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback. Due to not requiring a subscription and a lack of a consumer identifier token, keyless consumers are set as `unknown application` in the API analytics section.
 
@@ -104,7 +104,7 @@ The Keyless **** authentication type **** does _not_ require authentication and 
 You can configure basic authentication for keyless plans, by associating a basic authentication policy with either an LDAP or inline resource. For more details, see [Basic authentication policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_basic\_authentication.html).
 {% endhint %}
 
-#### API key plan
+### API key plan
 
 The API key authentication type enforces verification of API keys during request processing, allowing only apps with approved API keys to access your APIs. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
 
@@ -185,7 +185,7 @@ For technical reasons, in shared mode, API keys can only be shared across API ke
 {% endtab %}
 {% endtabs %}
 
-#### JSON Web Token (JWT) plan
+### JSON Web Token (JWT) plan
 
 The JWT authentication type ensures that JWTs issued by third parties are valid. Only applications with approved JWTs can access APIs associated with a JWT plan.
 
@@ -238,7 +238,7 @@ jwt:
 
 Once JWT configuration is complete and the plan is created and published, your API will be JWT secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.
 
-#### Oauth 2.0
+### Oauth 2.0
 
 The OAuth 2.0 authentication type checks access token validity during request processing using token introspection. If the access token is valid, the request is allowed to proceed. If not, the process stops and rejects the request.
 

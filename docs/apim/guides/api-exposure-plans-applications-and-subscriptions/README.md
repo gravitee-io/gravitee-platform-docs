@@ -4,11 +4,11 @@ description: Overview of core concepts around API exposure for both consumers an
 
 # API Exposure: Plans, Applications, & Subscriptions
 
-### Introduction
+## Introduction
 
 API exposure in Gravitee API Management (APIM) revolves around three pillars: plans, applications, and subscriptions. Once a gateway API is started, deployed, and published, it will be visible in the developer portal, but can not be consumed until a plan is published. A plan with the keyless authentication type can be consumed immediately. However, all other types of authentication require the API consumer to register an application and subscribe to one of the published plans for that gateway API. This allows the API publisher to closely monitor and control access to their APIs at a much more granular level.&#x20;
 
-### Plans
+## Plans
 
 There are many possible types of API access scenarios, which can be difficult to encode into your APIs. Different types of access scenarios often require external tools and modifying your backend APIs. In APIM, however, gateway APIs are deployed with plans which allow the API publisher to quickly iterate on, and extend the functionality of, their backend APIs.
 
@@ -46,7 +46,7 @@ Similar to an API, a plan can also be published. Publishing is one of four stage
 Deprecating plans allow consumers of the API time to migrate without breaking their application while also ensuring new users do not subscribe to the deprecated plan.
 {% endhint %}
 
-### Applications
+## Applications
 
 To access your APIs, consumers must register an application and subscribe to a published API plan (unless the plan is keyless, as described above). Typical applications are web applications, native applications, or bash/job applications that want to access data or functionality from backend APIs.
 
@@ -54,7 +54,7 @@ Applications are essential in allowing API publishers to control and regulate ac
 
 Applications and plans go together like developers and repurposing code from stack overflow. Remember, plans are an access layer around APIs that provide the API publishers a method to secure, monitor, and transparently communicate details around access. An application allows an API consumer to register and agree to this plan. The result is a successful contract or _subscription_.
 
-### Subscriptions
+## Subscriptions
 
 APIM uses the subscription to decide whether to accept or deny an incoming request. Subscriptions are created when an API consumer creates a subscription request to a published plan with a registered application, and an API publisher either manually or automatically accepts the subscription.
 
