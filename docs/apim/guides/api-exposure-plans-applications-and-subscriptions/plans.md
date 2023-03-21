@@ -58,7 +58,7 @@ The **Deployment** section allows you to selectively deploy the plan to particul
 
 ### Secure
 
-During the **Secure** stage of plan creation, the API publisher selects one of four authentication types to secure their API. You can learn more about how to configure plan security in the following section.
+During the **Secure** stage of plan creation, the API publisher selects one of four authentication types to secure their API. You can learn more about how to configure plan security in the [following section](plans.md#configure-plan-security).
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.49.42 PM.png" alt=""><figcaption><p>Select authentication type</p></figcaption></figure>
 
@@ -271,16 +271,14 @@ Any applications wanting to subscribe to an OAuth 2.0 plan must have an existing
 
 ### Publish a plan
 
-Similar to an API, a plan can also be published. Publishing is one of four stages of a plan: staging, published, deprecated, and closed.
+After creating a plan, it's initially in the first of the four stages of a plan: staging, published, deprecated, and closed.
 
-* **Staging** - Generally, this is the first state of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
+* **Staging** - This is the first stage of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
 * **Published** - Once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
 * **Deprecated** - You can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remains so it doesn’t impact your existing API consumers.
 * **Closed** - Once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API
 
-Next, let’s publish our plan.
-
-[![Screen Shot 2023-02-16 at 8.02.00 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/770659411800cefac6dd0eea8374be2dc06c55ee\_2\_690x311.png)](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/7/770659411800cefac6dd0eea8374be2dc06c55ee.png)
+<figure><img src="../../.gitbook/assets/Screenshot 2023-03-21 at 3.44.11 PM.png" alt=""><figcaption><p>Stages of a plan</p></figcaption></figure>
 
 Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the changes. With that, return to the developer portal and refresh the page to be greeted by the new and improved page shown below.
 
