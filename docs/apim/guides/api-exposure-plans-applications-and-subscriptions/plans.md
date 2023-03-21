@@ -210,7 +210,7 @@ Configuring a JWT plan presents the following options:
 <figure><img src="../../.gitbook/assets/JWT plan configuration.png" alt=""><figcaption><p>JWT plan configuration</p></figcaption></figure>
 
 * **Signature:** select the algorithm used to hash and encrypt your JWT
-* **JSON Web Key Set (JWKS) resolver:** to validate the signature of the JSON web token, the gateway needs to use the associated authorization server's JWKS. Gravitee has three methods for providing the JWKS:
+* **JSON Web Key Set (JWKS) resolver:** to validate the signature of the JWT, the gateway needs to use the associated authorization server's JSON web key (JWK) which is often stored inside a JSON web key set (JWKS). Gravitee has three methods for providing the JWK:
   * `GIVEN_KEY` : you provide the key in `ssh-rsa`, `pem`, `crt` or `public-key` format which must match the signature algorithm
   * `GIVEN_ISSUER` : you can set public keys in the APIM Gateway `gravitee.yml` file that are associated with an authorization server. The gateway will only accept JWTs with an`iss` (issuer) JWT payload [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims) that matches an authorization server listed in the APIM Gateway `gravitee.yml`. Additionally, you can filter between an authorization server's keys based on the `kid` (key ID) JWT header [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims).&#x20;
   * `JWKS_URL` : you can provide a URL for the gateway to retrieve the necessary JWKS (basically, a URL ending with `/.well-known/jwks.json` )
