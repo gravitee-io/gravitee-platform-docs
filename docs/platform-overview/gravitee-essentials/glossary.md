@@ -59,6 +59,7 @@ All core Gravitee and related web API terminology defined. Use the search functi
   * **Closed** - once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
 * **Application:** allows an API consumer to register and agree to a plan with authentication enabled. This allows the API producer more granular control over access to their secured API
 * **Subscription:** a contract between an API consumer and API producer that requires the gateway API to have a plan and the consumer to have at least one application
+* **Resource:** provide a way to define reusable sets of configuration
 * **Plugin:** components that additional functionality by _plugging into_ the Gravitee ecosystem
 * **Policy:** rules or logic that can be executed by the API gateway during the request or the response of an API call. The functionality of the plugin is enabled through plugins
 * **API design studio:** UI that allows you to interactively create a gateway API
