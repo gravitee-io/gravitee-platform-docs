@@ -145,6 +145,8 @@ The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subsc
 These are two really tricky concepts to disambiguate, largely due to how similar they are and all the terminology (e.g., processes, threads, tasks, etc.) that can have slightly different meanings in different contexts. If you’re interested in developing a more intuitive understanding, our recommendation is to take a deep dive until you find an explanation that really clicks. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) is a great starting place.
 {% endhint %}
 
+* **JSON Web Key (JWK):** a JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
+* **JSON Web Key Set (JWKS):**  a JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs.
 * **Stateful web APIs:** the server stores information about the client making the request. In other words, the session is stored on the server where the session is an encapsulation of a particular client and server interaction
 * **Stateless web APIs:** the server does not store any information about the client making the request. In other words, the session is stored on the client where the session is an encapsulation of a particular client and server interaction
 * **Reactive programming:** making _asynchronous data streams the spine_ of your application. Events are now the main orchestrators of your application’s flow. The reactive programmer manages the logic around manipulating and performing operations on the data streams.
