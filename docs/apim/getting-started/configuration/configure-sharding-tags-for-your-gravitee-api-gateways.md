@@ -9,13 +9,13 @@ description: >-
 
 ### Introduction
 
-Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a Gateway is tagged, you will be able to deploy an API and select which (sharding) tag a Gateway should have in order for the API to be deployed on a Gateway. To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [this documentation](../../../guides/api-configuration/configure-cors.md#configure-deployments).&#x20;
+Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a Gateway is tagged, you will be able to deploy an API and select which (sharding) tag a Gateway should have in order for the API to be deployed on a Gateway. To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [this documentation](../../guides/api-configuration/configure-cors.md#configure-deployments).&#x20;
 
 ### Configure sharding tags for your Gravitee API Gateways
 
 The following section focuses on how to configure sharding tags. We will explain the steps assuming that our architecture includes both DMZ gateways and internal, corporate gateways. We want to tag these gateways as external only and internal only, respectively. Please see the corresponding diagram below:
 
-<figure><img src="../../../.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
 
 Before you can start defining sharding tags in the Gravitee API Management UI, you will need to do some work in your API gateway `gravitee.yaml` file. To assign a Gravitee API Gateway to a specific sharding tag for the above scenario and architecture, make the following changes in the `gravitee.yaml` file:
 
@@ -89,8 +89,8 @@ Once the gateways have been tagged, you will need to define the same sharding ta
 
 You'll now see your entrypoint mapping in the Entrypoint mappings section.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-You've now learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs (in order to control where those APIs are deployed), refer to [this documentation](../../../guides/api-configuration/configure-cors.md#configure-deployments).
+You've now learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs (in order to control where those APIs are deployed), refer to [this documentation](../../guides/api-configuration/configure-cors.md#configure-deployments).
 {% endhint %}

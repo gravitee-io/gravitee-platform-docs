@@ -910,7 +910,7 @@ In this example, we are configuring deployment only for APIs tagged as `product`
 tags: 'product,store,!international'
 ```
 
-For more in-depth information on how to configure sharding tags, please refer to the [Sharding tags documentation.](sharding-tags.md)
+For more in-depth information on how to configure sharding tags, please refer to the [Sharding tags documentation.](broken-reference)
 
 ### Configure organizations and environments
 
