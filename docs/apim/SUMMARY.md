@@ -402,8 +402,9 @@
 
 ## Releases & Changelog
 
-* [Release Notes](releases-and-changelog/release-notes/README.md)
-  * [Gravitee 4.x](releases-and-changelog/release-notes/gravitee-4.x.md)
+* [Release Notes](releases-and-changelog/release-notes.md)
+  * [Gravitee 4.x](releases-and-changelog/release-notes/gravitee-4.x/README.md)
+    * [Gravitee API Management 4.0](releases-and-changelog/release-notes/gravitee-4.x/gravitee-api-management-4.0.md)
 * [Changelog](releases-and-changelog/changelog/README.md)
   * [APIM 3.20.x changelog](changelog/changelog-3.20.md)
   * [APIM 3.19.x changelog](changelog/changelog-3.19.md)
