@@ -17,7 +17,7 @@ To allow API consumers to create applications, you need to first enable the corr
   * Native
   * Backend-to-Backend
 
-<figure><img src="../../.gitbook/assets/client_registration_settings.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-03-22 at 11.36.06 AM.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
 
 ## Dynamic client registration
 
@@ -45,21 +45,109 @@ Providing an access token through **Client Credentials**&#x20;
 
 
 
-## Application types and grant types
+## Grant types
 
-The different application types are&#x20;
+An authorization grant is a flow used by the client to obtain an access token. How you use grant types mainly depends on your application type.
 
-
-
-Applications have an associated `client_id` that is used for JWT and OAuth API plans. Additionally, advanced application types allow the API consumer to request different authentication rights for their application. These options include:
+APIM has five grant types:
 
 * Authorization code
 * Implicit
-* Refresh Token
 * Resource Owner Password
 * Client Credentials
+* Refresh Token
 
-We'll break these down in their respective application type
+### Authorization code
+
+The authorization code is used by applications to obtain a temporary code after requesting the authorization of the end user.
+
+#### **Flow**
+
+1. The end user clicks **Sign in** in the application.
+2. The end user is redirected to the AM authorization server `/oauth/authorize?response_type=code`.
+3. The end user authenticates using one of the configured identity providers and login options (MFA for example).
+4. (Optional) A consent page is displayed to ask for user approval.
+5. AM redirects the end user back to the application with an authorization code.
+6. The application calls the AM authorization server `/oauth/token` to exchange the code for an access token (and optionally, a refresh token).
+7. The application uses the access token to make secure API calls for the end user.
+
+#### **Additional information**
+
+* Authorization codes are single-use.
+* For server-side web apps, such as native (mobile) and Javascript apps, you also use the [PKCE extension](https://tools.ietf.org/html/rfc7636) as part of your flow, which provides protection against other attacks where the authorization code may be intercepted.
+* Authorization code grant URL: `GET https://am-gateway/{domain}/oauth/authorize?response_type=code&client_id=web-app&redirect_uri=https://web-app/callback`
+* For more information about this flow, see the [RFC](https://tools.ietf.org/html/rfc6749#section-1.3.1).
+
+### Implicit
+
+{% hint style="danger" %}
+**Security concerns**
+
+The OAuth standard now discourages the use of an implicit grant to request access tokens from Javascript applications. You should consider using the [Authorization code](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#authorization\_code) grant with a PKCE extension for all your applications.
+{% endhint %}
+
+The implicit grant is a simplified authorization code flow. Instead of getting a temporary code first, you can retrieve an access token directly from web browser redirection.
+
+#### **Flow**
+
+1. The end user clicks **Sign in** in the application.
+2. The end user is redirected to the AM authorization server `/oauth/authorize?response_type=token`.
+3. The end user authenticates using one of the configured identity providers and login options (MFA for example).
+4. (Optional) A consent page is displayed to ask for user approval.
+5. AM redirects the end user back to the application with an access token.
+6. The application uses the access token to make secure API calls for the end user.
+
+#### **Additional information**
+
+* Implicit grant URL: `GET https://am-gateway/{domain}/oauth/authorize?response_type=token&client_id=web-app&redirect_uri=https://web-app/callback`
+* For more information about this flow, see the [RFC](https://tools.ietf.org/html/rfc6749#section-1.3.2).
+
+### Resource owner password credentials
+
+The resource owner password credentials (i.e. username and password) can be used directly as an authorization grant to obtain an access token (using a REST approach).
+
+The biggest difference from other flows is that the authentication process is triggered by the application and not the AM authorization server.
+
+{% hint style="info" %}
+**Trusted clients only**
+
+This grant type should only be used when there is a high degree of trust between the resource owner and the client (e.g. the client is part of the device operating system or a highly privileged application) and when other authorization grant types are not available (such as the authorization code grant type).
+{% endhint %}
+
+#### **Flow**
+
+1. The end user clicks **Sign in** and enters the user credentials (username/password) in the application form.
+2. The application forward the credentials to the AM authorization server `/oauth/token`.
+3. AM checks the credentials.
+4. AM responds with an access token (and optionally, a refresh token).
+5. The application uses the access token to make secure API calls for the end user.
+
+#### **Additional information**
+
+* Resource owner password credentials grant URL: `POST https://am-gateway/{domain}/oauth/token?grant_type=password&username=john&password=doe (with Basic client credentials)`
+* For more information about this flow, see the [RFC](https://tools.ietf.org/html/rfc6749#section-1.3.3).
+
+### Client credentials
+
+The client credentials grant type is used by clients to obtain an access token outside the context of a user. This is typically used by clients to access resources about themselves rather than user resources.
+
+#### **Additional information**
+
+* The flow is typically used when the client is acting on its own behalf (the client is also the resource owner), i.e. machine-to-machine communication.
+* Client credentials grant URL: `POST https://am-gateway/{domain}/oauth/token?grant_type=client_credentials` (with basic client credentials)
+* For more information about this flow, see the [RFC](https://tools.ietf.org/html/rfc6749#section-1.3.4).
+
+### Refresh token
+
+A refresh token is used to get a new access token, prompting the client application to renew access to protected resources without displaying a login page to the resource owner.
+
+#### **Additional information**
+
+* The refresh token is single use only.
+* For security reasons (a user can remain authenticated forever), a refresh token must be stored in a secure place (i.e server side).
+* Refresh token grant URL: `POST https://am-gateway/{domain}/oauth/token?grant_type=refresh_token&refresh_token={refreshToken} (with Basic client credentials)`
+
+
 
 ### Simple applications
 
