@@ -387,15 +387,48 @@ If you configure the provider in the configuration file and then change the valu
 
 {% tabs %}
 {% tab title="gravitee.yaml file" %}
+Configuring Google authentication via the gravitee.yaml file is easy. simply update the following section of the file with the Google client credentials.
 
+```
+security:
+  providers:
+    - type: google
+      clientId: xxxx-xxx-xxx-xxx
+      clientSecret: xxxx-xxx-xxx-xxx
+```
+
+\
+Once you're done, just restart the APIM API.
 {% endtab %}
 
-{% tab title="Gravitee APIM UI" %}
+{% tab title="APIM UI" %}
+To configure Google authentication using the APIM UI, follow these steps:
 
+1. Log-in to the Gravitee APIM UI, and select **Organization** from the left-hand nav.
+2. Under **Console,** select **Authentication.**
+3. Select **+ Add an identity provider.**&#x20;
+4. On the **Create a new identity provider** page, select Google as your **Provider type.** Then you will need to:
+   * Define **General** settings
+     * Name
+     * Description
+     * Whether or not to allow portal authentication to use this provider
+     * Whether or not to require a public email for authentication
+     * Define Group and role mappings: this defines the level to which Platform administrators cam still override mappings. You have two options:
+       * Computed only during first user authentication
+       * Computed during each user authentication
+     * **Configuration**
+       * Client Id
+       * Client Secret
+
+When you are done, select **Create.** Then, go back to the IdP page, and toggle **Activate Identity Provider** ON for your new IdP.
 {% endtab %}
 {% endtabs %}
 
 ### Test your new Google authentication flow
+
+You can easily test your Google configuration by logging out of the Management UI, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Google** option.
+
+Select this, and choose your Google account that you want to use for authentication. You should then be brought to the Gravitee API Management UI.&#x20;
 
 ## Defining Organization authentication and access settings
 
