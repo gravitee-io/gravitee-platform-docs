@@ -577,7 +577,7 @@ When using custom a Public Key Infrastructure (PKI) for your OAuth2 authenticati
     ```
     {% endcode %}
 
-## Example OpenID Connect authentication: Keycloak
+## Keycloak authentication
 
 To better illustrate how the OpenID Connect configuration works (and to assist users who are using Keycloak as their authentication provider, this section walks through how to set up Keycloak as an OpenID Connect authentication provider.
 
