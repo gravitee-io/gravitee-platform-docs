@@ -280,14 +280,6 @@ After creating a plan, it's initially in the first of the four stages of a plan:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-03-21 at 3.44.11 PM.png" alt=""><figcaption><p>Stages of a plan</p></figcaption></figure>
 
-Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the changes. With that, return to the developer portal and refresh the page to be greeted by the new and improved page shown below.
+Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the change.
 
-[![Screen Shot 2023-02-23 at 1.47.48 AM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/3/3d7ff98275f65dc11d888385427539fa9d31355e\_2\_690x312.png)](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/3/3d7ff98275f65dc11d888385427539fa9d31355e.png)
-
-Our **API Key Plan** is summarized in the image above: subscriptions require _manual validation_ and authentication is dependent on a _personal key_. Manual validation refers to the fact that the API publisher has elected to manually approve every subscription to this plan as opposed to auto validation. A plan can easily be created or updated to use auto validation by using the **Auto validate subscription** toggle as shown in the image below.
-
-[![Screen Shot 2023-02-16 at 8.08.42 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/a/aa13b67ac923431c0248a972eb739bd23eb769c6\_2\_690x311.png)](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/a/aa13b67ac923431c0248a972eb739bd23eb769c6.png)
-
-As for the personal key authentication, we’ll double back to that in just a minute. Click **Next** to be greeted by the following roadblock:
-
-[![Screen Shot 2023-02-23 at 1.54.32 AM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/2/243246689fa0d391138d0f5bb9a6dea8af0b0335\_2\_690x312.png)](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/2/243246689fa0d391138d0f5bb9a6dea8af0b0335.png)
+{% @arcade/embed flowId="ap3CwzXY65OTTweqctFO" url="https://app.arcade.software/share/ap3CwzXY65OTTweqctFO" %}
