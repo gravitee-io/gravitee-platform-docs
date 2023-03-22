@@ -402,7 +402,8 @@
 
 ## Releases & Changelog
 
-* [Release Notes](releases-and-changelog/release-notes.md)
+* [Release Notes](releases-and-changelog/release-notes/README.md)
+  * [Gravitee 4.x](releases-and-changelog/release-notes/gravitee-4.x.md)
 * [Changelog](releases-and-changelog/changelog/README.md)
   * [APIM 3.20.x changelog](changelog/changelog-3.20.md)
   * [APIM 3.19.x changelog](changelog/changelog-3.19.md)
