@@ -6,7 +6,7 @@ description: Learn more about the Gravitee release notes section
 
 ## Introduction
 
-The Gravitee release notes section is the best place for in-depth overviews of all public-facing release content. Please note that this documentation site will only include release notes for Gravitee 4.0 and beyond.
+The Gravitee release notes section is the best place for in-depth overviews of what's new in Gravitee major and minor releases. Please note that this documentation site will only include release notes for Gravitee 4.0 and beyond.
 
 ## User feedback portal
 

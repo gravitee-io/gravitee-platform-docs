@@ -411,6 +411,7 @@
   * [APIM 3.18.x Changelog](changelog/changelog-3.18.md)
   * [APIM 3.15.x changelog](changelog/changelog-3.15.md)
   * [APIM pre-3.15.x changelog](changelog/changelog-eos.md)
+  * [Gravitee 4.0.x changelog](releases-and-changelog/changelog/gravitee-4.0.x-changelog.md)
 
 ## Community & Support
 

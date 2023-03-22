@@ -4,22 +4,54 @@ description: How to consume secured APIs
 
 # Applications
 
-To access your APIs, consumers must register an application and subscribe to a published API plan (unless the plan is keyless).&#x20;
+To access your APIs, consumers must register an application and subscribe to a published API plan (unless the plan is keyless). Applications act on behalf of the user to request tokens, provide user identity information, and retrieve protected resources from remote services and APIs.
 
-## API producer prerequisites
+## Prerequisites
 
 To allow API consumers to create applications, you need to first enable the correct options in the **Settings > Client Registration** page. Here, you can define the allowed types of applications that API consumers can create:
 
-* Simple
-* Advanced
+* Simple: does _not_ require enabling **Dynamic Client Registration.** API consumers can optionally define the `client_id` when creating the application.
+* Advanced: must enable and configure **Dynamic Client Registration** to allow API consumers to create these application types. The client registration provider is responsible for creating the `client_id` and `client_secret` .
   * Browser
   * Web
   * Native
   * Backend-to-Backend
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-03-22 at 11.36.06 AM.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client_registration_settings.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
 
-Applications act on behalf of the user to request tokens, provide user identity information, and retrieve protected resources from remote services and APIs. Applications have an associated `client_id` that is used for JWT and OAuth API plans. Additionally, advanced application types allow the API consumer to request different authentication rights for their application. These options include:
+## Dynamic client registration
+
+To allow API consumers to register advanced applications, dynamic client registration must be enabled and configured with a client registration provider. Dynamic client registration is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect dynamic client registration endpoint. This allows API consumers to register with an OAuth server from Gravitee's developer portal or management UI.
+
+Once dynamic client registration has been enabled, you need to add a **Provider** at the bottom of the **Client Registration** page.
+
+<figure><img src="../../.gitbook/assets/add_dcr_provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
+
+You are presented with the following options when configuring a client registration provider:
+
+<figure><img src="../../.gitbook/assets/configure_client_registration_provider.png" alt=""><figcaption><p>Configure a client registration provider</p></figcaption></figure>
+
+The **General** section allows you to set a **Name** and **Description** for your client registration provider.
+
+The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint.** We will be using Gravitee Access Management (AM) for our provider but you are free to use any OAuth server supporting OpenID Connect. Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or **Initial Access Token.**
+
+### Client Credentials
+
+<figure><img src="../../.gitbook/assets/client_credentials_token_provider.png" alt=""><figcaption><p>Client credentials token provider</p></figcaption></figure>
+
+Providing an access token through **Client Credentials**&#x20;
+
+### Initial Access Token
+
+
+
+## Application types and grant types
+
+The different application types are&#x20;
+
+
+
+Applications have an associated `client_id` that is used for JWT and OAuth API plans. Additionally, advanced application types allow the API consumer to request different authentication rights for their application. These options include:
 
 * Authorization code
 * Implicit
