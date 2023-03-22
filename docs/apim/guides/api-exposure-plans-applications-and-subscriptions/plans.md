@@ -275,11 +275,13 @@ After creating a plan, it's initially in the first of the four stages of a plan:
 
 * **Staging** - This is the first stage of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
 * **Published** - Once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
-* **Deprecated** - You can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remains so it doesn’t impact your existing API consumers.
-* **Closed** - Once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API
+* **Deprecated** - You can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
+* **Closed** - Once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-03-21 at 3.44.11 PM.png" alt=""><figcaption><p>Stages of a plan</p></figcaption></figure>
 
 Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the change.
 
 {% @arcade/embed flowId="ap3CwzXY65OTTweqctFO" url="https://app.arcade.software/share/ap3CwzXY65OTTweqctFO" %}
+
+A published plan can either be deprecated or closed. Neither operation can be undone.&#x20;
