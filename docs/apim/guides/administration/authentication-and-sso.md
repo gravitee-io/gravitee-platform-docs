@@ -598,6 +598,48 @@ Before you can connect to the Gravitee.io portal using Keycloak, you need to cre
 
     <figure><img src="../../.gitbook/assets/keycloak_client_credentials.png" alt=""><figcaption><p>Keycloack client credentials that will need to be given to Gravitee</p></figcaption></figure>
 
+#### Create and configure Keycloak Client scope
+
+1. In your realm, go to the `Client scopes` page.
+2.  Set a special gravitee-client-groups [Scope](https://oauth.net/2/scope/) that will contain users' roles.
+
+    ![Keycloak console - Create scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-01-client\_scopes-roles\_add\_client\_scope.png)
+3.  In the new client scope, set a mapper with Claim name "groups".
+
+    ![Keycloak console - Add mapper to scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-02-client\_scopes-mapper.png)
+4. In your realm, go to the `Client` page, and select your Client.
+5.  Add the new configured scope in the `Client Scopes` tab.
+
+    ![Keycloak console - Add scope to client](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-03-client-add\_scope.png)
+
+#### Create Keycloak Client roles
+
+Optionally, you can configure Keycloack client roles. These roles can be defined later in Gravitee either via the `gravitee.yaml` file or the Gravitee APIM UI. To configure Client roles in Keycloak, follow these steps:&#x20;
+
+1.  In your client, create roles as needed by organization.
+
+
+
+    <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-04-client-add_roles.png" alt=""><figcaption><p>Add roles in Keycloak</p></figcaption></figure>
+2. To then configure Keycloack users with appropriate roles, select **Role Mappings**, and then define roles as appropriate.
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak_mng-roles-05-users-add_user_client_roles.png" alt=""><figcaption><p>Define role mappings</p></figcaption></figure>
+
+Gravitee role mapping uses Spring Expression Language ([SpEL](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html)) for writing conditions. The only available object in context is #profile set from [userInfoEndpoint](https://www.oauth.com/oauth2-servers/signing-in-with-google/verifying-the-user-info/). For example:
+
+```
+security:
+  providers:
+    - type: oidc
+      ...
+      roleMapping:
+        - condition: "{(#jsonPath(#profile, '$.groups') matches 'gravitee-admin' )}"
+          roles:
+            - "ORGANIZATION:ADMIN"
+            - "ENVIRONMENT:ADMIN"
+
+```
+
 ### Configure Keycloack authentication in Gravitee
 
 Once you're done creating your Keycloak client, you can configure your settings in Gravitee. You can do this either via the Gravitee APIM UI or the `gravitee.yaml` file. Either way, the configuration is stored in the database. This means that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file). Please see the tabs below to see how to configure Keycloack authentication via the APIM UI and the `gravitee.yaml` file.
@@ -687,100 +729,11 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 
 ### Test your Keycloack autentication
 
+You can easily test your Keycloak configuration by logging out of the Management UI, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Keycloak** option.
 
+Then, enter in your Keycloack credentials. After this, you should be successfully logged in.&#x20;
 
-1. Log-in to the Gravitee APIM UI and select **Organization.**
-
-{% tabs %}
-{% tab title="Gravitee Access Management" %}
-* Define **General** settings
-  * Name
-  * Description
-  * Whether or not to allow portal authentication to use this provider
-  * Whether or not to require a public email for authentication
-  * Define Group and role mappings: this defines the level to which Platform administrators cam still override mappings. You have two options:
-    * Computed only during first user authentication
-    * Computed during each user authentication
-* Define **Configuration** settings
-  * Client Id
-  * Client Secret
-  * Server URL
-  * Security domain
-  * Scopes
-  * Authentication button color
-* **User profile mapping**: this will be used to define a user's Gravitee user profile based on the values provided by the Identity Provider upon registration:
-  * ID
-  * First name
-  * Last name
-  * Email
-  * Picture
-{% endtab %}
-
-{% tab title="OpenID Connect" %}
-* Define **General** settings
-  * Name
-  * Description
-  * Whether or not to allow portal authentication to use this provider
-  * Whether or not to require a public email for authentication
-  * Define Group and role mappings: this defines the level to which Platform administrators cam still override mappings. You have two options:
-    * Computed only during first user authentication
-    * Computed during each user authentication
-* Define **Configuration** settings
-  * Client Id
-  * Client Secret
-  * Token Endpoint
-  * Token Introspection Endpoint
-  * Authorize Endpoint
-  * UserInfo Endpoint
-  * UserInfo Logout Endpoint
-  * Scopes
-  * Authentication button color
-* **User profile mapping**: this will be used to define a user's Gravitee user profile based on the values provided by the Identity Provider upon registration:
-  * ID
-  * First name
-  * Last name
-  * Email
-  * Picture
-{% endtab %}
-
-{% tab title="Google" %}
-Define **General** settings
-
-* Name
-* Description
-* Whether or not to allow portal authentication to use this provider
-* Whether or not to require a public email for authentication
-* Define Group and role mappings: this defines the level to which Platform administrators cam still override mappings. You have two options:
-  * Computed only during first user authentication
-  * Computed during each user authentication
-* **Configuration**
-  * Client Id
-  * Client Secret
-{% endtab %}
-
-{% tab title="GitHub" %}
-Define **General** settings
-
-* Name
-* Description
-* Whether or not to allow portal authentication to use this provider
-* Whether or not to require a public email for authentication
-* Define Group and role mappings: this defines the level to which Platform administrators cam still override mappings. You have two options:
-  * Computed only during first user authentication
-  * Computed during each user authentication
-* **Configuration**
-  * Client Id
-  * Client Secret
-{% endtab %}
-{% endtabs %}
-
-When you are done setting up your Identity provider, select **Create.**&#x20;
-
-Once Identity providers have been added, you are able to easily activate, edit, and delete them within the **Identity Providers** section of the **Authentication** page. You can do so by:
-
-* Activate: toggle the **Activate Identity provider** ON or OFF
-* Edit: select the **Edit Identity provider icon**, and then edit the same values defined during the "[Add an Identity provider](authentication-and-sso.md#adding-editing-and-managing-identity-providers)" flow above
-* Delete: select the **Delete Identity provider** icon
+###
 
 [^1]: insert memory here.
 
