@@ -1,10 +1,41 @@
 ---
-description: How to expose your APIs
+description: How to consume secured APIs
 ---
 
 # Applications
 
-###
+To access your APIs, consumers must register an application and subscribe to a published API plan (unless the plan is keyless).&#x20;
+
+## API producer prerequisites
+
+To allow API consumers to create applications, you need to first enable the correct options in the **Settings > Client Registration** page. Here, you can define the allowed types of applications that API consumers can create:
+
+* Simple
+* Advanced
+  * Browser
+  * Web
+  * Native
+  * Backend-to-Backend
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-03-22 at 11.36.06 AM.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
+
+Applications act on behalf of the user to request tokens, provide user identity information, and retrieve protected resources from remote services and APIs. Applications have an associated `client_id` that is used for JWT and OAuth API plans. Additionally, advanced application types allow the API consumer to request different authentication rights for their application. These options include:
+
+* Authorization code
+* Implicit
+* Refresh Token
+* Resource Owner Password
+* Client Credentials
+
+We'll break these down in their respective application type
+
+### Simple applications
+
+To create a simple application, enable the **Simple** option in the **Allowed application types** section. This allows the API consumer to define the `client_id` on their own for use in JWT and OAuth API plans. No additional&#x20;
+
+## Create an application
+
+To access your APIs, consumers must register an application and subscribe to a published API plan (unless the plan is keyless). By default,&#x20;
 
 [![Screen Shot 2023-02-16 at 4.25.13 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/8/84b18001a50959dc764d38ee5f714669ac8f4466\_2\_690x311.png)](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/8/84b18001a50959dc764d38ee5f714669ac8f4466.png)
 

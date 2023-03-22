@@ -278,7 +278,15 @@ After creating a plan, it's initially in the first of the four stages of a plan:
 * **Deprecated** - You can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
 * **Closed** - Once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-03-21 at 3.44.11 PM.png" alt=""><figcaption><p>Stages of a plan</p></figcaption></figure>
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/6/6333ad2d86aae2ceb0cac422dd9015c75c3e6fb5_2_689x197.png" alt=""><figcaption><p>Four stages of a plan</p></figcaption></figure>
+
+{% hint style="info" %}
+**The Benefits of Deprecation**
+
+Deprecating plans allow consumers of the API time to migrate without breaking their application while also ensuring new users do not subscribe to the deprecated plan.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-03-21 at 3.44.11 PM.png" alt=""><figcaption><p>Stages of a plan in the UI</p></figcaption></figure>
 
 Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the change.
 

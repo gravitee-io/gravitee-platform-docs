@@ -31,9 +31,9 @@ Exposing an API to a consumer requires at least one plan, but can support as man
 
 <figure><img src="../../../images/apim/3.x/api-publisher-guide/plans-subscriptions/plan-diagram.png" alt=""><figcaption><p>High-level plan diagram</p></figcaption></figure>
 
-Similar to an API, a plan can also be published. Publishing is one of four stages of a plan: staging, published, deprecated, and closed.
+After creating a plan, it's initially in the first of the four stages of a plan: staging, published, deprecated, and closed.
 
-* **Staging** - Generally, this is the first stage of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
+* **Staging** - This is the first stage of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
 * **Published** - Once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
 * **Deprecated** - You can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
 * **Closed** - Once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
