@@ -121,7 +121,7 @@
       * [Breaking changes](getting-started/install-and-upgrade/installation-guide-migration/upgrades/3.9.4.md)
     * [Copy of Plugins](getting-started/install-and-upgrade/installation-guide-migration/installation-guide-plugins.md)
 * [Configuration](getting-started/configuration/README.md)
-  * [The Gravitee API Gateway](getting-started/configuration/the-gravitee-api-gateway/README.md)
+  * [The Gravitee API Gateway](getting-started/configuration/components/the-gravitee-api-gateway.md)
     * [Environment variables, system properties, and the gravitee.yaml file](getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
     * [Gateway Internal API](getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md)
     * [Metrics](getting-started/configuration/the-gravitee-api-gateway/metrics.md)
