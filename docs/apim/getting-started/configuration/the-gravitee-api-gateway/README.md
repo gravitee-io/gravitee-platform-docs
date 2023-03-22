@@ -21,8 +21,6 @@ The order in which the above are listed corresponds to their order of precedence
 
 * Internal API
 * Metrics
-* Enable OpenTracing
-
-### Environment variables
-
-You can override the default APIM configuration (`gravitee.yml`) and system properties by defining environment variables. To override this property:&#x20;
+* OpenTracing
+* Sharding tags
+* Tenants
