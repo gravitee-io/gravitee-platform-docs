@@ -38,13 +38,12 @@ Let’s take a look at how to get this configured within the product.
 
 Similar to sharding tags, tenant configuration is also a two-step process. You will need to “tag” a Gateway to identify in which region it has been deployed. You will do this by adding the following setting to each Gateway’s _gravitee.yaml_ configuration file:
 
-_# Multi-tenant configuration_
-
-_# Allow only a single-value_
-
-USA Region: _tenant: ‘usa’_
-
-EU Region: _tenant: ‘eu’_
+```
+# Multi-tenant configuration
+# Allow only a single-value
+USA Region: tenant: ‘usa’
+EU Region: tenant: ‘eu’
+```
 
 So, in this example, you would tag all Gateways deployed in the USA region with “usa”. The same will be done to all Gateways deployed in the EU.
 

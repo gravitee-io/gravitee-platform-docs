@@ -121,8 +121,8 @@ Typically, API keys are randomly generated for each subscription. However, Gravi
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.49.04 PM.png" alt=""><figcaption><p>API key generation settings</p></figcaption></figure>
 
-{% tabs %}
-{% tab title="Custom API key" %}
+#### Custom API key
+
 You can specify a custom API key for an API key plan. This is particularly useful when you want to silently migrate to APIM and have a pre-defined API key. The custom API key must have more than 8 characters, less than 64 characters, and be URL compliant. `^ # % @ \ / ; = ? | ~ , space` are all invalid characters.
 
 When prompted, you can choose to provide your custom API key or let APIM generate one for you by leaving the field empty.
@@ -140,9 +140,9 @@ You can provide a custom API key when:
 * Renewing a subscription
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.58.35 PM.png" alt=""><figcaption><p>Renewing a subscription</p></figcaption></figure>
-{% endtab %}
 
-{% tab title="Shared API key" %}
+#### Shared API key
+
 The shared API key mode allows consumers to reuse the same API key across all API subscriptions of an application.&#x20;
 
 With this mode enabled, consumers will be asked on their second subscription to choose between reusing their key across all subscriptions or generating one different API key for each subscription (which is the default mode). This is known as the application API key type.
@@ -180,10 +180,8 @@ Instead, it is the responsibility of the application owner to perform such opera
 {% hint style="info" %}
 **Shared API key limitations**
 
-For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
+For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically
 {% endhint %}
-{% endtab %}
-{% endtabs %}
 
 ### JSON Web Token (JWT) plan
 
