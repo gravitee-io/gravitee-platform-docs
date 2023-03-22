@@ -20,7 +20,6 @@ The order in which the above are listed corresponds to their order of precedence
 {% endhint %}
 
 * Internal API
-* Metrics
 * OpenTracing
 * Sharding tags
 * Tenants
