@@ -10,20 +10,51 @@ To access your APIs, consumers must register an application and subscribe to a p
 
 To allow API consumers to create applications, you need to first enable the correct options in the **Settings > Client Registration** page. Here, you can define the allowed types of applications that API consumers can create:
 
-* Simple: does _not_ require enabling **Dynamic Client Registration.** API consumers can optionally define the `client_id` when creating the application.
-* Advanced: must enable and configure **Dynamic Client Registration** to allow API consumers to create these application types. The client registration provider is responsible for creating the `client_id` and `client_secret` .
-  * Browser
-  * Web
-  * Native
-  * Backend-to-Backend
+* **Simple:** does _not_ require enabling **Dynamic Client Registration.** API consumers can optionally define the `client_id` when creating the application.
+* Advanced: the API producer must enable and configure **Dynamic Client Registration** to allow API consumers to create these application types. The client registration provider is responsible for creating the `client_id` and `client_secret` for each application that registers.
+  * **Browser**
+  * **Web**
+  * **Native**
+  * **Backend-to-Backend**
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-03-22 at 11.36.06 AM.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
 
-## Dynamic client registration
+## Simple application configuration
 
-To allow API consumers to register advanced applications, dynamic client registration must be enabled and configured with a client registration provider. Dynamic client registration is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect dynamic client registration endpoint. This allows API consumers to register with an OAuth server from Gravitee's developer portal or management UI.
+To allow API consumers to create a simple application, enable the **Simple** option in the **Allowed application types** section. This allows the API consumer to define the `client_id` on their own for use in JWT and OAuth API plans.
 
-Once dynamic client registration has been enabled, you need to add a **Provider** at the bottom of the **Client Registration** page.
+## Advanced application configuration
+
+API producers typically do not allow API consumers to create simple applications when using more secure plans with JWT or OAuth authentication types.
+
+### OAuth roles
+
+OAuth 2.0 defines four roles:
+
+Resource owner
+
+An entity enabled to grant access to a protected resource. When the resource owner is a person, it is referred to as an _end user_.
+
+Resource server
+
+The server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
+
+Client
+
+An application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
+
+Authorization server
+
+The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
+
+\
+
+
+### Dynamic client registration
+
+To allow API consumers to register advanced applications, dynamic client registration must be enabled and configured with a client registration provider. Dynamic client registration is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. This allows API consumers to register applications with an OAuth server from Gravitee's developer portal or management UI.
+
+Once dynamic client registration has been enabled, you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any OAuth server supporting OIDC.&#x20;
 
 <figure><img src="../../.gitbook/assets/add_dcr_provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
@@ -33,7 +64,9 @@ You are presented with the following options when configuring a client registrat
 
 The **General** section allows you to set a **Name** and **Description** for your client registration provider.
 
-The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint.** We will be using Gravitee Access Management (AM) for our provider but you are free to use any OAuth server supporting OpenID Connect. Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or **Initial Access Token.**
+The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC server publishes its metadata. **** The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the OIDC server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)&#x20;
+
+Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or **Initial Access Token.** The initial access token is provided by the Authorization Server to grant access to its client registration endpoint.≠“÷n&#x20;
 
 ### Client Credentials
 
@@ -149,9 +182,7 @@ A refresh token is used to get a new access token, prompting the client applicat
 
 
 
-### Simple applications
-
-To create a simple application, enable the **Simple** option in the **Allowed application types** section. This allows the API consumer to define the `client_id` on their own for use in JWT and OAuth API plans. No additional&#x20;
+###
 
 ## Create an application
 

@@ -52,7 +52,7 @@ The final two sections in the **General** stage are **Deployment** and **Access-
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.10.04 PM.png" alt=""><figcaption><p>Deployment and Access-Control settings</p></figcaption></figure>
 
-The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
+The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md).
 
 **Access-Control** lets you **** prevent specified groups from accessing this plan. You can learn more about user management and how to configure groups here.
 
