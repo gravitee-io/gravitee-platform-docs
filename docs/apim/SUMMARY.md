@@ -12,7 +12,7 @@
   * [Third-party Integrations](overview/integrations/third-party-integrations/README.md)
     * [Event Brokers & Event Management](overview/integrations/third-party-integrations/event-brokers-and-event-management.md)
     * [Service Mesh & Service Discovery](overview/integrations/third-party-integrations/service-mesh-and-service-discovery.md)
-    * [APIM & Observability](overview/integrations/third-party-integrations/apim-and-observability/README.md)
+    * [APIM & Observability](overview/integrations/third-party-integrations/apim-and-observability.md)
       * [Expose API metrics to Prometheus](overview/integrations/third-party-integrations/apim-and-observability/expose-api-metrics-to-prometheus.md)
     * [iPaaS](overview/integrations/third-party-integrations/ipaas.md)
 
@@ -126,7 +126,7 @@
     * [Environment variables, system properties, and the gravitee.yaml file](getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
     * [Gateway Internal API](getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md)
     * [Metrics](getting-started/configuration/the-gravitee-api-gateway/metrics.md)
-    * [Open Tracing](getting-started/configuration/the-gravitee-api-gateway/open-tracing.md)
+    * [OpenTracing](getting-started/configuration/the-gravitee-api-gateway/opentracing.md)
     * [Sharding Tags](getting-started/configuration/the-gravitee-api-gateway/sharding-tags.md)
     * [Tenants](getting-started/configuration/the-gravitee-api-gateway/tenants.md)
   * [Repositories](getting-started/configuration/repositories.md)
