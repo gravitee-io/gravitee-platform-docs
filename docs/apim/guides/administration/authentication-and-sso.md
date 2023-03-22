@@ -7,7 +7,7 @@ description: >-
 
 # Authentication and SSO
 
-### Introduction
+## Introduction
 
 Gravitee API Management (APIM) natively support several types of authentication methods to allow users to securely access APIM:
 
@@ -19,7 +19,7 @@ In this article, we will walk through how to configure each by using the `gravit
 
 {% @arcade/embed flowId="iVIQA53PE3vtm6hoNo7b" url="https://app.arcade.software/share/iVIQA53PE3vtm6hoNo7b" %}
 
-### Configure in-memory users
+## Configure in-memory users
 
 This example shows a basic in-memory implementation, providing a simple and convenient way to declare advanced users of APIM, such as administrator users. To do this, you could configure the `gravitee.yaml` file as such:
 
@@ -80,7 +80,7 @@ security:
 
 </code></pre>
 
-#### Generate a new password
+### Generate a new password
 
 If you use [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to hash passwords, you can generate new passwords with the [htpasswd](https://httpd.apache.org/docs/current/en/programs/htpasswd.html) command line, as shown in the following example (where `new_password` is your new password):
 
@@ -88,7 +88,7 @@ If you use [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to hash passwords, you
 htpasswd -bnBC 10 "" new_password | tr -d ':\n'
 ```
 
-### Authenticate users via LDAP
+## Authenticate users via LDAP
 
 There are many ways to configure users via LDAP. To illustrate the basic concepts, here is an example configuration using the `gravitee.yaml` file:
 
@@ -128,7 +128,7 @@ security:
           filter: "(&(objectClass=myObjectClass)(|(cn=*{0}*)(uid={0})))"
 ```
 
-### Authenticate users via an APIM data source
+## Authenticate users via an APIM data source
 
 APIM allows users to connect using an APIM data source. This is required if you want to add and register users via self-registration.
 
@@ -140,7 +140,7 @@ security:
     - type: gravitee
 ```
 
-### Authenticate users via Gravitee Access Management
+## Authenticate users via Gravitee Access Management
 
 In addition to API Management, Gravitee offers a fully-fledged Access Management product. While Gravitee works seamlessly with other IAM and IdP providers, many teams prefer to use a single vednor for their APIM and AM needs. This section walk through how to use Gravitee Access Management as a preferred authentication method for your Gravitee platform users.
 
@@ -234,6 +234,18 @@ To add an identity provider, select **+ Add an identity provider.**  From here, 
 When you are done, select **Create.** Then, go back to the IdP page, and toggle **Activate Identity Provider** ON for your new IdP.
 {% endtab %}
 {% endtabs %}
+
+### Test your Gravitee AM configuration
+
+{% hint style="info" %}
+**Set up your AM user**
+
+Before being able to log-in via AM, you will need to create users in AM. To do this please refer to the "Set up your first application" documentation within the Gravitee AM documentation.
+{% endhint %}
+
+You can easily test your Gravitee AM configuration by logging out of the Management UI, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Gravitee.io AM** option.
+
+Select this, and enter in your credentials. You should then be met with an approval page. Here, select **Authorize**. You should then be brought to the Management UI.&#x20;
 
 ### Defining Organization authentication and access settings
 
