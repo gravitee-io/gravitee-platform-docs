@@ -25,36 +25,43 @@ To allow API consumers to create a simple application, enable the **Simple** opt
 
 ## Advanced application configuration
 
-API producers typically do not allow API consumers to create simple applications when using more secure plans with JWT or OAuth authentication types.
+API producers typically do not allow API consumers to create simple applications when using more secure plans with JWT or OAuth authentication types. To allow API consumers to register advanced applications, dynamic client registration must be enabled and configured with a client registration provider.&#x20;
 
-### OAuth roles
+[Dynamic client registration](https://www.rfc-editor.org/rfc/rfc7591) (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee's developer portal or management UI.
+
+Since DCR works with OAuth clients, we first wanted to provide some quick definitions of relevant OAuth terminology.
+
+### Relevant OAuth terminology
 
 OAuth 2.0 defines four roles:
 
-Resource owner
+* **Resource owner**: an entity enabled to grant access to a protected resource. When the resource owner is a person, it is referred to as an _end user_.
+  * You, the owner of the backend APIs Gravitee's gateway is protecting, are the resource owner.
+* **Client:** an application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
+  * The API consumer's application attempting to register through the developer portal or management UI is the client.
+* **Resource server:** the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
+  * The APIM gateway sitting in front of the backend APIs is the resource server.
+* **Authorization server:** the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
+  * The client registration provider we are about to configure is the authorization server.
 
-An entity enabled to grant access to a protected resource. When the resource owner is a person, it is referred to as an _end user_.
+{% hint style="info" %}
+The resource server and the authorization server can be the same server
+{% endhint %}
 
-Resource server
+Additional Oauth terminology:
 
-The server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
+* **Redirect URI**: the URL the authorization server will redirect the resource owner back to after granting permission to the client. Often referred to as the callback URL.
+* **Response type:** the type of information the client expects to receive. Generally, it is an authorization code.
+* **Scope:** granular permissions the clients request such as access to data
+* **Consent:** verifies scopes with the resource owner to determine if the client will receive the requested permissions
+* **Client ID:** used to identify the client with the authorization server
+* **Client Secret:** password only the client and authorization server know
+* **Authorization Code:** short-lived code sent back to the client from the authorization server. The client sends the authorization code in combination with the client secret back to the authorization server to receive an access token.
+* **Access Token:** token that the client will use to communicate with the resource server
 
-Client
+### Dynamic client registration provider configuration
 
-An application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
-
-Authorization server
-
-The server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
-
-\
-
-
-### Dynamic client registration
-
-To allow API consumers to register advanced applications, dynamic client registration must be enabled and configured with a client registration provider. Dynamic client registration is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. This allows API consumers to register applications with an OAuth server from Gravitee's developer portal or management UI.
-
-Once dynamic client registration has been enabled, you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any OAuth server supporting OIDC.&#x20;
+Once dynamic client registration has been enabled in the **Client Registration** settings, you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.&#x20;
 
 <figure><img src="../../.gitbook/assets/add_dcr_provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
@@ -64,15 +71,17 @@ You are presented with the following options when configuring a client registrat
 
 The **General** section allows you to set a **Name** and **Description** for your client registration provider.
 
-The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC server publishes its metadata. **** The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the OIDC server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)&#x20;
+The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. **** The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)&#x20;
 
-Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or **Initial Access Token.** The initial access token is provided by the Authorization Server to grant access to its client registration endpoint.≠“÷n&#x20;
+Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or **Initial Access Token.** The initial access token is provided by the authorization server to grant access to its protected client registration endpoint.&#x20;
 
 ### Client Credentials
 
 <figure><img src="../../.gitbook/assets/client_credentials_token_provider.png" alt=""><figcaption><p>Client credentials token provider</p></figcaption></figure>
 
-Providing an access token through **Client Credentials**&#x20;
+The client credentials flow is used by clients to obtain an access token outside the context of a user. The flow is typically used when the client is acting on its own behalf (i.e., the client is also the resource owner).&#x20;
+
+This allows you to set up your authorization server, obtain its associated **Client ID** and **Client Secret,** and add them to the provider's configuration settings. Therefore, when future API consumers attempt to register an advanced application, they will have access to the necessary client credentials which are used to generate an initial access token which grants access to the protected client registration endpoint.
 
 ### Initial Access Token
 

@@ -267,7 +267,7 @@ Your API is now OAuth 2.0 secured and consumers must call the API with an `Autho
 Any applications wanting to subscribe to an OAuth 2.0 plan must have an existing client with a valid `client_id` registered in the OAuth 2.0 authorization server. The `client_id` will be used to establish a connection between the OAuth 2.0 client and the APIM consumer application. You can learn more about setting up client applications here.
 {% endhint %}
 
-### Publish a plan
+## Publish a plan
 
 After creating a plan, it's initially in the first of the four stages of a plan: staging, published, deprecated, and closed.
 
