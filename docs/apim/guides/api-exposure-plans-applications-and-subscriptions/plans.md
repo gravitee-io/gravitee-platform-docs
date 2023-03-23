@@ -90,6 +90,8 @@ The most important part of plan configuration is security. APIM supports the fol
 **Policies vs authentication types**
 
 Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio by following the steps in [Add policies to a flow](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#flow-policies).
+
+There are some additional considerations when using a plan with JWT or OAuth 2.0 security. For example, if we create a JWT plan, the gateway API won’t be accessible unless the JWT token is linked to a subscription. Therefore, for the request to succeed, the API consumer must subscribe to the API and embed the _client\_id_ in the JWT token when using a JWT plan as opposed to a JWT policy.
 {% endhint %}
 
 ### Keyless plan
