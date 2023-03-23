@@ -14,4 +14,4 @@ Each section will have a "Concepts" and "How-to" section. The "Concepts" section
 
 
 
-Best of luck using Gravitee!\
+Best of luck on your journey to grok APIM!\

@@ -67,7 +67,7 @@ Once dynamic client registration has been enabled in the **Client Registration**
 
 You are presented with the following options when configuring a client registration provider:
 
-<figure><img src="../../.gitbook/assets/client_registration_provider.png" alt=""><figcaption><p>Configure a client registration provider</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/configure_client_registration_provider.png" alt=""><figcaption><p>Configure a client registration provider</p></figcaption></figure>
 
 The **General** section allows you to set a **Name** and **Description** for your client registration provider.
 
@@ -152,7 +152,7 @@ The implicit grant is a simplified authorization code flow. Instead of getting a
 2. The end user is redirected to the authorization server.
 3. The end user authenticates using one of the configured identity providers and login options (MFA for example).
 4. (Optional) A consent page is displayed to ask for user approval.
-5. AM redirects the end user back to the application with an access token.
+5. The authorization server redirects the end user back to the application with an access token.
 6. The application uses the access token to make secure API calls for the end user.
 
 **Additional information**
