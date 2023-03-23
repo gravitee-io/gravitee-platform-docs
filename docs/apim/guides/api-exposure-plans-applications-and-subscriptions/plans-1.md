@@ -204,3 +204,11 @@ A refresh token is used to get a new access token, prompting the client applicat
 
 With all the preparation work complete, API consumers can now register an application through either the management UI or the developer portal. We will work through the management UI as we have a separate guide dedicated to the developer portal.
 
+{% hint style="info" %}
+Default application
+
+In order to allow new users to quickly move forward with API consumption, the default settings are every new user automatically has a default application created. This can be easily disabled through the aforementioned three configuration options.
+{% endhint %}
+
+{% @arcade/embed flowId="K4c4gw3qU4Mrmsm74Q0E" url="https://app.arcade.software/share/K4c4gw3qU4Mrmsm74Q0E" %}
+
