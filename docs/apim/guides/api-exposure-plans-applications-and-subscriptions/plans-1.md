@@ -239,7 +239,11 @@ Only users with the required permissions can manage application members. For mor
 
 {% @arcade/embed flowId="zb22huL5KmUF9Nky2hZ7" url="https://app.arcade.software/share/zb22huL5KmUF9Nky2hZ7" %}
 
-### Restore an archived application
+### Delete and restore applications
+
+You can delete any application you are the primary owner of at the bottom of the **Global Settings** page.
+
+<figure><img src="../../.gitbook/assets/delete_application.png" alt=""><figcaption><p>Delete an application</p></figcaption></figure>
 
 When a user deletes an application, it is in `ARCHIVED` status.
 
