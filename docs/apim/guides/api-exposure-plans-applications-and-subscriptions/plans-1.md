@@ -200,15 +200,59 @@ A refresh token is used to get a new access token, prompting the client applicat
 
 * For security reasons (a user can remain authenticated forever), a refresh token must be stored in a secure place (i.e server side) and is never sent to the resource server.
 
-## Registering an application
+## Create an application
 
 With all the preparation work complete, API consumers can now register an application through either the management UI or the developer portal. We will work through the management UI as we have a separate guide dedicated to the developer portal.
 
-{% hint style="info" %}
-Default application
-
-In order to allow new users to quickly move forward with API consumption, the default settings are every new user automatically has a default application created. This can be easily disabled through the aforementioned three configuration options.
-{% endhint %}
-
 {% @arcade/embed flowId="K4c4gw3qU4Mrmsm74Q0E" url="https://app.arcade.software/share/K4c4gw3qU4Mrmsm74Q0E" %}
 
+{% hint style="info" %}
+**Default application**
+
+In order to allow new users to quickly move forward with API consumption, the default settings are every new user (not including admins) automatically has a default application created. This can be easily disabled in the `gravitee.yml` file with the following configuration below. You can learn more about system configurations in Gravitee [here](../../getting-started/configuration/configuration/).
+{% endhint %}
+
+{% code title="gravitee.yml" overflow="wrap" %}
+```yaml
+user:
+    login:
+       # Create a default application when user connects to the portal for the very first time (default true)
+       defaultApplication: false
+```
+{% endcode %}
+
+## Manage applications
+
+When a new application is created, only the application’s creator, the _primary owner_, can see and manage the application. Most of the time, an application is shared through a developer application and will retrieve information such as API keys and API analytics.
+
+By default, APIM includes three membership roles:
+
+| Role              | Description                                                                                                                               |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Primary owner** | When an application is created, the primary owner is the creator of the applcation. Primary owner can do all possible actions for an API. |
+| **Owner**         | Owner is a lightest version of the primary owner role. Owner can do all possible actions except delete the application.                   |
+| **User**          | A user is a person who can access the application in read only mode and use the application to subscribe to an API.                       |
+
+{% hint style="info" %}
+Only users with the required permissions can manage application members. For more details, see the Roles and permissions section of the Administration Guide.
+{% endhint %}
+
+{% @arcade/embed flowId="zb22huL5KmUF9Nky2hZ7" url="https://app.arcade.software/share/zb22huL5KmUF9Nky2hZ7" %}
+
+### Restore an archived application
+
+When a user deletes an application, it is in `ARCHIVED` status.
+
+It means that:
+
+* The link to the primary owner of the application is deleted.
+* The subscriptions are closed. In the case of a subscription to an API-Key plan, the keys are revoked.
+* Notification settings are deleted.
+
+As an `ADMIN`, you can restore applications in the APIM Console.
+
+The `ADMIN` user will become the primary owner of the application.
+
+{% hint style="info" %}
+Every application’s subscriptions will be restored in`PENDING` status. The API publisher will have to manually reactivate previous subscriptions.
+{% endhint %}
