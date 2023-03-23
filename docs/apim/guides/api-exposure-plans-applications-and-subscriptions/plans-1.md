@@ -79,13 +79,24 @@ Once the endpoint is set, the configuration options branch in two directions bas
 
 <figure><img src="../../.gitbook/assets/client_credentials_token_provider.png" alt=""><figcaption><p>Client credentials token provider</p></figcaption></figure>
 
-Client credentials is an authorization grant flow used by clients to obtain an access token outside the context of a user. The flow is typically used when the client is acting on its own behalf (i.e., the client is also the resource owner).&#x20;
+Client credential is an authorization grant flow used by clients to obtain an access token outside the context of a user. The flow is typically used when the client is acting on its own behalf (i.e., the client is also the resource owner).&#x20;
 
-This allows you to set up your authorization server, obtain its associated **Client ID** and **Client Secret,** and add them to the provider's configuration settings. Therefore, when future API consumers register an advanced application, they will utilize this provider to generate an initial access token that grants access to the protected client registration endpoint.
+This allows you to set up your authorization server, obtain its associated **Client ID** and **Client Secret,** and add them to the provider's configuration settings. When you select **Create** at the bottom of the page, a request with the client credentials will immediately be sent to the authorization server's token endpoint for an initial access token. Therefore, when future API consumers register an advanced application, they will utilize this initial access token to access the protected client registration endpoint.
 
-The application then calls this endpoint&#x20;
+The response will contain the application's client ID and depending on the application type, optionally a client secret. For OAuth 2.0 plans, these credentials will be used whenever a resource owner authorizes the application to access a protected resource. If successful, the authorization server will return an access token that will be verified through token introspection upon requests to the gateway before accessing backend APIs protected by OAuth 2.0 plans.
+
+The client credential flow offers two additional configuration settings:
+
+* **Scopes:** provide default scopes to use for application registration&#x20;
+* **Client Template (software\_id):** optional id of the client template to use for all applications registering through this provider
+  * Some authorization servers allow you to create a client as a template. Registering a new application with a template allows you to specify which identity providers to use, and apply template forms (such as login, password management, and error forms) or emails (such as registration confirmation and password reset emails).
+  * This can simplify administration, as all dynamic clients can be updated as a whole. If the configuration of the template changes (e.g., authentication requirements, redirect URI(s), allowed scopes, etc.), then all dynamic clients based on that client are immediately updated.
 
 ### Initial Access Token
+
+This appears to circumvent the need for client credentials but it may be dependent on the authorization server.
+
+## Registering an application
 
 
 
@@ -93,7 +104,7 @@ The application then calls this endpoint&#x20;
 
 An authorization grant is a flow used by the client to obtain an access token. How you use grant types mainly depends on your application type.
 
-APIM has five grant types:
+APIM support five authorization grant flow out of the box:
 
 * Authorization code
 * Implicit
