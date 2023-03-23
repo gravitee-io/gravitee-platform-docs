@@ -17,7 +17,7 @@ To allow API consumers to create applications, you need to first enable the corr
   * **Native**
   * **Backend-to-Backend**
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-03-22 at 11.36.06 AM.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/client_registration_settings.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
 
 ## Simple application configuration
 
