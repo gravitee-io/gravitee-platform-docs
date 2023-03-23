@@ -79,9 +79,11 @@ Once the endpoint is set, the configuration options branch in two directions bas
 
 <figure><img src="../../.gitbook/assets/client_credentials_token_provider.png" alt=""><figcaption><p>Client credentials token provider</p></figcaption></figure>
 
-The client credentials flow is used by clients to obtain an access token outside the context of a user. The flow is typically used when the client is acting on its own behalf (i.e., the client is also the resource owner).&#x20;
+Client credentials is an authorization grant flow used by clients to obtain an access token outside the context of a user. The flow is typically used when the client is acting on its own behalf (i.e., the client is also the resource owner).&#x20;
 
-This allows you to set up your authorization server, obtain its associated **Client ID** and **Client Secret,** and add them to the provider's configuration settings. Therefore, when future API consumers attempt to register an advanced application, they will have access to the necessary client credentials which are used to generate an initial access token which grants access to the protected client registration endpoint.
+This allows you to set up your authorization server, obtain its associated **Client ID** and **Client Secret,** and add them to the provider's configuration settings. Therefore, when future API consumers register an advanced application, they will utilize this provider to generate an initial access token that grants access to the protected client registration endpoint.
+
+The application then calls this endpoint&#x20;
 
 ### Initial Access Token
 
