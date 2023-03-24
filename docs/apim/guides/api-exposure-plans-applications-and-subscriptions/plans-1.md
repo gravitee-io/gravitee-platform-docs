@@ -12,12 +12,14 @@ There are two requirements to allow API consumers to create applications:
 
 1. Admins need to first enable the correct options in the **Settings > Client Registration** page. Here, you can define the allowed types of applications that API consumers can create:
 
-* **Simple:** does _not_ require enabling **Dynamic Client Registration.** API consumers can optionally define the `client_id` when creating the application.
-* Advanced: the API producer must enable and configure **Dynamic Client Registration** to allow API consumers to create these application types. The client registration provider is responsible for creating the `client_id` and `client_secret` for each application that registers.
-  * **Browser**
-  * **Web**
-  * **Native**
-  * **Backend-to-Backend**
+**Simple:** does _not_ require enabling **Dynamic Client Registration.** API consumers can optionally define the `client_id` when creating the application.
+
+Advanced: the API producer must enable and configure **Dynamic Client Registration** to allow API consumers to create these application types. The client registration provider is responsible for creating the `client_id` and `client_secret` for each application that registers.
+
+* **Browser**
+* **Web**
+* **Native**
+* **Backend-to-Backend**
 
 <figure><img src="../../.gitbook/assets/client_registration_settings.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
 
