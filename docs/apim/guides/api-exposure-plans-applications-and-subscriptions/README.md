@@ -56,6 +56,6 @@ Applications and plans go together like developers and repurposing code from sta
 
 ## Subscriptions
 
-APIM uses the subscription to decide whether to accept or deny an incoming request. Subscriptions are created when an API consumer creates a subscription request to a published plan with a registered application, and an API publisher either manually or automatically accepts the subscription.
+APIM uses the subscription to decide whether to accept or deny an incoming request. Subscriptions are created when an API consumer uses a registered application to create a subscription request to a published plan, and an API publisher either manually or automatically accepts the subscription.
 
 API producers can modify a subscription at any time which includes transferring to a different plan, pausing, setting an expiration date, or permanently closing a subscription. Additionally, authentication can be managed for individual subscriptions by, for example, setting an expiration date for, revoking, or renewing a subscribed application's API key.

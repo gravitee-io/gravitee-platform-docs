@@ -208,7 +208,7 @@ A refresh token is used to get a new access token, prompting the client applicat
 
 ## Create an application
 
-With all the preparation work complete, API consumers can now register an application through either the management UI or the developer portal. We will work through the management UI as we have a separate guide dedicated to the developer portal.
+With all the preparation work complete, API consumers can now create an application through either the management UI or the developer portal. We will work through the management UI as we have a separate guide dedicated to the developer portal.
 
 {% @arcade/embed flowId="K4c4gw3qU4Mrmsm74Q0E" url="https://app.arcade.software/share/K4c4gw3qU4Mrmsm74Q0E" %}
 

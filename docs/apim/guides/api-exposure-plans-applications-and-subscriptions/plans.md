@@ -4,6 +4,8 @@ description: How to expose your APIs
 
 # Plans
 
+To expose your API to internal or external consumers, it must have at least one plan. A plan provides a service and access layer on top of your APIs for consumer applications by specifying access limits, subscription validation modes, and other configurations to tailor it to a specific application.&#x20;
+
 ## Create a plan
 
 Plans are always created by the API publisher. You can create plans in the management UI as part of the [API creation process](../../user-guide/publisher/create-api.md#create-an-api-from-scratch). You can also create them later with the **Portal > Plans** function as shown below.
