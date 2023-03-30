@@ -1,14 +1,14 @@
 ---
-description: The problems Gravitee solves
+description: Introduction to the Gravitee ecosystem
 ---
 
-# Core Concepts
+# Gravitee Core Concepts
 
 ### Introduction
 
 The **API lifecycle** includes aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security. The need to manage the full API lifecycle is why comprehensive API management solutions like Gravitee were developed.
 
-So quickly, we want to give an introduction to what Gravitee is all about, including some Gravitee jargon you may not be familiar with. We promise to try and keep it brief. And then we’ll be on to actually getting our hands dirty with some code so you can stop fighting the urge to go take a nap. If you’re already intimate with Gravitee or just eager to start using the product, jump ahead to [Part 3: Getting Started](https://community.gravitee.io/t/part-3-getting-started/1460) to start implementing and using Gravitee features.
+We want to give a quick introduction to what Gravitee is all about, including some Gravitee jargon you may not be familiar with. We promise to try and keep it brief. And then we’ll be on to actually getting our hands dirty with some code so you can stop fighting the urge to go take a nap. If you’re already intimate with Gravitee or just eager to start using the product, jump ahead to [Part 3: Getting Started](https://community.gravitee.io/t/part-3-getting-started/1460) to start implementing and using Gravitee features.
 
 ### Overview <a href="#overview-2" id="overview-2"></a>
 

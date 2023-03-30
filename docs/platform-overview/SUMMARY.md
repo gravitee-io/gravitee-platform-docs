@@ -9,7 +9,7 @@
 * [Overview](gravitee-essentials/overview.md)
 * [Gravitee Offerings: CE vs EE](gravitee-essentials/gravitee-offerings-ce-vs-ee.md)
 * [API Fundamentals](gravitee-essentials/api-fundamentals.md)
-* [Core Concepts](gravitee-essentials/core-concepts.md)
+* [Gravitee Core Concepts](gravitee-essentials/gravitee-core-concepts.md)
 * [Gravitee Glossary](gravitee-essentials/glossary.md)
 
 ## Community

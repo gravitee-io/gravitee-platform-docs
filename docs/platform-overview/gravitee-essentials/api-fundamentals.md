@@ -4,48 +4,46 @@ description: A deep dive on the basics
 
 # API Fundamentals
 
-Before we start building, we want to ensure we are speaking the same language around APIs. Considering you could likely write a dissertation of each of the topics we’re about to touch on, the goal is not to provide an extremely technical description that splits every hair and details every possible nuance and caveat. Rather, the aim is to supply you, the developer, with the prerequisite knowledge needed to get the most out of Gravitee while simultaneously working to dispel some of the abundant myths, misconceptions, and misunderstandings held in this space. This essentials section is all about building a _robust conceptual framework_: you’ll have a better understanding of how the system _works_ without necessarily knowing how to _build_ it — yet.
+Before walking through Gravitee-specific concepts, we want to ensure we are speaking the same language around APIs. Considering you could likely write a dissertation on each of the topics we’re about to touch on, the goal is not to provide an extremely technical description that splits every hair and details every possible nuance and caveat. Rather, the aim is to supply you, the developer, with the prerequisite knowledge needed to get the most out of Gravitee while simultaneously working to dispel some of the abundant myths, misconceptions, and misunderstandings held in the API space. This API fundamentals section is all about building a _robust conceptual framework_: you’ll have a better understanding of how the system _works_ without necessarily knowing how to _build_ it — yet.
 
-If you feel you are already an API Guru, feel free to skip ahead to [Part 2: Gravitee Core Offerings](https://community.gravitee.io/t/part-2-gravitee-core-offerings/1459).
-
-> _****_:bulb: _**Sidebar**_
->
-> You’ll see these throughout the essentials section to call out supplemental information that is useful and/or interesting, but not essential for moving forward. However, if you’re like us, any day of research involves pushing Chrome to its [limit of open tabs](https://redstapler.co/how-many-tabs-can-be-open-in-chrome/), filled with articles you hope to read later, as every bit of new knowledge opens ten new doors. Consider these sections a friendly means to feed that addiction.
+If you feel you are already an API Guru, feel free to skip to the [Gravitee Core Concepts](gravitee-core-concepts.md) section.&#x20;
 
 {% hint style="info" %}
+**Sidebar**
 
+You’ll see these throughout the essentials section to call out supplemental information that is useful and/or interesting, but not essential for moving forward. However, if you’re like us, any day of research involves pushing Chrome to its [limit of open tabs](https://redstapler.co/how-many-tabs-can-be-open-in-chrome/), filled with articles you hope to read later, as every bit of new knowledge opens ten new doors. Consider these sections a friendly means to feed that addiction.
 {% endhint %}
 
-### API Basics <a href="#api-basics-2" id="api-basics-2"></a>
+## API Basics <a href="#api-basics-2" id="api-basics-2"></a>
 
 Let’s start with our most fundamental building block: an **application programming interface** or API. Generally speaking, when most people say API, they are speaking about a specific subset of APIs known as **web APIs**. However, at its most basic level, an API is just a way for programs/applications/computers to talk to each other and is not exclusive to APIs that work over a network (i.e., web APIs). An API is simply a set of _publicly_ exposed **interface conventions**, for you, the **application programmer**, to interact with.
 
 Technically speaking, every method or function you have ever called, whether built into a programming language or from third-party packages/modules, is an API! Take the Python example below:
 
-```
+```python
 from datetime import datetime
 
 date_str = "12/25/1996"
 date_object = datetime.strptime(date_str, "%m/%d/%Y")
 ```
 
-Importing the datetime module provides you access to public methods, or APIs, like “strptime” to convert a string into a datetime object. This API is not network-related, but it is essentially a _contract_. The contract is an agreement that the API will be kept stable at least until the next major release, so you, the developer, have assurance about the API’s expected behavior without actually understanding how this transformation of input data is taking place.
+Importing the `datetime` module provides you access to public methods, or APIs, like `strptime` to convert a `string` into a `datetime` object. This API is not network-related, but it is essentially a _contract_. The contract is an agreement that the API will be kept stable at least until the next major release, so you, the developer, have assurance about the API’s expected behavior without actually understanding how this transformation of input data is taking place.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Semantic Versioning**_
->
-> ***
->
-> Respecting these API contracts is the basis for semantic versioning in software. Check out [this article for a quick introduction to semantic versioning](https://blog.webdevsimplified.com/2020-01/semantic-versioning/) and learn how these API contracts are managed as software is continuously updated.
+{% hint style="info" %}
+**Semantic versioning**
+
+Respecting these API contracts is the basis for semantic versioning in software. Check out [this article for a quick introduction to semantic versioning](https://blog.webdevsimplified.com/2020-01/semantic-versioning/) and learn how these API contracts are managed as software is continuously updated.
+{% endhint %}
 
 APIs allow us to continue to add layers of abstraction we can trust. And in programming, abstraction is everything. For example, most developers prefer learning and continuing to work with a high-level programming language like Python as opposed to a [low-level assembly language](https://www.investopedia.com/terms/a/assembly-language.asp). Python abstracts away many concerns so a print statement can look like this:
 
-```
+```python
 print('Hello, World')
 ```
 
 instead of this:
 
-```
+```asm6502
 ; hello-DOS.asm - single-segment, 16-bit "hello world" program
 ;
 ; assemble with "nasm -f bin -o hi.com hello-DOS.asm"
@@ -64,43 +62,43 @@ instead of this:
     msg  db 'Hello, World!', 0x0d, 0x0a, '$'   ; $-terminated message
 ```
 
-Even beyond concerns of developer experience and productivity, abstraction still reigns king. The vast majority of people don’t need or want to understand all of the inner workings of how email works. You just understand the inputs (i.e., interface conventions): recipients, subject, message body, the send button, etc., and the outputs: a rapid form of text-based communication. Abstractions, and therefore APIs, are core to progress and allow us to stand on the shoulders of the giants who came before. And if you really peel back all the layers, we’re all physicists working with [quarks and gluons](https://www.energy.gov/science/doe-explainsquarks-and-gluons)!
-
-
+Even beyond concerns of developer experience and productivity, abstraction still reigns king. The vast majority of people don’t need or want to understand all of the inner workings of how email works. You just understand the inputs (i.e., interface conventions): recipients, subject, message body, the send button, etc., and the outputs: a rapid form of text-based communication. Abstractions, and therefore APIs, are core to progress and allow us to stand on the shoulders of the giants who came before. And if you peel back all the layers, we’re all physicists working with [quarks and gluons](https://www.energy.gov/science/doe-explainsquarks-and-gluons)!
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/a/a8a51b9365a05b24e391d475f37a6fb6408d9150.png" alt=""><figcaption><p>Abstraction meme posted on <a href="https://www.reddit.com/r/ProgrammerHumor/comments/orerw4/abstraction/">reddit</a>.</p></figcaption></figure>
 
 With those distinctions out of the way, we can now zoom in on Gravitee’s main focus: **Web APIs**.
 
-> Moving forward, you can assume web APIs and APIs are synonymous in this guide; otherwise, we will explicitly refer to them as **local** APIs.
+{% hint style="warning" %}
+**API nomenclature**
 
-### Web APIs: Protocols, Architectures, Specifications, and Data Serialization Formats <a href="#web-apis-protocols-architectures-specifications-and-data-serialization-formats-3" id="web-apis-protocols-architectures-specifications-and-data-serialization-formats-3"></a>
+You can assume web APIs and APIs are synonymous in Gravitee's documentation; otherwise, we will explicitly refer to them as **local** APIs.
+{% endhint %}
+
+## Web APIs: Protocols, Architectures, Specifications, and Data Serialization Formats <a href="#web-apis-protocols-architectures-specifications-and-data-serialization-formats-3" id="web-apis-protocols-architectures-specifications-and-data-serialization-formats-3"></a>
 
 A web API is just an API that is accessible over some kind of network. Generally, this network is the now infamous, globally interconnected network affectionately known as the **internet**.
 
 Now, getting into the weeds a bit, the internet is the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the means by which information actually travels. And much of the information traveling through the internet, such as this developer guide, is organized in what is known as the **world wide web** or web, for short. The information exists in an interconnected _web_, hence the name, and is in the form of **hypermedia** (e.g., web pages). The web is essentially an application running on the internet infrastructure. However, it is important to note that while the world wide web is by far the most popular, it is but one of many ways to interact with information on the internet. For example, you can use VoIP, or Voice over Internet Protocol, to make a call over the internet without ever interacting with the web.
 
-[![Internet underwater cables](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5b31e8183ce2abee47d7194607538270bde34bc3\_2\_690x492.png)](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/5/5b31e8183ce2abee47d7194607538270bde34bc3.png)
-
-Photo of the underwater cables connecting the internet from this [blog](https://www.weforum.org/agenda/2015/11/how-can-we-protect-the-internets-undersea-cables/).
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5b31e8183ce2abee47d7194607538270bde34bc3_2_690x492.png" alt=""><figcaption><p>Photo of the underwater cables connecting the internet from this <a href="https://www.weforum.org/agenda/2015/11/how-can-we-protect-the-internets-undersea-cables/">blog</a></p></figcaption></figure>
 
 Again, it is important to reiterate, that although they are referred to as web APIs, this just means these APIs are accessible over some kind of network, which is not limited to the combination of the internet and the world wide web. So perhaps network-based or remote APIs would be more accurate names, but admittedly, it would take a hell of a marketing team to transition the industry from the existing naming convention.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**The Birth of the Web**_
->
-> ***
->
-> For a quick history lesson and a bit more detail about the relationship between the internet and the world wide web, [watch this excellent video](https://www.youtube.com/watch?v=eHp1l73ztB8\&t=189s).
+{% hint style="info" %}
+**The birth of the web**
+
+For a quick history lesson and a bit more detail about the relationship between the internet and the world wide web, [watch this excellent video](https://www.youtube.com/watch?v=eHp1l73ztB8\&t=189s).
+{% endhint %}
 
 Now, the world of web APIs is booming. In large part, this is due to the shift from monolithic application architectures to microservices which you can [read more about here.](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications)
 
-**tldr;** Microservices are replacing monolithic application architectures because not all aspects of a project scale in parallel. Microservices allow for a separation of concerns and independent scaling of each runtime in an increasingly cloud native world. The problem? Microservice communication and interfacing. The solution? You guessed it, web APIs.
+_tldr;_ Microservices are replacing monolithic application architectures because not all aspects of a project scale in parallel. Microservices allow for a separation of concerns and independent scaling of each runtime in an increasingly cloud-native world. The problem? Microservice communication and interfacing. The solution? You guessed it, web APIs.
 
-Web APIs provide distributed architectures a means of reliable communication through a standardized contract for interfacing over a network. Now, for a web API to communicate over a network, you must employ a **protocol** to deliver your information to the intended recipient. Furthermore, design and documentation of your actual API should adhere to both an **architecture** and a **specification**. And finally, all data being sent over a network must be serialized into a **data-interchange format** for transport. If it sounds like there is a lot of moving pieces in this simplistic model, then your intuition is correct! The underlying framework powering web APIs is a complicated one. But fortunately, you should be well-oriented by the end of this guide and be able to start building in this brave new world.
+Web APIs provide distributed architectures with a means of reliable communication through a standardized contract for interfacing over a network. Now, for a web API to communicate over a network, you must employ a **protocol** to deliver your information to the intended recipient. Furthermore, the design and documentation of your actual API should adhere to both an **architecture** and a **specification**. And finally, all data being sent over a network must be serialized into a **data-interchange format** for transport. If it sounds like there are a lot of moving pieces in this simplistic model, then your intuition is correct! The underlying framework powering web APIs is a complicated one. But fortunately, you should be well-oriented by the end of the API Fundamentals section and ready to start building in this brave new world.
 
 When navigating the high waters of the world wide web for helpful guides, blogs, and documentation about APIs, the **protocols, architectures, specifications, and data-interchange formats** are often tossed around as if they are directly comparable. For example, you’ll often see the REST architectural style being inaccurately used as a proxy for the HTTP application layer protocol (don’t worry, we’ll define all these terms later on). So let’s take a minute or two to untangle these concepts at a high level.
 
-#### Protocols <a href="#protocols-4" id="protocols-4"></a>
+### Protocols <a href="#protocols-4" id="protocols-4"></a>
 
 “It’s an HTTP API.”
 
@@ -128,7 +126,7 @@ We’ll attempt to keep our focus narrow here and limit our attention to the use
 
 While certainly yet another gross oversimplification, UDP’s lack of error checking is a major reason many application layer protocols are built on top of TCP. TCP provides robust error checking to ensure packets are not lost, corrupted, duplicated, or delivered out of order.
 
-This finally brings us to the top layer of the conceptual network cake we’ve hastily baked: the application layer. As spoiled in the copypasta above, this is where the protocols you’re likely most familiar with live such as the examples shown in the table below. We’ll touch on the synchronous vs asynchronous distinction in detail later on.
+This finally brings us to the top layer of the conceptual network cake we’ve hastily baked: the application layer. As spoiled in the copypasta above, this is where the protocols you’re likely most familiar with live, such as the examples shown in the table below. We’ll touch on the synchronous vs asynchronous distinction in detail later on.
 
 | Name                                       | Abbreviation | Network Communication Type             |
 | ------------------------------------------ | ------------ | -------------------------------------- |
@@ -148,75 +146,79 @@ This finally brings us to the top layer of the conceptual network cake we’ve h
 
 These are the protocols responsible for defining how individual applications communicate over networks and share information. In other words, the first four layers are focused on delivering data to a destination. The application layer protocols are then responsible for establishing standards for communication that detail what should actually be done with that data. Let’s add some clarity to that abstract sentence through a quick example using `google.com`.
 
-Modern web browsers are simply applications that communicate over the HTTP/HTTPS application layer protocol (HTTPS is HTTP with encryption and verification). Don’t take our word for it. Head over to [Google](https://google.com/) and give the **uniform resource locator**, or URL, a quick double click.
+double-clickModern web browsers are simply applications that communicate over the HTTP/HTTPS application layer protocol (HTTPS is HTTP with encryption and verification). Don’t take our word for it. Head over to [Google](https://google.com/) and give the **uniform resource locator**, or URL, a quick double-click.
 
-![Default display of URL](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/2/2f99b25e6d3a94369d36504bcd46cc8acfe59011.png)\
-![Expanded display of URL](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/d/de3d4bc7af143dfa5bc64edf9480978fabc471ba.png)
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/2/2f99b25e6d3a94369d36504bcd46cc8acfe59011.png" alt=""><figcaption><p>Shortened URL displayed</p></figcaption></figure>
+
+\
+
+
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/d/de3d4bc7af143dfa5bc64edf9480978fabc471ba.png" alt=""><figcaption><p>Expanded URL</p></figcaption></figure>
 
 This shows a much fuller picture of the actual URL being targeted as browsers often omit the protocol and subdomain. In case you’re not familiar with these terms, here’s a quick graphic breaking down all the components of a **uniform resource identifier** or URI.
 
-![URI/URL/URN diagram](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/e/ec957df9720123df320d059a87de9c46037ab926.png)
+![URI/URL/URN diagram from this blog](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/e/ec957df9720123df320d059a87de9c46037ab926.png)
 
-URI/URL/URN diagram from [blog](https://programming119.tistory.com/194).
+{% hint style="info" %}
+**URLs, URNs, and URIs, oh my!**
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**URLs, URNs, and URIs, Oh My!**_
->
-> ***
->
-> URI: Uniform Resource Identifier\
-> URL: Uniform Resource Locator\
-> URN: Uniform Resource Name\
-> Another classic source of confusion in the world of web development. Rather than try to untangle this one ourselves, we’ll point towards this great explanation [hosted on every developer’s favorite website](https://stackoverflow.com/a/1984225).
+**URI:** Uniform Resource Identifier\
+**URL:** Uniform Resource Locator\
+**URN:** Uniform Resource Name
 
-There’s a lot going on in the URI graphic above, but thankfully, we can ignore most of it for the sake of our example. Just keep your focus on the application layer protocol, the domain (which resolves to an IP address), and the port number. In networking, a _communication link_ between two applications requires each endpoint to be defined with an **IP address** (layer 3, the network layer) and a **port number** (layer 4, the transport layer); the combination is generally referred to as a **network socket** . Each socket represents one endpoint in this communication link between two programs. Think of the socket as a complete address. So for example, to send a request to a web server, you just need to know its socket: a unique IP address and port combination.
+\
+Another classic source of confusion in the world of web development. Rather than try to fully untangle this one ourselves, we’ll point you toward this great explanation [hosted on every developer’s favorite website](https://stackoverflow.com/a/1984225).&#x20;
+{% endhint %}
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Network Socket Clarification**_
->
-> ***
->
-> Generally, a network socket would also include the transport layer protocol being employed (e.g. TCP) in addition to the IP address and port, but remember, web browsers communicate over HTTP which is built on top of TCP, so the transport layer protocol is assumed. However, this will be [changing with HTTP/3](https://www.cloudflare.com/learning/performance/what-is-http3/) which is built on top of UDP.
+There’s a lot going on in the URI diagram above, but thankfully, we can ignore most of it for the sake of our example. Just keep your focus on the application layer protocol, the domain (which resolves to an IP address), and the port number. In networking, a communication link between two applications requires each endpoint to be defined with an **IP address** (layer 3, the network layer) and a **port number** (layer 4, the transport layer); the combination is generally referred to as a **network socket**. Each socket represents one endpoint in this communication link between two programs. Think of the socket as a complete address. So for example, to send a request to a web server, you just need to know its socket: a unique IP address and port combination.
 
-Now, when your request actually arrives at Google’s web server, how can you be sure it will understand the request? This is where layer 5, the application layer, comes into play. The application layer provides the _interface methods_ for these two programs to ensure there are no issues understanding and managing the request and response. This is why the type of API is often synonymous with the application layer protocol being employed.
+{% hint style="info" %}
+**Network socket clarification**
 
-So how does all of this come together when you type in `google.com` in your browser? Behind the scenes, it is expanded to `https://www.google.com:443` (well-known application layer protocols such as HTTP and HTTPS have the same port reserved on every network, 80 and 443, respectively, so the port is often omitted) which directs your browser’s request to Google’s web server using the HTTPS application layer protocol. This particular request uses the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and Google’s web server knows to respond with the Google homepage you know and love. And what if you request a [resource](https://restful-api-design.readthedocs.io/en/latest/resources.html) that does not actually exist by navigating to something like `https://www.google.com/test`? HTTPS has you covered here as well with standard status codes, and you will receive a lovely reply from Google’s web server as shown below:
+Generally, a network socket would also include the transport layer protocol being employed (e.g. TCP) in addition to the IP address and port, but remember, web browsers communicate over HTTP which is built on top of TCP, so the transport layer protocol is assumed. However, this will be [changing with HTTP/3](https://www.cloudflare.com/learning/performance/what-is-http3/) which is built on top of UDP.
+{% endhint %}
 
-[![Google 404 error response](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5243c9b089b8754b37695dedcf1450bace820b90\_2\_690x262.png)](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/5/5243c9b089b8754b37695dedcf1450bace820b90.png)
+Now, when your request arrives at Google’s web server, how can you be sure it will understand the request? This is where layer 5, the application layer, comes into play. The application layer provides the _interface methods_ for these two programs to ensure there are no issues with understanding and managing the request and response. This is why the type of API is often synonymous with the application layer protocol being employed.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**DNS Resolution**_
->
-> ***
->
-> But wait. You might be asking where is the unique IP address? The answer lies in the **fully qualified domain name**, `www.google.com`, which is resolved into an IP address through a process called **domain name system** resolution. [Here](https://serverfault.com/a/643511) is a solid high-level explanation of how that works. Or, if preferred, [here’s a great video](https://www.youtube.com/watch?v=72snZctFFtA\&t=45s) on DNS resolution.
+So how does all of this come together when you type in `google.com` in your browser? Behind the scenes, it is expanded to `https://www.google.com:443` (well-known application layer protocols such as HTTP and HTTPS have the same port reserved on every network, 80 and 443, respectively, so the port is often omitted) which directs your browser’s request to Google’s web server using the HTTPS application layer protocol. This particular request uses the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and Google’s web server knows to respond with the Google homepage you know and love. And what if you request a [resource](https://restful-api-design.readthedocs.io/en/latest/resources.html) that does not exist by navigating to something like `https://www.google.com/test`? HTTPS has you covered here as well with standard status codes, and you will receive a lovely reply from Google’s web server as shown below:
 
-At this point, we should also mention that in the world of HTTP APIs, the _URL combined with a HTTP method_ is often referred to as an API **endpoint**. Every resource can be accessed by the user of the API at a unique endpoint like `GET http://foo.com/api/user/1`. Now, in this example, all resources, and therefore endpoints tied to this API, exist under a single API **entry point** which would be `http://foo.com/api` in our example. In a way, the entry point can be viewed as a special type of endpoint: it’s a resource that exists outside of any other collection and houses all other collections of resources. API entry points and endpoints will come up quite often when discussing API management, which we’ll get to later.
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5243c9b089b8754b37695dedcf1450bace820b90_2_690x262.png" alt=""><figcaption><p>HTTPS error response example</p></figcaption></figure>
 
-Using HTTP/HTTPS as our example application layer protocol was no mistake. Besides being core to how the world wide web functions, a number of other application layer protocols are dependent on HTTP/HTTPS. This is because application layer protocols can _stack_. Unfortunately, this is also where our conceptual, layered network cake begins to look a little half baked.
+{% hint style="info" %}
+**DNS resolution**
 
-Let’s take the SOAP application layer protocol as an example. SOAP sits at the same layer of the network model as HTTP, but SOAP is also dependent on another application layer protocol, typically, but not always, HTTP, in order to function. But why do this? Well, as we’ve pointed out, HTTP is _the_ application layer protocol of the web. This means there has been a huge, global investment in infrastructure, both server and client side (i.e., web browsers), designed around HTTP/HTTPS. Additionally, security provisions such as firewalls tend to let in network traffic targeted for ports 80/443 which makes applications that build on top of the HTTP protocol much more likely to work out of the box.
+But wait. You might be asking, where is the unique IP address? The answer lies in the **fully qualified domain name**, `www.google.com`, which is resolved into an IP address through a process called **domain name system** (DNS) resolution. [Here](https://serverfault.com/a/643511) is a solid high-level explanation of how that works. Or, if preferred, [here’s a great video](https://www.youtube.com/watch?v=72snZctFFtA\&t=45s) on DNS resolution.
+{% endhint %}
 
-So the SOAP protocol effectively tunnels over HTTP. This is a strategy employed by a number of protocols, including some more modern asynchronous protocols like Websocket, but more on that [later](broken-reference).
+At this point, we should also mention that in the world of HTTP APIs, the _URL_ combined with an HTTP method is often referred to as an API **endpoint**. Every resource can be accessed by the user of the API at a unique endpoint like `GET http://foo.com/api/user/1`. Now, in this example, all resources, and therefore endpoints tied to this API, exist under a single API **entry point** which would be `http://foo.com/api` in our example. In a way, the entry point can be viewed as a special type of endpoint: it’s a resource that exists outside of any other collection and houses all other collections of resources.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Websocket Clarification**_
->
-> ***
->
-> To be fair, Websocket is not a perfect example here. The WebSocket protocol [handshake](https://www.baeldung.com/cs/handshakes) uses HTTP, but HTTP is not involved past that point. You can read a bit more about this distinction [here](https://stackoverflow.com/a/47085864).
+Using HTTP/HTTPS as our example application layer protocol was no mistake. Besides being core to how the world wide web functions, a number of other application layer protocols are dependent on HTTP/HTTPS. This is because application layer protocols can _stack_. Unfortunately, this is also where our conceptual, layered network cake begins to look a little half-baked.
+
+Let’s take the SOAP application layer protocol as an example. SOAP sits at the same layer of the network model as HTTP, but SOAP is also dependent on another application layer protocol, typically, but not always, HTTP, in order to function. But why do this? Well, as we’ve pointed out, HTTP is _the_ application layer protocol of the web. This means there has been a huge, global investment in infrastructure, both server and client-side (i.e., web browsers), designed around HTTP/HTTPS. Additionally, security provisions such as firewalls tend to let in network traffic targeted for ports 80/443 which makes applications that build on top of the HTTP protocol much more likely to work out of the box.
+
+So the SOAP protocol effectively tunnels over HTTP. This is a strategy employed by many protocols, including some more modern asynchronous protocols like WebSocket, but more on that [later](broken-reference).
+
+{% hint style="info" %}
+**WebSocket clarification**
+
+To be fair, Websocket is not a perfect example here. The WebSocket protocol [handshake](https://www.baeldung.com/cs/handshakes) uses HTTP, but HTTP is not involved past that point. You can read a bit more about this distinction [here](https://stackoverflow.com/a/47085864).
+{% endhint %}
 
 However, the internet, or any network for that matter, supports many application layer protocols that are in no way tied to HTTP. Most of the other application layer protocols we care about in the context of this guide are built on top of raw TCP. For example, [Kafka implements a custom binary application protocol](https://kafka.apache.org/protocol.html) over TCP due to performance concerns with the text-based HTTP protocol when delivering massive amounts of real-time data. Additionally, even a protocol like SOAP can be made to function over raw TCP although this is something you’ll rarely see in practice for the aforementioned reasons.
 
-That about wraps up our macroscopic discussion on protocols. The key takeaway here is that APIs are dependent on protocols, a lot of protocols, in the network stack. The ideal protocol stack, just like the ideal application stack, is completely context dependent and is subject to a number of considerations such as application environment, security concerns, payload considerations, network quality, etc.
+That about wraps up our macroscopic discussion on protocols. The key takeaway here is that APIs are dependent on protocols, a lot of protocols, in the network stack. The ideal protocol stack, just like the ideal application stack, is completely context-dependent and is subject to many considerations such as application environment, security concerns, payload considerations, network quality, etc.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Is Webhook an Application Layer Protocol?**_
->
-> ***
->
-> Due to their ever-growing popularity, you may stumble across mentions of Webhook APIs. Since APIs are often categorized by the application layer protocol employed, this can quickly lead to a misunderstanding. Webhook uses the HTTP protocol and is not an application layer protocol itself. In fact, webhooks are not even APIs. Webhooks are essentially a functionality that can be added to your existing APIs. This excerpt [from Redhat](https://www.redhat.com/en/topics/automation/what-is-a-webhook) explains it well:
->
-> > “Webhooks are often referred to as reverse APIs or push APIs, because they put the responsibility of communication on the server, rather than the client. Instead of the client sending HTTP requests—asking for data until the server responds—the server sends the client a single HTTP POST request as soon as the data is available. Despite their nicknames, webhooks are not APIs; they work together. An application must have an API to use a webhook.”
+{% hint style="info" %}
+**Is Webhook an application layer protocol?**
 
-#### Architectural Styles/Patterns <a href="#architectural-stylespatterns-5" id="architectural-stylespatterns-5"></a>
+Due to their ever-growing popularity, you may stumble across mentions of Webhook APIs. Since APIs are often categorized by the application layer protocol employed, this can quickly lead to a misunderstanding. Webhook uses the HTTP protocol and is not an application layer protocol itself. In fact, Webhooks are not even APIs. Webhooks are essentially a functionality that can be added to your existing APIs. This excerpt [from Redhat](https://www.redhat.com/en/topics/automation/what-is-a-webhook) explains it well:
 
-Some of you might be wondering why I left the quintessential web API protocol, the REST API, out of the mix. Well that’s because REST is not a type of protocol at all, it’s an architectural style! REST stands for “representational state transfer”, and we’ll dive into what that actually means in a bit. REST APIs use the HTTP application protocol (not actually a REST requirement, but practically speaking, REST APIs always employ the HTTP protocol) and must adhere to a number of architectural constraints to be considered a REST or RESTful API:
+> “Webhooks are often referred to as reverse APIs or push APIs, because they put the responsibility of communication on the server, rather than the client. Instead of the client sending HTTP requests—asking for data until the server responds—the server sends the client a single HTTP POST request as soon as the data is available. Despite their nicknames, webhooks are not APIs; they work together. An application must have an API to use a webhook.”
+{% endhint %}
+
+### Architectural Styles/Patterns <a href="#architectural-stylespatterns-5" id="architectural-stylespatterns-5"></a>
+
+Some of you might be wondering why we left the quintessential web API protocol, the REST API, out of the mix. Well that’s because REST is not a type of protocol at all, it’s an architectural style! REST stands for “representational state transfer”, and we’ll dive into what that means in a bit. REST APIs use the HTTP application protocol (not a REST requirement, but practically speaking, REST APIs always employ the HTTP protocol) and must adhere to several architectural constraints to be considered a REST or RESTful API:
 
 > * **Uniform interface**. All API requests for the same resource should look the same, no matter where the request comes from. The REST API should ensure that the same piece of data, such as the name or email address of a user, belongs to only one uniform resource identifier (URI). Resources shouldn’t be too large but should contain every piece of information that the client might need.
 > * **Client-server decoupling**. In REST API design, client and server applications must be completely independent of each other. The only information the client application should know is the URI of the requested resource; it can’t interact with the server application in any other ways. Similarly, a server application shouldn’t modify the client application other than passing it to the requested data via HTTP.
@@ -227,50 +229,53 @@ Some of you might be wondering why I left the quintessential web API protocol, t
 >
 >     [— From IBM’s “What is a REST API” blog](https://www.ibm.com/topics/rest-apis)
 
-REST APIs and their associated architectural constraints came about from Roy Fieldings now iconic PhD dissertation “Architectural Styles and\
-the Design of Network-based Software Architectures.” Their explosion in popularity is due to a number of factors, but largely because of how they enabled scale and fault tolerance through their _stateless nature_. Because each request-response cycle is completely independent, each request can be handled by an arbitrary server instance allowing essentially limitless horizontal scaling.
+REST APIs and their associated architectural constraints came about from Roy Fieldings' now iconic Ph.D. dissertation “Architectural Styles and the Design of Network-based Software Architectures.” Their explosion in popularity is due to many factors, but a major contributor is how they enabled scale and fault tolerance through their _stateless nature_. Because each request-response cycle is completely independent, each request can be handled by an arbitrary server instance allowing essentially limitless horizontal scaling.
 
-REST APIs are structured to where each resource is identified by a single URL and the actions on that resource are managed by the HTTP verbs (GET, POST, etc.), the request headers, and the request body. This structure forms the basis of the required uniform interface. For each request from the client, the server makes any modifications requested by the client, and transfers a **representation of the state** of the requested resource to the client, hence the name, representational state transfer. The key here is the statelessness of REST APIs. Each request contains all of the information necessary to be processed by the server, rather than be dependent on the server for storing session state.
+REST APIs are structured to where each resource is identified by a single URL and the actions on that resource are managed by the HTTP verbs (GET, POST, etc.), the request headers, and the request body. This structure forms the basis of the required uniform interface. For each request from the client, the server makes any modifications requested by the client and transfers a _representation of the state_ of the requested resource to the client, hence the name, representational state transfer. The key here is the statelessness of REST APIs. Each request contains all of the information necessary to be processed by the server, rather than be dependent on the server for storing the session state.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Stateless Processing Enables Massive Scalability**_
->
-> ***
->
-> For more details on how statelessness enables scale, check out [this excellent article](https://www.metaswitch.com/blog/how-stateless-processing-enables-massive-scalability).
+{% hint style="info" %}
+**Stateless processing enables massive scalability**
 
-As you continue surfing the world wide web, you’ll begin to notice that REST has become the ultimate buzzword and just about every API under the sun claims to be _RESTful_. Unfortunately, these claims often just mean that the API has been designed according to some, but not all, of the architectural constraints listed above. These APIs are sometimes and more accurately referred to as _REST-like_ APIs.
+For more details on how statelessness enables scale, check out [this excellent article](https://www.metaswitch.com/blog/how-stateless-processing-enables-massive-scalability).
+{% endhint %}
 
-Preceding the inception of REST, another major architectural style you’ll come across is the **remote procedure call** or RPC. RPC-based APIs utilize a number of different application layer protocols such as HTTP, SOAP, and gRPC. The main differentiator you should be aware of is REST URLs are resource-centric (`http://foo/user/1`) while RPC URLs are action-centric (`http://foo/getUser`). You can think of a remote procedure call as essentially being the same as calling a function in your programming language of choice, only remotely over a network.
+As you continue surfing the world wide web, you’ll begin to notice that REST has become the ultimate buzzword, and just about every API under the sun claims to be _RESTful_. Unfortunately, these claims often just mean that the API has been designed according to some, but not all, of the architectural constraints listed above. These APIs are sometimes and more accurately referred to as _REST-like_ APIs.
+
+Preceding the inception of REST, another major architectural style you’ll come across is the **remote procedure call** or RPC. RPC-based APIs utilize several different application layer protocols such as HTTP, SOAP, and gRPC. The main differentiator you should be aware of is REST URLs are resource-centric (`http://foo/user/1`) while RPC URLs are action-centric (`http://foo/getUser`). You can think of a remote procedure call as essentially being the same as calling a function in your programming language of choice, only remotely over a network.
 
 Unlike REST, there is not a clearly designated set of architectural constraints for an API to be considered RPC-based. Again, both REST and RPC are styles and real-world implementations often don’t fit neatly into either bucket. This has led to implementations such as GraphQL (an architectural style, a [query language](https://www.techopedia.com/definition/3948/query-language) for APIs, and a runtime for fulfilling those queries) where proponents of GraphQL often bill it as “GraphQL is essentially RPC, with a lot of good ideas from the REST community tacked in.”
 
 ![Barbossa quote](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/7/76f171dfa488be51a8a398df8d79013e90564480.png)
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Deep Dive on RPC vs REST**_
->
-> ***
->
-> If the RPC/REST waters are still muddy, [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) is highly recommended as it provides some great implementation examples that really highlight the strengths and weaknesses of both styles.
+{% hint style="info" %}
+**Deep dive on RPC vs REST**
 
-Now, generally speaking, any API implemented with a REST, RPC, or a GraphQL architectural style, will follow a synchronous network communication model known as the _client-server_ or the **request-response model**. In this guide, we prefer to use the request-response model nomenclature as client and server are broad terms used in almost all network communication models which can lead to confusion. We’ll go into more details later, but simply put, in this model the client computer makes a request directly to the server computer which responds by _serving_ data or a service. So while the client and server applications are decoupled and function independently, synchronous _communication_ is inherently tightly coupled.
+If the RPC/REST waters are still muddy, [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) is highly recommended as it provides some great implementation examples that highlight the strengths and weaknesses of both styles.
+{% endhint %}
 
-Historically, the request-response network communication model has dominated and is one of the foundations of the modern web. However, more recently, an asynchronous network communication model know as **event streaming** or _message streaming_ has risen to prominence. An event in this context is any change in the state of a resource. In the event streaming model, there is a computer known as the event **broker** which allows clients to _publish_ messages to the broker or _subscribe_ to receive messages from the broker.
+Now, generally speaking, any API implemented with a REST, RPC, or a GraphQL architectural style, will follow a synchronous network communication model known as the _client-server_ or the **request-response model**. In our documentation, we prefer to use the request-response model nomenclature as client and server are broad terms used in almost all network communication models which can lead to confusion. We’ll go into more details later, but simply put, in this model the client computer makes a request directly to the server computer which responds by _serving_ data or a service. So while the client and server applications are decoupled and function independently, synchronous _communication_ is inherently tightly coupled.
 
-There are several architectural styles that implement event streaming but we’ll mostly be focused on the popular publish/subscribe, or pub/sub, pattern. Similar to RPC, pub/sub is a fairly general pattern without a lot of tight architectural constraints. The core tenet of the pub/sub pattern is decoupling communication between information producers, or **publishers**, from information consumers, or **subscribers**, through the aforementioned broker; therefore, the publishers and subscribers remain ignorant of each other. This loose coupling greatly simplifies communication (i.e., publisher has a single target, the broker) which can allow you to design a more scalable and flexible event-driven system. APIs following the pub/sub pattern utilize a number of different application layer protocols such as MQTT, AMQP, and the aforementioned custom Kafka protocol. Again, more on the distinctions between the request-response and event streaming network communications models in the sections to come.
+Historically, the request-response network communication model has dominated and is one of the foundations of the modern web. However, more recently, an asynchronous network communication model known as **event streaming** or _message streaming_ has risen to prominence. An event in this context is any change in the state of a resource. In the event streaming model, there is a computer known as the **event broker** which allows clients to _publish_ messages to the broker or _subscribe_ to receive messages from the broker.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Events vs Messages**_
->
-> ***
->
-> Although often used synonymously, you can draw a distinction between an event and a message. Sometimes people will say a message is the directed carrier of the event, while the event is the actual change in state to be observed. Or that events are a specific type of message. But these terms actually have a deeper, technical distinction which you can [read about here](https://developer.lightbend.com/docs/akka-guide/concepts/message-driven-event-driven.html). However, for our purposes, we will continue to use these terms synonymously throughout this guide.
+Several architectural styles implement event streaming but we’ll mostly be focused on the popular publish/subscribe, or pub/sub, pattern. Similar to RPC, pub/sub is a fairly general pattern without a lot of tight architectural constraints. The core tenet of the pub/sub pattern is decoupling communication between information producers, or **publishers**, from information consumers, or **subscribers**, through the aforementioned broker; therefore, the publishers and subscribers remain ignorant of each other. This loose coupling greatly simplifies communication (i.e., the publisher has a single target, the broker) which can allow you to design a more scalable and flexible event-driven system. APIs following the pub/sub pattern utilize many different application layer protocols such as MQTT, AMQP, and the aforementioned custom Kafka binary protocol. Again, more on the distinctions between the request-response and event-streaming network communications models in the sections to come.
 
-So to recap, web API architectural styles are completely separate from the underlying protocols that are actually powering the API. The architectures are focused on guiding the API designer which, generally, is a mixture of you, the developer, and other stakeholders more focused on the high-level business logic.
+{% hint style="info" %}
+**Events vs messages**
+
+Although often used synonymously, you can draw a distinction between an event and a message. Sometimes people will say a message is the directed carrier of the event, while the event is the actual change in state to be observed. Or that events are a specific type of message. But these terms have a deeper, technical distinction which you can [read about here](https://developer.lightbend.com/docs/akka-guide/concepts/message-driven-event-driven.html). However, for our documentation, we will continue to use the high-level distinction of the message being the directed carrier of the event.
+{% endhint %}
+
+So to recap, web API architectural styles are completely separate from the underlying protocols that are powering the API. The architectures are focused on guiding the API designer which, generally, is a mixture of you, the developer, and other stakeholders more focused on the high-level business logic.
+
+{% hint style="info" %}
+**Design-first methodology**
 
 This mixture of technical and business interests around APIs is why you’ll often hear the benefits of API design-first development touted. To better understand the design-first methodology and the purported benefits, check out [this in-depth blog post](https://www.gravitee.io/api-first) from Gravitee. Still not sold? It’s worth noting that the OpenAPI Initiative (detailed in the following section) also [recommends a design-first approach](https://oai.github.io/Documentation/best-practices.html#use-a-design-first-approach) to building APIs.
+{% endhint %}
 
-#### Specifications <a href="#specifications-6" id="specifications-6"></a>
+### Specifications <a href="#specifications-6" id="specifications-6"></a>
 
-So, as detailed in the previous section, architectural styles essentially add additional constraints regarding how the client and server interact with each other. But this still leaves a lot of leeway when it comes to how to actually use a particular API, whether REST, RPC, or a mixture. What endpoints are available? What actions can I perform? How do I authenticate? What parameters can I pass?
+So, as detailed in the previous section, architectural styles essentially add additional constraints regarding how the client and server interact with each other. But this still leaves a lot of leeway when it comes to how to use a particular API, whether REST, RPC, or a mixture. What endpoints are available? What actions can I perform? How do I authenticate? What parameters can I pass?
 
 If you’re mumbling to yourself, just check the documentation, then you my friend, are spot on. However, even attempting to document the most basic of APIs can be quite an arduous and time-consuming investment. You need to be sure your documentation is clear and intuitive for all users of your API. And after documenting several APIs, you would begin to realize how repetitive the process of API documentation can become. On top of that, you would quickly realize how difficult it is to ensure your documentation has 100%, comprehensive coverage of your API. Finally, even if you manage to pull this off, your work is never truly complete as the documentation must be updated with every change and bug fix associated with your API. Keeping this from becoming a massive migraine is where API specifications come in. Let’s start with the OpenAPI specification defined below:
 
@@ -280,29 +285,29 @@ If you’re mumbling to yourself, just check the documentation, then you my frie
 
 Sound nice? It really is and API specifications open a whole new range of possibilities when it comes to API design such as documentation generation, code generation, validation and linting, mock servers, and much more. They should also appeal to your sharply-honed, developer instincts around the do not repeat yourself, or DRY principle, which has likely been repeatedly hammered into your psyche. API specifications ensure you can scratch that itch by keeping a single source of truth in what is known as your **API description file**.
 
-So how do you actually go about building an API using a specification like OpenAPI? Well, that is a bit beyond the scope of the article, and honestly, a waste of our time. As you might expect for a documentation-focused end product, [OpenAPI’s documentation](https://oai.github.io/Documentation/specification.html) is quite excellent. Read through that guide and you’ll have a clear grasp on implementation in no time. Or if you just want a quick overview of how the specification is structured, check out [this sweet interactive mind map](https://openapi-map.apihandyman.io/).
+So how do you go about building an API using a specification like OpenAPI? Well, that is a bit beyond the scope of the article, and honestly, a waste of our time. As you might expect for a documentation-focused end product, [OpenAPI’s documentation](https://oai.github.io/Documentation/specification.html) is quite excellent. Read through that guide and you’ll have a clear grasp on implementation in no time. Or if you just want a quick overview of how the specification is structured, check out [this sweet interactive mind map](https://openapi-map.apihandyman.io/).
 
 It is important to note that OpenAPI is not the only API specification in town. Far from it in fact. There are loads of other specifications such as OData, RAML, GraphQL (a query language with its own specification), WSDL, and AsyncAPI, to name just a few. Some of these serve a unique role such as WSDL serving SOAP APIs or the GraphQL specification serving GraphQL APIs, while others have plenty of overlap such as RAML and OpenAPI both serving HTTP APIs.
 
 For your API management journey, it is in no way essential to learn all these specifications and their nuances right out of the gate. We simply want to acknowledge their purpose and recognize that most of them focus primarily on **synchronous APIs**. We still haven’t really defined what this means, but for now, just know there are two major API communication paradigms: synchronous and asynchronous. And when it comes to asynchronous APIs, the [AsyncAPI specification](https://www.asyncapi.com/) is king.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**AsyncAPI vs CloudEvents**_
->
-> ***
->
-> At some point, you’ll likely stumble onto someone comparing AsyncAPI to CloudEvents. CloudEvents is yet another specification but is really in a separate category from the specifications previously discussed. Specifications like AsyncAPI are focused on the overall application and the channels it uses to communicate while CloudEvents defines an envelope for your application’s actual data.
->
-> As a questionable metaphor, lets look at the postal service. You can think of AsyncAPI as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the **payload**, does not fall under the jurisdiction of either specification.
->
-> If this distinction is not clear, read [this article](https://www.asyncapi.com/blog/asyncapi-cloud-events) for a more in-depth comparison. We’ll be defining and discussing much of the article’s terminology around events later in this guide so consider this a sneak preview.
+{% hint style="info" %}
+**AsyncAPI vs CloudEvents**
 
-#### Data-Interchange Formats <a href="#data-interchange-formats-7" id="data-interchange-formats-7"></a>
+At some point, you’ll likely stumble upon someone comparing AsyncAPI to CloudEvents. CloudEvents is yet another specification but is really in a separate category from the specifications previously discussed. Specifications like AsyncAPI are focused on the overall application and the channels it uses to communicate while CloudEvents defines an envelope for your application’s actual data.
+
+As a questionable metaphor, let's look at the postal service. You can think of AsyncAPI as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the **payload**, does not fall under the jurisdiction of either specification.
+
+If this distinction is not clear, read [this article](https://www.asyncapi.com/blog/asyncapi-cloud-events) for a more in-depth comparison. We’ll be defining and discussing much of the article’s terminology around events later in this guide so consider this a sneak preview.
+{% endhint %}
+
+### Data-Interchange Formats <a href="#data-interchange-formats-7" id="data-interchange-formats-7"></a>
 
 So far, we’ve covered the protocols that power every API as well as the frameworks that support the design and development of various implementations of APIs. Now we want to take a moment to zoom in and talk about the API **payload**: the actual data being transported by the API.
 
 Let’s kick off this section with a quick example. Take a look at the Javascript object below:
 
-```
+```javascript
 const sampleObject = {
   numberOneGateway: "gravitee",
   numberTwoGateway: "kong",
@@ -312,27 +317,27 @@ const sampleObject = {
 For the sake of our example, we’ll say “sampleObject” is our API payload. There are two key items for us to consider:
 
 1. the data needs to be encoded into a universal format
-2. the data needs to placed into a self-contained chunk or stream
+2. the data needs to be placed into a self-contained chunk or stream
 
 For the first item, how can we ensure any client using our API can receive the payload in a usable format? The client is certainly not guaranteed to be using Javascript to develop their application which means they might not be able to parse this object. Clearly, some type of conversion needs to take place before the payload is delivered to the client.
 
-For the second item, at first glance it seems to already be resolved. Our entire object is assigned to the variable “sampleObject.” However, Javascript is another high-level programming language that abstracts away a lot of magic that is actually going on under the hood. The short version is that objects generally do not directly contain their data in the same contiguous block of memory; in reality, objects store references to that data which is housed in a separate block of memory. Therefore, a single object with numerous properties could be spread all over the memory of a running process.
+For the second item, at first glance, it seems to already be resolved. Our entire object is assigned to the variable “sampleObject.” However, Javascript is another high-level programming language that abstracts away a lot of magic that is going on under the hood. The short version is that objects generally do not directly contain their data in the same contiguous block of memory; in reality, objects store references to that data which is housed in a separate block of memory. Therefore, a single object with numerous properties could be spread all over the memory of a running process.
 
 So how can we prep this object for transport?
 
-Thankfully, **serialization** solves both of these concerns. Serialization is the process of converting an object in memory to a stream of bytes for storage or transport. Once serialized, the data can easily be transferred over a network and upon reaching its destination, the data can be deserialized, which is simply the inverse operation. Data-interchange format and serialization format can be used synonymously.
+Thankfully, **serialization** solves both of these concerns. Serialization is the process of converting an object in memory to a stream of bytes for storage or transport. Once serialized, the data can easily be transferred over a network, and upon reaching its destination, the data can be deserialized, which is simply the inverse operation. Data-interchange format and serialization format can be used synonymously.
 
 The key here is that the object is encoded in a universal format of which there are two major types: **text-based** formats and **binary** formats. These formats, of which there are many, help ensure the data can be easily deserialized by any client. When it comes to the web, the JavaScript Object Notation format, or JSON, currently dominates.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Data Serialization Format Comparison**_
->
-> ***
->
-> For a quick comparison of some other common formats, check out [this blog post](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/).
+{% hint style="info" %}
+**Data serialization format comparison**
+
+For a quick comparison of some other common formats, check out [this blog post](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/).
+{% endhint %}
 
 As you might have guessed by the name, Javascript has first-class support for JSON:
 
-```
+```javascript
 const serializedData = JSON.stringify(sampleObject);
 console.log(serializedData);
 typeof serializedData;
@@ -348,9 +353,9 @@ console.log(typeof deserializedData);
 // 'object'
 ```
 
-If you’ve never seen it before, this transformation probably looks quite unremarkable. And it is unremarkable on the surface. But that’s simply because JSON borrowed quite heavily from Javascript’s object literal notation. Again, hence the name. However, the data did change as the object keys were transformed into strings and the object itself became a primitive string which contains all the data from the original object in a self-contained chunk. And despite the name, JSON is a widely used and supported format that can be parsed by most programming languages. Here’s a quick example serializing data with JavaScript, saving it to disk, and loading it into memory with Python.
+If you’ve never seen it before, this transformation probably looks quite unremarkable. And it is unremarkable on the surface. But that’s simply because JSON borrowed quite heavily from Javascript’s object literal notation. Again, hence the name. However, the data did change as the object keys were transformed into strings and the object itself became a primitive string that contains all the data from the original object in a self-contained chunk. And despite the name, JSON is a widely used and supported format that can be parsed by most programming languages. Here’s a quick example of serializing data with JavaScript, saving it to disk, and loading it into memory with Python.
 
-```
+```javascript
 import fs from "fs";
 
 const sampleObject = {
@@ -362,7 +367,7 @@ const serializedObject = JSON.stringify(sampleObject);
 fs.writeFileSync("./serialized_data.json", serializedObject);
 ```
 
-```
+```python
 import json
 
 with open("./serialized_data.json", "r") as file:
@@ -378,53 +383,73 @@ print(type(deserialized_data))
 
 Nice, so while not web APIs, we used the local APIs built into the JavaScript and Python programming languages to serialize an object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary. All possible thanks to the JSON data-interchange format. And all quite simple thanks to JavaScript and Python’s local APIs.
 
-When it comes to web APIs, the serialization format is often dependent on the application layer protocol you employ. For example, SOAP APIs prescribe XML as the one and only serialization format while HTTP APIs are encoding agnostic allow you to select from a [plethora of options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types) including HTML, JSON, XML, CSV, binary formats, or even implementing your own custom serialization format. Besides all the HTML used to structure web pages, JSON continues to dominate over other formats due to its universality, lightweight format, and human-readable text.
+When it comes to web APIs, the serialization format is often dependent on the application layer protocol you employ. For example, SOAP APIs prescribe XML as the one and only serialization format while HTTP APIs are encoding agnostic allowing you to select from a [plethora of options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types) including HTML, JSON, XML, CSV, binary formats, or even implementing your own custom serialization format. Besides all the HTML used to structure web pages, JSON continues to dominate over other formats due to its universality, lightweight format, and human-readable text.
 
-However, there is never a one-size fits all solution and binary formats are where JSON sees its stiffest competition. In situations where you are transferring a high volume of data and performance is critical, binary formats are preferred over JSON. This is why [Apache Avro is recommended for Kafka](https://www.confluent.io/blog/avro-kafka-data/) even though Kafka also supports JSON. Additionally, by default JSON is schemaless and does not enforce [type safety](https://levelup.gitconnected.com/what-is-type-safety-705b1813e0bb) which you can view as prioritizing flexibility over validation and error-checking. This is why some binary formats such as [protocol buffers](https://developers.google.com/protocol-buffers), or protobufs, have surged in popularity by correcting the aforementioned issues around performance and validation.
+However, there is never a one-size fits all solution, and binary formats are where JSON sees its stiffest competition. In situations where you are transferring a high volume of data and performance is critical, binary formats are preferred over JSON. This is why [Apache Avro is recommended for Kafka](https://www.confluent.io/blog/avro-kafka-data/) even though Kafka also supports JSON. Additionally, by default JSON is schema-less and does not enforce [type safety](https://levelup.gitconnected.com/what-is-type-safety-705b1813e0bb) which you can view as prioritizing flexibility over validation and error-checking. This is why some binary formats such as [protocol buffers](https://developers.google.com/protocol-buffers), or protobufs, have surged in popularity by correcting the aforementioned issues around performance and validation.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Validation for JSON?**_
->
-> ***
->
-> At some point, you may have heard of JSON Schema which is essentially a tool to allow users to opt-in to JSON structure validation. You can read more about [it here](https://json-schema.org/understanding-json-schema/about.html) and get a crash course on schemas and data types.
+{% hint style="info" %}
+**Validation for JSON?**
 
-### Categorizing Web APIs <a href="#categorizing-web-apis-8" id="categorizing-web-apis-8"></a>
+At some point, you may have heard of JSON Schema which is essentially a tool to allow users to opt-in to JSON structure validation. You can read more about [it here](https://json-schema.org/understanding-json-schema/about.html) and get a crash course on schemas and data types.
+{% endhint %}
+
+## Categorizing Web APIs <a href="#categorizing-web-apis-8" id="categorizing-web-apis-8"></a>
 
 Humans love to put things in categories. It’s our way of making sense of this chaotic, confusing world and allows us to function under the notion of structure, order, and purpose. So now we’re going to take a deeper look at two important and _separate_ categorizations for web APIs: **Synchronous vs Asynchronous** and **Stateless vs Stateful**.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Ego Check**_
->
-> ***
->
-> Watch Carl Sagan’s famous [Pale Blue Dot speech](https://www.youtube.com/watch?v=GO5FwsblpT8) to remind you of your insignificance and keep your ego in check!
+{% hint style="info" %}
+**Ego check**
 
-Before proceeding, it’s important to note that there is often cross pollination between these two concepts; but on the contrary, they are entirely independent concepts as we will make clear in the following sections.
+For a very unrelated sidebar, watch Carl Sagan’s famous [Pale Blue Dot speech](https://www.youtube.com/watch?v=GO5FwsblpT8) to remind you of your insignificance and keep your ego in check!
+{% endhint %}
 
-#### Synchronous vs Asynchronous <a href="#synchronous-vs-asynchronous-9" id="synchronous-vs-asynchronous-9"></a>
+Before proceeding, it’s important to note that there is often cross-pollination between these two concepts; but on the contrary, they are entirely independent concepts as we will make clear in the following sections.
 
-Synchronous vs Asynchronous web APIs, or sync vs async as they are often referred to, represent an essential demarcation point between APIs. The two approaches really represent a paradigm shift in how APIs communicate. Earlier, we touched on this topic when comparing the request-response network communication model to event streaming, and now we’re going to do a much deeper dive. But before we looks specifically at APIs, let’s look at the synchronous vs asynchronous concepts from a much broader perspective.
+### Synchronous vs Asynchronous <a href="#synchronous-vs-asynchronous-9" id="synchronous-vs-asynchronous-9"></a>
 
-**Synchronous vs Asynchronous: Programming**
+Synchronous vs Asynchronous web APIs, or sync vs async as they are often referred to, represent an essential demarcation point between APIs. The two approaches represent a paradigm shift in how APIs communicate. Earlier, we touched on this topic when comparing the request-response network communication model to event streaming, and now we’re going to do a much deeper dive. But before we look specifically at APIs, let’s look at the synchronous vs asynchronous concepts from a much broader perspective.
 
-Humans [can’t actually multitask](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7075496/) when it comes to high-level functions. Which is to say, we can only carry a single train of thought. And although we often try to emulate multitasking by rapidly task-switching, this is a far cry from what is known as [parallelism](https://en.wikipedia.org/wiki/Parallel\_computing), which in computer science, is simultaneous execution of two or more tasks. In terms of our metaphor, parallel computing would require two minds. Please let us know immediately if you achieve this state. For the rest of us, when you eat and watch a movie, you’re really just violently pinging your attention between Lord of the Rings and that delicious slice of pizza. This limitation becomes crystal clear if you attempt more cognitively demanding tasks. Trying to solve two math problems simultaneously provides definitive evidence humans can not parallel compute.
+#### **Synchronous vs Asynchronous: Programming**
 
-This underlying truth leads humans to plan in a manner akin to **synchronous programming**: a _linear, sequential execution_ of tasks. First complete task A then B then C, where each task blocks execution of the following task. For example, you might make a plan to call your car insurance provider and then finish your report. Of course, insurance puts you on hold for 30 minutes and you sit there listening to low-fi classical music (if you’re lucky) twiddling your thumbs. So what to do about this major productivity killer?
+Humans [can’t multitask](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7075496/) when it comes to high-level functions. This is to say, we can only carry a single train of thought. And although we often try to emulate multitasking by rapidly task-switching, this is a far cry from what is known as [parallelism](https://en.wikipedia.org/wiki/Parallel\_computing), which in computer science, is the simultaneous execution of two or more tasks. In terms of our metaphor, parallel computing would require two minds. Please let us know immediately if you achieve this state. For the rest of us, when you eat and watch a movie, you’re really just violently pinging your attention between Lord of the Rings and that delicious slice of pizza. This limitation becomes crystal clear if you attempt more cognitively demanding tasks. Trying to solve two math problems simultaneously provides definitive evidence humans can not parallel compute.
 
-Enter **asynchronous programming**: a _concurrent execution_ of tasks. While the insurance agent digs through your records, you wisely decide to begin working on your report thereby providing you a method to complete two high-level functions at once. Of course, this is dependent on involvement of a third-party, the insurance agent. From your perspective, you are still limited to a single train of thought; you talk to the insurance agent, switch to working on your report, and then switch back to the insurance task when you’re taken off of hold. We have simply broken up the _linear and sequential_ execution flow of tasks. This superpower is a type of [concurrency](https://en.wikipedia.org/wiki/Concurrency\_\(computer\_science\)).
+This underlying truth leads humans to plan in a manner akin to **synchronous programming**: a _linear, sequential execution_ of tasks. First complete task A then B then C, where each task blocks the execution of the following task. For example, you might make a plan to call your car insurance provider and then finish your report. Of course, insurance puts you on hold for 30 minutes and you sit there listening to low-fi classical music (if you’re lucky) twiddling your thumbs. So what to do about this major productivity killer?
+
+Enter **asynchronous programming**: a _concurrent execution_ of tasks. While the insurance agent digs through your records, you wisely decide to begin working on your report thereby providing you a method to complete two high-level functions at once. Of course, this is dependent on the involvement of a third party, the insurance agent. From your perspective, you are still limited to a single train of thought; you talk to the insurance agent, switch to working on your report, and then switch back to the insurance task when you’re taken off of hold. We have simply broken up the _linear and sequential_ execution flow of tasks. This superpower is a type of [concurrency](https://en.wikipedia.org/wiki/Concurrency\_\(computer\_science\)).
 
 The key concept to keep in mind is that concurrency is about _dealing with_ lots of things at once. Parallelism is about _doing_ lots of things at once. So yes, very loosely speaking, you could consider concurrency a broader term that also encompasses parallelism (this is not perfectly accurate but good enough for our mental model). A common saying is _concurrency does not imply parallelism_.
 
-So, while humans may often think and plan in a synchronous fashion, we function asynchronously. Think about how many tasks you actually juggle between when you go out to eat at a restaurant: placing your order, socializing, eating, taking a quick call, responding to a text, etc. You are always _dealing with_ lots of things at once, but _on your own_, you are never actually _doing_ lots of things at once. But once you introduce a third-party, functioning asynchronously allows humans to be significantly more productive. We may not be able to parallel compute, but we are still masters of concurrency.
+So, while humans may often think and plan in a synchronous fashion, we function asynchronously. Think about how many tasks you actually juggle between when you go out to eat at a restaurant: placing your order, socializing, eating, taking a quick call, responding to a text, etc. You are always _dealing with_ lots of things at once, but _on your own_, you are never actually _doing_ lots of things at once. But once you introduce a third party, functioning asynchronously allows humans to be significantly more productive. We may not be able to parallel compute, but we are still masters of concurrency.
 
-> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) _**Concurrency vs Parallelism**_
->
-> ***
->
-> These are two really tricky concepts to disambiguate, largely due to how similar they are and all the terminology (e.g., processes, threads, tasks, etc.) that can have slightly different meanings in different contexts. If you’re interested in developing a more intuitive understanding, our recommendation is to take a deep dive until you find an explanation that really clicks. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) is a great starting place.
+{% hint style="info" %}
+**Concurrency vs parallelism**
+
+These are two really tricky concepts to disambiguate, largely due to how similar they are and all the terminology (e.g., processes, threads, tasks, etc.) that can have slightly different meanings in different contexts. If you’re interested in developing a more intuitive understanding, our recommendation is to take a personal deep dive until you find an explanation that clicks. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) is a great starting place.
+{% endhint %}
 
 To finally move beyond our metaphor, let’s exit the purely conceptual realm and look at some actual code. We’ll be looking at Javascript examples as it is the [single-threaded language](https://medium.com/swlh/what-does-it-mean-by-javascript-is-single-threaded-language-f4130645d8a9) that powers the web and asynchronous programming is core to much of its functionality. It is important to note that the implementation logic in the functions below is _not_ the focus. In fact, it can be a source of confusion. Javascript by design makes it difficult to implement synchronous, blocking code so the functions themselves are a bit hacky. For these examples, just focus on what the functions represent.
 
+```javascript
+const simulateSyncWork = function (work, ms) {
+  const end = new Date().getTime() + ms;
+  while (new Date().getTime() < end) {
+    /* do nothing */
+  }
+  return console.log(`${work} Complete`);
+};
+
+console.time("Sync time");
+
+simulateSyncWork("Web API Work", 3000);
+
+simulateSyncWork("Local Work", 1000);
+simulateSyncWork("Local Work", 2000);
+simulateSyncWork("Local Work", 1000);
+
+setTimeout(() => console.timeEnd("Sync time"), 1);
 ```
+
+```runkit  nodeVersion="18.x.x"
 const simulateSyncWork = function (work, ms) {
   const end = new Date().getTime() + ms;
   while (new Date().getTime() < end) {
