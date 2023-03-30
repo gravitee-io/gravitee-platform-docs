@@ -1,5 +1,5 @@
 ---
-description: Gravitee defined
+description: Gravitee's cheat sheet
 ---
 
 # Gravitee Glossary
