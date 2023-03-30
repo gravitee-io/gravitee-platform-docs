@@ -239,6 +239,7 @@
   * [Administering organizations and environments](guides/administration/how-to.md)
   * [User Management and Permissions](guides/administration/user-management-and-permissions.md)
   * [Authentication and SSO](guides/administration/authentication-and-sso.md)
+* [Page 3](guides/page-3.md)
 * [Developer Contributions](guides/developer-contributions/README.md)
   * [Concepts](guides/developer-portal/publish-apis/concepts.md)
   * [How-to](guides/developer-contributions/how-to.md)
