@@ -4,19 +4,42 @@
 
 The Gravitee Expression Language (EL) is one of the key features that can be used by API publishers to configure various aspects and services of an API.
 
-EL is a powerful language used for querying and manipulating an object graph. It is based on the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL). This means that you can do everything described in the link.
+EL is a powerful language used for querying and manipulating an object graph. It is a superset of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that extends standard SpEL capabilities by providing extra objects and properties inside the expression language context.
 
-In addition, APIM extends the standard SpEL capabilities by providing extra objects and properties inside the expression language context.
+### Basic Usage
 
-### Usage
-
-The basic expression language syntax is as follows:
-
-`{#request.id}`
+EL expressions are wrapped in braces and begin with the `#` symbol: `{#request.id}`
 
 See the sections below for example expression notations.
 
-### API
+### **Built-in Functions**
+
+Since EL is a superset of SpEL, it provides the following built-in functions:
+
+#### jsonPath
+
+`#jsonPath`: Evaluates a 'jsonPath' on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The following listing shows some usage examples:
+
+{#jsonPath(#request.content, "level.level-1.value")}
+
+```xml
+<transformer expression="#jsonPath(payload, '$.store.book[0].author')"/>
+
+<filter expression="#jsonPath(payload,'$..book[2].isbn') matches '\d-\d{3}-\d{5}-\d'"/>
+
+<splitter expression="#jsonPath(payload, '$.store.book')"/>
+
+<router expression="#jsonPath(payload, headers.jsonPath)">
+	<mapping channel="output1" value="reference"/>
+	<mapping channel="output2" value="fiction"/>
+</router>
+```
+
+#### xpath
+
+`#xpath`: To evaluate an 'xpath' on some provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) from the SpEL documentation.
+
+## API
 
 #### Properties
 
