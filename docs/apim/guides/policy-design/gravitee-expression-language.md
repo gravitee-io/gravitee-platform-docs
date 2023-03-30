@@ -1,0 +1,251 @@
+# Gravitee Expression Language
+
+## Overview
+
+The Gravitee Expression Language (EL) is one of the key features that can be used by API publishers to configure various aspects and services of an API.
+
+EL is a powerful language used for querying and manipulating an object graph. It is based on the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL). This means that you can do everything described in the link.
+
+In addition, APIM extends the standard SpEL capabilities by providing extra objects and properties inside the expression language context.
+
+### Usage
+
+The basic expression language syntax is as follows:
+
+`{#request.id}`
+
+See the sections below for example expression notations.
+
+### API
+
+#### Properties
+
+As an API publisher, you can define [properties](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) for your API. These properties are automatically _injected_ into the expression language context to be used later.
+
+**Example**
+
+* Get the value of the property `my-property` defined in API properties: `{#properties['my-property']}`
+* Get the value of the property `my-secret` defined and encrypted [encryption](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) in API Properties : `{#properties['my-secret'}` to pass a secured property to your backend
+
+#### Dictionaries
+
+[Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work in a similar way to properties, but you need to specify the dictionary id (visible in the url) as well as the property name.
+
+**Example**
+
+* Get the value of the property `my-property` defined in dictionary `my-dictionary`: `{#dictionaries['my-dictionary']['my-property']}`
+
+#### Endpoints
+
+When you define endpoints for your API, you need to give them a _name_ which must be a unique identifier across all endpoints of the API. This identifier can be used to get an endpoint reference (i.e. uri).
+
+For example: when you create an API, a _default_ endpoint is created, corresponding to the value you set for the backend property. This endpoint can be retrieved with EL by using the following syntax:
+
+`{#endpoints['default']}`
+
+### Request <a href="#request" id="request"></a>
+
+The properties you can access for API requests are listed below.
+
+| Property      | Description            | Type                           | Example                                       |
+| ------------- | ---------------------- | ------------------------------ | --------------------------------------------- |
+| id            | Identifier             | string                         | 12345678-90ab-cdef-1234-567890ab              |
+| transactionId | Transaction identifier | string                         | cd123456-7890-abcd-ef12-34567890              |
+| uri           | URI                    | string                         | /v2/store/MyStore?order=100                   |
+| path          | Path                   | string                         | /v2/store/MyStore                             |
+| paths         | Path parts             | array of string                | \[,v2,store,MyStore]                          |
+| pathInfo      | Path info              | string                         | /store/MyStore                                |
+| pathInfos     | Path info parts        | array of string                | \[,store,MyStore]                             |
+| contextPath   | Context path           | string                         | /v2/                                          |
+| params        | Query parameters       | key / value                    | order → 100                                   |
+| pathParams    | Path parameters        | key / value                    | storeId → MyStore (_see Warning for details_) |
+| headers       | Headers                | key / value                    | X-Custom → myvalue                            |
+| method        | HTTP method            | string                         | GET                                           |
+| scheme        | HTTP scheme            | string                         | http                                          |
+| version       | HTTP version           | string                         | HTTP\_1\_1                                    |
+| timestamp     | Timestamp              | long                           | 1602781000267                                 |
+| remoteAddress | Remote address         | string                         | 0:0:0:0:0:0:0:1                               |
+| localAddress  | Local address          | string                         | 0:0:0:0:0:0:0:1                               |
+| content       | Body content           | string                         | -                                             |
+| ssl           | SSLSession information | [SSL Object](broken-reference) | -                                             |
+
+|   | `{#request.content}` is only available for policies bound to an `on-request-content` phase. |
+| - | ------------------------------------------------------------------------------------------- |
+
+Accessing specific element of the content payload, you can use the JsonPath for example : `{#jsonPath(#request.content, "level.level-1.value")}`
+
+Alternative syntax can be used `{#request.headers.myheader}`, please note that it won’t work with special characters → `{#request.headers.my-header}` won’t be interpretated due to `-`.
+
+#### SSL Object <a href="#ssl_object" id="ssl_object"></a>
+
+The properties you can access in SSL Session object are listed below.
+
+| Property   | Description               | Type                                 | Example           |
+| ---------- | ------------------------- | ------------------------------------ | ----------------- |
+| clientHost | Host name of the client   | string                               | client.domain.com |
+| clientPort | Port number of the client | long                                 | 443               |
+| client     | Client information        | [Principal Object](broken-reference) | -                 |
+| server     | Server information        | [Principal Object](broken-reference) | -                 |
+
+#### Principal Object <a href="#principal_object" id="principal_object"></a>
+
+The properties you can access in Principal object are listed below.
+
+| Property                 | Description                                                                           | Type        | Example                           |
+| ------------------------ | ------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
+| **Common DN attributes** |                                                                                       |             |                                   |
+| businessCategory         | Business category                                                                     | string      | -                                 |
+| c                        | Country code                                                                          | string      | FR                                |
+| cn                       | Common name                                                                           | string      | -                                 |
+| countryOfCitizenship     | RFC 3039 CountryOfCitizenship                                                         | string      | -                                 |
+| countryOfResidence       | RFC 3039 CountryOfResidence                                                           | string      | -                                 |
+| dateOfBirth              | RFC 3039 RFC 3039 DateOfBirth                                                         | string      | 19830719000000Z                   |
+| dc                       | Domain component                                                                      | string      | -                                 |
+| description              | Description                                                                           | string      | -                                 |
+| dmdName                  | RFC 2256 directory management domain                                                  | string      | -                                 |
+| dnQualifier              | Domain name qualifier                                                                 | string      | -                                 |
+| e                        | Email address in Verisign certificates                                                | string      | -                                 |
+| emailAddress             | Email address (RSA PKCS#9 extension)                                                  | string      | -                                 |
+| gender                   | RFC 3039 Gender                                                                       | string      | "M", "F", "m" or "f"              |
+| generation               | Naming attributes of type X520name                                                    | string      | -                                 |
+| givenname                | Naming attributes of type X520name                                                    | string      | -                                 |
+| initials                 | Naming attributes of type X520name                                                    | string      | -                                 |
+| l                        | Locality name                                                                         | string      | -                                 |
+| name                     | Name                                                                                  | string      | -                                 |
+| nameAtBirth              | ISIS-MTT NameAtBirth                                                                  | string      | -                                 |
+| o                        | Organization                                                                          | string      | -                                 |
+| organizationIdentifier   | Organization identifier                                                               | string      | -                                 |
+| ou                       | Organization unit name                                                                | string      | -                                 |
+| placeOfBirth             | RFC 3039 PlaceOfBirth                                                                 | string      | -                                 |
+| postalAddress            | RFC 3039 PostalAddress                                                                | string      | -                                 |
+| postalCode               | Postal code                                                                           | string      | -                                 |
+| pseudonym                | RFC 3039 Pseudonym                                                                    | string      | -                                 |
+| role                     | Role                                                                                  | string      | -                                 |
+| serialnumber             | Device serial number name                                                             | string      | -                                 |
+| st                       | State or province name                                                                | string      | -                                 |
+| street                   | Street                                                                                | string      | -                                 |
+| surname                  | Naming attributes of type X520name                                                    | string      | -                                 |
+| t                        | Title                                                                                 | string      | -                                 |
+| telephoneNumber          | Telephone number                                                                      | string      | -                                 |
+| uid                      | LDAP User id                                                                          | string      | -                                 |
+| uniqueIdentifier         | Naming attributes of type X520name                                                    | string      | -                                 |
+| unstructuredAddress      | Unstructured address (from PKCS#9)                                                    | string      | -                                 |
+| **Other attributes**     |                                                                                       |             |                                   |
+| attributes               | Retrieves all attribute values                                                        | key / value | "ou" → \["Test team", "Dev team"] |
+| defined                  | Returns true if the principal object is defined and contains values. False otherwise. | boolean     | -                                 |
+| dn                       | Full domain name                                                                      | string      | -                                 |
+
+Even if some of these attributes can be arrays, EL will return the first item in the array. If you want to retrieve all values of an attribute, you can use the `attributes` field
+
+If the principal is not defined, all values are empty.
+
+#### Examples <a href="#examples" id="examples"></a>
+
+* Get the value of the `Content-Type` header for an incoming HTTP request: `{#request.headers['content-type'][0]}`
+* Get the second part of the request path: `{#request.paths[1]}`
+* Get the client HOST from the SSL session: `{#request.ssl.clientHost}`
+* Get the client DN from the SSL session: `{#request.ssl.client.dn}`
+* Get the server organization from the SSL session: `{#request.ssl.server.o}`
+* Get all the organization units of the server from the SSL session:
+  * `{#request.ssl.server.attributes['ou'][0]}`
+  * `{#request.ssl.server.attributes['OU'][1]}`
+  * `{#request.ssl.server.attributes['Ou'][2]}`
+* Get a custom attribute of the client from the SSL session: `{#request.ssl.client.attributes['1.2.3.4'][0]}`
+* Determine if the SSL attributes of the client are set: `{#request.ssl.client.defined}`
+
+### Request context
+
+#### Properties
+
+| Property   | Description                | Type      | Always present |
+| ---------- | -------------------------- | --------- | -------------- |
+| attributes | Request context attributes | key-value | X              |
+
+#### Attributes
+
+When APIM Gateway handles an incoming HTTP request, some attributes are automatically created. These attributes are:
+
+| Property      | Description                                                                                                                                      | Type   | Nullable                |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ----------------------- |
+| context-path  | Context-path                                                                                                                                     | string | -                       |
+| resolved-path | Resolved-path is the path defined in policies                                                                                                    | string | -                       |
+| application   | The authenticated application doing incoming HTTP request                                                                                        | string | X (for keyless plan)    |
+| api           | Called API                                                                                                                                       | string | -                       |
+| user-id       | <p>The user identifier of incoming HTTP request:</p><p>* The subscription id for api-key based plan</p><p>* Remote IP for keyless based plan</p> | string | -                       |
+| plan          | Plan used to manage incoming HTTP request                                                                                                        | string | -                       |
+| api-key       | the api-key used (in case of an api-key based plan)                                                                                              | string | X (for no api-key plan) |
+
+Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_oauth2.html#attributes)) register other attributes in the context. See the documentation for the policies you are using for more information.
+
+#### Example
+
+* Get the value of the `user-id` attribute for an incoming HTTP request:
+
+`{#context.attributes['user-id']}`
+
+* Get the value of the `plan` attribute for an incoming HTTP request:
+
+`{#context.attributes['plan']}`
+
+* Check that the path starts with a given value:
+
+`{#request.path.startsWith('/my/api')}`
+
+### Response
+
+#### Properties
+
+| Property | Description                 | Type        | Example            |
+| -------- | --------------------------- | ----------- | ------------------ |
+| content  | Body content                | string      | -                  |
+| headers  | Headers                     | key / value | X-Custom → myvalue |
+| status   | Status of the HTTP response | int         | 200                |
+
+#### Example
+
+* Get the status of an HTTP response: `{#response.status}`
+
+### Node
+
+The properties you can access for node are listed below.
+
+#### Properties
+
+| Property | Description  | Type   | Example                              |
+| -------- | ------------ | ------ | ------------------------------------ |
+| id       | Node id      | string | 975de338-90ff-41ab-9de3-3890ff41ab62 |
+| version  | Node version | string | 3.14.0                               |
+| tenant   | Node tenant  | string | Europe                               |
+
+#### Example
+
+* Get the version of a node : `{#node.version}`
+
+### Policies
+
+You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not.
+
+### Mixin
+
+In previous examples, we showed various ways to manipulate objects available in the EL context. You can also mix property usage to provide an increasingly dynamic configuration.
+
+For example, we can retrieve the value of an HTTP header where the name is based on an API property named `my-property`:
+
+`{#request.headers[#properties['my-property']]}`
+
+### Conditions
+
+You can also use the Expression Language to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as `&&` or `||`, as shown in the example below:
+
+`{#request.headers['my-header'] != null && #request.headers['my-header'][0] == "my-value"}`
+
+|   | An alternative method is to use `equals` instead of `==`. When you use `.equals()`, it is recommended to put the string first in order to prevent an error if `#request.headers['my-header'][0]` is `null` - for example, `'my-value'.equals(#request.headers['my-header'][0])`. |
+| - | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+### Template evaluation error
+
+In case of error using Expression Language, an exception will be raised :
+
+`The template evaluation returns an error. Expression: {#context.error}`
+
+\

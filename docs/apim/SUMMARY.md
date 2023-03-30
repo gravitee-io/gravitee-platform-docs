@@ -217,6 +217,7 @@
   * [Design and enforce policies at the API level](guides/policy-design/how-to.md)
   * [Design and enforce policies at the Platform level](guides/policy-design/design-and-enforce-policies-at-the-platform-level.md)
   * [Policy reference](guides/policy-design/policy-reference.md)
+  * [Gravitee Expression Language](guides/policy-design/gravitee-expression-language.md)
 * [API Exposure: Plans, Applications, & Subscriptions](guides/api-exposure-plans-applications-and-subscriptions/README.md)
   * [Plans](guides/api-exposure-plans-applications-and-subscriptions/plans.md)
   * [Applications](guides/api-exposure-plans-applications-and-subscriptions/plans-1.md)
