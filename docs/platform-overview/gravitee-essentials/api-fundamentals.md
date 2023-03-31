@@ -508,9 +508,9 @@ In Javascript, asynchronous programming is possible due to what is known as the 
 
 While certainly a contrived example, it still effectively illustrates the power of asynchronous programming. However, it is here we must again muddy the waters and remind you, that nothing about the actual web API changed. As previously mentioned, both `simulateSyncWork("Web API Work", 3000)` and `simulateAsyncWork("Web API Work", 3000)` are met to represent a call to the same web API. Just like in our car insurance metaphor, both the synchronous and asynchronous programming examples deal with the same insurance agent. Asynchronous programming just allowed us to change our behavior in response to that agent. Perhaps the graphics below will provide some clarity:
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/76536bc430806d0bf64f90fa1e4864b0805ed908_2_690x213.png" alt=""><figcaption><p>Diagram of synchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/IOBound.png" alt=""><figcaption><p>Diagram of synchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/1/1880b057ea186a6d2d0feb619acc09dbcc0bbb13_2_690x397.png" alt=""><figcaption><p>Diagram of asynchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Asyncio.png" alt=""><figcaption><p>Diagram of asynchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
 
 All of this is to say that synchronous vs asynchronous programming is a related, but different concept than synchronous vs asynchronous web APIs.
 
