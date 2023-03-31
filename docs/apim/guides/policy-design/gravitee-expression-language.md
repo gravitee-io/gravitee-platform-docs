@@ -1,43 +1,38 @@
 # Gravitee Expression Language
 
-## Overview
-
-The Gravitee Expression Language (EL) is one of the key features that can be used by API publishers to configure various aspects and services of an API.
+The Gravitee Expression Language (EL) is a powerful tool that can be used by API publishers to dynamically configure various aspects and services of an API.
 
 EL is a powerful language used for querying and manipulating an object graph. It is a superset of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that extends standard SpEL capabilities by providing extra objects and properties inside the expression language context.
 
-### Basic Usage
+In Gravitee, EL allows you to reference values from the current request or response, as well as from the context or configuration of the gateway. This means you can use expressions to create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
 
-EL expressions are wrapped in braces and begin with the `#` symbol: `{#request.id}`
+## Basic syntax and usage
 
-See the sections below for example expression notations.
+Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol: `{#request.id}`
 
-### **Built-in Functions**
+Operators: Gravitee's expression language supports various operators, such as arithmetic, logical, comparison, and ternary operators. Here are some examples of commonly used operators in Gravitee:
 
-Since EL is a superset of SpEL, it provides the following built-in functions:
+* Arithmetic Operators: +, -, \*, /, %
+* Logical Operators: && (logical and), || (logical or), ! (logical not)
+* Comparison Operators: ==, !=, <, <=, >, >=
+* Ternary Operator: condition ? expression1 : expression2
 
-#### jsonPath
+Functions: Gravitee's expression language provides a variety of built-in functions that you can use to manipulate and transform data in your expressions. Some examples of commonly used functions in Gravitee include:
 
-`#jsonPath`: Evaluates a 'jsonPath' on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The following listing shows some usage examples:
+* string functions: length(), substring(), replace()
+*   #### jsonPath
 
-{#jsonPath(#request.content, "level.level-1.value")}
+    `#jsonPath`: Evaluates a 'jsonPath' on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The following listing shows some usage examples:
 
-```xml
-<transformer expression="#jsonPath(payload, '$.store.book[0].author')"/>
+    {#jsonPath(#request.content, "level.level-1.value")}
 
-<filter expression="#jsonPath(payload,'$..book[2].isbn') matches '\d-\d{3}-\d{5}-\d'"/>
 
-<splitter expression="#jsonPath(payload, '$.store.book')"/>
 
-<router expression="#jsonPath(payload, headers.jsonPath)">
-	<mapping channel="output1" value="reference"/>
-	<mapping channel="output2" value="fiction"/>
-</router>
-```
+    #### xpath
 
-#### xpath
+    `#xpath`: To evaluate an 'xpath' on some provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) from the SpEL documentation.
 
-`#xpath`: To evaluate an 'xpath' on some provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) from the SpEL documentation.
+Variables: Gravitee's expression language allows you to reference values from the current request or response, as well as from the context or configuration of the gateway. Some commonly used variables in Gravitee include:
 
 ## API
 
