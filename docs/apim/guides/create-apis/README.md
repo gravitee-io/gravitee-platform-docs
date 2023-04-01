@@ -123,7 +123,7 @@ For example, if you wanted to make a Kafka topic consumable over Websockets, you
 
 * **Security:** how you regulate access to your API by configuring plans and access controls. The Security section will allow you to define:
   * **Plan information:** basic plan details, the "Security level" or authentication type, subscription validation (either automatic or manual), and terms of service.
-  * **Configuration**: where you can define your [Gravitee Access Management](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/) Configuration, or external IdP/IAM configuration.
+  * **Configuration**: where you can define your [Gravitee Access Management](http://localhost:5000/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/) Configuration, or external IdP/IAM configuration.
   * **Limitations:** where you can easily define initial API consumption limitations, such as rate limits and quotas, path authorizations, and exceptions.
 
 {% hint style="info" %}
@@ -169,7 +169,7 @@ Gravitee allows you to import an API definition via:
   * File
 * WSDL file: APIM can import a WSDL to create an API. This means you do not have to declare all the routing and policies to interact with your service.
 * Existing API as a template: use an already-created Gravitee API as a template and simply edit certain details in the configuration
-* Using a model from [Gravitee API Designer](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/3DqdkbBufOGIYC4eu2tC/): import a data model that you created using the Gravitee API Designer to reduce the amount of configuration necessary.&#x20;
+* Using a model from [Gravitee API Designer](broken-reference): import a data model that you created using the Gravitee API Designer to reduce the amount of configuration necessary.&#x20;
 {% endtab %}
 {% endtabs %}
 

@@ -212,7 +212,6 @@
   * [Load-balancing, failover, and health checks](guides/api-configuration/load-balancing-failover-and-health-checks.md)
   * [Configure Service Discovery](guides/api-configuration/how-to/configure-service-discovery.md)
   * [Configure General Proxy settings](guides/api-configuration/configure-cors.md)
-  * [Expression language](guides/api-configuration/expression-language.md)
 * [Policy Design](guides/policy-design/README.md)
   * [Design and enforce policies at the API level](guides/policy-design/how-to.md)
   * [Design and enforce policies at the Platform level](guides/policy-design/design-and-enforce-policies-at-the-platform-level.md)

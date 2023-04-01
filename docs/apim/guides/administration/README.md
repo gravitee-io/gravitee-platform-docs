@@ -33,7 +33,7 @@ As a part of Organization administration, Gravitee offers multiple manners of ma
 {% hint style="info" %}
 **This is different than Gravitee Access Management**
 
-This should _not_ be confused with Gravitee Access Management, which is a fully-featured Identity and Access Management solution that is used for controlling access to applications and APIs. To learn more about the Access Management product, please refer to the [Gravitee Access Management documentation](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/).
+This should _not_ be confused with Gravitee Access Management, which is a fully-featured Identity and Access Management solution that is used for controlling access to applications and APIs. To learn more about the Access Management product, please refer to the [Gravitee Access Management documentation](http://localhost:5000/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/).
 {% endhint %}
 
 ### Environments

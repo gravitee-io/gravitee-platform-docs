@@ -90,9 +90,9 @@ To extract the value of the `price` property for the book with `title` "The Lord
 
 ## APIs
 
-### Properties
+### Custom Properties
 
-As an API publisher, you can define [properties](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) for your API. These properties are automatically injected into the expression language context to be used later.
+As an API publisher, you can define custom [properties](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) for your API. These properties are automatically injected into the expression language context to be used later.
 
 #### **Examples**
 
