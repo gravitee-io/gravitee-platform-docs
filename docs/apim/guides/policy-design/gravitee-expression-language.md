@@ -2,15 +2,17 @@
 
 The Gravitee Expression Language (EL) is a powerful tool that can be used by API publishers to dynamically configure various aspects and policies of an API.
 
-EL is a language used for querying and manipulating an object graph. It is a superset of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that extends standard SpEL capabilities by providing extra objects and properties inside the expression language context.
+EL is a language used for querying and manipulating an object graph. It is a superset of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that extends standard SpEL capabilities by providing extra objects, properties, and attributes inside the expression language context.
 
-In Gravitee, EL allows you to reference values from the current request or response. This means you can use expressions to create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
+EL allows you to reference values from the current request or response. This means you can use expressions to create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
 
-## Basic syntax and usage
+## Basic usage
 
-Since EL is an extension of SpEL, all capabilities detailed in the SpEL documentation are available in EL. This section will focus on detailing the EL's modified syntax as well as some commonly used variables, operators, and functions common.
+Since EL is an extension of SpEL, all capabilities detailed in the SpEL documentation are available in EL. This section will focus on detailing the EL's modifications to the SpEL syntax as well as some commonly used properties, attributes, operators, and commonly used functions.
 
-Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol. Both dot notation and bracket notation are supported for accessing properties of an object: `{#context.attributes['user'].email}`
+### Syntax
+
+Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol. Both dot notation and bracket notation are supported for accessing the properties of an object: `{#context.attributes['user'].email}`
 
 {% hint style="info" %}
 **Dot notation vs bracket notation**
@@ -24,21 +26,26 @@ therefore, bracket notation should be used for property names that have a space 
 `{#request.headers['my-header']}`
 {% endhint %}
 
-### Properties
+### Object properties
 
-EL allows you to reference certain values injected into the EL context. The available properties will be further detailed in the following sections. El adds the follwing root-level properties
+EL allows you to reference certain values injected into the EL context as object properties. The available object properties will be further detailed in the following sections. EL adds the following root-level object properties:
 
 * `{#properties}` : Contains custom properties defined by the API publisher.
 * `{#dictionaries}` : Contains custom dictionaries defined by the API publisher.
-* `{#endpoints}` : Contains informations about the gateway API's respective endpoint.
+* `{#endpoints}` : Contains information about the gateway API's respective endpoint.
 * `{#request}` : Contains information about the current HTTP request.
 * `{#response}` : Contains information about the current HTTP response.
 * `{#context.attributes}` : Contains attributes automatically created by the APIM gateway during an HTTP request.
 
 {% hint style="info" %}
-**Properties vs attributes**
+**Object properties - custom properties vs attributes**
 
-Need to explain these to end user
+* **Custom Properties:** defined at the API level and are read-only during the gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html).
+* **Attributes:** scoped to the current API transaction, and can be manipulated during the execution phase through policies. You can view attributes like a kind of variable that is dropped after the API transaction is completed.
+
+Please keep in mind both custom properties and attributes are still _object properties._ Object properties are simply variables that belong to an object. They are part of an objects structure and can be accessed and modified using dot notation or bracket notation.
+
+On the other&#x20;
 {% endhint %}
 
 ### Operators
@@ -98,6 +105,12 @@ As an API publisher, you can define custom [properties](https://docs.gravitee.io
 
 * Get the value of the property `my-property` defined in API properties: `{#properties['my-property']}`
 * Get the value of the property `my-secret` defined and [encrypted](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) in API Properties : `{#properties['my-secret'}` to pass a secured property to your backend
+
+{% hint style="info" %}
+Custom properties vs object properties
+
+
+{% endhint %}
 
 ### Dictionaries
 
