@@ -237,7 +237,7 @@ A `Principal` object represents the currently authenticated user who is making t
 | defined         | Returns true if the principal object is defined and contains values. False otherwise. | boolean     | -                                 |
 | dn              | Full domain name                                                                      | string      | -                                 |
 
-Even if some of these attributes can be arrays, EL will return the first item in the array. If you want to retrieve all values of an attribute, you can use the `attributes` object property.
+While some of these attributes can be arrays, EL will always return the first item in the array. If you want to retrieve all values from an array, you can use the `attributes` object property.
 
 If the principal object is not defined, all values are empty.
 
@@ -257,7 +257,7 @@ If the principal object is not defined, all values are empty.
 
 ## Response
 
-###
+The object properties you can access for API responses are listed below.
 
 | Object Property | Description                 | Type        | Example            |
 | --------------- | --------------------------- | ----------- | ------------------ |
@@ -285,7 +285,9 @@ A node is a component that represents an instance of the Gravitee gateway. Each 
 
 ## Policies
 
-You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not.
+You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the policy design studio configuration.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
 
 ## Mixin
 
@@ -297,7 +299,7 @@ For example, we can retrieve the value of an HTTP header where the name is based
 
 ## Conditions
 
-You can also use the Expression Language to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as `&&` or `||`, as shown in the example below:
+You can also use the EL to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as `&&` or `||`, as shown in the example below:
 
 `{#request.headers['my-header'] != null && #request.headers['my-header'][0] == "my-value"}`
 
