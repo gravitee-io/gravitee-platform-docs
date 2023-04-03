@@ -164,7 +164,7 @@ When APIM Gateway handles an incoming API request, some object properties are au
 | plan            | Plan used to manage incoming HTTP request                                                                                                        | string | -                       |
 | api-key         | the api-key used (in case of an api-key based plan)                                                                                              | string | X (for no api-key plan) |
 
-Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_oauth2.html#attributes)) register other attributes in the context. See the documentation for the policies you are using for more information.
+Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_oauth2.html#attributes)) register other attributes in the request context. See the documentation for the policies you are using for more information.
 
 #### Examples
 
