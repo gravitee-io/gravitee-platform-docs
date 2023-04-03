@@ -173,7 +173,7 @@ Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/a
 
 ### SSL and principal objects <a href="#ssl_object" id="ssl_object"></a>
 
-The properties you can access in `ssl` session object are listed below
+The object properties you can access in `ssl` session object are listed below
 
 | Object Property | Description               | Type                                 | Example           |
 | --------------- | ------------------------- | ------------------------------------ | ----------------- |
@@ -184,7 +184,7 @@ The properties you can access in `ssl` session object are listed below
 
 #### Principal object <a href="#principal_object" id="principal_object"></a>
 
-A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions.The `Principal` object is typically used in conjunction with security policies, such as OAuth2, JWT, or basic authentication, to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
+A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions. The `Principal` object is typically used in conjunction with security policies, such as OAuth2, JWT, or basic authentication, to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
 `client` and `server` are objects of type `Principal` and have a number of attributes you can access in the EL context.
 
