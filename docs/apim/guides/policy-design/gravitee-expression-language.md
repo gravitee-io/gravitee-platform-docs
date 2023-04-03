@@ -30,39 +30,39 @@ therefore, bracket notation should be used for property names that have a space 
 
 EL allows you to reference certain values injected into the EL context as object properties. The available object properties will be further detailed in the following sections. EL adds the following root-level object properties:
 
-* `{#properties}` : Contains custom properties defined by the API publisher.
-* `{#dictionaries}` : Contains custom dictionaries defined by the API publisher.
+* `{#properties}` : Contains custom properties defined by the API publisher for that gateway API.
+* `{#dictionaries}` : Contains custom dictionaries defined by the API publisher for that gateway API.
 * `{#endpoints}` : Contains information about the gateway API's respective endpoint.
-* `{#request}` : Contains information about the current HTTP request.
-* `{#response}` : Contains information about the current HTTP response.
-* `{#context.attributes}` : Contains attributes automatically created by the APIM gateway during an HTTP request.
+* `{#request}` : Contains information about the current API request.
+* `{#response}` : Contains information about the current API response.
+* `{#context.attributes}` : Contains attributes automatically created by the APIM gateway during an API transaction.
 
 {% hint style="info" %}
-**Object properties - custom properties vs attributes**
+**Object properties: custom properties vs attributes**
 
 * **Custom Properties:** defined at the API level and are read-only during the gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html).
-* **Attributes:** scoped to the current API transaction, and can be manipulated during the execution phase through policies. You can view attributes like a kind of variable that is dropped after the API transaction is completed.
+* **Attributes:** scoped to the current API transaction, and can be manipulated during the execution phase through the [`assign-attributes` policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html). You can view attributes like a kind of variable that is dropped after the API transaction is completed.
 
-Please keep in mind both custom properties and attributes are still _object properties._ Object properties are simply variables that belong to an object. They are part of an objects structure and can be accessed and modified using dot notation or bracket notation.
+Please keep in mind both custom properties and attributes are still _object properties._ Object properties are simply variables that belong to an object. They are part of an object's structure and can be accessed and modified using dot notation or bracket notation.
 
-On the other&#x20;
+On the other hand, custom properties and attributes are terms that have special meaning in the Gravitee ecosystem as defined above. They can both be accessed through their associated, root-level object property.
 {% endhint %}
 
 ### Operators
 
 EL supports various operators, such as arithmetic, logical, comparison, and ternary operators. Here are some examples of commonly used operators in Gravitee:
 
-* Arithmetic Operators: +, -, \*, /
-* Logical Operators: && (logical and), || (logical or), ! (logical not)
-* Comparison Operators: ==, !=, <, <=, >, >=
-* Ternary Operator: condition ? expression1 : expression2
+* Arithmetic Operators: `+, -, *, /`
+* Logical Operators: `&& (logical and), || (logical or), ! (logical not)`
+* Comparison Operators: `==, !=, <, <=, >, >=`
+* Ternary Operator: `condition ? expression1 : expression2`
 
 ### Functions
 
 EL provides a variety of built-in functions that you can use to manipulate and transform data in your expressions. Some examples of commonly used functions in Gravitee include:
 
-* string functions: length(), substring(), replace()
-* `#jsonPath`: Evaluates a 'jsonPath' on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn the jsonPath syntax is to use the [online evaluator](https://jsonpath.com/). JsonPath can be used with EL like the following example:
+* string functions: `length(), substring(), replace()`
+* `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn the jsonPath syntax is to use the [online evaluator](https://jsonpath.com/). JsonPath can be used with EL as in the following example:
 
 Suppose you have a JSON payload in the request body that contains the following data:
 
@@ -97,28 +97,24 @@ To extract the value of the `price` property for the book with `title` "The Lord
 
 ## APIs
 
+Using EL, you can access information about a gateway API through several root-level objects that are injected into the EL context.
+
 ### Custom Properties
 
-As an API publisher, you can define custom [properties](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) for your API. These properties are automatically injected into the expression language context to be used later.
+As an API publisher, you can define custom [properties](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction.
 
 #### **Examples**
 
-* Get the value of the property `my-property` defined in API properties: `{#properties['my-property']}`
-* Get the value of the property `my-secret` defined and [encrypted](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) in API Properties : `{#properties['my-secret'}` to pass a secured property to your backend
-
-{% hint style="info" %}
-Custom properties vs object properties
-
-
-{% endhint %}
+* Get the value of the property `my-property` defined in an API's custom properties: `{#properties['my-property']}`
+* Get the value of the property `my-secret` defined and [encrypted](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) in an API's Properties : `{#properties['my-secret'}` to pass a secured property to your backend
 
 ### Dictionaries
 
-[Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to properties, but you need to specify the dictionary id (visible in the URL) as well as the property name.
+[Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary id (visible in the URL) as well as the dictionary property name. Dictionary properties are simply key-value pairs.
 
 #### **Example**
 
-* Get the value of the property `my-property` defined in dictionary `my-dictionary`: `{#dictionaries['my-dictionary']['my-property']}`
+* Get the value of the dictionary property `dict-key` defined in dictionary `my-dictionary`: `{#dictionaries['my-dictionary']['dict-key']}`
 
 ### Endpoints
 
@@ -128,104 +124,124 @@ When you define endpoints for your API, you need to give them a name which must 
 
 * When you create an API, a default endpoint is created, corresponding to the value you set for the backend property. This endpoint can be retrieved with EL by using the following syntax: `{#endpoints['default']}`
 
-## Request properties <a href="#request" id="request"></a>
+## Request  <a href="#request" id="request"></a>
 
-The properties you can access for API requests are listed below.
+The object properties you can access for API requests are listed below.
 
-| Property      | Description            | Type                           | Example                                       |
-| ------------- | ---------------------- | ------------------------------ | --------------------------------------------- |
-| id            | Identifier             | string                         | 12345678-90ab-cdef-1234-567890ab              |
-| transactionId | Transaction identifier | string                         | cd123456-7890-abcd-ef12-34567890              |
-| uri           | URI                    | string                         | /v2/store/MyStore?order=100                   |
-| path          | Path                   | string                         | /v2/store/MyStore                             |
-| paths         | Path parts             | array of string                | \[,v2,store,MyStore]                          |
-| pathInfo      | Path info              | string                         | /store/MyStore                                |
-| pathInfos     | Path info parts        | array of string                | \[,store,MyStore]                             |
-| contextPath   | Context path           | string                         | /v2/                                          |
-| params        | Query parameters       | key / value                    | order → 100                                   |
-| pathParams    | Path parameters        | key / value                    | storeId → MyStore (_see Warning for details_) |
-| headers       | Headers                | key / value                    | X-Custom → myvalue                            |
-| method        | HTTP method            | string                         | GET                                           |
-| scheme        | HTTP scheme            | string                         | http                                          |
-| version       | HTTP version           | string                         | HTTP\_1\_1                                    |
-| timestamp     | Timestamp              | long                           | 1602781000267                                 |
-| remoteAddress | Remote address         | string                         | 0:0:0:0:0:0:0:1                               |
-| localAddress  | Local address          | string                         | 0:0:0:0:0:0:0:1                               |
-| content       | Body content           | string                         | -                                             |
-| ssl           | SSLSession information | [SSL Object](broken-reference) | -                                             |
+| Object Property | Description            | Type                           | Example                                       |
+| --------------- | ---------------------- | ------------------------------ | --------------------------------------------- |
+| id              | Identifier             | string                         | 12345678-90ab-cdef-1234-567890ab              |
+| transactionId   | Transaction identifier | string                         | cd123456-7890-abcd-ef12-34567890              |
+| uri             | URI                    | string                         | /v2/store/MyStore?order=100                   |
+| path            | Path                   | string                         | /v2/store/MyStore                             |
+| paths           | Path parts             | array of string                | \[,v2,store,MyStore]                          |
+| pathInfo        | Path info              | string                         | /store/MyStore                                |
+| pathInfos       | Path info parts        | array of string                | \[,store,MyStore]                             |
+| contextPath     | Context path           | string                         | /v2/                                          |
+| params          | Query parameters       | key / value                    | order → 100                                   |
+| pathParams      | Path parameters        | key / value                    | storeId → MyStore (_see Warning for details_) |
+| headers         | Headers                | key / value                    | X-Custom → myvalue                            |
+| method          | HTTP method            | string                         | GET                                           |
+| scheme          | HTTP scheme            | string                         | http                                          |
+| version         | HTTP version           | string                         | HTTP\_1\_1                                    |
+| timestamp       | Timestamp              | long                           | 1602781000267                                 |
+| remoteAddress   | Remote address         | string                         | 0:0:0:0:0:0:0:1                               |
+| localAddress    | Local address          | string                         | 0:0:0:0:0:0:0:1                               |
+| content[^1]     | Body content           | string                         | -                                             |
+| ssl             | SSLSession information | [SSL Object](broken-reference) | -                                             |
 
-{% hint style="warning" %}
-`{#request.content}` is only available for policies bound to an `on-request-content` phase.
-{% endhint %}
+### Request context attributes
+
+When APIM Gateway handles an incoming API request, some object properties are automatically created which are known as attributes. These attributes can be accessed from `{#request.context}` the object property. Available attributes are listed below:
+
+| Object Property | Description                                                                                                                                      | Type   | Nullable                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ----------------------- |
+| context-path    | Context-path                                                                                                                                     | string | -                       |
+| resolved-path   | Resolved-path is the path defined in policies                                                                                                    | string | -                       |
+| application     | The authenticated application doing incoming HTTP request                                                                                        | string | X (for keyless plan)    |
+| api             | Called API                                                                                                                                       | string | -                       |
+| user-id         | <p>The user identifier of incoming HTTP request:</p><p>* The subscription id for api-key based plan</p><p>* Remote IP for keyless based plan</p> | string | -                       |
+| plan            | Plan used to manage incoming HTTP request                                                                                                        | string | -                       |
+| api-key         | the api-key used (in case of an api-key based plan)                                                                                              | string | X (for no api-key plan) |
+
+Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_oauth2.html#attributes)) register other attributes in the context. See the documentation for the policies you are using for more information.
+
+#### Examples
+
+* Get the value of the `user-id` attribute for an incoming HTTP request:`{#context.attributes['user-id']}`
+* Get the value of the `plan` attribute for an incoming HTTP request:`{#context.attributes['plan']}`
 
 ### SSL and principal objects <a href="#ssl_object" id="ssl_object"></a>
 
-The properties you can access in `ssl` session object are listed below.
+The properties you can access in `ssl` session object are listed below
 
-| Property   | Description               | Type                                 | Example           |
-| ---------- | ------------------------- | ------------------------------------ | ----------------- |
-| clientHost | Host name of the client   | string                               | client.domain.com |
-| clientPort | Port number of the client | long                                 | 443               |
-| client     | Client information        | [Principal Object](broken-reference) | -                 |
-| server     | Server information        | [Principal Object](broken-reference) | -                 |
+| Object Property | Description               | Type                                 | Example           |
+| --------------- | ------------------------- | ------------------------------------ | ----------------- |
+| clientHost      | Host name of the client   | string                               | client.domain.com |
+| clientPort      | Port number of the client | long                                 | 443               |
+| client          | Client information        | [Principal Object](broken-reference) | -                 |
+| server          | Server information        | [Principal Object](broken-reference) | -                 |
 
-#### Principal Object <a href="#principal_object" id="principal_object"></a>
+#### Principal object <a href="#principal_object" id="principal_object"></a>
 
-A principal object represents the currently authenticated user who is making the request to the API. The principal object provides access to various attributes of the user, such as their username, email address, roles, and permissions.
+A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions.The `Principal` object is typically used in conjunction with security policies, such as OAuth2, JWT, or basic authentication, to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
-The principal object is typically used in conjunction with security policies, such as OAuth2, JWT, or basic authentication, to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
+`client` and `server` are objects of type `Principal` and have a number of attributes you can access in the EL context.
 
-The attributes you can access in `client` and `server` principal objects are listed below.
+**Common domain name attributes:**
 
-| Attributers                       | Description                                                                           | Type        | Example                           |
-| --------------------------------- | ------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
-| **Common domain name attributes** |                                                                                       |             |                                   |
-| businessCategory                  | Business category                                                                     | string      | -                                 |
-| c                                 | Country code                                                                          | string      | FR                                |
-| cn                                | Common name                                                                           | string      | -                                 |
-| countryOfCitizenship              | RFC 3039 CountryOfCitizenship                                                         | string      | -                                 |
-| countryOfResidence                | RFC 3039 CountryOfResidence                                                           | string      | -                                 |
-| dateOfBirth                       | RFC 3039 RFC 3039 DateOfBirth                                                         | string      | 19830719000000Z                   |
-| dc                                | Domain component                                                                      | string      | -                                 |
-| description                       | Description                                                                           | string      | -                                 |
-| dmdName                           | RFC 2256 directory management domain                                                  | string      | -                                 |
-| dnQualifier                       | Domain name qualifier                                                                 | string      | -                                 |
-| e                                 | Email address in Verisign certificates                                                | string      | -                                 |
-| emailAddress                      | Email address (RSA PKCS#9 extension)                                                  | string      | -                                 |
-| gender                            | RFC 3039 Gender                                                                       | string      | "M", "F", "m" or "f"              |
-| generation                        | Naming attributes of type X520name                                                    | string      | -                                 |
-| givenname                         | Naming attributes of type X520name                                                    | string      | -                                 |
-| initials                          | Naming attributes of type X520name                                                    | string      | -                                 |
-| l                                 | Locality name                                                                         | string      | -                                 |
-| name                              | Name                                                                                  | string      | -                                 |
-| nameAtBirth                       | ISIS-MTT NameAtBirth                                                                  | string      | -                                 |
-| o                                 | Organization                                                                          | string      | -                                 |
-| organizationIdentifier            | Organization identifier                                                               | string      | -                                 |
-| ou                                | Organization unit name                                                                | string      | -                                 |
-| placeOfBirth                      | RFC 3039 PlaceOfBirth                                                                 | string      | -                                 |
-| postalAddress                     | RFC 3039 PostalAddress                                                                | string      | -                                 |
-| postalCode                        | Postal code                                                                           | string      | -                                 |
-| pseudonym                         | RFC 3039 Pseudonym                                                                    | string      | -                                 |
-| role                              | Role                                                                                  | string      | -                                 |
-| serialnumber                      | Device serial number name                                                             | string      | -                                 |
-| st                                | State or province name                                                                | string      | -                                 |
-| street                            | Street                                                                                | string      | -                                 |
-| surname                           | Naming attributes of type X520name                                                    | string      | -                                 |
-| t                                 | Title                                                                                 | string      | -                                 |
-| telephoneNumber                   | Telephone number                                                                      | string      | -                                 |
-| uid                               | LDAP User id                                                                          | string      | -                                 |
-| uniqueIdentifier                  | Naming attributes of type X520name                                                    | string      | -                                 |
-| unstructuredAddress               | Unstructured address (from PKCS#9)                                                    | string      | -                                 |
-| **Other attributes**              |                                                                                       |             |                                   |
-| attributes                        | Retrieves all attribute values                                                        | key / value | "ou" → \["Test team", "Dev team"] |
-| defined                           | Returns true if the principal object is defined and contains values. False otherwise. | boolean     | -                                 |
-| dn                                | Full domain name                                                                      | string      | -                                 |
+| Object Property        | Description                            | Type   | Example              |
+| ---------------------- | -------------------------------------- | ------ | -------------------- |
+| businessCategory       | Business category                      | string | -                    |
+| c                      | Country code                           | string | FR                   |
+| cn                     | Common name                            | string | -                    |
+| countryOfCitizenship   | RFC 3039 CountryOfCitizenship          | string | -                    |
+| countryOfResidence     | RFC 3039 CountryOfResidence            | string | -                    |
+| dateOfBirth            | RFC 3039 RFC 3039 DateOfBirth          | string | 19830719000000Z      |
+| dc                     | Domain component                       | string | -                    |
+| description            | Description                            | string | -                    |
+| dmdName                | RFC 2256 directory management domain   | string | -                    |
+| dnQualifier            | Domain name qualifier                  | string | -                    |
+| e                      | Email address in Verisign certificates | string | -                    |
+| emailAddress           | Email address (RSA PKCS#9 extension)   | string | -                    |
+| gender                 | RFC 3039 Gender                        | string | "M", "F", "m" or "f" |
+| generation             | Naming attributes of type X520name     | string | -                    |
+| givenname              | Naming attributes of type X520name     | string | -                    |
+| initials               | Naming attributes of type X520name     | string | -                    |
+| l                      | Locality name                          | string | -                    |
+| name                   | Name                                   | string | -                    |
+| nameAtBirth            | ISIS-MTT NameAtBirth                   | string | -                    |
+| o                      | Organization                           | string | -                    |
+| organizationIdentifier | Organization identifier                | string | -                    |
+| ou                     | Organization unit name                 | string | -                    |
+| placeOfBirth           | RFC 3039 PlaceOfBirth                  | string | -                    |
+| postalAddress          | RFC 3039 PostalAddress                 | string | -                    |
+| postalCode             | Postal code                            | string | -                    |
+| pseudonym              | RFC 3039 Pseudonym                     | string | -                    |
+| role                   | Role                                   | string | -                    |
+| serialnumber           | Device serial number name              | string | -                    |
+| st                     | State or province name                 | string | -                    |
+| street                 | Street                                 | string | -                    |
+| surname                | Naming attributes of type X520name     | string | -                    |
+| t                      | Title                                  | string | -                    |
+| telephoneNumber        | Telephone number                       | string | -                    |
+| uid                    | LDAP User id                           | string | -                    |
+| uniqueIdentifier       | Naming attributes of type X520name     | string | -                    |
+| unstructuredAddress    | Unstructured address (from PKCS#9)     | string | -                    |
 
-Even if some of these attributes can be arrays, EL will return the first item in the array. If you want to retrieve all values of a attribute, you can use the `attributes` field
+**Other attributes:**
+
+| Object Property | Description                                                                           | Type        | Example                           |
+| --------------- | ------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
+| attributes      | Retrieves all attribute values                                                        | key / value | "ou" → \["Test team", "Dev team"] |
+| defined         | Returns true if the principal object is defined and contains values. False otherwise. | boolean     | -                                 |
+| dn              | Full domain name                                                                      | string      | -                                 |
+
+Even if some of these attributes can be arrays, EL will return the first item in the array. If you want to retrieve all values of an attribute, you can use the `attributes` object property.
 
 If the principal object is not defined, all values are empty.
 
-### Examples <a href="#examples" id="examples"></a>
+#### Examples <a href="#examples" id="examples"></a>
 
 * Get the value of the `Content-Type` header for an incoming HTTP request: `{#request.headers['content-type'][0]}`
 * Get the second part of the request path: `{#request.paths[1]}`
@@ -239,51 +255,23 @@ If the principal object is not defined, all values are empty.
 * Get a custom attribute of the client from the SSL session: `{#request.ssl.client.attributes['1.2.3.4'][0]}`
 * Determine if the SSL attributes of the client are set: `{#request.ssl.client.defined}`
 
-## Response properties
+## Response
 
-### Properties
+###
 
-| Property | Description                 | Type        | Example            |
-| -------- | --------------------------- | ----------- | ------------------ |
-| content  | Body content                | string      | -                  |
-| headers  | Headers                     | key / value | X-Custom → myvalue |
-| status   | Status of the HTTP response | int         | 200                |
+| Object Property | Description                 | Type        | Example            |
+| --------------- | --------------------------- | ----------- | ------------------ |
+| content         | Body content                | string      | -                  |
+| headers         | Headers                     | key / value | X-Custom → myvalue |
+| status          | Status of the HTTP response | int         | 200                |
 
 #### Example
 
 * Get the status of an HTTP response: `{#response.status}`
 
-## Request context attributes
-
-When APIM Gateway handles an incoming HTTP request, some properties are automatically created which are known as attributes. These attributes can be accessed from `{#request.context}`. Available attributes are listed below:
-
-| Attribute     | Description                                                                                                                                      | Type   | Nullable                |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ----------------------- |
-| context-path  | Context-path                                                                                                                                     | string | -                       |
-| resolved-path | Resolved-path is the path defined in policies                                                                                                    | string | -                       |
-| application   | The authenticated application doing incoming HTTP request                                                                                        | string | X (for keyless plan)    |
-| api           | Called API                                                                                                                                       | string | -                       |
-| user-id       | <p>The user identifier of incoming HTTP request:</p><p>* The subscription id for api-key based plan</p><p>* Remote IP for keyless based plan</p> | string | -                       |
-| plan          | Plan used to manage incoming HTTP request                                                                                                        | string | -                       |
-| api-key       | the api-key used (in case of an api-key based plan)                                                                                              | string | X (for no api-key plan) |
-
-Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_oauth2.html#attributes)) register other attributes in the context. See the documentation for the policies you are using for more information.
-
-### Example
-
-* Get the value of the `user-id` attribute for an incoming HTTP request:
-
-`{#context.attributes['user-id']}`
-
-* Get the value of the `plan` attribute for an incoming HTTP request:
-
-`{#context.attributes['plan']}`
-
 ## Nodes
 
 A node is a component that represents an instance of the Gravitee gateway. Each node runs a copy of the gateway, which is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services.
-
-### Properties
 
 | Property | Description  | Type   | Example                              |
 | -------- | ------------ | ------ | ------------------------------------ |
@@ -328,3 +316,6 @@ In case of an error when using Expression Language, an exception will be raised 
 TODO: add arcade demonstrating method to check output of expression language
 
 \
+
+
+[^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.
