@@ -184,7 +184,7 @@ The object properties you can access in `ssl` session object are listed below
 
 #### Principal object <a href="#principal_object" id="principal_object"></a>
 
-A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions. The `Principal` object is typically used in conjunction with security policies, such as OAuth2, JWT, or basic authentication, to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
+A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions. The `Principal` object is typically used with security policies, such as OAuth2, JWT, or basic authentication, to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
 `client` and `server` are objects of type `Principal` and have a number of attributes you can access in the EL context.
 
@@ -315,7 +315,13 @@ In case of an error when using Expression Language, an exception will be raised 
 
 `The template evaluation returns an error. Expression: {#context.error}`
 
-TODO: add arcade demonstrating method to check output of expression language
+If you are having a hard time debugging your expression, here's the best way to proceed. Let's say you have the following conditional expression on a flow:
+
+`{#request.content.length() >= 10}`
+
+When testing, you are expecting the condition to be `false` and stop the flow from executing, but the flow continues to function unexpectedly. So how do you know the actual output of the `#request.content.length()` expression? You can easily check the output of an expression using the assign-attributes policy as shown in the arcade below:
+
+{% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %}
 
 \
 
