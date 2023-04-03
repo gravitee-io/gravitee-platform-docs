@@ -2,7 +2,7 @@
 
 The Gravitee Expression Language (EL) is a powerful tool that can be used by API publishers to dynamically configure various aspects and policies of an API.
 
-EL is a language used for querying and manipulating an object graph. It is a superset of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that extends standard SpEL capabilities by providing extra objects, properties, and attributes inside the expression language context.
+EL is a language used for querying and manipulating an object graph. It is a superset of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that extends standard SpEL capabilities by providing additional object properties inside the expression language context.
 
 EL allows you to reference values from the current request or response. This means you can use expressions to create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
 
