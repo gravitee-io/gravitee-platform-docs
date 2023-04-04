@@ -132,7 +132,7 @@ When you define endpoints for your API, you need to give them a name which must 
 
 ## Request  <a href="#request" id="request"></a>
 
-The object properties you can access for API requests from the `{#request}` root-level object property are listed below.
+The object properties you can access for API requests from the `{#request}` root-level object property are listed below:
 
 | Object Property | Description            | Type                           | Example                                       |
 | --------------- | ---------------------- | ------------------------------ | --------------------------------------------- |
@@ -163,7 +163,7 @@ The object properties you can access for API requests from the `{#request}` root
 
 ### Request context attributes
 
-When APIM Gateway handles an incoming API request, some object properties are automatically created which are known as attributes. These attributes can be accessed from the `{#context.attributes}` root-level object property. Available attributes are listed below:
+When APIM Gateway handles an incoming API request, some object properties are automatically created or added during the execution phase through the [assign-attributes policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html). These object properties are known as attributes. Attributes can be accessed from the `{#context.attributes}` root-level object property. Available attributes are listed below:
 
 | Object Property | Description                                                                                                                                      | Type   | Nullable                |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ----------------------- |
@@ -193,13 +193,17 @@ The object properties you can access in the `ssl` session object from the `{#req
 | client          | Client information        | [Principal Object](broken-reference) | -                 |
 | server          | Server information        | [Principal Object](broken-reference) | -                 |
 
-#### Principal object <a href="#principal_object" id="principal_object"></a>
+#### Example <a href="#principal_object" id="principal_object"></a>
+
+* Get the client HOST from the SSL session: `{#request.ssl.clientHost}`
+
+#### Principal objects <a href="#principal_object" id="principal_object"></a>
 
 A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions. The `Principal` object is typically used with security policies, such as OAuth2, JWT, or basic authentication, to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
-`client` and `server` are objects of type `Principal` and have a number of attributes you can access in the EL context.
+`client` and `server` are objects of type `Principal` and the object properties you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below:
 
-**Common domain name attributes:**
+**Common domain name object properties:**
 
 | Object Property        | Description                            | Type   | Example              |
 | ---------------------- | -------------------------------------- | ------ | -------------------- |
@@ -240,7 +244,7 @@ A `Principal` object represents the currently authenticated user who is making t
 | uniqueIdentifier       | Naming attributes of type X520name     | string | -                    |
 | unstructuredAddress    | Unstructured address (from PKCS#9)     | string | -                    |
 
-**Other attributes:**
+**Other object properties:**
 
 | Object Property | Description                                                                           | Type        | Example                           |
 | --------------- | ------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
@@ -252,9 +256,6 @@ If the principal object is not defined, all values are empty.
 
 #### Examples <a href="#examples" id="examples"></a>
 
-* Get the value of the `Content-Type` header for an incoming HTTP request: `{#request.headers['content-type'][0]}`
-* Get the second part of the request path: `{#request.paths[1]}`
-* Get the client HOST from the SSL session: `{#request.ssl.clientHost}`
 * Get the client DN from the SSL session: `{#request.ssl.client.dn}`
 * Get the server organization from the SSL session: `{#request.ssl.server.o}`
 * Get all the organization units of the server from the SSL session:
