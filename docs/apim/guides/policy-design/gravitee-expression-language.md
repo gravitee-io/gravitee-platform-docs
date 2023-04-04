@@ -36,6 +36,7 @@ EL allows you to reference certain values injected into the EL context as object
 * `{#request}` : Contains information about the current API request.
 * `{#response}` : Contains information about the current API response.
 * `{#context.attributes}` : Contains attributes automatically created by the APIM gateway during an API transaction or added during the execution phase through the [assign-attributes policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html).
+* `{#node}` : Contains information about the node hosting the instance of the gateway handling the API transaction.
 
 {% hint style="info" %}
 **Object properties: custom properties vs attributes**
@@ -289,16 +290,17 @@ The object properties you can access for API responses from the `{#response}` ro
 
 A node is a component that represents an instance of the Gravitee gateway. Each node runs a copy of the gateway, which is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services. The object properties you can access for nodes from the `{#node}` root-level object property are listed below.
 
-| Property     | Description       | Type            | Example                              |
-| ------------ | ----------------- | --------------- | ------------------------------------ |
-| id           | Node id           | string          | 975de338-90ff-41ab-9de3-3890ff41ab62 |
-| version      | Node version      | string          | 3.14.0                               |
-| tenant       | Node tenant       | string          | Europe                               |
-| shardingTags | Node sharding tag | array of string | \[internal,external]                 |
+| Property     | Description                 | Type            | Example                              |
+| ------------ | --------------------------- | --------------- | ------------------------------------ |
+| id           | Node id                     | string          | 975de338-90ff-41ab-9de3-3890ff41ab62 |
+| version      | Node version                | string          | 3.14.0                               |
+| tenant       | Node tenant                 | string          | Europe                               |
+| shardingTags | Node sharding tag           | array of string | \[internal,external]                 |
+| zone         | Zone the node is grouped in | string          | europe-west-2                        |
 
-### Example
+#### Example
 
-* Get the version of a node : `{#node.version}`
+* Get the version of a node : `{#node.version}`&#x20;
 
 ## Policies
 
