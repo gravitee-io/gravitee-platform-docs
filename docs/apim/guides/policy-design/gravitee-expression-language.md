@@ -101,7 +101,7 @@ Using EL, you can access information about a gateway API through several root-le
 
 ### Custom Properties
 
-As an API publisher, you can define custom [properties](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction.
+As an API publisher, you can define custom [properties](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#properties}` root-level object property.
 
 #### **Examples**
 
@@ -116,7 +116,7 @@ When accessing an encrypted custom property, Gravitee's gateway will automatical
 
 ### Dictionaries
 
-[Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary id as well as the dictionary property name. Dictionary properties are simply key-value pairs.
+[Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary id as well as the dictionary property name. Dictionary properties are simply key-value pairs that can be accessed from the `{#dictionaries}` root-level object property.
 
 #### **Example**
 
@@ -124,7 +124,7 @@ When accessing an encrypted custom property, Gravitee's gateway will automatical
 
 ### Endpoints
 
-When you define endpoints for your API, you need to give them a name which must be a unique identifier across all endpoints of the API. This identifier can be used to get an endpoint reference (i.e. URI).
+When you define endpoints for your API, you need to give them a name which must be a unique identifier across all endpoints of the API. This identifier can be used to get an endpoint reference (i.e. URI) from the `{#endpoints}` root-level object property.
 
 #### Example
 
@@ -132,7 +132,7 @@ When you define endpoints for your API, you need to give them a name which must 
 
 ## Request  <a href="#request" id="request"></a>
 
-The object properties you can access for API requests are listed below.
+The object properties you can access for API requests from the `{#request}` root-level object property are listed below.
 
 | Object Property | Description            | Type                           | Example                                       |
 | --------------- | ---------------------- | ------------------------------ | --------------------------------------------- |
@@ -156,9 +156,14 @@ The object properties you can access for API requests are listed below.
 | content[^1]     | Body content           | string                         | -                                             |
 | ssl             | SSLSession information | [SSL Object](broken-reference) | -                                             |
 
+#### Examples
+
+* Get the value of the `Content-Type` header for an incoming HTTP request: `{#request.headers['content-type']}`
+* Get the second part of the request path: `{#request.paths[1]}`
+
 ### Request context attributes
 
-When APIM Gateway handles an incoming API request, some object properties are automatically created which are known as attributes. These attributes can be accessed from `{#context.attributes}` the object property. Available attributes are listed below:
+When APIM Gateway handles an incoming API request, some object properties are automatically created which are known as attributes. These attributes can be accessed from the `{#context.attributes}` root-level object property. Available attributes are listed below:
 
 | Object Property | Description                                                                                                                                      | Type   | Nullable                |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ----------------------- |
@@ -179,7 +184,7 @@ Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/a
 
 ### SSL and principal objects <a href="#ssl_object" id="ssl_object"></a>
 
-The object properties you can access in `ssl` session object are listed below
+The object properties you can access in the `ssl` session object from the `{#request.ssl}` root-level object property are listed below:
 
 | Object Property | Description               | Type                                 | Example           |
 | --------------- | ------------------------- | ------------------------------------ | ----------------- |
@@ -241,9 +246,7 @@ A `Principal` object represents the currently authenticated user who is making t
 | --------------- | ------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
 | attributes      | Retrieves all attribute values                                                        | key / value | "ou" → \["Test team", "Dev team"] |
 | defined         | Returns true if the principal object is defined and contains values. False otherwise. | boolean     | -                                 |
-| dn              | Full domain name                                                                      | string      | -                                 |
-
-While some of these attributes can be arrays, EL will always return the first item in the array. If you want to retrieve all values from an array, you can use the `attributes` object property.
+| dn              | Fully qualified domain name                                                           | string      | -                                 |
 
 If the principal object is not defined, all values are empty.
 
@@ -263,7 +266,7 @@ If the principal object is not defined, all values are empty.
 
 ## Response
 
-The object properties you can access for API responses are listed below.
+The object properties you can access for API responses from the `{#response}` root-level object property are listed below.
 
 | Object Property | Description                 | Type        | Example            |
 | --------------- | --------------------------- | ----------- | ------------------ |
@@ -277,7 +280,7 @@ The object properties you can access for API responses are listed below.
 
 ## Nodes
 
-A node is a component that represents an instance of the Gravitee gateway. Each node runs a copy of the gateway, which is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services.
+A node is a component that represents an instance of the Gravitee gateway. Each node runs a copy of the gateway, which is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services. The object properties you can access for nodes from the `{#node}` root-level object property are listed below.
 
 | Property     | Description       | Type            | Example                              |
 | ------------ | ----------------- | --------------- | ------------------------------------ |
