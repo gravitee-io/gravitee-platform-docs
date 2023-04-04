@@ -51,11 +51,11 @@ This section defines all Gravitee and related web API terminology and concepts. 
 * **Context-path:** unique route to target a specific gateway API. The context path does not include the root URL.
   * Example: If the fully qualified domain name is `https://apim-gateway:8082/my-context-path`, then `/my-context-path` is the context path.
   * NOTE: _not finalized but some APIs do not have a context-path_
-* **Gateway entrypoint:** defines the protocol and configuration by which the API consumer accesses the gateway API. This essentially defines how the backend API is exposed through the gateway.
-* **Gateway endpoint:** defines the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API
+* **Gateway entrypoint:** defines the protocol and related configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint essentially defines how the backend API is exposed through the gateway.
+* **Gateway endpoint:** defines the protocol and related configuration settings by which the gateway API will fetch data from, or post data to, the backend API
 * **Backend APIs:** source or target API that is proxied by the gateway
 * **API publisher:** the creator, designer, and/or manager of a gateway API
-* **API consumer:** the user accessing the gateway API
+* **API consumer:** the user or application accessing the gateway API
 * **Plan:** access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access
   * **Staging:** generally, this is the first state of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
   * **Published:** once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
@@ -64,13 +64,13 @@ This section defines all Gravitee and related web API terminology and concepts. 
 * **Plan modes:** _still not finalized_
   * `Standard` with the policy security required
   * `Push` with no security required
-* **Application:** allows an API consumer to register and agree to a plan with authentication enabled. This allows the API producer more granular control over access to their secured API
-* **Subscription:** a contract between an API consumer and API producer that requires the gateway API to have a plan and the consumer to have at least one application
+* **Application:** allows an API consumer to register and agree to a plan with authentication enabled. This allows the API producer more granular control over access to their secured API.
+* **Subscription:** a contract between an API consumer and API publisher that requires the gateway API to have a plan and the consumer to have at least one application
 * **Resource:** a way to define reusable sets of configuration
-* **Plugin:** components that additional functionality by _plugging into_ the Gravitee ecosystem
-* **Policy:** rules or logic that can be executed by the API gateway during the request or the response of an API call. The functionality of the plugin is enabled through plugins
-* **API design studio:** UI that allows you to interactively create a backend API
-* **Flow:** method to control where and under what conditions policies act on an API call
+* **Plugin:** components that provide additional functionality by _plugging into_ the Gravitee ecosystem
+* **Policy:** rules or logic that can be executed by the API gateway during the request or the response of an API call. The functionality of the policy is enabled through plugins
+* **API design studio:** a component of APIM's management UI that allows you to interactively create a gateway API
+* **Flow:** method to control where, and under what conditions, policies act on an API transaction
 * **Sharding tags:** a tag that can be assigned to gateway and gateway APIs to provide a method to deploy a gateway API to a subset of gateways. Sharding tags can be mapped to a gateway’s fully qualified domain name which allows the developer portal to intelligently display different access URLs depending on the API’s sharding tags.
 * **Tenants:** a tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on the gateway receiving the request
 * **Gravitee expression language (EL):** a superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language) used by API publishers to dynamically configure various aspects and policies of an API by referencing object properties from the current API transaction
