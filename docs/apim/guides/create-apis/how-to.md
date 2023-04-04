@@ -4,11 +4,11 @@ description: Learn how to create your Gravitee APIs using the Gravitee API creat
 
 # The API Creation Wizard
 
-### Introduction
+## Introduction
 
 The API creation wizard makes it easy to create new Gateway API's from scratch.&#x20;
 
-### Create your Gateway API
+## Create your Gateway API
 
 {% @arcade/embed flowId="gjzRqNfSladxmw4olxSX" url="https://app.arcade.software/share/gjzRqNfSladxmw4olxSX" %}
 
@@ -22,26 +22,26 @@ The API creation wizard is comprised of several steps, each which requires you t
 * Documentation
 * Summray
 
-#### Step 1: API details
+### Step 1: API details
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM.png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
 
-#### Step 2: API architecture
+### Step 2: API architecture
 
 The API Architecture component is where you'll define the kind of backend resource that you want to expose. As of now, there are two API architectures:
 
-* **HTTP proxy:** this will be used for "pure" REST, gRPC, SOAP, and WebSocket use cases, where you want to expose a backend REST API as a Gateway REST API, a backend WebSocket Server as a Gateway WebSocket, and so on.
+* **HTTP proxy:** this will be used for "pure" REST, gRPC, SOAP, and WebSocket use cases, where you want to expose a backend REST API as a Gateway REST API, a backend WebSocket Server as a Gateway WebSocket API, and so on.
 * **Message-based:** this will be used when the kind of backend resource that you want to expose is an event-broker.
 
-What you choose here will dictate the kinds of entrypoints and endpoints that you can select later on.&#x20;
+What you choose here will dictate the kinds of entrypoints and endpoints that you can select later on. Please refer to [this documentation](./#api-architectures) for more in-depth information on support.
 
 &#x20;
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.41.03 PM.png" alt=""><figcaption><p>Step 2: selecting your API architecture</p></figcaption></figure>
 
-#### Step 3: Entrypoints
+### Step 3: Entrypoints
 
 After you select your API Architecture, you'll have to choose your entrypoint(s). You will have different options based on the architecture choice from earlier.&#x20;
 
@@ -74,7 +74,7 @@ Once you select your entrypoints from the entrypoints page, there will be furthe
 {% tab title="HTTP GET" %}
 If you chose **HTTP GET** as an entrypoint, you will be brought to a page where you can configure:
 
-* The context path: the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
+* **The context path:** the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
 * Enabling virtual hosts
   * This will then require you to define your **Virtual host** and optionally enable **override access.**
 * Your HTTP GET characteristics
@@ -153,22 +153,26 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
 {% endtab %}
 {% endtabs %}
 
-#### Endpoints
+### Endpoints
 
-**Gateway endpoints** define the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API. Your endpoints will be dictated by the API architecture that you selected earlier. If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To configure this endpoint, you will be brough to a page where you can:
+**Gateway endpoints** define the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.&#x20;
+
+#### HTTP Proxy endpoints
+
+If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To configure this endpoint, you will be brought to a page where you can:
 
 * **Define your target url:** enter your target url in the **Target url** text field.
 * **Define your HTTP options**
-  * Choose to either allow or diallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
+  * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. As of now, HTTP/1.1 or HTTP/2 are options.
   * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF
     * If you enable this, you'll need to define a timeout value by entering a numerical value in the **Connect timeout** text field by either typing in a numerical value or using the arrow keys in the text field.
   * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.&#x20;
     * If you enable this, you'll need to define a read timeout value by entering a numerical value in the **Read timeout** text field by either typing in a numerical value or using the arrow keys in the text field.
   * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.&#x20;
-  * **Configure your idle timeout settings**: defiens the maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, allowing to free the associated resources. To configure this, enter in a numerical value or using the arrow keys in the text field.
+  * **Configure your idle timeout settings**: defines the maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, allowing to free the associated resources. To configure this, enter in a numerical value or using the arrow keys in the text field.
   * Choose to follow HTTP redirects or not: toggle **Follow HTTP redirects** ON or OFF.
-  * Define the number of max concurent connections: enter in a numerical value or using the arrow keys in the text field.
+  * Define the number of max concurrent connections: enter in a numerical value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header: toggle **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Add HTTP headers: select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
 * **Define your Proxy options**
@@ -184,4 +188,49 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
     * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
 * **Define your SSL options**
 * **Define your Key store**
+
+#### **Message endpoints**
+
+If youse chose **Message** as your API architecture, you will be able to choose from the following endpoints:
+
+* Endpoint Mock
+* MQTT 5.X
+* Kafka
+
+Depending on which endpoint you choose, you will need to further define certain sets of endpoint configurations. Please see the tabs below to learn more about endpoint configuration per each available endpoint:&#x20;
+
+{% tabs %}
+{% tab title="Endpoint Mock" %}
+The Endpoint Mock endpoint allows you to mock a backend service to emulate the behavior of a typical HTTP server and test processes. If you choose this endpoint, you will need to configure:
+
+* **Interval between messages publication:** this defines the interval between published messages (in ms); the default is 1000
+* **Content of published messages:** this defines the content of the message body that will be streamed; the default is "mock message"
+* **Count of published messages:** this defines the specific limit of published messages as an integer that you want streamed as a part of the mocking; if not specified, there will be no limit
+
+<figure><img src="../../.gitbook/assets/Mock endpoint config.gif" alt=""><figcaption><p>Mock Endpoint config</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="MQTT 5.X" %}
+The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x. This is done by the Gravitee Gateway setting up an MQTT client. If you choose this endpoint, you will need to configure:
+
+* **How the Gateway will interact the broker:** you can tell the Gravitee Gateway's MQTT client to act as either a producer, a consumer, or both a producer and consumer. To do this, choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu. Here is an explanation of what each option will result in:
+  * **Use Producer**: tells the Gateway MQTT client to be prepared to produce messages and send them to the MQTT broker that you will define as your endpoint
+  * **Use Consumer**: tells the Gateway MQTT client to be prepared to consume messages from the MQTT broker that you will define as your endpoint
+  * **Use Producer and Consumer**: tell the Gateway MQTT client to do both of the above
+* **Define the Server host**: define the serverHost for the MQTT broker that you are using as your endpoint
+* **Define the Server port**: define the serverPort for the MQTT broker that you are using as your endpoint
+* **Define Reconnect attempts:** this sets the number of reconnect attemps that the Gateway will initiate if there is any kind of disconnecton between the Gateway MQTT client and the MQTT broker; the maximum is 10
+* **Session expiry interval: t**his interval defines the period of time that the broker stores the session information of that particular MQTT client. When the session expiry interval is set to **0** or the CONNECT packet does not contain an expiry value, the session information is immediately removed from the broker as soon as the network connection of the client closes.
+* **Enable or disable Clean start:** toggle **Clean start** ON or OFF to enable the **cleanStart** tag. This tag tells the MQTT broker to discard any previous session data and the Gateway MQTT client will start with a fresh session upon connection
+* **Define initial security settings:** you will define more Gravitee Gateway-specific security settings later on, but this is where you will define your MQTT-specific authentication flow. Gravitee supports username and password using TLS. You will need to define:
+  * Username
+  * Password
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer** earlier on): this is where you define the settings that the Gravitee Gateway MQTT client will rely on for producing messages to your backend MQTT topic/broker. You will need to define:
+  * Topic: the UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).&#x20;
+  * **Retain settings**: define if the retain flag must be set for every published messages. The broker stores the last retained message. To define this, toggle **Retained** ON or OFF.
+  * **Message expiry interval:** defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the retained=true option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
+  * **Response topic**: represents the topics on which the responses from the receivers of the message are expected
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer** earlier on): this is where you define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You will just need to define the **Topic** from which the Gateway MQTT client will consume messages.
+{% endtab %}
+{% endtabs %}
 
