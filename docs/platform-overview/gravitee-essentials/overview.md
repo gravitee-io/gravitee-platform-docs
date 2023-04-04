@@ -1,5 +1,5 @@
 ---
-description: The birds-eye view
+description: Before you dive in
 ---
 
 # Overview

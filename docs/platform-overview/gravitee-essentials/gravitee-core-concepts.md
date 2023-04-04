@@ -1,5 +1,5 @@
 ---
-description: Introduction to the Gravitee ecosystem
+description: Bird's-eye view of the Gravitee ecosystem
 ---
 
 # Gravitee Core Concepts
