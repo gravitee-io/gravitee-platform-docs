@@ -246,11 +246,11 @@ A `Principal` object represents the currently authenticated user who is making t
 
 **Other object properties:**
 
-| Object Property | Description                                                                           | Type        | Example                           |
-| --------------- | ------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
-| attributes      | Retrieves all attribute values                                                        | key / value | "ou" → \["Test team", "Dev team"] |
-| defined         | Returns true if the principal object is defined and contains values. False otherwise. | boolean     | -                                 |
-| dn              | Fully qualified domain name                                                           | string      | -                                 |
+| Object Property | Description                                                                                     | Type        | Example                           |
+| --------------- | ----------------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
+| attributes      | Retrieves all the `Prinicipal` object's domain name object properties listed in the table above | key / value | "ou" → \["Test team", "Dev team"] |
+| defined         | Returns true if the principal object is defined and contains values. False otherwise.           | boolean     | -                                 |
+| dn              | Fully qualified domain name                                                                     | string      | -                                 |
 
 If the principal object is not defined, all values are empty.
 
