@@ -67,12 +67,12 @@ Policies are rules or logic that can be executed by the API gateway during the r
 * Dynamic routing policies: policies that are used to dispatch inbound calls to different targets/endpoints or to rewrite URIs
   * For example, you could use a dynamic routing policy to redirect requests from `http://gateway/apis/store/12/info` to `http://backend_store12/info`
 
-Another Gravitee term you’ll often hear mentioned is **plugins**. [Plugins](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html) are components that additional functionality by _plugging into_ the Gravitee ecosystem. Policies are simply a type of plugin. In other words, policies are a feature or function that are enabled through the functionality known as plugins. Check out the [plugin marketplace](https://www.gravitee.io/plugins) to see what plugins are currently available from both Gravitee and the community.&#x20;
+Another Gravitee term you’ll often hear mentioned is **plugins**. [Plugins](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html) are components that additional functionality by _plugging into_ the Gravitee ecosystem. Policies are simply a type of plugin. In other words, policies are a feature or function that is enabled through the functionality known as plugins. Check out the [plugin marketplace](https://www.gravitee.io/plugins) to see what plugins are currently available from both Gravitee and the community.&#x20;
 
 {% hint style="info" %}
-**Plugins guide**
+**Custom plugins**
 
-Check out our plugins guide for a much deeper dive and learn how to build your. own custom plugins.
+Looking to build your own plugin? Check out this guide to learn how.
 {% endhint %}
 
 ### API Developer Portals & API Productization <a href="#api-developer-portals-api-productization-6" id="api-developer-portals-api-productization-6"></a>
