@@ -302,9 +302,9 @@ You can use the EL to update some aspects of policy configuration. The policy sp
 
 ## Mixin
 
-In previous examples, we showed various ways to manipulate objects available in the EL context. You can also mix property usage to provide an increasingly dynamic configuration.
+In previous examples, we showed various ways to manipulate objects available in the EL context. You can also mix root-level object property usage to provide an increasingly dynamic configuration.
 
-For example, we can retrieve the value of an HTTP header where the name is based on an API property named `my-property`:
+For example, we can retrieve the value of an HTTP header where the name is based on an API custom property named `my-property`:
 
 `{#request.headers[#properties['my-property']]}`
 
@@ -312,12 +312,12 @@ For example, we can retrieve the value of an HTTP header where the name is based
 
 You can also use the EL to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as `&&` or `||`, as shown in the example below:
 
-`{#request.headers['my-header'] != null && #request.headers['my-header'][0] == "my-value"}`
+`{#request.headers['my-header'] != null && #request.headers['my-header'] == "my-value"}`
 
 {% hint style="info" %}
 **Alternate equality check**
 
-An alternative method is to use the `equals()` method instead of `==`. When you use `.equals()`, it is recommended to put the string first to prevent an error if `#request.headers['my-header'][0]` is `null` - for example, then `'my-value'.equals(#request.headers['my-header'][0])`will prevent an error.
+An alternative method is to use the `equals()` method instead of `==`. When you use `.equals()`, it is recommended to put the string first to prevent an error if `#request.headers['my-header']` is `null` - for example, then `'my-value'.equals(#request.headers['my-header'])`will prevent an error.
 {% endhint %}
 
 ## Debugging
@@ -330,7 +330,7 @@ If you are having a hard time debugging your expression, here's the best way to 
 
 `{#request.content.length() >= 10}`
 
-When testing, you are expecting the condition to be `false` and stop the flow from executing, but the flow continues to function unexpectedly. So how do you know the actual output of the `#request.content.length()` expression? You can easily check the output of an expression using the assign-attributes policy as shown in the arcade below:
+When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. So how do you know the actual output of the `#request.content.length()` expression? You can easily check the output of an expression using the assign-attributes policy as shown in the arcade below:
 
 {% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %}
 
