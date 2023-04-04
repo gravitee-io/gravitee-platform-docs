@@ -35,15 +35,15 @@ EL allows you to reference certain values injected into the EL context as object
 * `{#endpoints}` : Contains information about the gateway API's respective endpoint.
 * `{#request}` : Contains information about the current API request.
 * `{#response}` : Contains information about the current API response.
-* `{#context.attributes}` : Contains attributes automatically created by the APIM gateway during an API transaction.
+* `{#context.attributes}` : Contains attributes automatically created by the APIM gateway during an API transaction or added during the execution phase through the [assign-attributes policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html).
 
 {% hint style="info" %}
 **Object properties: custom properties vs attributes**
 
 * **Custom Properties:** defined at the API level and are read-only during the gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html).
-* **Attributes:** scoped to the current API transaction, and can be manipulated during the execution phase through the [`assign-attributes` policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html). You can view attributes like a kind of variable that is dropped after the API transaction is completed.
+* **Attributes:** scoped to the current API transaction, and can be manipulated during the execution phase through the[`assign-attributes` policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html). You can view attributes like a kind of variable that is dropped after the API transaction is completed.
 
-Please keep in mind both custom properties and attributes are still _object properties._ Object properties are simply variables that belong to an object. They are part of an object's structure and can be accessed and modified using dot notation or bracket notation.
+Please keep in mind both custom properties and attributes are still _object properties._ Object properties are simply variables that belong to an object. They are part of an object's structure and can be accessed using dot notation or bracket notation.
 
 On the other hand, custom properties and attributes are terms that have special meaning in the Gravitee ecosystem as defined above. They can both be accessed through their associated, root-level object property.
 {% endhint %}
@@ -106,15 +106,21 @@ As an API publisher, you can define custom [properties](https://docs.gravitee.io
 #### **Examples**
 
 * Get the value of the property `my-property` defined in an API's custom properties: `{#properties['my-property']}`
-* Get the value of the property `my-secret` defined and [encrypted](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) in an API's Properties : `{#properties['my-secret'}` to pass a secured property to your backend
+* Get the value of the property `my-secret` defined and [encrypted](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) in an API's custom properties : `{#properties['my-secret']}` to pass a secured property to your backend
+
+{% hint style="info" %}
+**Encrypted custom properties**
+
+When accessing an encrypted custom property, Gravitee's gateway will automatically manage the decryption and provide a plaintext value.
+{% endhint %}
 
 ### Dictionaries
 
-[Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary id (visible in the URL) as well as the dictionary property name. Dictionary properties are simply key-value pairs.
+[Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary id as well as the dictionary property name. Dictionary properties are simply key-value pairs.
 
 #### **Example**
 
-* Get the value of the dictionary property `dict-key` defined in dictionary `my-dictionary`: `{#dictionaries['my-dictionary']['dict-key']}`
+* Get the value of the dictionary property `dict-key` defined in dictionary `my-dictionary-id`: `{#dictionaries['my-dictionary-id']['dict-key']}`
 
 ### Endpoints
 
@@ -152,7 +158,7 @@ The object properties you can access for API requests are listed below.
 
 ### Request context attributes
 
-When APIM Gateway handles an incoming API request, some object properties are automatically created which are known as attributes. These attributes can be accessed from `{#request.context}` the object property. Available attributes are listed below:
+When APIM Gateway handles an incoming API request, some object properties are automatically created which are known as attributes. These attributes can be accessed from `{#context.attributes}` the object property. Available attributes are listed below:
 
 | Object Property | Description                                                                                                                                      | Type   | Nullable                |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ----------------------- |
@@ -273,11 +279,12 @@ The object properties you can access for API responses are listed below.
 
 A node is a component that represents an instance of the Gravitee gateway. Each node runs a copy of the gateway, which is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services.
 
-| Property | Description  | Type   | Example                              |
-| -------- | ------------ | ------ | ------------------------------------ |
-| id       | Node id      | string | 975de338-90ff-41ab-9de3-3890ff41ab62 |
-| version  | Node version | string | 3.14.0                               |
-| tenant   | Node tenant  | string | Europe                               |
+| Property     | Description       | Type            | Example                              |
+| ------------ | ----------------- | --------------- | ------------------------------------ |
+| id           | Node id           | string          | 975de338-90ff-41ab-9de3-3890ff41ab62 |
+| version      | Node version      | string          | 3.14.0                               |
+| tenant       | Node tenant       | string          | Europe                               |
+| shardingTags | Node sharding tag | array of string | \[internal,external]                 |
 
 ### Example
 
