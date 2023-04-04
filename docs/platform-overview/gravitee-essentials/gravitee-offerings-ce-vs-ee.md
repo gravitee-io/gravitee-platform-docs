@@ -1,5 +1,5 @@
 ---
-description: The Gravitee basics
+description: Gravitee's core products
 ---
 
 # Gravitee Offerings: CE vs EE
