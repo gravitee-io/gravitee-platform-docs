@@ -1,7 +1,5 @@
 ---
-description: >-
-  Everything you need to know about the Gravitee Community Edition and
-  Enterprise Edition offerings
+description: The Gravitee basics
 ---
 
 # Gravitee Offerings: CE vs EE
