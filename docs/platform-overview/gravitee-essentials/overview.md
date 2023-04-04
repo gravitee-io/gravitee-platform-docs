@@ -4,7 +4,7 @@ description: The birds-eye view
 
 # Overview
 
-Like any software product, Gravitee has some jargon. Some of the terms used in this documentation are common throughout the API management industry while others are specific to Gravitee. The Gravitee Essentials section is focused on detailing the high-level concepts and terminology so you have a solid frame of reference before actually using the product.
+Like any software product, Gravitee assumes some prior knowledge and introduces some new concepts and jargon. Some of the terminology used in the product are common throughout the API management industry while others are specific to Gravitee. The Gravitee Essentials section is focused on introducing the foundational concepts and terminology central to the Gravitee ecosystem.
 
 ### Choose your path
 

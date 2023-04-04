@@ -4,9 +4,9 @@ description: Gravitee's cheat sheet
 
 # Gravitee Glossary
 
-All core Gravitee and related web API terminology defined. Use the search function to quickly look up a definition.
+This section defines all Gravitee and related web API terminology and concepts. Use the search function to quickly look up a definition.
 
-### Gravitee products
+## Gravitee products
 
 * **Gravitee API Management (APIM):** event-native API management platform that helps you design, deploy, manage, and secure synchronous and asynchronous APIs throughout the entire lifecycle
 * **Gravitee Access Management (AM):** apply identity and access management (multi-factor authentication, biometric, etc.) at the API and application levels
@@ -14,62 +14,69 @@ All core Gravitee and related web API terminology defined. Use the search functi
 * **Gravitee API Designer (APID):** design, document, and publish API data models; the community version is limited to one data model
 * **Gravitee Cloud (GC):** centrally manage Gravitee environments and installations and promote APIs across various environments; the community version is limited to one managed environment
 
-### Gravitee product components
+## Gravitee product components
 
-#### APIM
+### APIM
 
 * **Management UI:** a console UI that teams can use to configure their Gateway, design and create APIs, design policies, and publish documentation. Every action in the API management console is tied to a REST API that can be accessed outside the console
 * **Management API:** REST API that can be used to configure and manage APIs and various Gravitee resources
 * **API Gateway:** reverse proxy layer that brokers, secures, and hardens access to APIs and data streams; natively supports both synchronous and asynchronous APIs
 * **API developer portal:** build an API catalog and marketplace for API consumers fit with documentation, API analytics, and more
 
-#### AM
+### AM
 
 *
 
-#### AE
+### AE
 
 *
 
-#### APID
+### APID
 
 *
 
-#### GC
+### GC
 
 *
 
-### Gravitee terminology
+## Gravitee terminology
 
 * ****[**Community Edition:**](gravitee-offerings-ce-vs-ee.md) **** an event-native API management platform comprised of Gravitee’s open-source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products
 * ****[**Enterprise Edition:**](gravitee-offerings-ce-vs-ee.md) **** built on top of our open-source foundations, the enterprise version of our event-native API Management platform adds additional capabilities targeting commercial end users through offerings like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options
-* **Gravitee API definition:** a human and machine-readable JSON representation of everything that the Gravitee gateway needs to know in order for it to proxy, apply policies to, create plans for, etc. your Gateway APIs and their traffic. The Gravitee API definition is to Gateway APIs what the OpenAPI or AsyncAPI definition is to backend APIs.&#x20;
-* **Gateway API:** an API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs have a unique context-path, at least one entrypoint, and an endpoint.
+* **Gravitee API definition:** a human and machine-readable JSON representation of everything that the Gravitee gateway needs to know for it to proxy, apply policies to, create plans for, etc. your Gateway APIs and their traffic. The Gravitee API definition is to Gateway APIs, what the OpenAPI or AsyncAPI specification is to backend APIs.&#x20;
+* **Gateway API:** an API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs have at least one entrypoint and an endpoint.
+* **Gateway API architecture:** _still not finalized_
+  * **Proxy:** _still not finalized_
+  * **Message:** _still not finalized_
 * **Context-path:** unique route to target a specific gateway API. The context path does not include the root URL.
   * Example: If the fully qualified domain name is `https://apim-gateway:8082/my-context-path`, then `/my-context-path` is the context path.
+  * NOTE: _not finalized but some APIs do not have a context-path_
 * **Gateway entrypoint:** defines the protocol and configuration by which the API consumer accesses the gateway API. This essentially defines how the backend API is exposed through the gateway.
 * **Gateway endpoint:** defines the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API
 * **Backend APIs:** source or target API that is proxied by the gateway
 * **API publisher:** the creator, designer, and/or manager of a gateway API
 * **API consumer:** the user accessing the gateway API
 * **Plan:** access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access
-  * **Staging** - generally, this is the first state of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
-  * **Published** - once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
-  * **Deprecated** - you can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
-  * **Closed** - once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
+  * **Staging:** generally, this is the first state of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
+  * **Published:** once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
+  * **Deprecated:** you can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
+  * **Closed:** once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
+* **Plan modes:** _still not finalized_
+  * `Standard` with the policy security required
+  * `Push` with no security required
 * **Application:** allows an API consumer to register and agree to a plan with authentication enabled. This allows the API producer more granular control over access to their secured API
 * **Subscription:** a contract between an API consumer and API producer that requires the gateway API to have a plan and the consumer to have at least one application
-* **Resource:** provide a way to define reusable sets of configuration
+* **Resource:** a way to define reusable sets of configuration
 * **Plugin:** components that additional functionality by _plugging into_ the Gravitee ecosystem
 * **Policy:** rules or logic that can be executed by the API gateway during the request or the response of an API call. The functionality of the plugin is enabled through plugins
-* **API design studio:** UI that allows you to interactively create a gateway API
+* **API design studio:** UI that allows you to interactively create a backend API
 * **Flow:** method to control where and under what conditions policies act on an API call
 * **Sharding tags:** a tag that can be assigned to gateway and gateway APIs to provide a method to deploy a gateway API to a subset of gateways. Sharding tags can be mapped to a gateway’s fully qualified domain name which allows the developer portal to intelligently display different access URLs depending on the API’s sharding tags.
 * **Tenants:** a tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on the gateway receiving the request
-* **Gravitee Expression language (EL):** language used by API publishers to configure various aspects and services of an API that supports querying and manipulating an object graph and is a superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language)
-* **Execution context:** data available during the request/response flow of an API call that can be accessed using the GEL
+* **Gravitee expression language (EL):** a superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language) used by API publishers to dynamically configure various aspects and policies of an API by referencing object properties from the current API transaction
+* **Execution context:** the runtime environment in which APIs are deployed and executed. It includes various components and settings that are used during the processing of API transactions.
 
-### General API terminology
+## General API terminology
 
 * **Application programming interface (API):** a set of _publicly_ exposed interface conventions for the **** _application programmer_ to interact with
   * **Web API:** the interacting parties run on separate machines and communicate over a network
@@ -79,6 +86,7 @@ All core Gravitee and related web API terminology defined. Use the search functi
 In Gravitee's documentation, you can assume web APIs and APIs are synonymous terms; otherwise, we will explicitly refer to them as **local** APIs.
 {% endhint %}
 
+* **API transaction:** a single interaction between a client application and a server through an API. For synchronous APIs, it typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. For asynchronous APIs, an API transaction refers to a single transmission of a message payload between a client and a message broker
 * **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
 * **HTTP API route:** URL used to access a resource
   * Example: `http://foo.com/api/user/1`
@@ -109,7 +117,7 @@ In Gravitee's documentation, you can assume web APIs and APIs are synonymous ter
 {% hint style="info" %}
 **Events vs Messages**
 
-Although often used synonymously, you can draw a distinction between an event and a message. Sometimes people will say a message is the directed carrier of the event, while the event is the actual change in state to be observed. However, these terms actually have a deeper, technical distinction which is outlined well by the [Reactive Manifesto](https://www.reactivemanifesto.org/glossary#Message-Driven):
+Although often used synonymously, you can draw a distinction between an event and a message. Sometimes people will say a message is the directed carrier of the event, while the event is the actual change in state to be observed. However, these terms have a deeper, technical distinction which is outlined well by the [Reactive Manifesto](https://www.reactivemanifesto.org/glossary#Message-Driven):
 
 > "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
 {% endhint %}
