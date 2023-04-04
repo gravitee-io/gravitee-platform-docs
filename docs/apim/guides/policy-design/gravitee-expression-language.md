@@ -201,9 +201,11 @@ The object properties you can access in the `ssl` session object from the `{#req
 
 A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions. The `Principal` object is typically used with security policies, such as OAuth2, JWT, or basic authentication, to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
-`client` and `server` are objects of type `Principal` and the object properties you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below:
+`client` and `server` are objects of type `Principal`. If the `Principal` object is not defined, all values are empty.
 
-**Common domain name object properties:**
+Otherwise, the attributes you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below:
+
+**Common domain name attributes:**
 
 | Object Property        | Description                            | Type   | Example              |
 | ---------------------- | -------------------------------------- | ------ | -------------------- |
@@ -244,15 +246,19 @@ A `Principal` object represents the currently authenticated user who is making t
 | uniqueIdentifier       | Naming attributes of type X520name     | string | -                    |
 | unstructuredAddress    | Unstructured address (from PKCS#9)     | string | -                    |
 
-**Other object properties:**
+{% hint style="info" %}
+**Limitation on arrays**
 
-| Object Property | Description                                                                                     | Type        | Example                           |
-| --------------- | ----------------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
-| attributes      | Retrieves all the `Prinicipal` object's domain name object properties listed in the table above | key / value | "ou" → \["Test team", "Dev team"] |
-| defined         | Returns true if the principal object is defined and contains values. False otherwise.           | boolean     | -                                 |
-| dn              | Fully qualified domain name                                                                     | string      | -                                 |
+All attributes of the `Principal`object are flattened to be accessed directly with dot or bracket notation. While some of these attributes can be arrays, EL will only return the first item in the array. If you want to retrieve all values of an attribute, you can use the `attributes` object property shown in the table below.
+{% endhint %}
 
-If the principal object is not defined, all values are empty.
+**Other attributes:**
+
+| Object Property | Description                                                                              | Type        | Example                           |
+| --------------- | ---------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
+| attributes      | Retrieves all the `Prinicipal` object's domain name attributes listed in the table above | key / value | "ou" → \["Test team", "Dev team"] |
+| defined         | Returns true if the principal object is defined and contains values. False otherwise.    | boolean     | -                                 |
+| dn              | Fully qualified domain name                                                              | string      | -                                 |
 
 #### Examples <a href="#examples" id="examples"></a>
 
