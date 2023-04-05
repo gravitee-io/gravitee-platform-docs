@@ -89,7 +89,7 @@ Please refer to the [load-balancing concepts section](broken-reference) if you n
 
 ![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/accdc8c6-ee91-4bd6-a351-9c3a2656360f/stack\_animation.webp)
 
-15\. **** Optional: **select** Secondary endpoint to define this endpoint outside the main load balancing pool. This will make the endpoint used for load balancing only if all the primary endpoints are marked as down by the health check.
+15\. Optional: **select** Secondary endpoint to define this endpoint outside the main load balancing pool. This will make the endpoint used for load balancing only if all the primary endpoints are marked as down by the health check.
 
 ![](https://ajeuwbhvhr.cloudimg.io/colony-recorder.s3.amazonaws.com/files/2023-03-07/49f626c6-5ee4-45df-a8f3-5cb76bbcb15d/ascreenshot.jpeg?tl\_px=763,1098\&br\_px=2256,1938\&sharp=0.8\&width=560\&wat\_scale=50\&wat=1\&wat\_opacity=0.7\&wat\_gravity=northwest\&wat\_url=https://colony-labs-public.s3.us-east-2.amazonaws.com/images/watermarks/watermark\_default.png\&wat\_pad=262,141)
 

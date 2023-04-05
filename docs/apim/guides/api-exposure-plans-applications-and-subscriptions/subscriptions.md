@@ -22,18 +22,22 @@ You can also subscribe to APIs during the [application creation process.](plans-
 
 {% @arcade/embed flowId="GOpV3Hu4ggkF5On3jCy9" url="https://app.arcade.software/share/GOpV3Hu4ggkF5On3jCy9" %}
 
+It is important to reiterate that API consumers can only request a subscription for APIs they have access to. This means they must either be a member of the API or the API must be made public.
+
 ## Manage subscriptions
 
 The following sections describe how to manage subscription requests from consumers.
 
 ### Approve a subscription
 
-When publishers create new plans, they can specify auto-validation of subscriptions, so consumers are ready to access the API as soon as they subscribe to the plan. If you set manual approval on a plan, however, you must approve subscriptions by following these steps.
+When publishers create new plans, they can specify a[uto-validation of subscriptions](plans.md#general), so consumers are ready to access the API as soon as they subscribe to the plan. If you set manual approval on a plan, however, you must approve all subscription requests.
 
 {% hint style="info" %}
 **Subscription request notifications**
 
-You can enable mail or portal notifications so you can be notified when a subscription validation task requires your attention.
+You can enable mail or portal notifications so you can be notified when a subscription validation task requires your attention. Simply select your API, scroll down and select **Notifications**, select **Portal Notification** or **Default Mail Notifications**, and select the types of events you want to trigger notifications.&#x20;
+
+Portal notifications are delivered both inside of APIM's management UI and the developer portal.
 {% endhint %}
 
 1. Go to your API in APIM Management and click **Portal > Subscriptions**.

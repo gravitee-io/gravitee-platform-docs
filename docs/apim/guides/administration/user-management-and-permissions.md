@@ -4,7 +4,7 @@ description: >-
   permissions, users, and user groups.
 ---
 
-# Administer Roles, Scopes, Permissions, Users, and User Groups
+# User Management and Permissions
 
 ### Introduction
 
@@ -147,7 +147,7 @@ To create a custom "Writer" role, follow these steps:
 2. Select **Organizations** from the left-hand nav
 3. Select **Roles** under **User Management**
 4.  At the **API** scope, select **+ Add a role**\
-    ****
+
 
     <figure><img src="../../.gitbook/assets/Add an API scope role.gif" alt=""><figcaption><p>Create an API scope role</p></figcaption></figure>
 5. Enter in "**Writer**" in the **Role name** text field
@@ -228,4 +228,4 @@ Once a User group is created, you will be able to:
 If you are making a change to your User group, you can either:
 
 * Reset the User group settings by selecting **Reset** under **Actions**
-* Update the User group **** to save new settings by selecting **Update** under **Actions**
+* Update the User group to save new settings by selecting **Update** under **Actions**

@@ -181,7 +181,7 @@ One of Gravitee's major differentiators is an ability to create, manage, and sec
 {% tab title="Selecting your API architecture" %}
 If using the API creation wizard, you will be asked to **Select your API architecture. You will have two options:**
 
-1. HTTP proxy: this will be used if you want to proxy Web APIs can **** be accessed via the HTTP protocol. If you choose this option, you will define endpoints and valid request and response formats.
+1. HTTP proxy: this will be used if you want to proxy Web APIs can be accessed via the HTTP protocol. If you choose this option, you will define endpoints and valid request and response formats.
 
 {% hint style="info" %}
 If you are hoping to use Gravitee to manage, secure, govern, and expose REST APIs, pure Websocket proxy, SOAP APIs, or pure gRPC proxy, this is typically your best option.&#x20;
