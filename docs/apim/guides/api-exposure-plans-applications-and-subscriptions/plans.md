@@ -46,7 +46,7 @@ The **Subscriptions** section lets you configure basic settings around a subscri
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.07.37 PM.png" alt=""><figcaption><p>Basic subscription setting</p></figcaption></figure>
 
-Toggling **Auto validate subscription** means you will **** accept any and all subscriptions to a plan without the API publisher's review. These subscriptions can be modified at any time.
+Toggling **Auto validate subscription** means you will accept any and all subscriptions to a plan without the API publisher's review. These subscriptions can be modified at any time.
 
 You can require all subscription requests from API consumers to include a comment detailing their request. Additionally, with this option enabled, the API publisher can leave a default message explaining what is expected in the API consumer's comment.
 
@@ -56,7 +56,7 @@ The final two sections in the **General** stage are **Deployment** and **Access-
 
 The **Deployment** section allows you to selectively deploy the plan to particular APIs using sharding tags which you can learn more about [here](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
 
-**Access-Control** lets you **** prevent specified groups from accessing this plan. You can learn more about user management and how to configure groups here.
+**Access-Control** lets you prevent specified groups from accessing this plan. You can learn more about user management and how to configure groups here.
 
 ### Secure
 
@@ -98,7 +98,7 @@ There are some additional considerations when using a plan with JWT or OAuth 2.0
 
 ### Keyless plan
 
-The Keyless **** authentication type **** does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback. Due to not requiring a subscription and a lack of a consumer identifier token, keyless consumers are set as `unknown application` in the API analytics section.
+The Keyless authentication type does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback. Due to not requiring a subscription and a lack of a consumer identifier token, keyless consumers are set as `unknown application` in the API analytics section.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.39.10 PM.png" alt=""><figcaption><p>Keyless authentication type</p></figcaption></figure>
 
@@ -240,7 +240,7 @@ jwt:
 
 Once JWT configuration is complete and the plan is created and published, your API will be JWT secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.
 
-### Oauth 2.0
+### OAuth 2.0
 
 The OAuth 2.0 authentication type checks access token validity during request processing using token introspection. If the access token is valid, the request is allowed to proceed. If not, the process stops and rejects the request.
 
@@ -260,7 +260,7 @@ Configuring an OAuth 2.0 plan presents the following options:
     {#context.attributes['oauth.payload']}
     ```
 * **Check scopes:** an authorization server can grant access tokens with a [scopes](https://tools.ietf.org/html/rfc6749#section-3.3) parameter. With this setting enabled, the gateway will check the scopes parameter against the provided **Required scopes** to determine if the client application is allowed to access the API
-* **Mode strict:** enabled by default. With mode strict disabled, the gateway will validate the API call if it access token contains one scope from the **Required scopes** list
+* **Mode strict:** enabled by default. With mode strict disabled, the gateway will validate the API call if the access token contains _at least one_ scope from the **Required scopes** list. Strict mode requires the access token to contain _all_ scopes from the **Required scopes** list.
 * **Propagate Authorization header:** propagate the header containing the access token to the backend APIs
 
 Your API is now OAuth 2.0 secured and consumers must call the API with an `Authorization Bearer :token:` HTTP header to access the API resources.
