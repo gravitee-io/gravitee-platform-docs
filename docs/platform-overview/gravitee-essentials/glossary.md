@@ -41,8 +41,8 @@ This section defines all Gravitee and related web API terminology and concepts. 
 
 ## Gravitee terminology
 
-* ****[**Community Edition:**](gravitee-offerings-ce-vs-ee.md) **** an event-native API management platform comprised of Gravitee’s open-source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products
-* ****[**Enterprise Edition:**](gravitee-offerings-ce-vs-ee.md) **** built on top of our open-source foundations, the enterprise version of our event-native API Management platform adds additional capabilities targeting commercial end users through offerings like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options
+* [**Community Edition:**](gravitee-offerings-ce-vs-ee.md) an event-native API management platform comprised of Gravitee’s open-source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products
+* [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee.md) built on top of our open-source foundations, the enterprise version of our event-native API Management platform adds additional capabilities targeting commercial end users through offerings like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options
 * **Gravitee API definition:** a human and machine-readable JSON representation of everything that the Gravitee gateway needs to know for it to proxy, apply policies to, create plans for, etc. your Gateway APIs and their traffic. The Gravitee API definition is to Gateway APIs, what the OpenAPI or AsyncAPI specification is to backend APIs.&#x20;
 * **Gateway API:** an API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs have at least one entrypoint and an endpoint.
 * **Gateway API architecture:** _still not finalized_
@@ -68,7 +68,7 @@ This section defines all Gravitee and related web API terminology and concepts. 
 * **Subscription:** a contract between an API consumer and API publisher that requires the gateway API to have a plan and the consumer to have at least one application
 * **Resource:** a way to define reusable sets of configuration
 * **Plugin:** components that provide additional functionality by _plugging into_ the Gravitee ecosystem
-* **Policy:** rules or logic that can be executed by the API gateway during the request or the response of an API call. The functionality of the policy is enabled through plugins
+* **Policy:** rules or logic that can be executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins
 * **API design studio:** a component of APIM's management UI that allows you to interactively create a gateway API
 * **Flow:** method to control where, and under what conditions, policies act on an API transaction
 * **Sharding tags:** a tag that can be assigned to gateway and gateway APIs to provide a method to deploy a gateway API to a subset of gateways. Sharding tags can be mapped to a gateway’s fully qualified domain name which allows the developer portal to intelligently display different access URLs depending on the API’s sharding tags.
@@ -78,7 +78,7 @@ This section defines all Gravitee and related web API terminology and concepts. 
 
 ## General API terminology
 
-* **Application programming interface (API):** a set of _publicly_ exposed interface conventions for the **** _application programmer_ to interact with
+* **Application programming interface (API):** a set of _publicly_ exposed interface conventions for the _application programmer_ to interact with
   * **Web API:** the interacting parties run on separate machines and communicate over a network
   * **Local API:** both interacting parties run on the same machine
 
@@ -129,7 +129,7 @@ Although often used synonymously, you can draw a distinction between an event an
   * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
   * **Application layer:** a conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network
 * **API architectural style:** guidelines and/or constraints around API design
-  * **Representational state transfer (REST)**: an architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _**** representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
+  * **Representational state transfer (REST)**: an architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
     * Example: `GET http://foo/user/1` vs `POST http://foo/user/1`
   * **Remote procedure call (RPC):** a less rigid architectural style that employs action-centric URLs. These URLs represent remote functions and RPC APIs communicate over the network to invoke them. The HTTP verb employed has no real bearing on functionality as every action will have a unique URL.
     * Example: `GET http://foo/getUser` vs `POST http://foo/addUser`
@@ -165,7 +165,7 @@ These are two really tricky concepts to disambiguate, largely due to how similar
 * **Batch processing:** processing and analysis on a large (large in comparison to stream processing) set of data that has already been stored for a period of time
 * **Stream processing:** applying complex logic to an array of input streams as they flow through the system that can be joined, aggregated, filtered, etc.
 * **Data-interchange format:** text or binary serialized formats for storing and transferring data
-* **Serialization:** the **** process of converting an object in memory to a stream of bytes for storage or transport
+* **Serialization:** the process of converting an object in memory to a stream of bytes for storage or transport
 * **Deserialization:** the inverse process of serialization that converts a stream of bytes back into a complex object
 * **Domain name:** part of a network address that identifies a realm of administrative autonomy, authority or control
 * **Fully qualified domain name (FQDN):** a domain name that specifies its exact location in the tree hierarchy of the Domain Name System
