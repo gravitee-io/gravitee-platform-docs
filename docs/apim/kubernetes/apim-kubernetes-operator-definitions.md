@@ -152,7 +152,7 @@ Read more about `ApiDefinition` [here](apim-kubernetes-operator-user-guide-api-d
 
 ## `ApiResource`
 
-The `ApiResource` custom resource allows you to use the GKO to create reusable [API resources](../user-guide/publisher/resources/resources-overview.md) by applying the `ApiResource` custom resource definition. This enables you to define resources such as cache or authentication providers once only and maintain them in a single place, and then reuse them in multiple APIs - any further updates to such a resource will be automatically propagated to all APIs containing a reference to that resource.
+The `ApiResource` custom resource allows you to use the GKO to create reusable [API resources](broken-reference) by applying the `ApiResource` custom resource definition. This enables you to define resources such as cache or authentication providers once only and maintain them in a single place, and then reuse them in multiple APIs - any further updates to such a resource will be automatically propagated to all APIs containing a reference to that resource.
 
 Read more about `ApiResource` [here](apim-kubernetes-operator-user-guide-reusable-resources.md).
 

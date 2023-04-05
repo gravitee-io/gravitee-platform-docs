@@ -2,7 +2,7 @@
 
 ## Overview
 
-To enable synchronization of CRDs with a remote [management API](broken-reference), you need to create a Management Context referring to an existing [organization and environment](../user-guide/admin/admin-guide-organizations-and-environments.md).
+To enable synchronization of CRDs with a remote [management API](broken-reference), you need to create a Management Context referring to an existing [organization and environment](broken-reference).
 
 You can create multiple Management Contexts, each targeting a specific environment and defined in a specific organization of a management API instance.
 

@@ -25,7 +25,7 @@ For upgrade instructions, please refer to the [APIM Migration Guide](installatio
 * Allow to delete a media using the Management API
 * \[V4 BETA M-API] Manage v4 APIs subscriptions as an API Publisher & an API Consumer
 
-[Event-Native API Management (Beta)](../guides/v4-beta/v4-beta-event-native-apim-introduction.md)
+[Event-Native API Management (Beta)](broken-reference)
 
 * Endpoint - Kafka Connector Advanced (EE)
   * Ability to connect to a secured Kafka cluster

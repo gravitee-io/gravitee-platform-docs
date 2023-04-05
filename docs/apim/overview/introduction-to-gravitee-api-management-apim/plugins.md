@@ -4,7 +4,7 @@
 
 Plugins are additional components that can be _plugged into_ [APIM Gateway](broken-reference) or [APIM API](broken-reference). They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
-For more information about plugins, including how to deploy them and details of their directory structure, see the [Plugins Developer Guide](../../dev-guide/dev-guide-plugins.md).
+For more information about plugins, including how to deploy them and details of their directory structure, see the [Plugins Developer Guide](../../guides/developer-contributions/dev-guide-plugins.md).
 
 ## Types of Plugins
 
@@ -44,7 +44,7 @@ Examples of a policy are:
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
-Want to know how to create, use, and deploy a custom policy? Check out the [Policies Developer Guide](../../dev-guide/dev-guide-policies.md).
+Want to know how to create, use, and deploy a custom policy? Check out the [Policies Developer Guide](../../guides/developer-contributions/dev-guide-policies.md).
 
 ### Reporters
 
@@ -59,7 +59,7 @@ _Out-of-the-box_ reporters are :
 * Elasticsearch Reporter
 * File Reporter
 
-As with all plugins, you can create, use and deploy custom reporters as described in the [Plugins Developer Guide](../../dev-guide/dev-guide-plugins.md).
+As with all plugins, you can create, use and deploy custom reporters as described in the [Plugins Developer Guide](../../guides/developer-contributions/dev-guide-plugins.md).
 
 ### Repositories
 
@@ -73,7 +73,7 @@ A **resource** can be added to an API for its whole lifecycle. APIM comes with t
 * OAuth2 - Gravitee Access Management
 * OAuth2 - Generic Authorization Server
 
-You can find more information in the [Resources](../../user-guide/publisher/resources/resources-overview.md) section of the API Publisher Guide.
+You can find more information in the [Resources](broken-reference) section of the API Publisher Guide.
 
 ### Notifiers
 

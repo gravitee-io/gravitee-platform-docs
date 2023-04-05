@@ -8,7 +8,7 @@ To expose your API to internal or external consumers, it must have at least one 
 
 ## Create a plan
 
-Plans are always created by the API publisher. You can create plans in the management UI as part of the [API creation process](../../user-guide/publisher/create-api.md#create-an-api-from-scratch). You can also create them later with the **Portal > Plans** function as shown below.
+Plans are always created by the API publisher. You can create plans in the management UI as part of the [API creation process](broken-reference). You can also create them later with the **Portal > Plans** function as shown below.
 
 {% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
 

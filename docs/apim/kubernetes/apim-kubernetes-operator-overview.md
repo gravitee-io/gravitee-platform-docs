@@ -6,7 +6,7 @@ APIM 3.19.0 has introduced the BETA release of the Gravitee Kubernetes Operator 
 
 You can use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway and to manage Custom Resource Definitions (CRDs) as part of the process.
 
-The GKO also enables you to create reusable [API resources](../user-guide/publisher/resources/resources-overview.md) by applying the [`ApiResource` custom resource definition](apim-kubernetes-operator-user-guide-reusable-resources.md). This enables you to define resources such as cache or authentication providers once only and maintain them in a single place, and then reuse them in multiple APIs - any further updates to such a resource will be automatically propagated to all APIs containing a reference to that resource.
+The GKO also enables you to create reusable [API resources](broken-reference) by applying the [`ApiResource` custom resource definition](apim-kubernetes-operator-user-guide-reusable-resources.md). This enables you to define resources such as cache or authentication providers once only and maintain them in a single place, and then reuse them in multiple APIs - any further updates to such a resource will be automatically propagated to all APIs containing a reference to that resource.
 
 In future releases, the GKO will support additional functionality to enable the following:
 

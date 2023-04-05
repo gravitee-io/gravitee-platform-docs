@@ -2,7 +2,7 @@
 
 ## Creating a reusable API resource
 
-You can use the GKO to create reusable [API resources](../user-guide/publisher/resources/resources-overview.md) by applying the [ApiResource CRD](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/docs/api/reference.md#apidefinitionspecresourcesindex). This enables you to define resources such as cache or authentication providers once only and maintain them in a single place, and then reuse them in multiple APIs - any further resource changes will be automatically propagated to all APIs containing a reference to the updated resource(s).
+You can use the GKO to create reusable [API resources](broken-reference) by applying the [ApiResource CRD](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/docs/api/reference.md#apidefinitionspecresourcesindex). This enables you to define resources such as cache or authentication providers once only and maintain them in a single place, and then reuse them in multiple APIs - any further resource changes will be automatically propagated to all APIs containing a reference to the updated resource(s).
 
 The example below shows a [redis cache resource](https://docs.gravitee.io/apim/3.x/apim\_resources\_cache\_redis.html) that can be applied using the `ApiResource` CRD:
 
