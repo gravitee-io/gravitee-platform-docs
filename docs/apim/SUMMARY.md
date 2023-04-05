@@ -241,7 +241,7 @@
   * [Authentication and SSO](guides/administration/authentication-and-sso.md)
 * [Developer Contributions](guides/developer-contributions/README.md)
   * [Custom Plugins](guides/developer-contributions/dev-guide-plugins.md)
-  * [Policies](guides/developer-contributions/dev-guide-policies.md)
+  * [Custom Policies](guides/developer-contributions/dev-guide-policies.md)
 
 ## Reference
 
