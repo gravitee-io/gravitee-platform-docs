@@ -1,15 +1,15 @@
 ---
-description: Creating and managing subscriptions
+description: Validating and managing subscriptions
 ---
 
 # Subscriptions
 
-A subscription is a successful contract between an API publisher and an API consumer. Subscriptions are created when an API consumer uses a registered application to create a subscription request to a published plan, and an API publisher either manually or automatically accepts the subscription.
+A subscription is a successful contract between an API publisher and an API consumer. Subscriptions are created when an API consumer uses a registered application to create a subscription request to a published plan, and an API publisher either manually or automatically validates the subscription.
 
 {% hint style="info" %}
 **Keyless plan subscriptions**
 
-APIs with keyless plans do not require the API consumer to create an application or submit as subscription request as no authentication is required to access the backend API.
+APIs with keyless plans do not require the API consumer to create an application or submit a subscription request as no authorization is required to access the backend API.
 {% endhint %}
 
 ## Subscribe to APIs
@@ -17,10 +17,10 @@ APIs with keyless plans do not require the API consumer to create an application
 After creating an application, API consumers can subscribe to APIs (with published plans) either in the management UI or the developer portal. We will work through the management UI as we have a separate guide dedicated to the developer portal.
 
 {% hint style="info" %}
-You can also subscribe to APIs during the application creation process.
+You can also subscribe to APIs during the [application creation process.](plans-1.md#create-an-application)
 {% endhint %}
 
-Arcade here
+
 
 ## Manage subscriptions
 
