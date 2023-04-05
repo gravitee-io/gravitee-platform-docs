@@ -40,7 +40,7 @@ Since dynamic client registration is an OAuth flow, we first wanted to provide s
 OAuth 2.0 defines four roles:
 
 * **Resource owner**: an entity enabled to grant access to a protected resource. When the resource owner is a person, it is referred to as an _end user_.
-  * You, the owner of the backend APIs Gravitee's gateway is protecting, are the resource owner.
+  * The API publisher, or owner of the backend APIs that Gravitee's gateway is protecting, is the resource owner.
 * **Client:** an application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
   * The API consumer's application attempting to register through the developer portal or management UI is the client.
 * **Resource server:** the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
@@ -56,12 +56,12 @@ Additional Oauth terminology:
 
 * **Redirect URI**: the URL the authorization server will redirect the resource owner back to after granting permission to the client. Often referred to as the callback URL.
 * **Response type:** the type of information the client expects to receive. Generally, it is an authorization code.
-* **Scope:** granular permissions the clients request such as access to data
+* **Scope:** granular permissions the client requests, such as access to data
 * **Consent:** verifies scopes with the resource owner to determine if the client will receive the requested permissions
 * **Client ID:** used to identify the client with the authorization server
 * **Client Secret:** password only the client and authorization server know
 * **Authorization Code:** short-lived code sent back to the client from the authorization server. The client sends the authorization code in combination with the client secret back to the authorization server to receive an access token.
-* **Access Token:** token that the client will use to communicate with the resource server
+* **Access Token:** the token that the client will use to communicate with the resource server
 
 ### Dynamic client registration provider
 
@@ -77,7 +77,7 @@ You are presented with the following options when configuring a client registrat
 
 The **General** section allows you to set a **Name** and **Description** for your client registration provider.
 
-The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. **** The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)&#x20;
+The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)&#x20;
 
 Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or direct provisioning of an **Initial Access Token.** Both of these options are detailed further in the [following section](plans-1.md#dcr-initial-access-token-flows).
 
