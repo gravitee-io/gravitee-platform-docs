@@ -26,11 +26,7 @@ It is important to reiterate that API consumers can only request a subscription 
 
 ## Manage subscriptions
 
-The following sections describe how to manage subscription requests from consumers.
-
-### Approve a subscription
-
-When publishers create new plans, they can specify a[uto-validation of subscriptions](plans.md#general), so consumers are ready to access the API as soon as they subscribe to the plan. If you set manual approval on a plan, however, you must approve all subscription requests.
+When publishers create new plans, they can specify [auto-validation of subscriptions](plans.md#general), so consumers' subscription requests are immediately approved. Otherwise, the API publisher must approve all subscription requests.
 
 {% hint style="info" %}
 **Subscription request notifications**
@@ -40,23 +36,4 @@ You can enable mail or portal notifications so you can be notified when a subscr
 Portal notifications are delivered both inside of APIM's management UI and the developer portal.
 {% endhint %}
 
-1. Go to your API in APIM Management and click **Portal > Subscriptions**.
-2. Select the **Pending** subscription.
-3.  Click **ACCEPT**, then enter the start and end dates (no end date means forever) of subscription approval.
-
-
-
-    <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/approve-subscription.png" alt=""><figcaption></figcaption></figure>
-
-### Revoke a subscription
-
-You can revoke a subscription to remove access to APIs.
-
-1. Go to your API in APIM Management and click **Portal > Subscriptions**.
-2.  Select the subscription you want to revoke and click **CLOSE**.
-
-
-
-    <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/revoke-subscription.png" alt=""><figcaption></figcaption></figure>
-
-\
+{% @arcade/embed flowId="nTazQcgGLNWVFwHEyerB" url="https://app.arcade.software/share/nTazQcgGLNWVFwHEyerB" %}
