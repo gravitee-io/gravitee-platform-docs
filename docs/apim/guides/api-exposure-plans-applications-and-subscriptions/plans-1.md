@@ -67,7 +67,7 @@ Additional Oauth terminology:
 
 [Dynamic client registration](https://www.rfc-editor.org/rfc/rfc7591) (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee's developer portal or management UI. This outsources the issuer and management of application credentials to a third party, allowing for additional configuration options and compatibility with various OIDC features provided by the identity provider.
 
-Once dynamic client registration has been enabled in the **Client Registration** settings, you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.&#x20;
+Once dynamic client registration has been [enabled in the **Client Registration** settings,](plans-1.md#prerequisites) you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.&#x20;
 
 <figure><img src="../../.gitbook/assets/add_dcr_provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
@@ -108,7 +108,7 @@ The client credential flow offers two additional configuration settings:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-03-23 at 12.02.08 PM.png" alt=""><figcaption><p>Directly provide initial access token</p></figcaption></figure>
 
-This appears to circumvent the need for client credentials but it may be dependent on the authorization server.
+<mark style="color:yellow;">This appears to circumvent the need for client credentials but it may be dependent on the authorization server.</mark>
 
 ### Authorization grant types
 
@@ -119,7 +119,7 @@ APIM supports five authorization grant flows out of the box:
 * [Authorization code](plans-1.md#authorization-code)
 * [Implicit](plans-1.md#implicit)
 * [Resource owner password](plans-1.md#resource-owner-password-credentials)
-* [Client credentials](plans-1.md#client-credentials)
+* [Client credentials](plans-1.md#client-credentials-1)
 * [Refresh token](plans-1.md#refresh-token)
 
 #### Authorization code
