@@ -19,8 +19,11 @@
 ## Getting Started
 
 * [Install & Upgrade](getting-started/install-and-upgrade/README.md)
-  * [Free Trial](getting-started/install-and-upgrade/free-trial.md)
+  * [Enterprise Trial](getting-started/install-and-upgrade/free-trial.md)
   * [Install Guides](getting-started/install-and-upgrade/install-guides/README.md)
+    * [Docker](getting-started/install-and-upgrade/install-guides/docker/README.md)
+      * [Quick Install with Docker Compose](getting-started/install-and-upgrade/install-guides/docker/quick-install-with-docker-compose.md)
+      * [Custom Install with Docker Compose](getting-started/install-and-upgrade/install-guides/docker/custom-install-with-docker-compose.md)
     * [APIM](getting-started/install-and-upgrade/install-guides/apim/README.md)
       * [Kubernetes](getting-started/install-and-upgrade/install-guides/apim/installation-guide-kubernetes.md)
       * [amazon-linux](getting-started/install-and-upgrade/install-guides/apim/amazon-linux/README.md)
