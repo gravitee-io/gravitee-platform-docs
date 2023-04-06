@@ -20,6 +20,9 @@
 
 * [Enterprise Trial](getting-started/install-and-upgrade/free-trial.md)
 * [Install & Upgrade Guides](getting-started/install-and-upgrade/install-guides/README.md)
+  * [Kubernetes](getting-started/install-guides/kubernetes/README.md)
+    * [Helm Chart Install](getting-started/install-guides/kubernetes/helm-chart-install.md)
+    * [Kubernetes Operator Install](getting-started/install-guides/kubernetes/kubernetes-operator-install.md)
   * [Docker](getting-started/install-and-upgrade/install-guides/docker/README.md)
     * [Quick Install with Docker Compose](getting-started/install-and-upgrade/install-guides/docker/quick-install-with-docker-compose.md)
     * [Custom Install with Docker Compose](getting-started/install-and-upgrade/install-guides/docker/custom-install-with-docker-compose.md)
