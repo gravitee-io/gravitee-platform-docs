@@ -12,7 +12,7 @@ tags:
 
 ## Architecture
 
-!!! Info "Architecture" You can find all architecture information (components descriptions, diagrams) in the [architecture section](../../../../../installation-guide/architecture/hybrid.md).
+!!! Info "Architecture" You can find all architecture information (components descriptions, diagrams) in the [architecture section](../../../../installation-guide/architecture/hybrid.md).
 
 ## Hybrid Architecture Self-Hosted (Hybrid) gateway
 

@@ -4,7 +4,7 @@
 
 This section describes how to install an APIM hybrid deployment using Kubernetes Helm charts.
 
-We assume familiarity with Google Cloud Platform (GCP), Kubernetes (K8s) and Helm. We also recommend you read the [Introduction to APIM hybrid deployment^](../../../../../installation-guide/hybrid/apim\_installguide\_hybrid\_deployment.html) first.
+We assume familiarity with Google Cloud Platform (GCP), Kubernetes (K8s) and Helm. We also recommend you read the [Introduction to APIM hybrid deployment^](../../../../installation-guide/hybrid/apim\_installguide\_hybrid\_deployment.html) first.
 
 ## Target architecture
 
@@ -21,7 +21,7 @@ In this schema, we can see that:
 * ElasticSearch is also deployed in the Management cluster
 * Redis is used to manage rate-limit and quota counters within the Gateway cluster
 
-Before you continue, keep in mind that the bridge Gateway (the red box in the left-hand region of the schema) is simply an APIM Gateway instance with additional capabilities. This is essential to understanding how we are deploying the bridge. For more information, see [APIM hybrid deployment^](../../../../../installation-guide/hybrid/apim\_installguide\_hybrid\_deployment.html).
+Before you continue, keep in mind that the bridge Gateway (the red box in the left-hand region of the schema) is simply an APIM Gateway instance with additional capabilities. This is essential to understanding how we are deploying the bridge. For more information, see [APIM hybrid deployment^](../../../../installation-guide/hybrid/apim\_installguide\_hybrid\_deployment.html).
 
 ## Deploying with Helm
 
@@ -230,4 +230,4 @@ We can now open up APIM Console and see our two Gateways running:
 
 image::\{% link images/apim/3.x/installation/hybrid/hybrid\_deployment\_gateways.png %\}\[]
 
-Success! Your hybrid deployment is now up and running and ready to manage [your first API](../../../../../installation-guide/hybrid/apim\_quickstart\_publish\_ui.html).
+Success! Your hybrid deployment is now up and running and ready to manage [your first API](../../../../installation-guide/hybrid/apim\_quickstart\_publish\_ui.html).

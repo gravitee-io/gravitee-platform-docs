@@ -2,7 +2,7 @@
 description: Get up and running with Gravitee API Management
 ---
 
-# Install & Upgrade
+# Install & Upgrade Guides
 
 {% hint style="warning" %}
 **Changes to Gravitee distribution bundle**

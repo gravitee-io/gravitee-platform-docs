@@ -14,7 +14,7 @@ The links below provide information on how you can prepare, install, and configu
 * [Install on Red Hat and CentOS (Linux)](../red-hat/installation-guide-redhat-introduction.md)
 * [Install on Kubernetes](installation-guide-kubernetes.md)
 * [Install with .ZIP](with-zip/installation-guide-gateway-install-zip.md)
-* [Install a Hybrid Deployment](../../../../installation-guide/hybrid/installation\_guide\_hybrid\_deployment.md#architecture)
+* [Install a Hybrid Deployment](../../../installation-guide/hybrid/installation\_guide\_hybrid\_deployment.md#architecture)
 
 !!! note
 

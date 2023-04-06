@@ -496,4 +496,4 @@ helm unittest -3 -f 'tests/**/*.yaml' .
 
 ## Installing APIM with Gravitee Kubernetes Operator (GKO)
 
-As of APIM version 3.19.0, you can also use deploy APIM using the [Gravitee Kubernetes Operator (GKO)](../../../../kubernetes/apim-kubernetes-operator-overview.md).
+As of APIM version 3.19.0, you can also use deploy APIM using the [Gravitee Kubernetes Operator (GKO)](../../../kubernetes/apim-kubernetes-operator-overview.md).
