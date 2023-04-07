@@ -8,8 +8,6 @@ description: Learn how to create your Gravitee APIs using the Gravitee API creat
 
 The API creation wizard makes it easy to create new Gateway API's from scratch.&#x20;
 
-## Create your Gateway API
-
 {% @arcade/embed flowId="gjzRqNfSladxmw4olxSX" url="https://app.arcade.software/share/gjzRqNfSladxmw4olxSX" %}
 
 The API creation wizard is comprised of several steps, each which requires you to define certain sets of information:
@@ -22,13 +20,13 @@ The API creation wizard is comprised of several steps, each which requires you t
 * Documentation
 * Summray
 
-### Step 1: API details
+## Step 1: API details
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM.png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
 
-### Step 2: API architecture
+## Step 2: API architecture
 
 The API Architecture component is where you'll define the kind of backend resource that you want to expose. As of now, there are two API architectures:
 
@@ -41,9 +39,11 @@ What you choose here will dictate the kinds of entrypoints and endpoints that yo
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.41.03 PM.png" alt=""><figcaption><p>Step 2: selecting your API architecture</p></figcaption></figure>
 
-### Step 3: Entrypoints
+## Step 3: Entrypoints
 
 After you select your API Architecture, you'll have to choose your entrypoint(s). You will have different options based on the architecture choice from earlier.&#x20;
+
+### HTTP Proxy entrypoints
 
 If you chose **HTTP Proxy**, the entrypoints step will just require you to define a context path and decide whether or not you want to enable virtual hosts. The context path is just the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path. Please note that the context path must start with a '/' and can only contain uppercase letters, numbers, dashes or underscores.
 
@@ -56,6 +56,8 @@ If you select :heavy\_check\_mark:**Enable virtual hosts**, you'll have to defin
 To disable virtual hosts, just select **X Disable virtual hosts.**&#x20;
 
 <figure><img src="../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
+
+### Message-based entrypoints
 
 If you chose **Message-based,** you get a much different set of entrypoint options:
 
@@ -153,11 +155,11 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
 {% endtab %}
 {% endtabs %}
 
-### Endpoints
+## Step 4: Endpoints
 
 **Gateway endpoints** define the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.&#x20;
 
-#### HTTP Proxy endpoints
+### HTTP Proxy endpoints
 
 If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To configure this endpoint, you will be brought to a page where you can:
 
@@ -189,7 +191,7 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
 * **Define your SSL options**
 * **Define your Key store**
 
-#### **Message endpoints**
+### **Message-based endpoints**
 
 If youse chose **Message** as your API architecture, you will be able to choose from the following endpoints:
 
@@ -242,57 +244,101 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
   * **Use Producer and Consumer**: tell the Gateway Kafka client to do both of the above
 * **Define the Bootstrap servers**: defines the list of host/port pairs, separated by a comma, to use for establishing the initial connection to the Kafka cluster. The client will make use of all servers irrespective of which servers are specified here for bootstrapping—this list only impacts the initial hosts used to discover the full set of servers.
 * **Define initial security settings:** you will define more Gravitee Gateway-specific security settings later on, but this is where you will define your Kafka-specific authentication flow. Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL as protocols. Depending on which you choose, you will need to define:
-  * PLAINTEXT: no further security config necessary
-  * SASL
+  * **PLAINTEXT**: no further security config necessary
+  * **SASL**
     * **SASL mechanism** used for client connections; this will either be GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512
     * **SASL JAAS Config**: the JAAS login context parameters for SASL connections in the format used by JAAS configuration files.
-  * SASL\_SSL
+  * **SASL\_SSL**
     * **SASL mechanism** used for client connections; this will either be GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512
     * **SASL JAAS Config**: the JAAS login context parameters for SASL connections in the format used by JAAS configuration files.
-  * SSL
-    * **Truststore**: depending on your Truststore type, you will need to define:
-      * **PEM with location**
-        * Define the **location of your truststore file**
-      * **PEM with certificates**
-        * Define the trusted certificates in the format specified by 'ssl.truststore.type'
-      * **JKS with location**
-        * Define the **location of your truststore file**
-        * Define the **SSL truststore password** for the truststore file
-      * **JKS with certificates**
-        * Define the trusted certificates in the format specified by 'ssl.truststore.type'
-        * Define the **SSL truststore password** for the truststore file
-      * **PKCS12 with location**
-        * Define the **location of your truststore file**
-        * Define the **SSL truststore password** for the truststore file
-      * **PKCS12 with certificates**
-        * Define the **trusted certificates** in the format specified by 'ssl.truststore.type'
-        * Define the **SSL truststore password** for the truststore file
-    * **Keystore:** depending on your Keystore type, you will need to define:
-      * **PEM with location**
-        * Define the **SSL keystore certificate chain**
-        * Define the location of your keystore file
-      * **PEM with Key**
-        * **SSL keystore certificate chain**
-        * Define the **SSL keystore private key** by defining the **Key** and the **Key password**
-      * **JKS with location**
-        * Define the **location of your keystore file**
-        * Define the **SSL keystore password** for the keystore file
-      * **JKS with Key**
-        * Define the **SSL keystore private key** by defining the **Key** and the **Key password**
-        * Define the **SSL keystore password** for the keystore file
-      * **PKCS12 with location**
-        * Define the **location of your keystore file**
-        * Define the **SSL keystore password** for the keystore file
-      * **PKCS12 with Key**
-        * Define the **SSL keystore private key** by defining the **Key** and the **Key password**
-        * Define the **SSL keystore password** for the keystore file
+      * SSL Configuration
+        * **Truststore**: depending on your Truststore type, you will need to define:
+          * **PEM with location**
+            * Define the **location of your truststore file**
+          * **PEM with certificates**
+            * Define the trusted certificates in the format specified by 'ssl.truststore.type'
+          * **JKS with location**
+            * Define the **location of your truststore file**
+            * Define the **SSL truststore password** for the truststore file
+          * **JKS with certificates**
+            * Define the trusted certificates in the format specified by 'ssl.truststore.type'
+            * Define the **SSL truststore password** for the truststore file
+          * **PKCS12 with location**
+            * Define the **location of your truststore file**
+            * Define the **SSL truststore password** for the truststore file
+          * **PKCS12 with certificates**
+            * Define the **trusted certificates** in the format specified by 'ssl.truststore.type'
+            * Define the **SSL truststore password** for the truststore file
+          * Keystore:
+            * **PEM with location**
+              * Define the **SSL keystore certificate chain**
+              * Define the location of your keystore file
+            * **PEM with Key**
+              * **SSL keystore certificate chain**
+              * Define the **SSL keystore private key** by defining the **Key** and the **Key password**
+            * **JKS with location**
+              * Define the **location of your keystore file**
+              * Define the **SSL keystore password** for the keystore file
+            * **JKS with Key**
+              * Define the **SSL keystore private key** by defining the **Key** and the **Key password**
+              * Define the **SSL keystore password** for the keystore file
+            * **PKCS12 with location**
+              * Define the **location of your keystore file**
+              * Define the **SSL keystore password** for the keystore file
+            * **PKCS12 with Key**
+              * Define the **SSL keystore private key** by defining the **Key** and the **Key password**
+              * Define the **SSL keystore password** for the keystore file
+    * **SSL**
+      * SSL Configuration
+        * **Truststore**: depending on your Truststore type, you will need to define:
+          * **PEM with location**
+            * Define the **location of your truststore file**
+          * **PEM with certificates**
+            * Define the trusted certificates in the format specified by 'ssl.truststore.type'
+          * **JKS with location**
+            * Define the **location of your truststore file**
+            * Define the **SSL truststore password** for the truststore file
+          * **JKS with certificates**
+            * Define the trusted certificates in the format specified by 'ssl.truststore.type'
+            * Define the **SSL truststore password** for the truststore file
+          * **PKCS12 with location**
+            * Define the **location of your truststore file**
+            * Define the **SSL truststore password** for the truststore file
+          * **PKCS12 with certificates**
+            * Define the **trusted certificates** in the format specified by 'ssl.truststore.type'
+            * Define the **SSL truststore password** for the truststore file
+          * Keystore:
+            * **PEM with location**
+              * Define the **SSL keystore certificate chain**
+              * Define the location of your keystore file
+            * **PEM with Key**
+              * **SSL keystore certificate chain**
+              * Define the **SSL keystore private key** by defining the **Key** and the **Key password**
+            * **JKS with location**
+              * Define the **location of your keystore file**
+              * Define the **SSL keystore password** for the keystore file
+            * **JKS with Key**
+              * Define the **SSL keystore private key** by defining the **Key** and the **Key password**
+              * Define the **SSL keystore password** for the keystore file
+            * **PKCS12 with location**
+              * Define the **location of your keystore file**
+              * Define the **SSL keystore password** for the keystore file
+            * **PKCS12 with Key**
+              * Define the **SSL keystore private key** by defining the **Key** and the **Key password**
+              * Define the **SSL keystore password** for the keystore file
 * **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer** earlier on): this is where you define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
   * **Topic**: the topic that the broker uses to filter messages for each connected client.
 *   **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer** earlier on): this is where you define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker.&#x20;
 
     You will need to define:
 
-    * **Topic**: the topic that the broker uses to filter messages for each connected client.
+    * **Topic**: the topic(s) from which your Gravitee Gateway client will consume messages
+    * **Encode message Id:** Toggle this ON or OFF to allow encoding message ids in base64
+    * **Auto offset reset:** You can use the **Auto offset reset** drop down to configure what happens when there is no itial offset in Kafka, or if the current offset does not exist on the server anymore. You have multiple options:
+      * **Earliest**: automatically reset the offset to the earliest offset
+      * **Latest**: automatically reset the offset to the latest offset
+      * **None**: throw exception to the consumer if no previous offset is found for the consumer's group
+      * **Anything else:** throw exception to the consumer.
 {% endtab %}
 {% endtabs %}
 
