@@ -14,7 +14,6 @@ In this article, we will cover:
 * Gravitee API Management hybrid architecture
 * Gravitee API Management self-hosted architecture
 * Gravitee API Management "fully Gravitee-managed" architecture
-* Reference architecture for Gravitee install
 
 ## Self-hosted architecture
 
@@ -87,8 +86,4 @@ These "On-prem/Private cloud components" are components that the customer and/or
 ### Self-Hosted to SaaS connections <a href="#self-hosted-to-saas-connections" id="self-hosted-to-saas-connections"></a>
 
 ![Hybrid Architecture Connections](https://dobl1.github.io/gravitee-se-docs/latest/assets/hybrid-architecture-connections.svg)
-
-![](../../../../images/apim/3.x/overview/architecture/new-gravitee-global-architecture-schema.png)
-
-## Reference architecture for install
 
