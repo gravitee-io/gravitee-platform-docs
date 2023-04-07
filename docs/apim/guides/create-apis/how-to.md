@@ -376,3 +376,6 @@ If you choose Standard Plan, you'll need to define:
 {% endtab %}
 {% endtabs %}
 
+### Plan configuration
+
+After you define your Plan information, you'll need to define further plan configuration settings. These settings will depend on the kind of plan that you chose. If you chose API Key or Keyless, you will have no further configuration needs, and you can skip to the Limitations step.
