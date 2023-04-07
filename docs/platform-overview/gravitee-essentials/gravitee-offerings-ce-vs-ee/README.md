@@ -16,7 +16,7 @@ Technically, Gravitee is what is known as an open core product and you can read 
 > “The difference between open core and proprietary software is that open core produces a substantial amount of open source software, whereas solely proprietary software produces none. They both offer open source maintainers a way to get paid for their work, but open core contributes back to open source. Source available carries more advantages to the user than closed source. Most open core companies put a lot of effort toward maintaining the core. Therefore, open core is better than proprietary software for all of these reasons. The argument isn’t open core over open source, it’s open core instead of proprietary.”
 {% endhint %}
 
-#### Gravitee Community Edition <a href="#toc-h3-gravitee-community-edition" id="toc-h3-gravitee-community-edition"></a>
+## Gravitee Community Edition <a href="#toc-h3-gravitee-community-edition" id="toc-h3-gravitee-community-edition"></a>
 
 Gravitee’s Community Edition is comprised of Gravitee’s open-source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products. The Gravitee Community edition includes access to the following products and services:
 
@@ -33,7 +33,7 @@ Gravitee’s Community Edition is comprised of Gravitee’s open-source offering
 
 For more information on the differences between Gravitee Community and OSS products vs Gravitee enterprise edition, [please refer to this document](https://www.gravitee.io/hubfs/Datasheets/Gravitee-OSS-vs-Enterprise.pdf).
 
-#### Gravitee Enterprise Edition <a href="#gravitee-enterprise-edition-16" id="gravitee-enterprise-edition-16"></a>
+## Gravitee Enterprise Edition <a href="#gravitee-enterprise-edition-16" id="gravitee-enterprise-edition-16"></a>
 
 Built on top of our open-source foundations, the enterprise event-native API Management platform enables organizations to fully manage, secure, monitor, and govern their entire API ecosystem. The Enterprise Edition focuses on the needs of our commercial end users. EE gets you everything in the CE, plus:
 
