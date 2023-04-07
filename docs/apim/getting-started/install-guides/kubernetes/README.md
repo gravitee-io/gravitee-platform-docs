@@ -24,3 +24,5 @@ Helm charts manage the configuration of an application using a set of configurab
 
 Kubernetes operators manage the configuration of an application using custom resources. Custom resources define the desired state of the application, and the operator's controller ensures that the application's current state matches the desired state.
 
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>Gravitee Kubernetes Operator Install</td><td></td><td></td></tr><tr><td>Helm Chart Install</td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+
