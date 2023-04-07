@@ -199,6 +199,7 @@
   * [Configure and Use API Logging](guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md)
   * [Configure Alerts and Notifications](guides/api-measurement-tracking-and-analytics/configure-alerts-and-notifications.md)
 * [Gravitee Expression Language](guides/policy-design/gravitee-expression-language.md)
+* [Gravitee Kubernetes Operator](guides/gravitee-kubernetes-operator.md)
 * [Administration](guides/administration/README.md)
   * [Administering organizations and environments](guides/administration/how-to.md)
   * [User Management and Permissions](guides/administration/user-management-and-permissions.md)
