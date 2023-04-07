@@ -177,7 +177,7 @@
   * [Load-balancing, failover, and health checks](guides/api-configuration/load-balancing-failover-and-health-checks.md)
   * [Configure Service Discovery](guides/api-configuration/how-to/configure-service-discovery.md)
   * [Configure General Proxy settings](guides/api-configuration/configure-cors.md)
-* [Policy Design](guides/policy-design/README.md)
+* [Policy Design Studio](guides/policy-design/README.md)
   * [Design and enforce policies at the API level](guides/policy-design/how-to.md)
   * [Design and enforce policies at the Platform level](guides/policy-design/design-and-enforce-policies-at-the-platform-level.md)
   * [Policy reference](guides/policy-design/policy-reference.md)
