@@ -208,8 +208,6 @@ The Endpoint Mock endpoint allows you to mock a backend service to emulate the b
 * **Interval between messages publication:** this defines the interval between published messages (in ms); the default is 1000
 * **Content of published messages:** this defines the content of the message body that will be streamed; the default is "mock message"
 * **Count of published messages:** this defines the specific limit of published messages as an integer that you want streamed as a part of the mocking; if not specified, there will be no limit
-
-<figure><img src="../../.gitbook/assets/Mock endpoint config.gif" alt=""><figcaption><p>Mock Endpoint config</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="MQTT 5.X" %}
