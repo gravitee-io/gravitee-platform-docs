@@ -1,4 +1,4 @@
-# Helm Chart Install
+# Helm Chart Deployment
 
 {% hint style="info" %}
 As of APIM version 3.19.0, you can also use deploy APIM using the [Gravitee Kubernetes Operator (GKO)](https://docs.gravitee.io/apim/3.x/apim\_kubernetes\_operator\_overview.html).
@@ -69,7 +69,7 @@ $ helm install my-release -f values.yaml gravitee
 {% hint style="info" %}
 **Modify `values.yml`**
 
-When you install APIM, it automatically uses the default values from the `values.yml` config file which can be modified using the parameters in the tables in the [configuration](helm-chart-install.md#configuration) section.
+When you install APIM, it automatically uses the default values from the `values.yml` config file which can be modified using the parameters in the tables in the [configuration](helm-chart-deployment.md#configuration) section.
 {% endhint %}
 
 ### Create a Helm Chart archive

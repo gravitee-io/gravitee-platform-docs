@@ -1,4 +1,4 @@
-# Kubernetes Operator Install
+# Kubernetes Operator Deployment
 
 The Gravitee Kubernetes Operator (GKO) - a technical component designed to be deployed on an existing APIM-ready Kubernetes Cluster. It can also be deployed on a local cluster for testing purposes.
 
@@ -90,3 +90,66 @@ The following diagram illustrates the multi-environment deployment architectural
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-3-multi-env.png" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>
 
+## Installation and deployment
+
+This section provides steps on how to deploy the Gravitee Kubernetes Operator (GKO) on an existing Kubernetes cluster.
+
+{% hint style="info" %}
+If your architecture requires the management of multiple Kubernetes clusters with a different set of APIs for each cluster, you should deploy the GKO separately on each cluster. Follow the deployment process described below for each cluster deployment.
+{% endhint %}
+
+### Prerequisites
+
+Before you start, you need to have the following software set up and running on your machine:
+
+1. [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+2. [Helm v3](https://helm.sh/docs/intro/install/)
+
+This guide also assumes that APIM is up and running on your cluster. If you have not installed APIM yet, follow our [installation guide](https://docs.gravitee.io/apim/3.x/apim\_installguide\_kubernetes.html).
+
+|   | For the gateway to be able to synchronize with the operator resources, the value of the `gateway.services.sync.kubernetes.enabled` property must be set to `true` in APIM configuration. |
+| - | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+By default the Kubernetes synchronizer is configured to look for API definitions in the API Gateway namespace. To watch all namespaces you must set the property `gateway.services.sync.kubernetes.namespaces` to `all` in the Gateway configuration. You can also provide a specific list of namespaces to watch. This requires that the Gateway service account has the `list` permissions for configmaps at the cluster level or on the list of namespaces defined in the `gateway.services.sync.kubernetes.namespaces` property.
+
+### Deploying the GKO on the cluster
+
+#### Install using the bundled resources file
+
+|   | Starting with version 0.5.0 of the operator, the preferred way to deploy is using Helm. The steps described in this section are still available for backward compatibility. |
+| - | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+**STEP 1: Create the operator namespace**
+
+If you are upgrading from a previous version of the operator, the namespace should already exist and you can skip this step.
+
+```
+kubectl create namespace gko-system
+```
+
+**STEP 2: Apply the bundle file**
+
+```
+kubectl apply -f https://github.com/gravitee-io/gravitee-kubernetes-operator/releases/latest/download/bundle.yml
+```
+
+The GKO has now been deployed on your cluster.
+
+#### Install using Helm
+
+To install the chart with the release name `graviteeio-gko`:
+
+```
+$ helm repo add graviteeio https://helm.gravitee.io
+$ helm install graviteeio-gko graviteeio/gko
+```
+
+By default, the operator will listen to resources created in the whole cluster. If you want to restrict the operator to a specific namespace, you must set the `manager.scope.cluster` value to `false`. This way, the operator will be exclusively listening to resources created in the release namespace.
+
+```
+$ helm repo add graviteeio https://helm.gravitee.io
+$ helm install --set manager.scope.cluster=false -n ${RELEASE_NAMESPACE} graviteeio-gko graviteeio/gko
+```
+
+|   | If you are installing the operator with the cluster scope enabled (which is the default), it is recommended to install one instance of the operator per cluster. If you are installing the operator with the cluster scope disabled, you can install multiple instances of the operator in the same cluster, each one watching a different namespace. |
+| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
