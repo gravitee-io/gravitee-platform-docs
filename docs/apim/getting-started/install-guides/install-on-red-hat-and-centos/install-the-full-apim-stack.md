@@ -2,12 +2,7 @@
 
 This section describes how to install the full Gravitee API Management (APIM) stack, including all the components and, optionally, dependencies (MongoDB, Elasticsearch).&#x20;
 
-Alternatively, you can install the APIM components individually as detailed on the following pages.
-
-* [Install APIM Gateway](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_gateway.html)
-* [Install APIM API](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_api.html)
-* [Install APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_ui.html)
-* [Install APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_portal.html)
+Alternatively, you can install the APIM components individually as detailed on the [APIM Components page.](apim-components/)
 
 ## Prerequisites
 

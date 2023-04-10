@@ -23,7 +23,7 @@
   * [Install on Red Hat and CentOS](getting-started/install-guides/install-on-red-hat-and-centos/README.md)
     * [Install the Full APIM Stack](getting-started/install-guides/install-on-red-hat-and-centos/install-the-full-apim-stack.md)
     * [APIM Components](getting-started/install-guides/install-on-red-hat-and-centos/apim-components/README.md)
-      * [Page 6](getting-started/install-guides/install-on-red-hat-and-centos/apim-components/page-6.md)
+      * [Install APIM Gateway](getting-started/install-guides/install-on-red-hat-and-centos/apim-components/install-apim-gateway.md)
       * [Page 3](getting-started/install-guides/install-on-red-hat-and-centos/apim-components/page-3.md)
       * [Page 5](getting-started/install-guides/install-on-red-hat-and-centos/apim-components/page-5.md)
       * [Page 4](getting-started/install-guides/install-on-red-hat-and-centos/apim-components/page-4.md)
