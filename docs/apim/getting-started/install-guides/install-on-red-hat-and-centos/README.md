@@ -36,14 +36,15 @@ RPM install is not supported on distributions with old versions of RPM, such as 
 
 Your repository is now ready to use.
 
-## Install the APIM components
+## Install APIM
 
 You can choose to install the full APIM stack or install the components one by one:
 
 * [Install the full APIM stack](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_stack.html) (includes all components below)
-* [Install APIM Gateway](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_gateway.html)
-* [Install APIM API](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_api.html)
-* [Install APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_ui.html)
-* [Install APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_portal.html)
+* Install APIM Components
+  * [Install APIM Gateway](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_gateway.html)
+  * [Install APIM API](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_api.html)
+  * [Install APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_ui.html)
+  * [Install APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_portal.html)
 
 \
