@@ -7,4 +7,4 @@ This section describes how to install the individual components from the Gravite
 * [Install APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_ui.html)
 * [Install APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_portal.html)
 
-Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](../apim-full-stack-installation.md) page.
+Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](../install-the-full-apim-stack.md) page.

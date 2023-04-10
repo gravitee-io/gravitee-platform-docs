@@ -2,7 +2,7 @@
 
 This section describes how to install the full Gravitee API Management (APIM) stack, including all the components and, optionally, dependencies (MongoDB, Elasticsearch).&#x20;
 
-Alternatively, you can install the APIM components individually as detailed on the [APIM Components page.](apim-components-installation/)
+Alternatively, you can install the APIM components individually as detailed on the [APIM Components page.](apim-components/)
 
 ## Prerequisites
 

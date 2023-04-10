@@ -2,10 +2,11 @@
 
 ## Prerequisites
 
-* Provision and start an Amazon instance with the following minimum specifications
-  * Instance Type: **t2.medium**
-  * Storage: Increase the root volume size to **40GB**
-  * Security Groups: **SSH** access is sufficient
+Provision and start an Amazon instance with the following minimum specifications:
+
+* Instance Type: **t2.medium**
+* Storage: Increase the root volume size to **40GB**
+* Security Groups: **SSH** access is sufficient
 
 ## Security group
 

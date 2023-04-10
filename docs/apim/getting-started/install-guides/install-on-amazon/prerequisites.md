@@ -6,16 +6,19 @@ Alternatively, you can skip this page and follow the quick install guide to inst
 
 ## Provision an Amazon instance
 
+Provision and start an Amazon instance with the following minimum specifications:
+
 * Instance Type: **t2.medium**
 * Storage: Increase the root volume size to **40GB**
-* Security Groups: **SSH** access is sufficient for now
+* Security Groups: **SSH** access is sufficient
 
 ## Setup Gravitee YUM repository
 
-Amazon Linux instances use the package manager `yum` to manage the software on the instances. Gravitee provides a repository with the major components of APIM. Follow the steps below to set up access to that repository.
+Amazon Linux instances use the package manager `yum`. The steps below show how to use `yum` to set up access to Gravitee's repository containing the components of APIM.&#x20;
 
 1.  Create a file called `/etc/yum.repos.d/graviteeio.repo`:
 
+    {% code title="/etc/yum.repos.d/graviteeio.repo" %}
     ```sh
     sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
     [graviteeio]
@@ -29,17 +32,18 @@ Amazon Linux instances use the package manager `yum` to manage the software on t
     metadata_expire=300
     EOF
     ```
-2.  Enable GPG signature handling (required by some of our RPM packages):
+    {% endcode %}
+2.  Enable GPG signature handling (required by some of Gravitee's RPM packages):
 
     ```sh
     sudo yum install pygpgme yum-utils -y
     ```
 
-    **NOTE:** These packages are already in place on most Amazon Linux instances.
+
 3.  Refresh the local cache:
 
     ```sh
     sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
     ```
 
-\
+this\

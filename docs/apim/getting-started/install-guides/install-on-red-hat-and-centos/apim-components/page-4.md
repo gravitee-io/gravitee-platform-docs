@@ -5,7 +5,7 @@
 Before you install the developer portal, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
-2. Install and run the [management API](install-management-api.md).
+2. Install and run the [management API](page-3.md).
 3. Install Nginx by running the following commands:
 
 ```sh
