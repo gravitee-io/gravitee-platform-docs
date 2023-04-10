@@ -44,7 +44,7 @@ For upgrade instructions, please refer to the [APIM Migration Guide](installatio
 * Message filtering policy
 * Support conditions on messages
 
-[Gravitee Kubernetes Operator (Beta)](../kubernetes/apim-kubernetes-operator-overview.md)
+[Gravitee Kubernetes Operator (Beta)](broken-reference)
 
 * CRD Lifecycle - Apply changes related CRDs on update
 * Store credentials in K8 secrets

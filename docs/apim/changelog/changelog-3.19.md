@@ -71,7 +71,7 @@ _**Management**_
 
 ### Features
 
-[Beta - Gravitee Kubernetes Operator](../kubernetes/apim-kubernetes-operator-overview.md)
+[Beta - Gravitee Kubernetes Operator](broken-reference)
 
 * Make the gateway listen to ConfigMap [#8189](https://github.com/gravitee-io/issues/issues/8189)
 * Define ManagementContext to target specific environment [#7982](https://github.com/gravitee-io/issues/issues/7982)

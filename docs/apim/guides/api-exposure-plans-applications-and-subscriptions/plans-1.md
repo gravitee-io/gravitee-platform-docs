@@ -215,7 +215,7 @@ With all the preparation work complete, API consumers can now create an applicat
 {% hint style="info" %}
 **Default application**
 
-In order to allow new users to quickly move forward with API consumption, the default settings are every new user (not including admins) automatically has a default application created. This can be easily disabled in the `gravitee.yml` file with the following configuration below. You can learn more about system configurations in Gravitee [here](../../getting-started/configuration/configuration/).
+In order to allow new users to quickly move forward with API consumption, the default settings are every new user (not including admins) automatically has a default application created. This can be easily disabled in the `gravitee.yml` file with the following configuration below. You can learn more about system configurations in Gravitee [here](broken-reference).
 {% endhint %}
 
 {% code title="gravitee.yml" overflow="wrap" %}

@@ -4,9 +4,7 @@ description: Bootstrap your developer environment
 
 # Developer Contributions
 
-## Overview
-
-This section explains how to set up your environment to start contributing to APIM development.
+This section explains how to set up your environment to start contributing to Gravitee API Management (APIM) development.
 
 ## Prerequisites
 
@@ -15,7 +13,7 @@ You will need the following tools installed on your computer:
 * Java (JDK >= 11)
 * Maven
 * Docker
-* NPM (preferably NVM)
+* NPM (preferably managed with NVM)
 
 ## Get the project and prepare your workspace
 

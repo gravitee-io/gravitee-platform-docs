@@ -63,7 +63,7 @@ As with all plugins, you can create, use and deploy custom reporters as describe
 
 ### Repositories
 
-A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](../../getting-started/configuration/configuration/repositories/installation-guide-repositories.md) section of the Installation Guide.
+A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](broken-reference) section of the Installation Guide.
 
 ### Resources
 
