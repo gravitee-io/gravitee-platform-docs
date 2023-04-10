@@ -128,4 +128,4 @@ If you are installing the operator with the cluster scope enabled (which is the 
 
 ## Next steps
 
-Learn how to use GKO GKO to define, deploy, and publish APIs to your API Portal and API Gateway and to manage Custom Resource Definitions (CRDs) in our [GKO guide](../../../guides/gravitee-kubernetes-operator/).
+Learn how to use GKO GKO to define, deploy, and publish APIs to your API Portal and API Gateway and to manage Custom Resource Definitions (CRDs) in our [GKO guide](../../../guides/gravitee-kubernetes-operator.md).
