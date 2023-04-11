@@ -2,7 +2,7 @@
 description: An overview of Helm charts and Kubernetes operators
 ---
 
-# Kubernetes Install & Deployment
+# Install on Kubernetes
 
 To make the most of this guide, you should be familiar with Kubernetes and its terms.
 
@@ -86,7 +86,7 @@ helm install apim3-3.0.0.tgz
 
 ## Configure installation
 
-Head over to our comprehensive [Helm chart reference page](helm-chart-deployment.md) to learn how to customize your installation.
+Head over to our comprehensive [Helm chart reference page](configure-helm-chart.md) to learn how to customize your installation.
 
 ## Deployment management
 
@@ -106,5 +106,5 @@ One key advantage of Kubernetes operators over Helm is that they provide a highe
 
 ### Choose your deployment manager
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><p></p><p><strong>Helm</strong> </p></td><td></td><td></td><td><a href="helm-chart-deployment.md">helm-chart-deployment.md</a></td><td><a href="helm-chart-deployment.md">helm-chart-deployment.md</a></td></tr><tr><td><p></p><p><strong>Gravitee Kubernetes Operator</strong></p></td><td></td><td></td><td><a href="kubernetes-operator-deployment.md">kubernetes-operator-deployment.md</a></td><td><a href="kubernetes-operator-deployment.md">kubernetes-operator-deployment.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><p></p><p><strong>Helm</strong> </p></td><td></td><td></td><td><a href="configure-helm-chart.md">configure-helm-chart.md</a></td><td><a href="configure-helm-chart.md">configure-helm-chart.md</a></td></tr><tr><td><p></p><p><strong>Gravitee Kubernetes Operator</strong></p></td><td></td><td></td><td><a href="install-gravitee-kubernetes-operator.md">install-gravitee-kubernetes-operator.md</a></td><td><a href="install-gravitee-kubernetes-operator.md">install-gravitee-kubernetes-operator.md</a></td></tr><tr><td><p></p><p><strong>Hybrid Deployment on Kubernetes</strong></p></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
 
