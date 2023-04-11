@@ -12,9 +12,8 @@ Before you install the full APIM stack, you must complete the following configur
 2. Install Nginx by running the following commands:
 
 ```sh
-sudo yum install epel-release
-
-sudo yum install nginx
+$ sudo yum install epel-release
+$ sudo yum install nginx
 ```
 
 ## Install the APIM stack without dependencies
@@ -35,20 +34,15 @@ Before you install the APIM package, you may need to add third-party repositorie
 For guidance on installing and configuring MongoDB, see the [MongoDB Installation documentation](https://docs.mongodb.com/v3.6/tutorial/install-mongodb-on-red-hat/).
 {% endhint %}
 
-{% code overflow="wrap" %}
-```sh
-echo "[mongodb-org-3.6]
-name=MongoDB Repository
+<pre class="language-sh" data-overflow="wrap"><code class="lang-sh"><strong>$ echo "[mongodb-org-3.6]
+</strong>name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/3.6/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc" | sudo tee /etc/yum.repos.d/mongodb-org-3.6.repo > /dev/null
-
-sudo yum install -y mongodb-org
-
-sudo systemctl start mongod
-```
-{% endcode %}
+$ sudo yum install -y mongodb-org
+$ sudo systemctl start mongod
+</code></pre>
 
 ### **Elasticsearch 7.x**
 
@@ -57,7 +51,7 @@ For guidance on installing and configuring Elasticsearch, see the [Elasticsearch
 {% endhint %}
 
 ```sh
-echo "[elasticsearch-7.x]
+$ echo "[elasticsearch-7.x]
 name=Elasticsearch repository for 7.x packages
 baseurl=https://artifacts.elastic.co/packages/7.x/yum
 gpgcheck=1
@@ -65,10 +59,8 @@ gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
 enabled=1
 autorefresh=1
 type=rpm-md" | sudo tee /etc/yum.repos.d/elasticsearch.repo > /dev/null
-
-sudo yum install -y elasticsearch
-
-sudo systemctl start elasticsearch
+$ sudo yum install -y elasticsearch
+$ sudo systemctl start elasticsearch
 ```
 
 ### Install APIM stack
@@ -82,11 +74,9 @@ curl -L https://bit.ly/install-apim-3x | bash
 To start up the APIM components, run the following commands:
 
 ```sh
-sudo systemctl daemon-reload
-
-sudo systemctl start graviteeio-apim-gateway graviteeio-apim-rest-api
-
-sudo systemctl restart nginx
+$ sudo systemctl daemon-reload
+$ sudo systemctl start graviteeio-apim-gateway graviteeio-apim-rest-api
+$ sudo systemctl restart nginx
 ```
 
 ## Check the APIM components are running

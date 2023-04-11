@@ -8,35 +8,39 @@ RPM install is not supported on distributions with old versions of RPM, such as 
 
 ## Configure the package management system (`yum`)
 
-1. Create a file called `graviteeio.repo` in location `/etc/yum.repos.d/` so that you can install APIM directly using `yum`:
+Amazon Linux instances use the package manager `yum`. The steps below show how to use `yum` to set up access to Gravitee's repository containing the APIM components.&#x20;
+
+1. Create a file called `/etc/yum.repos.d/graviteeio.repo` using the following command:
 
 {% code title="/etc/yum.repos.d/graviteeio.repo" %}
-```
+```sh
+sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
 [graviteeio]
 name=graviteeio
-baseurl=https://packagecloud.io/graviteeio/rpms/el/7/$basearch
+baseurl=https://packagecloud.io/graviteeio/rpms/el/7/\$basearch
 gpgcheck=0
 enabled=1
 gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
+EOF
 ```
 {% endcode %}
 
-2. Enable GPG signature handling, which is required by some of our RPM packages:
+2. Enable GPG signature handling (required by some of Gravitee's RPM packages) by installing the following packages. In many cases, these packages will already be installed on your Amazon Linux instance.
 
 ```sh
-sudo yum install pygpgme yum-utils
+sudo yum install pygpgme yum-utils -y
 ```
 
-3. Before continuing, you may need to refresh your local cache:
+3. Refresh the local cache:
 
+{% code overflow="wrap" %}
 ```sh
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
 ```
-
-Your repository is now ready to use.
+{% endcode %}
 
 ## Install APIM
 

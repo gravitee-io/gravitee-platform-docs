@@ -30,17 +30,15 @@ These steps assume that you are using the default settings.
 To configure APIM Gateway to start automatically when the system boots up, run the following commands:
 
 ```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable graviteeio-apim-gateway
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable graviteeio-apim-gateway
 ```
 
 To start and stop APIM Gateway, run the following commands:
 
 ```sh
-sudo systemctl start graviteeio-apim-gateway
-
-sudo systemctl stop graviteeio-apim-gateway
+$ sudo systemctl start graviteeio-apim-gateway
+$ sudo systemctl stop graviteeio-apim-gateway
 ```
 
 {% hint style="info" %}
@@ -90,17 +88,15 @@ These steps assume that you are using the default settings.
 To configure the management API to start automatically when the system boots up, run the following commands:
 
 ```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable graviteeio-apim-rest-api
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable graviteeio-apim-rest-api
 ```
 
 To start and stop the management API, run the following commands:
 
 ```sh
-sudo systemctl start graviteeio-apim-rest-api
-
-sudo systemctl stop graviteeio-apim-rest-api
+$ sudo systemctl start graviteeio-apim-rest-api
+$ sudo systemctl stop graviteeio-apim-rest-api
 ```
 
 {% hint style="info" %}
@@ -140,9 +136,8 @@ Before you install the management UI, you must complete the following configurat
 3. Install Nginx by running the following commands:
 
 ```sh
-sudo yum install epel-release
-
-sudo yum install nginx
+$ sudo yum install epel-release
+$ sudo yum install nginx
 ```
 
 ### Install the management UI package
@@ -150,7 +145,7 @@ sudo yum install nginx
 To install the last stable version of the management UI, run the following command:
 
 ```sh
-sudo yum install -y graviteeio-apim-management-ui-3x
+$ sudo yum install -y graviteeio-apim-management-ui-3x
 ```
 
 ### Run the management UI
@@ -162,17 +157,15 @@ The management UI is based on Nginx.
 To configure the management UI to start automatically when the system boots up, run the following commands:
 
 ```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable nginx
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable nginx
 ```
 
 To start and stop Nginx, run the following commands:
 
 ```sh
-sudo systemctl start nginx
-
-sudo systemctl stop nginx
+$ sudo systemctl start nginx
+$ sudo systemctl stop nginx
 ```
 
 ### View the logs
@@ -208,9 +201,8 @@ Before you install the developer portal, you must complete the following configu
 3. Install Nginx by running the following commands:
 
 ```sh
-sudo yum install epel-release
-
-sudo yum install nginx
+$ sudo yum install epel-release
+$ sudo yum install nginx
 ```
 
 ### Install the developer portal package
@@ -230,17 +222,15 @@ The developer portal is based on Nginx.
 To configure the developer portal to start automatically when the system boots up, run the following commands:
 
 ```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable nginx
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable nginx
 ```
 
 To start and stop Nginx, run the following commands:
 
 ```sh
-sudo systemctl start nginx
-
-sudo systemctl stop nginx
+$ sudo systemctl start nginx
+$ sudo systemctl stop nginx
 ```
 
 ### View the logs
