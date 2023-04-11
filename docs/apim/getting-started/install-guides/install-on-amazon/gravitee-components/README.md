@@ -1,76 +1,93 @@
 # APIM Full Stack Installation
 
-### Prerequisites
+This section describes how to install the full APIM stack and its dependencies at once.&#x20;
 
-* Machine up and running
-* Gravitee YUM repository added
-* Java 11 jre installed
+Alternatively, you can install the components individually as detailed on the [APIM Components Installation page. ](../apim-components-installation.md)
+
+## Prerequisites
+
+* Amazon instance running
+* Gravitee `yum` repository added
+* Java 11 JRE installed
 * MongoDB installed and running
 * Elasticsearch installed and running
 * Nginx installed
 
-### Security group
+## Security group
 
 * open port 8082
 * open port 8083
 * open port 8084
 * open port 8085
 
-### Instructions
+## Instructions
 
-1.  Install all Gravitee APIM components:
+1. Install all Gravitee APIM components:
 
-    ```
-    sudo yum install graviteeio-apim-3x -y
-    ```
-2.  Enable Gateway and REST API on startup:
+```sh
+sudo yum install graviteeio-apim-3x -y
+```
 
-    ```
-    sudo systemctl daemon-reload
-    sudo systemctl enable graviteeio-apim-gateway
-    sudo systemctl enable graviteeio-apim-rest-api
-    ```
-3.  Start Gateway and REST API:
+2. Enable gateway and management API on startup:
 
-    ```
-    sudo systemctl start graviteeio-apim-gateway
-    sudo systemctl start graviteeio-apim-rest-api
-    ```
-4.  Restart Nginx:
+```sh
+sudo systemctl daemon-reload
 
-    ```
-    sudo systemctl restart nginx
-    ```
-5.  Fix an issue
+sudo systemctl enable graviteeio-apim-gateway
 
-    There is a known issue with the Portal UI configuration. You can find a fix [here](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_amazon\_issue.html).
-6.  Verify:
+sudo systemctl enable graviteeio-apim-rest-api
+```
 
-    ```
-    sudo journalctl -f
-    ```
+3. Start gateway and management API:
 
-    Follow along with the startup process. If any of the prerequisites is missing, this is were you’ll get error messages.
+```sh
+sudo systemctl start graviteeio-apim-gateway
 
-    **NOTE:** You can also see the same in `/opt/graviteeio/apim/gateway/logs/gravitee.log` and `/opt/graviteeio/apim/rest-api/logs/gravitee.log`
-7.  Verify some more:
+sudo systemctl start graviteeio-apim-rest-api
+```
 
-    ```
-    sudo ss -lntp '( sport = 8082 )'
-    sudo ss -lntp '( sport = 8083 )'
-    sudo ss -lntp '( sport = 8084 )'
-    sudo ss -lntp '( sport = 8085 )'
-    ```
+4. Restart Nginx:
 
-    You should see that there are processes listening on those ports.
-8.  Verify some more still:
+```sh
+sudo systemctl restart nginx
+```
 
-    ```
-    curl -X GET http://localhost:8082/
-    curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
-    curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
-    ```
+5. Verify, if any of the prerequisites are missing, you will receive errors during this step:
 
-    If the installation is successful the first one returns: **No context-path matches the request URI.** The others return a json structure.
+```sh
+sudo journalctl -f
+```
 
-**Congratulations**, you have a fully functional Gravitee APIM!
+{% hint style="info" %}
+You can see the same logs in `/opt/graviteeio/apim/gateway/logs/gravitee.log` and `/opt/graviteeio/apim/rest-api/logs/gravitee.log`
+{% endhint %}
+
+6. Additional verification:
+
+```sh
+sudo ss -lntp '( sport = 8082 )'
+
+sudo ss -lntp '( sport = 8083 )'
+
+sudo ss -lntp '( sport = 8084 )'
+
+sudo ss -lntp '( sport = 8085 )'
+```
+
+You should see that there are processes listening on those ports.
+
+7. Final verification:
+
+```sh
+curl -X GET http://localhost:8082/
+
+curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
+
+curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
+```
+
+If the installation was successful, then the first API call returns: **No context-path matches the request URI.** The final two API calls should return a JSON payload in the response.
+
+{% hint style="success" %}
+Congratulations, you have a fully functional Gravitee APIM!
+{% endhint %}
