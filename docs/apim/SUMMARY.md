@@ -22,7 +22,7 @@
 * [Install & Upgrade Guides](getting-started/install-and-upgrade/install-guides/README.md)
   * [Install on Red Hat and CentOS](getting-started/install-guides/install-on-red-hat-and-centos/README.md)
     * [APIM Full Stack Installation](getting-started/install-guides/install-on-red-hat-and-centos/install-the-full-apim-stack.md)
-    * [APIM Components Installation](getting-started/install-guides/install-on-red-hat-and-centos/apim-components-installation.md)
+    * [APIM Components Installation](getting-started/install-guides/install-on-red-hat-and-centos/apim-components/README.md)
   * [Kubernetes Install & Deployment](getting-started/install-guides/kubernetes-install-and-deployment/README.md)
     * [Configure Helm Chart](getting-started/install-guides/kubernetes-install-and-deployment/helm-chart-deployment.md)
     * [Install Gravitee Kubernetes Operator](getting-started/install-guides/kubernetes-install-and-deployment/kubernetes-operator-deployment.md)

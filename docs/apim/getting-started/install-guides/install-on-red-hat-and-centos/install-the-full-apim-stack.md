@@ -2,7 +2,7 @@
 
 This section describes how to install the full Gravitee API Management (APIM) stack, including all the components and, optionally, dependencies (MongoDB, Elasticsearch).&#x20;
 
-Alternatively, you can install the APIM components individually as detailed on the [APIM Components page.](apim-components-installation.md)
+Alternatively, you can install the APIM components individually as detailed on the [APIM Components page.](apim-components/)
 
 ## Prerequisites
 
@@ -101,5 +101,5 @@ When all components are started, you can run a quick test by checking these URLs
 | APIM Portal     | [http://localhost:8085/](http://localhost:8085/)                                                                                                                     |
 
 {% hint style="success" %}
-Congratulations, you have a fully functional Gravitee APIM!
+Congratulations! Now that APIM is up and running, check out the [Tutorials](../../tutorials/) for your next steps.
 {% endhint %}

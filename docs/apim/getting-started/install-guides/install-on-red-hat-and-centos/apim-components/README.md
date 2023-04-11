@@ -7,13 +7,13 @@ This section describes how to install the individual components from the Gravite
 * [Install APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_ui.html)
 * [Install APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_portal.html)
 
-Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](install-the-full-apim-stack.md) page.
+Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](../install-the-full-apim-stack.md) page.
 
 ## Install APIM Gateway
 
 ### Prerequisites
 
-The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
+The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
 
 ### Install the APIM Gateway package
 
@@ -73,7 +73,7 @@ sudo journalctl --unit graviteeio-apim-gateway --since  "2020-01-30 12:13:14"
 
 ### Prerequisites
 
-The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
+The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
 
 ### Install the management API package
 
@@ -135,7 +135,7 @@ sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 
 Before you install the management UI, you must complete the following configuration.
 
-1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
+1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
 2. Install and run the [management API](broken-reference).
 3. Install Nginx by running the following commands:
 
@@ -203,7 +203,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 
 Before you install the developer portal, you must complete the following configuration.
 
-1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
+1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
 2. Install and run the [management API](broken-reference).
 3. Install Nginx by running the following commands:
 
@@ -266,6 +266,5 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 ```
 
 {% hint style="success" %}
-Congratulations, you have a fully functional Gravitee APIM!
+Congratulations! Now that APIM is up and running, check out the [Tutorials](../../../tutorials/) for your next steps.
 {% endhint %}
-
