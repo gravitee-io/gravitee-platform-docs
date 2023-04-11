@@ -34,9 +34,8 @@ sudo yum install graviteeio-apim-gateway-3x -y
 2. Enable gateway on startup:
 
 ```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable graviteeio-apim-gateway
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable graviteeio-apim-gateway
 ```
 
 3. Start gateway:
@@ -96,9 +95,8 @@ sudo yum install graviteeio-apim-rest-api-3x -y
 2. Enable management API on startup:
 
 ```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable graviteeio-apim-rest-api
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable graviteeio-apim-rest-api
 ```
 
 3. Start REST API:
@@ -128,9 +126,8 @@ You should see that there’s a process listening on that port.
 6. Final verification:
 
 ```sh
-curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
-
-curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
+$ curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
+$ curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
 ```
 
 If the installation was successful, then both of these API requests will return a JSON document.

@@ -108,9 +108,8 @@ sudo yum install mongodb-org -y
 3. Enable MongoDB on startup:
 
 ```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable mongod
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable mongod
 ```
 
 4. Start MongoDB:
@@ -158,11 +157,9 @@ sudo yum install --enablerepo=elasticsearch elasticsearch -y
 
 3. Enable Elasticsearch on startup:
 
-```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable elasticsearch.service
-```
+<pre class="language-sh"><code class="lang-sh"><strong>$ sudo systemctl daemon-reload
+</strong><strong>$ sudo systemctl enable elasticsearch.service
+</strong></code></pre>
 
 4. Start Elasticsearch:
 
@@ -206,11 +203,9 @@ sudo amazon-linux-extras install nginx1
 
 3. Enable Nginx on startup:
 
-```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable nginx
-```
+<pre class="language-sh"><code class="lang-sh">$ sudo systemctl daemon-reload
+<strong>$ sudo systemctl enable nginx
+</strong></code></pre>
 
 4. Start Nginx:
 

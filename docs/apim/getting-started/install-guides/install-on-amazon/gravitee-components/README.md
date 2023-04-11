@@ -30,20 +30,16 @@ sudo yum install graviteeio-apim-3x -y
 
 2. Enable gateway and management API on startup:
 
-```sh
-sudo systemctl daemon-reload
-
-sudo systemctl enable graviteeio-apim-gateway
-
-sudo systemctl enable graviteeio-apim-rest-api
-```
+<pre class="language-sh"><code class="lang-sh"><strong>$ sudo systemctl daemon-reload
+</strong>$ sudo systemctl enable graviteeio-apim-gateway
+$ sudo systemctl enable graviteeio-apim-rest-api
+</code></pre>
 
 3. Start gateway and management API:
 
 ```sh
-sudo systemctl start graviteeio-apim-gateway
-
-sudo systemctl start graviteeio-apim-rest-api
+$ sudo systemctl start graviteeio-apim-gateway
+$ sudo systemctl start graviteeio-apim-rest-api
 ```
 
 4. Restart Nginx:
@@ -65,13 +61,10 @@ You can see the same logs in `/opt/graviteeio/apim/gateway/logs/gravitee.log` an
 6. Additional verification:
 
 ```sh
-sudo ss -lntp '( sport = 8082 )'
-
-sudo ss -lntp '( sport = 8083 )'
-
-sudo ss -lntp '( sport = 8084 )'
-
-sudo ss -lntp '( sport = 8085 )'
+$ sudo ss -lntp '( sport = 8082 )'
+$ sudo ss -lntp '( sport = 8083 )'
+$ sudo ss -lntp '( sport = 8084 )'
+$ sudo ss -lntp '( sport = 8085 )'
 ```
 
 You should see that there are processes listening on those ports.
@@ -79,11 +72,9 @@ You should see that there are processes listening on those ports.
 7. Final verification:
 
 ```sh
-curl -X GET http://localhost:8082/
-
-curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
-
-curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
+$ curl -X GET http://localhost:8082/
+$ curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
+$ curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
 ```
 
 If the installation was successful, then the first API call returns: **No context-path matches the request URI.** The final two API calls should return a JSON payload in the response.

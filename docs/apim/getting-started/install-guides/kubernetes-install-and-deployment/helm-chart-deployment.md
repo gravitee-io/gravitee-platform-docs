@@ -487,9 +487,8 @@ To get the license.key value, encode your file `license.key` in `base64`:
 Example:
 
 ```sh
-export GRAVITEESOURCE_LICENSE_B64="$(base64 -w 0 license.key)"
-
-helm install \
+$ export GRAVITEESOURCE_LICENSE_B64="$(base64 -w 0 license.key)"
+$ helm install \
   --set license.key=${GRAVITEESOURCE_LICENSE_B64} \
   --create-namespace --namespace gravitee-apim \
   graviteeio-apim3x \

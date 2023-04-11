@@ -32,30 +32,22 @@ curl -L https://bit.ly/install-apim-3x | sudo bash
 2. Verify:
 
 ```sh
-sudo ss -lntp '( sport = 9200 )'
-
-sudo ss -lntp '( sport = 27017 )'
-
-sudo ss -lntp '( sport = 8082 )'
-
-sudo ss -lntp '( sport = 8083 )'
-
-sudo ss -lntp '( sport = 8084 )'
-
-sudo ss -lntp '( sport = 8085 )'
+$ sudo ss -lntp '( sport = 9200 )'
+$ sudo ss -lntp '( sport = 27017 )'
+$ sudo ss -lntp '( sport = 8082 )'
+$ sudo ss -lntp '( sport = 8083 )'
+$ sudo ss -lntp '( sport = 8084 )'
+$ sudo ss -lntp '( sport = 8085 )'
 ```
 
 You should see that there are processes listening on those ports.
 
 3. Additional verification:
 
-```sh
-curl -X GET http://localhost:8082/
-
-curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
-
-curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
-```
+<pre class="language-sh"><code class="lang-sh"><strong>$ curl -X GET http://localhost:8082/
+</strong>$ curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
+<strong>$ curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
+</strong></code></pre>
 
 If the installation was successful, then the first API call returns: **No context-path matches the request URI.** The final two API calls should return a JSON payload in the response.
 
