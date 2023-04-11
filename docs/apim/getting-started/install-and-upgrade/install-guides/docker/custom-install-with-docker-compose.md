@@ -207,3 +207,7 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 You can adapt the above instructions to suit your architecture if you need to.
 
 Now that APIM is up and running, read the [Quick Start Guide](https://docs.gravitee.io/apim/3.x/apim\_quickstart\_publish.html) for your next steps.
+
+{% hint style="success" %}
+Congratulations, you have a fully functional Gravitee APIM!
+{% endhint %}

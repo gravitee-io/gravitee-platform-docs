@@ -226,10 +226,3 @@ The developer portal package does not provide its own service. It provides:
 {% hint style="success" %}
 Congratulations, you have a fully functional Gravitee APIM!
 {% endhint %}
-
-\
-\
-
-
-\
-\
