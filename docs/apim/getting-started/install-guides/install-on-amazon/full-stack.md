@@ -2,6 +2,10 @@
 
 ## Prerequisites
 
+{% hint style="warning" %}
+Currently, Gravitee does not support the Amazon Linux 2023 image. Please select the Amazon Linux 2 image.
+{% endhint %}
+
 Provision and start an Amazon instance with the following minimum specifications:
 
 * Instance Type: **t2.medium**
