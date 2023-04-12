@@ -1,5 +1,5 @@
 ---
-description: This article is for x,y, and z
+description: Learn how to import APIs onto your Gravitee Gateway.
 ---
 
 # Import APIs
