@@ -397,12 +397,6 @@ At some point, you may have heard of JSON Schema which is essentially a tool to 
 
 Humans love to put things in categories. It’s our way of making sense of this chaotic, confusing world and allows us to function under the notion of structure, order, and purpose. So now we’re going to take a deeper look at two important and _separate_ categorizations for web APIs: **Synchronous vs Asynchronous** and **Stateless vs Stateful**.
 
-{% hint style="info" %}
-**Ego check**
-
-For a very unrelated sidebar, watch Carl Sagan’s famous [Pale Blue Dot speech](https://www.youtube.com/watch?v=GO5FwsblpT8) to remind you of your insignificance and keep your ego in check!
-{% endhint %}
-
 Before proceeding, it’s important to note that there is often cross-pollination between these two concepts; but on the contrary, they are entirely independent concepts as we will make clear in the following sections.
 
 ### Synchronous vs Asynchronous <a href="#synchronous-vs-asynchronous-9" id="synchronous-vs-asynchronous-9"></a>
