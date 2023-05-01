@@ -96,13 +96,11 @@ After using Helm to install APIM on Kubernetes, you can manage the deployment by
 
 Helm is a package manager for Kubernetes that simplifies the deployment and management of applications on Kubernetes clusters. Helm packages are called "charts," which are collections of YAML templates that describe the different Kubernetes resources needed to run an application, such as deployments, services, and config maps.&#x20;
 
-You just used Helm to install APIM on Kubernetes and you can continue to use it to manage the APIM installation. Helm allows you to in install, upgrade, rollback, and delete applications with just a few commands. However, Helm more limited than a Kubernetes operator when it comes to advanced automation and management capabilities for complex applications or services.
+You just used Helm to install APIM on Kubernetes and you can continue to use it to manage the APIM installation. Helm allows you to install, upgrade, rollback, and delete applications with just a few commands. However, Helm more limited than a Kubernetes operator when it comes to advanced automation and management capabilities for complex applications or services.
 
 Kubernetes operators allow you to automate advanced application management tasks. In Kubernetes, an operator is not an API object itself, but rather a pattern for building custom controllers that automate the management of complex, stateful applications on Kubernetes. Kubernetes' [operator pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) concept lets you extend the cluster's behavior without modifying the code of Kubernetes itself by linking [controllers](https://kubernetes.io/docs/concepts/architecture/controller/) to one or more custom resources.&#x20;
 
-Operators are designed to understand the application they manage and can take actions based on that understanding. For example, an operator for a database might automatically scale the number of database instances based on the workload or perform backups and recovery operations automatically.
-
-One key advantage of Kubernetes operators over Helm is that they provide a higher level of automation and intelligence for managing complex applications. They can automatically detect and respond to changes in the application or infrastructure, and can handle intricate management tasks that would be difficult to do manually.
+Operators are designed to understand the application they manage and can take actions based on that understanding which allows for a higher level of automation and intelligence when managing complex applications. They can automatically detect and respond to changes in the application or infrastructure, and can handle intricate management tasks that would be difficult to do manually.
 
 ### Choose your deployment manager
 
