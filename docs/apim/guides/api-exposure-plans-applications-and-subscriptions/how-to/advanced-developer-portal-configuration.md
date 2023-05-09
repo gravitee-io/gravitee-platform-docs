@@ -40,15 +40,15 @@ Select the **Settings** tab in the secondary sidebar and scroll down to the **Po
 * **Options** toggles
   * **Use Tiles Mode:** Sets the default all APIs view to tiles as opposed to a list view.
   * **Activate Support:** Adds a **Contact** and **Tickets** tab to each API.  Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for the contact form to work.
-  * **Activate Rating:**
-  * **Force user to fill comment**
-  * **Allow User Registration**
-    * **Enable automatic validation**
-  * **Add Google Analytics**
-  * **Allow Upload Images**
-  * **OpenAPI Viewers**
-  * **Schedulers**
-  * **Documentation**
+  * **Activate Rating:** Allow API consumers to leave written reviews and ratings.
+  * **Force user to fill comment:** Unleash the power of your APIs.
+  * **Allow User Registration:** Allow API consumers to create an account from the developer portal. Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for registration to work.
+    * **Enable automatic validation:** Automatically approve all accounts created on the developer portal.
+  * **Add Google Analytics:** Add a Google Analytics tracking ID to the developer portal.
+  * <mark style="color:yellow;">**Allow Upload Images:**</mark> <mark style="color:yellow;"></mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Unknown</mark>
+* **OpenAPI Viewers**
+* **Schedulers**
+* **Documentation**
 * Setting the title, description, and logo of the Developer Portal
 * Configuring the home page and footer of the Developer Portal
 * Enabling and configuring the contact form
