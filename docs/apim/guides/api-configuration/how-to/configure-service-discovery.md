@@ -11,7 +11,6 @@ description: >-
 Gravitee supports the following Service Discovery solutions:
 
 * HashiCorp Consul
-* Eureka
 
 Please read the following documentation to learn how to configure both.
 
@@ -90,11 +89,16 @@ To overcome this limitation, Gravitee.io supports extra `Meta` attributes in add
 
 Meta attributes must be provided as part of the definition of your service:
 
-{% code overflow="wrap" %}
+* `gravitee_path` to specify on which path your service is reachable.
+* `gravitee_ssl` to specify whether your service should be called with `http://` or `https://` scheme.\`
+* `gravitee_weight` to set a weight on the endpoint to affect the load balancing.
+* `gravitee_tenant` to set a tenant value in the endpoint.
+
+Below is a cURL command example to register a service in Consul with extra attributes supported by Gravitee.io:
+
 ```
 curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "api.gravitee.io", "Meta": {"gravitee_path":"/whattimeisit", "gravitee_ssl":"true" }, "Port": 443}' http://localhost:8500/v1/agent/service/register
 ```
-{% endcode %}
 
 Check the Consul web UI and you should see the new service named `whattimeisit`:
 
@@ -131,7 +135,7 @@ You should get the following response:
 }
 ```
 
-In order to test that incoming requests on APIM gateway are dynamically routed to different service instances, let’s register another instance for service `whattimeisit` that serves a different content with `gravitee_path` set to `/echo`:
+To test that incoming requests on the APIM gateway are dynamically routed to different service instances, let’s register another instance for service `whattimeisit` that serves another content with `gravitee_path` set to `/echo`:
 
 {% code overflow="wrap" %}
 ```
@@ -140,6 +144,28 @@ curl -X PUT -d '{ "ID": "whattimeisit_2", "Name": "whattimeisit", "Address": "ap
 {% endcode %}
 
 #### Enable Consul Service Discovery in Gravitee API Management
+
+The service discovery feature is enabled at the EndpointGroup level of an API definition:
+
+```
+"endpointGroups": [
+    {
+        "name": "default-group",
+        "type": "http-proxy",
+        "services": {
+            "discovery": {
+                "enabled": true,
+                "type": "consul-service-discovery",
+                "configuration": {
+                    "url": "http://localhost:8500",
+                    "service": "whattimeisit"
+                }
+            }
+        },
+        "endpoints": []
+    }
+],
+```
 
 Now that you've successfully registered your service instances in Hashicorp Consul, you can enable Hashicorp Consul Service discovery in the Gravitee AP Management UI. To do so, follow these steps:
 
@@ -206,27 +232,22 @@ Please note that endpoints configured through the APIM console before service di
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/ef0dd779-712f-4dfd-9d8c-938f000d3dbe/2.5/35.474537037037/76.989809081527?0)
 
-#### Verify that your service is properly discovered by the Gravitee API Gateway
+## Verify that the APIM gateway properly discovers your service
 
-You can check API gateway’s logs to verify that your service have been successfully discovered thanks to HashiCorp Consul:
+You can check the API gateway’s logs to verify that your service has been successfully found thanks to HashiCorp Consul:
 
-{% code overflow="wrap" %}
 ```
-INFO  i.g.g.h.a.m.impl.ApiManagerImpl - API id[194c560a-fcd1-4e26-8c56-0afcd17e2630] name[Time] version[1.0.0] has been updated
-INFO  i.g.d.consul.ConsulServiceDiscovery - Register a new service from Consul.io: id[whattimeisit] name[whattimeisit]
-INFO  i.g.g.s.e.d.v.EndpointDiscoveryVerticle - Receiving a service discovery event id[consul:whattimeisit] type[REGISTER]
+INFO  i.g.a.p.a.s.c.ConsulServiceDiscoveryService - Starting service discovery service for api my-api.
+INFO  i.g.g.r.c.v.e.DefaultEndpointManager - Start endpoint [consul#whattimeisit_1] for group [default-group]
 ```
-{% endcode %}
 
-You can now try to call your API to make sure that incoming API requests are properly routed to the proper backend service.
+You can now try to call your API to ensure incoming API requests are routed to the appropriate backend service.
 
-You can also deregister your service instance from Consul by refering to their ID and call your API again to observe how APIM dynamically routes the trafic based on Consul’s Service Catalog. To do, execute the following curl command:
+You can also deregister your service instance from Consul by referring to their ID and calling your API again to observe how APIM dynamically routes the traffic based on Consul’s Service Catalog.
 
 ```
 curl -X PUT -v "http://localhost:8500/v1/agent/service/deregister/whattimeisit"
 ```
-
-If you encounter any issues, enable logs in order to troubleshoot.
 
 {% hint style="success" %}
 You've now integrated the Gravitee.io API Gateway with HashiCorp Consul, which enables dynamic load balancer configuration changes that are pulled directly from Consul’s service discovery registry.
@@ -239,6 +260,4 @@ If you have integrated Gravitee and HashiCorp Consul for Service Discovery, you 
 
 <img src="../../../../images/apim/3.x/api-publisher-guide/service-discovery/service-discovery-consul-healthcheck.png" alt="" data-size="original">
 {% endhint %}
-
-### Eureka Service Discovery
 
