@@ -4,17 +4,58 @@ description: The administrator's guide to the developer portal
 
 # Configuration
 
-## Getting started
+Introduction
 
-* Accessing the Developer Portal configuration settings
-* Understanding the configuration settings dashboard
-* Overview of the different configuration sections
+Configuration of the developer portal takes place through the management UI settings as shown in the image below.
+
+<figure><img src="../../../.gitbook/assets/dev_portal_settings.png" alt=""><figcaption><p>Developer portal settings</p></figcaption></figure>
+
+The developer portal settings are broken into the following major categories:
+
+* Analytics
+* API Portal Information
+* API Quality
+* Authentication
+* Categories
+* Documentation
+* Metadata
+* (General) Settings
+* Theme
+* Top APIs
 
 ## General settings
 
+Arcade
+
+
+
+Select the **Settings** tab in the secondary sidebar and scroll down to the **Portal** subheader. As shown in the arcade above, you have the following configuration options:
+
+* **Api-key Header:** Modify the api-key header shown in the developer portal's CURL commands. Note, this only impacts the developer portal's UI. You must modify the YAML configuration to impact the gateway
+* **Portal URL:** Provide the URL of the developer portal. This will add a link to the developer portal on the top navigation bar of the management UI as shown in the image below. Additionally, the [theme editor](advanced-developer-portal-configuration.md#theme-customization) will have a live preview of the developer portal.
+
+<figure><img src="../../../.gitbook/assets/dev_portal_link.png" alt=""><figcaption><p>Link to developer portal from management UI</p></figcaption></figure>
+
+* **Override homepage title:** Activating this toggle allows you to change the developer portal title from "Unleash the power of your APIs." to a custom title.
+* **Options** toggles
+  * **Use Tiles Mode:** Sets the default all APIs view to tiles as opposed to a list view.
+  * **Activate Support:** Adds a **Contact** and **Tickets** tab to each API.  Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for the contact form to work.
+  * **Activate Rating:**
+  * **Force user to fill comment**
+  * **Allow User Registration**
+    * **Enable automatic validation**
+  * **Add Google Analytics**
+  * **Allow Upload Images**
+  * **OpenAPI Viewers**
+  * **Schedulers**
+  * **Documentation**
 * Setting the title, description, and logo of the Developer Portal
 * Configuring the home page and footer of the Developer Portal
 * Enabling and configuring the contact form
+
+{% hint style="info" %}
+YAML Config override
+{% endhint %}
 
 ## API configuration
 
