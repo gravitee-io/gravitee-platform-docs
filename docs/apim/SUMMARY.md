@@ -14,7 +14,7 @@
     * [Service Discovery](overview/integrations/third-party-integrations/service-mesh-and-service-discovery.md)
       * [Hashicorp Consul Service Discovery](overview/integrations/third-party-integrations/service-mesh-and-service-discovery/hashicorp-consul-service-discovery.md)
     * [APIM & Observability](overview/integrations/third-party-integrations/apim-and-observability.md)
-      * [Expose API metrics to Prometheus](overview/integrations/third-party-integrations/apim-and-observability/expose-api-metrics-to-prometheus.md)
+      * [Expose API metrics to Datadog](overview/integrations/third-party-integrations/apim-and-observability/expose-api-metrics-to-prometheus.md)
     * [iPaaS](overview/integrations/third-party-integrations/ipaas.md)
 
 ## Getting Started
