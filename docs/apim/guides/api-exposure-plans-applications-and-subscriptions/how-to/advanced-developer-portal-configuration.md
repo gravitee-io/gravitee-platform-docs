@@ -4,24 +4,19 @@ description: The administrator's guide to the developer portal
 
 # Configuration
 
-Introduction
+## Introduction
 
 Configuration of the developer portal takes place through the management UI settings as shown in the image below.
 
 <figure><img src="../../../.gitbook/assets/dev_portal_settings.png" alt=""><figcaption><p>Developer portal settings</p></figcaption></figure>
 
-The developer portal settings are broken into the following major categories:
+The developer portal settings can be broken into the following major categories:
 
+* General Settings
+* API Configuration
+* Theme Customization
+* Email Configuration
 * Analytics
-* API Portal Information
-* API Quality
-* Authentication
-* Categories
-* Documentation
-* Metadata
-* (General) Settings
-* Theme
-* Top APIs
 
 ## General settings
 
@@ -46,15 +41,12 @@ Select the **Settings** tab in the secondary sidebar and scroll down to the **Po
     * **Enable automatic validation:** Automatically approve all accounts created on the developer portal.
   * **Add Google Analytics:** Add a Google Analytics tracking ID to the developer portal.
   * <mark style="color:yellow;">**Allow Upload Images:**</mark> <mark style="color:yellow;"></mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Unknown</mark>
-* **OpenAPI Viewers**
-* **Schedulers**
-* **Documentation**
-* Setting the title, description, and logo of the Developer Portal
-* Configuring the home page and footer of the Developer Portal
-* Enabling and configuring the contact form
+* **OpenAPI Viewers:** Select the viewer you would like to use to display your API documentation
+* **Schedulers: Configure the frequency the developer portal runs background tasks such as syncing data and sending/receiving notifications**
+* <mark style="color:yellow;">**Documentation:**</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Unknown</mark>
 
 {% hint style="info" %}
-YAML Config override
+All of the general settings can be overridden in the `gravitee.yaml` file as detailed in the Configuration section.
 {% endhint %}
 
 ## API configuration
@@ -68,12 +60,6 @@ YAML Config override
 * Choosing a pre-built theme or creating a custom theme
 * Configuring the color scheme and fonts of the Developer Portal
 * Uploading custom CSS and JavaScript files
-
-## Authentication and authorization
-
-* Configuring the authentication providers for developers
-* Enabling and configuring OAuth 2.0 authentication
-* Setting up access control policies
 
 ## Localization and internationalization
 
