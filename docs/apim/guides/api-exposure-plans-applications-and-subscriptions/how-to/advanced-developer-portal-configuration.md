@@ -51,6 +51,23 @@ All of the general settings can be overridden in the `gravitee.yaml` file as det
 
 ## API configuration
 
+This section will detail how to modify the way your APIs are presented to API consumers. Select **API Portal Configuration** to display the following options:
+
+* #### Add extra information: The following settings modify what is shown in the sidebar of each API:
+  * **Show tags list in the API header:**&#x20;
+  * **Show categories list in the API header:**
+  * #### Configure the information list
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-05-09 at 6.09.58 PM.png" alt=""><figcaption><p>Developer portal API sidebar</p></figcaption></figure>
+
+
+
+
+
+*   #### API Page list options
+
+
+*
 * Configuring the API listing and sorting options
 * Setting the default API category and tags
 * Enabling and configuring the API search bar
