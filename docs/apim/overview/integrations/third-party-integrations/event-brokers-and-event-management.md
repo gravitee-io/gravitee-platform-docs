@@ -1,2 +1,0 @@
-# Event Brokers & Event Management
-
