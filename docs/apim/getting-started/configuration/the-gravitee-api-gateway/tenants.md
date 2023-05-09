@@ -30,17 +30,20 @@ EU Region: tenant: ‘eu’
 
 Once the Gateway has been configured, you would need to add the tenant definition within the API Management UI. To do so, follow these steps:
 
-1. Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant**_**,**_ and enter the required value for each of your regions. For our example, this will. be “usa” and “eu".
+1. Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant**_**,**_ and enter the required value for each of your regions. For our example, this will be “usa” and “eu". We also recommend giving each tenant a descriptive name.
 
 <figure><img src="https://miro.medium.com/v2/resize:fit:1400/0*dqayn7uZPfVmyQgT" alt=""><figcaption></figcaption></figure>
 
-2. Next, Configure the Backend and Customer APIs by adding two separate “Endpoints”. These will point to the USA and EU upstream systems (the backend server or the Customer API depending on which API you are configuring).
+2. Next, Configure the Backend and Customer APIs by adding two separate “Endpoints”. For our example, this will point to the USA and EU upstream systems (the backend server or the Customer API depending on which API you are configuring).
 
 <figure><img src="https://miro.medium.com/v2/resize:fit:1400/0*en1j7FLNVLWpoOkn" alt=""><figcaption></figcaption></figure>
 
-Note how, when specifying a new backend, we will also have the ability to specify which tenant this backend will apply to. We now have two endpoints defined pointing to different backends, and each one is assigned to a different tenant:
+You will also have the ability to specify which tenant this backend will apply to. You now have two endpoints defined, each pointing to different backends, and each one is assigned to a different tenant:
 
 <figure><img src="https://miro.medium.com/v2/resize:fit:1400/0*ZhfPrNuU0Aa7YQ8c" alt=""><figcaption></figcaption></figure>
+
+{% hint style="success" %}
+Nicely done!
 
 So, now that you have the two endpoints defined, Gateways GWI1, GWI2, GWI3 and GWI4 will apply this logic:
 
@@ -51,14 +54,7 @@ On the same lines, Gateways GWE1, GWE2, GWE3, GWE4 will apply the following logi
 
 * If my tenant configuration is “eu” then proxy a request to Customer API to [https://eu.backend-api.com](https://eu.backend.com/)
 * If my tenant configuration is “usa” then proxy a request to Backend API to [https://usa.backend-api.com](https://usa.backend.com/)
-
-## Wrapping it up <a href="#4c11" id="4c11"></a>
-
-In this blog we’ve provided a definition of what tenants are, along with an example that would typically be seen by an organization looking to deploy APIs for different requirements.
-
-We have also shown you a step-by-step approach on how to configure tenants for your deployment, based on a typical architecture common to many organizations.
-
-Tenants can be used to help the Gateway choose which upstream endpoint an API should invoke. This is particularly important when you have different replicas of your upstream API and, in order to reduce latency, you want to ensure the closest possible backend is consumed. This is a rather common challenge in multi-layered API architectures like the one described in this article.
+{% endhint %}
 
 [\
 ](https://medium.com/tag/gravitee?source=post\_page-----471f4d3c49a9---------------gravitee-----------------)
