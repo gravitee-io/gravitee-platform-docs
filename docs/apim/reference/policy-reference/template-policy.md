@@ -20,6 +20,14 @@ license type: Enterprise
 
 \---
 
+<details>
+
+<summary>Enterprise Feature</summary>
+
+This plugin requires an enterprise license or trial which you can learn more about here.
+
+</details>
+
 ## Description
 
 High-level details on functionality
