@@ -4,8 +4,11 @@ description: Sample structure for policy documentation
 
 # Template Policy
 
-\---
+***
 
-Publisher:
+title: My Blog Post
 
-\---
+\+++
+
+Test
+
