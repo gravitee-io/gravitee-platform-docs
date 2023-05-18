@@ -170,6 +170,7 @@
   * [Portal API](reference/management-api-reference/portal-api.md)
 * [Gravitee Kubernetes Operator API Reference](reference/gravitee-kubernetes-operator-api-reference.md)
 * [Policy Reference](reference/policy-reference/README.md)
+  * [Template Policy](reference/policy-reference/template-policy.md)
   * [Full Policy Reference](reference/policy-reference/full-policy-reference.md)
   * [Gravitee Policies](reference/policy-reference/gravitee-policies/README.md)
     * [Security](reference/policy-reference/gravitee-policies/security/README.md)
