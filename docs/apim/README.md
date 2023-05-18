@@ -43,16 +43,10 @@ In our platform, we define a **publisher** (also called **API publisher**) as th
 
 ### Consumer
 
-In our platform, we define a **consumer** (also called **API consumer**) as the role that consumes APIs.
-
-!!! tip "PRO-TIP:"
-
-```
-A consumer can only consume an API after subscribing to it.
-```
+In our platform, we define a **consumer** (also called **API consumer**) as the role that consumes APIs. Consumers get access to APIs by **subscribing** to them.
 
 ### Application
 
-An **application** is an intermediate level between a **consumer** and an API. The consumer uses an application to subscribe to the API before they are able to consume it.
+An **application** is an intermediate level between a consumer and an API. Through applications, consumers are grouped together and the application as a whole subscribes to the API.
 
 Ready to use Gravitee.io API Management? Let’s get started!

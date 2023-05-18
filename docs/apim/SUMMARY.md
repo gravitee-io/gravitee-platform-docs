@@ -4,7 +4,7 @@
 
 * [Introduction to Gravitee API Management (APIM)](README.md)
   * [APIM Architecture](overview/introduction-to-gravitee-api-management-apim/apim-architecture.md)
-  * [Components](overview/introduction-to-gravitee-api-management-apim/components.md)
+  * [APIM Components](overview/introduction-to-gravitee-api-management-apim/components.md)
   * [Plugins](overview/introduction-to-gravitee-api-management-apim/plugins.md)
   * [EE vs OSS](overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
 * [Integrations](overview/integrations/README.md)
