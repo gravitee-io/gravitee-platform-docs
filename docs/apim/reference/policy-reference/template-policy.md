@@ -26,6 +26,8 @@ High-level details on functionality
 
 ## Phases
 
+Provide link to a conceptual overview of phases as well as an explanation of the difference between v4 and v3 execution engine
+
 {% tabs %}
 {% tab title="V4 engine" %}
 <table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>true</td><td>true</td><td>true</td></tr></tbody></table>
@@ -36,9 +38,9 @@ High-level details on functionality
 {% endtab %}
 {% endtabs %}
 
-## Example use case
+## Example use cases
 
-Real-world use case with sample code
+Real-world use cases
 
 ## Compatibility matrix
 
@@ -65,7 +67,7 @@ Real-world use case with sample code
 
 ## Configuration
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td></td><td>true</td><td></td><td></td><td></td></tr><tr><td></td><td>true</td><td></td><td></td><td></td></tr><tr><td></td><td>true</td><td></td><td></td><td></td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td></td><td>true</td><td></td><td></td><td></td></tr><tr><td></td><td>false</td><td></td><td></td><td></td></tr><tr><td></td><td>true</td><td></td><td></td><td></td></tr></tbody></table>
 
 ## Errors
 
@@ -75,5 +77,27 @@ Real-world use case with sample code
 |       |                  |                    |             |
 |       |                  |                    |             |
 
-## Breaking Changes
+## Changelog
+
+### 2.2
+
+#### What's New?
+
+* Blazingly fast
+* Full chatgpt and neuralink integration for quick API mastery
+
+#### Breaking Changes
+
+* Potentially your mind
+
+### 2.1
+
+#### What's New?
+
+* Blazingly fast
+* Full chatgpt and neuralink integration for quick API mastery
+
+#### Breaking Changes
+
+* Potentially your mind
 
