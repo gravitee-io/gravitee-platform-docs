@@ -60,14 +60,19 @@ The **Deployment** section allows you to selectively deploy the plan to particul
 
 ### Secure
 
-During the **Secure** stage of plan creation, the API publisher selects one of four authentication types to secure their API. You can learn more about how to configure plan security in the [following section](plans.md#configure-plan-security).
+During the **Secure** stage of plan creation, the API publisher selects one of five authentication types to secure their API. You can learn more about how to configure plan security in the [following section](plans.md#configure-plan-security).
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.49.42 PM.png" alt=""><figcaption><p>Select authentication type</p></figcaption></figure>
 
 * **Keyless (public):**  does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback.&#x20;
-* **API key:** only allows apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
-* **JSON web token (JWT):** open method for representing claims securely between two parties. JWT are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
-* **Oauth 2.0:** open standard that apps can use to provide client applications with secure delegated access. OAuth works over HTTPS and authorizes devices, APIs, servers, and applications with access tokens rather than credentials.
+* **API Key:** only allows apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
+* **JSON web token (JWT):** open method for representing claims securely between two parties. JWTs are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
+* **OAuth 2.0:** open standard that apps can use to provide client applications with secure delegated access. OAuth works over HTTPS and authorizes devices, APIs, servers, and applications with access tokens rather than credentials.
+* **Push:** used when the API has an entrypoint that sends message payloads to API consumers (e.g. Webhook). This type of plan is unique in that the security configuration is defined by the **API** **consumer** in the subscription request created in the developer portal. For example, when subscribing to a Webhook entrypoint of an API, the API consumer will specify the target URL and authentication for the gateway to use when sending messages.
+
+{% hint style="info" %}
+Push plans do _not_ apply to Server Sent Event entrypoints. Even though messages are pushed from the server, the client application initiates consumption of messages from the entrypoint.
+{% endhint %}
 
 ### Restrictions
 
@@ -81,12 +86,13 @@ Restrictions are just policies to regulate access to your APIs. Like any policy,
 
 ## Configure plan security
 
-The most important part of plan configuration is security. APIM supports the following four authentication types:
+The most important part of plan configuration is security. APIM supports the following five authentication types:
 
 * Keyless (public)
 * API Key
 * JWT
 * OAuth 2.0
+* Push
 
 {% hint style="info" %}
 **Policies vs authentication types**
@@ -105,7 +111,7 @@ The Keyless authentication type does _not_ require authentication and allows pub
 {% hint style="info" %}
 **Basic authentication and keyless plans**
 
-You can configure basic authentication for keyless plans, by associating a basic authentication policy with either an LDAP or inline resource. For more details, see [Basic authentication policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_basic\_authentication.html).
+You can configure basic authentication for keyless plans by associating a basic authentication policy with either an LDAP or inline resource. For more details, see [Basic authentication policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_basic\_authentication.html).
 {% endhint %}
 
 ### API key plan
@@ -116,7 +122,7 @@ API key plans offer only a basic level of security, acting more as a unique iden
 
 When configuring API key authentication, there are two main options:
 
-* **Propogate API key to upstream API:** toggling this setting on ensures the request to the backend API includes the API key header sent by the API consumer. This is setting is useful for backend APIs that already have integrated API key authentication.
+* **Propagate API key to upstream API:** toggling this setting on ensures the request to the backend API includes the API key header sent by the API consumer. This is setting is useful for backend APIs that already have integrated API key authentication.
 * **Additional selection rule:** this setting allows you to use Gravitee Expression Language (EL) to filter by contextual data (request headers, tokens, attributes, etc.) for plans of the same type. For example, if you have two API key plans, you can set different selection rules on each plan to determine which plan handles each request.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 3.22.29 PM.png" alt=""><figcaption><p>API key plan configuration</p></figcaption></figure>
@@ -269,6 +275,14 @@ Your API is now OAuth 2.0 secured and consumers must call the API with an `Autho
 **Subscription requirements**
 
 Any applications wanting to subscribe to an OAuth 2.0 plan must have an existing client with a valid `client_id` registered in the OAuth 2.0 authorization server. The `client_id` will be used to establish a connection between the OAuth 2.0 client and the APIM consumer application. You can learn more about setting up client applications here.
+{% endhint %}
+
+### Push
+
+Push plans have the same configuration options as Keyless plans in APIM. The bulk of the configuration for a push plan is set by the API consumer in the developer portal, and the content of the configuration varies by entrypoint type.
+
+{% hint style="info" %}
+In APIM 4.0, Webhook is the only type of entrypoint that uses a push plan.
 {% endhint %}
 
 ## Publish a plan
