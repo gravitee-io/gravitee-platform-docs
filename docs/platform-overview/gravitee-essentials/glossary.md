@@ -88,13 +88,19 @@ In Gravitee's documentation, you can assume web APIs and APIs are synonymous ter
 
 * **API transaction:** a single interaction between a client application and a server through an API. For synchronous APIs, it typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. For asynchronous APIs, an API transaction refers to a single transmission of a message payload between a client and a message broker
 * **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
-* **HTTP API route:** URL used to access a resource
+* **HTTP API route:** part of the URL used to access a resource. It does not include parts of the URL like fragments.
   * Example: `http://foo.com/api/user/1`
 * **HTTP API endpoint:** one end of a communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
   * Example: `GET http://foo.com/api/user/1`
+* **Resource:** an entity or object that is made available for interaction through the API. It represents a specific piece of data or functionality that can be accessed, modified, or manipulated by clients.
+  * **Example:** `{id: 42, type: employee, company: 5}`
 * **HTTP API entry point:** a special type of resource — it’s a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API.
   * Example: `http://foo.com/api`
-* **Synchronous APIs**: APIs that require linear, sequential communication between a tightly-coupled client and server. Clients initiate all communication.&#x20;
+* **Path parameters:** a way of passing variable values within the route of an API request
+  * Example: `http://foo.com/api/user/{id}` where {id} is a path parameter
+* **Query parameters:** a way to include additional information or parameters in the URL to customize or filter the results of the request. Query parameters are appended to the endpoint URL using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value.
+  * Example: `http://foo.com/api/user/{id}/?height=tall` where "height" is a query parameter with a value of "tall"
+* **Synchronous APIs:** APIs that require linear, sequential communication between a tightly-coupled client and server. Clients initiate all communication.&#x20;
   * Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
 * **Asynchronous APIs**: APIs that break up the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication beyond the initial subscription from the information consumer.
   * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
