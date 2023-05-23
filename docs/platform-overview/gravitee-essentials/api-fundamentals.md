@@ -190,9 +190,22 @@ So how does all of this come together when you type in `google.com` in your brow
 But wait. You might be asking, where is the unique IP address? The answer lies in the **fully qualified domain name**, `www.google.com`, which is resolved into an IP address through a process called **domain name system** (DNS) resolution. [Here](https://serverfault.com/a/643511) is a solid high-level explanation of how that works. Or, if preferred, [here’s a great video](https://www.youtube.com/watch?v=72snZctFFtA\&t=45s) on DNS resolution.
 {% endhint %}
 
-At this point, we should also mention that in the world of HTTP APIs, the _URL_ combined with an _HTTP method_ is often referred to as an API **endpoint**. Every resource can be accessed by the user of the API at a unique endpoint. This means `GET http://foo.com/api/user/1` and `GET http://foo.com/api/user/2` are considered separate endpoints because you modified the **path parameters** which are a portion of the URL after the domain as shown in the URI/URL/URN diagram above. Additionally, `GET http://foo.com/api/user/1` and `POST http://foo.com/api/user/1` are also considered distinct endpoints due to switching from the `GET` to the `POST` method.
+At this point, we should also mention that in the world of HTTP APIs, the _route_ portion of a URL combined with an _HTTP method_ is often referred to as an API **endpoint**. Every resource can be accessed by the user of the API at a unique endpoint. This means `GET http://foo.com/api/user/1` and `GET http://foo.com/api/user/2` are considered separate endpoints because you modified the route. Additionally, `GET http://foo.com/api/user/1` and `POST http://foo.com/api/user/1` are also considered distinct endpoints due to switching from the `GET` to the `POST` HTTP method.
 
 Now, in this example, all resources, and therefore endpoints tied to this API, exist under a single API **entry point** which would be `http://foo.com/api` in our example. In a way, the entry point can be viewed as a special type of endpoint: it’s a resource that exists outside of any other collection and houses all other collections of resources.
+
+{% hint style="info" %}
+**Path parameters**
+
+We modified the route in the example above by changing the 1 to a 2 which you can imagine representing two different user resources. So does this mean if we had a database with 1000 users, they would all have at least one endpoint? Yes! And this is where _path parameters_ come into play.
+
+Path parameters refer to a way of passing variable values within the URL path of a request. In a typical API route, the path is divided into segments separated by slashes ("/"). Path parameters are denoted by a placeholder or variable name within curly braces ("{}"). When a request is made, the actual value for the parameter is substituted in place of the placeholder.
+
+So for our example, we could represent an endpoint like this:\
+`GET http://foo.com/api/user/{id}`
+
+where {id} is the path parameter.
+{% endhint %}
 
 Using HTTP/HTTPS as our example application layer protocol was no mistake. Besides being core to how the world wide web functions, a number of other application layer protocols are dependent on HTTP/HTTPS. This is because application layer protocols can _stack_. Unfortunately, this is also where our conceptual, layered network cake begins to look a little half-baked.
 
