@@ -111,7 +111,7 @@
   * [Advanced Authentication via Gravitee AM](getting-started/configuration/advanced-authentication-via-gravitee-am.md)
   * [Advanced API Monitoring via Gravitee AE](getting-started/configuration/advanced-api-monitoring-via-gravitee-ae.md)
   * [Gravitee API Gateway Configuration](getting-started/configuration/gravitee-api-gateway-configuration.md)
-* [Tutorial: Todo Application](getting-started/tutorials/README.md)
+* [Tutorial: Demo Application](getting-started/tutorials/README.md)
   * [Basic Security and Access Control](getting-started/tutorials/comprehensive.md)
   * [Real-time Data and Protocol Mediation](getting-started/tutorials/real-time-data-and-protocol-mediation.md)
   * [Advanced Policies and Security](getting-started/tutorials/advanced-policies-and-security.md)
