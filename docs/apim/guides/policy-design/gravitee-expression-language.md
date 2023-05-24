@@ -208,44 +208,7 @@ Otherwise, the attributes you can access from the `{#request.ssl.client}` and `{
 
 **Common domain name attributes:**
 
-| Object Property        | Description                            | Type   | Example              |
-| ---------------------- | -------------------------------------- | ------ | -------------------- |
-| businessCategory       | Business category                      | string | -                    |
-| c                      | Country code                           | string | FR                   |
-| cn                     | Common name                            | string | -                    |
-| countryOfCitizenship   | RFC 3039 CountryOfCitizenship          | string | -                    |
-| countryOfResidence     | RFC 3039 CountryOfResidence            | string | -                    |
-| dateOfBirth            | RFC 3039 RFC 3039 DateOfBirth          | string | 19830719000000Z      |
-| dc                     | Domain component                       | string | -                    |
-| description            | Description                            | string | -                    |
-| dmdName                | RFC 2256 directory management domain   | string | -                    |
-| dnQualifier            | Domain name qualifier                  | string | -                    |
-| e                      | Email address in Verisign certificates | string | -                    |
-| emailAddress           | Email address (RSA PKCS#9 extension)   | string | -                    |
-| gender                 | RFC 3039 Gender                        | string | "M", "F", "m" or "f" |
-| generation             | Naming attributes of type X520name     | string | -                    |
-| givenname              | Naming attributes of type X520name     | string | -                    |
-| initials               | Naming attributes of type X520name     | string | -                    |
-| l                      | Locality name                          | string | -                    |
-| name                   | Name                                   | string | -                    |
-| nameAtBirth            | ISIS-MTT NameAtBirth                   | string | -                    |
-| o                      | Organization                           | string | -                    |
-| organizationIdentifier | Organization identifier                | string | -                    |
-| ou                     | Organization unit name                 | string | -                    |
-| placeOfBirth           | RFC 3039 PlaceOfBirth                  | string | -                    |
-| postalAddress          | RFC 3039 PostalAddress                 | string | -                    |
-| postalCode             | Postal code                            | string | -                    |
-| pseudonym              | RFC 3039 Pseudonym                     | string | -                    |
-| role                   | Role                                   | string | -                    |
-| serialnumber           | Device serial number name              | string | -                    |
-| st                     | State or province name                 | string | -                    |
-| street                 | Street                                 | string | -                    |
-| surname                | Naming attributes of type X520name     | string | -                    |
-| t                      | Title                                  | string | -                    |
-| telephoneNumber        | Telephone number                       | string | -                    |
-| uid                    | LDAP User id                           | string | -                    |
-| uniqueIdentifier       | Naming attributes of type X520name     | string | -                    |
-| unstructuredAddress    | Unstructured address (from PKCS#9)     | string | -                    |
+<table><thead><tr><th>Object Property</th><th>Description</th><th width="126">Type</th><th>Example</th></tr></thead><tbody><tr><td>businessCategory</td><td>Business category</td><td>string</td><td>-</td></tr><tr><td>c</td><td>Country code</td><td>string</td><td>FR</td></tr><tr><td>cn</td><td>Common name</td><td>string</td><td>-</td></tr><tr><td>countryOfCitizenship</td><td>RFC 3039 CountryOfCitizenship</td><td>string</td><td>-</td></tr><tr><td>countryOfResidence</td><td>RFC 3039 CountryOfResidence</td><td>string</td><td>-</td></tr><tr><td>dateOfBirth</td><td>RFC 3039 RFC 3039 DateOfBirth</td><td>string</td><td>19830719000000Z</td></tr><tr><td>dc</td><td>Domain component</td><td>string</td><td>-</td></tr><tr><td>description</td><td>Description</td><td>string</td><td>-</td></tr><tr><td>dmdName</td><td>RFC 2256 directory management domain</td><td>string</td><td>-</td></tr><tr><td>dnQualifier</td><td>Domain name qualifier</td><td>string</td><td>-</td></tr><tr><td>e</td><td>Email address in Verisign certificates</td><td>string</td><td>-</td></tr><tr><td>emailAddress</td><td>Email address (RSA PKCS#9 extension)</td><td>string</td><td>-</td></tr><tr><td>gender</td><td>RFC 3039 Gender</td><td>string</td><td>"M", "F", "m" or "f"</td></tr><tr><td>generation</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>givenname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>initials</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>l</td><td>Locality name</td><td>string</td><td>-</td></tr><tr><td>name</td><td>Name</td><td>string</td><td>-</td></tr><tr><td>nameAtBirth</td><td>ISIS-MTT NameAtBirth</td><td>string</td><td>-</td></tr><tr><td>o</td><td>Organization</td><td>string</td><td>-</td></tr><tr><td>organizationIdentifier</td><td>Organization identifier</td><td>string</td><td>-</td></tr><tr><td>ou</td><td>Organization unit name</td><td>string</td><td>-</td></tr><tr><td>placeOfBirth</td><td>RFC 3039 PlaceOfBirth</td><td>string</td><td>-</td></tr><tr><td>postalAddress</td><td>RFC 3039 PostalAddress</td><td>string</td><td>-</td></tr><tr><td>postalCode</td><td>Postal code</td><td>string</td><td>-</td></tr><tr><td>pseudonym</td><td>RFC 3039 Pseudonym</td><td>string</td><td>-</td></tr><tr><td>role</td><td>Role</td><td>string</td><td>-</td></tr><tr><td>serialnumber</td><td>Device serial number name</td><td>string</td><td>-</td></tr><tr><td>st</td><td>State or province name</td><td>string</td><td>-</td></tr><tr><td>street</td><td>Street</td><td>string</td><td>-</td></tr><tr><td>surname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>t</td><td>Title</td><td>string</td><td>-</td></tr><tr><td>telephoneNumber</td><td>Telephone number</td><td>string</td><td>-</td></tr><tr><td>uid</td><td>LDAP User id</td><td>string</td><td>-</td></tr><tr><td>uniqueIdentifier</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>unstructuredAddress</td><td>Unstructured address (from PKCS#9)</td><td>string</td><td>-</td></tr></tbody></table>
 
 {% hint style="info" %}
 **Limitation on arrays**

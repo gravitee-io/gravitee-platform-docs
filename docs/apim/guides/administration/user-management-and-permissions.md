@@ -42,14 +42,7 @@ To set up roles, log-in to the Gravitee API Management UI, and select Organizati
 
 #### Organization permissions
 
-| Name        | Description                                   |
-| ----------- | --------------------------------------------- |
-| USER        | Manages users.                                |
-| ENVIRONMENT | Manages environments.                         |
-| ROLE        | Manages roles.                                |
-| TAG         | Manages sharding tags.                        |
-| TENANT      | Manages tenants.                              |
-| ENTRYPOINT  | Manages environment entrypoint configuration. |
+<table><thead><tr><th width="180">Name</th><th>Description</th></tr></thead><tbody><tr><td>USER</td><td>Manages users.</td></tr><tr><td>ENVIRONMENT</td><td>Manages environments.</td></tr><tr><td>ROLE</td><td>Manages roles.</td></tr><tr><td>TAG</td><td>Manages sharding tags.</td></tr><tr><td>TENANT</td><td>Manages tenants.</td></tr><tr><td>ENTRYPOINT</td><td>Manages environment entrypoint configuration.</td></tr></tbody></table>
 
 #### Environment permissions
 

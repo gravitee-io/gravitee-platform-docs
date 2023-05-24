@@ -111,19 +111,10 @@
   * [Advanced Authentication via Gravitee AM](getting-started/configuration/advanced-authentication-via-gravitee-am.md)
   * [Advanced API Monitoring via Gravitee AE](getting-started/configuration/advanced-api-monitoring-via-gravitee-ae.md)
   * [Gravitee API Gateway Configuration](getting-started/configuration/gravitee-api-gateway-configuration.md)
-* [Tutorials](getting-started/tutorials/README.md)
-  * [Basic](getting-started/tutorials/basic/README.md)
-    * [quickstart-console-login](getting-started/tutorials/basic/quickstart-console-login.md)
-    * [quickstart-overview](getting-started/tutorials/basic/quickstart-overview.md)
-    * [quickstart-portal-login](getting-started/tutorials/basic/quickstart-portal-login.md)
-    * [api-consumer](getting-started/tutorials/basic/api-consumer/README.md)
-      * [api-consumer-api](getting-started/tutorials/basic/api-consumer/api-consumer-api.md)
-      * [api-consumer-test](getting-started/tutorials/basic/api-consumer/api-consumer-test.md)
-      * [api-consumer-ui](getting-started/tutorials/basic/api-consumer/api-consumer-ui.md)
-    * [api-publisher](getting-started/tutorials/basic/api-publisher/README.md)
-      * [api-publisher-api](getting-started/tutorials/basic/api-publisher/api-publisher-api.md)
-      * [api-publisher-ui](getting-started/tutorials/basic/api-publisher/api-publisher-ui.md)
-  * [Advanced](getting-started/tutorials/comprehensive.md)
+* [Tutorial: Todo Application](getting-started/tutorials/README.md)
+  * [Basic Security and Access Control](getting-started/tutorials/comprehensive.md)
+  * [Real-time Data and Protocol Mediation](getting-started/tutorials/real-time-data-and-protocol-mediation.md)
+  * [Advanced Policies and Security](getting-started/tutorials/advanced-policies-and-security.md)
 
 ## Guides
 

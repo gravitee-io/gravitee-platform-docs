@@ -4,7 +4,7 @@ description: >-
   checks as Gravitee backend services.
 ---
 
-# Load-balancing, failover, and health checks
+# Load-Balancing, Failover, and Health Checks
 
 ### Backend services: load-balancing, failover, and health checks
 
@@ -67,7 +67,11 @@ Please refer to the [load-balancing concepts section](broken-reference) if you n
 
 9\. Configure your HTTP details to your liking. For example, I might choose to enable **HTTP pipelining,** which will cause requests to be written to connections without waiting for previous responses to return. You can configure many other additional details, such as HTTP protocol version, Connect timeout time (in ms), idle timeout (in ms), SSL options, and more.
 
-![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/7526630f-4033-4b9d-9d41-0062e12ea856/stack\_animation.webp)
+<div align="center">
+
+<img src="https://colony-recorder.s3.amazonaws.com/files/2023-03-07/7526630f-4033-4b9d-9d41-0062e12ea856/stack_animation.webp" alt="">
+
+</div>
 
 10\. Optional: if you want to enable Service Discovery, select the **Service discovery** tab. Service discovery will enable external endpoints to be dynamically added or removed to or from the group. For more information on Service Discovery, please refer to our documentation on [Gravitee Service discovery.](broken-reference)
 

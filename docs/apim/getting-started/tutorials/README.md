@@ -1,3 +1,9 @@
-# Tutorials
+---
+description: Learn API management concepts with a sample application
+---
+
+# Tutorial: Todo Application
 
 These do not assume any existing Gravitee beyond the core concepts. The techniques you’ll learn in the tutorial are fundamental to working with APIM, and fully understanding it will give you a deep understanding of APIM. These tutorials are designed for people who prefer to learn by doing and want to quickly try making something tangible. If you prefer learning each concept step by step, start with the Guides.
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td><strong>Basic Security and Access Control</strong><br><br>This tutorial showcases Gravitee's core features which include securing a Gateway API, applying API access restrictions, and managing applications and subscriptions.<br><br><em>Gateway Architecture:</em> http-proxy<br><em>Entrypoint:</em> REST<br><em>Endpoint:</em> REST<br><em>Plan Security:</em> API Key<br><em>Policies:</em> Quota, Interrupt</td><td></td></tr><tr><td></td><td><strong>Real-time Data and Protocol Mediation</strong><br><br>This tutorial demonstrates Gravitee's ability to natively handle, and mediate between, both asynchronous and synchronous protocols.<br><br><em>Gateway Architecture:</em> message<br><em>Entrypoint:</em> Websocket<br><em>Endpoint:</em> Kafka<br><em>Plan Security:</em> None (temporary - shared API key support)<br><em>Policies:</em> Latency</td><td></td></tr><tr><td></td><td><strong>Advanced Policies and Security</strong><br><br>This tutorial details more advanced policies and security measures.<br><br><em>Gateway Architecture:</em> http-proxy<br><em>Entrypoint:</em> REST<br><em>Endpoint:</em> REST<br><em>Plan Security:</em> JWT<br><em>Policies:</em> Assign Metrics</td><td></td></tr></tbody></table>
