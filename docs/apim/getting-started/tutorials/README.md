@@ -6,6 +6,10 @@ description: Learn API management concepts with a demo application
 
 These tutorials do not assume any existing Gravitee API Management (APIM) knowledge and are designed for people who prefer to learn by doing. The techniques you’ll learn in the tutorial are fundamental to working with APIM. You will be working with a demo application that simulates how APIM might be used in a real-world use case. If you'd prefer to learn APIM's core concepts step by step, head over to our [Guides section](../../guides/prologue.md) to explore our detailed walkthroughs.
 
+## Demo Application Overview
+
+
+
 ## Prerequisites
 
 These tutorials are designed to work seamlessly with our enterprise trial as they demonstrate a number of enterprise-only features. To get started with the free enterprise trial, simply follow the [instructions laid out here](../install-and-upgrade/free-trial.md). Setting up a new trial takes approximately five minutes and you can return here to select any of the following paths to experience the power of Gravitee API Management alongside our demo application:
