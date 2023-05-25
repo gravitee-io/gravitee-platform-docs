@@ -339,3 +339,7 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
       * **Anything else:** throw exception to the consumer.
 {% endtab %}
 {% endtabs %}
+
+## Step 5: Security
+
+## Step 6: Documentation
