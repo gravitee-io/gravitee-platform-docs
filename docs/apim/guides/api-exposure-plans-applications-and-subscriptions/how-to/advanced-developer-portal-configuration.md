@@ -50,9 +50,13 @@ Note, this only impacts the developer portal's UI. You must modify the YAML conf
 All of the general settings can be overridden in the `gravitee.yaml` file as detailed in the Configuration section.
 {% endhint %}
 
-## API display configuration
+## Layout and Theme customization
 
-This section will detail how to modify the way your APIs are presented to API consumers. Specifically, what is shown in the sidebar of the **General information** screen of an API.
+This section will detail how to modify how APIs are presented to API consumers.
+
+### API Sidebar&#x20;
+
+Administrators can modify what is shown in the sidebar of the **General information** screen of an API.
 
 <div data-full-width="false">
 
@@ -67,34 +71,28 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
 * **Add extra information**
   * **Show tags list in the API header:** Display all API labels in the developer portal
   * **Show categories list in the API header:** Display all API categories in the developer portal
-* **Configure the information list:** Display custom values in the developer portal. Use the **+ icon** in the bottom right to add new values
-* #### API Page list options
-  *   **Display promotion banner:** Adds a banner to the top of each API tab to promote a particular API. The API that is promoted is determined automatically based on the tab. For example, the **Starred** tab will show the API that most recently reviewed in the promotion banner
+* **Configure the information list:** Display custom values in the developer portal. Use the **+ icon** in the bottom right to add new values.
+* **API Page list options:** Detailed in the [catalog tabs](advanced-developer-portal-configuration.md#catalog-tabs) section below
 
-      <figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM.png" alt=""><figcaption></figcaption></figure>
+### Catalog tabs
 
+In APIM, select **API Portal Information** in the secondary sidebar to display the following options:
 
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
 
+*   **API Page list options**
 
+    * **Display promotion banner:** Adds a banner to the top of each API tab to promote a particular API. The API that is promoted is determined automatically based on the tab. For example, the **Starred** tab will show the API that was most recently reviewed in the promotion banner.
 
-*   #### API Page list options
+    <figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM.png" alt=""><figcaption><p>Developer portal promotion banner</p></figcaption></figure>
+* Enabling categories
+* Adding top apis&#x20;
 
-
-*
-* Configuring the API listing and sorting options
-* Setting the default API category and tags
-* Enabling and configuring the API search bar
-
-## Theme customization
+### Theming
 
 * Choosing a pre-built theme or creating a custom theme
 * Configuring the color scheme and fonts of the Developer Portal
 * Uploading custom CSS and JavaScript files
-
-## Localization and internationalization
-
-* Configuring the default language and locale settings
-* Adding and managing translations for the Developer Portal
 
 ## Email notifications
 
@@ -106,7 +104,7 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
 * Enabling and configuring analytics for the Developer Portal
 * Configuring reporting options for API administrators
 
-## Conclusion
+## Site Documentation
 
-* Summary of the configuration settings covered in the documentation
-* Additional resources for further learning and troubleshooting.
+* Adding a homepage
+* Adding high-level docs
