@@ -27,7 +27,7 @@ The demo app flow begins with the following steps:
 1. Select the use case&#x20;
 2. (Optional) Start the respective pendo walkthrough in APIM
 3. Documentation opens to relevant section
-4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints)
+4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints with mongodb backend)
 5. Guide the user to the gateway API in their trial
 6. Educate the user on the basics of gateway APIs
 7. Return to the demo app and showcase basic todo functionality
@@ -47,13 +47,29 @@ The demo app flow begins with the following steps:
 
 **Ideal time to complete:** 15 minutes
 
+Require user to activate platform policy
 
+1. Select the use case&#x20;
+2. (Optional) Start the respective pendo walkthrough in APIM
+3. Documentation opens to relevant section
+4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints)
+5. Guide the user to the gateway API in their trial (i.e. detailed different protocols involved and kafka backend)
+6. Detail event-native API management and the power to manage APIs and different backend resources regardless of protocol employed
 
 ### Use Case 3: Advanced Policies and Security
 
 **Goal:** Require more involvement from the user and demonstrate security measures beyond a simple API key
 
-**Ideal time to complete:** 20 minutes
+**Ideal time to complete:** 15 minutes
+
+Will use dev portal including general conditions. No auto-validation to reinforce split between API producers and API consumers. Require use to add and configure assign-metrics policy
+
+1. Select the use case&#x20;
+2. (Optional) Start the respective pendo walkthrough in APIM
+3. Documentation opens to relevant section
+4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints)
+5. Guide the user to the gateway API in their trial (i.e., reference previous two use cases which this builds upon)
+6.
 
 ## Prerequisites
 
