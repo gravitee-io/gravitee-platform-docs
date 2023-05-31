@@ -18,9 +18,9 @@ The demo app flow begins with the following steps:
 
 ### Use Case 1: Basic Security and Access Control
 
-**Goal:** Rapidly demonstrate basic APIM functions and provide user with aha-moment
+**Goal:** Rapidly demonstrate basic APIM functions (policies, plans, applications, subscriptions, etc.) and provide user with aha-moment
 
-**Ideal time to complete:** 10 minutes
+**Ideal time to complete:** 5-10 minutes
 
 #### Steps:
 
@@ -28,48 +28,60 @@ The demo app flow begins with the following steps:
 2. (Optional) Start the respective pendo walkthrough in APIM
 3. Documentation opens to relevant section
 4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints with mongodb backend)
-5. Guide the user to the gateway API in their trial
-6. Educate the user on the basics of gateway APIs
-7. Return to the demo app and showcase basic todo functionality
-8. Instruct user to add 2 todos and receive error on the 3rd (we make the quota to 2 calls only)
-9. Instruct the user to archive a todo and receive error due to resource filtering
-10. Return to APIM policy studio and educate user on policies
-11. Guide the user to the plans page and educate user on plans
-12. Explain the application is currently using the keyless plan but also access a "premium" plan with API key security
-13. Guide the user to the Applications page to subscribe to the API key plan which will be set to auto-validate the subscription
-14. Guide the user to return to the demo app to create more than 3 todos and use the archiving functionality
-15. Return to the policy design studio to highlight how policies can be applied at the plan, API, or even the platform level with different methods (EL, paths, HTTP methods, etc.) of filtering
+5. Showcase basic todo functionality
+6. Instruct user to add 2 todos and receive error on the 3rd due to quota policy
+7. Instruct the user to archive a todo and receive error due to resource filtering policy
+8. Return to APIM and guide the user to the gateway API in their trial and educate the user on the basics of gateway APIs from the perspective of an API publisher
+9. Guide user to policy design studio and educate user on policies focusing on the pre-seeded quota and resource filtering policies
+10. Guide the user to the plans page and educate user on plans
+11. Explain the demo application is currently using the keyless plan but can also subscribe to a "premium" plan with API key security
+12. Guide the user to the applications page to subscribe to the API key plan which will be set to auto-validate the subscription
+13. Copy the API key and add it to the demo app
+14. Instruct the user to create more than 3 todos and use the archiving functionality
+15. Return to the policy design studio to highlight how policies can be applied at the plan (keyless vs API key), API, or even the platform level, all with different methods (EL, paths, HTTP methods, etc.) of filtering
 16. Invite the user to modify the existing policies and see how it impacts the application
 
 ### Use Case 2: Real-time Data and Protocol Mediation
 
 **Goal:** Showcase Gravitee's main differentiator - event-native API management
 
-**Ideal time to complete:** 15 minutes
+**Ideal time to complete:** 10-15 minutes
 
-Require user to activate platform policy
+1. Select the use case&#x20;
+2. (Optional) Start the respective pendo walkthrough in APIM
+3. Documentation opens to the relevant section
+4. Docs provide high-level overview of demo app architecture (i.e., detail different protocols involved and kafka backend)
+5. Guide the user to the gateway API in their trial and explain that we created a new gateway API because we are employing a new backend API (kafka vs mongodb)
+6. Detail event-native API management and the power to manage APIs and different backend resources regardless of protocol employed. Gravitee allows you to work with kafka without ever setting up a kafka client which allows you to use consumer-friendly protocols like http and websocket
+7. If the user did not complete use case 1, we will provide them a default api key they can copy and paste into the application to get around the basic plan subscription limitations
+8. Instruct the user to duplicate the demo app tab. One tab will be the todo page and one tab will be the analytics page
+9. Instruct the user to complete some todo actions (create, complete, archive, or delete) and watch one websocket graph update in real-time while the other responds with a five second delay
+10. Guide the user back to APIM's policy design studio to review the latency policy employed which can be used for monetization use cases to restrict access to real-time data
+11. Instruct user to modify the policy, redeploy the API, and test the impacts to the demo app
+12. For users familiar with Kafka, explain how there is only one consumer group per subscription and how to create a new consumer group
+13. Guide the user through creating a platform policy that creates a new consumer group every time the user refreshes the page
+14. Educate the user on how and when different policies are applied across different phases
+
+### Use Case 3: Advanced Security and Developer Portal
+
+**Goal:** Require more involvement from the user, demonstrate security measures beyond a simple API key, and detail the developer portal
+
+**Ideal time to complete:** 20-25 minutes
 
 1. Select the use case&#x20;
 2. (Optional) Start the respective pendo walkthrough in APIM
 3. Documentation opens to relevant section
 4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints)
-5. Guide the user to the gateway API in their trial (i.e. detailed different protocols involved and kafka backend)
-6. Detail event-native API management and the power to manage APIs and different backend resources regardless of protocol employed
-
-### Use Case 3: Advanced Policies and Security
-
-**Goal:** Require more involvement from the user and demonstrate security measures beyond a simple API key
-
-**Ideal time to complete:** 15 minutes
-
-Will use dev portal including general conditions. No auto-validation to reinforce split between API producers and API consumers. Require use to add and configure assign-metrics policy
-
-1. Select the use case&#x20;
-2. (Optional) Start the respective pendo walkthrough in APIM
-3. Documentation opens to relevant section
-4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints)
-5. Guide the user to the gateway API in their trial (i.e., reference previous two use cases which this builds upon)
-6.
+5. Explain sample monetization use case where we would like to charge the user per todo action (create, complete, archive, or delete) which requires more robust security then an API key
+6. Guide the user to the gateway API in their trial (i.e., reference use case 1 which covers the basics of this gateway API)
+7. Guide the user through creating a JWT plan with general conditions which contains pricing for each todo action. The user will simply generate the public/private key pair locally instead of involving an IdP
+8. Guide the user to the dev portal and provide a brief overview. Detailed walkthrough of API consumer subscription process including methods of providing the applications client ID and agreeing to general conditions
+9. Guide user to validate subscription in the dev portal. Educate user on options for managing subscriptions
+10. Guide user to copy the JWT and configure it in the application
+11. Guide user to policy design studio and walk them through adding and configuring the transform headers and assign metrics policy on the JWT plan
+12. Guide the user through creating a custom graph based on the assign metrics policy.
+13. Guide the user back to the demo app and instruct the user to complete some todo actions (create, complete, archive, or delete)&#x20;
+14. Guide the user back to APIM to view their custom analytics graph. Educate the user on how this data could be integrated with an invoicing provider by taking advantage of the mAPI
 
 ## Prerequisites
 
