@@ -67,7 +67,11 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
 * **Add extra information**
   * **Show tags list in the API header:** Display all API labels in the developer portal
   * **Show categories list in the API header:** Display all API categories in the developer portal
-  * #### Configure the information list: Display custom values in the developer portal. Use the + icon in the bottom right to add new values
+* **Configure the information list:** Display custom values in the developer portal. Use the **+ icon** in the bottom right to add new values
+* #### API Page list options
+  *   **Display promotion banner:** Adds a banner to the top of each API tab to promote a particular API. The API that is promoted is determined automatically based on the tab. For example, the **Starred** tab will show the API that most recently reviewed in the promotion banner
+
+      <figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM.png" alt=""><figcaption></figcaption></figure>
 
 
 
