@@ -28,17 +28,17 @@ Select the **Settings** tab in the secondary sidebar and scroll down to the **Po
 Note, this only impacts the developer portal's UI. You must modify the YAML configuration to impact the gateway.
 {% endhint %}
 
-* **Portal URL:** Provide the URL of the developer portal. This will add a link to the developer portal on the top navigation bar of the management UI as shown in the image below. Additionally, the [theme editor](advanced-developer-portal-configuration.md#theme-customization) will have a live preview of the developer portal.
+* **Portal URL:** Provide the URL of the developer portal. This will add a link to the developer portal on the top navigation bar of the management UI as shown in the image below. Additionally, the [theme editor](./#theme-customization) will have a live preview of the developer portal.
 
 <figure><img src="../../../.gitbook/assets/dev_portal_link.png" alt=""><figcaption><p>Link to developer portal from management UI</p></figcaption></figure>
 
 * **Override homepage title:** Activating this toggle allows you to change the developer portal title from "Unleash the power of your APIs." to a custom title
 * **Options**
   * **Use Tiles Mode:** Sets the default all APIs view to tiles as opposed to a list view
-  * **Activate Support:** Adds a **Contact** and **Tickets** tab to each API.  Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for the contact form to work
+  * **Activate Support:** Adds a **Contact** and **Tickets** tab to each API.  Email must be configured as detailed in the [Email configuration](./#email-notifications) section for the contact form to work
   * **Activate Rating:** Allow API consumers to leave written reviews and ratings
   * **Force user to fill comment:** Requires all subscription requests to have a comment
-  * **Allow User Registration:** Allow API consumers to create an account from the developer portal. Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for registration to work.
+  * **Allow User Registration:** Allow API consumers to create an account from the developer portal. Email must be configured as detailed in the [Email configuration](./#email-notifications) section for registration to work.
     * **Enable automatic validation:** Automatically approve all accounts created on the developer portal
   * **Add Google Analytics:** Add a Google Analytics tracking ID to the developer portal
   * <mark style="color:yellow;">**Allow Upload Images:**</mark> <mark style="color:yellow;"></mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Unknown</mark>
@@ -72,7 +72,7 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
   * **Show tags list in the API header:** Display all API labels in the developer portal
   * **Show categories list in the API header:** Display all API categories in the developer portal
 * **Configure the information list:** Display custom values in the developer portal. Use the **+ icon** in the bottom right to add new values.
-* **API Page list options:** Detailed in the [catalog tabs](advanced-developer-portal-configuration.md#catalog-tabs) section below
+* **API Page list options:** Detailed in the [catalog tabs](./#catalog-tabs) section below
 
 ### API Catalog
 
@@ -84,7 +84,7 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
 
 <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
 
-* The other options are detailed in the [API sidebar](advanced-developer-portal-configuration.md#api-sidebar) section above.
+* The other options are detailed in the [API sidebar](./#api-sidebar) section above.
 *   **API Page list options**
 
     * **Display promotion banner:** Adds a banner to the top of each page in the API catalog to promote a particular API. The API that is promoted is determined automatically based on the tab. For example, the **Starred** tab will show the API that was most recently reviewed in the promotion banner.
@@ -125,9 +125,29 @@ If you are having issues seeing gateway APIs you added to the Top APIs list, mak
 
 ### Theming
 
-* Choosing a pre-built theme or creating a custom theme
-* Configuring the color scheme and fonts of the Developer Portal
-* Uploading custom CSS and JavaScript files
+Administrators can change the default theme of the developer portal to their own custom theme. To modify the theme, in the APIM settings select **Theme** in the secondary sidebar.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.50.54 PM.png" alt=""><figcaption><p>Developer portal theme settings</p></figcaption></figure>
+
+This page allows the administrator to customize every aspect of the developer portal's look and feel. Edits made are shown in a live preview to the right.
+
+{% hint style="warning" %}
+**Enable live preview**
+
+If you are not seeing a live preview, this is due to not providing a Portal URL as detailed in the [General settings section](./#general-settings).
+{% endhint %}
+
+#### Top menu
+
+The top menu provides the following options:
+
+* **Fullscreen:** This button opens the preview in a new window, making it easier to edit if you have several screens
+* **Reset:** This button allows you to reset the theme from the last backup. Backups occur when you select the **Save** button
+* **Save:** This button saves your theme
+* **Enabled:** This toggle activates the theme in APIM Portal
+* **Import:** Upload a custom theme in `JSON` format. To see the required structure of the `JSON` file, export the current theme
+* **Export:** Download your current theme in `JSON` format
+* **Restore Default Theme:** This button overwrites your modifications with the theme provided by default
 
 ## Email notifications
 
