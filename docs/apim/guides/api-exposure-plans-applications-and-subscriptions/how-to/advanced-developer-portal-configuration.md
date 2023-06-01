@@ -56,7 +56,7 @@ This section will detail how to modify how APIs are presented to API consumers.
 
 ### API Sidebar&#x20;
 
-Administrators can modify what is shown in the sidebar of the **General information** screen of an API.
+Administrators can modify what is shown in the sidebar of an API's **General information**.
 
 <div data-full-width="false">
 
@@ -66,7 +66,7 @@ Administrators can modify what is shown in the sidebar of the **General informat
 
 In APIM, select **API Portal Information** in the secondary sidebar to display the following options:
 
-<figure><img src="../../../.gitbook/assets/dev_portal_api_display_settings.png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/dev_portal_api_display_settings.png" alt=""><figcaption><p>Developer portal API sidebar display settings</p></figcaption></figure>
 
 * **Add extra information**
   * **Show tags list in the API header:** Display all API labels in the developer portal
@@ -74,19 +74,54 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
 * **Configure the information list:** Display custom values in the developer portal. Use the **+ icon** in the bottom right to add new values.
 * **API Page list options:** Detailed in the [catalog tabs](advanced-developer-portal-configuration.md#catalog-tabs) section below
 
-### Catalog tabs
+### API Catalog
 
-In APIM, select **API Portal Information** in the secondary sidebar to display the following options:
+Administrators can also modify how API consumers browsing experience in the developer portal's API catalog.&#x20;
+
+#### Promotion banner
+
+In APIM, select **API Portal Information** in the secondary sidebar to display the following options shown below.&#x20;
 
 <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
 
+* The other options are detailed in the [API sidebar](advanced-developer-portal-configuration.md#api-sidebar) section above.
 *   **API Page list options**
 
-    * **Display promotion banner:** Adds a banner to the top of each API tab to promote a particular API. The API that is promoted is determined automatically based on the tab. For example, the **Starred** tab will show the API that was most recently reviewed in the promotion banner.
+    * **Display promotion banner:** Adds a banner to the top of each page in the API catalog to promote a particular API. The API that is promoted is determined automatically based on the tab. For example, the **Starred** tab will show the API that was most recently reviewed in the promotion banner.
 
     <figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM.png" alt=""><figcaption><p>Developer portal promotion banner</p></figcaption></figure>
-* Enabling categories
-* Adding top apis&#x20;
+
+#### Categories tab
+
+Administrators have the option to include a **Categories** tab in the API catalog. This organizes APIs based on the category applied to a gateway API. Categories can be added on the **General** page of a gateway API as shown below:
+
+<figure><img src="../../../.gitbook/assets/api_categories.png" alt=""><figcaption><p>Applying categories to a gateway API</p></figcaption></figure>
+
+To enable the Categories tab in the developer portal, go to APIM and select **Categories** in the secondary sidebar. Here you can also create new categories and modify or delete existing categories.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 1.59.06 PM.png" alt=""><figcaption><p>APIM categories settings page</p></figcaption></figure>
+
+With the toggle enabled, users accessing the developer portal will have access to the page shown below:
+
+<figure><img src="../../../.gitbook/assets/dev_portal_categories.png" alt=""><figcaption><p>Dev portal categories page</p></figcaption></figure>
+
+#### Top/featured APIs
+
+Administrators also have control over what is displayed on the **Featured** page of the API catalog by modifying the top APIs. Navigate to APIM **Settings** and select **Top APIs** in the secondary sidebar.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.10.58 PM.png" alt=""><figcaption><p>Top APIs settings</p></figcaption></figure>
+
+From here, administrators can add new APIs with the **+ icon**, reorder the top APIs, and remove APIs from the list. APIs added here are displayed on both the developer portal's homepage and on the API catalog's **Featured** page as shown below.
+
+<figure><img src="../../../.gitbook/assets/dev_portal_homepage.png" alt=""><figcaption><p>Developer portal homepage displaying top APIs</p></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.14.32 PM.png" alt=""><figcaption><p>Developer portal Featured page in API catalog</p></figcaption></figure>
+
+{% hint style="info" %}
+**Top API visibility**
+
+If you are having issues seeing gateway APIs you added to the Top APIs list, make sure the API is public or the user logged into the developer portal has access to that API. Administrators can see all the APIs but individual users are restricted to public APIs and APIs they have been granted access to through user and group access settings.
+{% endhint %}
 
 ### Theming
 
