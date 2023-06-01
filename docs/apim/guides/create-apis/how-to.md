@@ -350,29 +350,45 @@ The next step in the API creation wizard is Security. The Security stage of the 
 
 ### Plan information&#x20;
 
-Plans are essentially an access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access. In the Plan information tab, you'll be able to choose between two plan types:
+Plans are essentially an access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how Plans function in Gravitee, please refer to the [Plans documentation](../api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
 
-* **Standard plan**: a plan that provides an access layer for consumers who are requesting data
-* **Push plan**: a plan that provides an access layer for the gateway pushing data to consumers
+* **OAuth2**: standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
+* **JWT**: open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties
+* **API Key:** the API Gateway will reject calls from consumers that aren't able to pass the right API key in their request
+* **Keyless**: this results in no added security via plan configuration. This is considered an "Open" plan.
+* **Push plan**: a plan that provides an access layer for the gateway pushing data to consumers. This will be used for subscribers.
 
-Please see the tabs below to learn more about how to configure both Standard plans and Push plans:
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
+
+Depending on which plan you select, configuration will differ. Please see the tabs below to learn more about how to configure each of the different plans:
 
 {% tabs %}
-{% tab title="Standard plans" %}
-If you choose Standard Plan, you'll need to define:
+{% tab title="OAuth2 plan" %}
+If you choose OAuth2 as your plan type, you'll then need to define the following:
 
-* General information: define your plan name, it's description, and any characteristics.
-* Plan security level: here, you'll decide between various security levels. The options are:
-  * OAuth2: standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
-  * JWT: open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties
-  * API Key: the API Gateway will reject calls from consumers that aren't able to pass the right API key in their request
-  * Keyless: this results in no added security via plan configuration. This is considered an "Open" plan.
-
-After you define your Plan information, you'll need to define further plan configuration settings. These settings will depend on the kind of plan that you chose. If you chose API Key or Keyless, you will have no further configuration needs, and you can skip to the Limitations step.
+* **General information**
+  * **Name:** name your plan
+  * **Description**: optionally, you can give your plan a description
+  * **Characteristics:** optionally, you can define characteristics for your plan.
+  * **Subscriptions**: define how subscriptions to your API plan are validated and/or define whether or not a consumer must provide a comment when subscribing to your API plan. You can also define a custom message that you want to display to your consumers upon subscription.
+  * **Access control**: here, you can define any group(s) that should be excluded from this plan.
+* **OAuth2 authentication configuration**
+  * Define your OAuth 2 resource that will be used to validate your token
+  * Define your cache resource that will be used to share your tokens
+  * Choose whether yo Extract an OAuth2 payload
+  * Choose whether to check required scopes to access the resource
+  * Define your list of Requred scopes to access the resource
+  * Choose whether&#x20;
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="JWT" %}
+If you choose JWT as your plan type, you'll then need to define the following:
 
+* **Name:** name your plan
+* **Description**: optionally, you can give your plan a description
+* **Characteristics:** optionally, you can define characteristics for your plan.
+* **Subscriptions**: define how subscriptions to your API plan are validated and/or define whether or not a consumer must provide a comment when subscribing to your API plan. You can also define a custom message that you want to display to your consumers upon subscription.
+* **Access control**: here, you can define any group(s) that should be excluded from this plan.
 {% endtab %}
 {% endtabs %}
 
