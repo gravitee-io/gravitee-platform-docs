@@ -15,7 +15,13 @@ Gravitee supports importing APIs as:
 * API definition (URL)
 * WSDL (URL)
 
-## Import ypur API
+{% hint style="info" %}
+Product limitation
+
+There is an existing limitation around API import. As of Gravitee 4.0, APIs using the v4  API definition cannot be imported.
+{% endhint %}
+
+## Import your API
 
 To import your API, head to the **APIs** page and select **+ Add API.** You'll be presented with three options for creating APIs. Select **Import an existing API.**&#x20;
 
@@ -96,11 +102,8 @@ paths:
 ...
 ```
 
-\
 
 {% endhint %}
-
-
 
 * **API definition:** if you choose this option, you'll need to include a URL that links to your API definition&#x20;
 * **WSDL:** if you choose this option, you'll need to provide a WSDL descriptor URL. Like the Swagger/OpenAPI option, you'll be able to configure the following prior to import:

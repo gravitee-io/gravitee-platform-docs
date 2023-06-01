@@ -50,6 +50,10 @@ Note, this only impacts the developer portal's UI. You must modify the YAML conf
 All of the general settings can be overridden in the `gravitee.yaml` file as detailed in the Configuration section.
 {% endhint %}
 
+## User sign-up and support
+
+Email settings
+
 ## Layout and Theme customization
 
 This section will detail how to modify how APIs are presented to API consumers.
@@ -148,16 +152,6 @@ The top menu provides the following options:
 * **Import:** Upload a custom theme in `JSON` format. To see the required structure of the `JSON` file, export the current theme
 * **Export:** Download your current theme in `JSON` format
 * **Restore Default Theme:** This button overwrites your modifications with the theme provided by default
-
-## Email notifications
-
-* Configuring the email server settings
-* Enabling and configuring email notifications for developers and API administrators
-
-## Analytics and reporting
-
-* Enabling and configuring analytics for the Developer Portal
-* Configuring reporting options for API administrators
 
 ## Site Documentation
 
