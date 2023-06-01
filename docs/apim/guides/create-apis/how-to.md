@@ -342,4 +342,42 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
 
 ## Step 5: Security
 
+The next step in the API creation wizard is Security. The Security stage of the API creation wizard is where you will configure:
+
+* **Plan information**: defines a "plan" that provides the API producer a method to secure, monitor, and transparently communicate details around access
+* **Configuration**: define authorization resources, such as Gravitee AM or another OAuth2 resource
+* **Limitations**: where you will configure access limitations such as rate limiting and quotas
+
+### Plan information&#x20;
+
+Plans are essentially an access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access. In the Plan information tab, you'll be able to choose between two plan types:
+
+* **Standard plan**: a plan that provides an access layer for consumers who are requesting data
+* **Push plan**: a plan that provides an access layer for the gateway pushing data to consumers
+
+Please see the tabs below to learn more about how to configure both Standard plans and Push plans:
+
+{% tabs %}
+{% tab title="Standard plans" %}
+If you choose Standard Plan, you'll need to define:
+
+* General information: define your plan name, it's description, and any characteristics.
+* Plan security level: here, you'll decide between various security levels. The options are:
+  * OAuth2: standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
+  * JWT: open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties
+  * API Key: the API Gateway will reject calls from consumers that aren't able to pass the right API key in their request
+  * Keyless: this results in no added security via plan configuration. This is considered an "Open" plan.
+
+After you define your Plan information, you'll need to define further plan configuration settings. These settings will depend on the kind of plan that you chose. If you chose API Key or Keyless, you will have no further configuration needs, and you can skip to the Limitations step.
+{% endtab %}
+
+{% tab title="Second Tab" %}
+
+{% endtab %}
+{% endtabs %}
+
+
+
+
+
 ## Step 6: Documentation
