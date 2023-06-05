@@ -55,7 +55,7 @@ Note, this only impacts what is displayed in the developer portal's UI. You must
 
 ## User management
 
-Accessing the developer portal directly from the management UI automatically signs you in with the same account. However, the power of the developer portal revolves around exposing your APIs to both internal and external API consumers. This necessitates the ability to create new accounts which requires some additional configuration. This section walks administrators through everything they need to know about user management.
+Accessing the developer portal directly from the management UI automatically signs you in with the same account. However, the power of the developer portal revolves around exposing your APIs to both internal and external API consumers. This necessitates the ability to create new accounts which requires some additional configuration.&#x20;
 
 ### User sign-up
 
@@ -91,13 +91,17 @@ Password requirements can be modified by changing the regex pattern under **User
 
 Once you finish creating your password, you should be able to sign in without issue.&#x20;
 
-### User administration
+### User overview
 
-The newly created external user will also be immediately visible in the management UI. Leave the incognito window and return to the standard window where you are signed into the management UI as an admin. To view users, select **Organization** at the bottom of the sidebar. Once there, navigate to the **Users** tab in the sidebar. Here, you will see a list of all current users tied to the organization. As an admin, you can select any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
+All users can be viewed in APIM's management UI by anyone with administrator privileges. To view users, select **Organization** at the bottom of the sidebar. Once there, navigate to the **Users** tab in the sidebar. Here, you will see a list of all current users tied to the organization. As an administrator, you can select any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
 
 <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Management UI user overview</p></figcaption></figure>
 
+{% hint style="info" %}
+**Detailed user administration**
 
+For a more detailed look at managing users including roles, groups, and permissions, head over to the [Administration guide.](../administration/#introduction)
+{% endhint %}
 
 ## Layout and theme customization
 
@@ -176,7 +180,7 @@ From here, administrators can add new APIs with the **+ icon**, reorder the top 
 If you are having issues seeing gateway APIs you added to the Top APIs list, make sure the API is public or the user logged into the developer portal has access to that API. Administrators can see all the APIs but individual users are restricted to public APIs and APIs they have been granted access to through user and group access settings.
 {% endhint %}
 
-### Navigation
+### Custom navigation
 
 Administrators can customize the developer portal navigation in the header and footer. This is done by creating link pages in Gravitee's system folders. There are three kinds of links:
 
@@ -252,9 +256,263 @@ The top menu provides the following options:
 * **Export:** Download your current theme in `JSON` format
 * **Restore Default Theme:** This button overwrites your modifications with the theme provided by default
 
-## Documentation
+## Site-wide documentation
 
-Outside of APIs and applications, administrators can also provide site-wide documentation for API publishers and consumers. Developer portal site-wide documentation is accessed on the **Documentation** page as shown below.
+Outside of APIs and applications, administrators can also provide site-wide documentation for API publishers and consumers. This documentation creates a direct line of communication with your developer community through a single channel. For example, you can use it to communicate your best practices, configure your own homepage, or even reference it in links when using [custom navigation](advanced-developer-portal-configuration.md#custom-navigation). All published documentation can be accessed in the developer portal's **Documentation** page as shown below.
+
+{% hint style="info" %}
+Site-wide documentation is separate from API documentation which can be added to an API by an API publisher as detailed in the [Publish APIs developer portal guide.](publish-apis.md)
+{% endhint %}
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM.png" alt=""><figcaption><p>Developer portal documentation page</p></figcaption></figure>
 
+### Documentation types
+
+To add some documentation, you can either create new pages or import them from a file or external source.
+
+APIM supports multiple types of documentation:
+
+* Markdown (for more information, see [Markdown documentation](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_markdown.html) and [Markdown templates](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_markdown\_template.html))
+* AsciiDoc (for more information, see [AsciiDoc documentation](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_asciidoc.html))
+* OpenAPI (Swagger) (for more information, see [OpenAPI documentation](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_openapi.html))
+
+### Create documentation
+
+To create documentation, go to **Settings > Documentation** in the management UI.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 3.22.29 PM.png" alt=""><figcaption><p>Documentation settings page</p></figcaption></figure>
+
+{% hint style="info" %}
+#### System folders
+
+Header, TopFooter, and Footer are known as system folders. They can be used to customize the developer portal's navigation by adding custom links. For more information, see [Custom navigation.](advanced-developer-portal-configuration.md#custom-navigation)
+{% endhint %}
+
+From here, you can create a new documentation page by selecting the **+ icon** in the bottom right. This presents you with the following options:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 3.45.43 PM.png" alt=""><figcaption><p>Create new documentation options</p></figcaption></figure>
+
+* **Folder:** Generate a folder to organize your documentation. This also allows you to quickly generate translations of the entire folder by selecting **Translate Folder**.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 3.49.15 PM.png" alt=""><figcaption><p>Sample documentaion folder</p></figcaption></figure>
+
+* Markdown Template:&#x20;
+* Markdown
+* Swagger
+* AsyncAPI
+* Asciidoc
+
+### Import documentation
+
+You can fetch your documentation from external sources.
+
+APIM includes 5 types of fetchers:
+
+* GitHub: fetch your documentation from a GitHub repository
+* GitLab: fetch your documentation from a GitLab repository
+* Git: fetch your documentation from a Git repository
+* WWW: fetch your documentation from the web
+* Bitbucket: fetch your documentation from a Bitbucket repository
+
+The documentation is fetched and stored locally in APIM when you first create it, and at regular intervals if you configure auto-fetch.
+
+![graviteeio page documentation external source auto fetch](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-external-source-auto-fetch.png)
+
+
+
+###
+
+### Create a new page
+
+1.  Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and choose the documentation type.
+
+    ![graviteeio page documentation creation](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-creation.png)
+2. (Optional) Set the page as your API Portal home page by selecting the **Set as homepage** option.
+3. Choose whether to import the documentation or create it directly in the editor. If importing, specify the file details or the external documentation source.
+4. If you are creating a Markdown page and want to use an existing template, select the template.
+5. If the page is ready to publish, select **Publish this page**. The page will not be visible until this option is selected. You can also publish it later from the documentation list.
+6. Click **SAVE**.
+
+|   | For Markdown pages, you can [create and use templates](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_markdown\_template.html). |
+| - | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+### Import multiple pages
+
+If you have an existing documentation set for your API in a GitHub or GitLab repository, you can configure the GitHub or GitLab fetcher to import the complete documentation structure on a one-off or regular basis.
+
+You can import the documentation into APIM in a different structure from the source repository structure. To do this, you need to create a Gravitee descriptor file (`.gravitee.json`), at the root of the repository, describing both the source and destination structure.
+
+You can then configure a fetcher in APIM to read the JSON file and import the documentation according to the structure defined in the file.
+
+|   | The Gravitee descriptor file must be named `.gravitee.json` and must be placed at the root of the repository. |
+| - | ------------------------------------------------------------------------------------------------------------- |
+
+#### Example
+
+The following Gravitee descriptor describes a documentation set which includes:
+
+* a home page in Markdown format in a folder called `/newdoc`, to be placed at the root of the APIM documentation structure.
+* a JSON file containing a Swagger specification at the root of the repository, to be placed in a folder called `/technical` in the APIM documentation structure.
+
+```
+{
+    "version": 1,
+    "documentation": {
+        "pages": [
+            {
+                "src": "/newdoc/readme.md",
+                "dest": "/",
+                "name": "Homepage",
+                "homepage": true
+            },
+            {
+                "src": "/test-import-swagger.json",
+                "dest": "/technical",
+                "name": "Swagger"
+            }
+        ]
+    }
+}
+```
+
+#### Configure a fetcher
+
+1. Click **Import multiple files**.
+2.  If you want to publish the pages on import, select **Publish all imported pages**.
+
+    ![import multiple files](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files.png)
+3. Click the GitHub or GitLab fetcher.
+4.  Specify the details of the external source, such as the URL of the external API, name of the repository and the branch. The fields vary slightly depending on the fetcher.
+
+    ![import multiple file dets](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-file-dets.png)
+5. In **Filepath**, enter the path to your JSON documentation specification file.
+6. Enter an access token, which you need to generate in your GitHub or GitLab user profile.
+7. Select **Auto Fetch** and specify the `crontab` update frequency, if you want the pages to be updated dynamically.
+8.  Click **IMPORT**.
+
+    APIM adds the files to your documentation set.
+
+    ![import multiple files result](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files-result.png)
+
+#### Publish your page
+
+Once your page is created, you can view it before publishing it. APIM displays the following message:
+
+![graviteeio page documentation draft](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-draft.png)
+
+You can publish a page in one of the following ways:
+
+*   Check the **Publish this page** option in the **CONFIGURATION** tab:
+
+    ![graviteeio page documentation publish 1](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-publish-1.png)
+
+    When you publish the page in this way, you can enable the option **Allow access to anonymous user** to display the page to users browsing APIM Portal without logging in. The option is checked by default.
+* Click the cloud icon in the documentation list:
+
+![graviteeio page documentation publish 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-publish-2.png)
+
+### Configure a page
+
+You can select a page from the list and configure it using the tabs, as described in the sections below.
+
+#### Translate a page
+
+You can add translations for your pages. In the **TRANSLATIONS** tab:
+
+1. Click **ADD A TRANSLATION**.
+2. Enter your 2 character language code (FR for french, CZ for czech, IT for italian and so on).
+3. Enter the translated title.
+4. (Optional) You can edit the content to add translated content by toggling on the switch.
+5. Click **SAVE TRANSLATION** at the bottom of the page.
+
+![graviteeio page documentation translations 1](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-1.png)![graviteeio page documentation translations 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-2.png)
+
+#### Auto fetch from an external source
+
+To periodically fetch your documentation from external sources, you can enable the auto-fetch option and specify the fetch frequency. In the **EXTERNAL SOURCE** tab:
+
+1. Select the external source type.
+2. Enter the source details, such as URL, username and so on.
+3.  Specify the **Update frequency** as a `cron` expression. This is a string consisting of six fields that describe the schedule (representing seconds, minutes, hours, days, months and weekdays).
+
+    For example:
+
+    * Fetch every second: `* * */1 * * *`
+    * At 00:00 on Saturday : `0 0 0 * * SAT`
+
+|   | If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify. |
+| - | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+#### Access control
+
+In the **ACCESS CONTROL** tab, you can mark a page as PRIVATE if you want to deny access to anonymous user.
+
+For private pages, you can configure access lists by required or to be excluded roles/groups.
+
+![graviteeio page documentation access control](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-access-control.png)
+
+### Templating
+
+This example shows how to create documentation templates based on the Apache [FreeMarker template engine](https://freemarker.apache.org/). You can access your API data in your API documentation with the following syntax: `${api.name} or ${api.metadata['foo-bar']}`
+
+#### Available API properties
+
+<table data-full-width="true"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "<a href="mailto:support.contact@company.com">support.contact@company.com</a>"}</td></tr><tr><td>createdAt</td><td>Date</td><td>12 juil. 2018 14:44:00</td></tr><tr><td>updatedAt</td><td>Date</td><td>12 juil. 2018 14:46:00</td></tr><tr><td>deployedAt</td><td>Date</td><td>12 juil. 2018 14:49:00</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>proxy.contextPath</td><td>String</td><td>/stores</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td><a href="mailto:firstname.lastname@company.com">firstname.lastname@company.com</a></td></tr></tbody></table>
+
+### Example
+
+The following example shows an API documentation template.
+
+{% code overflow="wrap" fullWidth="true" %}
+```ftl
+<#if api.picture??>
+<img src="${api.picture}" style="float: right;max-width: 60px;"/>
+</#if>
+
+# Welcome to the API ${api.name}(${api.version})!
+
+The API is <span style="text-transform: lowercase;color: <#if api.state=='STARTED'>green<#else>red</#if>">${api.state}</span>.
+
+This API has been created on ${api.createdAt?datetime} and updated on ${api.updatedAt?datetime}.
+
+<#if api.deployedAt??>
+This API has been deployed on ${api.deployedAt?datetime}.
+<#else>
+This API has not yet been deployed.
+</#if>
+
+<#if api.visibility=='PUBLIC'>
+This API is publicly exposed.
+<#else>
+This API is not publicly exposed.
+</#if>
+
+<#if api.tags?has_content>
+Sharding tags: ${api.tags?join(", ")}
+</#if>
+
+## Description
+
+${api.description}
+
+## How to access
+
+The API can be accessed through https://api.company.com${api.proxy.contextPath}:
+
+curl https://api.company.com${api.proxy.contextPath}
+
+## Rating
+
+You can rate and put a comment for this API <a href='/#!/apis/${api.id}/ratings'>here</a>.
+
+## Contact
+
+The support contact is <a href="mailto:${api.metadata['email-support']}">${api.metadata['email-support']}</a>.
+
+The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwner.email}">${api.primaryOwner.displayName}</a><#else>${api.primaryOwner.displayName}</#if>.
+```
+{% endcode %}
+
+This has the following result in the developer portal:
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-template.png" alt=""><figcaption><p>Result of templating engine example</p></figcaption></figure>
