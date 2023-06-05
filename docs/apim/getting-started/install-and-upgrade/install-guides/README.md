@@ -18,14 +18,16 @@ In addition, you can now [register for a free time-limited Cockpit trial directl
 For more information about Enterprise Edition licenses, installation, and versioning, see the [Enterprise Edition section](https://docs.gravitee.io/ee/ee\_overview.html).
 {% endhint %}
 
-As described in the [Overview](https://docs.gravitee.io/apim/3.x/apim\_overview\_introduction.html#gravitee-overview), Gravitee API Management (APIM) is split into four main components:
+As described in the Introduction to Gravitee API Management (APIM), APIM is split into four main components:
 
-* [APIM gateway](https://docs.gravitee.io/apim/3.x/apim\_installguide\_gateway\_install\_zip.html)
-* [APIM management API](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_install\_zip.html)
-* [APIM ](https://docs.gravitee.io/apim/3.x/apim\_installguide\_management\_ui\_install\_zip.html)management UI
-* [APIM developer portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_portal\_ui\_install\_zip.html)
+* APIM gateway
+* APIM management API
+* APIM management UI
+* APIM developer portal
 
-The links below provide information on how you can prepare, install, and configure your APIM environment. You can install APIM in a variety of ways, including:
+The links below provide information on how you can install and configure your APIM environment. You can get started with APIM in a variety of ways, including:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td><strong>Enterprise Trial</strong></td><td></td></tr><tr><td></td><td><strong>Install on Docker</strong></td><td></td></tr><tr><td></td><td><strong>Install on Kubernetes</strong></td><td></td></tr><tr><td></td><td><strong>Install on Amazon</strong></td><td></td></tr><tr><td></td><td><strong>Install on Red Hat and CentOS</strong></td><td></td></tr><tr><td></td><td><strong>Install with <code>.ZIP</code></strong></td><td></td></tr><tr><td></td><td><strong>Hybrid Deployment</strong></td><td></td></tr><tr><td></td><td><strong>Upgrade Guide</strong></td><td></td></tr></tbody></table>
 
 * [Install on Amazon](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_amazon\_introduction.html)
 * [Install on Docker](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_introduction.html)
