@@ -51,7 +51,105 @@ All of the general settings can be overridden in the `gravitee.yaml` file as det
 
 ## User sign-up and support
 
-Email settings
+Now, in the previous section we simulated internal exposure of our API by using the same admin account for both the API producer and API consumer. However, external exposure necessitates the ability to create new accounts which requires some additional configuration. We’ll walk you through how to set that up.
+
+The ability to create new user accounts has [two requirements](https://docs.gravitee.io/apim/3.x/apim\_consumerguide\_create\_account.html#prerequisites):
+
+1. the “Allow User Registration” option enabled in settings
+2. email [SMTP (simple mail transfer protocol) configuration 1](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_configuration.html#smtp-configuration)
+
+User registration is already enabled by default, but emailing is disabled since it requires configuring an SMTP email service. To set that up, return to the management console and select **Settings** in the main menu and select **Settings** again under the **Portal** header in the submenu.
+
+[![Screen Shot 2023-02-20 at 10.13.49 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/d/d033d41925c00cd1b56d9934ca774e89d4d118a2\_2\_690x312.png)Screen Shot 2023-02-20 at 10.13.49 PM3840×1738 427 KB](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/d/d033d41925c00cd1b56d9934ca774e89d4d118a2.png)
+
+Here, you can customize a number of aspects of the developer portal, but notice the warning at the top of the page. It essentially says the configuration file takes precedence. For example, if you scroll to the bottom of that page, you will see the SMTP settings, but the option to enable emailing is greyed out due to the previously mentioned configuration file.
+
+[![Screen Shot 2023-02-20 at 10.11.35 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/a/abe13454c6d7c6a968428f085632edd92d44276c\_2\_690x312.png)Screen Shot 2023-02-20 at 10.11.35 PM3840×1738 307 KB](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/a/abe13454c6d7c6a968428f085632edd92d44276c.png)
+
+This configuration file is known as the `gravitee.yml` file. It is one of [three ways to configure settings for your APIM environment 1](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_configuration.html#overview): environment variables, system properties, and `gravitee.yml`, in order of precedence. We will be overriding these settings using environment variables, but first, we want to show you where in our docker installation the `gravitee.yml` file for APIM lives.
+
+Open **Docker Desktop**, click on the `gio_apim_management_api` container, and switch to the **Terminal** tab. The `gravitee.yml` file lives in the `config` directory as shown in the image below. If you use the `cat` command to print the contents of the file, you will be able to search for and see the default SMTP settings.
+
+> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) The gateway component has a separate `gravitee.yml` file.
+
+[![Screen Shot 2023-02-22 at 11.43.42 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/f/f9048fa605cb73e34636e17358268f1f4e4e0193\_2\_690x261.png)Screen Shot 2023-02-22 at 11.43.42 PM2194×832 107 KB](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/f/f9048fa605cb73e34636e17358268f1f4e4e0193.png)\
+[![Screen Shot 2023-02-20 at 10.38.06 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/1/18291fe9b031f5d3becfdc0c6750eeffc1f4b96d\_2\_690x277.png)Screen Shot 2023-02-20 at 10.38.06 PM2116×850 90.9 KB](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/1/18291fe9b031f5d3becfdc0c6750eeffc1f4b96d.png)
+
+Rather than modify this file directly, we’re going to stick with our theme of using environment variables. Environment variables have precedence over the other two configuration types and allow us to define them in the same `.env` file we created earlier.
+
+> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) **Gravitee Environment Variable Syntax**
+>
+> ***
+>
+> Unlike our `REACT_APP_API_KEY` environment variable which was injected into our todo application, these environment variables are being used to modify Gravitee specific configurations. You must ensure you use the correct syntax for each property:
+>
+> * Each level of indentation in the `gravitee.yml` file needs to be seperated by an underscore. For example, this inside a `gravitee.yml` file
+>
+> ***
+>
+> ```yaml
+> management:
+>    Mongodb:
+>       dbname: myDatabase
+> ```
+>
+> ***
+>
+> **becomes** `gravitee_management_mongodb_dbname=myDatabase`
+>
+> * Some properties are case-sensitive and cannot be written in uppercase (for example, `gravitee_security_providers_0_tokenIntrospectionEndpoint`). Therefore, we advise you to define all Gravitee environment variables in lowercase.
+> * In some systems, hyphens are not allowed in variable names. For example, you may need to write `gravitee_policy_api-key_header` as `gravitee_policy_apikey_header`.
+
+Open the `.env` file created in the Internal Exposure section and add the following environment variables:
+
+```ini
+gravitee_email_enabled=true
+gravitee_email_host=fqdn-smtp-service-provider.com
+gravitee_email_username=your-email@your-email-host.com
+gravitee_email_password=your-password
+gravitee_email_from=your-email@your-email-host.com
+```
+
+where `fqdn-smtp-service-provider` (fqdn = fully qualified domain name) and `your-email-host` is dependent on the email service you would like to use (e.g. Gmail, Yahoo, etc.). For Gmail, they have several options as [detailed here](https://support.google.com/a/answer/176600?hl=en). The rest should be self-explanatory; however, if you are using two-factor authentication with Gmail, then you need to [generate an application password](https://security.google.com/settings/security/apppasswords). This password will be used in place of your standard account password for the `gravitee_email_password` environment variable.
+
+Similar to before, once you’ve input your email information, you need to make sure the environment variables are passed to the `management_api` container. Open the `docker-compose.yml` file again and uncomment lines 141 and 142. Finally, save the files and run `docker-compose up -d` to rebuild and restart the necessary containers one more time.
+
+[![Screen Shot 2023-02-20 at 11.09.46 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5e88cbd9ab8cc9e67bcb48cf9e780cbdfbb3368a\_2\_690x322.png)Screen Shot 2023-02-20 at 11.09.46 PM2736×1278 339 KB](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/5/5e88cbd9ab8cc9e67bcb48cf9e780cbdfbb3368a.png)
+
+After you give the containers a chance to restart, you should be able to return to the management console to see your updated settings. You also now have the option to enable auth and TLS in the management console which is recommended.
+
+[![Screen Shot 2023-02-20 at 11.15.11 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/9/96bc69d764fee7a570e2bb2b238424769d72ce1a\_2\_690x149.png)Screen Shot 2023-02-20 at 11.15.11 PM1924×418 17.1 KB](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/9/96bc69d764fee7a570e2bb2b238424769d72ce1a.png)
+
+Alright, let’s test these new settings by attempting to create a new user. We recommend [opening the developer portal 1](http://localhost:8085/) in an incognito window to avoid being automatically signed out of the admin account being used in the management console. In the new incognito window, click **Sign in** then **Sign up**. Enter a name and functioning email.
+
+[![Screen Shot 2023-02-20 at 11.27.01 PM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/4/423e485a2a5abd1477b326d9f795408e556dbe08\_2\_370x500.png)Screen Shot 2023-02-20 at 11.27.01 PM838×1130 22.6 KB](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/4/423e485a2a5abd1477b326d9f795408e556dbe08.png)
+
+If all goes smoothly, you should get a registration confirmation and an email to the address you provided. Open the email and click on the link. Make sure the link opens in the incognito tab; otherwise, it will just open the developer portal with the admin account signed in.
+
+You will taken to a page to finalize your account and add a password. By default, the password must meet the following requirements:
+
+* 8 to 32 characters
+* no more than 2 consecutive equal characters
+* min 1 special characters (@ & # …)
+* min 1 upper case character
+
+> ![:bulb:](https://emoji.discourse-cdn.com/twitter/bulb.png?v=12) **Password Customization**
+>
+> ***
+>
+> Password requirements can be modified by changing the regex pattern under **User Management Configuration** in the `gravitee.yml` file or by using environment variables. Additionally, you can provide [custom UI errors](https://docs.gravitee.io/am/current/am\_userguide\_user\_management\_password\_policy.html#custom\_ui\_errors) for future new users by modifying the sign up and register HTML templates.
+
+Once you finish creating your password, you should be able to sign in without issue. The newly created external user will also be immediately visible in the admin’s management console. Leave the incognito window and return to the standard window where you are singed in as an admin in the management console. In the sidebar menu, you can reach your organization settings by clicking on **Organization** at the bottom. Once there, navigate to the **Users** tab in the sidebar. Here you will see a list of all current users tied to the organization. As an admin, you can click on any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
+
+[![Screen Shot 2023-02-23 at 1.55.44 AM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/712b65b5d81ff0459a41a4f2f76487611d5ce4f8\_2\_690x312.png)Screen Shot 2023-02-23 at 1.55.44 AM3838×1740 280 KB](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/7/712b65b5d81ff0459a41a4f2f76487611d5ce4f8.png)
+
+Next, click on **Applications** in the sidebar. Interestingly, you should see a new application called **Default application** which is owned by the user you just created.
+
+[![Screen Shot 2023-02-21 at 12.26.03 AM](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/1/186f0300a51db63b3fece375675232e15e40486e\_2\_690x312.png)Screen Shot 2023-02-21 at 12.26.03 AM3834×1734 314 KB](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/1/186f0300a51db63b3fece375675232e15e40486e.png)
+
+So why did the new user not have to create a first application like the admin? In order to allow new users to quickly move forward with API consumption, the default settings are every new user automatically has a default application created. This can be easily disabled through the aforementioned three configuration options.
+
+To follow the wisdom of Gravitee’s creators and take advantage of this default setting meant to promote speed of API consumption, let’s quickly have our external user subscribe to the **Dev Guide API**. Return to the developer portal in the incognito tab and navigate to the **Dev Guide API** inside the catalog. Once there, we will subscribe to **External API Key Plan** just like we did previously with our internal consumer and the original **API Key Plan**. Complete and submit the subscription request.
 
 ## Layout and theme customization
 
