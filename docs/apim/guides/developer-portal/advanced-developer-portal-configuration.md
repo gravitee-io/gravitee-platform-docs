@@ -22,7 +22,7 @@ The developer portal settings can be broken into the following major categories:
 This section details how to configure high-level settings for the developer portal. Select the **Settings** tab in the secondary sidebar and scroll down to the **Portal** subheader where you have the following configuration options:
 
 {% hint style="info" %}
-**`gravitee.yaml` override**
+`gravitee.yml` override
 
 The top of the **Settings** page states "Depending on your architecture, this configuration may be overridden by a local configuration file. See documentation for more information."
 

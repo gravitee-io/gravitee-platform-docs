@@ -12,7 +12,7 @@ Naturally, a growing customer base brings new challenges, such as:
 
 How can businesses address all these challenges seamlessly, for all APIs, using a centralized tool? Simple – by choosing Gravitee.io API Management.
 
-## What Is Gravitee.io API Management?
+## What Is Gravitee API Management?
 
 Gravitee.io API Management (APIM) is a flexible, lightweight, and blazing-fast open source API management solution that gives your organization full control over who accesses your API — when and how. APIM is both simple to use and powerful, acting as a global solution for API management. Gravitee.io APIM is composed of four main components:
 

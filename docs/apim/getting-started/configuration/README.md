@@ -6,9 +6,10 @@ description: Learn how to configure various Gravitee API Management components
 
 ### Introduction
 
-This section explains how to configure the following aspects of Gravitee API Management after installation:
+This section explains how to configure the following components of Gravitee API Management (APIM) after installation:
 
-* The Gravitee API Gateway&#x20;
-* The Gravitee Management API (M-API)
-* The Gravitee API Management UI (APIM UI)
-* The Gravitee Developer Portal
+* APIM gateway
+* APIM management API
+* APIM management UI
+* APIM developer portal
+
