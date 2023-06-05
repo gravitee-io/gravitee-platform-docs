@@ -74,7 +74,7 @@ After configuring SMTP, you should be able to create a new user in the developer
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 12.14.03 PM.png" alt=""><figcaption><p>Developer portal sign up page</p></figcaption></figure>
 
-You should receive a registration confirmation and an email to the address you provided. Open the email and open the link. Make sure the link opens in the incognito tab; otherwise, it will just open the developer portal with the account signed into the management UI.
+You should receive a registration confirmation and an email to the address you provided. Open the email and click the link. Make sure the link opens in the incognito tab; otherwise, it will just open the developer portal with the account signed into the management UI.
 
 You will be taken to a page to finalize your account and add a password. By default, the password must meet the following requirements:
 
@@ -86,18 +86,18 @@ You will be taken to a page to finalize your account and add a password. By defa
 {% hint style="info" %}
 **Password customization**
 
-Password requirements can be modified by changing the regex pattern under **User Management Configuration** in the `gravitee.yml` file or by using environment variables. Additionally, you can provide [custom UI errors](https://docs.gravitee.io/am/current/am\_userguide\_user\_management\_password\_policy.html#custom\_ui\_errors) for future new users by modifying the sign-up and register HTML templates.
+Password requirements can be modified by changing the regex pattern under **User Management Configuration** in the `gravitee.yml` file or by using environment variables.
 {% endhint %}
 
-Once you finish creating your password, you should be able to sign in without issue. The newly created external user will also be immediately visible in the admin’s management console. Leave the incognito window and return to the standard window where you are signed in as an admin in the management UI. In the sidebar menu, you can reach your organization settings by clicking on **Organization** at the bottom. Once there, navigate to the **Users** tab in the sidebar. Here you will see a list of all current users tied to the organization. As an admin, you can click on any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
+Once you finish creating your password, you should be able to sign in without issue.&#x20;
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/712b65b5d81ff0459a41a4f2f76487611d5ce4f8_2_690x312.png" alt=""><figcaption></figcaption></figure>
+### User administration
 
-Next, click on **Applications** in the sidebar. Interestingly, you should see a new application called **Default application** which is owned by the user you just created.
+The newly created external user will also be immediately visible in the management UI. Leave the incognito window and return to the standard window where you are signed into the management UI as an admin. To view users, select **Organization** at the bottom of the sidebar. Once there, navigate to the **Users** tab in the sidebar. Here, you will see a list of all current users tied to the organization. As an admin, you can select any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/1/186f0300a51db63b3fece375675232e15e40486e_2_690x312.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Management UI user overview</p></figcaption></figure>
 
-In order to allow new users to quickly move forward with API consumption, the default settings are every new user automatically has a default application created. This can be easily disabled through the aforementioned three configuration options.
+
 
 ## Layout and theme customization
 
@@ -135,7 +135,7 @@ Administrators can also modify how API consumers browsing experience in the deve
 
 In APIM, select **API Portal Information** in the secondary sidebar to display the following options shown below.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
 
 * The other options are detailed in the [API sidebar](advanced-developer-portal-configuration.md#api-sidebar) section above.
 *   **API Page list options**
