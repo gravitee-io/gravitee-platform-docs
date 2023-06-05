@@ -95,7 +95,7 @@ Once you finish creating your password, you should be able to sign in without is
 
 All users can be viewed in APIM's management UI by anyone with administrator privileges. To view users, select **Organization** at the bottom of the sidebar. Once there, navigate to the **Users** tab in the sidebar. Here, you will see a list of all current users tied to the organization. As an administrator, you can select any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Management UI user overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Management UI user overview</p></figcaption></figure>
 
 {% hint style="info" %}
 **Detailed user administration**
@@ -139,7 +139,7 @@ Administrators can also modify how API consumers browsing experience in the deve
 
 In APIM, select **API Portal Information** in the secondary sidebar to display the following options shown below.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
 
 * The other options are detailed in the [API sidebar](advanced-developer-portal-configuration.md#api-sidebar) section above.
 *   **API Page list options**
@@ -275,6 +275,7 @@ APIM supports multiple types of documentation:
 * Markdown (for more information, see [Markdown documentation](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_markdown.html) and [Markdown templates](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_markdown\_template.html))
 * AsciiDoc (for more information, see [AsciiDoc documentation](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_asciidoc.html))
 * OpenAPI (Swagger) (for more information, see [OpenAPI documentation](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_openapi.html))
+* AsynAPI (for more information, see [AsycAPI documentation](https://www.asyncapi.com/docs))
 
 ### Create documentation
 
@@ -292,17 +293,21 @@ From here, you can create a new documentation page by selecting the **+ icon** i
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 3.45.43 PM.png" alt=""><figcaption><p>Create new documentation options</p></figcaption></figure>
 
-* **Folder:** Generate a folder to organize your documentation. This also allows you to quickly generate translations of the entire folder by selecting **Translate Folder**.
+* **Folder:** Generate a folder to organize your documentation. This also allows you to quickly generate translations of the entire folder by selecting **Translate Folder**. More information is provided on [translations below](advanced-developer-portal-configuration.md#translate-a-page).
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 3.49.15 PM.png" alt=""><figcaption><p>Sample documentaion folder</p></figcaption></figure>
 
-* Markdown Template:&#x20;
+* Markdown Template: freemarker templates
 * Markdown
 * Swagger
 * AsyncAPI
 * Asciidoc
 
-### Import documentation
+Create inline, import from file, or connect to external source
+
+publish the page
+
+### External source
 
 You can fetch your documentation from external sources.
 
@@ -320,21 +325,7 @@ The documentation is fetched and stored locally in APIM when you first create it
 
 
 
-###
 
-### Create a new page
-
-1.  Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) and choose the documentation type.
-
-    ![graviteeio page documentation creation](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-creation.png)
-2. (Optional) Set the page as your API Portal home page by selecting the **Set as homepage** option.
-3. Choose whether to import the documentation or create it directly in the editor. If importing, specify the file details or the external documentation source.
-4. If you are creating a Markdown page and want to use an existing template, select the template.
-5. If the page is ready to publish, select **Publish this page**. The page will not be visible until this option is selected. You can also publish it later from the documentation list.
-6. Click **SAVE**.
-
-|   | For Markdown pages, you can [create and use templates](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_markdown\_template.html). |
-| - | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
 ### Import multiple pages
 
@@ -394,23 +385,6 @@ The following Gravitee descriptor describes a documentation set which includes:
 
     ![import multiple files result](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files-result.png)
 
-#### Publish your page
-
-Once your page is created, you can view it before publishing it. APIM displays the following message:
-
-![graviteeio page documentation draft](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-draft.png)
-
-You can publish a page in one of the following ways:
-
-*   Check the **Publish this page** option in the **CONFIGURATION** tab:
-
-    ![graviteeio page documentation publish 1](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-publish-1.png)
-
-    When you publish the page in this way, you can enable the option **Allow access to anonymous user** to display the page to users browsing APIM Portal without logging in. The option is checked by default.
-* Click the cloud icon in the documentation list:
-
-![graviteeio page documentation publish 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-publish-2.png)
-
 ### Configure a page
 
 You can select a page from the list and configure it using the tabs, as described in the sections below.
@@ -457,13 +431,13 @@ This example shows how to create documentation templates based on the Apache [Fr
 
 #### Available API properties
 
-<table data-full-width="true"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "<a href="mailto:support.contact@company.com">support.contact@company.com</a>"}</td></tr><tr><td>createdAt</td><td>Date</td><td>12 juil. 2018 14:44:00</td></tr><tr><td>updatedAt</td><td>Date</td><td>12 juil. 2018 14:46:00</td></tr><tr><td>deployedAt</td><td>Date</td><td>12 juil. 2018 14:49:00</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>proxy.contextPath</td><td>String</td><td>/stores</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td><a href="mailto:firstname.lastname@company.com">firstname.lastname@company.com</a></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "<a href="mailto:support.contact@company.com">support.contact@company.com</a>"}</td></tr><tr><td>createdAt</td><td>Date</td><td>12 juil. 2018 14:44:00</td></tr><tr><td>updatedAt</td><td>Date</td><td>12 juil. 2018 14:46:00</td></tr><tr><td>deployedAt</td><td>Date</td><td>12 juil. 2018 14:49:00</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>proxy.contextPath</td><td>String</td><td>/stores</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td><a href="mailto:firstname.lastname@company.com">firstname.lastname@company.com</a></td></tr></tbody></table>
 
 ### Example
 
 The following example shows an API documentation template.
 
-{% code overflow="wrap" fullWidth="true" %}
+{% code overflow="wrap" fullWidth="false" %}
 ```ftl
 <#if api.picture??>
 <img src="${api.picture}" style="float: right;max-width: 60px;"/>
