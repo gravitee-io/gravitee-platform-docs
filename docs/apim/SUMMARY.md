@@ -20,7 +20,7 @@
 ## Getting Started
 
 * [Install & Upgrade Guides](getting-started/install-and-upgrade/install-guides/README.md)
-  * [Enterprise Trial](getting-started/install-guides/free-trial.md)
+  * [Enterprise Trial](getting-started/install-and-upgrade/free-trial.md)
   * [Install on Docker](getting-started/install-guides/install-on-docker/README.md)
     * [Quick Install with Docker Compose](getting-started/install-guides/install-on-docker/quick-install-with-docker-compose.md)
     * [Custom Install with Docker Compose](getting-started/install-guides/install-on-docker/custom-install-with-docker-compose.md)

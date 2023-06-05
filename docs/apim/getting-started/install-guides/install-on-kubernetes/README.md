@@ -6,12 +6,12 @@ description: An overview of Helm charts and Kubernetes operators
 
 To make the most of this guide, you should be familiar with Kubernetes and its terms.
 
-Installing APIM on Kubernetes is easy with the help of our Helm chart. **This Helm chart supports versions: 3.0.x and higher** and will deploy the following:
+Installing APIM on Kubernetes is easy with the help of our Helm chart. **This Helm chart supports Gravitee APIM Management (APIM) versions: 3.0.x and higher** and will deploy the following:
 
-* Gravitee management API
-* Gravitee management UI
-* Gravitee developer portal
-* Gravitee gateway
+* APIM management API
+* APIM management UI
+* APIM developer portal
+* APIM gateway
 * MongoDB replica set or PostgresSQL (optional dependency)
 * Elasticsearch Cluster (optional dependency)
 
@@ -96,13 +96,13 @@ After using Helm to install APIM on Kubernetes, you can manage the deployment by
 
 Helm is a package manager for Kubernetes that simplifies the deployment and management of applications on Kubernetes clusters. Helm packages are called "charts," which are collections of YAML templates that describe the different Kubernetes resources needed to run an application, such as deployments, services, and config maps.&#x20;
 
-You just used Helm to install APIM on Kubernetes and you can continue to use it to manage the APIM installation. Helm allows you to install, upgrade, rollback, and delete applications with just a few commands. However, Helm more limited than a Kubernetes operator when it comes to advanced automation and management capabilities for complex applications or services.
+You just used Helm to install APIM on Kubernetes and you can continue to use it to manage the APIM installation. Helm allows you to install, upgrade, rollback, and delete applications with just a few commands. However, Helm is more limited than a Kubernetes operator when it comes to advanced automation and management capabilities for complex applications or services.
 
 Kubernetes operators allow you to automate advanced application management tasks. In Kubernetes, an operator is not an API object itself, but rather a pattern for building custom controllers that automate the management of complex, stateful applications on Kubernetes. Kubernetes' [operator pattern](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) concept lets you extend the cluster's behavior without modifying the code of Kubernetes itself by linking [controllers](https://kubernetes.io/docs/concepts/architecture/controller/) to one or more custom resources.&#x20;
 
-Operators are designed to understand the application they manage and can take actions based on that understanding which allows for a higher level of automation and intelligence when managing complex applications. They can automatically detect and respond to changes in the application or infrastructure, and can handle intricate management tasks that would be difficult to do manually.
+Operators are designed to understand the application they manage and can take actions based on that understanding which allows for a higher level of automation and intelligence when managing complex applications. They can automatically detect and respond to changes in the application or infrastructure and can handle intricate management tasks that would be difficult to do manually.
 
 ### Choose your deployment manager
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><p></p><p><strong>Helm</strong> </p></td><td></td><td></td><td><a href="configure-helm-chart.md">configure-helm-chart.md</a></td><td><a href="configure-helm-chart.md">configure-helm-chart.md</a></td></tr><tr><td><p></p><p><strong>Gravitee Kubernetes Operator</strong></p></td><td></td><td></td><td><a href="install-gravitee-kubernetes-operator.md">install-gravitee-kubernetes-operator.md</a></td><td><a href="install-gravitee-kubernetes-operator.md">install-gravitee-kubernetes-operator.md</a></td></tr><tr><td><p></p><p><strong>Hybrid Deployment on Kubernetes</strong></p></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><p></p><p><strong>Helm</strong> </p></td><td></td><td></td><td><a href="configure-helm-chart.md">configure-helm-chart.md</a></td><td><a href="configure-helm-chart.md">configure-helm-chart.md</a></td></tr><tr><td><p></p><p><strong>Gravitee Kubernetes Operator</strong></p></td><td></td><td></td><td><a href="install-gravitee-kubernetes-operator.md">install-gravitee-kubernetes-operator.md</a></td><td><a href="install-gravitee-kubernetes-operator.md">install-gravitee-kubernetes-operator.md</a></td></tr><tr><td><p></p><p><strong>Hybrid Deployment on Kubernetes</strong></p></td><td></td><td></td><td></td><td></td></tr></tbody></table>
 
