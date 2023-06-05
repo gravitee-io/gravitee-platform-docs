@@ -25,19 +25,12 @@ As described in the Introduction to Gravitee API Management (APIM), APIM is spli
 * APIM management UI
 * APIM developer portal
 
-The links below provide information on how you can install and configure your APIM environment. You can get started with APIM in a variety of ways, including:
+The links below provide detailed guides on how you can setup, configure, and upgrade your APIM environment. You can get started with APIM in a variety of ways, including:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td><strong>Enterprise Trial</strong></td><td></td></tr><tr><td></td><td><strong>Install on Docker</strong></td><td></td></tr><tr><td></td><td><strong>Install on Kubernetes</strong></td><td></td></tr><tr><td></td><td><strong>Install on Amazon</strong></td><td></td></tr><tr><td></td><td><strong>Install on Red Hat and CentOS</strong></td><td></td></tr><tr><td></td><td><strong>Install with <code>.ZIP</code></strong></td><td></td></tr><tr><td></td><td><strong>Hybrid Deployment</strong></td><td></td></tr><tr><td></td><td><strong>Upgrade Guide</strong></td><td></td></tr></tbody></table>
-
-* [Install on Amazon](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_amazon\_introduction.html)
-* [Install on Docker](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_introduction.html)
-* [Install on Red Hat and CentOS (Linux)](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_introduction.html)
-* [Install on Kubernetes](https://docs.gravitee.io/apim/3.x/apim\_installguide\_kubernetes.html)
-* [Install with .ZIP](https://docs.gravitee.io/apim/3.x/apim\_installguide\_gateway\_install\_zip.html)
-* [Install a Hybrid Deployment](https://docs.gravitee.io/apim/3.x/apim\_installguide\_hybrid\_deployment.html#architecture)
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><strong>Enterprise Trial</strong></td><td></td><td><a href="../../install-guides/free-trial.md">free-trial.md</a></td></tr><tr><td></td><td><strong>Install on Docker</strong></td><td></td><td><a href="../../install-guides/install-on-docker/">install-on-docker</a></td></tr><tr><td></td><td><strong>Install on Kubernetes</strong></td><td></td><td><a href="../../install-guides/install-on-kubernetes/">install-on-kubernetes</a></td></tr><tr><td></td><td><strong>Install on Amazon</strong></td><td></td><td><a href="../../install-guides/install-on-amazon/">install-on-amazon</a></td></tr><tr><td></td><td><strong>Install on Red Hat and CentOS</strong></td><td></td><td><a href="../../install-guides/install-on-red-hat-and-centos/">install-on-red-hat-and-centos</a></td></tr><tr><td></td><td><strong>Install with <code>.ZIP</code></strong></td><td></td><td><a href="../../install-guides/install-with-.zip.md">install-with-.zip.md</a></td></tr><tr><td></td><td><strong>Hybrid Deployment</strong></td><td></td><td><a href="../../install-guides/hybrid-deployment/">hybrid-deployment</a></td></tr><tr><td></td><td><strong>Upgrade Guide</strong></td><td></td><td><a href="../../install-guides/installation-guide-migration/">installation-guide-migration</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 **Gravitee dependencies**
 
-The Gravitee installation guide provides information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://docs.mongodb.com/), [Elasticsearch](https://www.elastic.co/guide/index.html) or others, please visit their respective websites.
+Gravitee's installation & upgrade guides provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://docs.mongodb.com/) or [Elasticsearch](https://www.elastic.co/guide/index.html), please visit their respective websites.
 {% endhint %}
