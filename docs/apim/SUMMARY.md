@@ -136,7 +136,7 @@
   * [Subscriptions](guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md)
 * [Developer Portal](guides/developer-portal/README.md)
   * [Configuration](guides/developer-portal/advanced-developer-portal-configuration/README.md)
-    * [Configure APIM Portal](guides/developer-portal/advanced-developer-portal-configuration/configure-apim-portal.md)
+    * [Customize the APIM Portal navigation](guides/developer-portal/advanced-developer-portal-configuration/customize-the-apim-portal-navigation.md)
   * [Publish APIs](guides/developer-portal/publish-apis.md)
   * [Consume APIs](guides/developer-portal/consume-apis.md)
 * [API Measurement, Tracking, and Analytics](guides/api-measurement-tracking-and-analytics/README.md)

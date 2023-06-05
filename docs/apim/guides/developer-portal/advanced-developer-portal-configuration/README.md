@@ -6,17 +6,16 @@ description: The administrator's guide to the developer portal
 
 ## Introduction
 
-Configuration of the developer portal takes place through the management UI settings. Each of the following sections will focus on a tab in the secondary sidebar highlighted in the image below.
+Configuration of the developer portal takes place through the management UI **Settings** page as highlighted in the image below.&#x20;
 
 <figure><img src="../../../.gitbook/assets/dev_portal_settings.png" alt=""><figcaption><p>Developer portal settings</p></figcaption></figure>
 
 The developer portal settings can be broken into the following major categories:
 
 * General Settings
-* API Configuration
-* Theme Customization
-* Email Configuration
-* Analytics
+* User sign-up and support
+* Layout and theme customization
+* Documentation
 
 ## General settings
 
@@ -54,7 +53,7 @@ All of the general settings can be overridden in the `gravitee.yaml` file as det
 
 Email settings
 
-## Layout and Theme customization
+## Layout and theme customization
 
 This section will detail how to modify how APIs are presented to API consumers.
 
@@ -77,6 +76,10 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
   * **Show categories list in the API header:** Display all API categories in the developer portal
 * **Configure the information list:** Display custom values in the developer portal. Use the **+ icon** in the bottom right to add new values.
 * **API Page list options:** Detailed in the [catalog tabs](./#catalog-tabs) section below
+
+{% hint style="info" %}
+Additionally, API publishers can modify the API sidebar by adding links to external documentation as detailed in the [Publish APIs documentation](../publish-apis.md).
+{% endhint %}
 
 ### API Catalog
 
@@ -127,6 +130,56 @@ From here, administrators can add new APIs with the **+ icon**, reorder the top 
 If you are having issues seeing gateway APIs you added to the Top APIs list, make sure the API is public or the user logged into the developer portal has access to that API. Administrators can see all the APIs but individual users are restricted to public APIs and APIs they have been granted access to through user and group access settings.
 {% endhint %}
 
+### Navigation
+
+Administrators can customize the developer portal navigation in the header and footer. This is done by creating link pages in Gravitee's system folders. There are three kinds of links:
+
+* External link
+* Link to an existing documentation page
+* Link to a category
+
+Each link is treated as a new documentation page. To learn about all the features and functionality of developer portal documentation, head to the[ Documentation section](./#documentation) of this page.
+
+#### System folders
+
+Gravitee's system folders are accessible in the management UI under **Settings > Documentation** and can be identified by their padlock icon as shown below.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 10.44.36 AM.png" alt=""><figcaption><p>Gravitee's system folders</p></figcaption></figure>
+
+There are three system folders: `Header`, `TopFooter` and `Footer`. Each system folder corresponds to an area of the developer portal:
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-link-portal-zones.png" alt=""><figcaption><p>Developer portal - system folder mapping</p></figcaption></figure>
+
+{% hint style="warning" %}
+**`TopFooter`system folder nesting**
+
+The`TopFooter`system folder is the only system folder that accepts nested folders. As shown in the image above, folders nested under the `TopFooter` system folder are used to group links together.
+
+It is important to note that nested folders must be published to be seen in the developer portal.
+
+<img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM.png" alt="" data-size="original">
+{% endhint %}
+
+#### Manage Links <a href="#manage_links" id="manage_links"></a>
+
+To create a link, open a system folder and select the **+ icon** then select the **Link** icon**.** This will take you to a new page to select your link type and provide some additional information about your link.
+
+<figure><img src="../../../.gitbook/assets/dev_portal_create_a_link.png" alt=""><figcaption><p>Create a new developer portal link</p></figcaption></figure>
+
+Select **Save**, and navigate to the developer portal to see your new link in action.
+
+<figure><img src="../../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
+
+Each custom link has additional features such as translations and access control that you can learn more about in the [Documentation section](./#documentation).
+
+{% hint style="warning" %}
+**Publishing`TopFooter`nested folders**
+
+The`TopFooter`system folder is the only system folder that accepts nested folders. It is important to note that nested folders must be published to be seen in the developer portal.
+
+<img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM.png" alt="" data-size="original">
+{% endhint %}
+
 ### Theming
 
 Administrators can change the default theme of the developer portal to their own custom theme. To modify the theme, in the APIM settings select **Theme** in the secondary sidebar.
@@ -153,7 +206,9 @@ The top menu provides the following options:
 * **Export:** Download your current theme in `JSON` format
 * **Restore Default Theme:** This button overwrites your modifications with the theme provided by default
 
-## Site Documentation
+## Documentation
 
-* Adding a homepage
-* Adding high-level docs
+Outside of APIs and applications, administrators can also provide site-wide documentation for API publishers and consumers. Developer portal site-wide documentation is accessed on the **Documentation** page as shown below.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM.png" alt=""><figcaption><p>Developer portal documentation page</p></figcaption></figure>
+
