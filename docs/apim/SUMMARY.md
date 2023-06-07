@@ -120,8 +120,10 @@
 
 * [Prologue](guides/prologue.md)
 * [Create APIs](guides/create-apis/README.md)
-  * [The API Creation Wizard](guides/create-apis/how-to.md)
+  * [The API Creation Wizard](guides/create-apis/how-to/README.md)
+    * [V2 API definition creation wizard](guides/create-apis/how-to/v2-api-definition-creation-wizard.md)
   * [Import APIs](guides/create-apis/import-apis.md)
+  * [Creating APIs using the Gravitee v2 API defintion](guides/create-apis/creating-apis-using-the-gravitee-v2-api-defintion.md)
 * [API Configuration](guides/api-configuration/README.md)
   * [Load-Balancing, Failover, and Health Checks](guides/api-configuration/load-balancing-failover-and-health-checks.md)
   * [Configure Service Discovery](guides/api-configuration/how-to/configure-service-discovery.md)
