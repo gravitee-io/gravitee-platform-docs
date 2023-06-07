@@ -89,7 +89,7 @@ You will be taken to a page to finalize your account and add a password. By defa
 Password requirements can be modified by changing the regex pattern under **User Management Configuration** in the `gravitee.yml` file or by using environment variables.
 {% endhint %}
 
-Once you finish creating your password, you should be able to sign in without issue.&#x20;
+Once you finish creating your password, you will be able to sign in.
 
 ### User overview
 
@@ -256,7 +256,7 @@ The top menu provides the following options:
 * **Export:** Download your current theme in `JSON` format
 * **Restore Default Theme:** This button overwrites your modifications with the theme provided by default
 
-## Site-wide documentation
+## Documentation
 
 Outside of APIs and applications, administrators can also provide site-wide documentation for API publishers and consumers. This documentation creates a direct line of communication with your developer community through a single channel. For example, you can use it to communicate your best practices, configure your own homepage, or even reference it in links when using [custom navigation](advanced-developer-portal-configuration.md#custom-navigation). All published documentation can be accessed in the developer portal's **Documentation** page as shown below.
 
@@ -297,145 +297,42 @@ From here, you can create a new documentation page by selecting the **+ icon** i
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 3.49.15 PM.png" alt=""><figcaption><p>Sample documentaion folder</p></figcaption></figure>
 
-* Markdown Template: freemarker templates
-* Markdown
-* Swagger
-* AsyncAPI
-* Asciidoc
+* **Markdown Template:** Create templates to be re-used for both site-wide and API markdown documentation.
+* **Markdown:** Use the Markdown syntax for the documentation page
+* **Asciidoc:** Use the Asciidoc syntax for the documentation page
+* **OpenAPI (Swagger):** Use the OpenAPI syntax for the documentation page
+* **AsyncAPI:** Use the AsyncAPI syntax for the documentation page
 
-Create inline, import from file, or connect to external source
+Regardless of your selection, each documentation type provides similar configuration options followed by a text editor matching the type of document you selected.
 
-publish the page
+<figure><img src="../../.gitbook/assets/new_docs_page.png" alt=""><figcaption><p>Creating a documentation page</p></figcaption></figure>
 
-### External source
+* **Name:** Provide a label for your documentation page
+* **Set as homepage:** Use the documentation page on the homepage of the developer portal
 
-You can fetch your documentation from external sources.
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-07 at 3.04.50 PM.png" alt=""><figcaption><p>Custom homepage example</p></figcaption></figure>
 
-APIM includes 5 types of fetchers:
+{% hint style="info" %}
+If you set multiple documentation pages as the homepage, only the page most recently set as the homepage will be active.
+{% endhint %}
 
-* GitHub: fetch your documentation from a GitHub repository
-* GitLab: fetch your documentation from a GitLab repository
-* Git: fetch your documentation from a Git repository
-* WWW: fetch your documentation from the web
-* Bitbucket: fetch your documentation from a Bitbucket repository
+* **Publish this page:** Make the page available in the developer portal
+* **Make private:** Make the page private to you and the users you explicitly allow through access control. Access control is detailed in the [Page configuration](advanced-developer-portal-configuration.md#configure-a-page) section.
 
-The documentation is fetched and stored locally in APIM when you first create it, and at regular intervals if you configure auto-fetch.
+The rest of the settings revolve around generating content for your new documentation page. APIM provides three main methods for generating documentation content
 
-![graviteeio page documentation external source auto fetch](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-external-source-auto-fetch.png)
+* Fill the content inline
+  * Supports templating with API properties
+* Import from file
+* Import from an external source (Gitlab, Bitbucket, etc.)
 
+### Fill the content inline (templating support)
 
+This method is mostly self-explanatory as you will use the text editor to generate content based on the documentation type you selected. However, APIM also supports templating with API properties.
 
+#### Templating with API properties
 
-
-### Import multiple pages
-
-If you have an existing documentation set for your API in a GitHub or GitLab repository, you can configure the GitHub or GitLab fetcher to import the complete documentation structure on a one-off or regular basis.
-
-You can import the documentation into APIM in a different structure from the source repository structure. To do this, you need to create a Gravitee descriptor file (`.gravitee.json`), at the root of the repository, describing both the source and destination structure.
-
-You can then configure a fetcher in APIM to read the JSON file and import the documentation according to the structure defined in the file.
-
-|   | The Gravitee descriptor file must be named `.gravitee.json` and must be placed at the root of the repository. |
-| - | ------------------------------------------------------------------------------------------------------------- |
-
-#### Example
-
-The following Gravitee descriptor describes a documentation set which includes:
-
-* a home page in Markdown format in a folder called `/newdoc`, to be placed at the root of the APIM documentation structure.
-* a JSON file containing a Swagger specification at the root of the repository, to be placed in a folder called `/technical` in the APIM documentation structure.
-
-```
-{
-    "version": 1,
-    "documentation": {
-        "pages": [
-            {
-                "src": "/newdoc/readme.md",
-                "dest": "/",
-                "name": "Homepage",
-                "homepage": true
-            },
-            {
-                "src": "/test-import-swagger.json",
-                "dest": "/technical",
-                "name": "Swagger"
-            }
-        ]
-    }
-}
-```
-
-#### Configure a fetcher
-
-1. Click **Import multiple files**.
-2.  If you want to publish the pages on import, select **Publish all imported pages**.
-
-    ![import multiple files](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files.png)
-3. Click the GitHub or GitLab fetcher.
-4.  Specify the details of the external source, such as the URL of the external API, name of the repository and the branch. The fields vary slightly depending on the fetcher.
-
-    ![import multiple file dets](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-file-dets.png)
-5. In **Filepath**, enter the path to your JSON documentation specification file.
-6. Enter an access token, which you need to generate in your GitHub or GitLab user profile.
-7. Select **Auto Fetch** and specify the `crontab` update frequency, if you want the pages to be updated dynamically.
-8.  Click **IMPORT**.
-
-    APIM adds the files to your documentation set.
-
-    ![import multiple files result](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files-result.png)
-
-### Configure a page
-
-You can select a page from the list and configure it using the tabs, as described in the sections below.
-
-#### Translate a page
-
-You can add translations for your pages. In the **TRANSLATIONS** tab:
-
-1. Click **ADD A TRANSLATION**.
-2. Enter your 2 character language code (FR for french, CZ for czech, IT for italian and so on).
-3. Enter the translated title.
-4. (Optional) You can edit the content to add translated content by toggling on the switch.
-5. Click **SAVE TRANSLATION** at the bottom of the page.
-
-![graviteeio page documentation translations 1](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-1.png)![graviteeio page documentation translations 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-2.png)
-
-#### Auto fetch from an external source
-
-To periodically fetch your documentation from external sources, you can enable the auto-fetch option and specify the fetch frequency. In the **EXTERNAL SOURCE** tab:
-
-1. Select the external source type.
-2. Enter the source details, such as URL, username and so on.
-3.  Specify the **Update frequency** as a `cron` expression. This is a string consisting of six fields that describe the schedule (representing seconds, minutes, hours, days, months and weekdays).
-
-    For example:
-
-    * Fetch every second: `* * */1 * * *`
-    * At 00:00 on Saturday : `0 0 0 * * SAT`
-
-|   | If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify. |
-| - | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
-#### Access control
-
-In the **ACCESS CONTROL** tab, you can mark a page as PRIVATE if you want to deny access to anonymous user.
-
-For private pages, you can configure access lists by required or to be excluded roles/groups.
-
-![graviteeio page documentation access control](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-access-control.png)
-
-### Templating
-
-This example shows how to create documentation templates based on the Apache [FreeMarker template engine](https://freemarker.apache.org/). You can access your API data in your API documentation with the following syntax: `${api.name} or ${api.metadata['foo-bar']}`
-
-#### Available API properties
-
-<table data-full-width="false"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "<a href="mailto:support.contact@company.com">support.contact@company.com</a>"}</td></tr><tr><td>createdAt</td><td>Date</td><td>12 juil. 2018 14:44:00</td></tr><tr><td>updatedAt</td><td>Date</td><td>12 juil. 2018 14:46:00</td></tr><tr><td>deployedAt</td><td>Date</td><td>12 juil. 2018 14:49:00</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>proxy.contextPath</td><td>String</td><td>/stores</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td><a href="mailto:firstname.lastname@company.com">firstname.lastname@company.com</a></td></tr></tbody></table>
-
-### Example
-
-The following example shows an API documentation template.
+You can access your API data in your API documentation with the following syntax: `${api.name} or ${api.metadata['foo-bar']}`. This example shows how to create documentation templates based on the Apache [FreeMarker template engine](https://freemarker.apache.org/). Below the example, you can find a full reference table of available API properties.
 
 {% code overflow="wrap" fullWidth="false" %}
 ```ftl
@@ -490,3 +387,126 @@ The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwne
 This has the following result in the developer portal:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-template.png" alt=""><figcaption><p>Result of templating engine example</p></figcaption></figure>
+
+#### API properties reference
+
+<table data-full-width="false"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "<a href="mailto:support.contact@company.com">support.contact@company.com</a>"}</td></tr><tr><td>createdAt</td><td>Date</td><td>12 juil. 2018 14:44:00</td></tr><tr><td>updatedAt</td><td>Date</td><td>12 juil. 2018 14:46:00</td></tr><tr><td>deployedAt</td><td>Date</td><td>12 juil. 2018 14:49:00</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>proxy.contextPath</td><td>String</td><td>/stores</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td><a href="mailto:firstname.lastname@company.com">firstname.lastname@company.com</a></td></tr></tbody></table>
+
+### Import from file
+
+This method allows you to import a file matching the documentation type to generate the content.
+
+### External source
+
+You can fetch your documentation from external sources.
+
+APIM includes 5 types of fetchers:
+
+* **GitHub:** fetch your documentation from a GitHub repository
+* **GitLab:** fetch your documentation from a GitLab repository
+* **Git:** fetch your documentation from any Git repository
+* **WWW:** fetch your documentation from the web
+* **Bitbucket:** fetch your documentation from a Bitbucket repository
+
+The documentation is fetched and stored locally in APIM when you first create it, and at regular intervals if you configure auto-fetch.
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-external-source-auto-fetch.png" alt=""><figcaption></figcaption></figure>
+
+#### Import multiple pages
+
+If you have an existing documentation set for your API in a GitHub or GitLab repository, you can configure the GitHub or GitLab fetcher to import the complete documentation structure on a one-off or regular basis.
+
+You can import the documentation into APIM in a different structure from the source repository structure. To do this, you need to create a Gravitee descriptor file (`.gravitee.json`), at the root of the repository, describing both the source and destination structure.
+
+You can then configure a fetcher in APIM to read the JSON file and import the documentation according to the structure defined in the file.
+
+{% hint style="warning" %}
+The Gravitee descriptor file must be named `.gravitee.json` and must be placed at the root of the repository.
+{% endhint %}
+
+#### Example
+
+The following Gravitee descriptor describes a documentation set which includes:
+
+* a home page in Markdown format in a folder called `/newdoc`, to be placed at the root of the APIM documentation structure.
+* a JSON file containing a Swagger specification at the root of the repository, to be placed in a folder called `/technical` in the APIM documentation structure.
+
+```
+{
+    "version": 1,
+    "documentation": {
+        "pages": [
+            {
+                "src": "/newdoc/readme.md",
+                "dest": "/",
+                "name": "Homepage",
+                "homepage": true
+            },
+            {
+                "src": "/test-import-swagger.json",
+                "dest": "/technical",
+                "name": "Swagger"
+            }
+        ]
+    }
+}
+```
+
+#### Configure a fetcher
+
+1. Click **Import multiple files**.
+2.  If you want to publish the pages on import, select **Publish all imported pages**.
+
+    ![import multiple files](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files.png)
+3. Click the GitHub or GitLab fetcher.
+4.  Specify the details of the external source, such as the URL of the external API, name of the repository and the branch. The fields vary slightly depending on the fetcher.
+
+    ![import multiple file dets](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-file-dets.png)
+5. In **Filepath**, enter the path to your JSON documentation specification file.
+6. Enter an access token, which you need to generate in your GitHub or GitLab user profile.
+7. Select **Auto Fetch** and specify the `crontab` update frequency, if you want the pages to be updated dynamically.
+8.  Click **IMPORT**.
+
+    APIM adds the files to your documentation set.
+
+    ![import multiple files result](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files-result.png)
+
+### Page configuration
+
+You can select a page from the list and configure it using the tabs, as described in the sections below.
+
+#### Translate a page
+
+You can add translations for your pages. In the **TRANSLATIONS** tab:
+
+1. Click **ADD A TRANSLATION**.
+2. Enter your 2 character language code (FR for french, CZ for czech, IT for italian and so on).
+3. Enter the translated title.
+4. (Optional) You can edit the content to add translated content by toggling on the switch.
+5. Click **SAVE TRANSLATION** at the bottom of the page.
+
+![graviteeio page documentation translations 1](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-1.png)![graviteeio page documentation translations 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-2.png)
+
+#### Auto fetch from an external source
+
+To periodically fetch your documentation from external sources, you can enable the auto-fetch option and specify the fetch frequency. In the **EXTERNAL SOURCE** tab:
+
+1. Select the external source type.
+2. Enter the source details, such as URL, username and so on.
+3.  Specify the **Update frequency** as a `cron` expression. This is a string consisting of six fields that describe the schedule (representing seconds, minutes, hours, days, months and weekdays).
+
+    For example:
+
+    * Fetch every second: `* * */1 * * *`
+    * At 00:00 on Saturday : `0 0 0 * * SAT`
+
+|   | If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify. |
+| - | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+#### Access control
+
+In the **ACCESS CONTROL** tab, you can mark a page as PRIVATE if you want to deny access to anonymous user.
+
+For private pages, you can configure access lists by required or to be excluded roles/groups.
+
+![graviteeio page documentation access control](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-access-control.png)
