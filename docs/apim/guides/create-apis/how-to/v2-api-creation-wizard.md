@@ -4,7 +4,7 @@ description: >-
   defintion
 ---
 
-# V2 API definition creation wizard
+# V2 API creation wizard
 
 {% @arcade/embed flowId="kApsIRtoWrfIFRzd7DQj" url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" fullWidth="true" %}
 
