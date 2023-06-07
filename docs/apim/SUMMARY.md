@@ -133,6 +133,8 @@
   * [Design and enforce policies at the API level](guides/policy-design/how-to.md)
   * [Design and enforce policies at the Platform level](guides/policy-design/design-and-enforce-policies-at-the-platform-level.md)
   * [Policy Reference](guides/policy-design/policy-reference.md)
+  * [v2 API Policy Design Studio](guides/policy-design/v2-api-policy-design-studio.md)
+  * [V4 API Policy Design Studio](guides/policy-design/v4-api-policy-design-studio.md)
 * [API Exposure: Plans, Applications, & Subscriptions](guides/api-exposure-plans-applications-and-subscriptions/README.md)
   * [Plans](guides/api-exposure-plans-applications-and-subscriptions/plans.md)
   * [Applications](guides/api-exposure-plans-applications-and-subscriptions/plans-1.md)
