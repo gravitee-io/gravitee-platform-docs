@@ -24,7 +24,7 @@ The API creation wizard is comprised of several steps, each which requires you t
 
 The API details step is where you can define a name, version number, and description for your API. The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM.png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.38.10 PM.png" alt=""><figcaption><p>Step 1: define your Gateway API's basic details.</p></figcaption></figure>
 
 ## Step 2: API architecture
 
@@ -33,11 +33,11 @@ The API Architecture component is where you'll define the kind of backend resour
 * **HTTP proxy:** this will be used for "pure" REST, gRPC, SOAP, and WebSocket use cases, where you want to expose a backend REST API as a Gateway REST API, a backend WebSocket Server as a Gateway WebSocket API, and so on.
 * **Message-based:** this will be used when the kind of backend resource that you want to expose is an event-broker.
 
-What you choose here will dictate the kinds of entrypoints and endpoints that you can select later on. Please refer to [this documentation](../#api-architectures) for more in-depth information on support.
+What you choose here will dictate the kinds of entrypoints and endpoints that you can select later on. Please refer to [this documentation](./#api-architectures) for more in-depth information on support.
 
 &#x20;
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-03-15 at 12.41.03 PM.png" alt=""><figcaption><p>Step 2: selecting your API architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.41.03 PM.png" alt=""><figcaption><p>Step 2: selecting your API architecture</p></figcaption></figure>
 
 ## Step 3: Entrypoints
 
@@ -55,7 +55,7 @@ If you select :heavy\_check\_mark:**Enable virtual hosts**, you'll have to defin
 
 To disable virtual hosts, just select **X Disable virtual hosts.**&#x20;
 
-<figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
 
 ### Message-based entrypoints
 
@@ -68,7 +68,7 @@ If you chose **Message-based,** you get a much different set of entrypoint optio
 * **Webhook**: allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows for a consumer to retrieve and send streamed events and messages in real-time.
 
-<figure><img src="../../../.gitbook/assets/Message-based entrypoints.png" alt=""><figcaption><p>Message-based entrypoints</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Message-based entrypoints.png" alt=""><figcaption><p>Message-based entrypoints</p></figcaption></figure>
 
 Once you select your entrypoints from the entrypoints page, there will be further configuration required. Please browse the following tabs for more information based on your chosen entrypoint(s).
 
@@ -85,7 +85,7 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
   * **HTTP GET permissions:** you can define whether or not to Allow sending messages headers to client in payload or Allow sending messages metadata to client in payload.&#x20;
     * To allow or disallow these actions, toggle either **Allow sending messages headers to client in payload** or **Allow sending messages metadata to client in payload** to either ON or OFF.&#x20;
 
-<figure><img src="../../../.gitbook/assets/HTTP GET entrypoint config.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/HTTP GET entrypoint config.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="HTTP POST" %}
@@ -96,7 +96,7 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
   * This will then require you to define your **Virtual host** and optionally enable **override access.**
 * **HTTP POST permissions:** here, you can choose to allow add request Headers to the generated message. To do this toggle, **Allow add request Headers to the generated message** ON or OFF**.**
 
-<figure><img src="../../../.gitbook/assets/HTTP POST entrypoint config.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/HTTP POST entrypoint config.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Server-sent events (SSE) or SSE advanced" %}
@@ -111,7 +111,7 @@ If you chose **SSE** as an entrypoint, you will be brought to a page where you c
     * Choose to allow or disallow sending messages metadata to client as SSE comments. To allow or disallow this, toggle **Allow sending messages metadata to client as SSE comments** ON or OFF.
     * Choose to allow or disallow sending messages headers to client as SSE comments. To allow or disallow this, toggle **Allow sending messages headers to client as SSE comments** ON or OFF.
 
-<figure><img src="../../../.gitbook/assets/SSE entrypoint config.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/SSE entrypoint config.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Webhook" %}
@@ -138,7 +138,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 [A SOCKS proxy](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/Webhook entrypoint config.gif" alt=""><figcaption><p>Webhook entrypoint config</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Webhook entrypoint config.gif" alt=""><figcaption><p>Webhook entrypoint config</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="WebSocket" %}
@@ -151,7 +151,7 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
   * **Publisher configuration:** choose to either enable or disable the publication capability. By disabling it, you assume that the application will never be able to publish any message. To do this, toggle **Enable the publication capability** ON or OFF.
   * **Subscriber configuration:** choose to enable or disable the subscription capability. By disabling it, you assume that the application will never receive any message. To do this, toggle **Enable the subscription capability** ON or OFF.
 
-<figure><img src="../../../.gitbook/assets/WebSocket entrypoint config.gif" alt=""><figcaption><p>WebSocket entrypoint config</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/WebSocket entrypoint config.gif" alt=""><figcaption><p>WebSocket entrypoint config</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -350,7 +350,7 @@ The next step in the API creation wizard is Security. The Security stage of the 
 
 ### Plan information&#x20;
 
-Plans are essentially an access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how Plans function in Gravitee, please refer to the [Plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
+Plans are essentially an access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how Plans function in Gravitee, please refer to the [Plans documentation](../api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
 
 * **OAuth2**: standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
 * **JWT**: open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties
@@ -358,7 +358,7 @@ Plans are essentially an access layer around APIs that provide the API producer 
 * **Keyless**: this results in no added security via plan configuration. This is considered an "Open" plan.
 * **Push plan**: a plan that provides an access layer for the gateway pushing data to consumers. This will be used for subscribers.
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
 
 Depending on which plan you select, configuration will differ. Please see the tabs below to learn more about how to configure each of the different plans:
 

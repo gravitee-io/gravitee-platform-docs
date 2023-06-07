@@ -120,7 +120,7 @@
 
 * [Prologue](guides/prologue.md)
 * [Create APIs](guides/create-apis/README.md)
-  * [The API Creation Wizard](guides/create-apis/how-to/README.md)
+  * [The API Creation Wizard](guides/create-apis/how-to.md)
     * [V2 API definition creation wizard](guides/create-apis/how-to/v2-api-definition-creation-wizard.md)
   * [Import APIs](guides/create-apis/import-apis.md)
   * [Creating APIs using the Gravitee v2 API defintion](guides/create-apis/creating-apis-using-the-gravitee-v2-api-defintion.md)
