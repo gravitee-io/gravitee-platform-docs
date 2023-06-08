@@ -416,7 +416,7 @@ After you're done with the configuration, select Next to define any additional r
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-![](../../../.gitbook/assets/image.png)
+![](<../../../.gitbook/assets/image (2).png>)
 
 </details>
 
@@ -463,7 +463,7 @@ Once you're done configuring your JWT plan, select **Next**. You'll then define 
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-![](<../../../.gitbook/assets/image (2).png>)
+![](<../../../.gitbook/assets/image (2) (1).png>)
 
 </details>
 

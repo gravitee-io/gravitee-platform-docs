@@ -130,6 +130,7 @@
   * [Load-Balancing, Failover, and Health Checks](guides/api-configuration/load-balancing-failover-and-health-checks.md)
   * [Configure Service Discovery](guides/api-configuration/how-to/configure-service-discovery.md)
   * [Configure General Proxy settings](guides/api-configuration/configure-cors.md)
+  * [Configure user and group access](guides/api-configuration/configure-user-and-group-access.md)
 * [Policy Design Studio](guides/policy-design/README.md)
   * [Policy Reference](guides/policy-design/policy-reference.md)
   * [v2 API Policy Design Studio](guides/policy-design/v2-api-policy-design-studio.md)
