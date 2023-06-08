@@ -151,7 +151,7 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
 {% endtab %}
 {% endtabs %}
 
-## Step 4: Endpoints
+## Step 3: Endpoints
 
 **Gateway endpoints** define the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.&#x20;
 
@@ -336,7 +336,7 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
 {% endtab %}
 {% endtabs %}
 
-## Step 5: Security
+## Step 4: Security
 
 The next step in the API creation wizard is Security. The Security stage of the API creation wizard is where you will configure:
 
@@ -388,8 +388,6 @@ If you choose JWT as your plan type, you'll then need to define the following:
 {% endtab %}
 {% endtabs %}
 
+## Step 5: Documentation
 
-
-
-
-## Step 6: Documentation
+As of now, the **Documentation** step is not supported for v4 APIs. This will be added with future releases.
