@@ -270,6 +270,33 @@ Once you're done, select **Next,** and you'll be taken to the **Restriction** pa
 
 </details>
 
+<details>
+
+<summary>Keyless plan</summary>
+
+If you select Keyless, you will need to only define general details and restrictions, as there is no authentication to configure (unlike OAuth2, JWT, and API key).
+
+On the General page, define:
+
+* **Name**
+* **Description**
+* **Characteristics**
+* **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
+* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+
+After you're done, select **Next,** and you'll be taken to the **Restriction** page. This is where you can define any additional restrictions that you want to be associated with your plan. your options include:
+
+* **Rate limiting**: define the maximum number of requests that an application can make within a defined amount of seconds or minutes. If you choose this, you will need to then:
+  * Enable or disable **Non-strict mode:** this enables rate limiting to be applied in an asynchronous manner, which results in the distributed counter value not being strict
+  * Enable or disable **Add response headers**
+  * Define your rate limit's **Key**
+  * Define the **max request count** (this can be a static or dynamic count)
+  * Define the **time duration** (i.e. a one-second time interval within which to apply the request limitation)
+* **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
+* **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
+
+</details>
+
 ## Step 5: Documentation
 
 As of now, the **Documentation** step is not supported for v4 APIs. This will be added with future releases.
