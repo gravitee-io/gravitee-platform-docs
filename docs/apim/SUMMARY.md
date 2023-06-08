@@ -124,7 +124,6 @@
   * [The API Creation Wizard](guides/create-apis/how-to.md)
     * [V2 API creation wizard](guides/create-apis/how-to/v2-api-creation-wizard.md)
     * [v4 API creation wizard](guides/create-apis/how-to/v4-api-creation-wizard.md)
-    * [Copy v4 API creation wizard](guides/create-apis/how-to/copy-v4-api-creation-wizard.md)
 * [API Configuration](guides/api-configuration/README.md)
   * [Load-Balancing, Failover, and Health Checks](guides/api-configuration/load-balancing-failover-and-health-checks.md)
   * [Configure Service Discovery](guides/api-configuration/how-to/configure-service-discovery.md)

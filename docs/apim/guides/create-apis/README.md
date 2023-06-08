@@ -85,7 +85,7 @@ Gravitee's v4 API definition offers support for a variety of API styles, event b
 | MQTT                                                       | <p>The Gravitee Gateway can establish a persistent connection with a backend MQTT broker (as long as that MQTT broker is running MQTT 5) as a data source. From here, the Gateway can be used to expose messages streamed from the MQTT broker to consumers via:</p><ul><li>REST API (limited to HTTP GET and HTTP POST commands for now)</li><li>WebSocket API</li><li>Webhooks</li><li>Sever-sent events API (SSE)</li></ul> |
 
 {% hint style="info" %}
-Current v4 API limitations
+**Current v4 API limitations**
 
 It's important to know that v4 APIs currently do not support:
 
