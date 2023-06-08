@@ -80,8 +80,6 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
   * **Limit messages duration:** this defines the maximum duration in milliseconds to wait to retrieve the expected number of messages (See Limit messages count). The effective number of retrieved messages could be less than expected it maximum duration is reached. To set a custom limit, enter in your limit as a numerical value in the **Limit messages count** text field.
   * **HTTP GET permissions:** you can define whether or not to Allow sending messages headers to client in payload or Allow sending messages metadata to client in payload.&#x20;
     * To allow or disallow these actions, toggle either **Allow sending messages headers to client in payload** or **Allow sending messages metadata to client in payload** to either ON or OFF.&#x20;
-
-<figure><img src="../../../.gitbook/assets/HTTP GET entrypoint config.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="HTTP POST" %}
@@ -91,8 +89,6 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
 * **Enabling virtual hosts**
   * This will then require you to define your **Virtual host** and optionally enable **override access.**
 * **HTTP POST permissions:** here, you can choose to allow add request Headers to the generated message. To do this toggle, **Allow add request Headers to the generated message** ON or OFF**.**
-
-<figure><img src="../../../.gitbook/assets/HTTP POST entrypoint config.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Server-sent events (SSE) or SSE advanced" %}
@@ -106,8 +102,6 @@ If you chose **SSE** as an entrypoint, you will be brought to a page where you c
   * Permissions:
     * Choose to allow or disallow sending messages metadata to client as SSE comments. To allow or disallow this, toggle **Allow sending messages metadata to client as SSE comments** ON or OFF.
     * Choose to allow or disallow sending messages headers to client as SSE comments. To allow or disallow this, toggle **Allow sending messages headers to client as SSE comments** ON or OFF.
-
-<figure><img src="../../../.gitbook/assets/SSE entrypoint config.gif" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
 {% tab title="Webhook" %}
@@ -133,8 +127,6 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 **SOCKS proxy**\
 [A SOCKS proxy](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 {% endhint %}
-
-<figure><img src="../../../.gitbook/assets/Webhook entrypoint config.gif" alt=""><figcaption><p>Webhook entrypoint config</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="WebSocket" %}
@@ -146,8 +138,6 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
 * **WebSocket configuration**
   * **Publisher configuration:** choose to either enable or disable the publication capability. By disabling it, you assume that the application will never be able to publish any message. To do this, toggle **Enable the publication capability** ON or OFF.
   * **Subscriber configuration:** choose to enable or disable the subscription capability. By disabling it, you assume that the application will never receive any message. To do this, toggle **Enable the subscription capability** ON or OFF.
-
-<figure><img src="../../../.gitbook/assets/WebSocket entrypoint config.gif" alt=""><figcaption><p>WebSocket entrypoint config</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
