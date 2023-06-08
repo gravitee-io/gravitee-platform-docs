@@ -158,7 +158,7 @@ On the **General** screen, define:
 * **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
 * **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
-<img src="../../../.gitbook/assets/image (5).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (6).png" alt="" data-size="original">
 
 
 
@@ -191,7 +191,52 @@ After you're done with the configuration, select Next to define any additional r
 
 </details>
 
+<details>
 
+<summary>JWT plan</summary>
+
+If you choose **JWT**, you will need to define general details, authentication configuration, and restrictions.&#x20;
+
+On the **General** screen, define:
+
+* **Name**
+* **Description**
+* **Characteristics**
+* **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
+* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+
+Once you're done with your general details, select **Next**. Then, you'll need to define your JWT authentication configuration. This will require you to:&#x20;
+
+* Choose **Signature**: this will define how your JWT token must be signed. The options are:
+  * RSA\_RS256
+  * RSA\_RS384
+  * RSA\_RS512
+  * HMAC\_HS512
+  * HMAC\_HS384
+  * HMAC\_HS384
+* Define your **JWKS resolver:** this will define how your JSON Web Key Set is retrieved.
+* Define your Resolver parameter
+* Choose to either use or not use a system proxy
+* Choose whether or not to extra JWT claims
+* Choose whether or not to propagate Authorization headers
+* Define the User claim where users can be extracted
+* Define the Client Id claim where the client can be extracted
+* Define additional selection rules using the Gravitee Expression Language
+
+Once you're done configuring your JWT plan, select **Next**. You'll then define any restrictions associated with this plan. Your options include:
+
+* **Rate limiting**: define the maximum number of requests that an application can make within a defined amount of seconds or minutes. If you choose this, you will need to then:
+  * Enable or disable **Non-strict mode:** this enables rate limiting to be applied in an asynchronous manner, which results in the distributed counter value not being strict
+  * Enable or disable **Add response headers**
+  * Define your rate limit's **Key**
+  * Define the **max request count** (this can be a static or dynamic count)
+  * Define the **time duration** (i.e. a one second time interval within which to apply the request limitation)
+* **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
+* **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
+
+![](<../../../.gitbook/assets/image (5).png>)
+
+</details>
 
 ## Step 5: Documentation
 
