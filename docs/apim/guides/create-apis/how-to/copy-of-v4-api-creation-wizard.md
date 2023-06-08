@@ -183,7 +183,7 @@ After you're done with the configuration, select Next to define any additional r
   * Enable or disable **Add response headers**
   * Define your rate limit's **Key**
   * Define the **max request count** (this can be a static or dynamic count)
-  * Define the **time duration** (i.e. a one second time interval within which to apply the request limitation)
+  * Define the **time duration** (i.e. a one-second time interval within which to apply the request limitation)
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
@@ -230,11 +230,43 @@ Once you're done configuring your JWT plan, select **Next**. You'll then define 
   * Enable or disable **Add response headers**
   * Define your rate limit's **Key**
   * Define the **max request count** (this can be a static or dynamic count)
-  * Define the **time duration** (i.e. a one second time interval within which to apply the request limitation)
+  * Define the **time duration** (i.e. a one-second time interval within which to apply the request limitation)
 * **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
 * **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
 ![](<../../../.gitbook/assets/image (5).png>)
+
+</details>
+
+<details>
+
+<summary>API key</summary>
+
+If you choose API key, you'll define general settings, API key authentication configuration, and restrictions.
+
+On the General page, define:
+
+* **Name**
+* **Description**
+* **Characteristics**
+* **Subscription** options: choose whether to auto-validate subscriptions, require a message from consumers during subscription, and/or to present a message to the consumer upon subscription
+* **Access control**: here, select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
+
+After you're done, select **Next**, and you'll be taken to the **API key authentication** configuration page. Here, you need to:
+
+* Choose whether or not to propagate your API key to upstream APIs
+* Define any additional selection rules using the Gravitee Expression language
+
+Once you're done, select **Next,** and you'll be taken to the **Restriction** page. Here, you'll define any additional restrictions that you want to be associated with your plan, Your options include:one-second
+
+* **Rate limiting**: define the maximum number of requests that an application can make within a defined amount of seconds or minutes. If you choose this, you will need to then:
+  * Enable or disable **Non-strict mode:** this enables rate limiting to be applied in an asynchronous manner, which results in the distributed counter value not being strict
+  * Enable or disable **Add response headers**
+  * Define your rate limit's **Key**
+  * Define the **max request count** (this can be a static or dynamic count)
+  * Define the **time duration** (i.e. a one second time interval within which to apply the request limitation)
+* **Quota**: defines a rate limit over a period of hours, days, or months. If you choose this, you'll need to then define the same settings as you would for rate limiting (see above)
+* **Resource filtering**: this allows you to restrict resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
 </details>
 
