@@ -6,6 +6,8 @@ description: >-
 
 # Documentation
 
+{% @arcade/embed flowId="2NtJYq9KSReDKxJPQD2q" url="https://app.arcade.software/share/2NtJYq9KSReDKxJPQD2q" fullWidth="true" %}
+
 ## Introduction
 
 The easiest way to create documentation for your APIs is to use the Gravitee API Designer. However, if you aren't using Gravitee API Designer, you can create API documentation, import API documentation, and add API Metadata using the Gravitee API Management UI. As of today, Gravitee supports the following API documentation formats:
