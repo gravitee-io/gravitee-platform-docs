@@ -353,7 +353,7 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
 
 ## Step 4: Security
 
-The next step in the API creation wizard is Security. The security stage of the API creation wizard is where you will configure:
+Next in the API creation wizard is the Security step, where you will configure:
 
 * **Plan information**: define a plan that provides the API producer with a method to secure, monitor, and transparently communicate details around access.
 * **Configuration**: define authorization resources, such as Gravitee AM or another OAuth2 resource.
@@ -363,11 +363,11 @@ The next step in the API creation wizard is Security. The security stage of the 
 
 A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how plans function in Gravitee, please refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
 
-* **OAuth2**: standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
-* **JWT**: open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties
-* **API Key:** the API Gateway will reject calls from consumers that aren't able to pass the right API key in their request
-* **Keyless**: this results in no added security via plan configuration. This is considered an "Open" plan.
-* **Push plan**: a plan that provides an access layer for the gateway pushing data to consumers. This will be used for subscribers.
+* **OAuth2**: a standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
+* **JWT**: an open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties.
+* **API Key:** a plan where the API Gateway will reject calls from consumers that aren't able to pass the right API key in their request.
+* **Keyless**: a plan that results in no added security via plan configuration. This is considered an "Open" plan.
+* **Push plan**: a plan that provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
 
