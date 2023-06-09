@@ -32,7 +32,7 @@ The first part of the Entrypoints step is to choose how you want to expose your 
 * **Proxy upstream protocol:** use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
 * **Introspect messages from event-driven backend:** use this method if you want to expose backend event brokers, such as Kafka and MQTT.
 
-What you choose here will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation. ](../#backend-exposure-methods)
+What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation. ](../#backend-exposure-methods)
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM.png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
 
@@ -40,15 +40,15 @@ After you choose your method of exposure, select **Select my API architecture,**
 
 ### Proxy upstream protocol entrypoints
 
-If you chose **Proxy upstream protocol**, the entrypoints step will require you to define a context path and decide whether or not you want to enable virtual hosts. The context path is just the URL location of your API. Please note that the context path must start with a '/' and can only contain uppercase letters, numbers, dashes or underscores.
+If you chose **Proxy upstream protocol**, the Entrypoints step will require you to define a context path and decide whether or not you want to enable virtual hosts. The context path is the URL of your API. Please note that the context path must start with a '/' and can only contain uppercase letters, numbers, dashes or underscores.
 
 If you select :heavy\_check\_mark:**Enable virtual hosts**, you'll have to define the following in addition to your context path:
 
 * **Virtual host:** the host that must be set in the HTTP request to access your entrypoint.
-* **Override access: e**nable override on the access URL of your Portal using a virtual host.
-  * To enable or disable this, simply toggle **Enable** ON or OFF
+* **Override access:** override the access URL of your Portal using a virtual host.
+  * To enable or disable this, toggle **Enable** ON or OFF.
 
-To disable virtual hosts, just select **X Disable virtual hosts.**&#x20;
+To disable virtual hosts, select **X Disable virtual hosts**.&#x20;
 
 <figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
 
@@ -56,10 +56,10 @@ To disable virtual hosts, just select **X Disable virtual hosts.**&#x20;
 
 If you chose **Introspect messages from Event-driven backend,** you get a much different set of entrypoint options:
 
-* **HTTP GET:** allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP GET request
-* **HTTP POST:** allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP POST request
-* **Server-sent Events:** allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client
-* **Server-sent Events advanced:** allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client with additional support for Quality of Service (QoS)
+* **HTTP GET:** allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP GET request.
+* **HTTP POST:** allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP POST request.
+* **Server-sent Events:** allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client.
+* **Server-sent Events advanced:** allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client with additional support for Quality of Service (QoS).
 * **Webhook**: allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows for a consumer to retrieve and send streamed events and messages in real-time.
 
