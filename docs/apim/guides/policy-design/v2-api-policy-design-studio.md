@@ -4,29 +4,25 @@ description: >-
   legacy v2 Policy Design Studio.
 ---
 
-# v2 API Policy Design Studio
+# V2 API Policy Design Studio
 
-{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" fullWidth="true" %}
-
-## Introduction
-
-The Gravitee Policy Design Studio allows you to design "flows," or policy enforcement sequences that protect, transform, or otherwise alter how APIs are consumed. Gravitee comes with many different baked in policies, some that come with the community version and some that are only available in Gravitee Enterprise. For more information on specific policies, please refer to the [Policy Reference documentation](policy-reference.md).&#x20;
-
-The rest of this article provides a walk through of the v2 API Policy Design studio.&#x20;
-
-{% hint style="info" %}
+{% hint style="warning" %}
 Legacy version
 
 The v2 Policy Design Studio can only be used to design flows for APIs using the v2 API definition. The v2 Policy Design studio does not support applying policies at the message level or for pub/sub use cases. If you want to design and enforce policy flows at the message level or for pub/sub use cases, please refer to the [v4 Policy Design studio documentation.](v4-api-policy-design-studio.md)
 {% endhint %}
 
-## Design a flow with the Policy Design Studio
+{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" fullWidth="true" %}
 
-Flows can only be designed for already v2 APIs. So, head to the API list by selecting **APIs** in the left-hand nav. Then, select the API for which you want to design a flow.
+## Design a flow with the policy design studio
 
-You'll be taken to the API's **General** details page. Select Design in the left-hand nav.
+Flows can be added to existing v2 APIs. So, head to the API list by selecting **APIs** in the left-hand nav. Then, select the API for which you want to design a flow.
 
-You're now in the Design section of the Policy Design Studio. Here, you can create flows, search for policies, filter policies, and then build flows by adding policies on to the request and/or response phases. You can create multiple flows, each with different policies. You can also associate flows and policies with specific plans.
+You'll be taken to the API's **General** details page. Select **Design** in the left-hand nav.
+
+You're now in the **Design** section of the Policy Design Studio. Here, you can create flows by adding policies on to the request and/or response phases and targeting them by path, HTTP method(s), or using [Gravitee's Expression Language](gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of your API. Flows can also be associated with specific plans or exist at the API-level as shown below:
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-09 at 2.10.06 PM.png" alt=""><figcaption><p>V2 policy design studio example</p></figcaption></figure>
 
 ### Create a flow, and add policies
 
