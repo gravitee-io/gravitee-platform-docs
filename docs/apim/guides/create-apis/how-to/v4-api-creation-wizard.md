@@ -174,17 +174,17 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
     * If enabled, you'll need to define a numeric timeout value in the **Read timeout** text field by either entering a numerical value or using the arrow keys.
   * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.&#x20;
   * **Configure your idle timeout settings**: define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
-  * Choose to follow HTTP redirects or not: toggle **Follow HTTP redirects** ON or OFF.
-  * Define the number of max concurrent connections: enter in a numerical value or using the arrow keys in the text field.
-  * Choose to propagate client Accept-Encoding header: toggle **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
-  * Add HTTP headers: select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
-* **Define your Proxy options**
-  * **Use proxy:** choose whether or not to use a proxy for client connections. To enable this, toggle Use proxy ON.
-    * If you enable Use proxy, you will need to select the Proxy type in the **Proxy type** drop-down. You choose between:
+  * Choose whether to follow HTTP redirects by toggling **Follow HTTP redirects** ON or OFF.
+  * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
+  * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
+  * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
+* **Define your Proxy options:**
+  * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
+    * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down:
       * HTTP proxy
       * SOCKS4
       * SOCKS5
-  * **Use system proxy:** choose to use the proxy configured at system level. If you enable this, you'll need to define the:
+  * **Use system proxy:** choose whether to use the proxy configured at system level. If enabled, you'll need to define the following:
     * Proxy host: enter your proxy host in the **Proxy host** text field.
     * Proxy port: enter your proxy port in the **Proxy port** text field.
     * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
@@ -200,7 +200,7 @@ If youse chose **Introspect messages from event-driven backend** as your exposur
 * MQTT 5.X
 * Kafka
 
-Depending on which endpoint you choose, you will need to further define certain sets of endpoint configurations. Please see the expandable sections below to learn more about endpoint configuration per each available endpoint.&#x20;
+Depending on which endpoint you chose, you will need to further define certain sets of endpoint configurations. Please see the expandable sections below to learn more about the endpoint configuration of each available endpoint.&#x20;
 
 <details>
 
