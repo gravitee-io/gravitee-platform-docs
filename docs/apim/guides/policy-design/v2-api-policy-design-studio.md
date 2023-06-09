@@ -16,39 +16,46 @@ The v2 Policy Design Studio can only be used to design flows for APIs using the 
 
 ## Design a flow with the policy design studio
 
-Flows can be added to existing v2 APIs. So, head to the API list by selecting **APIs** in the left-hand nav. Then, select the API for which you want to design a flow.
+Flows can be added to existing v2 APIs. So, head to the API list by selecting **APIs** in the left-hand nav. Then, select the API for which you want to design a flow. You'll be taken to the API's **General** details page. Select **Design** in the left-hand nav.
 
-You'll be taken to the API's **General** details page. Select **Design** in the left-hand nav.
-
-You're now in the **Design** section of the Policy Design Studio. Here, you can create flows by adding policies on to the request and/or response phases and targeting them by path, HTTP method(s), or using [Gravitee's Expression Language](gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of your API. Flows can also be associated with specific plans or exist at the API-level as shown below:
+You're now in the **Design** section of the policy design studio. Here, you can create flows by adding policies to the request and/or response phases and targeting them by path, HTTP method(s), or using [Gravitee's Expression Language](gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of your API. Flows can also be associated with specific plans or exist at the API-level as shown below:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-09 at 2.10.06 PM.png" alt=""><figcaption><p>V2 policy design studio example</p></figcaption></figure>
 
+The gateway API shown has three plans: Keyless Plan, Premium API Key Plan, and Premium JWT Plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API by being placed under the **Flows** section like the Assign Metrics Flow.
+
 ### Create a flow, and add policies
 
-First, let's create a flow. To do so, find the **Flows** section, and select the **+** icon. This will create your flow. Before adding policies to your flow, you'll need to configure the flow using the **Flow Configuration** module. You can:
+Next, let's take a look at how to create a flow for all users of the API. To do so, find the **Flows** section, and select the **+** icon. This will create your flow. Before adding policies to your flow, you'll need to configure the flow using the **Flow Configuration** module with the following options detailed below. All flow configuration options are optional.
 
-* Give your flow a descriptive name. If you don't, a name will be automatically generated using the path and methods.
-* Define the Operator Path and the Path.&#x20;
-* Define the HTTP methods at/during which you want the flow to be executed. If you leave this empty, the flow will be executed with every HTTP method.
-* Define conditions: this enables you to define specific conditions that will trigger flow execution. You will need to use the Gravitee Expression Language here. More information can be found in the [Gravitee Expression language documentation](gravitee-expression-language.md).&#x20;
+<figure><img src="../../.gitbook/assets/v2_flow_config.png" alt=""><figcaption><p>Sample flow configuration</p></figcaption></figure>
+
+* **Name:** Give your flow a descriptive name. If you don't, a name will be automatically generated using the path and methods.
+* **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or requests that **Starts with** the same path&#x20;
+* **Path:** Path to use in conjunction with the **Operator path** to determine if this flow should be applied
+* **Methods:** Define the HTTP methods for which you want the flow to be executed. If you leave this empty, the flow will be executed for every HTTP method assuming the other conditions are met.
+* **Conditions:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL)
 
 Now, it's time to add policies to that flow.
 
-To add a policy, find the policy that you want to enforce, and then drag and drop that policy onto either the request or response phase. If you add a policy at the Request phase, the policy will be enforced by the Gateway at the time of the request, before a client is given access to the API that they are trying to call. If you add a policy on the response phase, the Gateway will enforce the policy after the request is allowed, but as/before the response is allowed, depending on the policy enforced.
+To add a policy, find the policy that you want to enforce, and then drag and drop that policy onto either the request or response phase. If you add a policy at the Request phase, the policy will be enforced by the Gateway at the time of the request, before a client is given access to the API that they are trying to call. If you add a policy on the response phase, the Gateway will enforce the policy after the request is allowed, but before the response is returned to the client.
 
-Once you've added your policy, you can edit that policy by selecting the policy, and using the configuration menu below the flow map. After you configure the policy, select the checkmark icon, and then Save in the pop-up to save the policy settings.
+Once you've added your policy, you can edit that policy by selecting the policy and using the configuration menu below the flow map. After you configure the policy, select the **checkmark icon**, and then **Save** in the pop-up to save the policy settings.
 
-Anytime after you finish configuring a policy, or editing a flow, you'll need to redeploy your API to the Gateway for the changes to take effect. You'll see a bar appear at the top of the flow designer, that says **API out of sync, deploy your API.** Select the hyperlinked deploy your API text, and you'll be met with a pop-up that asks you to provide a label to define and describe your deployment. when you are done, select OK to deploy/redeploy your API with the new flow and policy.
+<figure><img src="../../.gitbook/assets/v2_policy_config.png" alt=""><figcaption><p>Configure a policy</p></figcaption></figure>
 
-#### Example: add a Rate limit policy
+Anytime you configure a policy, or edit a flow, you'll need to redeploy your API to the gateway for the changes to take effect. You'll see a bar appear at the top of the flow designer, that says **API out of sync, deploy your API.** Select the hyperlinked deploy your API text, and you'll be met with a pop-up that asks you to provide a label to define and describe your deployment. When you are done, select **OK** to deploy/redeploy your API with the new flow and policy.
+
+<figure><img src="../../.gitbook/assets/redeploy_api.png" alt=""><figcaption><p>Redeploy API after configuring flow</p></figcaption></figure>
+
+#### Example: add a Rate Limit policy
 
 For example, if I wanted to limit the number of requests that a client could make using the HTTP GET method to five GET requests per second, I would:
 
 1. Create a new flow using the steps above
 2. Configure the flow to execute only at the HTTP GET method
 3. Find the Rate Limit policy in the policy menu
-4. Drag n' drop the Rate Limit policy onto the Request phase
+4. Drag and drop the Rate Limit policy onto the Request phase
 5. Give my Rate Limit a description
 6. Add any conditions using the Gravitee EL
 7. Enable or disable non-strict mode
@@ -108,8 +115,7 @@ For example, let's configure dynamic properties that will retrieve properties fr
 4. Select the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png) to save your changes.
 5. Select **SAVE**.
 
-After the first call, the resulting property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.\
-
+After the first call, the resulting property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
 
 ## Add resources to your flows
 
