@@ -8,7 +8,7 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 ## Introduction
 
-The v4 API creation wizard makes it easy to create new Gateway API's from scratch. The API creation wizard is comprised of several steps, each which requires you to define certain sets of information:
+The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. The API creation wizard is comprised of several steps, each of which requires you to define certain sets of information:
 
 * API details
 * Entrypoints
@@ -30,7 +30,7 @@ The API details step is where you can define a name, version number, and descrip
 The first part of the Entrypoints step is to choose how you want to expose your backend. As of today, Gravitee offers two options:
 
 * **Proxy upstream protocol:** use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
-* **Introspect messages from event-driven backend:** use this method if you want to expose backend event brokers, such as Kafka and MQTT
+* **Introspect messages from event-driven backend:** use this method if you want to expose backend event brokers, such as Kafka and MQTT.
 
 What you choose here will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation. ](../#backend-exposure-methods)
 
