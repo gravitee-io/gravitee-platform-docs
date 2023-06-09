@@ -132,6 +132,10 @@ Some policies support the addition of resources, which can be used for actions s
 * **HTTP signature policies**: if using this policy, you can specify your **HTTP Authentication Provider** resource
 * **Basic authentication:** if using this policy, you can specify an **LDAP Authentication Provider** resource and/or an **Inline Authentication Provider** resource to authenticate users in memory.
 
+<figure><img src="../../.gitbook/assets/Confluent schema registry.png" alt=""><figcaption><p>Resources: Confluent Schema Registry</p></figcaption></figure>
+
+
+
 After you create these resources, you will be able to reference them when designing policies in the **Design** tab.
 
 ## Debug mode
