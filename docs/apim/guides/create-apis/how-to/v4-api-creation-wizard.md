@@ -71,13 +71,12 @@ Once you select your entrypoints from the entrypoints page, there will be furthe
 
 <summary>Server-sent Events</summary>
 
-If you chose **SSE** as an entrypoint, you will be brought to a page where you can configure:
+If you choose **SSE** as an entrypoint, you will be brought to a page where you can configure:
 
-* **The context path:** the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]` then `[/myAPI]` is the context path.
-* **Enabling virtual hosts**
-  * This will then require you to define your **Virtual host** and optionally enable **override access.**
+* **Context path:** the URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
+* **Virtual hosts:** enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **SSE characteristics and permissions:**
-  * **Heartbeat intervals:** define the interval in which heartbeats are sent to the client. Intervals must be higher or equal than 2000ms. To configure this, enter a numerical value into the **Define the interval in which heartbeats** **are sent to client** text field either by typing a numerical value or by using the arrows in the text field. Each heartbeat will be sent as extra empty comment: `''`
+  * **Heartbeat intervals:** define the interval in which heartbeats are sent to the client by. Intervals must be greater or equal to 2000ms. To configure this, entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Each heartbeat will be sent as empty comment: `''`
     * Permissions:
       * Choose to allow or disallow sending messages metadata to client as SSE comments. To allow or disallow this, toggle **Allow sending messages metadata to client as SSE comments** ON or OFF.
       * Choose to allow or disallow sending messages headers to client as SSE comments. To allow or disallow this, toggle **Allow sending messages headers to client as SSE comments** ON or OFF.
