@@ -88,17 +88,16 @@ If you choose **SSE** as an entrypoint, you will be brought to a page where you 
 
 If you choose **Webhook** as an entrypoint, you will be brought to a page where you can configure:
 
-* **HTTP Options:**
+* **HTTP Options**
   * **Connect timeout:** the maximum time, in milliseconds, to connect to the webhook. Either enter a numeric value or use the arrows to the right of the text field.
   * **Read timeout:** the maximum time, in milliseconds, allotted for the webhook to complete the request (including response). Either enter a numeric value or use the arrows to the right of the text field.
   * **Idle timeout:** the maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources. Either enter a numeric value or use the arrows to the right of the text field.
 * **Proxy options**
-  * **Use proxy:** choose whether or not to use a proxy for client connections. To enable this, toggle Use proxy ON.
-    * If you enable Use proxy, you will need to select the Proxy type in the **Proxy type** drop-down. You choose between:
-      * HTTP proxy
-      * SOCKS4
-      * SOCKS5
-  * **Use system proxy:** choose to use the proxy configured at system level. If you enable this, you'll need to define the:
+  * Choose whether to use a proxy for client connections by toggling **Use proxy** ON or OFF. If enabled, you will need to select from the proxy types in the **Proxy type** drop-down:
+    * HTTP proxy
+    * SOCKS4
+    * SOCKS5
+  * Choose whether to use the proxy configured at system level by toggling **Use system proxy** ON or OFF. If enabled, you will need to define:
     * Proxy host: enter your proxy host in the **Proxy host** text field.
     * Proxy port: enter your proxy port in the **Proxy port** text field.
     * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
