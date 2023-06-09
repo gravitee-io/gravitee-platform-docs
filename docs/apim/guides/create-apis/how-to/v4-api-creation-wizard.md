@@ -86,12 +86,12 @@ If you choose **SSE** as an entrypoint, you will be brought to a page where you 
 
 <summary>Webhook</summary>
 
-If you chose **Webhook** as an entrypoint, you will be brought to a page where you can configure:
+If you choose **Webhook** as an entrypoint, you will be brought to a page where you can configure:
 
-* **HTTP Options**
-  * **Connect timeout:** maximum time to connect to the webhook in milliseconds. Either type a numerical value or use the arrows on the right of the text field.
-  * **Read timeout:** maximum time given to the webhook to complete the request (including response) in milliseconds. Either type a numerical value or use the arrows on the right of the text field.
-  * **Idle timeout:** maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, allowing to free the associated resources. Either type a numerical value or use the arrows on the right of the text field.
+* **HTTP Options:**
+  * **Connect timeout:** the maximum time, in milliseconds, to connect to the webhook. Either enter a numeric value or use the arrows to the right of the text field.
+  * **Read timeout:** the maximum time, in milliseconds, allotted for the webhook to complete the request (including response). Either enter a numeric value or use the arrows to the right of the text field.
+  * **Idle timeout:** the maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources. Either enter a numeric value or use the arrows to the right of the text field.
 * **Proxy options**
   * **Use proxy:** choose whether or not to use a proxy for client connections. To enable this, toggle Use proxy ON.
     * If you enable Use proxy, you will need to select the Proxy type in the **Proxy type** drop-down. You choose between:
