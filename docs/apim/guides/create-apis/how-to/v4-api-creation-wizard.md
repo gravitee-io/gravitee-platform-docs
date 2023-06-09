@@ -61,7 +61,7 @@ If you chose **Introspect messages from Event-driven backend,** you get a much d
 * **Server-sent Events:** allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client.
 * **Server-sent Events advanced:** allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client with additional support for Quality of Service (QoS).
 * **Webhook**: allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
-* **WebSocket**: allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows for a consumer to retrieve and send streamed events and messages in real-time.
+* **WebSocket**: allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM.png" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
 
@@ -158,22 +158,22 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
 
 ## Step 3: Endpoints
 
-**Gateway endpoints** define the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.&#x20;
+**Gateway endpoints** define the protocol and configuration by which the Gateway API will fetch data from or post data to the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.&#x20;
 
 ### HTTP Proxy endpoints
 
 If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To configure this endpoint, you will be brought to a page where you can:
 
-* **Define your target url:** enter your target url in the **Target url** text field.
-* **Define your HTTP options**
+* **Define your target URL:** enter your target URL in the **Target URL** text field.
+* **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
-    * You'll need to select the HTTP protocol version to use. As of now, HTTP/1.1 or HTTP/2 are options.
-  * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF
-    * If you enable this, you'll need to define a timeout value by entering a numerical value in the **Connect timeout** text field by either typing in a numerical value or using the arrow keys in the text field.
+    * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
+  * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF.
+    * If enabled, you'll need to define a numeric timeout value in the **Connect timeout** text field by either entering a numerical value or using the arrow keys.
   * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.&#x20;
-    * If you enable this, you'll need to define a read timeout value by entering a numerical value in the **Read timeout** text field by either typing in a numerical value or using the arrow keys in the text field.
+    * If enabled, you'll need to define a numeric timeout value in the **Read timeout** text field by either entering a numerical value or using the arrow keys.
   * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.&#x20;
-  * **Configure your idle timeout settings**: defines the maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, allowing to free the associated resources. To configure this, enter in a numerical value or using the arrow keys in the text field.
+  * **Configure your idle timeout settings**: define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
   * Choose to follow HTTP redirects or not: toggle **Follow HTTP redirects** ON or OFF.
   * Define the number of max concurrent connections: enter in a numerical value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header: toggle **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
