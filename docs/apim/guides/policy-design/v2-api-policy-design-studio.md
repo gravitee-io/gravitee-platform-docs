@@ -69,3 +69,49 @@ For example, if I wanted to limit the number of requests that a client could mak
 
 At this point, the Rate Limit policy has been applied at five requests per second on the HTTP GET request.
 
+## Configure flow mode
+
+Gravitee offers two flow modes: **default** and **best match**. If you keep the flow mode as default, your flow will be selected and executed based on the operator defined in the flow itself (see documentation above). If you choose best match, Gravitee will choose the flow that is associated to the closest matching path.
+
+When using **best match** mode, a best match flow is chosen if the request matches the flow. A plain text part of the path will take precedence over a path parameter.
+
+This means, reading from left to right, each part of the path is compared, keeping the better matching. Strict equality between part of the request path and the flow path prevails over a path parameter.
+
+For example, with these flows configured:
+
+* `/test/:id`
+* `/test/subtest`
+
+If the request is `/test/55`, the resulting flow will be `/test/:id`. If the request is `/test/subtest`, the resulting flow will be `/test/subtest`.
+
+To make this change, select the **Configuration** tab, and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.&#x20;
+
+<figure><img src="../../.gitbook/assets/Configure flow mode.png" alt=""><figcaption><p>v2 Policy Design studio: Configure flow mode</p></figcaption></figure>
+
+## Define API properties for your API flows
+
+If you want to retrieve and query property values with certain API calls as a part of your flow, you can configure that in the **Properties** tab. Here, you can specify properties as key-value pairs. You can specify them one by one, or toggle from **Simple** to **Expert** mode and paste property definitions into an editor in format `<key>=<value>`.
+
+You can also configure dynamic properties by clicking **CONFIGURE DYNAMIC PROPERTIES**. Dynamic properties are fetched with a URL on a regular schedule and subsequently updated according to the details you specify.
+
+<figure><img src="../../.gitbook/assets/API properties.png" alt=""><figcaption><p>v2 Policy Design studio: API properties</p></figcaption></figure>
+
+When you add new policies to your API flows which include [Expression Language](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_expression\_language.html#api) fields as part of their configuration (such as the dynamic routing policy), you can retrieve and query property values with the `#properties` statement. For more details, see the [Example](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#example) below.
+
+### **Example: Dynamic properties**
+
+For example, let's configure dynamic properties that will retrieve properties from a remote server with a URL and update them according to the details you specify. To do so, follow these steps:
+
+1. In the **Properties** tab, select **CONFIGURE DYNAMIC PROPERTIES**.
+2. Specify the details of the property:
+   * `cron` schedule
+   * URL
+   * request headers and body to include with the call
+   * JOLT transformation to perform on the response
+3. Toggle **Enabled** ON.
+4. Select the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png) to save your changes.
+5. Select **SAVE**.
+
+After the first call, the resulting property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.\
+
+
