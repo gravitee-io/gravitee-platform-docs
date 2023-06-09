@@ -53,9 +53,9 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM.png" alt=""><figcaption><p>v2 API creation wizard: plans</p></figcaption></figure>
 
-Gravitee offers additional plan features, but these are not configured in the API creation wizard. For more in-depth information on plans, please refer to the [Plans documentation. ](../../api-exposure-plans-applications-and-subscriptions/plans.md)
+Gravitee offers additional plan features, but these are not configured in the API creation wizard. For more in-depth information on plans, please refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md).&#x20;
 
-Once you are done defining your plan, select **Next.**
+Once you have defined your plan, select Next**.**
 
 ## Step 4: Documentation
 
@@ -63,16 +63,16 @@ Once you are done defining your plan, select **Next.**
 Currently, only the v2 API definition allows you to upload API documentation as a part of the API creation wizard.
 {% endhint %}
 
-On the **Documentation** page, you can upload your APIs documentation as a file, or, you can select **Skip** to continue without uploading API documentation.&#x20;
+On the Documentation page, you can either upload your API's documentation as a file or select Skip to continue without uploading API documentation.&#x20;
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.58 PM.png" alt=""><figcaption><p>v2 API creation wizard: documentation</p></figcaption></figure>
 
 ## Step 5: Deployment
 
-On the Deployment page, you'll see a summary of your API, and you'll choose how you want to create it:
+On the Deployment page, you will see a summary of your API and can choose how you want to create it:
 
-* **Create without deplpoying the API:** this creates the API as an artifact in Gravitee, without deploying the API to the Gateway. This will allow you to access the API via the APIs list, configure the API, and design policies for the API using the v2 Policy Design studio.
-* **Create and deploy the API:** this will create the API in Gravitee _and_ deploy it to the Gateway. You can still access the API in the APIs list, configure the API, and design policies for the API using the v2 Policy Design Studio, but you will then have to redeploy that API after making changes.
+* **Create without deploying the API:** this creates the API as an artifact in Gravitee, without deploying the API to the Gateway. It allows you to access the API via the APIs list, configure the API, and design policies for the API using the v2 Policy Design Studio.
+* **Create and deploy the API:** this creates the API in Gravitee _and_ deploys it to the Gateway. You can still access the API in the APIs list, configure the API, and design policies for the API using the v2 Policy Design Studio, but you will then have to redeploy that API after making changes.
 
 {% hint style="info" %}
 After you've chosen your creation method, you will have finished creating APIs using the v2 API creation wizard. From here, we recommend learning more about [API configuration](../../api-configuration/) and the Policy Design Studio.
