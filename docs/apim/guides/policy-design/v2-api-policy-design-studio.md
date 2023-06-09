@@ -115,3 +115,109 @@ For example, let's configure dynamic properties that will retrieve properties fr
 After the first call, the resulting property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.\
 
 
+## Add resources to your flows
+
+Some policies support the addition of resources, which can be used for actions such as authentication and schema registry validation. Some of these policies include:
+
+* **Cache policy**: if you using this policy, you can specify a cache resource via the **Cache** or **Cache Redis** resources
+* **OAuth2 policy**: if using this policy, you can specify a **Generic OAuth2 Authorization Server** resource, a **Gravitee AM Authorization Server** resource
+* **OpenID Connect - UserInfo:** if using this policy, you can specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource.
+* **Serialization & Deserialization policies**: if using the below policies, you can specify your Confluent Schema Registry. It will be used to retrieve serialization and deserialization schemas from a Confluent Schema registry
+  * **JSON to Avro policy**
+  * **Avro to JSON policy**
+  * **JSON to Protobuf policy policy**
+  * **Protobuf to JSON policy**
+  * **Avro to Protobuf policy**
+  * **Protobuf to Avro policy**
+* **HTTP signature policies**: if using this policy, you can specify your **HTTP Authentication Provider** resource
+* **Basic authentication:** if using this policy, you can specify an **LDAP Authentication Provider** resource and/or an **Inline Authentication Provider** resource to authenticate users in memory.
+
+After you create these resources, you will be able to reference them when designing policies in the **Design** tab.
+
+## Debug mode
+
+{% hint style="info" %}
+**Debug mode limitations**
+
+As of now, Debug mode will not work for v4 APIs. This will be delivered in a future release, but, for now, if you want to use Debug mode, you will need to create and use  APIs using the Gravitee v2 API definition.
+
+Debug mode also does not support testing the following policies and features:
+
+* **Rate Limit & quota policies**
+* **Spike arrest**
+* **Cache** - cache policy will not be testable through debug mode with in memory cache since it is created and destroyed with the api
+* **IPFiltering** - Since calls are emited by the gateway itself, you will not be able to emulate a call from another IP with the debug mode (IP used to issue requests is 127.0.0.1)
+* **Health-check**
+* **Virtual hosts** - the first host is always selected
+* **Encrypted properties** - For security reasons, you won’t be able to clear encrypted properties in debug mode (it could have an impact if you want to use them in a condition for example).
+{% endhint %}
+
+Debug mode is a tool for troubleshooting your API proxies running on Gravitee API Management. It provides detailed information about the behavior of each policy in your flows, as well as the overall execution order at runtime. With debug mode, you can:
+
+* Understand which policies are triggered by a specific request (including Platform-level policies)
+* Vizualise which policies are executed or skipped (conditional policy)
+* Understand the order of execution of your policies
+* Trace transformations and changes made to headers, body, and execution context
+* Easily troubleshoot and find the root cause of errors, misbehaviors, or performance issues.
+
+To debug your flows:
+
+1. Select the Debug tab
+2. Define your HTTP method, path, headers, response bodies for which flows and policies should be executed
+3. Select **Send**
+
+Gravitee will initiate a test request, and then you will be presented with a timeline that shows the order of your flows and policies.
+
+<figure><img src="../../.gitbook/assets/Debug mode timeline.png" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
+
+### Understanding different indicators for policies
+
+Gravitee Debug mode uses different indicators to indicate the status of policies:&#x20;
+
+* **executed** - the policy has been executed properly
+* **skipped** - the policy contains a condition that has not been fulfilled. Refer to the input/output inspector for more details on the evaluation of the condition.
+* **error** - an error occurred during policy execution. Refer to the input/output inspector for more details on the error.
+
+By selecting a specific policy in the timeline, you have access to additional information regarding the input/output of the policy:
+
+* header
+* context attributes
+* body
+
+The inspector relies on 3 colors to indicate the nature of changes:
+
+* **green** color indicates an addition
+* **orange** color indicates a edit
+* **red** color indicates a deletion
+
+### Understanding and navigating the timeline
+
+The order in which the policies appear in the timeline reflects the exact order in which they have been executed by the gateway at runtime.
+
+Note that this order **may** differ from the order in which policies where placed in the Policy Studio during the design phase.
+
+This is due to a performance optimization applied at runtime on the policy chain. The gateway always executes policies interacting with the HTTP Header part of the request (onRequest, onResponse) before policies interacting with the body part of the request (onRequestContent, onResponseContent).
+
+Also, a policy may appear twice in the timeline if it interacts with both the head and the body part of the request.
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-policy-chain.png" alt=""><figcaption></figcaption></figure>
+
+#### **Navigating the timeline**
+
+You can scroll through the list of policies via the timeline. You can also quickly access a specific policy by selecting it in the quick access timeline.
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-timeline.png" alt=""><figcaption></figcaption></figure>
+
+By selecting **Request Input** or **Request Output**, you can view the global transformation on your request and the difference between what has been received by the gateway and what has been sent to your backend.
+
+By selecting **Response Input** or **Response Output**, you can view the global transformation on your response and the difference between what has been received from the backend and what has been sent back to your client app.
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/try-it/try-it-example.png" alt=""><figcaption></figcaption></figure>
+
+
+
+\
+
+
+
+
