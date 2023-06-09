@@ -76,10 +76,9 @@ If you choose **SSE** as an entrypoint, you will be brought to a page where you 
 * **Context path:** the URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
 * **Virtual hosts:** enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **SSE characteristics and permissions:**
-  * **Heartbeat intervals:** define the interval in which heartbeats are sent to the client by. Intervals must be greater or equal to 2000ms. To configure this, entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Each heartbeat will be sent as empty comment: `''`
-    * Permissions:
-      * Choose to allow or disallow sending messages metadata to client as SSE comments. To allow or disallow this, toggle **Allow sending messages metadata to client as SSE comments** ON or OFF.
-      * Choose to allow or disallow sending messages headers to client as SSE comments. To allow or disallow this, toggle **Allow sending messages headers to client as SSE comments** ON or OFF.
+  * **Heartbeat intervals:** define the interval in which heartbeats are sent to the client by entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Intervals must be greater or equal to 2000ms. Each heartbeat will be sent as empty comment `''`.
+  * Choose to allow or disallow sending message metadata to the client as SSE comments by toggling **Allow sending messages metadata to client as SSE comments** ON or OFF.
+  * Choose to allow or disallow sending message headers to the client as SSE comments by toggling **Allow sending messages headers to client as SSE comments** ON or OFF.
 
 </details>
 
