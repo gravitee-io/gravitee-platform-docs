@@ -1,5 +1,5 @@
 ---
-description: This article walks through how to use the Gravitee v4 API creation wizard.
+description: This article walks through how to use the Gravitee v4 API creation wizard
 ---
 
 # v4 API creation wizard
