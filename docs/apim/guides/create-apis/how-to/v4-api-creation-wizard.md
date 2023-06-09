@@ -200,7 +200,7 @@ If youse chose **Introspect messages from event-driven backend** as your exposur
 * MQTT 5.X
 * Kafka
 
-Depending on which endpoint you chose, you will need to further define certain sets of endpoint configurations. Please see the expandable sections below to learn more about the endpoint configuration of each available endpoint.&#x20;
+Depending on which endpoint you choose, you will need to further define certain sets of endpoint configurations. Please see the expandable sections below to learn more about the endpoint configuration of each available endpoint.&#x20;
 
 <details>
 
@@ -353,15 +353,15 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
 
 ## Step 4: Security
 
-The next step in the API creation wizard is Security. The Security stage of the API creation wizard is where you will configure:
+The next step in the API creation wizard is Security. The security stage of the API creation wizard is where you will configure:
 
-* **Plan information**: defines a "plan" that provides the API producer a method to secure, monitor, and transparently communicate details around access
-* **Configuration**: define authorization resources, such as Gravitee AM or another OAuth2 resource
-* **Limitations**: where you will configure access limitations such as rate limiting and quotas
+* **Plan information**: define a plan that provides the API producer with a method to secure, monitor, and transparently communicate details around access.
+* **Configuration**: define authorization resources, such as Gravitee AM or another OAuth2 resource.
+* **Limitations**: define access limitations, such as rate limiting and quotas.
 
 ### Plan information&#x20;
 
-Plans are essentially an access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how Plans function in Gravitee, please refer to the [Plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
+A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how plans function in Gravitee, please refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
 
 * **OAuth2**: standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
 * **JWT**: open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties
@@ -528,12 +528,12 @@ After you're done, select **Next,** and you'll be taken to the **Restriction** p
 
 ## Step 5: Documentation
 
-As of now, the **Documentation** step is not supported for v4 APIs. This will be added with future releases.
+he Documentation step is not supported for v4 APIs. This will be added in future releases.
 
 ## Step 6: Summary
 
-The final step is to review and then create or deploy your API. Creating your API will create the API as a Gravitee artifact, but not deploy it to the Gateway. If you choose Deploy, the API will be created and Deployed to the Gravitee Gateway.
+The final step is to review and then create or deploy your API. Creating your API will create the API as a Gravitee artifact, but not deploy it to the Gateway. If you choose Deploy, the API will be created and deployed to the Gravitee Gateway.
 
 {% hint style="success" %}
-Once you create or deploy your API, you are done with the API creation process! At this point, we recommend learning how to further configure your API and how to design and enforce policies that make your APIs more secure, more reliable, more efficient, etc.
+Once you create or deploy your API, you are done with the API creation process! At this point, we recommend learning how to further configure your API, and how to design and enforce policies that make your API more secure, reliable, efficient, etc.
 {% endhint %}
