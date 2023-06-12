@@ -8,11 +8,13 @@
 
 ## Getting Started
 
-* [Page 1](getting-started/page-1.md)
+* [Install & Upgrade Guides](getting-started/install-and-upgrade-guides.md)
+* [Configuration](getting-started/configuration.md)
+* [Tutorial: Quick Start](getting-started/tutorial-quick-start.md)
 
 ## Guides
 
-* [Page 2](guides/page-2.md)
+* [Prologue](guides/prologue.md)
 
 ## Reference
 
