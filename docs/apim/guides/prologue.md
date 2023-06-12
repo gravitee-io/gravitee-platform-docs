@@ -1,6 +1,10 @@
+---
+description: A deep dive on Gravitee API Management's feature set
+---
+
 # Prologue
 
-The "Guides" section is here to dive into everything you need to know in order to use the Gravitee platform and specific features. As of now, our guides focus on the following categories of usage:
+The _guides_ section is here to dive into everything you need to know in order to use the Gravitee API Management (APIM) platform and its extensive feature set. As of now, the guides focus on the following categories of usage:
 
 * Creating APIs
 * Designing policies
@@ -10,8 +14,8 @@ The "Guides" section is here to dive into everything you need to know in order t
 * How to administer your Gravitee platform and users
 * How to contribute to the Gravitee platform as a Developer
 
-Each section will have a "Concepts" and "How-to" section. The "Concepts" section will include content that explains the UI components, features, etc. per usage category at a conceptual level (i.e. "The API creation wizard's 'Entrypoint' item is..."). The "How-to" section will cover how to actually use the specific features (i.e. "To choose how API consumers will consume data from your target or source, select your "Entrypoint" by...).&#x20;
+Each guide will begin by detailing relevant, high-level concepts to the reader. From there, the reader can select any subpage in the sidebar to  learn how to actually use the specific feature they're most interested in.
 
-
-
-Best of luck on your journey to grok APIM!\
+{% hint style="success" %}
+Best of luck on your journey to grok APIM! If you feel we are missing any guides or find any existing guides, please let us know in the community forum.
+{% endhint %}

@@ -3,10 +3,10 @@
 ## Overview
 
 * [Introduction to Gravitee API Management (APIM)](README.md)
-* [APIM Architecture](overview/apim-architecture.md)
-* [Plugins](overview/plugins.md)
-* [Integrations](overview/integrations.md)
-* [Open Source vs Enterprise Edition](overview/ee-vs-oss.md)
+* [APIM Architecture](overview/introduction-to-gravitee-api-management-apim/apim-architecture.md)
+* [Plugins](overview/introduction-to-gravitee-api-management-apim/plugins.md)
+* [Integrations](overview/integrations/README.md)
+* [Open Source vs Enterprise Edition](overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
 
 ## Getting Started
 
@@ -244,6 +244,6 @@
 
 * [Enterprise Support](community-and-support/enterprise-support.md)
 * [Community](community-and-support/community/README.md)
-  * [Support](community-and-support/community/support.md)
-  * [Announcements & Events](community-and-support/community/announcements-and-events.md)
-  * [Roadmap & Feedback](community-and-support/community/roadmap-and-feedback.md)
+  * [Support](https://community.gravitee.io/c/support/11)
+  * [Roadmap & Feedback](https://app.productboard.com/?redirect\_to=https://gravitee.productboard.com/portal/3-internal-gravitee-io-roadmap/tabs/6aa173be-1ba7-4984-b790-4c920e09e6b0)
+  * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
