@@ -1275,8 +1275,8 @@ For instance, to access the _Platform Overview_ page, you should use `https://ho
 
 One major breaking change in this new version is the replacement of **MANAGEMENT** and **PORTAL** scopes by **ENVIRONNMENT** and **ORGANIZATION** scopes. It’s not just a renaming but a dispatch of permissions among these 2 news scopes. As a consequence, all existing memberships, roles, groups and Identity Providers role mappings should be updated.
 
-* Memberhips, roles and groups have to be updated with migration scripts [here](installation-guide-migration.md#mongodb)
-* Role Mappings for Identity Providers stored in database will be updated with a specific upgrader. See [Upgrader](installation-guide-migration.md#upgrader)
+* Memberhips, roles and groups have to be updated with migration scripts [here](./#mongodb)
+* Role Mappings for Identity Providers stored in database will be updated with a specific upgrader. See [Upgrader](./#upgrader)
 * Role mappings defined in the **gravitee.yml** file have to be updated with these new scopes.
 
 Here’s a correlation table of permissions before and after migration :

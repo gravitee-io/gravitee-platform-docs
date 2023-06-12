@@ -31,7 +31,7 @@
   * [Install With .ZIP](getting-started/install-guides/install-with-.zip.md)
   * [Hybrid Deployment](getting-started/install-guides/hybrid-deployment/README.md)
     * [Hybrid Deployment on Kubernetes](getting-started/install-guides/hybrid-deployment/hybrid-deployment-on-kubernetes.md)
-  * [Upgrade Guide](getting-started/install-guides/installation-guide-migration.md)
+  * [Upgrade Guide](getting-started/install-guides/installation-guide-migration/README.md)
 * [Configuration](getting-started/configuration/README.md)
   * [Configure a Production-ready APIM Environment](getting-started/configuration/configure-a-production-ready-apim-environment.md)
   * [Configure HTTP Reverse Proxy](getting-started/configuration/configure-http-reverse-proxy.md)

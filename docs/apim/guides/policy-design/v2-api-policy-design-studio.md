@@ -111,7 +111,30 @@ API properties are set and configured in the **Properties** tab. You can specify
 
 ### Encryption
 
-You can easily encrypt API properties by toggling
+You can easily encrypt API properties by enabling the **Encrypted** toggle next to the property. The value will remain unencrypted and editable until you save your changes. Once you select Save, you can no longer edit, modify, or view the value.
+
+{% hint style="danger" %}
+Encrypted values can still be used by API Policies (under the **Design** tab) and **APIM Gateway will automatically decrypt these values**. Pay special attention to how you use encrypted data in policies.
+{% endhint %}
+
+Before using encryption, you’ll need to reset the secret key. The method of encryption used for API properties is based on the default secret key in the `gravitee.yml` config file which you must override to ensure proper security.
+
+{% code title="gravitee.yml" %}
+```yaml
+# Encrypt API properties using this secret:
+api:
+  properties:
+    encryption:
+         secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
+ to provide the best security available.
+```
+{% endcode %}
+
+{% hint style="warning" %}
+The secret must be **32 bytes in length.**
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.45.12 AM.png" alt=""><figcaption><p>Encypted API property</p></figcaption></figure>
 
 ### **Dynamic properties**
 
@@ -154,28 +177,30 @@ If the ID in the request header matches the key of one of the properties, it is 
 The list of shop IDs and URLs could also be maintained using a dictionary, for example, in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. For more details, see configure dictionaries in the Configuration Guide.
 {% endhint %}
 
-## Global resources
+## Resources
 
-Some policies support the addition of resources, which can be used for actions such as authentication and schema registry validation. Supported policies include:
+Some policies support the addition of resources, which can be used for actions such as authentication and schema registry validation. Policies supporting resources include:
 
-* **Cache policy**: if you using this policy, you can specify a cache resource via the **Cache** or **Cache Redis** resources
-* **OAuth2 policy**: if using this policy, you can specify a **Generic OAuth2 Authorization Server** resource, a **Gravitee AM Authorization Server** resource
-* **OpenID Connect - UserInfo:** if using this policy, you can specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource.
-* **Serialization & Deserialization policies**: if using the below policies, you can specify your Confluent Schema Registry. It will be used to retrieve serialization and deserialization schemas from a Confluent Schema registry
+* **Cache policy**: When configuring this policy, you can specify a cache resource via the **Cache** or **Cache Redis** resources
+* **OAuth2 policy**: When configuring this policy, you can specify a **Generic OAuth2 Authorization Server** resource, a **Gravitee AM Authorization Server** resource
+* **OpenID Connect - UserInfo:** When configuring this policy, you can specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource.
+* **Serialization & Deserialization policies**: When configuring the following policies, you can specify your Confluent Schema Registry. It will be used to retrieve serialization and deserialization schemas from a Confluent Schema registry.
   * **JSON to Avro policy**
   * **Avro to JSON policy**
   * **JSON to Protobuf policy policy**
   * **Protobuf to JSON policy**
   * **Avro to Protobuf policy**
   * **Protobuf to Avro policy**
-* **HTTP signature policies**: if using this policy, you can specify your **HTTP Authentication Provider** resource
-* **Basic authentication:** if using this policy, you can specify an **LDAP Authentication Provider** resource and/or an **Inline Authentication Provider** resource to authenticate users in memory.
+* **HTTP signature policies**: When configuring this policy, you can specify your **HTTP Authentication Provider** resource
+* **Basic authentication:** When configuring this policy, you can specify an **LDAP Authentication Provider** resource and/or an **Inline Authentication Provider** resource to authenticate users in memory.
 
 <figure><img src="../../.gitbook/assets/Confluent schema registry.png" alt=""><figcaption><p>Resources: Confluent Schema Registry</p></figcaption></figure>
 
-
-
 After you create these resources, you will be able to reference them when designing policies in the **Design** tab.
+
+{% hint style="info" %}
+Global resources are globally available to all flows associated with the gateway API. However, they will not be available to other gateway APIs.
+{% endhint %}
 
 ## Debug mode
 
@@ -188,11 +213,11 @@ Debug mode also does not support testing the following policies and features:
 
 * **Rate Limit & quota policies**
 * **Spike arrest**
-* **Cache** - cache policy will not be testable through debug mode with in memory cache since it is created and destroyed with the api
-* **IPFiltering** - Since calls are emited by the gateway itself, you will not be able to emulate a call from another IP with the debug mode (IP used to issue requests is 127.0.0.1)
+* **Cache** - cache policy will not be testable through debug mode with in-memory cache since it is created and destroyed with the API
+* **IPFiltering** - Since calls are emitted by the gateway itself, you will not be able to emulate a call from another IP with the debug mode (IP used to issue requests is 127.0.0.1)
 * **Health-check**
 * **Virtual hosts** - the first host is always selected
-* **Encrypted properties** - For security reasons, you won’t be able to clear encrypted properties in debug mode (it could have an impact if you want to use them in a condition for example).
+* **Encrypted properties** - For security reasons, you won’t be able to clear encrypted properties in debug mode (it could have an impact if you want to use them in a condition for example)
 {% endhint %}
 
 Debug mode is a tool for troubleshooting your API proxies running on Gravitee API Management. It provides detailed information about the behavior of each policy in your flows, as well as the overall execution order at runtime. With debug mode, you can:
