@@ -18,12 +18,18 @@
 
 ## Reference
 
-* [Page 3](reference/page-3.md)
+* [Management API Reference](reference/management-api-reference.md)
+* [Policy Reference](reference/policy-reference.md)
 
 ## Releases & Changelog
 
-* [Page 4](releases-and-changelog/page-4.md)
+* [Release Notes](releases-and-changelog/release-notes.md)
+* [Changelogs](releases-and-changelog/changelogs.md)
 
 ## Community & Support
 
-* [Page 5](community-and-support/page-5.md)
+* [Enterprise Support](community-and-support/enterprise-support.md)
+* [Community](community-and-support/community/README.md)
+  * [Support](https://community.gravitee.io/c/support/11)
+  * [Roadmap & Feedback](https://app.productboard.com/?redirect\_to=https://gravitee.productboard.com/portal/3-internal-gravitee-io-roadmap/tabs/6aa173be-1ba7-4984-b790-4c920e09e6b0)
+  * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
