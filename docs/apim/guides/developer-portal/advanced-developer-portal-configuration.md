@@ -48,7 +48,7 @@ Note, this only impacts what is displayed in the developer portal's UI. You must
   * **Allow User Registration:** Allow API consumers to create an account from the developer portal. Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for registration to work.
     * **Enable automatic validation:** Automatically approve all accounts created on the developer portal
   * **Add Google Analytics:** Add a Google Analytics tracking ID to the developer portal
-  * <mark style="color:yellow;">**Allow Upload Images:**</mark> <mark style="color:yellow;"></mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Unknown</mark>
+  * <mark style="color:yellow;">**Allow Upload Images:**</mark> <mark style="color:yellow;"></mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Allows documentation owners to</mark> [<mark style="color:yellow;">attach images as additional resources</mark>](advanced-developer-portal-configuration.md#page-management)
 * **OpenAPI Viewers:** Select the viewer you would like to use to display your API documentation
 * **Schedulers:** Configure the frequency the developer portal runs background tasks such as syncing data and sending/receiving notifications
 * <mark style="color:yellow;">**Documentation:**</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Unknown</mark>
@@ -410,7 +410,7 @@ The final method allows you to import your documentation from external sources. 
 
 The documentation is fetched and stored locally in APIM in the following three scenarios:
 
-1. Documentation is fetched once after you finish configuring your fetcher
+1. Documentation is fetched a single time after you finish configuring your fetcher
 2. Any time you select **Fetch All**
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-07 at 4.02.38 PM.png" alt=""><figcaption><p>Update all documentation from external sources</p></figcaption></figure>
@@ -461,64 +461,68 @@ The following steps detail how to actually configure a fetcher to import multipl
 
 1. Select **Import multiple files**
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-07 at 4.04.23 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-07 at 4.04.23 PM.png" alt=""><figcaption><p>Import multiple documentation files</p></figcaption></figure>
 
-1.  If you want to publish the pages on import, select **Publish all imported pages**.
-
-
-
-    <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files.png" alt=""><figcaption></figcaption></figure>
-2. Click the GitHub or GitLab fetcher.
-3.  Specify the details of the external source, such as the URL of the external API, name of the repository and the branch. The fields vary slightly depending on the fetcher.
+2. If you want to publish the pages on import, select **Publish all imported pages**
 
 
 
-    <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-file-dets.png" alt=""><figcaption></figcaption></figure>
-4. In **Filepath**, enter the path to your JSON documentation specification file.
-5. Enter an access token, which you need to generate in your GitHub or GitLab user profile.
-6. Select **Auto Fetch** and specify the `crontab` update frequency, if you want the pages to be updated dynamically.
-7.  Click **IMPORT**.
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files.png" alt=""><figcaption></figcaption></figure>
 
-    APIM adds the files to your documentation set.
+3. Select the **GitHub** or **GitLab** fetcher
+4.  Specify the details of the external source, such as the URL of the external API, the name of the repository, and the branch. The fields vary slightly depending on the fetcher.
 
-    ![import multiple files result](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files-result.png)
 
-### Page configuration
 
-You can select a page from the list and configure it using the tabs, as described in the sections below.
+    <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-file-dets.png" alt=""><figcaption><p>Configure a fetcher</p></figcaption></figure>
+5. In **Filepath**, enter the path to your JSON documentation specification file
+6. Enter an access token, which you need to generate in your GitHub or GitLab user profile
+7. Select **Auto Fetch** and specify the `crontab` update frequency, if you want the pages to be updated at regular intervals.&#x20;
 
-#### Translate a page
+{% hint style="info" %}
+**`cron` expressions**
 
-You can add translations for your pages. In the **TRANSLATIONS** tab:
+A `cron` expression is a string consisting of six fields that describe the schedule (representing seconds, minutes, hours, days, months and weekdays).
 
-1. Click **ADD A TRANSLATION**.
-2. Enter your 2 character language code (FR for french, CZ for czech, IT for italian and so on).
-3. Enter the translated title.
-4. (Optional) You can edit the content to add translated content by toggling on the switch.
-5. Click **SAVE TRANSLATION** at the bottom of the page.
+For example:
 
-![graviteeio page documentation translations 1](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-1.png)![graviteeio page documentation translations 2](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-2.png)
+* Fetch every second: `* * */1 * * *`
+* At 00:00 on Saturday : `0 0 0 * * SAT`
 
-#### Auto fetch from an external source
+If the APIM administrator [configured a maximum fetch frequency](advanced-developer-portal-configuration.md#general-settings), the value configured by the APIM administrator will override the frequency you specify.
+{% endhint %}
 
-To periodically fetch your documentation from external sources, you can enable the auto-fetch option and specify the fetch frequency. In the **EXTERNAL SOURCE** tab:
+8. Select **IMPORT** and APIM adds the files to your documentation set.
 
-1. Select the external source type.
-2. Enter the source details, such as URL, username and so on.
-3.  Specify the **Update frequency** as a `cron` expression. This is a string consisting of six fields that describe the schedule (representing seconds, minutes, hours, days, months and weekdays).
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files-result.png" alt=""><figcaption><p>Import technical folder documentation with fetcher</p></figcaption></figure>
 
-    For example:
+### Page management
 
-    * Fetch every second: `* * */1 * * *`
-    * At 00:00 on Saturday : `0 0 0 * * SAT`
+You can select a page from the list and configure the settings below. For&#x20;
 
-|   | If the APIM administrator configured a maximum fetch frequency, the value configured by the APIM administrator will override the frequency you specify. |
-| - | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+* [**Page:**](advanced-developer-portal-configuration.md#create-documentation) Manage the content of the documentation page by using the inline editor or importing files
+* [**Translations:**](advanced-developer-portal-configuration.md#translate-a-page) Add translations of your page
+* **Configuration:** Toggle options to publish your page and use it as the homepage
+* [**External Source:**](advanced-developer-portal-configuration.md#external-source) Configure a fetcher for the page
+* [**Access Control:**](advanced-developer-portal-configuration.md#access-control) Fine-grained access control over your page
+* **Attached Resources:** Add additional files to your documentation page. This [setting must be enabled](advanced-developer-portal-configuration.md#general-settings) by the administrator.
+
+#### Translations
+
+You can add translations for your pages. In the **Translations** tab:
+
+1. Select **Add a translation**
+2. Enter your 2-character language code (FR for French, CZ for Czech, IT for Italian, etc.)
+3. Enter the translated title
+4. (Optional) You can edit the content to add translated content by toggling on the switch
+5. Click **Save Translation** at the bottom of the page
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-1.png" alt=""><figcaption><p>Translate a page</p></figcaption></figure>
 
 #### Access control
 
-In the **ACCESS CONTROL** tab, you can mark a page as PRIVATE if you want to deny access to anonymous user.
+In the **Access Control** tab, you can mark a page as **Private** if you want to deny access to anonymous users.
 
-For private pages, you can configure access lists by required or to be excluded roles/groups.
+For private pages, you can configure access lists by required or to be excluded roles/groups. You can learn more about creating roles/groups in our [Administration Guide](../administration/).
 
-![graviteeio page documentation access control](https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-access-control.png)
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
