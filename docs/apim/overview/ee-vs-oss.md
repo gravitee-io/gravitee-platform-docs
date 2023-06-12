@@ -4,7 +4,7 @@ description: >-
   enterprise versions of API Management.
 ---
 
-# EE vs OSS
+# Open Source vs Enterprise Edition
 
 ## Introduction
 

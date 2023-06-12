@@ -4,41 +4,24 @@ Organizations need API management solutions to publish their APIs to external de
 
 Naturally, a growing customer base brings new challenges, such as:
 
-* How to reduce the time taken to enroll new partners.
-* How to identify partners and manage their API consumption.
-* How to measure consumption from a consumer and/or producer point of view.
-* How to share existing APIs and how to discover them.
-* How to manage the API lifecycle, versioning, documentation, and so on.
+* How to reduce the time taken to enroll new partners
+* How to identify partners and manage their API consumption
+* How to measure consumption from a consumer and/or producer point of view
+* How to share and discover existing APIs
+* How to manage the API lifecycle, versioning, documentation, etc.
 
-How can businesses address all these challenges seamlessly, for all APIs, using a centralized tool? Simple – by choosing Gravitee.io API Management.
+So, how can businesses address all these challenges seamlessly, for all APIs, using a centralized tool? Simple – by choosing Gravitee API Management (APIM).
 
-## What Is Gravitee API Management?
+## What Is APIM?
 
-Gravitee.io API Management (APIM) is a flexible, lightweight, and blazing-fast open source API management solution that gives your organization full control over who accesses your API — when and how. APIM is both simple to use and powerful, acting as a global solution for API management. Gravitee.io APIM is composed of four main components:
+APIM is a flexible, lightweight, and blazing-fast open-source API management solution that gives your organization full control over who accesses your API — when and how. APIM is both simple to use and powerful, acting as a global solution for API management. Gravitee APIM is composed of four main components:
 
 1. APIM Gateway
-2. APIM API
-3. APIM Console
-4. APIM Portal
+2. APIM Management API
+3. APIM Managment UI
+4. APIM Developer Portal
 
-We’ll dive into these components in detail in their respective sections.
-
-## Why Gravitee API Management?
-
-Our goal in launching Gravitee APIM is to provide users with a highly flexible and scalable solution that integrates with their infrastructure seamlessly and fits their business needs perfectly. We’ve designed and developed APIM to be fully extensible using its own internal plugin system, so you can define your own policy, develop your own reporting system, and more.
-
-Additionally, all APIM components (including [APIM Gateway](./#apim-gateway) and [APIM API](./#apim-api)) are incredibly lightweight. We took a consciously aggressive approach to CPU and memory management with our products to supply high availability through our lightning-fast component start-up times.
-
-Typically, _**it takes less than 5 seconds**_ for the API Gateway to be accessible to consumers (subject to the number of APIs being deployed).
-
-Gravitee.io APIM is separated into four main components:
-
-1. [APIM Gateway](./#apim-gateway)
-2. [APIM API](./#apim-api)
-3. [APIM Console](./#apim-console)
-4. [APIM Portal](./#apim-portal)
-
-## APIM Gateway
+### APIM Gateway
 
 APIM Gateway is the core component of the APIM platform. You can think of it like a _**smart**_ proxy.
 
@@ -46,34 +29,46 @@ Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply [polic
 
 **Gravitee.io - Internal Gateway**
 
-## APIM API
+### APIM Management API
 
 This RESTful API exposes services to manage and configure the [APIM Console](broken-reference) and [APIM Portal](broken-reference) web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](broken-reference) section.
 
-## APIM Console
+### APIM Management UI
 
 This web UI gives easy access to some key [APIM API](./#apim-api) services. [API Publishers](broken-reference) can use it to publish APIs. Administrators can also configure global platform settings and specific portal settings.
 
-## APIM Portal
+### APIM Developer Portal
 
 This web UI gives easy access to some key [APIM API](./#apim-api) services. [API Consumers](broken-reference) can use it to search for, view, try out and subscribe to a published API. They can also use it to manage their [applications](broken-reference).
 
+## Why Gravitee API Management?
+
+Our goal in launching Gravitee APIM is to provide users with a highly flexible and scalable solution that integrates with their infrastructure seamlessly and fits their business needs perfectly. We’ve designed and developed APIM to be fully extensible using its own internal plugin system, so you can define your own policy, develop your own reporting system, and more.
+
+Additionally, all APIM components (including APIM Gateway and APIM Management API) are incredibly lightweight. We took a consciously aggressive approach to CPU and memory management with our products to supply high availability through our lightning-fast component start-up times.
+
+Typically, _**it takes less than 5 seconds**_ for the API Gateway to be accessible to consumers (subject to the number of APIs being deployed).
+
 ## Core APIM Concepts
 
-### API
+### Gateway API
 
-**API** is the root concept defined and used by APIM. Think of this as the starting point through which services are exposed to the gateway.
+**Gateway API** is the root concept defined and used by APIM. Think of this as the starting point through which services are exposed to the gateway.
 
-### Publisher
+### API Publisher
 
-In our platform, we define a **publisher** (also called **API publisher**) as the role that declares and manages APIs.
+In our platform, we define an **API** **publisher** as the role that declares and manages APIs.
 
-### Consumer
+### API Consumer
 
-In our platform, we define a **consumer** (also called **API consumer**) as the role that consumes APIs. Consumers get access to APIs by **subscribing** to them.
+In our platform, we define an **API** **consumer** as the role that consumes APIs. Consumers get access to APIs by **subscribing** to them.
 
 ### Application
 
 An **application** is an intermediate level between a consumer and an API. Through applications, consumers are grouped together and the application as a whole subscribes to the API.
 
-Ready to use Gravitee API Management? Let’s get started!
+## First steps
+
+Ready to use Gravitee API Management? Let’s get started! Select any options below to learn more about APIM or head over to the install guides to get APIM up and running:
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td>APIM Architecture</td><td></td></tr><tr><td></td><td>Install &#x26; Upgrade Guides</td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>

@@ -6,7 +6,7 @@
 * [APIM Architecture](overview/apim-architecture.md)
 * [Plugins](overview/plugins.md)
 * [Integrations](overview/integrations.md)
-* [Enterprise Edition](overview/ee-vs-oss.md)
+* [Open Source vs Enterprise Edition](overview/ee-vs-oss.md)
 
 ## Getting Started
 
