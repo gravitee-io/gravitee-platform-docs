@@ -213,25 +213,25 @@ Debug mode also does not support testing the following policies and features:
 
 * **Rate Limit & quota policies**
 * **Spike arrest**
-* **Cache** - cache policy will not be testable through debug mode with in-memory cache since it is created and destroyed with the API
-* **IPFiltering** - Since calls are emitted by the gateway itself, you will not be able to emulate a call from another IP with the debug mode (IP used to issue requests is 127.0.0.1)
+* **Cache:** cache policy will not be testable through debug mode with in-memory cache since it is created and destroyed with the API
+* **IPFiltering:** Since calls are emitted by the gateway itself, you will not be able to emulate a call from another IP with the debug mode (IP used to issue requests is 127.0.0.1)
 * **Health-check**
-* **Virtual hosts** - the first host is always selected
+* **Virtual hosts:** The first host is always selected
 * **Encrypted properties** - For security reasons, you won’t be able to clear encrypted properties in debug mode (it could have an impact if you want to use them in a condition for example)
 {% endhint %}
 
-Debug mode is a tool for troubleshooting your API proxies running on Gravitee API Management. It provides detailed information about the behavior of each policy in your flows, as well as the overall execution order at runtime. With debug mode, you can:
+Debug mode is a tool for troubleshooting your gateway APIs running on Gravitee API Management. It provides detailed information about the behavior of each policy in your flows, as well as the overall execution order at runtime. With debug mode, you can:
 
 * Understand which policies are triggered by a specific request (including Platform-level policies)
-* Vizualise which policies are executed or skipped (conditional policy)
+* Visualise which policies are executed or skipped (conditional policy)
 * Understand the order of execution of your policies
 * Trace transformations and changes made to headers, body, and execution context
-* Easily troubleshoot and find the root cause of errors, misbehaviors, or performance issues.
+* Easily troubleshoot and find the root cause of errors, misbehaviors, or performance issues
 
 To debug your flows:
 
-1. Select the Debug tab
-2. Define your HTTP method, path, headers, response bodies for which flows and policies should be executed
+1. Select the **Debug** tab
+2. Define your HTTP method, path, headers, and request bodies for the debug request
 3. Select **Send**
 
 Gravitee will initiate a test request, and then you will be presented with a timeline that shows the order of your flows and policies.
@@ -242,9 +242,9 @@ Gravitee will initiate a test request, and then you will be presented with a tim
 
 Gravitee Debug mode uses different indicators to indicate the status of policies:&#x20;
 
-* **executed** - the policy has been executed properly
-* **skipped** - the policy contains a condition that has not been fulfilled. Refer to the input/output inspector for more details on the evaluation of the condition.
-* **error** - an error occurred during policy execution. Refer to the input/output inspector for more details on the error.
+* **executed**: The policy has been executed properly
+* **skipped:** The policy contains a condition that has not been fulfilled. Refer to the input/output inspector for more details on the evaluation of the condition.
+* **error:** An error occurred during policy execution. Refer to the input/output inspector for more details on the error.
 
 By selecting a specific policy in the timeline, you have access to additional information regarding the input/output of the policy:
 
@@ -262,7 +262,7 @@ The inspector relies on 3 colors to indicate the nature of changes:
 
 The order in which the policies appear in the timeline reflects the exact order in which they have been executed by the gateway at runtime.
 
-Note that this order **may** differ from the order in which policies where placed in the Policy Studio during the design phase.
+Note that this order **may** differ from the order in which policies were placed in the Policy Design Studio during the design phase.
 
 This is due to a performance optimization applied at runtime on the policy chain. The gateway always executes policies interacting with the HTTP Header part of the request (onRequest, onResponse) before policies interacting with the body part of the request (onRequestContent, onResponseContent).
 
@@ -274,18 +274,8 @@ Also, a policy may appear twice in the timeline if it interacts with both the he
 
 You can scroll through the list of policies via the timeline. You can also quickly access a specific policy by selecting it in the quick access timeline.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-timeline.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-timeline.png" alt=""><figcaption><p>Navigating debug timeline</p></figcaption></figure>
 
 By selecting **Request Input** or **Request Output**, you can view the global transformation on your request and the difference between what has been received by the gateway and what has been sent to your backend.
 
 By selecting **Response Input** or **Response Output**, you can view the global transformation on your response and the difference between what has been received from the backend and what has been sent back to your client app.
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/try-it/try-it-example.png" alt=""><figcaption></figcaption></figure>
-
-
-
-\
-
-
-
-
