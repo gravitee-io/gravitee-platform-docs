@@ -84,9 +84,9 @@ At this point, the Rate Limit policy has been applied at five requests per secon
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **default** and **best match**. If you keep the flow mode as default, your flow will be selected and executed based on the operator defined in the flow itself (see documentation above). If you choose best match, Gravitee will choose the flow that is associated to the closest matching path.
+Gravitee offers two flow modes: **default** and **best match**. If you keep the flow mode as default, your flow will be selected and executed based on the **Operator path** defined in the flow itself (see [documentation above](v2-api-policy-design-studio.md#create-a-flow-and-add-policies)). Default mode allows for the execution of _multiple_ flows.
 
-When using **best match** mode, a best match flow is chosen if the request matches the flow. A plain text part of the path will take precedence over a path parameter.
+However, if you select best match, Gravitee will choose a _single_ flow based on what Gravitees deems the closest match. A plain text part of the path will take precedence over a path parameter.&#x20;
 
 This means, reading from left to right, each part of the path is compared, keeping the better matching. Strict equality between part of the request path and the flow path prevails over a path parameter.
 
@@ -97,7 +97,7 @@ For example, with these flows configured:
 
 If the request is `/test/55`, the resulting flow will be `/test/:id`. If the request is `/test/subtest`, the resulting flow will be `/test/subtest`.
 
-To make this change, select the **Configuration** tab, and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.&#x20;
+To modify the flow mode, select the **Configuration** tab, and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.&#x20;
 
 <figure><img src="../../.gitbook/assets/Configure flow mode.png" alt=""><figcaption><p>v2 Policy Design studio: Configure flow mode</p></figcaption></figure>
 
@@ -111,7 +111,7 @@ You can also configure dynamic properties by clicking **CONFIGURE DYNAMIC PROPER
 
 When you add new policies to your API flows which include [Expression Language](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_expression\_language.html#api) fields as part of their configuration (such as the dynamic routing policy), you can retrieve and query property values with the `#properties` statement. For more details, see the [Example](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#example) below.
 
-### **Example: Dynamic properties**
+### **Dynamic properties**
 
 For example, let's configure dynamic properties that will retrieve properties from a remote server with a URL and update them according to the details you specify. To do so, follow these steps:
 
@@ -203,10 +203,10 @@ By selecting a specific policy in the timeline, you have access to additional in
 The inspector relies on 3 colors to indicate the nature of changes:
 
 * **green** color indicates an addition
-* **orange** color indicates a edit
+* **orange** color indicates an edit
 * **red** color indicates a deletion
 
-### Understanding and navigating the timeline
+### Understanding the timeline
 
 The order in which the policies appear in the timeline reflects the exact order in which they have been executed by the gateway at runtime.
 
@@ -218,7 +218,7 @@ Also, a policy may appear twice in the timeline if it interacts with both the he
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-policy-chain.png" alt=""><figcaption></figcaption></figure>
 
-#### **Navigating the timeline**
+### **Navigating the timeline**
 
 You can scroll through the list of policies via the timeline. You can also quickly access a specific policy by selecting it in the quick access timeline.
 
