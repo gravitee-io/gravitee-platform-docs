@@ -12,6 +12,16 @@ Legacy version
 The v2 Policy Design Studio can only be used to design flows for APIs using the v2 API definition. The v2 Policy Design studio does not support applying policies at the message level or for pub/sub use cases. If you want to design and enforce policy flows at the message level or for pub/sub use cases, please refer to the [v4 Policy Design studio documentation.](v4-api-policy-design-studio.md)
 {% endhint %}
 
+## Introduction
+
+The v2 policy design studio is broken into the following sections:
+
+* Design
+* Configuration
+* Properties
+* Resources
+* Debug
+
 {% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" fullWidth="true" %}
 
 ## Design a flow with the policy design studio
@@ -22,29 +32,29 @@ You're now in the **Design** section of the policy design studio. Here, you can 
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-09 at 2.10.06 PM.png" alt=""><figcaption><p>V2 policy design studio example</p></figcaption></figure>
 
-The gateway API shown has three plans: Keyless Plan, Premium API Key Plan, and Premium JWT Plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API by being placed under the **Flows** section like the Assign Metrics Flow.
+The sample gateway API shown above has three plans: Keyless Plan, Premium API Key Plan, and Premium JWT Plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API by being placed under the **Flows** section like the Assign Metrics Flow.
 
 ### Create a flow, and add policies
 
-Next, let's take a look at how to create a flow for all users of the API. To do so, find the **Flows** section, and select the **+** icon. This will create your flow. Before adding policies to your flow, you'll need to configure the flow using the **Flow Configuration** module with the following options detailed below. All flow configuration options are optional.
+Next, let's take a look at how to create a flow. This flow will target all users of the API. To do so, find the **Flows** section, and select the **+** icon. This will create your flow. Before adding policies to your flow, you'll need to configure the flow using the **Flow Configuration** module with the following options detailed below. All flow configuration options are optional.
 
 <figure><img src="../../.gitbook/assets/v2_flow_config.png" alt=""><figcaption><p>Sample flow configuration</p></figcaption></figure>
 
 * **Name:** Give your flow a descriptive name. If you don't, a name will be automatically generated using the path and methods.
-* **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or requests that **Starts with** the same path&#x20;
+* **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or  **Starts with** the same path&#x20;
 * **Path:** Path to use in conjunction with the **Operator path** to determine if this flow should be applied
 * **Methods:** Define the HTTP methods for which you want the flow to be executed. If you leave this empty, the flow will be executed for every HTTP method assuming the other conditions are met.
 * **Conditions:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL)
 
 Now, it's time to add policies to that flow.
 
-To add a policy, find the policy that you want to enforce, and then drag and drop that policy onto either the request or response phase. If you add a policy at the Request phase, the policy will be enforced by the Gateway at the time of the request, before a client is given access to the API that they are trying to call. If you add a policy on the response phase, the Gateway will enforce the policy after the request is allowed, but before the response is returned to the client.
+To add a policy, find the policy that you want to enforce, and then drag and drop that policy onto either the request or response phase. If you add a policy at the request phase, the policy will be enforced by the gateway at the time of the request, before a client is given access to the API that they are trying to call. If you add a policy on the response phase, the gateway will enforce the policy after the request is allowed, but before the response is returned to the client.
 
 Once you've added your policy, you can edit that policy by selecting the policy and using the configuration menu below the flow map. After you configure the policy, select the **checkmark icon**, and then **Save** in the pop-up to save the policy settings.
 
 <figure><img src="../../.gitbook/assets/v2_policy_config.png" alt=""><figcaption><p>Configure a policy</p></figcaption></figure>
 
-Anytime you configure a policy, or edit a flow, you'll need to redeploy your API to the gateway for the changes to take effect. You'll see a bar appear at the top of the flow designer, that says **API out of sync, deploy your API.** Select the hyperlinked deploy your API text, and you'll be met with a pop-up that asks you to provide a label to define and describe your deployment. When you are done, select **OK** to deploy/redeploy your API with the new flow and policy.
+Whenever you edit a flow, like when you configure a policy, you'll need to redeploy your API to the gateway for the changes to take effect. You'll see a bar appear at the top of the flow designer, that says **API out of sync, deploy your API.** Select the hyperlinked **deploy your API** text, and you'll be met with a modal that asks you to provide a label to define and describe your deployment. When you are done, select **OK** to deploy/redeploy your API with the new flow and policy.
 
 <figure><img src="../../.gitbook/assets/redeploy_api.png" alt=""><figcaption><p>Redeploy API after configuring flow</p></figcaption></figure>
 
@@ -67,7 +77,7 @@ For example, if I wanted to limit the number of requests that a client could mak
 13. Select the checkmark icon to save my rate limit settings.
 14. Select Save.
 15. Select **deploy your API**
-16. In the pop-up, give the deployment a label
+16. In the modal, give the deployment a label
 17. Select **OK**
 
 At this point, the Rate Limit policy has been applied at five requests per second on the HTTP GET request.
