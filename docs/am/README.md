@@ -1,6 +1,98 @@
 # Introduction to Gravitee Access Management (AM)
 
-Gravitee Access Management (AM) is a flexible, lightweight and easy to use open source Identity and Access Management solution. It offers a centralized authentication and authorization service to deliver secure access for authorized users to your applications and APIs from any device.
+Gravitee Access Management (AM) is a flexible, lightweight and easy-to-use open source Identity and Access Management solution. It offers a centralized authentication and authorization service to deliver secure access for authorized users to your applications and APIs from any device.
+
+## Core components
+
+Gravitee AM is composed of three main components:
+
+1. AM Gateway
+2. AM Management API
+3. APIM Managment UI
+
+### AM Gateway
+
+AM Gateway is the core component of the AM platform. It acts as a trust broker with your identity providers and provides an authentication and authorization flow for your users.
+
+<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-overview-components-gateway.png" alt=""><figcaption><p>AM internal gateway</p></figcaption></figure>
+
+### AM APIs
+
+These RESTful APIs expose services to:
+
+* Manage and configure the AM platform
+* Manage users and user sessions
+* Manage the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0 and SCIM 2.0 protocols
+
+All exposed services are restricted by authentication and authorization rules. You can find more information in the [API Reference](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_overview.html) section.
+
+### AM Management UI
+
+
+
+## Core AM Concepts
+
+The concepts below are central to using AM.
+
+### Organization
+
+An organization is internal data space AM provisions for you, to hold all the resources to handle user authentication.
+
+{% hint style="info" %}
+The OSS version of AM comes with a single default organization
+{% endhint %}
+
+### Environment
+
+An environment is a logical workspace in which administrative users can manage security domains.
+
+{% hint style="info" %}
+The OSS version of AM comes with a single default environment.
+{% endhint %}
+
+### Security domain
+
+A security domain:
+
+* Gives you access to all the AM resources, such as applications, users and identity providers
+* Exposes authentication and authorization URLs
+* Gathers analytics and reporting
+
+### Application
+
+An application:
+
+* Can be any type of application, for example:
+  * Web Application (PHP, Java, Node.js)
+  * Single App (JavaScript)
+  * Native App (iOS, Android)
+  * Backend App (Job, CLI)
+* Applications use AM to sign in and make requests to the Gateway Authorization Server
+* Applications can be used by end users (B2C) or autonomous (B2B)
+
+### Identity provider
+
+An identity provider:
+
+* Brokers trust with external user providers such as:
+  * LDAP / Active Directory
+  * Database
+  * Web services
+  * Social providers
+  * OpenID Connect providers
+  * SAML v2 IDP
+  * Custom providers
+* Is used during the login process to verify user credentials and retrieve profile information
+
+### Flow
+
+A flow:
+
+* Allows you to build your own custom authentication and authorization journey by executing policies during specific phases of the authentication flow
+* Can be used to:
+  * Enrich user profiles
+  * Notify 3rd party systems
+  * Add extra authorization rules (such as verify users or enforce MFA)
 
 ## Authorization in AM
 
@@ -27,4 +119,4 @@ The Security Assertion Markup Language (SAML) protocol is an open-standard, XML-
 
 Gravitee AM can act as both SAML IdP for applications as well as federate with SAML based Identity Providers for protocol mediation.
 
-For further information about SAML 2.0, view the [SAML Tech Overview 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
+For further information about SAML 2.0, view the [SAML Tech Overview 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html).
