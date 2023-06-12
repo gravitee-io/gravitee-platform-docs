@@ -1,22 +1,22 @@
-# APIM 3.20.x changelog
+---
+description: >-
+  This page contains the changelog entries for APIM 4.0 and any future minor
+  APIM 4.0.x releases
+---
 
-## APIM 3.20.x changelog
-
-This page contains the changelog entries for APIM 3.20.0 and any future minor APIM 3.20.x releases.
+# APIM 4.0.x (2023-07-20)
 
 ## About upgrades
 
-For upgrade instructions, please refer to the [APIM Migration Guide](installation-guide/installation-guide-migration.md).
+For upgrade instructions, please refer to the [APIM Upgrade Guide.](../../../getting-started/install-guides/installation-guide-migration/)
 
-!!! warning
+{% hint style="danger" %}
+If you plan to skip versions when you upgrade, ensure that you read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
+{% endhint %}
 
-```
-**Important:** If you plan to skip versions when you upgrade, ensure that you read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
-```
+## What's new?&#x20;
 
-## APIM - 3.20 (2023-01-05)
-
-### API Management - Console
+### API Management UI
 
 * Brand new menu to unify the experience between all Gravitee products
 * Introducing v1 APIs reaching end of support and help users migrate to v2
@@ -25,7 +25,7 @@ For upgrade instructions, please refer to the [APIM Migration Guide](installatio
 * Allow to delete a media using the Management API
 * \[V4 BETA M-API] Manage v4 APIs subscriptions as an API Publisher & an API Consumer
 
-[Event-Native API Management (Beta)](broken-reference)
+### Event-Native API Management&#x20;
 
 * Endpoint - Kafka Connector Advanced (EE)
   * Ability to connect to a secured Kafka cluster
@@ -44,9 +44,13 @@ For upgrade instructions, please refer to the [APIM Migration Guide](installatio
 * Message filtering policy
 * Support conditions on messages
 
-[Gravitee Kubernetes Operator (Beta)](broken-reference)
+### Gravitee Kubernetes Operator (Beta)
 
 * CRD Lifecycle - Apply changes related CRDs on update
 * Store credentials in K8 secrets
 * Export a complex API and import it in a new/same environment
 * Manage resources as CRD and reuse them in several APIs
+
+## Bug fixes
+
+## Breaking changes

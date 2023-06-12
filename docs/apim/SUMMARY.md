@@ -228,17 +228,11 @@
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes.md)
-  * [Gravitee 4.x](releases-and-changelog/release-notes/gravitee-4.x/README.md)
-    * [Gravitee API Management 4.0](releases-and-changelog/release-notes/gravitee-4.x/gravitee-api-management-4.0.md)
+  * [APIM 4.0.x (2023-07-20)](releases-and-changelog/release-notes/gravitee-4.x.md)
 * [Changelog](releases-and-changelog/changelog/README.md)
-  * [APIM](releases-and-changelog/changelog/apim.md)
+  * [APIM](releases-and-changelog/changelog/apim/README.md)
+    * [APIM 4.0.x (2023-07-20)](releases-and-changelog/changelog/apim/gravitee-4.0.x-changelog.md)
   * [GKO](releases-and-changelog/changelog/gko.md)
-  * [APIM 3.20.x changelog](changelog/changelog-3.20.md)
-  * [APIM 3.19.x changelog](changelog/changelog-3.19.md)
-  * [APIM 3.18.x Changelog](changelog/changelog-3.18.md)
-  * [APIM 3.15.x changelog](changelog/changelog-3.15.md)
-  * [APIM pre-3.15.x changelog](changelog/changelog-eos.md)
-  * [Gravitee 4.0.x changelog](releases-and-changelog/changelog/gravitee-4.0.x-changelog.md)
 
 ## Community & Support
 
