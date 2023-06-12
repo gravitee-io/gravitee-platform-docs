@@ -3,19 +3,10 @@
 ## Overview
 
 * [Introduction to Gravitee API Management (APIM)](README.md)
-  * [APIM Architecture](overview/introduction-to-gravitee-api-management-apim/apim-architecture.md)
-  * [APIM Components](overview/introduction-to-gravitee-api-management-apim/components.md)
-  * [Plugins](overview/introduction-to-gravitee-api-management-apim/plugins.md)
-  * [EE vs OSS](overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
-* [Integrations](overview/integrations/README.md)
-  * [Gravitee Components](overview/integrations/gravitee-components.md)
-  * [Third-party Integrations](overview/integrations/third-party-integrations/README.md)
-    * [Event Brokers & Event Management](overview/integrations/third-party-integrations/event-brokers-and-event-management/README.md)
-      * [Gravitee and Solace integration](overview/integrations/third-party-integrations/event-brokers-and-event-management/gravitee-and-solace-integration.md)
-    * [Service Discovery](overview/integrations/third-party-integrations/service-mesh-and-service-discovery.md)
-    * [APIM & Observability](overview/integrations/third-party-integrations/apim-and-observability.md)
-      * [Expose API metrics to Datadog](overview/integrations/third-party-integrations/apim-and-observability/expose-api-metrics-to-prometheus.md)
-    * [iPaaS](overview/integrations/third-party-integrations/ipaas.md)
+* [APIM Architecture](overview/apim-architecture.md)
+* [Plugins](overview/plugins.md)
+* [Integrations](overview/integrations.md)
+* [Enterprise Edition](overview/ee-vs-oss.md)
 
 ## Getting Started
 
