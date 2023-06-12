@@ -84,9 +84,9 @@ At this point, the Rate Limit policy has been applied at five requests per secon
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **default** and **best match**. If you keep the flow mode as default, your flow will be selected and executed based on the **Operator path** defined in the flow itself (see [documentation above](v2-api-policy-design-studio.md#create-a-flow-and-add-policies)). Default mode allows for the execution of _multiple_ flows.
+Gravitee offers two flow modes: **default** and **best match**. If you keep the flow mode as default, execution of each flow is determined independently based on the **Operator path** defined in the flow itself (see [documentation above](v2-api-policy-design-studio.md#create-a-flow-and-add-policies)). Default mode allows for the execution of _multiple_ flows.
 
-However, if you select best match, Gravitee will choose a _single_ flow based on what Gravitee deems the closest match. A plain text part of the path will take precedence over a path parameter.&#x20;
+However, if you select best match, the gateway will choose a _single_ flow with the closest match to the path of the API request. A plain text part of the path will take precedence over a path parameter.&#x20;
 
 This means, reading from left to right, each part of the path is compared, keeping the better matching. Strict equality between part of the request path and the flow path prevails over a path parameter.
 
