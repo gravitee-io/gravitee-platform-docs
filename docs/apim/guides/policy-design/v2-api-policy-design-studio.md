@@ -16,15 +16,15 @@ The v2 Policy Design Studio can only be used to design flows for APIs using the 
 
 The v2 policy design studio is broken into the following sections:
 
-* Design
-* Configuration
-* Properties
-* Resources
-* Debug
+* **Design:** Manage all flows associated with your gateway API
+* **Configuration:** Modify settings around flow execution
+* **Properties:** Define key-value pairs at the API level. These properties are read-only during the gateway's execution of an API transaction.
+* **Resources:** Configure global resources to support your gateway API's flows
+* **Debug:** Test and troubleshoot your gateway APIs
 
 {% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" fullWidth="true" %}
 
-## Design a flow with the policy design studio
+## Design
 
 Flows can be added to existing v2 APIs. So, head to the API list by selecting **APIs** in the left-hand nav. Then, select the API for which you want to design a flow. You'll be taken to the API's **General** details page. Select **Design** in the left-hand nav.
 
@@ -34,7 +34,7 @@ You're now in the **Design** section of the policy design studio. Here, you can 
 
 The sample gateway API shown above has three plans: Keyless Plan, Premium API Key Plan, and Premium JWT Plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API by being placed under the **Flows** section like the Assign Metrics Flow.
 
-### Create a flow, and add policies
+### Create a flow and add policies
 
 Next, let's take a look at how to create a flow. This flow will target all users of the API. To do so, find the **Flows** section, and select the **+** icon. This will create your flow. Before adding policies to your flow, you'll need to configure the flow using the **Flow Configuration** module with the following options detailed below. All flow configuration options are optional.
 
