@@ -1,3 +1,5 @@
 # Table of contents
 
-* [Gravitee.io Access Management (AM)](README.md)
+## Overview
+
+* [Introduction to Gravitee Access Management (AM)](README.md)
