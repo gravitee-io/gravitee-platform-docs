@@ -101,25 +101,32 @@ To modify the flow mode, select the **Configuration** tab, and change the **Flow
 
 <figure><img src="../../.gitbook/assets/Configure flow mode.png" alt=""><figcaption><p>v2 Policy Design studio: Configure flow mode</p></figcaption></figure>
 
-## Define API properties for your API flows
+## API properties
 
-If you want to retrieve and query property values with certain API calls as a part of your flow, you can configure that in the **Properties** tab. Here, you can specify properties as key-value pairs. You can specify them one by one, or toggle from **Simple** to **Expert** mode and paste property definitions into an editor in format `<key>=<value>`.
+Properties allow you to define key-value pairs at the gateway API level. These properties are read-only during the gateway's execution of an API transaction and can be accessed using Gravitee's Expression Language (EL) with the `#properties` statement inside of your flows.
 
-You can also configure dynamic properties by clicking **CONFIGURE DYNAMIC PROPERTIES**. Dynamic properties are fetched with a URL on a regular schedule and subsequently updated according to the details you specify.
+API properties are set and configured in the **Properties** tab. You can specify properties one by one, or toggle from **Simple** to **Expert** mode and paste property definitions into an editor in the format `<key>=<value>`.
 
-<figure><img src="../../.gitbook/assets/API properties.png" alt=""><figcaption><p>v2 Policy Design studio: API properties</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.11.41 AM.png" alt=""><figcaption><p>API properties expert format</p></figcaption></figure>
 
-When you add new policies to your API flows which include [Expression Language](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_expression\_language.html#api) fields as part of their configuration (such as the dynamic routing policy), you can retrieve and query property values with the `#properties` statement. For more details, see the [Example](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#example) below.
+### Encryption
+
+You can easily encrypt API properties by toggling
 
 ### **Dynamic properties**
 
-For example, let's configure dynamic properties that will retrieve properties from a remote server with a URL and update them according to the details you specify. To do so, follow these steps:
+You can also configure dynamic properties by clicking **CONFIGURE DYNAMIC PROPERTIES**. Dynamic properties are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.15.36 AM.png" alt=""><figcaption><p>Dyanmic properties configuration screen</p></figcaption></figure>
+
+To configure dynamic properties, follow these steps:
 
 1. In the **Properties** tab, select **CONFIGURE DYNAMIC PROPERTIES**.
 2. Specify the details of the property:
    * `cron` schedule
+   * HTTP Method(s)
    * URL
-   * request headers and body to include with the call
+   * Request headers and body to include with the call
    * JOLT transformation to perform on the response
 3. Toggle **Enabled** ON.
 4. Select the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png) to save your changes.
@@ -127,9 +134,29 @@ For example, let's configure dynamic properties that will retrieve properties fr
 
 After the first call, the resulting property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
 
-## Add resources to your flows
+### Example
 
-Some policies support the addition of resources, which can be used for actions such as authentication and schema registry validation. Some of these policies include:
+In this example, we want our gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API calls containing a shop ID to its associated URL.
+
+The first step is to define a list of properties for the shops, with each unique shop ID as the key and the URL of the shop as the value.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.20.12 AM.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+
+We then configure a dynamic routing policy for the API with a routing rule which builds a new URL dynamically through property matching. The URL is created with a `#properties` statement which matches properties returned by querying the request header containing the shop ID.
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/dynamic-routing-properties.png" alt=""><figcaption><p>Add dynamic routing policy based on API property</p></figcaption></figure>
+
+If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
+
+{% hint style="info" %}
+**Dictionaries vs API properties**
+
+The list of shop IDs and URLs could also be maintained using a dictionary, for example, in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. For more details, see configure dictionaries in the Configuration Guide.
+{% endhint %}
+
+## Global resources
+
+Some policies support the addition of resources, which can be used for actions such as authentication and schema registry validation. Supported policies include:
 
 * **Cache policy**: if you using this policy, you can specify a cache resource via the **Cache** or **Cache Redis** resources
 * **OAuth2 policy**: if using this policy, you can specify a **Generic OAuth2 Authorization Server** resource, a **Gravitee AM Authorization Server** resource

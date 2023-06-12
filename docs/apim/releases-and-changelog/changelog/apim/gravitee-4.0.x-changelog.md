@@ -8,7 +8,7 @@ description: >-
 
 ## About upgrades
 
-For upgrade instructions, please refer to the [APIM Upgrade Guide.](../../../getting-started/install-guides/installation-guide-migration/)
+For upgrade instructions, please refer to the [APIM Upgrade Guide.](../../../getting-started/install-guides/installation-guide-migration.md)
 
 {% hint style="danger" %}
 If you plan to skip versions when you upgrade, ensure that you read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
