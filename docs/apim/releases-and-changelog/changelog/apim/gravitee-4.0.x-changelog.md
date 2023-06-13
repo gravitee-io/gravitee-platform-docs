@@ -16,7 +16,25 @@ If you plan to skip versions when you upgrade, ensure that you read the version-
 
 ## What's new?&#x20;
 
-### API Management UI
+### General
+
+* Brand new menu to unify the experience between all Gravitee products
+* Introducing v1 APIs reaching end of support and help users migrate to v2
+* APIs list page navigation enhancements
+* APIs are read-only if managed by our GKO (Gravitee Kubernetes Operator)
+* Allow to delete a media using the Management API
+* \[V4 BETA M-API] Manage v4 APIs subscriptions as an API Publisher & an API Consumer
+
+### Management UI
+
+* Brand new menu to unify the experience between all Gravitee products
+* Introducing v1 APIs reaching end of support and help users migrate to v2
+* APIs list page navigation enhancements
+* APIs are read-only if managed by our GKO (Gravitee Kubernetes Operator)
+* Allow to delete a media using the Management API
+* \[V4 BETA M-API] Manage v4 APIs subscriptions as an API Publisher & an API Consumer
+
+### Management API
 
 * Brand new menu to unify the experience between all Gravitee products
 * Introducing v1 APIs reaching end of support and help users migrate to v2
