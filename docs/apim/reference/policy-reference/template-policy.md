@@ -28,19 +28,96 @@ This plugin requires an enterprise license or trial which you can learn more abo
 
 </details>
 
-## Description
+## Overview
 
-You can use the `json-xml` policy to transform JSON content to XML content.
+The `json-xml` policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client.
 
 {% hint style="warning" %}
 For transforming XML content to JSON, please see the `xml-json` policy.
 {% endhint %}
 
-## Configuration options
+### Proxy API example
 
-<table data-full-width="true"><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th data-type="select">Type</th><th>Options</th><th>Default</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>description</td><td>false</td><td>Provide a description for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>rootElement</td><td>true</td><td>XML root element name that encloses content.</td><td></td><td>N/a</td><td>root</td></tr><tr><td>scope</td><td>true</td><td>The execution scope</td><td></td><td>REQUEST, RESPONSE</td><td>REQUEST</td></tr></tbody></table>
+For Proxy APIs, the JSON-to-XML policy is most commonly used for transforming JSON data before returning it to the client in the `response` phase.
 
-## Example use cases
+For example, the Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response if formatted like so:
+
+```json
+{
+    "bodySize": 0,
+    "headers": {
+        "Accept": "*/*",
+        "Host": "api.gravitee.io",
+        "User-Agent": "{{user-agent-info}}",
+        "X-Gravitee-Request-Id": "{{generated-request-id}}",
+        "X-Gravitee-Transaction-Id": "{{generated-trx-id}}",
+        "accept-encoding": "deflate, gzip"
+    },
+    "query_params": {}
+}
+```
+
+Adding a JSON-to-XML policy on the `response` phase for a Proxy API will transform the request output to:
+
+```xml
+<root>
+  <headers>
+    <Accept>*/*</Accept>
+    <Host>api.gravitee.io</Host>
+    <User-Agent>{{user-agent-info}}</User-Agent>
+    <X-Gravitee-Request-Id>{{generated-request-id}}</X-Gravitee-Request-Id>
+    <X-Gravitee-Transaction-Id>{{generated-trx-id}}</X-Gravitee-Transaction-Id>
+    <accept-encoding>deflate, gzip</accept-encoding>
+  </headers>
+  <query_params/>
+  <bodySize>0</bodySize>
+</root>
+```
+
+### Message API example
+
+For message APIs, the JSON-to-XML policy is used to transform the message `content` in the `publish` and `subscribe` phase.
+
+For example, you can create a Message API with an HTTP GET entrypoint and a Mock endpoint. Suppose the endpoint is configured to return the message content as follows:
+
+<pre><code><strong>{ \"id\": \"1\", \"name\": \"bob\", \"v\": 2 }
+</strong></code></pre>
+
+Then adding a JSON-to-XML policy on the subscribe phase will return the payload to the client via the HTTP GET entrypoint like so (the number of messages returned will vary by the number of messages specified in the Mock endpoint):
+
+```json
+{
+    "items": [
+        {
+            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
+            "id": "0"
+        },
+        {
+            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
+            "id": "1"
+        },
+        {
+            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
+            "id": "2"
+        },
+        {
+            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
+            "id": "3"
+        }
+    ],
+    "pagination": {
+        "nextCursor": "3"
+    }
+}
+```
+
+The output is the typical return structure for the HTTP GET entrypoint with each message `content` field being transformed from JSON to XML.
+
+{% hint style="info" %}
+For the HTTP GET entrypoint specifically, the entire payload can be returned as XML format by adding the `"Accept": "application/json"` header to the GET request. In this case, the message content is transformed into [CDATA](https://www.w3.org/TR/REC-xml/#sec-cdata-sect) and is therefore not treated as marked-up content for the purpose of the entrypoint using the `Accept` header. &#x20;
+{% endhint %}
+
+## Configuration
 
 Policies can be added to flows assigned to an API or to a plan. Gravitee supports configuring policies through the policy design studio in the management UI, interacting directly with the management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
 
@@ -96,6 +173,10 @@ spec:
 {% endtab %}
 {% endtabs %}
 
+### Reference
+
+<table data-full-width="true"><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th data-type="select">Type</th><th>Options</th><th>Default</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>description</td><td>false</td><td>Provide a description for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>rootElement</td><td>true</td><td>XML root element name that encloses content.</td><td></td><td>N/a</td><td>root</td></tr><tr><td>scope</td><td>true</td><td>The execution scope</td><td></td><td>REQUEST, RESPONSE</td><td>REQUEST</td></tr></tbody></table>
+
 ## Phases
 
 Provide link to a conceptual overview of phases as well as an explanation of the difference between v4 and v3 execution engine
@@ -131,12 +212,12 @@ Please ensure the policy version you select is compatible with your version of A
 To do so, follow these steps:
 
 1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/)
-2. Add the file into the `plugins` folder for both the gateway and management API[https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/532/getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/532/getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file)
+2. Add the file into the `plugins` folder for both the gateway and management API
 
 {% hint style="info" %}
 **Location of `plugins` folder**
 
-The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified by [changing the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
+The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
 
 Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
 {% endhint %}
