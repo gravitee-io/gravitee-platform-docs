@@ -116,21 +116,33 @@ Link explaining difference
 
 ## Compatibility matrix
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th><th>Included in APIM Versions</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td><p></p><p>>=3.0 &#x3C;3.21</p></td></tr></tbody></table>
+In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-## Installation
+<table data-full-width="true"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td><p></p><p>>=3.0 &#x3C;3.21</p></td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
 
-In the release notes for each version of APIM, we provide a list of policies included in the default distribution
+## Installation and deployment
 
-Installation of custom APIM Docker images contain the default plugins. To add an additional plugin, copy the plugin archive (a `.zip` file) into the `plugins-ext` folder. If you used the file structure described in [the custom install section](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_compose.html#create\_the\_filesystem\_and\_download\_the\_docker\_compose\_file), the `plugin-ext` folder is `/gravitee/apim-gateway/plugins` for the API Gateway and `/gravitee/apim-management-api/plugins` for the Management API.
-
-You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
-
-For more information, about plugin deployment, see [Deployment](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html#deployment).
+Each version of APIM includes a number of policies by default. If the policy is not included in the default distribution or you would like to use a different version of the policy, you can modify the plugin.
 
 {% hint style="warning" %}
-Some plugins need to be installed on both the API Gateway and the Management API. Please verify the specific plugin’s documentation for the details.
+Please ensure the policy version you select is compatible with your version of APIM.
 {% endhint %}
+
+To do so, follow these steps:
+
+1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/)
+2. Add the file into the `plugins` folder for both the gateway and management API[https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/532/getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/532/getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file)
+
+{% hint style="info" %}
+**Location of `plugins` folder**
+
+The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified by [changing the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
+
+Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
+{% endhint %}
+
+3. Remove any existing plugins of the same name.&#x20;
+4. Restart your APIM nodes
 
 ## Errors
 
