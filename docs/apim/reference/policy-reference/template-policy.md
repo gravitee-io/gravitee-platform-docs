@@ -151,7 +151,7 @@ To limit the processing time in the case of a nested object, the default max dep
 * Blazingly fast
 * Full chatgpt and neuralink integration for quick API mastery
 
-#### Fixes
+#### Bug fixes
 
 * Fix crashes related to nested objects
 
@@ -166,7 +166,7 @@ To limit the processing time in the case of a nested object, the default max dep
 * Blazingly fast
 * Full chatgpt and neuralink integration for quick API mastery
 
-#### Fixes
+#### Bug fixes
 
 * Fix crashes related to nested objects
 
