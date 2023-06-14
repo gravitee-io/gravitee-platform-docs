@@ -59,7 +59,7 @@ For example, the Gravitee echo API returns a JSON response when a `GET` request 
 
 Adding a JSON-to-XML policy on the `response` phase for a Proxy API will transform the request output to:
 
-```xml
+```html
 <root>
   <headers>
     <Accept>*/*</Accept>
@@ -80,8 +80,9 @@ For message APIs, the JSON-to-XML policy is used to transform the message `conte
 
 For example, you can create a Message API with an HTTP GET entrypoint and a Mock endpoint. Suppose the endpoint is configured to return the message content as follows:
 
-<pre><code><strong>{ \"id\": \"1\", \"name\": \"bob\", \"v\": 2 }
-</strong></code></pre>
+```html
+{ \"id\": \"1\", \"name\": \"bob\", \"v\": 2 }
+```
 
 Then adding a JSON-to-XML policy on the subscribe phase will return the payload to the client via the HTTP GET entrypoint like so (the number of messages returned will vary by the number of messages specified in the Mock endpoint):
 
@@ -135,7 +136,7 @@ When using the management API, policies are added as flows either directly to an
 ```json
 {
   "name": "Custom name",
-  "description": "Custom description",
+  "description": "Converts data from JSON to XML",
   "policy": "json-xml",
   "configuration": {
     "scope": "RESPONSE",
