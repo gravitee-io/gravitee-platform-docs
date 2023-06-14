@@ -40,8 +40,9 @@ For transforming XML content to JSON, please see the `xml-json` policy.
 
 For Proxy APIs, the JSON-to-XML policy is most commonly used for transforming JSON data before returning it to the client in the `response` phase.
 
-For example, the Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response if formatted like so:
+For example, the Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted like so:
 
+{% code title="Default response" %}
 ```json
 {
     "bodySize": 0,
@@ -56,10 +57,12 @@ For example, the Gravitee echo API returns a JSON response when a `GET` request 
     "query_params": {}
 }
 ```
+{% endcode %}
 
-Adding a JSON-to-XML policy on the `response` phase for a Proxy API will transform the request output to:
+Adding a JSON-to-XML policy on the `response` phase for a Proxy API will transform the response output to:
 
-```html
+{% code title="Transformed response" %}
+```xml
 <root>
   <headers>
     <Accept>*/*</Accept>
@@ -73,20 +76,24 @@ Adding a JSON-to-XML policy on the `response` phase for a Proxy API will transfo
   <bodySize>0</bodySize>
 </root>
 ```
+{% endcode %}
 
 ### Message API example
 
-For message APIs, the JSON-to-XML policy is used to transform the message `content` in the `publish` and `subscribe` phase.
+For message APIs, the JSON-to-XML policy is used to transform the message `content` in either the `publish` or `subscribe` phase.
 
-For example, you can create a Message API with an HTTP GET entrypoint and a Mock endpoint. Suppose the endpoint is configured to return the message content as follows:
+For example, you can create a message API with an HTTP GET entrypoint and a mock endpoint. Suppose the endpoint is configured to return the message content as follows:
 
-```html
+{% code title="Default message" %}
+```json
 { \"id\": \"1\", \"name\": \"bob\", \"v\": 2 }
 ```
+{% endcode %}
 
 Then adding a JSON-to-XML policy on the subscribe phase will return the payload to the client via the HTTP GET entrypoint like so (the number of messages returned will vary by the number of messages specified in the Mock endpoint):
 
-```json
+{% code title="Transformed messages" %}
+```xml
 {
     "items": [
         {
@@ -111,16 +118,17 @@ Then adding a JSON-to-XML policy on the subscribe phase will return the payload 
     }
 }
 ```
+{% endcode %}
 
 The output is the typical return structure for the HTTP GET entrypoint with each message `content` field being transformed from JSON to XML.
 
 {% hint style="info" %}
-For the HTTP GET entrypoint specifically, the entire payload can be returned as XML format by adding the `"Accept": "application/json"` header to the GET request. In this case, the message content is transformed into [CDATA](https://www.w3.org/TR/REC-xml/#sec-cdata-sect) and is therefore not treated as marked-up content for the purpose of the entrypoint using the `Accept` header. &#x20;
+For the HTTP GET entrypoint specifically, the entire payload can be returned as XML by adding the `"Accept": "application/json"` header to the GET request. In this case, the message content is transformed into [CDATA](https://www.w3.org/TR/REC-xml/#sec-cdata-sect) and is therefore not treated as marked-up content for the purpose of the entrypoint using the `Accept` header. &#x20;
 {% endhint %}
 
 ## Configuration
 
-Policies can be added to flows assigned to an API or to a plan. Gravitee supports configuring policies through the policy design studio in the management UI, interacting directly with the management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the policy design studio in the management UI, interacting directly with the management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
 
 {% tabs %}
 {% tab title="Management UI" %}
@@ -178,9 +186,9 @@ spec:
 
 <table data-full-width="true"><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th data-type="select">Type</th><th>Options</th><th>Default</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>description</td><td>false</td><td>Provide a description for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>rootElement</td><td>true</td><td>XML root element name that encloses content.</td><td></td><td>N/a</td><td>root</td></tr><tr><td>scope</td><td>true</td><td>The execution scope</td><td></td><td>REQUEST, RESPONSE</td><td>REQUEST</td></tr></tbody></table>
 
-## Phases
+### Phases
 
-Provide link to a conceptual overview of phases as well as an explanation of the difference between v4 and v3 execution engine
+Provide link to a conceptual overview of phases as well as an explanation of the difference between v4 and v2 API definitions
 
 {% tabs %}
 {% tab title="V4 API definition" %}
