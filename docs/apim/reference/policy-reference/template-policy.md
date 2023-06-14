@@ -134,7 +134,7 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 {% tab title="Management UI" %}
 <mark style="color:yellow;">We should wait to make these once the v4 policy design studio is finalized</mark>
 
-
+{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" %}
 {% endtab %}
 
 {% tab title="Managment API" %}
