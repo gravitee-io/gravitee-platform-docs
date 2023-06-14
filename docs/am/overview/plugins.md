@@ -2,11 +2,11 @@
 
 ## Overview
 
-Plugins are additional components that can be _plugged into_ AM Gateway or AM API. They can customize the component’s behavior to exactly fit your needs and technical constraints.
+Plugins are additional components that can be _plugged into_ AM gateway or AM management API. They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
 ## Types of plugins
 
-The table below lists the different types of plugins you can use with APIM, with the component(s) they can be plugged into and some examples. For more details of what each plugin type does, see the sections below.
+The table below lists the different types of plugins you can use with AM, with the component(s) they can be plugged into and some examples. For more details of what each plugin type does, see the sections below.
 
 | Type                                                                                                         | Components               | Examples                   |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------ | -------------------------- |
@@ -56,6 +56,4 @@ Out-of-the-box repositories are :
 
 ### Alerts
 
-An **alert** allows AM to send triggers or events to the Alert Engine which can be processed to send a notification using the configured plugin notifier. Configuring the notifier is the responsibility of the trigger.
-
-\
+An **alert** allows AM to send triggers or events to the Alert Engine which can be processed to send a notification using the configured plugin notifier. Configuring the notifier is the responsibility of the trigger.\

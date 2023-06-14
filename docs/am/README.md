@@ -29,9 +29,7 @@ Gravitee AM is composed of three main components:
 
 AM Gateway is the core component of the AM platform. It acts as a trust broker with your identity providers and provides an authentication and authorization flow for your users.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-overview-components-gateway.png" alt=""><figcaption><p>AM internal gateway</p></figcaption></figure>
-
-### AM APIs
+### AM Management API
 
 These RESTful APIs expose services to:
 
@@ -43,7 +41,7 @@ All exposed services are restricted by authentication and authorization rules. Y
 
 ### AM Management UI
 
-
+This web UI acts as a graphical interface to the AM Management API functionality.
 
 ## Core AM Concepts
 
