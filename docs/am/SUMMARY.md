@@ -10,7 +10,8 @@
 
 * [Install & Upgrade Guides](getting-started/install-and-upgrade-guides.md)
 * [Configuration](getting-started/configuration.md)
-* [Tutorial: Quick Start](getting-started/tutorial-quick-start.md)
+* [Tutorial: Quick Start](getting-started/tutorial-quick-start/README.md)
+  * [Log in to AM Management UI](getting-started/tutorial-quick-start/log-in-to-am-management-ui.md)
 
 ## Guides
 
