@@ -1,24 +1,4 @@
----
-description: Sample structure for policy documentation
----
-
-# Template Policy
-
-***
-
-***
-
-publisher: GraviteeSource
-
-product: API Management
-
-type: Kafka
-
-category: Identity Provider
-
-license type: Enterprise
-
-\---
+# JSON to XML
 
 <details>
 
@@ -206,7 +186,7 @@ Link explaining difference
 
 ## Compatibility matrix
 
-In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+In the [changelog for each version of APIM](../../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td><p></p><p>>=3.0 &#x3C;3.21</p></td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
 
@@ -226,7 +206,7 @@ To do so, follow these steps:
 {% hint style="info" %}
 **Location of `plugins` folder**
 
-The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
+The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
 
 Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
 {% endhint %}
