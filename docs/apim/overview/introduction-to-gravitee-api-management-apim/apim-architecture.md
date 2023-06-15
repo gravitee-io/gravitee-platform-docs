@@ -1,19 +1,22 @@
 ---
 description: >-
-  This article describes Gravitee API Management Architecture. We recommend that
-  everybody be familiar with architecture before installing Gravitee API
-  Management.
+  This article describes Gravitee API Management Architecture. Familiarity with
+  the architecture is a prerequisite to installing Gravitee API Management.
 ---
 
 # APIM Architecture
 
 ## Introduction
 
-In this article, we will cover:
+Gravitee offers three different API Management architecture schemes:
 
 * Gravitee API Management hybrid architecture
 * Gravitee API Management self-hosted architecture
 * Gravitee API Management "fully Gravitee-managed" architecture
+
+Each architecture relies on a specific set of Gravitee components. Common and architecture-specific components are identified below:&#x20;
+
+<table><thead><tr><th width="340">Component</th><th width="121" data-type="checkbox">Self-hosted</th><th width="115" data-type="checkbox">Hybrid</th><th data-type="checkbox">SaaS</th></tr></thead><tbody><tr><td></td><td>true</td><td>false</td><td>false</td></tr><tr><td></td><td>true</td><td>false</td><td>false</td></tr><tr><td></td><td>true</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr><tr><td></td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
 
 ## Self-hosted architecture
 
