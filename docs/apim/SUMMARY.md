@@ -179,7 +179,7 @@
     * [APIM 4.2](releases-and-changelog/release-notes/gravitee-4.x/apim-4.2.md)
 * [Changelog](releases-and-changelog/changelog/README.md)
   * [APIM](releases-and-changelog/changelog/apim/README.md)
-    * [APIM 4.0.x (2023-07-20)](releases-and-changelog/changelog/apim/gravitee-4.0.x-changelog.md)
+    * [APIM 4.x.x (2023-07-20)](releases-and-changelog/changelog/apim/gravitee-4.0.x-changelog.md)
   * [GKO](releases-and-changelog/changelog/gko.md)
 
 ## Community & Support
