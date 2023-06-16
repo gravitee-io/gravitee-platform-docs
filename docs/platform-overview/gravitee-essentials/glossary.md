@@ -4,11 +4,11 @@ description: Gravitee's cheat sheet
 
 # Gravitee Glossary
 
-This section defines all Gravitee and related web API terminology and concepts. Use the search function to quickly look up a definition.
+This page is divided into four sections to define: [Gravitee products](glossary.md#gravitee-products), [Gravitee product components](glossary.md#gravitee-product-components), [Gravitee terminology](glossary.md#gravitee-terminology), and [general API terminology](glossary.md#general-api-terminology). General concepts with Gravitee-specific meanings or usages are included to prevent misconceptions. Use the search function to quickly find a definition.
 
 ## Gravitee products
 
-* **Gravitee API Management (APIM):** event-native API management platform that helps you design, deploy, manage, and secure synchronous and asynchronous APIs throughout the entire lifecycle
+* **Gravitee API Management (APIM):** An event-native API management platform. Used throughout the entire lifecycle to help design, deploy, manage, and secure synchronous and asynchronous APIs.
 * **Gravitee Access Management (AM):** apply identity and access management (multi-factor authentication, biometric, etc.) at the API and application levels
 * **Gravitee Alert Engine (AE):** monitor API consumption and configure alerts based on anomalous traffic, reliability incidents, etc.
 * **Gravitee API Designer (APID):** design, document, and publish API data models; the community version is limited to one data model
