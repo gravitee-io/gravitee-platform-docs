@@ -36,6 +36,8 @@
 
 * [Prologue](guides/prologue.md)
 * [Authorization, Authentication, and Identity Protocols Supported](guides/authorization-authentication-and-identity-protocols-supported.md)
+* [Developer Contributions](guides/developer-contributions.md)
+* [Administration](guides/administration.md)
 
 ## Reference
 
