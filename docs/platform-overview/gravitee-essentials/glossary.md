@@ -8,11 +8,11 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ## Gravitee products
 
-* **Gravitee API Management (APIM):** An event-native API management platform. Used throughout the entire lifecycle to help design, deploy, manage, and secure synchronous and asynchronous APIs.
-* **Gravitee Access Management (AM):** apply identity and access management (multi-factor authentication, biometric, etc.) at the API and application levels
-* **Gravitee Alert Engine (AE):** monitor API consumption and configure alerts based on anomalous traffic, reliability incidents, etc.
-* **Gravitee API Designer (APID):** design, document, and publish API data models; the community version is limited to one data model
-* **Gravitee Cloud (GC):** centrally manage Gravitee environments and installations and promote APIs across various environments; the community version is limited to one managed environment
+* **Gravitee API Management (APIM):** An event-native API management platform used throughout the entire lifecycle to design, deploy, manage, and secure synchronous and asynchronous APIs.
+* **Gravitee Access Management (AM):** Used to apply identity and access management (multi-factor authentication, biometrics, etc.) at the API and application levels.
+* **Gravitee Alert Engine (AE):** Monitors API consumption and configures alerts based on anomalous traffic, reliability incidents, etc.
+* **Gravitee API Designer (APID):** Used to design, document, and publish API data models. The community version is limited to one data model.
+* **Gravitee Cloud (GC):** Enables centralized management of Gravitee installations and promotes APIs across various environments. The community version is limited to one managed environment.
 
 ## Gravitee product components
 
