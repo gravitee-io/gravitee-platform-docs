@@ -8,7 +8,9 @@
 
 ## Getting Started
 
-* [Install & Upgrade Guides](getting-started/install-and-upgrade-guides.md)
+* [Install & Upgrade Guides](getting-started/install-and-upgrade-guides/README.md)
+  * [Quick Install](getting-started/install-and-upgrade-guides/quick-install.md)
+  * [Install with .ZIP](getting-started/install-and-upgrade-guides/install-with-.zip.md)
 * [Configuration](getting-started/configuration.md)
 * [Tutorial: Quick Start](getting-started/tutorial-quick-start/README.md)
   * [Log in to AM Management UI](getting-started/tutorial-quick-start/log-in-to-am-management-ui.md)
