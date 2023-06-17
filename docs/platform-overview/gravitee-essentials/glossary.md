@@ -18,7 +18,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ### APIM
 
-* **Management UI:** A graphical user interface to configure Gateways, create APIs, design policies, and publish documentation. Every action in the API management UI is tied to a REST API that can be accessed outside of the interface.
+* **Management UI:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the API management UI is tied to a REST API that can be accessed outside of the interface.
 * **Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
 * **API Gateway:** A reverse proxy layer that brokers and secures access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
 * **API Developer Portal:** Used to build an API catalog and marketplace for API consumers. Feature-rich with with documentation generation, API analytics, etc.
@@ -43,12 +43,12 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 * [**Community Edition:**](gravitee-offerings-ce-vs-ee/) An event-native API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
 * [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source event-native API management platform. Feature sets targeting commercial end users include the Alert Engine, the no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
-* **Gravitee API Definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure Gateway APIs and traffic. The Gravitee API Definition of a Gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.&#x20;
-* **Gateway API:** An API deployed on the Gateway by an API Publisher to expose and proxy a backend API. All Gateway APIs require at least one entrypoint and an endpoint.
-* **Gateway API Architecture:** _still not finalized_
+* **Gravitee API Definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure gateway APIs and traffic. The Gravitee API Definition of a gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.&#x20;
+* **Gravitee Gateway API:** An API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
+* **Gravitee Gateway API Architecture:** _still not finalized_
   * **Proxy:** _still not finalized_
   * **Message:** _still not finalized_
-* **Context Path:** A unique route targeting a specific Gateway API. The Context Path does not include the root URL, i.e., the Context Path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
+* **Gravitee Context Path:** A unique route targeting a specific gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
 * **Gravitee Gateway Entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
 * **Gravitee Gateway Endpoint:** Defines the protocol and configuration settings by which the gateway API will fetch data from, or post data to, the backend API.
 * **Gravitee Backend API:** The source or target API that is proxied by the gateway.
