@@ -41,8 +41,8 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ## Gravitee terminology
 
-* [**Community Edition:**](gravitee-offerings-ce-vs-ee/) an event-native API management platform comprised of Gravitee’s open-source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products
-* [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) built on top of our open-source foundations, the enterprise version of our event-native API Management platform adds additional capabilities targeting commercial end users through offerings like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options
+* [**Community Edition:**](gravitee-offerings-ce-vs-ee/) An event-native API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
+* [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) built on top of our open-source foundations, the enterprise version of our event-native API Management platform adds capabilities targeting commercial end users through offerings like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 * **Gravitee API definition:** a human and machine-readable JSON representation of everything that the Gravitee gateway needs to know for it to proxy, apply policies to, create plans for, etc. your Gateway APIs and their traffic. The Gravitee API definition is to Gateway APIs, what the OpenAPI or AsyncAPI specification is to backend APIs.&#x20;
 * **Gateway API:** an API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs have at least one entrypoint and an endpoint.
 * **Gateway API architecture:** _still not finalized_
