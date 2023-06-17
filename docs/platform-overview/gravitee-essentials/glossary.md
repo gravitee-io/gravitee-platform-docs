@@ -54,10 +54,10 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Gravitee Backend API:** The source or target API that is proxied by the gateway.
 * **Gravitee API Publisher:** The creator, designer, and/or manager of a gateway API.
 * **Gravitee API Consumer:** The user or application accessing the gateway API.
-* **Plan:** The API access layer that provides the API producer with a method to secure, monitor, and transparently communicate access details. Plan status can be:
-  * **Staging:** Generally, the first state of a plan, akin to a draft. The author can configure the plan but it won’t be accessible to users.
-  * **Published:** once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
-  * **Deprecated:** you can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
+* **Gravitee Plan:** The API access layer that provides the API producer with a method to secure, monitor, and transparently communicate access details. Valid plan states are:
+  * **Staging:** The first state of a plan, akin to a draft. The plan can be configured but won’t be accessible to users.
+  * **Published:** The state of a finalized plan made available to all users. API consumers can use the APIM Portal to view, subscribe to, and consume the API. A published plan may still be edited.
+  * **Deprecated:** The state of a plan that is no longer available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
   * **Closed:** once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
 * **Plan modes:** _still not finalized_
   * `Standard` with the policy security required
