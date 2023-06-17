@@ -18,7 +18,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ### APIM
 
-* **Management UI:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the API management UI is tied to a REST API that can be accessed outside of the interface.
+* **Management UI:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
 * **Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
 * **API Gateway:** A reverse proxy layer that brokers and secures access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
 * **API Developer Portal:** Used to build an API catalog and marketplace for API consumers. Feature-rich with with documentation generation, API analytics, etc.
@@ -64,10 +64,10 @@ This page is divided into four sections to define: [Gravitee products](glossary.
   * `Push` with no security required
 * **Gravitee Application:** The mechanism by which an API consumer registers and agrees to a Gravity Plan that uses authentication. This allows the API producer more granular control over access to their secured API.
 * **Gravitee Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
-* **Gravitee Resource:** The element with which Gravitee defines reusable sets of configuration.
-* **Gravitee Plugin:** components that provide additional functionality by _plugging into_ the Gravitee ecosystem
-* **Gravitee Policy:** rules or logic that can be executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins
-* **Gravitee API Design Studio:** a component of APIM's management UI that allows you to interactively create a gateway API
+* **Gravitee Resource:** The element with which Gravitee defines reusable configurations.
+* **Gravitee Plugin:** Components that provide additional functionality to the Gravitee ecosystem.
+* **Gravitee Policy:** Rules or logic that executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
+* **Gravitee API Design Studio:** The APIM Management UI feature used to interactively create a gateway API.
 * **Flow:** method to control where, and under what conditions, policies act on an API transaction
 * **Sharding tags:** a tag that can be assigned to gateway and gateway APIs to provide a method to deploy a gateway API to a subset of gateways. Sharding tags can be mapped to a gateway’s fully qualified domain name which allows the developer portal to intelligently display different access URLs depending on the API’s sharding tags.
 * **Tenants:** a tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on the gateway receiving the request
