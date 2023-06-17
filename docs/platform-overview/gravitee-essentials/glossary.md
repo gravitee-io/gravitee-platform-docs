@@ -62,9 +62,9 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Plan modes:** _still not finalized_
   * `Standard` with the policy security required
   * `Push` with no security required
-* **Application:** allows an API consumer to register and agree to a plan with authentication enabled. This allows the API producer more granular control over access to their secured API.
-* **Subscription:** a contract between an API consumer and API publisher that requires the gateway API to have a plan and the consumer to have at least one application
-* **Resource:** a way to define reusable sets of configuration
+* **Gravitee Application:** The mechanism by which an API consumer registers and agrees to a Gravity Plan that uses authentication. This allows the API producer more granular control over access to their secured API.
+* **Gravitee Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
+* **Gravitee Resource:** The entity with which Gravitee defines reusable sets of configuration.
 * **Plugin:** components that provide additional functionality by _plugging into_ the Gravitee ecosystem
 * **Policy:** rules or logic that can be executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins
 * **API design studio:** a component of APIM's management UI that allows you to interactively create a gateway API
