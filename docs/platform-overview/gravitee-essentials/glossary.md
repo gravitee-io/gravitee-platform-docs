@@ -69,9 +69,9 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Gravitee Policy:** Rules or logic that executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
 * **Gravitee API Design Studio:** The APIM Management UI feature used to interactively create a gateway API.
 * **Gravitee Flow:** The method to control where, and under what conditions, policies act on an API transaction.
-* **Gravitee Sharding Tag:** A tag assigned to a gateway API and gateways to provide a method to deploy a gateway API to a subset of gateways. Sharding tags can be mapped to a gateway’s fully qualified domain name to allow the developer portal to intelligently display different access URLs depending on the API’s sharding tags.
-* **Tenants:** a tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on the gateway receiving the request
-* **Gravitee expression language (EL):** a superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language) used by API publishers to dynamically configure various aspects and policies of an API by referencing object properties from the current API transaction
+* **Gravitee Sharding Tag:** A tag assigned to gateway APIs and gateways to deploy a gateway API to a subset of gateways. Sharding tags can be mapped to a gateway’s fully qualified domain name to cause the developer portal to intelligently display different access URLs depending on the API’s sharding tags.
+* **Gravitee Tenant:** A tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on the gateway receiving the request.
+* **Gravitee Expression Language (EL):** A superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language) used by API publishers to dynamically configure various aspects and policies of an API by referencing object properties of the current API transaction.
 * **Execution context:** the runtime environment in which APIs are deployed and executed. It includes various components and settings that are used during the processing of API transactions.
 
 ## General API terminology
