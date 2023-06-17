@@ -10,7 +10,7 @@ This tutorial assumes you are starting a clean installation and have no existing
 curl -sSL https://bit.ly/install-am-3x | bash
 ```
 
-For more information, see [Install on Red Hat](https://docs.gravitee.io/am/current/am\_installguide\_redhat\_stack.html).
+For more information, see [Install on Red Hat.](install-on-red-hat.md)
 
 ## Install with Docker
 
@@ -18,7 +18,7 @@ For more information, see [Install on Red Hat](https://docs.gravitee.io/am/curre
 curl -sSL https://bit.ly/docker-am-3x | bash
 ```
 
-For more information, see [Run on Docker](https://docs.gravitee.io/am/current/am\_installguide\_docker\_compose.html).
+For more information, see [Run in Docker.](run-in-docker/)
 
 ## Install with Kubernetes
 
@@ -30,4 +30,4 @@ $ helm repo add graviteeio https://helm.gravitee.io
 $ helm install --name graviteeio-am graviteeio/am
 ```
 
-For more information, see [Deploy in Kubernetes](https://docs.gravitee.io/am/current/am\_installguide\_kubernetes.html).
+For more information, see [Deploy in Kubernetes.](deploy-in-kubernetes.md)

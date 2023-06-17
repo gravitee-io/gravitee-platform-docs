@@ -10,7 +10,9 @@
 
 * [Install & Upgrade Guides](getting-started/install-and-upgrade-guides/README.md)
   * [Quick Install](getting-started/install-and-upgrade-guides/quick-install.md)
-  * [Run in Docker](getting-started/install-and-upgrade-guides/run-in-docker.md)
+  * [Run in Docker](getting-started/install-and-upgrade-guides/run-in-docker/README.md)
+    * [Docker Images Install](getting-started/install-and-upgrade-guides/run-in-docker/docker-images-install.md)
+    * [Docker Compose Install](getting-started/install-and-upgrade-guides/run-in-docker/docker-compose-install.md)
   * [Install with .ZIP](getting-started/install-and-upgrade-guides/install-with-.zip.md)
   * [Install on Red Hat](getting-started/install-and-upgrade-guides/install-on-red-hat.md)
   * [Install on Amazon](getting-started/install-and-upgrade-guides/install-on-amazon.md)
