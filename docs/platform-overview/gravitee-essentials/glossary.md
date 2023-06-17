@@ -57,8 +57,8 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Gravitee Plan:** The API access layer that provides the API producer with a method to secure, monitor, and transparently communicate access details. Valid plan states are:
   * **Staging:** The first state of a plan, akin to a draft. The plan can be configured but won’t be accessible to users.
   * **Published:** The state of a finalized plan made available to all users. API consumers can use the APIM Portal to view, subscribe to, and consume the API. A published plan may still be edited.
-  * **Deprecated:** The state of a plan that is no longer available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
-  * **Closed:** once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
+  * **Deprecated:** The state of a plan that is no longer available on the APIM Portal. Existing subscriptions remain in place to avoid impact to current API consumers, but new subscriptions are not permitted.
+  * **Closed:** The state of a plan that no longer allows subscriptions. API consumers subscribed to this plan will not be able to use the API. Closing a plan is irreversible.
 * **Plan modes:** _still not finalized_
   * `Standard` with the policy security required
   * `Push` with no security required
