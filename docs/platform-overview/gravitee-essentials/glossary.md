@@ -49,13 +49,13 @@ This page is divided into four sections to define: [Gravitee products](glossary.
   * **Proxy:** _still not finalized_
   * **Message:** _still not finalized_
 * **Context Path:** A unique route targeting a specific Gateway API. The Context Path does not include the root URL, i.e., the Context Path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
-* **Gateway Entrypoint:** Defines the protocol and configuration settings by which the API Consumer accesses the Gateway API. The Gateway Entrypoint dictates how the Backend API is exposed through the Gateway.
-* **Gateway Endpoint:** Defines the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the Backend API.
-* **Backend API:** The source or target API that is proxied by the Gateway.
-* **API Publisher:** The creator, designer, and/or manager of a Gateway API.
-* **API Consumer:** The user or application accessing the Gateway API.
-* **Plan:** access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access
-  * **Staging:** generally, this is the first state of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
+* **Gravitee Gateway Entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
+* **Gravitee Gateway Endpoint:** Defines the protocol and configuration settings by which the gateway API will fetch data from, or post data to, the backend API.
+* **Gravitee Backend API:** The source or target API that is proxied by the gateway.
+* **Gravitee API Publisher:** The creator, designer, and/or manager of a gateway API.
+* **Gravitee API Consumer:** The user or application accessing the gateway API.
+* **Plan:** The API access layer that provides the API producer with a method to secure, monitor, and transparently communicate access details. Plan status can be:
+  * **Staging:** Generally, the first state of a plan, akin to a draft. The author can configure the plan but it won’t be accessible to users.
   * **Published:** once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
   * **Deprecated:** you can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
   * **Closed:** once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
