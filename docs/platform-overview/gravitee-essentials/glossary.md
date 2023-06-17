@@ -44,13 +44,11 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * [**Community Edition:**](gravitee-offerings-ce-vs-ee/) An event-native API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
 * [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source event-native API management platform. Feature sets targeting commercial end users include the Alert Engine, the no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 * **Gravitee API Definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure Gateway APIs and traffic. The Gravitee API Definition of a Gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.&#x20;
-* **Gateway API:** An API deployed on the Gateway by an API Publisher to expose and proxy a backend API. All Gateway APIs have at least one entrypoint and an endpoint.
-* **Gateway API architecture:** _still not finalized_
+* **Gateway API:** An API deployed on the Gateway by an API Publisher to expose and proxy a backend API. All Gateway APIs require at least one entrypoint and an endpoint.
+* **Gateway API Architecture:** _still not finalized_
   * **Proxy:** _still not finalized_
   * **Message:** _still not finalized_
-* **Context-path:** unique route to target a specific gateway API. The context path does not include the root URL.
-  * Example: If the fully qualified domain name is `https://apim-gateway:8082/my-context-path`, then `/my-context-path` is the context path.
-  * NOTE: _not finalized but some APIs do not have a context-path_
+* **Context Path:** A unique route targeting a specific Gateway API. The Context Path does not include the root URL, i.e., the Context Path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
 * **Gateway entrypoint:** defines the protocol and related configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint essentially defines how the backend API is exposed through the gateway.
 * **Gateway endpoint:** defines the protocol and related configuration settings by which the gateway API will fetch data from, or post data to, the backend API
 * **Backend APIs:** source or target API that is proxied by the gateway
