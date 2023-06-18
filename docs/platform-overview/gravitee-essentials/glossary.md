@@ -72,7 +72,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Gravitee Sharding Tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of the API with an identical tag.
 * **Gravitee Tenant:** A tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on which gateway receives the request.
 * **Gravitee Expression Language (EL):** A superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language) used by API publishers to dynamically configure various aspects and policies of an API by referencing object properties of the current API transaction.
-* **Execution context:** the runtime environment in which APIs are deployed and executed. It includes various components and settings that are used during the processing of API transactions.
+* **Gravitee Execution Context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
 
 ## General API terminology
 
