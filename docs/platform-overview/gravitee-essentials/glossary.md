@@ -43,17 +43,22 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 * [**Community Edition:**](gravitee-offerings-ce-vs-ee/) An event-native API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
 * [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source event-native API management platform. Feature sets targeting commercial end users include the Alert Engine, the no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
+* **Gravitee API Consumer:** The user or application accessing the gateway API.
 * **Gravitee API Definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure gateway APIs and traffic. The Gravitee API Definition of a gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.&#x20;
+* **Gravitee API Design Studio:** The APIM Management UI feature used to interactively create a gateway API.
+* **Gravitee API Publisher:** The creator, designer, and/or manager of a gateway API.
+* **Gravitee Application:** The mechanism by which an API consumer registers and agrees to a Gravity Plan that uses authentication. This allows the API producer more granular control over access to their secured API.
+* **Gravitee Backend API:** The source or target API that is proxied by the gateway.
+* **Gravitee Context Path:** A unique route targeting a specific gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
+* **Gravitee Execution Context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
+* **Gravitee Expression Language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
+* **Gravitee Flow:** The method to control where, and under what conditions, policies act on an API transaction.
 * **Gravitee Gateway API:** An API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
 * **Gravitee Gateway API Architecture:** _still not finalized_
   * **Proxy:** _still not finalized_
   * **Message:** _still not finalized_
-* **Gravitee Context Path:** A unique route targeting a specific gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
-* **Gravitee Gateway Entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
 * **Gravitee Gateway Endpoint:** Defines the protocol and configuration settings by which the gateway API will fetch data from, or post data to, the backend API.
-* **Gravitee Backend API:** The source or target API that is proxied by the gateway.
-* **Gravitee API Publisher:** The creator, designer, and/or manager of a gateway API.
-* **Gravitee API Consumer:** The user or application accessing the gateway API.
+* **Gravitee Gateway Entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
 * **Gravitee Plan:** The API access layer that provides the API producer with a method to secure, monitor, and transparently communicate access details. Valid plan states are:
   * **Staging:** The first state of a plan, akin to a draft. The plan can be configured but won’t be accessible to users.
   * **Published:** The state of a finalized plan made available to all users. API consumers can use the APIM Portal to view, subscribe to, and consume the API. A published plan may still be edited.
@@ -62,17 +67,12 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Gravitee Plan Modes:** _still not finalized_
   * `Standard` with the policy security required
   * `Push` with no security required
-* **Gravitee Application:** The mechanism by which an API consumer registers and agrees to a Gravity Plan that uses authentication. This allows the API producer more granular control over access to their secured API.
-* **Gravitee Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
-* **Gravitee Resource:** The element with which Gravitee defines reusable configurations.
 * **Gravitee Plugin:** Components that provide additional functionality to the Gravitee ecosystem.
 * **Gravitee Policy:** Rules or logic that executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
-* **Gravitee API Design Studio:** The APIM Management UI feature used to interactively create a gateway API.
-* **Gravitee Flow:** The method to control where, and under what conditions, policies act on an API transaction.
+* **Gravitee Resource:** The element with which Gravitee defines reusable configurations.
 * **Gravitee Sharding Tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of a similarly tagged API.
+* **Gravitee Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
 * **Gravitee Tenant:** A tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on which gateway receives the request.
-* **Gravitee Expression Language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
-* **Gravitee Execution Context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
 
 ## General API terminology
 
