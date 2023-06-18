@@ -23,7 +23,6 @@
   * [Configure AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)
   * [Configure AM API](getting-started/configuration/configure-am-api/README.md)
-    * [General Configuration](getting-started/configuration/configure-am-api/general-configuration.md)
     * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [Configure AM Console](getting-started/configuration/configure-am-console.md)
   * [Configure Repositories](getting-started/configuration/configure-repositories.md)
