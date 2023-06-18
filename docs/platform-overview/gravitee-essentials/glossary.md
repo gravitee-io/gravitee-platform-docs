@@ -69,9 +69,9 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Gravitee Policy:** Rules or logic that executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
 * **Gravitee API Design Studio:** The APIM Management UI feature used to interactively create a gateway API.
 * **Gravitee Flow:** The method to control where, and under what conditions, policies act on an API transaction.
-* **Gravitee Sharding Tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of the API with an identical tag.
+* **Gravitee Sharding Tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of a similarly tagged API.
 * **Gravitee Tenant:** A tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on which gateway receives the request.
-* **Gravitee Expression Language (EL):** A superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language) used by API publishers to dynamically configure various aspects and policies of an API by referencing object properties of the current API transaction.
+* **Gravitee Expression Language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
 * **Gravitee Execution Context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
 
 ## General API terminology
