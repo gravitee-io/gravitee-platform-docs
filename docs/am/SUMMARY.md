@@ -20,8 +20,12 @@
   * [Configure a Production-ready AM Environment](getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md)
   * [Upgrade Guide](getting-started/install-and-upgrade-guides/upgrade-guide.md)
 * [Configuration](getting-started/configuration/README.md)
-  * [Configure AM Gateway](getting-started/configuration/configure-am-gateway.md)
-  * [Configure AM API](getting-started/configuration/configure-am-api.md)
+  * [Configure AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
+    * [General Configuration](getting-started/configuration/configure-am-gateway/general-configuration.md)
+    * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)
+  * [Configure AM API](getting-started/configuration/configure-am-api/README.md)
+    * [General Configuration](getting-started/configuration/configure-am-api/general-configuration.md)
+    * [Internal API](getting-started/configuration/configure-am-api/internal-api.md)
   * [Configure AM Console](getting-started/configuration/configure-am-console.md)
   * [Configure Repositories](getting-started/configuration/configure-repositories.md)
   * [Configure Reporters](getting-started/configuration/configure-reporters.md)
@@ -37,7 +41,9 @@
 ## Guides
 
 * [Prologue](guides/prologue.md)
-* [Authorization, Authentication, and Identity Protocols Supported](guides/authorization-authentication-and-identity-protocols-supported.md)
+* [Authorization, Authentication, and Identity Protocols Supported](guides/authorization-authentication-and-identity-protocols-supported/README.md)
+  * [OAuth 2.0](guides/authorization-authentication-and-identity-protocols-supported/oauth-2.0/README.md)
+    * [Best Practices](guides/authorization-authentication-and-identity-protocols-supported/oauth-2.0/best-practices.md)
 * [Developer Contributions](guides/developer-contributions.md)
 * [Administration](guides/administration.md)
 
