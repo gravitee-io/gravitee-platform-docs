@@ -8,7 +8,9 @@ This section explains how to install Gravitee Access Management (AM) on Red Hat 
 RPM installation is not supported on distributions with old versions of RPM, such as SLES 11 and CentOS 5. If you are running one of these versions, you need to [Install Access Management with `.zip` ](install-with-.zip.md)instead.
 {% endhint %}
 
-## Configure the package management system (`yum`)
+## Prerequisites
+
+First, you must configure the package management system (yum).
 
 1.  Create a file called `graviteeio.repo` in location `/etc/yum.repos.d/` so that you can install AM directly using `yum`:
 
@@ -40,17 +42,17 @@ Your repository is now ready to use.
 
 You can choose to install the full AM stack or install components individually:
 
-* Install the full AM stack
+* [Install the full AM stack](install-on-red-hat.md#install-full-am-stack)
 * Components
-  * Install AM Gateway
-  * Install AM API
-  * Install AM Console
+  * [Install AM Gateway](install-on-red-hat.md#install-am-gateway)
+  * [Install AM API](install-on-red-hat.md#install-the-am-api)
+  * [Install AM Console](install-on-red-hat.md#install-am-console)
 
 ## Install full AM stack
 
 This section describes how to install the full AM stack, including all the components and, optionally, dependencies.
 
-### Prerequisites
+### Additional Prerequisites
 
 Before you install the AM stack, you must complete the following configuration.
 
@@ -62,10 +64,6 @@ To install Nginx, run the following commands:
 $ sudo yum install epel-release
 $ sudo yum install nginx
 ```
-
-#### Configure the package management system
-
-Ensure you have configured your package management system, as described in [Configure the package management system (yum)](https://docs.gravitee.io/am/current/am\_installguide\_redhat\_introduction.html#configure-the-package-management-system-yum).
 
 ### Install the AM package (no dependencies)
 
@@ -178,7 +176,7 @@ To list journal entries for the AM Gateway service starting from a given time, r
 sudo journalctl --unit graviteeio-am-gateway --since  "2020-01-30 12:13:14"
 ```
 
-## Install the AM API
+## Install AM API
 
 AM API is required to run AM Console. You must install AM API first before you can use AM Console.
 
@@ -236,7 +234,7 @@ sudo journalctl --unit graviteeio-am-management-api --since  "2020-01-30 12:13:1
 
 Before you install AM Console, you must ensure AM API is installed and running.
 
-### Prerequisites
+### Additional Prerequisites
 
 Before you install the AM stack, you must complete the following configuration.
 
