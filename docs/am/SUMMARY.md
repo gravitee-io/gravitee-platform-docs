@@ -39,6 +39,9 @@
 ## Guides
 
 * [Prologue](guides/prologue.md)
+* [Audit Trail](guides/audit-trail/README.md)
+  * [Storage](guides/audit-trail/storage/README.md)
+    * [File](guides/audit-trail/storage/file.md)
 * [Authorization, Authentication, and Identity Protocols Supported](guides/authorization-authentication-and-identity-protocols-supported/README.md)
   * [OAuth 2.0](guides/authorization-authentication-and-identity-protocols-supported/oauth-2.0/README.md)
     * [Best Practices](guides/authorization-authentication-and-identity-protocols-supported/oauth-2.0/best-practices.md)
