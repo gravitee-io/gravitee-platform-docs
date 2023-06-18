@@ -18,10 +18,10 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ### APIM
 
-* **Management UI:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
-* **Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
-* **API Gateway:** A reverse proxy layer that brokers and secures access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
 * **API Developer Portal:** Used to build an API catalog and marketplace for API consumers. Feature-rich with with documentation generation, API analytics, etc.
+* **API Gateway:** A reverse proxy layer that brokers and secures access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
+* **Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
+* **Management UI:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
 
 ### AM
 
