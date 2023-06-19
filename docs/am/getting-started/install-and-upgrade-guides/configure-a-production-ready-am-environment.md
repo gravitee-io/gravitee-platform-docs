@@ -7,7 +7,7 @@ During Gravitee Access Management (AM) installation, some default settings are c
 This how-to gives some tips on important settings to check in AM when preparing to move to a production environment. AM includes many other configuration options and every environment is unique. We recommend you also read the [Configuration Guide](../configuration/) to determine if you have completed all the configuration you need before you deploy AM in production.
 
 {% hint style="info" %}
-You can also read the [OAuth 2.0 best practices](../../guides/authorization-authentication-and-identity-protocols-supported/oauth-2.0/best-practices.md) for more details about configuring your AM environment.
+You can also read the [OAuth 2.0 best practices](../../guides/auth-protocols/oauth-2.0/best-practices.md) for more details about configuring your AM environment.
 {% endhint %}
 
 You can configure AM settings in various ways — the `gravitee.yml` file, the AM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. [Configure AM API](../configuration/configure-am-api/) gives a good overview of this topic.
