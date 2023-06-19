@@ -129,9 +129,9 @@ Gravitee's documentation uses the terms "web API" and "API" synonymously. An API
 The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe\_pattern) is different and broader from Google's implementation of the pub/sub design pattern in the Pub/Sub [messaging service](https://cloud.google.com/pubsub/docs/overview).
 {% endhint %}
 
-**API definition:** an instance of an API specification. API specification and definition are often used synonymously.
+**API definition:** An instance of an API specification. "API specification" and "API definition" are often used synonymously.
 
-**API design-first:** the API definition is written first and then the code follows. The advantages are that the code already has a skeleton upon which to build and that some tools can provide boilerplate code automatically. Additionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
+**API design-first:** The API definition is created before the corresponding code is written. The advantages are that the code already has a skeleton upon which to build and that some tools can provide boilerplate code automatically. Additionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
 
 **API lifecycle:** process of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
 
