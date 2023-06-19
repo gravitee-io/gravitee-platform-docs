@@ -117,16 +117,11 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 In Gravitee's documentation, you can assume web APIs and APIs are synonymous terms; otherwise, we will explicitly refer to them as **local** APIs.
 {% endhint %}
 
+*
 * **API transaction:** a single interaction between a client application and a server through an API. For synchronous APIs, it typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. For asynchronous APIs, an API transaction refers to a single transmission of a message payload between a client and a message broker
-* **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
-* **HTTP API route:** part of the URL used to access a resource. It does not include parts of the URL like fragments.
-  * Example: `http://foo.com/api/user/1`
-* **HTTP API endpoint:** one end of a communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
-  * Example: `GET http://foo.com/api/user/1`
+*
 * **Resource:** an entity or object that is made available for interaction through the API. It represents a specific piece of data or functionality that can be accessed, modified, or manipulated by clients.
   * **Example:** `{id: 42, type: employee, company: 5}`
-* **HTTP API entry point:** a special type of resource — it’s a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API.
-  * Example: `http://foo.com/api`
 * **Path parameters:** a way of passing variable values within the route of an API request
   * Example: `http://foo.com/api/user/{id}` where {id} is a path parameter
 * **Query parameters:** a way to include additional information or parameters in the URL to customize or filter the results of the request. Query parameters are appended to the endpoint URL using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value.
@@ -159,12 +154,9 @@ Although often used synonymously, you can draw a distinction between an event an
 > "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
 {% endhint %}
 
-* **Internet:** the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the physical means by which information travels
+*
 * **World wide web (web):** information system on the internet which allows documents to be connected to other documents in the form of hypermedia (e.g., web pages)
-* **Network protocol:** standard for communication
-  * **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
-  * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
-  * **Application layer:** a conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network
+*
 * **API architectural style:** guidelines and/or constraints around API design
   * **Representational state transfer (REST)**: an architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
     * Example: `GET http://foo/user/1` vs `POST http://foo/user/1`
@@ -194,10 +186,22 @@ These are two really tricky concepts to disambiguate, largely due to how similar
 * **Event-native:** event-driven architecture implemented with reactive programming to natively handle asynchronous, event-driven APIs
 * **Fully qualified domain name (FQDN):** a domain name that specifies its exact location in the tree hierarchy of the Domain Name System
 * **GraphQL:** an architectural style, a [query language](https://www.techopedia.com/definition/3948/query-language) for APIs, and a runtime for fulfilling those queries
+* **HTTP API endpoint:** one end of a communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
+  * Example: `GET http://foo.com/api/user/1`
+* **HTTP API entry point:** a special type of resource — it’s a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API.
+  * Example: `http://foo.com/api`
+* **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
+* **HTTP API route:** part of the URL used to access a resource. It does not include parts of the URL like fragments.
+  * Example: `http://foo.com/api/user/1`
+* **Internet:** the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the physical means by which information travels
 * **JSON Web Key (JWK):** a JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
 * **JSON Web Key Set (JWKS):**  a JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs.
 * **Log:** an immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature.
   * Example: Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based
+* **Network protocol:** standard for communication
+  * **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
+  * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
+  * **Application layer:** a conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network
 * **Queue:** a transient, linear data structure that uses the first in first out (FIFO) approach to accessing elements. Generally, each application has its own queue as messages are lost when consumed.
   * Example: RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are all queue-based
 * **Reactive programming:** making _asynchronous data streams the spine_ of your application. Events are now the main orchestrators of your application’s flow. The reactive programmer manages the logic around manipulating and performing operations on the data streams.
