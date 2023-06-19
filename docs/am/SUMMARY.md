@@ -38,6 +38,7 @@
 
 ## Guides
 
+* [Security Domains](guides/security-domains.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
