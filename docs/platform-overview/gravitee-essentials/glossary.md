@@ -131,7 +131,7 @@ The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subsc
 
 **API definition:** An instance of an API specification. "API specification" and "API definition" are often used synonymously.
 
-**API design-first:** The API definition is created before the corresponding code is written. The advantages are that the code already has a skeleton upon which to build and that some tools can provide boilerplate code automatically. Additionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
+**API design-first:** The API definition is created before the corresponding code is written. This provides a skeleton for code development and enables the automation of boilerplate code. Deriving the code from the specification ensures that the API documentation is complete.
 
 **API lifecycle:** process of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
 
