@@ -153,13 +153,13 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Asynchronous programming:** The concurrent execution of tasks.
 
-**Batch processing:** processing and analysis on a large (large in comparison to stream processing) set of data that has already been stored for a period of time
+**Batch processing:** Processing and analysis of a large (compared to stream processing) data set that has been stored for a period of time.
 
 **Concurrency vs parallelism:** In essence, concurrency involves handling many things at once while parallelism involves doing many things at once. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) addresses these concepts, which can be difficult to disambiguate due to contextual terminology.
 
-**Data-interchange format:** text or binary serialized formats for storing and transferring data
+**Data-interchange format:** Text or binary serialized formats for storing and transferring data.
 
-**Deserialization:** the inverse process of serialization that converts a stream of bytes back into a complex object
+**Deserialization:** The inverse of serialization to convert a stream of bytes back into a complex object.
 
 **Domain name:** part of a network address that identifies a realm of administrative autonomy, authority or control
 
