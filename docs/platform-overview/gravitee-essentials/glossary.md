@@ -137,12 +137,12 @@ The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subsc
 
 * **OpenAPI Specification:** A standardized, language-agnostic, and human and machine-readable HTTP API interface definition that enables discovery and understanding of service capabilities without relying on source code, documentation, or network traffic inspection.
 * **AsyncAPI Specification**: A framework to create and document asynchronous APIs that defines a standardized format for message, event, and channel descriptions to facilitate developer understanding and implementation.&#x20;
-* **CloudEvents:** A specification to standardize descriptions of event data that defines an envelope for the API data, not how the API is structured. A postal service metaphor  the AsyncAPI Specification defines what constitutes a complete address and mail routing mechanisms while CloudEvents defines envelope dimensions. The letter, or payload, does not fall under the jurisdiction of either specification.
+* **CloudEvents:** A specification to standardize descriptions of event data that defines an envelope for the API data, not how the API is structured. In a postal service metaphor,  the AsyncAPI Specification defines what constitutes a complete address and mail routing mechanisms while CloudEvents defines envelope dimensions. The letter, or payload, does not fall under the jurisdiction of either specification.
 
 {% hint style="info" %}
-**Events vs Messages**
+**Events vs messages**
 
-Although often used synonymously, you can draw a distinction between an event and a message. Sometimes people will say a message is the directed carrier of the event, while the event is the actual change in state to be observed. However, these terms have a deeper, technical distinction which is outlined well by the [Reactive Manifesto](https://www.reactivemanifesto.org/glossary#Message-Driven):
+Although often used synonymously, an event is different from a message. A message is often described as the directed carrier of an event while the event is the observable change in state. However, these terms have a deeper, technical distinction discussed in the [Reactive Manifesto](https://www.reactivemanifesto.org/glossary#Message-Driven):
 
 > "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
 {% endhint %}
