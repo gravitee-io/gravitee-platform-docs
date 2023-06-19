@@ -119,12 +119,12 @@ Gravitee's documentation uses the terms "web API" and "API" synonymously. An API
 
 * **Representational state transfer (REST)**: An architectural style where a server receives a client request, executes requested modifications, then responds with a representation of the state of the requested resource. REST APIs respect [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where each HTTP verb on a URL provides unique functionality, e.g., `GET http://foo/user/1` vs `POST http://foo/user/1`.
 * **Remote procedure call (RPC):** A semi-rigid architectural style where action-centric URLs represent remote functions that are invoked via network communication. Each action corresponds to a unique URL and the HTTP verb does not determine functionality, e.g., `GET http://foo/getUser` vs `POST http://foo/addUser`.
-* **Publish-subscribe pattern (pub/sub):** an architectural style where a computer known as the event _broker_ allows information producers, or _publishers_, to publish messages to the broker and information consumers, or _subscribers_, to subscribe to receive messages from the broker
+* **Publish-subscribe pattern (pub/sub):** An architectural style where a computer termed the event broker allows information producers (publishers) to publish messages to the broker and information consumers (subscribers) to subscribe to receive messages from the broker.
 
 {% hint style="info" %}
 **Pub/sub confusion**
 
-The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe\_pattern) is different and broader from Google's implementation of the pub/sub design pattern in the Pub/Sub [messaging service](https://cloud.google.com/pubsub/docs/overview).
+The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe\_pattern) is broader than Google's implementation in the [Pub/Sub](https://cloud.google.com/pubsub/docs/overview) messaging service.
 {% endhint %}
 
 **API definition:** An instance of an API specification. "API specification" and "API definition" are often used synonymously.
