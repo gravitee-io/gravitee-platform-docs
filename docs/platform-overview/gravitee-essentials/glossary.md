@@ -147,17 +147,7 @@ Although often used synonymously, an event is different from a message. A messag
 > "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
 {% endhint %}
 
-* **Parallelism vs Concurrency:** the key concept is that concurrency is about _dealing with_ lots of things at once. Parallelism is about _doing_ lots of things at once.&#x20;
-
-{% hint style="info" %}
-**Concurrency vs parallelism**
-
-These are two really tricky concepts to disambiguate, largely due to how similar they are and all the terminology (e.g., processes, threads, tasks, etc.) that can have slightly different meanings in different contexts. If you’re interested in developing a more intuitive understanding, our recommendation is to take a deep dive until you find an explanation that really clicks. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) is a great starting place.
-{% endhint %}
-
-
-
-**API transaction:** a single interaction between a client application and a server through an API. For synchronous APIs, it typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. For asynchronous APIs, an API transaction refers to a single transmission of a message payload between a client and a message broker
+**API transaction:** A single interaction between a client application and a server through an API. A synchronous API transaction typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. An asynchronous API transaction refers to a single transmission of a message payload between a client and a message broker.
 
 **Asynchronous APIs**: APIs that break up the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication beyond the initial subscription from the information consumer.
 
@@ -166,6 +156,8 @@ These are two really tricky concepts to disambiguate, largely due to how similar
 **Asynchronous programming:** concurrent execution of tasks
 
 **Batch processing:** processing and analysis on a large (large in comparison to stream processing) set of data that has already been stored for a period of time
+
+**Concurrency vs parallelism:** In essence, concurrency involves handling many things at once while parallelism involves doing many things at once. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) addresses these concepts, which can be difficult to disambiguate due to contextual terminology.
 
 **Data-interchange format:** text or binary serialized formats for storing and transferring data
 
