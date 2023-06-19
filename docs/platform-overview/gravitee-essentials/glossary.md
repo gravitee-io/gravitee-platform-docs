@@ -161,15 +161,15 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Deserialization:** The inverse of serialization to convert a stream of bytes back into a complex object.
 
-**Domain name:** part of a network address that identifies a realm of administrative autonomy, authority or control
+**Domain name:** The part of a network address that identifies a realm of administrative autonomy, authority, or control.
 
-**Event-native:** event-driven architecture implemented with reactive programming to natively handle asynchronous, event-driven APIs
+**Event-native:** A reactive programming implementation of event-driven architecture to natively handle asynchronous, event-driven APIs.
 
-**Fully qualified domain name (FQDN):** a domain name that specifies its exact location in the tree hierarchy of the Domain Name System
+**Fully qualified domain name (FQDN):** A domain name that specifies its exact location in the tree hierarchy of the Domain Name System (DNS).
 
-**GraphQL:** an architectural style, a [query language](https://www.techopedia.com/definition/3948/query-language) for APIs, and a runtime for fulfilling those queries
+**GraphQL:** An architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries.
 
-**HTTP API endpoint:** one end of a communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
+**HTTP API endpoint:** One end of a network communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
 
 * Example: `GET http://foo.com/api/user/1`
 
