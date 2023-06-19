@@ -15,7 +15,7 @@ The PKCE extension introduces two temporary secrets:
 These codes are cryptographically-random values that your application has to create.
 {% endhint %}
 
-### How it works
+## How it works
 
 As an extension of the authorization code flow, the steps to request access tokens are very similar:
 
@@ -28,19 +28,21 @@ As an extension of the authorization code flow, the steps to request access toke
 7. The application calls the AM authorization server `/oauth/token?code_verifier=myVerifier` to exchange the code for an access token (and optionally, a refresh token).
 8. The application can use the access token to make secure API calls for the end user.
 
-|   | The PKCE extension prevents potential attackers from exchanging the authorization code for an access token because it requires the code verifier. |
-| - | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+{% hint style="info" %}
+The PKCE extension prevents potential attackers from exchanging the authorization code for an access token because it requires the code verifier.
+{% endhint %}
 
-### Examples
+## Examples
 
 You can use the following examples as a guideline for generating the code\_verifier and code\_challenge if you want to build your application from scratch.
 
-|   | Third party libraries or SDKs can also be used for this purpose. |
-| - | ---------------------------------------------------------------- |
+{% hint style="info" %}
+Third-party libraries or SDKs can also be used for this purpose.
+{% endhint %}
 
-#### JavaScript example
+### JavaScript example
 
-```
+```javascript
 // utils
 function base64URLEncode(str) {
   btoa(str)
@@ -60,14 +62,14 @@ function bufferToString(buffer: Uint8Array) {
 }
 ```
 
-```
+```javascript
 // generate the code_verifier
 const array = new Uint8Array(32);
 window.crypto.getRandomValues(array);
 const codeVerifier = base64URLEncode(bufferToString(array));
 ```
 
-```
+```java
 // generate the code_challenge
 const encoder = new TextEncoder();
 const data = encoder.encode(codeVerifier);
@@ -81,9 +83,9 @@ window.crypto.subtle.digest('SHA-256', data)
   });
 ```
 
-#### Java example
+### Java example
 
-```
+```java
 // generate the code_verifier
 SecureRandom secureRandom = new SecureRandom();
 byte[] code = new byte[32];
@@ -91,9 +93,11 @@ secureRandom.nextBytes(codeVerifier);
 String codeVerifier = Base64.getUrlEncoder().withoutPadding().encodeToString(code);
 ```
 
-```
+{% code overflow="wrap" %}
+```java
 // generate the code_challenge
 byte[] bytes = codeVerifier.getBytes("US-ASCII");
 MessageDigest md = MessageDigest.getInstance("SHA-256");
 String codeChallenge = Base64.getUrlEncoder().withoutPadding().encodeToString(md.digest(bytes));
 ```
+{% endcode %}
