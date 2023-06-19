@@ -179,26 +179,24 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Internet:** The [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) global network of computers and physical means by which information travels.
 
-**JSON Web Key (JWK):** a JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
+**JSON Web Key (JWK):** A JSON object representing a cryptographic key. The members of the object represent properties of the key, including its value.
 
-**JSON Web Key Set (JWKS):**  a JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs.
+**JSON Web Key Set (JWKS):**  A JSON object representing a set of JWKs. The JSON object must contain a `keys` member, which is an array of JWKs.
 
-**Log:** an immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature.
+**Log:** An immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature. Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based.
 
-* Example: Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based
+**Network communication model:** A design or architecture to accomplish communication between different systems.&#x20;
 
-**Network communication model:** a design or architecture to accomplish communication between different systems
+* **Request-response:** A tightly-coupled, synchronous communication model in which the client initiates communication by making a request directly to the server, which responds by serving data or a service. The basis for synchronous APIs.
+* **Event/message-driven:** A loosely-coupled, asynchronous communication model in which a change in state initiates communication. The basis for asynchronous APIs.
 
-* **Request-response:** tightly-coupled, synchronous communication model where the _client_ computer initiates communication by making a request directly to the _server_ computer which responds by serving data or a service. The basis for synchronous APIs.
-* **Event/message-driven:** loosely-coupled, asynchronous communication model where a change in state initiates communication. The basis for asynchronous APIs.
+**Network protocol:** A standard for network communication.
 
-**Network protocol:** standard for communication
+* **Layered networking model:** A layered protocol structure describing how computers communicate from different distances and abstraction layers. Typically defined through abstractions, e.g., the Open Systems Interconnection (OSI) conceptual model.
+* **Transport layer:** A conceptual layer responsible for establishing protocols that collect packet-based messages from applications and transmit them into the network.
+* **Application layer:** A conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network.
 
-* **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
-* **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
-* **Application layer:** a conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network
-
-**Path parameters:** a way of passing variable values within the route of an API request
+**Path parameters:** A mechanism to pass variable values within the route of an API request.
 
 * Example: `http://foo.com/api/user/{id}` where {id} is a path parameter
 
