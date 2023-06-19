@@ -28,13 +28,13 @@
   * [Configure Repositories](getting-started/configuration/configure-repositories.md)
   * [Configure Reporters](getting-started/configuration/configure-reporters.md)
   * [Configure Monitoring](getting-started/configuration/configure-monitoring.md)
-* [Tutorial: Quick Start](getting-started/tutorial-quick-start/README.md)
-  * [Log in to AM Management UI](getting-started/tutorial-quick-start/log-in-to-am-management-ui.md)
-  * [Set up your first application](getting-started/tutorial-quick-start/set-up-your-first-application.md)
-  * [Get User Profile Information](getting-started/tutorial-quick-start/get-user-profile-information.md)
-  * [Secure Your APIs](getting-started/tutorial-quick-start/secure-your-apis.md)
-  * [Configure a Flow](getting-started/tutorial-quick-start/configure-a-flow.md)
-  * [Add Custom Claims to Tokens](getting-started/tutorial-quick-start/add-custom-claims-to-tokens.md)
+* [Tutorial: Getting Started with AM](getting-started/tutorial-getting-started-with-am/README.md)
+  * [Login to AM Console](getting-started/tutorial-getting-started-with-am/login-to-am-console.md)
+  * [Set Up Your First Application](getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md)
+  * [Get User Profile Information](getting-started/tutorial-getting-started-with-am/get-user-profile-information.md)
+  * [Secure Your APIs](getting-started/tutorial-getting-started-with-am/secure-your-apis.md)
+  * [Configure a Flow](getting-started/tutorial-getting-started-with-am/configure-a-flow.md)
+  * [Add Custom Claims to Tokens](getting-started/tutorial-getting-started-with-am/add-custom-claims-to-tokens.md)
 
 ## Guides
 
