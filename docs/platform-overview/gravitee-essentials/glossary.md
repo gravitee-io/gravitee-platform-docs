@@ -117,10 +117,8 @@ Gravitee's documentation uses the terms "web API" and "API" synonymously. An API
 
 **API architectural style:** Guidelines and/or constraints governing API design:
 
-* **Representational state transfer (REST)**: an architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
-  * Example: `GET http://foo/user/1` vs `POST http://foo/user/1`
-* **Remote procedure call (RPC):** a less rigid architectural style that employs action-centric URLs. These URLs represent remote functions and RPC APIs communicate over the network to invoke them. The HTTP verb employed has no real bearing on functionality as every action will have a unique URL.
-  * Example: `GET http://foo/getUser` vs `POST http://foo/addUser`
+* **Representational state transfer (REST)**: An architectural style where a server receives a client request, executes requested modifications, then responds with a representation of the state of the requested resource. REST APIs respect [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where each HTTP verb on a URL provides unique functionality, e.g., `GET http://foo/user/1` vs `POST http://foo/user/1`.
+* **Remote procedure call (RPC):** A semi-rigid architectural style where action-centric URLs represent remote functions that are invoked via network communication. Each action corresponds to a unique URL and the HTTP verb does not determine functionality, e.g., `GET http://foo/getUser` vs `POST http://foo/addUser`.
 * **Publish-subscribe pattern (pub/sub):** an architectural style where a computer known as the event _broker_ allows information producers, or _publishers_, to publish messages to the broker and information consumers, or _subscribers_, to subscribe to receive messages from the broker
 
 {% hint style="info" %}
