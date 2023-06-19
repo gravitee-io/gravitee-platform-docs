@@ -117,17 +117,19 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 In Gravitee's documentation, you can assume web APIs and APIs are synonymous terms; otherwise, we will explicitly refer to them as **local** APIs.
 {% endhint %}
 
-*
-* **API transaction:** a single interaction between a client application and a server through an API. For synchronous APIs, it typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. For asynchronous APIs, an API transaction refers to a single transmission of a message payload between a client and a message broker
-*
-*
-* **Path parameters:** a way of passing variable values within the route of an API request
-  * Example: `http://foo.com/api/user/{id}` where {id} is a path parameter
-*
-*
-* **Asynchronous APIs**: APIs that break up the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication beyond the initial subscription from the information consumer.
-  * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
-*
+**API architectural style:** guidelines and/or constraints around API design
+
+* **Representational state transfer (REST)**: an architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
+  * Example: `GET http://foo/user/1` vs `POST http://foo/user/1`
+* **Remote procedure call (RPC):** a less rigid architectural style that employs action-centric URLs. These URLs represent remote functions and RPC APIs communicate over the network to invoke them. The HTTP verb employed has no real bearing on functionality as every action will have a unique URL.
+  * Example: `GET http://foo/getUser` vs `POST http://foo/addUser`
+* **Publish-subscribe pattern (pub/sub):** an architectural style where a computer known as the event _broker_ allows information producers, or _publishers_, to publish messages to the broker and information consumers, or _subscribers_, to subscribe to receive messages from the broker
+
+{% hint style="info" %}
+**Pub/sub confusion**
+
+The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe\_pattern) is different and broader from Google's implementation of the pub/sub design pattern in the Pub/Sub [messaging service](https://cloud.google.com/pubsub/docs/overview).
+{% endhint %}
 
 **API definition:** an instance of an API specification. API specification and definition are often used synonymously.
 
@@ -141,8 +143,6 @@ In Gravitee's documentation, you can assume web APIs and APIs are synonymous ter
 * **AsyncAPI specification**: a specification for building and documenting asynchronous APIs that defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API.&#x20;
 * **CloudEvents:** specification for describing event data in a common way. It defines an envelope for your API’s actual data as opposed to the structure of the overall API.
   * Example: Let's draw a quick metaphor to the postal service. You can think of the AsyncAPI specification as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the payload, does not fall under the jurisdiction of either specification.
-*
-*
 
 {% hint style="info" %}
 **Events vs Messages**
@@ -152,19 +152,6 @@ Although often used synonymously, you can draw a distinction between an event an
 > "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
 {% endhint %}
 
-* **API architectural style:** guidelines and/or constraints around API design
-  * **Representational state transfer (REST)**: an architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
-    * Example: `GET http://foo/user/1` vs `POST http://foo/user/1`
-  * **Remote procedure call (RPC):** a less rigid architectural style that employs action-centric URLs. These URLs represent remote functions and RPC APIs communicate over the network to invoke them. The HTTP verb employed has no real bearing on functionality as every action will have a unique URL.
-    * Example: `GET http://foo/getUser` vs `POST http://foo/addUser`
-  * **Publish-subscribe pattern (pub/sub):** an architectural style where a computer known as the event _broker_ allows information producers, or _publishers_, to publish messages to the broker and information consumers, or _subscribers_, to subscribe to receive messages from the broker
-
-{% hint style="info" %}
-**Pub/sub confusion**
-
-The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe\_pattern) is different and broader from Google's implementation of the pub/sub design pattern in the Pub/Sub [messaging service](https://cloud.google.com/pubsub/docs/overview).
-{% endhint %}
-
 * **Parallelism vs Concurrency:** the key concept is that concurrency is about _dealing with_ lots of things at once. Parallelism is about _doing_ lots of things at once.&#x20;
 
 {% hint style="info" %}
@@ -172,6 +159,14 @@ The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subsc
 
 These are two really tricky concepts to disambiguate, largely due to how similar they are and all the terminology (e.g., processes, threads, tasks, etc.) that can have slightly different meanings in different contexts. If you’re interested in developing a more intuitive understanding, our recommendation is to take a deep dive until you find an explanation that really clicks. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) is a great starting place.
 {% endhint %}
+
+
+
+**API transaction:** a single interaction between a client application and a server through an API. For synchronous APIs, it typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. For asynchronous APIs, an API transaction refers to a single transmission of a message payload between a client and a message broker
+
+**Asynchronous APIs**: APIs that break up the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication beyond the initial subscription from the information consumer.
+
+* Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
 
 **Asynchronous programming:** concurrent execution of tasks
 
@@ -223,6 +218,10 @@ These are two really tricky concepts to disambiguate, largely due to how similar
 * **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
 * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
 * **Application layer:** a conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network
+
+**Path parameters:** a way of passing variable values within the route of an API request
+
+* Example: `http://foo.com/api/user/{id}` where {id} is a path parameter
 
 **Query parameters:** a way to include additional information or parameters in the URL to customize or filter the results of the request. Query parameters are appended to the endpoint URL using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value.
 
