@@ -131,9 +131,9 @@ The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subsc
 
 **API design-first:** The API definition is created before the corresponding code is written. This provides a skeleton for code development and enables the automation of boilerplate code. Deriving the code from the specification ensures that the API documentation is complete.
 
-**API lifecycle:** The oversight processes of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
+**API lifecycle:** The processes that govern an API from creation to retirement including design, development, testing, deployment, monitoring, troubleshooting, and security.
 
-**API specification:** provides a broad understanding of how an API behaves and how the API links with other APIs. It explains how the API functions and the results to expect when using the API.
+**API specification:** Provides an overview of API behavior, interfacing, functionality, and expected output.
 
 * **OpenAPI specification:** defines a standard, language-agnostic interface to HTTP APIs that allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection
 * **AsyncAPI specification**: a specification for building and documenting asynchronous APIs that defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API.&#x20;
