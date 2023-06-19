@@ -109,15 +109,13 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ## General API terminology
 
-* **Application programming interface (API):** a set of _publicly_ exposed interface conventions for the _application programmer_ to interact with
-  * **Web API:** the interacting parties run on separate machines and communicate over a network
-  * **Local API:** both interacting parties run on the same machine
+**Application programming interface (API):** A set of publicly exposed interface conventions enabling communication between different computer programs. A web API enables programs running on separate machines to communicate over a network. A local API enables communication between programs running on the same machine.
 
 {% hint style="info" %}
-In Gravitee's documentation, you can assume web APIs and APIs are synonymous terms; otherwise, we will explicitly refer to them as **local** APIs.
+Gravitee's documentation uses the terms "web API" and "API" synonymously. An API used for local communication is explicitly referred to as a local API.
 {% endhint %}
 
-**API architectural style:** guidelines and/or constraints around API design
+**API architectural style:** Guidelines and/or constraints governing API design:
 
 * **Representational state transfer (REST)**: an architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
   * Example: `GET http://foo/user/1` vs `POST http://foo/user/1`
