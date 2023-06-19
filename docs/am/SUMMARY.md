@@ -47,6 +47,11 @@
     * [Best Practices](guides/authorization-authentication-and-identity-protocols-supported/oauth-2.0/best-practices.md)
 * [Developer Contributions](guides/developer-contributions.md)
 * [Administration](guides/administration.md)
+* [Identity Providers](guides/identity-providers/README.md)
+  * [User and Role Mapping](guides/identity-providers/user-and-role-mapping.md)
+* [User Management](guides/user-management/README.md)
+  * [User Consent](guides/user-management/user-consent.md)
+* [Flows](guides/flows.md)
 
 ## Reference
 
