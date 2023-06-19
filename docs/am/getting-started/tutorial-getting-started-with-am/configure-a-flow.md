@@ -167,5 +167,3 @@ Notice the `<p th:text="'Hi ' + ${#ctx.getVariable('X-Custom-Variable')} + ' !'"
           http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/forms
     ```
     {% endcode %}
-
-\
