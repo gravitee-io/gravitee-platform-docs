@@ -149,7 +149,7 @@ Although often used synonymously, an event is different from a message. A messag
 
 **API transaction:** A single interaction between a client application and a server through an API. A synchronous API transaction typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. An asynchronous API transaction refers to a single transmission of a message payload between a client and a message broker.
 
-**Asynchronous APIs**: APIs that break up the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication beyond the initial subscription from the information consumer.
+**Asynchronous APIs**: APIs that do not  the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication beyond the initial subscription from the information consumer.
 
 * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
 
