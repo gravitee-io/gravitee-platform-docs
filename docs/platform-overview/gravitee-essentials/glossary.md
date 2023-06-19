@@ -120,28 +120,29 @@ In Gravitee's documentation, you can assume web APIs and APIs are synonymous ter
 *
 * **API transaction:** a single interaction between a client application and a server through an API. For synchronous APIs, it typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. For asynchronous APIs, an API transaction refers to a single transmission of a message payload between a client and a message broker
 *
-* **Resource:** an entity or object that is made available for interaction through the API. It represents a specific piece of data or functionality that can be accessed, modified, or manipulated by clients.
-  * **Example:** `{id: 42, type: employee, company: 5}`
+*
 * **Path parameters:** a way of passing variable values within the route of an API request
   * Example: `http://foo.com/api/user/{id}` where {id} is a path parameter
-* **Query parameters:** a way to include additional information or parameters in the URL to customize or filter the results of the request. Query parameters are appended to the endpoint URL using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value.
-  * Example: `http://foo.com/api/user/{id}/?height=tall` where "height" is a query parameter with a value of "tall"
-* **Synchronous APIs:** APIs that require linear, sequential communication between a tightly-coupled client and server. Clients initiate all communication.&#x20;
-  * Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
+*
+*
 * **Asynchronous APIs**: APIs that break up the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication beyond the initial subscription from the information consumer.
   * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
-* **API specification:** provides a broad understanding of how an API behaves and how the API links with other APIs. It explains how the API functions and the results to expect when using the API.
-  * **OpenAPI specification:** defines a standard, language-agnostic interface to HTTP APIs that allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection
-  * **AsyncAPI specification**: a specification for building and documenting asynchronous APIs that defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API.&#x20;
-  * **CloudEvents:** specification for describing event data in a common way. It defines an envelope for your API’s actual data as opposed to the structure of the overall API.
-    * Example: Let's draw a quick metaphor to the postal service. You can think of the AsyncAPI specification as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the payload, does not fall under the jurisdiction of either specification.
-* **API definition:** an instance of an API specification. API specification and definition are often used synonymously.
-* **API design-first:** the API definition is written first and then the code follows. The advantages are that the code already has a skeleton upon which to build and that some tools can provide boilerplate code automatically. Additionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
-* **API lifecycle:** process of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
 *
-* **Network communication model:** a design or architecture to accomplish communication between different systems
-  * **Request-response:** tightly-coupled, synchronous communication model where the _client_ computer initiates communication by making a request directly to the _server_ computer which responds by serving data or a service. The basis for synchronous APIs.
-  * **Event/message-driven:** loosely-coupled, asynchronous communication model where a change in state initiates communication. The basis for asynchronous APIs.
+
+**API definition:** an instance of an API specification. API specification and definition are often used synonymously.
+
+**API design-first:** the API definition is written first and then the code follows. The advantages are that the code already has a skeleton upon which to build and that some tools can provide boilerplate code automatically. Additionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
+
+**API lifecycle:** process of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
+
+**API specification:** provides a broad understanding of how an API behaves and how the API links with other APIs. It explains how the API functions and the results to expect when using the API.
+
+* **OpenAPI specification:** defines a standard, language-agnostic interface to HTTP APIs that allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection
+* **AsyncAPI specification**: a specification for building and documenting asynchronous APIs that defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API.&#x20;
+* **CloudEvents:** specification for describing event data in a common way. It defines an envelope for your API’s actual data as opposed to the structure of the overall API.
+  * Example: Let's draw a quick metaphor to the postal service. You can think of the AsyncAPI specification as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the payload, does not fall under the jurisdiction of either specification.
+*
+*
 
 {% hint style="info" %}
 **Events vs Messages**
@@ -212,17 +213,30 @@ These are two really tricky concepts to disambiguate, largely due to how similar
 
 * Example: Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based
 
+**Network communication model:** a design or architecture to accomplish communication between different systems
+
+* **Request-response:** tightly-coupled, synchronous communication model where the _client_ computer initiates communication by making a request directly to the _server_ computer which responds by serving data or a service. The basis for synchronous APIs.
+* **Event/message-driven:** loosely-coupled, asynchronous communication model where a change in state initiates communication. The basis for asynchronous APIs.
+
 **Network protocol:** standard for communication
 
 * **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
 * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
 * **Application layer:** a conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network
 
+**Query parameters:** a way to include additional information or parameters in the URL to customize or filter the results of the request. Query parameters are appended to the endpoint URL using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value.
+
+* Example: `http://foo.com/api/user/{id}/?height=tall` where "height" is a query parameter with a value of "tall"
+
 **Queue:** a transient, linear data structure that uses the first in first out (FIFO) approach to accessing elements. Generally, each application has its own queue as messages are lost when consumed.
 
 * Example: RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are all queue-based
 
 **Reactive programming:** making _asynchronous data streams the spine_ of your application. Events are now the main orchestrators of your application’s flow. The reactive programmer manages the logic around manipulating and performing operations on the data streams.
+
+**Resource:** an entity or object that is made available for interaction through the API. It represents a specific piece of data or functionality that can be accessed, modified, or manipulated by clients.
+
+* **Example:** `{id: 42, type: employee, company: 5}`
 
 **Serialization:** the process of converting an object in memory to a stream of bytes for storage or transport
 
@@ -231,6 +245,10 @@ These are two really tricky concepts to disambiguate, largely due to how similar
 **Stateless web APIs:** the server does not store any information about the client making the request. In other words, the session is stored on the client where the session is an encapsulation of a particular client and server interaction
 
 **Stream processing:** applying complex logic to an array of input streams as they flow through the system that can be joined, aggregated, filtered, etc.
+
+**Synchronous APIs:** APIs that require linear, sequential communication between a tightly-coupled client and server. Clients initiate all communication.&#x20;
+
+* Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
 
 **Synchronous programming:** a linear, sequential execution of tasks
 
