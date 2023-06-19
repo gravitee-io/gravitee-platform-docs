@@ -136,7 +136,7 @@ The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subsc
 **API specification:** Provides an overview of API behavior, interfacing, functionality, and expected output.
 
 * **OpenAPI Specification:** A standardized, language-agnostic, and human and machine-readable HTTP API interface definition that enables discovery and understanding of service capabilities without relying on source code, documentation, or network traffic inspection.
-* **AsyncAPI specification**: a specification for building and documenting asynchronous APIs that defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API.&#x20;
+* **AsyncAPI Specification**: A framework for creating and documenting asynchronous APIs that defines a standardized format for message, event, and channel descriptions to facilitate developer understanding and implementation.&#x20;
 * **CloudEvents:** specification for describing event data in a common way. It defines an envelope for your API’s actual data as opposed to the structure of the overall API.
   * Example: Let's draw a quick metaphor to the postal service. You can think of the AsyncAPI specification as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the payload, does not fall under the jurisdiction of either specification.
 
