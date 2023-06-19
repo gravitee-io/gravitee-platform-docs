@@ -147,13 +147,11 @@ Although often used synonymously, an event is different from a message. A messag
 > "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
 {% endhint %}
 
-**API transaction:** A single interaction between a client application and a server through an API. A synchronous API transaction typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. An asynchronous API transaction refers to a single transmission of a message payload between a client and a message broker.
+**API transaction:** A single interaction between a client application and a server through an API. In a typical synchronous API transaction, a client request is sent to a server via API endpoint and the server response is returned to the client. An asynchronous API transaction refers to a single transmission of a message payload between a client and a message broker.
 
-**Asynchronous APIs**: APIs that do not  the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication beyond the initial subscription from the information consumer.
+**Asynchronous APIs**: APIs that do not exhibit linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication following the initial consumer subscription. Example: A stock trading API sends price updates real-time, a client application subscribes to the API to track specific stocks, and the stock trading API sends price updates to the client application as they occur, without waiting for a request from the client application.&#x20;
 
-* Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
-
-**Asynchronous programming:** concurrent execution of tasks
+**Asynchronous programming:** The concurrent execution of tasks.
 
 **Batch processing:** processing and analysis on a large (large in comparison to stream processing) set of data that has already been stored for a period of time
 
