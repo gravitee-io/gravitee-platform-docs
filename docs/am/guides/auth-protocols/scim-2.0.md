@@ -1,35 +1,31 @@
 # SCIM 2.0
 
-## Overview
+[The System for Cross-domain Identity Management (SCIM)](https://datatracker.ietf.org/doc/html/rfc7644) 2.0 is a standard for automating the exchange of user identity information between identity domains, or IT systems.
 
-[SCIM 2.0](http://www.simplecloud.info/) is a standard for automating the exchange of user identity information between identity domains, or IT systems.
+Since it is a standard, SCIM ensures interoperability and user data consistency that can be communicated across similar applications. SCIM enables to automate the provisioning/de-provisioning process and manage users and groups.
 
-Since it is a standard, SCIM ensures interoperability and user data consistency that can be communicated across similar applications. SCIM enables to automate the provisioning/deprovisioning process and manage users and groups.
+SCIM protocol endpoints are exposed by the [AM API](https://docs.gravitee.io/am/current/scim/index.html).
 
-SCIM protocol endpoints exposed by AM API are as follows:
-
-* [SCIM 2.0 Console](https://docs.gravitee.io/am/current/scim/index.html) - [Swagger spec](https://docs.gravitee.io/am/current/scim/swagger.yml)
-
-### Protocol
+## Protocol
 
 SCIM is a standard that defines schema and protocols for identity management.
 
-It relies on REST APIs with endpoints exposing CRUD (Create, Read, Update, Delete) functionality for users and groups as well as search, discovery and bulk features.
+It relies on REST APIs with endpoints exposing CRUD (Create, Read, Update, Delete) functionality for users and groups as well as search, discovery, and bulk features.
 
-### Custom attributes
-
-New in version 3.19.3
+## Custom attributes
 
 Gravitee AM supports a custom SCIM (system for cross-domain identity management) `User` extension that enables you to define extended attributes for your users.
 
-|   | Custom attributes are stored in the `additionalInformation` map of the user. |
-| - | ---------------------------------------------------------------------------- |
+{% hint style="info" %}
+Custom attributes are stored in the `additionalInformation` map of the user.
+{% endhint %}
 
-The custom `User` extension is identified using the following schema URI: "urn:ietf:params:scim:schemas:extension:custom:2.0:User".
+The custom `User` extension is identified using the following schema URI: `urn:ietf:params:scim:schemas:extension:custom:2.0:User`
 
 The following non-normative example shows how to create, update, and patch users by using the custom `User` extension in JSON format.
 
-```
+{% code overflow="wrap" %}
+```sh
 Create user
 
 curl -L -X POST 'https://AM_GATEWAY/{domain}/scim/Users'
@@ -127,8 +123,10 @@ curl -L -X POST 'https://AM_GATEWAY/{domain}/scim/Users'
   }
 }
 ```
+{% endcode %}
 
-```
+{% code overflow="wrap" %}
+```sh
 Update user
 
 curl -L -X PUT 'https://AM_GATEWAY/{domain}/scim/Users/{userId}'
@@ -149,8 +147,9 @@ curl -L -X PUT 'https://AM_GATEWAY/{domain}/scim/Users/{userId}'
      }
 }
 ```
+{% endcode %}
 
-```
+```sh
 Patch user
 
 curl -L -X PATCH 'https://AM_GATEWAY/{domain}/scim/Users/{userId}'

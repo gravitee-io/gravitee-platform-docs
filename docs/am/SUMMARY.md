@@ -58,6 +58,8 @@
   * [Storage](guides/audit-trail/storage/README.md)
     * [File](guides/audit-trail/storage/file.md)
 * [Identity Providers](guides/identity-providers/README.md)
+  * [Enterprise Identity Providers](guides/identity-providers/enterprise-identity-providers/README.md)
+    * [SAML 2.0](guides/identity-providers/enterprise-identity-providers/saml-2.0.md)
   * [User and Role Mapping](guides/identity-providers/user-and-role-mapping.md)
 * [User Management](guides/user-management/README.md)
   * [User Consent](guides/user-management/user-consent.md)
