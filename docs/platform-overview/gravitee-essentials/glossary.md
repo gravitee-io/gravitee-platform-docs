@@ -138,10 +138,7 @@ In Gravitee's documentation, you can assume web APIs and APIs are synonymous ter
 * **API definition:** an instance of an API specification. API specification and definition are often used synonymously.
 * **API design-first:** the API definition is written first and then the code follows. The advantages are that the code already has a skeleton upon which to build and that some tools can provide boilerplate code automatically. Additionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
 * **API lifecycle:** process of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
-* **System architectures and design patterns:** a general, reusable description or template to a commonly occurring problem within a given context in software design
-  * **Monolithic architecture:** the traditional model of a software program, which is built as a unified and tightly coupled unit that is self-contained and independent from other applications
-  * **Microservices architecture:** software development model where software is composed of small independent services that communicate over well-defined APIs
-  * **Event-driven architecture (EDA):** uses events, or changes in state, to trigger asynchronous communication between decoupled services&#x20;
+*
 * **Network communication model:** a design or architecture to accomplish communication between different systems
   * **Request-response:** tightly-coupled, synchronous communication model where the _client_ computer initiates communication by making a request directly to the _server_ computer which responds by serving data or a service. The basis for synchronous APIs.
   * **Event/message-driven:** loosely-coupled, asynchronous communication model where a change in state initiates communication. The basis for asynchronous APIs.
@@ -154,9 +151,6 @@ Although often used synonymously, you can draw a distinction between an event an
 > "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
 {% endhint %}
 
-*
-* **World wide web (web):** information system on the internet which allows documents to be connected to other documents in the form of hypermedia (e.g., web pages)
-*
 * **API architectural style:** guidelines and/or constraints around API design
   * **Representational state transfer (REST)**: an architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
     * Example: `GET http://foo/user/1` vs `POST http://foo/user/1`
@@ -178,38 +172,75 @@ The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subsc
 These are two really tricky concepts to disambiguate, largely due to how similar they are and all the terminology (e.g., processes, threads, tasks, etc.) that can have slightly different meanings in different contexts. If you’re interested in developing a more intuitive understanding, our recommendation is to take a deep dive until you find an explanation that really clicks. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) is a great starting place.
 {% endhint %}
 
-* **Asynchronous programming:** concurrent execution of tasks
-* **Batch processing:** processing and analysis on a large (large in comparison to stream processing) set of data that has already been stored for a period of time
-* **Data-interchange format:** text or binary serialized formats for storing and transferring data
-* **Deserialization:** the inverse process of serialization that converts a stream of bytes back into a complex object
-* **Domain name:** part of a network address that identifies a realm of administrative autonomy, authority or control
-* **Event-native:** event-driven architecture implemented with reactive programming to natively handle asynchronous, event-driven APIs
-* **Fully qualified domain name (FQDN):** a domain name that specifies its exact location in the tree hierarchy of the Domain Name System
-* **GraphQL:** an architectural style, a [query language](https://www.techopedia.com/definition/3948/query-language) for APIs, and a runtime for fulfilling those queries
-* **HTTP API endpoint:** one end of a communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
-  * Example: `GET http://foo.com/api/user/1`
-* **HTTP API entry point:** a special type of resource — it’s a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API.
-  * Example: `http://foo.com/api`
-* **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
-* **HTTP API route:** part of the URL used to access a resource. It does not include parts of the URL like fragments.
-  * Example: `http://foo.com/api/user/1`
-* **Internet:** the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the physical means by which information travels
-* **JSON Web Key (JWK):** a JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
-* **JSON Web Key Set (JWKS):**  a JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs.
-* **Log:** an immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature.
-  * Example: Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based
-* **Network protocol:** standard for communication
-  * **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
-  * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
-  * **Application layer:** a conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network
-* **Queue:** a transient, linear data structure that uses the first in first out (FIFO) approach to accessing elements. Generally, each application has its own queue as messages are lost when consumed.
-  * Example: RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are all queue-based
-* **Reactive programming:** making _asynchronous data streams the spine_ of your application. Events are now the main orchestrators of your application’s flow. The reactive programmer manages the logic around manipulating and performing operations on the data streams.
-* **Serialization:** the process of converting an object in memory to a stream of bytes for storage or transport
-* **Stateful web APIs:** the server stores information about the client making the request. In other words, the session is stored on the server where the session is an encapsulation of a particular client and server interaction
-* **Stateless web APIs:** the server does not store any information about the client making the request. In other words, the session is stored on the client where the session is an encapsulation of a particular client and server interaction
-* **Stream processing:** applying complex logic to an array of input streams as they flow through the system that can be joined, aggregated, filtered, etc.
-* **Synchronous programming:** a linear, sequential execution of tasks
+**Asynchronous programming:** concurrent execution of tasks
+
+**Batch processing:** processing and analysis on a large (large in comparison to stream processing) set of data that has already been stored for a period of time
+
+**Data-interchange format:** text or binary serialized formats for storing and transferring data
+
+**Deserialization:** the inverse process of serialization that converts a stream of bytes back into a complex object
+
+**Domain name:** part of a network address that identifies a realm of administrative autonomy, authority or control
+
+**Event-native:** event-driven architecture implemented with reactive programming to natively handle asynchronous, event-driven APIs
+
+**Fully qualified domain name (FQDN):** a domain name that specifies its exact location in the tree hierarchy of the Domain Name System
+
+**GraphQL:** an architectural style, a [query language](https://www.techopedia.com/definition/3948/query-language) for APIs, and a runtime for fulfilling those queries
+
+**HTTP API endpoint:** one end of a communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
+
+* Example: `GET http://foo.com/api/user/1`
+
+**HTTP API entry point:** a special type of resource — it’s a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API.
+
+* Example: `http://foo.com/api`
+
+**HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
+
+**HTTP API route:** part of the URL used to access a resource. It does not include parts of the URL like fragments.
+
+* Example: `http://foo.com/api/user/1`
+
+**Internet:** the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the physical means by which information travels
+
+**JSON Web Key (JWK):** a JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
+
+**JSON Web Key Set (JWKS):**  a JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs.
+
+**Log:** an immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature.
+
+* Example: Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based
+
+**Network protocol:** standard for communication
+
+* **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
+* **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
+* **Application layer:** a conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network
+
+**Queue:** a transient, linear data structure that uses the first in first out (FIFO) approach to accessing elements. Generally, each application has its own queue as messages are lost when consumed.
+
+* Example: RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are all queue-based
+
+**Reactive programming:** making _asynchronous data streams the spine_ of your application. Events are now the main orchestrators of your application’s flow. The reactive programmer manages the logic around manipulating and performing operations on the data streams.
+
+**Serialization:** the process of converting an object in memory to a stream of bytes for storage or transport
+
+**Stateful web APIs:** the server stores information about the client making the request. In other words, the session is stored on the server where the session is an encapsulation of a particular client and server interaction
+
+**Stateless web APIs:** the server does not store any information about the client making the request. In other words, the session is stored on the client where the session is an encapsulation of a particular client and server interaction
+
+**Stream processing:** applying complex logic to an array of input streams as they flow through the system that can be joined, aggregated, filtered, etc.
+
+**Synchronous programming:** a linear, sequential execution of tasks
+
+**System architectures and design patterns:** a general, reusable description or template to a commonly occurring problem within a given context in software design
+
+* **Monolithic architecture:** the traditional model of a software program, which is built as a unified and tightly coupled unit that is self-contained and independent from other applications
+* **Microservices architecture:** software development model where software is composed of small independent services that communicate over well-defined APIs
+* **Event-driven architecture (EDA):** uses events, or changes in state, to trigger asynchronous communication between decoupled services&#x20;
+
+**World wide web (web):** information system on the internet which allows documents to be connected to other documents in the form of hypermedia (e.g., web pages)
 
 
 
