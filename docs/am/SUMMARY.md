@@ -55,6 +55,7 @@
     * [Github](guides/identity-providers/social-identity-providers/github.md)
     * [Twitter](guides/identity-providers/social-identity-providers/twitter.md)
     * [LinkedIn](guides/identity-providers/social-identity-providers/linkedin.md)
+    * [Salesforce](guides/identity-providers/social-identity-providers/salesforce.md)
   * [Legal Identity Providers](guides/identity-providers/legal-identity-providers.md)
   * [Database Identity Providers](guides/identity-providers/database-identity-providers.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
