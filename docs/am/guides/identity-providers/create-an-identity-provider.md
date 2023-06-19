@@ -5,7 +5,7 @@
 This section gives a general overview of creating identity providers (IdPs). For more details on connecting your applications with specific identity provider types, see the following sections:
 
 * [Enterprise identity providers](enterprise-identity-providers/)
-* [Social identity providers](social-identity-providers.md)
+* [Social identity providers](social-identity-providers/)
 * [Legal identity providers](legal-identity-providers.md)
 * [Database identity providers](database-identity-providers.md)
 
