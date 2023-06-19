@@ -169,21 +169,15 @@ Although often used synonymously, an event is different from a message. A messag
 
 **GraphQL:** An architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries.
 
-**HTTP API endpoint:** One end of a network communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
+**HTTP API endpoint:** One end of a network communication channel, it consists of a URL and an HTTP method to perform an action on a resource, e.g., `GET http://foo.com/api/user/1`.
 
-* Example: `GET http://foo.com/api/user/1`
+**HTTP API entry point:** A special type of resource, i.e., a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API, e.g., `http://foo.com/api`.
 
-**HTTP API entry point:** a special type of resource — it’s a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API.
+**HTTP API resource:** An object with a type, associated data, relationships to other resources, and a set of methods that operate on it.
 
-* Example: `http://foo.com/api`
+**HTTP API route:** The part of a URL used to access a resource and does not include fragments, e.g., `http://foo.com/api/user/1`.
 
-**HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
-
-**HTTP API route:** part of the URL used to access a resource. It does not include parts of the URL like fragments.
-
-* Example: `http://foo.com/api/user/1`
-
-**Internet:** the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the physical means by which information travels
+**Internet:** The [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) global network of computers and physical means by which information travels.
 
 **JSON Web Key (JWK):** a JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
 
