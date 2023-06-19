@@ -55,8 +55,7 @@
 
 ## Reference
 
-* [Management API Reference](reference/management-api-reference.md)
-* [Policy Reference](reference/policy-reference.md)
+* [AM API Reference](reference/am-api-reference.md)
 
 ## Releases & Changelog
 

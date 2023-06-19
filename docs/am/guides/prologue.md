@@ -4,9 +4,7 @@ description: A deep dive on Gravitee Access Management's feature set
 
 # Prologue
 
-The _guides_ section is here to dive into everything you need to know in order to use the Gravitee Access Management (AM) platform and its extensive feature set. As of now, the guides focus on the following categories of usage:
-
-*
+The _guides_ section is here to dive into everything you need to know in order to use the Gravitee Access Management (AM) platform and its extensive feature set.
 
 Each guide will begin by detailing relevant, high-level concepts to the reader. From there, the reader can select any subpage in the sidebar to learn how to actually use the specific feature they're most interested in.
 
