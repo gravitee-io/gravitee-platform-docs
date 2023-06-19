@@ -192,7 +192,7 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Network protocol:** A standard for network communication.
 
-* **Layered networking model:** A layered protocol structure describing how computers communicate from different distances and abstraction layers. Typically defined through abstractions, e.g., the Open Systems Interconnection (OSI) conceptual model.
+* **Layered networking model:** A layered protocol conceptualization to model computer communication at different distances and abstraction layers. Typically defined through abstractions, e.g., the Open Systems Interconnection (OSI) conceptual model.
 * **Transport layer:** A conceptual layer responsible for establishing protocols that collect packet-based messages from applications and transmit them into the network.
 * **Application layer:** A conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network.
 
