@@ -20,18 +20,23 @@ The workspace menu divides administrative tasks into two sections: API Designs a
 
 Click on API Designs in the left-hand nav to create or manage an API.
 
-When creating an API, you will be prompted to provide a **name** and a **description**. The name will be used as the context path, in accordance with the **case** rules configured in Settings.
+**Create an API:** When creating an API, you will be prompted to provide a **name** and a **description**. The name will be used as the context path, in accordance with the **case** rules configured in Settings.
 
-The card representing an existing API shows several icons. Click on an icon to trigger management functionality:
+**Manage an API:** The card representing an existing API shows several icons. Click on an icon to trigger management functionality.
 
-* Create an API
-* Manage an API
+|   |   |   |
+| - | - | - |
+|   |   |   |
+|   |   |   |
+|   |   |   |
 
-**Settings**
 
-* Case: Indicate how case should be applied to paths, objects, and parameters.
-* Target Environment: Select the environment to which the API design will be deployed.
-* Legend: Define the visual cues to distinguish between design attributes.
+
+### **Settings**
+
+Click on the following Settings options in the left-hand nav to customize API settings.
+
+<table><thead><tr><th width="207.5">Option</th><th>Description</th></tr></thead><tbody><tr><td><strong>Case</strong></td><td>Indicate how case should be applied to paths, objects, and parameters.</td></tr><tr><td><strong>Target Environment</strong></td><td>Select the environment to which the API design will be deployed.</td></tr><tr><td><strong>Legend</strong></td><td>Define the visual cues to distinguish between design attributes.</td></tr></tbody></table>
 
 {% hint style="warning" %}
 Only environments linked to active API Management installations will be shown.
