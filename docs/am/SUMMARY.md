@@ -106,6 +106,7 @@
   * [Storage](guides/audit-trail/storage/README.md)
     * [File](guides/audit-trail/storage/file.md)
 * [User Management](guides/user-management/README.md)
+  * [Self-service Account Management](guides/user-management/self-service-account-management.md)
   * [User Consent](guides/user-management/user-consent.md)
 * [Developer Contributions](guides/developer-contributions.md)
 
