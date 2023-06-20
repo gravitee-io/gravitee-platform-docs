@@ -2,7 +2,7 @@
 description: Sample structure for policy documentation
 ---
 
-# Template Policy
+# v4 Template Policy
 
 ***
 
