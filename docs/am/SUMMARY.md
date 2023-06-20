@@ -38,8 +38,6 @@
 
 ## Guides
 
-* [Resources](guides/resources/README.md)
-  * [SMTP Resource](guides/resources/smtp-resource.md)
 * [Prologue](guides/prologue.md)
 * [Auth Protocols](guides/auth-protocols/README.md)
   * [OAuth 2.0](guides/auth-protocols/oauth-2.0/README.md)
@@ -100,14 +98,18 @@
   * [Recovery Codes](guides/multi-factor-authentication/recovery-codes.md)
   * [Reset MFA](guides/multi-factor-authentication/reset-mfa.md)
   * [MFA Security](guides/multi-factor-authentication/mfa-security.md)
+* [Resources](guides/resources/README.md)
+  * [Twilio](guides/resources/twilio.md)
+  * [SMTP Resource](guides/resources/smtp-resource.md)
+* [Certificates](guides/certificates.md)
+* [User Management](guides/user-management/README.md)
+  * [Self-service Account Management](guides/user-management/self-service-account-management.md)
+  * [User Consent](guides/user-management/user-consent.md)
 * [Flows](guides/flows.md)
 * [Administration](guides/administration.md)
 * [Audit Trail](guides/audit-trail/README.md)
   * [Storage](guides/audit-trail/storage/README.md)
     * [File](guides/audit-trail/storage/file.md)
-* [User Management](guides/user-management/README.md)
-  * [Self-service Account Management](guides/user-management/self-service-account-management.md)
-  * [User Consent](guides/user-management/user-consent.md)
 * [Developer Contributions](guides/developer-contributions.md)
 
 ## Reference
