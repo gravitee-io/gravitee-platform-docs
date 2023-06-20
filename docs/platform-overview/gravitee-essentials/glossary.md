@@ -42,7 +42,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 [**Community Edition:**](gravitee-offerings-ce-vs-ee/) An event-native API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
 
-[**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source event-native API management platform. Feature sets targeting commercial end users include the Alert Engine, the no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
+[**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source and event-native API management platform. Feature sets targeting commercial end users include the Alert Engine, the no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 
 **Gravitee API Consumer:** The user or application accessing the gateway API.
 
