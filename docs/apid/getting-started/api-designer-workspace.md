@@ -11,3 +11,18 @@ Navigating to the API Designer in Gravitee Cloud opens the API Designer Workspac
 {% hint style="info" %}
 The workspace is organization-centric. API designs and settings exist within the context of the selected organization.
 {% endhint %}
+
+## Workspace Actions
+
+The workspace menu divides administrative tasks into two sections: API Designs and Settings:
+
+**API Designs**
+
+* Create an API
+* Manage an API
+
+**Settings**
+
+* Case: Indicate how case should be applied to paths, objects, and parameters.
+* Target Environment: Select the environment to which the API design will be deployed.
+* Legend: Define the visual cues to distinguish between design attributes.
