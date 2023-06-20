@@ -214,7 +214,7 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Stateless web APIs:** the server does not store any information about the client making the request. In other words, the session is stored on the client where the session is an encapsulation of a particular client and server interaction
 
-**Stream processing:** applying complex logic to an array of input streams as they flow through the system that can be joined, aggregated, filtered, etc.
+**Stream processing:** The application of complex logic to an array of input streams as they flow through the system, which can then be joined, aggregated, filtered, etc.
 
 **Synchronous APIs:** APIs that require communication to be linear, sequential, between a tightly-coupled client and server, and client-initiated, e.g., a user authentication API where the client application sends a request to the API with the user's credentials and the API returns a response containing either a token to access protected resources or an error message.&#x20;
 
