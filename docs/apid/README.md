@@ -7,3 +7,5 @@ Developed to accelerate business-driven innovation, Gravitee API Designer:
 * Shifts the focus of API development from technical details to customer needs
 * Empowers users to own API design and customization
 * Embraces a quick feedback loop to improve the quality of APIs
+
+To get started, [register with Gravitee Cloud](https://cockpit.gravitee.io) and configure your Workspace.
