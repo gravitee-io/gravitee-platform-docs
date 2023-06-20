@@ -9,5 +9,5 @@ This API Designer Workspace is the administrative interface of the API Designer.
 <figure><img src="../.gitbook/assets/apid_workspace.png" alt=""><figcaption><p>API Designer Workspace</p></figcaption></figure>
 
 {% hint style="info" %}
-something
+The workspace is organization-centric. API designs and settings exist within the context of the selected organization.
 {% endhint %}
