@@ -28,6 +28,8 @@ The following diagrams illustrate the component management, design, and virtual 
 
 ### Self-hosted component management <a href="#components" id="components"></a>
 
+<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+
 ![Self-Hosted Components](https://dobl1.github.io/gravitee-se-docs/latest/assets/gio-apim-self-hosted-components.svg)
 
 ### Self-hosted architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
