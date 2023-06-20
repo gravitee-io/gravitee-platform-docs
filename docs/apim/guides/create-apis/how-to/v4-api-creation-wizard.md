@@ -59,7 +59,6 @@ If you chose **Introspect messages from Event-driven backend,** you get a much d
 * **HTTP GET:** allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP GET request.
 * **HTTP POST:** allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP POST request.
 * **Server-sent Events:** allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client.
-* **Server-sent Events advanced:** allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client with additional support for Quality of Service (QoS).
 * **Webhook**: allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
 * **WebSocket**: allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
