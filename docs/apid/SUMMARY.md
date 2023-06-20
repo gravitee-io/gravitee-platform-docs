@@ -1,8 +1,13 @@
 # Table of contents
 
+## OVERVIEW
+
 * [Introduction to Gravitee API Designer (APID)](README.md)
 
-## Group 1
+## GETTING STARTED
 
-* [Hi](group-1/hi/README.md)
-  * [Page 1](group-1/hi/page-1.md)
+* [Page 1](getting-started/page-1.md)
+
+## GUIDES
+
+* [Page 2](guides/page-2.md)
