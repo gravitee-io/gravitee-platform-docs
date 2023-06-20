@@ -14,9 +14,15 @@ The workspace is organization-centric. API designs and settings exist within the
 
 ## Workspace Actions
 
-The workspace menu divides administrative tasks into two sections: API Designs and Settings:
+The workspace menu divides administrative tasks into two sections: API Designs and Settings.
 
-**API Designs**
+### **API Designs**
+
+Click on API Designs in the left-hand nav to create or manage an API.
+
+When creating an API, you will be prompted to provide a **name** and a **description**. The name will be used as the context path, in accordance with the **case** rules configured in Settings.
+
+The card representing an existing API shows several icons. Click on an icon to trigger management functionality:
 
 * Create an API
 * Manage an API
