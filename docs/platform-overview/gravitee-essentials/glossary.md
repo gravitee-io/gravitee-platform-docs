@@ -204,17 +204,15 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Reactive programming:** An application development technique based on asynchronous data streams. Events are the main orchestrators of application flow and scripting manages the logic to manipulate and perform operations on data streams.
 
-**Resource:** an entity or object that is made available for interaction through the API. It represents a specific piece of data or functionality that can be accessed, modified, or manipulated by clients.
+**Resource:** An entity or object that is made available through an API and represents specific data or functionality that can be accessed, modified, or manipulated by clients, e.g., `{id: 42, type: employee, company: 5}`.
 
-* **Example:** `{id: 42, type: employee, company: 5}`
-
-**Serialization:** the process of converting an object in memory to a stream of bytes for storage or transport
+**Serialization:** The process of converting an object in memory to a stream of bytes for storage or transport.
 
 **Stateful web APIs:** the server stores information about the client making the request. In other words, the session is stored on the server where the session is an encapsulation of a particular client and server interaction
 
 **Stateless web APIs:** the server does not store any information about the client making the request. In other words, the session is stored on the client where the session is an encapsulation of a particular client and server interaction
 
-**Stream processing:** The application of complex logic to an array of input streams as they flow through the system, which can then be joined, aggregated, filtered, etc.
+**Stream processing:** The application of complex logic to an array of input streams as they flow through a system, including operations to append, aggregate, filter, etc.
 
 **Synchronous APIs:** APIs that require communication to be linear, sequential, between a tightly-coupled client and server, and client-initiated, e.g., a user authentication API where the client application sends a request to the API with the user's credentials and the API returns a response containing either a token to access protected resources or an error message.&#x20;
 
