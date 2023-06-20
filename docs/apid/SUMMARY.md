@@ -6,7 +6,7 @@
 
 ## GETTING STARTED
 
-* [Page 1](getting-started/page-1.md)
+* [API Designer Workspace](getting-started/api-designer-workspace.md)
 
 ## GUIDES
 
