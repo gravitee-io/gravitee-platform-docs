@@ -4,7 +4,7 @@ description: Secure, transform, restrict, and monitor your APIs
 
 # Policy Reference
 
-### Overview
+## Overview
 
 Gravitee API Management (APIM) encompasses API design, API security and access management, API reliability, API delivery, and API productization. At the core of this sphere of responsibility sits the API Gateway which is a reverse proxy that sits in front of your APIs and helps route requests to the appropriate backend service while also performing various tasks such as rate limiting, authentication, and transformation of requests and responses. Typically, the primary method of enforcing security, reliability, and the proper movement of data is **policies**.
 
@@ -22,10 +22,8 @@ Policies can be used for a variety of reasons and objectives, ranging from makin
   * For example, you could use a cache policy to cache the response of a particular backend API for one hour or until the user manually bypasses the cache.
 * **Routing**: dispatch inbound calls to different targets/endpoints or rewrite URIs
   * For example, you could use a dynamic routing policy to redirect requests from `http://gateway/apis/store/12/info` to `http://backend_store12/info`
-* **Monitoring, Validation, & Testing**
-  * For example,
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Full Policy Reference</strong></td><td>All policies listed in alphabetical order</td><td></td><td></td><td><a href="full-policy-reference/">full-policy-reference</a></td></tr><tr><td><strong>Gravitee Policies</strong></td><td>Learn more about the current Gravitee-maintained policies</td><td></td><td><a href="gravitee-policies/">gravitee-policies</a></td><td><a href="gravitee-policies/">gravitee-policies</a></td></tr><tr><td><strong>Community Policies</strong></td><td>Learn more about community policies and see the current list</td><td></td><td><a href="community-policies.md">community-policies.md</a></td><td><a href="community-policies.md">community-policies.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Full Policy Reference</strong></td><td>All policies listed in alphabetical order</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Gravitee Policies</strong></td><td>Learn more about the current Gravitee-maintained policies</td><td></td><td><a href="gravitee-policies/">gravitee-policies</a></td><td><a href="gravitee-policies/">gravitee-policies</a></td></tr><tr><td><strong>Community Policies</strong></td><td>Learn more about community policies and see the current list</td><td></td><td><a href="community-policies.md">community-policies.md</a></td><td><a href="community-policies.md">community-policies.md</a></td></tr></tbody></table>
 
 ### See also
 
