@@ -220,9 +220,9 @@ Although often used synonymously, an event is different from a message. A messag
 
 * Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
 
-**Synchronous programming:** a linear, sequential execution of tasks
+**Synchronous programming:** A linear, sequential execution of tasks.
 
-**System architectures and design patterns:** a general, reusable description or template to a commonly occurring problem within a given context in software design
+**System architecture / design pattern:** A generalized, reusable description or template to address contextual challenges that are common in software design.
 
 * **Monolithic architecture:** the traditional model of a software program, which is built as a unified and tightly coupled unit that is self-contained and independent from other applications
 * **Microservices architecture:** software development model where software is composed of small independent services that communicate over well-defined APIs
