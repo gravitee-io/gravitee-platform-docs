@@ -192,19 +192,15 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Network protocol:** A standard for network communication.
 
-* **Layered networking model:** A layered protocol conceptualization to model computer communication at different distances and abstraction layers. Typically defined through abstractions, e.g., the Open Systems Interconnection (OSI) conceptual model.
+* **Layered networking model:** A framework of protocol layers to conceptualize the complexity of communication within and between computers. Typically defined through abstractions, e.g., the Open Systems Interconnection (OSI) conceptual model.
 * **Transport layer:** A conceptual layer responsible for establishing protocols that collect packet-based messages from applications and transmit them into the network.
 * **Application layer:** A conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network.
 
-**Path parameters:** A mechanism to pass variable values within the route of an API request.
+**Path parameters:** A mechanism to pass variable values when routing an API request, e.g., `http://foo.com/api/user/{id}` where {id} is a path parameter.
 
-* Example: `http://foo.com/api/user/{id}` where {id} is a path parameter
+**Query parameters:** A mechanism to embed additional information or parameters in an endpoint URL to customize or filter the results of the request. Query parameters are appended using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value, e.g., `http://foo.com/api/user/{id}/?height=tall` where "height" is a query parameter with a value of "tall."
 
-**Query parameters:** a way to include additional information or parameters in the URL to customize or filter the results of the request. Query parameters are appended to the endpoint URL using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value.
-
-* Example: `http://foo.com/api/user/{id}/?height=tall` where "height" is a query parameter with a value of "tall"
-
-**Queue:** a transient, linear data structure that uses the first in first out (FIFO) approach to accessing elements. Generally, each application has its own queue as messages are lost when consumed.
+**Queue:** A transient, linear data structure that uses the First In, First Out (FIFO) approach to access elements. Generally, each application has its own queue as messages are lost when consumed.
 
 * Example: RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are all queue-based
 
