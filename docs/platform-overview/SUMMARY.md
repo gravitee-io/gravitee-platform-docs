@@ -2,15 +2,13 @@
 
 * [Introduction](README.md)
 * [Release Types and Support Model](release-types-and-support-model.md)
-* [About the Docs](platform-overview/getting-started.md)
 
 ## Gravitee Essentials
 
 * [Overview](gravitee-essentials/overview.md)
 * [Gravitee Offerings: CE vs EE](gravitee-essentials/gravitee-offerings-ce-vs-ee/README.md)
-  * [Enterprise Edition](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition/README.md)
-    * [Installation](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition/installation.md)
-    * [Licensing](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition/licensing.md)
+  * [Enterprise Edition Installation](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-installation.md)
+  * [Enterprise Edition Licensing](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md)
 * [API Fundamentals](gravitee-essentials/api-fundamentals.md)
 * [Gravitee Core Concepts](gravitee-essentials/gravitee-core-concepts.md)
 * [Gravitee Glossary](gravitee-essentials/glossary.md)

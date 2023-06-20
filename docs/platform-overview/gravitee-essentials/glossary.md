@@ -22,29 +22,21 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ### APIM
 
-**API Developer Portal:** Used to build an API catalog and marketplace for API consumers. Feature-rich with with documentation generation, API analytics, etc.
-
 **API Gateway:** A reverse proxy layer that brokers and secures access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
 
 **Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
 
 **Management UI:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
 
+**API Developer Portal:** Used to build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
+
 ### AM
 
-*
+**AM Gateway:** AM Gateway is the core component of the AM platform. It acts as a trust broker with your identity providers and provides an authentication and authorization flow for your users.
 
-### AE
+**AM Management API:** A REST API used to configure and manage the AM platform, manage users and user sessions, and manage the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0, and SCIM 2.0 protocols
 
-*
-
-### APID
-
-*
-
-### GC
-
-*
+**AM Management UI:** A web UI acts as a graphical interface to the AM Management API functionality.
 
 ## Gravitee terminology
 
@@ -90,14 +82,14 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Deprecated:** The state of a plan that is no longer available on the APIM Portal. Existing subscriptions remain in place to avoid impact to current API consumers, but new subscriptions are not permitted.
 * **Closed:** The state of a plan that no longer allows subscriptions. API consumers subscribed to this plan will not be able to use the API. Closing a plan is irreversible.
 
-**Gravitee Plan Modes:** _still not finalized_
+<mark style="color:yellow;">**Gravitee Plan Modes:**</mark> <mark style="color:yellow;"></mark>_<mark style="color:yellow;">still not finalized</mark>_
 
 * `Standard` with the policy security required
 * `Push` with no security required
 
 **Gravitee Plugin:** Components that provide additional functionality to the Gravitee ecosystem.
 
-**Gravitee Policy:** Rules or logic that executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
+**Gravitee Policy:** Rules or logic that are executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
 
 **Gravitee Resource:** The element with which Gravitee defines reusable configurations.
 
@@ -149,7 +141,7 @@ Although often used synonymously, an event is different from a message. A messag
 
 **API transaction:** A single interaction between a client application and a server through an API. In a typical synchronous API transaction, a client request is sent to a server via API endpoint and the server response is returned to the client. An asynchronous API transaction refers to a single transmission of a message payload between a client and a message broker.
 
-**Asynchronous APIs**: APIs that do not exhibit linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication following the initial consumer subscription. Example: A stock trading API sends price updates real-time, a client application subscribes to the API to track specific stocks, and the stock trading API sends price updates to the client application as they occur, without waiting for a request from the client application.&#x20;
+**Asynchronous APIs**: APIs that do not exhibit linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication following the initial consumer subscription. Example: A stock trading API sends price updates in real-time, a client application subscribes to the API to track specific stocks, and the stock trading API sends price updates to the client application as they occur, without waiting for a request from the client application.&#x20;
 
 **Asynchronous programming:** The concurrent execution of tasks.
 
@@ -179,7 +171,7 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Internet:** The [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) global network of computers and physical means by which information travels.
 
-**JSON Web Key (JWK):** A JSON object representing a cryptographic key. The members of the object represent properties of the key, including its value.
+**JSON Web Key (JWK):** A JSON object representing a cryptographic key. The members of the object represent the properties of the key, including its value.
 
 **JSON Web Key Set (JWKS):**  A JSON object representing a set of JWKs. The JSON object must contain a `keys` member, which is an array of JWKs.
 
@@ -225,8 +217,3 @@ Although often used synonymously, an event is different from a message. A messag
 * **Event-driven architecture (EDA):** A development model that uses events, or changes in state, to trigger asynchronous communication between decoupled services.
 
 **World wide web (web):** An information system that uses the internet to access and connect hypermedia (e.g., web pages).
-
-
-
-
-

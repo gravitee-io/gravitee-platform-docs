@@ -1,4 +1,4 @@
-# Licensing
+# Enterprise Edition Licensing
 
 To run a Gravitee Enterprise Edition (EE) node, you must have a valid license file.
 
@@ -156,5 +156,3 @@ docker run  \
         --detach  \
         graviteeio/apim-gateway:3.20.0-ee
 ```
-
-\

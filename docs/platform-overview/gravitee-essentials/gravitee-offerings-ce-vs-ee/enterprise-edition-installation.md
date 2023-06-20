@@ -1,4 +1,4 @@
-# Installation
+# Enterprise Edition Installation
 
 ## API Management (APIM) and Access Management (AM)
 
@@ -65,5 +65,3 @@ When used for free, Gravitee Cloud has a limitation of up to two environments pe
 Gravitee [API Designer](https://www.gravitee.io/platform/api-designer) is free to use with the Community Edition, with a limitation of one active design at any given time. [Contact us](https://www.gravitee.io/contact-us) if you need to remove this limitation by upgrading to a [paid Enterprise Edition plan](https://www.gravitee.io/pricing).
 
 To try Gravitee API Designer, sign up for a Gravitee Cloud trial [here](https://cockpit.gravitee.io/register) - API Designer is part of the trial.
-
-\
