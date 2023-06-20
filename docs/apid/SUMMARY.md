@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction to Gravitee API Designer](README.md)
+* [Introduction to Gravitee API Designer (APID)](README.md)
 
 ## Group 1
 
