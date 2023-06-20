@@ -200,11 +200,9 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Query parameters:** A mechanism to embed additional information or parameters in an endpoint URL to customize or filter the results of the request. Query parameters are appended using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value, e.g., `http://foo.com/api/user/{id}/?height=tall` where "height" is a query parameter with a value of "tall."
 
-**Queue:** A transient, linear data structure that uses the First In, First Out (FIFO) approach to access elements. Generally, each application has its own queue as messages are lost when consumed.
+**Queue:** A transient, linear data structure that uses the First In, First Out (FIFO) approach to access elements, where messages are lost when consumed. Each application typically maintains its own queue to ensure all messages are received. RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are queue-based.
 
-* Example: RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are all queue-based
-
-**Reactive programming:** making _asynchronous data streams the spine_ of your application. Events are now the main orchestrators of your application’s flow. The reactive programmer manages the logic around manipulating and performing operations on the data streams.
+**Reactive programming:** An application development technique based on asynchronous data streams. Events are the main orchestrators of application flow and scripting manages the logic to manipulate and perform operations on data streams.
 
 **Resource:** an entity or object that is made available for interaction through the API. It represents a specific piece of data or functionality that can be accessed, modified, or manipulated by clients.
 
