@@ -224,9 +224,9 @@ Although often used synonymously, an event is different from a message. A messag
 
 **System architecture / design pattern:** A generalized, reusable description or template to address contextual challenges that are common in software design.
 
-* **Monolithic architecture:** the traditional model of a software program, which is built as a unified and tightly coupled unit that is self-contained and independent from other applications
-* **Microservices architecture:** software development model where software is composed of small independent services that communicate over well-defined APIs
-* **Event-driven architecture (EDA):** uses events, or changes in state, to trigger asynchronous communication between decoupled services&#x20;
+* **Monolithic architecture:** The traditional software development model in which an application is designed as a unified, tightly coupled, and self-contained unit with no dependencies on other applications.
+* **Microservices architecture:** A software development model in which software comprises small, independent services that communicate over well-defined APIs.
+* **Event-driven architecture (EDA):** A development model that uses events, or changes in state, to trigger asynchronous communication between decoupled services.
 
 **World wide web (web):** information system on the internet which allows documents to be connected to other documents in the form of hypermedia (e.g., web pages)
 
