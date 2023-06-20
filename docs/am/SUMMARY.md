@@ -111,11 +111,10 @@
   * [User Consent](guides/user-management/user-consent.md)
   * [Password Policy](guides/user-management/password-policy.md)
   * [Self-service Account Management](guides/user-management/self-service-account-management.md)
+* [Session Management](guides/session-management.md)
+* [Audit Trail](guides/audit-trail.md)
 * [Flows](guides/flows.md)
 * [Administration](guides/administration.md)
-* [Audit Trail](guides/audit-trail/README.md)
-  * [Storage](guides/audit-trail/storage/README.md)
-    * [File](guides/audit-trail/storage/file.md)
 * [Developer Contributions](guides/developer-contributions.md)
 
 ## Reference

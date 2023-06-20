@@ -37,4 +37,4 @@ Audit logs will be created in a directory tree that represents the resource hier
 There is currently no retention period for the audit logs, so you need to create a separate process to remove old logs.
 {% endhint %}
 
-For details on how to create a file reporter for a domain, see [Audit log file.](../../guides/audit-trail/storage/file.md)
+For details on how to create a file reporter for a domain, see [Audit log file.](broken-reference)
