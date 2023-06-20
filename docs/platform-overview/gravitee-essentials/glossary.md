@@ -208,9 +208,9 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Serialization:** The process of converting an object in memory to a stream of bytes for storage or transport.
 
-**Stateful web APIs:** the server stores information about the client making the request. In other words, the session is stored on the server where the session is an encapsulation of a particular client and server interaction
+**Stateful web APIs:** APIs that require the server to store information about the client making the request. The session, an encapsulation of the client-server session, is stored on the server.
 
-**Stateless web APIs:** the server does not store any information about the client making the request. In other words, the session is stored on the client where the session is an encapsulation of a particular client and server interaction
+**Stateless web APIs:** APIs that require the server to not store any information about the client making the request. The session, an encapsulation of the client-server session, is stored on the client.
 
 **Stream processing:** The application of complex logic to an array of input streams as they flow through a system, including operations to append, aggregate, filter, etc.
 
@@ -224,7 +224,7 @@ Although often used synonymously, an event is different from a message. A messag
 * **Microservices architecture:** A software development model in which software comprises small, independent services that communicate over well-defined APIs.
 * **Event-driven architecture (EDA):** A development model that uses events, or changes in state, to trigger asynchronous communication between decoupled services.
 
-**World wide web (web):** An information system that uses the internet to connect documents in the form of hypermedia (e.g., web pages).
+**World wide web (web):** An information system that uses the internet to access and connect hypermedia (e.g., web pages).
 
 
 
