@@ -38,7 +38,7 @@ What you choose will dictate the kinds of entrypoints and endpoints that you can
 
 After you choose your method of exposure, select **Select my API architecture,** and you'll be taken to the entrypoint selection screen. Please read the following content to learn more about entrypoint selection and configuration, based on your selected exposure method.
 
-### Proxy upstream protocol entrypoints
+### Entrypoint options for the "Proxy upstream protocol" method
 
 If you chose **Proxy upstream protocol**, the Entrypoints step will require you to define a context path and decide whether or not you want to enable virtual hosts. The context path is the URL of your API. Please note that the context path must start with a '/' and can only contain uppercase letters, numbers, dashes or underscores.
 
@@ -52,7 +52,7 @@ To disable virtual hosts, select **X Disable virtual hosts**.&#x20;
 
 <figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
 
-### Introspect messages from Event-driven backend entrypoints
+### Entrypoint options for the "Introspect messages from Event-driven backend" method
 
 If you chose **Introspect messages from Event-driven backend,** you get a much different set of entrypoint options:
 
