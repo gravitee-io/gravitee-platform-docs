@@ -19,7 +19,7 @@ The table below lists the different types of plugins you can use with APIM, with
 | [Repositories](plugins.md#gravitee-plugins-repositories) | <p>APIM API<br>APIM Gateway</p> | MongoDB, Redis, Elasticsearch               |
 | [Resources](plugins.md#gravitee-plugins-resources)       | <p>APIM API<br>APIM Gateway</p> | Oauth2, Cache, LDAP                         |
 | Services                                                 | <p>APIM API<br>APIM Gateway</p> | Sync, local-registry, health-check, monitor |
-| [Notifiers](plugins.md#gravitee-plugins-notifiers)       | Alert Engine                    | Email                                       |
+| [Notifiers](plugins.md#gravitee-plugins-notifiers)       | Alert Engine                    | Email, Slack, Webhook                       |
 | [Alerts](plugins.md#gravitee-plugins-alerts)             | <p>APIM API<br>APIM Gateway</p> | Vertx                                       |
 | Connectors                                               | <p>APIM API<br>APIM Gateway</p> | Kafka, MQTT, Websocket                      |
 
@@ -77,7 +77,11 @@ You can find more information in the [Resources](broken-reference) section of th
 
 ### Notifiers
 
-A **notifier** is used to send notifications. Currently, the only notifier available is the **email notifier**, but others including **slack** and **portal** are planned soon.
+A **notifier** is used to send notifications. Currently, Gravitee offers the following notifiers:
+
+* Email
+* Slack
+* Webhook
 
 ### Alerts
 
