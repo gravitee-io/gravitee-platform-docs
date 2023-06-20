@@ -26,3 +26,8 @@ The workspace menu divides administrative tasks into two sections: API Designs a
 * Case: Indicate how case should be applied to paths, objects, and parameters.
 * Target Environment: Select the environment to which the API design will be deployed.
 * Legend: Define the visual cues to distinguish between design attributes.
+
+{% hint style="warning" %}
+Only environments linked to active API Management installations will be shown.
+{% endhint %}
+
