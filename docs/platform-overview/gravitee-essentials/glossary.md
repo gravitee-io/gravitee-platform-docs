@@ -216,9 +216,7 @@ Although often used synonymously, an event is different from a message. A messag
 
 **Stream processing:** applying complex logic to an array of input streams as they flow through the system that can be joined, aggregated, filtered, etc.
 
-**Synchronous APIs:** APIs that require linear, sequential communication between a tightly-coupled client and server. Clients initiate all communication.&#x20;
-
-* Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
+**Synchronous APIs:** APIs that require communication to be linear, sequential, between a tightly-coupled client and server, and client-initiated, e.g., a user authentication API where the client application sends a request to the API with the user's credentials and the API returns a response containing either a token to access protected resources or an error message.&#x20;
 
 **Synchronous programming:** A linear, sequential execution of tasks.
 
@@ -228,7 +226,7 @@ Although often used synonymously, an event is different from a message. A messag
 * **Microservices architecture:** A software development model in which software comprises small, independent services that communicate over well-defined APIs.
 * **Event-driven architecture (EDA):** A development model that uses events, or changes in state, to trigger asynchronous communication between decoupled services.
 
-**World wide web (web):** information system on the internet which allows documents to be connected to other documents in the form of hypermedia (e.g., web pages)
+**World wide web (web):** An information system that uses the internet to connect documents in the form of hypermedia (e.g., web pages).
 
 
 
