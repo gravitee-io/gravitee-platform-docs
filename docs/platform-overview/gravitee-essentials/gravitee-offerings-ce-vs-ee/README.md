@@ -47,9 +47,15 @@ The enhanced version of Gravitee's open-source and event-native API management p
 
 For more information on the differences between Gravitee Community Edition and Gravitee Enterprise Edition, [please refer to this document](https://www.gravitee.io/hubfs/Datasheets/Gravitee-OSS-vs-Enterprise.pdf).
 
-## CE vs EE - capability matrix
+## CE vs EE - capability matrices
 
 The Gravitee Enterprise Edition includes everything in the Community Edition plus additional modules, plugins, capabilities, and unlocked options as indicated below.
+
+### Gravitee API Management
+
+
+
+### Gravitee Access Management
 
 | Functional area                                                                                                                                                                                                                                                                                                 | Capability                                                                                                                                                                                                                                   | Community Edition                                                             | Enterprise Edition                                                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
