@@ -40,7 +40,7 @@ A **policy** modifies the behavior of the request or response handled by APIM Ga
 
 Examples of a policy are:
 
-* Authorization using an API key (see the [api-key policy documentation](../../reference/policy-reference/gravitee-policies/security/policy-apikey.md))
+* Authorization using an API key (see the [api-key policy documentation](broken-reference))
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 

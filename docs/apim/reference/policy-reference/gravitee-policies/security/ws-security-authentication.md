@@ -1,2 +1,0 @@
-# WS-Security Authentication
-

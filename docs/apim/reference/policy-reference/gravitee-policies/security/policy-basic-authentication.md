@@ -1,2 +1,0 @@
-# policy-basic-authentication
-
