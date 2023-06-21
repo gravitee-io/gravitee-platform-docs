@@ -48,7 +48,7 @@ Click on API Designs in the left-hand nav to create or manage an API.
 
 Click on the following Settings options in the left-hand nav to customize API settings.
 
-<table><thead><tr><th width="207.5">Option</th><th>Description</th></tr></thead><tbody><tr><td><strong>Case</strong></td><td>Indicate how case should be applied to paths, objects, and parameters.</td></tr><tr><td><strong>Target Environment</strong></td><td>Select the environment to which the API design will be deployed.</td></tr><tr><td><strong>Legend</strong></td><td>Define the visual cues to distinguish between design attributes.</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="149.5">Option</th><th>Description</th></tr></thead><tbody><tr><td><strong>Case</strong></td><td>Indicate how case should be applied to paths, objects, and parameters.</td></tr><tr><td><strong>Target Environment</strong></td><td>Select the environment to which the API design will be deployed.</td></tr><tr><td><strong>Legend</strong></td><td>Define the visual cues to distinguish between design attributes.</td></tr></tbody></table>
 
 {% hint style="warning" %}
 Only environments linked to active API Management installations will be shown.
