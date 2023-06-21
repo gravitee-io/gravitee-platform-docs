@@ -66,10 +66,9 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Gravitee Gateway API:** An API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
 
-**Gravitee Gateway API Architecture:** _still not finalized_
+**Proxy upstream protocol:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
 
-* **Proxy:** _still not finalized_
-* **Message:** _still not finalized_
+**Introspect messages from event-driven backend:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
 
 **Gravitee Gateway Endpoint:** Defines the protocol and configuration settings by which the gateway API will fetch data from, or post data to, the backend API.
 
@@ -82,20 +81,15 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Deprecated:** The state of a plan that is no longer available on the APIM Portal. Existing subscriptions remain in place to avoid impact to current API consumers, but new subscriptions are not permitted.
 * **Closed:** The state of a plan that no longer allows subscriptions. API consumers subscribed to this plan will not be able to use the API. Closing a plan is irreversible.
 
-<mark style="color:yellow;">**Gravitee Plan Modes:**</mark> _<mark style="color:yellow;">still not finalized</mark>_
-
-* `Standard` with the policy security required
-* `Push` with no security required
-
 **Gravitee Plugin:** Components that provide additional functionality to the Gravitee ecosystem.
 
-**Gravitee Policy:** Rules or logic that are executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
+**Gravitee Policy:** Logic that is executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
 
 **Gravitee Resource:** The element with which Gravitee defines reusable configurations.
 
-**Gravitee Sharding Tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of a similarly tagged API.
-
 **Gravitee Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
+
+**Gravitee Sharding Tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of a similarly tagged API.
 
 **Gravitee Tenant:** A tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on which gateway receives the request.
 

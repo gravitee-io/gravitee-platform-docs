@@ -33,9 +33,7 @@ This section focuses on decoding some of Gravitee's high-level concepts and term
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/b014429c2135257d51371e103e78eda7e306277d_2_486x500.png" alt=""><figcaption><p>APIM and AM architecture overview</p></figcaption></figure>
 
-{% embed url="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/f/f6c37ddcbccccb7ea649a5fee08edebb7f3c4070.png" %}
-AE architecture overview
-{% endembed %}
+<figure><img src="../.gitbook/assets/ae_architecture.png" alt=""><figcaption><p>AE architecture overview</p></figcaption></figure>
 
 When starting on your Gravitee journey, it can be difficult to understand how all the different pieces of the ecosystem fit together. These two architecture diagrams provide an excellent 10,000ft view to help you begin to conceptualize the Gravitee offering. The first diagram shows Gravitee’s API management ecosystem (APIM) and how it interacts with the access management ecosystem (AM). The second diagram highlights the function of Gravitee’s alert engine (AE). Here are a few important things to note about the architecture diagrams:
 
