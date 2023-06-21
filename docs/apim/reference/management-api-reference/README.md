@@ -20,14 +20,14 @@ To access earlier versions, replace the version number in the URL. For example:
 
 ## APIM Portal API reference
 
-APIM API exposes a complete set of endpoints for developers wanting to script some part of the APIM Portal functionality.
+APIM API exposes a complete set of endpoints that developers can use to script parts of the APIM Portal functionality.
 
-You can access the online endpoint reference or the OpenAPI specification by version. For the:
+To access the online endpoint reference or the OpenAPI specification by version:
 
-* Online reference, see [here](../../../api-ref/apim/3.x/portal-api/latest/index.md)
-* OpenAPI spec, see [here](../../../api-ref/apim/3.x/portal-api/latest/openapi.yaml)
+* [Online reference](../../../api-ref/apim/3.x/portal-api/latest/index.md)
+* [OpenAPI spec](../../../api-ref/apim/3.x/portal-api/latest/openapi.yaml)
 
-To see earlier versions, replace the version number in the URL. For example:
+To access earlier versions, replace the version number in the URL. For example:
 
-* Online reference, see [here](../../../api-ref/apim/3.x/portal-api/3.18/index.md)
-* OpenAPI spec, see [here](../../../api-ref/apim/3.x/portal-api/3.18/openapi.yaml)
+* [Online reference](../../../api-ref/apim/3.x/portal-api/3.18/index.md)
+* [OpenAPI spec](../../../api-ref/apim/3.x/portal-api/3.18/openapi.yaml)
