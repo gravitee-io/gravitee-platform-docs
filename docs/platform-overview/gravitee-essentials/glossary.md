@@ -66,9 +66,10 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Gravitee Gateway API:** An API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
 
-**Proxy upstream protocol:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
+**Backend service exposure:** The consumption style of your API based on your upstream backend service architecture.
 
-**Introspect messages from event-driven backend:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
+* **Proxy upstream protocol:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
+* **Introspect messages from event-driven backend:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
 
 **Gravitee Gateway Endpoint:** Defines the protocol and configuration settings by which the gateway API will fetch data from, or post data to, the backend API.
 
