@@ -22,7 +22,7 @@ Click on API Designs in the left-hand nav to create or manage an API.
 
 **Create an API:** When creating an API, you will be prompted to provide a name and a description. The name will be used as the context path, in accordance with the case rules configured in Settings.
 
-**Manage an API:** The card representing an existing API shows several icons, which correspond to click, push, export, and info, respectively. Click on an icon to trigger management functionality.
+**Manage an API:** The card representing an existing API includes the following icons, which correspond to click, push, export, and info, respectively. Click on an icon to trigger its management functionality.
 
 <div align="left" data-full-width="false">
 
