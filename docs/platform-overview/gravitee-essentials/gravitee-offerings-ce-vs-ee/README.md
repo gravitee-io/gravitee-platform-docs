@@ -4,9 +4,9 @@ description: Gravitee's core products
 
 # Gravitee Offerings: CE vs EE
 
-Gravitee was founded as an open-source project and our open-source roots are part of what makes us great - we own our entire stack, and we believe that our code powers the best open-source API Management products with Gravitee's **Community Edition (CE).**
+Gravitee was founded as an open-source project and our open-source roots are part of what makes us great - we own our entire stack, and we believe that Gravitee's **Community Edition (CE)** powers the best open-source API Management products**.**
 
-Gravitee also offers an [**Enterprise Edition**](https://www.gravitee.io/pricing) **(EE)** that adds capabilities targeting commercial end users. The EE of the platform includes everything from the CE and offers additional features like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
+Gravitee also offers an [**Enterprise Edition**](https://www.gravitee.io/pricing) **(EE)** that adds capabilities targeting commercial end users. The EE includes everything from the CE and offers additional features like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 
 {% hint style="info" %}
 **Open Core Product**
