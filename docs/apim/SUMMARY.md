@@ -106,9 +106,9 @@
   * [Portal API](reference/management-api-reference/portal-api.md)
 * [Gravitee Kubernetes Operator API Reference](reference/gravitee-kubernetes-operator-api-reference.md)
 * [Policy Reference](reference/policy-reference/README.md)
-  * [v3 Policies](reference/policy-reference/v3-policies.md)
   * [v4 Policies](reference/policy-reference/v4-policies/README.md)
     * [v4 Template Policy](reference/policy-reference/v4-policies/v4-template-policy.md)
+  * [v2 Policies](reference/policy-reference/v2-policies.md)
   * [Community Policies](reference/policy-reference/community-policies.md)
 
 ## Releases & Changelog
