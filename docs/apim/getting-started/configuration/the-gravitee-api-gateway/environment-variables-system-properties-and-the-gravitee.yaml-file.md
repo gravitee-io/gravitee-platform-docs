@@ -171,7 +171,7 @@ You can configure various default properties of APIM Gateway in your `gravitee.y
 #  secured: false
 #  alpn: false
 #  ssl:
-#    clientAuth: none # Supports none, request, requires
+#    clientAuth: none # Supports none, request, required
 #    tlsProtocols: TLSv1.2, TLSv1.3
 #    tlsCiphers: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
 #    keystore:
@@ -607,7 +607,7 @@ http:
   secured: false
   alpn: false
   ssl:
-    clientAuth: none # Supports none, request, requires
+    clientAuth: none # Supports none, request, required
     keystore:
       path: ${gravitee.home}/security/keystore.jks
       password: secret
@@ -641,7 +641,7 @@ http:
   # ... skipped for simplicity
   secured: true
   ssl:
-    clientAuth: none # Supports none, request, requires
+    clientAuth: none # Supports none, request, required
     keystore:
       path: /path/to/keystore.jks
       password: adminadmin
@@ -665,7 +665,7 @@ http:
   # ... skipped for simplicity
   secured: true
   ssl:
-    clientAuth: none # Supports none, request, requires
+    clientAuth: none # Supports none, request, required
     keystore:
       type: pkcs12
       kubernetes: /my-namespace/secrets/my-secret/keystore
@@ -720,7 +720,7 @@ curl ws://localhost:8082/my_websocket
 ```
 http:
   ssl:
-    clientAuth: none # Supports none, request, requires
+    clientAuth: none # Supports none, request, required
     truststore:
       path: /path/to/truststore.jks
       password: adminadmin
