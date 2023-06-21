@@ -41,15 +41,15 @@ The enhanced version of Gravitee's open-source and event-native API management p
 * **Enterprise APID:** Design, document, and publish an unlimited amount of API data models.
 * **Enterprise Plugins:** Functional extensions to Gravitee API Management and Gravitee Access Management such as certain message-level policies, API monetization features, and more.
 * **Gravitee Alert Engine (AE):** Monitor API consumption and configure alerts based on anomalous traffic, reliability incidents, etc.
-* **Hosting:** You can self-host Gravitee APIM and AM, choose a hybrid deployment where Gravitee manages certain components and you manage others, or a fully-managed Gravitee deployment where Gravitee hosts all components in its cloud
-* **CSM and support:** Dedicated Customer Success Manager and team of Support Engineers
-* **Direct access to Gravitee leadership:** speak directly with Gravitee leadership around roadmap, feature requests, and more
+* **Hosting:** Options include self-hosted Gravitee APIM and AM, a hybrid deployment where Gravitee manages certain components and you manage others, or a fully-managed Gravitee deployment where Gravitee hosts all components in its cloud.
+* **CSM and support:** Dedicated Customer Success Manager (CSM) and team of Support Engineers (SEs).
+* **Direct access to Gravitee leadership:** Speak directly with Gravitee leadership to discuss roadmap, feature requests, and more.
 
-For more information on the differences between Gravitee Community and OSS products vs Gravitee enterprise edition, [please refer to this document](https://www.gravitee.io/hubfs/Datasheets/Gravitee-OSS-vs-Enterprise.pdf).
+For more information on the differences between Gravitee Community Edition and Gravitee Enterprise Edition, [please refer to this document](https://www.gravitee.io/hubfs/Datasheets/Gravitee-OSS-vs-Enterprise.pdf).
 
 ## CE vs EE - capability matrix
 
-The Gravitee Enterprise Edition includes everything from the Community Edition plus additional modules, plugins, capabilities, and unlocked use options, as indicated below.
+The Gravitee Enterprise Edition includes everything in the Community Edition plus additional modules, plugins, capabilities, and unlocked options as indicated below.
 
 | Functional area                                                                                                                                                                                                                                                                                                 | Capability                                                                                                                                                                                                                                   | Community Edition                                                             | Enterprise Edition                                                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -110,5 +110,5 @@ The Gravitee Enterprise Edition includes everything from the Community Edition p
 {% hint style="info" %}
 **EE installation**
 
-Any EE capabilities, modules, and plugins that require an EE license must be downloaded separately as they are not part of the main distribution bundles for APIM and AM. See the [EE Installation page](https://docs.gravitee.io/ee/ee\_installation.html) for details.
+Each EE capability, module, or plugin that requires an EE license is not part of the APIM or AM main distribution bundle and must be downloaded separately. See the [EE Installation page](https://docs.gravitee.io/ee/ee\_installation.html) for details.
 {% endhint %}
