@@ -20,17 +20,29 @@ The workspace menu divides administrative tasks into two sections: API Designs a
 
 Click on API Designs in the left-hand nav to create or manage an API.
 
-**Create an API:** When creating an API, you will be prompted to provide a **name** and a **description**. The name will be used as the context path, in accordance with the **case** rules configured in Settings.
+**Create an API:** When creating an API, you will be prompted to provide a name and a description. The name will be used as the context path, in accordance with the case rules configured in Settings.
 
-**Manage an API:** The card representing an existing API shows several icons. Click on an icon to trigger management functionality.
+**Manage an API:** The card representing an existing API shows several icons, which correspond to click, push, export, and info, respectively. Click on an icon to trigger management functionality.
 
-|   |   |   |
-| - | - | - |
-|   |   |   |
-|   |   |   |
-|   |   |   |
+<div align="left" data-full-width="false">
 
+<figure><img src="../.gitbook/assets/apid-click.png" alt="" width="38"><figcaption></figcaption></figure>
 
+ 
+
+<figure><img src="../.gitbook/assets/apid-push.png" alt="" width="32"><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/apid-export.png" alt="" width="31"><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/apid-options.png" alt="" width="32"><figcaption></figcaption></figure>
+
+</div>
+
+<table data-header-hidden><thead><tr><th width="119.5">Icon</th><th>Function</th></tr></thead><tbody><tr><td><strong>Click</strong></td><td>Opens the design interface</td></tr><tr><td><strong>Push</strong></td><td>Opens the push interface</td></tr><tr><td><strong>Export</strong></td><td>Exports the API definition</td></tr><tr><td><strong>Info</strong></td><td>Provides options to push, export, or delete the API</td></tr></tbody></table>
 
 ### **Settings**
 
