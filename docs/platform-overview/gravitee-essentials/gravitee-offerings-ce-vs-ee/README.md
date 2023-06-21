@@ -28,10 +28,10 @@ Gravitee’s Community Edition comprises Gravitee’s open-source offerings, plu
 * **Gravitee Cloud (GC):** Centrally manage Gravitee installations and promote APIs across various environments. The community version is limited to one managed environment.
 * **Gravitee API Designer (APID):** Design, document, and publish API data models. The community version is limited to one data model.
 * **Gravitee Access Management (AM)**: Apply identity and access management (MFA, biometrics, etc.) at the API and application levels.
-* **Gravitee Kubernetes Operator**: manage APIs and Gravitee components via custom resource definitions
-* **Hosting**: for the open-source products, you are limited to self-hosted instances; Gravitee hosts the free versions of Cockpit and API Designer
+* **Gravitee Kubernetes Operator**: Manage APIs and Gravitee components via K8s custom resource definitions.
+* **Hosting**: Open-source products are limited to self-hosted instances with the exception of the free versions of Gravitee Cloud and Gravitee API Designer, which are hosted by Gravitee.
 
-For more information on the differences between Gravitee Community and OSS products vs Gravitee enterprise edition, [please refer to this document](https://www.gravitee.io/hubfs/Datasheets/Gravitee-OSS-vs-Enterprise.pdf).
+For more information on the differences between Gravitee Community Edition and Gravitee Enterprise Edition, [please refer to this document](https://www.gravitee.io/hubfs/Datasheets/Gravitee-OSS-vs-Enterprise.pdf).
 
 ## Gravitee Enterprise Edition <a href="#gravitee-enterprise-edition-16" id="gravitee-enterprise-edition-16"></a>
 
