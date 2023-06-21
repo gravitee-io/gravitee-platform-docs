@@ -22,13 +22,13 @@ Gravitee’s Community Edition comprises Gravitee’s open-source offerings, plu
 
 * **Gravitee API Management (APIM)**
   * **Gravitee API Gateway:** A reverse proxy layer that brokers, secures, and hardens access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
-  * **Gravitee Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
-  * **Gravitee Management UI:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
-  * **Gravitee API Developer Portal:** Used to build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
-* **Gravitee Cloud (GC)**: centrally manage Gravitee environments and installations and promote APIs across various environments; the community version is limited to one managed environment
-* **Gravitee API Designer (APID)**: design, document, and publish API data models; the community version is limited to one data model
-* **Gravitee API Access Management (AM)**: apply identity and access management (multi-factor authentication, biometric, etc.) at the API and application levels
-* **Kubernetes operator**: manage APIs and Gravitee components via custom resource definitions
+  * **Gravitee Management API:** Configure and manage APIs and various Gravitee resources.
+  * **Gravitee Management UI:** Configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
+  * **Gravitee API Developer Portal:** Build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
+* **Gravitee Cloud (GC):** Centrally manage Gravitee installations and promote APIs across various environments. The community version is limited to one managed environment.
+* **Gravitee API Designer (APID):** Design, document, and publish API data models. The community version is limited to one data model.
+* **Gravitee Access Management (AM)**: Apply identity and access management (MFA, biometrics, etc.) at the API and application levels.
+* **Gravitee Kubernetes Operator**: manage APIs and Gravitee components via custom resource definitions
 * **Hosting**: for the open-source products, you are limited to self-hosted instances; Gravitee hosts the free versions of Cockpit and API Designer
 
 For more information on the differences between Gravitee Community and OSS products vs Gravitee enterprise edition, [please refer to this document](https://www.gravitee.io/hubfs/Datasheets/Gravitee-OSS-vs-Enterprise.pdf).
