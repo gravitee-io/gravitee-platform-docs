@@ -72,7 +72,7 @@
   * [Configure General Proxy settings](guides/api-configuration/configure-cors.md)
   * [Configure user and group access](guides/api-configuration/configure-user-and-group-access.md)
 * [Policy Design Studio](guides/policy-design/README.md)
-  * [Gravitee API Definitions Compared](guides/policy-design/gravitee-api-definitions-compared.md)
+  * [Gateway Execution Engines Compared](guides/policy-design/gateway-execution-engines-compared.md)
   * [V2 API Policy Design Studio](guides/policy-design/v2-api-policy-design-studio.md)
   * [V4 API Policy Design Studio](guides/policy-design/v4-api-policy-design-studio.md)
 * [API Exposure: Plans, Applications, & Subscriptions](guides/api-exposure-plans-applications-and-subscriptions/README.md)
