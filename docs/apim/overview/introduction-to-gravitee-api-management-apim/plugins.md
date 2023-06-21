@@ -10,18 +10,18 @@ For more information about plugins, including how to deploy them and details of 
 
 The table below lists the different types of plugins you can use with APIM, with the component(s) they can be plugged into and some examples. For more details of what each plugin type does, see the sections below.
 
-| Type                                                     | Component                       | Examples                                    |
-| -------------------------------------------------------- | ------------------------------- | ------------------------------------------- |
-| [Identity Providers](plugins.md#gravitee-plugins-idp)    | APIM API                        | LDAP, Oauth2, InMemory                      |
-| Fetchers                                                 | APIM API                        | HTTP, GIT                                   |
-| [Policies](plugins.md#gravitee-plugins-policies)         | <p>APIM API<br>APIM Gateway</p> | API Key, Rate-limiting, Cache               |
-| [Reporters](plugins.md#gravitee-plugins-reporters)       | APIM Gateway                    | Elasticsearch, Accesslog                    |
-| [Repositories](plugins.md#gravitee-plugins-repositories) | <p>APIM API<br>APIM Gateway</p> | MongoDB, Redis, Elasticsearch               |
-| [Resources](plugins.md#gravitee-plugins-resources)       | <p>APIM API<br>APIM Gateway</p> | Oauth2, Cache, LDAP                         |
-| Services                                                 | <p>APIM API<br>APIM Gateway</p> | Sync, local-registry, health-check, monitor |
-| [Notifiers](plugins.md#gravitee-plugins-notifiers)       | Alert Engine                    | Email, Slack, Webhook                       |
-| [Alerts](plugins.md#gravitee-plugins-alerts)             | <p>APIM API<br>APIM Gateway</p> | Vertx                                       |
-| Connectors                                               | <p>APIM API<br>APIM Gateway</p> | Kafka, MQTT, Websocket                      |
+| Type                                                | Component                       | Examples                                    |
+| --------------------------------------------------- | ------------------------------- | ------------------------------------------- |
+| [Identity Providers](plugins.md#identity-providers) | APIM API                        | LDAP, Oauth2, InMemory                      |
+| Fetchers                                            | APIM API                        | HTTP, GIT                                   |
+| [Policies](plugins.md#policies)                     | <p>APIM API<br>APIM Gateway</p> | API Key, Rate-limiting, Cache               |
+| [Reporters](plugins.md#reporters)                   | APIM Gateway                    | Elasticsearch, Accesslog                    |
+| [Repositories](plugins.md#repositories)             | <p>APIM API<br>APIM Gateway</p> | MongoDB, Redis, Elasticsearch               |
+| [Resources](plugins.md#resources)                   | <p>APIM API<br>APIM Gateway</p> | Oauth2, Cache, LDAP                         |
+| Services                                            | <p>APIM API<br>APIM Gateway</p> | Sync, local-registry, health-check, monitor |
+| [Notifiers](plugins.md#notifiers)                   | Alert Engine                    | Email, Slack, Webhook                       |
+| [Alerts](plugins.md#alerts)                         | <p>APIM API<br>APIM Gateway</p> | Vertx                                       |
+| Connectors                                          | <p>APIM API<br>APIM Gateway</p> | Kafka, MQTT, Websocket                      |
 
 ### Identity Providers
 
