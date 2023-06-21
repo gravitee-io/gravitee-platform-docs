@@ -8,30 +8,19 @@ The Gravitee Policy Design Studio allows you to design "flows," or policy enforc
 
 A Gravitee API definition is a specification for your Gravitee API Management (APIM) Gateway. A Gravitee API definition is very similar to an API specification (OpenAPI, AsynAPI, etc.) except it is a specification _for your Gravitee Gateway_ It’s a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, create plans for, etc., your APIs and their traffic.&#x20;
 
-To actually execute\
+To execute your gateway APIs and policy flows, the Gateway needs a runtime environment or engine. This is generally referred to as the execution engine.&#x20;
 
+APIM 4.0 and later supports v2 and v4 Gravitee API definitions and v3 and v4 Gateway execution engines. You can think of these in pairs: v2 API definitions run on the v3 execution engine and v4 API definitions run on the v4 execution engine.
 
-Introduced in release 3.19.0 of the Gravitee API Management platform, there is a new version of a new policy execution engine that enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. It is based on a modern and fully reactive architecture designed to address a number of challenges Gravitee users have been facing with the existing policy execution engine, available with the Gravitee’s V2 API definition specification used in versions prior to APIM 3.19.x.
+{% hint style="info" %}
+The v4 execution engine can also run v2 API definitions in compatibility mode. This is detailed in the v4 API Policy Design Studio documentation.&#x20;
+{% endhint %}
 
-The new policy execution engine builds on the new V4 API definition of Gravitee’s event-native platform. This adds features such as native support for Pub/Sub (Publish-Subscribe) design and enabling policies at message level. The new V4 event-native API definition makes it possible for the Gateway to handle asynchronous API use cases.
+The Policy Execution Engines Compared guide does a deep dive into the difference in the two engines. In short, the v4 execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. This adds features such as native support for Pub/Sub (Publish-Subscribe) design and enabling policies at the message level.
 
-The new engine provides the following capabilities:
+This is why APIM has both the v2 API Policy Design Studio and the v4 API Policy Design Studio.&#x20;
 
-* The ability to execute policies in the exact order in which they have been placed in Design Studio (see [Create and configure an API flow](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#create\_and\_configure\_an\_api\_flow) and [Configure plan flows and policies](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_plan\_policies.html)). This addresses some issues experienced by users related to the order in which policies are executed by the V3 engine where policies interacting with the Head part of the request are always executed first, even when placed in a different order in the Design Studio during the design phase. With the new execution engine, it is possible to apply logic on a head policy based on the payload of the request - for example, to apply dynamic routing based on the request payload.
-* Proper isolation between platform-level policies and API-level policies during policy execution. This ensures that platform-level policies are always executed prior to any API-level policies during the request stage, and after any API-level policies during the response stage.
-* Removal of the need to define a scope for policies (`onRequest`, `onRequestContent`, `onResponse`, `onResponseContent`).
-* The introduction of new API types to better differentiate REST APIs from Async APIs (Websocket, SSE, Webhook), as a foundation to fully support the execution of Async APIs.
-
-|   | This release does not provide GUI support for these capabilities. You can check out the new engine behaviour with the [V4 event-native API Management example use cases](https://docs.gravitee.io/apim/3.x/event\_native\_apim\_example\_use\_cases.html). |
-| - | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
-### How to enable and disable the new engine
-
-To enable the new V4 policy execution engine, create a new environment variable called `gravitee_api_jupiterMode_enabled` and set it to `true` on the Management API and the API Gateway.
-
-To disable the new engine and revert to using the V3 engine mode, set this environment variable to `false`.
-
-See [Environment variables](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_configuration.html#environment\_variables) on the Management API and [Environment variables](https://docs.gravitee.io/apim/3.x/apim\_installguide\_gateway\_configuration.html#environment\_variables) on the API Gateway for more detail about setting environment variables.
+###
 
 ## Flows
 
