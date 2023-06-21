@@ -27,23 +27,23 @@ Gravitee’s Community Edition comprises Gravitee’s open-source offerings, plu
   * **Gravitee API Developer Portal:** Build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
 * **Gravitee Cloud (GC):** Centrally manage Gravitee installations and promote APIs across various environments. The community version is limited to one managed environment.
 * **Gravitee API Designer (APID):** Design, document, and publish API data models. The community version is limited to one data model.
-* **Gravitee Access Management (AM)**: Apply identity and access management (MFA, biometrics, etc.) at the API and application levels.
-* **Gravitee Kubernetes Operator**: Manage APIs and Gravitee components via K8s custom resource definitions.
-* **Hosting**: Open-source products are limited to self-hosted instances with the exception of the free versions of Gravitee Cloud and Gravitee API Designer, which are hosted by Gravitee.
+* **Gravitee Access Management (AM):** Apply identity and access management (MFA, biometrics, etc.) at the API and application levels.
+* **Gravitee Kubernetes Operator:** Manage APIs and Gravitee components via K8s custom resource definitions.
+* **Hosting:** Open-source products are limited to self-hosted instances with the exception of the free versions of Gravitee Cloud and Gravitee API Designer, which are hosted by Gravitee.
 
 For more information on the differences between Gravitee Community Edition and Gravitee Enterprise Edition, [please refer to this document](https://www.gravitee.io/hubfs/Datasheets/Gravitee-OSS-vs-Enterprise.pdf).
 
 ## Gravitee Enterprise Edition <a href="#gravitee-enterprise-edition-16" id="gravitee-enterprise-edition-16"></a>
 
-Built on top of our open-source foundations, the enterprise event-native API Management platform enables organizations to fully manage, secure, monitor, and govern their entire API ecosystem. The Enterprise Edition focuses on the needs of our commercial end users. EE gets you everything in the CE, plus:
+The enhanced version of Gravitee's open-source and event-native API management platform, the Enterprise Edition enables organizations to fully manage, secure, monitor, and govern their entire API ecosystem. Focused on the needs of our commercial end users, EE buys you everything in the CE, plus:
 
-* **Advanced support for asynchronous APIs**: The Gravitee community edition supports various forms of protocol mediation and asynchronous API support; the enterprise edition includes this, plus quality of service for supported backend event brokers, advanced message-level policies, and more
-* **Enterprise APID**: design, document, and publish an unlimited amount of API data models
-* **Enterprise Plugins** various functionality that can be added to both Gravitee API Management and Gravitee Access Management as plugins, such as certain message-level policies, API monetization features, and more
-* **Gravitee Alert Engine (AE)**: monitor API consumption and configure alerts based on anomalous traffic, reliability incidents, etc.
-* **Hosting**: You can self-host Gravitee APIM and AM, choose a hybrid deployment where Gravitee manages certain components and you manage others, or a fully-managed Gravitee deployment where Gravitee hosts all components in its cloud
-* **CSM and support**: Dedicated Customer Success Manager and team of Support Engineers
-* **Direct access to Gravitee leadership**: speak directly with Gravitee leadership around roadmap, feature requests, and more
+* **Advanced support for asynchronous APIs:** The Gravitee Community Edition provides various forms of protocol mediation and asynchronous API support. The Enterprise Edition includes this, plus quality-of-service for supported backend event brokers, advanced message-level policies, and more.
+* **Enterprise APID:** Design, document, and publish an unlimited amount of API data models.
+* **Enterprise Plugins:** Functional extensions to Gravitee API Management and Gravitee Access Management such as certain message-level policies, API monetization features, and more.
+* **Gravitee Alert Engine (AE):** Monitor API consumption and configure alerts based on anomalous traffic, reliability incidents, etc.
+* **Hosting:** You can self-host Gravitee APIM and AM, choose a hybrid deployment where Gravitee manages certain components and you manage others, or a fully-managed Gravitee deployment where Gravitee hosts all components in its cloud
+* **CSM and support:** Dedicated Customer Success Manager and team of Support Engineers
+* **Direct access to Gravitee leadership:** speak directly with Gravitee leadership around roadmap, feature requests, and more
 
 For more information on the differences between Gravitee Community and OSS products vs Gravitee enterprise edition, [please refer to this document](https://www.gravitee.io/hubfs/Datasheets/Gravitee-OSS-vs-Enterprise.pdf).
 
