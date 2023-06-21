@@ -10,13 +10,13 @@ APIM API exposes a complete set of endpoints that developers can use to script p
 
 To access the online endpoint reference or the OpenAPI specification by version:
 
-* Online reference, see [here](../../../api-ref/apim/3.x/management-api/latest/index.md)
-* OpenAPI spec, see [here](../../../api-ref/apim/3.x/management-api/latest/swagger.json)
+* [Online reference](../../../api-ref/apim/3.x/management-api/latest/index.md)
+* [OpenAPI spec](../../../api-ref/apim/3.x/management-api/latest/swagger.json)
 
 To access earlier versions, replace the version number in the URL. For example:
 
-* Online reference, see [here](../../../api-ref/apim/3.x/management-api/3.18/index.md)
-* OpenAPI spec, see [here](../../../api-ref/apim/3.x/management-api/3.18/swagger.json)
+* [Online reference](../../../api-ref/apim/3.x/management-api/3.18/index.md)
+* [OpenAPI spec](../../../api-ref/apim/3.x/management-api/3.18/swagger.json)
 
 ## APIM Portal API reference
 
