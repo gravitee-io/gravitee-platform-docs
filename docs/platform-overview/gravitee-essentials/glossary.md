@@ -22,7 +22,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ### APIM
 
-**API Gateway:** A reverse proxy layer that brokers and secures access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
+**API Gateway:** A reverse proxy layer that brokers, secures, and hardens access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
 
 **Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
 

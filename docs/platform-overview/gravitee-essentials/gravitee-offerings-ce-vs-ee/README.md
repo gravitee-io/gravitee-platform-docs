@@ -21,7 +21,7 @@ Technically, Gravitee is what is known as an open core product, and you can read
 Gravitee’s Community Edition comprises Gravitee’s open-source offerings, plus the free-to-use versions of Gravitee-managed enterprise products. The Gravitee Community Edition includes access to the following products and services:
 
 * **Gravitee API Management (APIM)**
-  * **Gateway**: reverse proxy layer that brokers, secures, and hardens access to APIs and data streams; natively supports both synchronous and asynchronous APIs
+  * **Gravitee API Gateway:** A reverse proxy layer that brokers, secures, and hardens access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
   * **Developer portal**: build an API catalog and marketplace for API consumers fit with documentation, API analytics, and more
   * **Management UI**: a UI that teams can use to configure their Gateway, design and create APIs, design policies, and publish documentation. Every action in the API management console is tied to a REST API that can be accessed outside the console
   * **Management API**: REST API that can be used to configure and manage APIs and various Gravitee resources
