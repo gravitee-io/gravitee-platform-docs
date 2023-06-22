@@ -77,7 +77,9 @@ The following features and functionality are exclusive to Gravitee Enterprise Ed
 Each EE capability, module, or plugin that requires an EE license is not part of the APIM or AM main distribution bundle and must be downloaded separately. See the [EE Installation page](https://docs.gravitee.io/ee/ee\_installation.html) for details.
 {% endhint %}
 
-### Alert Engine
+<details>
+
+<summary>Alert Engine</summary>
 
 To activate Alert Engine in APIM or AM, apply an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to an APIM/AM installation. Alert Engine includes the following capabilities:
 
@@ -86,11 +88,19 @@ To activate Alert Engine in APIM or AM, apply an [EE license](https://docs.gravi
 * Enable adaptive alerting
 * (AM feature only) Trigger adaptive MFA to fine-tune alerting
 
-### Advanced environment management
+</details>
+
+<details>
+
+<summary>Advanced environment management</summary>
 
 * Connect unlimited Gravitee APIM environments and installations under one umbrella
 * Promote APIs across various environments
 * Oversee availability and health of Gravitee deployments and Gateways
+
+</details>
+
+
 
 ### API security
 
