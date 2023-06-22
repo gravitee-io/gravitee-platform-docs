@@ -100,19 +100,41 @@ To activate Alert Engine in APIM or AM, apply an [EE license](https://docs.gravi
 
 </details>
 
+<details>
 
-
-### API security
+<summary>API security</summary>
 
 * Advanced anomaly detection
 * OpenAPI spec compliance&#x20;
 * API inventory and lineage&#x20;
 * Security ratings&#x20;
 
-### APIM plugins
+</details>
+
+<details>
+
+<summary>APIM plugins</summary>
 
 * [Data Logging Masking Policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_data\_logging\_masking.html)
 * [Assign Metrics Policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_metrics.html)
+
+</details>
+
+<details>
+
+<summary>AM plugins</summary>
+
+* [HTTP Flow Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_http.html)
+* [CAS Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_cas.html)&#x20;
+* [Kerberos Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_kerberos.html)&#x20;
+* [SAML 2.0 Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_saml2.html)
+* [Gateway Handler SAML IDP - Enable SAML 2.0 Identity Provider support](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_saml2\_configuration.html)
+* [MFA with FIDO2](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_fido2.html)
+* [Risk-based MFA](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_risk\_based.html)
+* [Resource HTTP Factor](https://github.com/gravitee-io/gravitee-am-resource-http-factor) (no public documentation available yet - an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) is required to access this private repository)
+* [Factor OTP Sender](https://github.com/gravitee-io/gravitee-am-factor-otp-sender) (no public documentation available yet - an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) is required to access this private repository)
+
+</details>
 
 ### AM plugins
 
