@@ -40,7 +40,7 @@ The enhanced version of Gravitee's open-source and event-native API management p
 * **Advanced support for asynchronous APIs:** The Gravitee Community Edition provides various forms of protocol mediation and asynchronous API support. The Enterprise Edition includes this, plus quality-of-service for supported backend event brokers, advanced message-level policies, and more.
 * **Enterprise APID:** Design, document, and publish an unlimited amount of API data models.
 * **Enterprise Plugins:** Functional extensions to Gravitee API Management and Gravitee Access Management such as certain message-level policies, API monetization features, and more.
-* **Gravitee Alert Engine (AE):** Monitor API consumption and configure alerts based on anomalous traffic, reliability incidents, etc. an EE module you can use to monitor, analyze, and prevent incidents such as SLA breaches or spikes in traffic happening in the future
+* **Gravitee Alert Engine (AE):** Monitor API consumption and prevent incidences such as SLA breaches or traffic spikes via customized alerts based on anomalous traffic, reliability incidents, etc.&#x20;
 * **Hosting:** Options include self-hosted Gravitee APIM and AM, a hybrid deployment where Gravitee manages certain components and you manage others, or a fully-managed Gravitee deployment where Gravitee hosts all components in its cloud.
 * **CSM and support:** Dedicated Customer Success Manager (CSM) and team of Support Engineers (SEs).
 * **Direct access to Gravitee leadership:** Speak directly with Gravitee leadership to discuss roadmap, feature requests, and more.
@@ -59,10 +59,6 @@ The Gravitee Enterprise Edition includes everything in the Community Edition plu
 
 <table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td>Plugins</td><td>true</td><td>true</td><td></td></tr><tr><td>Basic MFA</td><td>true</td><td>true</td><td></td></tr><tr><td>MFA with FIDO2</td><td>false</td><td>true</td><td></td></tr><tr><td>Adaptive, risk-based MFA</td><td>false</td><td>true</td><td></td></tr><tr><td>AM support</td><td>true</td><td>true</td><td>CE: Community support<br>EE: Enterprise-grade 24/7 support</td></tr><tr><td>SAML 2.0 support</td><td>false</td><td>true</td><td>Via the SAML 2.0 Identity Provider plugin</td></tr><tr><td>CAS user auth and data retrieval</td><td>false</td><td>true</td><td>Authenticate users and retrieve user info from an Enterprise CAS server with the CAS Identity Provider plugin</td></tr><tr><td>Kerberos user identification </td><td>false</td><td>true</td><td>Via Kerberos login/password or Kerberos Identity plugin + SPENGO protocol</td></tr></tbody></table>
 
-### Gravitee Alert Engine
-
-<table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td></td><td>true</td><td>true</td><td></td></tr></tbody></table>
-
 ### Gravitee API Designer
 
 <table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td></td><td>true</td><td>true</td><td></td></tr></tbody></table>
@@ -70,6 +66,25 @@ The Gravitee Enterprise Edition includes everything in the Community Edition plu
 ### Gravitee Cloud
 
 <table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td></td><td>true</td><td>true</td><td></td></tr></tbody></table>
+
+## Offerings exclusive to EE
+
+The following products and features are exclusive to Gravitee Enterprise Edition and require a license.&#x20;
+
+### Alert Engine
+
+To active Alert Engine in APIM or AM, apply an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to your APIM/AM installation. Alert Engine includes the following capabilities:
+
+* Implement true API-level observability and monitoring
+* Configure custom alerting mechanisms
+* Enable adaptive alerting
+* (AM feature only) Trigger adaptive MFA to fine-tune alerting
+
+
+
+
+
+
 
 | Functional area                                                                                                                                                                                                                                                                                                 | Capability                                                                                                                                                                                                                                   | Community Edition                                                             | Enterprise Edition                                                                                                                                     |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
