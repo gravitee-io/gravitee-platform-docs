@@ -53,11 +53,11 @@ The Gravitee Enterprise Edition includes everything in the Community Edition plu
 
 ### Gravitee API Management
 
-<table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td>API Gateway</td><td>true</td><td>true</td><td></td></tr><tr><td>API Management UI</td><td>true</td><td>true</td><td></td></tr><tr><td>Developer Portal</td><td>true</td><td>true</td><td></td></tr><tr><td>Environments per installation</td><td>true</td><td>true</td><td>CE: Limited to 1 env per installation<br>EE: Multiple depending on plan</td></tr><tr><td>Service management ecosystem</td><td>true</td><td>true</td><td>CE: Limited future AsyncAPI connectors<br>EE: Unlimited future AsyncAPI connectors</td></tr><tr><td>Kafka connector</td><td>false</td><td>true</td><td></td></tr><tr><td>Protocol mediation</td><td>false</td><td>true</td><td></td></tr><tr><td>Baked-in policies</td><td>true</td><td>true</td><td></td></tr><tr><td>Data masking</td><td>false</td><td>true</td><td>Ability to mask data captured in logs via the Data Masking plugin/policy</td></tr><tr><td>Assign Metrics policy</td><td>false</td><td>true</td><td>Ability to push extra metrics (in addition to natively-provided request metrics)</td></tr><tr><td>Plugins</td><td>true</td><td>true</td><td></td></tr><tr><td>API management support</td><td>true</td><td>true</td><td>CE: Community support<br>EE: Enterprise-grade 24/7 support</td></tr><tr><td>Message-level policy support</td><td>false</td><td>true</td><td>Applies to asynchronous and event-driven APIs</td></tr><tr><td>Async and event-driven API support</td><td>false</td><td>true</td><td>Includes MQTT, Webhook, Websocket, and SSE</td></tr><tr><td>Engineer-to-engineer support</td><td>false</td><td>true</td><td>Applies to both production and non-production gateways</td></tr><tr><td>Customer Success services</td><td>false</td><td>true</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td>API Gateway</td><td>true</td><td>true</td><td></td></tr><tr><td>API Management UI</td><td>true</td><td>true</td><td></td></tr><tr><td>Developer Portal</td><td>true</td><td>true</td><td></td></tr><tr><td>Environments per installation</td><td>true</td><td>true</td><td>CE: Limited to 1 env per installation<br>EE: Multiple depending on plan</td></tr><tr><td>Service management ecosystem</td><td>true</td><td>true</td><td>CE: Limited future AsyncAPI connectors<br>EE: Unlimited future AsyncAPI connectors</td></tr><tr><td>Kafka connector</td><td>false</td><td>true</td><td></td></tr><tr><td>Protocol mediation</td><td>false</td><td>true</td><td></td></tr><tr><td>Baked-in policies</td><td>true</td><td>true</td><td></td></tr><tr><td>Plugins</td><td>true</td><td>true</td><td></td></tr><tr><td>API management support</td><td>true</td><td>true</td><td>CE: Community support<br>EE: Enterprise-grade 24/7 support</td></tr><tr><td>Message-level policy support</td><td>false</td><td>true</td><td>Applies to asynchronous and event-driven APIs</td></tr><tr><td>Async and event-driven API support</td><td>false</td><td>true</td><td>Includes MQTT, Webhook, Websocket, and SSE</td></tr><tr><td>Engineer-to-engineer support</td><td>false</td><td>true</td><td>Applies to both production and non-production gateways</td></tr><tr><td>Customer Success services</td><td>false</td><td>true</td><td></td></tr></tbody></table>
 
 ### Gravitee Access Management
 
-<table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td>Plugins</td><td>true</td><td>true</td><td></td></tr><tr><td>Basic MFA</td><td>true</td><td>true</td><td></td></tr><tr><td>MFA with FIDO2</td><td>false</td><td>true</td><td></td></tr><tr><td>Adaptive, risk-based MFA</td><td>false</td><td>true</td><td></td></tr><tr><td>AM support</td><td>true</td><td>true</td><td>CE: Community support<br>EE: Enterprise-grade 24/7 support</td></tr><tr><td>SAML 2.0 support</td><td>false</td><td>true</td><td>Via the SAML 2.0 Identity Provider plugin</td></tr><tr><td>CAS user auth and data retrieval</td><td>false</td><td>true</td><td>Authenticate users and retrieve user info from an Enterprise CAS server with the CAS Identity Provider plugin</td></tr><tr><td>Kerberos user identification </td><td>false</td><td>true</td><td>Via Kerberos login/password or Kerberos Identity plugin + SPENGO protocol</td></tr></tbody></table>
+<table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td>Plugins</td><td>true</td><td>true</td><td></td></tr><tr><td>Basic MFA</td><td>true</td><td>true</td><td></td></tr><tr><td>AM support</td><td>true</td><td>true</td><td>CE: Community support<br>EE: Enterprise-grade 24/7 support</td></tr></tbody></table>
 
 ### Gravitee API Designer
 
@@ -70,6 +70,12 @@ The Gravitee Enterprise Edition includes everything in the Community Edition plu
 ## Offerings exclusive to EE
 
 The following features and functionality are exclusive to Gravitee Enterprise Edition and require an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html).&#x20;
+
+{% hint style="info" %}
+**EE installation**
+
+Each EE capability, module, or plugin that requires an EE license is not part of the APIM or AM main distribution bundle and must be downloaded separately. See the [EE Installation page](https://docs.gravitee.io/ee/ee\_installation.html) for details.
+{% endhint %}
 
 ### Alert Engine
 
@@ -100,27 +106,12 @@ To activate Alert Engine in APIM or AM, apply an [EE license](https://docs.gravi
 
 ### AM plugins
 
-* ht around availability and health of Gravitee deployments and Gateways
-*
-
-
-
-
-
-| Functional area   | Capability                                                                                                                                                                                                                                   | Community Edition | Enterprise Edition                                                             |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------ |
-| EE PLUGINS FOR AM | [HTTP Flow Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_http.html)                                                                                                                                    | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM | [CAS Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_cas.html) (now shipped separately like all other EE plugins)                                                                      | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM | [Kerberos Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_kerberos.html) (now shipped separately like all other EE plugins)                                                            | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM | [SAML 2.0 Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_saml2.html)                                                                                                                  | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM | [Gateway Handler SAML IDP - Enable SAML 2.0 Identity Provider support](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_saml2\_configuration.html)                                                                               | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM | [MFA with FIDO2](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_fido2.html)                                                                                                                                                | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM | [Risk-based MFA](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_risk\_based.html)                                                                                                                                                   | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM | [Resource HTTP Factor](https://github.com/gravitee-io/gravitee-am-resource-http-factor) (no public documentation available yet - you need an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to access this private repository) | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM | [Factor OTP Sender](https://github.com/gravitee-io/gravitee-am-factor-otp-sender) (no public documentation available yet - you need an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to access this private repository)       | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-
-{% hint style="info" %}
-**EE installation**
-
-Each EE capability, module, or plugin that requires an EE license is not part of the APIM or AM main distribution bundle and must be downloaded separately. See the [EE Installation page](https://docs.gravitee.io/ee/ee\_installation.html) for details.
-{% endhint %}
+* [HTTP Flow Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_http.html)
+* [CAS Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_cas.html)&#x20;
+* [Kerberos Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_kerberos.html)&#x20;
+* [SAML 2.0 Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_saml2.html)
+* [Gateway Handler SAML IDP - Enable SAML 2.0 Identity Provider support](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_saml2\_configuration.html)
+* [MFA with FIDO2](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_fido2.html)
+* [Risk-based MFA](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_risk\_based.html)
+* [Resource HTTP Factor](https://github.com/gravitee-io/gravitee-am-resource-http-factor) (no public documentation available yet - an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) is required to access this private repository)
+* [Factor OTP Sender](https://github.com/gravitee-io/gravitee-am-factor-otp-sender) (no public documentation available yet - an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) is required to access this private repository)
