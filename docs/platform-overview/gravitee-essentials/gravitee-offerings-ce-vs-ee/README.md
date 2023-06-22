@@ -20,14 +20,14 @@ Technically, Gravitee is what is known as an open core product, and you can read
 
 Gravitee’s Community Edition comprises Gravitee’s open-source offerings, plus the free-to-use versions of Gravitee-managed enterprise products. The Gravitee Community Edition includes access to the following products and services:
 
-* **Gravitee API Management (APIM)**
+* [**Gravitee API Management (APIM)**](https://www.gravitee.io/platform/api-management)
   * **Gravitee API Gateway:** A reverse proxy layer that brokers, secures, and hardens access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
   * **Gravitee Management API:** Configure and manage APIs and various Gravitee resources.
   * **Gravitee Management UI:** Configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
-  * **Gravitee API Developer Portal:** Build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
-* **Gravitee Cloud (GC):** Centrally manage Gravitee installations and promote APIs across various environments. The community version is limited to one managed environment.
-* **Gravitee API Designer (APID):** Design, document, and publish API data models. The community version is limited to one data model.
-* **Gravitee Access Management (AM):** Apply identity and access management (MFA, biometrics, etc.) at the API and application levels.
+  * [**Gravitee API Developer Portal**](https://www.gravitee.io/platform/api-developer-portal)**:** Build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
+* [**Gravitee Cloud (GC)**](https://www.gravitee.io/platform/cockpit)**:** Centrally manage Gravitee installations and promote APIs across various environments. The community version is limited to one managed environment.
+* [**Gravitee API Designer (APID)**](https://www.gravitee.io/platform/api-designer)**:** Design, document, and publish API data models. The community version is limited to one data model.
+* [**Gravitee Access Management (AM)**](https://www.gravitee.io/platform/access-management)**:** Apply identity and access management (MFA, biometrics, etc.) at the API and application levels.
 * **Gravitee Kubernetes Operator:** Manage APIs and Gravitee components via K8s custom resource definitions.
 * **Hosting:** Open-source products are limited to self-hosted instances with the exception of the free versions of Gravitee Cloud and Gravitee API Designer, which are hosted by Gravitee.
 
@@ -40,7 +40,7 @@ The enhanced version of Gravitee's open-source and event-native API management p
 * **Advanced support for asynchronous APIs:** The Gravitee Community Edition provides various forms of protocol mediation and asynchronous API support. The Enterprise Edition includes this, plus quality-of-service for supported backend event brokers, advanced message-level policies, and more.
 * **Enterprise APID:** Design, document, and publish an unlimited amount of API data models.
 * **Enterprise Plugins:** Functional extensions to Gravitee API Management and Gravitee Access Management such as certain message-level policies, API monetization features, and more.
-* **Gravitee Alert Engine (AE):** Monitor API consumption and prevent incidences such as SLA breaches or traffic spikes via customized alerts based on anomalous traffic, reliability incidents, etc.&#x20;
+* [**Gravitee Alert Engine (AE)**](https://www.gravitee.io/platform/api-observability)**:** Monitor API consumption and prevent incidences such as SLA breaches or traffic spikes via customized alerts based on anomalous traffic, reliability incidents, etc.&#x20;
 * **Hosting:** Options include self-hosted Gravitee APIM and AM, a hybrid deployment where Gravitee manages certain components and you manage others, or a fully-managed Gravitee deployment where Gravitee hosts all components in its cloud.
 * **CSM and support:** Dedicated Customer Success Manager (CSM) and team of Support Engineers (SEs).
 * **Direct access to Gravitee leadership:** Speak directly with Gravitee leadership to discuss roadmap, feature requests, and more.

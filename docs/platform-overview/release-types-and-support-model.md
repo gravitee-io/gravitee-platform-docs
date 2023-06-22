@@ -76,7 +76,7 @@ If a feature documentation lacks the labels "tech preview," "alpha," or "beta," 
 
 As of version 3.18.0 (released on 7th July 2022), we have changed the model of support we provide for released versions of the Gravitee Platform.
 
-We now provide 12 months of support for each minor version. A minor version is considered a quarterly release version with a second-digit increment in the version cadence, for example 3.18 (but not 3.18.1 - this is a maintenance release version).
+We now provide 12 months of support for each minor version. A minor version is considered a quarterly release version with a second-digit increment in the version cadence, for example 3.18 (but not 3.18.1 - this is a maintenance release version). Maintenance release versions will be supported for as long as their "parent" minor version is. So, for example, 3.18.1 would be supported until the deprecation of 3.18 support.
 
 ### Supported product versions and EOL dates
 
@@ -85,8 +85,7 @@ The tables below provide information about the entire Gravitee platform's produc
 | Version | Support model | Release Date | EOL Date   |
 | ------- | ------------- | ------------ | ---------- |
 | 3.19    | 12 months     | 2022-10-04   | 2023-10-04 |
-| 3.20    | 12 months     |              |            |
-| 3.21    | 12 months     |              |            |
+| 3.20    | 12 months     | 2023-01-12   | 2024-01-12 |
 | 4.0     | 12 months     | 2023-7-20    | 2024-7-20  |
 
 \
