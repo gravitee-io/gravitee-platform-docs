@@ -44,11 +44,34 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source and event-native API management platform. Feature sets targeting commercial end users include Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 
-**Gateway API:** An API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
-
 **API publisher:** The creator, designer, and/or manager of a gateway API.
 
 **API consumer:** The user or application accessing the gateway API.
+
+**Application:** The mechanism by which an API consumer registers and agrees to a Gravity Plan that uses authentication. This allows the API producer more granular control over access to their secured API.
+
+**Backend API:** The source or target API that is proxied by the gateway.
+
+**Backend service exposure:** The consumption style of your API based on your upstream backend service architecture.
+
+* **Proxy upstream protocol:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
+* **Introspect messages from event-driven backend:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
+
+**Context path:** A unique route targeting a specific gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
+
+**Execution context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
+
+**Flow:** The method to control where, and under what conditions, policies act on an API transaction.
+
+**Gateway API:** An API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
+
+**Gravitee API definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure gateway APIs and traffic. The Gravitee API Definition of a gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.
+
+**Gateway endpoint:** Defines the protocol and configuration settings by which the gateway API will fetch data from, or post data to, the backend API.
+
+**Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
+
+**Gravitee expression language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
 
 **Plan:** The API access layer that provides the API producer with a method to secure, monitor, and transparently communicate access details. Valid plan states are:
 
@@ -57,40 +80,17 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Deprecated:** The state of a plan that is no longer available on the APIM Portal. Existing subscriptions remain in place to avoid impact to current API consumers, but new subscriptions are not permitted.
 * **Closed:** The state of a plan that no longer allows subscriptions. API consumers subscribed to this plan will not be able to use the API. Closing a plan is irreversible.
 
-**Application:** The mechanism by which an API consumer registers and agrees to a Gravity Plan that uses authentication. This allows the API producer more granular control over access to their secured API.
-
-**Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
-
-**Gravitee API definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure gateway APIs and traffic. The Gravitee API Definition of a gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.
-
-**Policy Design Studio:** The APIM Management UI feature used to interactively create a gateway API.
-
-**Flow:** The method to control where, and under what conditions, policies act on an API transaction.
-
-**Backend API:** The source or target API that is proxied by the gateway.
-
-**Context path:** A unique route targeting a specific gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
-
-**Gravitee Expression Language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
-
-**Backend service exposure:** The consumption style of your API based on your upstream backend service architecture.
-
-* **Proxy upstream protocol:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
-* **Introspect messages from event-driven backend:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
-
-**Gateway endpoint:** Defines the protocol and configuration settings by which the gateway API will fetch data from, or post data to, the backend API.
-
-**Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
-
-**Execution context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
-
 **Plugin:** Components that provide additional functionality to the Gravitee ecosystem.
 
 **Policy:** Logic that is executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
 
+**Policy Design Studio:** The APIM Management UI feature used to interactively create a gateway API.
+
+**Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
+
 **Resource:** The element with which Gravitee defines reusable configurations.
 
-**Sharding Tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of a similarly tagged API.
+**Sharding tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of a similarly tagged API.
 
 **Tenant:** A tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on which gateway receives the request.
 
