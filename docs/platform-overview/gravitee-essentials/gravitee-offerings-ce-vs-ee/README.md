@@ -69,11 +69,11 @@ The Gravitee Enterprise Edition includes everything in the Community Edition plu
 
 ## Offerings exclusive to EE
 
-The following products and features are exclusive to Gravitee Enterprise Edition and require a license.&#x20;
+The following features and functionality are exclusive to Gravitee Enterprise Edition and require an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html).&#x20;
 
 ### Alert Engine
 
-To active Alert Engine in APIM or AM, apply an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to your APIM/AM installation. Alert Engine includes the following capabilities:
+To activate Alert Engine in APIM or AM, apply an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to an APIM/AM installation. Alert Engine includes the following capabilities:
 
 * Implement true API-level observability and monitoring
 * Configure custom alerting mechanisms
@@ -82,45 +82,42 @@ To active Alert Engine in APIM or AM, apply an [EE license](https://docs.gravite
 
 ### Advanced environment management
 
-
+* Connect unlimited Gravitee APIM environments and installations under one umbrella
+* Promote APIs across various environments
+* Oversee availability and health of Gravitee deployments and Gateways
 
 ### API security
 
-
+* Advanced anomaly detection
+* OpenAPI spec compliance&#x20;
+* API inventory and lineage&#x20;
+* Security ratings&#x20;
 
 ### APIM plugins
 
-
+* [Data Logging Masking Policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_data\_logging\_masking.html)
+* [Assign Metrics Policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_metrics.html)
 
 ### AM plugins
 
+* ht around availability and health of Gravitee deployments and Gateways
+*
 
 
 
 
 
-
-| Functional area                          | Capability                                                                                                                                                                                                                                   | Community Edition | Enterprise Edition                                                             |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------ |
-| GRAVITEE ADVANCED ENVIRONMENT MANAGEMENT | The ability to connect unlimited Gravitee APIM environments and installations under one umbrella                                                                                                                                             | No                | Yes                                                                            |
-| GRAVITEE ADVANCED ENVIRONMENT MANAGEMENT | Connect unlimited Gravitee APIM environments and installations under one umbrella                                                                                                                                                            | No                | Yes                                                                            |
-| GRAVITEE ADVANCED ENVIRONMENT MANAGEMENT | Promote APIs across various environments                                                                                                                                                                                                     | No                | Yes                                                                            |
-| GRAVITEE ADVANCED ENVIRONMENT MANAGEMENT | Keep oversight around availability and health of Gravitee deployments and Gateways                                                                                                                                                           | No                | Yes                                                                            |
-| GRAVITEE API SECURITY                    | Advanced anomaly detection (coming in v3.20)                                                                                                                                                                                                 | No                | Yes (coming in v3.20)                                                          |
-| GRAVITEE API SECURITY                    | OpenAPI spec compliance (coming in v3.20)                                                                                                                                                                                                    | No                | Yes (coming in v3.20)                                                          |
-| GRAVITEE API SECURITY                    | API inventory and lineage (coming in v3.20)                                                                                                                                                                                                  | No                | Yes (coming in v3.20)                                                          |
-| GRAVITEE API SECURITY                    | Security ratings (coming in v3.20)                                                                                                                                                                                                           | No                | Yes (coming in v3.20)                                                          |
-| EE PLUGINS FOR APIM                      | [Data Logging Masking Policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_data\_logging\_masking.html)                                                                                                                                 | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR APIM                      | [Assign Metrics Policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_metrics.html)                                                                                                                                              | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM                        | [HTTP Flow Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_http.html)                                                                                                                                    | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM                        | [CAS Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_cas.html) (now shipped separately like all other EE plugins)                                                                      | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM                        | [Kerberos Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_kerberos.html) (now shipped separately like all other EE plugins)                                                            | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM                        | [SAML 2.0 Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_saml2.html)                                                                                                                  | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM                        | [Gateway Handler SAML IDP - Enable SAML 2.0 Identity Provider support](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_saml2\_configuration.html)                                                                               | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM                        | [MFA with FIDO2](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_fido2.html)                                                                                                                                                | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM                        | [Risk-based MFA](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_risk\_based.html)                                                                                                                                                   | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM                        | [Resource HTTP Factor](https://github.com/gravitee-io/gravitee-am-resource-http-factor) (no public documentation available yet - you need an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to access this private repository) | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
-| EE PLUGINS FOR AM                        | [Factor OTP Sender](https://github.com/gravitee-io/gravitee-am-factor-otp-sender) (no public documentation available yet - you need an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to access this private repository)       | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
+| Functional area   | Capability                                                                                                                                                                                                                                   | Community Edition | Enterprise Edition                                                             |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------ |
+| EE PLUGINS FOR AM | [HTTP Flow Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_http.html)                                                                                                                                    | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
+| EE PLUGINS FOR AM | [CAS Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_cas.html) (now shipped separately like all other EE plugins)                                                                      | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
+| EE PLUGINS FOR AM | [Kerberos Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_kerberos.html) (now shipped separately like all other EE plugins)                                                            | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
+| EE PLUGINS FOR AM | [SAML 2.0 Identity Provider](https://docs.gravitee.io/am/current/am\_userguide\_enterprise\_identity\_provider\_saml2.html)                                                                                                                  | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
+| EE PLUGINS FOR AM | [Gateway Handler SAML IDP - Enable SAML 2.0 Identity Provider support](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_saml2\_configuration.html)                                                                               | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
+| EE PLUGINS FOR AM | [MFA with FIDO2](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_factors\_fido2.html)                                                                                                                                                | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
+| EE PLUGINS FOR AM | [Risk-based MFA](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_risk\_based.html)                                                                                                                                                   | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
+| EE PLUGINS FOR AM | [Resource HTTP Factor](https://github.com/gravitee-io/gravitee-am-resource-http-factor) (no public documentation available yet - you need an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to access this private repository) | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
+| EE PLUGINS FOR AM | [Factor OTP Sender](https://github.com/gravitee-io/gravitee-am-factor-otp-sender) (no public documentation available yet - you need an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html) to access this private repository)       | No                | Yes (requires an [EE license](https://docs.gravitee.io/ee/ee\_licensing.html)) |
 
 {% hint style="info" %}
 **EE installation**
