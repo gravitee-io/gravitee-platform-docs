@@ -25,7 +25,7 @@ Gravitee’s Community Edition comprises Gravitee’s open-source offerings, plu
   * **Gravitee Management API:** Configure and manage APIs and various Gravitee resources.
   * **Gravitee Management UI:** Configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
   * [**Gravitee API Developer Portal**](https://www.gravitee.io/platform/api-developer-portal)**:** Build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
-* [**Gravitee Cloud (GC)**](https://www.gravitee.io/platform/cockpit)**:** Centrally manage Gravitee installations and promote APIs across various environments. The community version is limited to one managed environment. Cockpit is a centralized, multi-environment tool for managing all your Gravitee API Management and Access Management installations in a single place
+* [**Gravitee Cloud (GC)**](https://www.gravitee.io/platform/cockpit)**:** Centrally manage Gravitee installations and promote APIs across various environments. The community version is limited to one managed environment.&#x20;
 * [**Gravitee API Designer (APID)**](https://www.gravitee.io/platform/api-designer)**:** Design, document, and publish API data models with a no-code tool that enables accelerated and elegant API design and implements a design-first approach to reduce overhead when translating business requirements into high-quality API definitions. The community version is limited to one data model.&#x20;
 * [**Gravitee Access Management (AM)**](https://www.gravitee.io/platform/access-management)**:** Apply identity and access management (MFA, biometrics, etc.) at the API and application levels.
 * **Gravitee Kubernetes Operator:** Manage APIs and Gravitee components via K8s custom resource definitions.
@@ -65,7 +65,7 @@ The Gravitee Enterprise Edition includes everything in the Community Edition plu
 
 ### Gravitee Cloud
 
-<table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td></td><td>true</td><td>true</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td>Centrally manage all APIM/AM envs </td><td>true</td><td>true</td><td>CE: Limited to one environment per user<br>EE: <a href="https://www.gravitee.io/contact-us">Contact us</a> to enable multiple envs</td></tr></tbody></table>
 
 ## Offerings exclusive to EE
 
