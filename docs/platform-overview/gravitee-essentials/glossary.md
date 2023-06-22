@@ -63,7 +63,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Flow:** The method to control where, and under what conditions, policies act on an API transaction.
 
-**Gateway API:** An API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
+**Gateway API:** An API deployed on the Gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
 
 **Gravitee API definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure gateway APIs and traffic. The Gravitee API Definition of a gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.
 
