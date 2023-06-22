@@ -2,23 +2,21 @@
 description: This page contains the release notes for APIM 4.0
 ---
 
-# APIM 4.0.x (2023-07-20)
+# APIM 4.x (2023-07-20)
 
 ## Overview of Gravitee version 4.0
 
-Gravitee version 4 was released on July 7th, 2023 with Gravitee 4.0. 4.0 brought major improvements to Gravitee's support for asynchronous APIs, policy execution at the message level, and more. For more information on what each 4.x version introduced, please refer to the 4.x release notes.
+Gravitee version 4.0 was released on July 20th, 2023. 4.0 brought major improvements to Gravitee's support for asynchronous APIs, policy execution at the message level, and more. Keep reading to learn more!
 
-## Key Features
+{% hint style="info" %}
+**Changelog vs release notes**
 
-### The new API creation wizard
+If you want a more condensed version of what's new, please refer to the [Changelog](../../changelog/apim/gravitee-4.0.x-changelog.md). Also, if you want to learn about breaking changes or bug fixes, we are tracking those in the changelog as well.
+{% endhint %}
 
-### Schema Registry support
+This section of documentation has release notes for Gravitee versions:
 
-### Policy Design Studio
-
-### Policies at the message level
-
-### Dynamic entrypoint and endpoint configuration via the Gravitee Expression Language
+* 4.0
 
 
 

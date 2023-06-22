@@ -26,8 +26,6 @@ Need to include a list of policies and their version in each release of APIM
 
 <summary>What's new</summary>
 
-### New features
-
 #### API Management Console
 
 * API List support for v4 APIs
@@ -98,14 +96,24 @@ Need to include a list of policies and their version in each release of APIM
 * Export a complex API and import it in a new/same environment
 * Manage resources as CRD and reuse them in several APIs
 
-## Bug fixes
+</details>
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+#### API Management Console
 
 * Insert bug fixes
 
-## Breaking changes
-
-* Insert breaking changes
-
 </details>
 
-###
+<details>
+
+<summary>Breaking Changes</summary>
+
+#### API Management Console
+
+* Insert bug fixes
+
+</details>
