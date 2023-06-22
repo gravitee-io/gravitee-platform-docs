@@ -61,7 +61,7 @@ The Gravitee Enterprise Edition includes everything in the Community Edition plu
 
 ### Gravitee API Designer
 
-<table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td>Drag-and-drop API Design tool</td><td>true</td><td>true</td><td></td></tr><tr><td>One-click publishing</td><td>true</td><td>true</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="216">Capability</th><th width="58" data-type="checkbox">CE</th><th width="56" data-type="checkbox">EE</th><th>Notes</th></tr></thead><tbody><tr><td>Drag-and-drop API Design tool</td><td>true</td><td>true</td><td>CE: Limited to one active design<br>EE: <a href="https://www.gravitee.io/contact-us">Contact us</a> to enable multiple designs</td></tr><tr><td>One-click publishing</td><td>true</td><td>true</td><td>CE: Limited to one active design<br>EE: <a href="https://www.gravitee.io/contact-us">Contact us</a> to enable multiple designs</td></tr></tbody></table>
 
 ### Gravitee Cloud
 
