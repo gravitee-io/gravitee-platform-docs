@@ -63,7 +63,7 @@
   * [Import APIs](guides/create-apis/import-apis.md)
   * [The API Creation Wizard](guides/create-apis/how-to.md)
     * [V2 API creation wizard](guides/create-apis/how-to/v2-api-creation-wizard.md)
-    * [v4 API creation wizard](guides/create-apis/how-to/v4-api-creation-wizard.md)
+    * [v4 API creation wizard docs](guides/create-apis/how-to/v4-api-creation-wizard-docs.md)
 * [API Configuration](guides/api-configuration/README.md)
   * [Documentation](guides/api-configuration/documentation.md)
   * [API General settings](guides/api-configuration/api-general-settings.md)

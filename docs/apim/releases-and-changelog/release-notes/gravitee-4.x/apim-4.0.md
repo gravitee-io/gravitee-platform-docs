@@ -10,7 +10,7 @@ description: This article covers the new features released in Gravitee 4.0
 
 The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs that use the Gravitee v4 API defintion. The v4 API definition enables organizations to start using Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. The new creation wizard enables you to expose Kafka, MQTT, RabbitMQ, and Mock (simulated backend for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs.
 
-For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation. ](../../../guides/create-apis/how-to/v4-api-creation-wizard.md)
+For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation. ](../../../guides/create-apis/how-to/v4-api-creation-wizard-docs.md)
 
 ## The new v4 Policy Design Studio
 
