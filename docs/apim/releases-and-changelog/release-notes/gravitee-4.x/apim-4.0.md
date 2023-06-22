@@ -4,6 +4,10 @@ description: This article covers the new features released in Gravitee 4.0
 
 # APIM 4.0
 
+## Introduction
+
+Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support for asynchronous APIs, event brokers, and protocol mediation-especially as it pertains to what is surfaced in the API Management Console. For a more paired down version of what was released, please see the [changelog for Gravitee APIM 4.x](../../changelog/apim/gravitee-4.0.x-changelog.md). Otherwise, keep reading for a more in-depth exploration of everything that was released in APIM 4.0.
+
 ## The new v4 API creation wizard
 
 {% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" fullWidth="true" %}
@@ -47,17 +51,41 @@ We've also released brand new policies that will support v4 APIs:
   * JSON to Avro: transform information in JSON format to Avro format
   * Avro to Json: transform information from Avro format into JSON format
 
-### Support for Schema registry as a resource
+## Support for Schema registry as a resource
+
+(Insert arcade)
+
+When designing policies and flows, you can now define Confluent Schema Registry as a resource. This allows Gravitee to serialize and deserialize information between Avro and JSON via various serialization and deserialization policies. Serialization and deserialization will be validated against target schemas stored in specified schema registries. The schema ID can be obtained dynamically through a message header or attribute.
 
 ## Webhook subscription configuration in the Developer Portal
 
+
+
 ## v2 Management API
+
+We've created a new version of the Gravitee API Management Management API (M-API). This new version of the Management API enables you to act on v4 APIs "as code" via the API. For more information on the v2 Management API, please refer to the API reference documentation.
 
 ## New Kubernetes Operator enhancements
 
 ## More new features
 
+While not this release's major highlights, here are the other features released in Gravitee API Management 4.0
+
 ### New API Management Console support for v4 APIs
 
+(Insert arcade)
+
+As a part of our additional support for v4 APIs and asynchronous APIs, we've added more support for v4 APIs in the UI. This support includes:
+
+* **The API list:** you can now see and filter v4 APIs in the APIs list
+* **API settings and details:** the following API settings and details can now be seen and/or configured in the Gravitee API Management Console UI:&#x20;
+  * API General page
+  * Entrypoint configuration
+  * Endpoint configuration
+  * Plans
+  * Subscriptions
+
 ### Datadog reporter
+
+The Datadog reporter enables you to&#x20;
 

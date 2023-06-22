@@ -116,7 +116,6 @@
 * [Release Notes](releases-and-changelog/release-notes.md)
   * [APIM 4.x (2023-07-20)](releases-and-changelog/release-notes/gravitee-4.x/README.md)
     * [APIM 4.0](releases-and-changelog/release-notes/gravitee-4.x/apim-4.0.md)
-    * [APIM 4.2](releases-and-changelog/release-notes/gravitee-4.x/apim-4.2.md)
     * [Page 1](releases-and-changelog/release-notes/gravitee-4.x/page-1.md)
 * [Changelog](releases-and-changelog/changelog/README.md)
   * [APIM](releases-and-changelog/changelog/apim/README.md)

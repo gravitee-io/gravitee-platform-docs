@@ -33,3 +33,12 @@ Please see the below sections and tables that outline major integrations that Gr
 ## Cache
 
 <table><thead><tr><th width="144">Solution</th><th>Integration description</th><th>Plugin or add-on required</th></tr></thead><tbody><tr><td>Redis</td><td>The Redis cache resource is used to maintain a cache and link it to the API lifecycle. It means that the cache is initialized when the API is starting and released when API is stopped.</td><td>Redis Cache Resource plugin</td></tr><tr><td>In-memory cache solution</td><td>The cache resource is used to maintain a cache and link it to the API lifecycle. The cache will be initialized when the API is starting and released when API is stopped. This cache is responsible for storing HTTP responses from the backend to avoid subsequent calls.</td><td>Cache resource</td></tr></tbody></table>
+
+## Custom backend integrations
+
+Gravitee's flexible API and protocol support enables you to integrate Gravitee with any backend system that is built on:
+
+* SOAP
+* REST
+* WebSocket
+* gRPC
