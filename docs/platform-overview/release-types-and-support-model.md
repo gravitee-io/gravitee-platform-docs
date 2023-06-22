@@ -18,12 +18,12 @@ Gravitee currently has three types of releases:
 
 ### Tech preview <a href="#tech-preview" id="tech-preview"></a>
 
-Tech Preview refers to a stage in which a particular feature is made available for testing and evaluation purposes to members of Gravitee's Insiders program.&#x20;
+Tech Preview refers to a stage in which a particular feature is made available for testing and evaluation purposes to members of Gravitee's Early Access program.&#x20;
 
 {% hint style="info" %}
 **Join Gravitee's Insiders program**
 
-If you'd like to get access to Gravitee's cutting-edge features and help shape the future of the product, you can apply to join Gravitee's Insiders program here. Applications are reviewed on a case-by-case basis as enrollment is limited.
+If you'd like to get access to Gravitee's cutting-edge features and help shape the future of the product, you can apply to join Gravitee's Early Access program by [contacting us](https://www.gravitee.io/contact-us) or reaching out to your CSM.
 {% endhint %}
 
 It is important to note that tech preview features may have limited or no documentation, lack official support, and are not guaranteed to be included as part of the general availability (GA) release in the future. Tech previews are often referred to as "alpha" releases in other software products.
@@ -36,7 +36,7 @@ It is crucial to understand that deploying a tech preview feature or version in 
 
 #### **Identifying tech preview features**
 
-Tech preview features will only be available to members of the Insider's program and will be designated in-product with a **Tech Preview** tag.
+Tech preview features will only be available to members of the Early Access program and will be designated in-product with a **Tech Preview** tag.
 
 ### Beta <a href="#beta" id="beta"></a>
 
@@ -76,7 +76,7 @@ If a feature documentation lacks the labels "tech preview," "alpha," or "beta," 
 
 As of version 3.18.0 (released on 7th July 2022), we have changed the model of support we provide for released versions of the Gravitee Platform.
 
-We now provide 12 months of support for each minor version. A minor version is considered a quarterly release version with a second-digit increment in the version cadence, for example 3.18.x (but not 3.18.1 - this is a maintenance release version).
+We now provide 12 months of support for each minor version. A minor version is considered a quarterly release version with a second-digit increment in the version cadence, for example 3.18 (but not 3.18.1 - this is a maintenance release version).
 
 ### Supported product versions and EOL dates
 
@@ -84,9 +84,9 @@ The tables below provide information about the entire Gravitee platform's produc
 
 | Version | Support model | Release Date | EOL Date   |
 | ------- | ------------- | ------------ | ---------- |
-| 3.19.x  | 12 months     | 2022-10-04   | 2023-10-04 |
-| 3.20.x  | 12 months     |              |            |
-| 3.21.x  | 12 months     |              |            |
-| 4.0.x   | 12 months     | 2023-7-20    | 2024-7-20  |
+| 3.19    | 12 months     | 2022-10-04   | 2023-10-04 |
+| 3.20    | 12 months     |              |            |
+| 3.21    | 12 months     |              |            |
+| 4.0     | 12 months     | 2023-7-20    | 2024-7-20  |
 
 \
