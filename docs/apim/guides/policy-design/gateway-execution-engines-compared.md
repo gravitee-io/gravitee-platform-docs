@@ -1,10 +1,14 @@
+---
+description: WORK IN PROGRESS
+---
+
 # Gateway Execution Engines Compared
 
 ## Overview
 
-The v4 execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. It is based on a modern and fully reactive architecture designed to address a number of challenges Gravitee users have been facing with the existing policy execution engine, available with the Gravitee’s V2 API definition specification used in versions prior to APIM 3.19.x.
+The v4 execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. It is based on a modern and fully reactive architecture designed to address a number of challenges Gravitee users have been facing with the existing, v3 execution engine, available with the Gravitee’s V2 API definition.
 
-The new policy execution engine builds on the new V4 API definition of Gravitee’s event-native platform. This adds features such as native support for Pub/Sub (Publish-Subscribe) design and enabling policies at message level. The new V4 event-native API definition makes it possible for the Gateway to handle asynchronous API use cases.
+The v4 execution engine works with Gravitee's v4 API definition. This adds features such as native support for Pub/Sub (Publish-Subscribe) design and enabling policies at the message level. The new v4 API definition makes it possible for the Gateway to handle asynchronous API use cases.
 
 The new engine provides the following capabilities:
 
