@@ -24,9 +24,9 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **API Gateway:** A reverse proxy layer that brokers, secures, and hardens access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
 
-**Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
+**APIM Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
 
-**Management UI:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
+**APIM Console:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
 
 **API Developer Portal:** Used to build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
 
@@ -40,7 +40,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 ## Gravitee terminology
 
-[**Community Edition:**](gravitee-offerings-ce-vs-ee/) An event-native API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
+[**Community Edition:**](gravitee-offerings-ce-vs-ee/) An API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
 
 [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source and event-native API management platform. Feature sets targeting commercial end users include Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 
@@ -71,7 +71,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
 
-**Gravitee expression language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
+**Gravitee Expression Language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
 
 **Plan:** The API access layer that provides the API producer with a method to secure, monitor, and transparently communicate access details. Valid plan states are:
 
