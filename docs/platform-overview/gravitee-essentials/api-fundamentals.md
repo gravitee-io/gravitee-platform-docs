@@ -62,12 +62,8 @@ Beyond developer experience and productivity, abstraction remains critical. For 
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/a/a8a51b9365a05b24e391d475f37a6fb6408d9150.png" alt=""><figcaption><p>Abstraction meme posted on <a href="https://www.reddit.com/r/ProgrammerHumor/comments/orerw4/abstraction/">reddit</a>.</p></figcaption></figure>
 
-With those distinctions out of the way, we can now zoom in on Gravitee’s main focus: **Web APIs**.
-
 {% hint style="warning" %}
-**API nomenclature**
-
-You can assume web APIs and APIs are synonymous in Gravitee's documentation; otherwise, we will explicitly refer to them as **local** APIs.
+Gravitee uses the terms "web API" and "API" synonymously. An API that does not communicate over a network is explicitly referred to as a local API.
 {% endhint %}
 
 ## Web APIs: Protocols, Architectures, Specifications, and Data Serialization Formats <a href="#web-apis-protocols-architectures-specifications-and-data-serialization-formats-3" id="web-apis-protocols-architectures-specifications-and-data-serialization-formats-3"></a>
