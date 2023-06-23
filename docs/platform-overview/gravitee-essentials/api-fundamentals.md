@@ -66,7 +66,17 @@ Beyond developer experience and productivity, abstraction remains critical. For 
 Gravitee uses the terms "web API" and "API" synonymously. An API that does not communicate over a network is explicitly referred to as a local API.
 {% endhint %}
 
-## Web APIs: Protocols, Architectures, Specifications, and Data Serialization Formats <a href="#web-apis-protocols-architectures-specifications-and-data-serialization-formats-3" id="web-apis-protocols-architectures-specifications-and-data-serialization-formats-3"></a>
+## Web APIs <a href="#web-apis-protocols-architectures-specifications-and-data-serialization-formats-3" id="web-apis-protocols-architectures-specifications-and-data-serialization-formats-3"></a>
+
+To further clarify web API structure and functionality, this section addresses the following:
+
+* [The internet and world wide web](api-fundamentals.md#the-internet-and-world-wide-web)
+* [API protocols](api-fundamentals.md#protocols-4)
+* [API architectures](api-fundamentals.md#architectural-stylespatterns-5)
+* [API specifications](api-fundamentals.md#specifications-6)
+* [Data serialization formats](api-fundamentals.md#data-interchange-formats-7)
+
+### The internet and world wide web
 
 A web API is just an API that is accessible over some kind of network. Generally, this network is the now infamous, globally interconnected network affectionately known as the **internet**.
 
