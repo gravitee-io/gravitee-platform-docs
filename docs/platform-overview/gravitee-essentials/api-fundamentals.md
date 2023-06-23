@@ -25,17 +25,13 @@ date_object = datetime.strptime(date_str, "%m/%d/%Y")
 
 Importing the `datetime` module provides access to public methods, or APIs, like `strptime` to convert a `string` into a `datetime` object. Although not network-related, this API still imposes a software contract, which guarantees the stability of the API with respect to the current software version. The contract allows the programmer to have confidence in the API's expected behavior without understanding how the input data is transformed.&#x20;
 
-
-
-is an agreement that the API will be kept stable at least until the next major software release, so you, the developer, have assurance about the API’s expected behavior without actually understanding how this transformation of input data is taking place.
-
 {% hint style="info" %}
 **Semantic versioning**
 
-Respecting these API contracts is the basis for semantic versioning in software. Check out [this article for a quick introduction to semantic versioning](https://blog.webdevsimplified.com/2020-01/semantic-versioning/) and learn how these API contracts are managed as software is continuously updated.
+Respecting API contracts is the basis for semantic versioning in software. Check out [this article](https://blog.webdevsimplified.com/2020-01/semantic-versioning/) this article for an introduction to semantic versioning and to learn how API contracts are managed as software is continuously updated.
 {% endhint %}
 
-APIs allow us to continue to add layers of abstraction we can trust. And in programming, abstraction is everything. For example, most developers prefer learning and continuing to work with a high-level programming language like Python as opposed to a [low-level assembly language](https://www.investopedia.com/terms/a/assembly-language.asp). Python abstracts away many concerns so a print statement can look like this:
+APIs enable the trusted layers of abstraction that are critical programming. For example, most developers prefer to use a high-level programming language like Python as opposed to a [low-level assembly language](https://www.investopedia.com/terms/a/assembly-language.asp). Numerous abstractions allow a Python print statement to look like this:
 
 ```python
 print('Hello, World')
