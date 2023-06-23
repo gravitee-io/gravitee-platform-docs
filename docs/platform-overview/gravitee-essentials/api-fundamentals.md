@@ -26,9 +26,7 @@ date_object = datetime.strptime(date_str, "%m/%d/%Y")
 Importing the `datetime` module provides access to public methods, or APIs, like `strptime` to convert a `string` into a `datetime` object. Although not network-related, this API still imposes a software contract, which guarantees the stability of the API with respect to the current software version. The contract allows the programmer to have confidence in the API's expected behavior without understanding how the input data is transformed.&#x20;
 
 {% hint style="info" %}
-**Semantic versioning**
-
-Respecting API contracts is the basis for semantic versioning in software. Check out [this article](https://blog.webdevsimplified.com/2020-01/semantic-versioning/) this article for an introduction to semantic versioning and to learn how API contracts are managed as software is continuously updated.
+Respecting API contracts is the basis for **semantic versioning** in software. Check out [this article](https://blog.webdevsimplified.com/2020-01/semantic-versioning/) this article for an introduction to semantic versioning and to learn how API contracts are managed as software is continuously updated.
 {% endhint %}
 
 APIs enable the trusted layers of abstraction that are critical programming. For example, most developers prefer to use a high-level programming language like Python as opposed to a [low-level assembly language](https://www.investopedia.com/terms/a/assembly-language.asp). Numerous abstractions allow a Python print statement to look like this:
@@ -68,13 +66,7 @@ Gravitee uses the terms "web API" and "API" synonymously. An API that does not c
 
 ## Web APIs <a href="#web-apis-protocols-architectures-specifications-and-data-serialization-formats-3" id="web-apis-protocols-architectures-specifications-and-data-serialization-formats-3"></a>
 
-To further clarify web API structure and functionality, this section addresses the following:
-
-* [Internet vs world wide web](api-fundamentals.md#internet-vs-world-wide-web)
-* [API protocols](api-fundamentals.md#protocols-4)
-* [API architectures/patterns](api-fundamentals.md#architectural-stylespatterns-5)
-* [API specifications](api-fundamentals.md#specifications-6)
-* [Data serialization formats](api-fundamentals.md#data-interchange-formats-7)
+To further clarify web API structure and functionality, this section addresses the [internet vs the world wide web](api-fundamentals.md#internet-vs-world-wide-web) and the [shift to microservices](api-fundamentals.md#shift-to-microservices), which delves into [API protocols](api-fundamentals.md#protocols-4), [API architectures/patterns](api-fundamentals.md#architectural-stylespatterns-5), [API specifications](api-fundamentals.md#specifications-6), and [data serialization formats](api-fundamentals.md#data-interchange-formats-7).
 
 ### Internet vs world wide web
 
@@ -84,13 +76,11 @@ The internet is the [physically interconnected](https://theconversation.com/in-o
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5b31e8183ce2abee47d7194607538270bde34bc3_2_690x492.png" alt=""><figcaption><p>Photo of the underwater cables connecting the internet from this <a href="https://www.weforum.org/agenda/2015/11/how-can-we-protect-the-internets-undersea-cables/">blog</a></p></figcaption></figure>
 
-Again, it is important to reiterate, that although they are referred to as web APIs, this just means these APIs are accessible over some kind of network, which is not limited to the combination of the internet and the world wide web. So perhaps network-based or remote APIs would be more accurate names, but admittedly, it would take a hell of a marketing team to transition the industry from the existing naming convention.
-
 {% hint style="info" %}
-**The birth of the web**
-
 For a quick history lesson and a bit more detail about the relationship between the internet and the world wide web, [watch this excellent video](https://www.youtube.com/watch?v=eHp1l73ztB8\&t=189s).
 {% endhint %}
+
+### Shift to microservices
 
 Now, the world of web APIs is booming. In large part, this is due to the shift from monolithic application architectures to microservices which you can [read more about here.](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications)
 
