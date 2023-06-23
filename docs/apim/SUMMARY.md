@@ -120,7 +120,6 @@
 * [Changelog](releases-and-changelog/changelog/README.md)
   * [APIM](releases-and-changelog/changelog/apim/README.md)
     * [APIM 4.x.x (2023-07-20)](releases-and-changelog/changelog/apim/gravitee-4.0.x-changelog.md)
-  * [GKO](releases-and-changelog/changelog/gko.md)
 
 ## Community & Support
 

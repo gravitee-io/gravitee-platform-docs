@@ -91,10 +91,10 @@ Need to include a list of policies and their version in each release of APIM
 
 #### Kubernetes Operator
 
-* CRD Lifecycle - Apply changes related CRDs on update
-* Store credentials in K8 secrets
-* Export a complex API and import it in a new/same environment
-* Manage resources as CRD and reuse them in several APIs
+* Use the Kubernetes Operator as a Kubernetes ingress controller
+* Maintain a unique custom resource defintion (CRD) for your API across all Gravitee environments
+* Manage application-level CRDs through the Gravitee Kubernetes Operator
+* Define the ManagementContext for your CRD and control whether the API should be local or global
 
 </details>
 

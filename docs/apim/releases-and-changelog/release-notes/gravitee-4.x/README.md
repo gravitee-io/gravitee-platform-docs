@@ -16,7 +16,7 @@ If you want a more condensed version of what's new, please refer to the [Changel
 
 This section of documentation has release notes for Gravitee versions:
 
-* 4.0
+* [Gravitee APIM 4.0](apim-4.0.md)
 
 
 
