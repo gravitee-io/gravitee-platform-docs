@@ -28,7 +28,7 @@ The following diagrams illustrate the component management, design, and virtual 
 
 ### Self-hosted component management <a href="#components" id="components"></a>
 
-<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (2).svg" alt="" class="gitbook-drawing">
 
 ### Self-hosted architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
@@ -46,7 +46,7 @@ The following diagrams illustrate the component management, design, and self-hos
 
 ### Hybrid component management <a href="#components" id="components"></a>
 
-<img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
 
 

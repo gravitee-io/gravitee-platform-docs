@@ -22,6 +22,8 @@ Need to include a list of policies and their version in each release of APIM
 
 ## Gravitee API Management 4.0 - July 20, 2023
 
+For more in-depth information on what's new, please refer to the [Gravitee APIM 4.0 release notes](../../release-notes/gravitee-4.x/apim-4.0.md).
+
 <details>
 
 <summary>What's new</summary>
@@ -42,7 +44,7 @@ Need to include a list of policies and their version in each release of APIM
 * v4 API Creation wizard support for the following Endpoints:
   * Kafka
   * MQTT
-  * RabbitMQ
+  * RabbitMQ (if using AMQP 0-9-1 protocol)
   * Mock
 * v4 API Creation wizard support for the following Entrypoints:
   * WebSocket
