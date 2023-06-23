@@ -12,7 +12,7 @@ Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support f
 
 {% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" fullWidth="true" %}
 
-The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs that use the Gravitee v4 API defintion. The v4 API definition enables organizations to start using Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. The new creation wizard enables you to expose Kafka, MQTT, (new) RabbitMQ (if using AMQP 0-9-1 protocol), and Mock (simulated backend for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs.
+The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs that use the Gravitee v4 API defintion. The v4 API definition enables organizations to start using Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. The new creation wizard enables you to create APIs that expose Kafka, MQTT, (new) RabbitMQ (if using AMQP 0-9-1 protocol), and Mock (simulated backend for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs, all using the Gravitee API Management Console.
 
 For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation. ](../../../guides/create-apis/how-to/v4-api-creation-wizard.md)
 
@@ -26,7 +26,7 @@ For more information on how to use the v4 Policy Design studio, please refer to 
 
 ### Existing Gravitee policies that now support v4 APIs
 
-As a part of the new Policy Design Studio release, we've migrated over some existing Gravitee to the new policy execution engine, which will enable these policies to work for v4 APIs. These policies are:
+As a part of the new Policy Design Studio release, we've made some existing Gravitee policies work for v4 APIs. These policies are:
 
 * API key policy
 * JWT policy
