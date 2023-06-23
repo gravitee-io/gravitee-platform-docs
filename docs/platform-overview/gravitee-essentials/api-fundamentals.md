@@ -84,9 +84,9 @@ For a quick history lesson and a bit more detail about the relationship between 
 
 The popularity of web APIs is largely due to the [shift from monolithic applications to microservices](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications). To summarize, microservices are replacing monoliths because not all aspects of a project scale in parallel. Microservices enable cloud-native applications through the functional separation and independent scaling of each runtime, and web APIs establish standardized contracts for network interfacing and provide distributed architectures with reliable communication.
 
-The underlying framework powering web APIs is quite complicated. Web APIs rely on communication protocols to deliver information to intended recipients, and network data must be serialized into data-interchange format for transport. In addition, API design and documentation should adhere to both an architecture and a specification.
+The underlying framework powering web APIs is quite complicated. Web APIs rely on communication protocols to deliver information to intended recipients, and network data must be serialized into data-interchange format for transport. In addition, API design and documentation should adhere to both an architecture and a specification.&#x20;
 
-When navigating the high waters of the world wide web for helpful guides, blogs, and documentation about APIs, the **protocols, architectures, specifications, and data-interchange formats** are often tossed around as if they are directly comparable. For example, you’ll often see the REST architectural style being inaccurately used as a proxy for the HTTP application layer protocol (don’t worry, we’ll define all these terms later on). So let’s take a minute or two to untangle these concepts at a high level.
+API protocols, data-interchange formats, architectures, and specifications are often insufficiently defined and differentiated. For example, the REST architectural style is inaccurately used as a proxy for the HTTP application layer protocol. The following sections offer high-level clarifications.
 
 ### Protocols <a href="#protocols-4" id="protocols-4"></a>
 
