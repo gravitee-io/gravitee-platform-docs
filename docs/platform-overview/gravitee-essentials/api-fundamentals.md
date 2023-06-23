@@ -1,20 +1,18 @@
 ---
-description: A deep dive on the basics
+description: >-
+  A robust conceptual framework to understand how the system works without
+  necessarily knowing how to build it
 ---
 
 # API Fundamentals
 
-Before walking through Gravitee-specific concepts, we want to ensure we are speaking the same language around APIs. Considering you could likely write a dissertation on each of the topics we’re about to touch on, the goal is not to provide an extremely technical description that splits every hair and details every possible nuance and caveat. Rather, the aim is to supply you, the developer, with the prerequisite knowledge needed to get the most out of Gravitee while simultaneously working to dispel some of the abundant myths, misconceptions, and misunderstandings held in the API space. This API fundamentals section is all about building a _robust conceptual framework_: you’ll have a better understanding of how the system _works_ without necessarily knowing how to _build_ it — yet.
-
-If you feel you are already an API Guru, feel free to skip to the [Gravitee Core Concepts](gravitee-core-concepts.md) section.&#x20;
-
-{% hint style="info" %}
-**Sidebar**
-
-You’ll see these throughout the essentials section to call out supplemental information that is useful and/or interesting, but not essential for moving forward. However, if you’re like us, any day of research involves pushing Chrome to its [limit of open tabs](https://redstapler.co/how-many-tabs-can-be-open-in-chrome/), filled with articles you hope to read later, as every bit of new knowledge opens ten new doors. Consider these sections a friendly means to feed that addiction.
-{% endhint %}
+The following sections comprise a high-level overview of core concepts and functionality essential to Gravitee and dispel pervasive API myths, misconceptions, and misunderstandings.
 
 ## API Basics <a href="#api-basics-2" id="api-basics-2"></a>
+
+An application programming interface, or API, is a set of publicly exposed interface conventions that enable computer programs or applications to communicate. is often used in reference to a specific subset of APIs that are classified as web APIs. While web APIs operate over a network, an API .
+
+
 
 Let’s start with our most fundamental building block: an **application programming interface** or API. Generally speaking, when most people say API, they are speaking about a specific subset of APIs known as **web APIs**. However, at its most basic level, an API is just a way for programs/applications/computers to talk to each other and is not exclusive to APIs that work over a network (i.e., web APIs). An API is simply a set of _publicly_ exposed **interface conventions**, for you, the **application programmer**, to interact with.
 
