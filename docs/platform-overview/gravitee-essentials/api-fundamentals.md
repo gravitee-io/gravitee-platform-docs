@@ -97,11 +97,9 @@ API protocols, data-interchange formats, architectures, and specifications are o
 
 ### Protocols <a href="#protocols-4" id="protocols-4"></a>
 
-APIs are categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the [layered networking model](https://www.quora.com/What-is-the-difference-between-HTTP-protocol-and-TCP-protocol/answer/Daniel-Miller-7?srid=nZLo), which conceptualizes communication within and between computers at different abstractions and with respect to different functionality.&#x20;
+APIs are categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the [layered networking model](https://www.quora.com/What-is-the-difference-between-HTTP-protocol-and-TCP-protocol/answer/Daniel-Miller-7?srid=nZLo), which conceptualizes communication within and between computers at different abstractions and with respect to different functionality. The transport layer and the application layer contain the protocols most relevant to APIs.&#x20;
 
-The transport layer and the application layer contain the protocols most relevant to APIs.&#x20;
-
-We’ll attempt to keep our focus narrow here and limit our attention to the user datagram protocol (UDP) and the transmission control protocol (TCP). Both of these protocols support [packet-based messaging.](https://www.cloudflare.com/learning/network-layer/what-is-a-packet/) The main differentiator here is that UDP is a more lightweight protocol at the expense of error checking; i.e., no guarantee of packet integrity, delivery, or order of delivery. Great for real-time video calls where lost data results in minor artifacts, but not so great for a bank routing your financial information around.
+The two most widely used transport layer protocols are user datagram protocol (UDP) and the transmission control protocol (TCP) which both support [packet-based messaging.](https://www.cloudflare.com/learning/network-layer/what-is-a-packet/) The main differentiator is that UDP is more lightweight at the expense of error checking and does not guarantee packet integrity, delivery, or order of delivery. This  real-time video calls where lost data results in minor artifacts, but not so great for a bank routing your financial information around.
 
 While certainly yet another gross oversimplification, UDP’s lack of error checking is a major reason many application layer protocols are built on top of TCP. TCP provides robust error checking to ensure packets are not lost, corrupted, duplicated, or delivered out of order.
 
