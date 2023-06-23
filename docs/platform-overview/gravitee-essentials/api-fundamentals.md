@@ -70,17 +70,17 @@ Gravitee uses the terms "web API" and "API" synonymously. An API that does not c
 
 To further clarify web API structure and functionality, this section addresses the following:
 
-* [The internet and world wide web](api-fundamentals.md#the-internet-and-world-wide-web)
+* [Internet vs world wide web](api-fundamentals.md#internet-vs-world-wide-web)
 * [API protocols](api-fundamentals.md#protocols-4)
-* [API architectures](api-fundamentals.md#architectural-stylespatterns-5)
+* [API architectures/patterns](api-fundamentals.md#architectural-stylespatterns-5)
 * [API specifications](api-fundamentals.md#specifications-6)
 * [Data serialization formats](api-fundamentals.md#data-interchange-formats-7)
 
-### The internet and world wide web
+### Internet vs world wide web
 
-A web API is just an API that is accessible over some kind of network. Generally, this network is the now infamous, globally interconnected network affectionately known as the **internet**.
+A web API is an API that is accessible over a network. Although the type of network is not specified, common usage of "web API" presumes the internet, which is the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) global network of computers along which information travels.
 
-Now, getting into the weeds a bit, the internet is the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the means by which information actually travels. And much of the information traveling through the internet, such as this developer guide, is organized in what is known as the **world wide web** or web, for short. The information exists in an interconnected _web_, hence the name, and is in the form of **hypermedia** (e.g., web pages). The web is essentially an application running on the internet infrastructure. However, it is important to note that while the world wide web is by far the most popular, it is but one of many ways to interact with information on the internet. For example, you can use VoIP, or Voice over Internet Protocol, to make a call over the internet without ever interacting with the web.
+&#x20;And much of the information traveling through the internet, such as this developer guide, is organized in what is known as the **world wide web** or web, for short. The information exists in an interconnected _web_, hence the name, and is in the form of **hypermedia** (e.g., web pages). The web is essentially an application running on the internet infrastructure. However, it is important to note that while the world wide web is by far the most popular, it is but one of many ways to interact with information on the internet. For example, you can use VoIP, or Voice over Internet Protocol, to make a call over the internet without ever interacting with the web.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5b31e8183ce2abee47d7194607538270bde34bc3_2_690x492.png" alt=""><figcaption><p>Photo of the underwater cables connecting the internet from this <a href="https://www.weforum.org/agenda/2015/11/how-can-we-protect-the-internets-undersea-cables/">blog</a></p></figcaption></figure>
 
