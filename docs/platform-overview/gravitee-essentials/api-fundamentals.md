@@ -99,27 +99,17 @@ API protocols, data-interchange formats, architectures, and specifications are o
 
 APIs are categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the [layered networking model](https://www.quora.com/What-is-the-difference-between-HTTP-protocol-and-TCP-protocol/answer/Daniel-Miller-7?srid=nZLo), which conceptualizes communication within and between computers at different abstractions and with respect to different functionality. The transport layer and the application layer contain the protocols most relevant to APIs.&#x20;
 
-The two most widely used transport layer protocols are user datagram protocol (UDP) and the transmission control protocol (TCP) which both support [packet-based messaging.](https://www.cloudflare.com/learning/network-layer/what-is-a-packet/) The main differentiator is that UDP is more lightweight at the expense of error checking and does not guarantee packet integrity, delivery, or order of delivery. UDP is suitable if data loss results in minor artifacts (e.g., real-time video calls) but not for use cases that demand high accuracy (e.g., routing banking information).
+#### Transport layer
 
-While certainly yet another gross oversimplification, UDP’s lack of error checking is a major reason many application layer protocols are built on top of TCP. TCP provides robust error checking to ensure packets are not lost, corrupted, duplicated, or delivered out of order.
+The two most widely used transport layer protocols are the user datagram protocol (UDP) and the transmission control protocol (TCP) which both support [packet-based messaging.](https://www.cloudflare.com/learning/network-layer/what-is-a-packet/) The main differentiator is that UDP is more lightweight at the expense of error checking and does not guarantee packet integrity, delivery, or order of delivery. UDP is suitable if data loss results in minor artifacts (e.g., real-time video calls) but not for use cases that demand high accuracy (e.g., routing banking information).
 
-This finally brings us to the top layer of the conceptual network cake we’ve hastily baked: the application layer. As spoiled in the copypasta above, this is where the protocols you’re likely most familiar with live, such as the examples shown in the table below. We’ll touch on the synchronous vs asynchronous distinction in detail later on.
+The need for accurate and reliable data factors heavily into why many application layer protocols are built on top of TCP. TCP provides robust error checking to ensure packets are not lost, corrupted, duplicated, or delivered out of order.
 
-| Name                                       | Abbreviation | Network Communication Type             |
-| ------------------------------------------ | ------------ | -------------------------------------- |
-| Hypertext Transfer Protocol                | HTTP         | Sync/Async - depends on version        |
-| Hypertext Transfer Protocol Secure         | HTTPS        | Sync/Async - depends on version        |
-| Websocket                                  | N/a          | Async                                  |
-| Server Sent Events                         | SSE          | Async                                  |
-| File Transfer Protocol                     | FTP          | Sync                                   |
-| Message Queuing Telemetry Transport        | MQTT         | Async                                  |
-| Advanced Message Queuing Transport         | AMQP         | Async                                  |
-| Kafka’s Custom Binary Protocol             | N/a          | Async                                  |
-| Google Remote Procedure Call               | gRPC         | Sync/Async - depends on implementation |
-| Simple Object Access Protocol              | SOAP         | Sync/Async - depends on implementation |
-| Simple Mail Transfer Protocol              | SMTP         | Sync                                   |
-| Domain Name Service                        | DNS          | Sync/Async - depends on implementation |
-| Extensible Messaging and Presence Protocol | XMPP         | Async                                  |
+#### Application layer
+
+The application layer is the top layer of the layered network model and contains many recognizable protocols, such as those shown in the table below. These protocols are categorized as synchronous or asynchronous depending on the type(s) of communication they support.
+
+<table><thead><tr><th width="347">Name</th><th width="135">Abbreviation</th><th>Communication Type</th></tr></thead><tbody><tr><td>Hypertext Transfer Protocol</td><td>HTTP</td><td>Sync/Async</td></tr><tr><td>Hypertext Transfer Protocol Secure</td><td>HTTPS</td><td>Sync/Async</td></tr><tr><td>Websocket</td><td>N/a</td><td>Async</td></tr><tr><td>Server Sent Events</td><td>SSE</td><td>Async</td></tr><tr><td>File Transfer Protocol</td><td>FTP</td><td>Sync</td></tr><tr><td>Message Queuing Telemetry Transport</td><td>MQTT</td><td>Async</td></tr><tr><td>Advanced Message Queuing Transport</td><td>AMQP</td><td>Async</td></tr><tr><td>Kafka’s Custom Binary Protocol</td><td>N/a</td><td>Async</td></tr><tr><td>Google Remote Procedure Call</td><td>gRPC</td><td>Sync/Async </td></tr><tr><td>Simple Object Access Protocol</td><td>SOAP</td><td>Sync/Async </td></tr><tr><td>Simple Mail Transfer Protocol</td><td>SMTP</td><td>Sync</td></tr><tr><td>Domain Name Service</td><td>DNS</td><td>Sync/Async </td></tr><tr><td>Extensible Messaging and Presence Protocol</td><td>XMPP</td><td>Async</td></tr></tbody></table>
 
 These are the protocols responsible for defining how individual applications communicate over networks and share information. In other words, the first four layers are focused on delivering data to a destination. The application layer protocols are then responsible for establishing standards for communication that detail what should actually be done with that data. Let’s add some clarity to that abstract sentence through a quick example using `google.com`.
 
