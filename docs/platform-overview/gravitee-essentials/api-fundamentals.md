@@ -12,13 +12,9 @@ The following sections comprise a high-level overview of core concepts and funct
 
 An application programming interface, or API, is a set of publicly exposed definitions and protocols that enable the creation and integration of application software. These conventions comprise a software intermediary that allows computer programs or applications to communicate.&#x20;
 
-While&#x20;
+While "API" and "web API" are often used interchangeably, web APIs are a specific subset of API that operate over a network. "API" has much broader implications and includes every method or function called in programming, whether built into a language or made available by a 3rd party package or module.&#x20;
 
-
-
-Let’s start with our most fundamental building block: an **application programming interface** or API. Generally speaking, when most people say API, they are speaking about a specific subset of APIs known as **web APIs**. However, at its most basic level, an API is just a way for programs/applications/computers to talk to each other and is not exclusive to APIs that work over a network (i.e., web APIs). An API is simply a set of _publicly_ exposed **interface conventions**, for you, the **application programmer**, to interact with.
-
-Technically speaking, every method or function you have ever called, whether built into a programming language or from third-party packages/modules, is an API! Take the Python example below:
+Consider the following Python snippet:
 
 ```python
 from datetime import datetime
