@@ -1,6 +1,6 @@
 # Introduction to Gravitee API Management (APIM)
 
-Organizations need API management solutions to publish their APIs to external developers, internal developers, and other partners. API management can unlock the potential of the organization’s data and services, as well as facilitate the transformation to OpenAPI and OpenData, extending the company’s digital platform offerings, opening new communication channels, and finding new customers.
+Organizations need API management solutions to securely and reliably expose their APIs to external developers, internal developers, and partners. API management can unlock the potential of the organization’s data and services, as well as facilitate the transformation to OpenAPI and OpenData, extending the company’s digital platform offerings, opening new communication channels, and finding new customers.
 
 Naturally, a growing customer base brings new challenges, such as:
 
@@ -12,13 +12,13 @@ Naturally, a growing customer base brings new challenges, such as:
 
 So, how can businesses address all these challenges seamlessly, for all APIs, using a centralized tool? Simple – by choosing Gravitee API Management (APIM).
 
-## What Is APIM?
+## What Is Gravitee API Management?
 
-APIM is a flexible, lightweight, and blazing-fast open-source API management solution that gives your organization full control over who accesses your API — when and how. APIM is both simple to use and powerful, acting as a global solution for API management. Gravitee APIM is composed of four main components:
+Gravitee API Management (APIM) is a flexible, lightweight, and performant event-native API management platform that enables organizations to manage, secure, and govern synchronous and asynchronous APIs. Gravitee APIM is composed of four main components:
 
 1. APIM Gateway
 2. APIM Management API
-3. APIM Management UI
+3. APIM Console
 4. APIM Developer Portal
 
 ### APIM Gateway
@@ -31,7 +31,7 @@ Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply polici
 
 This RESTful API exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](reference/management-api-reference/) section.
 
-### APIM Management UI
+### APIM Console
 
 This web UI gives easy access to some key APIM API services. API Publishers can use it to publish APIs. Administrators can also configure global platform settings and specific portal settings.
 
