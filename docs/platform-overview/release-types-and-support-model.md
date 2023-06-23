@@ -21,7 +21,7 @@ Gravitee currently has three types of releases:
 Tech Preview refers to a stage in which a particular feature is made available for testing and evaluation purposes to members of Gravitee's Early Access program.&#x20;
 
 {% hint style="info" %}
-**Join Gravitee's Insiders program**
+**Join Gravitee's Early Access program**
 
 If you'd like to get access to Gravitee's cutting-edge features and help shape the future of the product, you can apply to join Gravitee's Early Access program by [contacting us](https://www.gravitee.io/contact-us) or reaching out to your CSM.
 {% endhint %}
