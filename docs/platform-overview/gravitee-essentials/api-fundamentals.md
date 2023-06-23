@@ -97,6 +97,10 @@ API protocols, data-interchange formats, architectures, and specifications are o
 
 ### Protocols <a href="#protocols-4" id="protocols-4"></a>
 
+APIs are categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the layered networking model, which conceptualizes communication within and between computers at different abstractions and with respect to different functionality.&#x20;
+
+
+
 “It’s an HTTP API.”
 
 When people talk about types of APIs, they are usually talking about the application layer protocol used for communication over the network (APIs are also categorized by their architectural style but we’ll get to that later). To understand what that means, you need a basic understanding of the **layered networking model**.
