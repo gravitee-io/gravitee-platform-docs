@@ -66,7 +66,14 @@ Gravitee uses the terms "web API" and "API" synonymously. An API that does not c
 
 ## Web APIs <a href="#web-apis-protocols-architectures-specifications-and-data-serialization-formats-3" id="web-apis-protocols-architectures-specifications-and-data-serialization-formats-3"></a>
 
-To further clarify web API structure and functionality, this section addresses the [internet vs the world wide web](api-fundamentals.md#internet-vs-world-wide-web) and the [shift to microservices](api-fundamentals.md#shift-to-microservices), which delves into [API protocols](api-fundamentals.md#protocols-4), [API architectures/patterns](api-fundamentals.md#architectural-stylespatterns-5), [API specifications](api-fundamentals.md#specifications-6), and [data serialization formats](api-fundamentals.md#data-interchange-formats-7).
+To further clarify web API structure and functionality, this section addresses:
+
+* [Internet vs world wide web](api-fundamentals.md#internet-vs-world-wide-web)
+* [shift to microservices](api-fundamentals.md#shift-to-microservices)
+* [API protocols](api-fundamentals.md#protocols-4)
+* [API architectures/patterns](api-fundamentals.md#architectural-stylespatterns-5)
+* [API specifications](api-fundamentals.md#specifications-6)
+* [Data-interchange formats](api-fundamentals.md#data-interchange-formats-7)
 
 ### Internet vs world wide web
 
@@ -221,7 +228,7 @@ Due to their ever-growing popularity, you may stumble across mentions of Webhook
 > “Webhooks are often referred to as reverse APIs or push APIs, because they put the responsibility of communication on the server, rather than the client. Instead of the client sending HTTP requests—asking for data until the server responds—the server sends the client a single HTTP POST request as soon as the data is available. Despite their nicknames, webhooks are not APIs; they work together. An application must have an API to use a webhook.”
 {% endhint %}
 
-### Architectural Styles/Patterns <a href="#architectural-stylespatterns-5" id="architectural-stylespatterns-5"></a>
+### Architectural styles/patterns <a href="#architectural-stylespatterns-5" id="architectural-stylespatterns-5"></a>
 
 Some of you might be wondering why we left the quintessential web API protocol, the REST API, out of the mix. Well that’s because REST is not a type of protocol at all, it’s an architectural style! REST stands for “representational state transfer”, and we’ll dive into what that means in a bit. REST APIs use the HTTP application protocol (not a REST requirement, but practically speaking, REST APIs always employ the HTTP protocol) and must adhere to several architectural constraints to be considered a REST or RESTful API:
 
@@ -306,7 +313,7 @@ As a questionable metaphor, let's look at the postal service. You can think of A
 If this distinction is not clear, read [this article](https://www.asyncapi.com/blog/asyncapi-cloud-events) for a more in-depth comparison. We’ll be defining and discussing much of the article’s terminology around events later in this guide so consider this a sneak preview.
 {% endhint %}
 
-### Data-Interchange Formats <a href="#data-interchange-formats-7" id="data-interchange-formats-7"></a>
+### Data-interchange formats <a href="#data-interchange-formats-7" id="data-interchange-formats-7"></a>
 
 So far, we’ve covered the protocols that power every API as well as the frameworks that support the design and development of various implementations of APIs. Now we want to take a moment to zoom in and talk about the API **payload**: the actual data being transported by the API.
 
