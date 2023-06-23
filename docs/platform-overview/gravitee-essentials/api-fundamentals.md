@@ -82,7 +82,7 @@ For a quick history lesson and a bit more detail about the relationship between 
 
 ### Shift to microservices
 
-The popularity of web APIs is largely due to the shift from monolithic applications to microservices, discussed [here](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications). To summarize, microservice architectures are replacing monolithic architectures because not all aspects of a project scale in parallel. While microservices enable the functional separation and independent scaling of each runtime in an increasingly cloud-native world, they introduce communication and interfacing challenges.&#x20;
+The popularity of web APIs is largely due to the [shift from monolithic applications to microservices](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications). To summarize, microservice architectures are replacing monolithic architectures because not all aspects of a project scale in parallel. While microservices enable the functional separation and independent scaling of each runtime in an increasingly cloud-native world, they introduce communication and interfacing challenges.&#x20;
 
 A web API establishes a standardized contract for interfacing over a network and provides distributed architectures a reliable means of communication.
 
