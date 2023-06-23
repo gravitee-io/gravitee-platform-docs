@@ -102,8 +102,6 @@ Need to include a list of policies and their version in each release of APIM
 
 <summary>Bug Fixes</summary>
 
-#### API Management Console
-
 * Insert bug fixes
 
 </details>
@@ -112,8 +110,6 @@ Need to include a list of policies and their version in each release of APIM
 
 <summary>Breaking Changes</summary>
 
-#### API Management Console
-
-* Insert bug fixes
+* Insert breaking changes
 
 </details>

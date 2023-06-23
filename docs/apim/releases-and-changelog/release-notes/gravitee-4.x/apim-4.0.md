@@ -12,7 +12,7 @@ Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support f
 
 {% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" fullWidth="true" %}
 
-The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs that use the Gravitee v4 API defintion. The v4 API definition enables organizations to start using Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. The new creation wizard enables you to expose Kafka, MQTT, RabbitMQ, and Mock (simulated backend for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs.
+The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs that use the Gravitee v4 API defintion. The v4 API definition enables organizations to start using Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. The new creation wizard enables you to expose Kafka, MQTT, (new) RabbitMQ (if using AMQP 0-9-1 protocol), and Mock (simulated backend for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs.
 
 For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation. ](../../../guides/create-apis/how-to/v4-api-creation-wizard.md)
 
@@ -59,7 +59,16 @@ When designing policies and flows, you can now define Confluent Schema Registry 
 
 ## Webhook subscription configuration in the Developer Portal
 
+(Insert arcade)
 
+We released support for Webhook subscriptions a while ago, but now we've made the consumer experience much better with the ability to define your Webhook subscription in the Gravitee Developer Portal.&#x20;
+
+When in the Developer Portal, you'll be able to:
+
+* Configure the details of your plan in the portal, including defining a custom Webhook callback URL
+* Add basic authentication and an API key as a bearer token
+
+This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the Developer Portal documentation.&#x20;
 
 ## v2 Management API
 
@@ -67,9 +76,21 @@ We've created a new version of the Gravitee API Management Management API (M-API
 
 ## New Kubernetes Operator enhancements
 
+In addition to making Gravitee API Management more "event-native," we've also made it more "kube-native," with some major enhancements to our Kubernetes Operator:
+
+* You can now maintain a unique custom resource defintion (CRD) for your API across all Gravitee environments and verbalize some fields per enviornment. For example, you can change the endpoint target across dev, staging, and prod environments using CRDs.
+* You can now manage application-level CRDs through the Gravitee Kubernetes Operator. This enables you to configure an platform level configuration using a k8s declarative approach
+* The Kubernetes Operator now supports both local and global configurations. This means that you can define the ManagementContext for your CRD and control whether the API should be local or global.&#x20;
+
+### Gravitee as ingress controller
+
+(insert arcade)
+
+Another major update to the Gravitee Kubernetes Operator is it's ability to act as an ingress controller. Now, you can use Gravitee as an ingress controller as opposed to using a third-party ingress controller, such as NGNIx or traffik. This will result in less complexity and maintenance across the entirety of your infrastructure.&#x20;
+
 ## More new features
 
-While not this release's major highlights, here are the other features released in Gravitee API Management 4.0
+While not included in this release's major highlights, here are the other features released in Gravitee API Management 4.0.
 
 ### New API Management Console support for v4 APIs
 
@@ -87,5 +108,5 @@ As a part of our additional support for v4 APIs and asynchronous APIs, we've add
 
 ### Datadog reporter
 
-The Datadog reporter enables you to&#x20;
+The Datadog reporter enables you to push API moniotring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the Datadog reporter documentation.
 
