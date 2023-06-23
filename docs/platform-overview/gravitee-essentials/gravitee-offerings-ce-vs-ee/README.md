@@ -9,11 +9,7 @@ Gravitee was founded as an open-source project and our open-source roots are par
 Gravitee also offers an [**Enterprise Edition**](https://www.gravitee.io/pricing) **(EE)** that adds capabilities targeting commercial end users. The EE includes everything from the CE and offers additional features like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 
 {% hint style="info" %}
-**Open Core Product**
-
-Technically, Gravitee is what is known as an open core product, and you can read more [about that here](https://thenewstack.io/a-standard-pricing-model-for-open-core/). It is summarized well in this excerpt:
-
-> “The difference between open core and proprietary software is that open core produces a substantial amount of open source software, whereas solely proprietary software produces none. They both offer open source maintainers a way to get paid for their work, but open core contributes back to open source. Source available carries more advantages to the user than closed source. Most open core companies put a lot of effort toward maintaining the core. Therefore, open core is better than proprietary software for all of these reasons. The argument isn’t open core over open source, it’s open core instead of proprietary.”
+Technically, Gravitee is what is known as an [open core product](https://www.planetcrust.com/what-is-the-difference-between-open-source-and-open-core?utm\_campaign=blog).
 {% endhint %}
 
 ## Gravitee Community Edition <a href="#toc-h3-gravitee-community-edition" id="toc-h3-gravitee-community-edition"></a>
