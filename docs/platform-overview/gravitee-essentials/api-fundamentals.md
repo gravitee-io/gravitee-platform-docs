@@ -82,9 +82,7 @@ For a quick history lesson and a bit more detail about the relationship between 
 
 ### Shift to microservices
 
-Now, the world of web APIs is booming. In large part, this is due to the shift from monolithic application architectures to microservices which you can [read more about here.](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications)
-
-_tldr;_ Microservices are replacing monolithic application architectures because not all aspects of a project scale in parallel. Microservices allow for a separation of concerns and independent scaling of each runtime in an increasingly cloud-native world. The problem? Microservice communication and interfacing. The solution? You guessed it, web APIs.
+The popularity of web APIs is largely due to the shift from monolithic applications to microservices, discussed [here](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications). To summarize, microservice architectures are replacing monolithic application architectures because not all aspects of a project scale in parallel. Microservices enable the functional separation and independent scaling of each runtime in an increasingly cloud-native world. This transition introduces communication and interfacing challenges that are overcome via web APIs.
 
 Web APIs provide distributed architectures with a means of reliable communication through a standardized contract for interfacing over a network. Now, for a web API to communicate over a network, you must employ a **protocol** to deliver your information to the intended recipient. Furthermore, the design and documentation of your actual API should adhere to both an **architecture** and a **specification**. And finally, all data being sent over a network must be serialized into a **data-interchange format** for transport. If it sounds like there are a lot of moving pieces in this simplistic model, then your intuition is correct! The underlying framework powering web APIs is a complicated one. But fortunately, you should be well-oriented by the end of the API Fundamentals section and ready to start building in this brave new world.
 
