@@ -23,7 +23,7 @@ date_str = "12/25/1996"
 date_object = datetime.strptime(date_str, "%m/%d/%Y")
 ```
 
-Importing the `datetime` module provides access to public methods, or APIs, like `strptime` to convert a `string` into a `datetime` object. This API is not network-related, but still represents a contract. The contract ensures the stability of the API until, at minimum, the next major software release&#x20;
+Importing the `datetime` module provides access to public methods, or APIs, like `strptime` to convert a `string` into a `datetime` object. Although not network-related, this API still imposes a software contract, which guarantees the stability of the API with respect to the current software version. The contract allows the programmer to have confidence in the API's expected behavior without understanding how the input data is transformed.&#x20;
 
 
 
