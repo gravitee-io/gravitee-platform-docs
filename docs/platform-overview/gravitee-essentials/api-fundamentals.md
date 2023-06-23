@@ -97,31 +97,9 @@ API protocols, data-interchange formats, architectures, and specifications are o
 
 ### Protocols <a href="#protocols-4" id="protocols-4"></a>
 
-APIs are categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the layered networking model, which conceptualizes communication within and between computers at different abstractions and with respect to different functionality.&#x20;
+APIs are categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the [layered networking model](https://www.quora.com/What-is-the-difference-between-HTTP-protocol-and-TCP-protocol/answer/Daniel-Miller-7?srid=nZLo), which conceptualizes communication within and between computers at different abstractions and with respect to different functionality.&#x20;
 
-
-
-“It’s an HTTP API.”
-
-When people talk about types of APIs, they are usually talking about the application layer protocol used for communication over the network (APIs are also categorized by their architectural style but we’ll get to that later). To understand what that means, you need a basic understanding of the **layered networking model**.
-
-There are numerous types of protocols underlying every experience you have browsing the web. These protocols form the basis of the layered networking model. We’d be happy to type out a beautiful explanation of what exactly that is, but instead, we’ve elected to copy and paste this excellent eli5 definition of the layered network model as a starting point:
-
-> … you need to understand the idea of a layered networking model. Essentially, there are different protocols that let a computer talk at different distances and different layers of abstraction. At the very bottom of the network stack is the physical layer. This is where electrical signals or light pulses or radio waves actually transmit information from place to place. The physical layer doesn’t really have protocols, but instead has standards for voltages, frequencies, and other physical properties. You can transmit information directly this way, but you need a lot of power or a dedicated line, and without higher layers you won’t be able to share bandwidth.
->
-> The next layer up is the link layer. This layer covers communication with devices that share a physical communications medium. Here, protocols like Ethernet, 802.11a/b/g/n, and Token Ring specify how to handle multiple concurrent accesses to the physical medium and how to direct traffic to one device instead of another. In a typical home network, this is how your computer talks to your home “router.”
->
-> The third layer is the network layer. In the majority of cases, this is dominated by Internet Protocol (IP). This is where the magic of the Internet happens, and you get to talk to a computer halfway around the world, without needing to know where it is. Routers handle directing your traffic from your local network to the network where the other computer lives, where its own link layer handles getting the packets to the right computer.
->
-> Now we are getting somewhere. We can talk to a computer somewhere around the world, but that computer is running lots of different programs. How should it know which one to deliver your message to? The transport layer takes care of this, usually with port numbers. The two most popular transport layer protocols are TCP and UDP. TCP does a lot of interesting things to smooth over the rough spots of network-layer packet-switched communication like reordering packets, retransmitting lost packets, etc. UDP is more unreliable, but has less overhead.
->
-> So we’ve connected your browser to the web server software on the other end, but how does the server know what page you want? How can you post a question or an answer? These are things that application-layer protocols handle. For web traffic, this is the HyperText Transfer Protocol (HTTP). There are thousands of application-layer protocols: SMTP, IMAP, and POP3 for email; XMPP, IRC, ICQ for chat; Telnet, SSH, RDP for remote administration; etc.
->
-> These are the five layers of the TCP/IP networking model, but they are really only conceptual. The OSI model has 7 layers. In reality, some protocols shim between various layers, or can work at multiple layers at once. TLS/SSL for instance provides encryption and session information between the network and transport layers. Above the application layer, Application Programming Interfaces (APIs) govern communication with web applications like Quora, Twitter, and Facebook.
->
-> [— From Daniel Miller’s Response on Quora](https://www.quora.com/What-is-the-difference-between-HTTP-protocol-and-TCP-protocol/answer/Daniel-Miller-7?srid=nZLo)
-
-As it pertains to this guide, the two layers we are most concerned with are the transport layer and the application layer. These layers contain the protocols you are most likely to hear thrown around when traversing the world of APIs. Keep in mind these layers are just conceptual and implementation is often a much murkier mistress. Let’s start with the transport layer.
+The transport layer and the application layer contain the protocols most relevant to APIs.&#x20;
 
 We’ll attempt to keep our focus narrow here and limit our attention to the user datagram protocol (UDP) and the transmission control protocol (TCP). Both of these protocols support [packet-based messaging.](https://www.cloudflare.com/learning/network-layer/what-is-a-packet/) The main differentiator here is that UDP is a more lightweight protocol at the expense of error checking; i.e., no guarantee of packet integrity, delivery, or order of delivery. Great for real-time video calls where lost data results in minor artifacts, but not so great for a bank routing your financial information around.
 
