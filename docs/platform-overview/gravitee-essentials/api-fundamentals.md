@@ -10,7 +10,9 @@ The following sections comprise a high-level overview of core concepts and funct
 
 ## API Basics <a href="#api-basics-2" id="api-basics-2"></a>
 
-An application programming interface, or API, is a set of publicly exposed interface conventions that enable computer programs or applications to communicate. is often used in reference to a specific subset of APIs that are classified as web APIs. While web APIs operate over a network, an API .
+An application programming interface, or API, is a set of publicly exposed definitions and protocols that enable the creation and integration of application software. These conventions comprise a software intermediary that allows computer programs or applications to communicate.&#x20;
+
+While&#x20;
 
 
 
