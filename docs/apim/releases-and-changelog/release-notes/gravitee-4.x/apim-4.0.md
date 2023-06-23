@@ -1,5 +1,5 @@
 ---
-description: This article covers the new features released in Gravitee 4.0
+description: This article covers the new features released in Gravitee API Management 4.0
 ---
 
 # APIM 4.0
@@ -42,6 +42,8 @@ As a part of the new Policy Design Studio release, we've made some existing Grav
 * Cache policy&#x20;
 * Transform headers policy
 
+For more information on policies, please refer to our policy reference documentation.
+
 ### New policies for v4 APIs
 
 We've also released brand new policies that will support v4 APIs:
@@ -50,6 +52,8 @@ We've also released brand new policies that will support v4 APIs:
 * Serialization and Deserialization policies:
   * JSON to Avro: transform information in JSON format to Avro format
   * Avro to Json: transform information from Avro format into JSON format
+
+For more information on policies, please refer to our policy reference documentation.
 
 ## Support for Schema registry as a resource
 
