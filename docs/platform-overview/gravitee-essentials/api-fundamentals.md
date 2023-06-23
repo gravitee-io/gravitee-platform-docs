@@ -58,7 +58,7 @@ instead of this:
     msg  db 'Hello, World!', 0x0d, 0x0a, '$'   ; $-terminated message
 ```
 
-Well beyond developer experience and productivity, abstraction is a necessity. For example, the vast majority of people don’t understand the inner workings of email. Instead, knowledge is limited to the inputs (i.e., interface conventions): recipients, subject, message body, the send button, etc., and the outputs: a rapid form of text-based communication. Abstractions, and therefore APIs, are necessary for efficiency and innovation.
+Beyond developer experience and productivity, abstraction remains critical. For example, the vast majority of people don’t understand how email works, just that there are inputs (i.e., interface conventions): recipients, subject, message body, the send button, etc., and output: a rapid form of text-based communication. Abstractions, and therefore APIs, are necessary for efficiency and innovation.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/a/a8a51b9365a05b24e391d475f37a6fb6408d9150.png" alt=""><figcaption><p>Abstraction meme posted on <a href="https://www.reddit.com/r/ProgrammerHumor/comments/orerw4/abstraction/">reddit</a>.</p></figcaption></figure>
 
