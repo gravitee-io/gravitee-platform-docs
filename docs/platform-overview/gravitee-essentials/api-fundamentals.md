@@ -129,11 +129,7 @@ The example below clarifies the structure and individual components of a web add
 
 <figure><img src="../.gitbook/assets/uri_diagram1.png" alt=""><figcaption><p><a href="https://hanseul-lee.github.io/2020/12/24/20-12-24-URL/">URI vs URL vs URN</a></p></figcaption></figure>
 
-This discussion is limited to certain network layers and certain parts of a URI.
-
-
-
-&#x20;application layer protocol, the domain (which resolves to an IP address), and the port number. In networking, a communication link between two applications requires each endpoint to be defined with an **IP address** (layer 3, the network layer) and a **port number** (layer 4, the transport layer); the combination is generally referred to as a **network socket**. Each socket represents one endpoint in this communication link between two programs. Think of the socket as a complete address. So for example, to send a request to a web server, you just need to know its socket: a unique IP address and port combination.
+This discussion is limited to certain URI components and networking layers: the protocol (application layer), the domain (resolves to an IP address on the network layer), and the port number (transport layer). A communication link between two applications requires each endpoint to be defined by the combination of an IP address and a port number, which is generally referred to as a network socket. A network socket constitutes a complete, unique web address and is used for a client request to a web server.
 
 {% hint style="info" %}
 **Network socket clarification**
