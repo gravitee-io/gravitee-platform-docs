@@ -111,16 +111,24 @@ The application layer is the top layer of the layered network model and contains
 
 <table><thead><tr><th width="347">Name</th><th width="135">Abbreviation</th><th>Communication Type</th></tr></thead><tbody><tr><td>Hypertext Transfer Protocol</td><td>HTTP</td><td>Sync/Async</td></tr><tr><td>Hypertext Transfer Protocol Secure</td><td>HTTPS</td><td>Sync/Async</td></tr><tr><td>Websocket</td><td>N/a</td><td>Async</td></tr><tr><td>Server Sent Events</td><td>SSE</td><td>Async</td></tr><tr><td>File Transfer Protocol</td><td>FTP</td><td>Sync</td></tr><tr><td>Message Queuing Telemetry Transport</td><td>MQTT</td><td>Async</td></tr><tr><td>Advanced Message Queuing Transport</td><td>AMQP</td><td>Async</td></tr><tr><td>Kafka’s Custom Binary Protocol</td><td>N/a</td><td>Async</td></tr><tr><td>Google Remote Procedure Call</td><td>gRPC</td><td>Sync/Async </td></tr><tr><td>Simple Object Access Protocol</td><td>SOAP</td><td>Sync/Async </td></tr><tr><td>Simple Mail Transfer Protocol</td><td>SMTP</td><td>Sync</td></tr><tr><td>Domain Name Service</td><td>DNS</td><td>Sync/Async </td></tr><tr><td>Extensible Messaging and Presence Protocol</td><td>XMPP</td><td>Async</td></tr></tbody></table>
 
-Application layer protocols define how independent programs and services communicate over networks and share information. While the other protocol layers focus on delivering data to a destination, the application layer protocols are responsible for establishing communication standards that dictate how that data is accessed and consumed. Let’s add some clarity to that abstract sentence through a quick example using `google.com`.
+Application layer protocols define how independent programs and services communicate over networks and share information. While the other protocol layers focus on delivering data to a destination, the application layer protocols are responsible for establishing communication standards that dictate how that data is accessed and consumed.&#x20;
 
-double-clickModern web browsers are simply applications that communicate over the HTTP/HTTPS application layer protocol (HTTPS is HTTP with encryption and verification). Don’t take our word for it. Head over to [Google](https://google.com/) and give the **uniform resource locator**, or URL, a quick double-click.
+For example, modern web browsers like `google.com`are simply applications that communicate over the HTTP/HTTPS application layer protocol (HTTPS is HTTP with encryption and verification). This is evidenced by visiting [Google](https://google.com/) and double-clicking on the uniform resource locator, or URL.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/2/2f99b25e6d3a94369d36504bcd46cc8acfe59011.png" alt=""><figcaption><p>Shortened URL displayed</p></figcaption></figure>
+<div align="left">
+
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/2/2f99b25e6d3a94369d36504bcd46cc8acfe59011.png" alt="" width="375"><figcaption><p>Shortened URL displayed</p></figcaption></figure>
+
+</div>
 
 \
 
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/d/de3d4bc7af143dfa5bc64edf9480978fabc471ba.png" alt=""><figcaption><p>Expanded URL</p></figcaption></figure>
+<div align="left">
+
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/d/de3d4bc7af143dfa5bc64edf9480978fabc471ba.png" alt="" width="375"><figcaption><p>Expanded URL</p></figcaption></figure>
+
+</div>
 
 This shows a much fuller picture of the actual URL being targeted as browsers often omit the protocol and subdomain. In case you’re not familiar with these terms, here’s a quick graphic breaking down all the components of a **uniform resource identifier** or URI.
 
