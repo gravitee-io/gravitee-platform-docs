@@ -113,7 +113,7 @@ The application layer is the top layer of the layered network model and contains
 
 Application layer protocols define how independent programs and services communicate over networks and share information. While the other protocol layers focus on delivering data to a destination, the application layer protocols are responsible for establishing communication standards that dictate how that data is accessed and consumed.&#x20;
 
-For example, modern web browsers are applications that communicate over the HTTP/HTTPS protocol (HTTPS is HTTP with encryption and verification) but often truncate the visible uniform resource locator, or URL, to omit the protocol and subdomain. This is evidenced by visiting a site such as [Google](https://google.com/) and double-clicking the URL.
+For example, modern web browsers are applications that communicate over the HTTP/HTTPS protocol (HTTPS is HTTP with encryption and verification) but often truncate the visible website address to omit the protocol and subdomain. This is evidenced by visiting a site such as [Google](https://google.com/) and double-clicking the URL.
 
 <div>
 
@@ -125,13 +125,9 @@ For example, modern web browsers are applications that communicate over the HTTP
 
 </div>
 
-The following graphic clarifies the structure and individual components of a uniform resource identifier, or URI.&#x20;
+The examples below show the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
 
-<div align="left">
-
-<img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/e/ec957df9720123df320d059a87de9c46037ab926.png" alt="URI/URL/URN diagram from this blog">
-
-</div>
+<figure><img src="../.gitbook/assets/uri_anatomy.jpeg" alt="" width="563"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **URLs, URNs, and URIs, oh my!**
