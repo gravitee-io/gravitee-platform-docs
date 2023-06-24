@@ -131,15 +131,17 @@ The example below clarifies the structure and individual components of a web add
 
 This discussion is limited to certain URI components and networking layers: the application layer protocol, the domain, which resolves to an IP address on the network layer, and the port number of the transport layer.&#x20;
 
-A communication link between two applications requires that each endpoint is defined by a network socket, which is the combination of transport layer protocol, IP address, and port number that uniquely and completely the web address for a client request to a web server.
+A communication link between two applications requires that each endpoint is defined by a network socket, which is the combination of transport layer protocol, IP address, and port number that uniquely and completely resolve the web address for a client request to a web server.
 
 {% hint style="info" %}
-**Network socket clarification**
-
-Generally, a network socket would also include the transport layer protocol being employed (e.g. TCP) in addition to the IP address and port, but remember, web browsers communicate over HTTP which is built on top of TCP, so the transport layer protocol is assumed. However, this will be [changing with HTTP/3](https://www.cloudflare.com/learning/performance/what-is-http3/) which is built on top of UDP.
+Web browsers communicate over HTTP, which is built on top of TCP, so the transport layer protocol is assumed. However, this will be [changing with HTTP/3](https://www.cloudflare.com/learning/performance/what-is-http3/), which is built on top of UDP.
 {% endhint %}
 
-Now, when your request arrives at Google’s web server, how can you be sure it will understand the request? This is where layer 5, the application layer, comes into play. The application layer provides the _interface methods_ for these two programs to ensure there are no issues with understanding and managing the request and response. This is why the type of API is often synonymous with the application layer protocol being employed.
+The application layer provides the programs at each end of a communication link with interface methods to ensure that the request and response are understood and managed correctly.&#x20;
+
+
+
+This is why the type of API is often synonymous with the application layer protocol being employed.
 
 So how does all of this come together when you type in `google.com` in your browser? Behind the scenes, it is expanded to `https://www.google.com:443` (well-known application layer protocols such as HTTP and HTTPS have the same port reserved on every network, 80 and 443, respectively, so the port is often omitted) which directs your browser’s request to Google’s web server using the HTTPS application layer protocol. This particular request uses the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and Google’s web server knows to respond with the Google homepage you know and love. And what if you request a [resource](https://restful-api-design.readthedocs.io/en/latest/resources.html) that does not exist by navigating to something like `https://www.google.com/test`? HTTPS has you covered here as well with standard status codes, and you will receive a lovely reply from Google’s web server as shown below:
 
