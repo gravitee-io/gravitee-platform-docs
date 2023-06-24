@@ -145,22 +145,11 @@ HTTP includes standard status codes to qualify the state of every network commun
 
 #### Endpoints
 
-With respect to HTTP APIs, the route portion of a URL combined with an HTTP method is often referred to as an API endpoint. The user of an API can access each resource through a unique endpoint. This means `GET http://foo.com/api/user/1` and `GET http://foo.com/api/user/2` are considered separate endpoints because you modified the route. Additionally, `GET http://foo.com/api/user/1` and `POST http://foo.com/api/user/1` are also considered distinct endpoints due to switching from the `GET` to the `POST` HTTP method.
+The route portion of a URL combined with an HTTP method constitutes an HTTP API endpoint, and each resource is accessible through a unique endpoint. For example, `GET http://foo.com/api/user/1` and `GET http://foo.com/api/user/2` contain different routes and correspond to distinct resources. `GET http://foo.com/api/user/1` and `POST http://foo.com/api/user/1` are also considered unique endpoints due to the change in HTTP method.
 
-Now, in this example, all resources, and therefore endpoints tied to this API, exist under a single API **entry point** which would be `http://foo.com/api` in our example. In a way, the entry point can be viewed as a special type of endpoint: it’s a resource that exists outside of any other collection and houses all other collections of resources.
+In this example, all resources, and all therefore endpoints tied to this API, exist under a single API entry point of `http://foo.com/api`. The entry point can be viewed as a special type of endpoint: as the gateway to the API, it’s a resource that exists outside of any other collection and contains all other collections of resources.
 
-{% hint style="info" %}
-**Path parameters**
-
-We modified the route in the example above by changing the 1 to a 2 which you can imagine representing two different user resources. So does this mean if we had a database with 1000 users, they would all have at least one endpoint? Yes! And this is where _path parameters_ come into play.
-
-Path parameters refer to a way of passing variable values within the URL path of a request. In a typical API route, the path is divided into segments separated by slashes ("/"). Path parameters are denoted by a placeholder or variable name within curly braces ("{}"). When a request is made, the actual value for the parameter is substituted in place of the placeholder.
-
-So for our example, we could represent an endpoint like this:\
-`GET http://foo.com/api/user/{id}`
-
-where {id} is the path parameter.
-{% endhint %}
+Path parameters allow variable values to be passed along the URL path of a request. In a typical API route, the path is divided into segments separated by slashes ("/"). Path parameters are denoted by a placeholder or variable name within curly braces ("{}"). When a request is made, the actual value for the parameter is substituted in place of the placeholder. The above example could represent an endpoint as `GET http://foo.com/api/user/{id}` where {id} is the path parameter.
 
 Using HTTP/HTTPS as our example application layer protocol was no mistake. Besides being core to how the world wide web functions, a number of other application layer protocols are dependent on HTTP/HTTPS. This is because application layer protocols can _stack_. Unfortunately, this is also where our conceptual, layered network cake begins to look a little half-baked.
 
