@@ -111,9 +111,11 @@ The application layer is the top layer of the layered network model and contains
 
 <table><thead><tr><th width="347">Name</th><th width="135">Abbreviation</th><th>Communication Type</th></tr></thead><tbody><tr><td>Hypertext Transfer Protocol</td><td>HTTP</td><td>Sync/Async</td></tr><tr><td>Hypertext Transfer Protocol Secure</td><td>HTTPS</td><td>Sync/Async</td></tr><tr><td>Websocket</td><td>N/a</td><td>Async</td></tr><tr><td>Server Sent Events</td><td>SSE</td><td>Async</td></tr><tr><td>File Transfer Protocol</td><td>FTP</td><td>Sync</td></tr><tr><td>Message Queuing Telemetry Transport</td><td>MQTT</td><td>Async</td></tr><tr><td>Advanced Message Queuing Transport</td><td>AMQP</td><td>Async</td></tr><tr><td>Kafka’s Custom Binary Protocol</td><td>N/a</td><td>Async</td></tr><tr><td>Google Remote Procedure Call</td><td>gRPC</td><td>Sync/Async </td></tr><tr><td>Simple Object Access Protocol</td><td>SOAP</td><td>Sync/Async </td></tr><tr><td>Simple Mail Transfer Protocol</td><td>SMTP</td><td>Sync</td></tr><tr><td>Domain Name Service</td><td>DNS</td><td>Sync/Async </td></tr><tr><td>Extensible Messaging and Presence Protocol</td><td>XMPP</td><td>Async</td></tr></tbody></table>
 
-Application layer protocols define how independent programs and services communicate over networks and share information. While the other protocol layers focus on delivering data to a destination, the application layer protocols are responsible for establishing communication standards that dictate how that data is accessed and consumed.&#x20;
+Application layer protocols define how independent programs and services communicate over networks and share information. While the other protocol layers focus on delivering data to a destination, the application layer protocols are responsible for establishing communication standards that dictate how that data is accessed and consumed. Specifically, the application layer provides the programs at each end of a communication link with interface methods to ensure that the request and response are understood and managed correctly. The role the application layer plays in defining interface conventions explains why an API type and its protocol are often synonymous.
 
-For example, modern web browsers are applications that communicate over the HTTP/HTTPS protocol (HTTPS is HTTP with encryption and verification) but often truncate the visible website address to omit the protocol and subdomain. This is evidenced by visiting a site such as [Google](https://google.com/) and double-clicking the URL.
+#### A working example
+
+Modern web browsers are applications that communicate over the HTTP/HTTPS protocol (HTTPS is HTTP with encryption and verification) but often truncate the visible website address to omit the protocol and subdomain. This is evidenced by visiting a site such as [Google](https://google.com/) and double-clicking the URL.
 
 <div>
 
@@ -125,23 +127,17 @@ For example, modern web browsers are applications that communicate over the HTTP
 
 </div>
 
-The example below clarifies the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
+The graphic below clarifies the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
 
 <figure><img src="../.gitbook/assets/uri_diagram1.png" alt=""><figcaption><p><a href="https://hanseul-lee.github.io/2020/12/24/20-12-24-URL/">URI vs URL vs URN</a></p></figcaption></figure>
 
-This discussion is limited to certain URI components and networking layers: the application layer protocol, the domain, which resolves to an IP address on the network layer, and the port number of the transport layer.&#x20;
-
-A communication link between two applications requires that each endpoint is defined by a network socket, which is the combination of transport layer protocol, IP address, and port number that uniquely and completely resolve the web address for a client request to a web server.
+A communication link between two applications requires that each endpoint is defined by a network socket, which is a combination of transport layer protocol, domain (which resolves to an IP address), and port number that uniquely and completely resolves the web address of a client request to a web server.
 
 {% hint style="info" %}
 Web browsers communicate over HTTP, which is built on top of TCP, so the transport layer protocol is assumed. However, this will be [changing with HTTP/3](https://www.cloudflare.com/learning/performance/what-is-http3/), which is built on top of UDP.
 {% endhint %}
 
-The application layer provides the programs at each end of a communication link with interface methods to ensure that the request and response are understood and managed correctly.&#x20;
 
-
-
-This is why the type of API is often synonymous with the application layer protocol being employed.
 
 So how does all of this come together when you type in `google.com` in your browser? Behind the scenes, it is expanded to `https://www.google.com:443` (well-known application layer protocols such as HTTP and HTTPS have the same port reserved on every network, 80 and 443, respectively, so the port is often omitted) which directs your browser’s request to Google’s web server using the HTTPS application layer protocol. This particular request uses the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and Google’s web server knows to respond with the Google homepage you know and love. And what if you request a [resource](https://restful-api-design.readthedocs.io/en/latest/resources.html) that does not exist by navigating to something like `https://www.google.com/test`? HTTPS has you covered here as well with standard status codes, and you will receive a lovely reply from Google’s web server as shown below:
 
