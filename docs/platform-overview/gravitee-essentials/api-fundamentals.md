@@ -115,24 +115,23 @@ Application layer protocols define how independent programs and services communi
 
 For example, modern web browsers like `google.com`are simply applications that communicate over the HTTP/HTTPS application layer protocol (HTTPS is HTTP with encryption and verification). This is evidenced by visiting [Google](https://google.com/) and double-clicking on the uniform resource locator, or URL.
 
-<div align="left">
+<div>
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/2/2f99b25e6d3a94369d36504bcd46cc8acfe59011.png" alt="" width="375"><figcaption><p>Shortened URL displayed</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/google_shortened.png" alt=""><figcaption><p>Shortened URL</p></figcaption></figure>
 
-</div>
+ 
 
-\
-
-
-<div align="left">
-
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/d/de3d4bc7af143dfa5bc64edf9480978fabc471ba.png" alt="" width="375"><figcaption><p>Expanded URL</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/google_expanded.png" alt=""><figcaption><p>Expanded URL</p></figcaption></figure>
 
 </div>
 
 This shows a much fuller picture of the actual URL being targeted as browsers often omit the protocol and subdomain. In case you’re not familiar with these terms, here’s a quick graphic breaking down all the components of a **uniform resource identifier** or URI.
 
-![URI/URL/URN diagram from this blog](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/e/ec957df9720123df320d059a87de9c46037ab926.png)
+<div align="left">
+
+<img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/e/ec957df9720123df320d059a87de9c46037ab926.png" alt="URI/URL/URN diagram from this blog">
+
+</div>
 
 {% hint style="info" %}
 **URLs, URNs, and URIs, oh my!**
