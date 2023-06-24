@@ -125,20 +125,9 @@ For example, modern web browsers are applications that communicate over the HTTP
 
 </div>
 
-The examples below show the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
+The examples below clarifies the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
 
-<figure><img src="../.gitbook/assets/uri_anatomy.jpeg" alt="" width="563"><figcaption></figcaption></figure>
-
-{% hint style="info" %}
-**URLs, URNs, and URIs, oh my!**
-
-**URI:** Uniform Resource Identifier\
-**URL:** Uniform Resource Locator\
-**URN:** Uniform Resource Name
-
-\
-Another classic source of confusion in the world of web development. Rather than try to fully untangle this one ourselves, we’ll point you toward this great explanation [hosted on every developer’s favorite website](https://stackoverflow.com/a/1984225).&#x20;
-{% endhint %}
+<figure><img src="../.gitbook/assets/uri_diagram1.png" alt=""><figcaption><p><a href="https://hanseul-lee.github.io/2020/12/24/20-12-24-URL/">URI vs URL vs URN</a></p></figcaption></figure>
 
 There’s a lot going on in the URI diagram above, but thankfully, we can ignore most of it for the sake of our example. Just keep your focus on the application layer protocol, the domain (which resolves to an IP address), and the port number. In networking, a communication link between two applications requires each endpoint to be defined with an **IP address** (layer 3, the network layer) and a **port number** (layer 4, the transport layer); the combination is generally referred to as a **network socket**. Each socket represents one endpoint in this communication link between two programs. Think of the socket as a complete address. So for example, to send a request to a web server, you just need to know its socket: a unique IP address and port combination.
 
