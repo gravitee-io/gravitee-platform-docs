@@ -137,19 +137,15 @@ A communication link between two applications requires that each endpoint is def
 Web browsers communicate over HTTP, which is built on top of TCP, so the transport layer protocol is assumed. However, this will be [changing with HTTP/3](https://www.cloudflare.com/learning/performance/what-is-http3/), which is built on top of UDP.
 {% endhint %}
 
-When `google.com` is typed in a web browser, it is expanded to `https://www.google.com:443`, where 443 is the port reserved for HTTPS on every network (port 80 is reserved for HTTP). This directs the browser’s request to Google’s web server using the HTTPS application layer protocol, in particular the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods). Google’s web server interprets the request and responds with the Google homepage.&#x20;
+When `google.com` is typed in a web browser, it is expanded to `https://www.google.com:443`, where `www.google.com` is the fully qualified domain name that is resolved into an IP address through [domain name system (DNS) resolution](https://serverfault.com/questions/643506/how-does-the-http-get-method-work-in-relation-to-dns-protocol/643511#643511) and 443 is the port reserved for HTTPS on every network (port 80 is reserved for HTTP). The browser’s request is directed to Google’s web server using the HTTPS application layer protocol, in particular the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), and Google’s web server interprets the request and responds with the Google homepage.&#x20;
 
 HTTP includes standard status codes to qualify the state of every network communication. For example, if the requested [resource](https://restful-api-design.readthedocs.io/en/latest/resources.html) does not exist, Google’s web server will respond with a 404.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5243c9b089b8754b37695dedcf1450bace820b90_2_690x262.png" alt=""><figcaption><p>HTTPS error response example</p></figcaption></figure>
 
-{% hint style="info" %}
-**DNS resolution**
+#### Endpoints
 
-But wait. You might be asking, where is the unique IP address? The answer lies in the **fully qualified domain name**, `www.google.com`, which is resolved into an IP address through a process called **domain name system** (DNS) resolution. [Here](https://serverfault.com/a/643511) is a solid high-level explanation of how that works. Or, if preferred, [here’s a great video](https://www.youtube.com/watch?v=72snZctFFtA\&t=45s) on DNS resolution.
-{% endhint %}
-
-At this point, we should also mention that in the world of HTTP APIs, the _route_ portion of a URL combined with an _HTTP method_ is often referred to as an API **endpoint**. Every resource can be accessed by the user of the API at a unique endpoint. This means `GET http://foo.com/api/user/1` and `GET http://foo.com/api/user/2` are considered separate endpoints because you modified the route. Additionally, `GET http://foo.com/api/user/1` and `POST http://foo.com/api/user/1` are also considered distinct endpoints due to switching from the `GET` to the `POST` HTTP method.
+With respect to HTTP APIs, the route portion of a URL combined with an HTTP method is often referred to as an API endpoint. The user of an API can access each resource through a unique endpoint. This means `GET http://foo.com/api/user/1` and `GET http://foo.com/api/user/2` are considered separate endpoints because you modified the route. Additionally, `GET http://foo.com/api/user/1` and `POST http://foo.com/api/user/1` are also considered distinct endpoints due to switching from the `GET` to the `POST` HTTP method.
 
 Now, in this example, all resources, and therefore endpoints tied to this API, exist under a single API **entry point** which would be `http://foo.com/api` in our example. In a way, the entry point can be viewed as a special type of endpoint: it’s a resource that exists outside of any other collection and houses all other collections of resources.
 
