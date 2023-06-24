@@ -151,7 +151,11 @@ In this example, all resources, and all therefore endpoints tied to this API, ex
 
 Path parameters allow variable values to be passed along the URL path of a request. In a typical API route, the path is divided into segments separated by slashes ("/"). Path parameters are denoted by a placeholder or variable name within curly braces ("{}"). When a request is made, the actual value for the parameter is substituted in place of the placeholder. The above example could represent an endpoint as `GET http://foo.com/api/user/{id}` where {id} is the path parameter.
 
-Using HTTP/HTTPS as our example application layer protocol was no mistake. Besides being core to how the world wide web functions, a number of other application layer protocols are dependent on HTTP/HTTPS. This is because application layer protocols can _stack_. Unfortunately, this is also where our conceptual, layered network cake begins to look a little half-baked.
+#### Protocol types
+
+Application layer protocols have the ability to stack, which has resulted in numerous protocols with an HTTP/HTTPS dependency.&#x20;
+
+
 
 Let’s take the SOAP application layer protocol as an example. SOAP sits at the same layer of the network model as HTTP, but SOAP is also dependent on another application layer protocol, typically, but not always, HTTP, in order to function. But why do this? Well, as we’ve pointed out, HTTP is _the_ application layer protocol of the web. This means there has been a huge, global investment in infrastructure, both server and client-side (i.e., web browsers), designed around HTTP/HTTPS. Additionally, security provisions such as firewalls tend to let in network traffic targeted for ports 80/443 which makes applications that build on top of the HTTP protocol much more likely to work out of the box.
 
