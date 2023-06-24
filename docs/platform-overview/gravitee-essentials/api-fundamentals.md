@@ -137,9 +137,9 @@ A communication link between two applications requires that each endpoint is def
 Web browsers communicate over HTTP, which is built on top of TCP, so the transport layer protocol is assumed. However, this will be [changing with HTTP/3](https://www.cloudflare.com/learning/performance/what-is-http3/), which is built on top of UDP.
 {% endhint %}
 
+When `google.com` is typed in a web browser, it is expanded to `https://www.google.com:443`, where 443 is the port reserved for HTTPS on every network (port 80 is reserved for HTTP). This directs the browser’s request to Google’s web server using the HTTPS application layer protocol, in particular the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods). Google’s web server interprets the request and responds with the Google homepage.&#x20;
 
-
-So how does all of this come together when you type in `google.com` in your browser? Behind the scenes, it is expanded to `https://www.google.com:443` (well-known application layer protocols such as HTTP and HTTPS have the same port reserved on every network, 80 and 443, respectively, so the port is often omitted) which directs your browser’s request to Google’s web server using the HTTPS application layer protocol. This particular request uses the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) and Google’s web server knows to respond with the Google homepage you know and love. And what if you request a [resource](https://restful-api-design.readthedocs.io/en/latest/resources.html) that does not exist by navigating to something like `https://www.google.com/test`? HTTPS has you covered here as well with standard status codes, and you will receive a lovely reply from Google’s web server as shown below:
+HTTP includes standard status codes to qualify the state of every network communication. For example, if the requested [resource](https://restful-api-design.readthedocs.io/en/latest/resources.html) does not exist, Google’s web server will respond with a 404.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5243c9b089b8754b37695dedcf1450bace820b90_2_690x262.png" alt=""><figcaption><p>HTTPS error response example</p></figcaption></figure>
 
