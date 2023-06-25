@@ -153,11 +153,9 @@ Path parameters allow variable values to be passed along the URL path of a reque
 
 #### Protocol types
 
-Although they sit at the same layer of the networking model, application layer protocols can be dependent on one another, and many are built on HTTP/HTTPS. For example, SOAP is architected to rely on another application layer protocol to function, typically HTTP.&#x20;
+Although they sit at the same layer of the networking model, application layer protocols can be dependent on one another, and many depend on HTTP/HTTPS. For example, SOAP relies on another application layer protocol to function, typically HTTP. SOAP effectively tunnels over HTTP, which is a strategy employed by many protocols, including modern asynchronous protocols like WebSocket.
 
-HTTP/HTTPS-based protocols leverage the existing web ecosystem. HTTP is fundamental to web communication, and there has been substantial, global investment in both server and client-side infrastructure (i.e., web browsers) designed around HTTP/HTTPS. In addition, security provisions such as firewalls tend to admit network traffic targeted for ports 80/443,  applications that build on top of the HTTP protocol much more likely to work out of the box.
-
-So the SOAP protocol effectively tunnels over HTTP. This is a strategy employed by many protocols, including some more modern asynchronous protocols like WebSocket, but more on that [later](broken-reference).
+HTTP/HTTPS-based protocols leverage the existing web ecosystem. HTTP is fundamental to web communication and there has been substantial, global investment in server and client-side infrastructure (i.e., web browsers) designed around HTTP/HTTPS. In addition, security provisions such as firewalls tend to admit network traffic targeted for ports 80/443, meaning that applications built on HTTP are much more likely to work out of the box.
 
 {% hint style="info" %}
 **WebSocket clarification**
