@@ -173,17 +173,9 @@ Networks, including the internet, support many application layer protocols that 
 
 To summarize, APIs depend on many protocols. The ideal protocol stack, just like the ideal application stack, is completely context-dependent and subject to considerations such as application environment, security concerns, payload, network quality, etc.
 
-{% hint style="info" %}
-**Is Webhook an application layer protocol?**
-
-Due to their ever-growing popularity, you may stumble across mentions of Webhook APIs. Since APIs are often categorized by the application layer protocol employed, this can quickly lead to a misunderstanding. Webhook uses the HTTP protocol and is not an application layer protocol itself. In fact, Webhooks are not even APIs. Webhooks are essentially a functionality that can be added to your existing APIs. This excerpt [from Redhat](https://www.redhat.com/en/topics/automation/what-is-a-webhook) explains it well:
-
-> “Webhooks are often referred to as reverse APIs or push APIs, because they put the responsibility of communication on the server, rather than the client. Instead of the client sending HTTP requests—asking for data until the server responds—the server sends the client a single HTTP POST request as soon as the data is available. Despite their nicknames, webhooks are not APIs; they work together. An application must have an API to use a webhook.”
-{% endhint %}
-
 ### Architectural styles/patterns <a href="#architectural-stylespatterns-5" id="architectural-stylespatterns-5"></a>
 
-Some of you might be wondering why we left the quintessential web API protocol, the REST API, out of the mix. Well that’s because REST is not a type of protocol at all, it’s an architectural style! REST stands for “representational state transfer”, and we’ll dive into what that means in a bit. REST APIs use the HTTP application protocol (not a REST requirement, but practically speaking, REST APIs always employ the HTTP protocol) and must adhere to several architectural constraints to be considered a REST or RESTful API:
+Although popular usage of "REST API" might imply that REST is a web API protocol, it is actually an architectural style that stands for “representational state transfer." REST APIs employ the HTTP application protocol (a practical implementation rather than an explicit REST requirement) and must adhere to several architectural constraints:
 
 > * **Uniform interface**. All API requests for the same resource should look the same, no matter where the request comes from. The REST API should ensure that the same piece of data, such as the name or email address of a user, belongs to only one uniform resource identifier (URI). Resources shouldn’t be too large but should contain every piece of information that the client might need.
 > * **Client-server decoupling**. In REST API design, client and server applications must be completely independent of each other. The only information the client application should know is the URI of the requested resource; it can’t interact with the server application in any other ways. Similarly, a server application shouldn’t modify the client application other than passing it to the requested data via HTTP.
