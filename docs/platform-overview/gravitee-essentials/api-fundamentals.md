@@ -153,11 +153,9 @@ Path parameters allow variable values to be passed along the URL path of a reque
 
 #### Protocol types
 
-Although they sit at the same layer of the networking model, application layer protocols can be dependent on one another, and many are dependent on HTTP/HTTPS. For example, SOAP is designed to rely on another application layer protocol to function and is typically built on HTTP.&#x20;
+Although they sit at the same layer of the networking model, application layer protocols can be dependent on one another, and many are built on HTTP/HTTPS. For example, SOAP is architected to rely on another application layer protocol to function, typically HTTP.&#x20;
 
-
-
-Let’s take the SOAP application layer protocol as an example. SOAP sits at the same layer of the network model as HTTP, but SOAP is also dependent on another application layer protocol, typically, but not always, HTTP, in order to function. But why do this? Well, as we’ve pointed out, HTTP is _the_ application layer protocol of the web. This means there has been a huge, global investment in infrastructure, both server and client-side (i.e., web browsers), designed around HTTP/HTTPS. Additionally, security provisions such as firewalls tend to let in network traffic targeted for ports 80/443 which makes applications that build on top of the HTTP protocol much more likely to work out of the box.
+HTTP/HTTPS-based protocols leverage the existing web ecosystem. HTTP is fundamental to web communication, and there has been substantial, global investment in both server and client-side infrastructure (i.e., web browsers) designed around HTTP/HTTPS. In addition, security provisions such as firewalls tend to admit network traffic targeted for ports 80/443,  applications that build on top of the HTTP protocol much more likely to work out of the box.
 
 So the SOAP protocol effectively tunnels over HTTP. This is a strategy employed by many protocols, including some more modern asynchronous protocols like WebSocket, but more on that [later](broken-reference).
 
