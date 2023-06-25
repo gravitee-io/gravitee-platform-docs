@@ -163,7 +163,7 @@ Although SOAP can be designed to function over raw TCP, HTTP leverages the exist
 
 Networks, including the internet, support many application layer protocols that are in no way tied to HTTP. Most of the other application layer protocols relevant to this guide are built on top of raw TCP. For example, [Kafka implements a custom binary application protocol over TCP](https://kafka.apache.org/protocol.html) due to performance concerns when using HTTP to deliver massive amounts of real-time data.
 
-That about wraps up our macroscopic discussion on protocols. The key takeaway here is that APIs are dependent on protocols, a lot of protocols, in the network stack. The ideal protocol stack, just like the ideal application stack, is completely context-dependent and is subject to many considerations such as application environment, security concerns, payload considerations, network quality, etc.
+To summarize, APIs depend on many protocols. The ideal protocol stack, just like the ideal application stack, is completely context-dependent and subject to considerations such as application environment, security concerns, payload, network quality, etc.
 
 {% hint style="info" %}
 **Is Webhook an application layer protocol?**
