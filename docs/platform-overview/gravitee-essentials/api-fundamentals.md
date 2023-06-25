@@ -153,7 +153,7 @@ Path parameters allow variable values to be passed along the URL path of a reque
 
 #### Protocol types
 
-Although they sit at the same layer of the networking model, application layer protocols can stack, and many are dependent on HTTP/HTTPS. For example, SOAP is designed to rely on another application layer protocol
+Although they sit at the same layer of the networking model, application layer protocols can be dependent on one another, and many are dependent on HTTP/HTTPS. For example, SOAP is designed to rely on another application layer protocol to function and is typically built on HTTP.&#x20;
 
 
 
