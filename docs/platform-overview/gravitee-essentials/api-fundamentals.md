@@ -155,15 +155,13 @@ Path parameters allow variable values to be passed along the URL path of a reque
 
 Although they sit at the same layer of the networking model, application layer protocols can be dependent on one another, and many depend on HTTP/HTTPS. For example, SOAP relies on another application layer protocol to function, typically HTTP. SOAP effectively tunnels over HTTP, which is a strategy employed by many protocols, including modern asynchronous protocols like WebSocket.
 
-HTTP/HTTPS-based protocols leverage the existing web ecosystem. HTTP is fundamental to web communication and there has been substantial, global investment in server and client-side infrastructure (i.e., web browsers) designed around HTTP/HTTPS. In addition, security provisions such as firewalls tend to admit network traffic targeted for ports 80/443, meaning that applications built on HTTP are much more likely to work out of the box.
-
 {% hint style="info" %}
-**WebSocket clarification**
-
-To be fair, Websocket is not a perfect example here. The WebSocket protocol [handshake](https://www.baeldung.com/cs/handshakes) uses HTTP, but HTTP is not involved past that point. You can read a bit more about this distinction [here](https://stackoverflow.com/a/47085864).
+To clarify, the WebSocket protocol [handshake](https://www.baeldung.com/cs/handshakes) uses HTTP, but HTTP is not involved past that point. Learn more about this distinction [here](https://stackoverflow.com/a/47085864).
 {% endhint %}
 
-However, the internet, or any network for that matter, supports many application layer protocols that are in no way tied to HTTP. Most of the other application layer protocols we care about in the context of this guide are built on top of raw TCP. For example, [Kafka implements a custom binary application protocol](https://kafka.apache.org/protocol.html) over TCP due to performance concerns with the text-based HTTP protocol when delivering massive amounts of real-time data. Additionally, even a protocol like SOAP can be made to function over raw TCP although this is something you’ll rarely see in practice for the aforementioned reasons.
+HTTP/HTTPS-based protocols leverage the existing web ecosystem. HTTP is fundamental to web communication and there has been substantial, global investment in server and client-side infrastructure (i.e., web browsers) designed around HTTP/HTTPS. In addition, security provisions such as firewalls tend to admit network traffic targeted for ports 80/443, meaning that applications built on HTTP are much more likely to work out of the box.
+
+Networks, including the internet, support many application layer protocols that are in no way tied to HTTP. Most of the other application layer protocols relevant to this guide are built on top of raw TCP. For example, [Kafka implements a custom binary application protocol over TCP](https://kafka.apache.org/protocol.html) due to performance concerns when using HTTP to deliver massive amounts of real-time data. SOAP can also be designed to function over raw TCP, although this is rarely seen in practice.
 
 That about wraps up our macroscopic discussion on protocols. The key takeaway here is that APIs are dependent on protocols, a lot of protocols, in the network stack. The ideal protocol stack, just like the ideal application stack, is completely context-dependent and is subject to many considerations such as application environment, security concerns, payload considerations, network quality, etc.
 
