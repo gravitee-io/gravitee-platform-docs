@@ -112,12 +112,8 @@ To summarize, APIs depend on many protocols. The ideal protocol stack, just like
 Web API architectural styles are completely separate from the underlying protocols that power APIs. The architectures focus on guiding API design, to which both developers and business logic stakeholders actively contribute.
 
 {% hint style="info" %}
-**Design-first methodology**
-
-This mixture of technical and business interests around APIs is why you’ll often hear the benefits of API design-first development touted. To better understand the design-first methodology and the purported benefits, check out [this in-depth blog post](https://www.gravitee.io/api-first) from Gravitee. Still not sold? It’s worth noting that the OpenAPI Initiative (detailed in the following section) also [recommends a design-first approach](https://oai.github.io/Documentation/best-practices.html#use-a-design-first-approach) to building APIs.
+Design-first methodology, which is [an API development technique with purported benefits](https://www.gravitee.io/api-first), attempts to satisfy both technical criteria and business interests and is [recommended by the OpenAPI initiative](https://learn.openapis.org/best-practices.html#use-a-design-first-approach).
 {% endhint %}
-
-## S <a href="#specifications-6" id="specifications-6"></a>
 
 ### REST
 
