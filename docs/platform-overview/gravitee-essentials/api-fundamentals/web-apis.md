@@ -142,7 +142,7 @@ One popular architectural style that implements event streaming is the publish/s
 {% hint style="info" %}
 **Events vs messages**
 
-Although often used synonymously, you can draw a distinction between an event and a message. Sometimes people will say a message is the directed carrier of the event, while the event is the actual change in state to be observed. Or that events are a specific type of message. But these terms have a deeper, technical distinction which you can [read about here](https://developer.lightbend.com/docs/akka-guide/concepts/message-driven-event-driven.html). However, for our documentation, we will continue to use the high-level distinction of the message being the directed carrier of the event.
+Although often used synonymously, there is a distinction between an event and a message. This guide adopts the high-level disambiguation that a message is the directed carrier of an event while the event is the actual change in observable state, but there is a [deeper technical distinction](https://developer.lightbend.com/docs/akka-guide/concepts/message-driven-event-driven.html).
 {% endhint %}
 
 So to recap, web API architectural styles are completely separate from the underlying protocols that are powering the API. The architectures are focused on guiding the API designer which, generally, is a mixture of you, the developer, and other stakeholders more focused on the high-level business logic.
