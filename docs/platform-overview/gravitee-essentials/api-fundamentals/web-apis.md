@@ -128,12 +128,12 @@ Another major architectural style that predates REST is the remote procedure cal
 Unlike REST, RPC architecture does not clearly designate a set of constraints. Both REST and RPC are architectural styles and real-world implementations don’t often fully align with either. This has led to implementations such as GraphQL (an architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries) which proponents describe as essentially RPC, but borrowing heavily from the REST community.
 
 {% hint style="info" %}
-**Deep dive on RPC vs REST**
-
-If the RPC/REST waters are still muddy, [this article](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) is highly recommended as it provides some great implementation examples that highlight the strengths and weaknesses of both styles.
+Deep-dive [REST vs RPC](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) via implementation examples that highlight the strengths and weaknesses of both styles.
 {% endhint %}
 
-Now, generally speaking, any API implemented with a REST, RPC, or a GraphQL architectural style, will follow a synchronous network communication model known as the _client-server_ or the **request-response model**. In our documentation, we prefer to use the request-response model nomenclature as client and server are broad terms used in almost all network communication models which can lead to confusion. We’ll go into more details later, but simply put, in this model the client computer makes a request directly to the server computer which responds by _serving_ data or a service. So while the client and server applications are decoupled and function independently, synchronous _communication_ is inherently tightly coupled.
+### Network communication models
+
+In general, an API implemented with a REST, RPC, or a GraphQL architectural style executes synchronous network communication via the request-response model, where the client computer makes a request directly to the server computer and the server responds by returning data or a service. While the client and server applications are decoupled and function independently, synchronous communication is inherently tightly coupled.
 
 Historically, the request-response network communication model has dominated and is one of the foundations of the modern web. However, more recently, an asynchronous network communication model known as **event streaming** or _message streaming_ has risen to prominence. An event in this context is any change in the state of a resource. In the event streaming model, there is a computer known as the **event broker** which allows clients to _publish_ messages to the broker or _subscribe_ to receive messages from the broker.
 
