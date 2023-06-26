@@ -57,7 +57,9 @@ A **reporter** is used by an APIM Gateway instance to report many types of event
 _Out-of-the-box_ reporters are :
 
 * Elasticsearch Reporter
+* Metrics Reporter
 * File Reporter
+* TCP reporter
 
 As with all plugins, you can create, use and deploy custom reporters as described in the [Plugins Developer Guide](../../guides/developer-contributions/dev-guide-plugins.md).
 
