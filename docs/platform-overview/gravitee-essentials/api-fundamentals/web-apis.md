@@ -153,17 +153,9 @@ Although often used synonymously, there is a distinction between an event and a 
 
 ## Specifications <a href="#specifications-6" id="specifications-6"></a>
 
-The architectural styles that govern the client-server interactions do not dictate API usage such as available endpoints, permissible actions, authentication options, parameters to pass, etc. Documentation of this information must be clear, intuitive, comprehensive, and updated with bug fix or iteration. API specifications such as OpenAPI alleviate the overhead associated with documentation by providing a template.
+The architectural styles that govern the client-server interactions do not dictate API usage such as available endpoints, permissible actions, authentication options, parameters to pass, etc. Documentation of this information must be clear, intuitive, comprehensive, and updated with bug fix or iteration. API specifications such as [OpenAPI](https://spec.openapis.org/oas/latest.html) alleviate the overhead associated with documentation by providing a template and expand API design to include documentation generation, code generation, validation and linting, mock servers, etc. The API description file acts as a single source of truth
 
-
-
-for all users of your API. And after documenting several APIs, you would begin to realize how repetitive the process of API documentation can become. On top of that, you would quickly realize how difficult it is to ensure your documentation has 100%, comprehensive coverage of your API. Finally, even if you manage to pull this off, your work is never truly complete as the documentation must be updated with every change and bug fix associated with your API. Keeping this from becoming a massive migraine is where API specifications come in. Let’s start with the OpenAPI specification defined below:
-
-> The OpenAPI Specification (OAS) defines a standard, programming language-agnostic interface description for HTTP APIs, which allows both humans and computers to discover and understand the capabilities of a service without requiring access to source code, additional documentation, or inspection of network traffic. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interface descriptions have done for lower-level programming, the OpenAPI Specification removes guesswork in calling a service.
->
-> [— From OpenAPI Specification v3.1.0](https://spec.openapis.org/oas/latest.html)
-
-Sound nice? It really is and API specifications open a whole new range of possibilities when it comes to API design such as documentation generation, code generation, validation and linting, mock servers, and much more. They should also appeal to your sharply-honed, developer instincts around the do not repeat yourself, or DRY principle, which has likely been repeatedly hammered into your psyche. API specifications ensure you can scratch that itch by keeping a single source of truth in what is known as your **API description file**.
+They should also appeal to your sharply-honed, developer instincts around the do not repeat yourself, or DRY principle, which has likely been repeatedly hammered into your psyche. API specifications ensure you can scratch that itch by keeping a single source of truth in what is known as your **API description file**.
 
 So how do you go about building an API using a specification like OpenAPI? Well, that is a bit beyond the scope of the article, and honestly, a waste of our time. As you might expect for a documentation-focused end product, [OpenAPI’s documentation](https://oai.github.io/Documentation/specification.html) is quite excellent. Read through that guide and you’ll have a clear grasp on implementation in no time. Or if you just want a quick overview of how the specification is structured, check out [this sweet interactive mind map](https://openapi-map.apihandyman.io/).
 
