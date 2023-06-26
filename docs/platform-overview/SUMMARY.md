@@ -12,6 +12,7 @@
 * [API Fundamentals](gravitee-essentials/api-fundamentals/README.md)
   * [API Basics](gravitee-essentials/api-fundamentals/api-basics.md)
   * [Web APIs](gravitee-essentials/api-fundamentals/web-apis.md)
+  * [Categorizing Web APIs](gravitee-essentials/api-fundamentals/categorizing-web-apis.md)
 * [Gravitee Core Concepts](gravitee-essentials/gravitee-core-concepts.md)
 * [Gravitee Glossary](gravitee-essentials/glossary.md)
 
