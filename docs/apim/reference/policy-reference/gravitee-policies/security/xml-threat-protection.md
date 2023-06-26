@@ -1,2 +1,0 @@
-# XML Threat Protection
-

@@ -6,9 +6,11 @@ description: Learn more about the Gravitee Changelog section
 
 ## Introduction&#x20;
 
-The Gravitee changelog documentation gives a quick overview of new features and bug fixes included in all Gravitee releases. For a more in-depth explanation of new features, bug fixes, and capabilities, please refer to the [Release Notes section](../release-notes.md).
+The Gravitee changelog documentation gives a comprehensive overview of new features, bug fixes, and breaking changes included in all Gravitee releases. For a more in-depth explanation of new features and capabilities, please refer to the [Release Notes section](../release-notes.md).
 
+{% hint style="info" %}
 This changelog only has information for Gravitee 4.0 and beyond. For information on releases prior to Gravitee 4.0, please refer to the legacy Gravitee documentation.
+{% endhint %}
 
 ## User feedback portal
 

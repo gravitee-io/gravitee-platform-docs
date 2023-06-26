@@ -23,7 +23,7 @@ Gravitee was started by 4 freelance developers who met back in 2015 while workin
 
 A solid overview! However, there may still be hope for us mere mortals as ChatGPT missed a few key items.
 
-One of Gravitee’s core differentiators is the fact that it is an **event-native** API solution. This means Gravitee was built on an event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs while still fully supporting synchronous request/response style APIs, and can even mediate between sync and async application layer protocols. If that buzz-wordified sentence has no meaning to you, be sure to check out our [API Fundamentals](api-fundamentals.md) documentation.
+One of Gravitee’s core differentiators is the fact that it is an **event-native** API solution. This means Gravitee was built on an event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs while still fully supporting synchronous request/response style APIs, and can even mediate between sync and async application layer protocols. If that buzz-wordified sentence has no meaning to you, be sure to check out our [API Fundamentals](api-fundamentals/) documentation.
 
 ## Key Concepts <a href="#key-concepts-3" id="key-concepts-3"></a>
 
@@ -33,9 +33,7 @@ This section focuses on decoding some of Gravitee's high-level concepts and term
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/b014429c2135257d51371e103e78eda7e306277d_2_486x500.png" alt=""><figcaption><p>APIM and AM architecture overview</p></figcaption></figure>
 
-{% embed url="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/f/f6c37ddcbccccb7ea649a5fee08edebb7f3c4070.png" %}
-AE architecture overview
-{% endembed %}
+<figure><img src="../.gitbook/assets/ae_architecture.png" alt=""><figcaption><p>AE architecture overview</p></figcaption></figure>
 
 When starting on your Gravitee journey, it can be difficult to understand how all the different pieces of the ecosystem fit together. These two architecture diagrams provide an excellent 10,000ft view to help you begin to conceptualize the Gravitee offering. The first diagram shows Gravitee’s API management ecosystem (APIM) and how it interacts with the access management ecosystem (AM). The second diagram highlights the function of Gravitee’s alert engine (AE). Here are a few important things to note about the architecture diagrams:
 
@@ -111,7 +109,7 @@ API design is becoming increasingly important for organizations that are impleme
 
 ### Gravitee API Definitions <a href="#gravitee-api-definitions-9" id="gravitee-api-definitions-9"></a>
 
-In the [API Fundamentals](api-fundamentals.md) documentation, we covered API specifications in-depth. In the world of Gravitee, there is a similar-sounding term known as a **Gravitee** **API definition**. An API definition is very similar to an API specification except it is a specification _for your Gravitee gateway._ It’s a JSON representation of everything that the Gravitee gateway needs to know for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic.
+In the [API Fundamentals](api-fundamentals/) documentation, we covered API specifications in-depth. In the world of Gravitee, there is a similar-sounding term known as a **Gravitee** **API definition**. An API definition is very similar to an API specification except it is a specification _for your Gravitee gateway._ It’s a JSON representation of everything that the Gravitee gateway needs to know for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic.
 
 Each [Gravitee API definition brings with it certain capabilities](https://www.gravitee.io/blog/gravitee-api-definitions) which you can read about further in the linked article. The key thing you need to note is that the **latest API definition is v4.** The v4 definition allows for advanced protocol mediation (i.e. fronting Kafka with a Webhook, Websocket, HTTP API, etc.) and the ability to apply Gravitee policies (i.e. authentication, traffic shaping, etc.) to asynchronous API traffic–at the message level. This is done by decoupling what is known as the gateway **entrypoints** and **endpoints**.
 

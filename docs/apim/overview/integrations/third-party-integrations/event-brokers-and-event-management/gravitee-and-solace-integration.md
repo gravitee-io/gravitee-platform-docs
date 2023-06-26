@@ -1,2 +1,0 @@
-# Gravitee and Solace integration
-

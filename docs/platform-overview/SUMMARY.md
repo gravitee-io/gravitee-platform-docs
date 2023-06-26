@@ -1,17 +1,18 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Release Stability](release-stability.md)
-* [About the Docs](platform-overview/getting-started.md)
+* [Release Types and Support Model](release-types-and-support-model.md)
 
 ## Gravitee Essentials
 
 * [Overview](gravitee-essentials/overview.md)
 * [Gravitee Offerings: CE vs EE](gravitee-essentials/gravitee-offerings-ce-vs-ee/README.md)
-  * [Enterprise Edition](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition/README.md)
-    * [Installation](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition/installation.md)
-    * [Licensing](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition/licensing.md)
-* [API Fundamentals](gravitee-essentials/api-fundamentals.md)
+  * [Enterprise Edition Installation](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-installation.md)
+  * [Enterprise Edition Licensing](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md)
+* [API Fundamentals](gravitee-essentials/api-fundamentals/README.md)
+  * [API Basics](gravitee-essentials/api-fundamentals/api-basics.md)
+  * [Web APIs](gravitee-essentials/api-fundamentals/web-apis.md)
+  * [Categorizing Web APIs](gravitee-essentials/api-fundamentals/categorizing-web-apis.md)
 * [Gravitee Core Concepts](gravitee-essentials/gravitee-core-concepts.md)
 * [Gravitee Glossary](gravitee-essentials/glossary.md)
 

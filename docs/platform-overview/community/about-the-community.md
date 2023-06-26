@@ -4,7 +4,7 @@ description: The people
 
 # About the Community
 
-We’re pleased to meet you! Before you dive into the forum, we’d love to give you an overview of what to expect.
+We’re pleased to meet you! Before you dive into the [forum](https://community.gravitee.io/?\_gl=1\*14zhuex\*\_up\*MQ..\&gclid=CjwKCAjwv8qkBhAnEiwAkY-ahn-MQFlOZ-7GZhSw4DiEfiZKxHNUsvT5ZEBE5LMIdIlI\_uqwlS61RhoCgC0QAvD\_BwE), we’d love to give you an overview of what to expect.
 
 **TL; DR**
 
@@ -45,3 +45,5 @@ Got some feedback on the product? Do you have a wish list of features you’d lo
 We hope you have a fabulous time!
 
 The [Gravitee](http://gravitee.io/) Developer Relations Team
+
+{% embed url="https://community.gravitee.io/" fullWidth="false" %}

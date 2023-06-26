@@ -4,179 +4,211 @@ description: Gravitee's cheat sheet
 
 # Gravitee Glossary
 
-This section defines all Gravitee and related web API terminology and concepts. Use the search function to quickly look up a definition.
+This page is divided into four sections to define: [Gravitee products](glossary.md#gravitee-products), [Gravitee product components](glossary.md#gravitee-product-components), [Gravitee terminology](glossary.md#gravitee-terminology), and [general API terminology](glossary.md#general-api-terminology). General concepts with Gravitee-specific meanings or usages are included to prevent misconceptions. Use the search function to quickly find a definition.
 
 ## Gravitee products
 
-* **Gravitee API Management (APIM):** event-native API management platform that helps you design, deploy, manage, and secure synchronous and asynchronous APIs throughout the entire lifecycle
-* **Gravitee Access Management (AM):** apply identity and access management (multi-factor authentication, biometric, etc.) at the API and application levels
-* **Gravitee Alert Engine (AE):** monitor API consumption and configure alerts based on anomalous traffic, reliability incidents, etc.
-* **Gravitee API Designer (APID):** design, document, and publish API data models; the community version is limited to one data model
-* **Gravitee Cloud (GC):** centrally manage Gravitee environments and installations and promote APIs across various environments; the community version is limited to one managed environment
+**Gravitee API Management (APIM):** An event-native API management platform used throughout the entire lifecycle to design, deploy, manage, and secure synchronous and asynchronous APIs.
+
+**Gravitee Access Management (AM):** Used to apply identity and access management (multi-factor authentication, biometrics, etc.) at the API and application levels.
+
+**Gravitee Alert Engine (AE):** Monitors API consumption and configures alerts based on anomalous traffic, reliability incidents, etc.
+
+**Gravitee API Designer (APID):** Used to design, document, and publish API data models. The community version is limited to one data model.
+
+**Gravitee Cloud (GC):** Enables centralized management of Gravitee installations and promotes APIs across various environments. The community version is limited to one managed environment.
 
 ## Gravitee product components
 
 ### APIM
 
-* **Management UI:** a console UI that teams can use to configure their Gateway, design and create APIs, design policies, and publish documentation. Every action in the API management console is tied to a REST API that can be accessed outside the console
-* **Management API:** REST API that can be used to configure and manage APIs and various Gravitee resources
-* **API Gateway:** reverse proxy layer that brokers, secures, and hardens access to APIs and data streams; natively supports both synchronous and asynchronous APIs
-* **API developer portal:** build an API catalog and marketplace for API consumers fit with documentation, API analytics, and more
+**API Gateway:** A reverse proxy layer that brokers, secures, and hardens access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
+
+**APIM Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
+
+**APIM Console:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
+
+**API Developer Portal:** Used to build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
 
 ### AM
 
-*
+**AM Gateway:** AM Gateway is the core component of the AM platform. It acts as a trust broker, connecting supported identity providers with users in a single integration and enabling customized authentication and authorization flows.
 
-### AE
+**AM Management API:** A REST API used to configure and manage the AM platform, users and user sessions, and the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0, and SCIM 2.0 protocols.
 
-*
-
-### APID
-
-*
-
-### GC
-
-*
+**AM Console:** A web UI that acts as the graphical interface to the AM Management API functionality.
 
 ## Gravitee terminology
 
-* [**Community Edition:**](gravitee-offerings-ce-vs-ee/) an event-native API management platform comprised of Gravitee’s open-source offerings, plus Gravitee’s free-to-use versions of Gravitee-managed enterprise products
-* [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) built on top of our open-source foundations, the enterprise version of our event-native API Management platform adds additional capabilities targeting commercial end users through offerings like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options
-* **Gravitee API definition:** a human and machine-readable JSON representation of everything that the Gravitee gateway needs to know for it to proxy, apply policies to, create plans for, etc. your Gateway APIs and their traffic. The Gravitee API definition is to Gateway APIs, what the OpenAPI or AsyncAPI specification is to backend APIs.&#x20;
-* **Gateway API:** an API deployed on the gateway by an API publisher to expose and proxy a backend API. All gateway APIs have at least one entrypoint and an endpoint.
-* **Gateway API architecture:** _still not finalized_
-  * **Proxy:** _still not finalized_
-  * **Message:** _still not finalized_
-* **Context-path:** unique route to target a specific gateway API. The context path does not include the root URL.
-  * Example: If the fully qualified domain name is `https://apim-gateway:8082/my-context-path`, then `/my-context-path` is the context path.
-  * NOTE: _not finalized but some APIs do not have a context-path_
-* **Gateway entrypoint:** defines the protocol and related configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint essentially defines how the backend API is exposed through the gateway.
-* **Gateway endpoint:** defines the protocol and related configuration settings by which the gateway API will fetch data from, or post data to, the backend API
-* **Backend APIs:** source or target API that is proxied by the gateway
-* **API publisher:** the creator, designer, and/or manager of a gateway API
-* **API consumer:** the user or application accessing the gateway API
-* **Plan:** access layer around APIs that provide the API producer a method to secure, monitor, and transparently communicate details around access
-  * **Staging:** generally, this is the first state of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
-  * **Published:** once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
-  * **Deprecated:** you can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
-  * **Closed:** once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
-* **Plan modes:** _still not finalized_
-  * `Standard` with the policy security required
-  * `Push` with no security required
-* **Application:** allows an API consumer to register and agree to a plan with authentication enabled. This allows the API producer more granular control over access to their secured API.
-* **Subscription:** a contract between an API consumer and API publisher that requires the gateway API to have a plan and the consumer to have at least one application
-* **Resource:** a way to define reusable sets of configuration
-* **Plugin:** components that provide additional functionality by _plugging into_ the Gravitee ecosystem
-* **Policy:** rules or logic that can be executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins
-* **API design studio:** a component of APIM's management UI that allows you to interactively create a gateway API
-* **Flow:** method to control where, and under what conditions, policies act on an API transaction
-* **Sharding tags:** a tag that can be assigned to gateway and gateway APIs to provide a method to deploy a gateway API to a subset of gateways. Sharding tags can be mapped to a gateway’s fully qualified domain name which allows the developer portal to intelligently display different access URLs depending on the API’s sharding tags.
-* **Tenants:** a tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on the gateway receiving the request
-* **Gravitee expression language (EL):** a superset of the [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) (Spring Expression Language) used by API publishers to dynamically configure various aspects and policies of an API by referencing object properties from the current API transaction
-* **Execution context:** the runtime environment in which APIs are deployed and executed. It includes various components and settings that are used during the processing of API transactions.
+[**Community Edition:**](gravitee-offerings-ce-vs-ee/) An API management platform comprising Gravitee’s open-source offerings and the free versions of Gravitee-managed enterprise products.
+
+[**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source and event-native API management platform. Feature sets targeting commercial end users include Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
+
+**API publisher:** The creator, designer, and/or manager of a gateway API.
+
+**API consumer:** The user or application accessing the gateway API.
+
+**Application:** The mechanism by which an API consumer registers and agrees to a Gravity Plan that uses authentication. This allows the API producer more granular control over access to their secured API.
+
+**Backend API:** The source or target API that is proxied by the gateway.
+
+**Backend service exposure:** The consumption style of your API based on your upstream backend service architecture.
+
+* **Proxy upstream protocol:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
+* **Introspect messages from event-driven backend:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
+
+**Context path:** A unique route targeting a specific gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
+
+**Execution context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
+
+**Flow:** The method to control where, and under what conditions, policies act on an API transaction.
+
+**Gateway API:** An API deployed on the Gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
+
+**Gravitee API definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure gateway APIs and traffic. The Gravitee API Definition of a gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.
+
+**Gateway endpoint:** Defines the protocol and configuration settings by which the gateway API will fetch data from, or post data to, the backend API.
+
+**Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
+
+**Gravitee Expression Language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
+
+**Plan:** The API access layer that provides the API producer with a method to secure, monitor, and transparently communicate access details. Valid plan states are:
+
+* **Staging:** The first state of a plan, akin to a draft. The plan can be configured but won’t be accessible to users.
+* **Published:** The state of a finalized plan made available to all users. API consumers can use the APIM Portal to view, subscribe to, and consume the API. A published plan may still be edited.
+* **Deprecated:** The state of a plan that is no longer available on the APIM Portal. Existing subscriptions remain in place to avoid impact to current API consumers, but new subscriptions are not permitted.
+* **Closed:** The state of a plan that no longer allows subscriptions. API consumers subscribed to this plan will not be able to use the API. Closing a plan is irreversible.
+
+**Plugin:** Components that provide additional functionality to the Gravitee ecosystem.
+
+**Policy:** Logic that is executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
+
+**Policy Design Studio:** The APIM Management UI feature used to interactively create a gateway API.
+
+**Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
+
+**Resource:** The element with which Gravitee defines reusable configurations.
+
+**Sharding tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of a similarly tagged API.
+
+**Tenant:** A tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on which gateway receives the request.
 
 ## General API terminology
 
-* **Application programming interface (API):** a set of _publicly_ exposed interface conventions for the _application programmer_ to interact with
-  * **Web API:** the interacting parties run on separate machines and communicate over a network
-  * **Local API:** both interacting parties run on the same machine
+**Application programming interface (API):** A set of publicly exposed interface conventions enabling communication between different computer programs. A web API enables programs running on separate machines to communicate over a network. A local API enables communication between programs running on the same machine.
 
 {% hint style="info" %}
-In Gravitee's documentation, you can assume web APIs and APIs are synonymous terms; otherwise, we will explicitly refer to them as **local** APIs.
+Gravitee's documentation uses the terms "web API" and "API" synonymously. An API used for local communication is explicitly referred to as a local API.
 {% endhint %}
 
-* **API transaction:** a single interaction between a client application and a server through an API. For synchronous APIs, it typically involves a request sent by a client application to a server using an API endpoint, and the subsequent response returned by the server to the client. For asynchronous APIs, an API transaction refers to a single transmission of a message payload between a client and a message broker
-* **HTTP API resource:** an object with a type, associated data, relationships to other resources, and a set of methods that operate on it
-* **HTTP API route:** part of the URL used to access a resource. It does not include parts of the URL like fragments.
-  * Example: `http://foo.com/api/user/1`
-* **HTTP API endpoint:** one end of a communication channel. It is the URL combined with an HTTP method used to perform an action on a resource
-  * Example: `GET http://foo.com/api/user/1`
-* **Resource:** an entity or object that is made available for interaction through the API. It represents a specific piece of data or functionality that can be accessed, modified, or manipulated by clients.
-  * **Example:** `{id: 42, type: employee, company: 5}`
-* **HTTP API entry point:** a special type of resource — it’s a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API.
-  * Example: `http://foo.com/api`
-* **Path parameters:** a way of passing variable values within the route of an API request
-  * Example: `http://foo.com/api/user/{id}` where {id} is a path parameter
-* **Query parameters:** a way to include additional information or parameters in the URL to customize or filter the results of the request. Query parameters are appended to the endpoint URL using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value.
-  * Example: `http://foo.com/api/user/{id}/?height=tall` where "height" is a query parameter with a value of "tall"
-* **Synchronous APIs:** APIs that require linear, sequential communication between a tightly-coupled client and server. Clients initiate all communication.&#x20;
-  * Example: A user authentication API that verifies a user's credentials and returns a token for accessing protected resources. A client application sends a request to the API with the user's username and password, and the API returns a response containing a token or an error message.&#x20;
-* **Asynchronous APIs**: APIs that break up the linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication beyond the initial subscription from the information consumer.
-  * Example: A stock trading API that sends real-time updates on the prices of stocks. A client application subscribes to the API for updates on specific stocks. The API sends updates to the client application as soon as the prices change, without waiting for a request from the client application.&#x20;
-* **API specification:** provides a broad understanding of how an API behaves and how the API links with other APIs. It explains how the API functions and the results to expect when using the API.
-  * **OpenAPI specification:** defines a standard, language-agnostic interface to HTTP APIs that allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection
-  * **AsyncAPI specification**: a specification for building and documenting asynchronous APIs that defines a standard format for describing the messages, events, and channels of an API, making it easier for developers to understand and use the API.&#x20;
-  * **CloudEvents:** specification for describing event data in a common way. It defines an envelope for your API’s actual data as opposed to the structure of the overall API.
-    * Example: Let's draw a quick metaphor to the postal service. You can think of the AsyncAPI specification as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the payload, does not fall under the jurisdiction of either specification.
-* **API definition:** an instance of an API specification. API specification and definition are often used synonymously.
-* **API design-first:** the API definition is written first and then the code follows. The advantages are that the code already has a skeleton upon which to build and that some tools can provide boilerplate code automatically. Additionally, this ensures that the API in code can be adequately described by the chosen specification for complete documentation of the API.
-* **API lifecycle:** process of overseeing an API from its creation to retirement including aspects such as API design, development, testing, deployment, troubleshooting, monitoring, and security
-* **System architectures and design patterns:** a general, reusable description or template to a commonly occurring problem within a given context in software design
-  * **Monolithic architecture:** the traditional model of a software program, which is built as a unified and tightly coupled unit that is self-contained and independent from other applications
-  * **Microservices architecture:** software development model where software is composed of small independent services that communicate over well-defined APIs
-  * **Event-driven architecture (EDA):** uses events, or changes in state, to trigger asynchronous communication between decoupled services&#x20;
-* **Network communication model:** a design or architecture to accomplish communication between different systems
-  * **Request-response:** tightly-coupled, synchronous communication model where the _client_ computer initiates communication by making a request directly to the _server_ computer which responds by serving data or a service. The basis for synchronous APIs.
-  * **Event/message-driven:** loosely-coupled, asynchronous communication model where a change in state initiates communication. The basis for asynchronous APIs.
+**API architectural style:** Guidelines and/or constraints governing API design:
 
-{% hint style="info" %}
-**Events vs Messages**
-
-Although often used synonymously, you can draw a distinction between an event and a message. Sometimes people will say a message is the directed carrier of the event, while the event is the actual change in state to be observed. However, these terms have a deeper, technical distinction which is outlined well by the [Reactive Manifesto](https://www.reactivemanifesto.org/glossary#Message-Driven):
-
-> "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
-{% endhint %}
-
-* **Internet:** the [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) network of computers linked around the world and is the physical means by which information travels
-* **World wide web (web):** information system on the internet which allows documents to be connected to other documents in the form of hypermedia (e.g., web pages)
-* **Network protocol:** standard for communication
-  * **Layered networking model:** the different layers of protocols that let a computer talk at different distances and different layers of abstraction. Typically defined by different abstractions such as the Open Systems Interconnection (OSI) conceptual model.
-  * **Transport layer:** a conceptual layer responsible for establishing protocols that collect packet-based messages from applications, and transmit them into the network
-  * **Application layer:** a conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network
-* **API architectural style:** guidelines and/or constraints around API design
-  * **Representational state transfer (REST)**: an architectural style where a client makes a request to the server, the server makes any modifications requested by the client, and the server responds to the client with a _representation of the state_ of the requested resource. REST APIs have [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where a different HTTP verb on the same URL provides different functionality.
-    * Example: `GET http://foo/user/1` vs `POST http://foo/user/1`
-  * **Remote procedure call (RPC):** a less rigid architectural style that employs action-centric URLs. These URLs represent remote functions and RPC APIs communicate over the network to invoke them. The HTTP verb employed has no real bearing on functionality as every action will have a unique URL.
-    * Example: `GET http://foo/getUser` vs `POST http://foo/addUser`
-  * **Publish-subscribe pattern (pub/sub):** an architectural style where a computer known as the event _broker_ allows information producers, or _publishers_, to publish messages to the broker and information consumers, or _subscribers_, to subscribe to receive messages from the broker
+* **Representational state transfer (REST)**: An architectural style where a server receives a client request, executes requested modifications, then responds with a representation of the state of the requested resource. REST APIs respect [rigid architectural constraints](https://www.ibm.com/topics/rest-apis) and employ resource-centric URLs where each HTTP verb on a URL provides unique functionality, e.g., `GET http://foo/user/1` vs `POST http://foo/user/1`.
+* **Remote procedure call (RPC):** A semi-rigid architectural style where action-centric URLs represent remote functions that are invoked via network communication. Each action corresponds to a unique URL and the HTTP verb does not determine functionality, e.g., `GET http://foo/getUser` vs `POST http://foo/addUser`.
+* **Publish-subscribe pattern (pub/sub):** An architectural style where a computer termed the event broker allows information producers (publishers) to publish messages to the broker and information consumers (subscribers) to subscribe to receive messages from the broker.
 
 {% hint style="info" %}
 **Pub/sub confusion**
 
-The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe\_pattern) is different and broader from Google's implementation of the pub/sub design pattern in the Pub/Sub [messaging service](https://cloud.google.com/pubsub/docs/overview).
+The pub/sub [design pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe\_pattern) is broader than Google's implementation in the [Pub/Sub](https://cloud.google.com/pubsub/docs/overview) messaging service.
 {% endhint %}
 
-* **GraphQL:** an architectural style, a [query language](https://www.techopedia.com/definition/3948/query-language) for APIs, and a runtime for fulfilling those queries
-* **Event-native:** event-driven architecture implemented with reactive programming to natively handle asynchronous, event-driven APIs
-* **Synchronous programming:** a linear, sequential execution of tasks
-* **Asynchronous programming:** concurrent execution of tasks
-* **Parallelism vs Concurrency:** the key concept is that concurrency is about _dealing with_ lots of things at once. Parallelism is about _doing_ lots of things at once.&#x20;
+**API definition:** An instance of an API specification. "API specification" and "API definition" are often used synonymously.
+
+**API design-first:** The API definition is created before the corresponding code is written. This provides a skeleton for code development and enables the automation of boilerplate code. Deriving the code from the specification ensures that the API documentation is complete.
+
+**API lifecycle:** The processes that govern an API from creation to retirement including design, development, testing, deployment, monitoring, troubleshooting, and security.
+
+**API specification:** Provides an overview of API behavior, interfacing, functionality, and expected output.
+
+* **OpenAPI Specification:** A standardized, language-agnostic, and human and machine-readable HTTP API interface definition that enables discovery and understanding of service capabilities without relying on source code, documentation, or network traffic inspection.
+* **AsyncAPI Specification**: A framework to create and document asynchronous APIs that defines a standardized format for message, event, and channel descriptions to facilitate developer understanding and implementation.
+* **CloudEvents:** A specification to standardize descriptions of event data that defines an envelope for the API data, not how the API is structured. In a postal service metaphor, the AsyncAPI Specification defines what constitutes a complete address and mail routing mechanisms while CloudEvents defines envelope dimensions. The letter, or payload, does not fall under the jurisdiction of either specification.
 
 {% hint style="info" %}
-**Concurrency vs parallelism**
+**Events vs messages**
 
-These are two really tricky concepts to disambiguate, largely due to how similar they are and all the terminology (e.g., processes, threads, tasks, etc.) that can have slightly different meanings in different contexts. If you’re interested in developing a more intuitive understanding, our recommendation is to take a deep dive until you find an explanation that really clicks. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) is a great starting place.
+Although often used synonymously, an event is different from a message. A message is often described as the directed carrier of an event while the event is the observable change in state. However, these terms have a deeper, technical distinction discussed in the [Reactive Manifesto](https://www.reactivemanifesto.org/glossary#Message-Driven):
+
+> "A message is an item of data that is sent to a specific destination. An event is a signal emitted by a component upon reaching a given state. In a message-driven system addressable recipients await the arrival of messages and react to them, otherwise lying dormant. In an event-driven system notification listeners are attached to the sources of events such that they are invoked when the event is emitted. This means that an event-driven system focuses on addressable event sources while a message-driven system concentrates on addressable recipients. A message can contain an encoded event as its payload."
 {% endhint %}
 
-* **JSON Web Key (JWK):** a JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value.
-* **JSON Web Key Set (JWKS):**  a JSON object that represents a set of JWKs. The JSON object MUST have a `keys` member, which is an array of JWKs.
-* **Stateful web APIs:** the server stores information about the client making the request. In other words, the session is stored on the server where the session is an encapsulation of a particular client and server interaction
-* **Stateless web APIs:** the server does not store any information about the client making the request. In other words, the session is stored on the client where the session is an encapsulation of a particular client and server interaction
-* **Reactive programming:** making _asynchronous data streams the spine_ of your application. Events are now the main orchestrators of your application’s flow. The reactive programmer manages the logic around manipulating and performing operations on the data streams.
-* **Queue:** a transient, linear data structure that uses the first in first out (FIFO) approach to accessing elements. Generally, each application has its own queue as messages are lost when consumed.
-  * Example: RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are all queue-based
-* **Log:** an immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature.
-  * Example: Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based
-* **Batch processing:** processing and analysis on a large (large in comparison to stream processing) set of data that has already been stored for a period of time
-* **Stream processing:** applying complex logic to an array of input streams as they flow through the system that can be joined, aggregated, filtered, etc.
-* **Data-interchange format:** text or binary serialized formats for storing and transferring data
-* **Serialization:** the process of converting an object in memory to a stream of bytes for storage or transport
-* **Deserialization:** the inverse process of serialization that converts a stream of bytes back into a complex object
-* **Domain name:** part of a network address that identifies a realm of administrative autonomy, authority or control
-* **Fully qualified domain name (FQDN):** a domain name that specifies its exact location in the tree hierarchy of the Domain Name System
+**API transaction:** A single interaction between a client application and a server through an API. In a typical synchronous API transaction, a client request is sent to a server via API endpoint and the server response is returned to the client. An asynchronous API transaction refers to a single transmission of a message payload between a client and a message broker.
 
+**Asynchronous APIs**: APIs that do not exhibit linear, sequential communication between information producers and information consumers. Events (i.e., changes in state) initiate all communication following the initial consumer subscription. Example: A stock trading API sends price updates in real-time, a client application subscribes to the API to track specific stocks, and the stock trading API sends price updates to the client application as they occur, without waiting for a request from the client application.
 
+**Asynchronous programming:** The concurrent execution of tasks.
 
+**Batch processing:** Processing and analysis of a large (compared to stream processing) data set that has been stored for a period of time.
 
+**Concurrency vs parallelism:** In essence, concurrency involves handling many things at once while parallelism involves doing many things at once. This [stack overflow thread](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) addresses these concepts, which can be difficult to disambiguate due to contextual terminology.
 
+**Data-interchange format:** Text or binary serialized formats for storing and transferring data.
+
+**Deserialization:** The inverse of serialization to convert a stream of bytes back into a complex object.
+
+**Domain name:** The part of a network address that identifies a realm of administrative autonomy, authority, or control.
+
+**Event-native:** A reactive programming implementation of event-driven architecture to natively handle asynchronous, event-driven APIs.
+
+**Fully qualified domain name (FQDN):** A domain name that specifies its exact location in the tree hierarchy of the Domain Name System (DNS).
+
+**GraphQL:** An architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries.
+
+**HTTP API endpoint:** One end of a network communication channel, it consists of a URL and an HTTP method to perform an action on a resource, e.g., `GET http://foo.com/api/user/1`.
+
+**HTTP API entry point:** A special type of resource, i.e., a singleton resource that exists outside of any other collection and houses all other collections of resources. There is exactly one entry point per API, e.g., `http://foo.com/api`.
+
+**HTTP API resource:** An object with a type, associated data, relationships to other resources, and a set of methods that operate on it.
+
+**HTTP API route:** The part of a URL used to access a resource and does not include fragments, e.g., `http://foo.com/api/user/1`.
+
+**Internet:** The [physically interconnected](https://theconversation.com/in-our-wi-fi-world-the-internet-still-depends-on-undersea-cables-49936) global network of computers and physical means by which information travels.
+
+**JSON Web Key (JWK):** A JSON object representing a cryptographic key. The members of the object represent the properties of the key, including its value.
+
+**JSON Web Key Set (JWKS):** A JSON object representing a set of JWKs. The JSON object must contain a `keys` member, which is an array of JWKs.
+
+**Log:** An immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature. Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based.
+
+**Network communication model:** A design or architecture to accomplish communication between different systems.
+
+* **Request-response:** A tightly-coupled, synchronous communication model in which the client initiates communication by making a request directly to the server, which responds by serving data or a service. The basis for synchronous APIs.
+* **Event/message-driven:** A loosely-coupled, asynchronous communication model in which a change in state initiates communication. The basis for asynchronous APIs.
+
+**Network protocol:** A standard for network communication.
+
+* **Layered networking model:** A framework of protocol layers to conceptualize the complexity of communication within and between computers. Typically defined through abstractions, e.g., the Open Systems Interconnection (OSI) conceptual model.
+* **Transport layer:** A conceptual layer responsible for establishing protocols that collect packet-based messages from applications and transmit them into the network.
+* **Application layer:** A conceptual layer responsible for establishing protocols that detail what should be done with the data transferred over the network.
+
+**Path parameters:** A mechanism to pass variable values when routing an API request, e.g., `http://foo.com/api/user/{id}` where {id} is a path parameter.
+
+**Query parameters:** A mechanism to embed additional information or parameters in an endpoint URL to customize or filter the results of the request. Query parameters are appended using a question mark ("?") followed by key-value pairs separated by ampersands ("&"). Each key-value pair represents a specific parameter and its corresponding value, e.g., `http://foo.com/api/user/{id}/?height=tall` where "height" is a query parameter with a value of "tall."
+
+**Queue:** A transient, linear data structure that uses the First In, First Out (FIFO) approach to access elements, where messages are lost when consumed. Each application typically maintains its own queue to ensure all messages are received. RabbitMQ, ActiveMQ, MSMQ, AWS SQS, and JMQ are queue-based.
+
+**Reactive programming:** An application development technique based on asynchronous data streams. Events are the main orchestrators of application flow and scripting manages the logic to manipulate and perform operations on data streams.
+
+**Resource:** An entity or object that is made available through an API and represents specific data or functionality that can be accessed, modified, or manipulated by clients, e.g., `{id: 42, type: employee, company: 5}`.
+
+**Serialization:** The process of converting an object in memory to a stream of bytes for storage or transport.
+
+**Stateful web APIs:** APIs that require the server to store information about the client making the request. The session, an encapsulation of the client-server session, is stored on the server.
+
+**Stateless web APIs:** APIs that require the server to not store any information about the client making the request. The session, an encapsulation of the client-server session, is stored on the client.
+
+**Stream processing:** The application of complex logic to an array of input streams as they flow through a system, including operations to append, aggregate, filter, etc.
+
+**Synchronous APIs:** APIs that require communication to be linear, sequential, between a tightly-coupled client and server, and client-initiated, e.g., a user authentication API where the client application sends a request to the API with the user's credentials and the API returns a response containing either a token to access protected resources or an error message.
+
+**Synchronous programming:** A linear, sequential execution of tasks.
+
+**System architecture / design pattern:** A generalized, reusable description or template to address contextual challenges that are common in software design.
+
+* **Monolithic architecture:** The traditional software development model in which an application is designed as a unified, tightly coupled, and self-contained unit with no dependencies on other applications.
+* **Microservices architecture:** A software development model in which software comprises small, independent services that communicate over well-defined APIs.
+* **Event-driven architecture (EDA):** A development model that uses events, or changes in state, to trigger asynchronous communication between decoupled services.
+
+**World wide web (web):** An information system that uses the internet to access and connect hypermedia (e.g., web pages).

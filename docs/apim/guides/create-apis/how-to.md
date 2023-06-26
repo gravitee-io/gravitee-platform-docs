@@ -32,5 +32,5 @@ It's important to note that v4 APIs do not support:
 
 Please see the documentation for:
 
-* [v4 API Creation wizard](broken-reference)
+* [v4 API Creation wizard](how-to/v4-api-creation-wizard.md)
 * [v2 API creation wizard](how-to/v2-api-creation-wizard.md)

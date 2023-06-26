@@ -1,22 +1,22 @@
 ---
-description: Release notes for all Gravitee 4.x versions
+description: This page contains the release notes for APIM 4.0
 ---
 
-# Gravitee 4.x
+# APIM 4.x (2023-07-20)
 
-## Introduction
+## Overview of Gravitee version 4.0
 
-This section includes all release notes for Gravitee 4.x versions.&#x20;
+Gravitee version 4.0 was released on July 20th, 2023. 4.0 brought major improvements to Gravitee's support for asynchronous APIs, policy execution at the message level, and more. Keep reading to learn more!
 
-## Quick overview of Gravitee version 4
+{% hint style="info" %}
+**Changelog vs release notes**
 
-Gravitee version 4 was released on July 7th, 2023 with Gravitee 4.0. 4.0 brought major improvements to Gravitee's support for asynchronous APIs, policy execution at the message level, and more. For more information on what each 4.x version introduced, please refer to the 4.x release notes:
+If you want a more condensed version of what's new, please refer to the [Changelog](../../changelog/apim/gravitee-4.0.x-changelog.md). Also, if you want to learn about breaking changes or bug fixes, we are tracking those in the changelog as well.
+{% endhint %}
 
-* Gravitee 4.0
+This section of documentation has release notes for Gravitee versions:
 
-## User feedback portal
+* [Gravitee APIM 4.0](apim-4.0.md)
 
-If you want to see what we are working on, leave feedback on potential roadmap items, and help shape the future of the Gravitee platform, please refer to our public-facing product feedback portal:
 
-{% embed url="https://www.gravitee.io/user-feedback" %}
 

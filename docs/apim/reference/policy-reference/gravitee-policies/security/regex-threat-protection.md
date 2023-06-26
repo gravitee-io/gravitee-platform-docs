@@ -1,2 +1,0 @@
-# Regex Threat Protection
-
