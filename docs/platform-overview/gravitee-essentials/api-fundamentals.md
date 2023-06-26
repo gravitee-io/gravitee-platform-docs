@@ -191,9 +191,7 @@ The structure of REST APIs forms the basis of their uniform interface by requiri
 
 Another major architectural style that predates REST is the remote procedure call, or RPC. RPC-based APIs utilize several different application layer protocols such as HTTP, SOAP, and gRPC. The main differentiator between REST and RPC is that REST URLs are resource-centric (`http://foo/user/1`) while RPC URLs are action-centric (`http://foo/getUser`). A remote procedure call essentially calls a function the chosen programming language remotely, or over a network.
 
-Unlike REST, there is not a clearly designated set of architectural constraints for an API to be considered RPC-based. Again, both REST and RPC are styles and real-world implementations often don’t fit neatly into either bucket. This has led to implementations such as GraphQL (an architectural style, a [query language](https://www.techopedia.com/definition/3948/query-language) for APIs, and a runtime for fulfilling those queries) where proponents of GraphQL often bill it as “GraphQL is essentially RPC, with a lot of good ideas from the REST community tacked in.”
-
-![Barbossa quote](https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/7/76f171dfa488be51a8a398df8d79013e90564480.png)
+Unlike REST, RPC architecture does not clearly designate a set of constraints. Both REST and RPC are architectural styles and real-world implementations don’t often fully align with either. This has led to implementations such as GraphQL (an architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries) which proponents describe as essentially RPC, but borrowing heavily from the REST community.
 
 {% hint style="info" %}
 **Deep dive on RPC vs REST**
