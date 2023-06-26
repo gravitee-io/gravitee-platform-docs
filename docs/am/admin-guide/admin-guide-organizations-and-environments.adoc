@@ -30,4 +30,4 @@ An environment belongs to one organization.
 
 
 
-NOTE: By default, the OSS version of AM comes with a default organization and a default environment. For a multi-environment setup, you need an integration with link:{% link pages/cockpit/overview/introduction.adoc %}[Cockpit].
+NOTE: By default, the Community Edition version of AM comes with a default organization and a default environment. For a multi-environment setup, you need an integration with link:{% link pages/cockpit/overview/introduction.adoc %}[Cockpit].

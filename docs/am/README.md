@@ -52,7 +52,7 @@ The concepts below are central to using AM.
 An organization is internal data space AM provisions for you, to hold all the resources to handle user authentication.
 
 {% hint style="info" %}
-The OSS version of AM comes with a single default organization
+The Community Edition version of AM comes with a single default organization
 {% endhint %}
 
 ### Environment
@@ -60,7 +60,7 @@ The OSS version of AM comes with a single default organization
 An environment is a logical workspace in which administrative users can manage security domains.
 
 {% hint style="info" %}
-The OSS version of AM comes with a single default environment.
+The Community Edition version of AM comes with a single default environment.
 {% endhint %}
 
 ### Security domain

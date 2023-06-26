@@ -74,7 +74,7 @@ The security domains overview displays all the domains available for the current
 
 ### Environments
 
-There are no settings for environments. An environment is only used to regroup security domains in a logical workspace. If you use the OSS distribution of AM, there are only the "default" environment and the dropdown menu on the top left corner is disabled.
+There are no settings for environments. An environment is only used to regroup security domains in a logical workspace. If you use the Community Edition distribution of AM, there are only the "default" environment and the dropdown menu on the top left corner is disabled.
 
 ### Organization settings
 
