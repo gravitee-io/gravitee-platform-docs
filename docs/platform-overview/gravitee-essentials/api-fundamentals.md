@@ -175,6 +175,8 @@ To summarize, APIs depend on many protocols. The ideal protocol stack, just like
 
 ### Architectural styles/patterns <a href="#architectural-stylespatterns-5" id="architectural-stylespatterns-5"></a>
 
+#### REST
+
 Although popular usage of "REST API" might imply that REST is a web API protocol, it is actually an architectural style that stands for “representational state transfer." REST APIs employ the HTTP application protocol (a practical implementation rather than an explicit REST requirement) and must adhere to six [design principles](https://www.ibm.com/topics/rest-apis): uniform interface, client-server decoupling, statelessness, cacheability, layered system architecture, and (optional) code on demand.
 
 REST APIs and their associated architectural constraints originated with Roy Fielding's iconic Ph.D. dissertation “Architectural Styles and the Design of Network-based Software Architectures.” Their explosion in popularity is due to many factors, in particular that statelessness promotes scalability and fault tolerance. The request of each completely independent request-response cycle can be handled by an arbitrary server instance and enables essentially limitless horizontal scaling.
@@ -189,7 +191,9 @@ For more details on how statelessness enables scale, check out [this excellent a
 
 As you continue surfing the world wide web, you’ll begin to notice that REST has become the ultimate buzzword, and just about every API under the sun claims to be _RESTful_. Unfortunately, these claims often just mean that the API has been designed according to some, but not all, of the architectural constraints listed above. These APIs are sometimes and more accurately referred to as _REST-like_ APIs.
 
-Preceding the inception of REST, another major architectural style you’ll come across is the **remote procedure call** or RPC. RPC-based APIs utilize several different application layer protocols such as HTTP, SOAP, and gRPC. The main differentiator you should be aware of is REST URLs are resource-centric (`http://foo/user/1`) while RPC URLs are action-centric (`http://foo/getUser`). You can think of a remote procedure call as essentially being the same as calling a function in your programming language of choice, only remotely over a network.
+#### RPC
+
+Another major architectural style that predates REST is the remote procedure call, or RPC. RPC-based APIs utilize several different application layer protocols such as HTTP, SOAP, and gRPC. The main differentiator between REST and RPC is that REST URLs are resource-centric (`http://foo/user/1`) while RPC URLs are action-centric (`http://foo/getUser`). A remote procedure call essentially calls a function in your programming language of choice, only remotely over a network.
 
 Unlike REST, there is not a clearly designated set of architectural constraints for an API to be considered RPC-based. Again, both REST and RPC are styles and real-world implementations often don’t fit neatly into either bucket. This has led to implementations such as GraphQL (an architectural style, a [query language](https://www.techopedia.com/definition/3948/query-language) for APIs, and a runtime for fulfilling those queries) where proponents of GraphQL often bill it as “GraphQL is essentially RPC, with a lot of good ideas from the REST community tacked in.”
 
