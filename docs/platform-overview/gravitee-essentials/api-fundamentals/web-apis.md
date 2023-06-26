@@ -260,5 +260,3 @@ However, there is never a one-size fits all solution, and binary formats are whe
 
 At some point, you may have heard of JSON Schema which is essentially a tool to allow users to opt-in to JSON structure validation. You can read more about [it here](https://json-schema.org/understanding-json-schema/about.html) and get a crash course on schemas and data types.
 {% endhint %}
-
-## Categ <a href="#categorizing-web-apis-8" id="categorizing-web-apis-8"></a>
