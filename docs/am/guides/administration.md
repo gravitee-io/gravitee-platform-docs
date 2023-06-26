@@ -24,7 +24,7 @@ Examples of environments:
 An environment belongs to one organization.
 
 {% hint style="info" %}
-By default, the OSS version of AM comes with a default organization and a default environment. For a multi-environment setup, you need an integration with Gravitee Cloud.
+By default, the Community Edition version of AM comes with a default organization and a default environment. For a multi-environment setup, you need an integration with Gravitee Cloud.
 {% endhint %}
 
 ## Roles and permissions overview
