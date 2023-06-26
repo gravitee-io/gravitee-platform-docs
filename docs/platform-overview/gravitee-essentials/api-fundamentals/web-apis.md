@@ -151,17 +151,9 @@ One popular architectural style that implements event streaming is the publish/s
 Although often used synonymously, there is a distinction between an event and a message. This guide adopts the high-level disambiguation that a message is the directed carrier of an event while the event is the actual change in observable state, but there is a [deeper technical distinction](https://developer.lightbend.com/docs/akka-guide/concepts/message-driven-event-driven.html).
 {% endhint %}
 
-So to recap, web API architectural styles are completely separate from the underlying protocols that are powering the API. The architectures are focused on guiding the API designer which, generally, is a mixture of you, the developer, and other stakeholders more focused on the high-level business logic.
-
-{% hint style="info" %}
-**Design-first methodology**
-
-This mixture of technical and business interests around APIs is why you’ll often hear the benefits of API design-first development touted. To better understand the design-first methodology and the purported benefits, check out [this in-depth blog post](https://www.gravitee.io/api-first) from Gravitee. Still not sold? It’s worth noting that the OpenAPI Initiative (detailed in the following section) also [recommends a design-first approach](https://oai.github.io/Documentation/best-practices.html#use-a-design-first-approach) to building APIs.
-{% endhint %}
-
 ## Specifications <a href="#specifications-6" id="specifications-6"></a>
 
-So, as detailed in the previous section, architectural styles essentially add additional constraints regarding how the client and server interact with each other. But this still leaves a lot of leeway when it comes to how to use a particular API, whether REST, RPC, or a mixture. What endpoints are available? What actions can I perform? How do I authenticate? What parameters can I pass?
+The architectural styles that govern the client-server interactions do not dictate API usage such as available endpoints, permissible actions, authentication options, parameters to pass, etc.
 
 If you’re mumbling to yourself, just check the documentation, then you my friend, are spot on. However, even attempting to document the most basic of APIs can be quite an arduous and time-consuming investment. You need to be sure your documentation is clear and intuitive for all users of your API. And after documenting several APIs, you would begin to realize how repetitive the process of API documentation can become. On top of that, you would quickly realize how difficult it is to ensure your documentation has 100%, comprehensive coverage of your API. Finally, even if you manage to pull this off, your work is never truly complete as the documentation must be updated with every change and bug fix associated with your API. Keeping this from becoming a massive migraine is where API specifications come in. Let’s start with the OpenAPI specification defined below:
 
