@@ -11,6 +11,7 @@
   * [Enterprise Edition Licensing](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md)
 * [API Fundamentals](gravitee-essentials/api-fundamentals/README.md)
   * [API Basics](gravitee-essentials/api-fundamentals/api-basics.md)
+  * [Web APIs](gravitee-essentials/api-fundamentals/web-apis.md)
 * [Gravitee Core Concepts](gravitee-essentials/gravitee-core-concepts.md)
 * [Gravitee Glossary](gravitee-essentials/glossary.md)
 
