@@ -109,6 +109,16 @@ To summarize, APIs depend on many protocols. The ideal protocol stack, just like
 
 ## Architectural styles/patterns <a href="#architectural-stylespatterns-5" id="architectural-stylespatterns-5"></a>
 
+Web API architectural styles are completely separate from the underlying protocols that power APIs. The architectures focus on guiding API design, to which both developers and business logic stakeholders actively contribute.
+
+{% hint style="info" %}
+**Design-first methodology**
+
+This mixture of technical and business interests around APIs is why you’ll often hear the benefits of API design-first development touted. To better understand the design-first methodology and the purported benefits, check out [this in-depth blog post](https://www.gravitee.io/api-first) from Gravitee. Still not sold? It’s worth noting that the OpenAPI Initiative (detailed in the following section) also [recommends a design-first approach](https://oai.github.io/Documentation/best-practices.html#use-a-design-first-approach) to building APIs.
+{% endhint %}
+
+## S <a href="#specifications-6" id="specifications-6"></a>
+
 ### REST
 
 Although popular usage of "REST API" might imply that REST is a web API protocol, it is actually an architectural style that stands for “representational state transfer." REST APIs employ the HTTP application protocol (a practical implementation rather than an explicit REST requirement) and must adhere to six [design principles](https://www.ibm.com/topics/rest-apis): uniform interface, client-server decoupling, statelessness, cacheability, layered system architecture, and (optional) code on demand.&#x20;
