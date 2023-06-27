@@ -4,7 +4,7 @@ Web APIs are categorized as synchronous or asynchronous and stateless or statefu
 
 ### Synchronous vs Asynchronous <a href="#synchronous-vs-asynchronous-9" id="synchronous-vs-asynchronous-9"></a>
 
-Synchronous vs Asynchronous web APIs, or sync vs async as they are often referred to, represent an essential demarcation point between APIs. The two approaches represent a paradigm shift in how APIs communicate. Earlier, we touched on this topic when comparing the request-response network communication model to event streaming, and now we’re going to do a much deeper dive. But before we look specifically at APIs, let’s look at the synchronous vs asynchronous concepts from a much broader perspective.
+Synchronous (sync) vs asynchronous (async) web APIs represent a demarcation and paradigm shift in API communication consequent to event streaming complementing the request-response network communication model. The following sections broadly introduce synchronous and asynchronous patterns before applying these concepts to web APIs.
 
 #### **Synchronous vs Asynchronous: Programming**
 
