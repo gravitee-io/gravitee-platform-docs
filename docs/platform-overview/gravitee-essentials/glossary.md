@@ -44,13 +44,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 [**Enterprise Edition:**](gravitee-offerings-ce-vs-ee/) The enhanced version of Gravitee's open-source and event-native API management platform. Feature sets targeting commercial end users include Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, and advanced protocol mediation options.
 
-**API publisher:** The creator, designer, and/or manager of a gateway API.
-
-**API consumer:** The user or application accessing the gateway API.
-
 **Application:** The mechanism by which an API consumer registers and agrees to a Gravity Plan that uses authentication. This allows the API producer more granular control over access to their secured API.
-
-**Backend API:** The source or target API that is proxied by the gateway.
 
 **Backend service exposure:** The consumption style of your API based on your upstream backend service architecture.
 
@@ -62,6 +56,8 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 **Execution context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
 
 **Flow:** The method to control where, and under what conditions, policies act on an API transaction.
+
+**Backend API:** The source or target API that is proxied by the gateway.
 
 **Gateway API:** An API deployed on the Gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
 
@@ -101,6 +97,10 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 {% hint style="info" %}
 Gravitee's documentation uses the terms "web API" and "API" synonymously. An API used for local communication is explicitly referred to as a local API.
 {% endhint %}
+
+**API publisher:** The creator, designer, and/or manager of an API.
+
+**API consumer:** The user or application accessing the API.
 
 **API architectural style:** Guidelines and/or constraints governing API design:
 
