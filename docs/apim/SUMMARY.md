@@ -59,13 +59,12 @@
 ## Guides
 
 * [Prologue](guides/prologue.md)
-* [Gravitee API Definitions and Execution Engines](guides/gravitee-api-definitions-and-execution-engines/README.md)
-  * [Gateway Execution Engines Compared](guides/gravitee-api-definitions-and-execution-engines/gateway-execution-engines-compared.md)
+* [Gravitee API Definitions and Execution Engines](guides/gravitee-api-definitions-and-execution-engines.md)
 * [Create APIs](guides/create-apis/README.md)
   * [Import APIs](guides/create-apis/import-apis.md)
   * [The API Creation Wizard](guides/create-apis/how-to.md)
     * [V2 API creation wizard](guides/create-apis/how-to/v2-api-creation-wizard.md)
-    * [v4 API creation wizard](guides/create-apis/how-to/v4-api-creation-wizard.md)
+    * [V4 API creation wizard](guides/create-apis/how-to/v4-api-creation-wizard.md)
 * [API Configuration](guides/api-configuration/README.md)
   * [Documentation](guides/api-configuration/documentation.md)
   * [API General settings](guides/api-configuration/api-general-settings.md)
