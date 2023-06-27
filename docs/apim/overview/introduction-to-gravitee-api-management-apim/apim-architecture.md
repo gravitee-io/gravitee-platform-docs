@@ -32,6 +32,8 @@ The following diagrams illustrate the component management, design, and virtual 
 
 ### Self-hosted architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
+<img src="../../.gitbook/assets/file.excalidraw (3).svg" alt="" class="gitbook-drawing">
+
 ![Self-Hosted Architecture](https://dobl1.github.io/gravitee-se-docs/latest/assets/gio-apim-self-hosted-architecture.svg)
 
 ### Self-hosted VM installation: LAN + DMZ deployment <a href="#install-on-vms-lan-dmz-deployment" id="install-on-vms-lan-dmz-deployment"></a>
