@@ -101,19 +101,19 @@ Asynchronous API clients do not initiate communication beyond expressing initial
 
 The benefits of EDA are demonstrated with an example use case where an IoT device tracks real-time changes in temperature. Assuming a system/application must be alerted immediately if the temperature falls below 32F/0C degrees, an HTTP API following the request-response communication model would need to continuously poll the server hosting the temperature data. However, you could also build out an event-driven architecture around asynchronous APIs, specifically APIs built on the pub/sub architectural style, which would allow a simple subscription to a broker’s temperature topic. The broker would instantly push data to all subscribers for each change in temperature, thereby allowing the subscribers to build their business logic around this data stream and react as soon as a threshold is crossed. The publisher of the temperature data does not need to be aware of how or when the data is processed.
 
-For use cases that focus on real-time applications, event-driven architecture and asynchronous APIs enable communication that is significantly more efficient. EDA is a novel way to structure an application and can cause a number of integration challenges, both internally and externally. The decision to use asynchronous APIs is context-dependent and it is quite common for a single system to leverage both synchronous and asynchronous APIs.&#x20;
+For use cases that focus on real-time applications, event-driven architecture and asynchronous APIs enable communication that is significantly more efficient. EDA is a novel way to structure an application and can lead to both internal and external integration challenges. The decision to use async communication is context-dependent and a single system often leverages both synchronous and asynchronous APIs.&#x20;
 
 {% hint style="info" %}
 Generally, the HTTP application protocol is conceptualized and discussed as a synchronous protocol. However, there are different versions of HTTP such as HTTP/1.1 (currently the most widely used version), HTTP/2.0, and HTTP/3.0. HTTP/2.0 functionality like multiplexing begins to break down the strict request/response model because multiple requests can be bundled together returned in any order. The [evolution of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/Evolution\_of\_HTTP) serves to caution against oversimplifying protocol classifications.
 {% endhint %}
 
-#### **Synchronous vs Asynchronous: Reactive Programming**
+In summary:
 
-At this point, we would be surprised if you did not have trouble clearly differentiating all these overlapping terms. You have protocols everywhere. You have architectural styles at the API and system level. You have sync and async APIs as well as sync and async programming. Let’s take a quick step back, and walk through the core points in a nice, clean list:
-
-1. First, we discussed a shift from monolithic applications to microservices. This was all about decoupling application components and interfacing through web APIs. Generally, these web APIs were initially synchronous and adhered tightly to the request-response network communication model.
-2. However, just because these components talked synchronously, does not mean the actual execution flow of our applications had to be synchronous. This is why a single-threaded language like Javascript is an inherently asynchronous programming language. Since it powers the web, the main execution thread could not afford to be blocked whenever it needed to communicate synchronously through a web API.
+1. The shift from monoliths to microservices decouples application components and interfacing via web APIs, which were initially synchronous and adhered tightly to the request-response network communication model.
+2. However, although these components communicated synchronously, the execution flow of applications did not have to be synchronous. This is why a single-threaded language like Javascript is an inherently asynchronous programming language. Since it powers the web, the main execution thread could not afford to be blocked whenever it needed to communicate synchronously through a web API.
 3. Next, we said let's take things a step further and also enable asynchronous communication that decouples information producers from information consumers. This shift enables powerful functionality but also requires a restructuring of your application logic from the backend to the UI. It’s an entirely different system architectural style referred to as event-driven architecture.
+
+### **Sync vs async reactive programming**
 
 Now, as you might be imagining, implementing event-driven architecture is easier said than done. It’s a whole different way of thinking. And it’s a way of thinking that does _not_ come naturally to our brains that like to plan in a linear, synchronous fashion. It’s much easier to reason about code that progresses sequentially from top to bottom.
 
