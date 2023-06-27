@@ -8,9 +8,7 @@ Synchronous (sync) vs asynchronous (async) web APIs represent a demarcation and 
 
 #### **Synchronous vs Asynchronous: Programming**
 
-Synchronous programming is the linear, sequential execution of tasks, where each task blocks the execution of the following task. Asynchronous programming is the concurrent execution of tasks, where tasks can be executed partially or totally out of order. Multitasking, or rapid task-switching, is not equivalent to [parallelism](https://en.wikipedia.org/wiki/Parallel\_computing), which computer science defines as the simultaneous execution of two or more tasks. Concurrency involves managing many things at once while parallelism involves doing many things at once, and concurrency does not imply parallelism.
-
-So, while humans may often think and plan in a synchronous fashion, we function asynchronously. Think about how many tasks you actually juggle between when you go out to eat at a restaurant: placing your order, socializing, eating, taking a quick call, responding to a text, etc. You are always _dealing with_ lots of things at once, but _on your own_, you are never actually _doing_ lots of things at once. But once you introduce a third party, functioning asynchronously allows humans to be significantly more productive. We may not be able to parallel compute, but we are still masters of concurrency.
+Synchronous programming is the linear, sequential execution of tasks, where the completion of each task blocks the start of the following task. Asynchronous programming is the concurrent execution of tasks, where tasks can be performed partially or totally out of order. Multitasking, or rapid task-switching, is not equivalent to [parallelism](https://en.wikipedia.org/wiki/Parallel\_computing), which computer science defines as the simultaneous execution of two or more tasks. Concurrency does not imply parallelism, as managing multiple tasks simultaneously is different from performing multiple tasks simultaneously.
 
 {% hint style="info" %}
 **Concurrency vs parallelism**
