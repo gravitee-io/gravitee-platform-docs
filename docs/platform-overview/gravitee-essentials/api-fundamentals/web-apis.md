@@ -130,7 +130,7 @@ Another major architectural style that predates REST is the remote procedure cal
 Unlike REST, RPC architecture does not clearly designate a set of constraints. Both REST and RPC are architectural styles and real-world implementations don’t often fully align with either. This has led to implementations such as GraphQL (an architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries) which proponents describe as essentially RPC, but borrowing heavily from the REST community.
 
 {% hint style="info" %}
-Deep-dive [REST vs RPC](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) via implementation examples that highlight the strengths and weaknesses of both styles.
+[REST vs RPC](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) can be examined in-depth via implementation examples that highlight the strengths and weaknesses of both styles.
 {% endhint %}
 
 ### Network communication models
@@ -142,7 +142,7 @@ The request-response model was instrumental in the development of the modern web
 One popular architectural style that implements event streaming is the publish/subscribe (pub/sub) pattern. Similar to RPC, it is fairly generalized without many rigid architectural constraints. The core tenet of the pub/sub pattern is that communication between information producers, or publishers, must be decoupled from information consumers, or subscribers, through the event broker. Consequently, publishers and subscribers are not aware of one another. This loose coupling greatly simplifies communication (i.e., the publisher has a single target, the broker) which enables the design of more scalable and flexible event-driven systems. APIs following the pub/sub pattern utilize many different application layer protocols such as MQTT, AMQP, and the Kafka custom binary protocol.
 
 {% hint style="info" %}
-**Events vs messages:** Although often used synonymously, there is a distinction between an event and a message. This guide adopts the high-level disambiguation that a message is the directed carrier of an event while the event is the actual change in observable state, but there is a [deeper technical distinction](https://developer.lightbend.com/docs/akka-guide/concepts/message-driven-event-driven.html).
+Although often used synonymously, there is a distinction between an event and a message. This guide adopts the high-level disambiguation that a message is the directed carrier of an event while the event is the actual change in observable state, but there is a [deeper technical distinction](https://developer.lightbend.com/docs/akka-guide/concepts/message-driven-event-driven.html).
 {% endhint %}
 
 ## Specifications <a href="#specifications-6" id="specifications-6"></a>
