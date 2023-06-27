@@ -186,7 +186,7 @@ console.log(typeof deserializedData);
 // 'object'
 ```
 
-JSON borrowed heavily from Javascript’s object literal notation to transform the object keys into strings and the object itself into a primitive string where all of the original object's data exists in a self-contained chunk. JSON is a widely used and supported format that can be parsed by most programming languages. The following code serializes data with JavaScript, saves it to disk, and loads it into memory via Python.
+JSON borrowed heavily from Javascript’s object literal notation to transform the object keys into strings and the object itself into a primitive string where all of the original object's data exists in a self-contained chunk. JSON is a widely used and supported format that can be parsed by most programming languages. The following code uses local APIs built into the JavaScript and Python programming languages to serialize the object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary.
 
 ```javascript
 import fs from "fs";
@@ -214,14 +214,10 @@ print(type(deserialized_data))
 # <class 'dict'>
 ```
 
-Nice, so while not web APIs, we used the local APIs built into the JavaScript and Python programming languages to serialize an object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary. All possible thanks to the JSON data-interchange format. And all quite simple thanks to JavaScript and Python’s local APIs.
-
-When it comes to web APIs, the serialization format is often dependent on the application layer protocol you employ. For example, SOAP APIs prescribe XML as the one and only serialization format while HTTP APIs are encoding agnostic allowing you to select from a [plethora of options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types) including HTML, JSON, XML, CSV, binary formats, or even implementing your own custom serialization format. Besides all the HTML used to structure web pages, JSON continues to dominate over other formats due to its universality, lightweight format, and human-readable text.
+With respect to web APIs, serialization format is often dependent on application layer protocol. For example, SOAP APIs prescribe XML as the only viable serialization format while HTTP APIs are encoding-agnostic and permit numerous [plethora of options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types) including HTML, JSON, XML, CSV, binary formats, or even implementing your own custom serialization format. Besides all the HTML used to structure web pages, JSON continues to dominate over other formats due to its universality, lightweight format, and human-readable text.
 
 However, there is never a one-size fits all solution, and binary formats are where JSON sees its stiffest competition. In situations where you are transferring a high volume of data and performance is critical, binary formats are preferred over JSON. This is why [Apache Avro is recommended for Kafka](https://www.confluent.io/blog/avro-kafka-data/) even though Kafka also supports JSON. Additionally, by default JSON is schema-less and does not enforce [type safety](https://levelup.gitconnected.com/what-is-type-safety-705b1813e0bb) which you can view as prioritizing flexibility over validation and error-checking. This is why some binary formats such as [protocol buffers](https://developers.google.com/protocol-buffers), or protobufs, have surged in popularity by correcting the aforementioned issues around performance and validation.
 
 {% hint style="info" %}
-**Validation for JSON?**
-
-At some point, you may have heard of JSON Schema which is essentially a tool to allow users to opt-in to JSON structure validation. You can read more about [it here](https://json-schema.org/understanding-json-schema/about.html) and get a crash course on schemas and data types.
+[JSON Schema](https://json-schema.org/understanding-json-schema/about.html) is essentially a tool to allow users to opt-in to JSON structure validation.
 {% endhint %}
