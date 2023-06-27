@@ -166,9 +166,9 @@ const sampleObject = {
 
 To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript generally inhibit using a single, contiguous block of memory to store an object's payload. Instead, objects store references to data contained in different blocks, which spreads an object's properties over the memory of a running process.
 
-Serialization satisfies these requirements by converting an object in memory to a stream of bytes for storage or transport. Serialized data can easily be transferred over a network, and upon reaching its destination, the data can be deserialized, which is the inverse operation. Data-interchange format and serialization format can be used synonymously.
+Serialization satisfies these requirements by converting an object in memory to a stream of bytes for storage or transport. Serialized data can be easily transferred over a network, then deserialized (the inverse operation) upon reaching its destination. Data-interchange format and serialization format are synonymous terms.
 
-Universal formats are either text-based or binary and facilitate deserialization by any client. The JavaScript Object Notation format, or JSON, is the dominant universal format for web communication, though [other formats](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/) are also common. Javascript has first-class support for JSON, which can be applied to "sampleObject":
+Universal formats are either text-based or binary and facilitate deserialization by any client. The JavaScript Object Notation format (JSON) is the dominant universal format for web communication, though [other formats](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/) are also common. Javascript has first-class support for JSON, which can be applied to "sampleObject" as follows.
 
 ```javascript
 const serializedData = JSON.stringify(sampleObject);
@@ -186,7 +186,7 @@ console.log(typeof deserializedData);
 // 'object'
 ```
 
-JSON borrowed heavily from Javascript’s object literal notation to transform the object keys into strings and the object itself into a primitive string containing all of the original object's data in a self-contained chunk. JSON is a widely used and supported format that can be parsed by most programming languages. The following code serializes data with JavaScript, saves it to disk, and loads it into memory via Python.
+JSON borrowed heavily from Javascript’s object literal notation to transform the object keys into strings and the object itself into a primitive string where all of the original object's data exists in a self-contained chunk. JSON is a widely used and supported format that can be parsed by most programming languages. The following code serializes data with JavaScript, saves it to disk, and loads it into memory via Python.
 
 ```javascript
 import fs from "fs";
