@@ -46,11 +46,7 @@ The application layer is the top layer of the layered network model and contains
 <table><thead><tr><th width="347">Name</th><th width="135">Abbreviation</th><th>Communication Type</th></tr></thead><tbody><tr><td>Hypertext Transfer Protocol</td><td>HTTP</td><td>Sync/Async</td></tr><tr><td>Hypertext Transfer Protocol Secure</td><td>HTTPS</td><td>Sync/Async</td></tr><tr><td>Websocket</td><td>N/a</td><td>Async</td></tr><tr><td>Server Sent Events</td><td>SSE</td><td>Async</td></tr><tr><td>File Transfer Protocol</td><td>FTP</td><td>Sync</td></tr><tr><td>Message Queuing Telemetry Transport</td><td>MQTT</td><td>Async</td></tr><tr><td>Advanced Message Queuing Transport</td><td>AMQP</td><td>Async</td></tr><tr><td>Kafka’s Custom Binary Protocol</td><td>N/a</td><td>Async</td></tr><tr><td>Google Remote Procedure Call</td><td>gRPC</td><td>Sync/Async </td></tr><tr><td>Simple Object Access Protocol</td><td>SOAP</td><td>Sync/Async </td></tr><tr><td>Simple Mail Transfer Protocol</td><td>SMTP</td><td>Sync</td></tr><tr><td>Domain Name Service</td><td>DNS</td><td>Sync/Async </td></tr><tr><td>Extensible Messaging and Presence Protocol</td><td>XMPP</td><td>Async</td></tr></tbody></table>
 
 {% hint style="info" %}
-**Is Webhook an application layer protocol?**
-
-"Webhook API" is a misnomer. APIs are often categorized by the application layer protocol they employ, but although Webhook uses HTTP, it is not an application layer protocol itself. Compounding this misconception, Webhooks are not APIs. Webhooks are essentially functionality that can be added to existing APIs, as explained in [this excerpt](https://www.redhat.com/en/topics/automation/what-is-a-webhook):
-
-> “Webhooks are often referred to as reverse APIs or push APIs, because they put the responsibility of communication on the server, rather than the client. Instead of the client sending HTTP requests—asking for data until the server responds—the server sends the client a single HTTP POST request as soon as the data is available. Despite their nicknames, webhooks are not APIs; they work together. An application must have an API to use a webhook.”
+"Webhook API" is a misnomer. APIs are often categorized by the application layer protocol they employ, but although Webhook uses HTTP, it is not an application layer protocol itself. Compounding this misconception, Webhooks are not APIs. [Webhooks are essentially functionality that can be added to existing APIs](https://www.redhat.com/en/topics/automation/what-is-a-webhook).
 {% endhint %}
 
 Application layer protocols define how independent programs and services communicate over networks and share information. While the other protocol layers focus on delivering data to a destination, the application layer protocols are responsible for establishing communication standards that dictate how that data is accessed and consumed. Specifically, the application layer provides the programs at each end of a communication link with interface methods to ensure that the request and response are understood and managed correctly. The role the application layer plays in defining interface conventions explains why an API type and its protocol are often synonymous.
@@ -146,9 +142,7 @@ The request-response model was instrumental in the development of the modern web
 One popular architectural style that implements event streaming is the publish/subscribe (pub/sub) pattern. Similar to RPC, it is fairly generalized without many rigid architectural constraints. The core tenet of the pub/sub pattern is that communication between information producers, or publishers, must be decoupled from information consumers, or subscribers, through the event broker. Consequently, publishers and subscribers are not aware of one another. This loose coupling greatly simplifies communication (i.e., the publisher has a single target, the broker) which enables the design of more scalable and flexible event-driven systems. APIs following the pub/sub pattern utilize many different application layer protocols such as MQTT, AMQP, and the Kafka custom binary protocol.
 
 {% hint style="info" %}
-**Events vs messages**
-
-Although often used synonymously, there is a distinction between an event and a message. This guide adopts the high-level disambiguation that a message is the directed carrier of an event while the event is the actual change in observable state, but there is a [deeper technical distinction](https://developer.lightbend.com/docs/akka-guide/concepts/message-driven-event-driven.html).
+**Events vs messages:** Although often used synonymously, there is a distinction between an event and a message. This guide adopts the high-level disambiguation that a message is the directed carrier of an event while the event is the actual change in observable state, but there is a [deeper technical distinction](https://developer.lightbend.com/docs/akka-guide/concepts/message-driven-event-driven.html).
 {% endhint %}
 
 ## Specifications <a href="#specifications-6" id="specifications-6"></a>
@@ -157,13 +151,7 @@ The architectural styles that govern the client-server interactions do not dicta
 
 Specifications that focus either exclusively or primarily on synchronous APIs include OpenAPI, OData, RAML, GraphQL (a query language with its own specification), and WSDL, etc. Some specifications apply to a particular API type, such as WSDL serving SOAP APIs or the GraphQL specification serving GraphQL APIs, while others apply to multiple API types, such as RAML and OpenAPI both serving HTTP APIs.&#x20;
 
-The [AsyncAPI](https://www.asyncapi.com/) specification serves asynchronous APIs and is widely regarded as OpenAPI's counterpart. The CloudEvents specification also applies to asynchronous APIs, but an in-depth comparison reveals that CloudEvents and AsyncAPI&#x20;
-
-At some point, you’ll likely stumble upon someone comparing AsyncAPI to CloudEvents. CloudEvents is yet another specification but is really in a separate category from the specifications previously discussed. Specifications like AsyncAPI are focused on the overall application and the channels it uses to communicate while CloudEvents defines an envelope for your application’s actual data.
-
-As a questionable metaphor, let's look at the postal service. You can think of AsyncAPI as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the **payload**, does not fall under the jurisdiction of either specification.
-
-If this distinction is not clear, read [this article](https://www.asyncapi.com/blog/asyncapi-cloud-events) for a more in-depth comparison. We’ll be defining and discussing much of the article’s terminology around events later in this guide so consider this a sneak preview.
+The [AsyncAPI](https://www.asyncapi.com/) specification serves asynchronous APIs and is widely regarded as OpenAPI's counterpart. The CloudEvents specification also applies to asynchronous APIs, but an [in-depth comparison](https://www.asyncapi.com/blog/asyncapi-cloud-events) reveals that CloudEvents and AsyncAPI belong to different categories of specification. While AsyncAPI addresses the overall application and its communication channels, CloudEvents defines an envelope for the application’s data.&#x20;
 
 ## Data-interchange formats <a href="#data-interchange-formats-7" id="data-interchange-formats-7"></a>
 
