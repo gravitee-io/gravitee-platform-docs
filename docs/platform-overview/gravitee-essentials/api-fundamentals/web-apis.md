@@ -155,11 +155,7 @@ The [AsyncAPI](https://www.asyncapi.com/) specification serves asynchronous APIs
 
 ## Data-interchange formats <a href="#data-interchange-formats-7" id="data-interchange-formats-7"></a>
 
-The API payload is the data being transported by the API.&#x20;
-
-
-
-For example, in the Javascript object below, "sampleObject" is the API payload.
+The API payload is the data being transported by the API. For example, consider the Javascript object below, where "sampleObject" is the API payload.
 
 ```javascript
 const sampleObject = {
@@ -168,16 +164,11 @@ const sampleObject = {
 };
 ```
 
-There are two key items for us to consider:
+The data needs to be encoded into a universal format and placed into a self-contained chunk or stream.&#x20;
 
-1. the data needs to be encoded into a universal format
-2. the data needs to be placed into a self-contained chunk or stream
+To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript result in objects generally not containing their data in the same contiguous block of memory. objects store references to that data which is housed in a separate block of memory. Therefore, a single object with numerous properties could be spread all over the memory of a running process.
 
-For the first item, how can we ensure any client using our API can receive the payload in a usable format? The client is certainly not guaranteed to be using Javascript to develop their application which means they might not be able to parse this object. Clearly, some type of conversion needs to take place before the payload is delivered to the client.
 
-For the second item, at first glance, it seems to already be resolved. Our entire object is assigned to the variable “sampleObject.” However, Javascript is another high-level programming language that abstracts away a lot of magic that is going on under the hood. The short version is that objects generally do not directly contain their data in the same contiguous block of memory; in reality, objects store references to that data which is housed in a separate block of memory. Therefore, a single object with numerous properties could be spread all over the memory of a running process.
-
-So how can we prep this object for transport?
 
 Thankfully, **serialization** solves both of these concerns. Serialization is the process of converting an object in memory to a stream of bytes for storage or transport. Once serialized, the data can easily be transferred over a network, and upon reaching its destination, the data can be deserialized, which is simply the inverse operation. Data-interchange format and serialization format can be used synonymously.
 
