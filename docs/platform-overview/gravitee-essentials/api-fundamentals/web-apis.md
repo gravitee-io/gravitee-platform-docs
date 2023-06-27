@@ -166,17 +166,9 @@ const sampleObject = {
 
 To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript generally inhibit using a single, contiguous block of memory to store an object's payload. Instead, objects store references to data contained in different blocks, which spreads an object's properties over the memory of a running process.
 
-Serialization satisfies these requirements by converting an object in memory to a stream of bytes for storage or transport. Once serialized, the data can easily be transferred over a network, and upon reaching its destination, the data can be deserialized, which is the inverse operation. Data-interchange format and serialization format can be used synonymously.
+Serialization satisfies these requirements by converting an object in memory to a stream of bytes for storage or transport. Serialized data can easily be transferred over a network, and upon reaching its destination, the data can be deserialized, which is the inverse operation. Data-interchange format and serialization format can be used synonymously.
 
-Universal formats are either text-based or binary and facilitate deserialization by any client. The JavaScript Object Notation format, or JSON, is the dominant universal format for web communication.
-
-{% hint style="info" %}
-**Data serialization format comparison**
-
-For a quick comparison of some other common formats, check out [this blog post](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/).
-{% endhint %}
-
-As you might have guessed by the name, Javascript has first-class support for JSON:
+Universal formats are either text-based or binary and facilitate deserialization by any client. The JavaScript Object Notation format, or JSON, is the dominant universal format for web communication, though [other formats](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/) are also common. Javascript has first-class support for JSON, which can be applied to "sampleObject":
 
 ```javascript
 const serializedData = JSON.stringify(sampleObject);
