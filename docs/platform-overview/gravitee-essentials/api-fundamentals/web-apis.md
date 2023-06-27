@@ -168,7 +168,7 @@ To ensure any API client can parse the transmitted data, the payload must be enc
 
 Serialization satisfies these requirements by converting an object in memory to a stream of bytes for storage or transport. Serialized data can be easily transferred over a network, then deserialized (the inverse operation) upon reaching its destination. Data-interchange format and serialization format are synonymous terms.
 
-Universal formats are either text-based or binary and facilitate deserialization by any client. The JavaScript Object Notation format (JSON) is the dominant universal format for web communication, though [other formats](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/) are also common. Javascript has first-class support for JSON, which can be applied to "sampleObject" as follows.
+Universal formats are either text-based or binary and facilitate deserialization by any client. The JavaScript Object Notation format (JSON) is the dominant universal format for web communication due to its universality, lightweight format, and human-readable text, though [other formats](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/) are also common. Javascript has first-class support for JSON, which can be applied to "sampleObject" as follows.
 
 ```javascript
 const serializedData = JSON.stringify(sampleObject);
@@ -214,7 +214,7 @@ print(type(deserialized_data))
 # <class 'dict'>
 ```
 
-With respect to web APIs, serialization format is often dependent on application layer protocol. For example, SOAP APIs prescribe XML as the only viable serialization format while HTTP APIs are encoding-agnostic and permit numerous [plethora of options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types) including HTML, JSON, XML, CSV, binary formats, or even implementing your own custom serialization format. Besides all the HTML used to structure web pages, JSON continues to dominate over other formats due to its universality, lightweight format, and human-readable text.
+With respect to web APIs, serialization format is often dependent on application layer protocol. For example, SOAP APIs require XML while HTTP APIs are encoding-agnostic and support HTML, JSON, XML, CSV, binary formats, custom serialization formats, etc.&#x20;
 
 However, there is never a one-size fits all solution, and binary formats are where JSON sees its stiffest competition. In situations where you are transferring a high volume of data and performance is critical, binary formats are preferred over JSON. This is why [Apache Avro is recommended for Kafka](https://www.confluent.io/blog/avro-kafka-data/) even though Kafka also supports JSON. Additionally, by default JSON is schema-less and does not enforce [type safety](https://levelup.gitconnected.com/what-is-type-safety-705b1813e0bb) which you can view as prioritizing flexibility over validation and error-checking. This is why some binary formats such as [protocol buffers](https://developers.google.com/protocol-buffers), or protobufs, have surged in popularity by correcting the aforementioned issues around performance and validation.
 
