@@ -1,8 +1,6 @@
 # Categorizing Web APIs
 
-Humans love to put things in categories. It’s our way of making sense of this chaotic, confusing world and allows us to function under the notion of structure, order, and purpose. So now we’re going to take a deeper look at two important and _separate_ categorizations for web APIs: **Synchronous vs Asynchronous** and **Stateless vs Stateful**.
-
-Before proceeding, it’s important to note that there is often cross-pollination between these two concepts; but on the contrary, they are entirely independent concepts as we will make clear in the following sections.
+Web APIs are categorized as synchronous or asynchronous and stateless or stateful. Although they can be differentiated into separate categorizations, these concepts are often subject to cross-pollination. Their respective details and relationships are further explored below in [asynchronous vs asynchronous](categorizing-web-apis.md#synchronous-vs-asynchronous-9) and [stateful vs stateless web APIs](categorizing-web-apis.md#stateful-vs-stateless-web-apis-13).
 
 ### Synchronous vs Asynchronous <a href="#synchronous-vs-asynchronous-9" id="synchronous-vs-asynchronous-9"></a>
 
