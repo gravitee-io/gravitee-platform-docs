@@ -2,11 +2,11 @@
 
 Web APIs are categorized as synchronous or asynchronous and stateless or stateful. Although they can be differentiated into separate categorizations, these concepts are often subject to cross-pollination. Their respective details and relationships are further explored below in [asynchronous vs asynchronous](categorizing-web-apis.md#synchronous-vs-asynchronous-9) and [stateful vs stateless web APIs](categorizing-web-apis.md#stateful-vs-stateless-web-apis-13).
 
-### Synchronous vs Asynchronous <a href="#synchronous-vs-asynchronous-9" id="synchronous-vs-asynchronous-9"></a>
+## Synchronous vs Asynchronous <a href="#synchronous-vs-asynchronous-9" id="synchronous-vs-asynchronous-9"></a>
 
 Synchronous (sync) vs asynchronous (async) web APIs represent a demarcation and paradigm shift in API communication consequent to event streaming complementing the request-response network communication model. The following sections broadly introduce synchronous and asynchronous patterns before applying these concepts to web APIs.
 
-#### **Synchronous vs Asynchronous: Programming**
+### **Sync vs async programming**
 
 Synchronous programming is the linear, sequential execution of tasks, where the completion of each task blocks the start of the following task. Asynchronous programming is the concurrent execution of tasks, where tasks can be performed partially or totally out of order but rapid task-switching (multitasking) is not equivalent to [parallelism](https://en.wikipedia.org/wiki/Parallel\_computing), which is the simultaneous execution of two or more tasks. Concurrency does not imply parallelism, as managing multiple tasks simultaneously is different from performing multiple tasks simultaneously. Although the high-level differentiator is clear-cut, it can be difficult to [disambiguate concurrency and parallelism](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) due to functional overlap and contextual terminology.
 
@@ -69,7 +69,7 @@ simulateSyncWork("Local Work 3", 1000);
 setTimeout(() => console.timeEnd("Async time"), 1);
 ```
 
-Again, the only change is the asynchronous call to the web API. The web API itself has not changed and you can imagine it is a long-running HTTP GET request in both cases. Can you predict the output?
+Changing the synchronous web API call to an asynchronous API call reduces the total run time to approximately 4 seconds.
 
 ```
 // Console Output:
@@ -81,12 +81,10 @@ Again, the only change is the asynchronous call to the web API. The web API itse
 // Async time: 4002.68212890625 ms
 ```
 
-Here, the asynchronous implementation of the simulated API call allows the main thread to defer execution and continue working. Once the web API has completed its work, it is added to a task queue for the main thread to return to once the call stack is empty. This is why the asynchronous call to the web API is the last function to return a value, and the overall program completes in approximately 4 seconds instead of 7.
+The asynchronous implementation of the simulated API call allows the main thread to defer execution and continue with subsequent tasks. Once the web API has completed its work, it is added to a task queue for the main thread to return to once the call stack is empty. This is why the asynchronous call to the web API is the last function to return a value, and the overall program completes in approximately 4 seconds instead of 7.
 
 {% hint style="info" %}
-**The event loop**
-
-In Javascript, asynchronous programming is possible due to what is known as the event loop. While certainly not necessary for understanding web APIs, the event loop is core to javascript itself and quite interesting to learn about if you have never been exposed before. And we can think of no better introduction than [this video](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
+Core to Javascript, [event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ) functionality enables asynchronous programming.
 {% endhint %}
 
 While certainly a contrived example, it still effectively illustrates the power of asynchronous programming. However, it is here we must again muddy the waters and remind you, that nothing about the actual web API changed. As previously mentioned, both `simulateSyncWork("Web API Work", 3000)` and `simulateAsyncWork("Web API Work", 3000)` are met to represent a call to the same web API. Just like in our car insurance metaphor, both the synchronous and asynchronous programming examples deal with the same insurance agent. Asynchronous programming just allowed us to change our behavior in response to that agent. Perhaps the graphics below will provide some clarity:
