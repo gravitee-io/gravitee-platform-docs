@@ -1,4 +1,10 @@
+---
+description: An overview of hybrid deployments
+---
+
 # Hybrid Deployment
+
+## Introduction
 
 Hybrid architectures (i.e. a combination of on-premise and cloud deployments) present unique technical and/or cost constraints when it comes to deploying Gravitee API Management (APIM) components in different data centers.
 
@@ -25,9 +31,9 @@ What we describe as a _bridge_ API Gateway is, in fact, a standard APIM Gateway 
 
 ## APIM Gateway - HTTP bridge (server)
 
-### **Installation**
+### **Basic installation**
 
-To expose the new HTTP API, you need to install a new plugin inside the `plugins` directory of APIM Gateway. This plugin can be found at [https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-server/](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-server/)
+To expose the new HTTP API, you need to install a new plugin inside the `plugins` directory of APIM Gateway. This plugin can be found [here](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-server/).
 
 {% hint style="info" %}
 This plugin is disabled by default from APIM 3.13.0.
@@ -47,7 +53,7 @@ You can safely remove all plugins that start with the following names - these ar
 * gravitee-resource-\*
 {% endhint %}
 
-### **Configuration**
+### **Basic configuration**
 
 You configure the new plugin in the `gravitee.yaml` file.
 
@@ -97,7 +103,7 @@ You should receive a response containing an empty array or a list of APIs.
 
 ## APIM Gateway - HTTP repository (client)
 
-### **Installation**
+### **Basic installation**
 
 To consume the HTTP bridge, you need to replace default repository plugins (usually a MongoDB repository) with a new HTTP repository in the APIM Gateway `plugins` directory. This plugin can be found [here](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-client/).
 
@@ -107,7 +113,7 @@ wget -O ${GRAVITEEIO_HOME}/plugins https://download.gravitee.io/graviteeio-apim/
 ```
 {% endcode %}
 
-### **Configuration**
+### **Basic configuration**
 
 You configure the new plugin in the `gravitee.yaml` file in the APIM Gateway `config` directory.
 
