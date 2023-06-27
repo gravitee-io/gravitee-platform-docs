@@ -8,9 +8,7 @@ Synchronous (sync) vs asynchronous (async) web APIs represent a demarcation and 
 
 #### **Synchronous vs Asynchronous: Programming**
 
-Synchronous programming is the linear, sequential execution of tasks, where each task blocks the execution of the following task, while asynchronous programming is the concurrent execution of tasks. Multitasking, or rapid task-switching, is not equivalent to [parallelism](https://en.wikipedia.org/wiki/Parallel\_computing), which computer science defines as the simultaneous execution of two or more tasks.
-
-While the insurance agent digs through your records, you wisely decide to begin working on your report thereby providing you a method to complete two high-level functions at once. Of course, this is dependent on the involvement of a third party, the insurance agent. From your perspective, you are still limited to a single train of thought; you talk to the insurance agent, switch to working on your report, and then switch back to the insurance task when you’re taken off of hold. We have simply broken up the _linear and sequential_ execution flow of tasks. This superpower is a type of [concurrency](https://en.wikipedia.org/wiki/Concurrency\_\(computer\_science\)).
+Synchronous programming is the linear, sequential execution of tasks, where each task blocks the execution of the following task, while asynchronous programming is the concurrent execution of tasks, where tasks can be executed partially or totally out of order. Multitasking, or rapid task-switching, is not equivalent to [parallelism](https://en.wikipedia.org/wiki/Parallel\_computing), which computer science defines as the simultaneous execution of two or more tasks.
 
 The key concept to keep in mind is that concurrency is about _dealing with_ lots of things at once. Parallelism is about _doing_ lots of things at once. So yes, very loosely speaking, you could consider concurrency a broader term that also encompasses parallelism (this is not perfectly accurate but good enough for our mental model). A common saying is _concurrency does not imply parallelism_.
 
