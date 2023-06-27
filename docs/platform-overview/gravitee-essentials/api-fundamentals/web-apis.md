@@ -164,17 +164,11 @@ const sampleObject = {
 };
 ```
 
-The data needs to be encoded into a universal format and placed into a self-contained chunk or stream.&#x20;
+To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript generally inhibit using a single, contiguous block of memory to store an object's payload. Instead, objects store references to data contained in different blocks, which spreads an object's properties over the memory of a running process.
 
-To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript generally inhibit the data belonging to a single object
+Serialization satisfies these requirements by converting an object in memory to a stream of bytes for storage or transport. Once serialized, the data can easily be transferred over a network, and upon reaching its destination, the data can be deserialized, which is the inverse operation. Data-interchange format and serialization format can be used synonymously.
 
-result in objects generally not containing their data in the same contiguous block of memory. Instead, objects store references to data contained in different blocks, which spreads an object's properties over the memory of a running process.
-
-
-
-Thankfully, **serialization** solves both of these concerns. Serialization is the process of converting an object in memory to a stream of bytes for storage or transport. Once serialized, the data can easily be transferred over a network, and upon reaching its destination, the data can be deserialized, which is simply the inverse operation. Data-interchange format and serialization format can be used synonymously.
-
-The key here is that the object is encoded in a universal format of which there are two major types: **text-based** formats and **binary** formats. These formats, of which there are many, help ensure the data can be easily deserialized by any client. When it comes to the web, the JavaScript Object Notation format, or JSON, currently dominates.
+Universal formats are either text-based or binary and facilitate deserialization by any client. The JavaScript Object Notation format, or JSON, is the dominant universal format for web communication.
 
 {% hint style="info" %}
 **Data serialization format comparison**
