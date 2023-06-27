@@ -95,7 +95,7 @@ Though contrived, the above example effectively illustrates the power of asynchr
 
 All of this is to say that synchronous vs asynchronous programming is a related, but different concept than synchronous vs asynchronous web APIs.
 
-#### **Synchronous vs Asynchronous Programming: Web APIs**
+### **Sync vs async web APIs**
 
 Just like asynchronous programming breaks up the linear, sequential _execution flow_ of a program, an asynchronous web API breaks up the linear, sequential _communication_ between information producers and consumers. This is done by following the event streaming network communication model we introduced earlier as opposed to the request-response model implemented by synchronous APIs.
 
