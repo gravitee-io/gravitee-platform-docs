@@ -59,6 +59,8 @@
 ## Guides
 
 * [Prologue](guides/prologue.md)
+* [Gravitee API Definitions and Execution Engines](guides/gravitee-api-definitions-and-execution-engines/README.md)
+  * [Gateway Execution Engines Compared](guides/gravitee-api-definitions-and-execution-engines/gateway-execution-engines-compared.md)
 * [Create APIs](guides/create-apis/README.md)
   * [Import APIs](guides/create-apis/import-apis.md)
   * [The API Creation Wizard](guides/create-apis/how-to.md)
@@ -72,7 +74,6 @@
   * [Configure General Proxy settings](guides/api-configuration/configure-cors.md)
   * [Configure user and group access](guides/api-configuration/configure-user-and-group-access.md)
 * [Policy Design Studio](guides/policy-design/README.md)
-  * [Gateway Execution Engines Compared](guides/policy-design/gateway-execution-engines-compared.md)
   * [V2 API Policy Design Studio](guides/policy-design/v2-api-policy-design-studio.md)
   * [V4 API Policy Design Studio](guides/policy-design/v4-api-policy-design-studio.md)
 * [API Exposure: Plans, Applications, & Subscriptions](guides/api-exposure-plans-applications-and-subscriptions/README.md)
