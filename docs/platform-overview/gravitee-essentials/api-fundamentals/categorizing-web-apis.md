@@ -97,7 +97,7 @@ Though contrived, the above example effectively illustrates the power of asynchr
 
 The concepts of sync vs async programming and sync vs async APIs are related. Just like asynchronous programming breaks up the linear, sequential execution flow of a program, an asynchronous web API breaks up the linear, sequential communication between information producers and consumers. This is achieved via the event streaming network communication model.&#x20;
 
-The decision to use asynchronous APIs is context-dependent and it is quite common for a single system to leverage both synchronous and asynchronous APIs.
+The decision to use asynchronous APIs is context-dependent and it is quite common for a single system to leverage both synchronous and asynchronous APIs. However, asynchronous APIs generate significant benefits when applied in suitable contexts.
 
 Now, as for the benefits of asynchronous APIs, they can be numerous in the right application. Remember, we’re no longer talking about a programming paradigm but a communication paradigm. With asynchronous APIs, clients no longer initiate communication beyond expressing initial interest in a data stream. The events themselves, which are simply changes in state, are the first mover. So the pattern is a client subscribes to a particular data stream, a change of state occurs, a broker then delivers this change of state to all subscribed clients, and each client is then responsible for actually processing this data for whatever its particular end use happens to be. Entire systems built around this asynchronous communication style employ what is broadly known as **event-driven architecture** (EDA). Yes, yet another architectural style, but at the system level, instead of the API level.
 
