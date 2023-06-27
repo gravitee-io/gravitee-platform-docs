@@ -2,7 +2,7 @@
 description: This article walks through how to use the Gravitee v4 API creation wizard
 ---
 
-# v4 API creation wizard
+# V4 API creation wizard
 
 {% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" fullWidth="true" %}
 
@@ -48,7 +48,7 @@ If you select :heavy\_check\_mark:**Enable virtual hosts**, you'll have to defin
 * **Override access:** override the access URL of your Portal using a virtual host.
   * To enable or disable this, toggle **Enable** ON or OFF.
 
-To disable virtual hosts, select **X Disable virtual hosts**.&#x20;
+To disable virtual hosts, select **X Disable virtual hosts**.
 
 <figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
 
@@ -102,7 +102,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
     * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
     * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
 
->> A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 
 </details>
 
@@ -149,7 +149,7 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
 
 ## Step 3: Endpoints
 
-**Gateway endpoints** define the protocol and configuration by which the Gateway API will fetch data from or post data to the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.&#x20;
+**Gateway endpoints** define the protocol and configuration by which the Gateway API will fetch data from or post data to the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.
 
 ### HTTP Proxy endpoints
 
@@ -161,9 +161,9 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
   * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF.
     * If enabled, you'll need to define a numeric timeout value in the **Connect timeout** text field by either entering a numerical value or using the arrow keys.
-  * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.&#x20;
+  * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.
     * If enabled, you'll need to define a numeric timeout value in the **Read timeout** text field by either entering a numerical value or using the arrow keys.
-  * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.&#x20;
+  * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.
   * **Configure your idle timeout settings:** define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
   * Choose whether to follow HTTP redirects by toggling **Follow HTTP redirects** ON or OFF.
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
@@ -186,11 +186,12 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
 ### **Introspect messages from event-driven backend endpoints**
 
 If you chose **Introspect messages from event-driven backend** as your exposure method, you will be able to choose from the following endpoints:
+
 * Endpoint Mock
 * MQTT 5.X
 * Kafka
 
-Depending on which endpoint you choose, you will need to further define certain sets of endpoint configurations. Please see the expandable sections below to learn more about the endpoint configuration of each available endpoint.&#x20;
+Depending on which endpoint you choose, you will need to further define certain sets of endpoint configurations. Please see the expandable sections below to learn more about the endpoint configuration of each available endpoint.
 
 <details>
 
@@ -223,7 +224,7 @@ The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection 
   * Username
   * Password
 * **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for producing messages to your backend MQTT topic/broker. You will need to specify:
-  * **Topic:** the UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).&#x20;
+  * **Topic:** the UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).
   * **Retain settings:** whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
   * **Message expiry interval:** defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the "retained=true" option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
   * **Response topic:** represents the topics on which the responses from the message receivers are expected.
@@ -238,9 +239,9 @@ The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection 
 The **Kafka** endpoint allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
 * How the Gateway will interact the broker by instructing the Gravitee Gateway's Kafka client to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
-  * **Use Producer:** tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint.
-  * **Use Consumer:** tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint.
-  * **Use Producer and Consumer:** tell the Gateway Kafka client to both **Use Producer** and **Use Consumer**.
+  * **Use Producer:** tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint
+  * **Use Consumer:** tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint
+  * **Use Producer and Consumer:** tell the Gateway Kafka client to both **Use Producer** and **Use Consumer**
 * **Bootstrap servers:** define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. The client will make use of all servers irrespective of which servers the list designates for bootstrapping - this list only pertains to the initial hosts used to discover the full set of servers.
 * **Initial security settings:** you will define more Gravitee Gateway-specific security settings later on, but this is where you define your Kafka-specific authentication flow. Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL as protocols. Depending on which you choose, you will need to define:
   * **PLAINTEXT:** no further security config necessary.
@@ -324,6 +325,7 @@ Depending on which plan you select, the configuration will differ. Please see th
 <summary>OAuth2 plan</summary>
 
 To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down menu, then define general details, settings, and restrictions. On the **General** screen, define:
+
 * **Name**
 * **Description**
 * **Characteristics**
@@ -333,6 +335,7 @@ To configure your OAuth2 plan, select OAuth2 from the **+Add plan** drop-down me
 <img src="../../../.gitbook/assets/image (3).png" alt="" data-size="original">
 
 Select Next to move on to **OAuth2 authentication configuration**. Here, you'll specify:
+
 * Your OAuth2 resource in the **OAuth2 resource** field. This should be the resource that you'll use to validate the token.
 * Your cache resource in the **Cache resource** field. This should be the cache resource that you will use to store the tokens.
 * (Optional) **Extract an OAuth2 payload:** pushes the token endpoint payload into the oauth.payload context attribute.
@@ -341,9 +344,10 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-![](<../../../.gitbook/assets/image (1).png>)
+<img src="../../../.gitbook/assets/image (1).png" alt="" data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
+
 * **Rate limiting:** specify the maximum number of requests that an application can make within a given number of seconds or minutes, then:
   * Enable or disable **Non-strict mode**: this enables rate limiting to be applied in an asynchronous manner, which results in the distributed counter value not being strict.
   * Enable or disable **Add response headers**.
@@ -353,7 +357,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-![](<../../../.gitbook/assets/image (2).png>)
+<img src="../../../.gitbook/assets/image (2).png" alt="" data-size="original">
 
 </details>
 
@@ -362,6 +366,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 <summary>JWT plan</summary>
 
 If you chose **JWT**, you will need to specify general details, the authentication configuration, and restrictions. On the **General** screen, define:
+
 * **Name**
 * **Description**
 * **Characteristics**
@@ -369,6 +374,7 @@ If you chose **JWT**, you will need to specify general details, the authenticati
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
 Once you're done with your general details, select Next to define your JWT authentication configuration. This will require you to:
+
 * Choose a **Signature** to define how your JWT token must be signed. The options are:
   * RSA\_RS256
   * RSA\_RS384
@@ -386,6 +392,7 @@ Once you're done with your general details, select Next to define your JWT authe
 * Define additional selection rules using the Gravitee Expression Language.
 
 Select Next to define any restrictions associated with this plan. Your options include:
+
 * **Rate limiting:** specify the maximum number of requests that an application can make within a given number of seconds or minutes, then:
   * Enable or disable **Non-strict mode**: this enables rate limiting to be applied in an asynchronous manner, which results in the distributed counter value not being strict.
   * Enable or disable **Add response headers**.
@@ -395,7 +402,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-![](<../../../.gitbook/assets/image (2) (1).png>)
+<img src="../../../.gitbook/assets/image (2) (1).png" alt="" data-size="original">
 
 </details>
 
@@ -404,6 +411,7 @@ Select Next to define any restrictions associated with this plan. Your options i
 <summary>API key</summary>
 
 If you chose API key, you will define general settings, the API key authentication configuration, and restrictions. On the **General** screen, define:
+
 * **Name**
 * **Description**
 * **Characteristics**
@@ -411,10 +419,12 @@ If you chose API key, you will define general settings, the API key authenticati
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
 Select Next to be taken to the **API key authentication** configuration page. Here, you need to:
+
 * Choose whether to propagate your API key to upstream APIs.
 * Define any additional selection rules using the Gravitee Expression Language.
 
 Select Next to be taken to the **Restriction** page to define any additional restrictions that you want to be associated with your plan. Your options include:
+
 * **Rate limiting:** specify the maximum number of requests that an application can make within a given number of seconds or minutes, then:
   * Enable or disable **Non-strict mode**: this enables rate limiting to be applied in an asynchronous manner, which results in the distributed counter value not being strict.
   * Enable or disable **Add response headers**.
@@ -431,6 +441,7 @@ Select Next to be taken to the **Restriction** page to define any additional res
 <summary>Keyless plan</summary>
 
 If you chose Keyless, you will only need to define general details and restrictions, as there is no authentication to configure (unlike OAuth2, JWT, and API key). On the **General** screen, define:
+
 * **Name**
 * **Description**
 * **Characteristics**
@@ -438,6 +449,7 @@ If you chose Keyless, you will only need to define general details and restricti
 * **Access control:** select any Groups within APIM that you do not want to have access to this API. For more information on Groups, refer to the [Groups documentation](../../administration/#users-and-user-groups).
 
 Select Next to be taken to the **Restriction** page to define any additional restrictions that you want to be associated with your plan. Your options include:
+
 * **Rate limiting:** specify the maximum number of requests that an application can make within a given number of seconds or minutes, then:
   * Enable or disable **Non-strict mode**: this enables rate limiting to be applied in an asynchronous manner, which results in the distributed counter value not being strict.
   * Enable or disable **Add response headers**.
