@@ -32,7 +32,7 @@ simulateSyncWork("Local Work 3", 1000);
 setTimeout(() => console.timeEnd("Sync time"), 1);
 ```
 
-This simple example sets synchronous function calls that block execution of the main thread for the specified amount of time. The string passed specifies the kind of work being simulated: either a web API call or work being executed locally on the machine. For this synchronous programming example, the difference is negligible. The script executes exactly as you would anticipate, and at the end, returns a total run time of approximately 7 seconds.
+This simple example sets synchronous function calls that block execution of the main thread for specified durations. The string that is passed specifies either a web API call or work executed locally and the script returns a total run time of approximately 7 seconds.
 
 ```
 // Console Output:
