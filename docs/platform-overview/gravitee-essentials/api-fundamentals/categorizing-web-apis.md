@@ -106,9 +106,7 @@ These benefits may still seem a little abstract. So systems employing event-driv
 For similar use cases with a focus on real-time applications, event-driven architecture is a significantly more efficient way to communicate. It also is a completely different way to think about structuring an application’s architecture which can cause a number of challenges both internally and externally when it comes to integration. Although one could make the argument we are moving rapidly towards a more asynchronous world, synchronous APIs are certainly not going anywhere. Most systems will require significant interplay between both categories of APIs.
 
 {% hint style="info" %}
-**The curious case of HTTP**
-
-Generally, the HTTP application protocol is thought of and talked about as a synchronous protocol. However, there are different versions of HTTP such as HTTP/1.1, which is currently the most widely employed HTTP version, HTTP/2.0, and HTTP/3.0. HTTP/2.0 enabled functionality like multiplexing that begins to break down the strict request/response model as multiple requests are bundled together and can be returned in any order. This is yet another reminder that these categories and distinctions are not always perfectly clear. If you’re interested in digging further into the history and future of HTTP, [this is a great starter resource](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/Evolution\_of\_HTTP).
+Generally, the HTTP application protocol is conceptualized and discussed as a synchronous protocol. However, there are different versions of HTTP such as HTTP/1.1 (currently the most widely used version), HTTP/2.0, and HTTP/3.0. HTTP/2.0 functionality like multiplexing begins to break down the strict request/response model because multiple requests can be bundled together returned in any order. The [evolution of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/Evolution\_of\_HTTP) serves to caution against oversimplifying protocol classifications.
 {% endhint %}
 
 #### **Synchronous vs Asynchronous: Reactive Programming**
