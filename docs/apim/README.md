@@ -12,9 +12,9 @@ Naturally, a growing customer base brings new challenges, such as:
 
 So, how can businesses address all these challenges seamlessly, for all APIs, using a centralized tool? Simple – by choosing Gravitee API Management (APIM).
 
-## What Is Gravitee API Management?
+## Gravitee API Management components
 
-Gravitee API Management (APIM) is a flexible, lightweight, and performant event-native API management platform that enables organizations to manage, secure, and govern synchronous and asynchronous APIs. Gravitee APIM is composed of four main components:
+Gravitee API Management is a flexible, lightweight, and performant event-native API management platform that enables organizations to manage, secure, and govern synchronous and asynchronous APIs. APIM is composed of four main components:
 
 1. APIM Gateway
 2. APIM Management API
