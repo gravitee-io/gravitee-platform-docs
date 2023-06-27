@@ -186,7 +186,7 @@ console.log(typeof deserializedData);
 // 'object'
 ```
 
-JSON borrowed heavily from Javascript’s object literal notation to transform the object keys into strings and the object itself into a primitive string where all of the original object's data exists in a self-contained chunk. JSON is a widely used and supported format that can be parsed by most programming languages. The following code uses local APIs built into the JavaScript and Python programming languages to serialize the object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary.
+JSON borrowed heavily from Javascript’s object literal notation to transform the object keys into strings and the object itself into a primitive string where all of the original object's data exists in a self-contained chunk. The following code uses local APIs built into the JavaScript and Python programming languages to serialize the object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary.
 
 ```javascript
 import fs from "fs";
@@ -214,7 +214,7 @@ print(type(deserialized_data))
 # <class 'dict'>
 ```
 
-With respect to web APIs, serialization format is often dependent on application layer protocol. For example, SOAP APIs require XML while HTTP APIs are encoding-agnostic and support HTML, JSON, XML, CSV, binary formats, custom serialization formats, etc.&#x20;
+With respect to web APIs, serialization format is often dependent on application layer protocol. For example, while SOAP APIs require XML, HTTP APIs are encoding-agnostic and support HTML, JSON, XML, CSV, binary formats, custom serialization formats, etc.&#x20;
 
 However, there is never a one-size fits all solution, and binary formats are where JSON sees its stiffest competition. In situations where you are transferring a high volume of data and performance is critical, binary formats are preferred over JSON. This is why [Apache Avro is recommended for Kafka](https://www.confluent.io/blog/avro-kafka-data/) even though Kafka also supports JSON. Additionally, by default JSON is schema-less and does not enforce [type safety](https://levelup.gitconnected.com/what-is-type-safety-705b1813e0bb) which you can view as prioritizing flexibility over validation and error-checking. This is why some binary formats such as [protocol buffers](https://developers.google.com/protocol-buffers), or protobufs, have surged in popularity by correcting the aforementioned issues around performance and validation.
 
