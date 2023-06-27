@@ -186,7 +186,7 @@ console.log(typeof deserializedData);
 // 'object'
 ```
 
-If you’ve never seen it before, this transformation probably looks quite unremarkable. And it is unremarkable on the surface. But that’s simply because JSON borrowed quite heavily from Javascript’s object literal notation. Again, hence the name. However, the data did change as the object keys were transformed into strings and the object itself became a primitive string that contains all the data from the original object in a self-contained chunk. And despite the name, JSON is a widely used and supported format that can be parsed by most programming languages. Here’s a quick example of serializing data with JavaScript, saving it to disk, and loading it into memory with Python.
+JSON borrowed heavily from Javascript’s object literal notation to transform the object keys into strings and the object itself into a primitive string containing all of the original object's data in a self-contained chunk. JSON is a widely used and supported format that can be parsed by most programming languages. The following code serializes data with JavaScript, saves it to disk, and loads it into memory via Python.
 
 ```javascript
 import fs from "fs";
