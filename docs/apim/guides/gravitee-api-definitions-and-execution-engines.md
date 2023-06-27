@@ -64,7 +64,7 @@ Over time, all policies will be migrated to support the new v4 execution engine.
 
 ### v2 Gateway API compatibility mode
 
-Need details
+Need dev input
 
 ## Policy execution phases and execution order
 
