@@ -87,7 +87,7 @@ The asynchronous implementation of the simulated API call allows the main thread
 Core to Javascript, [event loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ) functionality enables asynchronous programming.
 {% endhint %}
 
-While certainly a contrived example, it still effectively illustrates the power of asynchronous programming. However, it is here we must again muddy the waters and remind you, that nothing about the actual web API changed. As previously mentioned, both `simulateSyncWork("Web API Work", 3000)` and `simulateAsyncWork("Web API Work", 3000)` are met to represent a call to the same web API. Just like in our car insurance metaphor, both the synchronous and asynchronous programming examples deal with the same insurance agent. Asynchronous programming just allowed us to change our behavior in response to that agent. Perhaps the graphics below will provide some clarity:
+Though contrived, the above example effectively illustrates the power of asynchronous programming. Both `simulateSyncWork("Web API Work", 3000)` and `simulateAsyncWork("Web API Work", 3000)` represent calls to the same web API, but asynchronous programming enabled a change in response as further clarified by the following graphics.
 
 <figure><img src="../../.gitbook/assets/IOBound.png" alt=""><figcaption><p>Diagram of synchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
 
