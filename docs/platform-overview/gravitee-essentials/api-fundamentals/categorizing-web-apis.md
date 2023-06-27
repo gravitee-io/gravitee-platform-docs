@@ -10,7 +10,7 @@ Synchronous (sync) vs asynchronous (async) web APIs represent a demarcation and 
 
 Synchronous programming is the linear, sequential execution of tasks, where the completion of each task blocks the start of the following task. Asynchronous programming is the concurrent execution of tasks, where tasks can be performed partially or totally out of order but rapid task-switching (multitasking) is not equivalent to [parallelism](https://en.wikipedia.org/wiki/Parallel\_computing), which is the simultaneous execution of two or more tasks. Concurrency does not imply parallelism, as managing multiple tasks simultaneously is different from performing multiple tasks simultaneously. Although the high-level differentiator is clear-cut, it can be difficult to [disambiguate concurrency and parallelism](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism) due to functional overlap and contextual terminology.
 
-Javascript is chosen for the following examples because it is the [single-threaded language](https://medium.com/swlh/what-does-it-mean-by-javascript-is-single-threaded-language-f4130645d8a9) that powers the web and asynchronous programming is core to much of its functionality. It is important to note that the implementation logic in the functions below is _not_ the focus. In fact, it can be a source of confusion. Javascript by design makes it difficult to implement synchronous, blocking code so the functions themselves are a bit hacky. For these examples, just focus on what the functions represent.
+The following functions demonstrate sync vs async programming at the expense of implementation logic. By design, Javascript inhibits synchronous, blocking code, but it's used for the examples below because it is the [single-threaded language](https://medium.com/swlh/what-does-it-mean-by-javascript-is-single-threaded-language-f4130645d8a9) that powers the web and asynchronous programming is core to much of its functionality.&#x20;
 
 ```javascript
 const simulateSyncWork = function (work, ms) {
@@ -32,7 +32,7 @@ simulateSyncWork("Local Work 3", 1000);
 setTimeout(() => console.timeEnd("Sync time"), 1);
 ```
 
-This example is quite simple. We have a set of synchronous function calls that block execution of the main thread for the specified amount of time. The string passed specifies the kind of work being simulated: either a web API call or work being executed locally on the machine. For this synchronous programming example, the difference is negligible. The script executes exactly as you would anticipate, and at the end, returns a total run time of approximately 7 seconds.
+This simple example sets synchronous function calls that block execution of the main thread for the specified amount of time. The string passed specifies the kind of work being simulated: either a web API call or work being executed locally on the machine. For this synchronous programming example, the difference is negligible. The script executes exactly as you would anticipate, and at the end, returns a total run time of approximately 7 seconds.
 
 ```
 // Console Output:
