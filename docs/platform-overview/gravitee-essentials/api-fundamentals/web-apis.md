@@ -166,7 +166,9 @@ const sampleObject = {
 
 The data needs to be encoded into a universal format and placed into a self-contained chunk or stream.&#x20;
 
-To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript result in objects generally not containing their data in the same contiguous block of memory. objects store references to that data which is housed in a separate block of memory. Therefore, a single object with numerous properties could be spread all over the memory of a running process.
+To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript generally inhibit the data belonging to a single object
+
+result in objects generally not containing their data in the same contiguous block of memory. Instead, objects store references to data stored in separate memory blocks, which spreads an object's properties over the memory of a running process.
 
 
 
