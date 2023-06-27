@@ -105,7 +105,7 @@ To summarize, APIs depend on many protocols. The ideal protocol stack, just like
 
 ## Architectural styles/patterns <a href="#architectural-stylespatterns-5" id="architectural-stylespatterns-5"></a>
 
-Web API architectural styles are completely separate from the underlying protocols that power APIs. The architectures focus on guiding API design, to which both developers and business logic stakeholders actively contribute.
+Web API architectural styles are the frameworks that support the design and development of various API implementations. They are completely separate from the underlying protocols that power APIs. The architectures focus on guiding API design, to which both developers and business logic stakeholders actively contribute.
 
 {% hint style="info" %}
 Design-first methodology, which is [an API development technique with purported benefits](https://www.gravitee.io/api-first), attempts to satisfy both technical criteria and business interests and is [recommended by the OpenAPI initiative](https://learn.openapis.org/best-practices.html#use-a-design-first-approach).
@@ -155,9 +155,11 @@ The [AsyncAPI](https://www.asyncapi.com/) specification serves asynchronous APIs
 
 ## Data-interchange formats <a href="#data-interchange-formats-7" id="data-interchange-formats-7"></a>
 
-So far, we’ve covered the protocols that power every API as well as the frameworks that support the design and development of various implementations of APIs. Now we want to take a moment to zoom in and talk about the API **payload**: the actual data being transported by the API.
+The API payload is the data being transported by the API.&#x20;
 
-Let’s kick off this section with a quick example. Take a look at the Javascript object below:
+
+
+For example, in the Javascript object below, "sampleObject" is the API payload.
 
 ```javascript
 const sampleObject = {
@@ -166,7 +168,7 @@ const sampleObject = {
 };
 ```
 
-For the sake of our example, we’ll say “sampleObject” is our API payload. There are two key items for us to consider:
+There are two key items for us to consider:
 
 1. the data needs to be encoded into a universal format
 2. the data needs to be placed into a self-contained chunk or stream
