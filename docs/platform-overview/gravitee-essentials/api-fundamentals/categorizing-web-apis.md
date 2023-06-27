@@ -32,7 +32,7 @@ simulateSyncWork("Local Work 3", 1000);
 setTimeout(() => console.timeEnd("Sync time"), 1);
 ```
 
-This simple example sets synchronous function calls that block execution of the main thread for specified durations. The string that is passed specifies either a web API call or work executed locally and the script returns a total run time of approximately 7 seconds.
+This simple example sets synchronous function calls that block execution of the main thread for specified durations. the passed string indicates either a web API call or actions executed locally and the script returns a total run time of approximately 7 seconds.
 
 ```
 // Console Output:
@@ -44,7 +44,7 @@ This simple example sets synchronous function calls that block execution of the 
 // Sync time: 7001.510986328125 ms
 ```
 
-For the synchronous call to the web API, the time spent waiting is akin to our initial car insurance metaphor. In essence, the main thread is “twiddling its thumbs” while it waits for a return value from a remote party. Now let’s use the same program but implement an asynchronous call to the _same_ web API.
+The synchronous call to the web API requires the main thread to wait for a return value from a remote party. The following code modifies the same program to implement an asynchronous call to the same web API.
 
 ```javascript
 const simulateAsyncWork = function (work, ms) {
