@@ -93,13 +93,11 @@ Though contrived, the above example effectively illustrates the power of asynchr
 
 <figure><img src="../../.gitbook/assets/Asyncio.png" alt=""><figcaption><p>Diagram of asynchronous calls to a web API from <a href="https://realpython.com/python-concurrency/">blog</a></p></figcaption></figure>
 
-All of this is to say that synchronous vs asynchronous programming is a related, but different concept than synchronous vs asynchronous web APIs.
-
 ### **Sync vs async web APIs**
 
-The concepts of sync vs async programming and sync vs async APIs are related. Just like asynchronous programming breaks up the linear, sequential _execution flow_ of a program, an asynchronous web API breaks up the linear, sequential _communication_ between information producers and consumers. This is done by following the event streaming network communication model we introduced earlier as opposed to the request-response model implemented by synchronous APIs.
+The concepts of sync vs async programming and sync vs async APIs are related. Just like asynchronous programming breaks up the linear, sequential execution flow of a program, an asynchronous web API breaks up the linear, sequential communication between information producers and consumers. This is achieved via the event streaming network communication model.&#x20;
 
-So if we have asynchronous programming in our tool belt, why should we care enough about asynchronous APIs to potentially uproot our existing implementations and system architectures? First off, it is important to note that like most system architecture decisions, the decision to use asynchronous APIs is context-dependent. There is no one size fits all solution. Secondly, it is quite common to make use of both synchronous and asynchronous APIs in one system.
+The decision to use asynchronous APIs is context-dependent and it is quite common for a single system to leverage both synchronous and asynchronous APIs.
 
 Now, as for the benefits of asynchronous APIs, they can be numerous in the right application. Remember, we’re no longer talking about a programming paradigm but a communication paradigm. With asynchronous APIs, clients no longer initiate communication beyond expressing initial interest in a data stream. The events themselves, which are simply changes in state, are the first mover. So the pattern is a client subscribes to a particular data stream, a change of state occurs, a broker then delivers this change of state to all subscribed clients, and each client is then responsible for actually processing this data for whatever its particular end use happens to be. Entire systems built around this asynchronous communication style employ what is broadly known as **event-driven architecture** (EDA). Yes, yet another architectural style, but at the system level, instead of the API level.
 
