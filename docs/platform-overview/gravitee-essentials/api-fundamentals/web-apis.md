@@ -155,19 +155,13 @@ Although often used synonymously, there is a distinction between an event and a 
 
 The architectural styles that govern the client-server interactions do not dictate API usage such as available endpoints, permissible actions, authentication options, parameters to pass, etc. Documentation of this information must be clear, intuitive, comprehensive, and updated with bug fix or iteration. API specifications such as [OpenAPI](https://spec.openapis.org/oas/latest.html) alleviate the overhead associated with documentation by providing a template and expand API design to include documentation generation, code generation, validation and linting, mock servers, etc. The API description file acts as a single source of truth to limit the potential for repetition or inconsistency.
 
-Specifications that focus either exclusively or primarily on synchronous APIs include OpenAPI, OData, RAML, GraphQL (a query language with its own specification), and WSDL, etc. Some specifications play a unique role, such as WSDL serving SOAP APIs or the GraphQL specification serving GraphQL APIs, while others can overlap such as RAML and OpenAPI both serving HTTP APIs.
-
-For your API management journey, it is in no way essential to learn all these specifications and their nuances right out of the gate. We simply want to acknowledge their purpose and recognize that most of them focus primarily on **synchronous APIs**. We still haven’t really defined what this means, but for now, just know there are two major API communication paradigms: synchronous and asynchronous. And when it comes to asynchronous APIs, the [AsyncAPI specification](https://www.asyncapi.com/) is king.
-
-{% hint style="info" %}
-**AsyncAPI vs CloudEvents**
+Specifications that focus either exclusively or primarily on synchronous APIs include OpenAPI, OData, RAML, GraphQL (a query language with its own specification), and WSDL, etc. Some specifications apply to a particular API type, such as WSDL serving SOAP APIs or the GraphQL specification serving GraphQL APIs, while others apply to multiple API types, such as RAML and OpenAPI both serving HTTP APIs. Asynchronous APIs are served exclusively by the  [AsyncAPI specification](https://www.asyncapi.com/).
 
 At some point, you’ll likely stumble upon someone comparing AsyncAPI to CloudEvents. CloudEvents is yet another specification but is really in a separate category from the specifications previously discussed. Specifications like AsyncAPI are focused on the overall application and the channels it uses to communicate while CloudEvents defines an envelope for your application’s actual data.
 
 As a questionable metaphor, let's look at the postal service. You can think of AsyncAPI as being responsible for defining what constitutes a complete address and the means of routing the actual mail. Meanwhile, CloudEvents would be focused on defining the envelope specifications such as your envelope can be a maximum of 11-1/2" long x 6-1/8" high. However, the letter you actually send, or the **payload**, does not fall under the jurisdiction of either specification.
 
 If this distinction is not clear, read [this article](https://www.asyncapi.com/blog/asyncapi-cloud-events) for a more in-depth comparison. We’ll be defining and discussing much of the article’s terminology around events later in this guide so consider this a sneak preview.
-{% endhint %}
 
 ## Data-interchange formats <a href="#data-interchange-formats-7" id="data-interchange-formats-7"></a>
 
