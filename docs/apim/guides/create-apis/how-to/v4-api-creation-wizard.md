@@ -2,7 +2,7 @@
 description: This article walks through how to use the Gravitee v4 API creation wizard
 ---
 
-# V4 API creation wizard
+# v4 API creation wizard
 
 {% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" fullWidth="true" %}
 
@@ -103,6 +103,8 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
     * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
 
 A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+
+Also, when using Webhooks as an entrypoint, you can set up a dead letter queue for storing undelivered messages. When configuring DLQ with webhook, you redirect all the messages that the webhook rejects to another location, such as a Kafka topic. To learn more, please refer to he Dead letter queue documentation.
 
 </details>
 
