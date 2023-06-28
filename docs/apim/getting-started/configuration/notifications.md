@@ -10,9 +10,24 @@ APIM includes 3 categories of notifications and 3 types of notifiers. The follow
 
 <table><thead><tr><th width="183.5">Notification</th><th>Description</th></tr></thead><tbody><tr><td>Email</td><td>Configure an email notifier to send messages to a list of specific email addresses</td></tr><tr><td>Portal</td><td>The default notifier that sends messages to users logged in to APIM Portal</td></tr><tr><td>Webhook</td><td>Configure a webhook notifier to send an HTTP POST request to a specific URL</td></tr></tbody></table>
 
-## Subscribe to Portal notifications
+##
 
-Portal notifications relate to a specific application. To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**, select the desired notifications, and click SAVE.
+## Portal notifications
+
+Portal notifications relate to a specific application and include the following categories.
+
+| Name                      | What triggers it?                                                                            |
+| ------------------------- | -------------------------------------------------------------------------------------------- |
+| First Login               | User logs in for the first time                                                              |
+| Group invitation          | User is invited in a group                                                                   |
+| Message                   | Custom message must be sent to an Environment Role (the message is sent in the notification) |
+| New Support Ticket        | New support ticket is created                                                                |
+| Password Reset            | Password is reset                                                                            |
+| User Created              | New user is created                                                                          |
+| User Registered           | User is registered                                                                           |
+| User Registration Request | New user is created and automatic validation is disabled                                     |
+
+To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**, select the desired notifications, and click SAVE.
 
 <figure><img src="../../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
 
@@ -41,17 +56,6 @@ To subscribe to notifications about a specific application:
 ### Categories of notifications
 
 #### Portal notifications
-
-| Name                      | What triggers it?                                                                                |
-| ------------------------- | ------------------------------------------------------------------------------------------------ |
-| First Login               | User logs in for the first time                                                                  |
-| Group invitation          | User is invited in a group                                                                       |
-| Message                   | Custom message needs to be sent to an Environment Role (the message is sent in the notification) |
-| New Support Ticket        | New support ticket is created                                                                    |
-| Password Reset            | Password is reset                                                                                |
-| User Created              | New user is created                                                                              |
-| User Registered           | User is registered                                                                               |
-| User Registration Request | New user is created and automatic validation is disabled                                         |
 
 #### API notifications
 
