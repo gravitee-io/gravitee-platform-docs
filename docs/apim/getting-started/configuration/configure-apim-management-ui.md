@@ -342,9 +342,14 @@ Unresolved directive in installation-guide-management-ui-configuration.adoc - in
 
 ### Dashboard
 
+Gravitee comes with two Dashboards, each being configurable:
+
+* Home
+* API Stauts
+
 #### Home
 
-The Home dashboard is the default page users see when they first log in to APIM Console, or when they click the **Dashboard** menu option. You can configure the Home dashboard by modifying `home.json`.
+The Home dashboard is the default page users see when they first log in to APIM Console, or when they select the **Dashboard** menu option. You can configure the Home dashboard by modifying `home.json`.
 
 This file is located in the `/dashboards` folder of the Management API distribution folder.
 
@@ -390,11 +395,11 @@ For example:
 ]
 ```
 
-#### Api STATUS
+#### API Status
 
-The api status page is a panel in the dashboard that displays the status of all apis.
+The api status page is a panel in the dashboard that displays the status of all APIs.
 
-The tab is enabled by default but depending on the number of APIs, it may take a while to load. You can disable it in the settings section.
+The tab is enabled by default, but depending on the number of APIs, it may take a while to load. You can disable it in your Gateway settings. [Please refer to this documentation to learn more about dashboards.](../../guides/api-performance-and-measurement/how-to.md)
 
 \
 
