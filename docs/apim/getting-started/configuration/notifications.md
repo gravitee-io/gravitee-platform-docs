@@ -1,24 +1,8 @@
 # Configure Notifications
 
-* [Overview](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#overview)
-* [Subscribe to Portal notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#subscribe\_to\_portal\_notifications)
-* [Subscribe to API notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#subscribe\_to\_api\_notifications)
-* [Subscribe to application notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#subscribe\_to\_application\_notifications)
-* [Categories of notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#categories\_of\_notifications)
-  * [Portal notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#portal-notifications)
-  * [API notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#api-notifications)
-  * [Application notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#application-notifications)
-* [Notifiers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#notifiers)
-  * [Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#portal)
-  * [Email](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#email)
-  * [Webhook](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#webhook)
-* [Templates](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#templates)
-  * [Customize a template](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#customize\_a\_template)
-  * [Attributes](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#attributes)
+## Introduction
 
-### Overview
-
-APIM includes three categories of notifications:
+APIM includes three categories of notifications and three types of notifiers, defined below:
 
 * **Portal** — notifications about the platform
 * **API** — notifications about a specific API
@@ -29,8 +13,6 @@ There are also three types of notifiers:
 * **Portal** — this is the default notifier; messages are sent to users logged in to APIM Portal
 * **Email** — you can configure an email notifier to send messages to a specific list of email addresses
 * **Webhook** — you can configure a webhook notifier to send an HTTP POST request to a specific URL
-
-APIM includes a standard set of notifiers. You can also create new notifiers. For more details, see [Notifiers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#notifiers).
 
 ### Subscribe to Portal notifications
 
@@ -118,6 +100,8 @@ To subscribe to notifications about a specific application:
 | Subscription Transferred | Subscription is transferred   |
 
 ### Notifiers
+
+APIM includes a standard set of notifiers. You can also create new notifiers. For more details, see [Notifiers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#notifiers).
 
 #### Portal
 
