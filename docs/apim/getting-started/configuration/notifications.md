@@ -201,13 +201,11 @@ To customize a template, toggle the switch **Override default template** and upd
 
 ![Portal template edition](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-edition-1.png)![Email template edition](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-edition-2.png)
 
-#### Attributes
+### Attributes
 
-You can use [Freemarker template engine](http://freemarker.org/) to add specific information to your templates (e.g. ${user.name} or ${api.metadata\['foo-bar']}.
+Available attributes are summarized below. Use the [Apache Freemarker template engine](https://freemarker.apache.org/) to add specific information to templates, e.g., ${user.name} or ${api.metadata\['foo-bar']}.
 
-Available attributes
-
-| Api               | Application      | Group            | Plan               | Owner/User  | Subscription |
+| API               | Application      | Group            | Plan               | Owner/User  | Subscription |
 | ----------------- | ---------------- | ---------------- | ------------------ | ----------- | ------------ |
 | name              | name             | name             | name               | username    | status       |
 | description       | description      | -                | description        | firstname   | request      |
@@ -218,7 +216,7 @@ Available attributes
 | createdAt (Date)  | createdAt (Date) | createdAt (Date) | createdAt (Date)   | -           | closedAt     |
 | updatedAt (Date)  | updatedAt (Date) | updatedAt (Date) | updatedAt (Date)   | -           | subscribedAt |
 
-An example template is as follows:
+The following is a sample template:
 
 ```ftl
 <html>

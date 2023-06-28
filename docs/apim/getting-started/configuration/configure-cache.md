@@ -84,10 +84,10 @@ API publishers can create cache resources:
 * to cache upstream of a response with the Cache policy.
 * to cache access tokens with the OAuth2 policy.
 
-The default distribution comes with [Gravitee Resource Cache](https://docs.gravitee.io/apim/3.x/apim\_resources\_cache.html). This plugin stores content in memory and is locally managed on each gateway node of the installation.
+The default distribution comes with the Cache resource plugin. This plugin stores content in memory and is locally managed on each Gateway node of the installation.
 
-Configuration of cache resources cannot be managed using the `hazelcast.xml` file. The configuration is directly defined on the cache resource. See [Resource Cache](https://docs.gravitee.io/apim/3.x/apim\_resources\_cache.html).
+Configuration of cache resources cannot be managed using the `hazelcast.xml` file. The configuration is directly defined on the cache resource.&#x20;
 
 ### Persistent cache
 
-Since 3.10, we provide a new [Gravitee Resource Cache Redis](https://docs.gravitee.io/apim/3.x/apim\_resources\_cache\_redis.html) based on [Redis](https://redis.io/documentation). This plugin is not in distribution by default, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) the plugin and follow the [instructions](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_customize.html#install\_an\_additional\_plugin) to install it.
+APIM also supports the Gravitee Redis Cache resource plugin based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) the plugin and follow these [instructions](../../overview/introduction-to-gravitee-api-management-apim/plugins.md#deployment) to deploy it.
