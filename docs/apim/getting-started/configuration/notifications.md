@@ -166,29 +166,37 @@ To create a Webhook notifier:
 
 ## Templates
 
-Email and Portal notification templates are based on HTML and YML files. They are located here:
+Email and Portal notification templates are based on HTML and YML files, located here:
 
 ```sh
 templates:
   path: ${gravitee.home}/templates
 ```
 
-These templates can be overridden in APIM Console:
+These templates can be overridden in **APIM Console > Organization > Notifications > Templates**:
 
-![Templates edition in the settings](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-1.png)
+<figure><img src="../../.gitbook/assets/template_notifications.png" alt=""><figcaption></figcaption></figure>
 
 Also customizable:
 
 * Email templates that are sent for specific actions and not related to a notification. Typically, these emails are intended for specific users.
 * The `header.html` file that is included by default in all email templates.
 
-![Specific templates](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-2.png)
+<figure><img src="../../.gitbook/assets/templates_to_include.png" alt=""><figcaption></figcaption></figure>
 
 ### Customize a template
 
 Portal and email notifiers can be configured for most notifications. To customize a template, toggle the switch **Override default template** and update the title and/or content.
 
-![Portal template edition](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-edition-1.png)![Email template edition](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-edition-2.png)
+<div>
+
+<figure><img src="../../.gitbook/assets/override_default_off.png" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../../.gitbook/assets/override_default_on.png" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 ### Attributes
 
