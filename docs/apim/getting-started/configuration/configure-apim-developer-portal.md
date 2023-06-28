@@ -49,17 +49,15 @@ Each component uses its own properties, but where possible, we group the propert
 
 You can see common component colors, for example, by holding your mouse over the color bubble. For other property types, if a common property is used, you can see this in the placeholder field.
 
-### Override theme files
+## Override theme files
 
-APIM API comes with a default theme and two default logos:
+APIM API includes a default theme and two default logos, located in the `/themes` folder of the API distribution folder:
 
 * `definition.json`
 * `logo.png`
 * `logo-light.png`
 
-These files are located in the `/themes` folder of the API distribution folder.
-
-To customize the Portal theme you can either modify these three files or specify a new folder in the `gravitee.yml` file:
+To customize the Portal theme, either modify these three files or specify a new folder in the `gravitee.yml` file:
 
 ```
 # Portal themes
@@ -69,6 +67,8 @@ portal:
 ```
 
 By default, this configuration is commented out and the path is `${gravitee.home}/themes`
+
+For assistance creating a theme, use&#x20;
 
 |   | <p>To help you to create your theme, you can use the editor in <strong>Settings > Theme</strong> and export it to a JSON file with the <strong>EXPORT</strong> button in the top menu. However, there are two important things to keep in mind:</p><ul><li>Images and logos cannot be changed using this method. You need to edit the two files in the distribution.</li><li>Exported themes do not have the same format as the provided <code>definition.json</code> file. You will need to make some minor edits to the exported theme.</li></ul><p><strong>Expected format</strong></p><pre><code>{
   "data": [
