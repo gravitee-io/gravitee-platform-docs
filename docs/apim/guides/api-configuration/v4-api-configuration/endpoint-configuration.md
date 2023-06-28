@@ -22,7 +22,7 @@ v4 APIs currently support the following endpoints:
 * **Solace**: enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target
 * **Mock**: enables the Gateway to simulate responses from a server for testing API implementations
 
-Depending on which Endpoint(s) your API utilizes, Endpoint configuration may differ. Please refer to the following sections that cover configuration details for each.&#x20;
+To access Endpoint configuration, head to the **APIs** page, and select your API. Then under **Endpoints**, select **Backend Services.** Depending on which Endpoint(s) your API utilizes, Endpoint configuration may differ. Please refer to the following sections that cover configuration details for each.&#x20;
 
 ## Kafka
 
