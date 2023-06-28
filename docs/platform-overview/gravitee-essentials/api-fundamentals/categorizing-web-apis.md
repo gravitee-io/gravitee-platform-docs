@@ -109,9 +109,9 @@ Generally, the HTTP application protocol is conceptualized and discussed as a sy
 
 ### **Sync vs async reactive programming**
 
-To implement EDA at the component or service level, programmers typically employ a technique known as reactive programming, where events are the main orchestrators of application flow and program logic is built around asynchronous communication to manipulate operate on data streams. This reactive approach is a transition from message processing to stream processing.
+To implement EDA at the component or service level, programmers typically employ a technique known as reactive programming, where events are the main orchestrators of application flow and program logic is built around asynchronous communication to manipulate operate on data streams.&#x20;
 
-Message processing relies on message queues and applies simple computations to individual messages or batches of messages. This approach quickly runs into some limitations when looking at a distributed streaming system like [Kafka](https://www.confluent.io/what-is-apache-kafka/). Kafka stores ordered sequences of events, referred to as topics, in a data structure known as a log, and unlike traditional messaging queues, topics allow historical event data to be pulled. This quickly opens the door to a massive amount of input streams that can be joined, aggregated, filtered, etc. This is stream processing. It’s less about the data being real-time and more about the complex processing applied across an array of input streams.
+Reactive programming exposes the limitations of traditional message processing, which applies simple computations to individual, or batches of, messages in a message queue. Distributed streaming systems like [Kafka](https://www.confluent.io/what-is-apache-kafka/) store ordered sequences of events, referred to as topics, in a data structure known as a log. Unlike traditional messaging queues, topics allow historical event data to be pulled and unlocks the potential for many input streams to be joined, aggregated, filtered, etc. This is stream processing, which is less about real-time data than complex processing applied across an array of input streams.
 
 {% hint style="info" %}
 **Detailed introduction to reactive programming**
