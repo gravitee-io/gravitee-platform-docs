@@ -24,7 +24,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **APIM Gateway:** A reverse proxy layer that brokers, secures, and hardens access to APIs and data streams. It natively supports both synchronous and asynchronous APIs.
 
-**APIM Management API:** A REST API used to configure and manage APIs and various Gravitee resources.
+**APIM Management API (mAPI):** A REST API used to configure and manage APIs and various Gravitee resources.
 
 **APIM Console:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
 
