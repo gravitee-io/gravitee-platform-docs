@@ -109,7 +109,7 @@ Perform the following steps on the APIM API component:
 
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/admin-pwd.png" alt=""><figcaption><p>Default admin password</p></figcaption></figure>
 
-To learn more about configuring users, see [configure authentication.](configure-authentication/)
+To learn more about configuring users, see configure authentication.
 
 ## Step 3: Update the JWT secret
 

@@ -44,7 +44,6 @@
   * [Configure APIM Console](getting-started/configuration/configure-apim-management-ui.md)
   * [Configure APIM Developer Portal](getting-started/configuration/configure-apim-developer-portal.md)
   * [Configure Repositories](getting-started/configuration/configure-repositories.md)
-  * [Configure Authentication](getting-started/configuration/configure-authentication/README.md)
   * [Configure Notifications](getting-started/configuration/notifications.md)
   * [Configure Reporters](getting-started/configuration/configure-reporters.md)
   * [Configure Cache](getting-started/configuration/configure-cache.md)
