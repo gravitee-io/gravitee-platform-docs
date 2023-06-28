@@ -24,11 +24,7 @@ To access Entrypoint configuration, head to the APIs page and select your API. T
 
 Depending on which Entrypoint your API utilizes, entrypoint configuration may differ. Please refer to the following sections that cover configuration details for each.&#x20;
 
-
-
-<details>
-
-<summary>HTTP GET</summary>
+## HTTP GET
 
 If you chose **HTTP GET** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -39,11 +35,7 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
   * **Limit messages duration:** defines the maximum duration, in milliseconds, to wait to retrieve the expected number of messages (See **Limit messages count**). The effective number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved. To set a custom limit, enter a numeric value in the **Limit messages duration** text field.
   * **HTTP GET permissions:** allow or disallow **Allow sending messages headers to client in payload** and **Allow sending messages metadata to client in payload** by toggling these actions ON or OFF.
 
-</details>
-
-<details>
-
-<summary>HTTP POST</summary>
+## HTTP POST
 
 If you chose **HTTP POST** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -51,11 +43,7 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
 * **Virtual hosts:** enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **HTTP POST permissions:** allow or disallow add request Headers to the generated message by toggling **Allow add request Headers to the generated message** ON or OFF.
 
-</details>
-
-<details>
-
-<summary>WebSocket</summary>
+## WebSocket
 
 If you chose **WebSocket** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -65,11 +53,7 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
   * **Publisher configuration:** choose to either enable or disable the publication capability by toggling **Enable the publication capability** ON or OFF. Disabling it assumes that the application will never be able to publish any message.
   * **Subscriber configuration:** choose to enable or disable the subscription capability by toggling **Enable the subscription capability** ON or OFF. Disabling it assumes that the application will never receive any message.
 
-</details>
-
-<details>
-
-<summary>Webhook</summary>
+## Webhooks
 
 If you chose **Webhook** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -90,9 +74,85 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 
-Also, when using Webhooks as an entrypoint, you can set up a dead letter queue for storing undelivered messages. When configuring DLQ with webhook, you redirect all the messages that the webhook rejects to another location, such as a Kafka topic. To learn more, please refer to he Dead letter queue documentation.
+Also, when using Webhooks as an entrypoint, you can set up both dead letter queues for storing undelivered messages and secure callbacks. When configuring DLQ with webhook, you redirect all the messages that the webhook rejects to another location, such as a Kafka topic.&#x20;
 
-</details>
+{% hint style="info" %}
+**UI Limitations**
+
+As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition. Support for configuration in the Gravitee APIM Console is planned for future releases.
+{% endhint %}
+
+### Set up your dead letter queue
+
+To enable DLQ, declare another endpoint that will be used to configure the dlq object in the webhook entrypoint definition:
+
+```
+{
+    "type": "webhook-advanced",
+    "dlq": {
+        "endpoint": "dlq-endpoint"
+    },
+    "configuration": {}
+}
+```
+
+The endpoint used for the dead letter queue:
+
+* Must support PUBLISH mode
+* Should be based on a broker that can persist messages, such as Kafka.
+
+Once configured and deployed, any message rejected with a 4xx error response by the Webhook will be automatically sent to the DLQ endpoint and the consumption of messages will continue.
+
+#### Combining DLQ with the retry policy
+
+If you set up a DLQ, you can utilize the Gravitee Retry policy in order to "retry" delivery of undelivered messages from the DLQ. For more information on the Retry policy, please refer to the Retry policy policy reference.
+
+### Set up secure callbacks
+
+Callbacks can be secured using basic authentication, JWT, and OAuth2.
+
+To secure a callback, add an `auth` object to the configuration section of your API definition. The following example shows how to configure basic authentication:
+
+```
+{
+    "configuration": {
+        "entrypointId": "webhook-advanced",
+        "callbackUrl": "https://example.com",
+        "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "username",
+                "password": "a-very-secured-password"
+            }
+        }
+    }
+}
+```
+
+To use JWT, the `auth` object should look like this:
+
+```
+        "auth": {
+            "type": "token",
+            "token": {
+                "value": "eyJraWQiOiJk..."
+            }
+        }
+```
+
+To use OAuth2, the `auth` object should look like this:
+
+```
+        "auth": {
+            "type": "oauth2",
+            "oauth2": {
+                "endpoint": "https://auth.gravitee.io/my-domain/oauth/token",
+                "clientId": "a-client-id",
+                "clientSecret": "a-client-secret",
+                "scopes": ["roles"]
+            }
+        }
+```
 
 <details>
 
