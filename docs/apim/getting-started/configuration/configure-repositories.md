@@ -203,6 +203,8 @@ Please see the below table for versions of APIM that support using MongoDB as a 
 
 #### Mandatory configuration
 
+The example below shows the minimum configuration needed to get started with a JDBC database.
+
 ```
 # ===================================================================
 # MINIMUM MONGO REPOSITORY PROPERTIES
@@ -219,7 +221,7 @@ management:
 
 #### Optional configuration
 
-The example above shows the minimum configuration required to get started with a MongoDB database. You can configure the following additional properties to customize the behavior of a MongoDB database:
+You can configure the following additional properties to customize the behavior of a MongoDB database:
 
 ```
 # ===================================================================
@@ -333,5 +335,157 @@ Sometimes, you need to apply specific security constraints and rules to users ac
 | ------------ | ----------------------------------- | -------------------------------- |
 | APIM Gateway | apis - keys - subscriptions - plans | events - ratelimit - commands    |
 | APIM API     | -                                   | all collections except ratelimit |
+
+## JDBC
+
+The JDBC plugin is part of the default distribution of APIM. However, you need to install the correct driver for the database you are using in order to use JDBC as a repository.
+
+### Supported databases
+
+| Database             | Version tested            | JDBC Driver                                                                                                                           |
+| -------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| PostgreSQL           | 9 / 10 / 11 / 12 / 13     | [Download page](https://jdbc.postgresql.org/download/)                                                                                |
+| MySQL                | 5.6 / 5.7 / 8.0           | [Download page](https://dev.mysql.com/downloads/connector/j/)                                                                         |
+| MariaDB              | 10.1 / 10.2 / 10.3 / 10.4 | [Download page](https://downloads.mariadb.org/connector-java/)                                                                        |
+| Microsoft SQL Server | 2017-CU12                 | [Download page](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) |
+
+### Install the JDBC driver
+
+Repeat these steps on each component (APIM Gateway and APIM API) where the SQL database is used:
+
+1. Download the JDBC driver corresponding to your database version
+2. Place the driver in `$GRAVITEE_HOME/plugins/ext/repository-jdbc`
+3. Configure your `gravitee.yml` files, as described in the next section
+
+{% hint style="info" %}
+**Before moving on**
+
+If you are using Docker to install and run APIM, you should place the driver in the `plugins-ext` folder and configure it by using the Docker compose file or command-line arguments. For more information, see [Further Customization](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_customize.html) of a Docker installation.
+{% endhint %}
+
+### Configuration
+
+#### Mandatory configuration
+
+The example below shows the minimum configuration needed to get started with a JDBC database.
+
+```
+management:
+  type: jdbc             # repository type
+  jdbc:                  # jdbc repository
+    url:                 # jdbc url
+```
+
+#### Optional configuration
+
+You can configure the following additional properties to fine-tune your JDBC connection and control the behavior of your JDBC database:
+
+```
+management:
+  type: jdbc                    # repository type
+  jdbc:                         # jdbc repository
+    prefix:                     # tables prefix
+    url:                        # jdbc url
+    username:                   # jdbc username
+    password:                   # jdbc password
+    pool:
+        autoCommit:             # jdbc auto commit (default true)
+        connectionTimeout:      # jdbc connection timeout (default 10000)
+        idleTimeout:            # jdbc idle timeout (default 600000)
+        maxLifetime:            # jdbc max lifetime (default 1800000)
+        minIdle:                # jdbc min idle (default 10)
+        maxPoolSize:            # jdbc max pool size (default 10)
+```
+
+### Use a custom prefix
+
+From APIM 3.7 and beyond, you can use a custom prefix for your table names. This is useful if you want to use the same databases for APIM and AM, for example.
+
+The following steps explain how to rename your tables with a custom prefix, using the prefix `prefix_` as an example.
+
+#### Use a custom prefix on a new installation
+
+If you are installing APIM for the first time, you need to update the following two values in the APIM Gateway and APIM API `gravitee.yml` files:
+
+* `management.jdbc.prefix`
+* `ratelimit.jdbc.prefix`
+
+By default, these values are empty.
+
+#### Migrating an existing installation
+
+{% hint style="info" %}
+**Before moving on**
+
+Before running any scripts, you need to create a dump of your existing database. You need to repeat these steps on both APIM Gateway and APIM API.
+{% endhint %}
+
+If you are migrating an existing installation, follow these steps:
+
+1. Update values `management.jdbc.prefix` and `ratelimit.jdbc.prefix` in your `gravitee.yml` configuration file.
+2. Run the application on a new database to generate `prefix_databasechangelog`.
+3. Replace the content of the `databasechangelog` table with the content you generated from `prefix_databasechangelog`.
+4. Rename your tables using format `prefix_tablename`.
+5. Rename your indexes using format `idx_prefix_indexname`.
+6. Rename your primary keys using format `pk_prefix_pkname`.
+
+## Redis
+
+This Redis repository plugin enables you to connect to Redis databases for the Rate Limit feature.
+
+### Install the Rate Limit repository plugin
+
+Repeat these steps on each component (APIM Gateway and APIM API) where the SQL database is used:
+
+1. Download the plugin corresponding to your APIM version (take the latest maintenance release)
+2. Place the zip file in the plugin directory for each component (`$GRAVITEE_HOME/plugins`)
+3. Configure your `gravitee.yml` files, as described in the next section
+
+### Configure the Rate Limit repository plugin
+
+The Rate Limi repository plugin should be configured as shown below:
+
+```
+# ===================================================================
+# MINIMUM REDIS REPOSITORY PROPERTIES
+#
+# This is a minimal sample file declared connection to Redis
+# ===================================================================
+ratelimit:
+  type: redis               # repository type
+  redis:                    # redis repository
+    host:                   # redis host (default localhost)
+    port:                   # redis port (default 6379)
+    password:               # redis password (default null)
+    timeout:                # redis timeout (default -1)
+
+    # Following properties are REQUIRED ONLY when running Redis in sentinel mode
+    sentinel:
+      master:               # redis sentinel master host
+      password:             # redis sentinel master password
+      nodes: [              # redis sentinel node(s) list
+        {
+          host : localhost, # redis sentinel node host
+          port : 26379      # redis sentinel node port
+        },
+        {
+          host : localhost,
+          port : 26380
+        },
+        {
+          host : localhost,
+          port : 26381
+        }
+      ]
+```
+
+{% hint style="info" %}
+**Don't forget**
+
+If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify if Redis repository is healthy. You can find health endpoints in the [Internal API documentation](configure-apim-management-api/internal-api.md).
+{% endhint %}
+
+\
+
 
 [^1]: _\*Using JDBC as a rate limit repository is not recommended. It can lead to inaccuracies in limit calculation, as counter is not shared across concurrent threads._
