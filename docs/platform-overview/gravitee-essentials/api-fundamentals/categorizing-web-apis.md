@@ -109,15 +109,9 @@ Generally, the HTTP application protocol is conceptualized and discussed as a sy
 
 ### **Sync vs async reactive programming**
 
-To implement EDA at the component or service level, programmers typically employ a technique known as reactive programming, where events are the main orchestrators of application flow and program logic is built around asynchronous communication to manipulate operate on data streams.&#x20;
+To implement EDA at the component or service level, programmers typically employ a technique known as [reactive programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), where events are the main orchestrators of application flow and program logic is built around asynchronous communication to manipulate operate on data streams.&#x20;
 
-Reactive programming exposes the limitations of traditional message processing, which applies simple computations to individual, or batches of, messages in a message queue. Distributed streaming systems like [Kafka](https://www.confluent.io/what-is-apache-kafka/) store ordered sequences of events, referred to as topics, in a data structure known as a log. Unlike traditional messaging queues, topics allow historical event data to be pulled and unlocks the potential for many input streams to be joined, aggregated, filtered, etc. This is stream processing, which is less about real-time data than complex processing applied across an array of input streams.
-
-{% hint style="info" %}
-**Detailed introduction to reactive programming**
-
-This was a very high-level overview of reactive programming. Mostly because an entire guide could be written about just this topic. Luckily, Andre Medeiros already did! [This guide](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) is an excellent introduction to reactive programming for those looking to take a deeper dive.
-{% endhint %}
+Reactive programming exposes the limitations of traditional message processing, which applies simple computations to individual, or batches of, messages in a message queue. Distributed streaming systems like [Kafka](https://www.confluent.io/what-is-apache-kafka/) store ordered sequences of events, referred to as topics, in a data structure known as a log. Unlike traditional messaging queues, topics allow historical event data to be pulled, unlocking the potential for a slew of input streams to be joined, aggregated, filtered, etc. This is stream processing, which is less about real-time data than complex processing applied across an array of input streams.
 
 ### Stateful vs Stateless Web APIs <a href="#stateful-vs-stateless-web-apis-13" id="stateful-vs-stateless-web-apis-13"></a>
 
