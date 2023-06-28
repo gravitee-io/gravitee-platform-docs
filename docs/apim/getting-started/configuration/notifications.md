@@ -4,83 +4,84 @@
 
 APIM includes 3 categories of notifications and 3 types of notifiers. The following sections describe what these are and how they can be configured.
 
-<table><thead><tr><th width="182.5">Notification</th><th>Description</th></tr></thead><tbody><tr><td>API</td><td>Notifications relate to the platform</td></tr><tr><td>Application</td><td>Notifications relate to a specific API</td></tr><tr><td>Portal</td><td>Notifications relate to a specific application</td></tr></tbody></table>
-
-&#x20;and 3 types of notifiers:
-
 <table><thead><tr><th width="183.5">Notification</th><th>Description</th></tr></thead><tbody><tr><td>Email</td><td>Configure an email notifier to send messages to a list of specific email addresses</td></tr><tr><td>Portal</td><td>The default notifier that sends messages to users logged in to APIM Portal</td></tr><tr><td>Webhook</td><td>Configure a webhook notifier to send an HTTP POST request to a specific URL</td></tr></tbody></table>
 
-##
+## Notifications
 
-## Portal notifications
+### Portal notifications
 
-Portal notifications relate to a specific application and include the following categories.
+Portal notifications relate to the platform and include the following:
 
-| Name                      | What triggers it?                                                                            |
-| ------------------------- | -------------------------------------------------------------------------------------------- |
-| First Login               | User logs in for the first time                                                              |
-| Group invitation          | User is invited in a group                                                                   |
-| Message                   | Custom message must be sent to an Environment Role (the message is sent in the notification) |
-| New Support Ticket        | New support ticket is created                                                                |
-| Password Reset            | Password is reset                                                                            |
-| User Created              | New user is created                                                                          |
-| User Registered           | User is registered                                                                           |
-| User Registration Request | New user is created and automatic validation is disabled                                     |
+| Name                      | What triggers it?                                              |
+| ------------------------- | -------------------------------------------------------------- |
+| First Login               | User logs in for the first time                                |
+| Group invitation          | User is invited in a group                                     |
+| Message                   | Custom message is sent to an Environment Role via notification |
+| New Support Ticket        | New support ticket is created                                  |
+| Password Reset            | Password is reset                                              |
+| User Created              | New user is created                                            |
+| User Registered           | User is registered                                             |
+| User Registration Request | New user is created and automatic validation is disabled       |
 
-To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**, select the desired notifications, and click SAVE.
+To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**:
 
 <figure><img src="../../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
 
-### Subscribe to API notifications
+### API notifications
 
-To subscribe to notifications about a specific API:
+API notifications relate to a specific API and include the following:
 
-1. In APIM Console, click **APIs**.
-2.  Select the API and click **Notifications**.
+| Name                     | What triggers it?                                              |
+| ------------------------ | -------------------------------------------------------------- |
+| Accept API review        | API review is accepted                                         |
+| API Deprecated           | API is deprecated                                              |
+| API key Expired          | API key is expired                                             |
+| API key Renewed          | API key is renewed                                             |
+| API key Revoked          | API key is revoked                                             |
+| API Started              | API is started                                                 |
+| API Stopped              | API is stopped                                                 |
+| Ask for API review       | API is ready for review                                        |
+| Message                  | Custom message is sent to an Application Role via notification |
+| New Rating               | New rating is submitted                                        |
+| New Rating Answer        | New answer is submitted                                        |
+| New Subscription         | Subscription is created                                        |
+| New Support Ticket       | New support ticket is created                                  |
+| Reject API review        | API review is rejected                                         |
+| Subscription Accepted    | Subscription is accepted                                       |
+| Subscription Closed      | Subscription is closed                                         |
+| Subscription Paused      | Subscription is paused                                         |
+| Subscription Rejected    | Subscription is rejected                                       |
+| Subscription Resumed     | Subscription is resumed                                        |
+| Subscription Transferred | Subscription is transferred                                    |
 
-    ![Subscribe to API notifications](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-subscriptions-api.png)
-3. Select the required notifications. For details, see [API notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#api-notifications).
-4. Click **SAVE**.
+To subscribe to notifications about a specific API, go to **APIM Console > APIs**, select the API, and click **Notifications**:
 
-### Subscribe to application notifications
+<figure><img src="../../.gitbook/assets/api_notifications.png" alt=""><figcaption></figcaption></figure>
 
-To subscribe to notifications about a specific application:
+### Application notifications
 
-1. In APIM Console, click **Applications**.
-2.  Select the application and click **Notifications**.
+Application notifications relate to a specific application and include the following:
 
-    ![Subscribe to application notifications](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-subscriptions-application.png)
-3. Select the required notifications. For details, see [Application notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#application-notifications).
-4. Click **SAVE**.
+| Name                     | What triggers it?             |
+| ------------------------ | ----------------------------- |
+| New Subscription         | Subscription is created       |
+| New Support Ticket       | New support ticket is created |
+| Subscription Accepted    | Subscription is accepted      |
+| Subscription Closed      | Subscription is closed        |
+| Subscription Paused      | Subscription is paused        |
+| Subscription Rejected    | Subscription is rejected      |
+| Subscription Resumed     | Subscription is resumed       |
+| Subscription Transferred | Subscription is transferred   |
+
+To subscribe to notifications about a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notifications**:
+
+![Subscribe to application notifications](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-subscriptions-application.png)
 
 ### Categories of notifications
 
 #### Portal notifications
 
 #### API notifications
-
-| Name                     | What triggers it?                                                                                |
-| ------------------------ | ------------------------------------------------------------------------------------------------ |
-| Accept API review        | API review is accepted                                                                           |
-| API Deprecated           | API is deprecated                                                                                |
-| API key Expired          | API key is expired                                                                               |
-| API key Renewed          | API key is renewed                                                                               |
-| API key Revoked          | API key is revoked                                                                               |
-| API Started              | API is started                                                                                   |
-| API Stopped              | API is stopped                                                                                   |
-| Ask for API review       | API is ready for review                                                                          |
-| Message                  | Custom message needs to be sent to an Application Role (the message is sent in the notification) |
-| New Rating               | New rating is submitted                                                                          |
-| New Rating Answer        | New answer is submitted                                                                          |
-| New Subscription         | Subscription is created                                                                          |
-| New Support Ticket       | New support ticket is created                                                                    |
-| Reject API review        | API review is rejected                                                                           |
-| Subscription Accepted    | Subscription is accepted                                                                         |
-| Subscription Closed      | Subscription is closed                                                                           |
-| Subscription Paused      | Subscription is paused                                                                           |
-| Subscription Rejected    | Subscription is rejected                                                                         |
-| Subscription Resumed     | Subscription is resumed                                                                          |
-| Subscription Transferred | Subscription is transferred                                                                      |
 
 #### Application notifications
 
