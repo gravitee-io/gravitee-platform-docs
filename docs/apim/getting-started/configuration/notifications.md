@@ -4,7 +4,7 @@
 
 APIM includes 3 categories of notifications:
 
-<table><thead><tr><th width="183.5">Notification</th><th>Description</th></tr></thead><tbody><tr><td>API</td><td>Notifications relate to the platform</td></tr><tr><td>Application</td><td>Notifications relate to a specific API</td></tr><tr><td>Portal</td><td>Notifications relate to a specific application</td></tr></tbody></table>
+<table><thead><tr><th width="182.5">Notification</th><th>Description</th></tr></thead><tbody><tr><td>API</td><td>Notifications relate to the platform</td></tr><tr><td>Application</td><td>Notifications relate to a specific API</td></tr><tr><td>Portal</td><td>Notifications relate to a specific application</td></tr></tbody></table>
 
 &#x20;and 3 types of notifiers:
 
