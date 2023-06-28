@@ -1,10 +1,10 @@
 ---
 description: >-
-  This article focuses on how to configure the Gravitee API Gateway environment
-  variables, system properties, and the gravitee.yaml file.
+  Configure the Gravitee APIM Gateway with environment variables, system
+  properties, and the gravitee.yaml file
 ---
 
-# Environment variables, system properties, and the gravitee.yaml file
+# General Configuration
 
 ## Introduction
 

@@ -43,11 +43,9 @@ To use the live preview on the right, the Portal settings must be configured wit
 
 ### Advanced customization
 
-If you want to customize further, you can define the graphic properties to expose for each component.
+Each component uses its own properties but, where possible, the properties are grouped into common variables such as the basic examples above. To further customize the Portal, you can define the graphic properties to expose for each component.
 
-Each component uses its own properties, but where possible, we group the properties into common variables such as the ones listed in [Basic customization](https://docs.gravitee.io/apim/3.x/apim\_installguide\_portal\_ui\_configuration.html#basic\_customization) above.
-
-You can see common component colors, for example, by holding your mouse over the color bubble. For other property types, if a common property is used, you can see this in the placeholder field.
+For example, hover your mouse over the color bubble to see common component colors. For other property types, if a common property is used, it appears in the placeholder field.
 
 ## Override theme files
 
@@ -66,11 +64,17 @@ portal:
     path: ${gravitee.home}/themes
 ```
 
-By default, this configuration is commented out and the path is `${gravitee.home}/themes`
+By default, this configuration is commented out and the path is `${gravitee.home}/themes`.
 
-For assistance creating a theme, use&#x20;
+For assistance creating a theme, use the editor in **Settings > Theme** and export it to a JSON file via the EXPORT button in the header menu. Keep in mind:
 
-|   | <p>To help you to create your theme, you can use the editor in <strong>Settings > Theme</strong> and export it to a JSON file with the <strong>EXPORT</strong> button in the top menu. However, there are two important things to keep in mind:</p><ul><li>Images and logos cannot be changed using this method. You need to edit the two files in the distribution.</li><li>Exported themes do not have the same format as the provided <code>definition.json</code> file. You will need to make some minor edits to the exported theme.</li></ul><p><strong>Expected format</strong></p><pre><code>{
+* Images and logos cannot be changed using this method. The two files must be edited in the distribution.
+* Exported themes do not have the same format as the provided `definition.json` file, which requires minor edits to the exported theme.
+
+Expected format:
+
+```json
+{
   "data": [
     {
       "name": "gv-theme",
@@ -88,5 +92,4 @@ For assistance creating a theme, use&#x20;
     ...
   ]
 }
-</code></pre> |
-| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+```
