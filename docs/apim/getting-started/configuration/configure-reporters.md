@@ -31,7 +31,7 @@ Configuration details for the Elasticsearch reporter are available in the [Elast
 
 ### File Reporter
 
-**Configuration Parameters**
+#### **Configuration Parameters**
 
 | Parameter name         | Description                                                                                                               | Default value                                                      |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
@@ -44,14 +44,15 @@ Configuration details for the Elasticsearch reporter are available in the [Elast
 | `<EVENT_TYPE>.include` | Fields to include in the output. Available for `json` and `message_pack` outputs and only if excludes have been defined.  | **none**                                                           |
 | `<EVENT_TYPE>.rename`  | Fields to rename when writing the output. Available for `json` and `message_pack` outputs only.                           | **none**                                                           |
 
-|   | \<EVENT\_TYPE> refers to the kind of event reported by the gateway and can be either `request`, `log`, `node` or `healthcheck`. Fields referenced as `exclude`, `include` and `rename` items all support [jsonPath](https://github.com/json-path/JsonPath) for accessing nested elements. |
-| - | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+{% hint style="info" %}
+\<EVENT\_TYPE> refers to the kind of event reported by the gateway and can be either `request`, `log`, `node` or `healthcheck`. Fields referenced as `exclude`, `include` and `rename` items all support [jsonPath](https://github.com/json-path/JsonPath) for accessing nested elements.
+{% endhint %}
 
-**Example**
+#### **Example**
 
 The configuration example below excludes all fields from the request JSON file except the `api` and `application` fields, renames the `application` field to `app`, and excludes `log`, `node`, and `healthcheck` events from being reported.
 
-```
+```yaml
 reporters:
   file:
     enabled: true
@@ -73,9 +74,9 @@ reporters:
       exclude: *
 ```
 
-#### TCP Reporter
+### TCP Reporter
 
-**Configuration Parameters**
+#### **Configuration Parameters**
 
 | Parameter name      | Description                                                                                                                                                  | Default value |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
@@ -88,11 +89,11 @@ reporters:
 | `reconnectInterval` | Time (in milliseconds) between socket connection attempts.                                                                                                   | **500**       |
 | `retryTimeout`      | If the max reconnect attempts have been reached, this setting determines how long (in milliseconds) the reporter should wait before trying to connect again. | **5000**      |
 
-**Example**
+#### **Example**
 
 The following example uses the same configuration as the previous example above, however it writes the events to a TCP socket instead of a file.
 
-```
+```yaml
 reporters:
   tcp:
     enabled: true
@@ -115,13 +116,13 @@ reporters:
       exclude: *
 ```
 
-#### Datadog Reporter
+### Datadog Reporter
 
-Report GraviteeIO Gateway events to Datadog listening server.
+This reporter allows you to send APIM Gateway events to Datadog listening server.
 
-**Datadog conversions**
+#### **Datadog conversions**
 
-In the following table you can see how different data from Gravitee has been transformed to Datadog
+In the following table, you can see how different data from Gravitee has been transformed into the Datadog format.
 
 | Gravitee         | Datadog |
 | ---------------- | ------- |
@@ -130,7 +131,7 @@ In the following table you can see how different data from Gravitee has been tra
 | `Metrics`        | Metrics |
 | `Log`            | Log     |
 
-**Configuration Parameters**
+#### **Configuration Parameters**
 
 | Parameter name   | Description                                                                                                                                                                                                                             | Default value |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
@@ -139,11 +140,11 @@ In the following table you can see how different data from Gravitee has been tra
 | `host`           | The TCP host where the event should be published. This can be a valid host name or an IP address.                                                                                                                                       | **localhost** |
 | `authentication` | In order to send data to Datadog, you need to provide your Authentication details and all supported Datadog Authentication mechanisms can be used in here as well. You need to choose only one Authentication type and remove the rest. | **N/A**       |
 
-**Example**
+#### **Example**
 
-The configuration is loaded from the common GraviteeIO Gateway configuration file (gravitee.yml) This will send the data to your Datadog account.
+The configuration is loaded from the common APIM Gateway configuration file, `gravitee.yml`. This will send the data to your Datadog account.
 
-```
+```yaml
 reporters:
   datadog:
     enabled: true
