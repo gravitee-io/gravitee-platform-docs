@@ -19,6 +19,7 @@ v4 APIs currently support the following endpoints:
 * **Kafka**: enables the Gravitee API Gateway to establish a persistent connection with a Kafka topic as a backend resource or target
 * **MQTT 5**: enables the Gravitee API Gateway to establish a persistent connection with a MQTT topic as a backend resource or target
 * **RabbitMQ**: enables the Gravitee API Gateway to establish a persistent connection with RabbitMQ as a backend resource or target. This will only work if you are using RabbitMQ and the AMQP 0-9-1 protocol. Because this endpoint supports the AMQP 0-9-1 protocol, it may support other event brokers and message queues that communicate over the AMQP 0-9-1 protocol, however, we do not guarantee or officially support these implementations.
+* **Solace**: enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target
 * **Mock**: enables the Gateway to simulate responses from a server for testing API implementations
 
 Depending on which Endpoint(s) your API utilizes, Endpoint configuration may differ. Please refer to the following sections that cover configuration details for each.&#x20;
@@ -109,6 +110,23 @@ The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection 
 * **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume messages.
 
 ## RabbitMQ
+
+## Solace
+
+If you choose the Solace endpoint, the Gravitee Gateway will be able to create an API that exposes Solace resources and event APIs via your chosen Gravitee Entrypoint(s). You will need to configure:
+
+* Url: your Soalce broker's url
+* VPN name
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for producing messages to your backend MQTT topic/broker. You will need to specify:
+  * **Topic:** the UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).
+  * **Retain settings:** whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
+  * **Message expiry interval:** defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the "retained=true" option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
+  * **Response topic:** represents the topics on which the responses from the message receivers are expected.
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume message
+* **Security settings**:
+  * Toggle Authentication configuration ON or OFF. If you toggle this OFF, you will have no further configuration necessary. If you toggle this ON, you will need to:
+    * Define the username used for authentication
+    * Define the password used for authentication
 
 ## Mock
 
