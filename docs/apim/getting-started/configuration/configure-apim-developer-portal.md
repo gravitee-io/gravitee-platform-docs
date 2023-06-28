@@ -1,39 +1,28 @@
 # Configure APIM Developer Portal
 
-* [Configuration file](https://docs.gravitee.io/apim/3.x/apim\_installguide\_portal\_ui\_configuration.html#configuration\_file)
-  * [Mandatory configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_portal\_ui\_configuration.html#mandatory\_configuration)
-* [Configure the APIM Portal theme](https://docs.gravitee.io/apim/3.x/apim\_installguide\_portal\_ui\_configuration.html#configure\_the\_apim\_portal\_theme)
-  * [Top menu](https://docs.gravitee.io/apim/3.x/apim\_installguide\_portal\_ui\_configuration.html#top\_menu)
-  * [Basic customization](https://docs.gravitee.io/apim/3.x/apim\_installguide\_portal\_ui\_configuration.html#basic\_customization)
-  * [Advanced customization](https://docs.gravitee.io/apim/3.x/apim\_installguide\_portal\_ui\_configuration.html#advanced\_customization)
-* [Override theme files](https://docs.gravitee.io/apim/3.x/apim\_installguide\_portal\_ui\_configuration.html#override\_theme\_files)
+## Configuration file
 
-### Configuration file
-
-The configuration file for APIM Portal is `assets\config.json`. You can see the default configuration in the example below.
+The configuration file for APIM Portal is `assets\config.json`. The default configuration is included below:
 
 ```
 Unresolved directive in installation-guide-portal-ui-configuration.adoc - include::https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-portal-webui/src/assets/config.json[]
 ```
 
-#### Mandatory configuration
+The only mandatory value in `config.json` file is `baseURL`, which describes the location of the APIM API Portal endpoint. You must set this value for APIM Portal to send requests to the endpoint.
 
-The only mandatory value in the `config.json` file is `baseURL`, which describes where the APIM API Portal endpoint is. You must set this value so that APIM Portal can send requests to it.
+## Configure the Portal theme
 
-### Configure the APIM Portal theme
+The default theme of the Developer Portal can be customized in the APIM Console via **Settings > Theme**:
 
-You can change the default theme of APIM Portal to your own custom theme.
+<figure><img src="../../.gitbook/assets/settings_theme.png" alt=""><figcaption></figcaption></figure>
 
-You customize the theme in APIM Console with the **Settings > Theme** menu option.
+{% hint style="info" %}
+To use the live preview on the right, the Portal settings must be configured with a Portal URL. Whenever a setting is changed, the change is reflected in the live preview.
+{% endhint %}
 
-![graviteeio portal configuration theme](https://docs.gravitee.io/images/apim/3.x/installation/portal-ui/graviteeio-portal-configuration-theme.png)
+<figure><img src="../../.gitbook/assets/portal_url.png" alt=""><figcaption></figcaption></figure>
 
-Whenever you change a setting, you can see the change reflected in the live preview to the right.
-
-|   | <p>To use the live preview, you must first configure a <strong>Portal URL</strong> in the Portal settings:</p><p><img src="https://docs.gravitee.io/images/apim/3.x/installation/portal-ui/portal-url.png" alt="portal url"></p> |
-| - | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-
-#### Top menu
+### Top menu
 
 FULLSCREEN
 
