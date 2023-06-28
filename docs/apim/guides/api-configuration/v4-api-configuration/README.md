@@ -21,3 +21,9 @@ Gravitee offers several levels of configuration for v4 APIs using the Gravitee A
   * **General entrypoint configuration**: configure how consumers access the gateway through your gateway API
 * Endpoints
   * **Backend service configuration**: configure the backend target or resource that your gateway API will call/subscribe to
+
+{% hint style="info" %}
+**Quality of Service**
+
+You can also configure Quality of Service levels and settings for certain v4 APIs. However, this is NOT yet supported in Gravitee APIM Console as of Gravotee APIM 4.0. However, given the importance of QoS, we have still [included an article that walks through how to understand and configure QoS for v4 APIs using the API definition](quality-of-service.md).&#x20;
+{% endhint %}

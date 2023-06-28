@@ -71,6 +71,7 @@
     * [Entrypoint configuration](guides/api-configuration/v4-api-configuration/entrypoint-configuration.md)
     * [Endpoint configuration](guides/api-configuration/v4-api-configuration/endpoint-configuration.md)
     * [Portal General Settings](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/635/guides/api-configuration/v2-api-configuration/api-general-settings)
+    * [Quality of Service](guides/api-configuration/v4-api-configuration/quality-of-service.md)
   * [v2 API configuration](guides/api-configuration/v2-api-configuration/README.md)
     * [Documentation](guides/api-configuration/v2-api-configuration/documentation.md)
     * [API General settings](guides/api-configuration/v2-api-configuration/api-general-settings.md)
