@@ -109,11 +109,9 @@ Generally, the HTTP application protocol is conceptualized and discussed as a sy
 
 ### **Sync vs async reactive programming**
 
-To implement EDA at the component or service level, programmers typically employ a technique known as reactive programming, where events are the main orchestrators of application flow and program logic is built around asynchronous communication to manipulate operate on data streams. This reactive approach is a transition to stream processing.
+To implement EDA at the component or service level, programmers typically employ a technique known as reactive programming, where events are the main orchestrators of application flow and program logic is built around asynchronous communication to manipulate operate on data streams. This reactive approach is a transition from message processing to stream processing.
 
-
-
-Traditionally, message processing worked with **queues** and was about applying simple computations to individual, or sometimes batches of, messages. This approach quickly runs into some limitations when looking at a distributed streaming system like [Kafka](https://www.confluent.io/what-is-apache-kafka/). Kafka stores an ordered sequence of events in a data structure known as a **log** and refers to them as **topics**. Unlike traditional messaging queues, topics also allow you to pull historical event data. This quickly opens the door to a massive amount of input streams that can be joined, aggregated, filtered, etc. This is stream processing. It’s less about the data being real-time and more about the complex processing applied across an array of input streams.
+Message processing relies on message queues and applies simple computations to individual messages or batches of messages. This approach quickly runs into some limitations when looking at a distributed streaming system like [Kafka](https://www.confluent.io/what-is-apache-kafka/). Kafka stores ordered sequences of events, referred to as topics, in a data structure known as a log, and unlike traditional messaging queues, topics allow historical event data to be pulled. This quickly opens the door to a massive amount of input streams that can be joined, aggregated, filtered, etc. This is stream processing. It’s less about the data being real-time and more about the complex processing applied across an array of input streams.
 
 {% hint style="info" %}
 **Detailed introduction to reactive programming**
