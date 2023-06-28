@@ -50,6 +50,7 @@
   * [Configure Cache](getting-started/configuration/configure-cache.md)
   * [Configure HTTP Reverse Proxy](getting-started/configuration/configure-http-reverse-proxy.md)
   * [Configure a Production-ready APIM Environment](getting-started/configuration/configure-a-production-ready-apim-environment.md)
+  * [Configure Authentication](guides/administration/authentication-and-sso.md)
 * [Hybrid Deployment](getting-started/hybrid-deployment/README.md)
   * [Hybrid Deployment on Kubernetes](getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md)
   * [Advanced Hybrid Deployment](getting-started/hybrid-deployment/advanced-hybrid-deployment.md)
