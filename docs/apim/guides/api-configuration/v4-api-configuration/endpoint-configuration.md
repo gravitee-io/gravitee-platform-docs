@@ -109,8 +109,6 @@ The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection 
   * **Response topic:** represents the topics on which the responses from the message receivers are expected.
 * **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume messages.
 
-## RabbitMQ
-
 ## Solace
 
 If you choose the Solace endpoint, the Gravitee Gateway will be able to create an API that exposes Solace resources and event APIs via your chosen Gravitee Entrypoint(s). You will need to configure:
