@@ -73,6 +73,7 @@
   * [Configure Service Discovery](guides/api-configuration/how-to/configure-service-discovery.md)
   * [Configure General Proxy settings](guides/api-configuration/configure-cors.md)
   * [Configure user and group access](guides/api-configuration/configure-user-and-group-access.md)
+  * [Dead letter queues and secure callbacks for Webhooks](guides/api-configuration/dead-letter-queues-and-secure-callbacks-for-webhooks.md)
 * [Policy Design Studio](guides/policy-design/README.md)
   * [v2 API Policy Design Studio](guides/policy-design/v2-api-policy-design-studio.md)
   * [v4 API Policy Design Studio](guides/policy-design/v4-api-policy-design-studio.md)
