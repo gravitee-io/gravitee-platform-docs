@@ -2,7 +2,7 @@
 
 ## Introduction
 
-APIM includes 3 categories of notifications:
+APIM includes 3 categories of notifications and 3 types of notifiers. The following sections describe what these are and how they can be configured.
 
 <table><thead><tr><th width="182.5">Notification</th><th>Description</th></tr></thead><tbody><tr><td>API</td><td>Notifications relate to the platform</td></tr><tr><td>Application</td><td>Notifications relate to a specific API</td></tr><tr><td>Portal</td><td>Notifications relate to a specific application</td></tr></tbody></table>
 
@@ -12,13 +12,9 @@ APIM includes 3 categories of notifications:
 
 ## Subscribe to Portal notifications
 
-To subscribe to Portal notifications:
+Portal notifications relate to a specific application. To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**, select the desired notifications, and click SAVE.
 
-1.  In APIM Console, click **Settings > Notifications**.
-
-    ![Subscribe to portal notifications](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-subscriptions-portal.png)
-2. Select the required notifications. For details, see [Portal notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#portal-notifications).
-3. Click **SAVE**.
+<figure><img src="../../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
 
 ### Subscribe to API notifications
 
