@@ -4,13 +4,13 @@ description: Learn how to configure and use API logging.
 
 # Configure and Use API Logging
 
-### Introduction
+## Introduction
 
 Logging refers to the process of recording and monitoring API requests, responses, and related events. It enables developers and administrators to track API usage, monitor performance, and troubleshoot issues by collecting and analyzing data such as timestamps, endpoints, response times, and error messages.
 
-Gravitee enables you to configure and view logs for your APIs. In this article, we will walk through how to configure logging in the API Management UI.
+Gravitee enables you to configure and view logs for your APIs. In this article, we will walk through how to configure API-level logging in the API Management UI.
 
-### Configure logging at the API and Gateway levels
+## Configure logging at the API and Gateway levels
 
 {% @arcade/embed flowId="nifDyFJpS1oFPpGfCwqu" url="https://app.arcade.software/share/nifDyFJpS1oFPpGfCwqu" %}
 
@@ -21,7 +21,7 @@ An API's logs will be visible at the level of the individual API. This is viewed
 
 If logging isn't enabled for your API, you will need to enable it manually. You can enable logging at the both the Gateway and the API levels.&#x20;
 
-#### Configure logging at the API level
+### Configure logging at the API level
 
 To first enable logging at the API level, select **Configure the logging** at the top of your APIs logs page. You'll be brought to the **Logging configuration** page. To enable logging, toggle **Enable logging** ON.&#x20;
 
@@ -67,14 +67,3 @@ After you've configured settings for **Logging mode, Content Mode,** and **Scope
 * end date
 
 Conditions are set using the Gravitee expression language.
-
-#### Configure logging at the Gateway level
-
-You can also configure logging permissions and settings at the Gateway level. To do this, select Settings in the far left-hand nav. Then, within the Settings menu, select **API Logging** underneath the **Gateway** section of your settings. From here, you can choose to enable:
-
-* Auditing API Logging consultation
-* The display of end user information in your API logging (this is useful for when you are using OAuth2 or JWT plans)
-* Generation of API logging as audit events (API\_LOGGING\_ENABLED, API\_LOGGING\_DISABLED, API\_LOGGING\_UPDATED)
-
-You can also define the maximum duration (in ms) for the activation of logging mode by entering in a numerical value in the **Maximum duration** text field.
-

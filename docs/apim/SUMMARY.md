@@ -35,6 +35,7 @@
     * [Environment variables, system properties, and the gravitee.yaml file](getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
     * [Gateway Internal API](getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md)
     * [OpenTracing](getting-started/configuration/the-gravitee-api-gateway/opentracing.md)
+    * [Logging](getting-started/configuration/the-gravitee-api-gateway/logging.md)
     * [Sharding tags](getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md)
     * [Tenants](getting-started/configuration/the-gravitee-api-gateway/tenants.md)
     * [Configure Dictionaries](getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md)
