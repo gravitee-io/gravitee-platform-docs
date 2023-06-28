@@ -77,32 +77,13 @@ To subscribe to notifications about a specific application, go to **APIM Console
 
 ![Subscribe to application notifications](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-subscriptions-application.png)
 
-### Categories of notifications
+## Notifiers
 
-#### Portal notifications
+In addition to the following standard notifiers, new notifiers can be created.
 
-#### API notifications
+### Portal notifiers
 
-#### Application notifications
-
-| Name                     | What triggers it?             |
-| ------------------------ | ----------------------------- |
-| New Subscription         | Subscription is created       |
-| New Support Ticket       | New support ticket is created |
-| Subscription Accepted    | Subscription is accepted      |
-| Subscription Closed      | Subscription is closed        |
-| Subscription Paused      | Subscription is paused        |
-| Subscription Rejected    | Subscription is rejected      |
-| Subscription Resumed     | Subscription is resumed       |
-| Subscription Transferred | Subscription is transferred   |
-
-### Notifiers
-
-APIM includes a standard set of notifiers. You can also create new notifiers. For more details, see [Notifiers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#notifiers).
-
-#### Portal
-
-The Portal notifier sends messages to logged in users. Notifications can be displayed by clicking the bell icon in the top menu of APIM Console.
+The portal notifier is the default notifier and sends messages to users logged in to the Developer Portal. Notifications can be displayed by clicking the bell icon in the header menu of APIM Console:
 
 ![Notifications in the APIM Administration console](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-portal-notifier-console.png)
 
@@ -112,28 +93,28 @@ In APIM Portal, notifications are displayed in a specific page, accessible from 
 
 The templates of portal notifications can be customized in **Settings**. For more information, see [Templates](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#templates).
 
-#### Email
+### Email notifiers
 
 Email notifiers send an email to a specific list of email addresses. To create a new email notifier:
 
 1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) .
-2. Choose the **Default Email Notifier** type and give your notifier a name.
+2. Choose the **Default Email Notifier** type and give the notifier a name.
 3. Add one or more email addresses.
-4. Subscribe to the notifications you want.
+4. Subscribe to the desired notifications.
 
 |   | <p>When you create an API, a default email notifier is created. All notifications are selected and email are send to the primary owner.</p><p><img src="https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-email-notifier-api.png" alt="Default configuration of an email notifier"></p> |
 | - | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
-The templates of email notifications can be customized in **Settings**. See [Templates](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#templates)
+The [templates](notifications.md#templates) of email notifications can be customized in **Settings.**
 
-#### Webhook
+### Webhook notifiers
 
 Webhook notifiers send an HTTP POST request to a configured URL. The request contains two headers and a JSON body that represents the message. Headers are:
 
-* `X-Gravitee-Event` — contains the event id (e.g. `API_KEY_REVOKED`)
-* `X-Gravitee-Event-Scope` — contains the category of the notification (e.g. `API`)
+* `X-Gravitee-Event` : Contains the event ID (e.g., `API_KEY_REVOKED`)
+* `X-Gravitee-Event-Scope` : Contains the type of notification (e.g., `API`)
 
-The JSON body looks like this (depending on the category of the notification, some fields may not be present in the body):
+The JSON body is similar to the following (depending on the notification type, some fields may not be present in the body):
 
 ```json
 {
@@ -167,14 +148,14 @@ The JSON body looks like this (depending on the category of the notification, so
 }
 ```
 
-To create a new webhook notifier:
+To create a new Webhook notifier:
 
-1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) .
-2. Choose the **Default Webhook Notifier** type and give your notifier a name.
+1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
+2. Choose the **Default Webhook Notifier** type and give the notifier a name.
 3. Add the URL which APIM will call to send notifications.
-4. Subscribe to the notifications you want.
+4. Subscribe to the desired notifications.
 
-### Templates
+## Templates
 
 Email and portal notification templates are based on HTML and YML files. They are located here:
 
