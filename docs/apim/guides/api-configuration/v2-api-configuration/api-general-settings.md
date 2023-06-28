@@ -6,6 +6,12 @@ description: >-
 
 # API General settings
 
+{% hint style="info" %}
+**v4 vs v2 API configuration**
+
+The Portal General settings configuration is the same for both v2 and v4 APIs, except for the API Quality section. As of Gravitee APIM 4.0, only v2 APIs support the API Quality feature.
+{% endhint %}
+
 ## Introduction
 
 Every API in Gravitee has General settings that can be viewed and altered in the **Portal** section of your API's settings.
