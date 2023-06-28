@@ -109,11 +109,9 @@ Generally, the HTTP application protocol is conceptualized and discussed as a sy
 
 ### **Sync vs async reactive programming**
 
-Now, as you might be imagining, implementing event-driven architecture is easier said than done. It’s a whole different way of thinking. And it’s a way of thinking that does _not_ come naturally to our brains that like to plan in a linear, synchronous fashion. It’s much easier to reason about code that progresses sequentially from top to bottom.
+To implement EDA at the component or service level, programmers typically employ a technique known as reactive programming, where events are the main orchestrators of application flow and program logic is built around asynchronous communication to manipulate operate on data streams. This reactive approach is a transition to stream processing.
 
-This is why to implement EDA at the component or service level, programmers typically make use of a programming style known as **reactive programming**. Reactive programming is all about making **asynchronous data streams the spine** of your application. Events are now the _main orchestrators of your application’s flow_. The reactive programmer manages the logic around manipulating and performing operations on the data streams.
 
-Okay, so the data streams drive the flow and the programmer builds the business logic which can be seen as the _reaction to the event_. But what superpowers does this approach unlock? Well, in large, it’s about the transition to **stream processing**.
 
 Traditionally, message processing worked with **queues** and was about applying simple computations to individual, or sometimes batches of, messages. This approach quickly runs into some limitations when looking at a distributed streaming system like [Kafka](https://www.confluent.io/what-is-apache-kafka/). Kafka stores an ordered sequence of events in a data structure known as a **log** and refers to them as **topics**. Unlike traditional messaging queues, topics also allow you to pull historical event data. This quickly opens the door to a massive amount of input streams that can be joined, aggregated, filtered, etc. This is stream processing. It’s less about the data being real-time and more about the complex processing applied across an array of input streams.
 
