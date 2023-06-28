@@ -122,7 +122,7 @@ To add a dashboard to your Analytics tab, follow these steps:
 {% hint style="success" %}
 If you followed the above steps, you'll see your new dashboard and widget.
 
-![](<../../.gitbook/assets/image (6) (1).png>)
+![](<../../.gitbook/assets/image (6).png>)
 {% endhint %}
 
 #### Edit existing Analytics dashboards

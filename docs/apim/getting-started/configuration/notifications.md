@@ -4,8 +4,6 @@
 
 APIM includes 3 categories of notifications and 3 types of notifiers. The following sections describe what these are and how they can be configured.
 
-<table><thead><tr><th width="183.5">Notification</th><th>Description</th></tr></thead><tbody><tr><td>Email</td><td>Configure an email notifier to send messages to a list of specific email addresses</td></tr><tr><td>Portal</td><td>The default notifier that sends messages to users logged in to APIM Portal</td></tr><tr><td>Webhook</td><td>Configure a webhook notifier to send an HTTP POST request to a specific URL</td></tr></tbody></table>
-
 ## Notifications
 
 ### Portal notifications
@@ -54,7 +52,7 @@ API notifications relate to a specific API and include the following:
 | Subscription Resumed     | Subscription is resumed                                        |
 | Subscription Transferred | Subscription is transferred                                    |
 
-To subscribe to notifications about a specific API, go to **APIM Console > APIs**, select the API, and click **Notifications**:
+To subscribe to notifications related to a specific API, go to **APIM Console > APIs**, select the API, and click **Notifications**:
 
 <figure><img src="../../.gitbook/assets/api_notifications.png" alt=""><figcaption></figcaption></figure>
 
@@ -73,9 +71,9 @@ Application notifications relate to a specific application and include the follo
 | Subscription Resumed     | Subscription is resumed       |
 | Subscription Transferred | Subscription is transferred   |
 
-To subscribe to notifications about a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notifications**:
+To subscribe to notifications related to a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notifications**:
 
-![Subscribe to application notifications](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-subscriptions-application.png)
+<figure><img src="../../.gitbook/assets/application_notifications.png" alt=""><figcaption></figcaption></figure>
 
 ## Notifiers
 
@@ -83,15 +81,23 @@ In addition to the following standard notifiers, new notifiers can be created.
 
 ### Portal notifiers
 
-The portal notifier is the default notifier and sends messages to users logged in to the Developer Portal. Notifications can be displayed by clicking the bell icon in the header menu of APIM Console:
+The Portal notifier is the default notifier and sends messages to users logged in to the Developer Portal. Notifications can be displayed by clicking the bell icon in the header menu of APIM Console:
 
-![Notifications in the APIM Administration console](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-portal-notifier-console.png)
+<div align="left">
 
-In APIM Portal, notifications are displayed in a specific page, accessible from the user menu.
+<figure><img src="../../.gitbook/assets/console_notification_link.png" alt="" width="375"><figcaption></figcaption></figure>
 
-![Notifications in the developer portal](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-portal-notifier-portal.png)
+</div>
 
-The templates of portal notifications can be customized in **Settings**. For more information, see [Templates](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#templates).
+In the Developer Portal, notifications are displayed in a page accessible from the user menu:
+
+<div align="left">
+
+<figure><img src="../../.gitbook/assets/portal_notification_link.png" alt="" width="188"><figcaption></figcaption></figure>
+
+</div>
+
+The templates of Portal notifications can be customized in **Settings**. For more information, see [Templates](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#templates).
 
 ### Email notifiers
 
@@ -102,14 +108,17 @@ Email notifiers send an email to a specific list of email addresses. To create a
 3. Add one or more email addresses.
 4. Subscribe to the desired notifications.
 
-|   | <p>When you create an API, a default email notifier is created. All notifications are selected and email are send to the primary owner.</p><p><img src="https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-email-notifier-api.png" alt="Default configuration of an email notifier"></p> |
-| - | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+{% hint style="info" %}
+A default email notifier is created for every API. All notifications are preselected and email is sent to the primary owner.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/default_mail_notifier.png" alt=""><figcaption></figcaption></figure>
 
 The [templates](notifications.md#templates) of email notifications can be customized in **Settings.**
 
 ### Webhook notifiers
 
-Webhook notifiers send an HTTP POST request to a configured URL. The request contains two headers and a JSON body that represents the message. Headers are:
+Webhook notifiers send an HTTP POST request to a configured URL. The request contains two headers and a JSON body representing the message. The headers are:
 
 * `X-Gravitee-Event` : Contains the event ID (e.g., `API_KEY_REVOKED`)
 * `X-Gravitee-Event-Scope` : Contains the type of notification (e.g., `API`)
@@ -148,7 +157,7 @@ The JSON body is similar to the following (depending on the notification type, s
 }
 ```
 
-To create a new Webhook notifier:
+To create a Webhook notifier:
 
 1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
 2. Choose the **Default Webhook Notifier** type and give the notifier a name.
@@ -157,29 +166,27 @@ To create a new Webhook notifier:
 
 ## Templates
 
-Email and portal notification templates are based on HTML and YML files. They are located here:
+Email and Portal notification templates are based on HTML and YML files. They are located here:
 
-```
+```sh
 templates:
   path: ${gravitee.home}/templates
 ```
 
-Starting from APIM version 3.4.0, you can override these templates in APIM Console.
+These templates can be overridden in APIM Console:
 
 ![Templates edition in the settings](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-1.png)
 
-You can also customize:
+Also customizable:
 
-* Email templates that are sent for specific actions and not related to a notification. Most of the time, these emails are for specific users.
+* Email templates that are sent for specific actions and not related to a notification. Typically, these emails are intended for specific users.
 * The `header.html` file that is included by default in all email templates.
 
 ![Specific templates](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-2.png)
 
-#### Customize a template
+### Customize a template
 
-For almost all notifications, you can configure both Portal and email notifications.
-
-To customize a template, toggle the switch **Override default template** and update the title and/or the content.
+Portal and email notifiers can be configured for most notifications. To customize a template, toggle the switch **Override default template** and update the title and/or content.
 
 ![Portal template edition](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-edition-1.png)![Email template edition](https://docs.gravitee.io/images/apim/3.x/installation/notification/graviteeio-installation-configuration-notifications-templates-edition-2.png)
 
@@ -213,5 +220,3 @@ The following is a sample template:
 	</body>
 </html>
 ```
-
-\
