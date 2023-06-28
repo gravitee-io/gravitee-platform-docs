@@ -6,13 +6,11 @@ description: How to build and deploy your own plugins
 
 Gravitee API Management (APIM) plugins are additional components that can be _plugged into_ the Gravitee ecosystem. You can use plugins to extend and customize the behavior of Gravitee to meet your strategic needs.
 
-APIM includes a default set of plugins with each distribution. You can also obtain and install some additional Gravitee-maintained and third-party plugins from the plugin marketplace.
-
-This section describes how to create your own custom plugins.
+APIM includes a default set of plugins with each distribution. You can also obtain and [deploy](dev-guide-plugins.md#deployment) some additional Gravitee-maintained and third-party plugins from the plugin marketplace.
 
 ## Common structure
 
-Each plugin follows the following common structure:
+This section describes how to create your own custom plugins. Each plugin follows the following common structure:
 
 ```
 -----------------
@@ -95,12 +93,12 @@ The following parameters are included in the descriptor:
 | type        | The type of plugin (_policy_, _reporter_) |
 
 {% hint style="warning" %}
-The plugin identifier has to be unique to be correctly loaded by APIM Gateway.
+The plugin identifier has to be unique to be correctly loaded by the APIM Gateway.
 {% endhint %}
 
 ## Deployment
 
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the configuration documentation for more information.
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md) for more information on modifying the directory structure.
 
 {% hint style="warning" %}
 You must restart APIM nodes when applying new or updated plugins.

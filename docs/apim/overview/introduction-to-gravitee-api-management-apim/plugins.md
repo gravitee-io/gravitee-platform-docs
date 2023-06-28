@@ -4,7 +4,17 @@
 
 Plugins are additional components that can be _plugged into_ [APIM Gateway](broken-reference) or [APIM API](broken-reference). They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
-For more information about plugins, including how to deploy them and details of their directory structure, see the [Plugins Developer Guide](../../guides/developer-contributions/dev-guide-plugins.md).
+{% hint style="info" %}
+For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](../../guides/developer-contributions/dev-guide-plugins.md).
+{% endhint %}
+
+## Deployment
+
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md) for more information on modifying the directory structure.
+
+{% hint style="warning" %}
+You must restart APIM nodes when applying new or updated plugins.
+{% endhint %}
 
 ## Types of Plugins
 

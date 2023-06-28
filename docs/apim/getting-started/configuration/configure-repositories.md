@@ -18,7 +18,7 @@ Please see the sections below that walk through how to configure each kind of re
 
 ## ElasticSearch
 
-The Elasticsearch connector is based on the HTTP API exposed by ES instances. This connector supports all versions of ES, from 5.x to 7.x, and OpenSearch v1.x.
+The Elasticsearch (ES) connector is based on the HTTP API exposed by ES instances. This connector supports all versions of ES, from 5.x to 7.x, and OpenSearch v1.x.
 
 You can find more detail about supported versions of ElasticSearch at [https://www.elastic.co/support/eol](https://www.elastic.co/support/eol).
 
@@ -34,7 +34,7 @@ Gravitee no longer supports native ES client. Previous connectors provided by us
 
 The Elasticsearch client does not support URL schemes in format http://USERNAME:PASSWORD@server.org. You must provide the username and password using the analytics.elasticsearch.security.username and analytics.elasticsearch.security.password properties.
 
-```
+```yaml
 analytics:
   type: elasticsearch
   elasticsearch:
@@ -56,7 +56,7 @@ analytics:
 
 #### API Gateway configuration
 
-```
+```yaml
 reporters:
   elasticsearch:
     enabled: true # Is the reporter enabled or not (default to true)
@@ -88,13 +88,14 @@ reporters:
 
 ES Curator is a great tool for ES administration. For optimizing data footprint and ES performance, you can define a retention window and periodically merge shards into only one segment.
 
-```
+{% code overflow="wrap" %}
+```sh
 /usr/bin/curator --config /opt/curator/curator.yml /opt/curator/action-curator.yml
 ```
+{% endcode %}
 
-`curator.yml` :
-
-```
+{% code title="curator.yml" %}
+```yaml
 client:
   hosts:
     - node1
@@ -107,10 +108,10 @@ logging:
   logformat: default
   blacklist: ['elasticsearch', 'urllib3']
 ```
+{% endcode %}
 
-`action-curator.yml` :
-
-```
+{% code title="action-curator.yml " %}
+```yaml
 actions:
   1:
     action: forcemerge
@@ -148,6 +149,7 @@ actions:
       unit_count: 15
       timestring: '%Y.%m.%d'
 ```
+{% endcode %}
 
 {% hint style="info" %}
 **ES curator deployment hint**
@@ -173,7 +175,7 @@ You also need to tell your APIM Gateway which ILM policies to use.
 
 Here’s an example of configuration for APIM Gateway:
 
-```
+```yaml
   elasticsearch:
     enabled: true # Is the reporter enabled or not (default to true)
     endpoints:
@@ -205,7 +207,7 @@ Please see the below table for versions of APIM that support using MongoDB as a 
 
 The example below shows the minimum configuration needed to get started with a JDBC database.
 
-```
+```yaml
 # ===================================================================
 # MINIMUM MONGO REPOSITORY PROPERTIES
 #
@@ -223,7 +225,7 @@ management:
 
 You can configure the following additional properties to customize the behavior of a MongoDB database:
 
-```
+```yaml
 # ===================================================================
 # MONGO REPOSITORY PROPERTIES
 #
@@ -380,7 +382,7 @@ management:
 
 You can configure the following additional properties to fine-tune your JDBC connection and control the behavior of your JDBC database:
 
-```
+```yaml
 management:
   type: jdbc                    # repository type
   jdbc:                         # jdbc repository
@@ -445,7 +447,7 @@ Repeat these steps on each component (APIM Gateway and APIM API) where the SQL d
 
 The Rate Limi repository plugin should be configured as shown below:
 
-```
+```yaml
 # ===================================================================
 # MINIMUM REDIS REPOSITORY PROPERTIES
 #
@@ -482,10 +484,8 @@ ratelimit:
 {% hint style="info" %}
 **Don't forget**
 
-If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify if Redis repository is healthy. You can find health endpoints in the [Internal API documentation](configure-apim-management-api/internal-api.md).
+If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify if Redis repository is healthy. You can find health endpoints in the [Internal API documentation](configure-apim-management-api/internal-api.md).\
+
 {% endhint %}
-
-\
-
 
 [^1]: _\*Using JDBC as a rate limit repository is not recommended. It can lead to inaccuracies in limit calculation, as counter is not shared across concurrent threads._
