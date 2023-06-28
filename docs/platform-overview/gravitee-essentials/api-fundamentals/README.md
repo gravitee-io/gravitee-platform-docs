@@ -1,6 +1,8 @@
 # API Fundamentals
 
-The shift from monolithic designs to microservices decoupled application components and interfacing via web APIs, which were initially synchronous and adhered tightly to the request-response model. Although these components communicated synchronously, the execution flow of applications did not have to be synchronous. As the single-threaded language that powers the web, Javascript is inherently asynchronous because the main execution thread cannot be blocked by synchronous web API communication. Asynchronous communication that decouples information producers from information consumers enables powerful functionality but this requires a restructuring of application logic from the backend to the UI to create a system with an entirely different architectural style referred to as event-driven architecture.
+The shift from monoliths to microservices relies on web APIs to decouple application components and interfacing. Although web API communication was initially synchronous, adhering tightly to the request-response model, application execution flow was not similarly constrained. On the contrary, JavaScript, the single-threaded language that powers the web, is inherently asynchronous to ensure that the main execution thread is never blocked.&#x20;
+
+Asynchronous communication that decouples information producers from information consumers enables powerful functionality. However, the adoption of an alternative communication paradigm required restructuring the entirety of the application logic, from the backend to the UI. The resultant system follows a completely different architectural style referred to as event-driven architecture.
 
 The guides below offer high-level overviews of the components and functionality at the core of the Gravitee platform to provide users with a robust conceptual framework.
 
