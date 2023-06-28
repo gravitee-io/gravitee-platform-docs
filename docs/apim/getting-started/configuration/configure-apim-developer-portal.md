@@ -24,28 +24,15 @@ To use the live preview on the right, the Portal settings must be configured wit
 
 ### Top menu
 
-FULLSCREEN
+| Button                   | Function                                                                        |
+| ------------------------ | ------------------------------------------------------------------------------- |
+| FULLSCREEN               | Opens the preview in a new window. Only visible if the Portal UI is configured. |
+| RESET                    | Resets the theme using the last backup.                                         |
+| SAVE                     | Saves the theme.                                                                |
+| ENABLED                  | Activates the theme in the Portal                                               |
+| RESTORE TO DEFAULT THEME | Overwrites modifications with the default theme.                                |
 
-This button opens the preview in a new window, making it easier to edit if you have several screens.
-
-|   | This button is only visible if you configure a Portal URL, as described above. |
-| - | ------------------------------------------------------------------------------ |
-
-RESET
-
-This button allows you to reset the theme from the last backup.
-
-SAVE
-
-This button saves your theme.
-
-ENABLED
-
-This switch activates the theme in APIM Portal.
-
-RESTORE TO DEFAULT THEME
-
-This action overwrites your modifications with the theme provided by default.
+####
 
 #### Basic customization
 
