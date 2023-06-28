@@ -2,19 +2,15 @@
 
 ## Introduction
 
-APIM includes three categories of notifications and three types of notifiers, defined below:
+APIM includes 3 categories of notifications:
 
-* **Portal** — notifications about the platform
-* **API** — notifications about a specific API
-* **Application** — notifications about a specific application
+<table><thead><tr><th width="183.5">Notification</th><th>Description</th></tr></thead><tbody><tr><td>API</td><td>Notifications relate to the platform</td></tr><tr><td>Application</td><td>Notifications relate to a specific API</td></tr><tr><td>Portal</td><td>Notifications relate to a specific application</td></tr></tbody></table>
 
-There are also three types of notifiers:
+&#x20;and 3 types of notifiers:
 
-* **Portal** — this is the default notifier; messages are sent to users logged in to APIM Portal
-* **Email** — you can configure an email notifier to send messages to a specific list of email addresses
-* **Webhook** — you can configure a webhook notifier to send an HTTP POST request to a specific URL
+<table><thead><tr><th width="183.5">Notification</th><th>Description</th></tr></thead><tbody><tr><td>Email</td><td>Configure an email notifier to send messages to a list of specific email addresses</td></tr><tr><td>Portal</td><td>The default notifier that sends messages to users logged in to APIM Portal</td></tr><tr><td>Webhook</td><td>Configure a webhook notifier to send an HTTP POST request to a specific URL</td></tr></tbody></table>
 
-### Subscribe to Portal notifications
+## Subscribe to Portal notifications
 
 To subscribe to Portal notifications:
 
