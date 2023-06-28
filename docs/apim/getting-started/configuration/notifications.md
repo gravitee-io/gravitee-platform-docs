@@ -1,5 +1,21 @@
 # Configure Notifications
 
+* [Overview](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#overview)
+* [Subscribe to Portal notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#subscribe\_to\_portal\_notifications)
+* [Subscribe to API notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#subscribe\_to\_api\_notifications)
+* [Subscribe to application notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#subscribe\_to\_application\_notifications)
+* [Categories of notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#categories\_of\_notifications)
+  * [Portal notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#portal-notifications)
+  * [API notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#api-notifications)
+  * [Application notifications](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#application-notifications)
+* [Notifiers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#notifiers)
+  * [Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#portal)
+  * [Email](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#email)
+  * [Webhook](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#webhook)
+* [Templates](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#templates)
+  * [Customize a template](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#customize\_a\_template)
+  * [Attributes](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#attributes)
+
 ### Overview
 
 APIM includes three categories of notifications:
