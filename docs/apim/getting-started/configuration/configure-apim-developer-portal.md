@@ -32,29 +32,16 @@ To use the live preview on the right, the Portal settings must be configured wit
 | ENABLED                  | Activates the theme in the Portal                                               |
 | RESTORE TO DEFAULT THEME | Overwrites modifications with the default theme.                                |
 
-####
+### Basic customization
 
-#### Basic customization
+| Property | Use case                                                                                                      |
+| -------- | ------------------------------------------------------------------------------------------------------------- |
+| Images   | Show logos. Optional logo is used for the home page and the footer. Use default logo overrides Optional logo. |
+| Homepage | Add a Homepage background image.                                                                              |
+| Colors   | Define primary, neutral, and font colors.                                                                     |
+| Fonts    | Choose font family and sizes. Medium sizes are used by default.                                               |
 
-Some basic customization options are:
-
-Images
-
-Add your logos. **Optional logo** is used for the home page and the footer, but you can override this to use same logo for everything by clicking **Use default logo**.
-
-Homepage
-
-Add your Homepage background image.
-
-Colors
-
-Define your primary, neutral and font colors.
-
-Fonts
-
-Choose your font family and sizes. Medium sizes are used by default.
-
-#### Advanced customization
+### Advanced customization
 
 If you want to customize further, you can define the graphic properties to expose for each component.
 
