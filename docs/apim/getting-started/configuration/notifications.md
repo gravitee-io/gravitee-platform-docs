@@ -138,7 +138,7 @@ Webhook notifiers send an HTTP POST request to a configured URL. The request con
 
 The JSON body looks like this (depending on the category of the notification, some fields may not be present in the body):
 
-```
+```json
 {
   "event": "",
   "scope": "",
@@ -224,7 +224,7 @@ Available attributes
 
 An example template is as follows:
 
-```
+```ftl
 <html>
 	<body style="text-align: center;">
 		<header>
