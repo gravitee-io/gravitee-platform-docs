@@ -9,7 +9,7 @@ description: >-
 
 ### Introduction
 
-Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a Gateway is tagged, you will be able to deploy an API and select which (sharding) tag a Gateway should have in order for the API to be deployed on a Gateway. To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [this documentation](../../guides/api-configuration/configure-cors.md#configure-deployments).&#x20;
+Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a Gateway is tagged, you will be able to deploy an API and select which (sharding) tag a Gateway should have in order for the API to be deployed on a Gateway. To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [this documentation](../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).&#x20;
 
 ### Configure sharding tags for your Gravitee API Gateways
 
@@ -92,5 +92,5 @@ You'll now see your entrypoint mapping in the Entrypoint mappings section.
 <figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-You've now learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs (in order to control where those APIs are deployed), refer to [this documentation](../../guides/api-configuration/configure-cors.md#configure-deployments).
+You've now learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs (in order to control where those APIs are deployed), refer to [this documentation](../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
 {% endhint %}

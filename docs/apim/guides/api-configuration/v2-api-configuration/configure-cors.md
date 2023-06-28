@@ -18,6 +18,12 @@ In Gravitee, there is a **General** subsection of the **Proxy** section. In the 
 
 This article walks through how to configure each of the above.
 
+{% hint style="info" %}
+**Different levels of support for v4 APIs**
+
+In Gravitee 4.0, v4 APIs will have limited&#x20;
+{% endhint %}
+
 ### Configure Entrypoints
 
 To configure Entrypoints, follow the below interactive tutorial, or, follow the numbered steps below.
@@ -121,12 +127,12 @@ You've configured your CORS settings for your API. When you are done, select **S
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-![](<../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png>)
+![](<../../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png>)
 {% endhint %}
 
 ### Configure Deployments
 
-The **Deployments** tab is where you can choose to use Sharding tags to control where your API is deployed. Sharding tags are configured at the **Organization** level in Gravitee; for more information on Sharding tags, what they are useful for, and how to configure them, please refer to our ["How-to" article on configuring Sharding tags](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
+The **Deployments** tab is where you can choose to use Sharding tags to control where your API is deployed. Sharding tags are configured at the **Organization** level in Gravitee; for more information on Sharding tags, what they are useful for, and how to configure them, please refer to our ["How-to" article on configuring Sharding tags](../../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
 
 To choose Sharding tags, follow the below interactive tutorial, or, follow the steps below.
 
@@ -170,7 +176,7 @@ Select Save. You will have successfully configured your API deployment settings 
 
 You can use response templates to override the default values sent in response to consumer calls to an API. Response template overrides are triggered by error keys, which are specific to policies. Each response template defines the new values to be returned for one or more status codes when the template is triggered. Because Response templates are dependent on policies, you will need to know the following before attempting to define Response templates:
 
-* Which policies have been applied to the API. This can be viewed in the [API's plan](../api-exposure-plans-applications-and-subscriptions/plans.md).
+* Which policies have been applied to the API. This can be viewed in the [API's plan](../../api-exposure-plans-applications-and-subscriptions/plans.md).
 * Which error keys you can override per policy associated with your API. Refer to the table below to see the Policy error keys that you can override by configuring Response templates.
 
 **Policy error keys that you can override**
@@ -227,7 +233,7 @@ To configure Response templates, follow these few steps:
    * One or more HTTP headers to include in the response
    * A response template body
 
-<figure><img src="../../.gitbook/assets/Response templates.gif" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Response templates.gif" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
 
 {% hint style="success" %}
 **Success!**&#x20;
