@@ -127,12 +127,16 @@ If you want to choose Webhook as your notification channel, you will need to def
 To assist with alert configuration, here are several example alert templates many teams find useful:
 
 {% tabs %}
-{% tab title="First Tab" %}
+{% tab title="Response time limit" %}
+To configure an alert for response times exceeding a threshold of 1500ms:
 
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_response_time_threshold.png" alt=""><figcaption></figcaption></figure>
 {% endtab %}
 
-{% tab title="Second Tab" %}
+{% tab title="Invalid API key" %}
+To trigger an alert when an invalid API key is passed to the Gateway:
 
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_key_invalid.png" alt=""><figcaption><p>Invalid API key alert</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
