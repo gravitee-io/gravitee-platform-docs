@@ -75,10 +75,9 @@ The templates of Portal notifications can be customized in **Settings**. For mor
 {% tab title="Email" %}
 Email notifiers send an email to a specific list of email addresses. To create a new email notifier:
 
-1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) .
-2. Define your email notifier (who the email notification will come from).
-3. Define the email list (who the email notification will be sent to). Multiple emails can be added as long as they are separated by a `,` or a `;`.
-4. Subscribe to the desired notifications.
+1. Define the email notifier (who the email notification will come from).
+2. Define the email list (who the email notification will be sent to). Multiple emails can be added as long as they are separated by a `,` or a `;`.
+3. Subscribe to the desired notifications.
 
 {% hint style="info" %}
 A default email notifier is created for every API. All notifications are preselected and email is sent to the primary owner.
@@ -183,6 +182,22 @@ The available attributes are summarized below. Use the [Apache Freemarker templa
 | deployedAt (Date) | -                | -                | -                  | -           | endingAt     |
 | createdAt (Date)  | createdAt (Date) | createdAt (Date) | createdAt (Date)   | -           | closedAt     |
 | updatedAt (Date)  | updatedAt (Date) | updatedAt (Date) | updatedAt (Date)   | -           | subscribedAt |
+
+#### Example template
+
+```ftl
+<html>
+	<body style="text-align: center;">
+		<header>
+			<#include "header.html" />
+		</header>
+		<div style="margin-top: 50px; color: #424e5a;">
+			<h3>Hi ${owner.username},</h3>
+			<p>The API Key <code>${apiKey}</code> has been expired.
+		</p>
+	</body>
+</html>
+```
 
 #### Example template
 
