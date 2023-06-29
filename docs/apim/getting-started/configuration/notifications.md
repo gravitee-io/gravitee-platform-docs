@@ -6,6 +6,47 @@ APIM includes 3 categories of notifications and 3 types of notifiers. Their purp
 
 ## Notifications
 
+{% tabs %}
+{% tab title="Portal" %}
+Portal notifications relate to the platform and include the following:
+
+<table><thead><tr><th width="265">Name</th><th>What triggers it?</th></tr></thead><tbody><tr><td>First Login</td><td>User logs in for the first time</td></tr><tr><td>Group invitation</td><td>User is invited in a group</td></tr><tr><td>Message</td><td>Custom message is sent to an Environment Role via notification</td></tr><tr><td>New Support Ticket</td><td>New support ticket is created</td></tr><tr><td>Password Reset</td><td>Password is reset</td></tr><tr><td>User Created</td><td>New user is created</td></tr><tr><td>User Registered</td><td>User is registered</td></tr><tr><td>User Registration Request</td><td>New user is created and automatic validation is disabled</td></tr></tbody></table>
+
+To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**:
+
+<figure><img src="../../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="API" %}
+API notifications relate to a specific API and include the following:
+
+<table><thead><tr><th width="268.5">Name</th><th>What triggers it?</th></tr></thead><tbody><tr><td>Accept API review</td><td>API review is accepted</td></tr><tr><td>API Deprecated</td><td>API is deprecated</td></tr><tr><td>API key Expired</td><td>API key is expired</td></tr><tr><td>API key Renewed</td><td>API key is renewed</td></tr><tr><td>API key Revoked</td><td>API key is revoked</td></tr><tr><td>API Started</td><td>API is started</td></tr><tr><td>API Stopped</td><td>API is stopped</td></tr><tr><td>Ask for API review</td><td>API is ready for review</td></tr><tr><td>Message</td><td>Custom message is sent to an Application Role via notification</td></tr><tr><td>New Rating</td><td>New rating is submitted</td></tr><tr><td>New Rating Answer</td><td>New answer is submitted</td></tr><tr><td>New Subscription</td><td>Subscription is created</td></tr><tr><td>New Support Ticket</td><td>New support ticket is created</td></tr><tr><td>Reject API review</td><td>API review is rejected</td></tr><tr><td>Subscription Accepted</td><td>Subscription is accepted</td></tr><tr><td>Subscription Closed</td><td>Subscription is closed</td></tr><tr><td>Subscription Paused</td><td>Subscription is paused</td></tr><tr><td>Subscription Rejected</td><td>Subscription is rejected</td></tr><tr><td>Subscription Resumed</td><td>Subscription is resumed</td></tr><tr><td>Subscription Transferred</td><td>Subscription is transferred</td></tr></tbody></table>
+
+To subscribe to notifications related to a specific API, go to **APIM Console > APIs**, select the API, and click **Notifications**:
+
+<figure><img src="../../.gitbook/assets/api_notifications.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="Application" %}
+Application notifications relate to a specific application and include the following:
+
+| Name                     | What triggers it?             |
+| ------------------------ | ----------------------------- |
+| New Subscription         | Subscription is created       |
+| New Support Ticket       | New support ticket is created |
+| Subscription Accepted    | Subscription is accepted      |
+| Subscription Closed      | Subscription is closed        |
+| Subscription Paused      | Subscription is paused        |
+| Subscription Rejected    | Subscription is rejected      |
+| Subscription Resumed     | Subscription is resumed       |
+| Subscription Transferred | Subscription is transferred   |
+
+To subscribe to notifications related to a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notifications**:
+
+<figure><img src="../../.gitbook/assets/application_notifications.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
 ### Portal notifications
 
 Portal notifications relate to the platform and include the following:
