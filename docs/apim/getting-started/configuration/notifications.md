@@ -76,8 +76,8 @@ The templates of Portal notifications can be customized in **Settings**. For mor
 Email notifiers send an email to a specific list of email addresses. To create a new email notifier:
 
 1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) .
-2. Choose the **Default Email Notifier** type and give the notifier a name.
-3. Add one or more email addresses.
+2. Define your email notifier (who the email notification will come from).
+3. Define the email list (who the email notification will be sent to). Multiple emails can be added as long as they are separated by a `,` or a `;`.
 4. Subscribe to the desired notifications.
 
 {% hint style="info" %}
