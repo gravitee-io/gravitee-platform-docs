@@ -150,6 +150,16 @@ To configure an alert for no requests made to the API during the last minute:
 
 <figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests in the last minute</p></figcaption></figure>
 {% endtab %}
+
+{% tab title="Filtered no requests in X min" %}
+The following example is the same as above, but filters on `my-application`:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_application_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests from my application in the last minute</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="Quota reached" %}
+
+{% endtab %}
 {% endtabs %}
 
 #### Response time limit
