@@ -3,7 +3,7 @@
 :page-sidebar: cockpit_sidebar
 :page-permalink: cockpit/3.x/cockpit_installguide_idp_generic_oauth2.html
 :page-folder: cockpit/installation-guide/idp
-:page-description: Gravitee.io Cockpit - Identity Provider - Generic OAuth2
+:page-description: Gravitee Cloud - Identity Provider - Generic OAuth2
 :page-keywords: Gravitee.io, API Platform, API Management, Cockpit, documentation, manual, guide, reference, api, idp, oauth2
 
 == Overview
@@ -47,7 +47,7 @@ NOTE: Ensure that your OIDC server accepts the following scopes: `openid profile
 
 === Use id token to create user
 
-By default, the plugin will use the `userinfo` endpoint to fetch the required information to create a Cockpit user.
+By default, the plugin will use the `userinfo` endpoint to fetch the required information to create a Gravitee Cloud user.
 You can prevent this behavior and let the plugin read the OpenID `id token`. In that case, you will need to provide additional
 parameters to validate the token signature.
 

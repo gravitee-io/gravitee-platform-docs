@@ -1,21 +1,21 @@
-= Install Cockpit API
+= Install Gravitee Cloud API
 :page-sidebar: cockpit_sidebar
 :page-permalink: cockpit/3.x/cockpit_installguide_management_api_install_zip.html
 :page-folder: cockpit/installation-guide
-:page-description: Gravitee.io Cockpit - Management API - Installation with .zip
+:page-description: Gravitee Cloud - Management API - Installation with .zip
 :page-keywords: Gravitee.io, API Platform, API Management, Cockpit, documentation, manual, guide, reference, api
 
 == Overview
 
-Cockpit API is required to run Cockpit UI. You must install Cockpit API first before you can use Cockpit UI.
+Gravitee Cloud API is required to run Gravitee Cloud UI. You must install Gravitee Cloud API first before you can use Gravitee Cloud UI.
 
 == Prerequisites
 
-Your environment must meet the requirements listed below before you install Cockpit API.
+Your environment must meet the requirements listed below before you install Gravitee Cloud API.
 
 === JDK
 
-Cockpit API supports Java 11. Before you install it, check your Java version as follows:
+Gravitee Cloud API supports Java 11. Before you install it, check your Java version as follows:
 
 [source,bash]
 ----
@@ -27,7 +27,7 @@ NOTE: You can download the latest OpenJDK from the https://jdk.java.net/archive/
 
 === MongoDB
 
-The default Cockpit API distribution requires MongoDB 3.x to store data.
+The default Gravitee Cloud API distribution requires MongoDB 3.x to store data.
 
 NOTE: You can download MongoDB 3.x from the https://www.mongodb.org/downloads#production[MongoDB download site^].
 
@@ -47,7 +47,7 @@ $ unzip gravitee-cockpit-management-api-{{ site.products.cockpit.version }}.zip
 
 == Copy the license
 
-To run the Cockpit application, you must have a valid license file.
+To run the Gravitee Cloud application, you must have a valid license file.
 
 === Using system properties
 
@@ -66,7 +66,7 @@ $ ./bin/gravitee
 
 == Check the installation
 
-Run Cockpit API from the command line as follows:
+Run Gravitee Cloud API from the command line as follows:
 
 [source,bash]
 ----
@@ -74,10 +74,10 @@ $ cd gravitee-cockpit-management-api-{{ site.products.cockpit.version }}
 $ ./bin/gravitee
 ----
 
-By default, Cockpit API runs in the foreground, prints its logs to the standard output (stdout), and can be stopped
+By default, Gravitee Cloud API runs in the foreground, prints its logs to the standard output (stdout), and can be stopped
 by pressing *Ctrl-C*.
 
-Once Cockpit API is running, you will see this log:
+Once Gravitee Cloud API is running, you will see this log:
 
 [source,bash]
 [subs="attributes"]
@@ -87,18 +87,18 @@ Once Cockpit API is running, you will see this log:
 15:53:52.409 [graviteeio-node] INFO  i.g.node.jetty.JettyHttpServer - HTTP Server is now started and listening on port 8063
 ...
 
-== Check that Cockpit API is running
+== Check that Gravitee Cloud API is running
 
-You can test that your Cockpit API node is running by sending an HTTP request to port `8063` on `localhost`:
+You can test that your Gravitee Cloud API node is running by sending an HTTP request to port `8063` on `localhost`:
 
 [source,bash]
 ----
 $ curl -X GET http://localhost:8063/management/config
 ----
 
-== Run Cockpit API as a daemon
+== Run Gravitee Cloud API as a daemon
 
-To run Cockpit API as a daemon, specify `-d` on the command line and record the process ID in a file using the `-p` option:
+To run Gravitee Cloud API as a daemon, specify `-d` on the command line and record the process ID in a file using the `-p` option:
 
 [source,bash]
 ----
@@ -107,14 +107,14 @@ $ ./bin/gravitee -d -p=/var/run/gio.pid
 
 You can find log messages in the `$GRAVITEE_HOME/logs/` directory.
 
-To shut down Cockpit API, kill the process ID recorded in the `pid` file:
+To shut down Gravitee Cloud API, kill the process ID recorded in the `pid` file:
 
 [source,bash]
 ----
 $ kill `cat /var/run/gio.pid`
 ----
 
-== Cockpit API directory structure
+== Gravitee Cloud API directory structure
 
 The following files and folders are in the `$GRAVITEE_HOME` directory, created when extracting the archive:
 
@@ -123,8 +123,8 @@ The following files and folders are in the `$GRAVITEE_HOME` directory, created w
 |Folder    |Description
 |bin       |Startup/shutdown scripts
 |config    |Configuration files
-|lib       |Libraries (both Cockpit and third party libraries)
+|lib       |Libraries (both Gravitee Cloud and third party libraries)
 |license   |License for Enterprise Edition
-|logs      |Cockpit API log files
-|plugins   |Cockpit API plugins
+|logs      |Gravitee Cloud API log files
+|plugins   |Gravitee Cloud API plugins
 |======================

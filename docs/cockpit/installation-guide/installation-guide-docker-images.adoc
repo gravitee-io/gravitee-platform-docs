@@ -1,4 +1,4 @@
-= Cockpit Docker Images
+= Gravitee Cloud Docker Images
 :page-sidebar: cockpit_sidebar
 :page-permalink: cockpit/3.x/cockpit_installguide_docker_images.html
 :page-folder: cockpit/installation-guide
@@ -6,7 +6,7 @@
 
 == Overview
 
-This section explains how to run Cockpit images in Docker. These procedures are intended for users who are already familiar with Docker.
+This section explains how to run Gravitee Cloud images in Docker. These procedures are intended for users who are already familiar with Docker.
 
 == Prerequisites
 
@@ -14,7 +14,7 @@ To run our official images, you must first install https://docs.docker.com/insta
 
 == Images
 
-You can find the complete set of Cockpit images on https://hub.docker.com/u/graviteeio/[on Docker Hub].
+You can find the complete set of Gravitee Cloud images on https://hub.docker.com/u/graviteeio/[on Docker Hub].
 
 |===
 |Image name |Version |Base
@@ -33,9 +33,9 @@ You can find the complete set of Cockpit images on https://hub.docker.com/u/grav
 
 |===
 
-=== Cockpit API (graviteeio/cockpit-management-api)
+=== Gravitee Cloud API (graviteeio/cockpit-management-api)
 
-The Cockpit API image provides a set of environment variables which you can use to tune your container.
+The Gravitee Cloud API image provides a set of environment variables which you can use to tune your container.
 You can replace the address of the default MongoDB repository (`localhost:27017`) with your own (`GRAVITEE_MONGODB_HOST:GRAVITEE_MONGODB_PORT`).
 
 ==== Run The Image
@@ -50,7 +50,7 @@ $ docker run \
 
 ==== Configure The Container
 To override the default configuration for MongoDB or any other properties included in the `gravitee.yml` file,
-you must to use environment variables. For more information, see the Cockpit API link:{{ '/cockpit/3.x/cockpit_installguide_configuration.html#environment_variables' | relative_url }}[Configuration^].
+you must to use environment variables. For more information, see the Gravitee Cloud API link:{{ '/cockpit/3.x/cockpit_installguide_configuration.html#environment_variables' | relative_url }}[Configuration^].
 
 The following example changes the MongoDB connection:
 
@@ -64,7 +64,7 @@ $ docker run \
           graviteeio/cockpit-management-api:latest
 ....
 
-Moreover, to run the Cockpit application, you must have a valid license file. We can do it using docker volumes.
+Moreover, to run the Gravitee Cloud application, you must have a valid license file. We can do it using docker volumes.
 
 [source,shell]
 ....
@@ -83,10 +83,10 @@ $ docker run \
 
 ....
 
-=== Cockpit UI (graviteeio/cockpit-management-ui)
+=== Gravitee Cloud UI (graviteeio/cockpit-management-ui)
 
-The Cockpit UI image provides a set of environment variables which you can use to tune your container.
-Cockpit UI needs Cockpit API to run, so you need to update `API_URL` to specify where `management-api` is running.
+The Gravitee Cloud UI image provides a set of environment variables which you can use to tune your container.
+Gravitee Cloud UI needs Gravitee Cloud API to run, so you need to update `API_URL` to specify where `management-api` is running.
 
 ==== Run The Image
 [source,shell]

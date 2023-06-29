@@ -2,15 +2,15 @@
 
 ## Overview
 
-Gravitee Cockpit is a centralized, multi-environment tool for managing
+Gravitee Cloud is a centralized, multi-environment tool for managing
 all your Gravitee API Management and Access Management installations in
 a single place.
 
 image::{% link images/cockpit/cockpit-dashboard.png %}\[\]
 
-## Cockpit hierarchy
+## Gravitee Cloud hierarchy
 
-Cockpit is based on a hierarchy of the following entity types:
+Gravitee Cloud is based on a hierarchy of the following entity types:
 
 image::{% link images/cockpit/entity-hierarchy.png %}\[\]
 
@@ -39,7 +39,7 @@ way that makes most sense in your setup, for example a region or
 business unit. There can be multiple organizations linked to one
 account.</p></td>
 <td style="text-align: left;"><p>The organization and environment
-entities defined in Cockpit are equivalent to the same entities in APIM
+entities defined in Gravitee Cloud are equivalent to the same entities in APIM
 and AM, including the roles you can define for them (for example, the
 <code>ORGNIZATION_OWNER</code> role exists in both APIM and AM).</p>
 <p>Learn more about organizations and environments in link:{{
@@ -79,9 +79,9 @@ nodes.</p>
 </tbody>
 </table>
 
-Each entity managed in Cockpit has some common properties:
+Each entity managed in Gravitee Cloud has some common properties:
 
--   ID: an internal ID that is never shown in the Cockpit UI, but that
+-   ID: an internal ID that is never shown in the Gravitee Cloud UI, but that
     you can find if you look at the API responses.
 
 -   HRID: a human readable ID of the entity. This ID is unique (no two
@@ -94,7 +94,7 @@ Each entity managed in Cockpit has some common properties:
 
 ## Example hierarchy
 
-The Cockpit hierarchy pictured below has the following setup:
+The Gravitee Cloud hierarchy pictured below has the following setup:
 
 -   One APIM installation, with two Gateway nodes and one REST API node.
 

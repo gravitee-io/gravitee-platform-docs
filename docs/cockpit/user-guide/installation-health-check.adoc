@@ -2,7 +2,7 @@
 :page-sidebar: cockpit_sidebar
 :page-permalink: cockpit/3.x/cockpit_userguide_installation_health_check.html
 :page-folder: cockpit/userguide
-:page-description: Gravitee.io Cockpit - Installation health check and monitoring
+:page-description: Gravitee Cloud - Installation health check and monitoring
 :page-keywords: Gravitee.io, API Platform, API Management, Cockpit, documentation, manual, guide
 
 
@@ -12,7 +12,7 @@ NOTE: This feature is only available with APIM & AM 3.8 or higher.
 
 == Overview
 
-Installations that are registered with Cockpit will report valuable information, including configuration of the installation, list of nodes, plugins, and also some regular updates regarding their health status and monitoring.
+Installations that are registered with Gravitee Cloud will report valuable information, including configuration of the installation, list of nodes, plugins, and also some regular updates regarding their health status and monitoring.
 
 === Nodes
 
@@ -28,7 +28,7 @@ The role of the primary node is to gather, consolidate, and share the informatio
 - monitoring data
 - health checks
 
-If the primary node goes down, another REST API node takes over as primary node. If no REST API nodes are left, after 5 minutes all nodes are considered unhealthy, since Cockpit is no longer able to retrieve health information from the installation.
+If the primary node goes down, another REST API node takes over as primary node. If no REST API nodes are left, after 5 minutes all nodes are considered unhealthy, since Gravitee Cloud is no longer able to retrieve health information from the installation.
 
 Nodes can be in a `STARTED` or `STOPPED` state.
 
@@ -49,7 +49,7 @@ Each health check contains different probes, depending on the node type (REST AP
 3. To see historical data, filter by date.
 4. Enable *Show only status transition* to limit the list of health check reports to reports where the status of the node changed.
 +
-Cockpit lists the health check reports for the node. You can click on a report to expand the report details.
+Gravitee Cloud lists the health check reports for the node. You can click on a report to expand the report details.
 
 == Check the health of a node
 

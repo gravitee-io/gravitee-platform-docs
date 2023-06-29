@@ -58,7 +58,7 @@ To migrate from an existing Community Edition (CE) installation to EE:
 
 After version 3.15.0, Gravitee Cloud became a SaaS product, meaning that you do not need to install it as a self-hosted solution anymore. You can [register](https://cockpit.gravitee.io/register) and use Gravitee Cloud for free as part of the Community Edition, enabling you to also access a full, time-limited, EE-grade API Management trial (with Alert Engine included), manage Gravitee environments and installations, and design APIs with the Gravitee API Designer also included in the trial.
 
-When used for free, Gravitee Cloud has a limitation of up to two environments per user. However, you can [upgrade](https://www.gravitee.io/contact-us) to a [paid Enterprise Edition plan](https://www.gravitee.io/pricing) to unlock more environments and use Cockpit as an Enterprise-grade tool for production.
+When used for free, Gravitee Cloud has a limitation of up to two environments per user. However, you can [upgrade](https://www.gravitee.io/contact-us) to a [paid Enterprise Edition plan](https://www.gravitee.io/pricing) to unlock more environments and use Gravitee Cloud as an Enterprise-grade tool for production.
 
 ## API Designer
 
