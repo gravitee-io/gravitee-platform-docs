@@ -124,7 +124,9 @@ If you want to choose Webhook as your notification channel, you will need to def
 
 ### Example alerts
 
-To assist with alert configuration, here are several example alert templates many teams find useful:
+To assist with alert configuration, sample alert templates useful to many teams are shown below.
+
+Alerts for when thresholds are reached:
 
 {% tabs %}
 {% tab title="Response time limit" %}
@@ -161,6 +163,34 @@ The following example is the same as above, but filters on `my-application`:
 To configure an alert for reaching the quota limit on requests:
 
 <figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_quota_too_many_requests.png" alt=""><figcaption><p>Alert for reaching the quota limit on requests</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="Errors per interval" %}
+To configure an alert for the number of 5xx errors reaching a threshold of 10 in the last 5 minutes:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_too_many_errors.png" alt=""><figcaption><p>Alert for too many errors in the last five minutes</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
+based alerts:
+
+{% tabs %}
+{% tab title="Invalid API key" %}
+To trigger an alert when an invalid API key is passed to the Gateway:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_key_invalid.png" alt=""><figcaption><p>Invalid API key alert</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="No requests in X min" %}
+To configure an alert for no requests made to the API during the last minute:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests in the last minute</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="Filtered no requests in X min" %}
+The following example is the same as above, but filters on `my-application`:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_application_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests from my application in the last minute</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Errors per interval" %}
