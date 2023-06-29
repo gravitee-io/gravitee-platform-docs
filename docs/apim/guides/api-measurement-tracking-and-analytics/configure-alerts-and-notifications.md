@@ -42,29 +42,21 @@ If you already have alerts configured, you'll see the configured alerts. If not,
 
 Select the **+** icon to create your first alert. On the **Create a new alert** page, you can configure the following:
 
-* General settings
-  * Name
-  * Rule: Gravitee comes pre-built with several rules
-  * Severity
-  * Description
-* Timeframe: this is where you create a timeline for this alerting mechanism to run
-* Condition: set conditions for when your rule should operate and trigger alerts
-* Filters: define a subset of events for which your conditions and rules should be applied
+* **General settings:** Name, Rule (Gravitee includes several pre-built rules), Severity, Description
+* **Timeframe:** Create a timeline for this alerting mechanism
+* **Condition:** Set conditions for when your rule should operate and trigger alerts
+* **Filters:** Define a subset of events to which your conditions and rules are applied
 
-By default, alerts will show up in your Dashboard under the Alerts tab and on the Alerts page.&#x20;
+By default, alerts will show up in your **Dashboard** under the **Alerts** tab and on the **Alerts** page.&#x20;
 
 <figure><img src="../../.gitbook/assets/Alert areas.gif" alt=""><figcaption><p>You can see alerts in the Alerts tab and the Alerts page.</p></figcaption></figure>
 
-In addition to viewing alerts in these locations, you can also configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications tab.** On this page, you can:
+In addition to viewing alerts in these locations, you can configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications** tab**.** On this page, you can:
 
-* Define a dampening rule: limit the number of notifications if the trigger is fired multiple times for the same condition
-* Add a notification: this allows you to add a notification type to your alerts so that you can trigger notifications when alerts are processed. You'll be able to select from the following notification channels:
-  * Email
-  * Slack
-  * System email
-  * Webhook
+* **Define a dampening rule:** Limit the number of notifications if the trigger is fired multiple times for the same condition
+* **Add a notification:** Add a notification type to your alerts to trigger notifications when alerts are processed. The available notification channels are email, Slack, system email, and Webhook.
 
-Depending on the notification channel that you choose, you will need to configure multiple settings. Please see the tabs below for more information.
+Depending on the notification channel you choose, you will need to configure multiple settings. Please see the tabs below for more information.
 
 {% tabs %}
 {% tab title="Email" %}
@@ -126,7 +118,7 @@ If you want to choose Webhook as your notification channel, you will need to def
 
 To assist with alert configuration, sample alert templates useful to many teams are shown below.
 
-Alerts for when limits are reached:
+#### Alerts for when limits are reached
 
 {% tabs %}
 {% tab title="Response time limit" %}
@@ -148,7 +140,7 @@ To configure an alert for reaching the quota limit on requests:
 {% endtab %}
 {% endtabs %}
 
-Alerts based on errors or low usage:
+#### Alerts based on errors or low usage
 
 {% tabs %}
 {% tab title="Invalid API key" %}
