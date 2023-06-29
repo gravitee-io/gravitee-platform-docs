@@ -158,7 +158,15 @@ The following example is the same as above, but filters on `my-application`:
 {% endtab %}
 
 {% tab title="Quota reached" %}
+To configure an alert for reaching the quota limit on requests:
 
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_quota_too_many_requests.png" alt=""><figcaption><p>Alert for reaching the quota limit on requests</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="Errors per interval" %}
+To configure an alert for the number of 5xx errors reaching a threshold of 10 in the last 5 minutes:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_too_many_errors.png" alt=""><figcaption><p>Alert for too many errors in the last five minutes</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
