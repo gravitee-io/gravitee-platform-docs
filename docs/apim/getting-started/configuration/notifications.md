@@ -2,7 +2,7 @@
 
 ## Introduction
 
-APIM includes 3 categories of notifications and 3 types of notifiers. The following sections describe what these are and how they can be configured.
+APIM includes 3 categories of notifications and 3 types of notifiers. Their purpose and. configuration are described below.
 
 ## Notifications
 
