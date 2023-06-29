@@ -126,7 +126,17 @@ If you want to choose Webhook as your notification channel, you will need to def
 
 To assist with alert configuration, here are several example alert templates many teams find useful:
 
-#### Response time greater than X ms
+{% tabs %}
+{% tab title="First Tab" %}
+
+{% endtab %}
+
+{% tab title="Second Tab" %}
+
+{% endtab %}
+{% endtabs %}
+
+#### Response time limit
 
 To configure an alert for response times exceeding a threshold of 1500ms:
 
@@ -138,31 +148,31 @@ To trigger an alert when an invalid API key is passed to the Gateway:
 
 <figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_key_invalid.png" alt=""><figcaption><p>Invalid API key alert</p></figcaption></figure>
 
-#### 50th percentile of response time greater than X ms
+#### 50th percentile reached
 
 To configure an alert for the 50th percentile of response times exceeding 200 ms in the last 5 minutes:
 
 <figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_50percentile.png" alt=""><figcaption><p>Alert for 50th percentile of response time greater than X ms</p></figcaption></figure>
 
-#### No API requests in the last minute
+#### No requests in X min
 
 To configure an alert for no requests made to the API during the last minute:
 
 <figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests in the last minute</p></figcaption></figure>
 
-#### No API requests from my-application in the last minute
+#### Filtered no requests in X min
 
 The following example is the same as above, but filters on `my-application`:
 
 <figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_application_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests from my application in the last minute</p></figcaption></figure>
 
-#### Quota too many requests
+#### Quota reached
 
 To configure an alert for reaching the quota limit on requests:
 
 <figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_quota_too_many_requests.png" alt=""><figcaption><p>Alert for reaching the quota limit on requests</p></figcaption></figure>
 
-#### Too many errors in the last 5 minutes
+#### Errors per interval
 
 To configure an alert for the number of 5xx errors reaching a threshold of 10 in the last 5 minutes:
 
