@@ -138,6 +138,18 @@ To trigger an alert when an invalid API key is passed to the Gateway:
 
 <figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_key_invalid.png" alt=""><figcaption><p>Invalid API key alert</p></figcaption></figure>
 {% endtab %}
+
+{% tab title="50th percentile reached" %}
+To configure an alert for the 50th percentile of response times exceeding 200 ms in the last 5 minutes:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_50percentile.png" alt=""><figcaption><p>Alert for 50th percentile of response time greater than X ms</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="No requests in X min" %}
+To configure an alert for no requests made to the API during the last minute:
+
+<figure><img src="https://docs.gravitee.io/images/ae/apim/api_alert_api_no_request_last_minute.png" alt=""><figcaption><p>Alert for no API requests in the last minute</p></figcaption></figure>
+{% endtab %}
 {% endtabs %}
 
 #### Response time limit
