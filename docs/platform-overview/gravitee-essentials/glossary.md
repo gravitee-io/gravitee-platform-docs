@@ -48,8 +48,8 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Backend service exposure:** The consumption style of your API based on your upstream backend service architecture.
 
-* **Proxy upstream protocol:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
-* **Introspect messages from event-driven backend:** A backend exposure method in the Policy Design Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
+* **Proxy upstream protocol:** A backend exposure method in the Policy Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
+* **Introspect messages from event-driven backend:** A backend exposure method in the Policy Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
 
 **Context path:** A unique route targeting a specific gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
 
@@ -80,7 +80,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Policy:** Logic that is executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
 
-**Policy Design Studio:** The APIM Management UI feature used to interactively create a gateway API.
+**Policy Studio:** The APIM Management UI feature used to interactively create a gateway API.
 
 **Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
 
