@@ -7,32 +7,32 @@ description: >-
 # v2 API Policy Studio
 
 {% hint style="warning" %}
-Legacy version
+**Legacy version**
 
 The v2 Policy Studio can only be used to design flows for APIs using the v2 API definition. The v2 Policy Studio does not support applying policies at the message level or for pub/sub use cases. If you want to design and enforce policy flows at the message level or for pub/sub use cases, please refer to the [v4 Policy Studio](v4-api-policy-design-studio.md) documentation.
 {% endhint %}
 
 ## Introduction
 
-The v2 policy design studio is broken into the following sections:
+The v2 Policy Studio is broken into the following sections:
 
-* **Design:** Manage all flows associated with your gateway API
+* **Design:** Manage all flows associated with your Gateway API
 * **Configuration:** Modify settings around flow execution
-* **Properties:** Define key-value pairs at the API level. These properties are read-only during the gateway's execution of an API transaction.
-* **Resources:** Configure global resources to support your gateway API's flows
-* **Debug:** Test and troubleshoot your gateway APIs
+* **Properties:** Define key-value pairs at the API level. These properties are read-only during the Gateway's execution of an API transaction.
+* **Resources:** Configure global resources to support your Gateway API's flows
+* **Debug:** Test and troubleshoot your Gateway APIs
 
 {% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" fullWidth="true" %}
 
 ## Design
 
-Flows can be added to existing v2 APIs. So, head to the API list by selecting **APIs** in the left-hand nav. Then, select the API for which you want to design a flow. You'll be taken to the API's **General** details page. Select **Design** in the left-hand nav.
+Flows can be added to existing v2 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** details page. Select **Design** in the left-hand nav.
 
-You're now in the **Design** section of the policy design studio. Here, you can create flows by adding policies to the request and/or response phases and targeting them by path, HTTP method(s), or using [Gravitee's Expression Language](gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of your API. Flows can also be associated with specific plans or exist at the API-level as shown below:
+You're now in the **Design** section of the Policy Studio. Here, you can create flows by adding policies to the request and/or response phases and target them by path, HTTP method(s), or via [Gravitee's Expression Language](gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of an API. Flows can also be associated with specific plans or exist at the API-level as shown below:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-09 at 2.10.06 PM.png" alt=""><figcaption><p>V2 policy design studio example</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-09 at 2.10.06 PM.png" alt=""><figcaption><p>v2 Policy Studio example</p></figcaption></figure>
 
-The sample gateway API shown above has three plans: Keyless Plan, Premium API Key Plan, and Premium JWT Plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API by being placed under the **Flows** section like the Assign Metrics Flow.
+The sample Gateway API shown above has three plans: Keyless Plan, Premium API Key Plan, and Premium JWT Plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API when placed under the **Flows** section, e.g., the Assign Metrics Flow.
 
 ### Create a flow and add policies
 
