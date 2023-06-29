@@ -14,15 +14,9 @@ Gravitee allows you to set up alerts and notifications based on events recognize
 
 {% @arcade/embed flowId="vLOPiPtuGAbHWNJj6LRN" url="https://app.arcade.software/share/vLOPiPtuGAbHWNJj6LRN" %}
 
-Notifications are configured as a part of an API's settings. To configure these settings, you'll need to select your API from the APIs page. Then, when in the APIs settings select **Notifications.**&#x20;
 
-On the **Notifications** page, you are able to configure notifications that appear in the portal (or Management UI) and notifications that will be sent out via email. To configure Portal notifications, select **Portal Notifications** and then choose the events that you want to trigger notifications by checking the checkbox next to your desired events.
 
-To configure email notifications, select **Default Mail Notifications** and then:
-
-* Define your email notifier (who the email notification will come from)
-* Email list (who the email notification will be sent to)
-  * You can add multiple emails here as long as they are separated by a `,` or a `;`
+* Define your email notifier (who the email notification will come from) Email list (who the email notification will be sent to) You can add multiple emails here as long as they are separated by a `,` or a `;`
 
 <figure><img src="../../.gitbook/assets/Configure notifications.gif" alt=""><figcaption></figcaption></figure>
 

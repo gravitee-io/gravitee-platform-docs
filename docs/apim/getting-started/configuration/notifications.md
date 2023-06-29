@@ -51,7 +51,9 @@ To subscribe to notifications related to a specific application, go to **APIM Co
 
 {% tabs %}
 {% tab title="Portal" %}
-The Portal notifier is the default notifier and sends messages to users logged in to the Developer Portal. Notifications can be displayed by clicking the bell icon in the header menu of APIM Console:
+The Portal notifier is the default notifier and sends messages to users logged in to the Developer Portal. Notifications appear in the Portal or Management Console.
+
+They can be displayed by clicking the bell icon in the header menu of APIM Console:
 
 <div align="left">
 
