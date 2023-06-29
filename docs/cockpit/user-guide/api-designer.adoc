@@ -97,7 +97,7 @@ image:{% link images/cockpit/api-designer-attributes.png %}[]
 
 == Update the settings
 
-You can specify which type of case to use for paths, schema attributes, and parameters. Cockpit automatically converts names based on the case you specify.
+You can specify which type of case to use for paths, schema attributes, and parameters. Gravitee Cloud automatically converts names based on the case you specify.
 
 To update these settings, click the settings icon image:{% link images/icons/api-designer-settings-icon.png %}[role="icon"] in the top bar.
 

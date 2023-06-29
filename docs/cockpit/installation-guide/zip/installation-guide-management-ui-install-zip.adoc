@@ -1,19 +1,19 @@
-= Install Cockpit Console
+= Install Gravitee Cloud Console
 :page-sidebar: cockpit_sidebar
 :page-permalink: cockpit/3.x/cockpit_installguide_management_ui_install_zip.html
 :page-folder: cockpit/installation-guide
-:page-description: Gravitee.io Cockpit - Management UI - Installation with .zip
+:page-description: Gravitee Cloud - Management UI - Installation with .zip
 :page-keywords: Gravitee.io, API Platform, API Management, Cockpit, documentation, manual, guide, reference, api
 
 == Prerequisites
 
-Your environment must meet the requirements listed below before you install Cockpit Console.
+Your environment must meet the requirements listed below before you install Gravitee Cloud Console.
 
-NOTE: Before you begin, ensure Cockpit API is installed and running.
+NOTE: Before you begin, ensure Gravitee Cloud API is installed and running.
 
 === Browsers
 
-Cockpit Console is compatible with the two most recent versions of modern internet browsers.
+Gravitee Cloud Console is compatible with the two most recent versions of modern internet browsers.
 
 == Download and extract the .zip archive
 
@@ -29,11 +29,11 @@ Unpack the archive and place the folders in the required location.
 [subs="attributes"]
 $ unzip gravitee-cockpit-webui-{{ site.products.cockpit.version }}.zip
 
-== Deploy or run Cockpit Console
+== Deploy or run Gravitee Cloud Console
 
-Cockpit Console is a client-side Angular application and can be deployed on any HTTP server, such as https://httpd.apache.org/[Apache^] or http://nginx.org/[Nginx^].
+Gravitee Cloud Console is a client-side Angular application and can be deployed on any HTTP server, such as https://httpd.apache.org/[Apache^] or http://nginx.org/[Nginx^].
 
-NOTE: Cockpit Console uses HTML5 mode and requires server side rewrites to make it work, such as in the Apache and Nginx examples below.
+NOTE: Gravitee Cloud Console uses HTML5 mode and requires server side rewrites to make it work, such as in the Apache and Nginx examples below.
 
 === Apache
 

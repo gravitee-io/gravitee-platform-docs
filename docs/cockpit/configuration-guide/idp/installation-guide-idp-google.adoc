@@ -3,16 +3,16 @@
 :page-sidebar: cockpit_sidebar
 :page-permalink: cockpit/3.x/cockpit_installguide_idp_google.html
 :page-folder: cockpit/installation-guide/idp
-:page-description: Gravitee.io Cockpit - Identity Provider - Google
+:page-description: Gravitee Cloud - Identity Provider - Google
 :page-keywords: Gravitee.io, API Platform, API Management, Cockpit, documentation, manual, guide, reference, api, idp, google
 
 == Overview
 
-This page explains how to configure Cockpit for Google account login.
+This page explains how to configure Gravitee Cloud for Google account login.
 
 == Create a Google OAuth application
 
-Before you can connect to Cockpit using a Google account, you need to create a Google application to link to Cockpit.
+Before you can connect to Gravitee Cloud using a Google account, you need to create a Google application to link to Cockpit.
 
 === Create Google OAuth2 client IDs
 

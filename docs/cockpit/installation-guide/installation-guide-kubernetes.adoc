@@ -5,6 +5,6 @@
 
 == Overview
 
-This section explains how to deploy Cockpit in Kubernetes. These procedures are intended for users who are already familiar with Kubernetes.
+This section explains how to deploy Gravitee Cloud in Kubernetes. These procedures are intended for users who are already familiar with Kubernetes.
 
 include::https://raw.githubusercontent.com/gravitee-io/helm-charts/master/cockpit/README.adoc[]

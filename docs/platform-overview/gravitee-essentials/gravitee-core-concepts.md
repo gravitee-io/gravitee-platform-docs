@@ -42,13 +42,13 @@ When starting on your Gravitee journey, it can be difficult to understand how al
   * Exposing backend APIs in a developer portal to be accessed by API consumers
 * As shown, a single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM which can be linked together or used as standalone products.
-* Each APIM and AM instance is attached to a Gravitee Cockpit environment.
-* Cockpit has a hierarchy with three entity types:
+* Each APIM and AM instance is attached to a Gravitee Cloud environment.
+* Gravitee Cloud has a hierarchy with three entity types:
   * The top level is an **account** (typically corresponding to a company as opposed to an individual user).
   * The next level is an **organization** (typically corresponding to a logical part of the company in the particular company context, such as a region or business unit)
   * The lowest level is an **environment** (typically corresponding to an environment in an IT infrastructure, such as a development or production environment)
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample cockpit hierarchy</p></figcaption></figure>
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample Gravitee Cloud hierarchy</p></figcaption></figure>
 
 ### API Gateway: Policies and Plugins <a href="#api-gateway-policies-and-plugins-5" id="api-gateway-policies-and-plugins-5"></a>
 

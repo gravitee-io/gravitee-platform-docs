@@ -8,7 +8,7 @@
 
 === Features
 
-- Add Cockpit API Designer
+- Add Gravitee Cloud API Designer
 - Renew certificate if not exist
 - Remove jdbc repositories
 

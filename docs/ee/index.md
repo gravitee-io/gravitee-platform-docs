@@ -318,7 +318,7 @@ info</p></td>
 <tr class="odd">
 <td style="text-align: center;"><p>GRAVITEE <a
 href="https://www.gravitee.io/platform/cockpit">COCKPIT^</a></p></td>
-<td style="text-align: center;"><p>Cockpit is a centralized,
+<td style="text-align: center;"><p>Gravitee Cloud is a centralized,
 multi-environment tool for managing all your Gravitee API Management and
 Access Management installations in a single place</p></td>
 <td style="text-align: center;"><p>Free to trial with CE, with a
