@@ -6,11 +6,11 @@ description: >-
 
 # Configure Alerts and Notifications
 
-### Introduction
+## Introduction
 
 Gravitee allows you to set up alerts and notifications based on events recognized by the Gateway. You can [set up notifications](configure-alerts-and-notifications.md#configure-notifications-for-your-apis) that appear in the Gravitee API Management UI or that are sent to Gravitee users via email. You can also [create custom alerts](configure-alerts-and-notifications.md#configure-alerts) based on user-defined rules and conditions. Keep reading to learn how to configure alerts and notifications.
 
-### Configure notifications for your APIs
+## Configure notifications for your APIs
 
 {% @arcade/embed flowId="vLOPiPtuGAbHWNJj6LRN" url="https://app.arcade.software/share/vLOPiPtuGAbHWNJj6LRN" %}
 
@@ -26,23 +26,21 @@ To configure email notifications, select **Default Mail Notifications** and then
 
 <figure><img src="../../.gitbook/assets/Configure notifications.gif" alt=""><figcaption></figcaption></figure>
 
-### Configure alerts
+## Configure alerts
 
 {% hint style="info" %}
-The following documentation is only relevant if you have Gravitee Alert Engine enabled, which is an Enterprise only capability. If you want the full extent of the following alerting capabilities, please reach out to Gravitee by [contacting us here](https://www.gravitee.io/contact-us), or, by speaking with your CSM.
+The following documentation is only relevant if you have Gravitee Alert Engine enabled, which is an Enterprise-only capability. To enable the following alerting capabilities, please [contact us](https://www.gravitee.io/contact-us) or reach out to your CSM.
 {% endhint %}
 
 {% @arcade/embed flowId="5HCcKbjuS7rfjlFsxPTI" url="https://app.arcade.software/share/5HCcKbjuS7rfjlFsxPTI" %}
 
-In addition to notifications, you can set up alerting conditions for the Gateway. Like notifications, this done as a part of configuring an APIs settings.
+When configuring an API's settings, you can also set up alerting conditions for the Gateway. To configure alerts for an API, select the API from the **APIs** menu. Then, under **Notifications,** select **Alerts**.&#x20;
 
-To configure alerts for your APIs, select your API from the **APIs** menu. Then, under **Notifications,** select **Alerts**.&#x20;
-
-If you already have alerts configured, you'll see the configured Alerts. If not, you'll see a blank alerts menu and a **+** icon.
+If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
 
 <figure><img src="../../.gitbook/assets/Alerts menu.png" alt=""><figcaption><p>Blank alerts page</p></figcaption></figure>
 
-Select the **+** icon to start creating your first alert. On the **Create a new alert** page, you are able to configure the following:
+Select the **+** icon to create your first alert. On the **Create a new alert** page, you can configure the following:
 
 * General settings
   * Name
@@ -53,7 +51,7 @@ Select the **+** icon to start creating your first alert. On the **Create a new 
 * Condition: set conditions for when your rule should operate and trigger alerts
 * Filters: define a subset of events for which your conditions and rules should be applied
 
-Alerts will, by default, show up in your Dashboard under the Alerts tab and on the Alerts page.&#x20;
+By default, alerts will show up in your Dashboard under the Alerts tab and on the Alerts page.&#x20;
 
 <figure><img src="../../.gitbook/assets/Alert areas.gif" alt=""><figcaption><p>You can see alerts in the Alerts tab and the Alerts page.</p></figcaption></figure>
 
