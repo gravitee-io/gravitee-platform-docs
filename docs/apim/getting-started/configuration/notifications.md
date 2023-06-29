@@ -2,9 +2,9 @@
 
 ## Introduction
 
-APIM includes 3 categories of notifications and 3 types of notifiers. Their purpose and. configuration are described below.
+APIM includes 3 categories of notifications and 3 types of notifiers. Their purpose and configuration are described below.
 
-## Notifications
+### Notifications
 
 {% tabs %}
 {% tab title="Portal" %}
@@ -47,81 +47,10 @@ To subscribe to notifications related to a specific application, go to **APIM Co
 {% endtab %}
 {% endtabs %}
 
-### Portal notifications
+### Notifiers
 
-Portal notifications relate to the platform and include the following:
-
-| Name                      | What triggers it?                                              |
-| ------------------------- | -------------------------------------------------------------- |
-| First Login               | User logs in for the first time                                |
-| Group invitation          | User is invited in a group                                     |
-| Message                   | Custom message is sent to an Environment Role via notification |
-| New Support Ticket        | New support ticket is created                                  |
-| Password Reset            | Password is reset                                              |
-| User Created              | New user is created                                            |
-| User Registered           | User is registered                                             |
-| User Registration Request | New user is created and automatic validation is disabled       |
-
-To subscribe to Portal notifications, go to **APIM Console > Settings > Notifications**:
-
-<figure><img src="../../.gitbook/assets/portal_notifications.png" alt=""><figcaption></figcaption></figure>
-
-### API notifications
-
-API notifications relate to a specific API and include the following:
-
-| Name                     | What triggers it?                                              |
-| ------------------------ | -------------------------------------------------------------- |
-| Accept API review        | API review is accepted                                         |
-| API Deprecated           | API is deprecated                                              |
-| API key Expired          | API key is expired                                             |
-| API key Renewed          | API key is renewed                                             |
-| API key Revoked          | API key is revoked                                             |
-| API Started              | API is started                                                 |
-| API Stopped              | API is stopped                                                 |
-| Ask for API review       | API is ready for review                                        |
-| Message                  | Custom message is sent to an Application Role via notification |
-| New Rating               | New rating is submitted                                        |
-| New Rating Answer        | New answer is submitted                                        |
-| New Subscription         | Subscription is created                                        |
-| New Support Ticket       | New support ticket is created                                  |
-| Reject API review        | API review is rejected                                         |
-| Subscription Accepted    | Subscription is accepted                                       |
-| Subscription Closed      | Subscription is closed                                         |
-| Subscription Paused      | Subscription is paused                                         |
-| Subscription Rejected    | Subscription is rejected                                       |
-| Subscription Resumed     | Subscription is resumed                                        |
-| Subscription Transferred | Subscription is transferred                                    |
-
-To subscribe to notifications related to a specific API, go to **APIM Console > APIs**, select the API, and click **Notifications**:
-
-<figure><img src="../../.gitbook/assets/api_notifications.png" alt=""><figcaption></figcaption></figure>
-
-### Application notifications
-
-Application notifications relate to a specific application and include the following:
-
-| Name                     | What triggers it?             |
-| ------------------------ | ----------------------------- |
-| New Subscription         | Subscription is created       |
-| New Support Ticket       | New support ticket is created |
-| Subscription Accepted    | Subscription is accepted      |
-| Subscription Closed      | Subscription is closed        |
-| Subscription Paused      | Subscription is paused        |
-| Subscription Rejected    | Subscription is rejected      |
-| Subscription Resumed     | Subscription is resumed       |
-| Subscription Transferred | Subscription is transferred   |
-
-To subscribe to notifications related to a specific application, go to **APIM Console >** **Applications**, select the application, and click **Notifications**:
-
-<figure><img src="../../.gitbook/assets/application_notifications.png" alt=""><figcaption></figcaption></figure>
-
-## Notifiers
-
-In addition to the following standard notifiers, new notifiers can be created.
-
-### Portal notifiers
-
+{% tabs %}
+{% tab title="Portal" %}
 The Portal notifier is the default notifier and sends messages to users logged in to the Developer Portal. Notifications can be displayed by clicking the bell icon in the header menu of APIM Console:
 
 <div align="left">
@@ -139,9 +68,9 @@ In the Developer Portal, notifications are displayed in a page accessible from t
 </div>
 
 The templates of Portal notifications can be customized in **Settings**. For more information, see [Templates](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#templates).
+{% endtab %}
 
-### Email notifiers
-
+{% tab title="Email" %}
 Email notifiers send an email to a specific list of email addresses. To create a new email notifier:
 
 1. Click the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png) .
@@ -156,9 +85,9 @@ A default email notifier is created for every API. All notifications are presele
 <figure><img src="../../.gitbook/assets/default_mail_notifier.png" alt=""><figcaption></figcaption></figure>
 
 The [templates](notifications.md#templates) of email notifications can be customized in **Settings.**
+{% endtab %}
 
-### Webhook notifiers
-
+{% tab title="Webhook" %}
 Webhook notifiers send an HTTP POST request to a configured URL. The request contains two headers and a JSON body representing the message. The headers are:
 
 * `X-Gravitee-Event` : Contains the event ID (e.g., `API_KEY_REVOKED`)
@@ -204,8 +133,10 @@ To create a Webhook notifier:
 2. Choose the **Default Webhook Notifier** type and give the notifier a name.
 3. Add the URL which APIM will call to send notifications.
 4. Subscribe to the desired notifications.
+{% endtab %}
+{% endtabs %}
 
-## Templates
+### Templates
 
 Email and Portal notification templates are based on HTML and YML files, located here:
 
@@ -218,14 +149,13 @@ These templates can be overridden in **APIM Console > Organization > Notificatio
 
 <figure><img src="../../.gitbook/assets/template_notifications.png" alt=""><figcaption></figcaption></figure>
 
-Also customizable:
+Email templates that are sent for specific actions and not related to a notification can be customized. Typically, these emails are intended for specific users.
 
-* Email templates that are sent for specific actions and not related to a notification. Typically, these emails are intended for specific users.
-* The `header.html` file that is included by default in all email templates.
+The `header.html` file that is included by default in all email templates can also be customized.
 
 <figure><img src="../../.gitbook/assets/templates_to_include.png" alt=""><figcaption></figcaption></figure>
 
-### Customize a template
+#### Customize a template
 
 Portal and email notifiers can be configured for most notifications. To customize a template, toggle the switch **Override default template** and update the title and/or content.
 
@@ -239,9 +169,7 @@ Portal and email notifiers can be configured for most notifications. To customiz
 
 </div>
 
-### Attributes
-
-Available attributes are summarized below. Use the [Apache Freemarker template engine](https://freemarker.apache.org/) to add specific information to templates, e.g., ${user.name} or ${api.metadata\['foo-bar']}.
+The available attributes are summarized below. Use the [Apache Freemarker template engine](https://freemarker.apache.org/) to add specific information to templates, e.g., ${user.name} or ${api.metadata\['foo-bar']}.
 
 | API               | Application      | Group            | Plan               | Owner/User  | Subscription |
 | ----------------- | ---------------- | ---------------- | ------------------ | ----------- | ------------ |
@@ -254,7 +182,7 @@ Available attributes are summarized below. Use the [Apache Freemarker template e
 | createdAt (Date)  | createdAt (Date) | createdAt (Date) | createdAt (Date)   | -           | closedAt     |
 | updatedAt (Date)  | updatedAt (Date) | updatedAt (Date) | updatedAt (Date)   | -           | subscribedAt |
 
-The following is a sample template:
+#### Example template
 
 ```ftl
 <html>
