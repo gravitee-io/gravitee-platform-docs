@@ -115,7 +115,9 @@ Reactive programming exposes the limitations of traditional message processing, 
 
 ### Stateful vs Stateless Web APIs <a href="#stateful-vs-stateless-web-apis-13" id="stateful-vs-stateless-web-apis-13"></a>
 
-Okay, just one more categorization to tackle. Typically, synchronous APIs are presented as being synonymous with stateless APIs while asynchronous APIs are seen as being synonymous with stateful APIs. This is not always the case. But first, let’s define what we mean by stateless vs stateful.
+
+
+The terms "synchronous API" and "stateless API" are often interchangeably, as are "asynchronous API" and "stateful API." While this can be true, the concepts and implementations associated with the terms in each of these comparisons are also differentiable.&#x20;
 
 The stateless vs stateful label is all about the perspective of the server/broker. A stateless API means the server does not store any information about the client making the request. In other words, the **session** is stored on the client where the session is an encapsulation of a particular client and server interaction. Each client request is self-contained and provides all the information that the server needs to respond including any necessary authentication tokens. The independent nature of each request is core to any stateless API.
 

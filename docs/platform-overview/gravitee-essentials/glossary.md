@@ -34,7 +34,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **AM Gateway:** AM Gateway is the core component of the AM platform. It acts as a trust broker, connecting supported identity providers with users in a single integration and enabling customized authentication and authorization flows.
 
-**AM Management API:** A REST API used to configure and manage the AM platform, users and user sessions, and the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0, and SCIM 2.0 protocols.
+**AM Management API (mAPI):** A REST API used to configure and manage the AM platform, users and user sessions, and the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0, and SCIM 2.0 protocols.
 
 **AM Console:** A web UI that acts as the graphical interface to the AM Management API functionality.
 
