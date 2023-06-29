@@ -47,7 +47,7 @@ CORS can also be configured at the API level. To configure CORS at the API level
   * Host
   * Port
   * Username
-  * PAssword
+  * Password
   * Protocol
   * Subject line content
   * "From" email address
