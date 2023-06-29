@@ -11,7 +11,7 @@ Gravitee offers simple methods for managing Organizations and Environments. In t
 * Defining general Organization settings
 * Configuring Authentication settings (Identity Providers) for accessing the Gravitee API Management platform&#x20;
 * Setting up notification templates
-* Connecting Gravitee API Management to Gravitee Cloud for advanced Environment Management
+* Connecting Gravitee API Management to Gravitee Cockpit for advanced Environment Management
 
 ### Defining general Organization settings
 
