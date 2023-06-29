@@ -2,8 +2,8 @@
 
 To further clarify web API structure and functionality, this section addresses:
 
-* [Internet vs world wide web](web-apis.md#internet-vs-world-wide-web)
-* [shift to microservices](web-apis.md#shift-to-microservices)
+* [The internet vs the world wide web](web-apis.md#internet-vs-world-wide-web)
+* [The shift to microservices](web-apis.md#shift-to-microservices)
 * [API protocols](web-apis.md#protocols-4)
 * [API architectures/patterns](web-apis.md#architectural-stylespatterns-5)
 * [API specifications](web-apis.md#specifications-6)
