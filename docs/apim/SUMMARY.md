@@ -38,7 +38,7 @@
     * [Logging](getting-started/configuration/the-gravitee-api-gateway/logging.md)
     * [Sharding tags](getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md)
     * [Tenants](getting-started/configuration/the-gravitee-api-gateway/tenants.md)
-    * [Configure Dictionaries](getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md)
+    * [Dictionaries](getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md)
   * [Configure APIM Management API](getting-started/configuration/configure-apim-management-api/README.md)
     * [General Configuration](getting-started/configuration/configure-apim-management-api/internal-api.md)
   * [Configure APIM Console](getting-started/configuration/configure-apim-management-ui.md)
