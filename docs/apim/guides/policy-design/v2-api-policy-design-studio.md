@@ -222,18 +222,18 @@ Debug mode also does not support testing the following policies and features:
 * **Encrypted properties** - For security reasons, you won’t be able to clear encrypted properties in debug mode (it could have an impact if you want to use them in a condition for example)
 {% endhint %}
 
-Debug mode is a tool for troubleshooting your gateway APIs running on Gravitee API Management. It provides detailed information about the behavior of each policy in your flows, as well as the overall execution order at runtime. With debug mode, you can:
+Debug mode is a tool for troubleshooting your Gateway APIs running on Gravitee API Management. It provides detailed information about the behavior of each policy in your flows, as well as the overall execution order at runtime. With Debug mode, you can:
 
-* Understand which policies are triggered by a specific request (including Platform-level policies)
-* Visualise which policies are executed or skipped (conditional policy)
+* Understand which policies are triggered by a specific request (including platform-level policies)
+* Visualize which policies are executed or skipped (conditional policy)
 * Understand the order of execution of your policies
 * Trace transformations and changes made to headers, body, and execution context
-* Easily troubleshoot and find the root cause of errors, misbehaviors, or performance issues
+* Easily troubleshoot and root-cause errors, misbehaviors, or performance issues
 
 To debug your flows:
 
 1. Select the **Debug** tab
-2. Define your HTTP method, path, headers, and request bodies for the debug request
+2. Define the HTTP method, path, headers, and request bodies for the debug request
 3. Select **Send**
 
 Gravitee will initiate a test request, and then you will be presented with a timeline that shows the order of your flows and policies.
@@ -244,21 +244,21 @@ Gravitee will initiate a test request, and then you will be presented with a tim
 
 Gravitee Debug mode uses different indicators to indicate the status of policies:&#x20;
 
-* **executed**: The policy has been executed properly
-* **skipped:** The policy contains a condition that has not been fulfilled. Refer to the input/output inspector for more details on the evaluation of the condition.
-* **error:** An error occurred during policy execution. Refer to the input/output inspector for more details on the error.
+* **Executed**: The policy has been executed properly
+* **Skipped:** The policy contains a condition that has not been fulfilled. Refer to the input/output inspector for more details on the evaluation of the condition.
+* **Error:** An error occurred during policy execution. Refer to the input/output inspector for more details on the error.
 
-By selecting a specific policy in the timeline, you have access to additional information regarding the input/output of the policy:
+Select a specific policy in the timeline to access additional information regarding the input/output of the policy:
 
-* header
-* context attributes
-* body
+* Header
+* Context attributes
+* Body
 
 The inspector relies on 3 colors to indicate the nature of changes:
 
-* **green** color indicates an addition
-* **orange** color indicates an edit
-* **red** color indicates a deletion
+* **Green:** Indicates an addition
+* **Orange:** Indicates an edit
+* **Red:** Indicates a deletion
 
 ### Understanding the timeline
 
