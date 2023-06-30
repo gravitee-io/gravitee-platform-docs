@@ -2,7 +2,7 @@
 
 ## Design
 
-This is the core part of the API Designer because this is where you …​ design APIs!
+The design interface is the core of the API Designer.
 
 ![Mindmap](https://docs.gravitee.io/images/cockpit/apid\_design\_default.png)
 
@@ -44,10 +44,7 @@ For a **resource** you can specify which [operations](https://docs.gravitee.io/c
 For an **attribute** you can
 
 * Determine its visibility in requests and responses
-*   Add it as a filter and/or result of searches
-
-    |   | An attribute can only be added if the parent resource or attribute is added. |
-    | - | ---------------------------------------------------------------------------- |
+* Add it as a filter for and/or result of searches. An attribute can only be added if the parent resource or attribute is added.
 
 An **attribute** can be expanded. This will automatically change its type to **Object**. If you want to turn it into a **resource**, it has to be a list.
 
