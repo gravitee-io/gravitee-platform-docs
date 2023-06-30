@@ -54,3 +54,4 @@ Click on the following **Settings** options in the left-hand nav to customize AP
 Only environments linked to active API Management installations will be shown.
 {% endhint %}
 
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td>Design interface</td><td></td></tr><tr><td></td><td>Push interface</td><td></td></tr></tbody></table>
