@@ -127,7 +127,7 @@ To implement EDA at the component or service level, programmers typically employ
 
 Reactive programming opens the door to stream processing. Stream processing works with distributed streaming systems like [Kafka](https://www.confluent.io/what-is-apache-kafka/) that store ordered sequences of events, referred to as topics, in a data structure known as a log. Unlike traditional messaging queues which apply simple computations to individual or batches of messages, topics allow historical event data to be pulled, unlocking the potential for a slew of input streams to be joined, aggregated, filtered, etc. This is stream processing, which is less about real-time data than complex processing applied across an array of input streams.
 
-### Stateful vs Stateless Web APIs <a href="#stateful-vs-stateless-web-apis-13" id="stateful-vs-stateless-web-apis-13"></a>
+### Stateful vs stateless web APIs <a href="#stateful-vs-stateless-web-apis-13" id="stateful-vs-stateless-web-apis-13"></a>
 
 The terms "synchronous API" and "stateless API" are often used interchangeably, as are "asynchronous API" and "stateful API." While this is often accurate, a label of stateless vs stateful hinges on the perspective of the server or broker.&#x20;
 

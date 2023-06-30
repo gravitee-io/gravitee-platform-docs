@@ -45,17 +45,31 @@ The need for accurate and reliable data factors heavily into why many applicatio
 
 ### Application layer
 
-The application layer is the top layer of the layered network model and contains many recognizable protocols, such as those shown in the table below. Protocol network communication is either synchronous or asynchronous and can differ between versions of the same protocol.
+The application layer is the top layer of the layered network model and contains many recognizable protocols, such as those shown in the table [below](web-apis.md#types). Protocol network communication is either synchronous or asynchronous and can differ between versions of the same protocol.
+
+Application layer protocols define how independent programs and services communicate over networks and share information. While the other protocol layers focus on delivering data to a destination, the application layer protocols are responsible for establishing communication standards that dictate how that data is accessed and consumed. Specifically, the application layer provides the programs at each end of a communication link with interface methods to ensure that the request and response are understood and managed correctly. The role the application layer plays in defining interface conventions explains why an API type and its protocol are often synonymous.
+
+#### Types of application layer protocols
 
 <table><thead><tr><th width="347">Name</th><th width="135">Abbreviation</th><th>Communication Type</th></tr></thead><tbody><tr><td>Hypertext Transfer Protocol</td><td>HTTP</td><td>Sync/Async</td></tr><tr><td>Hypertext Transfer Protocol Secure</td><td>HTTPS</td><td>Sync/Async</td></tr><tr><td>Websocket</td><td>N/a</td><td>Async</td></tr><tr><td>Server Sent Events</td><td>SSE</td><td>Async</td></tr><tr><td>File Transfer Protocol</td><td>FTP</td><td>Sync</td></tr><tr><td>Message Queuing Telemetry Transport</td><td>MQTT</td><td>Async</td></tr><tr><td>Advanced Message Queuing Transport</td><td>AMQP</td><td>Async</td></tr><tr><td>Kafka’s Custom Binary Protocol</td><td>N/a</td><td>Async</td></tr><tr><td>Google Remote Procedure Call</td><td>gRPC</td><td>Sync/Async </td></tr><tr><td>Simple Object Access Protocol</td><td>SOAP</td><td>Sync/Async </td></tr><tr><td>Simple Mail Transfer Protocol</td><td>SMTP</td><td>Sync</td></tr><tr><td>Domain Name Service</td><td>DNS</td><td>Sync/Async </td></tr><tr><td>Extensible Messaging and Presence Protocol</td><td>XMPP</td><td>Async</td></tr></tbody></table>
+
+Despite sitting at the same layer of the networking model, application layer protocols can be dependent on one another, and many depend on HTTP/HTTPS. For example, SOAP effectively tunnels over HTTP, which is a strategy employed by many protocols, including modern asynchronous protocols like WebSocket.
+
+{% hint style="info" %}
+To clarify, the WebSocket protocol [handshake](https://www.baeldung.com/cs/handshakes) uses HTTP, but HTTP is not involved past that point. Learn more about this distinction [here](https://stackoverflow.com/a/47085864).
+{% endhint %}
+
+Although SOAP can be designed to function over raw TCP, HTTP leverages the existing web ecosystem and offers advantages. HTTP is fundamental to web communication and there has been substantial, global investment in server and client-side infrastructure (i.e., web browsers) designed around HTTP/HTTPS. In addition, security provisions such as firewalls tend to admit network traffic targeted for ports 80/443, meaning that applications built on HTTP are much more likely to work out of the box.
+
+Networks, including the internet, support many application layer protocols that are in no way tied to HTTP. Most of the other application layer protocols relevant to this guide are built on top of raw TCP. For example, [Kafka implements a custom binary application protocol over TCP](https://kafka.apache.org/protocol.html) due to performance concerns when using HTTP to deliver massive amounts of real-time data.
+
+To summarize, APIs depend on many protocols. The ideal protocol stack, just like the ideal application stack, is completely context-dependent and subject to considerations such as application environment, security concerns, payload, network quality, etc.
 
 {% hint style="info" %}
 "Webhook API" is a misnomer. Webhooks are not APIs. [Webhooks are essentially functionality that can be added to existing APIs](https://www.redhat.com/en/topics/automation/what-is-a-webhook). Compounding this misconception,  APIs are often categorized by the application layer protocol they employ, but Webhook is not an application layer protocol itself. Webhooks communicate over the HTTP application layer protocol.
 {% endhint %}
 
-Application layer protocols define how independent programs and services communicate over networks and share information. While the other protocol layers focus on delivering data to a destination, the application layer protocols are responsible for establishing communication standards that dictate how that data is accessed and consumed. Specifically, the application layer provides the programs at each end of a communication link with interface methods to ensure that the request and response are understood and managed correctly. The role the application layer plays in defining interface conventions explains why an API type and its protocol are often synonymous.
-
-### A working example
+### Example
 
 Modern web browsers are applications that communicate over the HTTP/HTTPS protocol (HTTPS is HTTP with encryption and verification) but often truncate the visible website address to omit the protocol and subdomain. This is evidenced by visiting a site such as [Google](https://google.com/) and double-clicking the URL.
 
@@ -71,11 +85,11 @@ Modern web browsers are applications that communicate over the HTTP/HTTPS protoc
 
 The graphic below clarifies the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
 
-<figure><img src="../../.gitbook/assets/uri_diagram1.png" alt=""><figcaption><p><a href="https://hanseul-lee.github.io/2020/12/24/20-12-24-URL/">URI vs URL vs URN</a></p></figcaption></figure>
-
 {% hint style="info" %}
 If you need additional help untangling URIs, URLs, and URNs, read [this explanation](https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn/1984225#1984225) on stack overflow.
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/uri_diagram1.png" alt=""><figcaption><p><a href="https://hanseul-lee.github.io/2020/12/24/20-12-24-URL/">URI vs URL vs URN</a></p></figcaption></figure>
 
 A communication link between two applications requires that each endpoint is defined by a network socket, which is a combination of transport layer protocol, domain (which resolves to an IP address), and port number that uniquely and completely resolves the web address of a client request to a web server.
 
@@ -89,27 +103,15 @@ HTTP includes standard status codes to qualify the state of every network commun
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5243c9b089b8754b37695dedcf1450bace820b90_2_690x262.png" alt=""><figcaption><p>HTTPS error response example</p></figcaption></figure>
 
-### Endpoints
+## Endpoints
 
 The route portion of a URL combined with an HTTP method constitutes an HTTP API endpoint. Every resource can be accessed by the user of the API at a unique endpoint. For example, `GET http://foo.com/api/user/1` and `GET http://foo.com/api/user/2` contain different routes and correspond to distinct resources. `GET http://foo.com/api/user/1` and `POST http://foo.com/api/user/1` are also considered unique endpoints due to the change in HTTP method.
 
-In this example, all resources, and all therefore endpoints tied to this API, exist under a single API entry point of `http://foo.com/api`. The entry point can be viewed as a special type of endpoint: as the gateway to the API, it’s a resource that exists outside of any other collection and contains all other collections of resources.
+In this example, all resources, and therefore, all endpoints tied to this API, exist under a single API entry point of `http://foo.com/api`. The entry point can be viewed as a special type of endpoint: as the gateway to the API, it’s a resource that exists outside of any other collection and contains all other collections of resources.
+
+#### Path parameters
 
 Path parameters allow variable values to be passed along the URL path of a request. In a typical API route, the path is divided into segments separated by forward slashes `/`. Path parameters are denoted by a placeholder or variable name within curly braces `{}`. When a request is made, the actual value for the parameter is substituted in place of the placeholder. The above example could represent an endpoint as `GET http://foo.com/api/user/{id}` where `{id}` is the path parameter.
-
-### Protocol types
-
-Despite sitting at the same layer of the networking model, application layer protocols can be dependent on one another, and many depend on HTTP/HTTPS. For example, SOAP effectively tunnels over HTTP, which is a strategy employed by many protocols, including modern asynchronous protocols like WebSocket.
-
-{% hint style="info" %}
-To clarify, the WebSocket protocol [handshake](https://www.baeldung.com/cs/handshakes) uses HTTP, but HTTP is not involved past that point. Learn more about this distinction [here](https://stackoverflow.com/a/47085864).
-{% endhint %}
-
-Although SOAP can be designed to function over raw TCP, HTTP leverages the existing web ecosystem and offers advantages. HTTP is fundamental to web communication and there has been substantial, global investment in server and client-side infrastructure (i.e., web browsers) designed around HTTP/HTTPS. In addition, security provisions such as firewalls tend to admit network traffic targeted for ports 80/443, meaning that applications built on HTTP are much more likely to work out of the box.
-
-Networks, including the internet, support many application layer protocols that are in no way tied to HTTP. Most of the other application layer protocols relevant to this guide are built on top of raw TCP. For example, [Kafka implements a custom binary application protocol over TCP](https://kafka.apache.org/protocol.html) due to performance concerns when using HTTP to deliver massive amounts of real-time data.
-
-To summarize, APIs depend on many protocols. The ideal protocol stack, just like the ideal application stack, is completely context-dependent and subject to considerations such as application environment, security concerns, payload, network quality, etc.
 
 ## Architectural styles/patterns <a href="#architectural-stylespatterns-5" id="architectural-stylespatterns-5"></a>
 
