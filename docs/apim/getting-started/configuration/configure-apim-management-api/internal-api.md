@@ -250,12 +250,6 @@ The Analytics repository is used to store all reporting, metrics, and health-che
 #       password:
 ```
 
-## Default configuration
-
-You can configure various default properties of APIM API in your `gravitee.yml` file.
-
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-rest-api/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/src/main/resources/config/gravitee.yml" %}
-
 ## SMTP configuration
 
 This section shows the SMTP configuration used for sending email.
@@ -293,7 +287,7 @@ You configure SMTP in the **SMTP** section of the APIM Console and APIM Portal *
 
 If required, you can configure the GMAIL SMTP server in `gravitee.yml` as follows:
 
-```
+```yaml
 email:
   enabled: true
   host: smtp.gmail.com
@@ -314,44 +308,37 @@ If you are using 2-Factor Authentication (which is recommended), you need to [ge
 
 You can configure various user options:
 
-user.login.defaultApplication
+`user.login.defaultApplication`: `boolean` (default: `true`) — creates a new application for all new users
 
-boolean (default: true) — creates a new application for all new users
+`user.creation.token.expire-after`: `number` (default: `86400`) — number of seconds before the user registration token expires
 
-user.creation.token.expire-after
+`user.reference.secret`: `32 characters` (default: `s3cR3t4grAv1t33.1Ous3D4R3f3r3nc3`) — secret used to generate a unique anonymous reference to a user; **You must change this value**
 
-number (default: 86400) — number of seconds before the user registration token expires
-
-user.reference.secret
-
-32 characters (default: s3cR3t4grAv1t33.1Ous3D4R3f3r3nc3) — secret used to generate a unique anonymous reference to a user; **You must change this value**
-
-user.anonymize-on-delete:enabled
-
-boolean (default: false) - If true, the user **firstname**, **lastname** and **email** are anonymized when a user is deleted
+`user.anonymize-on-delete:enabled`: `boolean` (default: `false`) - If true, the user's first name, last name, and email are anonymized when a user is deleted
 
 ## Management configuration
 
-You can configure various management settings in the APIM Console **Settings** page with environment variables. For a complete list of these settings, see [Management settings list](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_configuration.html#management\_settings\_list) below. Once you override these properties with environment variables, APIM Console configures them as read-only to prevent you overwriting the new values in the interface.
+You can configure various management settings in the APIM Console **Settings** page with environment variables. For a complete list of these settings, see [Management settings list](internal-api.md#management-settings-list) below. Once you override these properties with environment variables, APIM Console configures them as read-only to prevent you from overwriting the new values in the interface.
 
 {% hint style="info" %}
-* For array properties, separate your environment variable properties with a comma. For example: `my_var=item1,item2,item3`.
-* We recommend you prefix Gravitee variables with `gravitee.` to avoid conflicts with other variables.
+For array properties, separate your environment variable properties with a comma. For example: `my_var=item1,item2,item3`.
 {% endhint %}
 
 ### Example
 
-For example, you can override the analytics client timeout with the following variables:
+For example, you can override the analytics client timeout with either of the following environment variables:
 
 ```
-GRAVITEE_ANALYTICS_CLIENT_TIMEOUT=15000
-GRAVITEE.ANALYTICS.CLIENT.TIMEOUT=15000
 gravitee_analytics_client_timeout=15000
 gravitee.analytics.client.timeout=15000
 ```
 
 ### Management settings list
 
-```
-Unresolved directive in installation-guide-rest-apis-configuration.adoc - include::https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-rest-api/gravitee-apim-rest-api-model/src/main/java/io/gravitee/rest/api/model/parameters/Key.java[]
-```
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-rest-api/gravitee-apim-rest-api-model/src/main/java/io/gravitee/rest/api/model/parameters/Key.java" %}
+
+## Default `gravitee.yaml` config file
+
+The following is a reference of the default configuration of APIM Management API in your `gravitee.yml` file:
+
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-rest-api/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/src/main/resources/config/gravitee.yml" %}
