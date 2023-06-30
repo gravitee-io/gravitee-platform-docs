@@ -8,101 +8,7 @@ description: >-
 
 ## Introduction
 
-You can configure your Gravitee API Gateway using three methods:
-
-* Environment variables
-* System properties&#x20;
-* The `gravitee.yaml` file
-
-{% hint style="info" %}
-**Hierarchies**
-
-The order in which they are listed above corresponds to their order of precedence. In other words, environment variables override the other two configuration types, and system properties override `gravitee.yml`.
-{% endhint %}
-
-In this article, we walk through how to configure your general Gravitee API Gateway settings using each of the above methods.
-
-## Environment variables
-
-You can override the default APIM configuration (`gravitee.yml`) and system properties by defining environment variables.
-
-To override this property:
-
-```
-management:
-  mongodb:
-    dbname: myDatabase
-```
-
-...define one of the following variables:
-
-```
-GRAVITEE_MANAGEMENT_MONGODB_DBNAME=myDatabase
-gravitee_management_mongodb_dbname=myDatabase
-```
-
-Some properties are case-sensitive and cannot be written in uppercase (for example, `gravitee_security_providers_0_tokenIntrospectionEndpoint`). We advise you to define environment variables in lowercase. You must ensure you use the correct syntax for each property.
-
-In some systems, hyphens are not allowed in variable names. For example, you may need to write `gravitee_policy_api-key_header` as `gravitee_policy_apikey_header`. We recommend you check your system documentation.
-
-Some properties are arrays. For example:
-
-```
-analytics:
-  elasticsearch:
-    endpoints:
-      - https://my.first.endpoint.com
-      - https://my.second.endpoint.com
-
-security:
-  providers:
-    - type: ldap
-      context-source-username: "cn=Directory Manager"
-      context-source-password: "password"
-```
-
-Below are some examples of how to write your environment variables. If you aren't sure which will work best for you, we recommend you try both:
-
-**Example one**
-
-```
-gravitee_analytics_elasticsearch_endpoints_0=https://my.first.endpoint.com
-gravitee_analytics_elasticsearch_endpoints_1=https://my.second.endpoint.com
-
-gravitee_security_providers_0_type=ldap
-gravitee_security_providers_0_contextsourceusername=cn=Directory Manager
-gravitee_security_providers_0_contextsourcepassword=password
-```
-
-**Example two**
-
-```
-gravitee.analytics.elasticsearch.endpoints[0]=https://my.first.endpoint.com
-gravitee.analytics.elasticsearch.endpoints[1]=https://my.second.endpoint.com
-
-gravitee.security.providers[0]type=ldap
-gravitee.security.providers[0]context-source-username=cn=Directory Manager
-gravitee.security.providers[0]context-source-password=password
-gravitee.security.providers[0].users[1].password=password
-```
-
-## System properties
-
-You can override the default APIM configuration (`gravitee.yml`) by defining system properties.
-
-To override this property:
-
-```
-management:
-  mongodb:
-    dbname: myDatabase
-```
-
-...add this property to the JVM:
-
-```
--Dmanagement.mongodb.dbname=myDatabase
-```
+This guide will walk through how to configure your general Gravitee API Gateway settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../#configuring-apim-components), you can override these settings by using system properties or environment variables
 
 ## The `gravitee.yaml` file
 
@@ -111,10 +17,10 @@ The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way t
 {% hint style="info" %}
 **Format sensitive**
 
-YAML (`yml`) format is very sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
+YAML (`yml`) format is sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
 {% endhint %}
 
-The rest of this article focuses on the default `gravitee.yaml` file and how to configure the following using the `gravitee.yaml` file:
+With the  `gravitee.yaml` file , you can configure the following
 
 * HTTP Server
   * HTTPS support
@@ -132,14 +38,389 @@ The rest of this article focuses on the default `gravitee.yaml` file and how to 
 * Services
 * Sharding tags
 * Organizations and environments
-* Transaction Id and Request Id Headers
+* Transaction ID and Request ID headers
 
-### Default `gravitee.yaml` config file
+## Configure your HTTP Server
 
-You can configure various default properties of APIM Gateway in your `gravitee.yml` file.
+You configure the HTTP Server configuration in the following section of the `gravitee.yaml` file:
+
+```yaml
+http:
+  port: 8082
+  host: 0.0.0.0
+  idleTimeout: 0
+  tcpKeepAlive: true
+  compressionSupported: false
+  maxHeaderSize: 8192
+  maxChunkSize: 8192
+  instances: 0
+  requestTimeout: 30000
+  secured: false
+  alpn: false
+  ssl:
+    clientAuth: none # Supports none, request, required
+    keystore:
+      path: ${gravitee.home}/security/keystore.jks
+      password: secret
+    truststore:
+      path: ${gravitee.home}/security/truststore.jks
+      password: secret
+```
+
+### **Enable HTTPS support**
+
+You can use the gravitee.yaml file to configure HTTPS support. However, you first need to provide a keystore. If you do not have one, you can generate it:
+
+```
+keytool -genkey \
+  -alias test \
+  -keyalg RSA \
+  -keystore server-keystore.jks \
+  -keysize 2048 \
+  -validity 360 \
+  -dname CN=localhost \
+  -keypass secret \
+  -storepass secret
+```
+
+#### **File keystore**
+
+You then need to enable secure mode in `gravitee.yml` and provide a path pointing to the keystore containing the certificate and the associated private key:
+
+```
+http:
+  # ... skipped for simplicity
+  secured: true
+  ssl:
+    clientAuth: none # Supports none, request, required
+    keystore:
+      path: /path/to/keystore.jks
+      password: adminadmin
+    truststore:
+      path:
+      password:
+```
+
+{% hint style="info" %}
+**Automatic watching**
+
+As of Gravitee APIM v3.13.0, the keystore file is automatically watched for any modifications and reloaded without having to restart the gateway server.
+{% endhint %}
+
+#### **Kubernetes Secret/ConfigMap keystore**
+
+It is also possible to load the keystore directly from the Kubernetes secret or configmap by just specifying the appropriate Kubernetes location. You can do so in the `gravitee.yaml` file like so:
+
+```yaml
+http:
+  # ... skipped for simplicity
+  secured: true
+  ssl:
+    clientAuth: none # Supports none, request, required
+    keystore:
+      type: pkcs12
+      kubernetes: /my-namespace/secrets/my-secret/keystore
+      password: adminadmin
+```
+
+The expected `http.ssl.keystore.kubernetes` is structured as follows: `/{namespace}/{type}/{name}/{key}` with:
+
+* `namespace`: the name of the targeted Kubernetes namespace
+* `type`: can be either `secrets` or `configmaps`, depending on the type of Kubernetes resources being retrieved
+* `name`: the name of the secret or configmap to retrieve
+* `key`: the name of the key holding the value to retrieve. The `key` is optional when using a standard `kubernetes.io/tls` secret (note: it only supports PEM cert & key). The `key` is mandatory for any `Opaque` secret or configmap (note: they only support JKS & PKC12 keystore type).
+
+The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is automatically watched for any modifications and reloaded without having to restart the gateway server.
+
+### **Enable HTTP/2 support**
+
+First, enable HTTPS support as described in the section above.
+
+You then need to enable `alpn` in `gravitee.yaml`:
+
+```
+http:
+  alpn: true
+  ...
+```
+
+You can now consume your API with both HTTP/1 and HTTP/2 protocols:
+
+```
+curl -k -v --http2 https://localhost:8082/my_api
+```
+
+#### **Enable WebSocket support**
+
+To enable WebSocket support, update the `gravitee.yaml` file like so:
+
+```
+http:
+  websocket:
+    enabled: true
+```
+
+You can now consume your API via both WS and WSS protocols:
+
+```
+curl ws://localhost:8082/my_websocket
+```
+
+### Enable certificate-based client authentication
+
+```
+http:
+  ssl:
+    clientAuth: none # Supports none, request, required
+    truststore:
+      path: /path/to/truststore.jks
+      password: adminadmin
+```
+
+Available modes for `clientAuth` are:
+
+* none: Client authentication is disabled (replacement of the `false` value)
+* request: Client authentication is not required but can be if using [SSL enforcement policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_ssl\_enforcement.html)
+* requires: Client authentication is required (replacement of `true` value)
+
+## Configure the Plugins repository
+
+You can configure the APIM Gateway [plugins](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html) directory:
+
+```
+plugins:
+  path: ${gravitee.home}/plugins
+```
+
+## Configure the Management repository
+
+The Management repository is used to store global configurations such as APIs, applications and apikeys. The default configuration uses MongoDB (single server). For more information about MongoDB configuration, [refer to this documentation](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html). You can confogure the Management repository using the `gravitee.yaml` file:
 
 {% code overflow="wrap" %}
+```yaml
+management:
+  type: mongodb
+  mongodb:
+    dbname: ${ds.mongodb.dbname}
+    host: ${ds.mongodb.host}
+    port: ${ds.mongodb.port}
+#    username:
+#    password:
+#    connectionsPerHost: 0
+#    connectTimeout: 500
+#    maxWaitTime: 120000
+#    socketTimeout: 500
+#    socketKeepAlive: false
+#    maxConnectionLifeTime: 0
+#    maxConnectionIdleTime: 0
+#    serverSelectionTimeout: 0
+#    description: gravitee.io
+#    heartbeatFrequency: 10000
+#    minHeartbeatFrequency: 500
+#    heartbeatConnectTimeout: 1000
+#    heartbeatSocketTimeout: 20000
+#    localThreshold: 15
+#    minConnectionsPerHost: 0
+#    threadsAllowedToBlockForConnectionMultiplier: 5
+#    cursorFinalizerEnabled: true
+## SSL settings (Available in APIM 3.10.14+, 3.15.8+, 3.16.4+, 3.17.2+, 3.18+)
+#    sslEnabled:
+#    keystore:
+#      path:
+#      type:
+#      password:
+#      keyPassword:
+#    truststore:
+#      path:
+#      type:
+#      password:
+## Deprecated SSL settings that will be removed in 3.19.0
+#    sslEnabled:
+#    keystore:
+#    keystorePassword:
+#    keyPassword:
+
+# Management repository: single MongoDB using URI
+# For more information about MongoDB configuration using URI, please have a look to:
+# - http://api.mongodb.org/java/current/com/mongodb/MongoClientURI.html
+#management:
+#  type: mongodb
+#  mongodb:
+#    uri: mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
+
+# Management repository: clustered MongoDB
+#management:
+#  type: mongodb
+#  mongodb:
+#    servers:
+#      - host: mongo1
+#        port: 27017
+#      - host: mongo2
+#        port: 27017
+#    dbname: ${ds.mongodb.dbname}
+#    connectTimeout: 500
+#    socketTimeout: 250
 ```
+{% endcode %}
+
+## Configure the Rate Limit repository
+
+When defining the [rate-limiting policy](https://docs.gravitee.io/apim/3.x/apim\_installguide\_gateway\_configuration.html#/apim\_policies\_rate\_limiting.html), the Gravitee APIM Gateway needs to store data to share with other APIM Gateway instances.
+
+For Management repositories, you can define a custom prefix for the Rate Limit table or collection name.
+
+### **Store counters in MongoDB**
+
+```yaml
+ratelimit:
+  type: mongodb
+  mongodb:
+    uri: mongodb://${ds.mongodb.host}/${ds.mongodb.dbname}
+    prefix: # collection prefix
+```
+
+If you want to use a custom prefix, you need to follow the following [instructions](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_mongodb.html#use\_a\_custom\_prefix).
+
+### **Store counters in JDBC**
+
+```yaml
+ratelimit:
+  type: jdbc
+  jdbc:
+    url: jdbc:postgresql://host:port/dbname
+    password: # password
+    username: # username
+    prefix:   # collection prefix
+```
+
+If you want to use a custom prefix, you need to follow the following [instructions](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_jdbc.html#use\_a\_custom\_prefix).
+
+## Configure reporters
+
+You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property '`enabled: false`'
+
+```yaml
+reporters:
+  elasticsearch:
+    endpoints:
+      - http://localhost:9200
+#    index: gravitee
+#    bulk:
+#       actions: 500           # Number of requests action before flush
+#       flush_interval: 1      # Flush interval in seconds
+#    security:
+#       username:
+#       password:
+```
+
+## Configure services
+
+You can update the default APIM Gateway default values. All services are enabled by default. To stop a service, you need to add the property '`enabled: false`' (you can see an example in the '`local`' service).
+
+```yaml
+services:
+  # Synchronization daemon used to keep the gateway state in sync with the configuration from the management repository
+  # Be aware that, by disabling it, the gateway will not be sync with the configuration done through management API and management UI
+  sync:
+    # Synchronization is done each 5 seconds
+    cron: '*/5 * * * * *'
+
+  # Service used to store and cache api-keys from the management repository to avoid direct repository communication
+  # while serving requests.
+  apikeyscache:
+    delay: 10000
+    unit: MILLISECONDS
+    threads: 3 # Threads core size used to retrieve api-keys from repository.
+
+  # Local registry service.
+  # This registry is used to load API Definition with json format from the file system. By doing so, you do not need
+  # to configure your API using the web console or the rest API (but you need to know and understand the json descriptor
+  # format to make it work....)
+  local:
+    enabled: false
+    path: ${gravitee.home}/apis # The path to API descriptors
+
+  # Gateway monitoring service.
+  # This service retrieves metrics like os / process / jvm metrics and send them to an underlying reporting service.
+  monitoring:
+    delay: 5000
+    unit: MILLISECONDS
+
+  # Endpoint healthcheck service.
+  healthcheck:
+    threads: 3 # Threads core size used to check endpoint availability
+```
+
+## Configure sharding tags
+
+You can apply sharding on APIM Gateway instances either at the system property level or with `gravitee.yml`.
+
+In this example, we are configuring deployment only for APIs tagged as `product` or `store` and of those, we are excluding APIs tagged as `international`.
+
+```
+tags: 'product,store,!international'
+```
+
+For more in-depth information on how to configure sharding tags, please refer to the [Sharding tags documentation.](broken-reference)
+
+## Configure organizations and environments
+
+You can configure organizations and environments using their `hrids` on APIM Gateway instances either at the system property level or with `gravitee.yml`.
+
+Only APIs and dictionaries belonging to the configured organizations and environments will be loaded.
+
+If only the `organizations` configuration is set, then all environments belonging to these organizations are used. If only the `environments` configuration is set, then all environments matching the setting will be used, regardless of their organization. If both `organizations` and `environments` are set, all environments matching the setting and belonging to these organizations will be used. If none of these fields is set, then all organizations and environments are used.
+
+In this example, we are configuring deployment only for `dev` and `integration` environments for `mycompany` organization.
+
+```
+organizations: mycompany
+environments: dev,integration
+```
+
+## Configure transaction ID and request ID headers
+
+By default, the APIM Gateway will generate an id for each request and set it in the following headers:
+
+* `X-Gravitee-Transaction-Id` for the transaction id
+* `X-Gravitee-Request-Id` for the request id
+
+Both of these headers can be customized. You can provide your own header names:
+
+```yaml
+handlers:
+  request:
+    transaction:
+      header: X-Custom-Transaction-Id
+    request:
+      header: X-Custom-Request-Id
+```
+
+Also, you can configure the APIM Gateway behavior when the backend itself sets the same headers. To do so you need to set the `overrideMode` attribute. The following values are available:
+
+* `override`: The header set by the APIM Gateway will override the one provided by the backend
+* `merge`: Both headers set by the APIM Gateway and the backend will be kept (as headers can be multivalued)
+* `keep`: The header set by the backend will be kept and the one provided by the APIM Gateway discarded
+
+Both transaction and request headers can be configured independently:
+
+```yaml
+handlers:
+  request:
+    transaction:
+      header: X-Custom-Transaction-Id
+      overrideMode: merge
+    request:
+      header: X-Custom-Request-Id
+      overrideMode: keep
+```
+
+## Default `gravitee.yaml` config file
+
+The following is a reference of the default configuration of APIM Gateway in your `gravitee.yml` file:
+
+{% code overflow="wrap" %}
+```yaml
 ############################################################################################################
 #################################### Gravitee.IO Gateway - Configuration ###################################
 ############################################################################################################
@@ -588,378 +869,3 @@ classloader:
     enabled: false
 ```
 {% endcode %}
-
-### Configure your HTTP Server
-
-You configure the HTTP Server configuration in the following section of the `gravitee.yaml` file:
-
-```
-http:
-  port: 8082
-  host: 0.0.0.0
-  idleTimeout: 0
-  tcpKeepAlive: true
-  compressionSupported: false
-  maxHeaderSize: 8192
-  maxChunkSize: 8192
-  instances: 0
-  requestTimeout: 30000
-  secured: false
-  alpn: false
-  ssl:
-    clientAuth: none # Supports none, request, required
-    keystore:
-      path: ${gravitee.home}/security/keystore.jks
-      password: secret
-    truststore:
-      path: ${gravitee.home}/security/truststore.jks
-      password: secret
-```
-
-#### **Enable HTTPS support**
-
-You can use the gravitee.yaml file to configure HTTPS support. However, you first need to provide a keystore. If you do not have one, you can generate it:
-
-```
-keytool -genkey \
-  -alias test \
-  -keyalg RSA \
-  -keystore server-keystore.jks \
-  -keysize 2048 \
-  -validity 360 \
-  -dname CN=localhost \
-  -keypass secret \
-  -storepass secret
-```
-
-**File keystore**
-
-You then need to enable secure mode in `gravitee.yml` and provide a path pointing to the keystore containing the certificate and the associated private key:
-
-```
-http:
-  # ... skipped for simplicity
-  secured: true
-  ssl:
-    clientAuth: none # Supports none, request, required
-    keystore:
-      path: /path/to/keystore.jks
-      password: adminadmin
-    truststore:
-      path:
-      password:
-```
-
-{% hint style="info" %}
-**Automatic watching**
-
-As of Gravitee APIM v3.13.0, the keystore file is automatically watched for any modifications and reloaded without having to restart the gateway server.
-{% endhint %}
-
-**Kubernetes Secret/ConfigMap keystore**
-
-As of v3.14.0, it is possible to load the keystore directly from the Kubernetes secret or configmap by just specifying the appropriate Kubernetes location. You can do so in the `gravitee.yaml` file like so:
-
-```
-http:
-  # ... skipped for simplicity
-  secured: true
-  ssl:
-    clientAuth: none # Supports none, request, required
-    keystore:
-      type: pkcs12
-      kubernetes: /my-namespace/secrets/my-secret/keystore
-      password: adminadmin
-```
-
-The expected `http.ssl.keystore.kubernetes` is structured as follows: `/{namespace}/{type}/{name}/{key}` with:
-
-* `namespace`: the name of the targeted Kubernetes namespace
-* `type`: can be either `secrets` or `configmaps`, depending on the type of Kubernetes resources being retrieved
-* `name`: the name of the secret or configmap to retrieve
-* `key`: the name of the key holding the value to retrieve. The `key` is optional when using a standard `kubernetes.io/tls` secret (note: it only supports PEM cert & key). The `key` is mandatory for any `Opaque` secret or configmap (note: they only support JKS & PKC12 keystore type).
-
-The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is automatically watched for any modifications and reloaded without having to restart the gateway server.
-
-#### **Enable HTTP/2 support**
-
-First, enable HTTPS support as described in the section above.
-
-You then need to enable `alpn` in `gravitee.yaml`:
-
-```
-http:
-  alpn: true
-  ...
-```
-
-You can now consume your API with both HTTP/1 and HTTP/2 protocols:
-
-```
-curl -k -v --http2 https://localhost:8082/my_api
-```
-
-#### **Enable WebSocket support**
-
-To enable WebSocket support, update the `gravitee.yaml` file like so:
-
-```
-http:
-  websocket:
-    enabled: true
-```
-
-You can now consume your API via both WS and WSS protocols:
-
-```
-curl ws://localhost:8082/my_websocket
-```
-
-#### Enable certificate-based client authentication
-
-```
-http:
-  ssl:
-    clientAuth: none # Supports none, request, required
-    truststore:
-      path: /path/to/truststore.jks
-      password: adminadmin
-```
-
-Available modes for `clientAuth` are:
-
-* none: Client authentication is disabled (replacement of the `false` value)
-* request: Client authentication is not required but can be if using [SSL enforcement policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_ssl\_enforcement.html)
-* requires: Client authentication is required (replacement of `true` value)
-
-### Configure the Plugins repository
-
-You can configure the APIM Gateway [plugins](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html) directory:
-
-```
-plugins:
-  path: ${gravitee.home}/plugins
-```
-
-### Configure the Management repository
-
-The Management repository is used to store global configurations such as APIs, applications and apikeys. The default configuration uses MongoDB (single server). For more information about MongoDB configuration, [refer to this documentation](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html). You can confogure the Management repository using the `gravitee.yaml` file:
-
-{% code overflow="wrap" %}
-```
-management:
-  type: mongodb
-  mongodb:
-    dbname: ${ds.mongodb.dbname}
-    host: ${ds.mongodb.host}
-    port: ${ds.mongodb.port}
-#    username:
-#    password:
-#    connectionsPerHost: 0
-#    connectTimeout: 500
-#    maxWaitTime: 120000
-#    socketTimeout: 500
-#    socketKeepAlive: false
-#    maxConnectionLifeTime: 0
-#    maxConnectionIdleTime: 0
-#    serverSelectionTimeout: 0
-#    description: gravitee.io
-#    heartbeatFrequency: 10000
-#    minHeartbeatFrequency: 500
-#    heartbeatConnectTimeout: 1000
-#    heartbeatSocketTimeout: 20000
-#    localThreshold: 15
-#    minConnectionsPerHost: 0
-#    threadsAllowedToBlockForConnectionMultiplier: 5
-#    cursorFinalizerEnabled: true
-## SSL settings (Available in APIM 3.10.14+, 3.15.8+, 3.16.4+, 3.17.2+, 3.18+)
-#    sslEnabled:
-#    keystore:
-#      path:
-#      type:
-#      password:
-#      keyPassword:
-#    truststore:
-#      path:
-#      type:
-#      password:
-## Deprecated SSL settings that will be removed in 3.19.0
-#    sslEnabled:
-#    keystore:
-#    keystorePassword:
-#    keyPassword:
-
-# Management repository: single MongoDB using URI
-# For more information about MongoDB configuration using URI, please have a look to:
-# - http://api.mongodb.org/java/current/com/mongodb/MongoClientURI.html
-#management:
-#  type: mongodb
-#  mongodb:
-#    uri: mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
-
-# Management repository: clustered MongoDB
-#management:
-#  type: mongodb
-#  mongodb:
-#    servers:
-#      - host: mongo1
-#        port: 27017
-#      - host: mongo2
-#        port: 27017
-#    dbname: ${ds.mongodb.dbname}
-#    connectTimeout: 500
-#    socketTimeout: 250
-```
-{% endcode %}
-
-### Configure the Rate Limit repository
-
-When defining the [rate-limiting policy](https://docs.gravitee.io/apim/3.x/apim\_installguide\_gateway\_configuration.html#/apim\_policies\_rate\_limiting.html), the Gravitee APIM Gateway needs to store data to share with other APIM Gateway instances.
-
-For Management repositories, you can define a custom prefix for the Rate Limit table or collection name.
-
-#### **Store counters in MongoDB**
-
-```
-ratelimit:
-  type: mongodb
-  mongodb:
-    uri: mongodb://${ds.mongodb.host}/${ds.mongodb.dbname}
-    prefix: # collection prefix
-```
-
-If you want to use a custom prefix, you need to follow the following [instructions](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_mongodb.html#use\_a\_custom\_prefix).
-
-**Store counters in JDBC**
-
-```
-ratelimit:
-  type: jdbc
-  jdbc:
-    url: jdbc:postgresql://host:port/dbname
-    password: # password
-    username: # username
-    prefix:   # collection prefix
-```
-
-If you want to use a custom prefix, you need to follow the following [instructions](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_jdbc.html#use\_a\_custom\_prefix).
-
-### Configure the Reporters
-
-You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property '`enabled: false`'
-
-```
-reporters:
-  elasticsearch:
-    endpoints:
-      - http://localhost:9200
-#    index: gravitee
-#    bulk:
-#       actions: 500           # Number of requests action before flush
-#       flush_interval: 1      # Flush interval in seconds
-#    security:
-#       username:
-#       password:
-```
-
-### Configure services
-
-You can update the default APIM Gateway default values. All services are enabled by default. To stop a service, you need to add the property '`enabled: false`' (you can see an example in the '`local`' service).
-
-```
-services:
-  # Synchronization daemon used to keep the gateway state in sync with the configuration from the management repository
-  # Be aware that, by disabling it, the gateway will not be sync with the configuration done through management API and management UI
-  sync:
-    # Synchronization is done each 5 seconds
-    cron: '*/5 * * * * *'
-
-  # Service used to store and cache api-keys from the management repository to avoid direct repository communication
-  # while serving requests.
-  apikeyscache:
-    delay: 10000
-    unit: MILLISECONDS
-    threads: 3 # Threads core size used to retrieve api-keys from repository.
-
-  # Local registry service.
-  # This registry is used to load API Definition with json format from the file system. By doing so, you do not need
-  # to configure your API using the web console or the rest API (but you need to know and understand the json descriptor
-  # format to make it work....)
-  local:
-    enabled: false
-    path: ${gravitee.home}/apis # The path to API descriptors
-
-  # Gateway monitoring service.
-  # This service retrieves metrics like os / process / jvm metrics and send them to an underlying reporting service.
-  monitoring:
-    delay: 5000
-    unit: MILLISECONDS
-
-  # Endpoint healthcheck service.
-  healthcheck:
-    threads: 3 # Threads core size used to check endpoint availability
-```
-
-### Configure sharding tags
-
-You can apply sharding on APIM Gateway instances either at the system property level or with `gravitee.yml`.
-
-In this example, we are configuring deployment only for APIs tagged as `product` or `store` and of those, we are excluding APIs tagged as `international`.
-
-```
-tags: 'product,store,!international'
-```
-
-For more in-depth information on how to configure sharding tags, please refer to the [Sharding tags documentation.](broken-reference)
-
-### Configure organizations and environments
-
-You can configure organizations and environments using their `hrids` on APIM Gateway instances either at the system property level or with `gravitee.yml`.
-
-Only APIs and dictionaries belonging to the configured organizations and environments will be loaded.
-
-If only the `organizations` configuration is set, then all environments belonging to these organizations are used. If only the `environments` configuration is set, then all environments matching the setting will be used, regardless of their organization. If both `organizations` and `environments` are set, all environments matching the setting and belonging to these organizations will be used. If none of these fields is set, then all organizations and environments are used.
-
-In this example, we are configuring deployment only for `dev` and `integration` environments for `mycompany` organization.
-
-```
-organizations: mycompany
-environments: dev,integration
-```
-
-### Configure Transaction Id and Request Id Headers
-
-By default, the APIM Gateway will generate an id for each request and set it in the following headers:
-
-* `X-Gravitee-Transaction-Id` for the transaction id
-* `X-Gravitee-Request-Id` for the request id
-
-Both of these headers can be customized. You can provide your own header names:
-
-```
-handlers:
-  request:
-    transaction:
-      header: X-Custom-Transaction-Id
-    request:
-      header: X-Custom-Request-Id
-```
-
-Also, you can configure the APIM Gateway behavior when the backend itself sets the same headers. To do so you need to set the `overrideMode` attribute. The following values are available:
-
-* `override`: The header set by the APIM Gateway will override the one provided by the backend
-* `merge`: Both headers set by the APIM Gateway and the backend will be kept (as headers can be multivalued)
-* `keep`: The header set by the backend will be kept and the one provided by the APIM Gateway discarded
-
-Both transaction and request headers can be configured independently:
-
-```
-handlers:
-  request:
-    transaction:
-      header: X-Custom-Transaction-Id
-      overrideMode: merge
-    request:
-      header: X-Custom-Request-Id
-      overrideMode: keep
-```
