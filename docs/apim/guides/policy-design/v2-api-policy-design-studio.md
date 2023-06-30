@@ -142,24 +142,24 @@ You can also configure dynamic properties by clicking **CONFIGURE DYNAMIC PROPER
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.15.36 AM.png" alt=""><figcaption><p>Dyanmic properties configuration screen</p></figcaption></figure>
 
-To configure dynamic properties, follow these steps:
+To configure dynamic properties:
 
-1. In the **Properties** tab, select **CONFIGURE DYNAMIC PROPERTIES**.
+1. In the **Properties** tab, select **CONFIGURE DYNAMIC PROPERTIES**
 2. Specify the details of the property:
    * `cron` schedule
-   * HTTP Method(s)
+   * HTTP method(s)
    * URL
    * Request headers and body to include with the call
    * JOLT transformation to perform on the response
-3. Toggle **Enabled** ON.
-4. Select the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png) to save your changes.
-5. Select **SAVE**.
+3. Toggle **Enabled** ON
+4. Select the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png) to save your changes
+5. Select **SAVE**
 
 After the first call, the resulting property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
 
 ### Example
 
-In this example, we want our gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API calls containing a shop ID to its associated URL.
+In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
 
 The first step is to define a list of properties for the shops, with each unique shop ID as the key and the URL of the shop as the value.
 
@@ -174,32 +174,32 @@ If the ID in the request header matches the key of one of the properties, it is 
 {% hint style="info" %}
 **Dictionaries vs API properties**
 
-The list of shop IDs and URLs could also be maintained using a dictionary, for example, in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. For more details, see configure dictionaries in the Configuration Guide.
+The list of shop IDs and URLs could also be maintained using a dictionary, for example, in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. For more details, see "configure dictionaries" in the Configuration Guide.
 {% endhint %}
 
 ## Resources
 
 Some policies support the addition of resources, which can be used for actions such as authentication and schema registry validation. Policies supporting resources include:
 
-* **Cache policy**: When configuring this policy, you can specify a cache resource via the **Cache** or **Cache Redis** resources
-* **OAuth2 policy**: When configuring this policy, you can specify a **Generic OAuth2 Authorization Server** resource, a **Gravitee AM Authorization Server** resource
-* **OpenID Connect - UserInfo:** When configuring this policy, you can specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource.
-* **Serialization & Deserialization policies**: When configuring the following policies, you can specify your Confluent Schema Registry. It will be used to retrieve serialization and deserialization schemas from a Confluent Schema registry.
-  * **JSON to Avro policy**
-  * **Avro to JSON policy**
-  * **JSON to Protobuf policy policy**
-  * **Protobuf to JSON policy**
-  * **Avro to Protobuf policy**
-  * **Protobuf to Avro policy**
-* **HTTP signature policies**: When configuring this policy, you can specify your **HTTP Authentication Provider** resource
-* **Basic authentication:** When configuring this policy, you can specify an **LDAP Authentication Provider** resource and/or an **Inline Authentication Provider** resource to authenticate users in memory.
+* **Cache policy**: Specify a cache resource via the Cache or Cache Redis resources
+* **OAuth2 policy**: Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource
+* **OpenID Connect - UserInfo:** Specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource
+* **Serialization & deserialization policies**: Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry
+  * JSON to Avro policy
+  * Avro to JSON policy
+  * JSON to Protobuf policy
+  * Protobuf to JSON policy
+  * Avro to Protobuf policy
+  * Protobuf to Avro policy
+* **HTTP signature policies**: Specify your HTTP Authentication Provider resource
+* **Basic authentication:** Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory
 
 <figure><img src="../../.gitbook/assets/Confluent schema registry.png" alt=""><figcaption><p>Resources: Confluent Schema Registry</p></figcaption></figure>
 
 After you create these resources, you will be able to reference them when designing policies in the **Design** tab.
 
 {% hint style="info" %}
-Global resources are globally available to all flows associated with the gateway API. However, they will not be available to other gateway APIs.
+Global resources are globally available to all flows associated with the Gateway API. However, they will not be available to other Gateway APIs.
 {% endhint %}
 
 ## Debug mode
