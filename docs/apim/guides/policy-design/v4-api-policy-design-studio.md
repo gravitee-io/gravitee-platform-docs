@@ -1,2 +1,2 @@
-# V4 API Policy Design Studio
+# V4 API Policy Studio
 

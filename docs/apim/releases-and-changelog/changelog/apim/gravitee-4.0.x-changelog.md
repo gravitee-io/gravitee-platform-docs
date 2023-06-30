@@ -57,9 +57,9 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 
 #### Policy Design and Enforcement
 
-* New Policy Design Studio that supports v4 APIs
-* v4 Policy Design Studio support for message-level policies
-* v4 Policy Design Studio support for policy enforcement on publish and subscribe phases for pub/sub communication
+* New Policy Studio that supports v4 APIs
+* v4 Policy Studio support for message-level policies
+* v4 Policy Studio support for policy enforcement on publish and subscribe phases for pub/sub communication
 * Made existing Gravitee policies enforceable for v4 APIs:
   * API key policy
   * JWT policy

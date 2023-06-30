@@ -10,12 +10,12 @@ The Gravitee API creation wizard provides an easy-to-use UI to create Gravitee G
 
 * v2 API creation wizard: creates APIs that use the Gravitee v2 API definition. This API definition supports:
   * HTTP 1 and 2 protocols
-  * The legacy v2 Policy Design Studio
+  * The legacy v2 Policy Studio
 * v4 API creation wizard: creates APIs that use the Gravitee v4 API definition. This API definition supports:
   * AsyncAPI spec
   * Asynchronous APIs
   * Decoupled Gateway entrypoints and endpoints: this enables Gravitee's advanced protocol mediation
-  * The new Policy Design Studio: this supports policy enforcement at both the request/response level and the message level
+  * The new Policy Studio: this supports policy enforcement at both the request/response level and the message level
   * Event brokers as backend data sources
 
 {% hint style="info" %}

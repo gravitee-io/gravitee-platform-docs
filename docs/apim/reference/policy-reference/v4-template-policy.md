@@ -128,11 +128,11 @@ For the HTTP GET entrypoint specifically, the entire payload can be returned as 
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the policy design studio in the management UI, interacting directly with the management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the management UI, interacting directly with the management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
 
 {% tabs %}
 {% tab title="Management UI" %}
-<mark style="color:yellow;">We should wait to make these once the v4 policy design studio is finalized</mark>
+<mark style="color:yellow;">We should wait to make these once the v4 Policy Studio is finalized</mark>
 
 {% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" %}
 {% endtab %}

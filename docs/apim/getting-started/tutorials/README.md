@@ -32,13 +32,13 @@ The demo app flow begins with the following steps:
 6. Instruct user to add 2 todos and receive error on the 3rd due to quota policy
 7. Instruct the user to archive a todo and receive error due to resource filtering policy
 8. Return to APIM and guide the user to the gateway API in their trial and educate the user on the basics of gateway APIs from the perspective of an API publisher
-9. Guide user to policy design studio and educate user on policies focusing on the pre-seeded quota and resource filtering policies
+9. Guide user to Policy Studio and educate user on policies focusing on the pre-seeded quota and resource filtering policies
 10. Guide the user to the plans page and educate user on plans
 11. Explain the demo application is currently using the keyless plan but can also subscribe to a "premium" plan with API key security
 12. Guide the user to the applications page to subscribe to the API key plan which will be set to auto-validate the subscription
 13. Copy the API key and add it to the demo app
 14. Instruct the user to create more than 3 todos and use the archiving functionality
-15. Return to the policy design studio to highlight how policies can be applied at the plan (keyless vs API key), API, or even the platform level, all with different methods (EL, paths, HTTP methods, etc.) of filtering
+15. Return to the Policy Studio to highlight how policies can be applied at the plan (keyless vs API key), API, or even the platform level, all with different methods (EL, paths, HTTP methods, etc.) of filtering
 16. Invite the user to modify the existing policies and see how it impacts the application
 
 ### Use Case 2: Real-time Data and Protocol Mediation
@@ -56,7 +56,7 @@ The demo app flow begins with the following steps:
 7. If the user did not complete use case 1, we will provide them a default api key they can copy and paste into the application to get around the basic plan subscription limitations
 8. Instruct the user to duplicate the demo app tab. One tab will be the todo page and one tab will be the analytics page
 9. Instruct the user to complete some todo actions (create, complete, archive, or delete) and watch one websocket graph update in real-time while the other responds with a five second delay
-10. Guide the user back to APIM's policy design studio to review the latency policy employed which can be used for monetization use cases to restrict access to real-time data
+10. Guide the user back to APIM's Policy Studio to review the latency policy employed which can be used for monetization use cases to restrict access to real-time data
 11. Instruct user to modify the policy, redeploy the API, and test the impacts to the demo app
 12. For users familiar with Kafka, explain how there is only one consumer group per subscription and how to create a new consumer group
 13. Guide the user through creating a platform policy that creates a new consumer group every time the user refreshes the page
@@ -78,7 +78,7 @@ The demo app flow begins with the following steps:
 8. Guide the user to the dev portal and provide a brief overview. Detailed walkthrough of API consumer subscription process including methods of providing the applications client ID and agreeing to general conditions
 9. Guide user to validate subscription in the dev portal. Educate user on options for managing subscriptions
 10. Guide user to copy the JWT and configure it in the application
-11. Guide user to policy design studio and walk them through adding and configuring the transform headers and assign metrics policy on the JWT plan
+11. Guide user to Policy Studio and walk them through adding and configuring the transform headers and assign metrics policy on the JWT plan
 12. Guide the user through creating a custom graph based on the assign metrics policy.
 13. Guide the user back to the demo app and instruct the user to complete some todo actions (create, complete, archive, or delete)&#x20;
 14. Guide the user back to APIM to view their custom analytics graph. Educate the user on how this data could be integrated with an invoicing provider by taking advantage of the mAPI

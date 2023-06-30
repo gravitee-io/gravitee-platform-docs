@@ -14,7 +14,7 @@ The [Gateway execution engines compared](./#gateway-execution-engines-compared) 
 You can also run v2 Gateway APIs in **compatibility mode** which emulates some of the execution flow improvements of the v4 execution engine. This is detailed in the [Gateway Execution Engines Compared](gateway-execution-engines-compared.md) section below.
 {% endhint %}
 
-APIM still fully supports both API definitions and execution engines. The v2 API Creation Wizard creates v2 Gateway APIs compatible with the v3 execution engine and can be augmented with flows designed in the v2 Policy Design Studio. The v4 API Creation Wizard creates v4 APIs compatible with v4 execution engine and can be augmented with flows designed in the v4 Policy Design Studio.&#x20;
+APIM still fully supports both API definitions and execution engines. The v2 API Creation Wizard creates v2 Gateway APIs compatible with the v3 execution engine and can be augmented with flows designed in the v2 Policy Studio. The v4 API Creation Wizard creates v4 APIs compatible with v4 execution engine and can be augmented with flows designed in the v4 Policy Studio.&#x20;
 
 To summarize, here is a table outlining the differences:
 
