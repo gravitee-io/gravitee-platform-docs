@@ -1,2 +1,66 @@
 # Design interface
 
+## Design
+
+This is the core part of the API Designer because this is where you …​ design APIs!
+
+![Mindmap](https://docs.gravitee.io/images/cockpit/apid\_design\_default.png)
+
+You start out with some defaults in an intuitive mindmap-like interface and add details as needed for your API.
+
+Three elements are visible:
+
+root
+
+The starting point of your design that holds the settings. You can add resources to it using the (+) buttons branching away to left or right (whatever your visual preference is).
+
+resource
+
+The anchorpoints of your API, they are a conceptual mapping to a set of entities.
+
+attribute
+
+The data carriers of your API.
+
+Each element can be expanded (+). If you want to remove an element, right-click it and select delete.
+
+|   | If you delete an element, all underlying elements will also be deleted. |
+| - | ----------------------------------------------------------------------- |
+
+You can distinguish between three phases. [**Define**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#define), [**Expose**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#expose) and [**Refine**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#refine). First you **define** your attributes and resources with broad brushstrokes. How you **expose** them depends on your use case. Last but not least you **refine** the attributes.
+
+### Define <a href="#define" id="define"></a>
+
+The key part of a **resource** definition is the name as that will show up in the request path.
+
+For the **attribute** definition what matters mostly is the datatype. It can be an **Integer**, **Number**, **String**, **Boolean** or a list of one of these.
+
+Both **resources** and **attributes** can be exposed in the API’s documentation.
+
+### Expose <a href="#expose" id="expose"></a>
+
+For a **resource** you can specify which [operations](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#operations) are allowed on it. You can also specify whether or not the resource is searchable with query parameters.
+
+For an **attribute** you can
+
+* Determine its visibility in requests and responses
+*   Add it as a filter and/or result of searches
+
+    |   | An attribute can only be added if the parent resource or attribute is added. |
+    | - | ---------------------------------------------------------------------------- |
+
+An **attribute** can be expanded. This will automatically change its type to **Object**. If you want to turn it into a **resource**, it has to be a list.
+
+### Refine <a href="#refine" id="refine"></a>
+
+For an **attribute** you can
+
+* Provide an example value which will be used in mock responses
+* Determine whether or not it’s required
+* Provide an extra description
+
+### Operations mapping <a href="#operations" id="operations"></a>
+
+<table><thead><tr><th width="123">Operation</th><th width="342">Description</th><th>Triggered by</th></tr></thead><tbody><tr><td>GET</td><td>Retrieves all entities of the requested resource</td><td>Resource is searchable</td></tr><tr><td>GET</td><td>Retrieves one entity (via ID) of the requested resource</td><td>Resource is readable</td></tr><tr><td>DELETE</td><td>Deletes one entity (via ID) of the requested resource</td><td>Resource is deletable</td></tr><tr><td>POST</td><td>Creates an entity of the requested resource</td><td>Resource is creatable</td></tr><tr><td>PUT</td><td>Updates one entity (via ID) of the requested resource</td><td>Resource is updatable</td></tr><tr><td>PATCH</td><td>Updates specific attributes of one entity (via ID) of the requested resource</td><td>Resource is partially updatable</td></tr></tbody></table>
+
+\
