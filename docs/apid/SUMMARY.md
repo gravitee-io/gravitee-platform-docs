@@ -6,7 +6,9 @@
 
 ## GETTING STARTED
 
-* [API Designer Workspace](getting-started/api-designer-workspace.md)
+* [API Designer Workspace](getting-started/api-designer-workspace/README.md)
+  * [Design interface](getting-started/api-designer-workspace/design-interface.md)
+  * [Push interface](getting-started/api-designer-workspace/push-interface.md)
 
 ## GUIDES
 

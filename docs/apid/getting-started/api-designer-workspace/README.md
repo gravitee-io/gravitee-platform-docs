@@ -6,7 +6,7 @@ description: Learn how to use the API Designer Workspace to create an API
 
 Navigate to the API Designer in Gravitee Cloud to open the API Designer Workspace, which is the administrative interface to the API Designer. Use the workspace to manage existing API designs, create new designs, and configure settings.
 
-<figure><img src="../.gitbook/assets/apid_workspace.png" alt=""><figcaption><p>API Designer Workspace</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apid_workspace.png" alt=""><figcaption><p>API Designer Workspace</p></figcaption></figure>
 
 {% hint style="info" %}
 The workspace is organization-centric. API designs and settings exist within the context of the selected organization.
@@ -26,19 +26,19 @@ Click on **API Designs** in the left-hand nav to create or manage an API.
 
 <div align="left" data-full-width="false">
 
-<figure><img src="../.gitbook/assets/apid-click.png" alt="" width="38"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apid-click.png" alt="" width="38"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../.gitbook/assets/apid-push.png" alt="" width="32"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apid-push.png" alt="" width="32"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../.gitbook/assets/apid-export.png" alt="" width="31"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apid-export.png" alt="" width="31"><figcaption></figcaption></figure>
 
  
 
-<figure><img src="../.gitbook/assets/apid-options.png" alt="" width="32"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/apid-options.png" alt="" width="32"><figcaption></figcaption></figure>
 
 </div>
 
@@ -54,4 +54,4 @@ Click on the following **Settings** options in the left-hand nav to customize AP
 Only environments linked to active API Management installations will be shown.
 {% endhint %}
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td>Design interface</td><td></td></tr><tr><td></td><td>Push interface</td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td><a href="design-interface.md">Design interface</a></td><td></td></tr><tr><td></td><td><a href="push-interface.md">Push interface</a></td><td></td></tr></tbody></table>
