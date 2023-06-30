@@ -8,8 +8,6 @@ The GKO also enables you to create reusable [API resources](https://docs.gravite
 
 In this guide, you can learn how to work with CRDs and how to synchronize your API CRDs with an existing management API, including how to start, stop, update, and delete your APIs.
 
-The Gravitee Kubernetes Operator comes with three CRDs - `ManagementContext`, `ApiDefinition`, and `ApiResource`. They are described in detail further in this section.
-
 {% hint style="info" %}
 In future releases, the GKO will support additional functionality to enable the following:
 
