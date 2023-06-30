@@ -23,7 +23,7 @@ For a quick history lesson and a bit more detail about the relationship between 
 
 ## Shift to microservices
 
-The popularity of web APIs is largely due to the [shift from monolithic applications to microservices](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications). While [not always a superior architecture](https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90), microservices replaced many monolithic applications because not all aspects of a project scale in parallel. Microservices enable cloud-native applications through the functional separation and independent scaling of each runtime, and web APIs provide this distributed architecture a means of reliable communication through a standardized contract for network interfacing
+The popularity of web APIs is largely due to the [shift from monolithic applications to microservices](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications). While [not always a superior architecture](https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90), microservices replaced many monolithic applications because not all aspects of a project scale in parallel. Microservices enable cloud-native applications through the functional separation and independent scaling of each runtime, and web APIs provide distributed architectures a means of reliable communication via standardized contracts for network interfacing.
 
 The underlying framework powering web APIs is quite complicated. Web APIs rely on communication protocols to deliver information to intended recipients, and network data must be serialized into data-interchange format for transport. In addition, API design and documentation should adhere to both an architecture and a specification.&#x20;
 
@@ -31,11 +31,7 @@ Protocols, data-interchange formats, API architectures, and API specifications a
 
 ## Protocols <a href="#protocols-4" id="protocols-4"></a>
 
-APIs are often categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the layered networking model, which conceptualizes communication within and between computers at different levels of abstraction and with respect to different functionality. The transport layer and the application layer contain the protocols most relevant to web APIs.&#x20;
-
-{% hint style="info" %}
-If you are unfamiliar with the layered networking model, we highly recommend reading [this excellent explanation](https://www.quora.com/What-is-the-difference-between-HTTP-protocol-and-TCP-protocol/answer/Daniel-Miller-7?srid=nZLo) before continuing.&#x20;
-{% endhint %}
+APIs are often categorized by their architectural style or the application layer protocol they use to communicate over the network (e.g., an HTTP API). Protocol terminology is based on the [layered networking model](https://www.quora.com/What-is-the-difference-between-HTTP-protocol-and-TCP-protocol/answer/Daniel-Miller-7?srid=nZLo), which conceptualizes communication within and between computers at different levels of abstraction and with respect to different functionality. The transport layer and the application layer contain the protocols most relevant to APIs.
 
 ### Transport layer
 
@@ -85,10 +81,6 @@ Modern web browsers are applications that communicate over the HTTP/HTTPS protoc
 
 The graphic below clarifies the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
 
-{% hint style="info" %}
-If you need additional help untangling URIs, URLs, and URNs, read [this explanation](https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn/1984225#1984225) on stack overflow.
-{% endhint %}
-
 <figure><img src="../../.gitbook/assets/uri_diagram1.png" alt=""><figcaption><p><a href="https://hanseul-lee.github.io/2020/12/24/20-12-24-URL/">URI vs URL vs URN</a></p></figcaption></figure>
 
 A communication link between two applications requires that each endpoint is defined by a network socket, which is a combination of transport layer protocol, domain (which resolves to an IP address), and port number that uniquely and completely resolves the web address of a client request to a web server.
@@ -137,7 +129,7 @@ The structure of REST APIs forms the basis of their uniform interface by requiri
 
 Another major architectural style that predates REST is the remote procedure call, or RPC. RPC-based APIs utilize several different application layer protocols such as HTTP, SOAP, and gRPC. The main differentiator between REST and RPC is that REST URLs are resource-centric (`http://foo/user/1`) while RPC URLs are action-centric (`http://foo/getUser`). A remote procedure call essentially calls a function the chosen programming language remotely, or over a network.
 
-Unlike REST, RPC architecture does not clearly designate a set of constraints. Both REST and RPC are architectural styles and real-world implementations don’t often fully align with either. This has led to implementations such as GraphQL (an architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries) which proponents describe it as essentially RPC, but borrowing heavily from the REST community.
+Unlike REST, RPC architecture does not clearly designate a set of constraints. Both REST and RPC are architectural styles and real-world implementations don’t often fully align with either. This has led to implementations such as GraphQL (an architectural style, an API [query language](https://www.techopedia.com/definition/3948/query-language), and a runtime for fulfilling those queries) which proponents describe as essentially RPC, but borrowing heavily from the REST community.
 
 {% hint style="info" %}
 [REST vs RPC](https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/) can be examined in-depth via implementation examples that highlight the strengths and weaknesses of both styles.
@@ -150,7 +142,7 @@ In general, an API implemented with a REST, RPC, or a GraphQL architectural styl
 The request-response model was instrumental in the development of the modern web and has dominated network communication until recently, when an asynchronous network communication model known as event streaming, or message streaming, rose to prominence. In this context, an event is any change in the state of a resource. In the event streaming model, clients publish messages to or subscribe to receive messages from a server computer known as the event broker.
 
 {% hint style="info" %}
-Both network communication models have **API transactions:** a single interaction between a client application and a server through an API.
+Both network communication models rely on **API transactions**. Each API transaction is a single interaction between a client application and a server through an API.
 
 In a typical synchronous API transaction, a client request is sent to a server via an API endpoint and the server response is returned to the client. An asynchronous API transaction refers to a single transmission of a message payload between a client and a message broker.
 {% endhint %}
@@ -165,7 +157,7 @@ Although often used synonymously, there is a distinction between an event and a 
 
 The architectural styles that govern the client-server interactions do not dictate API usage such as available endpoints, permissible actions, authentication options, parameters to pass, etc. Documentation of this information must be clear, intuitive, comprehensive, and updated with bug fixes or future iterations. API specifications such as [OpenAPI](https://spec.openapis.org/oas/latest.html) alleviate the overhead associated with documentation by providing a template and expand API design to include documentation generation, code generation, validation and linting, mock servers, etc. The API description file acts as a single source of truth to limit the potential for repetition or inconsistency.
 
-Specifications that focus either exclusively or primarily on synchronous APIs include OpenAPI, OData, RAML, GraphQL (a query language with its own specification), and WSDL, etc. Some of these specifications serve a unique role, such as WSDL serving SOAP APIs or the GraphQL specification serving GraphQL APIs, while others target the same types of APIs, such as RAML and OpenAPI both serving HTTP APIs.&#x20;
+Specifications that focus either exclusively or primarily on synchronous APIs include OpenAPI, OData, RAML, GraphQL (a query language with its own specification), WSDL, etc. The role of some specifications is unique, such as WSDL serving SOAP APIs or the GraphQL specification serving GraphQL APIs, while other specifications target the same type of API, such as RAML and OpenAPI both serving HTTP APIs.&#x20;
 
 The [AsyncAPI](https://www.asyncapi.com/) specification serves asynchronous APIs and is widely regarded as OpenAPI's counterpart. The CloudEvents specification also applies to asynchronous APIs, but an [in-depth comparison](https://www.asyncapi.com/blog/asyncapi-cloud-events) reveals that CloudEvents and AsyncAPI belong to different categories of specification. While AsyncAPI addresses the overall application and its communication channels, CloudEvents defines an envelope for the application’s data.&#x20;
 
@@ -180,18 +172,11 @@ const sampleObject = {
 };
 ```
 
-To ensure any API client can parse the transmitted data, the payload must meet two requirements prior to delivery:
+To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript generally inhibit the use of a single, contiguous block of memory to store an object's payload. Instead, objects store references to data contained in different blocks, which spreads an object's properties over the memory of a running process.
 
-1. the data needs to be encoded into a universal format
-2. the data needs to be placed into a self-contained chunk or stream
+Serialization satisfies these requirements by converting an object in memory to a stream of bytes for storage or transport. Serialized data can be easily transferred over a network, then deserialized (the inverse operation) upon reaching its destination. Data-interchange format and serialization format are synonymous terms.
 
-For the first requirement, how can we ensure any client using our API can receive the payload in a usable format? The client is not guaranteed to be using Javascript to develop their application which means they might not be able to parse this object. Clearly, some type of conversion needs to take place before the payload is delivered to the client.
-
-For the second item, at first glance, it seems to already be resolved. Our entire object is assigned to the variable `sampleObject`. However, high-level programming languages such as JavaScript generally do not contain objects in a single, contiguous block of memory. Instead, objects store references to data contained in separate blocks of memory. Therefore, a single object with numerous properties could be spread all over the memory of a running process.
-
-Serialization satisfies both of these requirements by converting an object in memory to a stream of bytes for storage or transport. Serialized data can be easily transferred over a network, then deserialized (the inverse operation) upon reaching its destination. Data-interchange format and serialization format are synonymous terms.
-
-Universal formats are either text-based or binary and facilitate deserialization by any client. The JavaScript Object Notation format (JSON) is the dominant universal format for web communication due to its universality, lightweight format, and human-readable text, though [other formats](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/) are common for different use cases. Javascript has first-class support for JSON, which can be applied to "`sampleObject` as follows.
+Universal formats are either text-based or binary and facilitate deserialization by any client. The JavaScript Object Notation format (JSON) is the dominant universal format for web communication due to its universality, lightweight format, and human-readable text, though [other formats](https://blog.mbedded.ninja/programming/serialization-formats/a-comparison-of-serialization-formats/) are also common. Javascript has first-class support for JSON, which can be applied to "sampleObject" as follows:
 
 ```javascript
 const serializedData = JSON.stringify(sampleObject);
@@ -209,9 +194,7 @@ console.log(typeof deserializedData);
 // 'object'
 ```
 
-This transformation probably looks quite unremarkable. This is due to JSON borrowing heavily from Javascript’s object literal notation, hence the name. However, the data did change as the object keys were converted into strings and the object itself into a primitive string where all of the original object's data exists in a self-contained chunk.&#x20;
-
-The following code uses local APIs built into the JavaScript and Python programming languages to serialize a JavaScript object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary.
+JSON borrowed heavily from Javascript’s object literal notation to transform the object keys into strings and the object itself into a primitive string where all of the original object's data exists in a self-contained chunk. The following code uses local APIs built into the JavaScript and Python programming languages to serialize the object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary.
 
 {% code title="JavaScript" lineNumbers="true" %}
 ```javascript
@@ -243,7 +226,7 @@ print(type(deserialized_data))
 ```
 {% endcode %}
 
-With respect to web APIs, serialization format is often dependent on the application layer protocol being employed. For example, while SOAP APIs require XML, HTTP APIs are encoding-agnostic and support HTML, JSON, XML, CSV, binary formats, custom serialization formats, etc.&#x20;
+With respect to web APIs, serialization format is often dependent on the particular application layer protocol employed. For example, while SOAP APIs require XML, HTTP APIs are encoding-agnostic and support HTML, JSON, XML, CSV, binary formats, custom serialization formats, etc.&#x20;
 
 Binary formats are preferable to JSON for high-volume data transfers subject to strict performance criteria. For example, [Apache Avro is recommended for Kafka](https://www.confluent.io/blog/avro-kafka-data/) despite Kafka supports for JSON. JSON is also schema-less by default and does not enforce [type safety](https://levelup.gitconnected.com/what-is-type-safety-705b1813e0bb), instead prioritizing flexibility over validation and error-checking. Binary formats such as [protocol buffers](https://developers.google.com/protocol-buffers) have surged in popularity by addressing performance and validation concerns with JSON.
 
