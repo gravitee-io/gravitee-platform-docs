@@ -50,34 +50,34 @@ First, find the **Flows** section and select the **+** icon to create a flow. Be
 
 Now, it's time to add policies to that flow.
 
-To add a policy, find the policy that you want to enforce, and then drag and drop that policy onto either the request or response phase. If you add a policy at the request phase, the policy will be enforced by the gateway at the time of the request, before a client is given access to the API that they are trying to call. If you add a policy on the response phase, the gateway will enforce the policy after the request is allowed, but before the response is returned to the client.
+To add a policy to the flow, drag-and-drop the policy that you want to enforce onto either the request or response phase. If you add a policy on the request phase, the policy will be enforced by the Gateway at the time of the request, before a client is given access to the API that they are trying to call. If you add a policy on the response phase, the Gateway will enforce the policy after the request is allowed, but before the response is returned to the client.
 
 Once you've added your policy, you can edit that policy by selecting the policy and using the configuration menu below the flow map. After you configure the policy, select the **checkmark icon**, and then **Save** in the pop-up to save the policy settings.
 
 <figure><img src="../../.gitbook/assets/v2_policy_config.png" alt=""><figcaption><p>Configure a policy</p></figcaption></figure>
 
-Whenever you edit a flow, like when you configure a policy, you'll need to redeploy your API to the gateway for the changes to take effect. You'll see a bar appear at the top of the flow designer, that says **API out of sync, deploy your API.** Select the hyperlinked **deploy your API** text, and you'll be met with a modal that asks you to provide a label to define and describe your deployment. When you are done, select **OK** to deploy/redeploy your API with the new flow and policy.
+Whenever you edit a flow, like when you configure a policy, you'll need to redeploy your API to the Gateway for the changes to take effect. You'll see a bar appear at the top of the flow designer that says **API out of sync, deploy your API.** Select the hyperlinked **deploy your API** text, and you'll be met with a modal that asks you to provide a label to define and describe your deployment. When you are done, select **OK** to deploy/redeploy your API with the new flow and policy.
 
 <figure><img src="../../.gitbook/assets/redeploy_api.png" alt=""><figcaption><p>Redeploy API after configuring flow</p></figcaption></figure>
 
-#### Example: add a Rate Limit policy
+#### Example: Add a Rate Limit policy
 
-For example, if I wanted to limit the number of requests that a client could make using the HTTP GET method to five GET requests per second, I would:
+For example, to limit the number of requests that a client can make using the HTTP GET method to five GET requests per second:
 
-1. Create a new flow using the steps above
+1. Create a new flow via the steps above
 2. Configure the flow to execute only at the HTTP GET method
 3. Find the Rate Limit policy in the policy menu
-4. Drag and drop the Rate Limit policy onto the Request phase
-5. Give my Rate Limit a description
-6. Add any conditions using the Gravitee EL
+4. Drag-and-drop the Rate Limit policy onto the request phase
+5. Give the Rate Limit a description
+6. Add conditions using the Gravitee EL
 7. Enable or disable non-strict mode
 8. Enable or disable Rate-Limit response headers in the HTTP response
-9. Define a Key that will be used to identify consumers against whom the rate limit policy should be enforced. Otherwise, you can leave this blank, and the rate limit will be applied to any consumer that has subscribed to that API's plan.
-10. Set the Max requests (static) as 5
+9. Define a Key that will be used to identify consumers against whom the Rate Limit policy should be enforced. If this is left blank, and Rate Limit will be applied to any consumer that has subscribed to the API's plan.
+10. Set the max requests (static) as 5
 11. Set the time duration as 1
 12. Set the time unit as SECONDS
-13. Select the checkmark icon to save my rate limit settings.
-14. Select Save.
+13. Select the checkmark icon to save the Rate Limit settings
+14. Click **Save**
 15. Select **deploy your API**
 16. In the modal, give the deployment a label
 17. Select **OK**
