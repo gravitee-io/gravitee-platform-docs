@@ -10,7 +10,7 @@ description: >-
 
 ## Introduction
 
-In Gravitee, your API definition is a JSON representation of your Gateway API. API definition v2 supports HTTP-based APIs and the legacy version of the Policy Design Studio. This article walks through how to create APIs in Gravitee using the v2 API creation wizard.
+In Gravitee, your API definition is a JSON representation of your Gateway API. API definition v2 supports HTTP-based APIs and the legacy version of the Policy Studio. This article walks through how to create APIs in Gravitee using the v2 API creation wizard.
 
 ## Access the API creation wizard
 
@@ -71,9 +71,9 @@ On the Documentation page, you can either upload your API's documentation as a f
 
 On the Deployment page, you will see a summary of your API and can choose how you want to create it:
 
-* **Create without deploying the API:** this creates the API as an artifact in Gravitee, without deploying the API to the Gateway. It allows you to access the API via the APIs list, configure the API, and design policies for the API using the v2 Policy Design Studio.
-* **Create and deploy the API:** this creates the API in Gravitee _and_ deploys it to the Gateway. You can still access the API in the APIs list, configure the API, and design policies for the API using the v2 Policy Design Studio, but you will then have to redeploy that API after making changes.
+* **Create without deploying the API:** this creates the API as an artifact in Gravitee, without deploying the API to the Gateway. It allows you to access the API via the APIs list, configure the API, and design policies for the API using the v2 Policy Studio.
+* **Create and deploy the API:** this creates the API in Gravitee _and_ deploys it to the Gateway. You can still access the API in the APIs list, configure the API, and design policies for the API using the v2 Policy Studio, but you will then have to redeploy that API after making changes.
 
 {% hint style="info" %}
-After you've chosen your creation method, you will have finished creating APIs using the v2 API creation wizard. From here, we recommend learning more about [API configuration](../../api-configuration/) and the Policy Design Studio.
+After you've chosen your creation method, you will have finished creating APIs using the v2 API creation wizard. From here, we recommend learning more about [API configuration](../../api-configuration/) and the Policy Studio.
 {% endhint %}

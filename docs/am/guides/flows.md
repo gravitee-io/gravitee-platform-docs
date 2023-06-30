@@ -20,7 +20,7 @@ In this example, we are getting `Execution Context` data using the Gravitee Expr
 ```
 {% endcode %}
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-policies.png" alt=""><figcaption><p>Policy Design Studio</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-policies.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ## Flow configuration
 
@@ -33,7 +33,7 @@ AM includes four flow types:
 * **Consent Flow:** This happens during the user consent phase. It allows you to execute policies before displaying the User Consent HTML Page or after the user has given his consent to the processing of personal data.
 * **Registration Flow:** This happens during the user registration phase. It allows you to execute policies before displaying the User Registration HTML Page or after the user data has been processed.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-policies.png" alt=""><figcaption><p>Policy Design Studio</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-policies.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
 ### All flow
 

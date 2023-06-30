@@ -18,7 +18,7 @@ This guide is a deep dive into the difference between the two engines. In short,
 You can also run v2 Gateway APIs in **compatibility mode** which emulates some of the execution flow improvements of the v4 execution engine. This is detailed in the [v2 Gateway API compatibility mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-compatibility-mode) section below.
 {% endhint %}
 
-APIM fully supports both API definitions and execution engines. The [v2 API Creation Wizard ](create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the v3 execution engine that can be augmented with flows designed in the [v2 Policy Design Studio](policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the v4 execution engine that can be augmented with flows designed in the [v4 Policy Design Studio](policy-design/v4-api-policy-design-studio.md).&#x20;
+APIM fully supports both API definitions and execution engines. The [v2 API Creation Wizard ](create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the v3 execution engine that can be augmented with flows designed in the [v2 Policy Studio](policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the v4 execution engine that can be augmented with flows designed in the [v4 Policy Studio](policy-design/v4-api-policy-design-studio.md).&#x20;
 
 To summarize, here is a table outlining the key differences in day-to-day usage:
 
@@ -34,7 +34,7 @@ The v4 execution engine enables an improved execution flow for synchronous APIs 
 
 The new v4 engine provides the following capabilities:
 
-* The ability to execute policies in the exact order in which they have been placed in the Policy Design Studio. This addresses some issues experienced by users related to the order in which policies are executed by the v3 engine where policies interacting with the Head part of the request are always executed first, even when placed in a different order in the Design Studio during the design phase. With the new execution engine, it is possible to apply logic on a head policy based on the payload of the request - for example, to apply dynamic routing based on the request payload.
+* The ability to execute policies in the exact order in which they have been placed in the Policy Studio. This addresses some issues experienced by users related to the order in which policies are executed by the v3 engine where policies interacting with the Head part of the request are always executed first, even when placed in a different order in the Design Studio during the design phase. With the new execution engine, it is possible to apply logic on a head policy based on the payload of the request - for example, to apply dynamic routing based on the request payload.
 
 {% hint style="warning" %}
 v2 Gateway APIs have this capability when [compatibility mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-compatibility-mode) is enabled.
