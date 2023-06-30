@@ -262,22 +262,20 @@ The inspector relies on 3 colors to indicate the nature of changes:
 
 ### Understanding the timeline
 
-The order in which the policies appear in the timeline reflects the exact order in which they have been executed by the gateway at runtime.
+The order in which the policies appear in the timeline reflects the exact order in which they have been executed by the Gateway at runtime.
 
-Note that this order **may** differ from the order in which policies were placed in the Policy Design Studio during the design phase.
+Note that this order may differ from the order in which policies were placed in the Policy Studio during the design phase due to a performance optimization applied at runtime on the policy chain.&#x20;
 
-This is due to a performance optimization applied at runtime on the policy chain. The gateway always executes policies interacting with the HTTP Header part of the request (onRequest, onResponse) before policies interacting with the body part of the request (onRequestContent, onResponseContent).
-
-Also, a policy may appear twice in the timeline if it interacts with both the head and the body part of the request.
+The Gateway always executes policies interacting with the HTTP header part of the request (onRequest, onResponse) before policies interacting with the body part of the request (onRequestContent, onResponseContent). A policy may appear twice in the timeline if it interacts with both the header and body of the request.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-policy-chain.png" alt=""><figcaption></figcaption></figure>
 
 ### **Navigating the timeline**
 
-You can scroll through the list of policies via the timeline. You can also quickly access a specific policy by selecting it in the quick access timeline.
+You can scroll through the list of policies via the timeline. You can also quickly access a specific policy by selecting it in the **quick access** timeline.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-timeline.png" alt=""><figcaption><p>Navigating debug timeline</p></figcaption></figure>
 
-By selecting **Request Input** or **Request Output**, you can view the global transformation on the request and the difference between what has been received by the Gateway and what has been sent to the backend.
+Select **Request Input** or **Request Output** to view the global transformation on the request and the difference between what has been received by the Gateway and what has been sent to the backend.
 
-By selecting **Response Input** or **Response Output**, you can view the global transformation on your response and the difference between what has been received from the backend and what has been sent back to your client app.
+Select **Response Input** or **Response Output** to view the global transformation on the response and the difference between what has been received from the backend and what has been sent back to the client app.
