@@ -68,15 +68,15 @@ For example, to limit the number of requests that a client can make using the HT
 2. Configure the flow to execute only at the HTTP GET method
 3. Find the Rate Limit policy in the policy menu
 4. Drag-and-drop the Rate Limit policy onto the request phase
-5. Give the Rate Limit a description
+5. Give the rate limit a description
 6. Add conditions using the Gravitee EL
 7. Enable or disable non-strict mode
-8. Enable or disable Rate-Limit response headers in the HTTP response
-9. Define a Key that will be used to identify consumers against whom the Rate Limit policy should be enforced. If this is left blank, and Rate Limit will be applied to any consumer that has subscribed to the API's plan.
+8. Enable or disable rate limit response headers in the HTTP response
+9. Define a Key that will be used to identify consumers against whom the Rate Limit policy should be enforced. If this is left blank, and rate limit will be applied to any consumer that has subscribed to the API's plan.
 10. Set the max requests (static) as 5
 11. Set the time duration as 1
 12. Set the time unit as SECONDS
-13. Select the checkmark icon to save the Rate Limit settings
+13. Select the checkmark icon to save the rate limit settings
 14. Click **Save**
 15. Select **deploy your API**
 16. In the modal, give the deployment a label
@@ -86,11 +86,9 @@ At this point, the Rate Limit policy has been applied at five requests per secon
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **default** and **best match**. If you keep the flow mode as default, execution of each flow is determined independently based on the **Operator path** defined in the flow itself (see [documentation above](v2-api-policy-design-studio.md#create-a-flow-and-add-policies)). Default mode allows for the execution of _multiple_ flows.
+Gravitee offers two flow modes: **default** and **best match**. If you keep the flow mode as default, execution of each flow is determined independently based on the **Operator path** defined in the flow itself (see [documentation above](v2-api-policy-design-studio.md#create-a-flow-and-add-policies)). Default mode allows for the execution of multiple flows.
 
-However, if you select best match, the gateway will choose a _single_ flow with the closest match to the path of the API request. A plain text part of the path will take precedence over a path parameter.&#x20;
-
-This means, reading from left to right, each part of the path is compared, keeping the better matching. Strict equality between part of the request path and the flow path prevails over a path parameter.
+However, if you select best match, the Gateway will choose a single flow with the closest match to the path of the API request. A plain text part of the path will take precedence over a path parameter, which means, reading from left to right, each part of the path is compared and the best matching is kept. Strict equality between part of the request path and the flow path prevails over a path parameter.
 
 For example, with these flows configured:
 
@@ -99,13 +97,13 @@ For example, with these flows configured:
 
 If the request is `/test/55`, the resulting flow will be `/test/:id`. If the request is `/test/subtest`, the resulting flow will be `/test/subtest`.
 
-To modify the flow mode, select the **Configuration** tab, and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.&#x20;
+To modify the flow mode, select the **Configuration** tab and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.&#x20;
 
 <figure><img src="../../.gitbook/assets/Configure flow mode.png" alt=""><figcaption><p>v2 Policy Design studio: Configure flow mode</p></figcaption></figure>
 
 ## API properties
 
-Properties allow you to define key-value pairs at the gateway API level. These properties are read-only during the gateway's execution of an API transaction and can be accessed using Gravitee's Expression Language (EL) with the `#properties` statement inside of your flows.
+Properties allow you to define key-value pairs at the Gateway API level. These properties are read-only during the Gateway's execution of an API transaction and can be accessed using Gravitee's Expression Language (EL) with the `#properties` statement inside of the flows.
 
 API properties are set and configured in the **Properties** tab. You can specify properties one by one, or toggle from **Simple** to **Expert** mode and paste property definitions into an editor in the format `<key>=<value>`.
 
@@ -113,10 +111,10 @@ API properties are set and configured in the **Properties** tab. You can specify
 
 ### Encryption
 
-You can easily encrypt API properties by enabling the **Encrypted** toggle next to the property. The value will remain unencrypted and editable until you save your changes. Once you select Save, you can no longer edit, modify, or view the value.
+You can easily encrypt API properties by enabling the **Encrypted** toggle next to the property. The value will remain unencrypted and editable until you save your changes. Once you select **Save**, you can no longer edit, modify, or view the value.
 
 {% hint style="danger" %}
-Encrypted values can still be used by API Policies (under the **Design** tab) and **APIM Gateway will automatically decrypt these values**. Pay special attention to how you use encrypted data in policies.
+Encrypted values can still be used by API policies (under the **Design** tab) and **APIM Gateway will automatically decrypt these values**. Pay special attention to how you use encrypted data in policies.
 {% endhint %}
 
 Before using encryption, you’ll need to reset the secret key. The method of encryption used for API properties is based on the default secret key in the `gravitee.yml` config file which you must override to ensure proper security.
