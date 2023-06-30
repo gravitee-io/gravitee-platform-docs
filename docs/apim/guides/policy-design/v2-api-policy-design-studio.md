@@ -207,17 +207,17 @@ Global resources are globally available to all flows associated with the Gateway
 {% hint style="info" %}
 **Debug mode limitations**
 
-As of now, Debug mode will not work for v4 APIs. This will be delivered in a future release, but, for now, if you want to use Debug mode, you will need to create and use  APIs using the Gravitee v2 API definition.
+Debug mode does not work for v4 APIs. To take advantage of Debug mode, create and use APIs via the Gravitee v2 API definition.
 
 Debug mode also does not support testing the following policies and features:
 
 * **Rate Limit & quota policies**
 * **Spike arrest**
-* **Cache:** cache policy will not be testable through debug mode with in-memory cache since it is created and destroyed with the API
-* **IPFiltering:** Since calls are emitted by the gateway itself, you will not be able to emulate a call from another IP with the debug mode (IP used to issue requests is 127.0.0.1)
+* **Cache:** Cache policy is not testable via Debug mode with in-memory cache since it is created and destroyed with the API
+* **IPFiltering:** As calls are emitted by the Gateway itself, you are not able to emulate a call from another IP via Debug mode (IP used to issue requests is 127.0.0.1)
 * **Health-check**
 * **Virtual hosts:** The first host is always selected
-* **Encrypted properties** - For security reasons, you won’t be able to clear encrypted properties in debug mode (it could have an impact if you want to use them in a condition for example)
+* **Encrypted properties** - For security reasons, you are not able to clear encrypted properties in Debug mode (e.g., this could impact use in a condition)
 {% endhint %}
 
 Debug mode is a tool for troubleshooting your Gateway APIs running on Gravitee API Management. It provides detailed information about the behavior of each policy in your flows, as well as the overall execution order at runtime. With Debug mode, you can:
