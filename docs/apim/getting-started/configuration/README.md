@@ -29,9 +29,11 @@ The order in which they are listed above corresponds to their order of precedenc
 
 ### Environment variables
 
-You can override the default APIM configuration (`gravitee.yml`) and system properties by defining environment variables.
+You can override the default APIM configuration (`gravitee.yml`) and system properties by defining environment variables. You can translate any property in the `yaml` file to an environment variable by prefixing the property with "gravitee" and using `camel_case` or dot notation.
 
-To override this property:
+Some properties are case-sensitive and cannot be written in uppercase (for example, `gravitee_security_providers_0_tokenIntrospectionEndpoint`). Therefore, we advise you to define all Gravitee environment variables in lowercase.
+
+For example, to override this property:
 
 ```yaml
 management:
@@ -39,18 +41,18 @@ management:
     dbname: myDatabase
 ```
 
-...define one of the following variables:
+Define one of the following variables:
 
 ```
-GRAVITEE_MANAGEMENT_MONGODB_DBNAME=myDatabase
 gravitee_management_mongodb_dbname=myDatabase
+gravitee.management.mongodb.dbname=myDatabase
 ```
 
-Some properties are case-sensitive and cannot be written in uppercase (for example, `gravitee_security_providers_0_tokenIntrospectionEndpoint`). We advise you to define environment variables in lowercase. You must ensure you use the correct syntax for each property.
-
+{% hint style="info" %}
 In some systems, hyphens are not allowed in variable names. For example, you may need to write `gravitee_policy_api-key_header` as `gravitee_policy_apikey_header`. We recommend you check your system documentation.
+{% endhint %}
 
-Some properties are arrays. For example:
+Some properties are arrays like the example below:
 
 ```yaml
 analytics:
@@ -66,9 +68,9 @@ security:
       context-source-password: "password"
 ```
 
-Below are some examples of how to write your environment variables. If you aren't sure which will work best for you, we recommend you try both:
+To translate and override, define one of the following variables:
 
-**Example one**
+**`camel_case`**
 
 ```
 gravitee_analytics_elasticsearch_endpoints_0=https://my.first.endpoint.com
@@ -79,7 +81,7 @@ gravitee_security_providers_0_contextsourceusername=cn=Directory Manager
 gravitee_security_providers_0_contextsourcepassword=password
 ```
 
-**Example two**
+**Dot notation**
 
 ```
 gravitee.analytics.elasticsearch.endpoints[0]=https://my.first.endpoint.com
@@ -93,7 +95,7 @@ gravitee.security.providers[0].users[1].password=password
 
 ### System properties
 
-You can override the default APIM configuration (`gravitee.yml`) by defining system properties.
+You can also override the default APIM configuration (`gravitee.yml`) by defining system properties.
 
 To override this property:
 
@@ -103,7 +105,7 @@ management:
     dbname: myDatabase
 ```
 
-...add this property to the JVM:
+Add this property to the JVM:
 
 ```
 -Dmanagement.mongodb.dbname=myDatabase
