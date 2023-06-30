@@ -121,13 +121,13 @@ For use cases that focus on real-time applications, event-driven architecture an
 Generally, the HTTP application protocol is conceptualized and discussed as a synchronous protocol. However, there are different versions of HTTP such as HTTP/1.1 (currently the most widely used version), HTTP/2.0, and HTTP/3.0. HTTP/2.0 functionality like multiplexing begins to break down the strict request/response model because multiple requests can be bundled together and returned in any order. The [evolution of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/Evolution\_of\_HTTP) serves to caution against oversimplifying protocol classifications.
 {% endhint %}
 
-### **Reactive programming**
+## **Reactive programming**
 
 To implement EDA at the component or service level, programmers typically employ a technique known as [reactive programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754), where events are the main orchestrators of application flow and program logic is built around asynchronous communication to manipulate and operate on data streams. Reactive programming is all about making _asynchronous data streams the spine_ of your application.
 
 Reactive programming opens the door to stream processing. Stream processing works with distributed streaming systems like [Kafka](https://www.confluent.io/what-is-apache-kafka/) that store ordered sequences of events, referred to as topics, in a data structure known as a log. Unlike traditional messaging queues which apply simple computations to individual or batches of messages, topics allow historical event data to be pulled, unlocking the potential for a slew of input streams to be joined, aggregated, filtered, etc. This is stream processing, which is less about real-time data than complex processing applied across an array of input streams.
 
-### Stateful vs stateless web APIs <a href="#stateful-vs-stateless-web-apis-13" id="stateful-vs-stateless-web-apis-13"></a>
+## Stateful vs stateless web APIs <a href="#stateful-vs-stateless-web-apis-13" id="stateful-vs-stateless-web-apis-13"></a>
 
 The terms "synchronous API" and "stateless API" are often used interchangeably, as are "asynchronous API" and "stateful API." While this is often accurate, a label of stateless vs stateful hinges on the perspective of the server or broker.&#x20;
 
