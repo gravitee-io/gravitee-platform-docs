@@ -20,7 +20,7 @@ The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way t
 YAML (`yml`) format is sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
 {% endhint %}
 
-With the  `gravitee.yaml` file , you can configure the following
+With the  `gravitee.yaml` file, you can configure the following
 
 * HTTP Server
   * HTTPS support
@@ -71,7 +71,7 @@ http:
 
 You can use the gravitee.yaml file to configure HTTPS support. However, you first need to provide a keystore. If you do not have one, you can generate it:
 
-```
+```sh
 keytool -genkey \
   -alias test \
   -keyalg RSA \
@@ -87,7 +87,7 @@ keytool -genkey \
 
 You then need to enable secure mode in `gravitee.yml` and provide a path pointing to the keystore containing the certificate and the associated private key:
 
-```
+```yaml
 http:
   # ... skipped for simplicity
   secured: true
@@ -138,7 +138,7 @@ First, enable HTTPS support as described in the section above.
 
 You then need to enable `alpn` in `gravitee.yaml`:
 
-```
+```yaml
 http:
   alpn: true
   ...
@@ -146,7 +146,7 @@ http:
 
 You can now consume your API with both HTTP/1 and HTTP/2 protocols:
 
-```
+```sh
 curl -k -v --http2 https://localhost:8082/my_api
 ```
 
@@ -154,7 +154,7 @@ curl -k -v --http2 https://localhost:8082/my_api
 
 To enable WebSocket support, update the `gravitee.yaml` file like so:
 
-```
+```yaml
 http:
   websocket:
     enabled: true
@@ -162,13 +162,13 @@ http:
 
 You can now consume your API via both WS and WSS protocols:
 
-```
+```sh
 curl ws://localhost:8082/my_websocket
 ```
 
 ### Enable certificate-based client authentication
 
-```
+```yaml
 http:
   ssl:
     clientAuth: none # Supports none, request, required
@@ -180,21 +180,21 @@ http:
 Available modes for `clientAuth` are:
 
 * none: Client authentication is disabled (replacement of the `false` value)
-* request: Client authentication is not required but can be if using [SSL enforcement policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_ssl\_enforcement.html)
+* request: Client authentication is not required but can be if using SSL enforcement policy
 * requires: Client authentication is required (replacement of `true` value)
 
 ## Configure the Plugins repository
 
-You can configure the APIM Gateway [plugins](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html) directory:
+You can configure the APIM Gateway [plugins](../../../guides/developer-contributions/dev-guide-plugins.md) directory:
 
-```
+```yaml
 plugins:
   path: ${gravitee.home}/plugins
 ```
 
 ## Configure the Management repository
 
-The Management repository is used to store global configurations such as APIs, applications and apikeys. The default configuration uses MongoDB (single server). For more information about MongoDB configuration, [refer to this documentation](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html). You can confogure the Management repository using the `gravitee.yaml` file:
+The Management repository is used to store global configurations such as APIs, applications and API keys. The default configuration uses MongoDB (single server). For more information about MongoDB configuration, [refer to this documentation](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html). You can configure the Management repository using the `gravitee.yaml` file:
 
 {% code overflow="wrap" %}
 ```yaml
@@ -265,7 +265,7 @@ management:
 
 ## Configure the Rate Limit repository
 
-When defining the [rate-limiting policy](https://docs.gravitee.io/apim/3.x/apim\_installguide\_gateway\_configuration.html#/apim\_policies\_rate\_limiting.html), the Gravitee APIM Gateway needs to store data to share with other APIM Gateway instances.
+When defining the Rate Limiting policy, the Gravitee APIM Gateway needs to store data to share with other APIM Gateway instances.
 
 For Management repositories, you can define a custom prefix for the Rate Limit table or collection name.
 
@@ -279,7 +279,7 @@ ratelimit:
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_mongodb.html#use\_a\_custom\_prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](../configure-repositories.md#use-a-custom-prefix).
 
 ### **Store counters in JDBC**
 
@@ -293,7 +293,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_jdbc.html#use\_a\_custom\_prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](../configure-repositories.md#use-a-custom-prefix-1).
 
 ## Configure reporters
 
@@ -361,7 +361,7 @@ In this example, we are configuring deployment only for APIs tagged as `product`
 tags: 'product,store,!international'
 ```
 
-For more in-depth information on how to configure sharding tags, please refer to the [Sharding tags documentation.](broken-reference)
+For more in-depth information on how to configure sharding tags, please refer to the [Sharding Tags documentation.](../configure-sharding-tags-for-your-gravitee-api-gateways.md)
 
 ## Configure organizations and environments
 
