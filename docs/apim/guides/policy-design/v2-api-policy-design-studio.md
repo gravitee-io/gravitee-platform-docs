@@ -36,15 +36,17 @@ The sample Gateway API shown above has three plans: Keyless Plan, Premium API Ke
 
 ### Create a flow and add policies
 
-Next, let's take a look at how to create a flow. This flow will target all users of the API. To do so, find the **Flows** section, and select the **+** icon. This will create your flow. Before adding policies to your flow, you'll need to configure the flow using the **Flow Configuration** module with the following options detailed below. All flow configuration options are optional.
+As an example, let's create a flow that targets all users of the API.&#x20;
+
+First, find the **Flows** section and select the **+** icon to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Flow Configuration** module with and options shown below.
 
 <figure><img src="../../.gitbook/assets/v2_flow_config.png" alt=""><figcaption><p>Sample flow configuration</p></figcaption></figure>
 
 * **Name:** Give your flow a descriptive name. If you don't, a name will be automatically generated using the path and methods.
-* **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or  **Starts with** the same path&#x20;
-* **Path:** Path to use in conjunction with the **Operator path** to determine if this flow should be applied
-* **Methods:** Define the HTTP methods for which you want the flow to be executed. If you leave this empty, the flow will be executed for every HTTP method assuming the other conditions are met.
-* **Conditions:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL)
+* **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or **Starts with** the same path.
+* **Path:** Define the path to use in conjunction with the **Operator path** to determine if this flow should be applied.
+* **Methods:** Define the HTTP methods for which you want the flow to be executed. If you leave this empty, the flow will be executed for every HTTP method, assuming the other conditions are met.
+* **Conditions:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL).
 
 Now, it's time to add policies to that flow.
 
