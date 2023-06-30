@@ -278,6 +278,6 @@ You can scroll through the list of policies via the timeline. You can also quick
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/debug-mode/debug-mode-timeline.png" alt=""><figcaption><p>Navigating debug timeline</p></figcaption></figure>
 
-By selecting **Request Input** or **Request Output**, you can view the global transformation on your request and the difference between what has been received by the gateway and what has been sent to your backend.
+By selecting **Request Input** or **Request Output**, you can view the global transformation on the request and the difference between what has been received by the Gateway and what has been sent to the backend.
 
 By selecting **Response Input** or **Response Output**, you can view the global transformation on your response and the difference between what has been received from the backend and what has been sent back to your client app.
