@@ -42,7 +42,7 @@ Click on **API Designs** in the left-hand nav to create or manage an API.
 
 </div>
 
-<table data-header-hidden><thead><tr><th width="149.5">Icon</th><th>Function</th></tr></thead><tbody><tr><td><strong>Click</strong></td><td>Opens the design interface</td></tr><tr><td><strong>Push</strong></td><td>Opens the push interface</td></tr><tr><td><strong>Export</strong></td><td>Exports the API definition</td></tr><tr><td><strong>Info</strong></td><td>Provides options to push, export, or delete the API</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="149.5">Icon</th><th>Function</th></tr></thead><tbody><tr><td><strong>Click</strong></td><td>Opens the <a href="design-interface.md">design interface</a></td></tr><tr><td><strong>Push</strong></td><td>Opens the <a href="push-interface.md">push interface</a></td></tr><tr><td><strong>Export</strong></td><td>Exports the API definition</td></tr><tr><td><strong>Info</strong></td><td>Provides options to push, export, or delete the API</td></tr></tbody></table>
 
 ### **Settings**
 
