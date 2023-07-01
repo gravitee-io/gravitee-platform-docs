@@ -2,24 +2,25 @@
 
 ## Design
 
-The design interface is the core of the API Designer.&#x20;
-
-
-
-Initially, the interface supplies several defaults in an intuitive mind map-like structure where API details can be added as needed. Three elements are visible:
+The design interface is the core of the API Designer. Initially, the interface supplies several defaults in an intuitive mind map-like structure where API details can be added as needed. Three elements are visible:
 
 * **root:** The starting point of a design containing the settings. You can add resources to it using the (+) buttons branching away to the left or right (to align with your visual preference).
 * **resource:** The anchor points of the API that conceptually map to a set of entities.
 * **attribute:** The data carriers of the API.
 
-![Mindmap](https://docs.gravitee.io/images/cockpit/apid\_design\_default.png)
+<div align="center">
 
-Each element can be expanded (+). If you want to remove an element, right-click it and select delete.
+<figure><img src="https://docs.gravitee.io/images/cockpit/apid_design_default.png" alt="" width="563"><figcaption></figcaption></figure>
 
-|   | If you delete an element, all underlying elements will also be deleted. |
-| - | ----------------------------------------------------------------------- |
+</div>
 
-You can distinguish between three phases. [**Define**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#define), [**Expose**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#expose) and [**Refine**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#refine). First you **define** your attributes and resources with broad brushstrokes. How you **expose** them depends on your use case. Last but not least you **refine** the attributes.
+Each element can be expanded (+). To remove an element, right-click it and select delete.
+
+{% hint style="warning" %}
+If you delete an element, all underlying elements will also be deleted.
+{% endhint %}
+
+You can distinguish between three phases: [**Define**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#define), [**Expose**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#expose) and [**Refine**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#refine). First, you define your attributes and resources with broad brushstrokes. How you expose them depends on your use case. Finally, you refine the attributes.
 
 ### Define <a href="#define" id="define"></a>
 
