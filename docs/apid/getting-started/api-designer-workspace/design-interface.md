@@ -24,11 +24,7 @@ You can distinguish between three phases: **define**, **expose** and **refine**.
 
 ## Define <a href="#define" id="define"></a>
 
-The key part of a resource definition is the name, as it will appear in the request path.
-
-For the **attribute** definition what matters mostly is the datatype. It can be an **Integer**, **Number**, **String**, **Boolean** or a list of one of these.
-
-Both **resources** and **attributes** can be exposed in the API’s documentation.
+The key part of a resource definition is the name. The name will appear in the request path. For the attribute definition, the datatype matters the most. It can be an integer, number, string, boolean, or a list of one of these. Both resources and attributes can be exposed in the API’s documentation.
 
 ## Expose <a href="#expose" id="expose"></a>
 
