@@ -1,6 +1,6 @@
 # Design interface
 
-## Design
+## Overview
 
 The design interface is the core of the API Designer. Initially, the interface supplies several defaults in an intuitive mind map-like structure where API details can be added as needed. Three elements are visible:
 
@@ -20,17 +20,17 @@ Each element can be expanded (+). To remove an element, right-click it and selec
 If you delete an element, all underlying elements will also be deleted.
 {% endhint %}
 
-You can distinguish between three phases: [**Define**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#define), [**Expose**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#expose) and [**Refine**](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#refine). First, you define your attributes and resources with broad brushstrokes. How you expose them depends on your use case. Finally, you refine the attributes.
+You can distinguish between three phases: **define**, **expose** and **refine**. First, you define your attributes and resources with broad brushstrokes. How you expose them depends on your use case. Finally, you refine the attributes.
 
-### Define <a href="#define" id="define"></a>
+## Define <a href="#define" id="define"></a>
 
-The key part of a **resource** definition is the name as that will show up in the request path.
+The key part of a resource definition is the name, as it will appear in the request path.
 
 For the **attribute** definition what matters mostly is the datatype. It can be an **Integer**, **Number**, **String**, **Boolean** or a list of one of these.
 
 Both **resources** and **attributes** can be exposed in the API’s documentation.
 
-### Expose <a href="#expose" id="expose"></a>
+## Expose <a href="#expose" id="expose"></a>
 
 For a **resource** you can specify which [operations](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#operations) are allowed on it. You can also specify whether or not the resource is searchable with query parameters.
 
@@ -41,7 +41,7 @@ For an **attribute** you can
 
 An **attribute** can be expanded. This will automatically change its type to **Object**. If you want to turn it into a **resource**, it has to be a list.
 
-### Refine <a href="#refine" id="refine"></a>
+## Refine <a href="#refine" id="refine"></a>
 
 For an **attribute** you can
 
@@ -49,8 +49,6 @@ For an **attribute** you can
 * Determine whether or not it’s required
 * Provide an extra description
 
-### Operations mapping <a href="#operations" id="operations"></a>
+## Operations mapping <a href="#operations" id="operations"></a>
 
 <table><thead><tr><th width="123">Operation</th><th width="342">Description</th><th>Triggered by</th></tr></thead><tbody><tr><td>GET</td><td>Retrieves all entities of the requested resource</td><td>Resource is searchable</td></tr><tr><td>GET</td><td>Retrieves one entity (via ID) of the requested resource</td><td>Resource is readable</td></tr><tr><td>DELETE</td><td>Deletes one entity (via ID) of the requested resource</td><td>Resource is deletable</td></tr><tr><td>POST</td><td>Creates an entity of the requested resource</td><td>Resource is creatable</td></tr><tr><td>PUT</td><td>Updates one entity (via ID) of the requested resource</td><td>Resource is updatable</td></tr><tr><td>PATCH</td><td>Updates specific attributes of one entity (via ID) of the requested resource</td><td>Resource is partially updatable</td></tr></tbody></table>
-
-\
