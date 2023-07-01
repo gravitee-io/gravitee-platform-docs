@@ -43,10 +43,10 @@ An **attribute** can be expanded. This will automatically change its type to **O
 
 ## Refine <a href="#refine" id="refine"></a>
 
-For an **attribute** you can
+To refine an attribute, you can:
 
-* Provide an example value which will be used in mock responses
-* Determine whether or not it’s required
+* Provide a sample value to use in mock responses
+* Determine whether or not the attribute is required
 * Provide an extra description
 
 ## Operations mapping <a href="#operations" id="operations"></a>
