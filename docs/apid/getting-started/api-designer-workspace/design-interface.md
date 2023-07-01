@@ -2,7 +2,7 @@
 
 ## Design
 
-The design interface is the core of the API Designer.
+The design interface is the core of the API Designer.&#x20;
 
 ![Mindmap](https://docs.gravitee.io/images/cockpit/apid\_design\_default.png)
 
@@ -10,17 +10,11 @@ You start out with some defaults in an intuitive mindmap-like interface and add 
 
 Three elements are visible:
 
-root
+**root:** The starting point of a design containing the settings. You can add resources to it using the (+) buttons branching away to the left or right (to align with your visual preference).
 
-The starting point of your design that holds the settings. You can add resources to it using the (+) buttons branching away to left or right (whatever your visual preference is).
+**resource:** The anchor points of the API that conceptually map to a set of entities.
 
-resource
-
-The anchorpoints of your API, they are a conceptual mapping to a set of entities.
-
-attribute
-
-The data carriers of your API.
+**attribute:** The data carriers of the API.
 
 Each element can be expanded (+). If you want to remove an element, right-click it and select delete.
 
