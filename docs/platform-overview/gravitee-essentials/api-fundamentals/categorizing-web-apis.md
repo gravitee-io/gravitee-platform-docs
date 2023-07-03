@@ -10,11 +10,9 @@ Synchronous (sync) vs asynchronous (async) constitutes a fundamental demarcation
 
 Synchronous programming is the linear, sequential execution of tasks, where each task must be completed before the next task is executed (e.g., first complete task A, then task B, then task C). Asynchronous programming is the concurrent execution of tasks, where tasks can be performed partially or totally out of order (e.g., start task A, complete task B, complete task C, return to finish task A).
 
-To frame a relatable analogy, consider that humans [cannot multitask](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7075496/) when performing high-level functions can sustain only a single train of thought. &#x20;
+To frame a relatable analogy, consider that humans [cannot multitask](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7075496/) when performing high-level functions, i.e., can sustain only a single train of thought. This is conducive to synchronous task management, where task A must be completed before moving on to task B. For example, someone might plan to call their insurance provider and then write an email.
 
-This is conducive to synchronous task management, where task A is completed before moving on to task B. For example, someone might plan to call their insurance provider and then write an email.
-
-However, in general, humans often tend to execute tasks in a manner much more akin to asynchronous programming. If they are placed on hold when calling their insurance provider, they have the opportunity to complete their report while they wait. Begin task A, complete task B, and then finish task A.&#x20;
+However, humans often adopt asynchronous task management, e.g., begin task A, switch to and complete task B, then return to complete task A. For example, if someone is placed on hold when calling their insurance provider, they have the opportunity to write an email while they wait to speak with an agent.&#x20;
 
 An asynchronous execution of tasks still works within the confines of a single train of thought, or in programming terms, a single thread of execution. In the example, the person talks to the insurance provider, switches to working on their report, and then switches back to the insurance agent when they're taken off hold. Asynchronous programming simply breaks up the linear and sequential execution flow of tasks with the involvement of a third party. In our metaphor, this third party is the insurance provider, but in programming, the third party is generally a web API being called by the main execution thread.
 
