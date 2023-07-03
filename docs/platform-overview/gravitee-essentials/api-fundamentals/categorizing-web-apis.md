@@ -8,7 +8,7 @@ Synchronous (sync) vs asynchronous (async) constitutes a fundamental demarcation
 
 ### **Sync vs async programming**
 
-Synchronous programming is the linear, sequential execution of tasks. First complete task A then B then C, where each task blocks the execution of the following task. Asynchronous programming is the concurrent execution of tasks, where tasks can be performed partially or totally out of order. Start task A, complete task B, complete task C, and then return to finish task A.
+Synchronous programming is the linear, sequential execution of tasks, where each task must be completed before the next task is executed (e.g., first complete task A, then task B, then task C). Asynchronous programming is the concurrent execution of tasks, where tasks can be performed partially or totally out of order (e.g., start task A, complete task B, complete task C, return to finish task A).
 
 For example, humans [cannot multitask](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7075496/) when performing high-level functions. This translates to the ability to sustain only a single train of thought, and this underlying truth leads humans to plan in a manner akin to synchronous programming. Someone might make a plan to call their insurance provider and then finish their report. Complete task A then B.
 
