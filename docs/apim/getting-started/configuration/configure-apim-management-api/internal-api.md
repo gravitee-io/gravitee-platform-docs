@@ -25,6 +25,15 @@ With the  `gravitee.yaml` file, you can configure the following:
 * Configure HTTP Server
   * Enable HTTPS support
 * Configure the Management and Portal APIs
+* CORS configuration
+  * Configure in APIM Console
+* Configure the Plugins repository
+* Configure the Management repository
+* Configure the Analytics repository
+* SMTP configuration
+  * Configure in APIM Console
+  * Configure the Gmail SMTP server
+* Default `gravitee.yaml` configuration file
 
 ## Configure HTTP server
 
@@ -157,11 +166,7 @@ You can also configure CORS in the **Organization > Settings** section of the AP
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-30 at 2.35.47 PM.png" alt=""><figcaption><p>Organization wide CORS settings</p></figcaption></figure>
 
-{% hint style="info" %}
-There is no inheritance between the two configurations.
-{% endhint %}
-
-## Configure the plugins repository
+## Configure the Plugins repository
 
 You can configure the APIM Gateway [plugins](../../../guides/developer-contributions/dev-guide-plugins.md) directory.
 
@@ -172,7 +177,7 @@ plugins:
 
 ## Configure the Management repository
 
-The Management repository is used to store global configurations such as APIs, applications and API keys. The default configuration uses MongoDB (single server). You can find more information about the MongoDB configuration [here](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html).
+The Management repository is used to store global configurations such as APIs, applications, and API keys. The default configuration uses MongoDB (single server). You can find more information about the MongoDB configuration [here](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html).
 
 ```yaml
 management:
@@ -241,7 +246,7 @@ management:
 
 ## Configure the Analytics repository
 
-The Analytics repository is used to store all reporting, metrics, and health-checks stored by APIM Gateway instances. The default configuration uses [Elasticsearch](https://www.elastic.co/products/elasticsearch).
+The Analytics repository stores all reporting, metrics, and health-checks for all APIM Gateway instances. The default configuration uses [Elasticsearch](https://www.elastic.co/products/elasticsearch).
 
 ```yaml
   type: elasticsearch
@@ -258,7 +263,7 @@ The Analytics repository is used to store all reporting, metrics, and health-che
 
 This section shows the SMTP configuration used for sending email.
 
-You can configure SMTP using `gravitee.yml`, environment variables or directly in APIM Console.
+You can configure SMTP using `gravitee.yml`, environment variables or directly in APIM Console. If SMTP is configured with `gravitee.yml` or environment variables, then that configuration will be used, even if settings exist in the database.
 
 ```yaml
 email:
@@ -274,7 +279,7 @@ email:
 
 You configure SMTP in the **SMTP** section of the APIM Console and APIM Portal **Settings** pages:
 
-* For APIM Portal, go to **Settings > Settings**
+* For APIM Portal, go to **Settings > Settings**. If no email configuration is set for APIM Portal, then the APIM Console configuration is used.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/configuration/graviteeio-installation-environment-configuration-smtp.png" alt=""><figcaption></figcaption></figure>
 
@@ -282,12 +287,7 @@ You configure SMTP in the **SMTP** section of the APIM Console and APIM Portal *
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/configuration/graviteeio-installation-organization-configuration-smtp.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
-* If no email configuration is set for APIM Portal, then the APIM Console configuration is used.
-* If SMTP is configured with `gravitee.yml` or environment variables, then that configuration will be used, even if settings exist in the database.
-{% endhint %}
-
-### Configure the GMAIL SMTP server
+### Configure the Gmail SMTP server
 
 If required, you can configure the GMAIL SMTP server in `gravitee.yml` as follows:
 
