@@ -1,6 +1,6 @@
 # User and Management Configuration
 
-## User configuration
+## Introduction
 
 You can configure various user options:
 
