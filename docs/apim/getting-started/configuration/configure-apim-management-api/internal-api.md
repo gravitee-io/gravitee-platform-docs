@@ -22,7 +22,11 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 
 With the  `gravitee.yaml` file, you can configure the following:
 
-## Configure HTTP Server
+* Configure HTTP Server
+  * Enable HTTPS support
+* Configure the Management and Portal APIs
+
+## Configure HTTP server
 
 You configure the HTTP Server configuration in the following section of the `gravitee.yml` file:
 
@@ -79,7 +83,7 @@ jetty:
 Truststore and Keystore settings defined within the `jetty` section are only used to secure access to APIM API. These are not used by HTTP client calls for any other purpose (such as Fetch and DCR).
 {% endhint %}
 
-### Configure the Management and Portal APIs
+## Configure the Management and Portal APIs
 
 You can configure APIM API to start only the Management or Portal API. You can also change the API endpoints from their default values of `/management` and `/portal`.
 
@@ -157,7 +161,7 @@ You can also configure CORS in the **Organization > Settings** section of the AP
 There is no inheritance between the two configurations.
 {% endhint %}
 
-## Configure the Plugins repository
+## Configure the plugins repository
 
 You can configure the APIM Gateway [plugins](../../../guides/developer-contributions/dev-guide-plugins.md) directory.
 
