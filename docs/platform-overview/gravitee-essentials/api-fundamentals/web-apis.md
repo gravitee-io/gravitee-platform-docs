@@ -25,7 +25,7 @@ For a quick history lesson and a bit more detail about the relationship between 
 
 The popularity of web APIs is largely due to the [shift from monolithic applications to microservices](https://www.gravitee.io/blog/what-are-microservices-how-do-they-enhance-web-applications). While [not always a superior architecture](https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90), microservices replaced many monolithic applications because not all aspects of a project scale in parallel. Microservices enable cloud-native applications through the functional separation and independent scaling of each runtime, and web APIs provide distributed architectures a means of reliable communication via standardized contracts for network interfacing.
 
-The underlying framework powering web APIs is quite complicated. Web APIs rely on communication protocols to deliver information to intended recipients, and network data must be serialized into data-interchange format for transport. In addition, API design and documentation should adhere to both an architecture and a specification.&#x20;
+The underlying framework powering web APIs is quite complicated. Web APIs rely on communication protocols to deliver information to intended recipients, and network data must be serialized into data-interchange format for transport. In addition, API design and documentation should adhere to both an architecture and a specification.
 
 Protocols, data-interchange formats, API architectures, and API specifications are often insufficiently defined and differentiated. For example, the REST architectural style is inaccurately used as a proxy for the HTTP application layer protocol. The following sections offer high-level clarifications.
 
@@ -47,7 +47,7 @@ Application layer protocols define how independent programs and services communi
 
 #### Types of application layer protocols
 
-<table><thead><tr><th width="347">Name</th><th width="135">Abbreviation</th><th>Communication Type</th></tr></thead><tbody><tr><td>Hypertext Transfer Protocol</td><td>HTTP</td><td>Sync/Async</td></tr><tr><td>Hypertext Transfer Protocol Secure</td><td>HTTPS</td><td>Sync/Async</td></tr><tr><td>Websocket</td><td>N/a</td><td>Async</td></tr><tr><td>Server Sent Events</td><td>SSE</td><td>Async</td></tr><tr><td>File Transfer Protocol</td><td>FTP</td><td>Sync</td></tr><tr><td>Message Queuing Telemetry Transport</td><td>MQTT</td><td>Async</td></tr><tr><td>Advanced Message Queuing Transport</td><td>AMQP</td><td>Async</td></tr><tr><td>Kafka’s Custom Binary Protocol</td><td>N/a</td><td>Async</td></tr><tr><td>Google Remote Procedure Call</td><td>gRPC</td><td>Sync/Async </td></tr><tr><td>Simple Object Access Protocol</td><td>SOAP</td><td>Sync/Async </td></tr><tr><td>Simple Mail Transfer Protocol</td><td>SMTP</td><td>Sync</td></tr><tr><td>Domain Name Service</td><td>DNS</td><td>Sync/Async </td></tr><tr><td>Extensible Messaging and Presence Protocol</td><td>XMPP</td><td>Async</td></tr></tbody></table>
+<table><thead><tr><th width="347">Name</th><th width="135">Abbreviation</th><th>Communication Type</th></tr></thead><tbody><tr><td>Hypertext Transfer Protocol</td><td>HTTP</td><td>Sync/Async</td></tr><tr><td>Hypertext Transfer Protocol Secure</td><td>HTTPS</td><td>Sync/Async</td></tr><tr><td>Websocket</td><td>N/a</td><td>Async</td></tr><tr><td>Server Sent Events</td><td>SSE</td><td>Async</td></tr><tr><td>File Transfer Protocol</td><td>FTP</td><td>Sync</td></tr><tr><td>Message Queuing Telemetry Transport</td><td>MQTT</td><td>Async</td></tr><tr><td>Advanced Message Queuing Transport</td><td>AMQP</td><td>Async</td></tr><tr><td>Kafka’s Custom Binary Protocol</td><td>N/a</td><td>Async</td></tr><tr><td>Google Remote Procedure Call</td><td>gRPC</td><td>Sync/Async</td></tr><tr><td>Simple Object Access Protocol</td><td>SOAP</td><td>Sync/Async</td></tr><tr><td>Simple Mail Transfer Protocol</td><td>SMTP</td><td>Sync</td></tr><tr><td>Domain Name Service</td><td>DNS</td><td>Sync/Async</td></tr><tr><td>Extensible Messaging and Presence Protocol</td><td>XMPP</td><td>Async</td></tr></tbody></table>
 
 Despite sitting at the same layer of the networking model, application layer protocols can be dependent on one another, and many depend on HTTP/HTTPS. For example, SOAP effectively tunnels over HTTP, which is a strategy employed by many protocols, including modern asynchronous protocols like WebSocket.
 
@@ -62,7 +62,7 @@ Networks, including the internet, support many application layer protocols that 
 To summarize, APIs depend on many protocols. The ideal protocol stack, just like the ideal application stack, is completely context-dependent and subject to considerations such as application environment, security concerns, payload, network quality, etc.
 
 {% hint style="info" %}
-"Webhook API" is a misnomer. Webhooks are not APIs. [Webhooks are essentially functionality that can be added to existing APIs](https://www.redhat.com/en/topics/automation/what-is-a-webhook). Compounding this misconception,  APIs are often categorized by the application layer protocol they employ, but Webhook is not an application layer protocol itself. Webhooks communicate over the HTTP application layer protocol.
+"Webhook API" is a misnomer. Webhooks are not APIs. [Webhooks are essentially functionality that can be added to existing APIs](https://www.redhat.com/en/topics/automation/what-is-a-webhook). Compounding this misconception, APIs are often categorized by the application layer protocol they employ, but Webhook is not an application layer protocol itself. Webhooks communicate over the HTTP application layer protocol.
 {% endhint %}
 
 ### Example
@@ -89,7 +89,7 @@ A communication link between two applications requires that each endpoint is def
 Web browsers communicate over HTTP, which is built on top of TCP, so the transport layer protocol is assumed. However, this will be [changing with HTTP/3](https://www.cloudflare.com/learning/performance/what-is-http3/), which is built on top of UDP.
 {% endhint %}
 
-When `google.com` is typed in a web browser, it is expanded to `https://www.google.com:443`, where `www.google.com` is the fully qualified domain name that is resolved into an IP address through [domain name system (DNS) resolution](https://serverfault.com/questions/643506/how-does-the-http-get-method-work-in-relation-to-dns-protocol/643511#643511) and 443 is the port reserved for HTTPS on every network (port 80 is reserved for HTTP). The browser’s request is directed to Google’s web server using the HTTPS application layer protocol, in particular the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), and Google’s web server interprets the request and responds with the Google homepage.&#x20;
+When `google.com` is typed in a web browser, it is expanded to `https://www.google.com:443`, where `www.google.com` is the fully qualified domain name that is resolved into an IP address through [domain name system (DNS) resolution](https://serverfault.com/questions/643506/how-does-the-http-get-method-work-in-relation-to-dns-protocol/643511#643511) and 443 is the port reserved for HTTPS on every network (port 80 is reserved for HTTP). The browser’s request is directed to Google’s web server using the HTTPS application layer protocol, in particular the GET [HTTP method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods), and Google’s web server interprets the request and responds with the Google homepage.
 
 HTTP includes standard status codes to qualify the state of every network communication. For example, if the requested [resource](https://restful-api-design.readthedocs.io/en/latest/resources.html) does not exist, Google’s web server will respond with a 404.
 
@@ -115,7 +115,7 @@ Design-first methodology, which is [an API development technique with purported 
 
 ### REST
 
-Although popular usage of "REST API" might imply that REST is an application layer protocol, it is actually an architectural style that stands for “representational state transfer." REST APIs employ the HTTP application protocol (a practical implementation rather than an explicit REST requirement) and must adhere to six [design principles](https://www.ibm.com/topics/rest-apis): uniform interface, client-server decoupling, statelessness, cacheability, layered system architecture, and (optional) code on demand.&#x20;
+Although popular usage of "REST API" might imply that REST is an application layer protocol, it is actually an architectural style that stands for “representational state transfer." REST APIs employ the HTTP application protocol (a practical implementation rather than an explicit REST requirement) and must adhere to six [design principles](https://www.ibm.com/topics/rest-apis): uniform interface, client-server decoupling, statelessness, cacheability, layered system architecture, and (optional) code on demand.
 
 {% hint style="info" %}
 Many APIs that claim to be REST APIs, or RESTful, are not fully compliant with REST architecture and are more accurately referred to as REST-like.
@@ -157,9 +157,9 @@ Although often used synonymously, there is a distinction between an event and a 
 
 The architectural styles that govern the client-server interactions do not dictate API usage such as available endpoints, permissible actions, authentication options, parameters to pass, etc. Documentation of this information must be clear, intuitive, comprehensive, and updated with bug fixes or future iterations. API specifications such as [OpenAPI](https://spec.openapis.org/oas/latest.html) alleviate the overhead associated with documentation by providing a template and expand API design to include documentation generation, code generation, validation and linting, mock servers, etc. The API description file acts as a single source of truth to limit the potential for repetition or inconsistency.
 
-Specifications that focus either exclusively or primarily on synchronous APIs include OpenAPI, OData, RAML, GraphQL (a query language with its own specification), WSDL, etc. The role of some specifications is unique, such as WSDL serving SOAP APIs or the GraphQL specification serving GraphQL APIs, while other specifications target the same type of API, such as RAML and OpenAPI both serving HTTP APIs.&#x20;
+Specifications that focus either exclusively or primarily on synchronous APIs include OpenAPI, OData, RAML, GraphQL (a query language with its own specification), WSDL, etc. The role of some specifications is unique, such as WSDL serving SOAP APIs or the GraphQL specification serving GraphQL APIs, while other specifications target the same type of API, such as RAML and OpenAPI both serving HTTP APIs.
 
-The [AsyncAPI](https://www.asyncapi.com/) specification serves asynchronous APIs and is widely regarded as OpenAPI's counterpart. The CloudEvents specification also applies to asynchronous APIs, but an [in-depth comparison](https://www.asyncapi.com/blog/asyncapi-cloud-events) reveals that CloudEvents and AsyncAPI belong to different categories of specification. While AsyncAPI addresses the overall application and its communication channels, CloudEvents defines an envelope for the application’s data.&#x20;
+The [AsyncAPI](https://www.asyncapi.com/) specification serves asynchronous APIs and is widely regarded as OpenAPI's counterpart. The CloudEvents specification also applies to asynchronous APIs, but an [in-depth comparison](https://www.asyncapi.com/blog/asyncapi-cloud-events) reveals that CloudEvents and AsyncAPI belong to different categories of specification. While AsyncAPI addresses the overall application and its communication channels, CloudEvents defines an envelope for the application’s data.
 
 ## Data-interchange formats <a href="#data-interchange-formats-7" id="data-interchange-formats-7"></a>
 
@@ -172,7 +172,7 @@ const sampleObject = {
 };
 ```
 
-To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript generally inhibit the use of a single, contiguous block of memory to store an object's payload. Instead, objects store references to data contained in different blocks, which spreads an object's properties over the memory of a running process.
+To ensure any API client can parse the transmitted data, the payload must be encoded into a universal format prior to delivery. It must also arrive in a self-contained stream or chunk, but abstractions inherent to high-level programming languages such as JavaScript generally inhibit the use of a single, contiguous block of memory to store an object. Instead, the object contains references to data stored in different blocks of memory, which spreads an object's properties over the memory of a running process.
 
 Serialization satisfies these requirements by converting an object in memory to a stream of bytes for storage or transport. Serialized data can be easily transferred over a network, then deserialized (the inverse operation) upon reaching its destination. Data-interchange format and serialization format are synonymous terms.
 
@@ -194,7 +194,9 @@ console.log(typeof deserializedData);
 // 'object'
 ```
 
-JSON borrowed heavily from Javascript’s object literal notation to transform the object keys into strings and the object itself into a primitive string where all of the original object's data exists in a self-contained chunk. The following code uses local APIs built into the JavaScript and Python programming languages to serialize the object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary.
+The serialized JSON object looks similar to the original Javascript object because the JSON format is based on Javascript’s object literal notation. However, the data did change as the object keys were converted into strings and the object itself was converted into a primitive string where all of the original object's data exists in a self-contained chunk.&#x20;
+
+The following code uses local APIs built into the JavaScript and Python programming languages to serialize the object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary.
 
 {% code title="JavaScript" lineNumbers="true" %}
 ```javascript
@@ -226,7 +228,7 @@ print(type(deserialized_data))
 ```
 {% endcode %}
 
-With respect to web APIs, serialization format is often dependent on the particular application layer protocol employed. For example, while SOAP APIs require XML, HTTP APIs are encoding-agnostic and support HTML, JSON, XML, CSV, binary formats, custom serialization formats, etc.&#x20;
+With respect to web APIs, serialization format is often dependent on the particular application layer protocol employed. For example, while SOAP APIs require XML, HTTP APIs are encoding-agnostic and support HTML, JSON, XML, CSV, binary formats, custom serialization formats, etc.
 
 Binary formats are preferable to JSON for high-volume data transfers subject to strict performance criteria. For example, [Apache Avro is recommended for Kafka](https://www.confluent.io/blog/avro-kafka-data/) despite Kafka supports for JSON. JSON is also schema-less by default and does not enforce [type safety](https://levelup.gitconnected.com/what-is-type-safety-705b1813e0bb), instead prioritizing flexibility over validation and error-checking. Binary formats such as [protocol buffers](https://developers.google.com/protocol-buffers) have surged in popularity by addressing performance and validation concerns with JSON.
 

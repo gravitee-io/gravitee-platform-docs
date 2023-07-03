@@ -1,6 +1,6 @@
 # API Basics
 
-An application programming interface, or API, is a set of publicly exposed definitions and protocols that enable the creation and integration of application software. These conventions comprise a software intermediary that allows computer programs or applications to communicate.
+An application programming interface, or API, is a set of publicly exposed interface conventions that enable the integration of application software. These conventions provide the structure that allows computer programs or applications to communicate.
 
 While "API" and "web API" are often used interchangeably, web APIs are a specific subset of API that operate over a network. "API" has much broader implications and includes every method or function called in programming, whether built into a language or made available by a 3rd party package or module.
 
@@ -13,7 +13,7 @@ date_str = "12/25/1996"
 date_object = datetime.strptime(date_str, "%m/%d/%Y")
 ```
 
-Importing the `datetime` module provides access to public methods, or APIs, like `strptime` to convert a `string` into a `datetime` object. Although not network-related, this API still imposes a software contract, which guarantees the stability of the API with respect to the current software version. The contract allows the programmer to have confidence in the API's expected behavior without understanding how the input data is transformed.&#x20;
+Importing the `datetime` module provides access to public methods, or APIs, like `strptime` to convert a `string` into a `datetime` object. Although not network-related, this API still imposes a software contract, which guarantees the stability of the API with respect to the current software version. The contract allows the programmer to have confidence in the API's expected behavior without understanding how the input data is transformed.
 
 {% hint style="info" %}
 Respecting API contracts is the basis for **semantic versioning** in software. Check out [this article](https://blog.webdevsimplified.com/2020-01/semantic-versioning/) for an introduction to semantic versioning and to learn how API contracts are managed as software is continuously updated.
@@ -49,7 +49,6 @@ instead of this:
 Beyond developer experience and productivity, abstraction remains critical. For example, the vast majority of people don't have a a low-level understanding of how email works, just that there are inputs (i.e., interface conventions): recipients, subject, message body, the send button, etc., and output: a rapid form of text-based communication. Abstractions, and therefore APIs, are necessary for efficiency and innovation.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/original/2X/a/a8a51b9365a05b24e391d475f37a6fb6408d9150.png" alt=""><figcaption><p>Abstraction meme posted on <a href="https://www.reddit.com/r/ProgrammerHumor/comments/orerw4/abstraction/">reddit</a>.</p></figcaption></figure>
-
 
 {% hint style="warning" %}
 Gravitee uses the terms "web API" and "API" synonymously. An API that does not communicate over a network is explicitly referred to as a local API.
