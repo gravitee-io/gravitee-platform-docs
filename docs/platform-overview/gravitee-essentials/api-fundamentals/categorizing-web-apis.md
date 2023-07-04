@@ -14,7 +14,7 @@ To frame a relatable analogy, consider that humans [cannot multitask](https://ww
 
 However, humans often adopt asynchronous task management, e.g., begin task A, switch to and complete task B, then return to and complete task A. For example, if the insurance provider places the potential customer on hold, they can switch to working on their report,  then switch back to the phone call once they are connected with an agent.
 
-This asynchronous execution of tasks works within the confines of a single train of thought or, in programming terms, a single thread of execution. Asynchronous programming interrupts the linear and sequential execution flow of tasks through the involvement of a third party. In the real-world example, this third party is the insurance provider, but in programming, the third party is generally a web API that is called by the main execution thread.
+This asynchronous execution of tasks works within the confines of a single train of thought or, in programming terms, a single thread of execution. Asynchronous programming interrupts the linear and sequential execution flow of tasks through the involvement of a third party. In the real-world example, this third party is the insurance provider, but in programming, the third party is generally a web API called by the main execution thread.
 
 The following functions demonstrate sync vs async programming at the expense of implementation logic. By design, Javascript inhibits synchronous, blocking code, because it is the [single-threaded language](https://medium.com/swlh/what-does-it-mean-by-javascript-is-single-threaded-language-f4130645d8a9) that powers the web. For these examples, focus on what the functions represent.
 
