@@ -8,17 +8,18 @@ description: >-
 
 ## Overview
 
-Every APIM installation includes several default resources that are commonly used in standard APIM implementations. T
+Every APIM installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Design Studio](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_overview.html).
 
-
-
-APIM comes with some default common _resources_, for standard APIM usage.
-
-You can configure resources for your APIs during the API design phase. From APIM 3.5, the recommended way of doing this is with [Design Studio](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_overview.html).
+The following sections summarize resource descriptions, configuration options, and configuration examples.
 
 ## Resource Descriptions
 
-Cache: The cache resource is used to maintain a cache and link it to the API lifecycle. It means that the cache is initialized when the API is starting and released when API is stopped. This cache is responsible to store HTTP response from the backend to avoid subsequent calls. Current implementation of the cache resource is based on [Hazelcast](https://hazelcast.com/).
+APIM includes 4 default resources, each of which is described in more detail below.&#x20;
+
+* **Cache:** The cache resource maintains a cache that is linked to the API lifecycle, i.e., the cache is initialized when the API starts and released when the API stops. It is responsible for storing HTTP responses to avoid subsequent calls to the backend. The current implementation is based on [Hazelcast](https://hazelcast.com/).
+* **Redis Cache:** Same as Cache (above), but the current implementation is based on Redis.
+
+
 
 ## Configuration Options
 
@@ -69,13 +70,7 @@ Configuration example
 
 ## Redis Cache Resource <a href="#redis_cache_resource" id="redis_cache_resource"></a>
 
-### Description
 
-The Redis cache resource is used to maintain a cache and link it to the API lifecycle. It means that the cache is initialized when the API is starting and released when API is stopped.
-
-This cache is responsible to store HTTP response from the backend to avoid subsequent calls.
-
-Current implementation of the cache resource is based on [Redis](https://redis.io/).
 
 ### Configuration
 
