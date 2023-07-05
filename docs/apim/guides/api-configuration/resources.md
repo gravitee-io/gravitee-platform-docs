@@ -1,30 +1,36 @@
+---
+description: >-
+  This page describes the purpose and configuration of each default APIM
+  resource.
+---
+
 # Resources
 
 ## Overview
 
-APIM comes with some default common _resources_, for standard APIM usage. The default resources are described in this section.
+Every APIM installation includes several default resources that are commonly used in standard APIM implementations. T
+
+
+
+APIM comes with some default common _resources_, for standard APIM usage.
 
 You can configure resources for your APIs during the API design phase. From APIM 3.5, the recommended way of doing this is with [Design Studio](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_overview.html).
 
 ## Resource Descriptions
 
+Cache: The cache resource is used to maintain a cache and link it to the API lifecycle. It means that the cache is initialized when the API is starting and released when API is stopped. This cache is responsible to store HTTP response from the backend to avoid subsequent calls. Current implementation of the cache resource is based on [Hazelcast](https://hazelcast.com/).
 
-
-## Resource Configurations
+## Configuration Options
 
 Each resource can be customized with a unique set of configuration options, as shown in the tables below.
 
 
 
+## Configuration Examples
+
+
+
 ## Cache
-
-### Description
-
-The cache resource is used to maintain a cache and link it to the API lifecycle. It means that the cache is initialized when the API is starting and released when API is stopped.
-
-This cache is responsible to store HTTP response from the backend to avoid subsequent calls.
-
-Current implementation of the cache resource is based on [Hazelcast](https://hazelcast.com/).
 
 ### Configuration
 
