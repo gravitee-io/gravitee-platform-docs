@@ -32,14 +32,11 @@ Both resources and attributes can be exposed in the API’s documentation.
 
 ## Expose <a href="#expose" id="expose"></a>
 
-For a **resource** you can specify which [operations](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#operations) are allowed on it. You can also specify whether or not the resource is searchable with query parameters.
+The [operations](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#operations) are allowed on a resource can be specified. You can also specify whether or not the resource is searchable with query parameters.
 
-For an **attribute** you can
+You can determine the visibility of an attribute in requests and responses. You can also add it as a filter for and/or result of searches. An attribute can only be added if the parent resource or attribute is added.
 
-* Determine its visibility in requests and responses
-* Add it as a filter for and/or result of searches. An attribute can only be added if the parent resource or attribute is added.
-
-An **attribute** can be expanded. This will automatically change its type to **Object**. If you want to turn it into a **resource**, it has to be a list.
+An attribute can be expanded. This will automatically change its type to Object. If you want to turn an attribute into a resource, it must be a list.
 
 ## Refine <a href="#refine" id="refine"></a>
 
