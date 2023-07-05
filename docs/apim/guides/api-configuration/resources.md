@@ -23,13 +23,29 @@ APIM includes 4 default resources, each of which is described in more detail bel
 
 ### OAuth2 APIM compatibility
 
-<table><thead><tr><th width="161">APIM version</th><th>Gravitee Access Management plugin version</th><th>Generic Authorization Server plugin version</th></tr></thead><tbody><tr><td>3.18.x to latest</td><td>2.x and upper</td><td>2.x and upper</td></tr><tr><td>3.10.x to 3.17.x</td><td>1.14.x and upper</td><td>1.16.x and upper</td></tr><tr><td>Up to 3.9.x</td><td>Up to 1.13.x</td><td>Up to 1.15.x</td></tr></tbody></table>
+<table><thead><tr><th width="161">APIM version</th><th width="263">Gravitee Access Management plugin version</th><th>Generic Authorization Server plugin version</th></tr></thead><tbody><tr><td>3.18.x to latest</td><td>2.x and upper</td><td>2.x and upper</td></tr><tr><td>3.10.x to 3.17.x</td><td>1.14.x and upper</td><td>1.16.x and upper</td></tr><tr><td>Up to 3.9.x</td><td>Up to 1.13.x</td><td>Up to 1.15.x</td></tr></tbody></table>
 
 ## Configuration options
 
 Each resource can be customized with a unique set of configuration options, as shown in the tables below.
 
+{% tabs %}
+{% tab title="Cache" %}
 
+{% endtab %}
+
+{% tab title="Redis Cache" %}
+
+{% endtab %}
+
+{% tab title="OAuth2 - Gravitee AM" %}
+
+{% endtab %}
+
+{% tab title="OAuth2 - Generic Auth Server" %}
+
+{% endtab %}
+{% endtabs %}
 
 ## Configuration Examples
 
