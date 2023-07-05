@@ -20,11 +20,15 @@ Each element can be expanded (+). To remove an element, right-click it and selec
 If you delete an element, all underlying elements will also be deleted.
 {% endhint %}
 
-You can distinguish between three phases: **define**, **expose** and **refine**. First, you define your attributes and resources with broad brushstrokes. How you expose them depends on your use case. Finally, you refine the attributes.
+There are three design phases: **define**, **expose** and **refine**. First, broadly define resources and attributes. How you expose them depends on your use case. Next, refine the attributes.
 
 ## Define <a href="#define" id="define"></a>
 
-The key part of a resource definition is the name. The name will appear in the request path. For the attribute definition, the datatype matters the most. It can be an integer, number, string, boolean, or a list of one of these. Both resources and attributes can be exposed in the API’s documentation.
+The key part of a resource definition is the name. The name will appear in the request path.&#x20;
+
+The datatype of an attribute definition matters most. It can be an integer, number, string, boolean, or a list of one of these.&#x20;
+
+Both resources and attributes can be exposed in the API’s documentation.
 
 ## Expose <a href="#expose" id="expose"></a>
 
