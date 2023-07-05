@@ -122,8 +122,8 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 * Cluster managers are now available as plugins and so Hazelcast Cluster Manager has been removed from the default distribution.
 * APIM now requires a minimum of JDK 17.
 * Removed an unused and outdated feature regarding file synchronization known as `localregistry`.
-* Subscriptions with type `subscription` have been renamed to `push`. Plans have a new field `mode` that is `Standard` by default but needs to be `Push` for plans with type `push`.
-  * ⚠️ a mongo script is available to migrate the data in MongoDB [https://github.com/gravitee-io/gravitee-api-management/tree/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/4.0.0](https://github.com/gravitee-io/gravitee-api-management/tree/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/4.0.0))
+* Subscriptions with `type: SUBSCRIPTION` have been renamed to `type: PUSH`. Plans have a new field called `mode` that is `STANDARD` by default but needs to be `PUSH` for all Push plans.
+  * A mongo script is available to migrate the data in MongoDB [https://github.com/gravitee-io/gravitee-api-management/tree/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/4.0.0](https://github.com/gravitee-io/gravitee-api-management/tree/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/4.0.0))
 * v4 APIs currently only support the Elasticsearch reporter. If any other reporter is configured at Gateway level, each v4 API call will produce an error log.&#x20;
   * However, when using a different reporter, it remains possible to disable analytics on a per-API basis to avoid generating error logs for v4 APIs.
 * Jupiter mode has been replaced with the v4 emulation engine:
