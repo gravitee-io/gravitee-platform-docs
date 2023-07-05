@@ -48,6 +48,113 @@ Configuration example
 
 ## Cache Redis
 
+|   | This plugin is not in distribution by default, but you can [download the plugin](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and follow the [instructions](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_customize.html#install\_an\_additional\_plugin) to install it. For more information on configuring cache in APIM, see [Configure cache](https://docs.gravitee.io/apim/3.x/apim\_installguide\_cache.html). For information on configuring the Rate Limit repository plugin for Redis, see the [Redis](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_redis.html) page. |
+| - | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+## Redis Cache Resource <a href="#redis_cache_resource" id="redis_cache_resource"></a>
+
+### Description
+
+The Redis cache resource is used to maintain a cache and link it to the API lifecycle. It means that the cache is initialized when the API is starting and released when API is stopped.
+
+This cache is responsible to store HTTP response from the backend to avoid subsequent calls.
+
+Current implementation of the cache resource is based on [Redis](https://redis.io/).
+
+### Configuration
+
+You can configure the resource with the following options :
+
+| Property          | Required | Description                                                                                                                                                                                                                                                           | Type    | Default        |
+| ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- |
+| name              | X        | The name of the cache.                                                                                                                                                                                                                                                | string  | my-redis-cache |
+| releaseCache      | X        | Release the cache when API is stopped? If enabled, the resource will release the cache. If not, you will have to manage it by yourself on your Redis server.                                                                                                          | boolean | false          |
+| maxTotal          | X        | The maximum number of connections that are supported by the pool.                                                                                                                                                                                                     | integer | 8              |
+| password          |          | The password of the instance.                                                                                                                                                                                                                                         | string  |                |
+| timeToLiveSeconds | X        | The maximum number of seconds an element can exist in the cache regardless of use. The element expires at this limit and will no longer be returned from the cache. The default value is 0, which means no timeToLive (TTL) eviction takes place (infinite lifetime). | integer | 0              |
+| timeout           | X        | The timeout parameter specifies the connection timeout and the read/write timeout.                                                                                                                                                                                    | integer | 2000           |
+| timeout           | X        | The timeout parameter specifies the connection timeout and the read/write timeout.                                                                                                                                                                                    | integer | 2000           |
+| useSsl            | X        | Use SSL connections.                                                                                                                                                                                                                                                  | boolean | true           |
+| sentinelMode      | X        | Sentinel provides high availability for Redis. In practical terms this means that using Sentinel you can create a Redis deployment that resists without human intervention certain kinds of failures.                                                                 | boolean | false          |
+
+#### Standalone configuration
+
+| Property | Required | Description               | Type    | Default   |
+| -------- | -------- | ------------------------- | ------- | --------- |
+| host     | X        | The host of the instance  | string  | localhost |
+| port     | X        | The port of the instance. | integer | 6379      |
+
+Configuration example
+
+```
+{
+    "name" : "my-redis-cache",
+    "type" : "cache-redis",
+    "enabled" : true,
+    "configuration" : {
+        "name" : "my-redis-cache",
+        "releaseCache": false,
+        "maxTotal" : 8,
+        "password" : "secret",
+        "timeToLiveSeconds" : 600,
+        "timeout" : 2000,
+        "useSsl" : true,
+        "sentinelMode" : false,
+        "standalone": {
+            "host" : "localhost",
+            "port" : 6379
+        }
+    }
+}
+```
+
+#### Sentinel configuration
+
+| Property | Required | Description             | Type   | Default         |
+| -------- | -------- | ----------------------- | ------ | --------------- |
+| masterId | X        | The sentinel master id  | string | sentinel-master |
+| password | -        | The sentinel password.  | string |                 |
+| nodes    | X        | List of sentinel nodes. | Array  |                 |
+
+Configuration example
+
+```
+{
+    "name" : "my-redis-cache",
+    "type" : "cache-redis",
+    "enabled" : true,
+    "configuration" : {
+        "name" : "my-redis-cache",
+        "releaseCache": false,
+        "maxTotal" : 8,
+        "password" : "secret",
+        "timeToLiveSeconds" : 600,
+        "timeout" : 2000,
+        "useSsl" : true,
+        "sentinelMode" : true,
+        "sentinel" : {
+            "masterId" : "sentinel-master",
+            "password" : "secret",
+            "nodes": [
+              {
+                "host" : "localhost",
+                "port" : 26379
+              },
+              {
+                "host" : "localhost",
+                "port" : 26380
+              },
+              {
+                "host" : "localhost",
+                "port" : 26381
+              }
+            ]
+        }
+    }
+}
+```
+
+\
 
 
 ## OAuth2 - Gravitee Access Management
