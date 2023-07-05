@@ -23,25 +23,7 @@ APIM includes 4 default resources, each of which is described in more detail bel
 
 ### OAuth2 APIM compatibility
 
-<table><thead><tr><th width="437.5">Generic Auth Server plugin version</th><th>Gravitee AM plugin version</th><th>APIM version</th></tr></thead><tbody><tr><td>2.x and upper</td><td></td><td>3.18.x to latest</td></tr><tr><td>1.16.x and upper</td><td></td><td>3.10.x to 3.17.x</td></tr><tr><td>Up to 1.15.x</td><td></td><td>Up to 3.9.x</td></tr></tbody></table>
-
-{% tabs %}
-{% tab title="Gravitee Access Management" %}
-| Plugin version   | APIM version     |
-| ---------------- | ---------------- |
-| 2.x and upper    | 3.18.x to latest |
-| 1.14.x and upper | 3.10.x to 3.17.x |
-| Up to 1.13.x     | Up to 3.9.x      |
-{% endtab %}
-
-{% tab title="Generic Authorization Server" %}
-| Plugin version   | APIM version     |
-| ---------------- | ---------------- |
-| 2.x and upper    | 3.18.x to latest |
-| 1.16.x and upper | 3.10.x to 3.17.x |
-| Up to 1.15.x     | Up to 3.9.x      |
-{% endtab %}
-{% endtabs %}
+<table><thead><tr><th width="161">APIM version</th><th>Gravitee Access Management plugin version</th><th>Generic Authorization Server plugin version</th></tr></thead><tbody><tr><td>3.18.x to latest</td><td>2.x and upper</td><td>2.x and upper</td></tr><tr><td>3.10.x to 3.17.x</td><td>1.14.x and upper</td><td>1.16.x and upper</td></tr><tr><td>Up to 3.9.x</td><td>Up to 1.13.x</td><td>Up to 1.15.x</td></tr></tbody></table>
 
 ## Configuration options
 
