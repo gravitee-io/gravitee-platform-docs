@@ -4,9 +4,9 @@ description: Sample structure for policy documentation
 
 # v4 Template Policy
 
-***
 
-***
+
+
 
 publisher: GraviteeSource
 
@@ -123,7 +123,7 @@ Then adding a JSON-to-XML policy on the subscribe phase will return the payload 
 The output is the typical return structure for the HTTP GET entrypoint with each message `content` field being transformed from JSON to XML.
 
 {% hint style="info" %}
-For the HTTP GET entrypoint specifically, the entire payload can be returned as XML by adding the `"Accept": "application/json"` header to the GET request. In this case, the message content is transformed into [CDATA](https://www.w3.org/TR/REC-xml/#sec-cdata-sect) and is therefore not treated as marked-up content for the purpose of the entrypoint using the `Accept` header. &#x20;
+For the HTTP GET entrypoint specifically, the entire payload can be returned as XML by adding the `"Accept": "application/json"` header to the GET request. In this case, the message content is transformed into [CDATA](https://www.w3.org/TR/REC-xml/#sec-cdata-sect) and is therefore not treated as marked-up content for the purpose of the entrypoint using the `Accept` header.
 {% endhint %}
 
 ## Configuration
@@ -134,11 +134,11 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 {% tab title="Management UI" %}
 <mark style="color:yellow;">We should wait to make these once the v4 Policy Studio is finalized</mark>
 
-{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" %}
+\{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" %\}
 {% endtab %}
 
 {% tab title="Managment API" %}
-When using the management API, policies are added as flows either directly to an API or to a  plan. To learn more about the structure of the management API, check out the reference documentation here.
+When using the management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the management API, check out the reference documentation here.
 
 {% code title="Sample Configuration" %}
 ```json
@@ -158,7 +158,7 @@ When using the management API, policies are added as flows either directly to an
 {% tab title="GKO" %}
 The Gravitee Kubernetes Operator (GKO) allows you to manage your APIs as custom resources. The `APIDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API Definition in JSON format.
 
-The example below shows a simple `ApiDefinition` custom resource definition using the `json-xml`  policy:
+The example below shows a simple `ApiDefinition` custom resource definition using the `json-xml` policy:
 
 {% code title="Sample Configuration" %}
 ```yaml
@@ -196,7 +196,7 @@ Provide a link to a conceptual overview of phases
 
 In the [changelog for each version of APIM](../../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td><p></p><p>>=3.0 &#x3C;3.21</p></td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
 
 ## Installation and deployment
 
@@ -219,7 +219,7 @@ The location of the `plugins` folder varies depending on your installation. By d
 Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
 {% endhint %}
 
-3. Remove any existing plugins of the same name.&#x20;
+3. Remove any existing plugins of the same name.
 4. Restart your APIM nodes
 
 ## Errors
@@ -263,4 +263,3 @@ To limit the processing time in the case of a nested object, the default max dep
 #### Breaking Changes
 
 * Only supports APIM versions >4.0
-

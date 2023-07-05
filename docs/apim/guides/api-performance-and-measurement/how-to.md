@@ -37,7 +37,7 @@ To do so follow along with the interactive tutorial or follow the written steps.
 
 To add a dashboard to your Analytics tab, follow these steps:
 
-***
+
 
 1\. Log in to the API Management UI.
 
