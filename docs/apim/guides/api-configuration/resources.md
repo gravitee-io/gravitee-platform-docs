@@ -6,6 +6,16 @@ APIM comes with some default common _resources_, for standard APIM usage. The de
 
 You can configure resources for your APIs during the API design phase. From APIM 3.5, the recommended way of doing this is with [Design Studio](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_overview.html).
 
+## Resource Descriptions
+
+
+
+## Resource Configurations
+
+Each resource can be customized with a unique set of configuration options, as shown in the tables below.
+
+
+
 ## Cache
 
 ### Description
