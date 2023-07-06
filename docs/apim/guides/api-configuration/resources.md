@@ -8,7 +8,7 @@ description: >-
 
 ## Overview
 
-Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Design Studio](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_overview.html).
+Every API Management installation includes several default resources that are commonly used in standard APIM implementations and can be configured during the API design phase. The recommended configuration method employs the [Policy Studio](../policy-design/).
 
 The following sections summarize resource descriptions, configuration options, and configuration examples.
 
