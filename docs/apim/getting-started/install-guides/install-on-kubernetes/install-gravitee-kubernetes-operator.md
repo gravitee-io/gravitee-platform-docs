@@ -1,4 +1,4 @@
-# Gravitee Kubernetes Operator
+# Gravitee Kubernetes Operator Architecture and Installation
 
 A [Kubernetes operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) is a method of packaging, deploying, and managing a Kubernetes application. A Kubernetes application is both deployed on Kubernetes and managed using the Kubernetes API and `kubectl` tooling.
 
@@ -128,4 +128,4 @@ If you are installing the operator with the cluster scope enabled (which is the 
 
 ## Next steps
 
-Learn how to use GKO to define, deploy, and publish APIs to your API Portal and API Gateway and to manage Custom Resource Definitions (CRDs) in our [GKO guide](../../../guides/gravitee-kubernetes-operator/).
+Learn how to use GKO to define, deploy, and publish APIs to your API Portal and API Gateway and to manage Custom Resource Definitions (CRDs) in our [GKO guide](../../../guides/gravitee-kubernetes-operator.md).
