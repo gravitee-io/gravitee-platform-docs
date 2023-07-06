@@ -104,25 +104,6 @@ Each resource can be customized with a unique set of configuration options, as s
 {% endtab %}
 {% endtabs %}
 
-## Cache
-
-Configuration example
-
-```json
-{
-    "name" : "cache",
-    "type" : "cache",
-    "enabled" : true,
-    "configuration" : {
-        "name": "my-cache",
-        "timeToIdleSeconds":0,
-        "timeToLiveSeconds":0,
-        "maxEntriesLocalHeap":1000
-    }
-}
-```
-
-\
 
 
 ## Cache Redis
@@ -210,58 +191,4 @@ Configuration example
     }
 }
 ```
-
-\
-
-
-## OAuth2 - Gravitee Access Management
-
-
-
-### Configuration
-
-You can configure the resource with the following options :
-
-Configuration example
-
-```json
-{
-    "configuration": {
-        "clientId": "my-client",
-        "clientSecret": "f2ddb55e-30b5-4a45-9db5-5e30b52a4574",
-        "securityDomain": "my-security",
-        "serverURL": "https://graviteeio_access_management",
-        "userClaim": "sub"
-    }
-}
-```
-
-\
-
-
-## OAuth2 - Generic Authorization Server
-
-
-
-Configuration example
-
-```json
-{
-    "configuration": {
-        "introspectionEndpoint": "https://my_authorization_server/oauth/check_token",
-        "introspectionEndpointMethod": "POST",
-        "clientAuthorizationHeaderName": "Authorization",
-        "clientAuthorizationHeaderScheme": "Basic",
-        "clientId": "my-client",
-        "clientSecret": "f2ddb55e-30b5-4a45-9db5-5e30b52a4574",
-        "tokenIsSuppliedByHttpHeader": false,
-        "tokenIsSuppliedByQueryParam": true,
-        "tokenQueryParamName": "token",
-        "useClientAuthorizationHeader": true
-    }
-}
-```
-
-\
-
 
