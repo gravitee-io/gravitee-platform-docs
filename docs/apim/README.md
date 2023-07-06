@@ -1,14 +1,14 @@
 # Introduction to Gravitee API Management (APIM)
 
-Organizations need API management solutions to securely and reliably expose their APIs to external developers, internal developers, and partners. API management can unlock the potential of the organization’s data and services, as well as facilitate the transformation to OpenAPI and OpenData, extending the company’s digital platform offerings, opening new communication channels, and finding new customers.
+An API management solution is critical for an organization to securely and reliably expose its APIs to external developers, internal developers, and partners. API management unlocks the potential of the organization’s data and services and facilitates the transformation to OpenAPI and OpenData. This leads to numerous benefits and advantages, such as extending the company’s digital platform offerings, opening new communication channels, and finding new customers.
 
-Naturally, a growing customer base brings new challenges, such as:
+A growing customer base brings new challenges, e.g., how to:
 
-* How to reduce the time taken to enroll new partners
-* How to identify partners and manage their API consumption
-* How to measure consumption from a consumer and/or producer point of view
-* How to share and discover existing APIs
-* How to manage the API lifecycle, versioning, documentation, etc.
+* Reduce the time taken to enroll new partners
+* Identify partners and manage their API consumption
+* Measure consumption from the perspective of a consumer and/or producer&#x20;
+* Share and discover existing APIs
+* Manage the API lifecycle, versioning, documentation, etc.
 
 So, how can businesses address all these challenges seamlessly, for all APIs, using a centralized tool? Simple – by choosing Gravitee API Management (APIM).
 
