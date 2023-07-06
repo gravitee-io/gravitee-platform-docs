@@ -12,25 +12,29 @@ A growing customer base brings new challenges, e.g., how to:
 
 Gravitee API Management (APIM) enables businesses to address these challenges seamlessly, across all of its APIs, using a centralized tool.
 
-## Gravitee API Management components
+## Gravitee API Management
 
-Gravitee API Management is a flexible, lightweight, and performant event-native API management platform that accelerates and streamlines the governance and security of both synchronous and asynchronous APIs. APIM is composed of four main components:
+Gravitee API Management is a flexible, lightweight, and performant event-native API management platform that accelerates and streamlines the governance and security of both synchronous and asynchronous APIs.&#x20;
+
+### APIM core concepts
+
+
+
+### APIM components
+
+APIM is composed of four main components:
 
 **APIM Gateway:** The core component of the APIM platform, it is essentially a sophisticated proxy. Unlike a traditional HTTP proxy, APIM Gateway can apply policies (i.e., rules) to both HTTP requests and responses to enhance processing by adding transformations, security, and many other exciting features.
 
 **APIM Management API:** A RESTful API that exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](reference/management-api-reference/) section.
 
-**APIM Console:** A web UI providing easy access to key APIM API services. It allows API Publishers to publish APIs and administrators to configure both global platform settings and specific portal settings.
+**APIM Console:** A web UI providing easy access to key APIM API services. It allows API publishers to publish APIs and administrators to configure both global platform settings and specific portal settings.
 
-**APIM Developer Portal:** A web UI providing easy access to key APIM API services. API Consumers can use it to manage their applications and search for, view, try out, or subscribe to a published API.
+**APIM Developer Portal:** A web UI providing easy access to key APIM API services. API consumers can use it to manage their applications and search for, view, try out, or subscribe to a published API.
 
-## Why Gravitee API Management?
+### APIM core concepts
 
-Our goal in launching Gravitee APIM is to provide users with a highly flexible and scalable solution that seamlessly integrates with their infrastructure and expertly conforms to their business needs. We’ve designed and developed APIM to be fully extensible using its own internal plugin system: you can define your own policy, develop your own reporting system, and more.
 
-Additionally, all APIM components (including APIM Gateway and APIM Management API) are incredibly lightweight. Gravitee's consciously aggressive approach to CPU and memory management enables our products to supply high availability through lightning-fast component start-up times. For a typical number of API deployments, it takes **less than 5 seconds** for the API Gateway to be accessible to consumers.
-
-## Core APIM Concepts
 
 **Gateway API:** The root concept defined and used by APIM and through which services are exposed to the Gateway.
 
@@ -39,6 +43,12 @@ Additionally, all APIM components (including APIM Gateway and APIM Management AP
 **API consumer:** The user or application accessing the API. Consumers are granted access to APIs via subscriptions.
 
 **Application:** An intermediary between a consumer and an API. Through applications, consumers are grouped together and the application as a whole subscribes to the API.
+
+## Why Gravitee API Management?
+
+Our goal in launching Gravitee APIM is to provide users with a highly flexible and scalable solution that seamlessly integrates with their infrastructure and expertly conforms to their business needs. We’ve designed and developed APIM to be fully extensible using its own internal plugin system: you can define your own policy, develop your own reporting system, and more.
+
+Additionally, all APIM components (including APIM Gateway and APIM Management API) are incredibly lightweight. Gravitee's consciously aggressive approach to CPU and memory management enables our products to supply high availability through lightning-fast component start-up times. For a typical number of API deployments, it takes **less than 5 seconds** for the API Gateway to be accessible to consumers.
 
 ## First steps
 
