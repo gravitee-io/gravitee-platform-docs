@@ -185,7 +185,7 @@ Some policies support the addition of resources, which can be used for actions s
 * **OAuth2 policy**: Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource
 * **OpenID Connect - UserInfo:** Specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource
 * **Serialization & deserialization policies**: Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry
-  * JSON to Avro policy
+  * Avro <> JSON policy
 * **HTTP signature policies**: Specify your HTTP Authentication Provider resource
 * **Basic authentication:** Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory
 
