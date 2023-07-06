@@ -67,6 +67,6 @@ An **application** is an intermediate level between a consumer and an API. Throu
 
 ## First steps
 
-Ready to use Gravitee API Management? Let’s get started! Select any options below to learn more about APIM or head over to the install guides to get APIM up and running:
+Ready to use Gravitee API Management? Let’s get started! Select from the options below to learn more about APIM, or head over to the install guides to get APIM up and running.
 
 <table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Architecture</td><td></td><td><a href="overview/introduction-to-gravitee-api-management-apim/apim-architecture.md">apim-architecture.md</a></td></tr><tr><td></td><td>Plugins</td><td></td><td><a href="overview/introduction-to-gravitee-api-management-apim/plugins.md">plugins.md</a></td></tr><tr><td></td><td>Integrations</td><td></td><td><a href="overview/integrations/">integrations</a></td></tr><tr><td></td><td>Open Source vs Enterprise Edition</td><td></td><td><a href="overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md">ee-vs-oss.md</a></td></tr><tr><td></td><td>Install &#x26; Upgrade Guides</td><td></td><td><a href="getting-started/install-and-upgrade/install-guides/">install-guides</a></td></tr></tbody></table>
