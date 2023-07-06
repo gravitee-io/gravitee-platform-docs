@@ -39,7 +39,7 @@ Each resource can be customized with a unique set of configuration options, as s
 {% endtab %}
 
 {% tab title="OAuth2 - Gravitee AM" %}
-
+<table><thead><tr><th width="177">Property (Type)</th><th width="354">Description</th><th>Default</th></tr></thead><tbody><tr><td>serverURL<br>(string)</td><td>URL of the Gravitee Access Management server</td><td>-</td></tr><tr><td>securityDomain<br>(string)</td><td>Security domain (realm) from which the token has been generated and must be introspected</td><td>-</td></tr><tr><td>clientId<br>(string)</td><td>Client identifier</td><td>-</td></tr><tr><td>clientSecret<br>(string)</td><td>Client secret</td><td>-</td></tr><tr><td>userClaim<br>(string)</td><td>User claim field to store end user in log analytics</td><td>sub</td></tr><tr><td>useSystemProxy<br>(boolean)</td><td>Toggle to use system proxy</td><td>false</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="OAuth2 - Generic Auth Server" %}
@@ -168,15 +168,6 @@ Configuration example
 ### Configuration
 
 You can configure the resource with the following options :
-
-| Property       | Required | Description                                                                                 | Type    | Default |
-| -------------- | -------- | ------------------------------------------------------------------------------------------- | ------- | ------- |
-| serverURL      | X        | The URL of the Gravitee.io Access Management server.                                        | string  | -       |
-| securityDomain | X        | The security domain (realm) from where the token has been generated and must be introspect. | string  | -       |
-| clientId       | X        | The client identifier.                                                                      | string  | -       |
-| clientSecret   | X        | The client secret.                                                                          | string  | -       |
-| userClaim      | -        | User claim field used to store end user on log analytics.                                   | string  | sub     |
-| useSystemProxy | -        | Use system proxy.                                                                           | boolean | false   |
 
 Configuration example
 
