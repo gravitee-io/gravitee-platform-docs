@@ -16,11 +16,13 @@ This section decodes key Gravitee concepts and terminology to provide a robust f
 
 ### Gravitee global architecture <a href="#gravitee-global-architecture-4" id="gravitee-global-architecture-4"></a>
 
+The architecture diagrams below offer an excellent conceptualization of the Gravitee ecosystem.
+
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/b014429c2135257d51371e103e78eda7e306277d_2_486x500.png" alt=""><figcaption><p>APIM and AM architecture overview</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/ae_architecture.png" alt=""><figcaption><p>AE architecture overview</p></figcaption></figure>
 
-When starting on your Gravitee journey, it can be difficult to understand how all the different pieces of the ecosystem fit together. These two architecture diagrams provide an excellent 10,000ft view to help you begin to conceptualize the Gravitee offering. The first diagram shows Gravitee’s API management ecosystem (APIM) and how it interacts with the access management ecosystem (AM). The second diagram highlights the function of Gravitee’s alert engine (AE). Here are a few important things to note about the architecture diagrams:
+&#x20;The first diagram shows Gravitee’s API management ecosystem (APIM) and how it interacts with the access management ecosystem (AM). The second diagram highlights the function of Gravitee’s alert engine (AE). Here are a few important things to note about the architecture diagrams:
 
 * API publishers make requests to the management API from either the management console’s GUI or programmatically. The management API is focused on two major areas:
   * Creating and deploying APIs to the gateway which determine how requests are proxied from end-users to backend APIs
