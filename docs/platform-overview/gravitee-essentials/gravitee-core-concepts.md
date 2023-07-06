@@ -10,11 +10,11 @@ The API lifecycle includes API design, development, testing, deployment, trouble
 
 Gravitee was founded in 2015 when 4 freelance developers with a passion for API strategy and implementation decided to create an API lifecycle toolset. One of Gravitee’s core differentiators is that, as an event-native API solution, built on event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs, it still fully supports synchronous APIs following the request/response model, and can even mediate between sync and async application layer protocols.&#x20;
 
-## Key Concepts <a href="#key-concepts-3" id="key-concepts-3"></a>
+## Key concepts <a href="#key-concepts-3" id="key-concepts-3"></a>
 
-This section focuses on decoding some of Gravitee's high-level concepts and terminology so you have a solid frame of reference as you work through the detailed product documentation.
+This section decodes key Gravitee concepts and terminology to provide a robust frame of reference for more detailed product documentation.
 
-### Gravitee Global Architecture <a href="#gravitee-global-architecture-4" id="gravitee-global-architecture-4"></a>
+### Gravitee global architecture <a href="#gravitee-global-architecture-4" id="gravitee-global-architecture-4"></a>
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/b014429c2135257d51371e103e78eda7e306277d_2_486x500.png" alt=""><figcaption><p>APIM and AM architecture overview</p></figcaption></figure>
 
