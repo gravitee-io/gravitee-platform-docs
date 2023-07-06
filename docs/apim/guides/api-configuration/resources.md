@@ -49,13 +49,66 @@ Each resource can be customized with a unique set of configuration options, as s
 
 ## Configuration Examples
 
+{% tabs %}
+{% tab title="Cache" %}
+```json
+{
+    "name" : "cache",
+    "type" : "cache",
+    "enabled" : true,
+    "configuration" : {
+        "name": "my-cache",
+        "timeToIdleSeconds":0,
+        "timeToLiveSeconds":0,
+        "maxEntriesLocalHeap":1000
+    }
+}
+```
+{% endtab %}
 
+{% tab title="Cache Redis" %}
+
+{% endtab %}
+
+{% tab title="OAuth2 - Gravitee AM" %}
+```json
+{
+    "configuration": {
+        "clientId": "my-client",
+        "clientSecret": "f2ddb55e-30b5-4a45-9db5-5e30b52a4574",
+        "securityDomain": "my-security",
+        "serverURL": "https://graviteeio_access_management",
+        "userClaim": "sub"
+    }
+}
+```
+{% endtab %}
+
+{% tab title="OAuth2 - Generic Auth Server" %}
+```json
+{
+    "configuration": {
+        "introspectionEndpoint": "https://my_authorization_server/oauth/check_token",
+        "introspectionEndpointMethod": "POST",
+        "clientAuthorizationHeaderName": "Authorization",
+        "clientAuthorizationHeaderScheme": "Basic",
+        "clientId": "my-client",
+        "clientSecret": "f2ddb55e-30b5-4a45-9db5-5e30b52a4574",
+        "tokenIsSuppliedByHttpHeader": false,
+        "tokenIsSuppliedByQueryParam": true,
+        "tokenQueryParamName": "token",
+        "useClientAuthorizationHeader": true
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Cache
 
 Configuration example
 
-```
+```json
 {
     "name" : "cache",
     "type" : "cache",
@@ -90,7 +143,7 @@ Configuration example
 
 Configuration example
 
-```
+```json
 {
     "name" : "my-redis-cache",
     "type" : "cache-redis",
@@ -122,7 +175,7 @@ Configuration example
 
 Configuration example
 
-```
+```json
 {
     "name" : "my-redis-cache",
     "type" : "cache-redis",
@@ -171,7 +224,7 @@ You can configure the resource with the following options :
 
 Configuration example
 
-```
+```json
 {
     "configuration": {
         "clientId": "my-client",
@@ -188,15 +241,11 @@ Configuration example
 
 ## OAuth2 - Generic Authorization Server
 
-### Configuration
 
-You can configure the resource with the following options :
-
-<table><thead><tr><th width="316">Property (Type)</th><th width="259">Description</th><th>Default</th></tr></thead><tbody><tr><td>introspectionEndpoint<br>(string)</td><td>URL the resource uses to introspect an incoming access token</td><td>-</td></tr><tr><td>useSystemProxy<br>(boolean)</td><td>Toggle to use system proxy</td><td>false</td></tr><tr><td>introspectionEndpointMethod<br>(HTTP Method)</td><td>HTTP method to introspect the access token</td><td>GET</td></tr><tr><td>clientId<br>(string)</td><td>Client identifier</td><td>-</td></tr><tr><td>clientSecret<br>(string)</td><td>Client secret</td><td>-</td></tr><tr><td>useClientAuthorizationHeader<br>(boolean)</td><td>To prevent token scanning attacks, the endpoint MUST require access authorization. Gravitee uses an HTTP header for client authentication.</td><td>true</td></tr><tr><td>clientAuthorizationHeaderName<br>(string)</td><td>Authorization header</td><td>Authorization</td></tr><tr><td>clientAuthorizationHeaderScheme<br>(string)</td><td>Authorization scheme</td><td>Basic</td></tr><tr><td>tokenIsSuppliedByQueryParam<br>(boolean)</td><td>Access token is passed to the introspection endpoint using a query parameter</td><td>true</td></tr><tr><td>tokenQueryParamName<br>(string)</td><td>Query parameter that supplies access token</td><td>token</td></tr><tr><td>tokenIsSuppliedByHttpHeader<br>(boolean)</td><td>Access token is passed to the introspection endpoint using an HTTP header</td><td>false</td></tr><tr><td>tokenHeaderName<br>(string)</td><td>HTTP header used to supply access token</td><td>-</td></tr></tbody></table>
 
 Configuration example
 
-```
+```json
 {
     "configuration": {
         "introspectionEndpoint": "https://my_authorization_server/oauth/check_token",
