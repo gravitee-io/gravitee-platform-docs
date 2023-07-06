@@ -53,12 +53,6 @@ Each resource can be customized with a unique set of configuration options, as s
 
 ## Cache
 
-### Configuration
-
-You can configure the resource with the following options :
-
-<table><thead><tr><th width="215">Property (Type)</th><th width="356">Description</th><th>Default</th></tr></thead><tbody><tr><td>name <br>(string)</td><td>Name of the cache</td><td>my-cache</td></tr><tr><td>timeToIdleSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache without being accessed. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToIdle (TTI) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>timeToLiveSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>maxEntriesLocalHeap<br>(integer)</td><td>Maximum number of objects to be held in local heap memory (0 = no limit)</td><td>1000</td></tr></tbody></table>
-
 Configuration example
 
 ```
@@ -86,12 +80,6 @@ Configuration example
 ## Redis Cache Resource <a href="#redis_cache_resource" id="redis_cache_resource"></a>
 
 
-
-### Configuration
-
-You can configure the resource with the following options :
-
-<table><thead><tr><th width="202">Property</th><th width="326">Description</th><th>Default</th></tr></thead><tbody><tr><td>name<br>(string)</td><td>Name of the cache</td><td>my-redis-cache</td></tr><tr><td>releaseCache<br>(boolean)</td><td><p>Enabled: The resource will release the cache when the API is stopped </p><p>Disabled: The cache must be managed manually on the Redis server</p></td><td>false</td></tr><tr><td>maxTotal<br>(integer)</td><td>Maximum number of connections supported by the pool</td><td>8</td></tr><tr><td>password<br>(string)</td><td>The password for the instance</td><td></td></tr><tr><td>timeToLiveSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>timeout<br>(integer)</td><td>Specifies the connection timeout and the read/write timeout</td><td>2000</td></tr><tr><td>useSsl<br>(boolean)</td><td>Toggle to use SSL connections</td><td>true</td></tr><tr><td>sentinelMode<br>(boolean)</td><td>Sentinel provides high availability for Redis (effectively, the Redis deployment persists without human intervention, barring certain kinds of failures)</td><td>false</td></tr></tbody></table>
 
 #### Standalone configuration
 
@@ -175,13 +163,7 @@ Configuration example
 
 ## OAuth2 - Gravitee Access Management
 
-### Compatibility with APIM
 
-| Plugin version   | APIM version     |
-| ---------------- | ---------------- |
-| 2.x and upper    | 3.18.x to latest |
-| 1.14.x and upper | 3.10.x to 3.17.x |
-| Up to 1.13.x     | Up to 3.9.x      |
 
 ### Configuration
 
@@ -214,18 +196,6 @@ Configuration example
 
 
 ## OAuth2 - Generic Authorization Server
-
-### Description
-
-
-
-### Compatibility with APIM
-
-| Plugin version   | APIM version     |
-| ---------------- | ---------------- |
-| 2.x and upper    | 3.18.x to latest |
-| 1.16.x and upper | 3.10.x to 3.17.x |
-| Up to 1.15.x     | Up to 3.9.x      |
 
 ### Configuration
 
