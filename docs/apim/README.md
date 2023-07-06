@@ -34,13 +34,11 @@ Additionally, all APIM components (including APIM Gateway and APIM Management AP
 
 **Gateway API:** The root concept defined and used by APIM and through which services are exposed to the Gateway.
 
-**API Publisher:** Gravitee defines an API publisher as the role that declares and manages APIs.
+**API publisher:** The creator, designer, and/or manager of an API.
 
-**API Consumer:** Gravitee defines an API Consumer as the role that consumes APIs. Consumers are granted access to APIs via subscriptions.
+**API consumer:** The user or application accessing the API. Consumers are granted access to APIs via subscriptions.
 
-### Application
-
-An **application** is an intermediate level between a consumer and an API. Through applications, consumers are grouped together and the application as a whole subscribes to the API.
+**Application:** An intermediary between a consumer and an API. Through applications, consumers are grouped together and the application as a whole subscribes to the API.
 
 ## First steps
 
