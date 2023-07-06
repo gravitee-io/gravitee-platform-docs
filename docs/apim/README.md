@@ -1,6 +1,6 @@
 # Introduction to Gravitee API Management (APIM)
 
-It's critical that an organization adopt an API management solution to securely and reliably expose its APIs to external developers, internal developers, and partners. API management unlocks the potential of an organization’s data and services and facilitates the transformation to OpenAPI and OpenData. This leads to numerous benefits and advantages, including the company's ability to extend its digital platform offerings, open new communication channels, and attract new customers.
+An organization requires an API management solution to securely and reliably expose its APIs to external developers, internal developers, and partners. API management unlocks the potential of an organization’s data and services and facilitates the transformation to OpenAPI and OpenData. This leads to numerous benefits and advantages, including the company's ability to extend its digital platform offerings, open new communication channels, and attract new customers.
 
 A growing customer base brings new challenges, e.g., how to:
 
