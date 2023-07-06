@@ -67,7 +67,67 @@ Each resource can be customized with a unique set of configuration options, as s
 {% endtab %}
 
 {% tab title="Cache Redis" %}
+Standalone configuration example:
 
+```json
+{
+    "name" : "my-redis-cache",
+    "type" : "cache-redis",
+    "enabled" : true,
+    "configuration" : {
+        "name" : "my-redis-cache",
+        "releaseCache": false,
+        "maxTotal" : 8,
+        "password" : "secret",
+        "timeToLiveSeconds" : 600,
+        "timeout" : 2000,
+        "useSsl" : true,
+        "sentinelMode" : false,
+        "standalone": {
+            "host" : "localhost",
+            "port" : 6379
+        }
+    }
+}
+```
+
+Sentinel configuration example:
+
+```json
+{
+    "name" : "my-redis-cache",
+    "type" : "cache-redis",
+    "enabled" : true,
+    "configuration" : {
+        "name" : "my-redis-cache",
+        "releaseCache": false,
+        "maxTotal" : 8,
+        "password" : "secret",
+        "timeToLiveSeconds" : 600,
+        "timeout" : 2000,
+        "useSsl" : true,
+        "sentinelMode" : true,
+        "sentinel" : {
+            "masterId" : "sentinel-master",
+            "password" : "secret",
+            "nodes": [
+              {
+                "host" : "localhost",
+                "port" : 26379
+              },
+              {
+                "host" : "localhost",
+                "port" : 26380
+              },
+              {
+                "host" : "localhost",
+                "port" : 26381
+              }
+            ]
+        }
+    }
+}
+```
 {% endtab %}
 
 {% tab title="OAuth2 - Gravitee AM" %}
@@ -100,9 +160,12 @@ Each resource can be customized with a unique set of configuration options, as s
         "useClientAuthorizationHeader": true
     }
 }
+
 ```
 {% endtab %}
 {% endtabs %}
+
+
 
 
 
