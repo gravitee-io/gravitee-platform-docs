@@ -22,18 +22,18 @@ The architecture diagrams below offer a high-level conceptualization of the Grav
 
 <figure><img src="../.gitbook/assets/ae_architecture.png" alt=""><figcaption><p>AE architecture overview</p></figcaption></figure>
 
-The key takeaways from the architecture diagrams are that:
+Key takeaways from the architecture diagrams:
 
 * API publishers make requests to the Management API from either programmatically or from the Management Console.&#x20;
 * The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from end users to backend APIs, and exposing backend APIs in a developer portal for access by API consumers.
 * A single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
 * Each APIM and AM instance is attached to a Gravitee Cloud environment.
-* Gravitee Cloud has a hierarchy with three entity types. At the top level is an account, which typically corresponds to a company, not an individual user. Next is an organization, which typically corresponds to a logical part of the company in a particular context, such as a region or business unit. At the lowest level is an environment, which typically corresponding to an environment in an IT infrastructure, such as development or production.
+* Gravitee Cloud has a hierarchy built on three entity types. At the top level is an account, which typically corresponds to a company, not an individual user. Next is an organization, which typically corresponds to a logical part of the company in a particular context, such as a region or business unit. At the lowest level is an environment, which typically corresponds to an environment in an IT infrastructure, such as development or production.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample Gravitee Cloud hierarchy</p></figcaption></figure>
 
-### API Gateway: Policies and Plugins <a href="#api-gateway-policies-and-plugins-5" id="api-gateway-policies-and-plugins-5"></a>
+### API Gateway: policies and plugins <a href="#api-gateway-policies-and-plugins-5" id="api-gateway-policies-and-plugins-5"></a>
 
 API Management encompasses API design, API security and access management, API reliability, API delivery, and API productization. At the core of this sphere of responsibility sits the API gateway which, as ChatGPT pointed out, is a reverse proxy that sits in front of your APIs and helps route requests to the appropriate backend service while also performing various tasks such as rate-limiting, authentication, and transformation of requests and responses. Typically, the main method of enforcing security, reliability, and the proper movement of data are **policies**.
 
