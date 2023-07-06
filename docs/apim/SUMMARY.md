@@ -104,7 +104,7 @@
 * [Gravitee Expression Language](guides/policy-design/gravitee-expression-language.md)
 * [Gravitee Kubernetes Operator](guides/gravitee-kubernetes-operator.md)
   * [Architecture and Installation](getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md)
-  * [Page 2](guides/gravitee-kubernetes-operator/page-2.md)
+  * [Quick Start](guides/gravitee-kubernetes-operator/quick-start.md)
   * [Page 1](guides/gravitee-kubernetes-operator/page-1.md)
 * [Administration](guides/administration/README.md)
   * [Administering organizations and environments](guides/administration/how-to.md)
@@ -113,6 +113,7 @@
 * [Developer Contributions](guides/developer-contributions/README.md)
   * [Custom Plugins](guides/developer-contributions/dev-guide-plugins.md)
   * [Custom Policies](guides/developer-contributions/dev-guide-policies.md)
+  * [Gravitee Kubernetes Operator Development Environment](guides/developer-contributions/gravitee-kubernetes-operator-development-environment.md)
 
 ## Reference
 

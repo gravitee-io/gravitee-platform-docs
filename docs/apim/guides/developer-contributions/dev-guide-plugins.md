@@ -4,6 +4,8 @@ description: How to build and deploy your own plugins
 
 # Custom Plugins
 
+## Overview
+
 Gravitee API Management (APIM) plugins are additional components that can be _plugged into_ the Gravitee ecosystem. You can use plugins to extend and customize the behavior of Gravitee to meet your strategic needs.
 
 APIM includes a default set of plugins with each distribution. You can also obtain and [deploy](dev-guide-plugins.md#deployment) some additional Gravitee-maintained and third-party plugins from the plugin marketplace.

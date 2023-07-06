@@ -4,6 +4,8 @@ description: How to build and deploy your own policies
 
 # Custom Policies
 
+## Overview
+
 Policies are rules or logic that can be executed by the API gateway during an API transaction. A policy acts as a proxy controller by guaranteeing that a given business rule is fulfilled during the processing of an API transaction.
 
 Let's look at an example of how to develop a policy.&#x20;
