@@ -117,10 +117,10 @@ Each resource can be customized with a unique set of configuration options, as s
 
 #### Standalone configuration
 
-| Property | Required | Description               | Type    | Default   |
-| -------- | -------- | ------------------------- | ------- | --------- |
-| host     | X        | The host of the instance  | string  | localhost |
-| port     | X        | The port of the instance. | integer | 6379      |
+| Property (Type)          | Description              | Default   |
+| ------------------------ | ------------------------ | --------- |
+| <p>host<br>(string)</p>  | The host of the instance | localhost |
+| <p>port<br>(integer)</p> | The port of the instance | 6379      |
 
 Configuration example
 
@@ -148,11 +148,11 @@ Configuration example
 
 #### Sentinel configuration
 
-| Property | Required | Description             | Type   | Default         |
-| -------- | -------- | ----------------------- | ------ | --------------- |
-| masterId | X        | The sentinel master id  | string | sentinel-master |
-| password | -        | The sentinel password.  | string |                 |
-| nodes    | X        | List of sentinel nodes. | Array  |                 |
+| Property (Type)             | Description            | Default         |
+| --------------------------- | ---------------------- | --------------- |
+| <p>masterId<br>(string)</p> | Sentinel master ID     | sentinel-master |
+| <p>password<br>(string)</p> | Sentinel password      |                 |
+| <p>nodes<br>(array)</p>     | List of sentinel nodes |                 |
 
 Configuration example
 
