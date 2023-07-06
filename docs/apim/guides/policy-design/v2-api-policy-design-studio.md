@@ -22,7 +22,7 @@ The v2 Policy Studio is broken into the following sections:
 * **Resources:** Configure global resources to support your Gateway API's flows
 * **Debug:** Test and troubleshoot your Gateway APIs
 
-{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" fullWidth="true" %}
+\{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" fullWidth="true" %\}
 
 ## Design
 
@@ -36,7 +36,7 @@ The sample Gateway API shown above has three plans: Keyless Plan, Premium API Ke
 
 ### Create a flow and add policies
 
-As an example, let's create a flow that targets all users of the API.&#x20;
+As an example, let's create a flow that targets all users of the API.
 
 First, find the **Flows** section and select the **+** icon to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Flow Configuration** module with and options shown below.
 
@@ -97,7 +97,7 @@ For example, with these flows configured:
 
 If the request is `/test/55`, the resulting flow will be `/test/:id`. If the request is `/test/subtest`, the resulting flow will be `/test/subtest`.
 
-To modify the flow mode, select the **Configuration** tab and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.&#x20;
+To modify the flow mode, select the **Configuration** tab and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.
 
 <figure><img src="../../.gitbook/assets/Configure flow mode.png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
 
@@ -186,11 +186,6 @@ Some policies support the addition of resources, which can be used for actions s
 * **OpenID Connect - UserInfo:** Specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource
 * **Serialization & deserialization policies**: Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry
   * JSON to Avro policy
-  * Avro to JSON policy
-  * JSON to Protobuf policy
-  * Protobuf to JSON policy
-  * Avro to Protobuf policy
-  * Protobuf to Avro policy
 * **HTTP signature policies**: Specify your HTTP Authentication Provider resource
 * **Basic authentication:** Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory
 
@@ -240,7 +235,7 @@ Gravitee will initiate a test request, and then you will be presented with a tim
 
 ### Understanding different indicators for policies
 
-Gravitee Debug mode uses different indicators to indicate the status of policies:&#x20;
+Gravitee Debug mode uses different indicators to indicate the status of policies:
 
 * **Executed**: The policy has been executed properly
 * **Skipped:** The policy contains a condition that has not been fulfilled. Refer to the input/output inspector for more details on the evaluation of the condition.
@@ -262,7 +257,7 @@ The inspector relies on 3 colors to indicate the nature of changes:
 
 The order in which the policies appear in the timeline reflects the exact order in which they have been executed by the Gateway at runtime.
 
-Note that this order may differ from the order in which policies were placed in the Policy Studio during the design phase due to a performance optimization applied at runtime on the policy chain.&#x20;
+Note that this order may differ from the order in which policies were placed in the Policy Studio during the design phase due to a performance optimization applied at runtime on the policy chain.
 
 The Gateway always executes policies interacting with the HTTP header part of the request (onRequest, onResponse) before policies interacting with the body part of the request (onRequestContent, onResponseContent). A policy may appear twice in the timeline if it interacts with both the header and body of the request.
 
