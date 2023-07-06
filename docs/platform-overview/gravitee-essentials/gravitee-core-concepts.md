@@ -22,13 +22,12 @@ The architecture diagrams below offer a high-level conceptualization of the Grav
 
 <figure><img src="../.gitbook/assets/ae_architecture.png" alt=""><figcaption><p>AE architecture overview</p></figcaption></figure>
 
-Here are a few important things to note about the architecture diagrams:
+The key takeaways from the architecture diagrams are that:
 
-* API publishers make requests to the management API from either the management console’s GUI or programmatically. The management API is focused on two major areas:
-  * Creating and deploying APIs to the gateway which determine how requests are proxied from end-users to backend APIs
-  * Exposing backend APIs in a developer portal to be accessed by API consumers
-* As shown, a single Gravitee APIM instance is composed of several core Gravitee components.
-* An AM instance is deployed separately from APIM which can be linked together or used as standalone products.
+* API publishers make requests to the Management API from either programmatically or from the Management Console.&#x20;
+* The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from end users to backend APIs, and exposing backend APIs in a developer portal for access by API consumers.
+* A single Gravitee APIM instance is composed of several core Gravitee components.
+* An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
 * Each APIM and AM instance is attached to a Gravitee Cloud environment.
 * Gravitee Cloud has a hierarchy with three entity types:
   * The top level is an **account** (typically corresponding to a company as opposed to an individual user).
