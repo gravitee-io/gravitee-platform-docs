@@ -41,11 +41,9 @@ This web UI gives easy access to some key APIM API services. API Consumers can u
 
 ## Why Gravitee API Management?
 
-Our goal in launching Gravitee APIM is to provide users with a highly flexible and scalable solution that seamlessly integrates with their infrastructure and expertly conforms to their business needs. We’ve designed and developed APIM to be fully extensible using its own internal plugin system so you can define your own policy, develop your own reporting system, and more.
+Our goal in launching Gravitee APIM is to provide users with a highly flexible and scalable solution that seamlessly integrates with their infrastructure and expertly conforms to their business needs. We’ve designed and developed APIM to be fully extensible using its own internal plugin system: you can define your own policy, develop your own reporting system, and more.
 
-Additionally, all APIM components (including APIM Gateway and APIM Management API) are incredibly lightweight. Gravitee's consciously aggressive approach to CPU and memory management enables our products to supply high availability through lightning-fast component start-up times.
-
-For a typical number of API deployments, it takes **less than 5 seconds** for the API Gateway to be accessible to consumers.
+Additionally, all APIM components (including APIM Gateway and APIM Management API) are incredibly lightweight. Gravitee's consciously aggressive approach to CPU and memory management enables our products to supply high availability through lightning-fast component start-up times. For a typical number of API deployments, it takes **less than 5 seconds** for the API Gateway to be accessible to consumers.
 
 ## Core APIM Concepts
 
