@@ -1,6 +1,6 @@
 # Introduction to Gravitee API Management (APIM)
 
-An API management solution allows an organization to securely and reliably expose its APIs to partners and developers, both internal and external, and provides numerous benefits and advantages. API management unlocks the potential of data and services while facilitating the transformation to OpenAPI, empowering a company to extend its digital platform, forge new communication channels, and attract new customers.
+An API management solution allows an organization to securely and reliably expose its APIs to partners and developers, both internal and external, and offers numerous benefits and advantages. By unlocking the potential of data and services while facilitating the transformation to OpenAPI, an API management solution empowers a company to extend its digital platform, forge new communication channels, and attract new customers.
 
 A growing customer base brings new challenges, e.g., how to:
 
@@ -16,17 +16,13 @@ Gravitee API Management (APIM) enables businesses to address these challenges se
 
 Gravitee API Management is a flexible, lightweight, and performant event-native API management platform that accelerates and streamlines the governance and security of both synchronous and asynchronous APIs. APIM is composed of four main components:
 
-* APIM Management API
-* APIM Console
-* APIM Developer Portal
-
 **APIM Gateway:** The core component of the APIM platform, it is essentially a sophisticated proxy. Unlike a traditional HTTP proxy, APIM Gateway can apply policies (i.e., rules) to both HTTP requests and responses to enhance processing by adding transformations, security, and many other exciting features.
 
 **APIM Management API:** A RESTful API that exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](reference/management-api-reference/) section.
 
-**APIM Console:** A web UI providing easy access to some key APIM API services. It allows API Publishers to publish APIs and administrators to configure both global platform settings and specific portal settings.
+**APIM Console:** A web UI providing easy access to key APIM API services. It allows API Publishers to publish APIs and administrators to configure both global platform settings and specific portal settings.
 
-**APIM Developer Portal:** A web UI providing easy access to some key APIM API services. API Consumers can use it to search for, view, try out and subscribe to a published API. They can also use it to manage their applications.
+**APIM Developer Portal:** A web UI providing easy access to key APIM API services. API Consumers can use it to manage their applications and search for, view, try out, or subscribe to a published API.
 
 ## Why Gravitee API Management?
 
