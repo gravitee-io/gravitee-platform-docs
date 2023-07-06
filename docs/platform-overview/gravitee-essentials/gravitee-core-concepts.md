@@ -29,8 +29,7 @@ The key takeaways from the architecture diagrams are that:
 * A single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
 * Each APIM and AM instance is attached to a Gravitee Cloud environment.
-* Gravitee Cloud has a hierarchy with three entity types. The top level is an **account, which** typically corresponds to a company, not an individual user. The next level is an **organization, which** typically corresponds to a logical part of the company in a particular context, such as a region or business unit.
-  * The lowest level is an **environment** (typically corresponding to an environment in an IT infrastructure, such as a development or production environment)
+* Gravitee Cloud has a hierarchy with three entity types. At the top level is an account, which typically corresponds to a company, not an individual user. Next is an organization, which typically corresponds to a logical part of the company in a particular context, such as a region or business unit. At the lowest level is an environment, which typically corresponding to an environment in an IT infrastructure, such as development or production.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample Gravitee Cloud hierarchy</p></figcaption></figure>
 
