@@ -32,17 +32,11 @@ Additionally, all APIM components (including APIM Gateway and APIM Management AP
 
 ## Core APIM Concepts
 
-### Gateway API
+**Gateway API:** The root concept defined and used by APIM and through which services are exposed to the Gateway.
 
-**Gateway API** is the root concept defined and used by APIM. Think of this as the starting point through which services are exposed to the gateway.
+**API Publisher:** Gravitee defines an API publisher as the role that declares and manages APIs.
 
-### API Publisher
-
-In our platform, we define an **API** **publisher** as the role that declares and manages APIs.
-
-### API Consumer
-
-In our platform, we define an **API** **consumer** as the role that consumes APIs. Consumers get access to APIs by **subscribing** to them.
+**API Consumer:** Gravitee defines an API Consumer as the role that consumes APIs. Consumers are granted access to APIs via subscriptions.
 
 ### Application
 
