@@ -35,7 +35,7 @@ Each resource can be customized with a unique set of configuration options, as s
 {% endtab %}
 
 {% tab title="Cache Redis" %}
-<table><thead><tr><th width="202">Property (Type)</th><th width="262">Description</th><th>Default</th></tr></thead><tbody><tr><td>name<br>(string)</td><td>Name of the cache</td><td>my-redis-cache</td></tr><tr><td>releaseCache<br>(boolean)</td><td><p>Enabled: The resource will release the cache when the API is stopped </p><p>Disabled: The cache must be managed manually on the Redis server</p></td><td>false</td></tr><tr><td>maxTotal<br>(integer)</td><td>Maximum number of connections supported by the pool</td><td>8</td></tr><tr><td>password<br>(string)</td><td>The password for the instance</td><td></td></tr><tr><td>timeToLiveSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>timeout<br>(integer)</td><td>Specifies the connection timeout and the read/write timeout</td><td>2000</td></tr><tr><td>useSsl<br>(boolean)</td><td>Toggle to use SSL connections</td><td>true</td></tr><tr><td>sentinelMode<br>(boolean)</td><td>Sentinel provides high availability for Redis (effectively, the Redis deployment persists without human intervention, barring certain kinds of failures)</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="202">Property (Type)</th><th width="262">Description</th><th>Default</th></tr></thead><tbody><tr><td>name<br>(string)</td><td>Name of the cache</td><td>my-redis-cache</td></tr><tr><td>releaseCache<br>(boolean)</td><td><p>Enabled: The resource will release the cache when the API is stopped </p><p>Disabled: The cache must be managed manually on the Redis server</p></td><td>false</td></tr><tr><td>maxTotal<br>(integer)</td><td>Maximum number of connections supported by the pool</td><td>8</td></tr><tr><td>password<br>(string)</td><td>The password for the instance</td><td></td></tr><tr><td>timeToLiveSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>timeout<br>(integer)</td><td>Specifies the connection timeout and the read/write timeout</td><td>2000</td></tr><tr><td>useSsl<br>(boolean)</td><td>Toggle to use SSL connections</td><td>true</td></tr><tr><td>sentinelMode<br>(boolean)</td><td>Sentinel provides high availability for Redis (effectively, the Redis deployment persists without human intervention, barring certain kinds of failures)</td><td>false</td></tr><tr><td>host<br>(string)</td><td>The host of the instance<br>*Standalone config only</td><td>localhost</td></tr><tr><td>port<br>(integer)</td><td>The port of the instance<br>*Standalone config only</td><td>6379</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="OAuth2 - Gravitee AM" %}
@@ -174,84 +174,15 @@ Sentinel configuration example:
 |   | This plugin is not in distribution by default, but you can [download the plugin](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and follow the [instructions](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_customize.html#install\_an\_additional\_plugin) to install it. For more information on configuring cache in APIM, see [Configure cache](https://docs.gravitee.io/apim/3.x/apim\_installguide\_cache.html). For information on configuring the Rate Limit repository plugin for Redis, see the [Redis](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_redis.html) page. |
 | - | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-## Redis Cache Resource <a href="#redis_cache_resource" id="redis_cache_resource"></a>
 
 
 
-#### Standalone configuration
-
-| Property (Type)          | Description              | Default   |
-| ------------------------ | ------------------------ | --------- |
-| <p>host<br>(string)</p>  | The host of the instance | localhost |
-| <p>port<br>(integer)</p> | The port of the instance | 6379      |
-
-Configuration example
-
-```json
-{
-    "name" : "my-redis-cache",
-    "type" : "cache-redis",
-    "enabled" : true,
-    "configuration" : {
-        "name" : "my-redis-cache",
-        "releaseCache": false,
-        "maxTotal" : 8,
-        "password" : "secret",
-        "timeToLiveSeconds" : 600,
-        "timeout" : 2000,
-        "useSsl" : true,
-        "sentinelMode" : false,
-        "standalone": {
-            "host" : "localhost",
-            "port" : 6379
-        }
-    }
-}
-```
 
 #### Sentinel configuration
 
-| Property (Type)             | Description            | Default         |
-| --------------------------- | ---------------------- | --------------- |
-| <p>masterId<br>(string)</p> | Sentinel master ID     | sentinel-master |
-| <p>password<br>(string)</p> | Sentinel password      |                 |
-| <p>nodes<br>(array)</p>     | List of sentinel nodes |                 |
-
-Configuration example
-
-```json
-{
-    "name" : "my-redis-cache",
-    "type" : "cache-redis",
-    "enabled" : true,
-    "configuration" : {
-        "name" : "my-redis-cache",
-        "releaseCache": false,
-        "maxTotal" : 8,
-        "password" : "secret",
-        "timeToLiveSeconds" : 600,
-        "timeout" : 2000,
-        "useSsl" : true,
-        "sentinelMode" : true,
-        "sentinel" : {
-            "masterId" : "sentinel-master",
-            "password" : "secret",
-            "nodes": [
-              {
-                "host" : "localhost",
-                "port" : 26379
-              },
-              {
-                "host" : "localhost",
-                "port" : 26380
-              },
-              {
-                "host" : "localhost",
-                "port" : 26381
-              }
-            ]
-        }
-    }
-}
-```
+| Property (Type)             | Description                                            | Default         |
+| --------------------------- | ------------------------------------------------------ | --------------- |
+| <p>masterId<br>(string)</p> | Sentinel master ID \*Sentinel config only              | sentinel-master |
+| <p>password<br>(string)</p> | <p>Sentinel password<br>*Sentinel config only</p>      |                 |
+| <p>nodes<br>(array)</p>     | <p>List of sentinel nodes<br>*Sentinel config only</p> |                 |
 
