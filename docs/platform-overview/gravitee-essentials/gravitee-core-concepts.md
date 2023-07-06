@@ -16,7 +16,7 @@ This section decodes key Gravitee concepts and terminology to provide a robust f
 
 ### Gravitee global architecture <a href="#gravitee-global-architecture-4" id="gravitee-global-architecture-4"></a>
 
-The architecture diagrams below offer an excellent conceptualization of the Gravitee landscape. The first diagram shows the Gravitee API Management (APIM) ecosystem and how it interacts with the Gravitee Access Management (AM) ecosystem. The second diagram highlights the function of Gravitee’s alert engine (AE).&#x20;
+The architecture diagrams below offer a high-level conceptualization of the Gravitee landscape. The first diagram shows the interaction between the API Management (APIM) and Access Management (AM) ecosystems and their respective components. The second diagram highlights the function of the Alert Engine (AE).&#x20;
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/b014429c2135257d51371e103e78eda7e306277d_2_486x500.png" alt=""><figcaption><p>APIM and AM architecture overview</p></figcaption></figure>
 
