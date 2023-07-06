@@ -8,22 +8,7 @@ The API lifecycle includes API design, development, testing, deployment, trouble
 
 ## Overview <a href="#overview-2" id="overview-2"></a>
 
-Gravitee was started by 4 freelance developers who met back in 2015 while working on API strategy and implementation. They decided to build a complete API lifecycle toolset which later became the Gravitee we know and love today. So what does Gravitee’s toolset offer? To answer, we checked-in with our soon-to-be AI overlords over at [ChatGPT](https://openai.com/blog/chatgpt/):
-
-> Gravitee is an open-source API management platform that helps organizations design, deploy, and manage APIs. It provides a set of tools and features for building, testing, and securing APIs, as well as for managing the API lifecycle and monitoring API performance.
->
-> Gravitee offers a range of capabilities, including:
->
-> **API gateway**: A reverse proxy that sits in front of your APIs and helps route requests to the appropriate backend service. The gateway can also perform various tasks such as rate limiting, authentication, and transformation of requests and responses.\
-> **API portal**: A web-based interface that allows developers to discover, test, and consume APIs. The portal provides documentation, interactive console, and code snippets to make it easy for developers to get started with your APIs.\
-> **API analytics**: Gravitee provides detailed metrics and insights into the usage and performance of your APIs, including traffic patterns, error rates, and response times.\
-> **API security**: Gravitee offers various security features such as OAuth 2.0, JWT, and mutual SSL to help protect your APIs from unauthorized access.
->
-> Overall, Gravitee is a comprehensive platform for managing APIs, and it can be a useful tool for organizations looking to build and maintain a robust API strategy.
-
-A solid overview! However, there may still be hope for us mere mortals as ChatGPT missed a few key items.
-
-One of Gravitee’s core differentiators is the fact that it is an **event-native** API solution. This means Gravitee was built on an event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs while still fully supporting synchronous request/response style APIs, and can even mediate between sync and async application layer protocols. If that buzz-wordified sentence has no meaning to you, be sure to check out our [API Fundamentals](api-fundamentals/) documentation.
+Gravitee was founded in 2015 when 4 freelance developers with a passion for API strategy and implementation decided to create an API lifecycle toolset. One of Gravitee’s core differentiators is that, as an event-native API solution, built on event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs, it still fully supports synchronous APIs following the request/response model, and can even mediate between sync and async application layer protocols.&#x20;
 
 ## Key Concepts <a href="#key-concepts-3" id="key-concepts-3"></a>
 
