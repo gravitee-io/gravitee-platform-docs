@@ -21,19 +21,13 @@ Gravitee API Management is a flexible, lightweight, and performant event-native 
 * APIM Console
 * APIM Developer Portal
 
-### APIM Gateway
+**APIM Gateway:** The core component of the APIM platform, it is essentially a sophisticated proxy. Unlike a traditional HTTP proxy, APIM Gateway can apply policies (i.e., rules) to both HTTP requests and responses to enhance processing by adding transformations, security, and many other exciting features.
 
-APIM Gateway is the core component of the APIM platform. You can think of it like a _**smart**_ proxy.
-
-Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply policies (i.e., rules) to both HTTP requests and responses according to your needs. With these policies, you can enhance request and response processing by adding transformations, security, and many other exciting features.
-
-### APIM Management API
-
-This RESTful API exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](reference/management-api-reference/) section.
+**APIM Management API:** A RESTful API that exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](reference/management-api-reference/) section.
 
 ### APIM Console
 
-This web UI gives easy access to some key APIM API services. API Publishers can use it to publish APIs. Administrators can also configure global platform settings and specific portal settings.
+APIM Console: This web UI gives easy access to some key APIM API services. API Publishers can use it to publish APIs. Administrators can also configure global platform settings and specific portal settings.
 
 ### APIM Developer Portal
 
