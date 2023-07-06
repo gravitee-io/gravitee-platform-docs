@@ -49,6 +49,12 @@ Each resource can be customized with a unique set of configuration options, as s
 {% tab title="OAuth2 - Generic Auth Server" %}
 <table><thead><tr><th width="310">Property (Type)</th><th width="180">Description</th><th>Default</th></tr></thead><tbody><tr><td>introspectionEndpoint<br>(string)</td><td>URL the resource uses to introspect an incoming access token</td><td>-</td></tr><tr><td>useSystemProxy<br>(boolean)</td><td>Toggle to use system proxy</td><td>false</td></tr><tr><td>introspectionEndpointMethod<br>(HTTP Method)</td><td>HTTP method to introspect the access token</td><td>GET</td></tr><tr><td>clientId<br>(string)</td><td>Client identifier</td><td>-</td></tr><tr><td>clientSecret<br>(string)</td><td>Client secret</td><td>-</td></tr><tr><td>useClientAuthorizationHeader<br>(boolean)</td><td>To prevent token scanning attacks, the endpoint MUST require access authorization. Gravitee uses an HTTP header for client authentication.</td><td>true</td></tr><tr><td>clientAuthorizationHeaderName<br>(string)</td><td>Authorization header</td><td>Authorization</td></tr><tr><td>clientAuthorizationHeaderScheme<br>(string)</td><td>Authorization scheme</td><td>Basic</td></tr><tr><td>tokenIsSuppliedByQueryParam<br>(boolean)</td><td>Access token is passed to the introspection endpoint using a query parameter</td><td>true</td></tr><tr><td>tokenQueryParamName<br>(string)</td><td>Query parameter that supplies access token</td><td>token</td></tr><tr><td>tokenIsSuppliedByHttpHeader<br>(boolean)</td><td>Access token is passed to the introspection endpoint using an HTTP header</td><td>false</td></tr><tr><td>tokenHeaderName<br>(string)</td><td>HTTP header used to supply access token</td><td>-</td></tr></tbody></table>
 {% endtab %}
+
+{% tab title="Cache Redis" %}
+The Cache Redis resource can operate standalone or integrated with Sentinel. The majority of Cache Redis configuration options are common to both modes of operation, but several are exclusive to either standalone or Sentinel as indicated with a bold asterisk (\*) in the following table.
+
+
+{% endtab %}
 {% endtabs %}
 
 ## Configuration Examples
