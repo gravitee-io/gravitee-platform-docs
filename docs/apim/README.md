@@ -14,9 +14,8 @@ Gravitee API Management (APIM) enables businesses to address these challenges se
 
 ## Gravitee API Management components
 
-Gravitee API Management is a flexible, lightweight, and performant event-native API management platform that accelerates and streamlines the administration, security, and governance of synchronous and asynchronous APIs. APIM is composed of four main components:
+Gravitee API Management is a flexible, lightweight, and performant event-native API management platform that accelerates and streamlines the governance and security of both synchronous and asynchronous APIs. APIM is composed of four main components:
 
-* APIM Gateway
 * APIM Management API
 * APIM Console
 * APIM Developer Portal
@@ -25,13 +24,9 @@ Gravitee API Management is a flexible, lightweight, and performant event-native 
 
 **APIM Management API:** A RESTful API that exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](reference/management-api-reference/) section.
 
-### APIM Console
+**APIM Console:** A web UI providing easy access to some key APIM API services. It allows API Publishers to publish APIs and administrators to configure both global platform settings and specific portal settings.
 
-APIM Console: This web UI gives easy access to some key APIM API services. API Publishers can use it to publish APIs. Administrators can also configure global platform settings and specific portal settings.
-
-### APIM Developer Portal
-
-This web UI gives easy access to some key APIM API services. API Consumers can use it to search for, view, try out and subscribe to a published API. They can also use it to manage their applications.
+**APIM Developer Portal:** A web UI providing easy access to some key APIM API services. API Consumers can use it to search for, view, try out and subscribe to a published API. They can also use it to manage their applications.
 
 ## Why Gravitee API Management?
 
