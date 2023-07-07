@@ -32,7 +32,7 @@ You can create multiple policies for a single flow, each with a different config
 
 The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. Flows can be set to target subscribers of any of these three plans, like the "sample API Key flow", or they can target all users of the API, such as the "sample HTTP Get flow" and "sample Websocket flow".
 
-<figure><img src="../../.gitbook/assets/policy studio_flow (1).png" alt=""><figcaption><p>sample v4 Policy Studio</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_flow (1).png" alt=""><figcaption><p>Sample v4 Policy Studio</p></figcaption></figure>
 
 ### Create a flow
 
@@ -62,7 +62,11 @@ To add a policy to the flow, click the **+** icon in the phase where you want th
 
 The module to add a policy is pre-populated with only the selections that are valid and/or supported based on the entrypoints and endpoints chosen for the flow. For example, below are the possible policies to configure for the **Request phase** of the "sample HTTP Get flow" shown above:
 
-<figure><img src="../../.gitbook/assets/sample add policy.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sample add policy.png" alt=""><figcaption><p>Sample policy selection</p></figcaption></figure>
+
+Clicking on one of the available policies will open a configuration module. After you have made the selections and filled in the information appropriate to and required by your policy, click **Add policy**.
+
+
 
 Once you've added your policy, you can edit that policy by selecting the policy and using the configuration menu below the flow map. After you configure the policy, select the **checkmark icon**, and then **Save** in the pop-up to save the policy settings.
 
