@@ -70,33 +70,9 @@ For example, adding a **Latency** policy to the **Request phase** of the "sample
 
 <figure><img src="../../.gitbook/assets/latency policy.png" alt=""><figcaption><p>Sample policy applied</p></figcaption></figure>
 
-Once you've clicked **Add policy** to add a policy, be sure to also click **Save** in the upper right of the Policy Studio.
+Once you've clicked **Add policy** to add a policy, be sure to also click **Save** in the upper right of the Policy Studio. To edit a policy, click on the three vertical dots on its icon in the flow diagram.
 
 Whenever you add or edit a flow or policy, you'll need to redeploy your API to the Gateway for the changes to take effect. You'll see a red, circular icon above **Policy Studio** in the left nav with the tooltip message "API out of sync".
-
-#### Example: Add a Rate Limit policy
-
-For example, to limit the number of requests that a client can make using the HTTP GET method to five GET requests per second:
-
-1. Create a new flow via the steps above
-2. Configure the flow to execute only at the HTTP GET method
-3. Find the Rate Limit policy in the policy menu
-4. Drag-and-drop the Rate Limit policy onto the request phase
-5. Give the rate limit a description
-6. Add conditions using the Gravitee EL
-7. Enable or disable non-strict mode
-8. Enable or disable rate limit response headers in the HTTP response
-9. Define a Key that will be used to identify consumers against whom the Rate Limit policy should be enforced. If this is left blank, and rate limit will be applied to any consumer that has subscribed to the API's plan.
-10. Set the max requests (static) as 5
-11. Set the time duration as 1
-12. Set the time unit as SECONDS
-13. Select the checkmark icon to save the rate limit settings
-14. Click **Save**
-15. Select **deploy your API**
-16. In the modal, give the deployment a label
-17. Select **OK**
-
-At this point, the Rate Limit policy has been applied at five requests per second on the HTTP GET request.
 
 ## Configure flow mode
 
