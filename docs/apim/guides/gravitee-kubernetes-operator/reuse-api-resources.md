@@ -1,2 +1,0 @@
-# Reuse API Resources
-
