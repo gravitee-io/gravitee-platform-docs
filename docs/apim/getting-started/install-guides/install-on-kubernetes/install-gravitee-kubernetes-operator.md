@@ -1,10 +1,10 @@
-# Gravitee Kubernetes Operator Architecture and Installation
+# Gravitee Kubernetes Operator Deployment
+
+## Overview
 
 A [Kubernetes operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) is a method of packaging, deploying, and managing a Kubernetes application. A Kubernetes application is both deployed on Kubernetes and managed using the Kubernetes API and `kubectl` tooling.
 
 In this context, a Kubernetes operator is an application-specific controller that extends the functionality of the Kubernetes API to create, configure, and manage application instances.
-
-## Overview
 
 When it comes to Gravitee deployment, there are two main components that can be deployed, as follows:
 
@@ -77,7 +77,7 @@ The following diagram illustrates the multi-environment deployment architectural
 
 ## Installation
 
-This section provides steps on how to install  the GKO on an existing Kubernetes cluster.
+This section provides steps on how to install the GKO on an existing Kubernetes cluster.
 
 {% hint style="info" %}
 If your architecture requires the management of multiple Kubernetes clusters with a different set of APIs for each cluster, you should deploy the GKO separately on each cluster. Follow the deployment process described below for each cluster deployment.
