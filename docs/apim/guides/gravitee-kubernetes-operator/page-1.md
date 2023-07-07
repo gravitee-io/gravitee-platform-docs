@@ -11,8 +11,8 @@ The `ManagementContext` custom resource represents the configuration for a Manag
 Resources:
 
 * The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext\_types.go).
-* The `ManagementContext` CRD API reference is documented [here](../../../reference/gravitee-kubernetes-operator-api-reference.md).
-* You can learn how to use the `ManagementContext` CRD in [this section](managementcontext-resource.md).
+* The `ManagementContext` CRD API reference is documented [here](../../reference/gravitee-kubernetes-operator-api-reference.md).
+* You can learn how to use the `ManagementContext` CRD in [this section](custom-resource-definitions/managementcontext-resource.md).
 
 The `ManagementContext` refers to a remote Management API. You can have as many `ManagementContext` resources as you want; however, you need to reference the relevant `ManagementContext` from the API Definition to indicate to the GKO where the API should be published.
 
@@ -80,8 +80,8 @@ The `APIDefinition` custom resource represents the configuration for a single pr
 Resources:
 
 * The `ApiDefinition` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/apidefinition\_types.go).
-* The `ApiDefinition` CRD API reference is documented [here](../../../reference/gravitee-kubernetes-operator-api-reference.md).
-* You can learn how to use the `ApiDefinition` resource in [this section](apidefinition-crd.md).
+* The `ApiDefinition` CRD API reference is documented [here](../../reference/gravitee-kubernetes-operator-api-reference.md).
+* You can learn how to use the `ApiDefinition` resource in [this section](custom-resource-definitions/apidefinition-crd.md).
 
 ### Workflow
 
@@ -155,7 +155,7 @@ spec:
 The `ApiResource` custom resource allows you to use the GKO to create reusable [API resources](https://docs.gravitee.io/apim/3.x/apim\_resources\_overview.html) by applying the `ApiResource` custom resource definition. This enables you to define resources such as cache or authentication providers once only and maintain them in a single place, and then reuse them in multiple APIs - any further updates to such a resource will be automatically propagated to all APIs containing a reference to that resource.
 
 {% hint style="info" %}
-Read more about the`ApiResource`[here.](apiresource-crd.md)
+Read more about the`ApiResource`[here.](custom-resource-definitions/apiresource-crd.md)
 {% endhint %}
 
 ### Examples
@@ -210,8 +210,8 @@ The `Application` custom resource represents the configuration for an Applicatio
 Resources:
 
 * The `Appication` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application\_types.go).
-* The `Application` CRD API reference is documented [here](../../../reference/gravitee-kubernetes-operator-api-reference.md).
-* You can learn how to use the `Application` resource in [this section.](application-crd.md)
+* The `Application` CRD API reference is documented [here](../../reference/gravitee-kubernetes-operator-api-reference.md).
+* You can learn how to use the `Application` resource in [this section.](custom-resource-definitions/application-crd.md)
 
 ### Workflow
 
