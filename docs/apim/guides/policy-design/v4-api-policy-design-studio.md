@@ -30,9 +30,9 @@ In the Policy Studio, you can create a flow, then add one or more policies to th
 
 You can create multiple policies for a single flow, each with a different configuration and applied to a different phase of the API. Flows can also be associated with specific plans or exist at the API level as common flows.&#x20;
 
+The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. Flows can be set to target subscribers of any of these three plans, like the "sample API Key flow", or they can target all users of the API, such as the "sample HTTP Get flow" and "sample Websocket flow".
 
-
-The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. Flows can be set to target subscribers of any of these three plans, like the and plans, or they can target all users of the API, such as the .
+<figure><img src="../../.gitbook/assets/policy studio_flow (1).png" alt=""><figcaption><p>sample v4 Policy Studio</p></figcaption></figure>
 
 ### Create a flow and add policies
 
