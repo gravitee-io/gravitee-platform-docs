@@ -38,15 +38,15 @@ The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. F
 
 As an example, let's create a flow that targets all users of the API.
 
-First, click the **+** icon on the **Common flows** button to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Flow Configuration** module with the options shown below.
+First, click the **+** icon on the **Common flows** button to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Create a new flow** module with the options shown below.
 
-<figure><img src="../../.gitbook/assets/v2_flow_config.png" alt=""><figcaption><p>Sample flow configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/create a new flow.png" alt=""><figcaption><p><strong>Create a new flow</strong> module</p></figcaption></figure>
 
-* **Name:** Give your flow a descriptive name. If you don't, a name will be automatically generated using the path and methods.
-* **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or **Starts with** the same path.
-* **Path:** Define the path to use in conjunction with the **Operator path** to determine if this flow should be applied.
-* **Methods:** Define the HTTP methods for which you want the flow to be executed. If you leave this empty, the flow will be executed for every HTTP method, assuming the other conditions are met.
-* **Conditions:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL).
+* **Flow name:** Give your flow a descriptive name. If you don't, a name will be automatically generated using the channel and operation.
+* **Operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Channel**.
+* **Channel:** Define the path to use in conjunction with the **Operator** to determine if this flow should be applied.
+* **Entrypoints:** Select the entrypoint(s) for which you want the flow to be executed. If you leave this empty, the flow will be executed for all entrypoint options, assuming the other conditions are met.
+* **Entrypoints supported operations:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL).
 
 Now, it's time to add policies to that flow.
 
