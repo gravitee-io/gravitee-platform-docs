@@ -26,7 +26,7 @@ The v4 Policy Studio is broken into the following sections:
 
 Flows can be added to existing v4 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** **Info** page. Select **Policy Studio** from the inner left-hand nav.
 
-In the Policy Studio, you can create a flow, then add one or more policies to the Request, Response, Subscribe, and/or Publish phases. These phases are available based on a flow's chosen entrypoint(s), with Request and Response appearing under the **Initial connection** tab and Subscribe and Publish appearing under the **Event messages** tab.
+In the Policy Studio, you can create a flow, then add one or more policies to the Request, Response, Publish, and/or Subscribe phases. These phases are available based on a flow's chosen entrypoint(s), with Request and Response appearing under the **Initial connection** tab and Subscribe and Publish appearing under the **Event messages** tab.
 
 You can create multiple policies for a single flow, each with a different configuration and applied to a different phase of the API. Flows can also be associated with specific plans or exist at the API level as common flows.&#x20;
 
@@ -34,7 +34,7 @@ The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. F
 
 <figure><img src="../../.gitbook/assets/policy studio_flow (1).png" alt=""><figcaption><p>sample v4 Policy Studio</p></figcaption></figure>
 
-### Create a flow and add policies
+### Create a flow
 
 As an example, let's create a flow that targets all users of the API.
 
@@ -49,9 +49,20 @@ First, click the **+** icon on the **Common flows** button to create a flow. Bef
 * **Entrypoints supported operations:** Select **Publish** and/or **Subscribe** as the operation(s) supported by the entrypoint(s). If none are selected, both will be supported.
 * **Condition:** Define specific conditions that will trigger flow execution using [Gravitee's Expression Language (EL)](gravitee-expression-language.md).
 
-Now, it's time to add policies to that flow.
+Once you've clicked **Create** to add a flow, be sure to also click **Save** in the upper right of the Policy Studio.
 
-To add a policy to the flow, drag-and-drop the policy that you want to enforce onto either the request or response phase. If you add a policy on the request phase, the policy will be enforced by the Gateway at the time of the request, before a client is given access to the API that they are trying to call. If you add a policy on the response phase, the Gateway will enforce the policy after the request is allowed, but before the response is returned to the client.
+### Add policies
+
+To add a policy to the flow, click the **+** icon in the phase where you want the policy enforced. The way the policy is enforced depends on the phase:
+
+* **Request phase:** a
+* **Response phase:** a
+* **Publish phase:** a
+* **Subscribe phase:** a
+
+
+
+drag-and-drop the policy that you want to enforce onto either the request or response phase. If you add a policy on the request phase, the policy will be enforced by the Gateway at the time of the request, before a client is given access to the API that they are trying to call. If you add a policy on the response phase, the Gateway will enforce the policy after the request is allowed, but before the response is returned to the client.
 
 Once you've added your policy, you can edit that policy by selecting the policy and using the configuration menu below the flow map. After you configure the policy, select the **checkmark icon**, and then **Save** in the pop-up to save the policy settings.
 
