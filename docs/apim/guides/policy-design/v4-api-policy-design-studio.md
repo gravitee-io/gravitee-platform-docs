@@ -38,7 +38,7 @@ The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. F
 
 As an example, let's create a flow that targets all users of the API.
 
-First, find the **Flows** section and select the **+** icon to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Flow Configuration** module with and options shown below.
+First, click the **+** icon on the **Common flows** button to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Flow Configuration** module with the options shown below.
 
 <figure><img src="../../.gitbook/assets/v2_flow_config.png" alt=""><figcaption><p>Sample flow configuration</p></figcaption></figure>
 
