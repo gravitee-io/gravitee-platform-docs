@@ -45,8 +45,9 @@ First, click the **+** icon on the **Common flows** button to create a flow. Bef
 * **Flow name:** Give your flow a descriptive name. If you don't, a name will be automatically generated using the channel and operation.
 * **Operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Channel**.
 * **Channel:** Define the path to use in conjunction with the **Operator** to determine if this flow should be applied.
-* **Entrypoints:** Select the entrypoint(s) for which you want the flow to be executed. If you leave this empty, the flow will be executed for all entrypoint options, assuming the other conditions are met.
-* **Entrypoints supported operations:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL).
+* **Entrypoints:** Select the entrypoint(s) for which you want the flow to be executed. If none are selected, the flow will be executed for all possible entrypoints, assuming required conditions are met. Available entrypoints are **HTTP GET**, **HTTP POST**, **Websocket**, **Server-Sent Events**, and **Webhook**.
+* **Entrypoints supported operations:** Select **Publish** and/or **Subscribe** as the operation(s) supported by the entrypoint(s). If none are selected, both will be supported.
+* **Condition:** Define specific conditions that will trigger flow execution using [Gravitee's Expression Language (EL)](gravitee-expression-language.md).
 
 Now, it's time to add policies to that flow.
 
