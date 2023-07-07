@@ -53,16 +53,16 @@ Once you've clicked **Create** to add a flow, be sure to also click **Save** in 
 
 ### Add policies
 
-To add a policy to the flow, click the **+** icon in the phase where you want the policy enforced. The way the policy is enforced depends on the phase:
+To add a policy to the flow, click the **+** icon in the phase where you want the policy enforced. When the policy is applied and how it is enforced depends on the phase:
 
 * **Request phase:** A policy is applied during the connection establishment. The Gateway enforces the policy at the time of the request, before a client is given access to the API that they are trying to call.
 * **Response phase:** A policy is applied to the response from the initial connection. The Gateway enforces the policy after the request is allowed, but before the response is returned to the client.
 * **Publish phase:** A policy is applied on messages sent to the endpoint. The Gateway enforces the policy when messages are published, before a client is given access to the API that they are trying to call.
 * **Subscribe phase:** A policy is applied on messages received by the entrypoint. The Gateway enforces the policy after messages are subscribed to, but before the response is returned to the client.
 
+The module to add a policy is pre-populated with only the selections that are valid and/or supported based on the entrypoints and endpoints chosen for the flow. For example, below are the possible policies to configure for the **Request phase** of the "sample HTTP Get flow" shown above:
 
-
-&#x20;. If you add a policy on the response phase,&#x20;
+<figure><img src="../../.gitbook/assets/sample add policy.png" alt=""><figcaption></figcaption></figure>
 
 Once you've added your policy, you can edit that policy by selecting the policy and using the configuration menu below the flow map. After you configure the policy, select the **checkmark icon**, and then **Save** in the pop-up to save the policy settings.
 
