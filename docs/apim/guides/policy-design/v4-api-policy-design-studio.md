@@ -64,17 +64,15 @@ The module to add a policy is pre-populated with only the selections that are va
 
 <figure><img src="../../.gitbook/assets/sample add policy.png" alt=""><figcaption><p>Sample policy selection</p></figcaption></figure>
 
-Clicking on one of the available policies will open a configuration module. After you have made the selections and filled in the information appropriate to and required by your policy, click **Add policy**.
+Clicking on one of the available policies will open a configuration module. After you have made the selections and filled in the information appropriate to and required by your policy, click **Add policy**. The policy will appear in the flow diagram of the phase it was added to.
 
+For example, adding a **Latency** policy to the **Request phase** of the "sample HTTP Get flow" also adds **Latency** policy elements to the corresponding flow diagram.
 
+<figure><img src="../../.gitbook/assets/latency policy.png" alt=""><figcaption><p>Sample policy applied</p></figcaption></figure>
 
-Once you've added your policy, you can edit that policy by selecting the policy and using the configuration menu below the flow map. After you configure the policy, select the **checkmark icon**, and then **Save** in the pop-up to save the policy settings.
+Once you've clicked **Add policy** to add a policy, be sure to also click **Save** in the upper right of the Policy Studio.
 
-<figure><img src="../../.gitbook/assets/v2_policy_config.png" alt=""><figcaption><p>Configure a policy</p></figcaption></figure>
-
-Whenever you edit a flow, like when you configure a policy, you'll need to redeploy your API to the Gateway for the changes to take effect. You'll see a bar appear at the top of the flow designer that says **API out of sync, deploy your API.** Select the hyperlinked **deploy your API** text, and you'll be met with a modal that asks you to provide a label to define and describe your deployment. When you are done, select **OK** to deploy/redeploy your API with the new flow and policy.
-
-<figure><img src="../../.gitbook/assets/redeploy_api.png" alt=""><figcaption><p>Redeploy API after configuring flow</p></figcaption></figure>
+Whenever you add or edit a flow or policy, you'll need to redeploy your API to the Gateway for the changes to take effect. You'll see a red, circular icon above **Policy Studio** in the left nav with the tooltip message "API out of sync".
 
 #### Example: Add a Rate Limit policy
 
