@@ -7,8 +7,6 @@ description: >-
 
 # Configure APIM Gateway
 
-### Introduction
-
 This section focuses on the following Gravitee API Gateway configuration settings:&#x20;
 
 * General settings
