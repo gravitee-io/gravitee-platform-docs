@@ -28,7 +28,9 @@ Flows can be added to existing v4 APIs, which are accessed by selecting **APIs**
 
 In the Policy Studio, you can create flows by adding policies to the request, response, subscribe, and/or publish phases and target them by path, HTTP method(s), or via [Gravitee's Expression Language](gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of an API. Flows can also be associated with specific plans or exist at the API level as shown below:
 
-The sample Gateway API shown above has three plans: Keyless Plan, Premium API Key Plan, and Premium JWT Plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API when placed under the **Flows** section, e.g., the Assign Metrics Flow.
+<figure><img src="../../.gitbook/assets/policy studio_flow.png" alt=""><figcaption><p>Sample v4 Policy Studio</p></figcaption></figure>
+
+The sample Gateway API shown above has a Default Keyless plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API when placed under the **Flows** section, e.g., the Assign Metrics Flow.
 
 ### Create a flow and add policies
 
