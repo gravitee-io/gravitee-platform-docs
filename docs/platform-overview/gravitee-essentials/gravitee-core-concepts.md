@@ -33,17 +33,20 @@ Key takeaways from the architecture diagrams:
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample Gravitee Cloud hierarchy</p></figcaption></figure>
 
-### API Gateway: policies and plugins <a href="#api-gateway-policies-and-plugins-5" id="api-gateway-policies-and-plugins-5"></a>
+### API Gateway <a href="#api-gateway-policies-and-plugins-5" id="api-gateway-policies-and-plugins-5"></a>
 
-API Management encompasses API design, API security and access management, API reliability, API delivery, and API productization. At the core of APIM, the API Gateway is a reverse proxy that sits in front of your APIs. It routes requests to the appropriate backend services while performing various tasks such as rate-limiting, authentication, and request or response transformations.
+API Management encompasses API design, API security and access management, API reliability, API delivery, and API productization. At the core of APIM, the API Gateway is a reverse proxy that sits in front of your APIs. It routes requests to the appropriate backend services while performing various tasks such as rate limiting, authentication, and request or response transformations.
+
+### API policies
 
 Policies are rules or logic that can be executed by the API Gateway during the request or response of an API call to enforce security, reliability, and proper data transfer. Gravitee offers numerous policies out of the box to control how an API is consumed. Policies applied to achieve various objectives, e.g., to make an API more secure, more reliable, or a profit-driver in the context of API monetization. Below are common API policies that are executed at the Gateway level:
 
-* **Traffic shaping:** Use the Gateway to strip, shape, or otherwise alter network traffic to make API consumption and data movement more secure, reliable, performant, or efficient, e.g., strip sensitive or nonessential information as data is brokered and sent to the client application to protect confidential data or streamline the message.
-* **Authentication/authorization:** Use the Gateway to enforce certain authentication or authorization methods to ensure that an API consumer can request information from your backend, e.g., use an API key policy to limit API consumption to a set of client applications that pass a specific, unique API key with each request.
+* **Traffic shaping:** Policies that strip, shape, or otherwise alter network traffic to make API consumption and data movement more secure, reliable, performant, or efficient, e.g., strip sensitive or nonessential information as data is brokered and sent to the client application to protect confidential data or streamline the message.
+* **Authentication/authorization:** Policies that enforce certain authentication or authorization methods to ensure that an API consumer can request information from your backend, e.g., use an API key policy to limit API consumption to a set of client applications that pass a specific, unique API key with each request.
 * **Rate limit:** Policies that limit and/or throttle the number of requests over a set time period, e.g., limit your API to a maximum of 100 calls/min/consumer.
-* Dynamic routing policies: policies that are used to dispatch inbound calls to different targets/endpoints or to rewrite URIs
-  * For example, you could use a dynamic routing policy to redirect requests from `http://gateway/apis/store/12/info` to `http://backend_store12/info`
+* **Dynamic routing:** Policies that dispatch inbound calls to different targets/endpoints or to rewrite URIs, e.g., redirect requests from `http://gateway/apis/store/12/info` to `http://backend_store12/info`.
+
+### API plugins
 
 Another Gravitee term you’ll often hear mentioned is **plugins**. [Plugins](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html) are components that additional functionality by _plugging into_ the Gravitee ecosystem. Policies are simply a type of plugin. In other words, policies are a feature or function that is enabled through the functionality known as plugins. Check out the [plugin marketplace](https://www.gravitee.io/plugins) to see what plugins are currently available from both Gravitee and the community.&#x20;
 
