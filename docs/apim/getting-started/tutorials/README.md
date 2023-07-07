@@ -24,22 +24,21 @@ The demo app flow begins with the following steps:
 
 #### Steps:
 
-1. Select the use case&#x20;
+1. Select the use case
 2. (Optional) Start the respective pendo walkthrough in APIM
 3. Documentation opens to relevant section
 4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints with mongodb backend)
 5. Showcase basic todo functionality
-6. Instruct user to add 2 todos and receive error on the 3rd due to quota policy
-7. Instruct the user to archive a todo and receive error due to resource filtering policy
-8. Return to APIM and guide the user to the gateway API in their trial and educate the user on the basics of gateway APIs from the perspective of an API publisher
-9. Guide user to Policy Studio and educate user on policies focusing on the pre-seeded quota and resource filtering policies
-10. Guide the user to the plans page and educate user on plans
-11. Explain the demo application is currently using the keyless plan but can also subscribe to a "premium" plan with API key security
-12. Guide the user to the applications page to subscribe to the API key plan which will be set to auto-validate the subscription
-13. Copy the API key and add it to the demo app
-14. Instruct the user to create more than 3 todos and use the archiving functionality
-15. Return to the Policy Studio to highlight how policies can be applied at the plan (keyless vs API key), API, or even the platform level, all with different methods (EL, paths, HTTP methods, etc.) of filtering
-16. Invite the user to modify the existing policies and see how it impacts the application
+6. Instruct user to add 2 todos and receive error on the 3rd due to quota policy. Mention response templates in v2
+7. Return to APIM and guide the user to the gateway API in their trial and educate the user on the basics of gateway APIs from the perspective of an API publisher
+8. Guide user to Policy Studio and educate user on policies focusing on the pre-seeded quota policy
+9. Guide the user to the plans page and educate user on plans
+10. Explain the demo application is currently using the keyless plan but can also subscribe to a "premium" plan with API key security
+11. Guide the user to the applications page to subscribe to the API key plan which will be set to auto-validate the subscription
+12. Copy the API key and add it to the demo app
+13. Instruct the user to create more than 3 todos and use the archiving functionality
+14. Return to the Policy Studio to highlight how policies can be applied at the plan (keyless vs API key), API, or even the platform level, all with different methods (EL, paths, HTTP methods, etc.) of filtering
+15. Invite the user to modify the existing policies and see how it impacts the application
 
 ### Use Case 2: Real-time Data and Protocol Mediation
 
@@ -47,7 +46,7 @@ The demo app flow begins with the following steps:
 
 **Ideal time to complete:** 10-15 minutes
 
-1. Select the use case&#x20;
+1. Select the use case
 2. (Optional) Start the respective pendo walkthrough in APIM
 3. Documentation opens to the relevant section
 4. Docs provide high-level overview of demo app architecture (i.e., detail different protocols involved and kafka backend)
@@ -68,7 +67,7 @@ The demo app flow begins with the following steps:
 
 **Ideal time to complete:** 20-25 minutes
 
-1. Select the use case&#x20;
+1. Select the use case
 2. (Optional) Start the respective pendo walkthrough in APIM
 3. Documentation opens to relevant section
 4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints)
@@ -80,7 +79,7 @@ The demo app flow begins with the following steps:
 10. Guide user to copy the JWT and configure it in the application
 11. Guide user to Policy Studio and walk them through adding and configuring the transform headers and assign metrics policy on the JWT plan
 12. Guide the user through creating a custom graph based on the assign metrics policy.
-13. Guide the user back to the demo app and instruct the user to complete some todo actions (create, complete, archive, or delete)&#x20;
+13. Guide the user back to the demo app and instruct the user to complete some todo actions (create, complete, archive, or delete)
 14. Guide the user back to APIM to view their custom analytics graph. Educate the user on how this data could be integrated with an invoicing provider by taking advantage of the mAPI
 
 ## Prerequisites
