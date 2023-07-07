@@ -1,20 +1,18 @@
 ---
 description: >-
-  This article walks through how to design and enforce policy flows using the
-  legacy v2 Policy Studio.
+  This article walks through how to design and enforce policy flows using the v4
+  Policy Studio.
 ---
 
 # v4 API Policy Studio
 
 {% hint style="warning" %}
-**Legacy version**
-
-The v4 Policy Studio can only be used to design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing policy flows at the message level or for pub/sub use cases.
+The v4 Policy Studio can only design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing policy flows at the message level or for pub/sub use cases.
 {% endhint %}
 
 ## Introduction
 
-The v2 Policy Studio is broken into the following sections:
+The v4 Policy Studio is broken into the following sections:
 
 * **Design:** Manage all flows associated with your Gateway API
 * **Configuration:** Modify settings around flow execution
@@ -26,11 +24,9 @@ The v2 Policy Studio is broken into the following sections:
 
 ## Design
 
-Flows can be added to existing v2 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** details page. Select **Design** in the left-hand nav.
+Flows can be added to existing v4 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** **Info** page. Select **Policy Studio** from the inner left-hand nav.
 
-You're now in the **Design** section of the Policy Studio. Here, you can create flows by adding policies to the request and/or response phases and target them by path, HTTP method(s), or via [Gravitee's Expression Language](gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of an API. Flows can also be associated with specific plans or exist at the API-level as shown below:
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-09 at 2.10.06 PM.png" alt=""><figcaption><p>v2 Policy Studio example</p></figcaption></figure>
+In the Policy Studio, you can create flows by adding policies to the request, response, subscribe, and/or publish phases and target them by path, HTTP method(s), or via [Gravitee's Expression Language](gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of an API. Flows can also be associated with specific plans or exist at the API level as shown below:
 
 The sample Gateway API shown above has three plans: Keyless Plan, Premium API Key Plan, and Premium JWT Plan. Flows can be set to target subscribers of any of these three plans, or they can target all users of the API when placed under the **Flows** section, e.g., the Assign Metrics Flow.
 
