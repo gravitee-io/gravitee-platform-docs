@@ -111,7 +111,7 @@
     * [ApiDefinition CRD](guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd.md)
     * [ApiResource CRD](guides/gravitee-kubernetes-operator/custom-resource-definitions/apiresource-crd.md)
     * [Application CRD](guides/gravitee-kubernetes-operator/custom-resource-definitions/application-crd.md)
-  * [Sync CRDs with APIM Management API](guides/gravitee-kubernetes-operator/sync-crds-with-apim-management-api.md)
+    * [Sync CRDs with APIM Management API](guides/gravitee-kubernetes-operator/custom-resource-definitions/sync-crds-with-apim-management-api.md)
   * [Test GKO After Deployment](guides/gravitee-kubernetes-operator/test-gko-after-deployment.md)
   * [API Visibility in a Kubernetes Cluster](guides/gravitee-kubernetes-operator/api-visibility-in-a-kubernetes-cluster.md)
   * [Gravitee as an Ingress Controller](guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md)
