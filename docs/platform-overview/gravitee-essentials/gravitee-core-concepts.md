@@ -37,14 +37,11 @@ Key takeaways from the architecture diagrams:
 
 API Management encompasses API design, API security and access management, API reliability, API delivery, and API productization. At the core of APIM, the API Gateway is a reverse proxy that sits in front of your APIs. It routes requests to the appropriate backend services while performing various tasks such as rate-limiting, authentication, and request or response transformations.
 
-Policies are rules or logic that can be executed by the API Gateway during the request or response of an API call to enforce security, reliability, and proper data transfer. Gravitee offers numerous policies out of the box to control how an API is consumed. This control can manifest in a variety of ways, with policies applied for a variety of reasons and objectives, e.g., to make an API more secure, more reliable, or a profit-driver in the context of API monetization. Here is a list of common kinds of API policies that you might execute at the gateway level:
+Policies are rules or logic that can be executed by the API Gateway during the request or response of an API call to enforce security, reliability, and proper data transfer. Gravitee offers numerous policies out of the box to control how an API is consumed. Policies applied to achieve various objectives, e.g., to make an API more secure, more reliable, or a profit-driver in the context of API monetization. Below are common API policies that are executed at the Gateway level:
 
-* Traffic shaping policies: use a Gateway to strip, shape, or otherwise alter network traffic so as to make consumption of APIs and the movement of data more secure, reliable, performant, or efficient
-  * For example, you could strip certain information as data is brokered and sent to the client application to keep sensitive data from the client application and/or make a message leaner given a client application that might not need that specific set of stripped information
-* Authentication/authorization policies: use a gateway to enforce certain authentication/authorization methods to ensure that an API consumer is allowed to request information from your backend
-  * For example, you could use an API key policy to limit API consumption to a set of client applications that can pass a specific, unique API key with each request
-* Rate limiting policies: policies that limit and/or throttle the number of requests over a set time period
-  * For example, you could use a rate-limiting policy to limit your API to a maximum of 100 calls/min/consumer
+* **Traffic shaping:** Use the Gateway to strip, shape, or otherwise alter network traffic to make API consumption and data movement more secure, reliable, performant, or efficient, e.g., strip sensitive or nonessential information as data is brokered and sent to the client application to protect confidential data or streamline the message.
+* **Authentication/authorization:** Use the Gateway to enforce certain authentication or authorization methods to ensure that an API consumer can request information from your backend, e.g., use an API key policy to limit API consumption to a set of client applications that pass a specific, unique API key with each request.
+* **Rate limit:** Policies that limit and/or throttle the number of requests over a set time period, e.g., limit your API to a maximum of 100 calls/min/consumer.
 * Dynamic routing policies: policies that are used to dispatch inbound calls to different targets/endpoints or to rewrite URIs
   * For example, you could use a dynamic routing policy to redirect requests from `http://gateway/apis/store/12/info` to `http://backend_store12/info`
 
