@@ -76,11 +76,11 @@ Whenever you add or edit a flow or policy, you'll need to redeploy your API to t
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **Default** and **Best Match**. The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** the specified path, or **Channel**. You can choose the **Best Match** option to select the flow of the path that's the closest match to the **Channel** of the API request.&#x20;
+Gravitee offers two flow modes: **Default** and **Best Match**. The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** the specified path, or **Channel**. Choose the **Best Match** option to select the flow that's the closest match to the API request path.&#x20;
 
-To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module.
+To select the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module, then use the drop-down menu. You can also toggle **Fail on flow mismatch** to ON to generate an error when there is no match between the request **Channel** and any defined flow.
 
-<figure><img src="../../.gitbook/assets/Configure flow mode.png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/flow modes.png" alt=""><figcaption><p>v4 Policy Studio: Configure flow mode</p></figcaption></figure>
 
 ## API properties
 
