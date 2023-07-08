@@ -84,21 +84,21 @@ To select the flow mode, click the gear icon in the **Flows** panel to open the 
 
 ## API properties
 
-Properties allow you to define key-value pairs at the Gateway API level. These properties are read-only during the Gateway's execution of an API transaction and can be accessed using Gravitee's Expression Language (EL) with the `#properties` statement inside of the flows.
+Properties allow you to define key-value pairs at the Gateway API level. These properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within a flow using Gravitee's Expression Language (EL) and the `#properties` statement.
 
-API properties are set and configured in the **Properties** tab. You can specify properties one by one, or toggle from **Simple** to **Expert** mode and paste property definitions into an editor in the format `<key>=<value>`.
+Select **Properties** from the inner left nav to configure API properties. You can either specify properties one at a time or toggle from **Simple** to **Expert** mode to open an editor and paste property definitions in `<key>=<value>` format.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.11.41 AM.png" alt=""><figcaption><p>API properties expert format</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_properties expert (1).png" alt=""><figcaption><p>API properties expert mode</p></figcaption></figure>
 
 ### Encryption
 
-You can easily encrypt API properties by enabling the **Encrypted** toggle next to the property. The value will remain unencrypted and editable until you save your changes. Once you select **Save**, you can no longer edit, modify, or view the value.
+You can encrypt an API property by enabling the adjacent **Encrypted** toggle. The value will remain unencrypted and editable until you save your changes. Once you select **Save**, you can no longer edit, modify, or view the value.
 
 {% hint style="danger" %}
-Encrypted values can still be used by API policies (under the **Design** tab) and **APIM Gateway will automatically decrypt these values**. Pay special attention to how you use encrypted data in policies.
+Encrypted values can be used by API policies. **APIM Gateway will automatically decrypt these values**. Pay special attention to how you use encrypted data in policies.
 {% endhint %}
 
-Before using encryption, you’ll need to reset the secret key. The method of encryption used for API properties is based on the default secret key in the `gravitee.yml` config file which you must override to ensure proper security.
+Before using encryption, you’ll need to reset the secret key. The method of encryption used for API properties is based on the default secret key in the `gravitee.yml` config file, which you must override to ensure proper security.
 
 {% code title="gravitee.yml" %}
 ```yaml
