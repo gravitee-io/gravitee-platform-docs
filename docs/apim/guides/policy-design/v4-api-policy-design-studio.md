@@ -92,7 +92,11 @@ Select **Properties** from the inner left nav to configure API properties. You c
 
 ### Encryption
 
-The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security. **The secret must be 32 bytes in length**.
+The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security.&#x20;
+
+{% hint style="warning" %}
+The secret must be 32 bytes in length.
+{% endhint %}
 
 {% code title="gravitee.yml" %}
 ```yaml
@@ -105,21 +109,19 @@ api:
 ```
 {% endcode %}
 
-You can encrypt an API property by enabling the adjacent **Encrypted** toggle. The value will remain unencrypted and editable until you save your changes. Once you select **Save**, you can no longer edit, modify, or view the value.
+To encrypt an API property, enable the adjacent **Encrypted** toggle. The property value will remain unencrypted and editable until you save your changes. Once you select **Save**, you can no longer edit, modify, or view the value.
 
 {% hint style="danger" %}
-Encrypted values can be used by API policies. **APIM Gateway will automatically decrypt these values**. Pay special attention to how you use encrypted data in policies.
+Encrypted values can be used by API policies, but encrypted data should be used with care. **APIM Gateway will automatically decrypt these values**.
 {% endhint %}
 
-
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.45.12 AM.png" alt=""><figcaption><p>Encypted API property</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_encryption.png" alt=""><figcaption><p>Encrypted API property</p></figcaption></figure>
 
 ### **Dynamic properties**
 
-You can also configure dynamic properties by clicking **CONFIGURE DYNAMIC PROPERTIES**. Dynamic properties are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.
+To configure dynamic properties, click **CONFIGURE DYNAMIC PROPERTIES**. Dynamic properties are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.15.36 AM.png" alt=""><figcaption><p>Dyanmic properties configuration screen</p></figcaption></figure>
+
 
 To configure dynamic properties:
 
