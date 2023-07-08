@@ -78,7 +78,7 @@ Whenever you add or edit a flow or policy, you'll need to redeploy your API to t
 
 Gravitee offers two flow modes: **Default** and **Best Match**. To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module.
 
-The **Default** flow selection is based on the **Operator** defined in your flows, whether it **Equals** or **Starts with** a **Channel**. You can choose the **Best Match** option to select a flow from the **Channel** that's the closest match.
+The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** a **Channel**. You can choose the **Best Match** option to select a flow from the **Channel** that's the closest match.
 
 If you keep the flow mode as Default, execution of each flow is determined independently based on the **Channel** defined in the flow itself (see [documentation above](v4-api-policy-design-studio.md#create-a-flow-and-add-policies)). **Default** mode allows for the execution of multiple flows.
 
