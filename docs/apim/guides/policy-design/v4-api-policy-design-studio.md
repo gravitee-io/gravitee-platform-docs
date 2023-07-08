@@ -78,11 +78,11 @@ Whenever you add or edit a flow or policy, you'll need to redeploy your API to t
 
 Gravitee offers two flow modes: **Default** and **Best Match**. To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module.
 
-The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** a **Channel**. You can choose the **Best Match** option to select a flow from the **Channel** that's the closest match.
+The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** a **Channel**. You can choose the **Best Match** option to select the flow of the **Channel** that's the closest match. the closest match to the **Channel** of the API request
 
-If you keep the flow mode as Default, execution of each flow is determined independently based on the **Channel** defined in the flow itself (see [documentation above](v4-api-policy-design-studio.md#create-a-flow-and-add-policies)). **Default** mode allows for the execution of multiple flows.
+.
 
-However, if you select best match, the Gateway will choose a single flow with the closest match to the **Channel** of the API request. A plain text part of the path will take precedence over a path parameter, which means, reading from left to right, each part of the path is compared and the best matching is kept. Strict equality between part of the request path and the flow path prevails over a path parameter.
+However, if you select best match, the Gateway will choose a single flow with . A plain text part of the path will take precedence over a path parameter, which means, reading from left to right, each part of the path is compared and the best matching is kept. Strict equality between part of the request path and the flow path prevails over a path parameter.
 
 For example, with these flows configured:
 
