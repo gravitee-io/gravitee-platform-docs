@@ -76,22 +76,9 @@ Whenever you add or edit a flow or policy, you'll need to redeploy your API to t
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **Default** and **Best Match**. To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module.
+Gravitee offers two flow modes: **Default** and **Best Match**. The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** the specified path, or **Channel**. You can choose the **Best Match** option to select the flow of the path that's the closest match to the **Channel** of the API request.&#x20;
 
-The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** a **Channel**. You can choose the **Best Match** option to select the flow of the **Channel** that's the closest match. the closest match to the **Channel** of the API request
-
-.
-
-However, if you select best match, the Gateway will choose a single flow with . A plain text part of the path will take precedence over a path parameter, which means, reading from left to right, each part of the path is compared and the best matching is kept. Strict equality between part of the request path and the flow path prevails over a path parameter.
-
-For example, with these flows configured:
-
-* `/test/:id`
-* `/test/subtest`
-
-If the request is `/test/55`, the resulting flow will be `/test/:id`. If the request is `/test/subtest`, the resulting flow will be `/test/subtest`.
-
-To modify the flow mode, select the **Configuration** tab and change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the **Flow Mode** drop-down.
+To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module.
 
 <figure><img src="../../.gitbook/assets/Configure flow mode.png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
 
