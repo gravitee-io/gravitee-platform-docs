@@ -76,13 +76,13 @@ Whenever you add or edit a flow or policy, you'll need to redeploy your API to t
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **default** and **best match**.&#x20;
+Gravitee offers two flow modes: **Default** and **Best Match**. To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module.
 
-To configure the flow mode, click the gear icon in the **Flows** module.
+By default, flow selection is based on the operators defined in your flows, either when it “matches with” or “starts with” a path. You can choose the "Best match" option to select a flow from the closest path.
 
-If you keep the flow mode as default, execution of each flow is determined independently based on the **Operator path** defined in the flow itself (see [documentation above](v4-api-policy-design-studio.md#create-a-flow-and-add-policies)). Default mode allows for the execution of multiple flows.
+If you keep the flow mode as Default, execution of each flow is determined independently based on the **Channel** defined in the flow itself (see [documentation above](v4-api-policy-design-studio.md#create-a-flow-and-add-policies)). **Default** mode allows for the execution of multiple flows.
 
-However, if you select best match, the Gateway will choose a single flow with the closest match to the path of the API request. A plain text part of the path will take precedence over a path parameter, which means, reading from left to right, each part of the path is compared and the best matching is kept. Strict equality between part of the request path and the flow path prevails over a path parameter.
+However, if you select best match, the Gateway will choose a single flow with the closest match to the **Channel** of the API request. A plain text part of the path will take precedence over a path parameter, which means, reading from left to right, each part of the path is compared and the best matching is kept. Strict equality between part of the request path and the flow path prevails over a path parameter.
 
 For example, with these flows configured:
 
