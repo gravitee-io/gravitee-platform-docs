@@ -86,19 +86,13 @@ To select the flow mode, click the gear icon in the **Flows** panel to open the 
 
 Properties allow you to define key-value pairs at the Gateway API level. These properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within a flow using Gravitee's Expression Language (EL) and the `#properties` statement.
 
-Select **Properties** from the inner left nav to configure API properties. You can either specify properties one at a time or toggle from **Simple** to **Expert** mode to open an editor and paste property definitions in `<key>=<value>` format.
+Select **Properties** from the inner left nav to configure API properties. You can either specify properties one at a time or toggle from **Simple** to **Expert** mode to enter property definitions into the editor in `<key>=<value>` format.
 
 <figure><img src="../../.gitbook/assets/policy studio_properties expert (1).png" alt=""><figcaption><p>API properties expert mode</p></figcaption></figure>
 
 ### Encryption
 
-You can encrypt an API property by enabling the adjacent **Encrypted** toggle. The value will remain unencrypted and editable until you save your changes. Once you select **Save**, you can no longer edit, modify, or view the value.
-
-{% hint style="danger" %}
-Encrypted values can be used by API policies. **APIM Gateway will automatically decrypt these values**. Pay special attention to how you use encrypted data in policies.
-{% endhint %}
-
-Before using encryption, you’ll need to reset the secret key. The method of encryption used for API properties is based on the default secret key in the `gravitee.yml` config file, which you must override to ensure proper security.
+The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security. **The secret must be 32 bytes in length**.
 
 {% code title="gravitee.yml" %}
 ```yaml
@@ -111,9 +105,13 @@ api:
 ```
 {% endcode %}
 
-{% hint style="warning" %}
-The secret must be **32 bytes in length.**
+You can encrypt an API property by enabling the adjacent **Encrypted** toggle. The value will remain unencrypted and editable until you save your changes. Once you select **Save**, you can no longer edit, modify, or view the value.
+
+{% hint style="danger" %}
+Encrypted values can be used by API policies. **APIM Gateway will automatically decrypt these values**. Pay special attention to how you use encrypted data in policies.
 {% endhint %}
+
+
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.45.12 AM.png" alt=""><figcaption><p>Encypted API property</p></figcaption></figure>
 
