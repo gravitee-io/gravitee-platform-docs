@@ -71,7 +71,7 @@ For example, adding a **Latency** policy to the **Request phase** of the "sample
 
 Once you've clicked **Add policy** to add a policy, be sure to also click **Save** in the upper right of the Policy Studio. To edit a policy, click on the three vertical dots on its icon in the flow diagram.
 
-Whenever you add or edit a flow or policy, you'll need to redeploy your API to the Gateway for the changes to take effect. You'll see a red, circular icon above **Policy Studio** in the left nav with the tooltip message "API out of sync".
+Whenever you add or edit a flow or policy, you'll need to redeploy your API to the Gateway for the changes to take effect. You'll see a red, circular icon above **Policy Studio** in the inner left nav that has the tooltip message "API out of sync".
 
 ## Configure flow mode
 
