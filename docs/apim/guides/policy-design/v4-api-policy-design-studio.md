@@ -144,9 +144,9 @@ In this example, we want our Gateway API to query our shop databases to check th
 
 The first step is to define a list of properties for the shops, with each unique shop ID as the key and the URL of the shop as the value.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.20.12 AM.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/add_properties.png" alt=""><figcaption><p>Add properties</p></figcaption></figure>
 
-We then configure a dynamic routing policy for the API with a routing rule which builds a new URL dynamically through property matching. The URL is created with a `#properties` statement which matches properties returned by querying the request header containing the shop ID.
+We then configure a dynamic routing policy for the API via a routing rule that builds a new URL dynamically through property matching. The URL is created with a `#properties` statement that matches properties returned by querying the request header that contains the shop ID.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/dynamic-routing-properties.png" alt=""><figcaption><p>Add dynamic routing policy based on API property</p></figcaption></figure>
 
