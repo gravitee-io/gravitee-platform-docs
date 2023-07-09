@@ -160,7 +160,7 @@ The list of shop IDs and URLs could also be maintained using a dictionary, for e
 
 ## Resources
 
-Some policies support the addition of resources, which can be used for actions such as authentication and schema registry validation. Policies supporting resources include:
+Some policies support the addition of resources, which can be used for authentication and schema registry validation, etc. Policies supporting resources include:
 
 * **Cache policy**: Specify a cache resource via the Cache or Cache Redis resources
 * **OAuth2 policy**: Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource
@@ -172,7 +172,7 @@ Some policies support the addition of resources, which can be used for actions s
 
 <figure><img src="../../.gitbook/assets/Confluent schema registry.png" alt=""><figcaption><p>Resources: Confluent Schema Registry</p></figcaption></figure>
 
-After you create these resources, you will be able to reference them when designing policies in the **Design** tab.
+After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**.
 
 {% hint style="info" %}
 Global resources are globally available to all flows associated with the Gateway API. However, they will not be available to other Gateway APIs.
