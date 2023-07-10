@@ -10,7 +10,7 @@ description: What is Gravitee?
 You are reading the documentation for Gravitee 4.0 and later!&#x20;
 
 * You can find the [documentation for prior versions here](https://docs.gravitee.io/).&#x20;
-* Support for these versions will end on April 30, 2023.
+* Support for prior versions will end on April 30, 2023.
 * Upgrading from a prior version of Gravitee? Check out our migration guide.
 {% endhint %}
 
