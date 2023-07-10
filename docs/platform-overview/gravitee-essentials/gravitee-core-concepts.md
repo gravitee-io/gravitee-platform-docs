@@ -4,7 +4,7 @@ description: This page provides high-level overview of the Gravitee ecosystem
 
 # Gravitee Core Concepts
 
-The API lifecycle includes API design, development, testing, deployment, troubleshooting, monitoring, and security. The critical need to manage the complete API lifecycle has driven the development of comprehensive API management solutions, of which Gravitee is best-in-class.
+The API lifecycle includes API design, development, testing, deployment, troubleshooting, monitoring, and security. Increasing API complexity has underscored the need to manage the entire API lifecycle and driven the development of comprehensive API management solutions, of which Gravitee is best-in-class.&#x20;
 
 ## Overview <a href="#overview-2" id="overview-2"></a>
 
