@@ -17,7 +17,7 @@ The v4 Policy Studio also does not currently support Gravitee Debug Mode. Suppor
 
 ## Introduction
 
-The v4 Policy Studio is broken into the following sections:
+Gravitee defines a policy flow as the method to control where, and under what conditions, policies act on an API transaction. The v4 Policy Studio is a no-code tool used to create and govern flows. The details of its purpose and functionality are broken into the following sections::
 
 * **Design:** Manage all flows associated with your Gateway API
 * **Configuration:** Modify settings around flow execution
