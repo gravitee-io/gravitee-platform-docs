@@ -48,23 +48,17 @@ Policies are rules or logic that can be executed by the API Gateway during the r
 
 ### API plugins
 
-Gravitee plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. A policy is a type of plugin, i.e., a feature or function that is enabled through plugin functionality. Refer to the [plugin marketplace](https://www.gravitee.io/plugins) to browse the current collection of Gravitee plugins.&#x20;
-
-{% hint style="info" %}
-**Custom plugins**
-
-Looking to build your own plugin? Check out this guide to learn how.
-{% endhint %}
+Gravitee plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. A policy is a type of plugin, i.e., a feature or function that is enabled through plugin functionality. Refer to the [plugin marketplace](https://www.gravitee.io/plugins) to browse the current collection of Gravitee plugins. Refer to the Custom Plugins guide for instructions to build a plugin.
 
 ### API Developer Portals & API Productization <a href="#api-developer-portals-api-productization-6" id="api-developer-portals-api-productization-6"></a>
 
-One of the other critical components of API management is the ability to expose APIs to your various consumers. These consumers can take many forms, as outlined in the following table:
+A critical component of API management is the ability to expose APIs to various consumers. Different types of consumers are outlined in the following table:
 
-| Consumer                       | Use case and/or strategic initiative                                                                                                                                                                                                                                                                                                 |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Internal Developer             | Organizations that are using APIs as internal tools to build products and services might be using APIs to connect systems, data sources, etc. The typical consumer of an API here would be the internal developer at your organization that needs to access and use that API to build the application that they are responsible for. |
-| External Developer as Customer | This use case is very similar to the internal developer use case. However, instead of a developer at your company using your API as an internal tool, your API can be exposed to developers at other companies that could use your API in their product instead of building that functionality on their own.                         |
-| Partner                        | Organizations that have technical partnerships that require integrations between certain products and/or feature sets might expose sets of APIs to those partners.                                                                                                                                                                   |
+| Consumer                       | Use case                                                                                                                          |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| Internal Developer             | APIs are used as internal tools to build products and services or connect systems, data sources, etc.                             |
+| External Developer as Customer | APIs are exposed to developers at other companies for use in external products. Avoids duplication of existing API functionality. |
+| Partner                        | APIs are exposed to partners when technical partnerships require integrations between certain products and/or feature sets.       |
 
 The best way to expose these APIs to your consumers is through an **API developer portal**. An API developer portal is a centralized catalog where internal API consumers and/or external API consumers can discover, find, subscribe, and manage subscriptions to APIs that are developed, managed, and deployed by API publishers.
 
