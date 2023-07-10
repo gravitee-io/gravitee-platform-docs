@@ -1,10 +1,10 @@
 ---
-description: Learn API management concepts with a demo application
+description: Learn API management concepts with our trial application
 ---
 
-# Tutorial: Demo Application
+# Tutorial: Trial Application
 
-These tutorials do not assume any existing Gravitee API Management (APIM) knowledge and are designed for people who prefer to learn by doing. The techniques you’ll learn in the tutorial are fundamental to working with APIM. You will be working with a demo application that simulates how APIM might be used in a real-world use case. If you'd prefer to learn APIM's core concepts step by step, head over to our [Guides section](../../guides/prologue.md) to explore our detailed walkthroughs.
+These tutorials do not assume any existing Gravitee API Management (APIM) knowledge and are designed for people who prefer to learn by doing. The techniques you’ll learn in the tutorial are fundamental to working with APIM. You will be using a trial application that simulates how APIM might be used in a real-world use case. If you'd prefer to learn APIM's core concepts step by step, head over to our [Guides section](../../guides/prologue.md) to explore our detailed walkthroughs.
 
 ## Demo Application Overview
 

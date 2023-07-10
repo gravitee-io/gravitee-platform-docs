@@ -57,7 +57,7 @@
 * [Hybrid Deployment](getting-started/hybrid-deployment/README.md)
   * [Hybrid Deployment on Kubernetes](getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md)
   * [Advanced Hybrid Deployment](getting-started/hybrid-deployment/advanced-hybrid-deployment.md)
-* [Tutorial: Demo Application](getting-started/tutorials/README.md)
+* [Tutorial: Trial Application](getting-started/tutorials/README.md)
   * [Basic Security and Access Control](getting-started/tutorials/comprehensive.md)
   * [Real-time Data and Protocol Mediation](getting-started/tutorials/real-time-data-and-protocol-mediation.md)
   * [Advanced Policies and Security](getting-started/tutorials/advanced-policies-and-security.md)
