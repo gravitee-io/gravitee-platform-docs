@@ -60,9 +60,9 @@ A critical component of API management is the ability to expose APIs to various 
 | External Developer as Customer | APIs are exposed to developers at other companies for use in external products. Avoids duplication of existing API functionality. |
 | Partner                        | APIs are exposed to partners when technical partnerships require integrations between certain products and/or feature sets.       |
 
-The best way to expose these APIs to your consumers is through an **API developer portal**. An API developer portal is a centralized catalog where internal API consumers and/or external API consumers can discover, find, subscribe, and manage subscriptions to APIs that are developed, managed, and deployed by API publishers.
+The recommended method to expose APIs to consumers is through an API developer portal. An API developer portal is a centralized catalog where internal and/or external API consumers can discover, find, subscribe, and manage subscriptions to APIs that are developed, managed, and deployed by API publishers.
 
-For example, a developer at a FinTech company could create a “stock price fetcher” API that could be used to present real-time stock prices. This API could be published to a portal for other developers at that FinTech company to use when creating various banking applications that rely on visualizing stock prices in a UI. The developer portal ensures all other developers at the company have awareness of, and secure access to, that API so they don’t have to build that functionality themselves.
+For example, if a developer at a FinTech company creates a “stock price fetcher” API to present real-time stock prices, this API can be published to a portal for other developers in the organization to use when creating a banking application that relies on current stock prices. A developer portal avoids the need to duplicate API functionality by ensuring that other developers are aware of and can securely access existing APIs.
 
 Another important facet of exposing APIs to fellow developers is API documentation. To borrow Stoplight’s definition, “API docs, or API description documents, are the collection of references, tutorials, and examples that help developers use your API. Your API’s documentation is the primary resource for explaining what is possible with your API and how to get started.”
 
