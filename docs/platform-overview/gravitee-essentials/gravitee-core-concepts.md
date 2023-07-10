@@ -8,7 +8,7 @@ The API lifecycle includes API design, development, testing, deployment, trouble
 
 ## Overview <a href="#overview-2" id="overview-2"></a>
 
-Gravitee's mission is to surpass conventional API strategy and implementation with the advent of a centralized API lifecycle toolset. One of Gravitee’s core differentiators is that, as an event-native API solution, built on event-driven architecture implemented with reactive programming to handle asynchronous, event-driven APIs, it still fully supports synchronous APIs following the request/response model, and can even mediate between sync and async application layer protocols.&#x20;
+Gravitee's mission is to surpass conventional API strategy and implementation with the advent of a centralized API lifecycle toolset. One of Gravitee’s core differentiators is the seamless, simultaneous support for both event-driven, asynchronous APIs and traditional, synchronous APIs. It is an event-native API solution, built on event-driven architecture implemented with reactive programming, but still fully supports the request/response model. At the forefront of API technology, Gravitee can even mediate between sync and async application layer protocols.&#x20;
 
 ## Key concepts <a href="#key-concepts-3" id="key-concepts-3"></a>
 
@@ -48,7 +48,7 @@ Policies are rules or logic that can be executed by the API Gateway during the r
 
 ### API plugins
 
-Gravite plugins [Plugins](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html) are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. Policies are simply a type of plugin. In other words, policies are a feature or function that is enabled through the functionality known as plugins. Check out the [plugin marketplace](https://www.gravitee.io/plugins) to see what plugins are currently available from both Gravitee and the community.&#x20;
+Gravite plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. Policies are simply a type of plugin. In other words, policies are a feature or function that is enabled through the functionality known as plugins. Check out the [plugin marketplace](https://www.gravitee.io/plugins) to see what plugins are currently available from both Gravitee and the community.&#x20;
 
 {% hint style="info" %}
 **Custom plugins**
