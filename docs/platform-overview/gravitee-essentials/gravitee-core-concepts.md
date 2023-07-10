@@ -64,11 +64,9 @@ The recommended method to expose APIs to consumers is through an API developer p
 
 For example, if a developer at a FinTech company creates a “stock price fetcher” API to present real-time stock prices, this API can be published to a portal for other developers in the organization to use when creating a banking application that relies on current stock prices. A developer portal avoids the need to duplicate API functionality by ensuring that other developers are aware of and can securely access existing APIs.
 
-Another important facet of exposing APIs to fellow developers is API documentation. To borrow Stoplight’s definition, “API docs, or API description documents, are the collection of references, tutorials, and examples that help developers use your API. Your API’s documentation is the primary resource for explaining what is possible with your API and how to get started.”
+API documentation is critical for APIs to be used efficiently and appropriately. API specifications and tutorials necessary to convey the purpose, structure, and capabilities of an API. The inclusion of high-quality, comprehensive, and accurate API documentation in the developer portal mitigates implementation challenges and increases API consumption.
 
-It is crucial to include high-quality, up-to-date documentation with your APIs in your developer portal so that developers and other consumers have an easy time knowing how to consume your APIs. Otherwise, your teams will have spent valuable time and effort developing APIs only so that they go unused, or at the very least, don’t reach their consumption potential.
-
-Finally, a growing use case for API developer portals is API monetization. API monetization allows you to turn APIs into self-serve, revenue-generating products with plans that govern how consumers can pay to access/consume your APIs. For example, you could charge delivery companies a set amount per message for a “track packages in real-time" API.
+An incentive for developer portals that fuel API consumption is API monetization. API monetization transforms APIs into self-serve, revenue-generating products with plans that govern how consumers can pay to access/consume APIs. For example, delivery companies could be charged a set amount per message to use a “track packages in real-time" API.
 
 ### API Access Management <a href="#api-access-management-7" id="api-access-management-7"></a>
 
