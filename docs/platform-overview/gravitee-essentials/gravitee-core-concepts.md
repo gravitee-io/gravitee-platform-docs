@@ -48,7 +48,7 @@ Policies are rules or logic that can be executed by the API Gateway during the r
 
 ### API plugins
 
-Gravite plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. Policies are simply a type of plugin. In other words, policies are a feature or function that is enabled through the functionality known as plugins. Check out the [plugin marketplace](https://www.gravitee.io/plugins) to see what plugins are currently available from both Gravitee and the community.&#x20;
+Gravitee plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. A policy is a type of plugin, i.e., a feature or function that is enabled through plugin functionality. Refer to the [plugin marketplace](https://www.gravitee.io/plugins) to browse the current collection of Gravitee plugins.&#x20;
 
 {% hint style="info" %}
 **Custom plugins**
