@@ -6,8 +6,13 @@ description: >-
 
 # v4 API Policy Studio
 
-{% hint style="warning" %}
-The v4 Policy Studio can only design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing policy flows at the message level or for pub/sub use cases.
+{% hint style="info" %}
+**Product limitations**
+
+The v4 Policy Studio can only design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing policy flows at the message level or for pub/sub use cases.&#x20;
+
+\
+The v4 Policy Studio also does not currently support Gravitee Debug Mode. Support for this is planned for future releases.
 {% endhint %}
 
 ## Introduction
@@ -19,13 +24,11 @@ The v4 Policy Studio is broken into the following sections:
 * **Properties:** Define key-value pairs at the API level. These properties are read-only during the Gateway's execution of an API transaction.
 * **Resources:** Configure global resources to support your Gateway API's flows
 
-\{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" fullWidth="true" %\}
-
 ## Design
 
 Flows can be added to existing v4 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** **Info** page. Select **Policy Studio** from the inner left-hand nav.
 
-In the Policy Studio, you can create a flow, then add one or more policies to the Request, Response, Publish, and/or Subscribe phases. These phases are available based on a flow's chosen entrypoint(s), with Request and Response appearing under the **Initial connection** tab and Subscribe and Publish appearing under the **Event messages** tab.
+In the Policy Studio, you can create a flow, then add one or more policies to the Request, Response, Publish, and/or Subscribe phases. These phases are available based on a flow's chosen entrypoint(s), with Request and Response appearing under the **Initial connection** tab and Subscribe and Publish appearing under the **Event messages** tab.&#x20;
 
 You can create multiple policies for a single flow, each with a different configuration and applied to a different phase of the API. Flows can also be associated with specific plans or exist at the API level as common flows.&#x20;
 
@@ -40,6 +43,8 @@ As an example, let's create a flow that targets all users of the API.
 First, click the **+** icon on the **Common flows** button to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Create a new flow** module with the options shown below.
 
 <figure><img src="../../.gitbook/assets/create a new flow.png" alt=""><figcaption><p><strong>Create a new flow</strong> module</p></figcaption></figure>
+
+Define the following:
 
 * **Flow name:** Give your flow a descriptive name. If you don't, a name will be automatically generated using the channel and operation.
 * **Operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Channel**.
