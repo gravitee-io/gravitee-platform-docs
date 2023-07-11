@@ -28,6 +28,7 @@
     * [Installation](guides/integration-set-up/gravitee-api-management/installation.md)
     * [Configure Alerts in Gravitee API Management](https://documentation.gravitee.io/apim/getting-started/configuration/configure-alerts-and-notifications#configure-alerts)
     * [Configure Notifications](guides/integration-set-up/gravitee-api-management/configure-notifications.md)
+    * [Gravitee API Management Alerts Dashboard](guides/integration-set-up/gravitee-api-management/gravitee-api-management-alerts-dashboard.md)
   * [Gravitee Access Management](guides/integration-set-up/gravitee-access-management.md)
   * [Third parties](guides/integration-set-up/third-parties.md)
 
