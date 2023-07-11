@@ -47,9 +47,3 @@ We hope you have a fabulous time!
 The [Gravitee](http://gravitee.io/) Developer Relations Team
 
 {% embed url="https://community.gravitee.io/" fullWidth="false" %}
-
-## Support
-
-## Announcements & Events
-
-## Roadmap & Feedback

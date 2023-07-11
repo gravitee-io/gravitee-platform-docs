@@ -12,7 +12,7 @@ description: >-
 The v4 Policy Studio can only design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing flows at the message level or for pub/sub use cases.&#x20;
 
 \
-The v4 Policy Studio also does not currently support Gravitee Debug Mode. Support for this is planned for future releases.
+The v4 Policy Studio does not currently support Gravitee Debug mode. Support for this is planned for future releases.
 {% endhint %}
 
 ## Introduction
@@ -175,7 +175,7 @@ Global resources are globally available to all flows associated with the Gateway
 ### Example 1: Dynamic routing
 
 {% hint style="info" %}
-This example applies to v4 APIs with [**Proxy Upstream Protocol**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure.
+This example applies to v4 APIs using the [**Proxy Upstream Protocol**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
 {% endhint %}
 
 In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
@@ -190,6 +190,12 @@ We then configure a dynamic routing policy for the API via a routing rule that b
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
 
-### Example 2: introspect messages from event driven backend APIs
+### Example 2: API Key authorization and message filtering
 
-This example applies to a v4 API&#x20;
+{% hint style="info" %}
+This example applies to v4 APIs using the [**Introspect Messages from Event-Driven Backend**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
+{% endhint %}
+
+In this example, we want to apply API Key authentication to the initial client request and message filtering to the flow's subscription phase.
+
+First, let's add an API Key policy to the "sample API Key flow" [shown above](v4-api-policy-design-studio.md#design).&#x20;
