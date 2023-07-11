@@ -172,7 +172,11 @@ Global resources are globally available to all flows associated with the Gateway
 
 ## Examples
 
-### Proxy upstream protocol API example
+### Example 1: Dynamic routing
+
+{% hint style="info" %}
+This example applies to v4 APIs with [**Proxy Upstream Protocol**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure.
+{% endhint %}
 
 In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
 
