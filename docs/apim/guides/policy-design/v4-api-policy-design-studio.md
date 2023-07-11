@@ -144,6 +144,12 @@ To configure dynamic properties:
 
 After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
 
+{% hint style="info" %}
+**Dictionaries vs API properties**
+
+The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See Dictionaries for more information.
+{% endhint %}
+
 ## Resources
 
 Some policies support the addition of resources, which can be used for authentication and schema registry validation, etc. Policies supporting resources include:
@@ -170,7 +176,7 @@ Global resources are globally available to all flows associated with the Gateway
 
 In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
 
-The first step is to define a list of properties for the shops, with each unique shop ID as the key and the URL of the shop as the value.
+The first step is to define a list of properties for the shops. For each property, enter a unique shop ID for the key and the URL of the shop for the value.
 
 <figure><img src="../../.gitbook/assets/example1_properties.png" alt=""><figcaption></figcaption></figure>
 
@@ -179,11 +185,5 @@ We then configure a dynamic routing policy for the API via a routing rule that b
 <figure><img src="../../.gitbook/assets/example1_dynamic routing.png" alt=""><figcaption></figcaption></figure>
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
-
-{% hint style="info" %}
-**Dictionaries vs API properties**
-
-The list of shop IDs and URLs could also be maintained using a dictionary, for example, in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. For more details, see "configure dictionaries" in the Configuration Guide.
-{% endhint %}
 
 ### Example 2: Introspect
