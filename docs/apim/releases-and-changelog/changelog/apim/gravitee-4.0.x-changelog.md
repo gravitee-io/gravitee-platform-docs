@@ -112,6 +112,7 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 
 **Running APIM**
 * APIM now requires a minimum of JDK 17.
+* Starting with 4.0.0, there will not be enterprise tags (i.e. suffixed by `-ee`) anymore.
 * Cluster managers are now available as plugins and so Hazelcast Cluster Manager has been removed from the default distribution.
 
 **Monitoring APIM**
