@@ -167,3 +167,112 @@ You can now test your installation by sending a request to your ingress resource
 ```sh
 curl -i https://graviteeio.example.com/httpbin/hostname
 ```
+
+### Secure your Gateway and Ingress Resources <a href="#user-content-secure-your-gateway-and-ingress-resources" id="user-content-secure-your-gateway-and-ingress-resources"></a>
+
+To secure the connection between your client and the gateway, you need to modify the Gateway `ConfigMap`. But first, you need to add a keystore to the cluster. You can create a keystore using the following command:
+
+{% hint style="info" %}
+Please be aware that Gravitee only supports the JKS keystore at the moment.
+{% endhint %}
+
+```sh
+keytool -genkeypair -alias example.com -storepass changeme -keypass changeme \
+-keystore gw-keystore.jks -dname "CN=example.com"
+```
+
+Once you have your keystore, you must add it to your target namespace. This example uses the default namespace.
+
+```sh
+kubectl create secret generic gw-keystore \
+--from-file=keystore=gw-keystore.jks
+```
+
+Once you added the keystore to the cluster, you must configure the Gateway to use this keystore and enable HTTPS. Open the `ConfigMap` that includes the Gateway configuration and add the following configuration to the `HTTP` or the `listeners.https` section of the `gravitee.yaml` file:
+
+{% hint style="info" %}
+You must also add this label to your Gateway `ConfigMap`to tell the controller where your Gateway configuration is located.
+{% endhint %}
+
+```yaml
+ http:
+   secured: true # Turns on the https
+   ssl:
+     keystore:
+       type: jks
+       kubernetes: /default/secrets/gw-keystore/keystore
+       password: changeme
+     sni: true
+```
+
+Next, restart the Gateway for the changes to take effect.
+
+#### Modify keystore
+
+There are two ways that the GKO can modify your keystore:
+
+1\) Either add the following label to your exiting Gateway `ConfigMap`
+
+```
+gravitee.io/component=gateway
+```
+
+2\) Create a new secret and provide the name of the Gateway keystore and its password
+
+```sh
+kubectl create secret generic gw-keystore-config \
+-n default \
+--from-literal=name=gw-keystore \
+--from-literal=password=changeme
+```
+
+You also need to label this new secret:
+
+```
+gravitee.io/gw-keystore-config=true
+```
+
+#### Add TLS to the ingress resources <a href="#user-content-add-tls-to-the-ingress-resources" id="user-content-add-tls-to-the-ingress-resources"></a>
+
+Assuming you have a [keypair for your host and added it to the cluster](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets), you can reference the secret inside your ingress file.&#x20;
+
+{% hint style="info" %}
+The secret must be in the same namespace.
+{% endhint %}
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tls-example
+  annotations:
+    kubernetes.io/ingress.class: graviteeio
+spec:
+  tls:
+  - hosts:
+      - foo.com
+    secretName: foo.com
+  rules:
+  - host: foo.com
+    http:
+      paths:
+      - path: /httpbin
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-1
+            port:
+              number: 8080
+```
+
+With these settings, you are able to call the Gateway and your ingress in a secure fashion.
+
+```sh
+curl -v https://foo.com/httpbin
+```
+
+Or, if it is a self-signed certificate:
+
+```sh
+curl --insecure -v https://foo.com/httpbin
+```
