@@ -20,7 +20,13 @@
 
 ## Guides
 
-* [Page 4](guides/page-4.md)
+* [Alerts and Conditions](guides/alerts-and-conditions.md)
+* [Dampening](guides/dampening.md)
+* [Notifications](guides/notifications.md)
+* [Integration set up](guides/integration-set-up/README.md)
+  * [Gravitee API Management](guides/integration-set-up/gravitee-api-management.md)
+  * [Gravitee Access Management](guides/integration-set-up/gravitee-access-management.md)
+  * [Third parties](guides/integration-set-up/third-parties.md)
 
 ## Reference
 
