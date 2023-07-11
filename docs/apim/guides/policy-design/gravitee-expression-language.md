@@ -41,7 +41,7 @@ EL allows you to reference certain values injected into the EL context as object
 {% hint style="info" %}
 **Object properties: custom properties vs attributes**
 
-* **Custom Properties:** defined at the API level and are read-only during the gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html).
+* **Custom Properties:** defined at the API level and are read-only during the gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](v4-api-policy-design-studio.md#api-properties).
 * **Attributes:** scoped to the current API transaction, and can be manipulated during the execution phase through the`assign-attributes` policy. You can view attributes like a kind of variable that is dropped after the API transaction is completed.
 
 Please keep in mind both custom properties and attributes are still _object properties._ Object properties are simply variables that belong to an object. They are part of an object's structure and can be accessed using dot notation or bracket notation.
@@ -102,12 +102,12 @@ Using EL, you can access information about a gateway API through several root-le
 
 ### Custom Properties
 
-As an API publisher, you can define custom [properties](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#properties}` root-level object property.
+As an API publisher, you can define [custom properties ](v4-api-policy-design-studio.md#api-properties)for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#properties}` root-level object property.
 
 #### **Examples**
 
 * Get the value of the property `my-property` defined in an API's custom properties: `{#properties['my-property']}`
-* Get the value of the property `my-secret` defined and [encrypted](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html) in an API's custom properties : `{#properties['my-secret']}` to pass a secured property to your backend
+* Get the value of the property `my-secret` defined and encrypted in an API's custom properties : `{#properties['my-secret']}` to pass a secured property to your backend
 
 {% hint style="info" %}
 **Encrypted custom properties**
@@ -164,7 +164,7 @@ The object properties you can access for API requests from the `{#request}` root
 
 ### Request context attributes
 
-When APIM Gateway handles an incoming API request, some object properties are automatically created or added during the execution phase through the [assign-attributes policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html). These object properties are known as attributes. Attributes can be accessed from the `{#context.attributes}` root-level object property. Available attributes are listed below:
+When APIM Gateway handles an incoming API request, some object properties are automatically created or added during the execution phase through the assign-attributes policy. These object properties are known as attributes. Attributes can be accessed from the `{#context.attributes}` root-level object property. Available attributes are listed below:
 
 | Object Property | Description                                                                                                                                      | Type   | Nullable                |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | ----------------------- |
@@ -176,7 +176,7 @@ When APIM Gateway handles an incoming API request, some object properties are au
 | plan            | Plan used to manage incoming HTTP request                                                                                                        | string | -                       |
 | api-key         | the api-key used (in case of an api-key based plan)                                                                                              | string | X (for no api-key plan) |
 
-Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_oauth2.html#attributes)) register other attributes in the request context. See the documentation for the policies you are using for more information.
+Additionally, some policies (like the OAuth2 policy) register other attributes in the request context. See the documentation for the policies you are using for more information.
 
 #### Examples
 
@@ -187,12 +187,12 @@ Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/a
 
 The object properties you can access in the `ssl` session object from the `{#request.ssl}` root-level object property are listed below:
 
-| Object Property | Description               | Type                                  | Example           |
-| --------------- | ------------------------- | ------------------------------------- | ----------------- |
-| clientHost      | Host name of the client   | string                                | client.domain.com |
-| clientPort      | Port number of the client | long                                  | 443               |
-| client          | Client information        | [Principal Object](broken-reference/) | -                 |
-| server          | Server information        | [Principal Object](broken-reference/) | -                 |
+| Object Property | Description               | Type             | Example           |
+| --------------- | ------------------------- | ---------------- | ----------------- |
+| clientHost      | Host name of the client   | string           | client.domain.com |
+| clientPort      | Port number of the client | long             | 443               |
+| client          | Client information        | Principal Object | -                 |
+| server          | Server information        | Principal Object | -                 |
 
 #### Example <a href="#principal_object" id="principal_object"></a>
 
@@ -304,7 +304,5 @@ If you are having a hard time debugging your expression, here's the best way to 
 When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. So how do you know the actual output of the `#request.content.length()` expression? You can easily check the output of an expression using the assign-attributes policy as shown in the arcade below:
 
 \{% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %\}
-
-\\
 
 [^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.

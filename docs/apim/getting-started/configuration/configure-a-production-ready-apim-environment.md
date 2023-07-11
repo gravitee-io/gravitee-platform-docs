@@ -10,7 +10,7 @@ This guide gives some tips on important settings to check in APIM when preparing
 
 You can configure APIM settings in various ways — the `gravitee.yml` file, the APIM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. Configure [APIM Gateway](components/the-gravitee-api-gateway.md) gives a good overview of this topic.
 
-## Step 1: Disable the internal APIs
+## Disable the internal APIs
 
 APIM API and APIM Gateway include internal APIs which are enabled by default. If you do not intend to use them, we recommend you disable them.
 
@@ -41,7 +41,7 @@ To learn more about the internal APIs, see:
 * [Configure the APIM Management API internal API](configure-apim-management-api/internal-api.md)
 * [Configure the APIM Gateway internal API](the-gravitee-api-gateway/gateway-internal-api.md)
 
-## Step 2: Update the default users
+## Update the default users
 
 Some default users are created for you during installation. We recommend you remove any users you do not need.
 
@@ -111,7 +111,7 @@ Perform the following steps on the APIM API component:
 
 To learn more about configuring users, see [Authentication and SSO](../../guides/administration/authentication-and-sso.md).
 
-## Step 3: Update the JWT secret
+## Update the JWT secret
 
 The JWT secret is used for signing session cookies in the APIM UI components. Any users with this secret can log in to APIM and update their permissions.
 
@@ -140,41 +140,47 @@ Perform the following steps on the APIM API component:
    * the `expire-after` value, to change the validity period from the default value of one week
    * the `cookie-path` and `cookie-domain` values, to adapt them to your own environment; the values you define must be specific to the domain and path where the API is running and not apply to any other environment (for example, `.gravitee.io` could apply to any domain called `xxx.gravitee.io`, such as `dev.gravitee.io` or `qa.gravitee.io`)
 
-## Step 4: Update the default APIM settings
+## Update the default APIM settings
 
 The most common settings are described below. Not all of these settings need to be changed in every environment.
 
 Perform the following steps in APIM Console:
 
 1. Log in to APIM Console.
-2. Click **Settings**.
-3. In the **PORTAL** section:
-   1. Click **Settings**.
-   2. Update the **Company name**.
-   3. In the **Management** section of the page:
+2. Select **Settings**.
+3.  In the **Portal** section:
+
+    1. Select **Settings** in the inner sidebar.
+    2. Update the **Company name.**
+
+
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.34.14 PM.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
+4.  In the Gateway section:
+
+    1. Select **API Logging**.
+    2. Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
+
+
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.42.12 PM.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
+5. Select **Organization** in the main sidebar:
+   1. In the **Gateway** section:
+      1. Select **Sharding Tags**.
+      2.  In the **Entrypoint mappings** section of the page, update the **Entrypoint** field with your APIM API endpoint.
+
+
+
+          <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.38.19 PM.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
+   2. Select **Settings** in the inner sidebar:
       * Update the **Title** of APIM Console to make it more appropriate for your own environment.
-      *   Update the **Management URL** to your APIM Console URL.
+      * Update the **Management URL** to your APIM Console URL.
 
-
-
-          <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/portal-management-settings.png" alt=""><figcaption><p>APIM management URL</p></figcaption></figure>
-4. In the **GATEWAY** section:
-   1. Click **Sharding Tags**.
-   2.  In the **Default configuration** section of the page, update the **Entrypoint** field with your APIM API endpoint.
-
-
-
-       <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/gateway-shardingtags-settings.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
-   3. Select **API Logging**.
-   4.  Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
-
-
-
-       <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/gateway-api-logging-settings.png" alt=""><figcaption><p>API logging duration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.31.13 PM.png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
 
 The recommended value depends on the type of logging you have enabled: the more information you log, the lower the value needs to be (although the value must be above zero to be taken into account).
 
-## STEP 5: Portal & Console default nginx security config
+## Portal & Console default nginx security config
 
 The APIM Console uses this default config:
 
