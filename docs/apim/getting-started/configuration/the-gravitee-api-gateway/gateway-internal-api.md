@@ -66,10 +66,10 @@ Content-Type: application/json
     "management-repository": {
         "healthy": true
     },
-    "api-sync": {
+    "sync-process": {
         "healthy": true
     },
-    "api-sync": {
+    "sync-process": {
         "healthy": true
     }
 }

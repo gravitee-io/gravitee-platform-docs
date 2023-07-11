@@ -6,13 +6,13 @@ Using OpenTracing allows Gravitee to trace every request that comes through the 
 
 So, if you’re looking for a way to simplify debugging, improve monitoring, and enhance visibility into requests across multiple services, Gravitee’s OpenTracing solution with Jaeger as a tracer has you covered.&#x20;
 
-This article will run through how to enable OpenTracing using the gravitee.yaml file and using a Docker image.
+This article will run through how to enable OpenTracing using the `gravitee.yaml` file and using a Docker image.
 
 ### Enable OpenTracing using the `gravitee.yaml` file
 
 In the `gravitee.yaml` file, enable tracing by adding the following configuration:
 
-```
+```yaml
 tracing:
     enabled: true
     type: jaeger
@@ -29,7 +29,7 @@ And that’s it! You’ve enabled OpenTracing on APIM Gateway.
 
 First, you'll need to start the Jaeger component with the Docker image by running this command:
 
-```
+```sh
 docker run -d --name jaeger \
   -p 5775:5775/udp \
   -p 6831:6831/udp \
@@ -92,9 +92,5 @@ With this option enabled, you can continue to call your APIs through your gatewa
 
     ```
     export APIM_VERSION={APIM_VERSION} && docker-compose down -v && docker-compose pull && docker-compose up
+
     ```
-
-\
-
-
-\
