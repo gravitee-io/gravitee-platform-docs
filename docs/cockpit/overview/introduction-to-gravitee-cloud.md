@@ -1,11 +1,18 @@
-# Gravitee Cloud
+---
+description: Learn more about Gravitee Cloud
+---
+
+# Introduction to Gravitee Cloud
 
 ## Introduction
 
 Previously Cockpit, Gravitee Cloud is the environment management solution and “homepage” for your entire Gravitee platform. &#x20;
 
-Here, you can add and manage various Gravitee API Management and Access Management installations and environments, promote APIs across higher and lower environments, and get started with a newly refreshed enterprise API Management free trial. The trial now includes pre-seeded APIs and a demo application so that you can test out all these new Gravitee 4.0 features without connecting your own application or building all new APIs. \
+Here, you can:
 
+* Add and manage various Gravitee API Management and Access Management installations and environments
+* Promote APIs across higher and lower environments
+* Get started with an enterprise API Management free trial. The trial now includes pre-seeded APIs and a demo application so that you can test out all these new Gravitee 4.0 features without connecting your own application or building all new APIs.&#x20;
 
 To learn more, watch the video below, sign up for a trial yourself, or head to the Gravitee trial documentation.&#x20;
 
@@ -16,13 +23,12 @@ To learn more, watch the video below, sign up for a trial yourself, or head to t
 
 Gravitee Cloud is based on a hierarchy of the following entity types:
 
-image::
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Gravitee Cloud hierarchy</p></figcaption></figure>
 
-\[]
 
-| Entity                                                                                                                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                           | Additional information                                                                                                                                                                                                                                                                                                                                                                                |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
 | Account                                                                                                                                                                           | The top level entity, your company. One user can have multiple accounts.                                                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Organization                                                                                                                                                                      | A logical part of your company in the way that makes most sense in your setup, for example a region or business unit. There can be multiple organizations linked to one account.                                                                                                                                                                                                                                                                      | <p>The organization and environment entities defined in Gravitee Cloud are equivalent to the same entities in APIM and AM, including the roles you can define for them (for example, the <code>ORGNIZATION_OWNER</code> role exists in both APIM and AM).</p><p>Learn more about organizations and environments in link:{{ <em>/apim/3.x/apim_adminguide_organizations_and_environments.html</em></p> |
 | relative\_url \}}\[APIM^] and link:\{{ _/am/current/am\_adminguide\_organizations\_and\_environments.html_                                                                        | relative\_url \}}\[AM^].                                                                                                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Environment                                                                                                                                                                       | An environment in an IT infrastructure, such as development or production. There can be multiple environments linked to one organization.                                                                                                                                                                                                                                                                                                             | <p>Installation</p><p>Node</p>                                                                                                                                                                                                                                                                                                                                                                        |
@@ -42,6 +48,4 @@ The Gravitee Cloud hierarchy pictured below has the following setup:
 * One APIM installation, with two Gateway nodes and one REST API node.
 * One AM installation, with one Gateway node and one REST API node.
 
-image::
-
-\[]
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Example hierarchy</p></figcaption></figure>
