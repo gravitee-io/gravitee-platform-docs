@@ -20,5 +20,4 @@
 
 * [About the Community](community/about-the-community.md)
 * [Support](https://community.gravitee.io/c/support/11)
-* [Roadmap & Feedback](https://gravitee.productboard.com/portal/3-internal-gravitee-io-roadmap/tabs/6aa173be-1ba7-4984-b790-4c920e09e6b0)
 * [Announcement & Events](https://community.gravitee.io/c/announcements/5)
