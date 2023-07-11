@@ -12,7 +12,7 @@ In Gravitee, repositories are used to store different type of data (different sc
 
 The following matrix shows scope and storage compatibility.
 
-<table><thead><tr><th width="317">Scope</th><th>MongoDB</th><th>Redis</th><th>Elasticsearch</th><th>JDBC</th></tr></thead><tbody><tr><td>Management: All the API Management platform management data, such as API definitions, users, applications and plans</td><td>X</td><td>-</td><td>-</td><td>X</td></tr><tr><td>Rate Limit: rate limiting data</td><td>X</td><td>X</td><td>-</td><td><a data-footnote-ref href="#user-content-fn-1">X*</a></td></tr><tr><td>Analytics: analytics data</td><td>-</td><td>-</td><td>X</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th width="317">Scope</th><th data-type="checkbox">MongoDB</th><th data-type="checkbox">Redis</th><th data-type="checkbox">Elasticsearch</th><th data-type="checkbox">JDBC</th></tr></thead><tbody><tr><td>Management: All the API Management platform management data, such as API definitions, users, applications and plans</td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Rate Limit: rate limiting data</td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td>Analytics: analytics data</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Distributed Sync: responsible for keeping the sync state for a cluster</td><td>false</td><td>true</td><td>false</td><td>false</td></tr></tbody></table>
 
 Please see the sections below that walk through how to configure each kind of repository.
 
@@ -487,5 +487,3 @@ ratelimit:
 If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify if Redis repository is healthy. You can find health endpoints in the [Internal API documentation](configure-apim-management-api/internal-api.md).\
 
 {% endhint %}
-
-[^1]: _\*Using JDBC as a rate limit repository is not recommended. It can lead to inaccuracies in limit calculation, as counter is not shared across concurrent threads._
