@@ -3,6 +3,8 @@
 ## Overview
 
 * [Introduction to Gravitee Alert Engine](README.md)
+* [Architecture](overview/architecture.md)
+* [Integrations](overview/integrations.md)
 
 ## Getting Started
 
