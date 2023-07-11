@@ -147,19 +147,19 @@ After the first call, the resultant property is added to the list of global prop
 {% hint style="info" %}
 **Dictionaries vs API properties**
 
-The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See Dictionaries for more information.
+The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See [Dictionaries](../../getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md) for more information.
 {% endhint %}
 
 ## Resources
 
 Some policies support the addition of resources, which can be used for authentication and schema registry validation, etc. Policies supporting resources include:
 
-* **Cache policy**: Specify a cache resource via the Cache or Cache Redis resources
-* **OAuth2 policy**: Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource
-* **OpenID Connect - UserInfo:** Specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource
-* **Serialization & deserialization policies**: Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry
+* **Cache policy:** Specify a cache resource via the Cache or Cache Redis resources
+* **OAuth2 policy:** Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource
+* **OpenID Connect - UserInfo:** Specify a Keycloak Adapter resource to use Keycloak as your OpenID Connect resource
+* **Serialization & deserialization policies:** Specify a Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry
   * Avro <> JSON policy
-* **HTTP signature policies**: Specify your HTTP Authentication Provider resource
+* **HTTP signature policies:** Specify an HTTP Authentication Provider resource
 * **Basic authentication:** Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory
 
 <figure><img src="../../.gitbook/assets/Confluent schema registry.png" alt=""><figcaption><p>Resources: Confluent Schema Registry</p></figcaption></figure>
@@ -172,7 +172,7 @@ Global resources are globally available to all flows associated with the Gateway
 
 ## Examples
 
-### Example 1: Proxy
+### Proxy upstream protocol API example
 
 In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
 
@@ -186,4 +186,6 @@ We then configure a dynamic routing policy for the API via a routing rule that b
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
 
-### Example 2: Introspect
+### Example 2: introspect messages from event driven backend APIs
+
+This example applies to a v4 API&#x20;
