@@ -195,6 +195,8 @@ If the ID in the request header matches the key of one of the properties, it is 
 This example applies to v4 APIs using the [**Introspect Messages from Event-Driven Backend**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
 {% endhint %}
 
-In this example, we want to apply API Key authentication to the initial client request and message filtering to the flow's subscription phase.
+In this example, we want to monetize an API&#x20;
+
+charges a certain amount for media outlets to get access to data in slightly less than real time whereas gambling houses pay more for that info in true real time. You could implement a latency policy for all slightly less than real time consumers.
 
 First, let's add an API Key policy to the "sample API Key flow" [shown above](v4-api-policy-design-studio.md#design).&#x20;
