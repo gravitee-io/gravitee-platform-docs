@@ -29,7 +29,7 @@
     * [Configure Alerts in Gravitee API Management](https://documentation.gravitee.io/apim/getting-started/configuration/configure-alerts-and-notifications#configure-alerts)
     * [Configure Notifications](guides/integration-set-up/gravitee-api-management/configure-notifications.md)
     * [Gravitee API Management Alerts Dashboard](guides/integration-set-up/gravitee-api-management/gravitee-api-management-alerts-dashboard.md)
-  * [Gravitee Access Management](guides/integration-set-up/gravitee-access-management/README.md)
+  * [Gravitee Access Management](guides/integration-set-up/gravitee-access-management.md)
     * [Installation](guides/integration-set-up/gravitee-access-management/installation.md)
     * [Configuration](guides/integration-set-up/gravitee-access-management/configuration.md)
   * [Third Party Integrations](http://localhost:5000/s/WAKqxjzYogMr1tk18evT/overview/integrations#integrating-with-third-party-solutions)
@@ -40,9 +40,10 @@
 
 ## Changelog
 
-* [Changelog](changelog/changelog.md)
-* [Page 1](changelog/page-1.md)
+* [Changelog](releases-and-changelog/page-6.md)
 
 ## Community and Support
 
-* [Page 7](community-and-support/page-7.md)
+* [Community](community-and-support/community/README.md)
+  * [Support](https://community.gravitee.io/c/support/11)
+  * [Announcements and Events](https://community.gravitee.io/c/announcements/5)
