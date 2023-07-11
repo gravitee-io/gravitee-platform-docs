@@ -1,7 +1,7 @@
 ---
 description: >-
-  This article walks through how to integrate Alert Engine with Gravitee API
-  Management (APIM).
+  This article walks through how to integrate Gravitee Alert Engine with
+  Gravitee Access Management (AM)
 ---
 
 # Installation
@@ -9,10 +9,16 @@ description: >-
 {% hint style="info" %}
 **Skip installation if...**
 
-If you are performing a new installation of the Gravitee Enterprise platform or running Enterprise Docker images, you can skip the installation section. Also, since APIM version 3.18, you do not need to download and install the AE connector separately - it is shipped as part of the APIM bundle.
+If you are performing a new installation of the Gravitee enterprise platform or running Enterprise Docker images, you can skip the installation section.
 {% endhint %}
 
-### Installation
+## Installation
+
+{% hint style="info" %}
+**Be aware**
+
+Since Gravitee Access Management 3.18, the AE connector comes bundled with Enterprise Access Management, you don’t need to download and install it.
+{% endhint %}
 
 #### Download the connector
 
@@ -22,9 +28,9 @@ $ curl -L https://download.gravitee.io/graviteeio-ae/plugins/connectors/gravitee
 ```
 {% endcode %}
 
-#### Install the connector
+#### Install connector
 
-In the command below, `${GRAVITEEIO_HOME}` refers to the root directory of both APIM Gateway and APIM API.
+In the command below, ${GRAVITEEIO\_HOME} refers to the root directory of both the AM Gateway and Management API.
 
 ```
 $ cp gravitee-ae-connectors-ws-2.1.2.zip ${GRAVITEEIO_HOME}/plugins/
@@ -32,7 +38,7 @@ $ cp gravitee-ae-connectors-ws-2.1.2.zip ${GRAVITEEIO_HOME}/plugins/
 
 ## Configuration
 
-For both the APIM Gateway and APIM API, you need to configure access to AE through WebSockets, as in the following example:
+For both the AM Gateway and the AM API, you need to configure access to Alert Engine through WebSockets. You can do this with the following configuration:
 
 ```
 alerts:
@@ -64,19 +70,19 @@ alerts:
 
 ### Endpoints
 
-You can have as many endpoints as you need. The node will select one of them using a round-robin method.
+You can have as many endpoints as you need. The node will select one of them in round-robin fashion.
 
 ### Discovery mode
 
-You can use discovery mode when running an AE cluster to automatically register other nodes in the cluster from a single node reference.
+Discovery mode is very useful when running a cluster of Alert Engine. By using it, you just have to refer to a single AE node and the other nodes from the cluster will be automatically registered.
 
-<figure><img src="https://docs.gravitee.io/images/ae/howitworks/discovery.png" alt=""><figcaption><p>Alert Engine, auto-discovery</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/ae/howitworks/discovery.png" alt=""><figcaption><p>Alert Engine: auto-discovery</p></figcaption></figure>
 
 ### Event sending mode
 
-Since v1.5.0 of the AE connector, it is possible to configure the connection to send events either over WebSocket (default) or HTTP.
+Sicne Alert Engine v1.5.0, it is possible to configure the connection to send events either over WebSocket (default) or HTTP.
 
-On an environment with high throughput (\~1000 rps), we highly recommend configuring the event sending over http in order to benefit from better load balancing and load repartition.
+On an environment with high throughput (\~1000 rps), we highly recommend configuring the event sending over http in order to benefit from a good load balancing and load repartition.
 
 Enabling this feature comes with some configuration tuning:
 
@@ -95,43 +101,4 @@ alerts:
       bulkEventsWait: 100    # Set the duration to wait for bulk events to be ready for sending. When set to 100ms with event size of 100, it means that we will wait for 100 events to be ready to be sent during 100ms. After this period of time, events will be sent event if there are less than 100 events to send.
 ```
 
-As of Gravitee APIM 3.20, events are sent over HTTP as the default behavior. In order to switch back to WebSocket:
-
-```
-alerts:
-  alert-engine:
-    ws:
-      sendEventsOnHttp: false
-```
-
-### Proxy
-
-As of APIM 3.20, the alert engine connector can use the system proxy to send both triggers and events. In order to activate it
-
-```
-alerts:
-  alert-engine:
-    ws:
-      useSystemProxy: false
-```
-
-This will use these proxy settings
-
-```
-# global configuration of the http client
-httpClient:
-  proxy:
-    type: HTTP #HTTP, SOCK4, SOCK5
-    http:
-      host: localhost
-      port: 3128
-      username: user
-      password: secret
-    https:
-      host: localhost
-      port: 3128
-      username: user
-      password: secret
-```
-
-\
+By default, to keep the same behavior of the previous version, events are sent over a websocket connection. The default behavior will switch to HTTP in a future version.\

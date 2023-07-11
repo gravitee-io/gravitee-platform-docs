@@ -15,11 +15,11 @@ Alert Engine can be bolted on to your larger Gravitee platform as well as custom
   * Configuration
   * Notifications
   * The Alerts Dashboard
-* [Gravitee Alert Engine and Access Management](gravitee-access-management.md)
+* [Gravitee Alert Engine and Access Management](gravitee-access-management/)
   * Installation
   * Configuration
   * Using Alert Engine fir Risk-based alerting
-* [Third parties](third-parties.md)
+* [Third parties](broken-reference)
   * Configuration
 
 Let's go!
