@@ -6,13 +6,13 @@
 
 ## GETTING STARTED
 
-* [API Designer Workspace](getting-started/api-designer-workspace/README.md)
-  * [Design interface](getting-started/api-designer-workspace/design-interface.md)
-  * [Push interface](getting-started/api-designer-workspace/push-interface.md)
+* [Sign up for and access API Designer](getting-started/sign-up-for-and-access-api-designer.md)
 
 ## GUIDES
 
-* [Page 2](guides/page-2.md)
+* [API Designer Workspace](guides/api-designer-workspace/README.md)
+  * [Design interface](guides/api-designer-workspace/design-interface.md)
+  * [Push interface](guides/api-designer-workspace/push-interface.md)
 
 ## REFERENCE
 
