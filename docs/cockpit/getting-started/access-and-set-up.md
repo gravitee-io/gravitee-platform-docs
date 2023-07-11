@@ -6,7 +6,7 @@ description: Learn how to access and set up Gravitee Cloud
 
 ## Access Gravitee Cloud
 
-To get started with Gravitee Cloud, go to [https://cockpit.gravitee.io](https://cockpit.gravitee.io/), and click the **Register** button. Set up your account.&#x20;
+To get started with Gravitee Cloud (GC), go to [https://cockpit.gravitee.io](https://cockpit.gravitee.io/), and click the **Register** button. Set up your account.&#x20;
 
 ## Navigating Gravitee Cloud
 
@@ -21,7 +21,7 @@ In the Dashboard, you can create one or more organizations within your account a
 * [Learn more about setting up your Cockpit hierarchy](https://docs.gravitee.io/cockpit/3.x/cockpit\_quickstart\_setup.html)
 * [Learn more about registering APIM and AM installations](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_register\_installations.html)
 
-#### Hierarchy
+### Hierarchy
 
 You can click your organization name in the left-hand menu to access an interactive map of the organizational hierarchy associated with your account.
 
@@ -29,6 +29,36 @@ You can click your organization name in the left-hand menu to access an interact
 
 Click the settings icon ![cockpit settings icon](https://docs.gravitee.io/images/icons/cockpit-settings-icon.png) of any entity in the map to update its settings.
 
-[Learn more about updating the settings](https://docs.gravitee.io/cockpit/3.x/cockpit\_quickstart\_setup.html#update\_entity\_settings)
+### API Management Free trial
+
+## Set up your GC Hierarchy
+
+### Create your GC hierarchy
+
+You create your hierarchy from the GC dashboard, accessed by clicking **Home** in the left-hand menu.
+
+To create your hierarchy:
+
+1.  If you have multiple accounts, select the account from the drop-down in the breadcrumb navigation.
+
+    ![dashboard account select](https://docs.gravitee.io/images/cockpit/dashboard-account-select.png)
+2. Create an organization with **NEW ORGANIZATION**.
+3. Create the environments with **NEW ENVIRONMENT**. You will need to select the organization the environments belong to.
+
+You can now link [installations to your environments.](../guides/register-installations.md)
+
+### Update entity settings
+
+You can update the settings of any entity within your hierarchy from the hierarchy map, accessed by clicking your organization name in the left-hand menu.
+
+You can update the general details of entities, delete entities, and manage users. You can also update specific settings such as API Designer settings for organizations.
+
+To update settings for an entity in your organization:
+
+1. Click the organization name in the left-hand menu.
+2. Click the settings icon ![cockpit settings icon](https://docs.gravitee.io/images/icons/cockpit-settings-icon.png) of the entity.
+
+\
+
 
 \
