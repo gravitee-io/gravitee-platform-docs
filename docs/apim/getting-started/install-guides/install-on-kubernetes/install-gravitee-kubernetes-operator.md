@@ -24,7 +24,7 @@ Up until now, Gravitee customers have been deploying APIs using the following tw
 1. **Using the Gravitee management UI.** Gravitee comes with an easy-to-use, self-serve UI that is often used for development. This is backed by a backend service that is a part of the Gravitee web application.
 2. **Using the Gravitee management API.** Every action in the Gravitee management UI de facto represents a REST API with a JSON payload. This is all documented using an API spec. As a result, everything users can do in the UI can be done via REST API calls backed by JSON files. A lot of users would use tools and systems like GitLab, Jenkins, Bitbucket, or GitHub Actions, for example, to manage everything as JSON files. An API definition in Gravitee is also a JSON file that explains what the endpoints are, what the protections are, and so on.
 
-While the REST API method is compatible with an IAC approach, there has been feedback from many Gravitee users who are going "Kubernetes-native" that they would prefer to be able to deploy APIs and the Gravitee APIM Gateway and Console via \* [Custom Resource Definitions (CRDs)](https://docs.gravitee.io/apim/3.x/apim\_kubernetes\_operator\_definitions.html).
+While the REST API method is compatible with an IAC approach, there has been feedback from many Gravitee users who are going "Kubernetes-native" that they would prefer to be able to deploy APIs and the Gravitee APIM Gateway and Console via [Custom Resource Definitions (CRDs).](../../../guides/gravitee-kubernetes-operator/page-1.md)
 
 The Gravitee Kubernetes Operator (GKO) makes all this possible.
 
@@ -36,15 +36,11 @@ If you deploy APIs in a Kubernetes cluster, you can describe your API as an API 
 
 The current functionality of the Gravitee Kubernetes Operator (GKO) allows for three main deployment scenarios, as described below.
 
-{% hint style="info" %}
-To learn how to deploy GKO on a remote cluster, see the [Remote cluster deployment](https://docs.gravitee.io/apim/3.x/apim\_kubernetes\_operator\_installation\_cluster.html) section.
-{% endhint %}
-
 ### Standard deployment
 
 In the standard deployment scenario, the management API and the API gateway are deployed in the same Kubernetes cluster.
 
-With this workflow, the GKO listens for [Custom Resource Definitions (CRDs)](https://docs.gravitee.io/apim/3.x/apim\_kubernetes\_operator\_definitions.html). For each custom resource, an API is pushed to the management API using the import endpoint. The API gateway deploys the APIs accordingly.
+With this workflow, the GKO listens for CRDs. For each custom resource, an API is pushed to the management API using the import endpoint. The API gateway deploys the APIs accordingly.
 
 The following diagram illustrates the standard deployment architectural approach:
 
@@ -65,7 +61,7 @@ The following diagram illustrates the multi-cluster deployment architectural app
 
 ### Deployment on multiple environments
 
-In this scenario, a single GKO is deployed that can publish APIs to different environments (logical or physical). This is managed directly from the [API Definition](https://docs.gravitee.io/apim/3.x/apim\_kubernetes\_operator\_user\_guide\_api\_definition.html) custom resource, which refers a [Management Context](https://docs.gravitee.io/apim/3.x/apim\_kubernetes\_operator\_user\_guide\_management\_context.html) custom resource.
+In this scenario, a single GKO is deployed that can publish APIs to different environments (logical or physical). This is managed directly from the [ApiDefinition custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd.md), which refers to a [ManagementContext custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource.md).
 
 {% hint style="info" %}
 Note that in this case different APIs are published on each of the environments. This is because APIs use the `ManagementContext` CRD, which can reference any Management API, however an `ApiDefinition` CRD can only have one Management Context.
