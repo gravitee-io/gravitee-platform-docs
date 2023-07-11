@@ -68,7 +68,7 @@ GA features can be confidently deployed in production environments, given their 
 
 #### **Identifying GA features**
 
-If a feature documentation lacks the labels "tech preview," "alpha," or "beta," it is considered generally available.
+If a feature documentation lacks the labels "tech preview" or "beta," it is considered generally available.
 
 ## Support model
 
