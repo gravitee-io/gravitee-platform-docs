@@ -96,7 +96,7 @@ To configure API properties, select **Properties** from the inner left nav. To h
 
 ### Encryption
 
-Gravitee supports encryption to protect sensitive or confidential data stored as property values. The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security.&#x20;
+Gravitee supports encryption to protect sensitive or confidential data stored as hardcoded property values. The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security.&#x20;
 
 {% hint style="warning" %}
 The secret must be 32 bytes in length.
