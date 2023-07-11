@@ -8,7 +8,10 @@
 
 ## Getting Started
 
-* [Page 3](getting-started/page-3.md)
+* [Install and Upgrade Guides](getting-started/install-and-upgrade-guides/README.md)
+  * [Install via .ZIP file](getting-started/install-and-upgrade-guides/install-via-.zip-file.md)
+  * [Install via Docker](getting-started/install-and-upgrade-guides/install-via-docker.md)
+  * [Install via Kubernetes](getting-started/install-and-upgrade-guides/install-via-kubernetes.md)
 
 ## Guides
 
