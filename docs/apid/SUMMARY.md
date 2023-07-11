@@ -17,3 +17,4 @@
 ## COMMUNITY & SUPPORT
 
 * [Enterprise Support](community-and-support/enterprise-support.md)
+* [Community](community-and-support/community.md)
