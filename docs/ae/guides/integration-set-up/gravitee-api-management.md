@@ -1,2 +1,0 @@
-# Gravitee API Management
-

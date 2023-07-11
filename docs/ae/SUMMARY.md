@@ -24,7 +24,10 @@
 * [Dampening](guides/dampening.md)
 * [Notifications](guides/notifications.md)
 * [Integration set up](guides/integration-set-up/README.md)
-  * [Gravitee API Management](guides/integration-set-up/gravitee-api-management.md)
+  * [Gravitee API Management](guides/integration-set-up/gravitee-api-management/README.md)
+    * [Installation](guides/integration-set-up/gravitee-api-management/installation.md)
+    * [Configure Alerts in Gravitee API Management](https://documentation.gravitee.io/apim/getting-started/configuration/configure-alerts-and-notifications#configure-alerts)
+    * [Configure Notifications](guides/integration-set-up/gravitee-api-management/configure-notifications.md)
   * [Gravitee Access Management](guides/integration-set-up/gravitee-access-management.md)
   * [Third parties](guides/integration-set-up/third-parties.md)
 
