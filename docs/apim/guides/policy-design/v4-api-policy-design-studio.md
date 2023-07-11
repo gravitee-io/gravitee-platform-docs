@@ -189,14 +189,21 @@ We then configure a dynamic routing policy for the API via a routing rule that b
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
 
-### Example 2: API Key authorization and message filtering
+### Example 2: Monetization via latency
 
 {% hint style="info" %}
 This example applies to v4 APIs using the [**Introspect Messages from Event-Driven Backend**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
 {% endhint %}
 
-In this example, we want to monetize an API&#x20;
+In this example, our Gateway API sends an alert whenever inventory is added to our online store that sells limited edition designer merchandise at discount prices. Casual shoppers pay a certain amount to learn about item availability in slightly less than real-time, while our best customers pay more to access this data in true real-time.&#x20;
 
-charges a certain amount for media outlets to get access to data in slightly less than real time whereas gambling houses pay more for that info in true real time. You could implement a latency policy for all slightly less than real time consumers.
+To monetize data delivery, we can use the Keyless and API Key plans introduced [above](v4-api-policy-design-studio.md#design). First, we add a "sample Keyless flow" to our Keyless plan.&#x20;
 
-First, let's add an API Key policy to the "sample API Key flow" [shown above](v4-api-policy-design-studio.md#design).&#x20;
+<figure><img src="../../.gitbook/assets/sample keyless flow.png" alt=""><figcaption></figcaption></figure>
+
+Next, we apply a latency policy to our Keyless plan.&#x20;
+
+<figure><img src="../../.gitbook/assets/sample keyless policy.png" alt=""><figcaption></figcaption></figure>
+
+Customers can use our API for free, but new merchandise alerts are delayed by 30 min. However, customers who purchase our API Key plan are given unlimited access to real-time data.&#x20;
+
