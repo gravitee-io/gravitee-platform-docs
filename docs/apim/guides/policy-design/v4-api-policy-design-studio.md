@@ -1,7 +1,7 @@
 ---
 description: >-
-  This article walks through how to design and enforce policy flows using the v4
-  Policy Studio.
+  This article walks through how to design and enforce flows using the v4 Policy
+  Studio.
 ---
 
 # v4 API Policy Studio
@@ -9,7 +9,7 @@ description: >-
 {% hint style="info" %}
 **Product limitations**
 
-The v4 Policy Studio can only design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing policy flows at the message level or for pub/sub use cases.&#x20;
+The v4 Policy Studio can only design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing flows at the message level or for pub/sub use cases.&#x20;
 
 \
 The v4 Policy Studio also does not currently support Gravitee Debug Mode. Support for this is planned for future releases.
@@ -17,7 +17,7 @@ The v4 Policy Studio also does not currently support Gravitee Debug Mode. Suppor
 
 ## Introduction
 
-Gravitee defines a policy flow as the method to control where, and under what conditions, policies act on an API transaction. The v4 Policy Studio is a no-code tool used to create and govern flows. The details of its purpose and functionality are broken into the following sections::
+Gravitee defines a flow as the method to control where, and under what conditions, policies act on an API transaction. The v4 Policy Studio is a no-code tool used to create and manage flows. The details of its purpose and functionality are broken into the following sections::
 
 * **Design:** Manage all flows associated with your Gateway API
 * **Configuration:** Modify settings around flow execution
@@ -28,7 +28,12 @@ Gravitee defines a policy flow as the method to control where, and under what co
 
 Flows can be added to existing v4 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** **Info** page. Select **Policy Studio** from the inner left-hand nav.
 
-In the Policy Studio, you can create a flow, then add one or more policies to the Request, Response, Publish, and/or Subscribe phases. These phases are available based on a flow's chosen entrypoint(s), with Request and Response appearing under the **Initial connection** tab and Subscribe and Publish appearing under the **Event messages** tab.&#x20;
+In the Policy Studio, you can create a flow, then add one or more policies to the Request, Response, Publish, and/or Subscribe phases. These phases are available based on a flow's chosen entrypoint(s), with Request and Response appearing under the **Initial connection** tab and Subscribe and Publish appearing under the **Event messages** tab. When a policy is applied and how it is enforced depends on the phase:
+
+* **Request phase:** A policy is applied during the connection establishment. The Gateway enforces the policy at the time of the request, before a client is given access to the API that they are trying to call.
+* **Response phase:** A policy is applied to the response from the initial connection. The Gateway enforces the policy after the request is allowed, but before the response is returned to the client.
+* **Publish phase:** A policy is applied on messages sent to the endpoint. The Gateway enforces the policy when messages are published, before a client is given access to the API that they are trying to call.
+* **Subscribe phase:** A policy is applied on messages received by the entrypoint. The Gateway enforces the policy after messages are subscribed to, but before the response is returned to the client.
 
 You can create multiple policies for a single flow, each with a different configuration and applied to a different phase of the API. Flows can also be associated with specific plans or exist at the API level as common flows.&#x20;
 
@@ -57,14 +62,9 @@ Once you've clicked **Create** to add a flow, be sure to also click **Save** in 
 
 ### Add policies
 
-To add a policy to the flow, click the **+** icon in the phase where you want the policy enforced. When the policy is applied and how it is enforced depends on the phase:
+Policies are added to flows to enforce security, reliability, and proper data transfer. Examples of policies include traffic shaping, authentication/authorization, rate limiting, and dynamic routing.&#x20;
 
-* **Request phase:** A policy is applied during the connection establishment. The Gateway enforces the policy at the time of the request, before a client is given access to the API that they are trying to call.
-* **Response phase:** A policy is applied to the response from the initial connection. The Gateway enforces the policy after the request is allowed, but before the response is returned to the client.
-* **Publish phase:** A policy is applied on messages sent to the endpoint. The Gateway enforces the policy when messages are published, before a client is given access to the API that they are trying to call.
-* **Subscribe phase:** A policy is applied on messages received by the entrypoint. The Gateway enforces the policy after messages are subscribed to, but before the response is returned to the client.
-
-The module to add a policy is pre-populated with only the selections that are valid and/or supported based on the entrypoints and endpoints chosen for the flow. For example, below are the possible policies to configure for the **Request phase** of the "sample HTTP Get flow" shown above:
+To add a policy to a flow, click the **+** icon in the phase where you want the policy enforced. The module that appears is pre-populated with only the selections that are valid and/or supported based on the entrypoints and endpoints chosen for the flow. For example, below are the possible policies to configure for the **Request phase** of the "sample HTTP Get flow" shown above:
 
 <figure><img src="../../.gitbook/assets/sample add policy.png" alt=""><figcaption><p>Sample policy selection</p></figcaption></figure>
 
@@ -96,7 +96,7 @@ Select **Properties** from the inner left nav to configure API properties. You c
 
 ### Encryption
 
-The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security.&#x20;
+Gravitee supports encryption to protect sensitive or confidential data stored as property values. The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security.&#x20;
 
 {% hint style="warning" %}
 The secret must be 32 bytes in length.
@@ -142,26 +142,6 @@ To configure dynamic properties:
 
 After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
 
-### Example
-
-In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
-
-The first step is to define a list of properties for the shops, with each unique shop ID as the key and the URL of the shop as the value.
-
-<figure><img src="../../.gitbook/assets/add_properties.png" alt=""><figcaption><p>Add properties</p></figcaption></figure>
-
-We then configure a dynamic routing policy for the API via a routing rule that builds a new URL dynamically through property matching. The URL is created with a `#properties` statement that matches properties returned by querying the request header that contains the shop ID.
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/design-studio/dynamic-routing-properties.png" alt=""><figcaption><p>Add dynamic routing policy based on API property</p></figcaption></figure>
-
-If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
-
-{% hint style="info" %}
-**Dictionaries vs API properties**
-
-The list of shop IDs and URLs could also be maintained using a dictionary, for example, in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. For more details, see "configure dictionaries" in the Configuration Guide.
-{% endhint %}
-
 ## Resources
 
 Some policies support the addition of resources, which can be used for authentication and schema registry validation, etc. Policies supporting resources include:
@@ -181,3 +161,27 @@ After these resources are created, you will be able to reference them when desig
 {% hint style="info" %}
 Global resources are globally available to all flows associated with the Gateway API. However, they will not be available to other Gateway APIs.
 {% endhint %}
+
+## Examples
+
+### Example 1: Proxy
+
+In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
+
+The first step is to define a list of properties for the shops, with each unique shop ID as the key and the URL of the shop as the value.
+
+<figure><img src="../../.gitbook/assets/example1_properties.png" alt=""><figcaption></figcaption></figure>
+
+We then configure a dynamic routing policy for the API via a routing rule that builds a new URL dynamically through property matching. The URL is created with a `#properties` statement that matches properties returned by querying the request header that contains the shop ID.
+
+<figure><img src="../../.gitbook/assets/example1_dynamic routing.png" alt=""><figcaption></figcaption></figure>
+
+If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
+
+{% hint style="info" %}
+**Dictionaries vs API properties**
+
+The list of shop IDs and URLs could also be maintained using a dictionary, for example, in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. For more details, see "configure dictionaries" in the Configuration Guide.
+{% endhint %}
+
+### Example 2: Introspect

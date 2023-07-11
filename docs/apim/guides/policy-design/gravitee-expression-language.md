@@ -42,7 +42,7 @@ EL allows you to reference certain values injected into the EL context as object
 **Object properties: custom properties vs attributes**
 
 * **Custom Properties:** defined at the API level and are read-only during the gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_api\_properties.html).
-* **Attributes:** scoped to the current API transaction, and can be manipulated during the execution phase through the[`assign-attributes` policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html). You can view attributes like a kind of variable that is dropped after the API transaction is completed.
+* **Attributes:** scoped to the current API transaction, and can be manipulated during the execution phase through the`assign-attributes` policy. You can view attributes like a kind of variable that is dropped after the API transaction is completed.
 
 Please keep in mind both custom properties and attributes are still _object properties._ Object properties are simply variables that belong to an object. They are part of an object's structure and can be accessed using dot notation or bracket notation.
 
@@ -131,31 +131,31 @@ When you define endpoints for your API, you need to give them a name which must 
 
 * When you create an API, a default endpoint is created, corresponding to the value you set for the backend property. This endpoint can be retrieved with EL by using the following syntax: `{#endpoints['default']}`
 
-## Request  <a href="#request" id="request"></a>
+## Request <a href="#request" id="request"></a>
 
 The object properties you can access for API requests from the `{#request}` root-level object property are listed below:
 
-| Object Property | Description            | Type                           | Example                                       |
-| --------------- | ---------------------- | ------------------------------ | --------------------------------------------- |
-| id              | Identifier             | string                         | 12345678-90ab-cdef-1234-567890ab              |
-| transactionId   | Transaction identifier | string                         | cd123456-7890-abcd-ef12-34567890              |
-| uri             | URI                    | string                         | /v2/store/MyStore?order=100                   |
-| path            | Path                   | string                         | /v2/store/MyStore                             |
-| paths           | Path parts             | array of string                | \[,v2,store,MyStore]                          |
-| pathInfo        | Path info              | string                         | /store/MyStore                                |
-| pathInfos       | Path info parts        | array of string                | \[,store,MyStore]                             |
-| contextPath     | Context path           | string                         | /v2/                                          |
-| params          | Query parameters       | key / value                    | order → 100                                   |
-| pathParams      | Path parameters        | key / value                    | storeId → MyStore (_see Warning for details_) |
-| headers         | Headers                | key / value                    | X-Custom → myvalue                            |
-| method          | HTTP method            | string                         | GET                                           |
-| scheme          | HTTP scheme            | string                         | http                                          |
-| version         | HTTP version           | string                         | HTTP\_1\_1                                    |
-| timestamp       | Timestamp              | long                           | 1602781000267                                 |
-| remoteAddress   | Remote address         | string                         | 0:0:0:0:0:0:0:1                               |
-| localAddress    | Local address          | string                         | 0:0:0:0:0:0:0:1                               |
-| content[^1]     | Body content           | string                         | -                                             |
-| ssl             | SSLSession information | [SSL Object](broken-reference) | -                                             |
+| Object Property | Description            | Type                            | Example                                       |
+| --------------- | ---------------------- | ------------------------------- | --------------------------------------------- |
+| id              | Identifier             | string                          | 12345678-90ab-cdef-1234-567890ab              |
+| transactionId   | Transaction identifier | string                          | cd123456-7890-abcd-ef12-34567890              |
+| uri             | URI                    | string                          | /v2/store/MyStore?order=100                   |
+| path            | Path                   | string                          | /v2/store/MyStore                             |
+| paths           | Path parts             | array of string                 | \[,v2,store,MyStore]                          |
+| pathInfo        | Path info              | string                          | /store/MyStore                                |
+| pathInfos       | Path info parts        | array of string                 | \[,store,MyStore]                             |
+| contextPath     | Context path           | string                          | /v2/                                          |
+| params          | Query parameters       | key / value                     | order → 100                                   |
+| pathParams      | Path parameters        | key / value                     | storeId → MyStore (_see Warning for details_) |
+| headers         | Headers                | key / value                     | X-Custom → myvalue                            |
+| method          | HTTP method            | string                          | GET                                           |
+| scheme          | HTTP scheme            | string                          | http                                          |
+| version         | HTTP version           | string                          | HTTP\_1\_1                                    |
+| timestamp       | Timestamp              | long                            | 1602781000267                                 |
+| remoteAddress   | Remote address         | string                          | 0:0:0:0:0:0:0:1                               |
+| localAddress    | Local address          | string                          | 0:0:0:0:0:0:0:1                               |
+| content[^1]     | Body content           | string                          | -                                             |
+| ssl             | SSLSession information | [SSL Object](broken-reference/) | -                                             |
 
 #### Examples
 
@@ -187,12 +187,12 @@ Additionally, some policies (like the [OAuth2 policy](https://docs.gravitee.io/a
 
 The object properties you can access in the `ssl` session object from the `{#request.ssl}` root-level object property are listed below:
 
-| Object Property | Description               | Type                                 | Example           |
-| --------------- | ------------------------- | ------------------------------------ | ----------------- |
-| clientHost      | Host name of the client   | string                               | client.domain.com |
-| clientPort      | Port number of the client | long                                 | 443               |
-| client          | Client information        | [Principal Object](broken-reference) | -                 |
-| server          | Server information        | [Principal Object](broken-reference) | -                 |
+| Object Property | Description               | Type                                  | Example           |
+| --------------- | ------------------------- | ------------------------------------- | ----------------- |
+| clientHost      | Host name of the client   | string                                | client.domain.com |
+| clientPort      | Port number of the client | long                                  | 443               |
+| client          | Client information        | [Principal Object](broken-reference/) | -                 |
+| server          | Server information        | [Principal Object](broken-reference/) | -                 |
 
 #### Example <a href="#principal_object" id="principal_object"></a>
 
@@ -263,7 +263,7 @@ A node is a component that represents an instance of the Gravitee gateway. Each 
 
 #### Example
 
-* Get the version of a node : `{#node.version}`&#x20;
+* Get the version of a node : `{#node.version}`
 
 ## Policies
 
@@ -303,9 +303,8 @@ If you are having a hard time debugging your expression, here's the best way to 
 
 When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. So how do you know the actual output of the `#request.content.length()` expression? You can easily check the output of an expression using the assign-attributes policy as shown in the arcade below:
 
-{% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %}
+\{% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %\}
 
-\
-
+\\
 
 [^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.

@@ -78,7 +78,7 @@ The Prometheus resource declaratively describes the desired state of a Prometheu
 
 {% code overflow="wrap" %}
 ```sh
-kubectl apply -f https://raw.githubusercontent.com/gravitee-io/gravitee-kubernetes-operator/alpha/config/prometheus/monitor.yaml
+kubectl apply -f https://raw.githubusercontent.com/gravitee-io/gravitee-kubernetes-operator/master/config/prometheus/monitor.yaml
 ```
 {% endcode %}
 
