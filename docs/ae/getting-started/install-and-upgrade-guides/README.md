@@ -16,8 +16,8 @@ This Installation Guide explains how to install AE. For more information about i
 
 We'll cover how to:
 
-* Install via .ZIP file
-* Install via Docker
-* Install via Kubernetes
+* [Install via .ZIP file](install-via-.zip-file.md)
+* [Install via Docker](install-via-docker.md)
+* [Install via Kubernetes](install-via-kubernetes.md)
 
 Let's go!
