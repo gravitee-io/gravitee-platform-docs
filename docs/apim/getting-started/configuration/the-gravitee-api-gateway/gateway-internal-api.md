@@ -2,7 +2,7 @@
 description: Learn how to configure the internal gateway API
 ---
 
-# Gateway Internal API
+# Internal API
 
 ## Introduction
 
@@ -41,7 +41,8 @@ The above values can be understood as such:
 
 ### Endpoints
 
-<table><thead><tr><th width="143">Operation</th><th width="126.33333333333331">Description</th><th>Example</th></tr></thead><tbody><tr><td><code>GET /_node</code></td><td>Gets generic node information</td><td><pre data-overflow="wrap"><code>HTTP/1.1 200 OK
+<table data-full-width="true"><thead><tr><th width="201">Operation</th><th width="320.3333333333333">Description</th><th>Example</th></tr></thead><tbody><tr><td><pre data-overflow="wrap"><code>GET /_node
+</code></pre></td><td>Gets generic node information</td><td><pre data-overflow="wrap"><code>HTTP/1.1 200 OK
 Content-Type: application/json
 {
     "id": "a70b9fd9-9deb-4ccd-8b9f-d99deb6ccd32",
@@ -54,7 +55,8 @@ Content-Type: application/json
         "REVISION": "132e719ef314b40f352e6399034d68a9a95e95ef"
     }
 }
-</code></pre></td></tr><tr><td><code>GET /_node/health?probes=#probe1,#probe2</code></td><td><p>Gets the health status of the component. Probes can be filtered using the optional <code>probes</code> query param. The parameter can handle a list of probes, separated by commas (<code>,</code>). If no query param, you get the health of all probes. If the return status is 200 then everything is ok, if 500, there is at least one error. This endpoint can be used by a load balancer, to determine if a component instance is not in the pool, for example.</p><p>Some probes are not displayed by default. You have to explicitly use the query param to retrieve them. These probes are:</p><p>- <strong>cpu</strong></p><p>- <strong>memory</strong></p><p>- <strong>api-sync</strong></p><p>Those probes are considered healthy if there are under a configurable threshold (default is 80%). To configure it, add in your <code>gravitee.yml</code>:</p><p>[source, yml] ---- services: health: threshold: cpu: 80 memory: 80 ----</p></td><td><p><code>GET /_node/health?probes=management-api,management-repository</code></p><pre><code>HTTP/1.1 200 OK
+</code></pre></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/health?probes=#probe1,#probe2
+</code></pre></td><td><p>Gets the health status of the component. Probes can be filtered using the optional <code>probes</code> query param. The parameter can handle a list of probes, separated by commas (<code>,</code>). If no query param, you get the health of all probes. If the return status is 200 then everything is ok, if 500, there is at least one error. This endpoint can be used by a load balancer, to determine if a component instance is not in the pool, for example.</p><p>Some probes are not displayed by default. You have to explicitly use the query param to retrieve them. These probes are:</p><p>- <strong>cpu</strong></p><p>- <strong>memory</strong></p><p>- <strong>api-sync</strong></p><p>Those probes are considered healthy if there are under a configurable threshold (default is 80%). To configure it, add in your <code>gravitee.yml</code>:</p><p>[source, yml] ---- services: health: threshold: cpu: 80 memory: 80 ----</p></td><td><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
@@ -71,8 +73,9 @@ Content-Type: application/json
         "healthy": true
     }
 }
-</code></pre></td></tr><tr><td><code>GET /_node/configuration</code></td><td>Gets the node configuration from the <code>gravitee.yml</code> file and/or environment variables.</td><td><pre><code>HTTP/1.1 200 OK
-Content-Type: application/json
+</code></pre></td></tr><tr><td></td><td></td><td></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/configuration
+</code></pre></td><td>Gets the node configuration from the <code>gravitee.yml</code> file and/or environment variables.</td><td><pre><code><strong>HTTP/1.1 200 OK
+</strong>Content-Type: application/json
 
 {
     "analytics.elasticsearch.endpoints[0]": "http://${ds.elastic.host}:${ds.elastic.port}",
@@ -81,7 +84,8 @@ Content-Type: application/json
     "ds.elastic.port": 9200,
     ...
 }
-</code></pre></td></tr><tr><td><code>GET /_node/monitor</code></td><td>Gets monitoring information from the JVM and the server.</td><td><pre><code>HTTP/1.1 200 OK
+</code></pre></td></tr><tr><td><pre class="language-sh" data-overflow="wrap"><code class="lang-sh">GET /_node/monitor
+</code></pre></td><td>Gets monitoring information from the JVM and the server.</td><td><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
@@ -109,9 +113,8 @@ Content-Type: application/json
 
 In addition to the main endpoints listed above, the API includes dedicated endpoints to get more information about the APIs deployed on the APIM Gateway instance.
 
-| Operation                  | Description                                                | Example                                                                                                                                                                                                                                                                                                                    |
-| -------------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GET /_node/apis`          | Gets the APIs deployed on this APIM Gateway instance.      | <pre><code>HTTP/1.1 200 OK
+<table data-full-width="true"><thead><tr><th width="227">Operation</th><th width="220.66666666666669">Description</th><th>Example</th></tr></thead><tbody><tr><td><pre data-overflow="wrap"><code>GET /_node/apis
+</code></pre></td><td>Gets the APIs deployed on this APIM Gateway instance.</td><td><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 
 [
@@ -126,8 +129,8 @@ Content-Type: application/json
         "version": "v1"
     }
 ]
-</code></pre> |
-| `GET /_node/apis/{api.id}` | Gets the API configuration for this APIM Gateway instance. | <pre><code>HTTP/1.1 200 OK
+</code></pre></td></tr><tr><td><pre data-overflow="wrap"><code>GET /_node/apis/{api.id}
+</code></pre></td><td>Gets the API configuration for this APIM Gateway instance.</td><td><pre><code>HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
@@ -139,4 +142,4 @@ Content-Type: application/json
     "paths": {
      ...
 }
-</code></pre>                                                                |
+</code></pre></td></tr></tbody></table>
