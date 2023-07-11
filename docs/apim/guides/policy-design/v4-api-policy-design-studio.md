@@ -152,19 +152,18 @@ The list of shop IDs and URLs could also be maintained using a dictionary, e.g.,
 
 ## Resources
 
-Some policies support the addition of resources, which can be used for authentication and schema registry validation, etc. Policies supporting resources include:
+Some policies support the addition of resources, which can be used for authentication and schema registry validation, etc. Policies and the resources they support or rely on are shown in the table below.
 
-* **Cache policy:** Specify a cache resource via the Cache or Cache Redis resources
-* **OAuth2 policy:** Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource
-* **OpenID Connect - UserInfo:** Specify a Keycloak Adapter resource to use Keycloak as your OpenID Connect resource
-* **Serialization & deserialization policies:** Specify a Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry
-  * Avro <> JSON policy
-* **HTTP signature policies:** Specify an HTTP Authentication Provider resource
-* **Basic authentication:** Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory
+| Policy type                                          | Resource(s)                                                                         |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Cache                                                | <p>Cache<br>Cache Redis</p>                                                         |
+| OAuth2                                               | <p>OAuth2 - Gravitee Access Management<br>OAuth2 - Generic Authorization Server</p> |
+| OpenID Connect - Userinfo                            | Keycloak Adapter                                                                    |
+| Serialization & deserialization (e.g., Avro <> JSON) | Confluent Schema Registry                                                           |
+| HTTP signature                                       | HTTP Authentication Provider                                                        |
+| Basic authentication                                 | <p>LDAP Authentication Provider<br>Inline Authentication Provider</p>               |
 
-<figure><img src="../../.gitbook/assets/Confluent schema registry.png" alt=""><figcaption><p>Resources: Confluent Schema Registry</p></figcaption></figure>
-
-After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**.
+After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**. Refer to the [Resources](../api-configuration/resources.md) and [Policy Reference](./#v4) documentation for more information on resources and how they are used by policies.
 
 {% hint style="info" %}
 Global resources are globally available to all flows associated with the Gateway API. However, they will not be available to other Gateway APIs.
