@@ -88,9 +88,9 @@ To select the flow mode, click the gear icon in the **Flows** panel to open the 
 
 ## API properties
 
-Properties allow you to define key-value pairs at the Gateway API level. These properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within a flow using Gravitee's Expression Language (EL) and the `#properties` statement.
+Properties are key-value pairs you can define at the Gateway API level to implement different logic in your flows and policies. Properties are read-only during the Gateway's execution of an API transaction but can be accessed from within a flow using Gravitee's Expression Language (EL) and the `#properties` statement.
 
-Select **Properties** from the inner left nav to configure API properties. You can either specify properties one at a time or toggle from **Simple** to **Expert** mode to enter property definitions into the editor in `<key>=<value>` format.
+To configure API properties, select **Properties** from the inner left nav. To hardcode properties, either specify properties one at a time or toggle from **Simple** to **Expert** mode and enter property definitions in `<key>=<value>` format.
 
 <figure><img src="../../.gitbook/assets/policy studio_properties expert (1).png" alt=""><figcaption><p>API properties expert mode</p></figcaption></figure>
 
@@ -123,7 +123,9 @@ Encrypted values can be used by API policies, but encrypted data should be used 
 
 ### **Dynamic properties**
 
-Dynamic properties are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify. To access the dynamic properties module, select **Properties** from the inner left nav and click **CONFIGURE DYNAMIC PROPERTIES**.
+In addition to hardcoded properties, Gravitee supports dynamic properties. The dynamic properties associated with a Gateway API are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.&#x20;
+
+To access the dynamic properties module, select **Properties** from the inner left nav and click **CONFIGURE DYNAMIC PROPERTIES**.
 
 <figure><img src="../../.gitbook/assets/policy studio_dynamic properties (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
