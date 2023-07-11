@@ -45,3 +45,5 @@ Got some feedback on the product? Do you have a wish list of features you’d lo
 We hope you have a fabulous time!
 
 The [Gravitee](http://gravitee.io/) Developer Relations Team
+
+{% embed url="https://community.gravitee.io/" fullWidth="false" %}
