@@ -115,6 +115,18 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 * APIM now requires a minimum of JDK 17.
 * Starting with 4.0.0, there will no longer be enterprise tags (i.e. suffixed by `-ee`).
 * Cluster managers are now available as plugins. Therefore, Hazelcast Cluster Manager has been removed from the default distribution.
+* TLS 1.0 and TLS 1.1 protocols are disabled by default. You can still enable such protocols with the proper TCP SSL configuration in the gateway.
+  
+  In the gravitee.yml file:
+  ```yaml
+  http:
+    ssl:
+      tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 
+  ```
+  With environment variables:
+  ```bash
+  GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
+  ```
 
 #### **Monitoring APIM**
 
