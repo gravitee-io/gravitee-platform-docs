@@ -10,7 +10,7 @@ Your environment must meet the requirements listed below before you install any 
 
 ### JDK
 
-APIM Gateway requires at least Java 11. You can check your Java version as follows:
+APIM Gateway requires at least Java 17. You can check your Java version as follows:
 
 ```sh
 $ java -version
