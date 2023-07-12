@@ -24,6 +24,8 @@ Gravitee defines a flow as the method to control where, and under what condition
 * **Properties:** Define key-value pairs at the API level. These properties are read-only during the Gateway's execution of an API transaction.
 * **Resources:** Configure global resources to support your Gateway API's flows
 
+{% @arcade/embed flowId="7C6Cxc8zgfgs6uWfJTEf" url="https://app.arcade.software/share/7C6Cxc8zgfgs6uWfJTEf" %}
+
 ## Design
 
 Flows can be added to existing v4 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** **Info** page. Select **Policy Studio** from the inner left-hand nav.
