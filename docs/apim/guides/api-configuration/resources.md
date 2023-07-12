@@ -50,7 +50,7 @@ The Cache Redis resource can operate standalone or with the Redis Sentinel monit
 
 ### OAuth2 - Gravitee Access Management
 
-<table><thead><tr><th width="177">Property (Type)</th><th width="420">Description</th><th>Default</th></tr></thead><tbody><tr><td>serverURL<br>(string)</td><td>URL of the Gravitee Access Management server</td><td>-</td></tr><tr><td>securityDomain<br>(string)</td><td>Security domain (realm) from which the token has been generated and must be introspected</td><td>-</td></tr><tr><td>clientId<br>(string)</td><td>Client identifier</td><td>-</td></tr><tr><td>clientSecret<br>(string)</td><td>Client secret</td><td>-</td></tr><tr><td>userClaim<br>(string)</td><td>User claim field to store end user in log analytics</td><td>sub</td></tr><tr><td>useSystemProxy<br>(boolean)</td><td>Toggle to use system proxy</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="177">Property </th><th width="420">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>Name of the resource</td><td>-</td></tr><tr><td>Server URL</td><td>URL of the Gravitee Access Management server</td><td>-</td></tr><tr><td>System proxy</td><td>Toggle to use system proxy</td><td>false</td></tr><tr><td>Version</td><td>Version of the Access Management server</td><td>V3_X</td></tr><tr><td>Security domain</td><td>Security domain (realm) from which the token has been generated and must be introspected</td><td>-</td></tr><tr><td>Client Id</td><td>Client identifier</td><td>-</td></tr><tr><td>Client Secret</td><td>Client secret</td><td>-</td></tr><tr><td>User claim</td><td>User claim field to store end user in log analytics</td><td>sub</td></tr></tbody></table>
 
 ### OAuth2 - Generic Authorization Server
 
