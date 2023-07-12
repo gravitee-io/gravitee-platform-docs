@@ -73,15 +73,22 @@ The Cache Redis resource can operate standalone or with the Redis Sentinel monit
 
 ### LDAP Authentication Provider
 
-<table><thead><tr><th width="167">Property</th><th width="242">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>The name of the resource</td><td>-</td></tr><tr><td>HTTP method</td><td>HTTP method to invoke the endpoint</td><td>POST</td></tr><tr><td>Use system proxy</td><td>Toggle to use the system proxy configured by your administrator</td><td>false</td></tr><tr><td>URL</td><td>Server URL</td><td>-</td></tr><tr><td>Request body</td><td>The body of the HTTP request. Supports the Gravitee Expression Language.</td><td>-</td></tr><tr><td>Authentication condition</td><td>The condition to be verified to validate that the authentication is successful. Supports the Gravitee Expression Language.</td><td>{#authResponse.status == 200}</td></tr></tbody></table>
-
-### Keycloak Adapter
-
 | Property | Description | Default |
 | -------- | ----------- | ------- |
 |          |             |         |
 |          |             |         |
 |          |             |         |
+
+### Keycloak Adapter
+
+| Property                      | Description                                           | Default |
+| ----------------------------- | ----------------------------------------------------- | ------- |
+| Resource name                 | The name of the resource                              | -       |
+| Keycloak client configuration | The configuration of the Keycloak client              | -       |
+| Local token validation        | Toggle to use local token validation                  | true    |
+| User claim                    | User claim field to store end user in log analytics   | sub     |
+| Verify host                   | Verify certificate on SSL connection to Keycloak host | false   |
+| Trust all                     | Trust all certificates, including self-signed         | true    |
 
 
 
