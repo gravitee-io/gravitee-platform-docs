@@ -1,7 +1,7 @@
 ---
 description: >-
-  This page describes the purpose and configuration of each default APIM
-  resource.
+  This page details the usage and configuration parameters of the default APIM
+  resources.
 ---
 
 # Resources
