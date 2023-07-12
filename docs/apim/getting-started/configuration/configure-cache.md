@@ -4,50 +4,26 @@
 
 Caches are used to store different types of data in Gravitee API Management (APIM).
 
-The caches use a [Hazelcast](https://docs.hazelcast.org/docs/rn/index.html#3-12-12) implementation. You can tune the configuration in the `hazelcast.xml` file.
+Cache Managers are now available via plugins. Default distribution contains a Standalone Cache Manager which was and still is the default one.
 
-## Default configuration
+Two plugins are available :
 
-By default, the configuration contains three maps to cache API keys, subscriptions, and APIs. These caches can be shared between nodes if you configure Hazelcast to be able to contact the other nodes.
+* Standalone Cache Manager which is the default plugin. The cache will not be distributed and will always remain local to the node (in-memory).
+* Hazelcast Cache Manager which has to be added to the distribution and enable by setting `cache.type` to `hazelcast`. With this plugin the cache could be either local (in-memory) or distributed (Hazelcast IMap). Please see the below example of the Hazelcast implementation:
 
-{% code title="hazelcast.xml" %}
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-
-<hazelcast xmlns="http://www.hazelcast.com/schema/config"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xsi:schemaLocation="http://www.hazelcast.com/schema/config
-           http://www.hazelcast.com/schema/config/hazelcast-config-4.1.xsd">
-
-    <network>
-        <join>
-            <!-- Auto-detection and multicast are disabled by default to avoid latency when starting local / standalone  gateway -->
-            <auto-detection enabled="false"/>
-            <multicast enabled="false" />
-        </join>
-    </network>
-
-    <map name="apikeys">
-        <!-- Eviction is managed programmatically-->
-        <eviction eviction-policy="NONE" size="0"></eviction>
-    </map>
-
-    <map name="subscriptions">
-        <!-- Eviction is managed programmatically-->
-        <eviction eviction-policy="NONE" size="0"></eviction>
-    </map>
-
-    <map name="apis">
-        <!-- Eviction is managed programmatically-->
-        <eviction eviction-policy="NONE" size="0"></eviction>
-    </map>
-</hazelcast>
 ```
-{% endcode %}
-
-{% hint style="warning" %}
-Be careful when modifying the default configuration, it is designed with performance in mind.
-{% endhint %}
+<cluster-name>gio-apim-distributed-cache</cluster-name>
+<network>
+    <port auto-increment="true" port-count="100">5701</port>
+    <join>
+        <auto-detection enabled="true"/>
+        <multicast enabled="false"/>
+        <tcp-ip enabled="true">
+            <interface>127.0.0.1</interface>
+        </tcp-ip>
+    </join>
+</network>
+```
 
 ### Networking
 

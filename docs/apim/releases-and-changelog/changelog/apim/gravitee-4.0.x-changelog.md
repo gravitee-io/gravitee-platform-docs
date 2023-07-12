@@ -158,18 +158,18 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 * Plan selection has been changed to reflect the actual security applied on the API:
   * Keyless
     * Will ignore any type of security (ApiKey, Bearer token, etc.)
-    * **If another plan has detected a security token, valid or invalid, the policy assigned to the Keyless plan will ignore the request.**
-  * ApiKey
-    * Retrieve ApiKey from Header or query params (default header: `X-Gravitee-Api-Key` and default query param: `api-key`)
-    * **An empty ApiKey is now considered invalid while it was previously ignored.**
+    * **If another plan has detected a security token, valid or invalid, all flows assigned to the Keyless plan will be ignored.**
+  * API Key
+    * Retrieve the API key from the request header or query parameters (default header: `X-Gravitee-Api-Key` and default query parameter: `api-key`)
+    * While it was previously ignored, **an empty API key is now considered invalid**
   * JWT
-    * Retrieve JWT from Authorization Header or query params
-    * Ignore empty Authorization Header or any type other than Bearer
-    * **An empty Bearer token is now considered invalid while it was previously ignored.**
+    * Retrieve JWT from `Authorization` Header or query parameters
+    * Ignore empty `Authorization` Header or any type other than Bearer
+    * While it was previously ignored, **an empty Bearer token is now considered invalid**
   * OAuth2
-    * Retrieve OAuth2 from Authorization Header or query params
-    * Ignore empty Authorization Header or any type other than Bearer
-    * **An empty Bearer token is now considered invalid while it was previously ignored.**
+    * Retrieve OAuth2 from `Authorization` Header or query parameters
+    * Ignore empty `Authorization` Header or any type other than Bearer
+    * While it was previously ignored, **an empty Bearer token is now considered invalid**
 * Plugins are now overridden when duplicates (id/type) are found. The plugin zip file having the most recent modified time is kept and others are ignored. Notably, this allows `additionalPlugins` for Helm charts-based deployment to work efficiently without any need to remove bundled plugins.
 * The v4 API definition now expects a `FlowExecution` object instead of a `FlowMode` enumeration.
 * The `Endpoint` schema is now split into two schemas and the `Endpoint` object contains two string fields to manage the configuration specific to the endpoint and the configuration that may be overridden from the `EndpointGroup`.
