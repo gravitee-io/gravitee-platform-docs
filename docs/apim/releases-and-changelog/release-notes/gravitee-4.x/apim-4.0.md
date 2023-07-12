@@ -24,9 +24,9 @@ We've released a brand new Policy Studio that enables you to design policy flows
 
 For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../../guides/policy-design/v4-api-policy-design-studio.md).
 
-### Existing Gravitee policies that now support v4 APIs
+### Existing Gravitee policies that now support v4 message APIs
 
-As a part of the new Policy Studio release, we've made some existing Gravitee policies work for v4 APIs. These policies are:
+As a part of the new Policy Studio release, we've made some existing Gravitee policies now work for v4 message APIs. Message APIs are APIs created using the Introspect Messages from Event-driven Backend option. These policies are:
 
 * API key policy
 * JWT policy
@@ -46,7 +46,7 @@ For more information on policies, please refer to our policy reference documenta
 
 ### New policies for v4 APIs
 
-We've also released brand new policies that will support v4 APIs:
+We've also released brand new policies that will support v4 message APIs:
 
 * Cloud Events policy: this policy enables the Gateway to transform incoming data into Cloud Events format.
 * Serialization and Deserialization policies:
