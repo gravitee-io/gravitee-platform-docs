@@ -30,11 +30,15 @@ At the bottom of this page, we also outline the enterprise hosting, deployment, 
 
 ## OSS vs EE Access Management
 
+{% embed url="https://documentation.gravitee.io/am/overview/open-source-vs-enterprise-am" %}
+
 ## Enterprise version of Gravitee Cloud
 
 Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee Cloud.](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.&#x20;
 
 ## Enterprise version of API Designer
+
+The enterprise version of API Designer enables you to create, export, and push unlimited API data models, whereas the free version limits you to one API data model.
 
 ## Enterprise hosting and deployment options
 
