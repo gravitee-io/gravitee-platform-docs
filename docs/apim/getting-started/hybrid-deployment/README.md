@@ -20,24 +20,22 @@ The following diagram shows a typical hybrid APIM architecture:
 
 For the APIM Gateway to work in this setup, you need two components:
 
-* A _bridge_ API Gateway (shown in green in the diagram) that exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, and so on)
-* A _standard_ APIM Gateway (shown in red on the schema) with the default repository plugin switched to a new HTTP bridge repository plugin
+* A _bridge_ API Gateway (shown in green in the diagram above) exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, etc.).
+* A _standard_ APIM Gateway (shown in red in the diagram above) with the default repository plugin switched to a new HTTP bridge repository plugin.
 
 In this infrastructure, the standard APIM Gateway can communicate with the bridge API Gateway through a secure HTTP/S channel, and your cloud data center does not need to have a datastore installed.
 
-{% hint style="info" %}
-**Bridge Gateways**
+#### **Bridge Gateways**
 
 What we describe as a _bridge_ API Gateway is, in fact, a standard APIM Gateway augmented with a new plugin.&#x20;
 
 By default, an API Gateway needs to connect to a repository (e.g., mongoDB) to retrieve the list of APIs, plans, subscriptions, etc. When deployed in a more complex environment (network zones, different data centers, etc.), there are concerns with an open connection to a database outside the network. The solution is to deploy a bridge Gateway, which acts as a proxy for the repository and allows for the sync between the API Gateway and database to take place over HTTP instead of the database protocol: API Gateway > bridge Gateway > database
-{% endhint %}
 
 ## HTTP bridge Gateway (server)
 
 ### **Basic installation**
 
-To expose the new HTTP API, you need to install a new plugin inside the `plugins` directory of APIM Gateway. This plugin can be found [here](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-server/).
+To expose the new HTTP API and setup a bridge Gateway, you need to install a new plugin inside the `plugins` directory of the APIM Gateway. This plugin can be found [here](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-server/).
 
 {% hint style="info" %}
 This plugin is disabled by default from APIM 3.13.0.
@@ -105,7 +103,7 @@ curl -X GET http://localhost:18092/_bridge/apis
 
 You should receive a response containing an empty array or a list of APIs.
 
-## APIM Gateway - HTTP repository (client)
+## Standard APIM Gateway - HTTP repository (client)
 
 ### **Basic installation**
 
@@ -150,4 +148,4 @@ management:
 
 ## Start the APIM Gateways
 
-Start both APIM Gateways. Your consumers will be able to call the APIM Gateway with the HTTP repository as in a standard deployment.
+Start the bridge and standard APIM Gateways. Your consumers will be able to call the standard APIM Gateway with the HTTP repository as in a normal deployment.
