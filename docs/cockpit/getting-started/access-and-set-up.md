@@ -8,6 +8,8 @@ description: Learn how to access and set up Gravitee Cloud
 
 To get started with Gravitee Cloud (GC), go to [https://cockpit.gravitee.io](https://cockpit.gravitee.io/), and click the **Register** button. Set up your account.&#x20;
 
+This is my documentation
+
 ## Navigating Gravitee Cloud
 
 ### Dashboard
