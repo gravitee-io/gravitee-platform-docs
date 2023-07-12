@@ -26,10 +26,14 @@ For the APIM Gateway to work in this setup, you need two components:
 In this infrastructure, the standard APIM Gateway can communicate with the bridge API Gateway through a secure HTTP/S channel, and your cloud data center does not need to have a datastore installed.
 
 {% hint style="info" %}
-What we describe as a _bridge_ API Gateway is, in fact, a standard APIM Gateway augmented with a new plugin.
+**Bridge Gateways**
+
+What we describe as a _bridge_ API Gateway is, in fact, a standard APIM Gateway augmented with a new plugin.&#x20;
+
+By default, an API Gateway needs to connect to a repository (e.g., mongoDB) to retrieve the list of APIs, plans, subscriptions, etc. When deployed in a more complex environment (network zones, different data centers, etc.), there are concerns with an open connection to a database outside the network. The solution is to deploy a bridge Gateway, which acts as a proxy for the repository and allows for the sync between the API Gateway and database to take place over HTTP instead of the database protocol: API Gateway > bridge Gateway > database
 {% endhint %}
 
-## APIM Gateway - HTTP bridge (server)
+## HTTP bridge Gateway (server)
 
 ### **Basic installation**
 
