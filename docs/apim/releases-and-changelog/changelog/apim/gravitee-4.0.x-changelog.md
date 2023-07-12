@@ -157,8 +157,8 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
     * OAUTH2\_SERVER\_UNAVAILABLE
 * Plan selection has been changed to reflect the actual security applied on the API:
   * Keyless
-    * Will ignore any type of security (ApiKey, Bearer token, etc.)
-    * **If another plan has detected a security token, valid or invalid, all flows assigned to the Keyless plan will be ignored.**
+    * Will ignore any type of security (API key, Bearer token, etc.)
+    * **If another plan has detected a security token, valid or invalid, all flows assigned to the Keyless plan will be ignored**
   * API Key
     * Retrieve the API key from the request header or query parameters (default header: `X-Gravitee-Api-Key` and default query parameter: `api-key`)
     * While it was previously ignored, **an empty API key is now considered invalid**
