@@ -36,27 +36,51 @@ The **Cache Redis** plugin is not included in the default APIM distribution, but
 
 ## Configuration options
 
-Each resource can be customized with a unique set of configuration options, as shown in the tables below.
+Each resource can be customized with a unique set of configuration options.
 
-{% tabs %}
-{% tab title="Cache" %}
-<table><thead><tr><th width="213">Property (Type)</th><th width="304">Description</th><th>Default</th></tr></thead><tbody><tr><td>name <br>(string)</td><td>Name of the cache</td><td>my-cache</td></tr><tr><td>timeToIdleSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache without being accessed. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToIdle (TTI) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>timeToLiveSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>maxEntriesLocalHeap<br>(integer)</td><td>Maximum number of objects to be held in local heap memory (0 = no limit)</td><td>1000</td></tr></tbody></table>
-{% endtab %}
+### Cache
 
-{% tab title="Cache Redis" %}
+<table><thead><tr><th width="213">Property (Type)</th><th width="355">Description</th><th>Default</th></tr></thead><tbody><tr><td>name <br>(string)</td><td>Name of the cache</td><td>my-cache</td></tr><tr><td>timeToIdleSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache without being accessed. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToIdle (TTI) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>timeToLiveSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>maxEntriesLocalHeap<br>(integer)</td><td>Maximum number of objects to be held in local heap memory (0 = no limit)</td><td>1000</td></tr></tbody></table>
+
+### Cache Redis
+
 The Cache Redis resource can operate standalone or with the Redis Sentinel monitoring solution. The majority of Cache Redis configuration options are common to both modes of operation, but several are exclusive to either standalone or Sentinel as indicated with a **bold asterisk (\*)**.
 
-<table><thead><tr><th width="202">Property (Type)</th><th width="262">Description</th><th>Default</th></tr></thead><tbody><tr><td>name<br>(string)</td><td>Name of the cache</td><td>my-redis-cache</td></tr><tr><td>releaseCache<br>(boolean)</td><td><p>Enabled: The resource will release the cache when the API is stopped </p><p>Disabled: The cache must be managed manually on the Redis server</p></td><td>false</td></tr><tr><td>maxTotal<br>(integer)</td><td>Maximum number of connections supported by the pool</td><td>8</td></tr><tr><td>password<br>(string)</td><td>The password for the instance</td><td></td></tr><tr><td>timeToLiveSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>timeout<br>(integer)</td><td>Specifies the connection timeout and the read/write timeout</td><td>2000</td></tr><tr><td>useSsl<br>(boolean)</td><td>Toggle to use SSL connections</td><td>true</td></tr><tr><td>sentinelMode<br>(boolean)</td><td>Sentinel provides high availability for Redis (effectively, the Redis deployment persists without human intervention, barring certain kinds of failures)</td><td>false</td></tr><tr><td>host<br>(string)</td><td>The host of the instance<br><strong>*Standalone config only</strong></td><td>localhost</td></tr><tr><td>port<br>(integer)</td><td>The port of the instance<br><strong>*Standalone config only</strong></td><td>6379</td></tr><tr><td>masterId<br>(string)</td><td>Sentinel master ID <br><strong>*Sentinel config only</strong></td><td>sentinel-master</td></tr><tr><td>password<br>(string)</td><td>Sentinel password<br><strong>*Sentinel config only</strong></td><td></td></tr><tr><td>nodes<br>(array)</td><td>List of sentinel nodes<br><strong>*Sentinel config only</strong></td><td></td></tr></tbody></table>
-{% endtab %}
+<table><thead><tr><th width="202">Property (Type)</th><th width="326">Description</th><th>Default</th></tr></thead><tbody><tr><td>name<br>(string)</td><td>Name of the cache</td><td>my-redis-cache</td></tr><tr><td>releaseCache<br>(boolean)</td><td><p>Enabled: The resource will release the cache when the API is stopped </p><p>Disabled: The cache must be managed manually on the Redis server</p></td><td>false</td></tr><tr><td>maxTotal<br>(integer)</td><td>Maximum number of connections supported by the pool</td><td>8</td></tr><tr><td>password<br>(string)</td><td>The password for the instance</td><td>-</td></tr><tr><td>timeToLiveSeconds<br>(integer)</td><td>Maximum number of seconds an element can exist in the cache, regardless of usage. When this threshold is reached, the element expires and will no longer be returned from the cache. The default value is 0, i.e., no timeToLive (TTL) eviction takes place (infinite lifetime).</td><td>0</td></tr><tr><td>timeout<br>(integer)</td><td>Specifies the connection timeout and the read/write timeout</td><td>2000</td></tr><tr><td>useSsl<br>(boolean)</td><td>Toggle to use SSL connections</td><td>true</td></tr><tr><td>sentinelMode<br>(boolean)</td><td>Sentinel provides high availability for Redis (effectively, the Redis deployment persists without human intervention, barring certain kinds of failures)</td><td>false</td></tr><tr><td>host<br>(string)</td><td>The host of the instance<br><strong>*Standalone config only</strong></td><td>localhost</td></tr><tr><td>port<br>(integer)</td><td>The port of the instance<br><strong>*Standalone config only</strong></td><td>6379</td></tr><tr><td>masterId<br>(string)</td><td>Sentinel master ID <br><strong>*Sentinel config only</strong></td><td>sentinel-master</td></tr><tr><td>password<br>(string)</td><td>Sentinel password<br><strong>*Sentinel config only</strong></td><td>-</td></tr><tr><td>nodes<br>(array)</td><td>List of sentinel nodes<br><strong>*Sentinel config only</strong></td><td>-</td></tr></tbody></table>
 
-{% tab title="OAuth2 - Gravitee AM" %}
-<table><thead><tr><th width="177">Property (Type)</th><th width="354">Description</th><th>Default</th></tr></thead><tbody><tr><td>serverURL<br>(string)</td><td>URL of the Gravitee Access Management server</td><td>-</td></tr><tr><td>securityDomain<br>(string)</td><td>Security domain (realm) from which the token has been generated and must be introspected</td><td>-</td></tr><tr><td>clientId<br>(string)</td><td>Client identifier</td><td>-</td></tr><tr><td>clientSecret<br>(string)</td><td>Client secret</td><td>-</td></tr><tr><td>userClaim<br>(string)</td><td>User claim field to store end user in log analytics</td><td>sub</td></tr><tr><td>useSystemProxy<br>(boolean)</td><td>Toggle to use system proxy</td><td>false</td></tr></tbody></table>
-{% endtab %}
+### OAuth2 - Gravitee Access Management
 
-{% tab title="OAuth2 - Generic Auth Server" %}
-<table><thead><tr><th width="310">Property (Type)</th><th width="180">Description</th><th>Default</th></tr></thead><tbody><tr><td>introspectionEndpoint<br>(string)</td><td>URL the resource uses to introspect an incoming access token</td><td>-</td></tr><tr><td>useSystemProxy<br>(boolean)</td><td>Toggle to use system proxy</td><td>false</td></tr><tr><td>introspectionEndpointMethod<br>(HTTP Method)</td><td>HTTP method to introspect the access token</td><td>GET</td></tr><tr><td>clientId<br>(string)</td><td>Client identifier</td><td>-</td></tr><tr><td>clientSecret<br>(string)</td><td>Client secret</td><td>-</td></tr><tr><td>useClientAuthorizationHeader<br>(boolean)</td><td>To prevent token scanning attacks, the endpoint MUST require access authorization. Gravitee uses an HTTP header for client authentication.</td><td>true</td></tr><tr><td>clientAuthorizationHeaderName<br>(string)</td><td>Authorization header</td><td>Authorization</td></tr><tr><td>clientAuthorizationHeaderScheme<br>(string)</td><td>Authorization scheme</td><td>Basic</td></tr><tr><td>tokenIsSuppliedByQueryParam<br>(boolean)</td><td>Access token is passed to the introspection endpoint using a query parameter</td><td>true</td></tr><tr><td>tokenQueryParamName<br>(string)</td><td>Query parameter that supplies access token</td><td>token</td></tr><tr><td>tokenIsSuppliedByHttpHeader<br>(boolean)</td><td>Access token is passed to the introspection endpoint using an HTTP header</td><td>false</td></tr><tr><td>tokenHeaderName<br>(string)</td><td>HTTP header used to supply access token</td><td>-</td></tr></tbody></table>
-{% endtab %}
-{% endtabs %}
+<table><thead><tr><th width="177">Property (Type)</th><th width="420">Description</th><th>Default</th></tr></thead><tbody><tr><td>serverURL<br>(string)</td><td>URL of the Gravitee Access Management server</td><td>-</td></tr><tr><td>securityDomain<br>(string)</td><td>Security domain (realm) from which the token has been generated and must be introspected</td><td>-</td></tr><tr><td>clientId<br>(string)</td><td>Client identifier</td><td>-</td></tr><tr><td>clientSecret<br>(string)</td><td>Client secret</td><td>-</td></tr><tr><td>userClaim<br>(string)</td><td>User claim field to store end user in log analytics</td><td>sub</td></tr><tr><td>useSystemProxy<br>(boolean)</td><td>Toggle to use system proxy</td><td>false</td></tr></tbody></table>
+
+### OAuth2 - Generic Authorization Server
+
+<table><thead><tr><th width="310">Property (Type)</th><th width="236">Description</th><th>Default</th></tr></thead><tbody><tr><td>introspectionEndpoint<br>(string)</td><td>URL the resource uses to introspect an incoming access token</td><td>-</td></tr><tr><td>useSystemProxy<br>(boolean)</td><td>Toggle to use system proxy</td><td>false</td></tr><tr><td>introspectionEndpointMethod<br>(HTTP Method)</td><td>HTTP method to introspect the access token</td><td>GET</td></tr><tr><td>clientId<br>(string)</td><td>Client identifier</td><td>-</td></tr><tr><td>clientSecret<br>(string)</td><td>Client secret</td><td>-</td></tr><tr><td>useClientAuthorizationHeader<br>(boolean)</td><td>To prevent token scanning attacks, the endpoint MUST require access authorization. Gravitee uses an HTTP header for client authentication.</td><td>true</td></tr><tr><td>clientAuthorizationHeaderName<br>(string)</td><td>Authorization header</td><td>Authorization</td></tr><tr><td>clientAuthorizationHeaderScheme<br>(string)</td><td>Authorization scheme</td><td>Basic</td></tr><tr><td>tokenIsSuppliedByQueryParam<br>(boolean)</td><td>Access token is passed to the introspection endpoint using a query parameter</td><td>true</td></tr><tr><td>tokenQueryParamName<br>(string)</td><td>Query parameter that supplies access token</td><td>token</td></tr><tr><td>tokenIsSuppliedByHttpHeader<br>(boolean)</td><td>Access token is passed to the introspection endpoint using an HTTP header</td><td>false</td></tr><tr><td>tokenHeaderName<br>(string)</td><td>HTTP header used to supply access token</td><td>-</td></tr></tbody></table>
+
+### Confluent Schema Registry
+
+
+
+### HTTP Authentication Provider
+
+
+
+### Inline Authentication Provider
+
+
+
+### LDAP
+
+
+
+
+
+### Keycloak Adapter
+
+
+
+
+
+
 
 
 
