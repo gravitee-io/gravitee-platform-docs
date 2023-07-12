@@ -99,11 +99,3 @@ For more information on each, please refer to our [APIM Architecture documentati
 ### Support options
 
 Gravitee offers enterprise-grade support for enterprise customers. Gravitee offers three different support packages: Gold, Platinum, and Diamond. Each has different SLAs, benefits, etc. For more information on each support option, please [refer to our pricing page](https://www.gravitee.io/pricing).
-
-## Wrapping up
-
-Our open source products are the foundation of everything we do—and they are powerful. The enterprise platform is an investment in the security and business continuity benefits of open-source paired with the power of event-native API Management, Security, Monitoring, and Design capabilities—all made available in a single platform.
-
-In addition to the vast amount of feature and functionality that are included with the enterprise platform, the enterprise solution comes with industry-leading support, customer success services, and direct access to Gravitee leadership.
-
-We hope that this document makes it easier to decide between Gravitee open source products and the Gravitee enterprise platform. As your trusted API Management advisor, we will always strive to help you choose the option that best fits your use case and desire to scale. If you have any questions about which solution is best for you, we recommend that you [contact us](https://www.gravitee.io/contact-us) and/or book[ a demo](https://www.gravitee.io/demo) to see Gravitee in action and talk to one of our API Management experts.
