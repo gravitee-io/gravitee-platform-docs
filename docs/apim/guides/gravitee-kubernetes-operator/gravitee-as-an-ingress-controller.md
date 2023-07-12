@@ -276,3 +276,118 @@ Or, if it is a self-signed certificate:
 ```sh
 curl --insecure -v https://foo.com/httpbin
 ```
+
+## Extending your ingress using an API definition template
+
+Now that we are able to reach the `httpbin` service from outside our cluster, we might want to apply some custom behaviors on requests issued to this service. This can be done through policies, using an API definition labeled as a template.
+
+### Create you API definition template.
+
+A template is just an API definition with the `gravitee.io/template` set to true.
+
+First, define a simple cache policy in an API definition that acts as a template.
+
+{% code title="ingress-cache-template.yaml" %}
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiDefinition"
+metadata:
+  name: "ingress-cache-template"
+  labels:
+    gravitee.io/template: "true"
+spec:
+  name: "ingress-cache-template"
+  version: "1"
+  description: "This template can be used to implement caching on your ingresses"
+  visibility: "PRIVATE"
+  resources:
+    - name: "simple-cache"
+      type: "cache"
+      enabled: true
+      configuration:
+        timeToIdleSeconds: 0
+        timeToLiveSeconds: 600
+        maxEntriesLocalHeap: 1000
+  flows:
+  - name: ""
+    path-operator:
+      path: "/"
+      operator: "STARTS_WITH"
+    condition: ""
+    consumers: []
+    methods: []
+    pre:
+    - name: "Cache"
+      description: ""
+      enabled: true
+      policy: "cache"
+      configuration:
+        timeToLiveSeconds: 600
+        cacheName: "simple-cache"
+        methods:
+        - "GET"
+        - "OPTIONS"
+        - "HEAD"
+        scope: "APPLICATION"
+    post: []
+    enabled: true
+  gravitee: "2.0.0"
+  flow_mode: "DEFAULT"
+```
+{% endcode %}
+
+```sh
+kubectl apply -f ingress-cache-template.yml
+```
+
+### Reference the template in your ingress definition
+
+Coming back to our httpbin ingress, let's add the required label to apply the template policies on request issued to the httpbin ingress.
+
+This can be done by annotating our ingress using the `gravitee.io/template` as a value and the API definition template name as a key.
+
+> Note: the template must site in the same kubernetes NS as the ingress.
+
+
+{% code title="httpbin-ingress.yaml" %}
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: httpbin-ingress
+  annotations:
+    kubernetes.io/ingress.class: graviteeio
+    gravitee.io/template: ingress-cache-template
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /httpbin
+            pathType: Prefix
+            backend:
+              service:
+                name: httpbin
+                port:
+                  number: 8000
+```
+{% endcode %}
+
+```sh
+kubectl apply -f httpbin-ingress.yaml
+```
+
+### Testing your ingress
+
+To test that the cache policy is enforced on our ingress, we can request the `/headers` endpoint of httpbin, passing a timestamp as a header.
+
+```sh
+curl `https://graviteeio.example.com/httpbin/headers -H  "X-Date: $(date)"`
+```
+
+Then again
+
+```sh
+curl `https://graviteeio.example.com/httpbin/headers -H  "X-Date: $(date)"`
+```
+
+Should return the same value for the X-Date header in the answer, until the 10 minutes window of the cache policy has been reset.
