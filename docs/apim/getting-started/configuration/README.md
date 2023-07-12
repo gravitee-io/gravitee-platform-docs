@@ -17,9 +17,9 @@ This guide explains how to configure all of the core aspects of Gravitee API Man
 
 You can configure APIM's four components using three methods:
 
-* Environment variables
-* System properties&#x20;
-* The `gravitee.yaml` file
+1. Environment variables
+2. System properties&#x20;
+3. The `gravitee.yaml` file
 
 {% hint style="info" %}
 **Hierarchies**
@@ -48,7 +48,11 @@ gravitee_management_mongodb_dbname=myDatabase
 gravitee.management.mongodb.dbname=myDatabase
 ```
 
-{% hint style="info" %}
+{% hint style="warning" %}
+**Environment variable considerations**
+
+In Unix systems, including Linux and macOS, the dot (.) character is not commonly used in environment variable names. To ensure compatibility and avoid any conflicts or confusion, it is generally best to stick to uppercase letters, numbers, and underscores when defining environment variable names in Unix systems.
+
 In some systems, hyphens are not allowed in variable names. For example, you may need to write `gravitee_policy_api-key_header` as `gravitee_policy_apikey_header`. We recommend you check your system documentation.
 {% endhint %}
 
