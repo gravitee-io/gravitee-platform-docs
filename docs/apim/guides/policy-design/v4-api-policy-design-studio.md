@@ -207,5 +207,5 @@ Next, we apply a latency policy to our Keyless plan.&#x20;
 
 <figure><img src="../../.gitbook/assets/sample keyless policy.png" alt=""><figcaption></figcaption></figure>
 
-Customers can use our API for free, but new merchandise alerts are delayed by 30 min. However, customers who purchase our API Key plan are given unlimited access to real-time data.&#x20;
+Customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. However, customers who purchase our API Key plan are given unlimited access to real-time data.&#x20;
 
