@@ -79,7 +79,6 @@
     * [Quality of Service](guides/api-configuration/v4-api-configuration/quality-of-service.md)
   * [v2 API configuration](guides/api-configuration/v2-api-configuration/README.md)
     * [Documentation](guides/api-configuration/v2-api-configuration/documentation.md)
-    *
     * [Load-Balancing, Failover, and Health Checks](guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md)
     * [Configure Service Discovery](guides/api-configuration/v2-api-configuration/configure-service-discovery.md)
     * [Configure General Proxy settings](guides/api-configuration/v2-api-configuration/configure-cors.md)
@@ -102,7 +101,7 @@
   * [Configure and Use API Logging](guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md)
 * [Gravitee Expression Language](guides/policy-design/gravitee-expression-language.md)
 * [Gravitee Kubernetes Operator](guides/gravitee-kubernetes-operator.md)
-  * [Architecture, Installation, and Deployment](getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md)
+  *
   * [Quick Start](guides/gravitee-kubernetes-operator/page-2.md)
   * [Monitoring GKO](guides/gravitee-kubernetes-operator/monitoring-gko.md)
   * [Test GKO After Deployment](guides/gravitee-kubernetes-operator/test-gko-after-deployment.md)

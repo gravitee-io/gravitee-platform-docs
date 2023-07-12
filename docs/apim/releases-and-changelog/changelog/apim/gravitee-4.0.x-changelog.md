@@ -110,25 +110,28 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 
 <summary>Breaking Changes</summary>
 
-#### **Running APIM**
+**Running APIM**
 
 * APIM now requires a minimum of JDK 17.
 * Starting with 4.0.0, there will no longer be enterprise tags (i.e. suffixed by `-ee`).
 * Cluster managers are now available as plugins. Therefore, Hazelcast Cluster Manager has been removed from the default distribution.
-* TLS 1.0 and TLS 1.1 protocols are disabled by default. You can still enable such protocols with the proper TCP SSL configuration in the gateway.
-  
-  In the gravitee.yml file:
-  ```yaml
-  http:
-    ssl:
-      tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 
-  ```
-  With environment variables:
-  ```bash
-  GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
-  ```
+*   TLS 1.0 and TLS 1.1 protocols are disabled by default. You can still enable these protocols with the proper TCP SSL configuration of the Gateway.
 
-#### **Monitoring APIM**
+    {% code title="gravitee.yaml" %}
+    ```yaml
+    http:
+      ssl:
+        tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 
+    ```
+    {% endcode %}
+
+    Or using environment variables:
+
+    ```bash
+    GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
+    ```
+
+**Monitoring APIM**
 
 * The name of the sync probe has been changed from `api-sync` to `sync-process` to make it explicit when all sync processes have been completed.
   * The content of the sync handler has slightly changed to align with new concepts:
@@ -141,7 +144,7 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 * v4 APIs currently only support the Elasticsearch reporter. If any other reporter is configured at Gateway level, each v4 API call will produce an error log.
   * However, when using a different reporter, it remains possible to disable analytics on a per-API basis to avoid generating error logs for v4 APIs.
 
-#### **Managing APIs**
+**Managing APIs**
 
 * The endpoint configuration is now split into a shared configuration that can be used at the group level and a configuration dedicated to the endpoint that can override the shared configuration. Existing v4 APIs need to be updated and reconfigured accordingly.
 * Removed an unused and outdated feature regarding file synchronization known as `localregistry`.
@@ -233,4 +236,3 @@ eventsCollection.find({"type": "PUBLISH_API"}).forEach((event) => {
 ```
 
 </details>
-
