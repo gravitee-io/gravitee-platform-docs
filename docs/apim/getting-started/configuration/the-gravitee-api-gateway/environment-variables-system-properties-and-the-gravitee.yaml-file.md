@@ -185,7 +185,7 @@ Available modes for `clientAuth` are:
 
 ### Multi-server support
 
-The Gravitee APIM Gateway currently supports a multi-server architecture which will eventually allow one Gateway to support multiple protocols. To enable support for multiple servers, you must use an alternate configuration in the `gravitee.yaml` file:
+The Gravitee APIM Gateway currently supports a multi-server architecture which allows one Gateway to support multiple protocols. To enable this feature, you must use an alternate configuration in the `gravitee.yaml` file:
 
 * The root-level `http` configuration property should be replaced with the root-level `servers` property. The `servers` property allows for an array of servers in the configuration file.
 * An `id` property has been added to identify and compare servers.
@@ -195,7 +195,7 @@ The Gravitee APIM Gateway currently supports a multi-server architecture which w
 Gravitee still fully supports all configurations using `http` as the root-level property.
 {% endhint %}
 
-The rest of the configuration schema remains unchanged. Here is an example of the new configuration:
+The rest of the configuration schema remains unchanged. Here is an example of a configuration that allows one Gateway to support  `HTTP` and `HTTPS`:
 
 {% code title="gravitee.yaml" %}
 ```yaml
