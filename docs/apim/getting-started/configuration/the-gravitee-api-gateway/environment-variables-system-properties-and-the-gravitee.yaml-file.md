@@ -150,7 +150,7 @@ You can now consume your API with both HTTP/1 and HTTP/2 protocols:
 curl -k -v --http2 https://localhost:8082/my_api
 ```
 
-#### **Enable WebSocket support**
+### **Enable WebSocket support**
 
 To enable WebSocket support, update the `gravitee.yaml` file like so:
 
@@ -182,6 +182,41 @@ Available modes for `clientAuth` are:
 * none: Client authentication is disabled (replacement of the `false` value)
 * request: Client authentication is not required but can be if using SSL enforcement policy
 * requires: Client authentication is required (replacement of `true` value)
+
+### Multi-server support
+
+The Gravitee APIM Gateway now supports a multi-server architecture. This is supported through a new, _optional_ configuration in the `gravitee.yaml` file. Here are the most relevant changes:
+
+* The single `http` top-level configuration property can be replaced with the `servers` property. The `servers` allows for an array of servers in the configuration file.
+* An `id` property has been added to identify and compare servers.
+* The `type` property is now mandatory and at the moment, only supports a value of `http`.&#x20;
+
+{% hint style="info" %}
+Gravitee still fully supports the previous configuration using `http` as the top-level property.
+{% endhint %}
+
+The rest of the configuration schema remains unchanged. Here is an example of the new configuration:
+
+{% code title="gravitee.yaml" %}
+```yaml
+# Gateway servers
+servers:
+  - id: "http"
+    type: http
+    port: 8092
+  - id: "http_secured"
+    type: http
+    port: 8443
+    secured: true
+    alpn: true
+    ssl:
+      keystore:
+        type: jks
+        path: ${gravitee.home}/security/keystore.jks
+      sni: true
+      openssl: true
+```
+{% endcode %}
 
 ## Configure the Plugins repository
 
