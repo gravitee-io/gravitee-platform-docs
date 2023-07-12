@@ -1,14 +1,20 @@
 ---
 description: >-
-  This article explores the differences between Gravitee's open source and
-  enterprise versions of API Management.
+  This article explores the additional features that you get from the Gravitee
+  Enterprise API Management solution.
 ---
 
 # Open Source vs Enterprise Edition
 
 ## Introduction
 
-Gravitee offers both an open source (OSS) and an enterprise version of its API Management (APIM) platform. In this article, we'll discuss the differences between each so that you can make an educated decision about which version of Gravitee API Management best suits your use case.
+Gravitee offers both an open source (OSS) and an enterprise version of its API Management (APIM) platform. In this article, we'll discuss the additional features, capabilities, hosting options, and support options that come with the Gravitee Enterprise edition of API Management.
+
+{% hint style="info" %}
+**Other Gravitee Products**
+
+Gravitee's platform extends beyond just API Management. For information on enterprise versions of other products, please refer to our [platform overview documentation.](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee)
+{% endhint %}
 
 ## Gravitee Community Edition API Management vs Gravitee Enterprise Edition API Management
 
