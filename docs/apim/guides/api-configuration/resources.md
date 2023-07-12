@@ -62,11 +62,7 @@ The Cache Redis resource can operate standalone or with the Redis Sentinel monit
 
 ### HTTP Authentication Provider
 
-|   |   |   |
-| - | - | - |
-|   |   |   |
-|   |   |   |
-|   |   |   |
+<table><thead><tr><th width="174">Property</th><th width="227">Description</th><th>Default</th></tr></thead><tbody><tr><td>Resource name</td><td>The name of the resource</td><td>-</td></tr><tr><td>HTTP method</td><td>HTTP method to invoke the endpoint</td><td>POST</td></tr><tr><td>Use system proxy</td><td>Toggle to use the system proxy configured by your administrator</td><td>false</td></tr><tr><td>URL </td><td>Server URL</td><td>-</td></tr><tr><td>Request body</td><td>The body of the HTTP request. Supports the Gravitee Expression Language.</td><td>-</td></tr><tr><td>Authentication condition</td><td>The condition to be verified to validate that the authentication is successful. Supports the Gravitee Expression Language.</td><td>{#authResponse.status == 200}</td></tr></tbody></table>
 
 ### Inline Authentication Provider
 
