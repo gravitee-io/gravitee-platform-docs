@@ -285,12 +285,12 @@ For both execution engines, the plan selection workflow parses all the published
 
 The parsed plan is selected for execution if all the following conditions are met:
 
-* The request contains a token corresponding to this plan type (`api-key` or authorization header).
+* The request contains a token corresponding to this plan type (`api-key` or `Authorization` header).
 * The plan condition rule is either not set or is set incorrectly.
 * There is an active subscription matching the incoming request.
 
 {% hint style="warning" %}
-There is an exception for OAuth2 plans executed on the v3 engine as detailed in the next section.
+There is an exception for OAuth2 plans executed on the legacy engine as detailed in the next section.
 {% endhint %}
 
 ### Legacy execution engine behavior
