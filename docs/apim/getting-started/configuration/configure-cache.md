@@ -25,6 +25,11 @@ Two plugins are available :
 </network>
 ```
 
+{% hint style="info" %}
+**This is just an example**\
+Please be aware that this is just a basic example. You will need to adapt your implementation based on your installation context.
+{% endhint %}
+
 ### Networking
 
 There are multiple ways to configure Hazelcast networking depending on your installation (regular VMs, Kubernetes, AWS, etc.​). However, we do not currently recommend enabling the distribution mode with Hazelcast unless there is a strong and clear reason to do so. The distribution mode is not relevant for most use cases. The provided default configuration is designed to work in standalone mode.
