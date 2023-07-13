@@ -109,11 +109,7 @@ You should receive a response containing an empty array or a list of APIs.
 
 To consume the HTTP bridge, you need to replace default repository plugins (usually a MongoDB repository) with a new HTTP repository in the APIM Gateway `plugins` directory. This plugin can be found [here](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-client/).
 
-{% code overflow="wrap" %}
-```sh
-wget -O ${GRAVITEEIO_HOME}/plugins https://download.gravitee.io/graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-client/gravitee-apim-repository-gateway-bridge-http-client-${PLUGIN_VERSION}.zip
-```
-{% endcode %}
+You can learn how to add this plugin to your deployment [here](../../overview/introduction-to-gravitee-api-management-apim/plugins.md#deployment).
 
 ### **Basic configuration**
 
