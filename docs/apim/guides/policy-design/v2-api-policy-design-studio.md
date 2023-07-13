@@ -22,7 +22,7 @@ The v2 Policy Studio is broken into the following sections:
 * **Resources:** Configure global resources to support your Gateway API's flows
 * **Debug:** Test and troubleshoot your Gateway APIs
 
-\{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" fullWidth="true" %\}
+{% @arcade/embed flowId="kApsIRtoWrfIFRzd7DQj" url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" fullWidth="true" %}
 
 ## Design
 
@@ -198,6 +198,16 @@ Global resources are globally available to all flows associated with the Gateway
 {% endhint %}
 
 ## Debug mode
+
+{% hint style="info" %}
+**Enterprise only**
+
+As of Gravitee 4.0, Debug mode is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://localhost:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
 
 {% hint style="info" %}
 **Debug mode limitations**
