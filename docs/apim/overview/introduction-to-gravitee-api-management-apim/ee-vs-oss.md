@@ -78,13 +78,11 @@ The Event-native pack includes capabilities that enable you to use Gravitee to e
 
 ## Advanced API monitoring
 
-While not technically a part of the API Management product, Gravitee does offer a standalone API Monitoring solution called Gravitee Alert Engine. Gravitee Alert Engine (AE) is Gravitee's enterprise grade API Monitoring solution. Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and Webhooks.&#x20;
-
-Alert Engine integrates with Gravitee API Management to enable advanced alerting, new dashboards, and more. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
+While not technically a part of the Access Management product, Gravitee does offer a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
 
 ## Advanced environment management
 
-Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee Cloud.](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.&#x20;
+Gravitee APIM EE allows you to register multiple APIM environments and installations using [Gravitee Cloud.](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.&#x20;
 
 ## Hosting options
 
