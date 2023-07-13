@@ -82,6 +82,16 @@ The **Applications** page is comprised of the following resources for active and
 
 ### The Audit trail
 
+{% hint style="info" %}
+**Enterprise only**
+
+As of Gravitee 4.0, the Audit Trail is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://localhost:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
+
 The **Audit** trail is where you can audit API consumption and activity, per event and type for your Gravitee APIs. You can use the **Audit trail** for monitoring the behavior of your API and platform over time.&#x20;
 
 For example, you can use it in conjunction with the analytics feature to identify a point at which your API behavior changed, view the configuration which caused the change, and roll back to an earlier configuration if required. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
@@ -147,4 +157,4 @@ In addition to Gravitee API Management and all of its features to measure, track
 
 In addition to features used to measure API reliability and performance, Gravitee offers several features and technology support that are meant to actively improve API reliability and performance. We will include brief descriptions of each here, but we recommend referring to their specific documentation to learn more about how implement them:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong></strong><a href="broken-reference"><strong>Rate limiting policies</strong></a><strong></strong></td><td>While also useful for security measures, capping the amount of calls or requests per a given amount of time can ensure that an API is not "over consumed" and inducing too much load on backend systems, which can result in both poor performance and reliability incidents like downtime.</td><td></td></tr><tr><td><p><strong></strong><a href="broken-reference"><strong>Cache policy</strong></a><strong></strong></p><p></p><p>The cache policy allows the Gateway to cache upstream responses (content, status, and headers) to eliminate the need for subsequent calls to the back end. This can help you avoid you calling the backend (and therefore inducing load) for non-changing requests.</p></td><td></td><td></td></tr><tr><td><p><strong></strong><a href="broken-reference"><strong>Support for asynchronous APIs and communication</strong></a><strong></strong></p><p></p><p>Gravitee's support for a variety of asynchronous APIs allows you to introduce APIs that can deliver real-time customer experiences and real-time data without constantly having to poll your backend resources.</p></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><a href="broken-reference"><strong>Rate limiting policies</strong></a></td><td>While also useful for security measures, capping the amount of calls or requests per a given amount of time can ensure that an API is not "over consumed" and inducing too much load on backend systems, which can result in both poor performance and reliability incidents like downtime.</td><td></td></tr><tr><td><p><a href="broken-reference"><strong>Cache policy</strong></a></p><p></p><p>The cache policy allows the Gateway to cache upstream responses (content, status, and headers) to eliminate the need for subsequent calls to the back end. This can help you avoid you calling the backend (and therefore inducing load) for non-changing requests.</p></td><td></td><td></td></tr><tr><td><p><a href="broken-reference"><strong>Support for asynchronous APIs and communication</strong></a></p><p></p><p>Gravitee's support for a variety of asynchronous APIs allows you to introduce APIs that can deliver real-time customer experiences and real-time data without constantly having to poll your backend resources.</p></td><td></td><td></td></tr></tbody></table>
