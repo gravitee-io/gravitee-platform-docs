@@ -30,7 +30,7 @@ The below features are included in the default enterprise API Management distrib
 * [DCR Registration](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md#dynamic-client-registration-provider): Dynamic client registration (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint
 * [Custom Roles](../../guides/administration/user-management-and-permissions.md#roles): create custom user roles to fit your needs. A role is a functional group of permissions, and can be defined at the Organization, Environment, API, and/or Application levels.
 * [Sharding Tags](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md): specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
-* Bridge Gateway: By default, an API Gateway needs to connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. When deployed in a more complex environment (network zones, different data centers, ...), many teams prefer to avoid opening a connection between the database and something from outside its network. The solution is to deploy a Bridge Gateway, which is a kind of proxy in regards to the repository. The sync will be done over HTTP instead of the database protocol. API GW > Bridge > Database.
+* [Bridge Gateway](../../getting-started/hybrid-deployment/#bridge-gateways): By default, an API Gateway needs to connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. When deployed in a more complex environment (network zones, different data centers, ...), many teams prefer to avoid opening a connection between the database and something from outside its network. The solution is to deploy a Bridge Gateway, which is a kind of proxy in regards to the repository. The sync will be done over HTTP instead of the database protocol. API GW > Bridge > Database.
 
 ### Enterprise Policy pack
 
@@ -46,26 +46,26 @@ The Enterprise policy pack includes policies that are typically necessary for en
 The Legacy upgrade pack is comprised of the following plugins and capabilities that enable organizations to better migrate from and/or service legacy systems:
 
 * **XSLT policy plugin**: you can use the xslt policy to apply an XSL transformation to an incoming XML request body or to the response body if your backend is exposing XML content.
-* WebSocket security authentication:&#x20;
+* **WebSocket security authentication**: enables the client to send a SOAP envelope with some WSS details and the policy will validate and check the credentials (supports username and password as of today)
 
 ### Observability pack
 
 The Observability Pack includes capabilities that help you better implement enterprise-grade API Monitoring and Observability:
 
-* **Datadog reporter**: push API metrics to your Datadog instance and dashboards
-* **TCP reporter**: report Gateway events to a TCP listening server
+* [**Datadog reporter**](../../getting-started/configuration/configure-reporters.md#datadog-reporter): push API metrics to your Datadog instance and dashboards
+* [**TCP reporter**](../../getting-started/configuration/configure-reporters.md#tcp-reporter): report Gateway events to a TCP listening server
 
 ### Event-native pack
 
 The Event-native pack includes capabilities that enable you to use Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
-* **v4 message API entrypoints**:
+* [**v4 message API entrypoints**](../../guides/create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints):
   * **HTTP GET:** enable consumers to access the Gateway and/or consume various message-based backend resources via HTTP GET
   * **HTTP POST**: enable consumers to access the Gateway and/or consume various message-based backend resources via HTTP POST
   * **WebSocket**: enable consumers to access the Gateway and/or consume various message-based backend resources via WebSocket protocol
   * **Webhooks**: enable consumers to access the Gateway and/or consume various message-based backend resources via a Webhooks subscription
   * Server-sent Events (SSE): enable consumers to access the Gateway and/or consume various message-based backend resources via Server-sent Events protocol
-* **v4 message API endpoints**:
+* [**v4 message API endpoints**](../../guides/create-apis/how-to/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints):
   * **Kafka/Confluent**: allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway
   * **MQTT**: allows the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x, via an MQTT client set up by the Gravitee Gateway
   * **RabbitMQ**: allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ broker, as long as that broker is running on AMQP 0-9-1
