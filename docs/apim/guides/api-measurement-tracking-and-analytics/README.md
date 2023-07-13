@@ -92,6 +92,18 @@ As of Gravitee 4.0, the Audit Trail is an Enterprise Edition capability. To lear
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
+<details>
+
+<summary>Enterprise only</summary>
+
+As of Gravitee 4.0, all message API endpoints are Enterprise Edition only. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://localhost:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing pag](https://www.gravitee.io/pricing)
+
+</details>
+
 The **Audit** trail is where you can audit API consumption and activity, per event and type for your Gravitee APIs. You can use the **Audit trail** for monitoring the behavior of your API and platform over time.&#x20;
 
 For example, you can use it in conjunction with the analytics feature to identify a point at which your API behavior changed, view the configuration which caused the change, and roll back to an earlier configuration if required. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
