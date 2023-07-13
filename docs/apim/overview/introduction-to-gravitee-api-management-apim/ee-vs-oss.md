@@ -1,10 +1,10 @@
 ---
 description: >-
-  This article explores the additional features that you get from the Gravitee
-  Enterprise API Management solution.
+  This article explores the additional features that you get from the enterprise
+  Gravitee API Management solution.
 ---
 
-# Gravitee Enterprise Edition API Management
+# Gravitee APIM Enterprise Edition
 
 ## Introduction
 
