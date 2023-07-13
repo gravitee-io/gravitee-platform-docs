@@ -188,13 +188,7 @@ spec:
   local: false
 ```
 
-Running the following command, you should not find any `ConfigMap` linked to our `ApiDefinition` in the cluster where the custom resource has been applied.
-
-```sh
-kubectl get cm --all-namespaces
-```
-
-Indeed, the `ApiDefinition` has been deployed using the Management API and the `ApiDefinition` is not local to the cluster.
+After applying this configuration, you should not find any `ConfigMap` linked to your `ApiDefinition` in the cluster where the custom resource has been applied. This is because the `ApiDefinition` was deployed using the Management API and the `ApiDefinition` is not local to the cluster.
 
 ## Next steps
 
