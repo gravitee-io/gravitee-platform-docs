@@ -13,7 +13,7 @@ Gravitee offers both an open source (OSS) and an enterprise version of its Acces
 {% hint style="info" %}
 **Other Gravitee Products**
 
-Gravitee's platform extends beyond just API Management. For information on enterprise versions of other products, please refer to our [platform overview documentation.](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee)
+Gravitee's platform extends beyond just Access Management. For information on enterprise versions of other products, please refer to our [platform overview documentation.](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee)
 {% endhint %}
 
 ## Enterprise Edition AM <a href="#gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management" id="gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management"></a>
