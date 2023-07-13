@@ -69,7 +69,7 @@ Once APIM gateway is running, you will see this log:
 
 ```sh
 ...
-11:01:53.162 [gravitee] [] INFO  i.g.g.standalone.node.GatewayNode - Gravitee.io - Gateway id[2e05c0fa-8e48-4ddc-85c0-fa8e48bddc11] version[3.20.0] pid[24930] build[175] jvm[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/25.121-b13] started in 15837 ms.
+11:01:53.162 [gravitee] [] INFO  i.g.g.standalone.node.GatewayNode - Gravitee - Gateway id[2e05c0fa-8e48-4ddc-85c0-fa8e48bddc11] version[3.20.0] pid[24930] build[175] jvm[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/25.121-b13] started in 15837 ms.
 ...
 ```
 
@@ -149,7 +149,7 @@ Once the management API is running, you will see a log such as this one:
 
 ```sh
 ...
-11:01:53.162 [main] INFO  i.g.r.a.s.node.GraviteeApisNode - Gravitee.io - Rest APIs id[2e05c0fa-8e48-4ddc-85c0-fa8e48bddc11] version[3.20.0] pid[24930] build[175] jvm[AdoptOpenJDK/OpenJDK 64-Bit Server VM/12.0.1+12] started in 8042 ms.
+11:01:53.162 [main] INFO  i.g.r.a.s.node.GraviteeApisNode - Gravitee - Rest APIs id[2e05c0fa-8e48-4ddc-85c0-fa8e48bddc11] version[3.20.0] pid[24930] build[175] jvm[AdoptOpenJDK/OpenJDK 64-Bit Server VM/12.0.1+12] started in 8042 ms.
 ...
 ```
 

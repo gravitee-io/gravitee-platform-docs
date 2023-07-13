@@ -131,7 +131,7 @@ Gravitee comes with built-in support for:
     * **Service Discovery:** One of the main goals of service discovery is to provide a catalog of available services and to potentially associate it with a health check. Clients of HashiCorp Consul can register a service, such as a backend api, and other clients can use HashiCorp Consul to discover providers of a given service. Using either DNS or HTTP, applications can easily find the services they depend upon.
     * **Health Checking:** HashiCorp Consul clients can provide any number of health checks, either associated with a given service ("is the webserver returning 200 OK"), or with the local node ("is memory utilization below 90%"). This information is used by the service discovery components to route traffic away from unhealthy hosts.
 
-    Gravitee.io Service discovery for HashiCorp Consul allows you to bind the backend endpoints of your API to a service managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.
+    Gravitee Service discovery for HashiCorp Consul allows you to bind the backend endpoints of your API to a service managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.
 
 ## CORS
 

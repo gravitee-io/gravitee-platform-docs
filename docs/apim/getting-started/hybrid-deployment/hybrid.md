@@ -26,7 +26,7 @@ This documentation page relates to the installation of the client (On-Prem / Pri
 |   Component  | Description                                                                                                                                                                                                                                          |
 | :----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | APIM Gateway | APIM Gateway is the core component of the APIM platform, smartly proxing trafic applying policies.                                                                                                                                                   |
-|   Logstash   | Collect and send local Gateways logs and metrics to the Gravitee.io APIM SaaS Control Plane.                                                                                                                                                         |
+|   Logstash   | Collect and send local Gateways logs and metrics to the Gravitee APIM SaaS Control Plane.                                                                                                                                                         |
 |     Redis    | Database use locally for rate limits synchronized counters (RateLimit, Quota, Spike Arrest) and optionnaly as an external cache for the [Cache policy](https://docs.gravitee.io/apim/3.x/apim\_resources\_cache\_redis.html#redis\_cache\_resource). |
 
 ![Hybrid Architecture Connections](https://dobl1.github.io/gravitee-se-docs/assets/hybrid-architecture-connections.svg)
@@ -50,7 +50,7 @@ Prerequisites
 
 Steps :
 
-1.  Add the Gravitee.io Helm charts repository.
+1.  Add the Gravitee Helm charts repository.
 
     ```
     helm repo add graviteeio https://helm.gravitee.io

@@ -20,7 +20,7 @@ Gravitee.io Service discovery for HashiCorp Consul allows you to bind the backen
 
 #### Prerequisities
 
-We will be using docker-compose to setup an integration between Gravitee.io APIM and HashiCorp Consul.
+We will be using docker-compose to setup an integration between Gravitee APIM and HashiCorp Consul.
 
 Refer to this [guide](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_compose.html) to install Gravitee thanks to docker-compose.
 
@@ -85,7 +85,7 @@ An easy way to register a service in Consul is to request the `/v1/agent/service
 
 Consul does not allow you to directly specify an extra path of your service when registering it.
 
-To overcome this limitation, Gravitee.io supports extra `Meta` attributes in addition to the standard `Address` attribute.
+To overcome this limitation, Gravitee supports extra `Meta` attributes in addition to the standard `Address` attribute.
 
 Meta attributes must be provided as part of the definition of your service:
 
@@ -210,11 +210,11 @@ Now that you've successfully registered your service instances in Hashicorp Cons
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/bce05dbf-c51c-46f5-8256-413abe3c2f48/1/64.178240740741/105.16560242518?0)
 
-12\. Define your **Truststore Type**. You can select the type of truststore (Java KeyStore or PKCS#12) storing the certificates that will be presented from the Consul agent to Gravitee during the secure connection handshake (SSL/TLS). When selecting None (Trust All) you configure Gravitee.io to trust all certificates presented by Consul during the connection handshake. You can either copy/paste the content of your Truststore directly in the Truststore content field or provide the path to you external Truststore in the Truststore path field. At least one of the two must be provided.
+12\. Define your **Truststore Type**. You can select the type of truststore (Java KeyStore or PKCS#12) storing the certificates that will be presented from the Consul agent to Gravitee during the secure connection handshake (SSL/TLS). When selecting None (Trust All) you configure Gravitee to trust all certificates presented by Consul during the connection handshake. You can either copy/paste the content of your Truststore directly in the Truststore content field or provide the path to you external Truststore in the Truststore path field. At least one of the two must be provided.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/9b92b3a6-d5a3-46c6-a6de-9977c0948dd6/1/64.178240740741/81.636190660475?0)
 
-13\. Define your **KeyStore Type**. You can select the type of keystore (Java KeyStore or PKCS#12) storing certificates that will be presented by Gravitee.io to the Consul agent during the secure connection handshake (SSL/TLS). You can either copy/paste the content of your keystore directly in the KeyStore content field or provide the path to you external Keystore in the KeyStore path field. At least one of the two must be provided.
+13\. Define your **KeyStore Type**. You can select the type of keystore (Java KeyStore or PKCS#12) storing certificates that will be presented by Gravitee to the Consul agent during the secure connection handshake (SSL/TLS). You can either copy/paste the content of your keystore directly in the KeyStore content field or provide the path to you external Keystore in the KeyStore path field. At least one of the two must be provided.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/f0085922-f6da-4ee7-8606-93fadeee3747/1/64.178240740741/47.786861455108?0)
 
@@ -222,7 +222,7 @@ Now that you've successfully registered your service instances in Hashicorp Cons
 Select **Save** to finish configuring your Service discovery settings. Your API should now appear out of sync in the top banner. Be sure to click **deploy your API**.
 {% endhint %}
 
-Please note that endpoints configured through the APIM console before service discovery was enabled are not removed. The Gravitee.io gateway will continue to consider those endpoints in addition to the ones discovered through Consul integration. The endpoints dynamically discovered through Consul are not displayed in the Gravitee API Management (APIM) UI. You can remove the defined endpoints through the Gravitee APIM UI. However, we encourage you to keep at least one endpoint declared as secondary. Secondary endpoints are not included in the load-balancer pool and are only selected to handle requests if Consul is no longer responding. To declare an endpoint as secondary, please follow these steps:
+Please note that endpoints configured through the APIM console before service discovery was enabled are not removed. The Gravitee gateway will continue to consider those endpoints in addition to the ones discovered through Consul integration. The endpoints dynamically discovered through Consul are not displayed in the Gravitee API Management (APIM) UI. You can remove the defined endpoints through the Gravitee APIM UI. However, we encourage you to keep at least one endpoint declared as secondary. Secondary endpoints are not included in the load-balancer pool and are only selected to handle requests if Consul is no longer responding. To declare an endpoint as secondary, please follow these steps:
 
 1\. In the **Backend services** section, locate your endpoint that you want to define as secondary. For that endpoint, select **Edit endpoint**.
 
@@ -250,7 +250,7 @@ curl -X PUT -v "http://localhost:8500/v1/agent/service/deregister/whattimeisit"
 ```
 
 {% hint style="success" %}
-You've now integrated the Gravitee.io API Gateway with HashiCorp Consul, which enables dynamic load balancer configuration changes that are pulled directly from Consul’s service discovery registry.
+You've now integrated the Gravitee API Gateway with HashiCorp Consul, which enables dynamic load balancer configuration changes that are pulled directly from Consul’s service discovery registry.
 {% endhint %}
 
 {% hint style="info" %}

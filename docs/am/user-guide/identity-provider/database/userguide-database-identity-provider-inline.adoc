@@ -37,7 +37,7 @@ curl -H "Authorization: Bearer :accessToken" \
      http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:domainId/identities
 ----
 
-NOTE: New in Gravitee.io AM 3.4.x
+NOTE: New in Gravitee AM 3.4.x
 
 You can choose how passwords are encoded or hashed with the following algorithms:
 

@@ -66,7 +66,7 @@ Once AM Gateway is running, you will see this log:
 {% code overflow="wrap" %}
 ```
 ...
-11:23:06.835 [main] [] INFO  i.g.am.gateway.node.GatewayNode - Gravitee.io - Access Management - Gateway id[92c03b26-5f21-4460-803b-265f211460be] version[3.21.0] pid[4528] build[${env.BUILD_NUMBER}#${env.GIT_COMMIT}] jvm[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/25.121-b13] started in 1860 ms.
+11:23:06.835 [main] [] INFO  i.g.am.gateway.node.GatewayNode - Gravitee - Access Management - Gateway id[92c03b26-5f21-4460-803b-265f211460be] version[3.21.0] pid[4528] build[${env.BUILD_NUMBER}#${env.GIT_COMMIT}] jvm[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/25.121-b13] started in 1860 ms.
 ...
 ```
 {% endcode %}

@@ -37,7 +37,7 @@ You can override the default configuration for each alert in the AM API `gravite
 vi GRAVITEE_AM_HOME/am-management-api/config/gravitee.yml
 
 ...
-# Gravitee.io AM Alerts managed by the Alert Engine module
+# Gravitee AM Alerts managed by the Alert Engine module
 alerts:
   too_many_login_failures:
     name: "Too many login failures detected"

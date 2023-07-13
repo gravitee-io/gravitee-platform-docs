@@ -4,7 +4,7 @@
 :page-folder: am/user-guide
 :page-layout: am
 
-Login flows are the key process used in Gravitee.io Access Management for confirming a user's identity before providing access (with tokens).
+Login flows are the key process used in Gravitee Access Management for confirming a user's identity before providing access (with tokens).
 
 More than a simple username/password experience, AM gives you the power to design your authentication flows to reflect your authorization business rules.
 

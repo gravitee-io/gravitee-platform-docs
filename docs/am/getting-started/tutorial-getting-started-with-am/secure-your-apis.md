@@ -14,7 +14,7 @@ Ensure you have set up a new AM application and have your Client ID, Client Secr
 
 ## Protect your API with OAuth 2
 
-Start by configuring the API security policy in the Gravitee.io API Management Portal.
+Start by configuring the API security policy in the Gravitee API Management Portal.
 
 1. Log in to APIM Developer Portal.
 2. Click **My APIs** in the navigation bar (or **Administration** if you are an admin user).

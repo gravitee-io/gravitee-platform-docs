@@ -53,7 +53,7 @@ $ kubectl create namespace graviteeio
 // Nginx ingress controller is required for Gravitee APIM chart
 $ helm install --name nginx-ingress --namespace graviteeio stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true
 
-// Add Gravitee.io Helm repository
+// Add Gravitee Helm repository
 $ helm repo add graviteeio https://helm.gravitee.io
 ```
 {% endcode %}
@@ -173,7 +173,7 @@ $ kubectl create namespace graviteeio
 // Nginx ingress controller is required for Gravitee APIM chart
 $ helm install --name nginx-ingress --namespace graviteeio stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true
 
-// Add Gravitee.io Helm repository
+// Add Gravitee Helm repository
 $ helm repo add graviteeio https://helm.gravitee.io
 ```
 {% endcode %}

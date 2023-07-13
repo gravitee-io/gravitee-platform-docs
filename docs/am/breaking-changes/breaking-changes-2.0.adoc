@@ -24,7 +24,7 @@ If you have written some custom plugins such as custom identity providers, exten
 [source,xml]
 ----
 <dependencies>
-    <!-- Gravitee.io -->
+    <!-- Gravitee -->
     <dependency>
         <groupId>io.gravitee.am.identityprovider</groupId>
         <artifactId>gravitee-am-identityprovider-api</artifactId>
@@ -39,11 +39,11 @@ If you have written some custom plugins such as custom identity providers, exten
 . Mandatory interfaces will change to their link:http://reactivex.io/[Rx], link:https://github.com/ReactiveX/RxJava[RxJava 2] version
 . Update your code and re-build the plugin
 . Replace your zip file in the `plugins` folder
-. Start the Gravitee.io AM processes
+. Start the Gravitee AM processes
 
 == OpenID Connect
 
-Starting from Gravitee.io AM *2.0.4*, OpenID Connect endpoints have been moved under `/oidc` base path.
+Starting from Gravitee AM *2.0.4*, OpenID Connect endpoints have been moved under `/oidc` base path.
 
 |===
 |Endpoint|URL

@@ -65,7 +65,7 @@ Please keep the following in mind:
 openapi: "3.0.0"
 info:
   version: 1.2.3
-  title: Gravitee.io Echo API
+  title: Gravitee Echo API
   license:
     name: MIT
 servers:

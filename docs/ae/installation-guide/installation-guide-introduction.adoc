@@ -6,6 +6,6 @@
 :page-keywords: Gravitee, API Platform, Alert, Alert Engine, documentation, manual, guide, reference, api
 :page-layout: ae
 
-The following sections explain how to install Gravitee.io Alert Engine (AE) in your environment.
+The following sections explain how to install Gravitee Alert Engine (AE) in your environment.
 
 NOTE: This Installation Guide explains how to install AE. For more information about installing third party products, such as Hazelcast, refer to the product documentation.

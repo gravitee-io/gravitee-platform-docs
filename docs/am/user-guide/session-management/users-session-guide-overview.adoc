@@ -31,4 +31,4 @@ When users attempt to sign in with any of these providers and they are already s
 
 For application session layer, it is up to you to clean everything if you want log out your users.
 
-For the Gravitee.io AM and identity provider sessions, you can read the link:{{ '/am/current/am_userguide_user_session_management_logout.html' | relative_url }}[logout section] to invalidate them.
+For the Gravitee AM and identity provider sessions, you can read the link:{{ '/am/current/am_userguide_user_session_management_logout.html' | relative_url }}[logout section] to invalidate them.

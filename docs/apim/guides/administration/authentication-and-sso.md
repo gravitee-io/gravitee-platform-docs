@@ -243,7 +243,7 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 Before being able to log-in via AM, you will need to create users in AM. To do this please refer to the "Set up your first application" documentation within the Gravitee AM documentation.
 {% endhint %}
 
-You can easily test your Gravitee AM configuration by logging out of the Management UI, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Gravitee.io AM** option.
+You can easily test your Gravitee AM configuration by logging out of the Management UI, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Gravitee AM** option.
 
 Select this, and enter in your credentials. You should then be met with an approval page. Here, select **Authorize**. You should then be brought to the Management UI.&#x20;
 
@@ -583,7 +583,7 @@ To better illustrate how the OpenID Connect configuration works (and to assist u
 
 ### Create a Keycloak client
 
-Before you can connect to the Gravitee.io portal using Keycloak, you need to create a new client. To do so, follow these steps:
+Before you can connect to the Gravitee portal using Keycloak, you need to create a new client. To do so, follow these steps:
 
 1.  Log-in to Keycloak and create a new client.\
 

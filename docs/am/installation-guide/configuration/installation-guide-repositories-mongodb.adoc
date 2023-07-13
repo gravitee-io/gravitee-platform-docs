@@ -3,7 +3,7 @@
 :page-permalink: am/current/am_installguide_repositories_mongodb.html
 :page-folder: am/installation-guide
 :page-layout: am
-:page-description: Gravitee.io Access Management - Repositories - MongoDB
+:page-description: Gravitee Access Management - Repositories - MongoDB
 :page-keywords: Gravitee.io, API Platform, API Management, Access Gateway, oauth2, openid, documentation, manual, guide, reference, api
 
 == Overview

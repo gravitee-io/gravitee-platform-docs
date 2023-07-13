@@ -156,7 +156,7 @@ To allow a smooth transition, the old URL (`{host:port}/management/swagger.json`
 
 To reduce the number of security vulnerabilities and ensure a better maintenance in the future, the base Docker images used for the Enterprise Edition have changed.
 
-As of 3.17.0, APIM Gateway EE and Management API EE base Docker images are moving from **Ubuntu** to **Alpine** with JDK 17. It means users creating their own Docker images based on the one provided by Gravitee.io might need to update their Dockerfile to make them compatible with the Alpine distribution.
+As of 3.17.0, APIM Gateway EE and Management API EE base Docker images are moving from **Ubuntu** to **Alpine** with JDK 17. It means users creating their own Docker images based on the one provided by Gravitee might need to update their Dockerfile to make them compatible with the Alpine distribution.
 
 _Notes_: Community Edition users will not be affected as the base images were already **Alpine** ones.
 
@@ -211,7 +211,7 @@ You can download directly the Elasticsearch repository using this link:\
 
 To reduce the number of security vulnerabilities and ensure a better maintenance in the future, the base Docker images used for the Enterprise Edition have changed.
 
-As of 3.16.2, APIM Gateway EE and Management API EE base Docker images are moving from **Ubuntu** to **Alpine** with JDK 17. It means users creating their own Docker images based on the one provided by Gravitee.io might need to update their Dockerfile to make them compatible with the Alpine distribution.
+As of 3.16.2, APIM Gateway EE and Management API EE base Docker images are moving from **Ubuntu** to **Alpine** with JDK 17. It means users creating their own Docker images based on the one provided by Gravitee might need to update their Dockerfile to make them compatible with the Alpine distribution.
 
 _Notes_: Community Edition users will not be affected as the base images were already **Alpine** ones.
 
@@ -275,7 +275,7 @@ You can download directly the Elasticsearch repository using this link:\
 
 To reduce the number of security vulnerabilities and ensure a better maintenance in the future, the base Docker images used for the Enterprise Edition have changed.
 
-As of 3.15.6, APIM Gateway EE and Management API EE base Docker images are moving from **Ubuntu** to **Alpine** with JDK 17. It means users creating their own Docker images based on the one provided by Gravitee.io might need to update their Dockerfile to make them compatible with the Alpine distribution.
+As of 3.15.6, APIM Gateway EE and Management API EE base Docker images are moving from **Ubuntu** to **Alpine** with JDK 17. It means users creating their own Docker images based on the one provided by Gravitee might need to update their Dockerfile to make them compatible with the Alpine distribution.
 
 _Notes_: Community Edition users will not be affected as the base images were already **Alpine** ones.
 
@@ -587,7 +587,7 @@ You can download directly the Elasticsearch repository using this link:\
 
 To reduce the number of security vulnerabilities and ensure a better maintenance in the future, the base Docker images used for the Enterprise Edition have changed.
 
-As of 3.10.13, APIM Gateway EE and Management API EE base Docker images are moving from **Ubuntu** to **Alpine** with JDK 17. It means users creating their own Docker images based on the one provided by Gravitee.io might need to update their Dockerfile to make them compatible with the Alpine distribution.
+As of 3.10.13, APIM Gateway EE and Management API EE base Docker images are moving from **Ubuntu** to **Alpine** with JDK 17. It means users creating their own Docker images based on the one provided by Gravitee might need to update their Dockerfile to make them compatible with the Alpine distribution.
 
 _Notes_: Community Edition users will not be affected as the base images were already **Alpine** ones.
 
@@ -770,7 +770,7 @@ This script upgrade default value of `theme.logo` in parameters
 
 ### Breaking changes
 
-From with this version, the name of some components of Gravitee.io APIM changes. As a consequence, the following plugins are renamed :
+From with this version, the name of some components of Gravitee APIM changes. As a consequence, the following plugins are renamed :
 
 | before 3.10.0                                            | after 3.10.0                                                      |
 | -------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -809,7 +809,7 @@ In future versions, others plugins & components might be renamed. Stay tuned!
 
 ### Breaking changes
 
-From with this version, the name of some components of Gravitee.io APIM changes. As a consequence, the following plugins are renamed :
+From with this version, the name of some components of Gravitee APIM changes. As a consequence, the following plugins are renamed :
 
 | before 3.9.3                                             | after 3.9.3                                                       |
 | -------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -874,7 +874,7 @@ This script modifies events, so an event can be linked to more than one environm
 
 ### Breaking changes
 
-From with this version, the name of some components of Gravitee.io APIM changes. As a consequence, the following plugins are renamed :
+From with this version, the name of some components of Gravitee APIM changes. As a consequence, the following plugins are renamed :
 
 | before 3.8.6                                             | after 3.8.6                                                       |
 | -------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -1017,7 +1017,7 @@ Some performance improvements have been made ([#6066](https://github.com/gravite
 
 ### Breaking changes
 
-From with this version, the name of some components of Gravitee.io APIM changes. As a consequence, the following plugins are renamed :
+From with this version, the name of some components of Gravitee APIM changes. As a consequence, the following plugins are renamed :
 
 | before 3.5.18                                            | after 3.5.18                                                      |
 | -------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -1354,9 +1354,9 @@ services:
 
 ### Docker
 
-Docker images for Gravitee.io APIM have been renamed to follow the same conventions as the others Gravitee.io modules.
+Docker images for Gravitee APIM have been renamed to follow the same conventions as the others Gravitee modules.
 
-In the case of Gravitee.io APIM, all the images have been prefixed by `-apim`.
+In the case of Gravitee APIM, all the images have been prefixed by `-apim`.
 
 For example, for the API gateway `graviteeio/gateway` has been replaced by `graviteeio/apim-gateway`.
 

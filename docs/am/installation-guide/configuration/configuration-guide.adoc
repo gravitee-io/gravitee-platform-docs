@@ -3,7 +3,7 @@
 :page-sidebar: am_3_x_sidebar
 :page-permalink: am/current/am_configurationguide.html
 :page-folder: am/installation-guide
-:page-description: Gravitee.io Access Management - Configuration
+:page-description: Gravitee Access Management - Configuration
 :page-keywords: Gravitee.io
 :page-layout: am
 

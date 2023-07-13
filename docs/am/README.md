@@ -10,7 +10,7 @@ Here are some common AM use cases:
 
 * You’ve built a new application and you want to add user authentication and authorization
 * You’ve built a new frontend, mobile or web application and you want it to securely access your APIs
-* You’re using Gravitee.io API Management to manage your APIs and you want to implement a seamless authorization flow
+* You’re using Gravitee API Management to manage your APIs and you want to implement a seamless authorization flow
 * You want the flexibility of logging in users either with a username and password or with their social media accounts
 * You have a group of applications for which you want to implement single sign-on
 * You want to focus on developing apps and leave the headache of password and user management to an external solution

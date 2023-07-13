@@ -6,7 +6,7 @@ description: Get up and running with Gravitee Alert Engine
 
 ## Introduction
 
-The following sections explain how to install Gravitee.io Alert Engine (AE) in your environment.
+The following sections explain how to install Gravitee Alert Engine (AE) in your environment.
 
 {% hint style="info" %}
 **Third party installations**&#x20;

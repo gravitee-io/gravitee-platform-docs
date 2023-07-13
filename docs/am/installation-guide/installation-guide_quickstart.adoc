@@ -3,7 +3,7 @@
 :page-sidebar: am_3_x_sidebar
 :page-permalink: am/current/am_installguide_quickstart.html
 :page-folder: am/installation-guide
-:page-description: Gravitee.io Access Management - Installation - Quickstart
+:page-description: Gravitee Access Management - Installation - Quickstart
 :page-keywords: Gravitee.io, API Platform, API Management, API Gateway, oauth2, openid, documentation, manual, guide, reference, api
 :page-layout: am
 
@@ -33,7 +33,7 @@ For more information, see link:{{ '/am/current/am_installguide_docker_compose.ht
 
 [source,shell]
 ....
-# Add Gravitee.io charts repository
+# Add Gravitee charts repository
 $ helm repo add graviteeio https://helm.gravitee.io
 
 # And install

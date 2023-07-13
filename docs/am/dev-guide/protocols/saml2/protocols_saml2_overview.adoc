@@ -10,8 +10,8 @@ link:http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.
 
 Gravitee.io AM supports the SAML protocol and can serve both as Identity Provider (IdP) and Service Provider (SP) :
 
-* link:{{ '/am/current/am_userguide_enterprise_identity_provider_saml2.html' | relative_url }}[Configure Gravitee.io AM as SAML Service Provider]
-* link:{{ '/am/current/am_devguide_protocols_saml2_configuration.html' | relative_url }}[Configure Gravitee.io AM as SAML Identity Provider]
+* link:{{ '/am/current/am_userguide_enterprise_identity_provider_saml2.html' | relative_url }}[Configure Gravitee AM as SAML Service Provider]
+* link:{{ '/am/current/am_devguide_protocols_saml2_configuration.html' | relative_url }}[Configure Gravitee AM as SAML Identity Provider]
 
 == Participants
 

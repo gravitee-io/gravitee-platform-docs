@@ -7,7 +7,7 @@
 :page-keywords: Gravitee, API Platform, Alert, Alert Engine, documentation, manual, guide, reference, api
 :page-layout: ae
 
-AE works both within and outside the Gravitee.io ecosystem. You can plug in your own backends and benefit
+AE works both within and outside the Gravitee ecosystem. You can plug in your own backends and benefit
 from all of the same features.
 
 NOTE: This section will be updated soon.
