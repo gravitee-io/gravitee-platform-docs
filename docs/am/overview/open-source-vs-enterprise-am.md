@@ -1,14 +1,14 @@
 ---
 description: >-
-  This article explores the additional features that you get from the Gravitee
-  Enterprise Access Management solution.
+  This article explores the additional features that you get from the enterprise
+  Gravitee Access Management solution.
 ---
 
 # Gravitee AM Enterprise Edition
 
 ## Introduction <a href="#introduction" id="introduction"></a>
 
-Gravitee offers both an open source (OSS) and an enterprise version of its Access Management (AM) platform. In this article, we'll discuss the additional features, capabilities, hosting options, and support options that come with the Gravitee Enterprise edition of API Management.​
+Gravitee offers both an open source (OSS) and an enterprise version of its Access Management (AM) platform. This article introduces the additional features, capabilities, hosting options, and support options that are included in the Gravitee Enterprise edition of API Management.​
 
 {% hint style="info" %}
 **Other Gravitee Products**
@@ -18,7 +18,7 @@ Gravitee's platform extends beyond just API Management. For information on enter
 
 ## Enterprise Edition AM <a href="#gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management" id="gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management"></a>
 
-Please see the following features and capabilities that you get with the enterprise version of Gravitee AM. Please be aware that the enterprise version of Gravitee is broken up into three different packaging structures, each with access to different amount of the below enterprise capabilities. For more information on each package, please refer to our [pricing page](https://www.gravitee.io/pricing).
+The enterprise version of Gravitee AM is offered in three different packaging structures. Each package offers different access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
 ## Enterprise features <a href="#enterprise-features" id="enterprise-features"></a>
 
