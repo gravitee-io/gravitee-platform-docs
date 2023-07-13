@@ -48,13 +48,13 @@ The following diagrams illustrate the component management, design, and self-hos
 
 <img src="../../.gitbook/assets/file.excalidraw (1).svg" alt="" class="gitbook-drawing">
 
-
-
 ### Hybrid architecture diagram <a href="#architecture-diagram" id="architecture-diagram"></a>
 
 ![Hybrid Architecture](https://dobl1.github.io/gravitee-se-docs/latest/assets/hybrid-architecture.svg)
 
 ### Self-hosted-to-SaaS connections <a href="#self-hosted-to-saas-connections" id="self-hosted-to-saas-connections"></a>
+
+<img alt="" class="gitbook-drawing">
 
 ![Hybrid Architecture Connections](https://dobl1.github.io/gravitee-se-docs/latest/assets/hybrid-architecture-connections.svg)
 
