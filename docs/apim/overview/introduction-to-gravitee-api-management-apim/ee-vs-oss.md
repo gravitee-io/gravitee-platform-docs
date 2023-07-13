@@ -18,11 +18,11 @@ Gravitee's platform extends beyond just API Management. For information on enter
 
 ## Enterprise APIM
 
-Please see the following features and capabilities that you get with the enterprise version of Gravitee API Management. Please be aware that the enterprise version of Gravitee is broken up into three different packaging structures, each with access to different amount of the below enterprise capabilities. For more information on each package, please refer to our [pricing page](https://www.gravitee.io/pricing).
+The Gravitee APIM Enterprise Edition is available in three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
 ### Enterprise features
 
-The below features are included in the default enterprise API Management distribution and will not require the addition of any enterprise plugins:
+The features below are included in the default enterprise API Management distribution and do not require additional enterprise plugins:
 
 * Enterprise OpenID Connect SSO: use OpenId connect for SSO for your API Management platform
 * [Debug Mode](../../guides/policy-design/v2-api-policy-design-studio.md#debug-mode): easily test and debug your policy execution and enforcement.
