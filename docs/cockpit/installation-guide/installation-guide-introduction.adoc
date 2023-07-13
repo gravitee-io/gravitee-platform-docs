@@ -12,7 +12,7 @@ Gravitee.io Gravitee Cloud consists of two main components:
 
 The following sections explain how to prepare, install, and configure your Gravitee Cloud environment.
 
-NOTE: This Installation Guide provides information about how to install Gravitee.io components. For external components, such as
+NOTE: This Installation Guide provides information about how to install Gravitee components. For external components, such as
 MongoDB, see the relevant product documentation.
 
 Gravitee Cloud generates a certificate that will be used to authenticate installations (APIM/AM) when they connect. To create this certificate, you need to put private/public keys in a keystore/truststore file and provide details using the following configuration attributes:

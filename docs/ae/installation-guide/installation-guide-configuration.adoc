@@ -25,11 +25,11 @@ WARNING: YAML (`yml`) format is very sensitive to indentation. Ensure you includ
 
 ```yaml
 ############################################################################################################
-################################## Gravitee.io Alert Engine - Configuration ################################
+################################## Gravitee Alert Engine - Configuration ################################
 ############################################################################################################
 
 ############################################################################################################
-# This file is the general configuration of Gravitee.io Alert Engine:
+# This file is the general configuration of Gravitee Alert Engine:
 # - Properties (and respective default values) in comment are provided for information.
 # - You can reference other property by using ${property.name} syntax
 # - gravitee.home property is automatically set-up by launcher and refers to the installation path. Do not override it !

@@ -2,7 +2,7 @@
 
 ## API Management (APIM) and Access Management (AM)
 
-Version 3.18.x of the Gravitee Platform (APIM and AM 3.18.0 were released at the beginning of July 2022) has introduced a unified, single distribution bundles for all features available in the Community Edition (CE) and the Enterprise Edition (EE) of Gravitee.io for the APIM and AM products respectively.
+Version 3.18.x of the Gravitee Platform (APIM and AM 3.18.0 were released at the beginning of July 2022) has introduced a unified, single distribution bundles for all features available in the Community Edition (CE) and the Enterprise Edition (EE) of Gravitee for the APIM and AM products respectively.
 
 Previously, the two editions used to be distributed as separate bundles (CE and EE) per product, and any migration to EE required full re-installation. This change allows for a smooth transition from CE to EE functionality, and enables you to trial EE features in APIM and AM without the need for a standalone EE installation when migrating from CE.
 

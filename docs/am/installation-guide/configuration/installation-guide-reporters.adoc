@@ -3,7 +3,7 @@
 :page-permalink: am/current/am_installguide_reporters.html
 :page-folder: am/installation-guide
 :page-layout: am
-:page-description: Gravitee.io Access Management - Reporters
+:page-description: Gravitee Access Management - Reporters
 :page-keywords: Gravitee.io, API Platform, API Management, Access Gateway, oauth2, openid, documentation, manual, guide, reference, api
 
 == Overview

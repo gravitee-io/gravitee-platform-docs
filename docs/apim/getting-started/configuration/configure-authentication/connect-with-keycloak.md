@@ -25,7 +25,7 @@ This page explains how to configure APIM to allow users to connect using [Keyclo
 
 ### Create a Keycloak client
 
-Before you can connect to the Gravitee.io portal using Keycloak, you need to create a new client.
+Before you can connect to the Gravitee portal using Keycloak, you need to create a new client.
 
 #### Create a new client
 

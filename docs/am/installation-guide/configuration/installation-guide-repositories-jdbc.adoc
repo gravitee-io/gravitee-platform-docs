@@ -3,7 +3,7 @@
 :page-permalink: am/current/am_installguide_repositories_jdbc.html
 :page-folder: am/installation-guide
 :page-layout: am
-:page-description: Gravitee.io Access Management - Repositories - JDBC
+:page-description: Gravitee Access Management - Repositories - JDBC
 :page-keywords: Gravitee.io, API Platform, API Management, Access Gateway, oauth2, openid, documentation, manual, guide, reference, api
 
 NOTE: New in AM 3.5.x
@@ -20,7 +20,7 @@ You can deploy this repository plugin in AM to use the most common databases, in
 NOTE: AM uses the JDBC and R2DBC drivers together, since AM uses https://www.liquibase.org/[liquibase^] to manage the database schema. You need to deploy the correct JDBC and R2DBC drivers for your database in your AM instance's `plugins/ext/repository-am-jdbc` directory.
 
 |===
-|Database | Version tested | Gravitee.io Plugin | JDBC Driver | R2DBC Driver
+|Database | Version tested | Gravitee Plugin | JDBC Driver | R2DBC Driver
 
 |Postgresql
 |9.6

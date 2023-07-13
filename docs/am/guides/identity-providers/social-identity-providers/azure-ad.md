@@ -9,7 +9,7 @@ You can authenticate users with Azure Active Directory. Before you begin, you ne
 To connect your application to Azure AD, you will:
 
 * Register a new application in Azure AD
-* Create an Azure AD identity provider in Gravitee.io AM
+* Create an Azure AD identity provider in Gravitee AM
 * Set up the connection in Azure AD
 * Test the connection
 

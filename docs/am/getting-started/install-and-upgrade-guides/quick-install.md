@@ -23,7 +23,7 @@ For more information, see [Run in Docker.](run-in-docker/)
 ## Install with Kubernetes
 
 ```sh
-# Add Gravitee.io charts repository
+# Add Gravitee charts repository
 $ helm repo add graviteeio https://helm.gravitee.io
 
 # And install

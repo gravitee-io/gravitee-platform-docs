@@ -6,7 +6,7 @@
 
 [label label-version]#New in version 3.10#
 
-To lower authentication friction from third parties which can't maintain session with Gravitee.io AM, the use of the OpenID Connect ID Token let you request for new tokens in a silent manner.
+To lower authentication friction from third parties which can't maintain session with Gravitee AM, the use of the OpenID Connect ID Token let you request for new tokens in a silent manner.
 
 To trigger the silent re-authentication, your application must call the link:{{ '/am/current/am_devguide_protocols_oauth2_overview.html#authorization_code' | relative_url }}[authorization endpoint] with the following parameters :
 

@@ -8,7 +8,7 @@ description: This article walks through how to install Gravitee Alert Engine via
 
 This section explains how to deploy Alert Engine (AE) in Kubernetes. These procedures are intended for users who are already familiar with Kubernetes.
 
-## Gravitee.io Alert Engine Helm Chart
+## Gravitee Alert Engine Helm Chart
 
 ### **Chart supported versions: 1.0.x and higher**
 
@@ -16,7 +16,7 @@ This section explains how to deploy Alert Engine (AE) in Kubernetes. These proce
 
 This chart will deploy the following:
 
-* Gravitee.io Alert Engine
+* Gravitee Alert Engine
 
 ## Kubernetes and Hazelcast
 
@@ -46,7 +46,7 @@ rbac.yml comes with default graviteeio namespace. Make sure to use the right nam
 
 Follow these steps to install:
 
-*   Add the Gravitee.io helm charts repo
+*   Add the Gravitee helm charts repo
 
     ```
     $ helm repo add graviteeio https://helm.gravitee.io
@@ -104,7 +104,7 @@ helm install \
 
 ## Configuration
 
-The following tables list the configurable parameters of the Gravitee.io Alert Engine chart and their default values.
+The following tables list the configurable parameters of the Gravitee Alert Engine chart and their default values.
 
 ### **Shared configuration**
 

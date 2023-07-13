@@ -7,7 +7,7 @@
 :page-keywords: Gravitee, API Platform, Alert, Alert Engine, documentation, manual, guide, reference, api
 :page-layout: ae
 
-This section is explaining how to configure the Alert Engine within Gravitee.io Access Management.
+This section is explaining how to configure the Alert Engine within Gravitee Access Management.
 
 - AM comes with an intuitive and easy to use integration of Alert Engine.
 - AM provides a pre-defined and pre-configured list of alerts that only have to be enabled or disabled.

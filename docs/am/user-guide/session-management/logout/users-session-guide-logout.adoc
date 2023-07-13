@@ -20,7 +20,7 @@ NOTE: You can define list of allowed URLs where the user will be redirected afte
 
 [label label-version]#New in version 3.10#
 
-Single logout let your end users sign out of both their Gravitee.io AM session and the social identity provider (configured in your application) with a single action.
+Single logout let your end users sign out of both their Gravitee AM session and the social identity provider (configured in your application) with a single action.
 
 To enable single logout feature :
 

@@ -49,7 +49,7 @@ You can define a signedlist of allowed URLs where the user will be redirected af
 
 ### Single logout
 
-Single logout lets your end users sign out of both their Gravitee.io AM session and the social identity provider (configured in your application) with a single action.
+Single logout lets your end users sign out of both their Gravitee AM session and the social identity provider (configured in your application) with a single action.
 
 To enable the single logout feature :
 

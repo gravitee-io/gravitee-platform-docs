@@ -334,7 +334,7 @@ management:
 [[gravitee-repositories-types]]
 === Repository types
 
-* Management: All the data to manage the Gravitee.io Access Management platform, including security domains, clients,
+* Management: All the data to manage the Gravitee Access Management platform, including security domains, clients,
 identity providers, ...
 * OAuth2: Tokens generated for OAuth2
 

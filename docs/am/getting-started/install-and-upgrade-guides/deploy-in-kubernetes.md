@@ -19,7 +19,7 @@ This chart will deploy the following:
 
 ### Add the Helm Chart repo
 
-Add the Gravitee.io Helm charts repo using the command below:
+Add the Gravitee Helm charts repo using the command below:
 
 ```sh
 helm repo add graviteeio https://helm.gravitee.io
@@ -427,7 +427,7 @@ httpClient:
 | userManagement.activity.geolocation.variation.latitude                       | double                                | `0.07`                                                                                                                                                                                                                                                                                                                                                                                 |
 | userManagement.activity.geolocation.variation.longitude:                     | double                                | `0.07`                                                                                                                                                                                                                                                                                                                                                                                 |
 
-### Gravitee.io Alert trigger & settings
+### Gravitee Alert trigger & settings
 
 When alerts are enabled, you may want to define your own settings the alert triggers and for the risk\_assessment settings. To do so, you wan define triggers and settings under the alerts section of the `values.yaml`.
 
@@ -498,13 +498,13 @@ alerts:
 
 ### OpenShift
 
-The Gravitee.io Access Management Helm Chart supports OpenShift > 3.10 This chart is only supporting Ingress standard objects and not the specific OpenShift Routes, reason why OpenShift is supported started from 3.10.
+The Gravitee Access Management Helm Chart supports OpenShift > 3.10 This chart is only supporting Ingress standard objects and not the specific OpenShift Routes, reason why OpenShift is supported started from 3.10.
 
-There are two major considerations to have in mind when deploying Gravitee.io Access Management within OpenShift: 1\_ Use full host domain instead of paths for all the components (ingress paths are not well supported by OpenShift) 2\_ Override the security context to let OpenShift to define automatically the user-id and the group-id to run the containers.
+There are two major considerations to have in mind when deploying Gravitee Access Management within OpenShift: 1\_ Use full host domain instead of paths for all the components (ingress paths are not well supported by OpenShift) 2\_ Override the security context to let OpenShift to define automatically the user-id and the group-id to run the containers.
 
 Also, for Openshift to automatically create Routes from Ingress, you must define the ingressClassName to "none".
 
-Here is a standard `values.yaml` used to deploy Gravitee.io APIM into OpenShift:
+Here is a standard `values.yaml` used to deploy Gravitee APIM into OpenShift:
 
 {% code title="values.yaml" %}
 ```yaml

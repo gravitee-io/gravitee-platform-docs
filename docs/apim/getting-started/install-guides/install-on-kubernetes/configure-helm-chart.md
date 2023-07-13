@@ -501,7 +501,7 @@ $ helm install \
 
 ## OpenShift
 
-The Gravitee.io API Management Helm chart supports OpenShift > 3.10 This chart is only supporting Ingress standard objects and not the specific OpenShift Routes, reason why OpenShift is supported started from 3.10.
+The Gravitee API Management Helm chart supports OpenShift > 3.10 This chart is only supporting Ingress standard objects and not the specific OpenShift Routes, reason why OpenShift is supported started from 3.10.
 
 There are two major considerations to have in mind when deploying APIM within OpenShift: 1\_ Use full host domain instead of paths for all the components (ingress paths are not well supported by OpenShift) 2\_ Override the security context to let OpenShift to define automatically the user-id and the group-id to run the containers.
 

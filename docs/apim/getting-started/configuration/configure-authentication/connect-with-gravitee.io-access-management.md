@@ -1,4 +1,4 @@
-# Connect with Gravitee.io Access Management
+# Connect with Gravitee Access Management
 
 * [Overview](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#overview)
 * [Create a new client in Access Management](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#create\_a\_new\_client\_in\_access\_management)
@@ -49,7 +49,7 @@ You can configure this provider both in APIM Console and in the `gravitee.yml` c
 3. If you want to use this provider to log in to APIM Portal, ensure that **Allow portal authentication to use this identity provider** is checked. To use it only for APIM Console, uncheck this option.
 4.  Enter the details of the provider, including the credentials created in the AM client.
 
-    ![Gravitee.io - New Gravitee.io AM IDP](https://docs.gravitee.io/images/apim/3.x/management-api-configuration-idp/new-am.png)
+    ![Gravitee.io - New Gravitee AM IDP](https://docs.gravitee.io/images/apim/3.x/management-api-configuration-idp/new-am.png)
 5. Click **CREATE**.
 6. Activate the provider for Portal or Console login, as described in [Activating providers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication.html#activating-providers).
 
@@ -103,7 +103,7 @@ See [Set up your first application](https://docs.gravitee.io/am/current/am\_quic
 
 #### Log in to APIM Portal
 
-1.  Click **Sign in with Gravitee.io AM**.
+1.  Click **Sign in with Gravitee AM**.
 
     ![graviteeam login form](https://docs.gravitee.io/images/apim/3.x/installation/authentication/graviteeam\_login\_form.png)
 2.  Enter your user credentials and click **LOG IN**.

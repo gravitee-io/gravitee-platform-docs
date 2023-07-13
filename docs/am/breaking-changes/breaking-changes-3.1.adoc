@@ -8,7 +8,7 @@ NOTE: For all these breaking changes the Migration Guide can be found link:{{ '/
 
 == Email service has been rewritten
 
-Email technical service (mainly the connection to the SMTP server) was duplicated between the Management API and the Gateway of Gravitee.io Access Management.
+Email technical service (mainly the connection to the SMTP server) was duplicated between the Management API and the Gateway of Gravitee Access Management.
 
 This service has been merged in the 3.1 version.
 

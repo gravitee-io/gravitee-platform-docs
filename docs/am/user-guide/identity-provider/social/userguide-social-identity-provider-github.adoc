@@ -13,7 +13,7 @@ You can authenticate users in AM with GitHub. Before you begin, you need to sign
 To connect your application to GitHub, you will:
 
 - Register a new application in GitHub
-- Create a GitHub identity provider in Gravitee.io AM
+- Create a GitHub identity provider in Gravitee AM
 - Set up the connection in GitHub
 - Test the connection
 

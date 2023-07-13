@@ -1,4 +1,4 @@
-= Why Gravitee.io Access Management?
+= Why Gravitee Access Management?
 :page-sidebar: am_3_x_sidebar
 :page-permalink: am/current/am_overview_why.html
 :page-folder: am/overview
@@ -15,7 +15,7 @@ Here are some common AM use cases:
 
 * You've built a new frontend, mobile or web application and you want it to securely access your APIs
 
-* You're using Gravitee.io API Management to manage your APIs and you want to implement a seamless authorization flow
+* You're using Gravitee API Management to manage your APIs and you want to implement a seamless authorization flow
 
 * You want the flexibility of logging in users either with a username and password or with their social media accounts
 

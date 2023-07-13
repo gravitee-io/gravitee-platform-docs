@@ -40,7 +40,7 @@ NOTE: If you are using the AM Management API directly (not via the Portal) pleas
 
 == Admin domain has been removed
 
-Gravitee.io Access Management 2.x came with a default link:{{ '/am/2.x/am_userguide_admin_domain.html' | relative_url }}[Admin security domain] to perform all the Gravitee.io AM management tasks.
+Gravitee.io Access Management 2.x came with a default link:{{ '/am/2.x/am_userguide_admin_domain.html' | relative_url }}[Admin security domain] to perform all the Gravitee AM management tasks.
 This domain has been removed and replaced by the new concept of `Organization` described above.
 
 If you were using the management api to administrate the `admin` domain you should now use this URL:
@@ -83,7 +83,7 @@ AM Management API 3.x
 
 == Portal ACLs and permissions
 
-Since the first version of Gravitee.io Access Management each administrative users of the portal could do everything with no restriction.
+Since the first version of Gravitee Access Management each administrative users of the portal could do everything with no restriction.
 Gravitee.io AM v3 allows you to manage what we call `Administrative roles` that can be used to grant access to specific areas of resources such as the platform, a security domain or an application.
 
 NOTE: To ensure a seamlessly migration to the v3 each current administrative users will have the `ORGANIZATION_OWNER` role.
