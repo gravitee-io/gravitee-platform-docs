@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction <a href="#introduction" id="introduction"></a>
 
-Gravitee offers both an open source (OSS) and an enterprise version of its Access Management (AM) platform. This article introduces the additional features, capabilities, hosting options, and support options that are included in the Gravitee Enterprise Edition of API Management.​
+Gravitee offers both an open source (OSS) and an enterprise version of its Access Management (AM) platform. This article introduces the additional features, capabilities, hosting options, and support options that are included in the Gravitee Enterprise Edition of Access Management.​
 
 {% hint style="info" %}
 **Other Gravitee Products**
@@ -16,13 +16,13 @@ Gravitee offers both an open source (OSS) and an enterprise version of its Acces
 Gravitee's platform extends beyond just Access Management. For information on enterprise versions of other products, please refer to our [platform overview documentation.](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee)
 {% endhint %}
 
-## Enterprise Edition AM <a href="#gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management" id="gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management"></a>
+## Enterprise AM <a href="#gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management" id="gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management"></a>
 
 The Gravitee AM Enterprise Edition is available in three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
 ## Enterprise features <a href="#enterprise-features" id="enterprise-features"></a>
 
-The features below are included in the default enterprise API Management distribution and do not require additional enterprise plugins:
+The features below are included in the default enterprise Access Management distribution and do not require additional enterprise plugins:
 
 * Risk Assessment
 * SAML v2
@@ -54,7 +54,7 @@ The Enterprise MFA pack enables advanced authentication factors for MFA:
 
 ## Advanced API monitoring <a href="#advanced-api-monitoring" id="advanced-api-monitoring"></a>
 
-While not technically a part of the Access Management product, Gravitee does offer a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee API Management to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
+While not technically a part of the Access Management product, Gravitee does offer a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
 
 ## Advanced environment management <a href="#advanced-environment-management" id="advanced-environment-management"></a>
 
