@@ -5,7 +5,7 @@
 * [Introduction to Gravitee Access Management (AM)](README.md)
 * [AM Architecture](overview/am-architecture.md)
 * [Plugins](overview/plugins.md)
-* [Open Source vs Enterprise AM](overview/open-source-vs-enterprise-am.md)
+* [Gravitee AM Enterprise Edition](overview/open-source-vs-enterprise-am.md)
 
 ## Getting Started
 
