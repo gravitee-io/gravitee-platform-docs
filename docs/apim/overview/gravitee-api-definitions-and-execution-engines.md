@@ -18,7 +18,7 @@ This guide is a deep dive into the difference between the two engines. In short,
 You can also run v2 Gateway APIs in **compatibility mode** which emulates some of the execution flow improvements of the reactive execution engine. This is detailed in the [v2 Gateway API compatibility mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-compatibility-mode) section below.
 {% endhint %}
 
-APIM fully supports both API definitions and execution engines. The [v2 API Creation Wizard ](create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the legacy execution engine that can be augmented with flows designed in the [v2 Policy Studio](policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine that can be augmented with flows designed in the [v4 Policy Studio](policy-design/v4-api-policy-design-studio.md).
+APIM fully supports both API definitions and execution engines. The [v2 API Creation Wizard ](../guides/create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the legacy execution engine that can be augmented with flows designed in the [v2 Policy Studio](../guides/policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](../guides/create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine that can be augmented with flows designed in the [v4 Policy Studio](../guides/policy-design/v4-api-policy-design-studio.md).
 
 To summarize, here is a table outlining the key differences in day-to-day usage:
 

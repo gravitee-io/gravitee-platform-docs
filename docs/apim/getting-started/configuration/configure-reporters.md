@@ -77,7 +77,7 @@ reporters:
 ### TCP Reporter
 
 {% hint style="warning" %}
-Does not yet support v4 APIs. Learn more [here](../../guides/gravitee-api-definitions-and-execution-engines.md).
+Does not yet support v4 APIs. Learn more [here](../../overview/gravitee-api-definitions-and-execution-engines.md).
 {% endhint %}
 
 #### **Configuration Parameters**
@@ -123,7 +123,7 @@ reporters:
 ### Datadog Reporter
 
 {% hint style="warning" %}
-Does not yet support v4 APIs. Learn more [here](../../guides/gravitee-api-definitions-and-execution-engines.md).
+Does not yet support v4 APIs. Learn more [here](../../overview/gravitee-api-definitions-and-execution-engines.md).
 {% endhint %}
 
 This reporter allows you to send APIM Gateway events to Datadog listening server.

@@ -7,6 +7,7 @@
 * [Plugins](overview/introduction-to-gravitee-api-management-apim/plugins.md)
 * [Integrations](overview/integrations/README.md)
 * [Open Source vs Enterprise Edition](overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Gravitee API Definitions and Execution Engines](overview/gravitee-api-definitions-and-execution-engines.md)
 
 ## Getting Started
 
@@ -65,7 +66,6 @@
 ## Guides
 
 * [Prologue](guides/prologue.md)
-* [Gravitee API Definitions and Execution Engines](guides/gravitee-api-definitions-and-execution-engines.md)
 * [Create APIs](guides/create-apis/README.md)
   * [Import APIs](guides/create-apis/import-apis.md)
   * [The API Creation Wizard](guides/create-apis/how-to.md)
