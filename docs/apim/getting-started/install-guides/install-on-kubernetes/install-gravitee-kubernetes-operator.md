@@ -162,7 +162,7 @@ NAMESPACE            NAME                DATA    AGE
 gateway-1-namespace  local-api-example   1       1m
 ```
 
-### Deploy on multiple Gateways
+### Deploy on multiple clusters
 
 In this scenario, we will deploy an API on multiple Gateways. To do it, we will use a custom resource that can be applied to any cluster. As long as the Management API is available, the `ApiDefinition` refers to a `ManagementContext` and the `local` field is set to `false`.
 
