@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction <a href="#introduction" id="introduction"></a>
 
-Gravitee offers both an open source (OSS) and an enterprise version of its Access Management (AM) platform. This article introduces the additional features, capabilities, hosting options, and support options that are included in the Gravitee Enterprise edition of API Management.​
+Gravitee offers both an open source (OSS) and an enterprise version of its Access Management (AM) platform. This article introduces the additional features, capabilities, hosting options, and support options that are included in the Gravitee Enterprise Edition of API Management.​
 
 {% hint style="info" %}
 **Other Gravitee Products**
@@ -18,11 +18,11 @@ Gravitee's platform extends beyond just API Management. For information on enter
 
 ## Enterprise Edition AM <a href="#gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management" id="gravitee-community-edition-api-management-vs-gravitee-enterprise-edition-api-management"></a>
 
-The enterprise version of Gravitee AM is offered in three different packaging structures. Each package offers different access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
+The Gravitee AM Enterprise Edition is available in three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
 ## Enterprise features <a href="#enterprise-features" id="enterprise-features"></a>
 
-The below features are included in the default enterprise API Management distribution and will not require the addition of any enterprise plugins:
+The features below are included in the default enterprise API Management distribution and do not require additional enterprise plugins:
 
 * Risk Assessment
 * SAML v2
@@ -30,7 +30,7 @@ The below features are included in the default enterprise API Management distrib
 
 ## Enterprise Identity Provider pack <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
 
-The Enterprise Identity Provider pack enables you to use different IdPs when setting up your Gravitee Access Management Oauth2 server:
+The Enterprise Identity Provider pack enables the use of different IdPs when setting up your Gravitee Access Management OAuth2 server:
 
 * CAS
 * Kerberos
@@ -43,7 +43,7 @@ The Enterprise Identity Provider pack enables you to use different IdPs when set
 
 ## Enterprise MFA pack
 
-The Enterprise MFA pack enables you to make use of advanced authentication factors for MFA:
+The Enterprise MFA pack enables advanced authentication factors for MFA:
 
 * Phone Call
 * FIDO2
@@ -54,22 +54,22 @@ The Enterprise MFA pack enables you to make use of advanced authentication facto
 
 ## Advanced API monitoring <a href="#advanced-api-monitoring" id="advanced-api-monitoring"></a>
 
-While not technically a part of the Access Management product, Gravitee does offer a standalone API monitoring solution called Gravitee Alert Engine. Gravitee Alert Engine (AE) is Gravitee's enterprise grade API monitoring solution. Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee API Management to enable advanced alerting, new dashboards, and more. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
+While not technically a part of the Access Management product, Gravitee does offer a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee API Management to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
 
 ## Advanced environment management <a href="#advanced-environment-management" id="advanced-environment-management"></a>
 
-Gravitee EE AM enables you to register multiple AM environments and installations using [Gravitee Cloud.](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.
+Gravitee EE AM enables you to register multiple AM environments and installations using [Gravitee Cloud.](https://documentation.gravitee.io/gravitee-cloud) This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
 
 ## Hosting options <a href="#hosting-options" id="hosting-options"></a>
 
 An investment in Gravitee EE is an investment in deployment flexibility, and, optionally, the ability to offload costs associated with maintaining self-hosted AM installations. Gravitee Enterprise supports:
 
-* **Self-hosted deployments**: install and host AM within your own private cloud/environment
-* **Gravitee-managed deployments**: Gravitee hosts and manages all AM components within its own cloud environments
-* **Hybrid deployment**: Gravitee hosts and manages some AM components in its own cloud environment while you manage some components in your own private cloud/environment
+* **Self-hosted deployments**: Install and host AM within your own private cloud/environment.
+* **Gravitee-managed deployments**: Gravitee hosts and manages all AM components within its own cloud environments.
+* **Hybrid deployment**: Gravitee hosts and manages some AM components in its cloud environment while you manage others in your own private cloud/environment.
 
-For more information on each, please refer to our [AM Architecture documentation](am-architecture.md).
+For more information, please refer to our [AM Architecture documentation](am-architecture.md).
 
 ## Support options <a href="#support-options" id="support-options"></a>
 
-Gravitee offers enterprise-grade support for enterprise customers. Gravitee offers three different support packages: Gold, Platinum, and Diamond. Each has different SLAs, benefits, etc. For more information on each support option, please [refer to our pricing page](https://www.gravitee.io/pricing).
+Gravitee offers enterprise-grade support for enterprise customers, available in three different packages: Gold, Platinum, and Diamond. Each has different SLAs, benefits, etc. For more information on each support option, please [refer to our pricing page](https://www.gravitee.io/pricing).
