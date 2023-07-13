@@ -6,7 +6,7 @@
 * [APIM Architecture](overview/introduction-to-gravitee-api-management-apim/apim-architecture.md)
 * [Plugins](overview/introduction-to-gravitee-api-management-apim/plugins.md)
 * [Integrations](overview/integrations/README.md)
-* [Open Source vs Enterprise Edition](overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Gravitee Enterprise Edition API Management](overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
 * [Gravitee API Definitions and Execution Engines](overview/gravitee-api-definitions-and-execution-engines.md)
 
 ## Getting Started

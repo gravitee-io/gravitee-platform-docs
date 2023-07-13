@@ -4,7 +4,7 @@ description: >-
   Enterprise API Management solution.
 ---
 
-# Open Source vs Enterprise Edition
+# Gravitee Enterprise Edition API Management
 
 ## Introduction
 
@@ -16,7 +16,7 @@ Gravitee offers both an open source (OSS) and an enterprise version of its API M
 Gravitee's platform extends beyond just API Management. For information on enterprise versions of other products, please refer to our [platform overview documentation.](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee)
 {% endhint %}
 
-## Gravitee Community Edition API Management vs Gravitee Enterprise Edition API Management
+## Enterprise APIM
 
 Please see the following features and capabilities that you get with the enterprise version of Gravitee API Management. Please be aware that the enterprise version of Gravitee is broken up into three different packaging structures, each with access to different amount of the below enterprise capabilities. For more information on each package, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
@@ -32,7 +32,7 @@ The below features are included in the default enterprise API Management distrib
 * [Sharding Tags](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md): specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
 * [Bridge Gateway](../../getting-started/hybrid-deployment/#bridge-gateways): By default, an API Gateway needs to connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. When deployed in a more complex environment (network zones, different data centers, ...), many teams prefer to avoid opening a connection between the database and something from outside its network. The solution is to deploy a Bridge Gateway, which is a kind of proxy in regards to the repository. The sync will be done over HTTP instead of the database protocol. API GW > Bridge > Database.
 
-### Enterprise Policy pack
+### Enterprise policy pack
 
 The Enterprise policy pack includes policies that are typically necessary for enterprise-grade, production API Management deployments:
 
@@ -76,7 +76,7 @@ The Event-native pack includes capabilities that enable you to use Gravitee to e
 * **Gateway message reactor plugin**: enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems
 * **Confluent Schema Registry resource**: define Confluent Schema Registry as a resource for serialization and deserialization policies
 
-## Advanced API Monitoring
+## Advanced API monitoring
 
 While not technically a part of the API Management product, Gravitee does offer a standalone API Monitoring solution called Gravitee Alert Engine. Gravitee Alert Engine (AE) is Gravitee's enterprise grade API Monitoring solution. Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and Webhooks.&#x20;
 
@@ -96,6 +96,6 @@ An investment in Gravitee EE is an investment in deployment flexibility, and, op
 
 For more information on each, please refer to our [APIM Architecture documentation](apim-architecture.md).
 
-### Support options
+## Support options
 
 Gravitee offers enterprise-grade support for enterprise customers. Gravitee offers three different support packages: Gold, Platinum, and Diamond. Each has different SLAs, benefits, etc. For more information on each support option, please [refer to our pricing page](https://www.gravitee.io/pricing).
