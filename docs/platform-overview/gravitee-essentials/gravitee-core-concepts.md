@@ -8,7 +8,7 @@ The API lifecycle includes API design, development, testing, deployment, trouble
 
 ## Overview <a href="#overview-2" id="overview-2"></a>
 
-Gravitee's mission is to surpass conventional API strategy and implementation with the advent of a centralized API lifecycle toolset. One of Gravitee’s core differentiators is the seamless, simultaneous support for both event-driven, asynchronous APIs and traditional, synchronous APIs. It is an event-native API solution, built on event-driven architecture implemented with reactive programming, but still fully supports the request/response model. At the forefront of API technology, Gravitee can even mediate between sync and async application layer protocols.&#x20;
+Gravitee offers an API lifecycle toolset that extends beyond conventional API strategy and implementation. One of Gravitee’s core differentiators is that it's an event-native API solution that provides centralized support for both asynchronous and synchronous APIs. Built on event-driven architecture and implemented with reactive programming, Gravitee also supports the traditional request/response model and can even mediate between sync and async application layer protocols.&#x20;
 
 ## Key concepts <a href="#key-concepts-3" id="key-concepts-3"></a>
 
@@ -29,7 +29,7 @@ Key takeaways from the architecture diagrams:
 * A single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
 * Each APIM and AM instance is attached to a Gravitee Cloud environment.
-* Gravitee Cloud observes a hierarchy of three entity types. At the top level is an account (typically a company, not an individual user), next is an organization (typically a logical part of the company in a particular context, such as a region or business unit), and at the lowest level is an environment (typically an environment in an IT infrastructure, such as development or production).
+* Gravitee Cloud observes a hierarchy of three entity types. At the top level is an **account** (typically a company, not an individual user); next is an **organization** (typically a logical part of the company in a particular context, such as a region or business unit); at the lowest level is an **environment** (typically an environment in an IT infrastructure, such as development or production).
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample Gravitee Cloud hierarchy</p></figcaption></figure>
 
