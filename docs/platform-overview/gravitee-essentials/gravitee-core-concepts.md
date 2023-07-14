@@ -60,13 +60,11 @@ A critical component of API management is the ability to expose APIs to various 
 | External Developer as Customer | APIs are exposed to developers at other companies for use in external products. Avoids duplication of existing API functionality. |
 | Partner                        | APIs are exposed to partners when technical partnerships require integrations between certain products and/or feature sets.       |
 
-The recommended method to expose APIs to consumers is through an API developer portal. An API developer portal is a centralized catalog where internal and/or external API consumers can discover, find, subscribe, and manage subscriptions to APIs that are developed, managed, and deployed by API publishers.
+A developer portal is a centralized catalog where internal and/or external API consumers can discover and subscribe to APIs that are developed, managed, and deployed by API publishers. Developer portals avoid unnecessary duplication of API functionality by ensuring that existing APIs are advertised and securely accessible.
 
-For example, if a developer at a FinTech company creates a “stock price fetcher” API to present real-time stock prices, this API can be published to a portal for other developers in the organization to use when creating a banking application that relies on current stock prices. A developer portal avoids the need to duplicate API functionality by ensuring that other developers are aware of and can securely access existing APIs.
+API documentation includes specifications and tutorials that convey the purpose, structure, and capabilities of an API. Including high-quality, comprehensive, and accurate API documentation in the developer portal mitigates implementation challenges and increases API consumption.
 
-API documentation is critical for APIs to be used efficiently and appropriately. API specifications and tutorials necessary to convey the purpose, structure, and capabilities of an API. The inclusion of high-quality, comprehensive, and accurate API documentation in the developer portal mitigates implementation challenges and increases API consumption.
-
-An incentive to use developer portals is API monetization. This transforms APIs into self-serve, revenue-generating products with plans to govern how consumers pay for API access and usage. For example, a delivery company could be charged a set amount per message to use an API that tracks packages in real-time.
+An incentive to use developer portals is API monetization. This transforms APIs into self-serve, revenue-generating products with plans to govern how consumers pay for API access and usage, e.g., For example, a delivery company could be charged a set amount per message to use an API that tracks packages in real-time.
 
 ### API Access Management <a href="#api-access-management-7" id="api-access-management-7"></a>
 
