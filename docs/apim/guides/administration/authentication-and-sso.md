@@ -147,7 +147,7 @@ In addition to API Management, Gravitee offers a fully-fledged Access Management
 {% hint style="info" %}
 **Necessary prerequisites**
 
-Before you can use Gravitee AM as an authentication provider for Gravitee, you need to create a Gravitee AM security domain and client. To do so, please refer to the [Gravitee Access Management documentation.](http://localhost:5000/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/)
+Before you can use Gravitee AM as an authentication provider for Gravitee, you need to create a Gravitee AM security domain and client. To do so, please refer to the [Gravitee Access Management documentation.](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/)
 {% endhint %}
 
 You can configure Gravitee AM as your Gravitee APIM authentication provider via either the `gravitee.yaml` file or by using the Gravitee APIM UI. Whichever you choose, the configuration is stored in the database. This means that APIM starts using your new configuration as soon as you select the **Save** button (if configuring in the APIM UI) or restart the APIM API (if configuring in the `gravitee.yaml` configuration file). Please see the tabs below to lean more about each approach:

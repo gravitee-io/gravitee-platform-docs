@@ -3,7 +3,7 @@
 {% hint style="info" %}
 v2 vs v4 API configuration
 
-This section covers v2 API configuration. If you are looking for documentation that covers configuration for Gravitee v4 APIs, please refer to the [v4 API configuration section. ](../v4-api-configuration/)
+This section covers v2 API configuration. If you are looking for documentation that covers configuration for Gravitee v4 APIs, please refer to the [v4 API configuration section.](../v4-api-configuration/)
 {% endhint %}
 
 ## Introduction
@@ -24,18 +24,18 @@ Keep reading to learn more about general concepts related to each. If you want t
 
 * [API documentation](documentation.md)
 * [API General Settings](api-general-settings.md)
-* [Load-balancing, failover, and health checks](load-balancing-failover-and-health-checks.md)
+* [Load-balancing, failover, and health checks](../load-balancing-failover-and-health-checks.md)
 * [Configure service discovery](configure-service-discovery.md)
 * [Configure general proxy settings](configure-cors.md)
-* [Configure user and group access](configure-user-and-group-access.md)&#x20;
+* [Configure user and group access](configure-user-and-group-access.md)
 
 ## API Proxy configuration overview
 
-In Gravitee, you can configure several API proxy settings. You can use the interactive UI explorer or the text descriptions to learn more:&#x20;
+In Gravitee, you can configure several API proxy settings. You can use the interactive UI explorer or the text descriptions to learn more:
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="tn8DhyHNq83ZWp8pyqOC" url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" %}
+\{% @arcade/embed flowId="tn8DhyHNq83ZWp8pyqOC" url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" %\}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -43,7 +43,7 @@ In the Proxy section, you can configure the following settings:
 
 * General settings
   * **Entrypoints**: define the Context Path, or the URL location of your API. So if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-  * **CORS**: CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served. For more information on CORS, refer to the [CORS specification](https://fetch.spec.whatwg.org/) and/or read the [CORS section of this article](./#cors).&#x20;
+  * **CORS**: CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served. For more information on CORS, refer to the [CORS specification](https://fetch.spec.whatwg.org/) and/or read the [CORS section of this article](./#cors).
   * **Deployments**: choose to use sharding tags to control where your APIs are deployed.
   * **Response templates**: define your own response templates if you're looking to override default responses from the gateway.
 * Backend services (more information on each of these in the next section of this article)
@@ -55,11 +55,11 @@ In the Proxy section, you can configure the following settings:
 
 ## Load balancing
 
-Load balancing is a technique used to distribute incoming traffic across multiple backend servers. The goal of load balancing is to optimize resource utilization, maximize throughput, minimize response time, and avoid overloading any single server. The Gravitee Gateway comes with a built-in load balancer, which you can enable and configure for your API endpoints according to your requirements. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+Load balancing is a technique used to distribute incoming traffic across multiple backend servers. The goal of load balancing is to optimize resource utilization, maximize throughput, minimize response time, and avoid overloading any single server. The Gravitee Gateway comes with a built-in load balancer, which you can enable and configure for your API endpoints according to your requirements. Check out the interactive UI exploration or the text descriptions to learn more.
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="q2cetEPiktDGaSv7t4gM" url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" %}
+\{% @arcade/embed flowId="q2cetEPiktDGaSv7t4gM" url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" %\}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -78,11 +78,11 @@ In order to successfully use Gravitee load balancing, you'll need to understand 
 
 ## Failover
 
-Failover is a mechanism to ensure high availability and reliability of APIs by redirecting incoming traffic to a secondary server or backup system in the event of a primary server failure. Gravitee includes built-in failover mechanisms and capabilities. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+Failover is a mechanism to ensure high availability and reliability of APIs by redirecting incoming traffic to a secondary server or backup system in the event of a primary server failure. Gravitee includes built-in failover mechanisms and capabilities. Check out the interactive UI exploration or the text descriptions to learn more.
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="VaRhvOcOU39TQb3PtfRd" url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" %}
+\{% @arcade/embed flowId="VaRhvOcOU39TQb3PtfRd" url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" %\}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -93,13 +93,13 @@ Once you have configured your endpoints as a part of your load-balancing configu
 {% endtab %}
 {% endtabs %}
 
-## Health checks&#x20;
+## Health checks
 
-A health check is a mechanism used to monitor the availability and health of your endpoints and/or your API gateways. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+A health check is a mechanism used to monitor the availability and health of your endpoints and/or your API gateways. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="awIKYCvN2m1DusBD9W7a" url="https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a" %}
+\{% @arcade/embed flowId="awIKYCvN2m1DusBD9W7a" url="https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a" %\}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -109,7 +109,7 @@ Gravitee enables you to configure health checks for both endpoints and Gravitee 
   * HTTP methods
   * Paths
   * Headers
-* **Schedule**: the schedule at which health checks can be triggered. These can be configured at the levels of seconds, minutes, hours, days, weeks, months, and years.&#x20;
+* **Schedule**: the schedule at which health checks can be triggered. These can be configured at the levels of seconds, minutes, hours, days, weeks, months, and years.
 * **From root path:** this is an option that you can enable to apply the specified path at the root URL leel. For example, if your endpoint is URL is `www.test.com/api`, this option removes /api before appending the path.
 * **Assertions:** where you specify any specify conditions to test for in the API response that will trigger a health check. Assertions are written in the Gravitee Expression Language. An assertion can be a simple 200 response (`#response.status == 200`) but you can also test for specific content.
 

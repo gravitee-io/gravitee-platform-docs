@@ -193,7 +193,7 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
 As of Gravitee 4.0, all message API endpoints are Enterprise Edition only. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
 * [Refer to the EE vs OSS documentation](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
-* [Book a demo](http://localhost:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
@@ -392,7 +392,7 @@ Select Next to define any additional restrictions for the plan. These restrictio
 * **Quota:** define a rate limit over a period of hours, days, or months. If you choose this, you will need to define the same settings that are applicable to rate limiting (see above).
 * **Resource filtering:** restricts resources based on defined whitelist/allowed and/or blacklist/disallowed settings. These will be defined by path patterns and methods.
 
-<img src="../../../.gitbook/assets/image (2) (2).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (2).png" alt="" data-size="original">
 
 </details>
 

@@ -79,7 +79,7 @@
     * [Quality of Service](guides/api-configuration/v4-api-configuration/quality-of-service.md)
   * [v2 API configuration](guides/api-configuration/v2-api-configuration/README.md)
     * [Documentation](guides/api-configuration/v2-api-configuration/documentation.md)
-    * [Load-Balancing, Failover, and Health Checks](guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md)
+    * [Load-Balancing, Failover, and Health Checks](guides/api-configuration/load-balancing-failover-and-health-checks.md)
     * [Configure Service Discovery](guides/api-configuration/v2-api-configuration/configure-service-discovery.md)
     * [Configure General Proxy settings](guides/api-configuration/v2-api-configuration/configure-cors.md)
     * [Configure user and group access](guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md)
@@ -129,7 +129,8 @@
 * [Gravitee Kubernetes Operator API Reference](reference/gravitee-kubernetes-operator-api-reference.md)
 * [Policy Reference](reference/policy-reference/README.md)
   * [v4 Policies](reference/policy-reference/v4-policies/README.md)
-    * [v4 Template Policy](reference/policy-reference/v4-policies/v4-template-policy.md)
+    * [v4 Template Policy](reference/policy-reference/v4-template-policy.md)
+    * [Override HTTP Method](reference/policy-reference/v4-policies/override-http-method.md)
   * [v2 Policies](reference/policy-reference/v2-policies.md)
   * [Community Policies](reference/policy-reference/community-policies.md)
 
