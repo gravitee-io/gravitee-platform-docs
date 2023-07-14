@@ -16,8 +16,10 @@ This policy does not act on messages and only applies to the request phase of AP
 
 ### Example
 
-{% hint style="info" %}
-This example will work for proxy APIs and message APIs, just acting on the initial connection request phase in both cases.
+{% hint style="warning" %}
+This example will work for proxy APIs and for the initial connection request of message APIs.
+
+Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
 The Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted like so:
@@ -43,15 +45,15 @@ This API would typically be called with just a `GET` request, but if a client tr
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the policy design studio in the management UI, interacting directly with the management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the policy design studio in the Management Console, interacting directly with the Management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
 
 {% tabs %}
-{% tab title="Management UI" %}
+{% tab title="Management Console" %}
 <mark style="color:yellow;">We should wait to make these once the v4 policy design studio is finalized</mark>
 {% endtab %}
 
 {% tab title="Management API" %}
-When using the management API, policies are added as flows either directly to an API or to a  plan. To learn more about the structure of the management API, check out the reference documentation here.
+When using the management API, policies are added as flows either directly to an API or to a  plan. To learn more about the structure of the management API, check out the[ reference documentation here.](../management-api-reference/)
 
 {% code title="Sample Configuration" %}
 ```json
@@ -78,21 +80,30 @@ When using the management API, policies are added as flows either directly to an
 
 ### Phases
 
-Provide link to a conceptual overview of phases as well as an explanation of the difference between v4 and v2 API definitions.
+Policies can be applied to the request or the response of a gateway API transaction. Depending on the [version of the gateway API](../../overview/gravitee-api-definitions-and-execution-engines.md#policy-execution-phases-and-execution-order), the request and response are broken up into what are known as _phases_. Each policy has different compatibility with the available phases:
 
 {% tabs %}
-{% tab title="V4 API definition" %}
-Link explaining difference
+{% tab title="v4 API definition" %}
+This policy is compatible with the following v4 API phases:
 
-<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="152" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="153" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
 {% endtab %}
 
-{% tab title="V2 API definition" %}
-Link explaining difference
+{% tab title="v2 API definition" %}
+v2 APIs have the following phases:
 
-<table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">on </th><th width="197" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
+* `REQUEST`: The policy only works on request headers. It never accesses the request body.
+* `REQUEST_CONTENT`: The policy works at request content level and can access the request body.
+* `RESPONSE`: The policy only works on response headers. It never accesses the response body.
+* `RESPONSE_CONTENT`: The policy works at response content level and can access the response body.
+
+Policies working on the body content are postponed to be executed after the policies working on headers. This policy supports the following phases:
+
+<table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">onResponse</th><th width="197" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
+
+## Compatibility matrix
 
 ## Compatibility matrix
 

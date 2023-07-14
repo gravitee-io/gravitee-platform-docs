@@ -85,7 +85,7 @@ ONLY INCLUDE THIS SECTION IF MESSAGES ARE SUPPORTED
 Use this hint if messages are not supported:
 
 {% hint style="warning" %}
-This policy does not currently support message APIs.
+Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
 Otherwise provide an example:
@@ -202,7 +202,14 @@ Policies can be applied to the request or the response of a gateway API transact
 
 {% tabs %}
 {% tab title="v4 API definition" %}
-A v4 API can either be set up as a proxy or message API. This policy is compatible with the following v4 API phases:
+v4 APIs have the following phases:
+
+* `onRequest`: The policy only works on request headers and the content of proxy APIs.
+* `onResponse`: The policy only works on response headers and the content of proxy APIs.
+* `onMessageRequest`: The policy works at the message-level of requests.
+* `onMessageResponse`: The policy works at the message-level of responses.
+
+This policy is compatible with the following v4 API phases:
 
 <table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="153" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>true</td><td>true</td><td>true</td></tr></tbody></table>
 {% endtab %}
@@ -210,10 +217,10 @@ A v4 API can either be set up as a proxy or message API. This policy is compatib
 {% tab title="v2 API definition" %}
 v2 APIs have the following phases:
 
-* `REQUEST`: The policy only works on request headers. It never accesses the request body.
-* `REQUEST_CONTENT`: The policy works at request content level and can access the request body.
-* `RESPONSE`: The policy only works on response headers. It never accesses the response body.
-* `RESPONSE_CONTENT`: The policy works at response content level and can access the response body.
+* `onRequest`: The policy only works on request headers. It never accesses the request body.
+* `onRequestContent`: The policy works at request content level and can access the request body.
+* `onResponse`: The policy only works on response headers. It never accesses the response body.
+* `onResponseContent`: The policy works at response content level and can access the response body.
 
 Policies working on the body content are postponed to be executed after the policies working on headers. This policy supports the following phases:
 
