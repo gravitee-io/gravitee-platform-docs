@@ -126,7 +126,7 @@
 * [Management API Reference](reference/management-api-reference/README.md)
 * [Gravitee Kubernetes Operator API Reference](reference/gravitee-kubernetes-operator-api-reference.md)
 * [Policy Reference](reference/policy-reference/README.md)
-  * [Template Policy](reference/policy-reference/template-policy.md)
+  * [Template Policy](reference/policy-reference/v4-template-policy.md)
   * [Override HTTP Method](reference/policy-reference/override-http-method.md)
 
 ## Releases & Changelog

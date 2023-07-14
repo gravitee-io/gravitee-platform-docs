@@ -198,17 +198,24 @@ spec:
 
 ### Phases
 
-Policies can be applied to the request or the response of a gateway API transaction. Depending on the type of gateway API, the request and response are broken up into what are known as _phases_. Each policy has a different compatibility
+Policies can be applied to the request or the response of a gateway API transaction. Depending on the [version of the gateway API](../../overview/gravitee-api-definitions-and-execution-engines.md#policy-execution-phases-and-execution-order), the request and response are broken up into what are known as _phases_. Each policy has different compatibility with the available phases:
 
 {% tabs %}
-{% tab title="V4 API definition" %}
-Link explaining difference
+{% tab title="v4 API definition" %}
+A v4 API can either be set up as a proxy or message API. This policy is compatible with the following v4 API phases:
 
 <table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="153" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>true</td><td>true</td><td>true</td></tr></tbody></table>
 {% endtab %}
 
-{% tab title="V2 API definition" %}
-Link explaining difference
+{% tab title="v2 API definition" %}
+v2 APIs have the following phases:
+
+* `REQUEST`: The policy only works on request headers. It never accesses the request body.
+* `REQUEST_CONTENT`: The policy works at request content level and can access the request body.
+* `RESPONSE`: The policy only works on response headers. It never accesses the response body.
+* `RESPONSE_CONTENT`: The policy works at response content level and can access the response body.
+
+Policies working on the body content are postponed to be executed after the policies working on headers. This policy supports the following phases:
 
 <table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">onResponse</th><th width="197" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
 {% endtab %}
