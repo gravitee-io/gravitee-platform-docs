@@ -111,9 +111,9 @@ API-level access management enables fine-tuned access control for applications c
 
 ### API Design-First <a href="#api-design-first-8" id="api-design-first-8"></a>
 
-Not always considered a part of every organization’s API management strategy, API design is the stage where you plan and make intentional architectural decisions around how and why your API interacts with client and backend (or, in east/west use cases, service and service).
+Gravitee's API management strategy includes API design, during which intentional architectural choices that define API client and backend interactions are determined.
 
-API design is becoming increasingly important for organizations that are implementing API design-first methodology. **API design-first** is defined as organizations choosing to approach development decisions and planning by first starting with an API design or data model and then generating the API specification. This makes it easier for teams to include less technical, business users and build APIs that are more “fit for purpose” as they pertain to business value.
+Gravitee also implements API design-first methodology, where the API design or data model is developed before the API specification is generated. This approach promotes collaboration with less technical, business stakeholders to build APIs that align with business value.
 
 ### Gravitee API Definitions <a href="#gravitee-api-definitions-9" id="gravitee-api-definitions-9"></a>
 
