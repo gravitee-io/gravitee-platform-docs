@@ -36,24 +36,24 @@ The features below are included in the default enterprise API Management distrib
 
 The Enterprise policy pack includes policies that are typically necessary for enterprise-grade, production API Management deployments:
 
-* **Data logging masking**: if you enable logging on APIs, you can use the data-logging-masking policy to configure rules to conceal sensitive data.
-* **Assign metrics**: you can use the assign-metrics policy to push extra metrics in addition to the natively provided request metrics. These metrics can then be used for monetization invoices, analytics dashboards to create custom widgets, and, optionally, apply aggregations based on their value.
-* **GeoIP Filtering policy: y**ou can use the geoip-filtering policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
-* **GeoIP service:** load the geoip databases in memory. It’s required to use the geoip-filtering policy in APIM and for [Adaptive Multi-Factor Authentication in AM](https://documentation.gravitee.io/am).
+* **Data logging masking:** If you enable logging on APIs, you can use the **data logging masking** policy to configure rules to conceal sensitive data.
+* **Assign metrics:** Use the **assign metrics** policy to push extra metrics in addition to the natively provided request metrics. These metrics can be used for monetization invoices, analytics dashboards to create custom widgets, and, optionally, to apply aggregations based on their value.
+* **GeoIP filtering policy:** Use the **geoip filtering** policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
+* **GeoIP service:** Use the **geoip service** to load the geoip databases in memory. It’s required to use the geoip-filtering policy in APIM and for [Adaptive Multi-Factor Authentication in AM](https://documentation.gravitee.io/am).
 
 ### Legacy upgrade pack
 
-The Legacy upgrade pack is comprised of the following plugins and capabilities that enable organizations to better migrate from and/or service legacy systems:
+The Legacy upgrade pack comprises the following plugins and capabilities that enable organizations to better migrate from and/or service legacy systems:
 
-* **XSLT policy plugin**: you can use the xslt policy to apply an XSL transformation to an incoming XML request body or to the response body if your backend is exposing XML content.
-* **WebSocket security authentication**: enables the client to send a SOAP envelope with some WSS details and the policy will validate and check the credentials (supports username and password as of today)
+* **XSLT policy plugin**: Use the XSLT policy to apply an XSL transformation to an incoming XML request body, or to the response body if your backend is exposing XML content.
+* **WebSocket security authentication**: Enables the client to send a SOAP envelope with WSS details, where the policy will validate and check the credentials (currently supports username and password).
 
 ### Observability pack
 
-The Observability Pack includes capabilities that help you better implement enterprise-grade API Monitoring and Observability:
+The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../../getting-started/configuration/configure-reporters.md#datadog-reporter): push API metrics to your Datadog instance and dashboards
-* [**TCP reporter**](../../getting-started/configuration/configure-reporters.md#tcp-reporter): report Gateway events to a TCP listening server
+* [**Datadog reporter**](../../getting-started/configuration/configure-reporters.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](../../getting-started/configuration/configure-reporters.md#tcp-reporter): Report Gateway events to a TCP listening server.
 
 ### Event-native pack
 
@@ -78,7 +78,7 @@ The Event-native pack includes capabilities that enable you to use Gravitee to e
 
 ## Advanced API monitoring
 
-While not technically a part of the Access Management product, Gravitee does offer a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
+Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
 
 ## Advanced environment management
 
