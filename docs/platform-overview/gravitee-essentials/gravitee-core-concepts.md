@@ -45,7 +45,7 @@ API Management encompasses API design, API security and access management, API r
 
 ### API policies
 
-Policies are rules or logic that can be executed by the API Gateway during the request or response of an API call to enforce security, reliability, and proper data transfer. Gravitee offers numerous policies out of the box to control how an API is consumed. Policies applied to achieve various objectives, e.g., to make an API more secure, more reliable, or a profit-driver in the context of API monetization. Below are common API policies that are executed at the Gateway level:
+Policies are rules or logic executed by the API Gateway during the request or response of an API call to enforce security, reliability, and proper data transfer. Gravitee offers many out-of-the-box policies to control how an API is consumed. Policies applied to achieve various objectives, e.g., to make an API more secure, more reliable, or a profit-driver in the context of API monetization. Below are common API policies that are executed at the Gateway level:
 
 * **Traffic shaping:** Policies that strip, shape, or otherwise alter network traffic to make API consumption and data movement more secure, reliable, performant, or efficient, e.g., strip sensitive or nonessential information as data is brokered and sent to the client application to protect confidential data or streamline the message.
 * **Authentication/authorization:** Policies that enforce certain authentication or authorization methods to ensure that an API consumer can request information from your backend, e.g., use an API key policy to limit API consumption to a set of client applications that pass a specific, unique API key with each request.
