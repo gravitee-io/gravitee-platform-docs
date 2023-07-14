@@ -140,13 +140,13 @@ Many of our enterprise customers are already implementing an IaC practice using 
 
 Traditionally, Gravitee customers progress through three levels of API “deployment maturity”:
 
-#### **Gravitee Console/UI**
+#### **Gravitee Console**
 
-Gravitee comes with an easy-to-use, self-serve UI that is often used for development (we estimate that ⅓-½ of our enterprise customers use this UI for development).
+The default Gravitee distribution includes an intuitive self-serve UI that an estimated ⅓-½ of our enterprise customers use for API development.
 
 #### **Gravitee Management API**
 
-Every action in the Gravitee UI is tied to a REST API that makes up the Gravitee management API. The management API exposes a complete set of endpoints and is [documented using the OpenAPI spec](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_documentation.html#apim\_console\_api\_reference). As a result, everything you can do in the UI can be done via REST API calls for developers wanting to script some part of APIM administration. Typically, as enterprise customers start to move into a GitOps world and moving things across higher environments, they use things like GitLab, Jenkins, Bitbucket, GitHub Actions, etc. to manage everything in a data serialization format like JSON or YAML.
+Every action in the Gravitee Console is tied to a REST API that makes up the Gravitee management API. The management API exposes a complete set of endpoints and is [documented using the OpenAPI spec](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_documentation.html#apim\_console\_api\_reference). As a result, everything you can do in the UI can be done via REST API calls for developers wanting to script some part of APIM administration. Typically, as enterprise customers start to move into a GitOps world and moving things across higher environments, they use things like GitLab, Jenkins, Bitbucket, GitHub Actions, etc. to manage everything in a data serialization format like JSON or YAML.
 
 #### **Kubernetes-native using the Gravitee Kubernetes Operator**
 
