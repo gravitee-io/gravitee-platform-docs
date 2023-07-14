@@ -57,23 +57,23 @@ The Observability pack includes capabilities to better implement enterprise-grad
 
 ### Event-native pack
 
-The Event-native pack includes capabilities that enable you to use Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
+The event-native pack includes capabilities that enable using Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
-* [**v4 message API entrypoints**](../../guides/create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints):
-  * **HTTP GET:** enable consumers to access the Gateway and/or consume various message-based backend resources via HTTP GET
-  * **HTTP POST**: enable consumers to access the Gateway and/or consume various message-based backend resources via HTTP POST
-  * **WebSocket**: enable consumers to access the Gateway and/or consume various message-based backend resources via WebSocket protocol
-  * **Webhooks**: enable consumers to access the Gateway and/or consume various message-based backend resources via a Webhooks subscription
-  * Server-sent Events (SSE): enable consumers to access the Gateway and/or consume various message-based backend resources via Server-sent Events protocol
+* [**v4 message API entrypoints**](../../guides/create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) enable consumers to access the Gateway and/or consume various message-based backend resources via&#x20;
+  * **HTTP GET**&#x20;
+  * **HTTP POST**
+  * **WebSocket**
+  * **Webhooks**
+  * **Server-Sent Events (SSE)**
 * [**v4 message API endpoints**](../../guides/create-apis/how-to/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints):
-  * **Kafka/Confluent**: allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway
-  * **MQTT**: allows the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x, via an MQTT client set up by the Gravitee Gateway
-  * **RabbitMQ**: allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ broker, as long as that broker is running on AMQP 0-9-1
-  * **Solace**: allows the Gateway to expose Solace resources and event APIs via your chosen Gravitee Entrypoint(s)
-* **CloudEvents policy**: transform ingoing and outgoing data using the CloudEvents spec
-* **Message Filtering policy**: filter messages streamed to clients/subscribers based on certain API publisher and/or client criterion
-* **Avro <> JSON policy**: transform information from Avro format into JSON format
-* **Gateway message reactor plugin**: enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems
+  * **Kafka/Confluent**: Allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway.
+  * **MQTT**: Allows the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x, via an MQTT client set up by the Gravitee Gateway.
+  * **RabbitMQ**: Allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ broker, as long as that broker is running on AMQP 0-9-1.
+  * **Solace**: Allows the Gateway to expose Solace resources and event APIs via your chosen Gravitee entrypoint(s).
+* **CloudEvents policy**: Transform ingoing and outgoing data using the CloudEvents spec.
+* **Message filtering policy**: Filter messages streamed to clients/subscribers based on certain API publisher and/or client criteria.
+* **Avro <> JSON policy**: Transform information in Avro format into JSON format
+* **Gateway message reactor plugin**: Enables the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
 * **Confluent Schema Registry resource**: define Confluent Schema Registry as a resource for serialization and deserialization policies
 
 ## Advanced API monitoring
