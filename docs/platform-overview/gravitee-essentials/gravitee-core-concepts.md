@@ -77,7 +77,13 @@ Policies that dispatch inbound calls to different targets/endpoints or rewrite U
 
 ### API plugins
 
-Gravitee plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. A policy is a type of plugin, i.e., a feature or function that is enabled through plugin functionality. Refer to the [plugin marketplace](https://www.gravitee.io/plugins) to browse the current collection of Gravitee plugins. Refer to the Custom Plugins guide for instructions to build a plugin.
+Gravitee plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. A policy is a type of plugin, i.e., a feature or function that is enabled through plugin functionality.&#x20;
+
+{% hint style="info" %}
+Browse the current collection of [Gravitee plugins](https://www.gravitee.io/plugins).&#x20;
+
+Refer to Custom Plugins for the instructions to build a plugin.
+{% endhint %}
 
 ### API Developer Portals & API Productization <a href="#api-developer-portals-api-productization-6" id="api-developer-portals-api-productization-6"></a>
 
