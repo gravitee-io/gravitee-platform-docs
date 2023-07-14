@@ -126,7 +126,7 @@ If you are installing the operator with the cluster scope enabled (which is the 
 
 You can deploy an API on Gateways in different Kubernetes clusters. The Gravitee Gateways will be deployed in different clusters and the Management API will be deployed in the same cluster as the Gravitee Kubernetes Operator.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Gateways in different Kubernetes Clusters</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Gateways in different Kubernetes Clusters</p></figcaption></figure>
 
 ### Deploy on a single Gateway
 

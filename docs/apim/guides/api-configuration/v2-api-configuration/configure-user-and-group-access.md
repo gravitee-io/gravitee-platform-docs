@@ -18,7 +18,7 @@ To configure user and group access for your APIs, navigate to the APIs list, and
 
 Here, you can add members to your API by using the **+ Add members icon**, as well as alter member roles. These roles come with specific permissions. For more information on roles, please refer to the [roles documentation.](../../administration/user-management-and-permissions.md#roles)&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 ### Add groups to your API
 

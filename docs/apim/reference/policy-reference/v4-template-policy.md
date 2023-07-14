@@ -20,13 +20,9 @@ license type: Enterprise
 
 \---
 
-<details>
-
-<summary>Enterprise Feature</summary>
-
-This plugin requires an enterprise license or trial which you can learn more about here.
-
-</details>
+{% hint style="warning" %}
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
+{% endhint %}
 
 ## Overview
 
@@ -79,6 +75,16 @@ Adding a JSON-to-XML policy on the `response` phase for a Proxy API will transfo
 {% endcode %}
 
 ### Message API example
+
+ONLY INCLUDE THIS SECTION IF MESSAGES ARE SUPPORTED
+
+Use this hint if messages are not supported:
+
+{% hint style="warning" %}
+This policy does not currently support message APIs.
+{% endhint %}
+
+Otherwise provide an example:
 
 For message APIs, the JSON-to-XML policy is used to transform the message `content` in either the `publish` or `subscribe` phase.
 
@@ -138,7 +144,7 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 {% endtab %}
 
 {% tab title="Managment API" %}
-When using the management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the management API, check out the reference documentation here.
+When using the management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the management API, check out the [reference documentation here.](../management-api-reference/)
 
 {% code title="Sample Configuration" %}
 ```json
