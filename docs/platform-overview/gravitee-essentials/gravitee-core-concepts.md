@@ -16,15 +16,15 @@ Key Gravitee concepts and terminology are introduced below as a foundation for m
 
 ### Gravitee global architecture <a href="#gravitee-global-architecture-4" id="gravitee-global-architecture-4"></a>
 
-The architecture diagrams below offer a high-level conceptualization of the Gravitee landscape. The first diagram shows the interaction between the API Management (APIM) and Access Management (AM) ecosystems and their respective components. The second diagram highlights the function of the Alert Engine (AE).&#x20;
+The architecture diagrams below offer a high-level conceptualization of the Gravitee ecosystem. The first diagram shows the interactions between and within Gravitee API Management (APIM) and Gravitee Access Management (AM). The second diagram illustrates the function of the Alert Engine (AE).&#x20;
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/b014429c2135257d51371e103e78eda7e306277d_2_486x500.png" alt=""><figcaption><p>APIM and AM architecture overview</p></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/ae_architecture.png" alt=""><figcaption><p>AE architecture overview</p></figcaption></figure>
 
-Key takeaways from the architecture diagrams:
+Key takeaways:
 
-* API publishers make requests to the Management API from either programmatically or from the Management Console.&#x20;
+* API publishers make requests to the Management API either programmatically or from the Management Console.&#x20;
 * The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from end users to backend APIs, and exposing backend APIs in a developer portal for access by API consumers.
 * A single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
