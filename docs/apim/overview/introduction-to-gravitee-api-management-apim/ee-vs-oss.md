@@ -24,22 +24,22 @@ The Gravitee APIM Enterprise Edition is available in three different packages, e
 
 The features below are included in the default enterprise API Management distribution and do not require additional enterprise plugins:
 
-* Enterprise OpenID Connect SSO: use OpenId connect for SSO for your API Management platform
-* [Debug Mode](../../guides/policy-design/v2-api-policy-design-studio.md#debug-mode): easily test and debug your policy execution and enforcement.
-* [Audit trail](../../guides/api-measurement-tracking-and-analytics/#the-audit-trail): audit API consumption and activity, per event and type for your Gravitee APIs. You can use the Audit trail for monitoring the behavior of your API and platform over time.
-* [DCR Registration](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md#dynamic-client-registration-provider): Dynamic client registration (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint
-* [Custom Roles](../../guides/administration/user-management-and-permissions.md#roles): create custom user roles to fit your needs. A role is a functional group of permissions, and can be defined at the Organization, Environment, API, and/or Application levels.
-* [Sharding Tags](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md): specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
-* [Bridge Gateway](../../getting-started/hybrid-deployment/#bridge-gateways): By default, an API Gateway needs to connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. When deployed in a more complex environment (network zones, different data centers, ...), many teams prefer to avoid opening a connection between the database and something from outside its network. The solution is to deploy a Bridge Gateway, which is a kind of proxy in regards to the repository. The sync will be done over HTTP instead of the database protocol. API GW > Bridge > Database.
+* Enterprise OpenID Connect SSO: Use OpenId Connect SSO with your API Management platform.
+* [Debug Mode](../../guides/policy-design/v2-api-policy-design-studio.md#debug-mode): Easily test and debug your policy execution and enforcement.
+* [Audit trail](../../guides/api-measurement-tracking-and-analytics/#the-audit-trail): Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform over time.
+* [DCR Registration](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md#dynamic-client-registration-provider): Dynamic client registration (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint.
+* [Custom Roles](../../guides/administration/user-management-and-permissions.md#roles): Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application levels.
+* [Sharding Tags](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md): Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
+* [Bridge Gateway](../../getting-started/hybrid-deployment/#bridge-gateways): By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.&#x20;
 
 ### Enterprise policy pack
 
 The Enterprise policy pack includes policies that are typically necessary for enterprise-grade, production API Management deployments:
 
-* **Data logging masking:** If you enable logging on APIs, you can use the **data logging masking** policy to configure rules to conceal sensitive data.
-* **Assign metrics:** Use the **assign metrics** policy to push extra metrics in addition to the natively provided request metrics. These metrics can be used for monetization invoices, analytics dashboards to create custom widgets, and, optionally, to apply aggregations based on their value.
-* **GeoIP filtering policy:** Use the **geoip filtering** policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
-* **GeoIP service:** Use the **geoip service** to load the geoip databases in memory. It’s required to use the geoip-filtering policy in APIM and for [Adaptive Multi-Factor Authentication in AM](https://documentation.gravitee.io/am).
+* **Data logging masking:** If you enable logging on APIs, you can use the data logging masking policy to configure rules to conceal sensitive data.
+* **Assign metrics:** Use the assign metrics policy to push extra metrics in addition to the natively provided request metrics. These metrics can be used for monetization invoices, analytics dashboards to create custom widgets, and, optionally, to apply aggregations based on their value.
+* **GeoIP filtering policy:** Use the GeoIP filtering policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
+* **GeoIP service:** Use the GeoIP service to load the GeoIP databases in memory. The GeoIP service is required to use the GeoIP filtering policy in APIM and for [Adaptive Multi-Factor Authentication in AM](https://documentation.gravitee.io/am).
 
 ### Legacy upgrade pack
 
