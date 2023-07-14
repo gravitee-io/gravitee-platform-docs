@@ -12,7 +12,7 @@ Gravitee offers an API lifecycle toolset that extends beyond conventional API st
 
 ## Key concepts <a href="#key-concepts-3" id="key-concepts-3"></a>
 
-This section decodes key Gravitee concepts and terminology to provide a robust frame of reference for product documentation.
+Key Gravitee concepts and terminology are introduced below as a foundation for more detailed product documentation.
 
 ### Gravitee global architecture <a href="#gravitee-global-architecture-4" id="gravitee-global-architecture-4"></a>
 
@@ -28,8 +28,14 @@ Key takeaways from the architecture diagrams:
 * The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from end users to backend APIs, and exposing backend APIs in a developer portal for access by API consumers.
 * A single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
-* Each APIM and AM instance is attached to a Gravitee Cloud environment.
-* Gravitee Cloud observes a hierarchy of three entity types. At the top level is an **account** (typically a company, not an individual user); next is an **organization** (typically a logical part of the company in a particular context, such as a region or business unit); at the lowest level is an **environment** (typically an environment in an IT infrastructure, such as development or production).
+
+### Gravitee Cloud architecture
+
+Each APIM and AM instance is attached to a Gravitee Cloud environment. Gravitee Cloud observes a hierarchy of three entity types:&#x20;
+
+* Account: Top level. Typically a company, not an individual user.
+* Organization: Second level. Typically a logical part of the company in a particular context, such as a region or business unit.
+* Environment: Lowest level. Typically an environment in an IT infrastructure, such as development or production.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample Gravitee Cloud hierarchy</p></figcaption></figure>
 
