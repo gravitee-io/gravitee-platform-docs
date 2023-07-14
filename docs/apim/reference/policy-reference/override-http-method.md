@@ -5,7 +5,7 @@ description: Used to override the HTTP method provided by initial API consumer
 # Override HTTP Method
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
 {% endhint %}
 
 ## Overview
@@ -96,7 +96,7 @@ Link explaining difference
 
 ## Compatibility matrix
 
-In the [changelog for each version of APIM](../../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `override-http-method` policy.
+In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `override-http-method` policy.
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th width="233">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>Up to 2.x</td><td>>=3.21</td><td>>= 3.21</td></tr><tr><td>Up to 1.x</td><td>All</td><td>&#x3C;= 3.20</td></tr></tbody></table>
 
@@ -116,7 +116,7 @@ To do so, follow these steps:
 {% hint style="info" %}
 **Location of `plugins` folder**
 
-The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
+The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
 
 Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
 {% endhint %}

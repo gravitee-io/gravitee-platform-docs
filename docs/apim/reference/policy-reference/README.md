@@ -25,11 +25,9 @@ Policies can be used for a variety of reasons and objectives, ranging from makin
 * **Monitoring and Testing:** Validate API transactions and test different flows without setting up a backend API
   * For example, you could use the mock policy to design and test a flow for a Kafka backend without actually setting up and integrating a Kafka broker
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-type="content-ref"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Full Policy Reference</strong></td><td>All policies listed in alphabetical order</td><td></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Gravitee Policies</strong></td><td>Learn more about the current Gravitee-maintained policies</td><td></td><td><a href="broken-reference">Broken link</a></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Community Policies</strong></td><td>Learn more about community policies and see the current list</td><td></td><td><a href="community-policies.md">community-policies.md</a></td><td><a href="community-policies.md">community-policies.md</a></td></tr></tbody></table>
+## See also
 
-### See also
-
-#### Ant notation
+### Ant notation
 
 APIM frequently uses Ant notation for path matching:
 
@@ -37,12 +35,8 @@ APIM frequently uses Ant notation for path matching:
 * `\*` matches zero or more characters
 * `**` matches zero or more directories in a path
 
-#### Related learning
+### Related learning
 
 For details of how policies are defined and used in APIM, see also:
 
-* Plans and subscriptions in the API Publisher Guide to learn how to configure policies for API plans in APIM Console
-* Expression Language in the API Publisher Guide to learn more about using the Gravitee Expression Language with policies
-* Policies in the Developer Guide to learn how to create custom policies
-* Pluginsin the Developer Guide to learn how to deploy plugins (of which policies are one type)
-* Platform policies in the Admin Guide to learn how to use policies at the organization level
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>API Exposure: Plans, Applications, &#x26; Subscriptions</strong></td><td></td><td>Learn how to configure policies for API plans in APIM Console</td><td><a href="../../guides/api-exposure-plans-applications-and-subscriptions/">api-exposure-plans-applications-and-subscriptions</a></td></tr><tr><td><strong>Gravitee Expression Language</strong></td><td></td><td>Learn more about using the Gravitee Expression Language with policies</td><td><a href="../../guides/policy-design/gravitee-expression-language.md">gravitee-expression-language.md</a></td></tr><tr><td><strong>Developer Contributions</strong></td><td></td><td>Learn how to create custom policies and deploy plugins (of which policies are one type)</td><td><a href="../../guides/developer-contributions/">developer-contributions</a></td></tr></tbody></table>

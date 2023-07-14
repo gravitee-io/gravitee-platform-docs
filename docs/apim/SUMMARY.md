@@ -126,11 +126,8 @@
 * [Management API Reference](reference/management-api-reference/README.md)
 * [Gravitee Kubernetes Operator API Reference](reference/gravitee-kubernetes-operator-api-reference.md)
 * [Policy Reference](reference/policy-reference/README.md)
-  * [v4 Policies](reference/policy-reference/v4-policies/README.md)
-    * [v4 Template Policy](reference/policy-reference/v4-template-policy.md)
-    * [Override HTTP Method](reference/policy-reference/v4-policies/override-http-method.md)
-  * [v2 Policies](reference/policy-reference/v2-policies.md)
-  * [Community Policies](reference/policy-reference/community-policies.md)
+  * [Template Policy](reference/policy-reference/template-policy.md)
+  * [Override HTTP Method](reference/policy-reference/override-http-method.md)
 
 ## Releases & Changelog
 

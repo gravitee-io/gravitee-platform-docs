@@ -2,7 +2,7 @@
 description: Sample structure for policy documentation
 ---
 
-# v4 Template Policy
+# Template Policy
 
 ***
 
@@ -198,7 +198,7 @@ spec:
 
 ### Phases
 
-Provide a link to a conceptual overview of phases
+Policies can be applied to the request or the response of a gateway API transaction. Depending on the type of gateway API, the request and response are broken up into what are known as _phases_. Each policy has a different compatibility
 
 {% tabs %}
 {% tab title="V4 API definition" %}
@@ -213,8 +213,6 @@ Link explaining difference
 <table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">onResponse</th><th width="197" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
-
-<table data-full-width="false"><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>true</td><td>true</td><td>true</td></tr></tbody></table>
 
 ## Compatibility matrix
 
