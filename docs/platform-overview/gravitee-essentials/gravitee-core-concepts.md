@@ -117,14 +117,14 @@ Gravitee also implements API design-first methodology, where the API design or d
 
 ### Gravitee API Definitions <a href="#gravitee-api-definitions-9" id="gravitee-api-definitions-9"></a>
 
-A Gravitee API definition is the API specification for a Gravitee Gateway_._ It’s a JSON representation of everything that the Gravitee gateway needs to know for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic.
+A Gravitee API definition is the API specification for a Gravitee Gateway_._ It’s a JSON representation of the information the Gravitee Gateway requires to proxy, apply policies to, create plans for, etc. your APIs and their traffic.
 
 Each [Gravitee API definition brings with it certain capabilities](https://www.gravitee.io/blog/gravitee-api-definitions) which you can read about further in the linked article. The key thing you need to note is that the **latest API definition is v4.** The v4 definition allows for advanced protocol mediation (i.e. fronting Kafka with a Webhook, Websocket, HTTP API, etc.) and the ability to apply Gravitee policies (i.e. authentication, traffic shaping, etc.) to asynchronous API traffic–at the message level. This is done by decoupling what is known as the gateway **entrypoints** and **endpoints**.
 
 To keep things simple:
 
-* Gateway Entrypoint: how the consumer “calls” or “subscribes” to the gateway. This essentially defines how a consumer will end up consuming data from a producer/provider
-* Gateway Endpoint: the data source from/to which the gateway will fetch/post data for/from the consumer that calls or subscribes to the gateway
+* Gateway entrypoint: how the consumer “calls” or “subscribes” to the gateway. This essentially defines how a consumer will end up consuming data from a producer/provider
+* Gateway endpoint: the data source from/to which the gateway will fetch/post data for/from the consumer that calls or subscribes to the gateway
 
 So, for example, if you wanted to make it possible for an API consumer to consume events from a Kafka topic over a WebSocket connection, you would choose a “Websocket” entrypoint and a “Kafka” endpoint when creating your API in Gravitee. If you wanted to make it possible for an API consumer to POST data onto a Kafka topic via an HTTP API, you would use the Gravitee HTTP POST entrypoint and Kafka endpoint.
 
