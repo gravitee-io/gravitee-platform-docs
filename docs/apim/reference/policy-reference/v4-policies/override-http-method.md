@@ -4,13 +4,9 @@ description: Used to override the HTTP method provided by initial API consumer
 
 # Override HTTP Method
 
-<details>
-
-<summary>Enterprise Feature</summary>
-
-This plugin requires an enterprise license or trial which you can learn more about here.
-
-</details>
+{% hint style="warning" %}
+**This feature requires** [**Gravitee's Enterprise Edition**](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
+{% endhint %}
 
 ## Overview
 
