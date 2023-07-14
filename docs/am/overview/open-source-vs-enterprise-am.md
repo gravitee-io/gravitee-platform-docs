@@ -54,22 +54,22 @@ The Enterprise MFA pack enables advanced authentication factors for MFA:
 
 ## Advanced API monitoring <a href="#advanced-api-monitoring" id="advanced-api-monitoring"></a>
 
-While not technically a part of the Access Management product, Gravitee does offer a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
+Not technically a part of the Access Management product, Gravitee offers a standalone, enterprise-grade API monitoring solution called Gravitee Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels, such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
 
-## Advanced environment management <a href="#advanced-environment-management" id="advanced-environment-management"></a>
+## Advanced environment management
 
-Gravitee EE AM enables you to register multiple AM environments and installations using [Gravitee Cloud.](https://documentation.gravitee.io/gravitee-cloud) This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
+Gravitee APIM EE includes [Gravitee Cloud](https://documentation.gravitee.io/gravitee-cloud), which you can use to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.&#x20;
 
-## Hosting options <a href="#hosting-options" id="hosting-options"></a>
+## Hosting options
 
-An investment in Gravitee EE is an investment in deployment flexibility, and, optionally, the ability to offload costs associated with maintaining self-hosted AM installations. Gravitee Enterprise supports:
+An investment in Gravitee EE is an investment in deployment flexibility, and, optionally, the ability to offload costs associated with maintaining self-hosted Access Management installations. Gravitee Enterprise supports:
 
 * **Self-hosted deployments**: Install and host AM within your own private cloud/environment.
-* **Gravitee-managed deployments**: Gravitee hosts and manages all AM components within its own cloud environments.
-* **Hybrid deployment**: Gravitee hosts and manages some AM components in its cloud environment while you manage others in your own private cloud/environment.
+* **Gravitee-managed deployments**: Gravitee hosts and manages all AM components within its own cloud environment.
+* **Hybrid deployment**: Gravitee hosts and manages some AM components within its cloud environment while you manage others within your private cloud/environment.
 
-For more information, please refer to our [AM Architecture documentation](am-architecture.md).
+For more information on each, please refer to our [AM Architecture documentation](am-architecture.md).&#x20;
 
-## Support options <a href="#support-options" id="support-options"></a>
+## Support options
 
-Gravitee offers enterprise-grade support for enterprise customers, available in three different packages: Gold, Platinum, and Diamond. Each has different SLAs, benefits, etc. For more information on each support option, please [refer to our pricing page](https://www.gravitee.io/pricing).
+Gravitee offers enterprise-grade support for enterprise customers, available in three different packages: Gold, Platinum, and Diamond. Each has different SLAs, benefits, etc. For more information, please [refer to our pricing page](https://www.gravitee.io/pricing).
