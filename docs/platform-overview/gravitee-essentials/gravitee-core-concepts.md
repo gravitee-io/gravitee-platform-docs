@@ -66,7 +66,7 @@ For example, if a developer at a FinTech company creates a “stock price fetche
 
 API documentation is critical for APIs to be used efficiently and appropriately. API specifications and tutorials necessary to convey the purpose, structure, and capabilities of an API. The inclusion of high-quality, comprehensive, and accurate API documentation in the developer portal mitigates implementation challenges and increases API consumption.
 
-An incentive for developer portals that fuel API consumption is API monetization. API monetization transforms APIs into self-serve, revenue-generating products with plans that govern how consumers can pay to access/consume APIs. For example, delivery companies could be charged a set amount per message to use a “track packages in real-time" API.
+An incentive to use developer portals is API monetization. This transforms APIs into self-serve, revenue-generating products with plans to govern how consumers pay for API access and usage. For example, a delivery company could be charged a set amount per message to use an API that tracks packages in real-time.
 
 ### API Access Management <a href="#api-access-management-7" id="api-access-management-7"></a>
 
