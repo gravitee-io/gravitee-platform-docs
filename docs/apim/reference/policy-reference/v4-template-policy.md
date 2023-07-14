@@ -144,7 +144,7 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 {% endtab %}
 
 {% tab title="Managment API" %}
-When using the management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the management API, check out the [reference documentation here.](../management-api-reference/)
+When using the management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the management API, check out the [reference documentation here.](../management-api-reference.md)
 
 {% code title="Sample Configuration" %}
 ```json

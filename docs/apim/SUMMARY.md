@@ -123,9 +123,7 @@
 
 ## Reference
 
-* [Management API Reference](reference/management-api-reference/README.md)
-  * [Console API](reference/management-api-reference/console-api.md)
-  * [Portal API](reference/management-api-reference/portal-api.md)
+* [Management API Reference](reference/management-api-reference.md)
 * [Gravitee Kubernetes Operator API Reference](reference/gravitee-kubernetes-operator-api-reference.md)
 * [Policy Reference](reference/policy-reference/README.md)
   * [v4 Policies](reference/policy-reference/v4-policies/README.md)
