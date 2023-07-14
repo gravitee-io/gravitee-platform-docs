@@ -34,6 +34,10 @@ For transforming XML content to JSON, please see the `xml-json` policy.
 
 ### Proxy API example
 
+{% hint style="info" %}
+The Proxy API example also applies to v2 APIs.
+{% endhint %}
+
 For Proxy APIs, the JSON-to-XML policy is most commonly used for transforming JSON data before returning it to the client in the `response` phase.
 
 For example, the Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted like so:
@@ -134,17 +138,17 @@ For the HTTP GET entrypoint specifically, the entire payload can be returned as 
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the management UI, interacting directly with the management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the Management Console, interacting directly with the Management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
 
 {% tabs %}
-{% tab title="Management UI" %}
+{% tab title="Management Console" %}
 <mark style="color:yellow;">We should wait to make these once the v4 Policy Studio is finalized</mark>
 
 \{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" %\}
 {% endtab %}
 
 {% tab title="Managment API" %}
-When using the management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the management API, check out the [reference documentation here.](../management-api-reference.md)
+When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
 {% code title="Sample Configuration" %}
 ```json
@@ -206,7 +210,7 @@ Link explaining difference
 {% tab title="V2 API definition" %}
 Link explaining difference
 
-<table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">on </th><th width="197" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
+<table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">onResponse</th><th width="197" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 

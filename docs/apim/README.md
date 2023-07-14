@@ -26,7 +26,7 @@ APIM is composed of four main components, all of which are incredibly lightweigh
 
 **APIM Gateway:** The core component of the APIM platform, it is essentially a sophisticated proxy. Unlike a traditional HTTP proxy, APIM Gateway can apply policies (i.e., rules) to both HTTP requests and responses to enhance processing by adding transformations, security, and many other exciting features.
 
-**APIM Management API:** A RESTful API that exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](reference/management-api-reference.md) section.
+**APIM Management API:** A RESTful API that exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](reference/management-api-reference/) section.
 
 **APIM Console:** A web UI providing easy access to key APIM API services. It allows API publishers to publish APIs and administrators to configure both global platform settings and specific portal settings.
 

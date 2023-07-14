@@ -379,7 +379,7 @@ Select Next to move on to **OAuth2 authentication configuration**. Here, you'll 
 * Whether to permit authorization headers to target endpoints.
 * (Optional) Define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process. You will need to use the Gravitee Expression Language. For more information on the Gravitee Expression Language, please refer to the Expression Language documentation.
 
-<img src="../../../.gitbook/assets/image (1).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/image (1) (2).png" alt="" data-size="original">
 
 Select Next to define any additional restrictions for the plan. These restrictions include:
 
