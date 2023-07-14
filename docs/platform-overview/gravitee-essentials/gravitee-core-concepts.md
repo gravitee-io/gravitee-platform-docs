@@ -117,7 +117,7 @@ Gravitee also implements API design-first methodology, where the API design or d
 
 ### Gravitee API Definitions <a href="#gravitee-api-definitions-9" id="gravitee-api-definitions-9"></a>
 
-A Gravitee API definition is very similar to an API specification (see [API Fundamentals](api-fundamentals/)), except it is the specification for a Gravitee Gateway_._ It’s a JSON representation of everything that the Gravitee gateway needs to know for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic.
+A Gravitee API definition is the API specification for a Gravitee Gateway_._ It’s a JSON representation of everything that the Gravitee gateway needs to know for it to proxy, apply policies to, create plans for, etc. your APIs and their traffic.
 
 Each [Gravitee API definition brings with it certain capabilities](https://www.gravitee.io/blog/gravitee-api-definitions) which you can read about further in the linked article. The key thing you need to note is that the **latest API definition is v4.** The v4 definition allows for advanced protocol mediation (i.e. fronting Kafka with a Webhook, Websocket, HTTP API, etc.) and the ability to apply Gravitee policies (i.e. authentication, traffic shaping, etc.) to asynchronous API traffic–at the message level. This is done by decoupling what is known as the gateway **entrypoints** and **endpoints**.
 
