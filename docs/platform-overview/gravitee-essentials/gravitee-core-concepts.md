@@ -64,15 +64,15 @@ A developer portal is a centralized catalog where internal and/or external API c
 
 API documentation includes specifications and tutorials that convey the purpose, structure, and capabilities of an API. Including high-quality, comprehensive, and accurate API documentation in the developer portal mitigates implementation challenges and increases API consumption.
 
-An incentive to use developer portals is API monetization. This transforms APIs into self-serve, revenue-generating products with plans to govern how consumers pay for API access and usage, e.g., For example, a delivery company could be charged a set amount per message to use an API that tracks packages in real-time.
+An incentive to use developer portals is API monetization. This transforms APIs into self-serve, revenue-generating products with plans to govern how consumers pay for API access and usage, e.g., charging a set amount per message.
 
 ### API Access Management <a href="#api-access-management-7" id="api-access-management-7"></a>
 
 As an API-security-forward organization, Gravitee implements API access management as a part of its larger API security and API management strategies.
 
-API access management applies typical access management practices at the API level. For example, you could use API access management to implement step-up authentication, an authentication method that is defined by adding extra factors of authentication in front of certain APIs or features in your application that might contain/move sensitive data. Let’s take an example of a banking application. In this example, instead of just enforcing multi-factor authentication (MFA) at the log-in level, maybe you’d choose to enforce an extra factor of authentication (such as facial recognition or fingerprint) when a client app or consumer tries to call a “payments API” that is responsible for brokering bank and routing numbers so that you can make or receive in-app payments.
+API access management applies typical access management practices at the API level. For example, API access management could be used to implement step-up authentication, which adds extra layers of authentication to certain APIs or application features that may contain or transport sensitive data, e.g., in addition to MFA at login, calling an API from within an application uses biometrics.
 
-Implementing access management at the API level is important for security-forward organizations because APIs are the ultimate brokers of data, both sensitive and non-sensitive. API-level access management allows for more fine-tuned access control in areas of applications where sensitive data exists. This allows you to further secure your applications and/or APIs by verifying that the consumer is who they claim to be while also fine-tuning the customer experience by only adding the friction of access control where sensitive data might exist.
+API-level access management enables fine-tuned access control for applications containing sensitive data. Applications and/or APIs can be secured via consumer verification while the customer experience can be optimized by only adding the friction of access control where necessary.
 
 ### API Design-First <a href="#api-design-first-8" id="api-design-first-8"></a>
 
