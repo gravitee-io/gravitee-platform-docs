@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-Gravitee offers both an open source (OSS) and an enterprise version of its API Management (APIM) platform. This article introduces the additional features, capabilities, hosting options, and support options that are included in the Gravitee Enterprise Edition of API Management.​
+Gravitee offers open source (OSS) and enterprise versions of its API Management (APIM) distribution package. This article introduces the additional features, capabilities, hosting options, and support options that are included in the Gravitee Enterprise Edition of API Management.​
 
 {% hint style="info" %}
 **Other Gravitee Products**
