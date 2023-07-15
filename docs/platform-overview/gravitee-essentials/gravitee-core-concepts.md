@@ -54,22 +54,28 @@ Policies that strip, shape, or otherwise alter network traffic to make API consu
 **Example:** Strip sensitive and nonessential information as data is brokered and sent to the client application to protect confidential data and streamline the message.
 {% endtab %}
 
-{% tab title="Authentication/authorization" %}
+{% tab title="Auth" %}
 Policies that enforce certain authentication or authorization methods to ensure that an API consumer can request information from your backend.
 
 **Example:** An API key policy limits API consumption to a set of client applications that pass a specific, unique API key with each request.
 {% endtab %}
 
-{% tab title="Rate limit" %}
+{% tab title="Restrictions" %}
 Policies that limit and/or throttle the number of requests over a set time period.
 
 **Example:** Limit an API to a maximum of 100 calls/min/consumer.
 {% endtab %}
 
-{% tab title="Dynamic routing" %}
+{% tab title="Routing" %}
 Policies that dispatch inbound calls to different targets/endpoints or rewrite URIs.
 
 **Example:** Redirect requests from `http://gateway/apis/store/12/info` to `http://backend_store12/info`.
+{% endtab %}
+
+{% tab title="Performance" %}
+Policies that cache responses from backend APIs to eliminate the need for subsequent calls.
+
+**Example:** Use a cache policy to cache the response of a particular backend API for one hour or until the user manually bypasses the cache.
 {% endtab %}
 {% endtabs %}
 
