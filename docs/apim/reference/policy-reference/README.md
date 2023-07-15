@@ -21,7 +21,7 @@ Please ensure the policy version you select is compatible with your version of A
 To modify the plugin, follow these steps:
 
 1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
-2. Add the file into the `plugins` folder for both the Gateway and Management API. The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository) Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
+2. Add the file into the Gateway and Management API `plugins` folders. The default location is ${GRAVITEE\_HOME/plugins} but this can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository) For most installations, the Gateway and Management API `plugins` folders are at `/gravitee/apim-gateway/plugins`  and `/gravitee/apim-management-api/plugins`, respectively.
 3. Remove any existing plugins of the same name.
 4. Restart your APIM nodes.
 
@@ -30,22 +30,6 @@ To modify the plugin, follow these steps:
 {% hint style="warning" %}
 Please ensure the policy version you select is compatible with your version of APIM.
 {% endhint %}
-
-To modify the plugin, follow these steps:
-
-1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/)
-2. Add the file into the `plugins` folder for both the gateway and management API
-
-{% hint style="info" %}
-**Location of `plugins` folder**
-
-The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
-
-Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
-{% endhint %}
-
-3. Remove any existing plugins of the same name
-4. Restart your APIM nodes
 
 ## Phases
 
@@ -81,7 +65,7 @@ APIM frequently uses Ant notation for path matching:
 * `\*` matches zero or more characters
 * `**` matches zero or more directories in a path
 
-### Related learning
+## Related learning
 
 For details of how policies are defined and used in APIM, see also:
 
