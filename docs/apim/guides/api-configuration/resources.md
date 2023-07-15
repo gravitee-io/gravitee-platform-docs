@@ -94,10 +94,10 @@ Below are example JSON configuration files for several of the default resources.
 {% tab title="Cache" %}
 ```json
 {
-    "name" : "cache",
-    "type" : "cache",
-    "enabled" : true,
-    "configuration" : {
+    "name": "cache",
+    "type": "cache",
+    "enabled": true,
+    "configuration": {
         "name": "my-cache",
         "timeToIdleSeconds":0,
         "timeToLiveSeconds":0,
@@ -112,21 +112,21 @@ Standalone configuration example:
 
 ```json
 {
-    "name" : "my-redis-cache",
-    "type" : "cache-redis",
-    "enabled" : true,
-    "configuration" : {
-        "name" : "my-redis-cache",
+    "name": "my-redis-cache",
+    "type": "cache-redis",
+    "enabled": true,
+    "configuration": {
+        "name": "my-redis-cache",
         "releaseCache": false,
-        "maxTotal" : 8,
-        "password" : "secret",
-        "timeToLiveSeconds" : 600,
-        "timeout" : 2000,
-        "useSsl" : true,
+        "maxTotal": 8,
+        "password": "secret",
+        "timeToLiveSeconds": 600,
+        "timeout": 2000,
+        "useSsl": true,
         "sentinelMode" : false,
         "standalone": {
-            "host" : "localhost",
-            "port" : 6379
+            "host": "localhost",
+            "port": 6379
         }
     }
 }

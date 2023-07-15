@@ -148,5 +148,5 @@ There are no out-of-the-box errors returned by this policy.
 
 ## Changelog
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-override-http-method/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-override-http-method/blob/master/CHANGELOG.md" fullWidth="true" %}
 
