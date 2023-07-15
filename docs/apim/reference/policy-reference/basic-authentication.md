@@ -6,130 +6,47 @@ description: Sample structure for policy documentation
 
 ## Overview
 
-You can use the `basic-authentication` policy to manage basic authentication headers sent in API calls. The policy compares the user and password sent in the basic authentication header to a Gravitee API Management (APIM) user to determine if the user credentials are valid.
+You can use the Basic-authentication policy to manage basic authentication headers sent in API calls. The policy compares the user and password sent in the basic authentication header to a Gravitee API Management (APIM) user to determine if the user credentials are valid.
 
 To use the policy in an API, you need to:
 
-* configure an LDAP, inline or http resource for your API plan, which specifies where the APIM users are stored
+* configure an LDAP, inline, or HTTP resource for your API plan, which specifies where the APIM users are stored
 * configure a basic authentication policy for the API flows
 
-{% hint style="info" %}
-LDAP, inline, and HTTP resources are not part of the default APIM configuration, so you must configure an LDAP, inline, or HTTP resource for APIM first, as described in the [Developer Guide](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html).
+{% hint style="warning" %}
+LDAP, inline, and HTTP resources are not part of the default APIM configuration, so you must [configure an LDAP, inline, or HTTP resource for APIM first](../../guides/api-configuration/resources.md).
 {% endhint %}
 
-### Proxy API example
+### Example
 
-{% hint style="info" %}
-The proxy API example also applies to v2 APIs.
+{% hint style="warning" %}
+This example will work for [v2 APIs, v4 proxy APIs, and for the initial connection request of v4 message APIs](../../overview/gravitee-api-definitions-and-execution-engines.md).
+
+Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-For proxy APIs, the JSON-to-XML policy is most commonly used for transforming JSON data before returning it to the client in the `response` phase.
-
-For example, the Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted like so:
+If an API is configured with the Basic-authentication policy, a request with invalid credentials will result in the following response:
 
 {% code title="Default response" %}
 ```json
 {
-    "bodySize": 0,
-    "headers": {
-        "Accept": "*/*",
-        "Host": "api.gravitee.io",
-        "User-Agent": "{{user-agent-info}}",
-        "X-Gravitee-Request-Id": "{{generated-request-id}}",
-        "X-Gravitee-Transaction-Id": "{{generated-trx-id}}",
-        "accept-encoding": "deflate, gzip"
-    },
-    "query_params": {}
+    "http_status_code": 401,
+    "message": "Unauthorized"
 }
 ```
 {% endcode %}
 
-Adding a JSON-to-XML policy on the `response` phase for a proxy API will transform the response output to:
+The response headers will also contain a `WWW-Authenticate` header containing the `realm` value the API publisher configured.
 
-{% code title="Transformed response" %}
-```xml
-<root>
-  <headers>
-    <Accept>*/*</Accept>
-    <Host>api.gravitee.io</Host>
-    <User-Agent>{{user-agent-info}}</User-Agent>
-    <X-Gravitee-Request-Id>{{generated-request-id}}</X-Gravitee-Request-Id>
-    <X-Gravitee-Transaction-Id>{{generated-trx-id}}</X-Gravitee-Transaction-Id>
-    <accept-encoding>deflate, gzip</accept-encoding>
-  </headers>
-  <query_params/>
-  <bodySize>0</bodySize>
-</root>
-```
-{% endcode %}
-
-### Message API example
-
-ONLY INCLUDE THIS SECTION IF MESSAGES ARE SUPPORTED
-
-Use this hint if messages are not supported:
-
-{% hint style="warning" %}
-Currently, this policy can **not** be applied at the message level.
-{% endhint %}
-
-Otherwise provide an example:
-
-For message APIs, the JSON-to-XML policy is used to transform the message `content` in either the `publish` or `subscribe` phase.
-
-For example, you can create a message API with an HTTP GET entrypoint and a mock endpoint. Suppose the endpoint is configured to return the message content as follows:
-
-{% code title="Default message" %}
-```json
-{ \"id\": \"1\", \"name\": \"bob\", \"v\": 2 }
-```
-{% endcode %}
-
-Then adding a JSON-to-XML policy on the subscribe phase will return the payload to the client via the HTTP GET entrypoint like so (the number of messages returned will vary by the number of messages specified in the Mock endpoint):
-
-{% code title="Transformed messages" %}
-```xml
-{
-    "items": [
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "0"
-        },
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "1"
-        },
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "2"
-        },
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "3"
-        }
-    ],
-    "pagination": {
-        "nextCursor": "3"
-    }
-}
-```
-{% endcode %}
-
-The output is the typical return structure for the HTTP GET entrypoint with each message `content` field being transformed from JSON to XML.
-
-{% hint style="info" %}
-For the HTTP GET entrypoint specifically, the entire payload can be returned as XML by adding the `"Accept": "application/json"` header to the GET request. In this case, the message content is transformed into [CDATA](https://www.w3.org/TR/REC-xml/#sec-cdata-sect) and is therefore not treated as marked-up content for the purpose of the entrypoint using the `Accept` header.
-{% endhint %}
+To authenticate, pass the `Authorization: Basic yourCredentials` header with your request.
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the Management Console, interacting directly with the Management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the Management Console or interacting directly with the Management API.
 
 {% tabs %}
 {% tab title="Management Console" %}
 <mark style="color:yellow;">We should wait to make these once the v4 Policy Studio is finalized</mark>
-
-\{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" %\}
 {% endtab %}
 
 {% tab title="Managment API" %}
@@ -139,39 +56,13 @@ When using the Management API, policies are added as flows either directly to an
 ```json
 {
   "name": "Custom name",
-  "description": "Converts data from JSON to XML",
-  "policy": "json-xml",
+  "description": "Adds basic auth to your gateway API",
+  "policy": "basic-authentication",
   "configuration": {
-    "scope": "RESPONSE",
-    "rootElement": "root"
-  }
+          "authenticationProviders": [ "Name of your resource" ],
+          "realm": "Sample realm"
+        }
 }
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="GKO" %}
-The Gravitee Kubernetes Operator (GKO) allows you to manage your APIs as custom resources. The `APIDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API Definition in JSON format.
-
-The example below shows a simple `ApiDefinition` custom resource definition using the `json-xml` policy:
-
-{% code title="Sample Configuration" %}
-```yaml
-apiVersion: gravitee.io/v1alpha1
-kind: ApiDefinition
-metadata:
-  name: json-xml example
-spec:
-  name: "GKO Basic"
-  version: "1.1"
-  description: "Basic api managed by Gravitee Kubernetes Operator"
-  proxy:
-    virtual_hosts:
-      - path: "/k8s-basic"
-    groups:
-      - endpoints:
-          - name: "Default"
-            target: "https://api.gravitee.io/echo"
 ```
 {% endcode %}
 {% endtab %}
@@ -179,7 +70,7 @@ spec:
 
 ### Reference
 
-<table data-full-width="false"><thead><tr><th width="157">Property</th><th data-type="checkbox">Required</th><th>Description</th><th data-type="select">Type</th><th>Options</th><th>Default</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>description</td><td>false</td><td>Provide a description for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>rootElement</td><td>true</td><td>XML root element name that encloses content.</td><td></td><td>N/a</td><td>root</td></tr><tr><td>scope</td><td>true</td><td>The execution scope</td><td></td><td>REQUEST, RESPONSE</td><td>REQUEST</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="156">Property</th><th data-type="checkbox">Required</th><th>Description</th><th data-type="select">Type</th><th>Options</th><th>Default</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>true</td><td>A list of authentication providers</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>realm</td><td>false</td><td>Name showed to the client in case of error</td><td></td><td>N/a</td><td>N/a</td></tr></tbody></table>
 
 ### Phases
 
@@ -196,7 +87,7 @@ v4 APIs have the following phases:
 
 This policy is compatible with the following v4 API phases:
 
-<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="153" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>true</td><td>true</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="142" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="v2 API definition" %}
@@ -209,7 +100,7 @@ v2 APIs have the following phases:
 
 This policy supports the following phases:
 
-<table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">onResponse</th><th width="197" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
+<table><thead><tr><th width="172" data-type="checkbox">onRequest</th><th width="138" data-type="checkbox">onResponse</th><th width="182" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 
@@ -217,7 +108,7 @@ This policy supports the following phases:
 
 In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="164.33333333333331">Plugin Version</th><th width="239">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>>=1.4</td><td>>=3.15</td><td>>=3.15</td></tr><tr><td>&#x3C;1.4</td><td>&#x3C;3.15</td><td>&#x3C;3.15</td></tr></tbody></table>
 
 ## Installation and deployment
 
@@ -245,42 +136,8 @@ Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/p
 
 ## Errors
 
-### Overview
-
-<table data-full-width="false"><thead><tr><th width="243">Phase</th><th>HTTP status code</th><th>Error template key</th><th>Description</th></tr></thead><tbody><tr><td>onRequest</td><td><code>400</code></td><td>JSON_INVALID_PAYLOAD</td><td>Request payload cannot be transformed properly to XML</td></tr><tr><td>onResponse</td><td><code>500</code></td><td>JSON_INVALID_PAYLOAD</td><td>Response payload cannot be transformed properly to XML</td></tr><tr><td>onMessageRequest</td><td><code>400</code></td><td>JSON_INVALID_MESSAGE_PAYLOAD</td><td>Incoming message cannot be transformed properly to XML</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td>JSON_INVALID_MESSAGE_PAYLOAD</td><td>Outgoing message cannot be transformed properly to XML</td></tr></tbody></table>
-
-### Nested objects
-
-To limit the processing time in the case of a nested object, the default max depth of a nested object has been set to 1000. This default value can be overridden using the environment variable `gravitee_policy_jsonxml_maxdepth`.
+<table data-full-width="false"><thead><tr><th width="243">Phase</th><th>HTTP status code</th><th>Error template key</th><th>Description</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td>N/a</td><td>Unauthorized</td></tr></tbody></table>
 
 ## Changelog
 
-### 2.2
-
-#### What's New?
-
-* Blazingly fast
-* Full chatgpt and neuralink integration for quick API mastery
-
-#### Bug fixes
-
-* Fix crashes related to nested objects
-
-#### Breaking Changes
-
-* Only supports APIM versions >4.0
-
-### 2.1
-
-#### What's New?
-
-* Blazingly fast
-* Full chatgpt and neuralink integration for quick API mastery
-
-#### Bug fixes
-
-* Fix crashes related to nested objects
-
-#### Breaking Changes
-
-* Only supports APIM versions >4.0
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-basic-authentication/blob/master/CHANGELOG.md" %}

@@ -17,7 +17,7 @@ This policy does not act on messages and only applies to the request phase of AP
 ### Example
 
 {% hint style="warning" %}
-This example will work for proxy APIs and for the initial connection request of message APIs.
+This example will work for [v2 APIs, v4 proxy APIs, and for the initial connection request of v4 message APIs](../../overview/gravitee-api-definitions-and-execution-engines.md).
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
@@ -45,7 +45,7 @@ This API would typically be called with just a `GET` request, but if a client tr
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the policy design studio in the Management Console, interacting directly with the Management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the Management Console or interacting directly with the Management API.
 
 {% tabs %}
 {% tab title="Management Console" %}
@@ -67,10 +67,6 @@ When using the management API, policies are added as flows either directly to an
 }
 ```
 {% endcode %}
-{% endtab %}
-
-{% tab title="Kubernetes Operator" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -116,7 +112,7 @@ This policy supports the following phases:
 
 In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `override-http-method` policy.
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th width="233">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>Up to 2.x</td><td>>=3.21</td><td>>= 3.21</td></tr><tr><td>Up to 1.x</td><td>All</td><td>&#x3C;= 3.20</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="179">Plugin Version</th><th width="233">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>&#x3C;=2.x</td><td>>=3.21</td><td>>= 3.21</td></tr><tr><td>&#x3C;=1.x</td><td>All</td><td>&#x3C;= 3.20</td></tr></tbody></table>
 
 ## Installation and deployment
 

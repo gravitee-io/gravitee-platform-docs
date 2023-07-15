@@ -64,12 +64,8 @@ Adding a JSON-to-XML policy on the `response` phase for a proxy API will transfo
 
 ### Message API example
 
-ONLY INCLUDE THIS SECTION IF MESSAGES ARE SUPPORTED
-
-Use this hint if messages are not supported:
-
 {% hint style="warning" %}
-Currently, this policy can **not** be applied at the message level.
+ONLY INCLUDE THIS SECTION IF MESSAGES ARE SUPPORTED. Otherwise, use the example structure and hint shown for [basic authentication](basic-authentication.md#example)
 {% endhint %}
 
 Otherwise provide an example:
@@ -122,13 +118,11 @@ For the HTTP GET entrypoint specifically, the entire payload can be returned as 
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the Management Console, interacting directly with the Management API, or using the Gravitee Kubernetes Operator (GKO) in a Kubernetes deployment.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the Management Console or interacting directly with the Management API.
 
 {% tabs %}
 {% tab title="Management Console" %}
 <mark style="color:yellow;">We should wait to make these once the v4 Policy Studio is finalized</mark>
-
-\{% @arcade/embed flowId="w2EIKB74a9xXG3sXcQVI" url="https://app.arcade.software/share/w2EIKB74a9xXG3sXcQVI" %\}
 {% endtab %}
 
 {% tab title="Managment API" %}
@@ -145,32 +139,6 @@ When using the Management API, policies are added as flows either directly to an
     "rootElement": "root"
   }
 }
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="GKO" %}
-The Gravitee Kubernetes Operator (GKO) allows you to manage your APIs as custom resources. The `APIDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API Definition in JSON format.
-
-The example below shows a simple `ApiDefinition` custom resource definition using the `json-xml` policy:
-
-{% code title="Sample Configuration" %}
-```yaml
-apiVersion: gravitee.io/v1alpha1
-kind: ApiDefinition
-metadata:
-  name: json-xml example
-spec:
-  name: "GKO Basic"
-  version: "1.1"
-  description: "Basic api managed by Gravitee Kubernetes Operator"
-  proxy:
-    virtual_hosts:
-      - path: "/k8s-basic"
-    groups:
-      - endpoints:
-          - name: "Default"
-            target: "https://api.gravitee.io/echo"
 ```
 {% endcode %}
 {% endtab %}
@@ -195,7 +163,7 @@ v4 APIs have the following phases:
 
 This policy is compatible with the following v4 API phases:
 
-<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="153" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>true</td><td>true</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="134" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>true</td><td>true</td><td>true</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="v2 API definition" %}
@@ -208,7 +176,7 @@ v2 APIs have the following phases:
 
 This policy supports the following phases:
 
-<table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">onResponse</th><th width="197" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
+<table><thead><tr><th width="134" data-type="checkbox">onRequest</th><th width="144" data-type="checkbox">onResponse</th><th width="191" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 
@@ -216,7 +184,7 @@ This policy supports the following phases:
 
 In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
 
 ## Installation and deployment
 
