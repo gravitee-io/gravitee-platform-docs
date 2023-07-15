@@ -44,6 +44,14 @@ The following concepts are fundamental to APIM:
 
 **Application:** An intermediary between a consumer and an API. Through applications, consumers are grouped together and the application as a whole subscribes to the API.
 
+### Ant notation
+
+APIM frequently uses Ant notation for path matching:
+
+* `?` matches one character
+* `\*` matches zero or more characters
+* `**` matches zero or more directories in a path
+
 ## First steps
 
 Ready to use Gravitee API Management? Select from the options below to learn more about APIM and get it up and running.

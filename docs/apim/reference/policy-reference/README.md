@@ -55,16 +55,6 @@ v2 APIs have the following phases:
 {% endtab %}
 {% endtabs %}
 
-## See also
-
-### Ant notation
-
-APIM frequently uses Ant notation for path matching:
-
-* `?` matches one character
-* `\*` matches zero or more characters
-* `**` matches zero or more directories in a path
-
 ## Related learning
 
 For details of how policies are defined and used in APIM, see also:
