@@ -18,12 +18,12 @@ In addition, you can now [register for a free time-limited Gravitee Cloud trial 
 For more information about Enterprise Edition licenses, installation, and versioning, see the Enterprise Edition section.
 {% endhint %}
 
-As described in the Introduction to Gravitee API Management (APIM), APIM is split into four main components:
+As described in the [Introduction to Gravitee API Management (APIM)](../../../), APIM is split into four main components:
 
-* APIM gateway
-* APIM management API
-* APIM management UI
-* APIM developer portal
+* APIM Gateway
+* APIM Management API
+* APIM Management Console
+* APIM Developer Portal
 
 The links below provide detailed guides on how you can setup, configure, and upgrade your APIM environment. You can get started with APIM in a variety of ways, including:
 
