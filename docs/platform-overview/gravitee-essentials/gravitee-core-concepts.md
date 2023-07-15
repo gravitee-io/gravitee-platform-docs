@@ -139,11 +139,13 @@ Gravitee supports two major categories of deployment: the APIs themselves and th
 
 To support IaC use cases, Gravitee must support API deployment to the API Gateway, testing, and promotion across environments (test, dev, prod, etc.) "as code," i.e., without requiring use of a UI.
 
-Many Gravitee Enterprise Edition customers are already implementing an IaC practice using Gravitee. Some enterprise customers start off this way (i.e. customers who are already mature when it comes to GitOps, Kubernetes, etc.), but at least ⅓-½ of our enterprise customers gradually adopt an IaC-compatible approach. We describe this process through the lens of API “deployment maturity.”
+Many Gravitee Enterprise Edition customers currently implement IaC using Gravitee. While the IaC practices of some customers predate their use of Gravitee (e.g., customers with existing GitOps or Kubernetes maturity), others gradually adopt an IaC-compatible approach.
 
-> **Note**: the term “maturity” here is not morally valenced or judgemental. We simply use the term to describe the sequential process that we see _most_ of our enterprise customers move through. There are many reasons for and benefits associated with each of the deployment styles mentioned below.
+{% hint style="info" %}
+**Note**: This usage of the term “maturity” does not impart moral valence or judgment. In this context, "maturity" connotes growth, as the majority of Gravitee Enterprise Edition customers undergo an evolution in deployment practices that aligns with a sequential process. There are many reasons for and benefits associated with a variety of deployment styles.
+{% endhint %}
 
-Traditionally, Gravitee customers progress through three levels of API “deployment maturity”:
+Gravitee customers typically progress through three levels of API deployment maturity:
 
 #### **Gravitee Console**
 
