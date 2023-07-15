@@ -135,11 +135,11 @@ Example 2: To allow an API consumer to POST data onto a Kafka topic via an HTTP 
 
 ### Gravitee API deployment options <a href="#gravitee-api-deployment-options-10" id="gravitee-api-deployment-options-10"></a>
 
-When it comes to Gravitee, there are two major categories of deployment: the APIs themselves and the Gravitee infrastructure, which includes the API gateway and management console among other components. While each product has detailed documentation on the deployment and installation of its respective infrastructure, we want to provide a quick overview of the different ways you can deploy APIs with Gravitee.
+Gravitee supports two major categories of deployment: the APIs themselves and the Gravitee infrastructure, which includes the API Gateway and Management Console (among other components). While the deployment and installation of each Gravitee product is documented in detail, this section provides a high-level overview Gravitee's API deployment options.
 
-For Gravitee to be able to support [infrastructure as code (IaC)](https://www.redhat.com/en/topics/automation/what-is-infrastructure-as-code-iac) use cases, deployment needs to be able to be handled “as code,” and APIs need to be able to be pushed to/deployed to the API Gateway, tested, and then promoted across environments (test, dev, prod, etc.) without ever having to step a digital foot into a UI.
+To support IaC use cases, Gravitee must support API deployment to the API Gateway, testing, and promotion across environments (test, dev, prod, etc.) "as code," i.e., without requiring use of a UI.
 
-Many of our enterprise customers are already implementing an IaC practice using Gravitee. Some enterprise customers start off this way (i.e. customers who are already mature when it comes to GitOps, Kubernetes, etc.), but at least ⅓-½ of our enterprise customers gradually work their way into an IaC-compatible approach. We describe this process through the lens of API “deployment maturity.”
+Many Gravitee Enterprise Edition customers are already implementing an IaC practice using Gravitee. Some enterprise customers start off this way (i.e. customers who are already mature when it comes to GitOps, Kubernetes, etc.), but at least ⅓-½ of our enterprise customers gradually adopt an IaC-compatible approach. We describe this process through the lens of API “deployment maturity.”
 
 > **Note**: the term “maturity” here is not morally valenced or judgemental. We simply use the term to describe the sequential process that we see _most_ of our enterprise customers move through. There are many reasons for and benefits associated with each of the deployment styles mentioned below.
 
