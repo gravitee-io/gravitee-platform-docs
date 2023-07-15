@@ -65,7 +65,7 @@ Adding a JSON-to-XML policy on the `response` phase for a proxy API will transfo
 ### Message API example
 
 {% hint style="warning" %}
-ONLY INCLUDE THIS SECTION IF MESSAGES ARE SUPPORTED. Otherwise, use a single example section with one of the following three hints:
+ONLY INCLUDE THIS SECTION IF MESSAGES ARE SUPPORTED. Otherwise, use a single example section with one of the following two hints:
 {% endhint %}
 
 {% hint style="warning" %}
@@ -76,12 +76,6 @@ Currently, this policy can **not** be applied at the message level.
 
 {% hint style="warning" %}
 This example will work for [v2 APIs, v4 proxy APIs, and for the initial connection request of v4 message APIs](../../overview/gravitee-api-definitions-and-execution-engines.md).
-
-Currently, this policy can **not** be applied at the message level.
-{% endhint %}
-
-{% hint style="warning" %}
-This example will work for [v2 APIs, v4 proxy APIs, the initial connection request of v4 message APIs, and the termination of the connection of v4 message APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
