@@ -1,3 +1,7 @@
+---
+description: This page provides the technical details of the json-xml policy
+---
+
 # Template Policy - Rework Structure
 
 {% hint style="warning" %}
@@ -6,9 +10,18 @@
 
 ## Overview
 
-The `json-xml` policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the `xml-json` policy.
+Functional and implementation information for the json-xml policy is organized into the following sections:
 
-### Examples
+* [Transformations](template-policy-rework-structure.md#transformations)
+* [Configuration](template-policy-rework-structure.md#configuration)
+* [Compatibility Matrix](template-policy-rework-structure.md#compatibility-matrix)
+* [Installation and deployment](template-policy-rework-structure.md#installation-and-deployment)
+* [Errors](template-policy-rework-structure.md#errors)
+* [Changelogs](template-policy-rework-structure.md#changelogs)
+
+## Transformations
+
+The `json-xml` policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the `xml-json` policy.
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -224,7 +237,7 @@ Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/p
 
 ## Errors
 
-### Overview
+### Error decoding
 
 <table data-full-width="true"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="244">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_PAYLOAD:</strong> Request payload cannot be transformed properly to XML</td></tr><tr><td>onResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_PAYLOAD:</strong><br>Response payload cannot be transformed properly to XML</td></tr><tr><td>onMessageRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Incoming message cannot be transformed properly to XML</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Outgoing message cannot be transformed properly to XML</td></tr></tbody></table>
 
