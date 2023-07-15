@@ -8,8 +8,10 @@
 
 The `json-xml` policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the `xml-json` policy.
 
-### Proxy API example
+### Examples
 
+{% tabs %}
+{% tab title="Proxy API example" %}
 {% hint style="info" %}
 The proxy API example also applies to v2 APIs.
 {% endhint %}
@@ -53,9 +55,9 @@ Adding a JSON-to-XML policy on the `response` phase for a proxy API will transfo
 </root>
 ```
 {% endcode %}
+{% endtab %}
 
-### Message API example
-
+{% tab title="Message API example" %}
 {% hint style="warning" %}
 ONLY INCLUDE THIS SECTION IF MESSAGES ARE SUPPORTED. Otherwise, use a single example section with one of the following two hints:
 {% endhint %}
@@ -84,7 +86,7 @@ For example, you can create a message API with an HTTP GET entrypoint and a mock
 ```
 {% endcode %}
 
-Then adding a JSON-to-XML policy on the subscribe phase will return the payload to the client via the HTTP GET entrypoint like so (the number of messages returned will vary by the number of messages specified in the Mock endpoint):
+Adding a JSON-to-XML policy on the subscribe phase will return the payload to the client via the HTTP GET entrypoint as follows (the number of messages returned will vary by the number of messages specified in the Mock endpoint):
 
 {% code title="Transformed messages" %}
 ```xml
@@ -114,11 +116,13 @@ Then adding a JSON-to-XML policy on the subscribe phase will return the payload 
 ```
 {% endcode %}
 
-The output is the typical return structure for the HTTP GET entrypoint with each message `content` field being transformed from JSON to XML.
+The output is the typical return structure for the HTTP GET entrypoint with each message `content` field transformed from JSON to XML.
 
 {% hint style="info" %}
 For the HTTP GET entrypoint specifically, the entire payload can be returned as XML by adding the `"Accept": "application/json"` header to the GET request. In this case, the message content is transformed into [CDATA](https://www.w3.org/TR/REC-xml/#sec-cdata-sect) and is therefore not treated as marked-up content for the purpose of the entrypoint using the `Accept` header.
 {% endhint %}
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
