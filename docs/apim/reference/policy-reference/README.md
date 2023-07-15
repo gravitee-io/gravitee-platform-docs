@@ -1,29 +1,14 @@
 ---
-description: Secure, transform, restrict, and monitor your APIs
+description: Discover how policies secure, transform, restrict, and monitor your APIs
 ---
 
 # Policy Reference
 
 ## Overview
 
-Gravitee API Management (APIM) encompasses API design, API security and access management, API reliability, API delivery, and API productization. At the core of this sphere of responsibility sits the API Gateway which is a reverse proxy that sits in front of your APIs and helps route requests to the appropriate backend service while also performing various tasks such as rate limiting, authentication, and transformation of requests and responses. Typically, the primary method of enforcing security, reliability, and the proper movement of data is **policies**.
+Gravitee policies fall into several functional categories: security, transformation, restrictions, performance, routing, and monitoring & testing. Although the implementation details of each policy are unique, they share a common installation and deployment and are compatible with subsets of phases.
 
-Policies are rules or logic that can be executed by the API gateway during the request or the response of an API call. APIM is delivered with some default _Gravitee-maintained_ policies to control how an API is consumed. You can also customize APIM by adding your own or _community-maintained_ policies through plugins. Plugins are components that additional functionality by _plugging into_ the Gravitee ecosystem. Policies are simply a type of plugin. You can learn more about how to implement custom policies in our plugins guide.
 
-Policies can be used for a variety of reasons and objectives, ranging from making APIs more secure to making them reliable to making them profit drivers in the case of API Monetization. Here are the major categories of policies:
-
-* **Security:** Enforce authentication methods to verify an API consumer before proxying their request to your backend APIs
-  * For example, you could use an API key authentication policy to limit API consumption to a set of client applications that are able to pass a specific, unique API key with each request.
-* **Transformation:** Strip, shape, or otherwise alter network traffic so as to make consumption of APIs and the movement of data more secure, reliable, performant, or efficient
-  * For example, you could use an assign content policy to strip sensitive information as data is brokered by the gateway and sent to specific client applications.
-* **Restrictions:** Limit and/or throttle the number of requests over a set time period
-  * For example, you could use a rate-limiting policy to limit your API to a maximum of 100 calls/min/consumer
-* **Performance:** Cache responses from backend APIs to eliminate the need for subsequent calls to the backend
-  * For example, you could use a cache policy to cache the response of a particular backend API for one hour or until the user manually bypasses the cache.
-* **Routing:** Dispatch inbound calls to different targets/endpoints or rewrite URIs
-  * For example, you could use a dynamic routing policy to redirect requests from `http://gateway/apis/store/12/info` to `http://backend_store12/info`
-* **Monitoring and Testing:** Validate API transactions and test different flows without setting up a backend API
-  * For example, you could use the mock policy to design and test a flow for a Kafka backend without actually setting up and integrating a Kafka broker
 
 ## See also
 
