@@ -10,7 +10,7 @@ A growing customer base brings new challenges, e.g., how to:
 * Share and discover existing APIs
 * Manage the API lifecycle, versioning, documentation, etc.
 
-Gravitee API Management (APIM) enables businesses to address these challenges seamlessly, across all of its APIs, using a centralized tool.
+Gravitee API Management (APIM) enables businesses to address these challenges seamlessly, across all of their APIs, using a centralized tool.
 
 ## Gravitee API Management
 
