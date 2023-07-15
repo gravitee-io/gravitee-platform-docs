@@ -30,7 +30,7 @@ LDAP, inline, and HTTP resources are not part of the default APIM configuration,
 ### Example
 
 {% hint style="warning" %}
-This example will work for [v2 APIs, v4 proxy APIs, and for the initial connection request of v4 message APIs](../../overview/gravitee-api-definitions-and-execution-engines.md).
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}

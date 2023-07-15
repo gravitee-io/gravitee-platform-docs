@@ -32,7 +32,7 @@ The current version of the policy does not support `Digest`, `request-target`, `
 ### Example
 
 {% hint style="warning" %}
-This example will work for [v2 APIs, v4 proxy APIs, and for the initial connection request of v4 message APIs](../../overview/gravitee-api-definitions-and-execution-engines.md).
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
@@ -41,16 +41,10 @@ If an API is configured with the Generate HTTP Signature policy, a request with 
 
 {% code title="Default response" %}
 ```json
-{
-    "http_status_code": 401,
-    "message": "Unauthorized"
-}
 ```
 {% endcode %}
 
-The response headers will also contain a `WWW-Authenticate` header containing the `realm` value the API publisher configured.
 
-To authenticate, pass the `Authorization: Basic yourCredentials` header with your request.
 
 ## Configuration
 
