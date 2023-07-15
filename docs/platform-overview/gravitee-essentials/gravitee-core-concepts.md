@@ -151,7 +151,7 @@ The default Gravitee distribution includes an intuitive self-serve UI that an es
 
 ### **Gravitee Management API**
 
-Every interaction with the Gravitee Console corresponds to a REST API, the collection of which comprise the Gravitee Management API. The Management API exposes a complete set of endpoints and is documented using the OpenAPI spec APIM API reference. As a result, the equivalent of each UI interaction can be performed via a REST API call for developers wanting to script some part of APIM administration. Typically, as enterprise customers start to move into a GitOps world and moving things across higher environments, they use things like GitLab, Jenkins, Bitbucket, GitHub Actions, etc. to manage everything in a data serialization format like JSON or YAML.
+Every interaction with the Gravitee Console corresponds to a REST API, the collection of which comprise the Gravitee Management API, which exposes a complete set of endpoints and is documented using the OpenAPI spec APIM API reference. As a result, the equivalent of each UI interaction can be performed via a REST API call for developers wanting to script some part of APIM administration. Typically, as enterprise customers progress with GitOps, they use tools like GitLab, Jenkins, Bitbucket, GitHub Actions, etc., to manage everything in a data serialization format like JSON or YAML.
 
 ### **Kubernetes-native using the Gravitee Kubernetes Operator**
 
