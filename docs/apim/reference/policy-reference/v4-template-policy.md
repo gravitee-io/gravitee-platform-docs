@@ -204,10 +204,10 @@ Policies can be applied to the request or the response of a gateway API transact
 {% tab title="v4 API definition" %}
 v4 APIs have the following phases:
 
-* `onRequest`: The policy only works on request headers and the content of proxy APIs.
-* `onResponse`: The policy only works on response headers and the content of proxy APIs.
-* `onMessageRequest`: The policy works at the message-level of requests.
-* `onMessageResponse`: The policy works at the message-level of responses.
+* `onRequest`: This phase is executed before invoking the backend services for both proxy and message APIs. Policies can act on both the headers and the content for proxy APIs.
+* `onMessageRequest`: This phase occurs after the `onRequest` phase and allows policies to act on each incoming message before being sent to the backend service. This only applies to message APIs.
+* `onResponse`: This phase is executed after invoking the backend services for both proxy and message APIs. Policies can act on both the headers and the content for proxy APIs.
+* `onMessageResponse`: This phase after the `onResponse` phase and allows policies to act on each outgoing message before being sent to the client application. This only applies to message APIs.
 
 This policy is compatible with the following v4 API phases:
 
@@ -217,12 +217,12 @@ This policy is compatible with the following v4 API phases:
 {% tab title="v2 API definition" %}
 v2 APIs have the following phases:
 
-* `onRequest`: The policy only works on request headers. It never accesses the request body.
-* `onRequestContent`: The policy works at request content level and can access the request body.
-* `onResponse`: The policy only works on response headers. It never accesses the response body.
-* `onResponseContent`: The policy works at response content level and can access the response body.
+* `onRequest`: This phase only allows policies to work on request headers. It never accesses the request body.
+* `onRequestContent`: This phase always occurs after the `onRequest` phase. It allows policies to work at the content level, and they can access the request body.
+* `onResponse`: This phase only allows policies to work on response headers. It never accesses the response body.
+* `onResponseContent`: This phase always occurs after the `onResponse` phase. It allows policies to work at the content level, and they can access the response body.
 
-Policies working on the body content are postponed to be executed after the policies working on headers. This policy supports the following phases:
+This policy supports the following phases:
 
 <table><thead><tr><th data-type="checkbox">onRequest</th><th data-type="checkbox">onResponse</th><th width="197" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
 {% endtab %}
