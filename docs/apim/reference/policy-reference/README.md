@@ -8,7 +8,68 @@ description: Discover how policies secure, transform, restrict, and monitor your
 
 Gravitee policies fall into several functional categories: security, transformation, restrictions, performance, routing, and monitoring & testing. Although the implementation details of each policy are unique, they share a common installation and deployment and are compatible with subsets of phases.
 
+## Installation and deployment
 
+Each version of APIM includes a number of policies by default. If you would like to use a different version of the policy, you can modify the plugin.
+
+<details>
+
+<summary>How to modify the plugin</summary>
+
+Please ensure the policy version you select is compatible with your version of APIM.
+
+To modify the plugin, follow these steps:
+
+1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
+2. Add the file into the `plugins` folder for both the Gateway and Management API. The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository) Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
+3. Remove any existing plugins of the same name.
+4. Restart your APIM nodes.
+
+</details>
+
+{% hint style="warning" %}
+Please ensure the policy version you select is compatible with your version of APIM.
+{% endhint %}
+
+To modify the plugin, follow these steps:
+
+1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/)
+2. Add the file into the `plugins` folder for both the gateway and management API
+
+{% hint style="info" %}
+**Location of `plugins` folder**
+
+The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
+
+Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
+{% endhint %}
+
+3. Remove any existing plugins of the same name
+4. Restart your APIM nodes
+
+## Phases
+
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy has different compatibility with the available phases as described in the [Policy Studio documentation](../../guides/policy-design/).
+
+{% tabs %}
+{% tab title="v4 API definition" %}
+v4 APIs have the following phases:
+
+* `onRequest`: This phase is executed before invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
+* `onMessageRequest`: This phase occurs after the `onRequest` phase and allows policies to act on each incoming message before being sent to the backend service. This only applies to message APIs.
+* `onResponse`: This phase is executed after invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
+* `onMessageResponse`: This phase after the `onResponse` phase and allows policies to act on each outgoing message before being sent to the client application. This only applies to message APIs.
+{% endtab %}
+
+{% tab title="v2 API definition" %}
+v2 APIs have the following phases:
+
+* `onRequest`: This phase only allows policies to work on request headers. It never accesses the request body.
+* `onRequestContent`: This phase always occurs after the `onRequest` phase. It allows policies to work at the content level and access the request body.
+* `onResponse`: This phase only allows policies to work on response headers. It never accesses the response body.
+* `onResponseContent`: This phase always occurs after the `onResponse` phase. It allows policies to work at the content level and access the response body.
+{% endtab %}
+{% endtabs %}
 
 ## See also
 

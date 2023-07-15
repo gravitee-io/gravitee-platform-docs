@@ -15,7 +15,6 @@ Functional and implementation information for the json-xml policy is organized i
 * [Transformations](template-policy-rework-structure.md#transformations)
 * [Configuration](template-policy-rework-structure.md#configuration)
 * [Compatibility Matrix](template-policy-rework-structure.md#compatibility-matrix)
-* [Installation and deployment](template-policy-rework-structure.md#installation-and-deployment)
 * [Errors](template-policy-rework-structure.md#errors)
 * [Changelogs](template-policy-rework-structure.md#changelogs)
 
@@ -210,30 +209,6 @@ This policy supports the following phases:
 The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
 <table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
-
-## Installation and deployment
-
-Each version of APIM includes a number of policies by default. If you would like to use a different version of the policy, you can modify the plugin.
-
-{% hint style="warning" %}
-Please ensure the policy version you select is compatible with your version of APIM.
-{% endhint %}
-
-To modify the plugin, follow these steps:
-
-1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/)
-2. Add the file into the `plugins` folder for both the gateway and management API
-
-{% hint style="info" %}
-**Location of `plugins` folder**
-
-The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
-
-Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
-{% endhint %}
-
-3. Remove any existing plugins of the same name
-4. Restart your APIM nodes
 
 ## Errors
 
