@@ -163,7 +163,7 @@ The default Gravitee distribution includes an intuitive self-serve UI that an es
 
 <summary>2. Gravitee Management API</summary>
 
-Every interaction with the Gravitee Console corresponds to a REST API, the collection of which comprise the Gravitee Management API, which exposes a complete set of endpoints and is documented using the OpenAPI spec. As a result, the equivalent of each UI interaction can be performed via a REST API call for developers wanting to script some part of APIM administration. Typically, as enterprise customers progress with GitOps, they use tools like GitLab, Jenkins, Bitbucket, GitHub Actions, etc., to manage everything in a data serialization format like JSON or YAML.
+Every interaction with the Gravitee Console corresponds to a REST API, the collection of which comprise the Gravitee Management API. The Management API exposes a complete set of endpoints and is documented using the OpenAPI spec, allowing developers to script APIM administration via calls to REST APIs. As enterprise customers progress with GitOps, they often adopt tools (GitLab, Jenkins, Bitbucket, GitHub Actions, etc.) to manage data in serialization formats like JSON or YAML.
 
 </details>
 
@@ -171,7 +171,7 @@ Every interaction with the Gravitee Console corresponds to a REST API, the colle
 
 <summary>3. <strong>Kubernetes-native using the Gravitee Kubernetes Operator</strong></summary>
 
-This approach moves beyond relying on the console/UI and the underlying management API. If you deploy APIs in a Kubernetes cluster, you can describe your API as an API extension of Kubernetes using CRDs (custom resource definitions). Essentially, this means that when you deploy something natively to your K8s cluster, there’s an operator there that can deploy that API to the Gravitee gateway without relying on a proprietary UI or REST API. This is powered by the Kubernetes API and the Gravitee Kubernetes Operator. This is the preferred method of deployment if your organization is set on using Kubernetes.
+This approach eliminates reliance on the Management Console and underlying Management API. An API deployed in a Kubernetes cluster can be described as an API extension of Kubernetes using CRDs (custom resource definitions). Using the Kubernetes API and the Gravitee Kubernetes Operator, an API can be deployed to the Gravitee Gateway without relying on a proprietary UI or REST API. This is the preferred method of deployment for organizations that intend to use K8s.
 
 </details>
 
