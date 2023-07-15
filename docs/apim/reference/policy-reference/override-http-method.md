@@ -72,7 +72,7 @@ When using the management API, policies are added as flows either directly to an
 
 ### Reference
 
-<table data-full-width="false"><thead><tr><th width="157">Property</th><th width="101" data-type="checkbox">Required</th><th width="155">Description</th><th width="100" data-type="select">Type</th><th>Options</th><th>Default</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>method</td><td>true</td><td>HTTP method used regardless of method called</td><td></td><td>GET<br>POST<br>PUT<br>DELETE<br>PATCH<br>HEAD<br>CONNECT<br>OPTIONS<br>TRACE</td><td>GET</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="128">Property</th><th width="101" data-type="checkbox">Required</th><th width="280">Description</th><th width="95" data-type="select">Type</th><th width="149">Options</th><th>Default</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>method</td><td>true</td><td>HTTP method used regardless of method called</td><td></td><td>GET<br>POST<br>PUT<br>DELETE<br>PATCH<br>HEAD<br>CONNECT<br>OPTIONS<br>TRACE</td><td>GET</td></tr></tbody></table>
 
 ### Phases
 

@@ -12,19 +12,21 @@ layout:
     visible: true
 ---
 
-# Basic Authentication
+# Generate HTTP Signature
 
 ## Overview
 
-You can use the Basic-authentication policy to manage basic authentication headers sent in API calls. The policy compares the user and password sent in the basic authentication header to a Gravitee API Management (APIM) user to determine if the user credentials are valid.
+HTTP Signature is an authentication method for adding additional security.&#x20;
 
-To use the policy in an API, you need to:
+The `Signature` authentication model requires the client to authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
 
-* configure an LDAP, inline, or HTTP resource for your API plan, which specifies where the APIM users are stored
-* configure a basic authentication policy for the API flows
+To authenticate, clients can use:
 
-{% hint style="warning" %}
-LDAP, inline, and HTTP resources are not part of the default APIM configuration, so you must [configure an LDAP, inline, or HTTP resource for APIM first](../../guides/api-configuration/resources.md).
+* `Authorization` header: For example: `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+* `Signature` header: For example, `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+
+{% hint style="info" %}
+The current version of the policy does not support `Digest`, `request-target`, `Host`, or `Path` headers.
 {% endhint %}
 
 ### Example
@@ -35,7 +37,7 @@ This example will work for [v2 APIs, v4 proxy APIs, and for the initial connecti
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-If an API is configured with the Basic-authentication policy, a request with invalid credentials will result in the following response:
+If an API is configured with the Generate HTTP Signature policy, a request with invalid credentials will result in the following response:
 
 {% code title="Default response" %}
 ```json
@@ -66,12 +68,18 @@ When using the Management API, policies are added as flows either directly to an
 ```json
 {
   "name": "Custom name",
-  "description": "Adds basic auth to your gateway API",
-  "policy": "basic-authentication",
+  "description": "Adds HTTP signature auth",
+  "policy": "generate-http-signature",
   "configuration": {
-          "authenticationProviders": [ "Name of your resource" ],
-          "realm": "Sample realm"
-        }
+	"scheme": "AUTHORIZATION",
+	"validityDuration": 30,
+	"keyId": "my-key-id",
+	"secret": "my-passphrase",
+	"algorithm": "HMAC_SHA256",
+	"headers": ["X-Gravitee-Header","Host"],
+    	"created": true,
+   	"expires": true
+  }
 }
 ```
 {% endcode %}
@@ -80,7 +88,7 @@ When using the Management API, policies are added as flows either directly to an
 
 ### Reference
 
-<table data-full-width="true"><thead><tr><th width="231">Property</th><th width="107" data-type="checkbox">Required</th><th>Description</th><th width="152" data-type="select">Type</th><th width="99">Options</th><th>Default</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>true</td><td>A list of authentication providers</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>realm</td><td>false</td><td>Name showed to the client in case of error</td><td></td><td>N/a</td><td>N/a</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="139">Property</th><th width="103" data-type="checkbox">Required</th><th width="264">Description</th><th width="128" data-type="select">Type</th><th width="169">Options</th><th>Default</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td></td><td>AUTHORIZATION, SIGNATURE</td><td>AUTHORIZATION</td></tr><tr><td>keyId</td><td>true</td><td>The key ID used to generate the signature (supports EL)</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL)</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>algorithm</td><td>true</td><td>The HMAC digest algorithm</td><td></td><td>N/a</td><td>HMAC_SHA256</td></tr><tr><td>headers</td><td>false</td><td>List of headers to build the signature. If no headers, the request must at least contains <code>Date</code> header.</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>created</td><td>true</td><td>Include the created timestamp in the signature and (created) header</td><td></td><td>true, false</td><td>true</td></tr><tr><td>expires</td><td>true</td><td>Include the expires timestamp in the signature and (expires) header</td><td></td><td>true, false</td><td>true</td></tr><tr><td>validityDuration</td><td>false</td><td>Signature’s maximum validation duration in seconds (minimum is 1). Applied when <code>expires</code> is set to true.</td><td></td><td>N/a</td><td>3</td></tr></tbody></table>
 
 ### Phases
 
@@ -97,7 +105,7 @@ v4 APIs have the following phases:
 
 This policy is compatible with the following v4 API phases:
 
-<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="142" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="134" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="v2 API definition" %}
@@ -110,7 +118,7 @@ v2 APIs have the following phases:
 
 This policy supports the following phases:
 
-<table><thead><tr><th width="172" data-type="checkbox">onRequest</th><th width="138" data-type="checkbox">onResponse</th><th width="182" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="134" data-type="checkbox">onRequest</th><th width="144" data-type="checkbox">onResponse</th><th width="191" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 
@@ -118,7 +126,7 @@ This policy supports the following phases:
 
 In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-<table data-full-width="false"><thead><tr><th width="164.33333333333331">Plugin Version</th><th width="239">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>>=1.4</td><td>>=3.15</td><td>>=3.15</td></tr><tr><td>&#x3C;1.4</td><td>&#x3C;3.15</td><td>&#x3C;3.15</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
 
 ## Installation and deployment
 
@@ -146,8 +154,8 @@ Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/p
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="243">Phase</th><th>HTTP status code</th><th>Error template key</th><th>Description</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td>N/a</td><td>Unauthorized</td></tr></tbody></table>
+<table data-full-width="true"><thead><tr><th width="243">Phase</th><th width="178">HTTP status code</th><th width="184">Error template key</th><th>Description</th></tr></thead><tbody><tr><td>onRequest</td><td><code>400</code></td><td>HTTP_SIGNATURE_IMPOSSIBLE_GENERATION</td><td><p>In case of:</p><ul><li>Request does not contain every header in the configuration headers list.</li><li>Request does not contain <code>Date</code> header and the configuration headers list is empty. Policy needs at least <code>Date</code> header to create a signature.</li><li>Unable to sign because of bad configuration.</li></ul></td></tr></tbody></table>
 
 ## Changelog
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-basic-authentication/blob/master/CHANGELOG.md" fullWidth="true" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-generate-http-signature/blob/master/CHANGELOG.md" fullWidth="true" %}
