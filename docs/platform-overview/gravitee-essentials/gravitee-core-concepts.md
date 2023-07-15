@@ -123,7 +123,15 @@ The latest API definition is v4. The v4 definition supports advanced protocol me
 
 Mediation and policy enforcement are achieved by decoupling the Gateway entrypoints and endpoints. The Gateway entrypoint dictates how the backend API is exposed by defining the protocol and configuration settings the API consumer uses to access the Gateway API. The Gateway endpoint defines the protocol and configuration settings the Gateway API uses to fetch data from, or post data to, the backend API.
 
-So, for example, if you wanted to make it possible for an API consumer to consume events from a Kafka topic over a WebSocket connection, you would choose a “Websocket” entrypoint and a “Kafka” endpoint when creating your API in Gravitee. If you wanted to make it possible for an API consumer to POST data onto a Kafka topic via an HTTP API, you would use the Gravitee HTTP POST entrypoint and Kafka endpoint.
+<details>
+
+<summary>Examples of entrypoint/endpoint selection</summary>
+
+Example 1: To allow an API consumer to consume events from a Kafka topic over a WebSocket connection, choose the Websocket entrypoint and the Kafka endpoint when creating a v4 API definition.
+
+Example 2: To allow an API consumer to POST data onto a Kafka topic via an HTTP API, use the Gravitee HTTP POST entrypoint and the Kafka endpoint.
+
+</details>
 
 ### Gravitee API Deployment Options <a href="#gravitee-api-deployment-options-10" id="gravitee-api-deployment-options-10"></a>
 
