@@ -4,22 +4,6 @@ description: Sample structure for policy documentation
 
 # Template Policy
 
-***
-
-***
-
-publisher: GraviteeSource
-
-product: API Management
-
-type: Kafka
-
-category: Identity Provider
-
-license type: Enterprise
-
-\---
-
 {% hint style="warning" %}
 **This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
 {% endhint %}
@@ -35,10 +19,10 @@ For transforming XML content to JSON, please see the `xml-json` policy.
 ### Proxy API example
 
 {% hint style="info" %}
-The Proxy API example also applies to v2 APIs.
+The proxy API example also applies to v2 APIs.
 {% endhint %}
 
-For Proxy APIs, the JSON-to-XML policy is most commonly used for transforming JSON data before returning it to the client in the `response` phase.
+For proxy APIs, the JSON-to-XML policy is most commonly used for transforming JSON data before returning it to the client in the `response` phase.
 
 For example, the Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted like so:
 
@@ -59,7 +43,7 @@ For example, the Gravitee echo API returns a JSON response when a `GET` request 
 ```
 {% endcode %}
 
-Adding a JSON-to-XML policy on the `response` phase for a Proxy API will transform the response output to:
+Adding a JSON-to-XML policy on the `response` phase for a proxy API will transform the response output to:
 
 {% code title="Transformed response" %}
 ```xml
@@ -204,9 +188,9 @@ Policies can be applied to the request or the response of a gateway API transact
 {% tab title="v4 API definition" %}
 v4 APIs have the following phases:
 
-* `onRequest`: This phase is executed before invoking the backend services for both proxy and message APIs. Policies can act on both the headers and the content for proxy APIs.
+* `onRequest`: This phase is executed before invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
 * `onMessageRequest`: This phase occurs after the `onRequest` phase and allows policies to act on each incoming message before being sent to the backend service. This only applies to message APIs.
-* `onResponse`: This phase is executed after invoking the backend services for both proxy and message APIs. Policies can act on both the headers and the content for proxy APIs.
+* `onResponse`: This phase is executed after invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
 * `onMessageResponse`: This phase after the `onResponse` phase and allows policies to act on each outgoing message before being sent to the client application. This only applies to message APIs.
 
 This policy is compatible with the following v4 API phases:
@@ -218,9 +202,9 @@ This policy is compatible with the following v4 API phases:
 v2 APIs have the following phases:
 
 * `onRequest`: This phase only allows policies to work on request headers. It never accesses the request body.
-* `onRequestContent`: This phase always occurs after the `onRequest` phase. It allows policies to work at the content level, and they can access the request body.
+* `onRequestContent`: This phase always occurs after the `onRequest` phase. It allows policies to work at the content level and access the request body.
 * `onResponse`: This phase only allows policies to work on response headers. It never accesses the response body.
-* `onResponseContent`: This phase always occurs after the `onResponse` phase. It allows policies to work at the content level, and they can access the response body.
+* `onResponseContent`: This phase always occurs after the `onResponse` phase. It allows policies to work at the content level and access the response body.
 
 This policy supports the following phases:
 
