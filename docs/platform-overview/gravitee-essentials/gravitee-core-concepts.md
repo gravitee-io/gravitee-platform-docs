@@ -85,7 +85,7 @@ Browse the current collection of [Gravitee plugins](https://www.gravitee.io/plug
 Refer to Custom Plugins for the instructions to build a plugin.
 {% endhint %}
 
-### API Developer Portals & API Productization <a href="#api-developer-portals-api-productization-6" id="api-developer-portals-api-productization-6"></a>
+### API Developer Portal & API productization <a href="#api-developer-portals-api-productization-6" id="api-developer-portals-api-productization-6"></a>
 
 A critical component of API management is the ability to expose APIs to various consumers. Different types of consumers are outlined in the following table:
 
@@ -109,13 +109,13 @@ API access management applies typical access management practices at the API lev
 
 API-level access management enables fine-tuned access control for applications containing sensitive data. Applications and/or APIs can be secured via consumer verification while the customer experience can be optimized by only adding the friction of access control where necessary.
 
-### API Design-First <a href="#api-design-first-8" id="api-design-first-8"></a>
+### API design-first <a href="#api-design-first-8" id="api-design-first-8"></a>
 
 Gravitee's API management strategy includes API design, during which intentional architectural choices that define API client and backend interactions are determined.
 
 Gravitee also implements API design-first methodology, where the API design or data model is developed before the API specification is generated. This approach promotes collaboration with less technical, business stakeholders to build APIs that align with business value.
 
-### Gravitee API Definitions <a href="#gravitee-api-definitions-9" id="gravitee-api-definitions-9"></a>
+### Gravitee API definitions <a href="#gravitee-api-definitions-9" id="gravitee-api-definitions-9"></a>
 
 A [Gravitee API definition](https://www.gravitee.io/blog/gravitee-api-definitions) is the API specification for a Gravitee Gateway_._ It is the JSON representation of the information the Gravitee Gateway requires to manage (proxy, apply policies to, create plans for, etc.) your APIs and their traffic.
 
@@ -133,7 +133,7 @@ Example 2: To allow an API consumer to POST data onto a Kafka topic via an HTTP 
 
 </details>
 
-### Gravitee API Deployment Options <a href="#gravitee-api-deployment-options-10" id="gravitee-api-deployment-options-10"></a>
+### Gravitee API deployment options <a href="#gravitee-api-deployment-options-10" id="gravitee-api-deployment-options-10"></a>
 
 When it comes to Gravitee, there are two major categories of deployment: the APIs themselves and the Gravitee infrastructure, which includes the API gateway and management console among other components. While each product has detailed documentation on the deployment and installation of its respective infrastructure, we want to provide a quick overview of the different ways you can deploy APIs with Gravitee.
 
