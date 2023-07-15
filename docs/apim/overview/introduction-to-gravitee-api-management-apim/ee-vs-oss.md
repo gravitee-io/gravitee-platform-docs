@@ -18,7 +18,7 @@ Gravitee's platform extends beyond just API Management. For information on enter
 
 ## Enterprise APIM
 
-The Gravitee APIM Enterprise Edition is available in three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
+The Gravitee APIM Enterprise Edition is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
 ### Enterprise features
 
