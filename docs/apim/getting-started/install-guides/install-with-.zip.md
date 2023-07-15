@@ -281,3 +281,6 @@ $ cd [DESTINATION_FOLDER]/graviteeio-apim-portal-ui-3.20.0
 $ angular-http-server
 ```
 
+{% hint style="success" %}
+Congratulations! Now that APIM is up and running, check out the [Tutorials](../tutorials/) for your next steps.
+{% endhint %}
