@@ -6,7 +6,7 @@
 
 == Overview 
 
-To enable to EE mode of Access Management, you have to mount the license file using a secret and specify which EE plugin to download in the `additionalPlugins` section for the gateway and the api. This have to be done for the Management API and the Gateway services.
+To enable to EE mode of Access Management, you have to mount the license file using a secret and specify which EE plugin to download in the `additionalPlugins` section for the Gateway and the api. This have to be done for the Management API and the Gateway services.
 
 [source,yaml]
 ----

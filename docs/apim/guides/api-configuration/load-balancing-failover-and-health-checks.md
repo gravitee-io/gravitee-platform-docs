@@ -12,7 +12,7 @@ Gravitee API Management (APIM) offers three main backend services for managing y
 
 * **Load-balancing:** Load balancing is a technique used to distribute incoming traffic across multiple backend servers. The goal of load balancing is to optimize resource utilization, maximize throughput, minimize response time, and avoid overloading any single server. The Gravitee Gateway comes with a built-in load balancer, which you can enable and configure for your API endpoints according to your requirements. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
 * **Failover:** Failover is a mechanism to ensure high availability and reliability of APIs by redirecting incoming traffic to a secondary server or backup system in the event of a primary server failure. Gravitee includes built-in failover mechanisms and capabilities. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
-* **Health checks:** A health check is a mechanism used to monitor the availability and health of your endpoints and/or your API gateways. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+* **Health checks:** A health check is a mechanism used to monitor the availability and health of your endpoints and/or your API Gateways. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
 
 All of these capabilities are built into the Gravitee APIM platform. The rest of this article will focus on how to configure these services.
 
@@ -31,7 +31,7 @@ In order to successfully use Gravitee load balancing, you'll need to understand 
 
 To configure load-balancing in Gravitee, follow these steps:
 
-1\. Log in to the Gravitee API Management UI.
+1\. Log in to the Gravitee API Management Console.
 
 2\. Load-balancing (as well other backend services) are configured per API. So, head to the **APIs menu.**
 

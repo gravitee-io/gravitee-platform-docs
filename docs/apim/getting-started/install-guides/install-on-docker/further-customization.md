@@ -82,7 +82,7 @@ Your host, port, username, and password may be different.
 
 ### Using with Docker images
 
-To use JDBC with Docker images, add the following environment variables to the commands used to start the gateway and the management API.
+To use JDBC with Docker images, add the following environment variables to the commands used to start the Gateway and the management API.
 
 ```sh
   --env gravitee_management_type=jdbc \

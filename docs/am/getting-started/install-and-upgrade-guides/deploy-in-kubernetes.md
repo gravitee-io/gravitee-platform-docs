@@ -742,7 +742,7 @@ oauth2:
 
 ## Install AM Enterprise Edition
 
-To enable the Enterprise Edition (EE) mode of Access Management, you have to mount the license file using a secret and specify which EE plugin to download in the `additionalPlugins` section for the gateway and the API. This has to be done for the Management API and the Gateway services.
+To enable the Enterprise Edition (EE) mode of Access Management, you have to mount the license file using a secret and specify which EE plugin to download in the `additionalPlugins` section for the Gateway and the API. This has to be done for the Management API and the Gateway services.
 
 ```yaml
 gateway:
@@ -796,7 +796,7 @@ gateway:
 ```
 {% endcode %}
 
-The AM gateway provides a readiness probe that takes into account the number of domains synced at startup. If you want to use this probe, then you shouldn’t disable the internal APIs. Instead, we use the following configuration on the gateway:
+The AM Gateway provides a readiness probe that takes into account the number of domains synced at startup. If you want to use this probe, then you shouldn’t disable the internal APIs. Instead, we use the following configuration on the gateway:
 
 {% code title="AM Gateway readiness probe" %}
 ```yaml

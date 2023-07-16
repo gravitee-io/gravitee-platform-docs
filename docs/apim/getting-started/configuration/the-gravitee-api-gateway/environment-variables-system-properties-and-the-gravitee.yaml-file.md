@@ -104,7 +104,7 @@ http:
 {% hint style="info" %}
 **Automatic watching**
 
-As of Gravitee APIM v3.13.0, the keystore file is automatically watched for any modifications and reloaded without having to restart the gateway server.
+As of Gravitee APIM v3.13.0, the keystore file is automatically watched for any modifications and reloaded without having to restart the Gateway server.
 {% endhint %}
 
 #### **Kubernetes Secret/ConfigMap keystore**
@@ -130,7 +130,7 @@ The expected `http.ssl.keystore.kubernetes` is structured as follows: `/{namespa
 * `name`: the name of the secret or configmap to retrieve
 * `key`: the name of the key holding the value to retrieve. The `key` is optional when using a standard `kubernetes.io/tls` secret (note: it only supports PEM cert & key). The `key` is mandatory for any `Opaque` secret or configmap (note: they only support JKS & PKC12 keystore type).
 
-The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is automatically watched for any modifications and reloaded without having to restart the gateway server.
+The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is automatically watched for any modifications and reloaded without having to restart the Gateway server.
 
 ### **Enable HTTP/2 support**
 
@@ -356,8 +356,8 @@ You can update the default APIM Gateway default values. All services are enabled
 
 ```yaml
 services:
-  # Synchronization daemon used to keep the gateway state in sync with the configuration from the management repository
-  # Be aware that, by disabling it, the gateway will not be sync with the configuration done through management API and management UI
+  # Synchronization daemon used to keep the Gateway state in sync with the configuration from the management repository
+  # Be aware that, by disabling it, the Gateway will not be sync with the configuration done through Management API and Management Console
   sync:
     # Synchronization is done each 5 seconds
     cron: '*/5 * * * * *'

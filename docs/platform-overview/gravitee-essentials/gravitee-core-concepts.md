@@ -23,7 +23,7 @@ The architecture diagrams below offer a high-level conceptualization of the Grav
 Key takeaways:
 
 * API publishers make requests to the Management API either programmatically or from the Management Console.&#x20;
-* The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from end users to backend APIs, and exposing backend APIs in a developer portal for access by API consumers.
+* The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from end users to backend APIs, and exposing backend APIs in a Developer Portal for access by API consumers.
 * A single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
 
@@ -99,11 +99,11 @@ A critical component of API management is the ability to expose APIs to various 
 | External Developer as Customer | APIs are exposed to developers at other companies for use in external products. Avoids duplication of existing API functionality. |
 | Partner                        | APIs are exposed to partners when technical partnerships require integrations between certain products and/or feature sets.       |
 
-A developer portal is a centralized catalog where internal and/or external API consumers can discover and subscribe to APIs that are developed, managed, and deployed by API publishers. Developer portals avoid unnecessary duplication of API functionality by ensuring that existing APIs are advertised and securely accessible.
+A Developer Portal is a centralized catalog where internal and/or external API consumers can discover and subscribe to APIs that are developed, managed, and deployed by API publishers. Developer portals avoid unnecessary duplication of API functionality by ensuring that existing APIs are advertised and securely accessible.
 
-API documentation includes specifications and tutorials that convey the purpose, structure, and capabilities of an API. Including high-quality, comprehensive, and accurate API documentation in the developer portal mitigates implementation challenges and increases API consumption.
+API documentation includes specifications and tutorials that convey the purpose, structure, and capabilities of an API. Including high-quality, comprehensive, and accurate API documentation in the Developer Portal mitigates implementation challenges and increases API consumption.
 
-An incentive to use developer portals is API monetization. This transforms APIs into self-serve, revenue-generating products with plans to govern how consumers pay for API access and usage, e.g., charging a set amount per message.
+An incentive to use Developer Portals is API monetization. This transforms APIs into self-serve, revenue-generating products with plans to govern how consumers pay for API access and usage, e.g., charging a set amount per message.
 
 ## API Access Management <a href="#api-access-management-7" id="api-access-management-7"></a>
 

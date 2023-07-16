@@ -164,7 +164,7 @@ _Notes_: Community Edition users will not be affected as the base images were al
 
 In order to achieve a 0 downtime upgrade, APIM has to be upgraded before upgrading the gateways.
 
-On hybrid architectures where gateway bridge feature is enabled, gateways have to be upgraded in this order :
+On hybrid architectures where Gateway bridge feature is enabled, gateways have to be upgraded in this order :
 
 1. The bridge server gateway
 2. The bridge client gateway
@@ -175,7 +175,7 @@ Since bridge client rely on their own internals to fulfil API key requests, the 
 
 The \`\`/keys/\_search\`\` endpoint has been deprecated and replaced with \`\`/keys/\_findByCriteria\`\` endpoint. It will be removed in a future version.
 
-More information on the gateway bridge feature can be found [here](https://docs.gravitee.io/apim/3.x/apim\_installguide\_hybrid\_deployment.html#apim\_gateway\_http\_bridge\_server).
+More information on the Gateway bridge feature can be found [here](https://docs.gravitee.io/apim/3.x/apim\_installguide\_hybrid\_deployment.html#apim\_gateway\_http\_bridge\_server).
 
 ### The mongodb upgrade scripts have been moved
 
@@ -306,7 +306,7 @@ The path-based approach to create APIs will be removed in our next LTS and has b
 
 **Custom policy breaking changes**
 
-We’ve made huge improvements on the v3.15.0 in order to considerably decrease the memory and cpu resources required to serve the traffic on the gateway. For that, we rework some parts of the gateway which have impacts on few policies we maintain and could have impact on your custom policies you may have developed.
+We’ve made huge improvements on the v3.15.0 in order to considerably decrease the memory and cpu resources required to serve the traffic on the Gateway. For that, we rework some parts of the Gateway which have impacts on few policies we maintain and could have impact on your custom policies you may have developed.
 
 To summarize, here is the short list of the possible breaking changes that could impact you:
 
@@ -334,7 +334,7 @@ For that reason, if your custom policy relies on headers make sure to upgrade it
 
 **Policy class loading**
 
-We’ve made huge improvements on the v3.15.0 by reworking the way policies are loaded when deploying an api on the APIM gateway. While previously, one ClassLoader were instantiated per deployed api, we decided to shift to a single ClassLoader instance to avoid memory pressure, especially when deploying a lot of apis. Also, policy instances are now reused across all the requests instead of re-instantiate them on each call.
+We’ve made huge improvements on the v3.15.0 by reworking the way policies are loaded when deploying an api on the APIM Gateway. While previously, one ClassLoader were instantiated per deployed api, we decided to shift to a single ClassLoader instance to avoid memory pressure, especially when deploying a lot of apis. Also, policy instances are now reused across all the requests instead of re-instantiate them on each call.
 
 For that, we had to adapt some policies we support in order to make sure they work with the new class loading and policy instantiation mechanisms. Basically, policy instances are now considered as fully stateless and must get rid of any state which cannot be shared across the whole platform.
 
@@ -357,12 +357,12 @@ From with this version, the name of the APIM Gateway component changes. As a con
 
 ### Gateway bridge upgrade
 
-On hybrid architectures where gateway bridge feature is enabled, gateways have to be upgraded in this order :
+On hybrid architectures where Gateway bridge feature is enabled, gateways have to be upgraded in this order :
 
 1. The bridge server gateway
 2. The bridge client gateway
 
-More information on the gateway bridge feature can be found [here](https://docs.gravitee.io/apim/3.x/apim\_installguide\_hybrid\_deployment.html#apim\_gateway\_http\_bridge\_server).
+More information on the Gateway bridge feature can be found [here](https://docs.gravitee.io/apim/3.x/apim\_installguide\_hybrid\_deployment.html#apim\_gateway\_http\_bridge\_server).
 
 ### Elastic Search reporter plugins configuration
 
@@ -373,7 +373,7 @@ Before Gravitee 3.14 :
 
 Since Gravitee 3.14, it behave the same way for all ES versions : GeoIp and UserAgent plugins are be enabled by default, and can be disabled by overriding default `reporters.elasticsearch.pipeline.plugins.ingest` configuration.
 
-If your Gravitee configuration enables a plugin which is not available on your ES instance, you will get this kind of error message on gateway startup :
+If your Gravitee configuration enables a plugin which is not available on your ES instance, you will get this kind of error message on Gateway startup :
 
 `Unable to create ES pipeline 'gravitee_pipeline': status[400] response[{"error":{"root_cause":[{"reason":"No processor type exists with name [geoip]","processor_type":"geoip"}]`
 
@@ -600,7 +600,7 @@ Before Gravitee 3.10.9 :
 
 Since Gravitee 3.10.9, it behave the same way for all ES versions : GeoIp and UserAgent plugins are be enabled by default, and can be disabled by overriding default `reporters.elasticsearch.pipeline.plugins.ingest` configuration.
 
-If your Gravitee configuration enables a plugin which is not available on your ES instance, you will get this kind of error message on gateway startup :
+If your Gravitee configuration enables a plugin which is not available on your ES instance, you will get this kind of error message on Gateway startup :
 
 `Unable to create ES pipeline 'gravitee_pipeline': status[400] response[{"error":{"root_cause":[{"reason":"No processor type exists with name [geoip]","processor_type":"geoip"}]`
 
@@ -644,13 +644,13 @@ For concerned APIs, plans and flows displayed in console doesn’t reflect the o
 
 Gravitee 3.10.8, introduces an automated process to detect and fix those anomalies.
 
-This process will run on management API startup. By default, it will run in _dry_ mode, to detect and list anomalies without fixing them in database.
+This process will run on Management API startup. By default, it will run in _dry_ mode, to detect and list anomalies without fixing them in database.
 
 After you checked those anomalies have to be fixed, you can disable the _dry_ mode, and restart your API to update your database.
 
 #### My APIs are concerned ?
 
-On management API startup, you will see this trace in the console, or the dedicated `gravitee-upgraders.log` log file.
+On Management API startup, you will see this trace in the console, or the dedicated `gravitee-upgraders.log` log file.
 
 If no anomaly was detected :
 
@@ -704,7 +704,7 @@ They will be recreated in console, and you will see new plans appear :
 
 Those plans will be in `deprecated` state, without any subscription. It will allow you to check those plans and their flows, and close them if relevant.
 
-**Some plans visible in console were not considered by gateway :**
+**Some plans visible in console were not considered by Gateway :**
 
 Those plans will be closed, as they were not actually used during API runtime.
 
@@ -914,7 +914,7 @@ If you choose to use prefix, follow these instructions.
 
 **New installation**
 
-You just have to modify the `gravitee.yml` files of gateway and console to configure `management.mongodb.prefix` and `ratelimit.mongodb.prefix`. Default value is empty.
+You just have to modify the `gravitee.yml` files of Gateway and console to configure `management.mongodb.prefix` and `ratelimit.mongodb.prefix`. Default value is empty.
 
 **Migrate an existing installation**
 
@@ -936,7 +936,7 @@ For the following steps, we admit you choose this prefix: prefix\_
 
 **New installation**
 
-You just have to modify the `gravitee.yml` files of gateway and console to configure `management.jdbc.prefix` and `ratelimit.jdbc.prefix`. Default value is empty.
+You just have to modify the `gravitee.yml` files of Gateway and console to configure `management.jdbc.prefix` and `ratelimit.jdbc.prefix`. Default value is empty.
 
 **Migrate an existing installation**
 
@@ -1230,7 +1230,7 @@ The `portal.url` parameter in the console settings will also have a default valu
 
 ### _View_ renamed to _Categories_
 
-In the new portal, _views_ are called _categories_. But in the management console, they are still called _views_. To be consistent, the term _View_ is replaced by _Category_ in the whole platform.
+In the new portal, _views_ are called _categories_. But in the Management Console, they are still called _views_. To be consistent, the term _View_ is replaced by _Category_ in the whole platform.
 
 Linked to this issue: [#3843](https://github.com/gravitee-io/issues/issues/3843)
 
@@ -1259,7 +1259,7 @@ It will allow you to manage more than one environment for each instance of Gravi
 
 #### API-Key policy
 
-In this new version, if api-keys used to call an API is invalid or has expired, the gateway will fail with a **401** (instead of 403 in previous versions of Gravitee).
+In this new version, if api-keys used to call an API is invalid or has expired, the Gateway will fail with a **401** (instead of 403 in previous versions of Gravitee).
 
 #### Management API
 
@@ -1267,9 +1267,9 @@ If you are using the REST API directly, please note that you will have to adapt 
 
 The resource `/views/default` has been deleted since a view does not have a **default** field anymore.
 
-#### Management UI
+#### Management Console
 
-The actual portal has been replaced by a brand new version, with its own location. As a consequence, the URL of the management UI has been modified to remove the **/management** part.
+The actual portal has been replaced by a brand new version, with its own location. As a consequence, the URL of the Management Console has been modified to remove the **/management** part.
 
 For instance, to access the _Platform Overview_ page, you should use `https://host/\#!/platform` instead of `https://host/#!/management/platform`
 
@@ -1358,6 +1358,6 @@ Docker images for Gravitee APIM have been renamed to follow the same conventions
 
 In the case of Gravitee APIM, all the images have been prefixed by `-apim`.
 
-For example, for the API gateway `graviteeio/gateway` has been replaced by `graviteeio/apim-gateway`.
+For example, for the API Gateway `graviteeio/gateway` has been replaced by `graviteeio/apim-gateway`.
 
 Please have a look to the documentation at: [https://docs.gravitee.io/apim/3.x/apim\_installguide\_docker\_images.html](https://docs.gravitee.io/apim/3.x/apim\_installguide\_docker\_images.html)

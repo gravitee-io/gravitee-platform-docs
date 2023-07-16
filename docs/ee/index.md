@@ -55,7 +55,7 @@ options, as indicated below.
 </tr>
 <tr class="even">
 <td style="text-align: center;"><p>GRAVITEE API MANAGEMENT</p></td>
-<td style="text-align: center;"><p>Gravitee API Management UI</p></td>
+<td style="text-align: center;"><p>Gravitee API Management Console</p></td>
 <td style="text-align: center;"><p>Yes</p></td>
 <td style="text-align: center;"><p>Yes</p></td>
 </tr>

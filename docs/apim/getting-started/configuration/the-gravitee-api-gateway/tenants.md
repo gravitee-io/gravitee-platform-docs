@@ -28,7 +28,7 @@ USA Region: tenant: ‘usa’
 EU Region: tenant: ‘eu’
 ```
 
-Once the Gateway has been configured, you would need to add the tenant definition within the API Management UI. To do so, follow these steps:
+Once the Gateway has been configured, you would need to add the tenant definition within the API Management Console. To do so, follow these steps:
 
 1. Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant**_**,**_ and enter the required value for each of your regions. For our example, this will be “usa” and “eu". We also recommend giving each tenant a descriptive name.
 

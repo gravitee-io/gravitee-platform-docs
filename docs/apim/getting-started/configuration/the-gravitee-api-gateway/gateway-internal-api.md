@@ -1,5 +1,5 @@
 ---
-description: Learn how to configure the internal gateway API
+description: Learn how to configure the internal Gateway API
 ---
 
 # Internal API

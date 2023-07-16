@@ -137,7 +137,7 @@ Into the `values.yaml` configuration file :
 
 Warning
 
-Choosing the direct connection may result in a loss of data. If the connection between the gateway and logstash is broken the newly generated analytics and logs data will be lost.
+Choosing the direct connection may result in a loss of data. If the connection between the Gateway and logstash is broken the newly generated analytics and logs data will be lost.
 
 Into the `values.yaml` configuration file :
 

@@ -28,14 +28,14 @@ Alternatively, you can install the components individually as detailed on the [A
 sudo yum install graviteeio-apim-3x -y
 ```
 
-2. Enable gateway and management API on startup:
+2. Enable Gateway and Management API on startup:
 
 <pre class="language-sh"><code class="lang-sh"><strong>$ sudo systemctl daemon-reload
 </strong>$ sudo systemctl enable graviteeio-apim-gateway
 $ sudo systemctl enable graviteeio-apim-rest-api
 </code></pre>
 
-3. Start gateway and management API:
+3. Start Gateway and management API:
 
 ```sh
 $ sudo systemctl start graviteeio-apim-gateway

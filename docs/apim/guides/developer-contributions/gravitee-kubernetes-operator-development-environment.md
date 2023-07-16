@@ -45,7 +45,7 @@ $ make run
 To be able to run the operator against a local instance of APIM Gateway and APIM Management API, you will need to:
 
 * Attach to a local cluster context
-* Create a local service account to authenticate the gateway against the local cluster
+* Create a local service account to authenticate the Gateway against the local cluster
 * Create a Management Context pointing to your local APIM Management API
 * Run what you need to debug in debug mode
 

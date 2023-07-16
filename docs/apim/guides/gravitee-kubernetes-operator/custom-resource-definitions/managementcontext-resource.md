@@ -4,9 +4,9 @@
 
 To enable the synchronization of CRDs with a remote Management API, you need to create a Management Context referring to an existing [organization and environment](../../administration/how-to.md).
 
-You can create multiple Management Contexts, each targeting a specific environment and defined in a specific organization of a management API instance.
+You can create multiple Management Contexts, each targeting a specific environment and defined in a specific organization of a Management API instance.
 
-A Management Context can authenticate to your management API instance by using either basic authentication or a bearer token. Authentication credentials may either be added inline in the Management Context definition or referenced from a Kubernetes secret.
+A Management Context can authenticate to your Management API instance by using either basic authentication or a bearer token. Authentication credentials may either be added inline in the Management Context definition or referenced from a Kubernetes secret.
 
 {% hint style="info" %}
 If both credentials and a bearer token are defined in your custom resource, the bearer token will take precedence.

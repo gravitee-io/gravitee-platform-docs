@@ -40,11 +40,11 @@ Since dynamic client registration is an OAuth flow, we first wanted to provide s
 OAuth 2.0 defines four roles:
 
 * **Resource owner**: an entity enabled to grant access to a protected resource. When the resource owner is a person, it is referred to as an _end user_.
-  * The API publisher, or owner of the backend APIs that Gravitee's gateway is protecting, is the resource owner.
+  * The API publisher, or owner of the backend APIs that Gravitee's Gateway is protecting, is the resource owner.
 * **Client:** an application making protected resource requests on behalf of the resource owner and with the resource owner’s authorization. The term _client_ does not imply any particular implementation characteristics (e.g. whether the application executes on a server, a desktop or other device).
-  * The API consumer's application attempting to register through the developer portal or management UI is the client.
+  * The API consumer's application attempting to register through the Developer Portal or Management Console is the client.
 * **Resource server:** the server hosting the protected resources, capable of accepting and responding to protected resource requests using access tokens.
-  * The APIM gateway sitting in front of the backend APIs is the resource server.
+  * The APIM Gateway sitting in front of the backend APIs is the resource server.
 * **Authorization server:** the server issuing access tokens to the client after successfully authenticating the resource owner and obtaining authorization.
   * The client registration provider we are about to configure is the authorization server.
 
@@ -65,7 +65,7 @@ Additional Oauth terminology:
 
 ### Dynamic client registration provider
 
-[Dynamic client registration](https://www.rfc-editor.org/rfc/rfc7591) (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee's developer portal or management UI. This outsources the issuer and management of application credentials to a third party, allowing for additional configuration options and compatibility with various OIDC features provided by the identity provider.
+[Dynamic client registration](https://www.rfc-editor.org/rfc/rfc7591) (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee's Developer Portal or Management Console. This outsources the issuer and management of application credentials to a third party, allowing for additional configuration options and compatibility with various OIDC features provided by the identity provider.
 
 Once dynamic client registration has been [enabled in the **Client Registration** settings,](plans-1.md#prerequisites) you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.&#x20;
 
@@ -87,7 +87,7 @@ One additional configuration setting that is common to both initial access token
 
 The initial access token is provided by the authorization server to grant access to its protected client registration endpoint. Regardless of the method used to obtain the initial access token, the flow for registering future applications remains the same. The initial access token will be used to call the protected client registration endpoint which will respond with the application's client ID and depending on the application type, an optional client secret.&#x20;
 
-For OAuth 2.0 plans, these credentials will be used whenever a resource owner authorizes the application to access a protected resource. If authorized successfully, the authorization server will return an access token that will be verified through token introspection upon requests to the gateway before accessing backend APIs protected by OAuth 2.0 plans.
+For OAuth 2.0 plans, these credentials will be used whenever a resource owner authorizes the application to access a protected resource. If authorized successfully, the authorization server will return an access token that will be verified through token introspection upon requests to the Gateway before accessing backend APIs protected by OAuth 2.0 plans.
 
 #### Client credentials
 
@@ -208,7 +208,7 @@ A refresh token is used to get a new access token, prompting the client applicat
 
 ## Create an application
 
-With all the preparation work complete, API consumers can now create an application through either the management UI or the developer portal. We will work through the management UI as we have a separate guide dedicated to the developer portal.
+With all the preparation work complete, API consumers can now create an application through either the Management Console or the Developer Portal. We will work through the Management Console as we have a separate guide dedicated to the Developer Portal.
 
 {% @arcade/embed flowId="K4c4gw3qU4Mrmsm74Q0E" url="https://app.arcade.software/share/K4c4gw3qU4Mrmsm74Q0E" %}
 

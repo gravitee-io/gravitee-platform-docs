@@ -35,7 +35,7 @@ This documentation page relates to the installation of the client (On-Prem / Pri
 
 ![Hybrid Architecture Connections](https://dobl1.github.io/gravitee-se-docs/assets/hybrid-architecture-connections.svg)
 
-## Self-hosted hybrid gateway installation[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#installation) <a href="#installation" id="installation"></a>
+## Self-hosted hybrid Gateway installation[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#installation) <a href="#installation" id="installation"></a>
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
@@ -582,7 +582,7 @@ services:
   sync:
     delay: 5000
     unit: MILLISECONDS
-    distributed: false # By enabling this mode, data synchronization process is distributed over clustered API gateways.
+    distributed: false # By enabling this mode, data synchronization process is distributed over clustered API Gateways.
     bulk_items: 100 # Defines the number of items to retrieve during synchronization (events, plans, api keys, ...).
 
   local:
@@ -592,7 +592,7 @@ services:
   monitoring:
     delay: 5000
     unit: MILLISECONDS
-    distributed: false # By enabling this mode, data monitoring gathering process is distributed over clustered API gateways.
+    distributed: false # By enabling this mode, data monitoring gathering process is distributed over clustered API Gateways.
 
   metrics:
     enabled: false

@@ -54,9 +54,9 @@ $ unzip gravitee-standalone-distribution-3.20.0.zip
 $ cp -r graviteeio-full-3.20.0/graviteeio-apim-gateway-3.20.0 [DESTINATION_FOLDER]/
 ```
 
-### Run APIM gateway from the command line
+### Run APIM Gateway from the command line
 
-By default, APIM gateway runs in the foreground, prints its logs to standard output (stdout), and can be stopped by pressing **Ctrl-C**.
+By default, APIM Gateway runs in the foreground, prints its logs to standard output (stdout), and can be stopped by pressing **Ctrl-C**.
 
 Run APIM Gateway from the command line as follows:
 
@@ -65,7 +65,7 @@ $ cd [DESTINATION_FOLDER]/graviteeio-apim-gateway-3.20.0
 $ ./bin/gravitee
 ```
 
-Once APIM gateway is running, you will see this log:
+Once APIM Gateway is running, you will see this log:
 
 ```sh
 ...
@@ -73,9 +73,9 @@ Once APIM gateway is running, you will see this log:
 ...
 ```
 
-### Check APIM gateway is running
+### Check APIM Gateway is running
 
-You can test that APIM gateway is running by sending an HTTP request to port `8082` on `localhost`:
+You can test that APIM Gateway is running by sending an HTTP request to port `8082` on `localhost`:
 
 ```sh
 curl -X GET http://localhost:8082/
@@ -87,9 +87,9 @@ You will receive a response similar to the following:
 No context-path matches the request URI.
 ```
 
-### Run APIM gateway as a daemon
+### Run APIM Gateway as a daemon
 
-To run APIM gateway as a daemon, specify `-d` on the command line and record the process ID in a file using option `-p`:
+To run APIM Gateway as a daemon, specify `-d` on the command line and record the process ID in a file using option `-p`:
 
 ```sh
 ./bin/gravitee -d -p=/var/run/gio.pid
@@ -103,7 +103,7 @@ To shut down APIM gateway, kill the process ID recorded in the `pid` file:
 kill `cat /var/run/gio.pid`
 ```
 
-### APIM gateway directory structure
+### APIM Gateway directory structure
 
 The `.zip` (and `.tar.gz`) package is entirely self-contained. All files and directories are, by default, contained within `$GRAVITEE_HOME`, the directory created when extracting the archive.
 
@@ -117,9 +117,9 @@ The `.zip` (and `.tar.gz`) package is entirely self-contained. All files and dir
 
 ## Install Management API
 
-The management API includes nodes for both of the UI components (management UI and developer portal). You must install the relevant management API node before you can use the corresponding UI component.
+The Management API includes nodes for both of the UI components (Management Console and Developer Portal). You must install the relevant Management API node before you can use the corresponding UI component.
 
-This section describes how to install management API and verify the nodes are running.
+This section describes how to install Management API and verify the nodes are running.
 
 ### Extract the `.zip` archive
 
@@ -130,7 +130,7 @@ $ unzip gravitee-standalone-distribution-3.20.0.zip
 $ cp -r graviteeio-full-3.20.0/graviteeio-apim-rest-api-3.20.0 [DESTINATION_FOLDER]/
 ```
 
-### Run management API from the command line
+### Run Management API from the command line
 
 You start APIM API from the command line as follows:
 
@@ -142,10 +142,10 @@ $ ./bin/gravitee
 By default, APIM API runs in the foreground, prints its logs to standard output (stdout), and can be stopped by pressing **Ctrl-C**.
 
 {% hint style="info" %}
-Both the management API nodes run by default. You can configure APIM to run only one or the other, as described in the [management API configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_configuration.html) section.
+Both the Management API nodes run by default. You can configure APIM to run only one or the other, as described in the [Management API configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_configuration.html) section.
 {% endhint %}
 
-Once the management API is running, you will see a log such as this one:
+Once the Management API is running, you will see a log such as this one:
 
 ```sh
 ...
@@ -153,9 +153,9 @@ Once the management API is running, you will see a log such as this one:
 ...
 ```
 
-### Check management API is running
+### Check Management API is running
 
-You can test that your management API node is running by sending an HTTP request to port `8083` on `localhost`:
+You can test that your Management API node is running by sending an HTTP request to port `8083` on `localhost`:
 
 ```sh
 curl -X GET http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/apis
@@ -167,9 +167,9 @@ You will receive a response similar to the following:
 []
 ```
 
-### Check developer portal API is running
+### Check Developer Portal API is running
 
-You can test that your developer portal API node is running by sending an HTTP request to port `8083` on `localhost`:
+You can test that your Developer Portal API node is running by sending an HTTP request to port `8083` on `localhost`:
 
 ```sh
 curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
@@ -188,9 +188,9 @@ You will receive a response similar to the following:
 }
 ```
 
-### Run management API as a daemon
+### Run Management API as a daemon
 
-To run the management API as a daemon, specify `-d` on the command line and record the process ID in a file using option `-p`:
+To run the Management API as a daemon, specify `-d` on the command line and record the process ID in a file using option `-p`:
 
 ```sh
 ./bin/gravitee -d -p=/var/run/gio.pid
@@ -218,11 +218,11 @@ The `.zip` and (`.tar.gz`) package is entirely self-contained. All files and dir
 | data      | Search engine metadata                                      |
 | templates | API templates                                               |
 
-## Install Management UI
+## Install Management Console
 
 ### Prerequisites
 
-Before you begin, ensure the management API is installed and running.
+Before you begin, ensure the Management API is installed and running.
 
 ### Extract the `.zip` archive
 
@@ -233,11 +233,11 @@ $ unzip gravitee-standalone-distribution-3.20.0.zip
 $ cp -r graviteeio-full-3.20.0/graviteeio-apim-console-ui-3.20.0 [DESTINATION_FOLDER]/
 ```
 
-### Deploy or run the management UI
+### Deploy or run the Management Console
 
 #### Deploy
 
-The management UI is a client-side-only AngularJS application and can be deployed on any HTTP server, such as [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
+The Management Console is a client-side-only AngularJS application and can be deployed on any HTTP server, such as [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
 
 #### Run with Python
 
@@ -258,7 +258,7 @@ $ http-server
 
 ### Prerequisites
 
-Before you begin, ensure the management API is installed and running.
+Before you begin, ensure the Management API is installed and running.
 
 ### Extract the `.zip` archive
 
@@ -269,9 +269,9 @@ $ unzip gravitee-standalone-distribution-3.20.0.zip
 $ cp -r graviteeio-full-3.20.0/graviteeio-apim-console-ui-3.20.0 [DESTINATION_FOLDER]/
 ```
 
-### Deploy or run the developer portal
+### Deploy or run the Developer Portal
 
-The developer portal is a client-side-only Angular application and can be deployed on any HTTP server like [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
+The Developer Portal is a client-side-only Angular application and can be deployed on any HTTP server like [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
 
 #### Run with Node.js
 

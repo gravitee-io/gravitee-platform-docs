@@ -38,7 +38,7 @@ Gravitee comes with some pre-built default roles, but there is no limit to the n
     * Application
 * Defines what you can do with the APIM UI components and the APIM Management API
 
-To set up roles, log-in to the Gravitee API Management UI, and select Organization in the left-hand nav. In your Organization settings, select **Roles** from the **User Management** section. You'll be brought to the **Roles** page. Here, you can add, see members within, and delete roles at the Organization, Environment, API, and Application Scopes. Depending on which Scope a role is created at, that role will have a different set of permissions. Please see the following tables that describe the permissions per scope:
+To set up roles, log-in to the Gravitee API Management Console, and select Organization in the left-hand nav. In your Organization settings, select **Roles** from the **User Management** section. You'll be brought to the **Roles** page. Here, you can add, see members within, and delete roles at the Organization, Environment, API, and Application Scopes. Depending on which Scope a role is created at, that role will have a different set of permissions. Please see the following tables that describe the permissions per scope:
 
 #### Organization permissions
 
@@ -136,7 +136,7 @@ To further illustrate this concept, we'll walk through a step by step process to
 
 To create a custom "Writer" role, follow these steps:
 
-1. Log-in to the API Management UI
+1. Log-in to the API Management Console
 2. Select **Organizations** from the left-hand nav
 3. Select **Roles** under **User Management**
 4.  At the **API** scope, select **+ Add a role**\
@@ -173,7 +173,7 @@ There are two main ways for users to be created:
 
 To create a user via the System administrator flow, follow these steps:
 
-1. Log-in to the API Management UI, and select Organization from the left-hand nav.
+1. Log-in to the API Management Console, and select Organization from the left-hand nav.
 2. Select **Users** under **User Management.**
 3. Select **+ Add user** from the top left corner of the **Users** page.\\
 4. From here, you will define the user profile for this user. To define the user profile:
@@ -194,7 +194,7 @@ To delete a user from your Organization, select the **Delete user** icon from th
 
 To create and manage User groups, follow these steps:
 
-1. Log-in to the API Management UI, and select **Settings** from the left-hand nav.&#x20;
+1. Log-in to the API Management Console, and select **Settings** from the left-hand nav.&#x20;
 2. Under **User Management,** select **Groups**.
 3. You'll be brought to a list of User groups. Here, you can create, edit, and delete User groups. To:
    * Create groups: select the + icon at the bottom right corner of the page

@@ -13,7 +13,7 @@ When using the `graviteeio` ingress class, some features defined in the Kubernet
 
 ## Deployment
 
-The Gravitee gateway will be deployed in the `gravitee-ingress` namespace and will be available at the `graviteeio.example.com` domain name.
+The Gravitee Gateway will be deployed in the `gravitee-ingress` namespace and will be available at the `graviteeio.example.com` domain name.
 
 Our backend service(s) routed and made available through our ingress(es) will be deployed in the `gravitee-apis` namespace.
 

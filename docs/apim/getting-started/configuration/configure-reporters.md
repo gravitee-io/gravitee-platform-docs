@@ -45,7 +45,7 @@ Configuration details for the Elasticsearch reporter are available in the [Elast
 | `<EVENT_TYPE>.rename`  | Fields to rename when writing the output. Available for `json` and `message_pack` outputs only.                           | **none**                                                           |
 
 {% hint style="info" %}
-\<EVENT\_TYPE> refers to the kind of event reported by the gateway and can be either `request`, `log`, `node` or `healthcheck`. Fields referenced as `exclude`, `include` and `rename` items all support [jsonPath](https://github.com/json-path/JsonPath) for accessing nested elements.
+\<EVENT\_TYPE> refers to the kind of event reported by the Gateway and can be either `request`, `log`, `node` or `healthcheck`. Fields referenced as `exclude`, `include` and `rename` items all support [jsonPath](https://github.com/json-path/JsonPath) for accessing nested elements.
 {% endhint %}
 
 #### **Example**

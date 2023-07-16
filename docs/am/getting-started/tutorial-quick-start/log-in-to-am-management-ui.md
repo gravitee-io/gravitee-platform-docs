@@ -1,4 +1,4 @@
-# Log in to AM Management UI
+# Log in to AM Management Console
 
 ## How to access AM Console
 
@@ -22,12 +22,12 @@ To log in:
 2. Log in with the administrator credentials. You are redirected to the AM Console dashboard for your default security domain.
 3. If you want to change the security domain, open the user menu from the top bar and select the domain from the list.
 
-## AM Management UI overview
+## AM Management Console overview
 
-The AM Management UI is where you manage all aspects of your account and configuration. It consists of two distinct parts, the **security domain settings** and the **organization settings**.
+The AM Management Console is where you manage all aspects of your account and configuration. It consists of two distinct parts, the **security domain settings** and the **organization settings**.
 
 {% hint style="info" %}
-AM Management UI is accessible by `administrative users` that you can manage in the **organization settings** section.
+AM Management Console is accessible by `administrative users` that you can manage in the **organization settings** section.
 {% endhint %}
 
 ### Security domain settings
@@ -82,7 +82,7 @@ To access the organization settings, click on **Organization Settings** in the b
 
 Here you can configure several aspects of your organization such as :
 
-* AM Management UI access : how to log in to the console.
+* AM Management Console access : how to log in to the console.
 * [Administrative roles](https://docs.gravitee.io/am/current/am\_adminguide\_roles\_and\_permissions.html): register new administrative users and manage their roles.
 * Deployment configuration: set up entrypoints and sharding tags for your AM gateway.
 

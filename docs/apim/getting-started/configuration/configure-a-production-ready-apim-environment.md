@@ -210,7 +210,7 @@ add_header Content-Security-Policy "frame-ancestors my-domain.com;" always;
 ```
 
 {% hint style="info" %}
-APIM Management UI uses an iframe to preview the portal theme configuration, so it is necessary to add the Management UI in the Developer Portal nginx config. You can learn more about:
+APIM Management Console uses an iframe to preview the portal theme configuration, so it is necessary to add the Management Console in the Developer Portal nginx config. You can learn more about:
 
 * Content-Security\_policy and framing [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors)
 * X-Frame-Options [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)

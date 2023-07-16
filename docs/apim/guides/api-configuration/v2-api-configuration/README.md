@@ -95,7 +95,7 @@ Once you have configured your endpoints as a part of your load-balancing configu
 
 ## Health checks
 
-A health check is a mechanism used to monitor the availability and health of your endpoints and/or your API gateways. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.
+A health check is a mechanism used to monitor the availability and health of your endpoints and/or your API Gateways. Gravitee includes a built-in health check mechanism that allows you to create global health check configurations. Check out the interactive UI exploration or the text descriptions to learn more.
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
@@ -103,7 +103,7 @@ A health check is a mechanism used to monitor the availability and health of you
 {% endtab %}
 
 {% tab title="Text descriptions" %}
-Gravitee enables you to configure health checks for both endpoints and Gravitee API gateways. Like load-balancing and failover, health checks are Gravitee backend services. To ensure that you are prepared to use Gravitee health checks, you will want to make sure that you are familiar with the following concepts:
+Gravitee enables you to configure health checks for both endpoints and Gravitee API Gateways. Like load-balancing and failover, health checks are Gravitee backend services. To ensure that you are prepared to use Gravitee health checks, you will want to make sure that you are familiar with the following concepts:
 
 * **Trigger**: define what triggers the health checks. Triggers are:
   * HTTP methods
@@ -117,7 +117,7 @@ After you've configured health checks, you can view health check information and
 
 * **Global availability**: average availability and average response times for _all_ health-checked endpoints
 * **Per-endpoint availability:** average availability and average response times for _specific_ endpoints
-* **Per-gateway availability:** average availability and response times per API gateway where health-check is enabled
+* **Per-gateway availability:** average availability and response times per API Gateway where health-check is enabled
 * **Latest check:** a running list of most recent health checks. [You can choose to show only status transitions](https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a)[https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a](https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a)
 {% endtab %}
 {% endtabs %}

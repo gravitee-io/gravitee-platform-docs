@@ -4,8 +4,8 @@ This section describes how to install the individual components from the Gravite
 
 * Install APIM gateway
 * Install management API
-* Install management UI
-* Install developer portal
+* Install Management Console
+* Install Developer Portal
 
 Alternatively, you can install the full APIM stack and dependencies as detailed on the [APIM Full Stack Installation page.](gravitee-components/)
 
@@ -31,7 +31,7 @@ Alternatively, you can install the full APIM stack and dependencies as detailed 
 sudo yum install graviteeio-apim-gateway-3x -y
 ```
 
-2. Enable gateway on startup:
+2. Enable Gateway on startup:
 
 ```sh
 $ sudo systemctl daemon-reload
@@ -92,7 +92,7 @@ If the installation was successful, then this API call should return: **No conte
 sudo yum install graviteeio-apim-rest-api-3x -y
 ```
 
-2. Enable management API on startup:
+2. Enable Management API on startup:
 
 ```sh
 $ sudo systemctl daemon-reload
@@ -132,13 +132,13 @@ $ curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
 
 If the installation was successful, then both of these API requests will return a JSON document.
 
-## Install Management UI
+## Install Management Console
 
 ### Prerequisites
 
 * Amazon instance running
 * Gravitee `yum` repository added
-* Gravitee management API installed and running
+* Gravitee Management API installed and running
 * Nginx installed
 
 ### Security group
@@ -147,7 +147,7 @@ If the installation was successful, then both of these API requests will return 
 
 ### Instructions
 
-1. Install Management UI:
+1. Install Management Console:
 
 ```sh
 sudo yum install graviteeio-apim-management-ui-3x -y
@@ -168,9 +168,9 @@ sudo ss -lntp '( sport = 8084 )'
 You should see that there’s a process listening on that port.
 
 {% hint style="info" %}
-**Management UI clarification**
+**Management Console clarification**
 
-The Management UI package does not provide its own service. It provides:
+The Management Console package does not provide its own service. It provides:
 
 * a javascript application that can be found at `/opt/graviteeio/apim/management-ui`
 * an Nginx configuration that can be found at `/etc/nginx/conf.d/graviteeio-apim-management-ui.conf`
@@ -182,7 +182,7 @@ The Management UI package does not provide its own service. It provides:
 
 * Amazon instance running
 * Gravitee `yum` repository added
-* Gravitee management API installed and running
+* Gravitee Management API installed and running
 * Nginx installed
 
 ### Security group
@@ -191,7 +191,7 @@ The Management UI package does not provide its own service. It provides:
 
 ### Instructions
 
-1. Install developer portal:
+1. Install Developer Portal:
 
 ```sh
 sudo yum install graviteeio-apim-portal-ui-3x -y
@@ -214,7 +214,7 @@ You should see that there’s a process listening on that port.
 {% hint style="info" %}
 **Developer portal clarification**
 
-The developer portal package does not provide its own service. It provides:
+The Developer Portal package does not provide its own service. It provides:
 
 * a javascript application that can be found at `/opt/graviteeio/apim/portal-ui`
 * an Nginx configuration that can be found at `/etc/nginx/conf.d/graviteeio-apim-portal-ui.conf`

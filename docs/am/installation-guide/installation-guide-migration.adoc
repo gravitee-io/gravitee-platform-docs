@@ -65,7 +65,7 @@ WebAuthn Login
 
 == Upgrade to 3.15.6
 
-WARNING: For security reason, default values for the duration of the email mfaChallenge code and the resetPassword token have been reduced to 5 minutes. If you want to restore previous values, please update the gravitee.yaml file for the management and gateway service for these two values "`user.resetPassword.token`" and "`user.mfaChallenge.token`".
+WARNING: For security reason, default values for the duration of the email mfaChallenge code and the resetPassword token have been reduced to 5 minutes. If you want to restore previous values, please update the gravitee.yaml file for the management and Gateway service for these two values "`user.resetPassword.token`" and "`user.mfaChallenge.token`".
 
 == Upgrade to 3.17
 
@@ -113,7 +113,7 @@ NOTE: For more information about the breaking changes of this version, see link:
 
 === Warning
 
-For JDBC users, we strongly advise to not upgrade to 3.14.5 since we detected a critical bug which can block the AM management API (the AM gateway is not impacted).
+For JDBC users, we strongly advise to not upgrade to 3.14.5 since we detected a critical bug which can block the AM Management API (the AM Gateway is not impacted).
 
 This has been fixed in 3.14.6.
 
@@ -151,7 +151,7 @@ NOTE: For more information about the breaking changes of this version, see link:
 
 === Warning
 
-For JDBC users, we strongly advise to not upgrade to 3.10.14 since we detected a critical bug which can block the AM management API (the AM gateway is not impacted).
+For JDBC users, we strongly advise to not upgrade to 3.10.14 since we detected a critical bug which can block the AM Management API (the AM Gateway is not impacted).
 
 This has been fixed in 3.10.15.
 
@@ -299,7 +299,7 @@ This script updates the database to reflect the following changes :
 Before you start for the first time the AM Management API and AM Gateway in version 3.6.0, create a dump of your existing database.
 
 https://github.com/gravitee-io/graviteeio-access-management/tree/master/gravitee-am-repository/gravitee-am-repository-jdbc/src/main/resources/liquibase/changelogs/cockpit[Liquibase scripts]::
-These script are executed automatically on startup of AM gateway and AM management console. This script updates the database to reflect the following changes :
+These script are executed automatically on startup of AM Gateway and AM Management Console. This script updates the database to reflect the following changes :
 
 * Addition of new permissions related to the multi environments feature
 * Update existing users permissions according to their role in order to grant access to the default organization and environment

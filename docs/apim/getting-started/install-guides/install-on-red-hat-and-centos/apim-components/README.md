@@ -73,7 +73,7 @@ sudo journalctl --unit graviteeio-apim-gateway --since  "2020-01-30 12:13:14"
 
 The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
 
-### Install the management API package
+### Install the Management API package
 
 To install the last stable version of the management API, run the following command:
 
@@ -85,7 +85,7 @@ sudo yum install -y graviteeio-apim-rest-api-3x
 
 These steps assume that you are using the default settings.
 
-To configure the management API to start automatically when the system boots up, run the following commands:
+To configure the Management API to start automatically when the system boots up, run the following commands:
 
 ```sh
 $ sudo systemctl daemon-reload
@@ -100,7 +100,7 @@ $ sudo systemctl stop graviteeio-apim-rest-api
 ```
 
 {% hint style="info" %}
-These commands provide no feedback as to whether the management API started successfully. This information is written to the log files located in `/opt/graviteeio/apim/rest-api/logs/`.
+These commands provide no feedback as to whether the Management API started successfully. This information is written to the log files located in `/opt/graviteeio/apim/rest-api/logs/`.
 {% endhint %}
 
 ### View the logs
@@ -113,23 +113,23 @@ To tail the journal, run the following command:
 sudo journalctl -f
 ```
 
-To list journal entries for the management API service, run the following command:
+To list journal entries for the Management API service, run the following command:
 
 ```sh
 sudo journalctl --unit graviteeio-apim-rest-api
 ```
 
-To list journal entries for the management API service starting from a given time, run the following command:
+To list journal entries for the Management API service starting from a given time, run the following command:
 
 ```sh
 sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 ```
 
-## Install Management UI
+## Install Management Console
 
 ### Prerequisites
 
-Before you install the management UI, you must complete the following configuration.
+Before you install the Management Console, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
 2. Install and run the [management API](broken-reference).
@@ -140,21 +140,21 @@ $ sudo yum install epel-release
 $ sudo yum install nginx
 ```
 
-### Install the management UI package
+### Install the Management Console package
 
-To install the last stable version of the management UI, run the following command:
+To install the last stable version of the Management Console, run the following command:
 
 ```sh
 $ sudo yum install -y graviteeio-apim-management-ui-3x
 ```
 
-### Run the management UI
+### Run the Management Console
 
 {% hint style="info" %}
-The management UI is based on Nginx.
+The Management Console is based on Nginx.
 {% endhint %}
 
-To configure the management UI to start automatically when the system boots up, run the following commands:
+To configure the Management Console to start automatically when the system boots up, run the following commands:
 
 ```sh
 $ sudo systemctl daemon-reload
@@ -194,7 +194,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 
 ### Prerequisites
 
-Before you install the developer portal, you must complete the following configuration.
+Before you install the Developer Portal, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
 2. Install and run the [management API](broken-reference).
@@ -205,21 +205,21 @@ $ sudo yum install epel-release
 $ sudo yum install nginx
 ```
 
-### Install the developer portal package
+### Install the Developer Portal package
 
-To install the last stable version of The developer portal , run the following command:
+To install the last stable version of The Developer Portal , run the following command:
 
 ```sh
 sudo yum install -y graviteeio-apim-portal-ui-3x
 ```
 
-### Run the developer portal
+### Run the Developer Portal
 
 {% hint style="info" %}
-The developer portal is based on Nginx.
+The Developer Portal is based on Nginx.
 {% endhint %}
 
-To configure the developer portal to start automatically when the system boots up, run the following commands:
+To configure the Developer Portal to start automatically when the system boots up, run the following commands:
 
 ```sh
 $ sudo systemctl daemon-reload

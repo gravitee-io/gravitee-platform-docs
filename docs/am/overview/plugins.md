@@ -2,7 +2,7 @@
 
 ## Overview
 
-Plugins are additional components that can be _plugged into_ AM gateway or AM management API. They can customize the component’s behavior to exactly fit your needs and technical constraints.
+Plugins are additional components that can be _plugged into_ AM Gateway or AM Management API.They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
 ## Types of plugins
 

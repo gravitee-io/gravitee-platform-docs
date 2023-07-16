@@ -1,5 +1,5 @@
 ---
-description: The API publisher's guide to the developer portal
+description: The API publisher's guide to the Developer Portal
 ---
 
 # Publish APIs

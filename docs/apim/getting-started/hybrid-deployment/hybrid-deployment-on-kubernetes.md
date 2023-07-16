@@ -22,7 +22,7 @@ In this schema, we can see that:
 * Redis is used to manage rate limits and quota counters within the Gateway cluster
 
 {% hint style="info" %}
-Before you continue, keep in mind that the bridge gateway (the red box in the left-hand region of the schema) is simply an APIM gateway instance with additional capabilities. This is essential to understanding how we are deploying the bridge. For more information, see the introduction to [Hybrid Deployment](./).
+Before you continue, keep in mind that the bridge Gateway (the red box in the left-hand region of the schema) is simply an APIM Gateway instance with additional capabilities. This is essential to understanding how we are deploying the bridge. For more information, see the introduction to [Hybrid Deployment](./).
 {% endhint %}
 
 ## Deploying with Helm
@@ -58,7 +58,7 @@ $ helm repo add graviteeio https://helm.gravitee.io
 ```
 {% endcode %}
 
-2. Deploy the management APIM instance, which includes components management UI, developer portal, management API and the bridge gateway (which will be used as a bridge between the two clusters):
+2. Deploy the management APIM instance, which includes components Management Console, Developer Portal, Management API and the bridge Gateway (which will be used as a bridge between the two clusters):
 
 ```sh
 $ helm install — name graviteeio-apim3 — namespace graviteeio \
@@ -154,12 +154,12 @@ portal:
 
 From this file, we can see that:
 
-* the gateway is not exposed through the ingress controller (it is not accepting API calls for the bridge gateway)
-* we have enabled the bridge service for the gateway and declared a new ingress to expose it to remote clusters
+* the Gateway is not exposed through the ingress controller (it is not accepting API calls for the bridge gateway)
+* we have enabled the bridge service for the Gateway and declared a new ingress to expose it to remote clusters
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_ingress.png" alt=""><figcaption><p>APIM management cluster</p></figcaption></figure>
 
-### Deploy the gateway cluster
+### Deploy the Gateway cluster
 
 1. Again, we need to initialize the cluster with some prerequisites:
 
@@ -178,7 +178,7 @@ $ helm repo add graviteeio https://helm.gravitee.io
 ```
 {% endcode %}
 
-2. Now we deploy APIM, but only the APIM gateway component:
+2. Now we deploy APIM, but only the APIM Gateway component:
 
 ```sh
 $ helm install — name graviteeio-apim3 — namespace graviteeio \
@@ -229,7 +229,7 @@ portal:
 
 From this file, we can see that:
 
-* All the management components have been disabled to prevent their deployment — management API, management UI, and developer portal
+* All the management components have been disabled to prevent their deployment — management API, Management Console, and Developer Portal
 * We have enabled `http` management mode for the gateway, and we use this link to mount all the required information in the Gateway to be able to process API calls
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_http.png" alt=""><figcaption><p>APIM gatewaye cluster</p></figcaption></figure>
@@ -243,7 +243,7 @@ If you have a look at the Gateway pod logs, you will see something like this:
 08:27:32.888 [vert.x-eventloop-thread-1] [] INFO  i.g.r.b.client.http.WebClientFactory - Bridge Server connection successful.
 ```
 
-We can now open up management UI and see our two gateways running:
+We can now open up Management Console and see our two gateways running:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_gateways.png" alt=""><figcaption><p>Hybrid K8 deployment</p></figcaption></figure>
 

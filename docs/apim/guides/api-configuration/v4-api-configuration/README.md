@@ -18,9 +18,9 @@ Gravitee offers several levels of configuration for v4 APIs using the Gravitee A
   * **General settings**: define the general settings for your API, such as name, description, and deployment status
   * **Plans configuration**: define plans and basic access control mechanisms
 * Entrypoints&#x20;
-  * **General entrypoint configuration**: configure how consumers access the gateway through your gateway API
+  * **General entrypoint configuration**: configure how consumers access the Gateway through your Gateway API
 * Endpoints
-  * **Backend service configuration**: configure the backend target or resource that your gateway API will call/subscribe to
+  * **Backend service configuration**: configure the backend target or resource that your Gateway API will call/subscribe to
 
 {% hint style="info" %}
 **Quality of Service**

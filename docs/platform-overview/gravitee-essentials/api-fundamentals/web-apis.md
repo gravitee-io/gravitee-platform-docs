@@ -99,7 +99,7 @@ HTTP includes standard status codes to qualify the state of every network commun
 
 The route portion of a URL combined with an HTTP method constitutes an HTTP API endpoint. Every resource can be accessed by the user of the API at a unique endpoint. For example, `GET http://foo.com/api/user/1` and `GET http://foo.com/api/user/2` contain different routes and correspond to distinct resources. `GET http://foo.com/api/user/1` and `POST http://foo.com/api/user/1` are also considered unique endpoints due to the change in HTTP method.
 
-In this example, all resources, and therefore, all endpoints tied to this API, exist under a single API entry point of `http://foo.com/api`. The entry point can be viewed as a special type of endpoint: as the gateway to the API, it’s a resource that exists outside of any other collection and contains all other collections of resources.
+In this example, all resources, and therefore, all endpoints tied to this API, exist under a single API entry point of `http://foo.com/api`. The entry point can be viewed as a special type of endpoint: as the Gateway to the API, it’s a resource that exists outside of any other collection and contains all other collections of resources.
 
 #### Path parameters
 
