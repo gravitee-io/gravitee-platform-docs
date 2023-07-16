@@ -76,7 +76,7 @@ When using the management API, policies are added as flows either directly to an
 
 ### Phases
 
-Policies can be applied to the request or the response of a gateway API transaction. Depending on the [version of the gateway API](../../overview/gravitee-api-definitions-and-execution-engines.md#policy-execution-phases-and-execution-order), the request and response are broken up into what are known as _phases_. Each policy has different compatibility with the available phases:
+Policies can be applied to the request or the response of a Gateway API transaction. Depending on the [version of the Gateway API](../../overview/gravitee-api-definitions-and-execution-engines.md#policy-execution-phases-and-execution-order), the request and response are broken up into what are known as _phases_. Each policy has different compatibility with the available phases:
 
 {% tabs %}
 {% tab title="v4 API definition" %}
@@ -125,14 +125,14 @@ Please ensure the policy version you select is compatible with your version of A
 To do so, follow these steps:
 
 1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/)
-2. Add the file into the `plugins` folder for both the gateway and management API
+2. Add the file into the `plugins` folder for both the Gateway and management API
 
 {% hint style="info" %}
 **Location of `plugins` folder**
 
 The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
 
-Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the gateway and `/gravitee/apim-management-api/plugins` for the management API.
+Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the Gateway and `/gravitee/apim-management-api/plugins` for the management API.
 {% endhint %}
 
 3. Remove any existing plugins of the same name.&#x20;

@@ -26,7 +26,7 @@ SQL database such as PostgreSQL, MySQL, MariaDB, Microsoft SQL Server can also b
 
 ### HTTP Server
 
-AM Management UI is a client-side Angular application that can be deployed on any HTTP server, such as [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
+AM Management Console is a client-side Angular application that can be deployed on any HTTP server, such as [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
 
 ## Full installation
 

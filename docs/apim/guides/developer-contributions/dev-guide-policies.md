@@ -6,7 +6,7 @@ description: How to build and deploy your own policies
 
 ## Overview
 
-Policies are rules or logic that can be executed by the API gateway during an API transaction. A policy acts as a proxy controller by guaranteeing that a given business rule is fulfilled during the processing of an API transaction.
+Policies are rules or logic that can be executed by the API Gateway during an API transaction. A policy acts as a proxy controller by guaranteeing that a given business rule is fulfilled during the processing of an API transaction.
 
 Let's look at an example of how to develop a policy.&#x20;
 
@@ -97,7 +97,7 @@ Each policy should have a dedicated `README.md` file to document it. The `README
 
 A policy is just a kind of Gravitee plugin.
 
-It can be plugged into the APIM gateway by using the distribution file built from the `policy-assembly.xml` file.
+It can be plugged into the APIM Gateway by using the distribution file built from the `policy-assembly.xml` file.
 
 Based on our _FooHeaderCheck_ policy, the distribution file structure is as follows:
 
@@ -129,7 +129,7 @@ Policy configuration is injected into the policy class instance at runtime and c
 
 #### JSON configuration schemas
 
-During the packaging phase, each policy configuration class is processed to generate one or several [JSON schema(s)](http://json-schema.org) that will be read by the gateway when the policy is plugged in.
+During the packaging phase, each policy configuration class is processed to generate one or several [JSON schema(s)](http://json-schema.org) that will be read by the Gateway when the policy is plugged in.
 
 JSON schema generation is performed by Gravitee's [json-schema-generator-maven-plugin](https://github.com/gravitee-io/json-schema-generator-maven-plugin) Maven plugin.
 
@@ -234,11 +234,11 @@ The `PolicyChain` must always be called to end `onResponse` processing. Ensure y
 
 ### Apply policy during both the Request and Response phases
 
-A policy is not restricted to only one gateway proxy phase. It can be applied during both the Request and Response phases by simply using both annotations in the same class.
+A policy is not restricted to only one Gateway proxy phase. It can be applied during both the Request and Response phases by simply using both annotations in the same class.
 
 ### Provided parameters
 
-The annotated methods can declare several parameters (but not necessarily all of them) which will be automatically provided by the gateway at runtime.
+The annotated methods can declare several parameters (but not necessarily all of them) which will be automatically provided by the Gateway at runtime.
 
 Available parameters are:
 

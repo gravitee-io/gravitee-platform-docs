@@ -32,7 +32,7 @@ To configure Entrypoints, follow the below interactive tutorial, or, follow the 
 
 If you prefer to use a written list of steps, follow these steps:
 
-Log in to the Gravitee API Management UI. In the **APIs** menu, select the API for whom you want to configure Entrypoints.
+Log in to the Gravitee API Management Console. In the **APIs** menu, select the API for whom you want to configure Entrypoints.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/665c071d-8767-48ce-8690-c3261769fda0/1/24.166666666667/22.11524135876?0)
 
@@ -66,7 +66,7 @@ CORS is a mechanism that allows resources on a web page to be requested from ano
 
 To configure CORS for an API, follow these steps:
 
-Log into your Gravitee API Management UI. Select the **APIs** menu. Find the API for which you want to configure CORS.
+Log into your Gravitee API Management Console. Select the **APIs** menu. Find the API for which you want to configure CORS.
 
 ![](https://dubble-prod-01.s3.amazonaws.com/assets/6121e44d-f50d-411b-8194-4ae9a611d2f8.png?0)
 
@@ -138,7 +138,7 @@ To choose Sharding tags, follow the below interactive tutorial, or, follow the s
 
 {% @arcade/embed flowId="d6TOgaGsnGu4ycqJ4PUr" url="https://app.arcade.software/share/d6TOgaGsnGu4ycqJ4PUr" %}
 
-Log in to the API Management UI. Select the **APIs** menu.
+Log in to the API Management Console. Select the **APIs** menu.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/9ab2716a-118b-4eb0-b1f1-b0961edf401a/1/1.3333333333333/23.301549463647?0)
 

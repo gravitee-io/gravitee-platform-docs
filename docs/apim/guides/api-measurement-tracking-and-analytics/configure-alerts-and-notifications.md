@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-Gravitee allows you to set up alerts and notifications based on events recognized by the Gateway. You can [set up notifications](configure-alerts-and-notifications.md#configure-notifications-for-your-apis) that appear in the Gravitee API Management UI or that are sent to Gravitee users via email. You can also [create custom alerts](configure-alerts-and-notifications.md#configure-alerts) based on user-defined rules and conditions. Keep reading to learn how to configure alerts and notifications.
+Gravitee allows you to set up alerts and notifications based on events recognized by the Gateway. You can [set up notifications](configure-alerts-and-notifications.md#configure-notifications-for-your-apis) that appear in the Gravitee API Management Console or that are sent to Gravitee users via email. You can also [create custom alerts](configure-alerts-and-notifications.md#configure-alerts) based on user-defined rules and conditions. Keep reading to learn how to configure alerts and notifications.
 
 ## Configure notifications for your APIs
 

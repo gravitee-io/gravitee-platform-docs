@@ -16,7 +16,7 @@ The Gravitee **API Quality** feature enables you to create and automatically ass
 
 API Quality is configured at the Portal Settings level. To access these settings:
 
-1. Log in to your API Management UI.
+1. Log in to your API Management Console.
 2. Select **Settings** from the left-hand nav.
 3. Under **Portal**, select **Quality.**
 
@@ -57,7 +57,7 @@ Once created, you can enforce this custom rule manually across your APIs.
 
 An APIs quality score is visible in its **General** details page. To view an API Quality score, follow these steps:&#x20;
 
-1. Log in to the API Management UI.
+1. Log in to the API Management Console.
 2. On the APIs page, select the API for which you want to view a Quality score.
 3. Select General under Portal.&#x20;
 

@@ -10,7 +10,7 @@ NOTE: For all these breaking changes the Migration Guide can be found link:{{ '/
 
 Since the beginning, AM Gateway has been using a server side session to back up some context information during user authentication flow (such as login, passwordless, multi-factor, consent).
 
-In most cases, this server session was lost when 2 consecutive calls were handled on 2 different gateway instances.
+In most cases, this server session was lost when 2 consecutive calls were handled on 2 different Gateway instances.
 
 To avoid this problem, the simplest solution was to configure a sticky on the load balancer in front of the gateways but the problem sometimes still occurred during redeploy or auto scaling phases.
 

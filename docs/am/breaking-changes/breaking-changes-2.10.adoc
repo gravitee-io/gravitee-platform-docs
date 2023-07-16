@@ -6,7 +6,7 @@
 
 == JAR Manifest file has changed
 
-Starting from version 2.10.10, the Main-Class of the entry point of the runnable management and gateway application has changed due to typo error.
+Starting from version 2.10.10, the Main-Class of the entry point of the runnable management and Gateway application has changed due to typo error.
 
 ----
 AM Management API

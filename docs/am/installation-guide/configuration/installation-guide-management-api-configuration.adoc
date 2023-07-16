@@ -76,10 +76,10 @@ jetty:
 
 === Security
 
-Since  AM 3.10, the security section allows you to define the users available to authenticate to the management console after the first start.
+Since  AM 3.10, the security section allows you to define the users available to authenticate to the Management Console after the first start.
 Until AM 3.9, there was only one user `admin` created in a inline identity provider. In 3.10, this behaviour is preserve by enabling the `security.defaultAdmin` option (default value).
 
-This section introduce a providers section to define a set of identity providers instantiated on startup. These providers are not visible from the management UI.
+This section introduce a providers section to define a set of identity providers instantiated on startup. These providers are not visible from the Management Console.
 
 Currently, only the provider type `memory` is available. The users known by this provider are defined into a list named `users` (see example here after).
 For each user, you have to define one organization role:
@@ -175,7 +175,7 @@ user:
         #$                 # end-of-string
 
       ## Password dictionary to exclude most commons passwords
-      ## You need to enable the feature in the AM management console
+      ## You need to enable the feature in the AM Management Console
 
       #dictionary:
       #  filename: /path/to/dictionary  # if null `resources/dictionaries/10k-most-common.txt` will be loaded

@@ -26,7 +26,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **APIM Management API (mAPI):** A REST API used to configure and manage APIs and various Gravitee resources.
 
-**APIM Console:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management UI is tied to a REST API that can be accessed outside of the interface.
+**APIM Console:** A graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management Console is tied to a REST API that can be accessed outside of the interface.
 
 **APIM Developer Portal:** Used to build an API catalog and marketplace for API consumers. Feature-rich with documentation generation, API analytics, etc.
 
@@ -51,7 +51,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Proxy upstream protocol:** A backend exposure method in the Policy Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
 * **Introspect messages from event-driven backend:** A backend exposure method in the Policy Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
 
-**Context path:** A unique route targeting a specific gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
+**Context path:** A unique route targeting a specific Gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`. NOTE: _not finalized but some APIs do not have a context-path_
 
 **Execution context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
 
@@ -59,13 +59,13 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Backend API:** The source or target API that is proxied by the gateway.
 
-**Gateway API:** An API deployed on the Gateway by an API publisher to expose and proxy a backend API. All gateway APIs require at least one entrypoint and an endpoint.
+**Gateway API:** An API deployed on the Gateway by an API publisher to expose and proxy a backend API. All Gateway APIs require at least one entrypoint and an endpoint.
 
-**Gravitee API definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure gateway APIs and traffic. The Gravitee API Definition of a gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.
+**Gravitee API definition:** A human and machine-readable JSON representation of the information required by the Gravitee Gateway to proxy, apply policies to, create plans for, and otherwise manage or configure Gateway APIs and traffic. The Gravitee API Definition of a Gateway API is analogous to the OpenAPI or AsyncAPI specification of a backend API.
 
-**Gateway endpoint:** Defines the protocol and configuration settings by which the gateway API will fetch data from, or post data to, the backend API.
+**Gateway endpoint:** Defines the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API.
 
-**Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
+**Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the Gateway API. The Gateway entrypoint dictates how the backend API is exposed through the gateway.
 
 **Gravitee Expression Language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
 
@@ -78,17 +78,17 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Plugin:** Components that provide additional functionality to the Gravitee ecosystem.
 
-**Policy:** Logic that is executed by the API gateway during an API transaction. The functionality of the policy is enabled through plugins.
+**Policy:** Logic that is executed by the API Gateway during an API transaction. The functionality of the policy is enabled through plugins.
 
-**Policy Studio:** The APIM Management UI feature used to interactively create a gateway API.
+**Policy Studio:** The APIM Management Console feature used to interactively create a Gateway API.
 
-**Subscription:** A contract between an API consumer and an API publisher that requires the gateway API to offer a plan and the API consumer to submit at least one application.
+**Subscription:** A contract between an API consumer and an API publisher that requires the Gateway API to offer a plan and the API consumer to submit at least one application.
 
 **Resource:** The element with which Gravitee defines reusable configurations.
 
-**Sharding tag:** A mechanism to deploy a gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the developer portal to display the access URL of a similarly tagged API.
+**Sharding tag:** A mechanism to deploy a Gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the Developer Portal to display the access URL of a similarly tagged API.
 
-**Tenant:** A tag that can be assigned to gateways and gateway endpoints to allow the same API to target different backend APIs based on which gateway receives the request.
+**Tenant:** A tag that can be assigned to gateways and Gateway endpoints to allow the same API to target different backend APIs based on which Gateway receives the request.
 
 ## General API terminology
 

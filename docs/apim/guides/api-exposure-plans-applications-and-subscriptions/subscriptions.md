@@ -14,7 +14,7 @@ APIs with keyless plans do not require the API consumer to create an application
 
 ## Subscription requests
 
-After creating an application, API consumers can subscribe to APIs (with published plans) either in the management UI or the developer portal. We will work through the management UI as we have a separate guide dedicated to the developer portal.
+After creating an application, API consumers can subscribe to APIs (with published plans) either in the Management Console or the Developer Portal. We will work through the Management Console as we have a separate guide dedicated to the Developer Portal.
 
 {% hint style="info" %}
 You can also subscribe to APIs during the [application creation process.](plans-1.md#create-an-application)
@@ -33,7 +33,7 @@ When publishers create new plans, they can specify [auto-validation of subscript
 
 You can enable mail or portal notifications so you can be notified when a subscription validation task requires your attention. Simply select your API, scroll down and select **Notifications**, select **Portal Notification** or **Default Mail Notifications**, and select the types of events you want to trigger notifications.&#x20;
 
-Portal notifications are delivered both inside of APIM's management UI and the developer portal.
+Portal notifications are delivered both inside of APIM's Management Console and the Developer Portal.
 {% endhint %}
 
 {% @arcade/embed flowId="nTazQcgGLNWVFwHEyerB" url="https://app.arcade.software/share/nTazQcgGLNWVFwHEyerB" %}

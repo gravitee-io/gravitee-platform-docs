@@ -42,7 +42,7 @@ user:
     policy:
       ...
       ## Password dictionary to exclude most commons passwords
-      ## You need to enable the feature in the AM management console
+      ## You need to enable the feature in the AM Management Console
 
       dictionary:
         filename: /path/to/dictionary.txt

@@ -126,13 +126,13 @@ This section describes metrics that are provided by the Management API and the G
 | Metrics                 | Type    | Description                                                                                    |
 | ----------------------- | ------- | ---------------------------------------------------------------------------------------------- |
 | gio\_events\_sync       | Gauge   | Number of events to process by the synchronization servide.                                    |
-| gio\_apps               | Gauge   | Number of applications managed by the gateway                                                  |
-| gio\_app\_evt\_total    | Counter | Number of events (Create, Update, Delete) regarding applications received by the gateway       |
-| gio\_domains            | Gauge   | Number of domains managed by the gateway                                                       |
-| gio\_domain\_evt\_total | Counter | Number of events (Create, Update, Delete) regarding domains received by the gateway            |
-| gio\_idps               | Gauge   | Number of identity providers managed by the gateway                                            |
-| gio\_idp\_evt\_total    | Counter | Number of events (Create, Update, Delete) regarding identity providers received by the gateway |
-| gio\_auth\_evt\_total   | Counter | Global number of events (Create, Update, Delete) received by the gateway                       |
+| gio\_apps               | Gauge   | Number of applications managed by the Gateway                                                  |
+| gio\_app\_evt\_total    | Counter | Number of events (Create, Update, Delete) regarding applications received by the Gateway       |
+| gio\_domains            | Gauge   | Number of domains managed by the Gateway                                                       |
+| gio\_domain\_evt\_total | Counter | Number of events (Create, Update, Delete) regarding domains received by the Gateway            |
+| gio\_idps               | Gauge   | Number of identity providers managed by the Gateway                                            |
+| gio\_idp\_evt\_total    | Counter | Number of events (Create, Update, Delete) regarding identity providers received by the Gateway |
+| gio\_auth\_evt\_total   | Counter | Global number of events (Create, Update, Delete) received by the Gateway                       |
 
 | Metrics                                      | Type    | Description                                                              |
 | -------------------------------------------- | ------- | ------------------------------------------------------------------------ |

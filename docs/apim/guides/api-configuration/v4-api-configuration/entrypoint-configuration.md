@@ -6,9 +6,9 @@ description: This article walks through how to configure v4 API entrypoints
 
 ## Introduction
 
-In Gravitee, Gateway Entrypoints define the protocol and configuration settings by which the API consumer accesses the gateway API. The gateway entrypoint dictates how the backend API is exposed through the gateway.
+In Gravitee, Gateway Entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The Gateway entrypoint dictates how the backend API is exposed through the gateway.
 
-After you've created your gateway API and selected your Entrypoint(s), you can configure them on the API's page. This article walks through that process.&#x20;
+After you've created your Gateway API and selected your Entrypoint(s), you can configure them on the API's page. This article walks through that process.&#x20;
 
 ## Configure v4 API Entrypoints
 

@@ -30,7 +30,7 @@ The demo app flow begins with the following steps:
 4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints with mongodb backend)
 5. Showcase basic todo functionality
 6. Instruct user to add 2 todos and receive error on the 3rd due to quota policy. Mention response templates in v2
-7. Return to APIM and guide the user to the gateway API in their trial and educate the user on the basics of gateway APIs from the perspective of an API publisher
+7. Return to APIM and guide the user to the Gateway API in their trial and educate the user on the basics of Gateway APIs from the perspective of an API publisher
 8. Guide user to Policy Studio and educate user on policies focusing on the pre-seeded quota policy
 9. Guide the user to the plans page and educate user on plans
 10. Explain the demo application is currently using the keyless plan but can also subscribe to a "premium" plan with API key security
@@ -50,7 +50,7 @@ The demo app flow begins with the following steps:
 2. (Optional) Start the respective pendo walkthrough in APIM
 3. Documentation opens to the relevant section
 4. Docs provide high-level overview of demo app architecture (i.e., detail different protocols involved and kafka backend)
-5. Guide the user to the gateway API in their trial and explain that we created a new gateway API because we are employing a new backend API (kafka vs mongodb)
+5. Guide the user to the Gateway API in their trial and explain that we created a new Gateway API because we are employing a new backend API (kafka vs mongodb)
 6. Detail event-native API management and the power to manage APIs and different backend resources regardless of protocol employed. Gravitee allows you to work with kafka without ever setting up a kafka client which allows you to use consumer-friendly protocols like http and websocket
 7. If the user did not complete use case 1, we will provide them a default api key they can copy and paste into the application to get around the basic plan subscription limitations
 8. Instruct the user to duplicate the demo app tab. One tab will be the todo page and one tab will be the analytics page
@@ -63,7 +63,7 @@ The demo app flow begins with the following steps:
 
 ### Use Case 3: Advanced Security and Developer Portal
 
-**Goal:** Require more involvement from the user, demonstrate security measures beyond a simple API key, and detail the developer portal
+**Goal:** Require more involvement from the user, demonstrate security measures beyond a simple API key, and detail the Developer Portal
 
 **Ideal time to complete:** 20-25 minutes
 
@@ -72,7 +72,7 @@ The demo app flow begins with the following steps:
 3. Documentation opens to relevant section
 4. Docs provide high-level overview of demo app architecture (i.e., todo actions are tied to REST endpoints)
 5. Explain sample monetization use case where we would like to charge the user per todo action (create, complete, archive, or delete) which requires more robust security then an API key
-6. Guide the user to the gateway API in their trial (i.e., reference use case 1 which covers the basics of this gateway API)
+6. Guide the user to the Gateway API in their trial (i.e., reference use case 1 which covers the basics of this Gateway API)
 7. Guide the user through creating a JWT plan with general conditions which contains pricing for each todo action. The user will simply generate the public/private key pair locally instead of involving an IdP
 8. Guide the user to the dev portal and provide a brief overview. Detailed walkthrough of API consumer subscription process including methods of providing the applications client ID and agreeing to general conditions
 9. Guide user to validate subscription in the dev portal. Educate user on options for managing subscriptions

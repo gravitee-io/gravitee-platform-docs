@@ -1,16 +1,16 @@
 ---
-description: The administrator's guide to the developer portal
+description: The administrator's guide to the Developer Portal
 ---
 
 # Configuration
 
 ## Introduction
 
-Configuration of the developer portal takes place through the management UI **Settings** page as highlighted in the image below.&#x20;
+Configuration of the Developer Portal takes place through the Management Console **Settings** page as highlighted in the image below.&#x20;
 
 <figure><img src="../../.gitbook/assets/dev_portal_settings.png" alt=""><figcaption><p>Developer portal settings</p></figcaption></figure>
 
-The developer portal settings can be broken into the following major categories:
+The Developer Portal settings can be broken into the following major categories:
 
 * General settings
 * User management
@@ -19,7 +19,7 @@ The developer portal settings can be broken into the following major categories:
 
 ## General settings
 
-This section details how to configure high-level settings for the developer portal. Select the **Settings** tab in the secondary sidebar and scroll down to the **Portal** subheader where you have the following configuration options:
+This section details how to configure high-level settings for the Developer Portal. Select the **Settings** tab in the secondary sidebar and scroll down to the **Portal** subheader where you have the following configuration options:
 
 {% hint style="info" %}
 `gravitee.yml` override
@@ -29,33 +29,33 @@ The top of the **Settings** page states "Depending on your architecture, this co
 All of the general settings can be overridden with the `gravitee.yaml` file. You can learn more about the `gravitee.yaml` file in the [APIM Configuration documentation.](../../getting-started/configuration/)
 {% endhint %}
 
-* **Api-key Header:** Modify the `api-key` header shown in the developer portal's CURL commands
+* **Api-key Header:** Modify the `api-key` header shown in the Developer Portal's CURL commands
 
 {% hint style="warning" %}
-Note, this only impacts what is displayed in the developer portal's UI. You must modify the `gravitee.yaml` file to impact how the gateway handles the `api-key` header.
+Note, this only impacts what is displayed in the Developer Portal's UI. You must modify the `gravitee.yaml` file to impact how the Gateway handles the `api-key` header.
 {% endhint %}
 
-* **Portal URL:** Provide the URL of the developer portal. This will add a link to the developer portal on the top navigation bar of the management UI as shown in the image below. Additionally, the [theme editor](advanced-developer-portal-configuration.md#theme-customization) will have a live preview of the developer portal.
+* **Portal URL:** Provide the URL of the Developer Portal. This will add a link to the Developer Portal on the top navigation bar of the Management Console as shown in the image below. Additionally, the [theme editor](advanced-developer-portal-configuration.md#theme-customization) will have a live preview of the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/dev_portal_link.png" alt=""><figcaption><p>Link to developer portal from management UI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dev_portal_link.png" alt=""><figcaption><p>Link to Developer Portal from Management Console</p></figcaption></figure>
 
-* **Override homepage title:** Activating this toggle allows you to change the developer portal title from "Unleash the power of your APIs." to a custom title
+* **Override homepage title:** Activating this toggle allows you to change the Developer Portal title from "Unleash the power of your APIs." to a custom title
 * **Options**
   * **Use Tiles Mode:** Sets the default all APIs view to tiles as opposed to a list view
   * **Activate Support:** Adds a **Contact** and **Tickets** tab to each API.  Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for the contact form to work
   * **Activate Rating:** Allow API consumers to leave written reviews and ratings
   * **Force user to fill comment:** Requires all subscription requests to have a comment
-  * **Allow User Registration:** Allow API consumers to create an account from the developer portal. Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for registration to work.
-    * **Enable automatic validation:** Automatically approve all accounts created on the developer portal
-  * **Add Google Analytics:** Add a Google Analytics tracking ID to the developer portal
+  * **Allow User Registration:** Allow API consumers to create an account from the Developer Portal. Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for registration to work.
+    * **Enable automatic validation:** Automatically approve all accounts created on the Developer Portal
+  * **Add Google Analytics:** Add a Google Analytics tracking ID to the Developer Portal
   * <mark style="color:yellow;">**Allow Upload Images:**</mark> <mark style="color:yellow;"></mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Allows documentation owners to</mark> [<mark style="color:yellow;">attach images as additional resources</mark>](advanced-developer-portal-configuration.md#page-management)
 * **OpenAPI Viewers:** Select the viewer you would like to use to display your API documentation
-* **Schedulers:** Configure the frequency the developer portal runs background tasks such as syncing data and sending/receiving notifications
+* **Schedulers:** Configure the frequency the Developer Portal runs background tasks such as syncing data and sending/receiving notifications
 * <mark style="color:yellow;">**Documentation:**</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Unknown</mark>
 
 ## User management
 
-Accessing the developer portal directly from the management UI automatically signs you in with the same account. However, the power of the developer portal revolves around exposing your APIs to both internal and external API consumers. This necessitates the ability to create new accounts which requires some additional configuration.&#x20;
+Accessing the Developer Portal directly from the Management Console automatically signs you in with the same account. However, the power of the Developer Portal revolves around exposing your APIs to both internal and external API consumers. This necessitates the ability to create new accounts which requires some additional configuration.&#x20;
 
 ### User sign-up
 
@@ -66,15 +66,15 @@ The ability to create new user accounts has two requirements:
 
 As detailed in [General settings](advanced-developer-portal-configuration.md#general-settings), the **Allow User Registration** option is already enabled by default.&#x20;
 
-To view SMTP settings, navigate to **Settings** in the management UI. Then, in the secondary sidebar, select **Settings** under the **Portal** header in the submenu. The **SMTP** settings are at the bottom of the page; however, for many deployments, these settings will be greyed out. This is due to the `gravitee.yml` configuration file disabling email by default since it requires configuring an SMTP email service. This [SMTP configuration guide](../../getting-started/configuration/) will walk you through setting up email for your APIM deployment.
+To view SMTP settings, navigate to **Settings** in the Management Console. Then, in the secondary sidebar, select **Settings** under the **Portal** header in the submenu. The **SMTP** settings are at the bottom of the page; however, for many deployments, these settings will be greyed out. This is due to the `gravitee.yml` configuration file disabling email by default since it requires configuring an SMTP email service. This [SMTP configuration guide](../../getting-started/configuration/) will walk you through setting up email for your APIM deployment.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 12.03.55 PM.png" alt=""><figcaption><p>SMTP default settings</p></figcaption></figure>
 
-After configuring SMTP, you should be able to create a new user in the developer portal. You can test this by opening the developer portal in an incognito window to avoid being automatically signed in with the same account being used in the management UI. In the new incognito window, select **Sign up** at the bottom of the modal. Provide the required information and select the **Sign Up** button.
+After configuring SMTP, you should be able to create a new user in the Developer Portal. You can test this by opening the Developer Portal in an incognito window to avoid being automatically signed in with the same account being used in the Management Console. In the new incognito window, select **Sign up** at the bottom of the modal. Provide the required information and select the **Sign Up** button.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 12.14.03 PM.png" alt=""><figcaption><p>Developer portal sign up page</p></figcaption></figure>
 
-You should receive a registration confirmation and an email to the address you provided. Open the email and click the link. Make sure the link opens in the incognito tab; otherwise, it will just open the developer portal with the account signed into the management UI.
+You should receive a registration confirmation and an email to the address you provided. Open the email and click the link. Make sure the link opens in the incognito tab; otherwise, it will just open the Developer Portal with the account signed into the Management Console.
 
 You will be taken to a page to finalize your account and add a password. By default, the password must meet the following requirements:
 
@@ -93,9 +93,9 @@ Once you finish creating your password, you will be able to sign in.
 
 ### User overview
 
-All users can be viewed in APIM's management UI by anyone with administrator privileges. To view users, select **Organization** at the bottom of the sidebar. Once there, navigate to the **Users** tab in the sidebar. Here, you will see a list of all current users tied to the organization. As an administrator, you can select any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
+All users can be viewed in APIM's Management Console by anyone with administrator privileges. To view users, select **Organization** at the bottom of the sidebar. Once there, navigate to the **Users** tab in the sidebar. Here, you will see a list of all current users tied to the organization. As an administrator, you can select any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Management UI user overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
 
 {% hint style="info" %}
 **Detailed user administration**
@@ -122,9 +122,9 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
 <figure><img src="../../.gitbook/assets/dev_portal_api_display_settings.png" alt=""><figcaption><p>Developer portal API sidebar display settings</p></figcaption></figure>
 
 * **Add extra information**
-  * **Show tags list in the API header:** Display all API labels in the developer portal
-  * **Show categories list in the API header:** Display all API categories in the developer portal
-* **Configure the information list:** Display custom values in the developer portal. Use the **+ icon** in the bottom right to add new values.
+  * **Show tags list in the API header:** Display all API labels in the Developer Portal
+  * **Show categories list in the API header:** Display all API categories in the Developer Portal
+* **Configure the information list:** Display custom values in the Developer Portal. Use the **+ icon** in the bottom right to add new values.
 * **API Page list options:** Detailed in the [catalog tabs](advanced-developer-portal-configuration.md#catalog-tabs) section below
 
 {% hint style="info" %}
@@ -133,7 +133,7 @@ Additionally, API publishers can modify the API sidebar by adding links to exter
 
 ### API Catalog
 
-Administrators can also modify how API consumers browsing experience in the developer portal's API catalog.&#x20;
+Administrators can also modify how API consumers browsing experience in the Developer Portal's API catalog.&#x20;
 
 #### Promotion banner
 
@@ -150,15 +150,15 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
 
 #### Categories tab
 
-Administrators have the option to include a **Categories** tab in the API catalog. This organizes APIs based on the category applied to a gateway API. Categories can be added on the **General** page of a gateway API as shown below:
+Administrators have the option to include a **Categories** tab in the API catalog. This organizes APIs based on the category applied to a Gateway API. Categories can be added on the **General** page of a Gateway API as shown below:
 
-<figure><img src="../../.gitbook/assets/api_categories.png" alt=""><figcaption><p>Applying categories to a gateway API</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/api_categories.png" alt=""><figcaption><p>Applying categories to a Gateway API</p></figcaption></figure>
 
-To enable the Categories tab in the developer portal, go to APIM and select **Categories** in the secondary sidebar. Here you can also create new categories and modify or delete existing categories.
+To enable the Categories tab in the Developer Portal, go to APIM and select **Categories** in the secondary sidebar. Here you can also create new categories and modify or delete existing categories.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 1.59.06 PM.png" alt=""><figcaption><p>APIM categories settings page</p></figcaption></figure>
 
-With the toggle enabled, users accessing the developer portal will have access to the page shown below:
+With the toggle enabled, users accessing the Developer Portal will have access to the page shown below:
 
 <figure><img src="../../.gitbook/assets/dev_portal_categories.png" alt=""><figcaption><p>Dev portal categories page</p></figcaption></figure>
 
@@ -168,7 +168,7 @@ Administrators also have control over what is displayed on the **Featured** page
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 2.10.58 PM.png" alt=""><figcaption><p>Top APIs settings</p></figcaption></figure>
 
-From here, administrators can add new APIs with the **+ icon**, reorder the top APIs, and remove APIs from the list. APIs added here are displayed on both the developer portal's homepage and on the API catalog's **Featured** page as shown below.
+From here, administrators can add new APIs with the **+ icon**, reorder the top APIs, and remove APIs from the list. APIs added here are displayed on both the Developer Portal's homepage and on the API catalog's **Featured** page as shown below.
 
 <figure><img src="../../.gitbook/assets/dev_portal_homepage.png" alt=""><figcaption><p>Developer portal homepage displaying top APIs</p></figcaption></figure>
 
@@ -177,26 +177,26 @@ From here, administrators can add new APIs with the **+ icon**, reorder the top 
 {% hint style="info" %}
 **Top API visibility**
 
-If you are having issues seeing gateway APIs you added to the Top APIs list, make sure the API is public or the user logged into the developer portal has access to that API. Administrators can see all the APIs but individual users are restricted to public APIs and APIs they have been granted access to through user and group access settings.
+If you are having issues seeing Gateway APIs you added to the Top APIs list, make sure the API is public or the user logged into the Developer Portal has access to that API. Administrators can see all the APIs but individual users are restricted to public APIs and APIs they have been granted access to through user and group access settings.
 {% endhint %}
 
 ### Custom navigation
 
-Administrators can customize the developer portal navigation in the header and footer. This is done by creating link pages in Gravitee's system folders. There are three kinds of links:
+Administrators can customize the Developer Portal navigation in the header and footer. This is done by creating link pages in Gravitee's system folders. There are three kinds of links:
 
 * External link
 * Link to an existing documentation page
 * Link to a category
 
-Each link is treated as a new documentation page. To learn about all the features and functionality of developer portal documentation, head to the[ Documentation section](advanced-developer-portal-configuration.md#documentation) of this page.
+Each link is treated as a new documentation page. To learn about all the features and functionality of Developer Portal documentation, head to the[ Documentation section](advanced-developer-portal-configuration.md#documentation) of this page.
 
 #### System folders
 
-Gravitee's system folders are accessible in the management UI under **Settings > Documentation** and can be identified by their padlock icon as shown below.
+Gravitee's system folders are accessible in the Management Console under **Settings > Documentation** and can be identified by their padlock icon as shown below.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 10.44.36 AM.png" alt=""><figcaption><p>Gravitee's system folders</p></figcaption></figure>
 
-There are three system folders: `Header`, `TopFooter` and `Footer`. Each system folder corresponds to an area of the developer portal:
+There are three system folders: `Header`, `TopFooter` and `Footer`. Each system folder corresponds to an area of the Developer Portal:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-link-portal-zones.png" alt=""><figcaption><p>Developer portal - system folder mapping</p></figcaption></figure>
 
@@ -205,7 +205,7 @@ There are three system folders: `Header`, `TopFooter` and `Footer`. Each system 
 
 The`TopFooter`system folder is the only system folder that accepts nested folders. As shown in the image above, folders nested under the `TopFooter` system folder are used to group links together.
 
-It is important to note that nested folders must be published to be seen in the developer portal.
+It is important to note that nested folders must be published to be seen in the Developer Portal.
 
 <img src="../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM.png" alt="" data-size="original">
 {% endhint %}
@@ -214,9 +214,9 @@ It is important to note that nested folders must be published to be seen in the 
 
 To create a link, open a system folder and select the **+ icon** then select the **Link** icon**.** This will take you to a new page to select your link type and provide some additional information about your link.
 
-<figure><img src="../../.gitbook/assets/dev_portal_create_a_link.png" alt=""><figcaption><p>Create a new developer portal link</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dev_portal_create_a_link.png" alt=""><figcaption><p>Create a new Developer Portal link</p></figcaption></figure>
 
-Select **Save**, and navigate to the developer portal to see your new link in action.
+Select **Save**, and navigate to the Developer Portal to see your new link in action.
 
 <figure><img src="../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
@@ -225,18 +225,18 @@ Each custom link has additional features such as translations and access control
 {% hint style="warning" %}
 **Publishing`TopFooter`nested folders**
 
-The`TopFooter`system folder is the only system folder that accepts nested folders. It is important to note that nested folders must be published to be seen in the developer portal.
+The`TopFooter`system folder is the only system folder that accepts nested folders. It is important to note that nested folders must be published to be seen in the Developer Portal.
 
 <img src="../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM.png" alt="" data-size="original">
 {% endhint %}
 
 ### Theming
 
-Administrators can change the default theme of the developer portal to their own custom theme. To modify the theme, in the APIM settings select **Theme** in the secondary sidebar.
+Administrators can change the default theme of the Developer Portal to their own custom theme. To modify the theme, in the APIM settings select **Theme** in the secondary sidebar.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-01 at 2.50.54 PM.png" alt=""><figcaption><p>Developer portal theme settings</p></figcaption></figure>
 
-This page allows the administrator to customize every aspect of the developer portal's look and feel. Edits made are shown in a live preview to the right.
+This page allows the administrator to customize every aspect of the Developer Portal's look and feel. Edits made are shown in a live preview to the right.
 
 {% hint style="warning" %}
 **Enable live preview**
@@ -258,10 +258,10 @@ The top menu provides the following options:
 
 ## Documentation
 
-Outside of APIs and applications, administrators can also provide site-wide documentation for API publishers and consumers. This documentation creates a direct line of communication with your developer community through a single channel. For example, you can use it to communicate your best practices, configure your own homepage, or even reference it in links when using [custom navigation](advanced-developer-portal-configuration.md#custom-navigation). All published documentation can be accessed in the developer portal's **Documentation** page as shown below.
+Outside of APIs and applications, administrators can also provide site-wide documentation for API publishers and consumers. This documentation creates a direct line of communication with your developer community through a single channel. For example, you can use it to communicate your best practices, configure your own homepage, or even reference it in links when using [custom navigation](advanced-developer-portal-configuration.md#custom-navigation). All published documentation can be accessed in the Developer Portal's **Documentation** page as shown below.
 
 {% hint style="info" %}
-Site-wide documentation is separate from API documentation which can be added to an API by an API publisher as detailed in the [Publish APIs developer portal guide.](publish-apis.md)
+Site-wide documentation is separate from API documentation which can be added to an API by an API publisher as detailed in the [Publish APIs Developer Portal guide.](publish-apis.md)
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM.png" alt=""><figcaption><p>Developer portal documentation page</p></figcaption></figure>
@@ -279,14 +279,14 @@ APIM supports multiple types of documentation:
 
 ### Create documentation
 
-To create documentation, go to **Settings > Documentation** in the management UI.
+To create documentation, go to **Settings > Documentation** in the Management Console.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 3.22.29 PM.png" alt=""><figcaption><p>Documentation settings page</p></figcaption></figure>
 
 {% hint style="info" %}
 #### System folders
 
-Header, TopFooter, and Footer are known as system folders. They can be used to customize the developer portal's navigation by adding custom links. For more information, see [Custom navigation.](advanced-developer-portal-configuration.md#custom-navigation)
+Header, TopFooter, and Footer are known as system folders. They can be used to customize the Developer Portal's navigation by adding custom links. For more information, see [Custom navigation.](advanced-developer-portal-configuration.md#custom-navigation)
 {% endhint %}
 
 From here, you can create a new documentation page by selecting the **+ icon** in the bottom right. This presents you with the following options:
@@ -308,7 +308,7 @@ Regardless of your selection, each documentation type provides similar configura
 <figure><img src="../../.gitbook/assets/new_docs_page.png" alt=""><figcaption><p>Creating a documentation page</p></figcaption></figure>
 
 * **Name:** Provide a label for your documentation page
-* **Set as homepage:** Use the documentation page on the homepage of the developer portal
+* **Set as homepage:** Use the documentation page on the homepage of the Developer Portal
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-07 at 3.04.50 PM.png" alt=""><figcaption><p>Custom homepage example</p></figcaption></figure>
 
@@ -316,7 +316,7 @@ Regardless of your selection, each documentation type provides similar configura
 If you set multiple documentation pages as the homepage, only the page most recently set as the homepage will be active.
 {% endhint %}
 
-* **Publish this page:** Make the page available in the developer portal
+* **Publish this page:** Make the page available in the Developer Portal
 * **Make private:** Make the page private to you and the users you explicitly allow through access control. Access control is detailed in the [Page configuration](advanced-developer-portal-configuration.md#configure-a-page) section.
 
 The rest of the settings revolve around generating content for your new documentation page. APIM provides three main methods for generating documentation content
@@ -384,7 +384,7 @@ The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwne
 ```
 {% endcode %}
 
-This has the following result in the developer portal:
+This has the following result in the Developer Portal:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-template.png" alt=""><figcaption><p>Result of templating engine example</p></figcaption></figure>
 

@@ -17,7 +17,7 @@ The following section focuses on how to configure sharding tags. We will explain
 
 <figure><img src="../../.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
 
-Before you can start defining sharding tags in the Gravitee API Management UI, you will need to do some work in your API gateway `gravitee.yaml` file. To assign a Gravitee API Gateway to a specific sharding tag for the above scenario and architecture, make the following changes in the `gravitee.yaml` file:
+Before you can start defining sharding tags in the Gravitee API Management Console, you will need to do some work in your API Gateway `gravitee.yaml` file. To assign a Gravitee API Gateway to a specific sharding tag for the above scenario and architecture, make the following changes in the `gravitee.yaml` file:
 
 ```
 DMZ Gateways: 
@@ -37,7 +37,7 @@ tags: ‘product,store,!partner’
 
 Once the gateways have been tagged, you will need to define the same sharding tags within API Manager. To do this, follow these steps:
 
-1\. Log in to your API Management UI.
+1\. Log in to your API Management Console.
 
 ![](https://dubble-prod-01.s3.amazonaws.com/assets/c04ad6f1-b85c-4196-bb64-dbcb62c22c97.png?0)
 

@@ -15,7 +15,7 @@ Gravitee API Management (APIM) natively support several types of authentication 
 * Social providers (such as GitHub and Google)
 * A custom OAuth2 / OpenID authorization server
 
-In this article, we will walk through how to configure each by using the `gravitee.yaml` file and the Gravitee API Management UI.
+In this article, we will walk through how to configure each by using the `gravitee.yaml` file and the Gravitee API Management Console.
 
 \{% @arcade/embed flowId="iVIQA53PE3vtm6hoNo7b" url="https://app.arcade.software/share/iVIQA53PE3vtm6hoNo7b" %\}
 
@@ -196,14 +196,14 @@ security:
 \\
 {% endtab %}
 
-{% tab title="Use the Gravitee API Management UI" %}
+{% tab title="Use the Gravitee API Management Console" %}
 Before configuring authentication via the Gravitee APIM UI, you'll need to access the Gravitee AM client's credentials for authentication configuration. For example:
 
 <figure><img src="../../.gitbook/assets/AM client info.png" alt=""><figcaption><p>Gravitee AM client credentials</p></figcaption></figure>
 
-From here, you'll need to log-in to your Gravitee API Management UI and select Organization from the left-hand nav. Then, select **Authentication** underneath **Console.** From here, you will be brought to the **Authentication** page. Here, you can:
+From here, you'll need to log-in to your Gravitee API Management Console and select Organization from the left-hand nav. Then, select **Authentication** underneath **Console.** From here, you will be brought to the **Authentication** page. Here, you can:
 
-* Enable or disable a log-in form for the API Management UI by toggling **Show login form on management console** ON or OFF
+* Enable or disable a log-in form for the API Management Console by toggling **Show login form on Management Console** ON or OFF
 * Manage Identity Providers for logging in and registering Gravitee platform users
 
 To add an identity provider, select **+ Add an identity provider.** From here, you will have to select your IdP within the **Provider type** section. Choose **Gravitee AM** as your IdP. From here, you will need to enter in the following information:
@@ -242,9 +242,9 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 Before being able to log-in via AM, you will need to create users in AM. To do this please refer to the "Set up your first application" documentation within the Gravitee AM documentation.
 {% endhint %}
 
-You can easily test your Gravitee AM configuration by logging out of the Management UI, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Gravitee AM** option.
+You can easily test your Gravitee AM configuration by logging out of the Management Console, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Gravitee AM** option.
 
-Select this, and enter in your credentials. You should then be met with an approval page. Here, select **Authorize**. You should then be brought to the Management UI.
+Select this, and enter in your credentials. You should then be met with an approval page. Here, select **Authorize**. You should then be brought to the Management Console.
 
 ## GitHub authentication
 
@@ -331,9 +331,9 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 
 ### Test your new GitHub authentication flow
 
-You can easily test your GitHub configuration by logging out of the Management UI, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with GitHub** option.
+You can easily test your GitHub configuration by logging out of the Management Console, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with GitHub** option.
 
-Select this, and enter in your credentials. You should then be met with an **Authorize Gravitee** page. Here, select **Authorize**. You should then be brought to the Gravitee API Management UI.
+Select this, and enter in your credentials. You should then be met with an **Authorize Gravitee** page. Here, select **Authorize**. You should then be brought to the Gravitee API Management Console.
 
 ## Google authentication
 
@@ -413,9 +413,9 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 
 ### Test your new Google authentication flow
 
-You can easily test your Google configuration by logging out of the Management UI, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Google** option.
+You can easily test your Google configuration by logging out of the Management Console, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Google** option.
 
-Select this, and choose your Google account that you want to use for authentication. You should then be brought to the Gravitee API Management UI.
+Select this, and choose your Google account that you want to use for authentication. You should then be brought to the Gravitee API Management Console.
 
 ## OpenID Connect authentication
 
@@ -445,7 +445,7 @@ Before you can configure your OpenID Connect IdP in Gravitee, you will need to:
   * Email (optional)
   * Picture (optional)
 
-Once you've done the above, you can use either the `gavitee.yaml` file or the API Management UI to set up your OpenID Connect authentication. Please see the tabs below that walk through general set up directions for OpenID Connect authentication:
+Once you've done the above, you can use either the `gavitee.yaml` file or the API Management Console to set up your OpenID Connect authentication. Please see the tabs below that walk through general set up directions for OpenID Connect authentication:
 
 {% tabs %}
 {% tab title="gravitee.yaml file" %}
@@ -708,7 +708,7 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 
 ### Test your Keycloak autentication
 
-You can easily test your Keycloak configuration by logging out of the Management UI, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Keycloak** option.
+You can easily test your Keycloak configuration by logging out of the Management Console, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Keycloak** option.
 
 Then, enter in your Keycloak credentials. After this, you should be successfully logged in.
 

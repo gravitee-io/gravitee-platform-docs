@@ -9,8 +9,8 @@ To make the most of this guide, you should be familiar with Kubernetes and its t
 Installing APIM on Kubernetes is easy with the help of our Helm chart. **This Helm chart supports Gravitee APIM Management (APIM) versions: 3.0.x and higher** and will deploy the following:
 
 * APIM management API
-* APIM management UI
-* APIM developer portal
+* APIM Management Console
+* APIM Developer Portal
 * APIM gateway
 * MongoDB replica set or PostgresSQL (optional dependency)
 * Elasticsearch Cluster (optional dependency)

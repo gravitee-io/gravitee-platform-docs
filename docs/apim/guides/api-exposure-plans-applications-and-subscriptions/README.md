@@ -6,11 +6,11 @@ description: Overview of core concepts around API exposure for both consumers an
 
 ## Introduction
 
-API exposure in Gravitee API Management (APIM) revolves around three pillars: plans, applications, and subscriptions. Once a gateway API is started, deployed, and published, it will be visible in the developer portal, but can not be consumed until a plan is published. A plan with the keyless authentication type can be consumed immediately. However, all other types of authentication require the API consumer to register an application and subscribe to one of the published plans for that gateway API. This allows the API publisher to closely monitor and control access to their APIs at a much more granular level.&#x20;
+API exposure in Gravitee API Management (APIM) revolves around three pillars: plans, applications, and subscriptions. Once a Gateway API is started, deployed, and published, it will be visible in the Developer Portal, but can not be consumed until a plan is published. A plan with the keyless authentication type can be consumed immediately. However, all other types of authentication require the API consumer to register an application and subscribe to one of the published plans for that Gateway API. This allows the API publisher to closely monitor and control access to their APIs at a much more granular level.&#x20;
 
 ## Plans
 
-There are many possible types of API access scenarios, which can be difficult to encode into your APIs. Different types of access scenarios often require external tools and modifying your backend APIs. In APIM, however, gateway APIs are deployed with plans which allow the API publisher to quickly iterate on, and extend the functionality of, their backend APIs.
+There are many possible types of API access scenarios, which can be difficult to encode into your APIs. Different types of access scenarios often require external tools and modifying your backend APIs. In APIM, however, Gateway APIs are deployed with plans which allow the API publisher to quickly iterate on, and extend the functionality of, their backend APIs.
 
 A plan provides a service and access layer on top of your APIs for consumer applications. A plan specifies access limits, subscription validation modes, and other configurations to tailor it to a specific application.&#x20;
 

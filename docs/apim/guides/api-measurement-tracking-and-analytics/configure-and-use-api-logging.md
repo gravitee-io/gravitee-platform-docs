@@ -8,7 +8,7 @@ description: Learn how to configure and use API logging.
 
 Logging refers to the process of recording and monitoring API requests, responses, and related events. It enables developers and administrators to track API usage, monitor performance, and troubleshoot issues by collecting and analyzing data such as timestamps, endpoints, response times, and error messages.
 
-Gravitee enables you to configure and view logs for your APIs. In this article, we will walk through how to configure API-level logging in the API Management UI.
+Gravitee enables you to configure and view logs for your APIs. In this article, we will walk through how to configure API-level logging in the API Management Console.
 
 ## Configure logging at the API and Gateway levels
 
@@ -32,7 +32,7 @@ Once you've enabled logging, you can further define how logging works in Gravite
 **Logging Mode** allows you to define which stakeholders are logged. You'll have three options:
 
 * **Client only**: this options enables logging for HTTP request headers and payload details for interactions between only the client and gateway
-* **Proxy only**: this option enables logging for HTTP request headers and payload details for interactions solely between the gateway and your backend resource
+* **Proxy only**: this option enables logging for HTTP request headers and payload details for interactions solely between the Gateway and your backend resource
 * **Client & proxy**: this options logs HTTP request headers and payload content for both of the above
 
 {% hint style="info" %}

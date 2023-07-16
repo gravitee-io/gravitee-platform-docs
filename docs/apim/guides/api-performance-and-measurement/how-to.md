@@ -39,7 +39,7 @@ To add a dashboard to your Analytics tab, follow these steps:
 
 
 
-1\. Log in to the API Management UI.
+1\. Log in to the API Management Console.
 
 ![](https://dubble-prod-01.s3.amazonaws.com/assets/5342ad4f-9b3f-4b92-a96b-5f4185f39799.png?0)
 
@@ -131,7 +131,7 @@ In addition to adding new dashboards, you can also configure and re-configure ex
 
 
 
-1\. Log in to the Gravitee API Management UI.
+1\. Log in to the Gravitee API Management Console.
 
 2\. Select **Settings**.
 

@@ -32,8 +32,8 @@ The important v4 API creation concepts are:
 
 When creating v4 APIs, you will need to define your Gateway entrypoints and endpoints. These are:
 
-* **Gateway entrypoints:** define the protocol and configuration by which the API consumer accesses the gateway API. This essentially defines how the backend API is exposed through the gateway.&#x20;
-* &#x20;**Gateway endpoints:** define the protocol and configuration by which the gateway API will fetch data from, or post data to, the backend API.
+* **Gateway entrypoints:** define the protocol and configuration by which the API consumer accesses the Gateway API. This essentially defines how the backend API is exposed through the gateway.&#x20;
+* &#x20;**Gateway endpoints:** define the protocol and configuration by which the Gateway API will fetch data from, or post data to, the backend API.
 
 For example, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint and Kafka endpoint. If you wanted to expose a backend REST API as a Gateway REST API (i.e. a "pure" RESt API use case), your entrypoint would be your context path (the URL location of your Gateway API) and the endpoint would be your target url (the url for the backend resource that you want to expose).&#x20;
 
@@ -91,7 +91,7 @@ It's important to know that v4 APIs currently do not support:
 
 * Documentation upload during the API creation process
 * Gravitee Debug mode
-* Analytics or logs in the API Management UI
+* Analytics or logs in the API Management Console
 * Auditing functionality
 * Messages and notifications&#x20;
 {% endhint %}

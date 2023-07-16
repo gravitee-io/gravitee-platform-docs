@@ -26,7 +26,7 @@ curl -L https://bit.ly/docker-apim-3x -o docker-compose-apim.yml
  - /gravitee/license.key:/opt/graviteeio-gateway/license/license.key
 ```
 
-Where `/gravitee/license.key` is the full path to the license key. This ensures that the gateway can access the license key.
+Where `/gravitee/license.key` is the full path to the license key. This ensures that the Gateway can access the license key.
 
 3. If you are installing the Enterprise Edition, under `$services.management_api.volumes` add the following line.
 
@@ -34,7 +34,7 @@ Where `/gravitee/license.key` is the full path to the license key. This ensures 
  - /gravitee/license.key:/opt/graviteeio-management-api/license/license.key
 ```
 
-Where `/gravitee/license.key` is the full path to the license key. This ensures that the management API can access the license key.
+Where `/gravitee/license.key` is the full path to the license key. This ensures that the Management API can access the license key.
 
 4. Run `docker compose` to download and start all of the components.
 

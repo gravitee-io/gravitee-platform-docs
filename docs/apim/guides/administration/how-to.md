@@ -17,18 +17,18 @@ Gravitee offers simple methods for managing Organizations and Environments. In t
 
 {% @arcade/embed flowId="sAy3l769Swk9epGVWCED" url="https://app.arcade.software/share/sAy3l769Swk9epGVWCED" %}
 
-To access your Organization settings, log-in to your Gravitee API Management UI and select **Organization** from the left-hand nav. From here, you can edit all of your Organization settings. To define general organization settings, select **Settings** under **Console.**&#x20;
+To access your Organization settings, log-in to your Gravitee API Management Console and select **Organization** from the left-hand nav. From here, you can edit all of your Organization settings. To define general organization settings, select **Settings** under **Console.**&#x20;
 
 You'll be brought the **Settings** page, where you can define:
 
 * **Management settings**:
   * Title of of your Organization
-  * The url of your Management UI
+  * The url of your Management Console
   * Whether or not to activate:
     * Support
       * User registration
       * Automatical validation of registration requests
-* **Theme settings**: this is where you can alter the visual theme of your Management UI for your Organization. You can upload a custom logo and loader.
+* **Theme settings**: this is where you can alter the visual theme of your Management Console for your Organization. You can upload a custom logo and loader.
 * **Schedulers**: here you can configure how often Gravitee would check for new Tasks or Notifications. When a new task/notification is detected, a small indicator will appear in your user's icon, on the top right-hand side part of the screen. An example of a task is when someone requests access to an API of which the current user is one of the approvers so their task will be either accept or reject access to an API. An example of Notification is when an API owner uses the Messages feature to send a message to all the subscribers of an API.
 * **CORS settings**: configure Organization-wide CORS settings. You can configure the following:
   * Allow-origin: the origin parameter specifies a URI that may access the resource. Scheme, domain and port are part of the _same-origin_ definition.

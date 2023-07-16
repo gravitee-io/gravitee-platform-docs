@@ -28,7 +28,7 @@ gateway:
       value: "false"
 ----
 
-NOTE: The AM gateway provides a readyness probe that takes into account the number of domains sync at startup. If you want to use this probe, then you  shouldn't disable the internal APIs. Instead, we use the following configuration on the gateway:
+NOTE: The AM Gateway provides a readyness probe that takes into account the number of domains sync at startup. If you want to use this probe, then you  shouldn't disable the internal APIs. Instead, we use the following configuration on the gateway:
 
 .AM Gateway readyness probe
 [source, yaml]

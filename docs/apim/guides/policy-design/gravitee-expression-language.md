@@ -30,13 +30,13 @@ therefore, bracket notation should be used for property names that have a space 
 
 EL allows you to reference certain values injected into the EL context as object properties. The available object properties will be further detailed in the following sections. EL adds the following root-level object properties:
 
-* `{#properties}` : Contains custom properties defined by the API publisher for that gateway API.
-* `{#dictionaries}` : Contains custom dictionaries defined by the API publisher for that gateway API.
-* `{#endpoints}` : Contains information about the gateway API's respective endpoint.
+* `{#properties}` : Contains custom properties defined by the API publisher for that Gateway API.
+* `{#dictionaries}` : Contains custom dictionaries defined by the API publisher for that Gateway API.
+* `{#endpoints}` : Contains information about the Gateway API's respective endpoint.
 * `{#request}` : Contains information about the current API request.
 * `{#response}` : Contains information about the current API response.
-* `{#context.attributes}` : Contains attributes automatically created by the APIM gateway during an API transaction or added during the execution phase through the [assign-attributes policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html).
-* `{#node}` : Contains information about the node hosting the instance of the gateway handling the API transaction.
+* `{#context.attributes}` : Contains attributes automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [assign-attributes policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_assign\_attributes.html).
+* `{#node}` : Contains information about the node hosting the instance of the Gateway handling the API transaction.
 
 {% hint style="info" %}
 **Object properties: custom properties vs attributes**
@@ -98,7 +98,7 @@ To extract the value of the `price` property for the book with `title` "The Lord
 
 ## APIs
 
-Using EL, you can access information about a gateway API through several root-level objects that are injected into the EL context.
+Using EL, you can access information about a Gateway API through several root-level objects that are injected into the EL context.
 
 ### Custom Properties
 
@@ -112,7 +112,7 @@ As an API publisher, you can define [custom properties ](v4-api-policy-design-st
 {% hint style="info" %}
 **Encrypted custom properties**
 
-When accessing an encrypted custom property, Gravitee's gateway will automatically manage the decryption and provide a plaintext value.
+When accessing an encrypted custom property, Gravitee's Gateway will automatically manage the decryption and provide a plaintext value.
 {% endhint %}
 
 ### Dictionaries
@@ -251,7 +251,7 @@ The object properties you can access for API responses from the `{#response}` ro
 
 ## Nodes
 
-A node is a component that represents an instance of the Gravitee gateway. Each node runs a copy of the gateway, which is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services. The object properties you can access for nodes from the `{#node}` root-level object property are listed below.
+A node is a component that represents an instance of the Gravitee Gateway. Each node runs a copy of the gateway, which is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services. The object properties you can access for nodes from the `{#node}` root-level object property are listed below.
 
 | Property     | Description                 | Type            | Example                              |
 | ------------ | --------------------------- | --------------- | ------------------------------------ |

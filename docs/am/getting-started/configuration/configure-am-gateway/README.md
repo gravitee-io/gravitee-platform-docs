@@ -239,7 +239,7 @@ user:
         #$                 # end-of-string
 
       ## Password dictionary to exclude most commons passwords
-      ## You need to enable the feature in the AM management console
+      ## You need to enable the feature in the AM Management Console
 
       #dictionary:
       #  filename: /path/to/dictionary  # if null `resources/dictionaries/10k-most-common.txt` will be loaded

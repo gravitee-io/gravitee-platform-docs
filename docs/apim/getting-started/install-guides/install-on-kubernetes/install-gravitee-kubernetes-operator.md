@@ -21,8 +21,8 @@ To support IAC-based use cases, Gravitee should enable users to handle Gravitee 
 
 Up until now, Gravitee customers have been deploying APIs using the following two main approaches:
 
-1. **Using the Gravitee management UI.** Gravitee comes with an easy-to-use, self-serve UI that is often used for development. This is backed by a backend service that is a part of the Gravitee web application.
-2. **Using the Gravitee management API.** Every action in the Gravitee management UI de facto represents a REST API with a JSON payload. This is all documented using an API spec. As a result, everything users can do in the UI can be done via REST API calls backed by JSON files. A lot of users would use tools and systems like GitLab, Jenkins, Bitbucket, or GitHub Actions, for example, to manage everything as JSON files. An API definition in Gravitee is also a JSON file that explains what the endpoints are, what the protections are, and so on.
+1. **Using the Gravitee Management Console.** Gravitee comes with an easy-to-use, self-serve UI that is often used for development. This is backed by a backend service that is a part of the Gravitee web application.
+2. **Using the Gravitee management API.** Every action in the Gravitee Management Console de facto represents a REST API with a JSON payload. This is all documented using an API spec. As a result, everything users can do in the UI can be done via REST API calls backed by JSON files. A lot of users would use tools and systems like GitLab, Jenkins, Bitbucket, or GitHub Actions, for example, to manage everything as JSON files. An API definition in Gravitee is also a JSON file that explains what the endpoints are, what the protections are, and so on.
 
 While the REST API method is compatible with an IAC approach, there has been feedback from many Gravitee users who are going "Kubernetes-native" that they would prefer to be able to deploy APIs and the Gravitee APIM Gateway and Console via [Custom Resource Definitions (CRDs).](../../../guides/gravitee-kubernetes-operator/page-1.md)
 
@@ -30,7 +30,7 @@ The Gravitee Kubernetes Operator (GKO) makes all this possible.
 
 ## How it works
 
-If you deploy APIs in a Kubernetes cluster, you can describe your API as an API extension of Kubernetes using CRDs. This approach removes the need to deploy by relying on the management UI or the management API - when you deploy natively to your K8s cluster, there is an operator there that can deploy the API to your API gateway without relying on a UI or REST API. This is powered by the Kubernetes API and the Gravitee Kubernetes Operator.
+If you deploy APIs in a Kubernetes cluster, you can describe your API as an API extension of Kubernetes using CRDs. This approach removes the need to deploy by relying on the Management Console or the Management API - when you deploy natively to your K8s cluster, there is an operator there that can deploy the API to your API Gateway without relying on a UI or REST API. This is powered by the Kubernetes API and the Gravitee Kubernetes Operator.
 
 ## Architecture overview
 
@@ -38,9 +38,9 @@ The current functionality of the Gravitee Kubernetes Operator (GKO) allows for t
 
 ### Standard deployment
 
-In the standard deployment scenario, the management API and the API gateway are deployed in the same Kubernetes cluster.
+In the standard deployment scenario, the Management API and the API Gateway are deployed in the same Kubernetes cluster.
 
-With this workflow, the GKO listens for CRDs. For each custom resource, an API is pushed to the management API using the import endpoint. The API gateway deploys the APIs accordingly.
+With this workflow, the GKO listens for CRDs. For each custom resource, an API is pushed to the Management API using the import endpoint. The API Gateway deploys the APIs accordingly.
 
 The following diagram illustrates the standard deployment architectural approach:
 
@@ -86,12 +86,12 @@ Before you start, you need to have the following software set up and running on 
 1. [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 2. [Helm v3](https://helm.sh/docs/intro/install/)
 3. APIM up and running on your cluster. If you have not installed APIM yet, follow our [installation guide.](./)
-4. For the gateway to be able to synchronize with the operator resources, the value of the `gateway.services.sync.kubernetes.enabled` property must be set to `true` in APIM configuration.
+4. For the Gateway to be able to synchronize with the operator resources, the value of the `gateway.services.sync.kubernetes.enabled` property must be set to `true` in APIM configuration.
 
 {% hint style="info" %}
 **Namespaces**
 
-By default the Kubernetes synchronizer is configured to look for API definitions in the API Gateway namespace. To watch all namespaces you must set the property `gateway.services.sync.kubernetes.namespaces` to `all` in the gateway configuration. You can also provide a specific list of namespaces to watch. This requires that the Gateway service account has the `list` permissions for ConfigMaps at the cluster level or on the list of namespaces defined in the `gateway.services.sync.kubernetes.namespaces` property.
+By default the Kubernetes synchronizer is configured to look for API definitions in the API Gateway namespace. To watch all namespaces you must set the property `gateway.services.sync.kubernetes.namespaces` to `all` in the Gateway configuration. You can also provide a specific list of namespaces to watch. This requires that the Gateway service account has the `list` permissions for ConfigMaps at the cluster level or on the list of namespaces defined in the `gateway.services.sync.kubernetes.namespaces` property.
 {% endhint %}
 
 ### Install using Helm

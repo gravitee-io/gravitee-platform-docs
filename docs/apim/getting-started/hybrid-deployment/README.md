@@ -48,7 +48,7 @@ wget -O ${GRAVITEEIO_HOME}/plugins https://download.gravitee.io/graviteeio-apim/
 {% endcode %}
 
 {% hint style="info" %}
-You can safely remove all plugins that start with the following names - these are not used on a bridge server gateway but are available by default in the APIM Gateway:
+You can safely remove all plugins that start with the following names - these are not used on a bridge server Gateway but are available by default in the APIM Gateway:
 
 * gravitee-apim-gateway-services-sync\*
 * gravitee-policy-\*

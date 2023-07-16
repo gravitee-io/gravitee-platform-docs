@@ -93,7 +93,7 @@ If they already have consented to these, you can simply add those inputs as `hid
 ```
 {% endcode %}
 
-Implicit user consent can be activated via the `gravitee.yml` file on the gateway side. In the **consent** section of the yaml file, variable **ip** and **user-agent** is introduced for collecting user consent implicitly. Here is an example of how the variables can be set in the `gravitee.yml` file:
+Implicit user consent can be activated via the `gravitee.yml` file on the Gateway side. In the **consent** section of the yaml file, variable **ip** and **user-agent** is introduced for collecting user consent implicitly. Here is an example of how the variables can be set in the `gravitee.yml` file:
 
 ```yaml
 consent:

@@ -47,7 +47,7 @@ If you are using docker to start AM, you will find here after a docker-compose s
 
 === Deploy AM EE with Helm
 
-If you are using helm, you will have to mount the license file using a secret and specify which EE plugin to download in the `additionalPlugins` section for the gateway and the api.
+If you are using helm, you will have to mount the license file using a secret and specify which EE plugin to download in the `additionalPlugins` section for the Gateway and the api.
 
 [source,yaml]
 ----

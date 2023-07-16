@@ -186,7 +186,7 @@ These are just the basic properties, you can't use them to retrieve more informa
 |-
 
 |`response.upstream_response_time`
-|Upstream response time (the time between the gateway and the backend)
+|Upstream response time (the time between the Gateway and the backend)
 |${notification.properties['response.upstream_response_time']}
 |-
 

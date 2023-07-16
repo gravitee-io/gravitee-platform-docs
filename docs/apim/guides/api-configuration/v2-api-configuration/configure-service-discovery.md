@@ -135,7 +135,7 @@ You should get the following response:
 }
 ```
 
-To test that incoming requests on the APIM gateway are dynamically routed to different service instances, let’s register another instance for service `whattimeisit` that serves another content with `gravitee_path` set to `/echo`:
+To test that incoming requests on the APIM Gateway are dynamically routed to different service instances, let’s register another instance for service `whattimeisit` that serves another content with `gravitee_path` set to `/echo`:
 
 {% code overflow="wrap" %}
 ```
@@ -167,9 +167,9 @@ The service discovery feature is enabled at the EndpointGroup level of an API de
 ],
 ```
 
-Now that you've successfully registered your service instances in Hashicorp Consul, you can enable Hashicorp Consul Service discovery in the Gravitee AP Management UI. To do so, follow these steps:
+Now that you've successfully registered your service instances in Hashicorp Consul, you can enable Hashicorp Consul Service discovery in the Gravitee AP Management Console. To do so, follow these steps:
 
-1. Log in to your Gravitee API Management UI.
+1. Log in to your Gravitee API Management Console.
 2. Either create or select an existing API.
 
 ![](https://dubble-prod-01.s3.amazonaws.com/assets/c0164628-49f4-42df-8823-5621fa9339b7.png?0)
@@ -222,7 +222,7 @@ Now that you've successfully registered your service instances in Hashicorp Cons
 Select **Save** to finish configuring your Service discovery settings. Your API should now appear out of sync in the top banner. Be sure to click **deploy your API**.
 {% endhint %}
 
-Please note that endpoints configured through the APIM console before service discovery was enabled are not removed. The Gravitee gateway will continue to consider those endpoints in addition to the ones discovered through Consul integration. The endpoints dynamically discovered through Consul are not displayed in the Gravitee API Management (APIM) UI. You can remove the defined endpoints through the Gravitee APIM UI. However, we encourage you to keep at least one endpoint declared as secondary. Secondary endpoints are not included in the load-balancer pool and are only selected to handle requests if Consul is no longer responding. To declare an endpoint as secondary, please follow these steps:
+Please note that endpoints configured through the APIM console before service discovery was enabled are not removed. The Gravitee Gateway will continue to consider those endpoints in addition to the ones discovered through Consul integration. The endpoints dynamically discovered through Consul are not displayed in the Gravitee API Management (APIM) UI. You can remove the defined endpoints through the Gravitee APIM UI. However, we encourage you to keep at least one endpoint declared as secondary. Secondary endpoints are not included in the load-balancer pool and are only selected to handle requests if Consul is no longer responding. To declare an endpoint as secondary, please follow these steps:
 
 1\. In the **Backend services** section, locate your endpoint that you want to define as secondary. For that endpoint, select **Edit endpoint**.
 
@@ -232,9 +232,9 @@ Please note that endpoints configured through the APIM console before service di
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/ef0dd779-712f-4dfd-9d8c-938f000d3dbe/2.5/35.474537037037/76.989809081527?0)
 
-## Verify that the APIM gateway properly discovers your service
+## Verify that the APIM Gateway properly discovers your service
 
-You can check the API gateway’s logs to verify that your service has been successfully found thanks to HashiCorp Consul:
+You can check the API Gateway’s logs to verify that your service has been successfully found thanks to HashiCorp Consul:
 
 ```
 INFO  i.g.a.p.a.s.c.ConsulServiceDiscoveryService - Starting service discovery service for api my-api.

@@ -8,7 +8,7 @@ To expose your API to internal or external consumers, it must have at least one 
 
 ## Create a plan
 
-Plans are always created by the API publisher. You can create plans in the management UI as part of the [API creation process](broken-reference). You can also create them later with the **Portal > Plans** function as shown below.
+Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](broken-reference). You can also create them later with the **Portal > Plans** function as shown below.
 
 {% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
 
@@ -68,7 +68,7 @@ During the **Secure** stage of plan creation, the API publisher selects one of f
 * **API Key:** only allows apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
 * **JSON web token (JWT):** open method for representing claims securely between two parties. JWTs are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
 * **OAuth 2.0:** open standard that apps can use to provide client applications with secure delegated access. OAuth works over HTTPS and authorizes devices, APIs, servers, and applications with access tokens rather than credentials.
-* **Push:** used when the API has an entrypoint that sends message payloads to API consumers (e.g. Webhook). This type of plan is unique in that the security configuration is defined by the **API** **consumer** in the subscription request created in the developer portal. For example, when subscribing to a Webhook entrypoint of an API, the API consumer will specify the target URL and authentication for the gateway to use when sending messages.
+* **Push:** used when the API has an entrypoint that sends message payloads to API consumers (e.g. Webhook). This type of plan is unique in that the security configuration is defined by the **API** **consumer** in the subscription request created in the Developer Portal. For example, when subscribing to a Webhook entrypoint of an API, the API consumer will specify the target URL and authentication for the Gateway to use when sending messages.
 
 {% hint style="info" %}
 Push plans do _not_ apply to Server Sent Event entrypoints. Even though messages are pushed from the server, the client application initiates consumption of messages from the entrypoint.
@@ -99,7 +99,7 @@ The most important part of plan configuration is security. APIM supports the fol
 
 Authentication types are simply policies integrated directly into a plan. Once a plan is created, the authentication type can not be changed. However, you can always add additional security at the API or plan level with policies in the design studio by following the steps in [Add policies to a flow](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#flow-policies).
 
-There are some additional considerations when using a plan with JWT or OAuth 2.0 security. For example, if we create a JWT plan, the gateway API won’t be accessible unless the JWT token is linked to a subscription. Therefore, for the request to succeed, the API consumer must subscribe to the API and embed the _client\_id_ in the JWT token when using a JWT plan as opposed to a JWT policy.
+There are some additional considerations when using a plan with JWT or OAuth 2.0 security. For example, if we create a JWT plan, the Gateway API won’t be accessible unless the JWT token is linked to a subscription. Therefore, for the request to succeed, the API consumer must subscribe to the API and embed the _client\_id_ in the JWT token when using a JWT plan as opposed to a JWT policy.
 {% endhint %}
 
 ### Keyless plan
@@ -160,10 +160,10 @@ With this mode enabled, consumers will be asked on their second subscription to 
 {% hint style="info" %}
 **Shared API key limitations**
 
-For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
+For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct Gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 {% endhint %}
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the developer portal</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the Developer Portal</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption><p>Subscribing in the managment UI</p></figcaption></figure>
 
@@ -181,16 +181,16 @@ Shared API key mode also has an important consequence you should be aware of bef
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-3.png" alt=""><figcaption><p>Shared API key adminstration limitations</p></figcaption></figure>
 
-Instead, it is the responsibility of the application owner to perform such operations, and for this reason, shared API keys can only be revoked from the application owner subscription view in either the management UI or the developer portal.
+Instead, it is the responsibility of the application owner to perform such operations, and for this reason, shared API keys can only be revoked from the application owner subscription view in either the Management Console or the Developer Portal.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API key in the management UI</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API key in the Management Console</p></figcaption></figure>
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API key in the developer portal</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API key in the Developer Portal</p></figcaption></figure>
 
 {% hint style="info" %}
 **Shared API key limitations**
 
-For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically
+For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct Gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically
 {% endhint %}
 
 ### JSON Web Token (JWT) plan
@@ -218,10 +218,10 @@ Configuring a JWT plan presents the following options:
 <figure><img src="../../.gitbook/assets/JWT plan configuration.png" alt=""><figcaption><p>JWT plan configuration</p></figcaption></figure>
 
 * **Signature:** select the algorithm used to hash and encrypt your JWT
-* **JSON Web Key Set (JWKS) resolver:** to validate the signature of the JWT, the gateway needs to use the associated authorization server's JSON web key (JWK) which is often stored inside a JSON web key set (JWKS). Gravitee has three methods for providing the JWK:
+* **JSON Web Key Set (JWKS) resolver:** to validate the signature of the JWT, the Gateway needs to use the associated authorization server's JSON web key (JWK) which is often stored inside a JSON web key set (JWKS). Gravitee has three methods for providing the JWK:
   * `GIVEN_KEY` : you provide the key in `ssh-rsa`, `pem`, `crt` or `public-key` format which must match the signature algorithm
-  * `JWKS_URL` : you can provide a URL for the gateway to retrieve the necessary JWKS (basically, a URL ending with `/.well-known/jwks.json` )
-  * `GIVEN_ISSUER` : you can set public keys in the APIM Gateway `gravitee.yml` file that are associated with an authorization server. The gateway will only accept JWTs with an`iss` (issuer) JWT payload [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims) that matches an authorization server listed in the APIM Gateway `gravitee.yml`. Additionally, you can filter between an authorization server's keys based on the `kid` (key ID) JWT header [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims).&#x20;
+  * `JWKS_URL` : you can provide a URL for the Gateway to retrieve the necessary JWKS (basically, a URL ending with `/.well-known/jwks.json` )
+  * `GIVEN_ISSUER` : you can set public keys in the APIM Gateway `gravitee.yml` file that are associated with an authorization server. The Gateway will only accept JWTs with an`iss` (issuer) JWT payload [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims) that matches an authorization server listed in the APIM Gateway `gravitee.yml`. Additionally, you can filter between an authorization server's keys based on the `kid` (key ID) JWT header [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims).&#x20;
 
 {% code title="gravitee.yml" %}
 ```yaml
@@ -241,7 +241,7 @@ jwt:
     ```
 * **Propagate Authorization header:** propagate the header containing the JWT token to the backend APIs
 * **User claim:** payload claim where the user can be extracted. The default `sub` value is standard with JWTs
-* **Client ID claim:** override the default claim where the client ID can be extracted. By default, the gateway checks the `azp` claim, then the `aud` claim, and finally the `client_id` claim.
+* **Client ID claim:** override the default claim where the client ID can be extracted. By default, the Gateway checks the `azp` claim, then the `aud` claim, and finally the `client_id` claim.
 * **Additional selection rule:** this setting allows you to use the EL to filter by contextual data (request headers, tokens, attributes, etc.) for plans of the same type. For example, if you have two JWT plans, you can set different selection rules on each plan to determine which plan handles each request.
 
 Once JWT configuration is complete and the plan is created and published, your API will be JWT secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.
@@ -265,8 +265,8 @@ Configuring an OAuth 2.0 plan presents the following options:
     ```
     {#context.attributes['oauth.payload']}
     ```
-* **Check scopes:** an authorization server can grant access tokens with a [scopes](https://tools.ietf.org/html/rfc6749#section-3.3) parameter. With this setting enabled, the gateway will check the scopes parameter against the provided **Required scopes** to determine if the client application is allowed to access the API
-* **Mode strict:** enabled by default. With mode strict disabled, the gateway will validate the API call if the access token contains _at least one_ scope from the **Required scopes** list. Strict mode requires the access token to contain _all_ scopes from the **Required scopes** list.
+* **Check scopes:** an authorization server can grant access tokens with a [scopes](https://tools.ietf.org/html/rfc6749#section-3.3) parameter. With this setting enabled, the Gateway will check the scopes parameter against the provided **Required scopes** to determine if the client application is allowed to access the API
+* **Mode strict:** enabled by default. With mode strict disabled, the Gateway will validate the API call if the access token contains _at least one_ scope from the **Required scopes** list. Strict mode requires the access token to contain _all_ scopes from the **Required scopes** list.
 * **Propagate Authorization header:** propagate the header containing the access token to the backend APIs
 
 Your API is now OAuth 2.0 secured and consumers must call the API with an `Authorization Bearer :token:` HTTP header to access the API resources.
@@ -279,7 +279,7 @@ Any applications wanting to subscribe to an OAuth 2.0 plan must have an existing
 
 ### Push
 
-Push plans have the same configuration options as Keyless plans in APIM. The bulk of the configuration for a push plan is set by the API consumer in the developer portal, and the content of the configuration varies by entrypoint type.
+Push plans have the same configuration options as Keyless plans in APIM. The bulk of the configuration for a push plan is set by the API consumer in the Developer Portal, and the content of the configuration varies by entrypoint type.
 
 {% hint style="info" %}
 In APIM 4.0, Webhook is the only type of entrypoint that uses a push plan.

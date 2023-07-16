@@ -39,7 +39,7 @@ These RESTful APIs expose services to:
 
 All exposed services are restricted by authentication and authorization rules. You can find more information in the [API Reference](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_overview.html) section.
 
-### AM Management UI
+### AM Management Console
 
 This web UI acts as a graphical interface to the AM Management API functionality.
 

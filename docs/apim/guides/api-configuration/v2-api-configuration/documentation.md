@@ -10,7 +10,7 @@ description: >-
 
 ## Introduction
 
-The easiest way to create documentation for your APIs is to use the Gravitee API Designer. However, if you aren't using Gravitee API Designer, you can create API documentation, import API documentation, and add API Metadata using the Gravitee API Management UI. As of today, Gravitee supports the following API documentation formats:
+The easiest way to create documentation for your APIs is to use the Gravitee API Designer. However, if you aren't using Gravitee API Designer, you can create API documentation, import API documentation, and add API Metadata using the Gravitee API Management Console. As of today, Gravitee supports the following API documentation formats:
 
 * ASCIIDOC
 * AsyncAPI spec
