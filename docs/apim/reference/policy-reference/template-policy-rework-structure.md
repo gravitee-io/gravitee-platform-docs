@@ -12,13 +12,13 @@ description: This page provides the technical details of the JSON-to-XML policy
 
 Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
-* [Transformations](template-policy-rework-structure.md#transformations)
+* [Examples](template-policy-rework-structure.md#examples)
 * [Configuration](template-policy-rework-structure.md#configuration)
 * [Compatibility Matrix](template-policy-rework-structure.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure.md#errors)
 * [Changelogs](template-policy-rework-structure.md#changelogs)
 
-## Transformations
+## Examples
 
 The JSON-to-XML policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the JSON-to-XML policy.
 
@@ -138,14 +138,8 @@ For the HTTP GET entrypoint specifically, the entire payload can be returned as 
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the Management Console or interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
 
-{% tabs %}
-{% tab title="Management Console" %}
-<mark style="color:yellow;">We should wait to make these once the v4 Policy Studio is finalized</mark>
-{% endtab %}
-
-{% tab title="Managment API" %}
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
 {% code title="Sample Configuration" %}
@@ -161,8 +155,6 @@ When using the Management API, policies are added as flows either directly to an
 }
 ```
 {% endcode %}
-{% endtab %}
-{% endtabs %}
 
 ### Reference
 
@@ -178,7 +170,7 @@ Policies can be applied to the request or the response of a Gateway API transact
 
 The phases checked below are supported by the JSON-to-XML policy:
 
-<table><thead><tr><th width="202">v2 phase</th><th width="111" data-type="checkbox">Y/N</th><th width="198">v4 phase</th><th data-type="checkbox">Y/N</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
 ## Compatibility matrix
 
@@ -196,40 +188,4 @@ To limit the processing time in the case of a nested object, the default max dep
 
 ## Changelogs
 
-<details>
-
-<summary>2.2</summary>
-
-#### What's New?
-
-* Blazingly fast
-* Full ChatGPT and Neuralink integration for quick API mastery
-
-#### Bug fixes
-
-* Fix crashes related to nested objects
-
-#### Breaking Changes
-
-* Only supports APIM versions >4.0
-
-</details>
-
-<details>
-
-<summary>2.1</summary>
-
-#### What's New?
-
-* Blazingly fast
-* Full ChatGPT and Neuralink integration for quick API mastery
-
-#### Bug fixes
-
-* Fix crashes related to nested objects
-
-#### Breaking Changes
-
-* Only supports APIM versions >4.0
-
-</details>
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-json-xml/blob/master/CHANGELOG.md" %}
