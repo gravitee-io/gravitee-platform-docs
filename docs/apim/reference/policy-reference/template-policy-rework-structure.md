@@ -1,5 +1,5 @@
 ---
-description: This page provides the technical details of the json-xml policy
+description: This page provides the technical details of the JSON-to-XML policy
 ---
 
 # Template Policy - Rework Structure
@@ -10,7 +10,7 @@ description: This page provides the technical details of the json-xml policy
 
 ## Overview
 
-Functional and implementation information for the json-xml policy is organized into the following sections:
+Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
 * [Transformations](template-policy-rework-structure.md#transformations)
 * [Configuration](template-policy-rework-structure.md#configuration)
@@ -20,7 +20,7 @@ Functional and implementation information for the json-xml policy is organized i
 
 ## Transformations
 
-The `json-xml` policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the `xml-json` policy.
+The JSON-to-XML policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the JSON-to-XML policy.
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -174,35 +174,15 @@ The default option is indicated by **bold** font.
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy has different compatibility with the available phases as described in the [Policy Studio documentation](../../guides/policy-design/).
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](./#phases) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-{% tabs %}
-{% tab title="v4 API definition" %}
-v4 APIs have the following phases:
+Below is the phase compatibility matrix for the JSON-to-XML policy:
 
-* `onRequest`: This phase is executed before invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
-* `onMessageRequest`: This phase occurs after the `onRequest` phase and allows policies to act on each incoming message before being sent to the backend service. This only applies to message APIs.
-* `onResponse`: This phase is executed after invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
-* `onMessageResponse`: This phase after the `onResponse` phase and allows policies to act on each outgoing message before being sent to the client application. This only applies to message APIs.
+<table data-header-hidden><thead><tr><th>v2 API definition phase</th><th data-type="checkbox">Supported</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td></tr></tbody></table>
 
-This policy is compatible with the following v4 API phases:
+The JSON-to-XML policy supports the following v4 API definition phases:
 
-<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="134" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>true</td><td>true</td><td>true</td></tr></tbody></table>
-{% endtab %}
-
-{% tab title="v2 API definition" %}
-v2 APIs have the following phases:
-
-* `onRequest`: This phase only allows policies to work on request headers. It never accesses the request body.
-* `onRequestContent`: This phase always occurs after the `onRequest` phase. It allows policies to work at the content level and access the request body.
-* `onResponse`: This phase only allows policies to work on response headers. It never accesses the response body.
-* `onResponseContent`: This phase always occurs after the `onResponse` phase. It allows policies to work at the content level and access the response body.
-
-This policy supports the following phases:
-
-<table><thead><tr><th width="134" data-type="checkbox">onRequest</th><th width="144" data-type="checkbox">onResponse</th><th width="191" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
-{% endtab %}
-{% endtabs %}
+<table data-header-hidden><thead><tr><th>v4 API definition phase</th><th data-type="checkbox">Supported</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td></tr><tr><td>onMessageRequest</td><td>true</td></tr><tr><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
 ## Compatibility matrix
 
