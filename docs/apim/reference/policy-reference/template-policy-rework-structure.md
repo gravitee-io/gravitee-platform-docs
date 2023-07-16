@@ -176,13 +176,9 @@ The default option is indicated by **bold** font.
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](./#phases) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-Below is the phase compatibility matrix for the JSON-to-XML policy:
+The following is the JSON-to-XML policy phase compatibility matrix:
 
-<table data-header-hidden><thead><tr><th>v2 API definition phase</th><th data-type="checkbox">Supported</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td></tr></tbody></table>
-
-The JSON-to-XML policy supports the following v4 API definition phases:
-
-<table data-header-hidden><thead><tr><th>v4 API definition phase</th><th data-type="checkbox">Supported</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td></tr><tr><td>onMessageRequest</td><td>true</td></tr><tr><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+<table><thead><tr><th width="202">v2 phase</th><th width="111" data-type="checkbox">Y/N</th><th width="198">v4 phase</th><th data-type="checkbox">Y/N</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
 ## Compatibility matrix
 
