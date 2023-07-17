@@ -100,14 +100,6 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 
 <details>
 
-<summary>Bug Fixes</summary>
-
-
-
-</details>
-
-<details>
-
 <summary>Breaking Changes</summary>
 
 **Running APIM**
