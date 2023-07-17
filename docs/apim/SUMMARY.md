@@ -129,6 +129,11 @@
   * [Basic Authentication](reference/policy-reference/basic-authentication.md)
   * [Generate HTTP Signature](reference/policy-reference/generate-http-signature.md)
   * [Assign Content](reference/policy-reference/assign-content.md)
+  * [API Key](reference/policy-reference/api-key.md)
+  * [Assign Metrics](reference/policy-reference/template-policy-rework-structure-1.md)
+  * [Cache](reference/policy-reference/template-policy-rework-structure-2.md)
+  * [Circuit Breaker](reference/policy-reference/template-policy-rework-structure-3.md)
+  * [Data Logging Masking](reference/policy-reference/template-policy-rework-structure-4.md)
 
 ## Releases & Changelog
 

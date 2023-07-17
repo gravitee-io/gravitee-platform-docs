@@ -16,7 +16,7 @@ layout:
 
 ## Overview
 
-HTTP Signature is an authentication method for adding additional security.&#x20;
+HTTP Signature is an authentication method for adding additional security.
 
 The `Signature` authentication model requires the client to authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
 
@@ -43,8 +43,6 @@ If an API is configured with the Generate HTTP Signature policy, a request with 
 ```json
 ```
 {% endcode %}
-
-
 
 ## Configuration
 
@@ -152,4 +150,4 @@ Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/p
 
 ## Changelog
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-generate-http-signature/blob/master/CHANGELOG.md" fullWidth="true" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-generate-http-signature/blob/master/CHANGELOG.md" %}

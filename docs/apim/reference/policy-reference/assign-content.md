@@ -1,3 +1,7 @@
+---
+description: This page provides the technical details of the Assign Content policy
+---
+
 # Assign Content
 
 You can use the `assign-content` policy to change or transform the content of the request body or response body.
@@ -68,10 +72,12 @@ The phases checked below are supported by the Assign Content policy:
 
 The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>>= 1.7.x</td><td>>=3.10</td><td>No</td></tr><tr><td>&#x3C;=1.6.x</td><td>&#x3C;=3.9</td><td>No</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>>= 1.7.x</td><td>>=3.10</td><td>true</td></tr><tr><td>&#x3C;=1.6.x</td><td>&#x3C;=3.9</td><td>true</td></tr></tbody></table>
 
 ## Errors
 
 <table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequestContent</td><td><code>500</code></td><td>The body content cannot be transformed.</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>The body content cannot be transformed.</td></tr><tr><td>onMessageRequest</td><td><code>400</code></td><td>The body content cannot be transformed.</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td>The body content cannot be transformed.</td></tr></tbody></table>
 
 ## Changelogs
+
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-assign-content/blob/master/CHANGELOG.md" %}
