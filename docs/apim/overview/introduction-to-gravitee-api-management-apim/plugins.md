@@ -2,7 +2,7 @@
 
 ## Overview
 
-Plugins are additional components that can be _plugged into_ [APIM Gateway](broken-reference/) or [APIM API](broken-reference/). They can customize the component’s behavior to exactly fit your needs and technical constraints.
+Plugins are additional components that can be _plugged into_ Gravitee API Management [(APIM) Gateway](broken-reference/) or [APIM API](broken-reference/). They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
 {% hint style="info" %}
 For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](../../guides/developer-contributions/dev-guide-plugins.md).
@@ -102,3 +102,42 @@ Deploying a plugin is as easy as copying the plugin archive (zip) into the dedic
 {% hint style="warning" %}
 You must restart APIM nodes when applying new or updated plugins.
 {% endhint %}
+
+## Discovery and Loading
+
+Plugin discovery and loading is completed regardless of the APIM license you are using. If a plugin is not included with your license, then it will be loaded but it will not be functional.
+
+### Phase 1: discover plugins
+
+When APIM starts, all plugin zip files are read from the list of plugin directories set in the `gravitee.yaml` configuration file.&#x20;
+
+{% hint style="info" %}
+Note, that this operation is completed asynchronously for performance benefits.
+{% endhint %}
+
+If duplicates are found (same type and id), **the most recent file is kept regardless of the plugin's version.** This allows for easily overriding plugins.
+
+Plugin override circumvents the need to remove plugins to use a newer version which is a huge benefit for Kubernetes deployments with Gravitee's Helm chart. This also benefits plugin developers as they can pack and copy an updated plugin without having to script the removal of the old version.
+
+### Phase 2: load plugins
+
+After APIM finishes traversing the plugin directories, the plugins are loaded.&#x20;
+
+Plugins are immediately initialized by a specialized handler. If an error occurs while unpacking a plugin zip file, then the faulty plugin is ignored. An error will be reported in the logs and the loading of the remaining plugins will resume.
+
+The loading process is sequential and adheres to the following order based on plugin type:
+
+1. cluster
+2. cache
+3. repository
+4. alert
+5. cockpit
+6. any other types
+
+The rest of the plugins are loaded in no particular order, except if they have dependencies. If a plugin depends on another plugin, then that takes precedence over the type ordering.
+
+For example, if `plugin1 (type:cluster)` depends on `plugin2 (type:cache)` which depends on `plugin3(type:alert)`, then the following will occur:
+
+* `plugin3` (because plugin 2 depends on it,  even if this one is #4 in the type priority list)
+* `plugin2` (because plugin 1 depends on it, even if this one is #2 in the type priority list)
+* `plugin1`

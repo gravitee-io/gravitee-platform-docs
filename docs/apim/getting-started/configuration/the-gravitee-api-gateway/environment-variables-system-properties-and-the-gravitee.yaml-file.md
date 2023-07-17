@@ -222,12 +222,49 @@ servers:
 
 ## Configure the plugins directory
 
-You can configure the APIM Gateway [plugins](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md) directory:
+### Local installation
+
+You can configure the APIM Gateway [plugins](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md) directory with `plugins.path` configuration property:
 
 ```yaml
 plugins:
   path: ${gravitee.home}/plugins
 ```
+
+Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](../../../guides/developer-contributions/dev-guide-plugins.md).&#x20;
+
+{% hint style="info" %}
+To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md#discovery-and-loading)
+{% endhint %}
+
+If you do not wish to modify the default directory, Gravitee also lets you specify additional folders in an array:
+
+```yaml
+plugins:
+  path:
+  - ${gravitee.home}/plugins
+  - ${gravitee.home}/plugins-ext 
+```
+
+In this example, bundled plugins remain in the default directory. This configuration adds an additional `plugins-ext` directory for the user to add plugins not included in APIM's default distribution.
+
+### Helm chart
+
+Gravitee's Helm chart protects the bundled plugins directory by default. This is a sample configuration of how to add additional plugins:
+
+{% code title="value.yaml" %}
+```yaml
+gateway:
+  additionalPlugins:
+  - http://host:port/path/to/my-plugin.zip
+  - http://host:port/path/to/my-gateway-plugin.zip
+api:
+  additionalPlugins:
+  - http://host:port/path/to/my-plugin.zip
+```
+{% endcode %}
+
+The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md#discovery-and-loading) for more information.
 
 ## Configure the Management repository
 

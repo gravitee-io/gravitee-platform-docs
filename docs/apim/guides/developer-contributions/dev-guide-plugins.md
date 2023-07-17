@@ -98,10 +98,6 @@ The following parameters are included in the descriptor:
 The plugin identifier has to be unique to be correctly loaded by the APIM Gateway.
 {% endhint %}
 
-## Deployment
+## Deployment, discovery, and loading
 
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-directory) for more information on modifying the directory structure.
-
-{% hint style="warning" %}
-You must restart APIM nodes when applying new or updated plugins.
-{% endhint %}
+Head over to [the main plugins documentation](../../overview/introduction-to-gravitee-api-management-apim/plugins.md#deployment) to learn how to deploy your custom plugin.
