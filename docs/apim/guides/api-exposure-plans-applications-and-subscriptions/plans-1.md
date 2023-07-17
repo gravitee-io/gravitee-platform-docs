@@ -31,7 +31,7 @@ To allow API consumers to create a simple application, enable the **Simple** opt
 
 ## Advanced application configuration
 
-API producers typically do not allow API consumers to create simple applications when using more secure plans with JWT or OAuth authentication types. To allow API consumers to register advanced applications, dynamic client registration must be enabled and configured with a client registration provider.&#x20;
+API producers typically do not allow API consumers to create simple applications when using more secure plans with JWT or OAuth authentication types. To allow API consumers to register advanced applications, dynamic client registration must be enabled and configured with a client registration provider.
 
 Since dynamic client registration is an OAuth flow, we first wanted to provide some quick definitions of relevant OAuth terminology.
 
@@ -67,7 +67,7 @@ Additional Oauth terminology:
 
 [Dynamic client registration](https://www.rfc-editor.org/rfc/rfc7591) (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee's Developer Portal or Management Console. This outsources the issuer and management of application credentials to a third party, allowing for additional configuration options and compatibility with various OIDC features provided by the identity provider.
 
-Once dynamic client registration has been [enabled in the **Client Registration** settings,](plans-1.md#prerequisites) you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.&#x20;
+Once dynamic client registration has been [enabled in the **Client Registration** settings,](plans-1.md#prerequisites) you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.
 
 <figure><img src="../../.gitbook/assets/add_dcr_provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
@@ -77,7 +77,7 @@ You are presented with the following options when configuring a client registrat
 
 The **General** section allows you to set a **Name** and **Description** for your client registration provider.
 
-The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)&#x20;
+The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)
 
 Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or direct provisioning of an **Initial Access Token.** Both of these options are detailed further in the [following section](plans-1.md#dcr-initial-access-token-flows).
 
@@ -85,7 +85,7 @@ One additional configuration setting that is common to both initial access token
 
 ### DCR: Initial access token flows
 
-The initial access token is provided by the authorization server to grant access to its protected client registration endpoint. Regardless of the method used to obtain the initial access token, the flow for registering future applications remains the same. The initial access token will be used to call the protected client registration endpoint which will respond with the application's client ID and depending on the application type, an optional client secret.&#x20;
+The initial access token is provided by the authorization server to grant access to its protected client registration endpoint. Regardless of the method used to obtain the initial access token, the flow for registering future applications remains the same. The initial access token will be used to call the protected client registration endpoint which will respond with the application's client ID and depending on the application type, an optional client secret.
 
 For OAuth 2.0 plans, these credentials will be used whenever a resource owner authorizes the application to access a protected resource. If authorized successfully, the authorization server will return an access token that will be verified through token introspection upon requests to the Gateway before accessing backend APIs protected by OAuth 2.0 plans.
 
@@ -99,7 +99,7 @@ Using the client credentials flow allows you to set up your authorization server
 
 The client credential flow offers two additional configuration settings:
 
-* **Scopes:** provide default scopes to use for application registration&#x20;
+* **Scopes:** provide default scopes to use for application registration
 * **Client Template (software\_id):** optional id of the client template to use for all applications registering through this provider
   * Some authorization servers allow you to create a client as a template. Registering a new application with a template allows you to specify which identity providers to use, and apply template forms (such as login, password management, and error forms) or emails (such as registration confirmation and password reset emails).
   * This can simplify administration, as all dynamic clients can be updated as a whole. If the configuration of the template changes (e.g., authentication requirements, redirect URI(s), allowed scopes, etc.), then all dynamic clients based on that client are immediately updated.
@@ -108,7 +108,7 @@ The client credential flow offers two additional configuration settings:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-03-23 at 12.02.08 PM.png" alt=""><figcaption><p>Directly provide initial access token</p></figcaption></figure>
 
-<mark style="color:yellow;">This appears to circumvent the need for client credentials but it may be dependent on the authorization server.</mark>
+Direct provisioning is a much simpler and less secure way to provide the initial access token. Administrators can directly add the initial access token as shown in the image above.
 
 ### Authorization grant types
 
@@ -215,7 +215,7 @@ With all the preparation work complete, API consumers can now create an applicat
 {% hint style="info" %}
 **Default application**
 
-In order to allow new users to quickly move forward with API consumption, the default settings are every new user (not including admins) automatically has a default application created. This can be easily disabled in the `gravitee.yml` file with the following configuration below. You can learn more about system configurations in Gravitee [here](broken-reference).
+In order to allow new users to quickly move forward with API consumption, the default settings are every new user (not including admins) automatically has a default application created. This can be easily disabled in the `gravitee.yml` file with the following configuration below. You can learn more about system configurations in Gravitee [here](broken-reference/).
 {% endhint %}
 
 {% code title="gravitee.yml" overflow="wrap" %}
@@ -240,7 +240,7 @@ By default, APIM includes three membership roles:
 | **User**          | A user is a person who can access the application in read only mode and use the application to subscribe to an API.                       |
 
 {% hint style="info" %}
-Only users with the required permissions can manage application members. For more details, see the Roles and permissions section of the Administration Guide.
+Only users with the required permissions can manage application members. For more details, see the [User Management and Permissions](../administration/user-management-and-permissions.md) section of the Administration Guide.
 {% endhint %}
 
 {% @arcade/embed flowId="zb22huL5KmUF9Nky2hZ7" url="https://app.arcade.software/share/zb22huL5KmUF9Nky2hZ7" %}

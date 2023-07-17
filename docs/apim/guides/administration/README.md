@@ -15,7 +15,7 @@ Gravitee offers a robust set of platform and user administration capabilities. I
 
 ### Organizations
 
-In Gravitee, **Organizations** reflect a logical part of your company in a way that makes the most for your setup. For example, an organization could be a region or business unit.&#x20;
+In Gravitee, **Organizations** reflect a logical part of your company in a way that makes the most for your setup. For example, an organization could be a region or business unit.
 
 In the context of an APIM installation, it is the level at which shared configurations for environments are managed, such as:
 
@@ -24,7 +24,7 @@ In the context of an APIM installation, it is the level at which shared configur
 * Identity providers
 * Notification templates
 
-Gravitee Organizations can include multiple environments.&#x20;
+Gravitee Organizations can include multiple environments.
 
 #### Managing platform access
 
@@ -48,5 +48,3 @@ Examples of environments:
 ### Users and user groups
 
 In Gravitee, a **User** is just a user of the Gravitee platform. You can create **User groups,** which are defined by a set of permissions and roles as they pertain to configuring and managing Organizations, Environments, APIs, and Applications in Gravitee. These four levels are referred to as **Scopes.**
-
-\
