@@ -220,7 +220,7 @@ servers:
 ```
 {% endcode %}
 
-## Configure the Plugins repository
+
 
 You can configure the APIM Gateway [plugins](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md) directory:
 
