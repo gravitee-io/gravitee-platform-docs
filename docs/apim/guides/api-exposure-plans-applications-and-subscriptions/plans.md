@@ -4,24 +4,24 @@ description: How to expose your APIs
 
 # Plans
 
-To expose your API to internal or external consumers, it must have at least one plan. A plan provides a service and access layer on top of your APIs for consumer applications by specifying access limits, subscription validation modes, and other configurations to tailor it to a specific application.&#x20;
+To expose your API to internal or external consumers, it must have at least one plan. A plan provides a service and access layer on top of your APIs for consumer applications by specifying access limits, subscription validation modes, and other configurations to tailor it to a specific application.
 
 ## Create a plan
 
-Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](broken-reference). You can also create them later with the **Portal > Plans** function as shown below.
+Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](broken-reference/). You can also create them later with the **Portal > Plans** function as shown below.
 
-{% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
+\{% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %\}
 
 Creating a plan begins by navigating to your API, selecting **Plans** in the sidebar, and then selecting **Add new plan** in the top right of the page.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.36.23 PM.png" alt=""><figcaption><p>Create a new plan</p></figcaption></figure>
 
-This will take you to the plan creation wizard.&#x20;
+This will take you to the plan creation wizard.
 
 Creating a plan is broken down into three main stages:
 
 1. **General**
-2. **Secure**&#x20;
+2. **Secure**
 3. **Restrictions**
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.37.47 PM.png" alt=""><figcaption><p>Plan creation wizard</p></figcaption></figure>
@@ -30,11 +30,11 @@ Creating a plan is broken down into three main stages:
 
 In the **General** stage, you enter basic details about your plan. The only requirement for this stage is providing a name for your plan.
 
-The initial section lets you set a name, description, and characteristics for your plan. Characteristics are optional labels you can use to tag your plan. &#x20;
+The initial section lets you set a name, description, and characteristics for your plan. Characteristics are optional labels you can use to tag your plan.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.49.56 PM.png" alt=""><figcaption><p>First step in plan creation</p></figcaption></figure>
 
-The next section in the **General** stage is **Conditions.** Here you can optionally select a page containing the general conditions for use of your plan. If included, these conditions must be accepted by the user to finalize the subscription process. To associate general conditions of use with a plan, you need to specify a markdown page where these conditions are specified.&#x20;
+The next section in the **General** stage is **Conditions.** Here you can optionally select a page containing the general conditions for use of your plan. If included, these conditions must be accepted by the user to finalize the subscription process. To associate general conditions of use with a plan, you need to specify a markdown page where these conditions are specified.
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 12.55.52 PM.png" alt=""><figcaption><p>Selecting general conditions for your plan</p></figcaption></figure>
 
@@ -64,7 +64,7 @@ During the **Secure** stage of plan creation, the API publisher selects one of f
 
 <figure><img src="../../.gitbook/assets/Screen Shot 2023-03-15 at 1.49.42 PM.png" alt=""><figcaption><p>Select authentication type</p></figcaption></figure>
 
-* **Keyless (public):**  does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback.&#x20;
+* **Keyless (public):** does _not_ require authentication and allows public access to the API. By default, keyless plans offer no security and are most useful for quickly and easily exposing your API to external users and getting their feedback.
 * **API Key:** only allows apps with approved API keys to access your API. This plan type ensures that API keys are valid, are not revoked or expired, and are approved to consume the specific resources associated with your API.
 * **JSON web token (JWT):** open method for representing claims securely between two parties. JWTs are digitally-signed using HMAC shared keys or RSA public/private key pairs. JWT plans allow you to verify the signature of the JWT and check if the JWT is still valid according to its expiry date.
 * **OAuth 2.0:** open standard that apps can use to provide client applications with secure delegated access. OAuth works over HTTPS and authorizes devices, APIs, servers, and applications with access tokens rather than credentials.
@@ -153,7 +153,7 @@ You can provide a custom API key when:
 
 #### Shared API key
 
-The shared API key mode allows consumers to reuse the same API key across all API subscriptions of an application.&#x20;
+The shared API key mode allows consumers to reuse the same API key across all API subscriptions of an application.
 
 With this mode enabled, consumers will be asked on their second subscription to choose between reusing their key across all subscriptions or generating one different API key for each subscription (which is the default mode). This is known as the application API key type.
 
@@ -221,7 +221,7 @@ Configuring a JWT plan presents the following options:
 * **JSON Web Key Set (JWKS) resolver:** to validate the signature of the JWT, the Gateway needs to use the associated authorization server's JSON web key (JWK) which is often stored inside a JSON web key set (JWKS). Gravitee has three methods for providing the JWK:
   * `GIVEN_KEY` : you provide the key in `ssh-rsa`, `pem`, `crt` or `public-key` format which must match the signature algorithm
   * `JWKS_URL` : you can provide a URL for the Gateway to retrieve the necessary JWKS (basically, a URL ending with `/.well-known/jwks.json` )
-  * `GIVEN_ISSUER` : you can set public keys in the APIM Gateway `gravitee.yml` file that are associated with an authorization server. The Gateway will only accept JWTs with an`iss` (issuer) JWT payload [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims) that matches an authorization server listed in the APIM Gateway `gravitee.yml`. Additionally, you can filter between an authorization server's keys based on the `kid` (key ID) JWT header [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims).&#x20;
+  * `GIVEN_ISSUER` : you can set public keys in the APIM Gateway `gravitee.yml` file that are associated with an authorization server. The Gateway will only accept JWTs with an`iss` (issuer) JWT payload [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims) that matches an authorization server listed in the APIM Gateway `gravitee.yml`. Additionally, you can filter between an authorization server's keys based on the `kid` (key ID) JWT header [claim](https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-token-claims).
 
 {% code title="gravitee.yml" %}
 ```yaml
@@ -255,8 +255,6 @@ To configure an OAuth 2.0 plan for an API, you need to first create an OAuth 2.0
 Configuring an OAuth 2.0 plan presents the following options:
 
 <figure><img src="../../.gitbook/assets/OAuth plan configuration.png" alt=""><figcaption><p>Configuring OAuth 2.0 plan</p></figcaption></figure>
-
-
 
 * **OAuth2 resource:** specify the name of the OAuth2 resource to use as the authorization server
 * **Cache resource:** optionally specify the name of the cache resource to store responses from the authorization server
@@ -306,6 +304,8 @@ Deprecating plans allow consumers of the API time to migrate without breaking th
 
 Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the change.
 
-{% @arcade/embed flowId="ap3CwzXY65OTTweqctFO" url="https://app.arcade.software/share/ap3CwzXY65OTTweqctFO" %}
 
-A published plan can either be deprecated or closed. Neither operation can be undone.&#x20;
+
+{% @arcade/embed flowId="vOBfQE9VInuyA1g7b4kF" url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" %}
+
+A published plan can either be deprecated or closed. Neither operation can be undone.
