@@ -126,11 +126,10 @@
 * [Management API Reference](reference/management-api-reference/README.md)
 * [Gravitee Kubernetes Operator API Reference](reference/gravitee-kubernetes-operator-api-reference.md)
 * [Policy Reference](reference/policy-reference/README.md)
-  * [Template Policy](reference/policy-reference/v4-template-policy.md)
+  * [Template Policy - Rework Structure](reference/policy-reference/template-policy-rework-structure.md)
   * [Override HTTP Method](reference/policy-reference/override-http-method.md)
   * [Basic Authentication](reference/policy-reference/basic-authentication.md)
   * [Generate HTTP Signature](reference/policy-reference/generate-http-signature.md)
-  * [Template Policy - Rework Structure](reference/policy-reference/template-policy-rework-structure.md)
 
 ## Releases & Changelog
 

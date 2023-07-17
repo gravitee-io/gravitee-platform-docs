@@ -43,13 +43,13 @@ security:
       password-encoding-algo: bcrypt
       users:
         - user:
-          username: <a data-footnote-ref href="#user-content-fn-2">user</a>
+          username: user
           #firstname:
           #lastname:
           # Passwords are encoded using BCrypt
           # Password value: password
           password: $2a$10$9kjw/SH9gucCId3Lnt6EmuFreUAcXSZgpvAYuW2ISv7hSOhHRH1AO
-          roles: <a data-footnote-ref href="#user-content-fn-3">ORGANIZATION:USER,ENVIRONMENT:USER</a>
+          roles: <a data-footnote-ref href="#user-content-fn-2">ORGANIZATION:USER,ENVIRONMENT:USER</a>
           # Useful to receive notifications
           #email:
         - user:
@@ -716,9 +716,8 @@ Then, enter in your Keycloak credentials. After this, you should be successfully
 
 1. This example uses bcrypt to hash passwords.
 2. Define the password.
+3. Here, you can define information, passwords, roles, etc. for specific user types, such as user or admin.
 
 [^1]: insert memory here.
 
-[^2]: Here, you can define information, passwords, roles, etc. for specific user types, such as user or admin.
-
-[^3]: Define the roles.
+[^2]: Define the roles.
