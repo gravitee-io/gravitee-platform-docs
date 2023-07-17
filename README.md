@@ -1,2 +1,2 @@
-# beta-docs
-Beta docs for gravitee platform
+# gravitee-platform-docs
+Developer docs for Gravitee platform
