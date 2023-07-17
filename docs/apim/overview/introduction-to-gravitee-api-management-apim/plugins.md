@@ -93,11 +93,11 @@ An **alert** is used to send triggers or events to the Alert Engine which can be
 
 ### Connectors
 
-A connector is used to "Add" support for specific protocols, API styles, event brokers, and/or message queue services. For example, if you have the "Websocket" and "Kafka" connector plugins, you are able to "front" a Kafka topic with a Websocket API, making that Kafka topic consumable over a Websocket connection.
+A connector is used to "Add" support for specific protocols, API styles, event brokers, and/or message queue services. For example, if you have the "Websocket" and "Kafka" connector plugins, you are able to "front" a Kafka topic with a Websocket API, making that Kafka topic consumable over a WebSocket connection.
 
 ## Deployment
 
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the APIM Gateway Configuration Documentation for more information on modifying the directory structure.
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-directory) for more information on modifying the directory structure.
 
 {% hint style="warning" %}
 You must restart APIM nodes when applying new or updated plugins.
