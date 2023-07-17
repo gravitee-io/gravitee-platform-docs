@@ -1,10 +1,8 @@
-# Docker
+# Install on Docker
 
-Our documentation describes three different ways you can install APIM using Docker.
+Our documentation describes three different ways you can install Gravitee API Management (APIM) using Docker.
 
-* [Quick install with `docker compose`](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_compose\_quickstart.html)
-* [Custom install with `docker compose`](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_compose.html)
-* [Docker images install](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_images.html)
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Quick install with <code>docker compose</code></td><td></td><td><a href="quick-install-with-docker-compose.md">quick-install-with-docker-compose.md</a></td></tr><tr><td></td><td>Custom install with <code>docker compose</code></td><td></td><td><a href="custom-install-with-docker-compose.md">custom-install-with-docker-compose.md</a></td></tr><tr><td></td><td>Docker images install</td><td></td><td><a href="docker-images-install.md">docker-images-install.md</a></td></tr></tbody></table>
 
 The quick install gets APIM up and running quickly without any additional plugins. The custom install method, and the image-based method, give you more control over the location of persistence data and the ability to add custom plugins.
 

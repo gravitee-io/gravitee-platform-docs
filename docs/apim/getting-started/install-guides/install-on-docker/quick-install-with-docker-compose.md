@@ -1,6 +1,6 @@
 # Quick Install with Docker Compose
 
-This page describes how to install and run Gravitee API Management (APIM) Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker compose` command. If you need granular control over where persistence data is stored, or if you need to add plugins, use the [Custom Install with Docker Docker Compose](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_compose.html) or [Docker Images Install](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_images.html).
+This page describes how to install and run Gravitee API Management (APIM) Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker compose` command. If you need granular control over where persistence data is stored, or if you need to add plugins, use the [Custom Install with Docker Docker Compose ](custom-install-with-docker-compose.md)or [Docker Images Install.](docker-images-install.md)
 
 {% hint style="warning" %}
 This installation method does not allow for custom plugins

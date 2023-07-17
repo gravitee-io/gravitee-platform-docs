@@ -8,7 +8,7 @@ APIM Docker images contain the default plugins. To add an additional plugin, cop
 
 You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
 
-For more information, about plugin deployment, see [Deployment](https://docs.gravitee.io/apim/3.x/apim\_devguide\_plugins.html#deployment).
+For more information, about plugin deployment, see [Deployment](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md#deployment).
 
 {% hint style="warning" %}
 Some plugins need to be installed on both the API Gateway and the Management API. Please verify the specific plugin’s documentation for the details.
@@ -58,10 +58,10 @@ To use JDBC as the datastore for management, you have to have the correct JDBC d
 
 ### Download the driver
 
-1. Download the correct driver for your database from [Supported databases](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_jdbc.html#supported\_databases).
-2. Place it in the `plugins-ext` folder. If you used the file structure described in [the custom install section](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_compose.html#create\_the\_filesystem\_and\_download\_the\_docker\_compose\_file), the `plugin-ext` folder is `/gravitee/apim-gateway/plugins` for the API Gateway and `/gravitee/apim-management-api/plugins` for the Management API.
+1. Download the correct driver for your database from [Supported databases.](../../configuration/configure-repositories.md#supported-databases)
+2. Place it in the `plugins-ext` folder. If you used the file structure described in the [custom install section](custom-install-with-docker-compose.md), the `plugin-ext` folder is `/gravitee/apim-gateway/plugins` for the API Gateway and `/gravitee/apim-management-api/plugins` for the Management API.
 
-For more information on the JDBC plugin and drivers, see [JDBC](https://docs.gravitee.io/apim/3.x/apim\_installguide\_repositories\_jdbc.html).
+For more information on the JDBC plugin and drivers, see [JDBC](../../configuration/configure-repositories.md#jdbc).
 
 ### Using with `docker compose`
 

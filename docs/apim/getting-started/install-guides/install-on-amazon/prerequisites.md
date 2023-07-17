@@ -18,7 +18,7 @@ Provision and start an Amazon instance with the following minimum specifications
 
 ## Setup Gravitee YUM repository
 
-Amazon Linux instances use the package manager `yum`. The steps below show how to use `yum` to set up access to Gravitee's repository containing the APIM components.&#x20;
+Amazon Linux instances use the package manager `yum`. The steps below show how to use `yum` to set up access to Gravitee's repository containing the APIM components.
 
 1. Create a file called `/etc/yum.repos.d/graviteeio.repo` using the following command:
 
@@ -51,8 +51,6 @@ sudo yum install pygpgme yum-utils -y
 sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
 ```
 {% endcode %}
-
-
 
 ## Install Java 11
 
@@ -223,7 +221,4 @@ You should see that there’s a process listening on that port.
 
 ## Next steps
 
-You have completed all the prerequisites. The next step is either installing the [individual APIM components](apim-components-installation.md) or [installing the full APIM stack](../install-on-red-hat-and-centos/install-the-full-apim-stack.md) in one go.\
-
-
-\
+You have completed all the prerequisites. The next step is either installing the [individual APIM components](apim-components-installation.md) or [installing the full APIM stack](../install-on-red-hat-and-centos/install-the-full-apim-stack.md) in one go.

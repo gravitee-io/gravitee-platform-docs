@@ -1,6 +1,6 @@
 # Custom Install with Docker Compose
 
-This page describes how to install and run APIM Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker compose` command and a specified filesystem for persistence and plugins. Compared to the [Quick Install with Docker Compose](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_compose\_quickstart.html), installing in this way gives more granular control of where persistence data is stored and the ability to add custom plugins.
+This page describes how to install and run APIM Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker compose` command and a specified filesystem for persistence and plugins. Compared to the [Quick Install with Docker Compose](quick-install-with-docker-compose.md), installing in this way gives more granular control of where persistence data is stored and the ability to add custom plugins.
 
 ## Prerequisites
 

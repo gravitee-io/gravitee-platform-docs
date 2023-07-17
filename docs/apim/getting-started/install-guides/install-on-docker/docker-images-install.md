@@ -1,6 +1,6 @@
 # Docker Images Install
 
-This page describes how to install and run APIM Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker` command and a specified filesystem for persistence and plugins. Compared to the [Quick Install with Docker Compose](https://docs.gravitee.io/apim/3.x/apim\_installation\_guide\_docker\_compose\_quickstart.html), installing in this way gives more granular control of where persistence data is stored and the ability to add plugins.
+This page describes how to install and run APIM Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker` command and a specified filesystem for persistence and plugins. Compared to the [Quick Install with Docker Compose](quick-install-with-docker-compose.md), installing in this way gives more granular control of where persistence data is stored and the ability to add plugins.
 
 ## Prerequisites
 
@@ -118,12 +118,13 @@ If you are installing the Community Edition, remove the following line before ru
 ```
 {% endhint %}
 
-<pre class="language-sh"><code class="lang-sh">$ docker pull graviteeio/apim-management-api:3.20.0
+```sh
+$ docker pull graviteeio/apim-management-api:3.20.0
 $ docker run --publish 8083:8083 \
   --volume /gravitee/apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext \
   --volume /gravitee/apim-management-api/logs:/opt/graviteeio-management-api/logs \
-<a data-footnote-ref href="#user-content-fn-2">  --volume /gravitee/license.key:/opt/graviteeio-management-api/license/license.key \</a>
-  --env gravitee_management_mongodb_uri="mongodb://gio_apim_mongodb:27017/gravitee-apim?serverSelectionTimeoutMS=5000&#x26;connectTimeoutMS=5000&#x26;socketTimeoutMS=5000" \
+  --volume /gravitee/license.key:/opt/graviteeio-management-api/license/license.key \
+  --env gravitee_management_mongodb_uri="mongodb://gio_apim_mongodb:27017/gravitee-apim?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000" \
   --env gravitee_analytics_elasticsearch_endpoints_0="http://elasticsearch:9200" \
   --env gravitee_plugins_path_0=/opt/graviteeio-management-api/plugins \
   --env gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext \
@@ -131,7 +132,7 @@ $ docker run --publish 8083:8083 \
   --name gio_apim_management_api \
   --detach graviteeio/apim-management-api:3.20.0
 $ docker network connect frontend gio_apim_management_api
-</code></pre>
+```
 
 Note that the Management API is on both the `storage` and `frontend` networks, and it uses `/gravitee/apim-api` for persistent storage.
 
@@ -176,6 +177,6 @@ You can adapt the above instructions to suit your architecture if you need to.
 Congratulations! Now that APIM is up and running, check out the [Tutorials](../../tutorials/) for your next steps.
 {% endhint %}
 
-[^1]: Remove this line if you are installing the Community Edition
+1. Remove this line if you are installing the Community Edition
 
-[^2]: Remove this line if you are installing the Community Edition
+[^1]: Remove this line if you are installing the Community Edition
