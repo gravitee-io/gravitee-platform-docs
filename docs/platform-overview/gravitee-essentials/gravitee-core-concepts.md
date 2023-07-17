@@ -4,17 +4,17 @@ description: This page provides high-level overview of the Gravitee ecosystem
 
 # Gravitee Core Concepts
 
-The API lifecycle includes API design, development, testing, deployment, troubleshooting, monitoring, and security. The challenges imposed by novel architectures and use cases have underscored API complexity and driven the development of comprehensive API management solutions, of which Gravitee is best-in-class.&#x20;
+The API lifecycle includes API design, development, testing, deployment, troubleshooting, monitoring, and security. The challenges imposed by novel architectures and use cases have underscored API complexity and driven the development of comprehensive API management solutions, of which Gravitee is best-in-class.
 
 ## Overview <a href="#overview-2" id="overview-2"></a>
 
-Gravitee offers an API lifecycle toolset that extends beyond conventional API strategy and implementation. One of Gravitee’s core differentiators is that it's an event-native API solution that provides centralized support for both asynchronous and synchronous APIs. Built on event-driven architecture and implemented with reactive programming, Gravitee also supports the traditional request/response model and can even mediate between sync and async application layer protocols.&#x20;
+Gravitee offers an API lifecycle toolset that extends beyond conventional API strategy and implementation. One of Gravitee’s core differentiators is that it's an event-native API solution that provides centralized support for both asynchronous and synchronous APIs. Built on event-driven architecture and implemented with reactive programming, Gravitee also supports the traditional request/response model and can even mediate between sync and async application layer protocols.
 
 Key Gravitee concepts and terminology are introduced below as a foundation for more detailed product documentation.
 
 ## Gravitee global architecture <a href="#gravitee-global-architecture-4" id="gravitee-global-architecture-4"></a>
 
-The architecture diagrams below offer a high-level conceptualization of the Gravitee ecosystem. The first diagram shows the interactions between and within Gravitee API Management (APIM) and Gravitee Access Management (AM). The second diagram illustrates the function of the Alert Engine (AE).&#x20;
+The architecture diagrams below offer a high-level conceptualization of the Gravitee ecosystem. The first diagram shows the interactions between and within Gravitee API Management (APIM) and Gravitee Access Management (AM). The second diagram illustrates the function of the Alert Engine (AE).
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/b014429c2135257d51371e103e78eda7e306277d_2_486x500.png" alt=""><figcaption><p>APIM and AM architecture overview</p></figcaption></figure>
 
@@ -22,14 +22,14 @@ The architecture diagrams below offer a high-level conceptualization of the Grav
 
 Key takeaways:
 
-* API publishers make requests to the Management API either programmatically or from the Management Console.&#x20;
+* API publishers make requests to the Management API either programmatically or from the Management Console.
 * The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from end users to backend APIs, and exposing backend APIs in a Developer Portal for access by API consumers.
 * A single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
 
 ## Gravitee Cloud architecture
 
-Each APIM and AM instance is attached to a Gravitee Cloud environment. Gravitee Cloud observes a hierarchy of three entity types:&#x20;
+Each APIM and AM instance is attached to a Gravitee Cloud environment. Gravitee Cloud observes a hierarchy of three entity types:
 
 * Account: Top level. Typically a company, not an individual user.
 * Organization: Second level. Typically a logical part of the company in a particular context, such as a region or business unit.
@@ -43,7 +43,7 @@ API Management encompasses API design, API security and access management, API r
 
 ## API policies
 
-The default Gravitee distribution includes policies to control how APIs are consumed. Policies are rules or logic executed by the API Gateway during an API call to enforce security, reliability, proper data transfer, and/or API monetization. &#x20;
+The default Gravitee distribution includes policies to control how APIs are consumed. Policies are rules or logic executed by the API Gateway during an API call to enforce security, reliability, proper data transfer, and/or API monetization.
 
 Common API policies executed at the Gateway level:
 
@@ -81,12 +81,12 @@ Policies that cache responses from backend APIs to eliminate the need for subseq
 
 ## API plugins
 
-Gravitee plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. A policy is a type of plugin, i.e., a feature or function that is enabled through plugin functionality.&#x20;
+Gravitee plugins are modules or components that add or extend functionality by plugging into the Gravitee ecosystem. A policy is a type of plugin, i.e., a feature or function that is enabled through plugin functionality.
 
 {% hint style="info" %}
-Browse the current collection of [Gravitee plugins](https://www.gravitee.io/plugins).&#x20;
+Browse the current collection of [Gravitee plugins](https://www.gravitee.io/plugins).
 
-Refer to Custom Plugins for the instructions to build a plugin.
+Refer to the [APIM Plugins](https://documentation.gravitee.io/apim/overview/plugins) guide for more information or to the [Custom Plugins guide](https://documentation.gravitee.io/apim/guides/developer-contributions/dev-guide-plugins) for the instructions to build a plugin.
 {% endhint %}
 
 ## API Developer Portal <a href="#api-developer-portals-api-productization-6" id="api-developer-portals-api-productization-6"></a>
@@ -121,9 +121,9 @@ Gravitee also implements API design-first methodology, where the API design or d
 
 ## Gravitee API definitions <a href="#gravitee-api-definitions-9" id="gravitee-api-definitions-9"></a>
 
-A [Gravitee API definition](https://www.gravitee.io/blog/gravitee-api-definitions) is the API specification for a Gravitee Gateway_._ It is the JSON representation of the information the Gravitee Gateway requires to manage (proxy, apply policies to, create plans for, etc.) your APIs and their traffic.
+A [Gravitee API definition](https://www.gravitee.io/blog/gravitee-api-definitions) is the API specification for a Gravitee Gateway. It is the JSON representation of the information the Gravitee Gateway requires to manage (proxy, apply policies to, create plans for, etc.) your APIs and their traffic.
 
-The latest API definition is v4. The v4 definition supports advanced protocol mediation (e.g., fronting Kafka with a Webhook, WebSocket, or HTTP API) and can apply Gravitee policies (e.g., authentication and traffic shaping) to asynchronous API traffic at the message level.&#x20;
+The latest API definition is v4. The v4 definition supports advanced protocol mediation (e.g., fronting Kafka with a Webhook, WebSocket, or HTTP API) and can apply Gravitee policies (e.g., authentication and traffic shaping) to asynchronous API traffic at the message level.
 
 Mediation and policy enforcement are achieved by decoupling the Gateway entrypoints and endpoints. The Gateway entrypoint dictates how the backend API is exposed by defining the protocol and configuration settings the API consumer uses to access the Gateway API. The Gateway endpoint defines the protocol and configuration settings the Gateway API uses to fetch data from, or post data to, the backend API.
 
@@ -176,7 +176,7 @@ This approach eliminates reliance on the Management Console and underlying Manag
 </details>
 
 {% hint style="info" %}
-**Kubernetes source of truth**&#x20;
+**Kubernetes source of truth**
 
 Once the Kubernetes YAML file has been deployed it is the source of truth. Although the API and API definition remain visible in the Gravitee Console and the API can still be deployed to the Developer Portal, there are API components that the administrator cannot change. While this may seem like a restriction, it is a feature, not a bug. A key principle of infrastructure as code (IaC) is to never change something in its “live form.” Instead, it should be changed via code and the changes observed as they manifest in the frontend.
 {% endhint %}
