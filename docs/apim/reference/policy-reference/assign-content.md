@@ -1,26 +1,28 @@
 # Assign Content
 
-## Overview
-
 You can use the `assign-content` policy to change or transform the content of the request body or response body.
 
 This policy is compatible with the [Freemarker](https://freemarker.apache.org/) template engine, which allows you to apply complex transformations, such as transforming from XML to JSON and vice versa.
 
 By default, you can access multiple objects from the template context — request and response bodies, dictionaries, context attributes and more.
 
-### Compatibility <a href="#compatibility_with_apim" id="compatibility_with_apim"></a>
+Functional and implementation information for the Assign Content policy is organized into the following sections:
 
+* [Examples](assign-content.md#examples)
+* [Configuration](assign-content.md#configuration)
+* [Compatibility Matrix](assign-content.md#compatibility-matrix)
+* [Errors](assign-content.md#errors)
+* [Changelogs](assign-content.md#changelogs)
+
+## Examples
+
+{% tabs %}
+{% tab title="Proxy API" %}
 {% hint style="info" %}
-The current version of the policy does not support `Digest`, `request-target`, `Host`, or `Path` headers.
+The proxy API example also applies to v2 APIs.
 {% endhint %}
 
-### Example
-
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
-{% endhint %}
-
-#### Inject a dictionary value and the application into the request payload
+For example, you could use the Assign Content policy to inject a dictionary value and application into the request payload
 
 ```
 {
@@ -28,148 +30,46 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
   "application": "${context.attributes['application']}"
 }
 ```
+{% endtab %}
 
-#### Incoming request body content
+{% tab title="Message API" %}
 
-```
-{
-  "symbol": "EUR"
-}
-```
-
-#### Policy example to transform from JSON to XML
-
-Input:
-
-```
-<#assign body = request.content?eval >
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET/">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <web:GetQuote>
-         ${body.symbol}
-      </web:GetQuote>
-   </soapenv:Body>
-</soapenv:Envelope>
-```
-
-Expected output:
-
-```
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET/">
- <soapenv:Header/>
- <soapenv:Body>
- <web:GetQuote>
- EUR
- </web:GetQuote>
- </soapenv:Body>
-</soapenv:Envelope>
-```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the Management Console or interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
 
-{% tabs %}
-{% tab title="Management Console" %}
-<mark style="color:yellow;">We should wait to make these once the v4 Policy Studio is finalized</mark>
-{% endtab %}
-
-{% tab title="Managment API" %}
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
 {% code title="Sample Configuration" %}
 ```json
-{
-  "name": "Custom name",
-  "description": "Adds HTTP signature auth",
-  "policy": "generate-http-signature",
-  "configuration": {
-	"scheme": "AUTHORIZATION",
-	"validityDuration": 30,
-	"keyId": "my-key-id",
-	"secret": "my-passphrase",
-	"algorithm": "HMAC_SHA256",
-	"headers": ["X-Gravitee-Header","Host"],
-    	"created": true,
-   	"expires": true
-  }
+"policy-assign-content": {
+    "scope":"REQUEST",
+    "body":"Put your content here"
 }
 ```
 {% endcode %}
-{% endtab %}
-{% endtabs %}
 
 ### Reference
 
-<table data-full-width="true"><thead><tr><th width="139">Property</th><th width="103" data-type="checkbox">Required</th><th width="264">Description</th><th width="128" data-type="select">Type</th><th width="169">Options</th><th>Default</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td></td><td>AUTHORIZATION, SIGNATURE</td><td>AUTHORIZATION</td></tr><tr><td>keyId</td><td>true</td><td>The key ID used to generate the signature (supports EL)</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL)</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>algorithm</td><td>true</td><td>The HMAC digest algorithm</td><td></td><td>N/a</td><td>HMAC_SHA256</td></tr><tr><td>headers</td><td>false</td><td>List of headers to build the signature. If no headers, the request must at least contains <code>Date</code> header.</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>created</td><td>true</td><td>Include the created timestamp in the signature and (created) header</td><td></td><td>true, false</td><td>true</td></tr><tr><td>expires</td><td>true</td><td>Include the expires timestamp in the signature and (expires) header</td><td></td><td>true, false</td><td>true</td></tr><tr><td>validityDuration</td><td>false</td><td>Signature’s maximum validation duration in seconds (minimum is 1). Applied when <code>expires</code> is set to true.</td><td></td><td>N/a</td><td>3</td></tr></tbody></table>
-
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. Depending on the [version of the Gateway API](../../overview/gravitee-api-definitions-and-execution-engines.md#policy-execution-phases-and-execution-order), the request and response are broken up into what are known as _phases_. Each policy has different compatibility with the available phases:
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](./#phases) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-{% tabs %}
-{% tab title="v4 API definition" %}
-v4 APIs have the following phases:
+The phases checked below are supported by the Assign Content policy:
 
-* `onRequest`: This phase is executed before invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
-* `onMessageRequest`: This phase occurs after the `onRequest` phase and allows policies to act on each incoming message before being sent to the backend service. This only applies to message APIs.
-* `onResponse`: This phase is executed after invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
-* `onMessageResponse`: This phase after the `onResponse` phase and allows policies to act on each outgoing message before being sent to the client application. This only applies to message APIs.
-
-This policy is compatible with the following v4 API phases:
-
-<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="134" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
-{% endtab %}
-
-{% tab title="v2 API definition" %}
-v2 APIs have the following phases:
-
-* `onRequest`: This phase only allows policies to work on request headers. It never accesses the request body.
-* `onRequestContent`: This phase always occurs after the `onRequest` phase. It allows policies to work at the content level and access the request body.
-* `onResponse`: This phase only allows policies to work on response headers. It never accesses the response body.
-* `onResponseContent`: This phase always occurs after the `onResponse` phase. It allows policies to work at the content level and access the response body.
-
-This policy supports the following phases:
-
-<table><thead><tr><th width="134" data-type="checkbox">onRequest</th><th width="144" data-type="checkbox">onResponse</th><th width="191" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
-{% endtab %}
-{% endtabs %}
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
-
-## Installation and deployment
-
-Each version of APIM includes a number of policies by default. If the policy is not included in the default distribution or you would like to use a different version of the policy, you can modify the plugin.
-
-{% hint style="warning" %}
-Please ensure the policy version you select is compatible with your version of APIM.
-{% endhint %}
-
-To do so, follow these steps:
-
-1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/)
-2. Add the file into the `plugins` folder for both the Gateway and management API
-
-{% hint style="info" %}
-**Location of `plugins` folder**
-
-The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
-
-Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the Gateway and `/gravitee/apim-management-api/plugins` for the management API.
-{% endhint %}
-
-3. Remove any existing plugins of the same name.
-4. Restart your APIM nodes
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>>= 1.7.x</td><td>>=3.10</td><td>No</td></tr><tr><td>&#x3C;=1.6.x</td><td>&#x3C;=3.9</td><td>No</td></tr></tbody></table>
 
 ## Errors
 
-<table data-full-width="true"><thead><tr><th width="243">Phase</th><th width="178">HTTP status code</th><th width="184">Error template key</th><th>Description</th></tr></thead><tbody><tr><td>onRequest</td><td><code>400</code></td><td>HTTP_SIGNATURE_IMPOSSIBLE_GENERATION</td><td><p>In case of:</p><ul><li>Request does not contain every header in the configuration headers list.</li><li>Request does not contain <code>Date</code> header and the configuration headers list is empty. Policy needs at least <code>Date</code> header to create a signature.</li><li>Unable to sign because of bad configuration.</li></ul></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequestContent</td><td><code>500</code></td><td>The body content cannot be transformed.</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>The body content cannot be transformed.</td></tr><tr><td>onMessageRequest</td><td><code>400</code></td><td>The body content cannot be transformed.</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td>The body content cannot be transformed.</td></tr></tbody></table>
 
-## Changelog
-
-\{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-generate-http-signature/blob/master/CHANGELOG.md" fullWidth="true" %\}
+## Changelogs
