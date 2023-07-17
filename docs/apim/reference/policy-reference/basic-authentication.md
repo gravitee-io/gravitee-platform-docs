@@ -150,4 +150,4 @@ Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/p
 
 ## Changelog
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-basic-authentication/blob/master/CHANGELOG.md" fullWidth="true" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-basic-authentication/blob/master/CHANGELOG.md" %}
