@@ -54,6 +54,8 @@ When using the Management API, policies are added as flows either directly to an
 
 ### Reference
 
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>The execution scope of the policy.</td><td>scope</td><td>REQUEST</td></tr><tr><td>body</td><td>true</td><td>The data to push as request or response body content.</td><td>string</td><td>-</td></tr></tbody></table>
+
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](./#phases) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
