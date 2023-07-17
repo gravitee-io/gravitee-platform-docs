@@ -93,8 +93,6 @@
   * [Subscriptions](guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md)
 * [Developer Portal](guides/developer-portal/README.md)
   * [Configuration](guides/developer-portal/advanced-developer-portal-configuration.md)
-  * [Publish APIs](guides/developer-portal/publish-apis.md)
-  * [Consume APIs](guides/developer-portal/consume-apis.md)
 * [API Measurement, Tracking, and Analytics](guides/api-measurement-tracking-and-analytics/README.md)
   * [Configure the Dashboard with Custom API Analytics](guides/api-performance-and-measurement/how-to.md)
   * [Using the API Quality feature](guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md)

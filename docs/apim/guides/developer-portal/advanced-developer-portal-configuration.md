@@ -6,7 +6,7 @@ description: The administrator's guide to the Developer Portal
 
 ## Introduction
 
-Configuration of the Developer Portal takes place through the Management Console **Settings** page as highlighted in the image below.&#x20;
+Configuration of the Developer Portal takes place through the Management Console **Settings** page as highlighted in the image below.
 
 <figure><img src="../../.gitbook/assets/dev_portal_settings.png" alt=""><figcaption><p>Developer portal settings</p></figcaption></figure>
 
@@ -42,20 +42,20 @@ Note, this only impacts what is displayed in the Developer Portal's UI. You must
 * **Override homepage title:** Activating this toggle allows you to change the Developer Portal title from "Unleash the power of your APIs." to a custom title
 * **Options**
   * **Use Tiles Mode:** Sets the default all APIs view to tiles as opposed to a list view
-  * **Activate Support:** Adds a **Contact** and **Tickets** tab to each API.  Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for the contact form to work
+  * **Activate Support:** Adds a **Contact** and **Tickets** tab to each API. Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for the contact form to work
   * **Activate Rating:** Allow API consumers to leave written reviews and ratings
   * **Force user to fill comment:** Requires all subscription requests to have a comment
   * **Allow User Registration:** Allow API consumers to create an account from the Developer Portal. Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for registration to work.
     * **Enable automatic validation:** Automatically approve all accounts created on the Developer Portal
   * **Add Google Analytics:** Add a Google Analytics tracking ID to the Developer Portal
-  * <mark style="color:yellow;">**Allow Upload Images:**</mark> <mark style="color:yellow;"></mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Allows documentation owners to</mark> [<mark style="color:yellow;">attach images as additional resources</mark>](advanced-developer-portal-configuration.md#page-management)
+  * <mark style="color:yellow;">**Allow Upload Images:**</mark> <mark style="color:yellow;">Allows documentation owners to</mark> [<mark style="color:yellow;">attach images as additional resources</mark>](advanced-developer-portal-configuration.md#page-management)
 * **OpenAPI Viewers:** Select the viewer you would like to use to display your API documentation
 * **Schedulers:** Configure the frequency the Developer Portal runs background tasks such as syncing data and sending/receiving notifications
-* <mark style="color:yellow;">**Documentation:**</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">Unknown</mark>
+* <mark style="color:yellow;">**Documentation:**</mark> <mark style="color:yellow;">Unknown</mark>
 
 ## User management
 
-Accessing the Developer Portal directly from the Management Console automatically signs you in with the same account. However, the power of the Developer Portal revolves around exposing your APIs to both internal and external API consumers. This necessitates the ability to create new accounts which requires some additional configuration.&#x20;
+Accessing the Developer Portal directly from the Management Console automatically signs you in with the same account. However, the power of the Developer Portal revolves around exposing your APIs to both internal and external API consumers. This necessitates the ability to create new accounts which requires some additional configuration.
 
 ### User sign-up
 
@@ -64,7 +64,7 @@ The ability to create new user accounts has two requirements:
 1. Enabling the **Allow User Registration** option
 2. Simple mail transfer protocol (SMTP) configuration to confirm user account creation
 
-As detailed in [General settings](advanced-developer-portal-configuration.md#general-settings), the **Allow User Registration** option is already enabled by default.&#x20;
+As detailed in [General settings](advanced-developer-portal-configuration.md#general-settings), the **Allow User Registration** option is already enabled by default.
 
 To view SMTP settings, navigate to **Settings** in the Management Console. Then, in the secondary sidebar, select **Settings** under the **Portal** header in the submenu. The **SMTP** settings are at the bottom of the page; however, for many deployments, these settings will be greyed out. This is due to the `gravitee.yml` configuration file disabling email by default since it requires configuring an SMTP email service. This [SMTP configuration guide](../../getting-started/configuration/) will walk you through setting up email for your APIM deployment.
 
@@ -107,7 +107,7 @@ For a more detailed look at managing users including roles, groups, and permissi
 
 This section will detail how to modify how APIs are presented to API consumers.
 
-### API Sidebar&#x20;
+### API Sidebar
 
 Administrators can modify what is shown in the sidebar of an API's **General information**.
 
@@ -127,17 +127,13 @@ In APIM, select **API Portal Information** in the secondary sidebar to display t
 * **Configure the information list:** Display custom values in the Developer Portal. Use the **+ icon** in the bottom right to add new values.
 * **API Page list options:** Detailed in the [catalog tabs](advanced-developer-portal-configuration.md#catalog-tabs) section below
 
-{% hint style="info" %}
-Additionally, API publishers can modify the API sidebar by adding links to external documentation as detailed in the [Publish APIs documentation](publish-apis.md).
-{% endhint %}
-
 ### API Catalog
 
-Administrators can also modify how API consumers browsing experience in the Developer Portal's API catalog.&#x20;
+Administrators can also modify how API consumers browsing experience in the Developer Portal's API catalog.
 
 #### Promotion banner
 
-In APIM, select **API Portal Information** in the secondary sidebar to display the following options shown below.&#x20;
+In APIM, select **API Portal Information** in the secondary sidebar to display the following options shown below.
 
 <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
 
@@ -212,7 +208,7 @@ It is important to note that nested folders must be published to be seen in the 
 
 #### Manage Links <a href="#manage_links" id="manage_links"></a>
 
-To create a link, open a system folder and select the **+ icon** then select the **Link** icon**.** This will take you to a new page to select your link type and provide some additional information about your link.
+To create a link, open a system folder and select the **+ icon** then select the **Link** icon\*\*.\*\* This will take you to a new page to select your link type and provide some additional information about your link.
 
 <figure><img src="../../.gitbook/assets/dev_portal_create_a_link.png" alt=""><figcaption><p>Create a new Developer Portal link</p></figcaption></figure>
 
@@ -261,7 +257,7 @@ The top menu provides the following options:
 Outside of APIs and applications, administrators can also provide site-wide documentation for API publishers and consumers. This documentation creates a direct line of communication with your developer community through a single channel. For example, you can use it to communicate your best practices, configure your own homepage, or even reference it in links when using [custom navigation](advanced-developer-portal-configuration.md#custom-navigation). All published documentation can be accessed in the Developer Portal's **Documentation** page as shown below.
 
 {% hint style="info" %}
-Site-wide documentation is separate from API documentation which can be added to an API by an API publisher as detailed in the [Publish APIs Developer Portal guide.](publish-apis.md)
+Site-wide documentation is separate from API documentation which can be added to an API by an API publisher.
 {% endhint %}
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM.png" alt=""><figcaption><p>Developer portal documentation page</p></figcaption></figure>
@@ -284,7 +280,7 @@ To create documentation, go to **Settings > Documentation** in the Management Co
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 3.22.29 PM.png" alt=""><figcaption><p>Documentation settings page</p></figcaption></figure>
 
 {% hint style="info" %}
-#### System folders
+**System folders**
 
 Header, TopFooter, and Footer are known as system folders. They can be used to customize the Developer Portal's navigation by adding custom links. For more information, see [Custom navigation.](advanced-developer-portal-configuration.md#custom-navigation)
 {% endhint %}
@@ -465,19 +461,15 @@ The following steps detail how to actually configure a fetcher to import multipl
 
 2. If you want to publish the pages on import, select **Publish all imported pages**
 
-
-
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files.png" alt=""><figcaption></figcaption></figure>
 
 3. Select the **GitHub** or **GitLab** fetcher
 4.  Specify the details of the external source, such as the URL of the external API, the name of the repository, and the branch. The fields vary slightly depending on the fetcher.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-file-dets.png" alt=""><figcaption><p>Configure a fetcher</p></figcaption></figure>
 5. In **Filepath**, enter the path to your JSON documentation specification file
 6. Enter an access token, which you need to generate in your GitHub or GitLab user profile
-7. Select **Auto Fetch** and specify the `crontab` update frequency, if you want the pages to be updated at regular intervals.&#x20;
+7. Select **Auto Fetch** and specify the `crontab` update frequency, if you want the pages to be updated at regular intervals.
 
 {% hint style="info" %}
 **`cron` expressions**
@@ -498,7 +490,7 @@ If the APIM administrator [configured a maximum fetch frequency](advanced-develo
 
 ### Page management
 
-You can select a page from the list and configure the settings below. For&#x20;
+You can select a page from the list and configure the settings below. For
 
 * [**Page:**](advanced-developer-portal-configuration.md#create-documentation) Manage the content of the documentation page by using the inline editor or importing files
 * [**Translations:**](advanced-developer-portal-configuration.md#translate-a-page) Add translations of your page
