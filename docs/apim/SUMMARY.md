@@ -128,6 +128,7 @@
   * [Override HTTP Method](reference/policy-reference/override-http-method.md)
   * [Basic Authentication](reference/policy-reference/basic-authentication.md)
   * [Generate HTTP Signature](reference/policy-reference/generate-http-signature.md)
+  * [Assign Content](reference/policy-reference/assign-content.md)
 
 ## Releases & Changelog
 
