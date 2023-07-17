@@ -48,10 +48,13 @@ Note, this only impacts what is displayed in the Developer Portal's UI. You must
   * **Allow User Registration:** Allow API consumers to create an account from the Developer Portal. Email must be configured as detailed in the [Email configuration](advanced-developer-portal-configuration.md#email-notifications) section for registration to work.
     * **Enable automatic validation:** Automatically approve all accounts created on the Developer Portal
   * **Add Google Analytics:** Add a Google Analytics tracking ID to the Developer Portal
-  * <mark style="color:yellow;">**Allow Upload Images:**</mark> <mark style="color:yellow;">Allows documentation owners to</mark> [<mark style="color:yellow;">attach images as additional resources</mark>](advanced-developer-portal-configuration.md#page-management)
+  * **Allow Upload Images:** Allows documentation owners to attach images as additional resources
+  * **Max size upload file (bytes):** Controls the size of images documentation owners are allowed to attach
 * **OpenAPI Viewers:** Select the viewer you would like to use to display your API documentation
 * **Schedulers:** Configure the frequency the Developer Portal runs background tasks such as syncing data and sending/receiving notifications
-* <mark style="color:yellow;">**Documentation:**</mark> <mark style="color:yellow;">Unknown</mark>
+* **Documentation URL:** Set the URL shown at the end of the v2 API creation flow. Note, this currently only applies to v2 APIs.
+
+<figure><img src="../../.gitbook/assets/documentation_url.png" alt=""><figcaption><p>Documentation URL setting for v2 API creation flow</p></figcaption></figure>
 
 ## User management
 
