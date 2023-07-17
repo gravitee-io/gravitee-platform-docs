@@ -2,7 +2,7 @@
 
 ## Overview
 
-Plugins are additional components that can be _plugged into_ [APIM Gateway](broken-reference) or [APIM API](broken-reference). They can customize the component’s behavior to exactly fit your needs and technical constraints.
+Plugins are additional components that can be _plugged into_ [APIM Gateway](broken-reference/) or [APIM API](broken-reference/). They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
 {% hint style="info" %}
 For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](../../guides/developer-contributions/dev-guide-plugins.md).
@@ -42,7 +42,7 @@ A **policy** modifies the behavior of the request or response handled by APIM Ga
 
 Examples of a policy are:
 
-* Authorization using an API key (see the [api-key policy documentation](broken-reference))
+* Authorization using an API key (see the [api-key policy documentation](broken-reference/))
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
@@ -67,7 +67,7 @@ As with all plugins, you can create, use and deploy custom reporters as describe
 
 ### Repositories
 
-A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](broken-reference) section of the Installation Guide.
+A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](broken-reference/) section of the Installation Guide.
 
 ### Resources
 
@@ -77,7 +77,7 @@ A **resource** can be added to an API for its whole lifecycle. APIM comes with t
 * OAuth2 - Gravitee Access Management
 * OAuth2 - Generic Authorization Server
 
-You can find more information in the [Resources](broken-reference) section of the API Publisher Guide.
+You can find more information in the [Resources](broken-reference/) section of the API Publisher Guide.
 
 ### Notifiers
 
@@ -93,11 +93,11 @@ An **alert** is used to send triggers or events to the Alert Engine which can be
 
 ### Connectors
 
-A connector is used to "Add" support for specific protocols, API styles, event brokers, and/or message queue services. For example, if you have the "Websocket" and "Kafka" connector plugins, you are able to "front" a Kafka topic with a Websocket API, making that Kafka topic consumable over a Websocket connection.&#x20;
+A connector is used to "Add" support for specific protocols, API styles, event brokers, and/or message queue services. For example, if you have the "Websocket" and "Kafka" connector plugins, you are able to "front" a Kafka topic with a Websocket API, making that Kafka topic consumable over a Websocket connection.
 
 ## Deployment
 
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md) for more information on modifying the directory structure.
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the APIM Gateway Configuration Documentation for more information on modifying the directory structure.
 
 {% hint style="warning" %}
 You must restart APIM nodes when applying new or updated plugins.
