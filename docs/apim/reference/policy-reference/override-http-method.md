@@ -53,7 +53,7 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 {% endtab %}
 
 {% tab title="Management API" %}
-When using the management API, policies are added as flows either directly to an API or to a  plan. To learn more about the structure of the management API, check out the[ reference documentation here.](../management-api-reference/)
+When using the management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the management API, check out the[ reference documentation here.](../management-api-reference/)
 
 {% code title="Sample Configuration" %}
 ```json
@@ -135,7 +135,7 @@ The location of the `plugins` folder varies depending on your installation. By d
 Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the Gateway and `/gravitee/apim-management-api/plugins` for the management API.
 {% endhint %}
 
-3. Remove any existing plugins of the same name.&#x20;
+3. Remove any existing plugins of the same name.
 4. Restart your APIM nodes
 
 ## Errors
@@ -144,5 +144,4 @@ There are no out-of-the-box errors returned by this policy.
 
 ## Changelog
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-override-http-method/blob/master/CHANGELOG.md" fullWidth="true" %}
-
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-override-http-method/blob/master/CHANGELOG.md" %}
