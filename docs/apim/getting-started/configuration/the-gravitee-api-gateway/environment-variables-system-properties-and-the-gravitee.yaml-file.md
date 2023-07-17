@@ -20,7 +20,7 @@ The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way t
 YAML (`yml`) format is sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
 {% endhint %}
 
-With the  `gravitee.yaml` file, you can configure the following:
+With the `gravitee.yaml` file, you can configure the following:
 
 * HTTP Server
   * HTTPS support
@@ -191,13 +191,13 @@ To enable this feature, you must use an alternate configuration in the `gravitee
 
 * The root-level `http` configuration property should be replaced with the root-level `servers` property. The `servers` property allows for an array of servers in the configuration file.
 * An `id` property has been added to identify and compare servers.
-* The `type` property is now mandatory and at the moment, only supports a value of `http`.&#x20;
+* The `type` property is now mandatory and at the moment, only supports a value of `http`.
 
 {% hint style="info" %}
 Gravitee still fully supports all configurations using `http` as the root-level property.
 {% endhint %}
 
-The rest of the configuration schema remains unchanged. Here is an example of a configuration that allows one Gateway to support  `HTTP` and `HTTPS`:
+The rest of the configuration schema remains unchanged. Here is an example of a configuration that allows one Gateway to support `HTTP` and `HTTPS`:
 
 {% code title="gravitee.yaml" %}
 ```yaml
@@ -222,7 +222,7 @@ servers:
 
 ## Configure the Plugins repository
 
-You can configure the APIM Gateway [plugins](../../../guides/developer-contributions/dev-guide-plugins.md) directory:
+You can configure the APIM Gateway [plugins](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md) directory:
 
 ```yaml
 plugins:
@@ -456,4 +456,4 @@ handlers:
 
 The following is a reference of the default configuration of APIM Gateway in your `gravitee.yml` file:
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml" %}
+\{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml" %\}

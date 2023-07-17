@@ -166,15 +166,6 @@ You can also configure CORS in the **Organization > Settings** section of the AP
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-30 at 2.35.47 PM.png" alt=""><figcaption><p>Organization wide CORS settings</p></figcaption></figure>
 
-## Configure the Plugins repository
-
-You can configure the APIM Gateway [plugins](../../../guides/developer-contributions/dev-guide-plugins.md) directory.
-
-```yaml
-plugins:
-  path: ${gravitee.home}/plugins
-```
-
 ## Configure the Management repository
 
 The Management repository is used to store global configurations such as APIs, applications, and API keys. The default configuration uses MongoDB (single server). You can find more information about the MongoDB configuration [here](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html).

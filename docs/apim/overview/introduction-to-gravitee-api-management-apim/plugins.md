@@ -8,14 +8,6 @@ Plugins are additional components that can be _plugged into_ [APIM Gateway](brok
 For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](../../guides/developer-contributions/dev-guide-plugins.md).
 {% endhint %}
 
-## Deployment
-
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md) for more information on modifying the directory structure.
-
-{% hint style="warning" %}
-You must restart APIM nodes when applying new or updated plugins.
-{% endhint %}
-
 ## Types of Plugins
 
 The table below lists the different types of plugins you can use with APIM, with the component(s) they can be plugged into and some examples. For more details of what each plugin type does, see the sections below.
@@ -102,3 +94,11 @@ An **alert** is used to send triggers or events to the Alert Engine which can be
 ### Connectors
 
 A connector is used to "Add" support for specific protocols, API styles, event brokers, and/or message queue services. For example, if you have the "Websocket" and "Kafka" connector plugins, you are able to "front" a Kafka topic with a Websocket API, making that Kafka topic consumable over a Websocket connection.&#x20;
+
+## Deployment
+
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md) for more information on modifying the directory structure.
+
+{% hint style="warning" %}
+You must restart APIM nodes when applying new or updated plugins.
+{% endhint %}
