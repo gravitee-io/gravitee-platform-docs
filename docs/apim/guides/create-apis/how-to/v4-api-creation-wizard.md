@@ -4,7 +4,7 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 # v4 API creation wizard
 
-{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" fullWidth="true" %}
+\{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" fullWidth="true" %\}
 
 ## Introduction
 
@@ -330,6 +330,37 @@ If you choose the Solace endpoint, the Gravitee Gateway will be able to create a
   * Toggle Authentication configuration ON or OFF. If you toggle this OFF, you will have no further configuration necessary. If you toggle this ON, you will need to:
     * Define the username used for authentication
     * Define the password used for authentication
+
+</details>
+
+<details>
+
+<summary>RabbitMQ</summary>
+
+The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ resource, as long as that RabbitMQ resoure communicates over AMQP 0-9-1 protocol. If you choose this endpoint, you will need to confoigure the following:
+
+* **Server host:** define the host of your RabbitMQ resource
+* **Server port**: define the port that RabbitMQ is using
+* How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
+  * **Use Producer:** tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
+  * **Use Consumer:** tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
+  * **Use Producer and Consumer:** tell the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
+* **Authentication:** define the **userna**me and **password** for RabbitMQ authentication
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
+  * **Exchange name**
+  * **Exchange type**
+  * Enable or disable **Durable**
+  * Enable or disable **Auto Delete**
+  * **Routing Key**
+
+<!---->
+
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
+  * **Exchange name**
+  * **Exchange type**
+  * Enable or disable **Durable**
+  * Enable or disable **Auto Delete**
+  * **Routing Key**
 
 </details>
 
