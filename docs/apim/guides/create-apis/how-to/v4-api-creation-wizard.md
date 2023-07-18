@@ -4,7 +4,7 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 # v4 API creation wizard
 
-\{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" fullWidth="true" %\}
+{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
 
 ## Introduction
 
