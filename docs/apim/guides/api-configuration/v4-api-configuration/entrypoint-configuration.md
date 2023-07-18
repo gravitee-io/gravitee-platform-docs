@@ -8,9 +8,23 @@ description: This article walks through how to configure v4 API entrypoints
 
 In Gravitee, Gateway Entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The Gateway entrypoint dictates how the backend API is exposed through the gateway.
 
-After you've created your Gateway API and selected your Entrypoint(s), you can configure them on the API's page. This article walks through that process.&#x20;
+After you've created your Gateway API and selected your Entrypoint(s), you can configure them on the API's page. This article walks through that process.
 
-## Configure v4 API Entrypoints
+## Configure v4 message&#x20;
+
+##
+
+## API Entrypoints
+
+{% hint style="warning" %}
+**Enterprise only**
+
+As of Gravitee 4.0, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
 
 v4 APIs support multiple types of Entrypoints:
 
@@ -20,9 +34,9 @@ v4 APIs support multiple types of Entrypoints:
 * Webhooks: exposes a backend resource via a Webhooks subscription
 * Server-sent events (SSE): exposes a backend resource via a unidirectional, SSE stream
 
-To access Entrypoint configuration, head to the APIs page and select your API. Then, under **Entrypoints,** select **General.**&#x20;
+To access Entrypoint configuration, head to the APIs page and select your API. Then, under **Entrypoints,** select **General.**
 
-Depending on which Entrypoint your API utilizes, entrypoint configuration may differ. Please refer to the following sections that cover configuration details for each.&#x20;
+Depending on which Entrypoint your API utilizes, entrypoint configuration may differ. Please refer to the following sections that cover configuration details for each.
 
 ## HTTP GET
 
@@ -74,7 +88,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 
-Also, when using Webhooks as an entrypoint, you can set up both dead letter queues for storing undelivered messages and secure callbacks. When configuring DLQ with webhook, you redirect all the messages that the webhook rejects to another location, such as a Kafka topic.&#x20;
+Also, when using Webhooks as an entrypoint, you can set up both dead letter queues for storing undelivered messages and secure callbacks. When configuring DLQ with webhook, you redirect all the messages that the webhook rejects to another location, such as a Kafka topic.
 
 {% hint style="info" %}
 **UI Limitations**
@@ -169,6 +183,16 @@ If you chose **SSE** as an entrypoint, you will be brought to a page where you c
 
 </details>
 
-You can also add an Entrypoint to your API by selecting **Add an entrypoint.** From here, you will simply need to configure the entrypoint using the details specific to that entrypoint (see exapandable sections above).&#x20;
+You can also add an Entrypoint to your API by selecting **Add an entrypoint.** From here, you will simply need to configure the entrypoint using the details specific to that entrypoint (see exapandable sections above).
 
-When you are done configuring your entrypoints, make sure to select **Save changes.** &#x20;
+When you are done configuring your entrypoints, make sure to select **Save changes.**
+
+## Configure v4 Proxy API entrypoints
+
+To alter v4 Proxy API entrypoints, select your API, and then select **General** underneath the **Entrypoints** category in the left-hand nav.&#x20;
+
+<figure><img src="../../../.gitbook/assets/2023-07-18_10-50-48.png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
+
+From here, you can alter existing entrypoints by changing the context path, add a new entrypoint by selecting the **Add context path** button and then adding a new context path, and/or deleting existing entrypoints by selecting the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM.png" alt="" data-size="line"> icon that correlates to the entrypoint that you want to delete.&#x20;
+
+When you are done, make sure to redeploy the API for your changes to take effect.

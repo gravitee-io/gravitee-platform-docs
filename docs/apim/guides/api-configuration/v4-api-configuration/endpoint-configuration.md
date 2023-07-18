@@ -10,9 +10,19 @@ description: >-
 
 In Gravitee, Gateway Endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API.
 
-After you've created your Gateway API and selected your Endpoints(s), you can configure them on the API's page. This article walks through that process.&#x20;
+After you've created your Gateway API and selected your Endpoints(s), you can configure them on the API's page. This article walks through that process for configuring v4 Message API endpoints and v4 Proxy API endpoints.
 
-## Configure v4 API Endpoints
+## Configure v4 message API Endpoints
+
+{% hint style="warning" %}
+**Enterprise only**
+
+As of Gravitee 4.0, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
 
 v4 APIs currently support the following endpoints:
 
@@ -22,9 +32,9 @@ v4 APIs currently support the following endpoints:
 * **Solace**: enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target
 * **Mock**: enables the Gateway to simulate responses from a server for testing API implementations
 
-To access Endpoint configuration, head to the **APIs** page, and select your API. Then under **Endpoints**, select **Backend Services.** Depending on which Endpoint(s) your API utilizes, Endpoint configuration may differ. Please refer to the following sections that cover configuration details for each.&#x20;
+To access Endpoint configuration, head to the **APIs** page, and select your API. Then under **Endpoints**, select **Backend Services.** Depending on which Endpoint(s) your API utilizes, Endpoint configuration may differ. Please refer to the following sections that cover configuration details for each.
 
-## Kafka
+### Kafka
 
 The **Kafka** endpoint allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
@@ -86,9 +96,9 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
     * **None:** throw an exception to the consumer if no previous offset is found for the consumer's group.
     * **Anything else:** throw an exception to the consumer.
 
-## MQTT 5
+### MQTT 5
 
-The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x, via an MQTT client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
+The **MQTT 5** endpoint allows the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x, via an MQTT client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
 * How the Gateway will interact the broker by instructing the Gravitee Gateway's MQTT client to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
   * **Use Producer:** tells the Gateway MQTT client to be prepared to produce messages and send them to the MQTT broker that you define as your endpoint.
@@ -109,7 +119,7 @@ The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection 
   * **Response topic:** represents the topics on which the responses from the message receivers are expected.
 * **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume messages.
 
-## Solace
+### Solace
 
 If you choose the Solace endpoint, the Gravitee Gateway will be able to create an API that exposes Solace resources and event APIs via your chosen Gravitee Entrypoint(s). You will need to configure:
 
@@ -126,10 +136,54 @@ If you choose the Solace endpoint, the Gravitee Gateway will be able to create a
     * Define the username used for authentication
     * Define the password used for authentication
 
-## Mock
+### RabbitMQ
+
+The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ resource, as long as that RabbitMQ resoure communicates over AMQP 0-9-1 protocol. If you choose this endpoint, you will need to confoigure the following:
+
+* **Server host:** define the host of your RabbitMQ resource
+* **Server port**: define the port that RabbitMQ is using
+* How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
+  * **Use Producer:** tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
+  * **Use Consumer:** tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
+  * **Use Producer and Consumer:** tell the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
+* **Authentication:** define the **userna**me and **password** for RabbitMQ authentication
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
+  * **Exchange name**
+  * **Exchange type**
+  * Enable or disable **Durable**
+  * Enable or disable **Auto Delete**
+  * **Routing Key**
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
+  * **Exchange name**
+  * **Exchange type**
+  * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart
+  * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** exchange is deleted when last queue is unbound from it
+  * **Routing Key**
+
+### Mock
 
 The Endpoint Mock endpoint allows you to mock a backend service to emulate the behavior of a typical HTTP server and test processes. If you chose this endpoint, you will need to configure:
 
 * **Interval between messages publication:** defines, in milliseconds, the interval between published messages. The default is 1000.
 * **Content of published messages:** defines the content of the message body that will be streamed. The default is "mock message".
 * **Count of published messages:** defines, as an integer, the maximum number of published messages that are streamed as a part of the mocking. If left unspecified, there will be no limit.
+
+## Configure v4 Proxy API endpoints
+
+To alter v4 Proxy API endpoints, select your API, and then select **Backend Services** underneath the **Endpoints** category in the left-hand nav.&#x20;
+
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt=""><figcaption><p>Access v4 Proxy API endpoint configuration</p></figcaption></figure>
+
+From here, you can alter existing endpoints ([created during API creation](../../create-apis/how-to/v4-api-creation-wizard.md)), delete existing endpoints, and/or create new endpoints for your API.&#x20;
+
+### Alter and delete existing endpoints
+
+To alter your existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration as you see fit. You can find more information on v4 Proxy API configuration in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).&#x20;
+
+To delete your existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** within the Endpoints menu.
+
+### Create new endpoints
+
+To create a new endpoint for your v4 Proxy API, select the **Add endpoint** button, and then define it following the instructions laid out in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).
+
+When you are done, make sure to redeploy the API for your changes to take effect.
