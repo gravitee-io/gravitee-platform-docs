@@ -368,8 +368,8 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
 * **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
-  * Enable or disable **Durable**
-  * Enable or disable **Auto Delete**
+  * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart
+  * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** exchange is deleted when last queue is unbound from it
   * **Routing Key**
 
 </details>
