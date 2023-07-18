@@ -6,7 +6,7 @@ description: This page provides the technical details of the HTTP Signature poli
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+Functional and implementation information for the HTTP Signature policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-8.md#examples)
 * [Configuration](template-policy-rework-structure-8.md#configuration)
