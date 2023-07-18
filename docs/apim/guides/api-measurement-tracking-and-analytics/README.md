@@ -17,7 +17,7 @@ This section focuses on the various options for measuring, tracking, and keeping
 * The Audit trail
 * API Quality
 * APIM alerts and notifications
-* Alert Engine and API Monitoring &#x20;
+* Alert Engine and API Monitoring
 
 ### The Dashboard
 
@@ -34,7 +34,7 @@ The "Dashboard" in Gravitee is made up of several modules:
 * **The "Home" board module:** This is your "Metrics and analytics homepage." You can configure this page to show chosen charts, filter chart data based on time range, and configure how regularly the charts should be refreshed.
 * **The "API Status" module:** this module shows you status and availability of your APIs across time. You can filter which APIs to view and what for time range you want to view API status and availability.
 * **The "Analytics" module:** the analytics module is where you can see and slightly configure all of the various dashboards, charts, etc. that refer to your Gravitee API analytics. You can build multiple anayltics dashboards and view them all from this page. Your "Home board" will be pulling charts from these various dashboards.
-* **The "Alerts" module:** this module is for keeping track of all API alerts over a given amount of time.&#x20;
+* **The "Alerts" module:** this module is for keeping track of all API alerts over a given amount of time.
 {% endtab %}
 {% endtabs %}
 
@@ -44,7 +44,7 @@ While there is less "measurement" here, the APIs menu is crucial for being able 
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="6XNg5xzEOEkNwJRZ6Ogm" url="https://app.arcade.software/share/6XNg5xzEOEkNwJRZ6Ogm" %}
+\{% @arcade/embed flowId="6XNg5xzEOEkNwJRZ6Ogm" url="https://app.arcade.software/share/6XNg5xzEOEkNwJRZ6Ogm" %\}
 {% endtab %}
 
 {% tab title="Second Tab" %}
@@ -56,13 +56,13 @@ The APIs menu includes several key bits of information that you can use to keep 
 * Quality (this is determined by your Gravitee API quality settings)
 * Owner
 * Mode (this essentially refers to the Gravitee API definition that is used for that API and manner of policy application that comes with that definition)
-* Visibility settings&#x20;
+* Visibility settings
 {% endtab %}
 {% endtabs %}
 
 ### The Applications page
 
-The **Applications** page is where you can keep track of and view various information related to applications that are subscribed to your APIs. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+The **Applications** page is where you can keep track of and view various information related to applications that are subscribed to your APIs. Check out the interactive UI exploration or the text descriptions to learn more.
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
@@ -82,7 +82,7 @@ The **Applications** page is comprised of the following resources for active and
 
 ### The Audit trail
 
-{% hint style="info" %}
+{% hint style="warning" %}
 **Enterprise only**
 
 As of Gravitee 4.0, the Audit Trail is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
@@ -92,21 +92,9 @@ As of Gravitee 4.0, the Audit Trail is an Enterprise Edition capability. To lear
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
-<details>
+The **Audit** trail is where you can audit API consumption and activity, per event and type for your Gravitee APIs. You can use the **Audit trail** for monitoring the behavior of your API and platform over time.
 
-<summary>Enterprise only</summary>
-
-As of Gravitee 4.0, all message API endpoints are Enterprise Edition only. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
-
-* [Refer to the EE vs OSS documentation](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
-* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
-* [Check out the pricing pag](https://www.gravitee.io/pricing)
-
-</details>
-
-The **Audit** trail is where you can audit API consumption and activity, per event and type for your Gravitee APIs. You can use the **Audit trail** for monitoring the behavior of your API and platform over time.&#x20;
-
-For example, you can use it in conjunction with the analytics feature to identify a point at which your API behavior changed, view the configuration which caused the change, and roll back to an earlier configuration if required. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+For example, you can use it in conjunction with the analytics feature to identify a point at which your API behavior changed, view the configuration which caused the change, and roll back to an earlier configuration if required. Check out the interactive UI exploration or the text descriptions to learn more.
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
@@ -134,7 +122,7 @@ The **Audits** page is comprised of a table and filtering mechanisms. You are ab
 
 ### API Quality
 
-The Gravitee **API Quality** feature enables you to create and automatically assign customizable scores based on certain variables that you feel impact an API's overall quality. When enabled, APIs that you create in Gravitee will automatically be assigned an API quality score. This feature is incredibly valuable for organizations interested in API governance, as it allows them to ensure that certain standards are met, where these standards are treated as score-relevant variables. Check out the interactive UI exploration or the text descriptions to learn more.&#x20;
+The Gravitee **API Quality** feature enables you to create and automatically assign customizable scores based on certain variables that you feel impact an API's overall quality. When enabled, APIs that you create in Gravitee will automatically be assigned an API quality score. This feature is incredibly valuable for organizations interested in API governance, as it allows them to ensure that certain standards are met, where these standards are treated as score-relevant variables. Check out the interactive UI exploration or the text descriptions to learn more.
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
@@ -153,20 +141,20 @@ You can configure scoring mechanisms in the **Settings > API Quality** menu. Her
 * Documentation: defines quality requirements for documentation quality
 * Endpoint: defines a quality requirement that states a healthcheck must be configured for your API
 
-In addition to the pre-baked characteristics, you can also create manual quality rules, where you create and assign weight to custom characteristics.&#x20;
+In addition to the pre-baked characteristics, you can also create manual quality rules, where you create and assign weight to custom characteristics.
 {% endtab %}
 {% endtabs %}
 
 ### Alerts and notifications
 
-Gravitee allows you to configure alerts and notifications through API Management. These allow individuals to subscribe to alerts and notifications based on specific events that they are interested in.&#x20;
+Gravitee allows you to configure alerts and notifications through API Management. These allow individuals to subscribe to alerts and notifications based on specific events that they are interested in.
 
 ### Alert Engine and API Monitoring
 
-In addition to Gravitee API Management and all of its features to measure, track, log, audit, etc. API consumption and performance, Gravitee also offers an enterprise-grade API Monitoring and Alerting solution called Gravitee Alert Engine (AE). To learn more about Gravitee AE, please refer to the [Gravitee AE documentation](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/WAKqxjzYogMr1tk18evT/).&#x20;
+In addition to Gravitee API Management and all of its features to measure, track, log, audit, etc. API consumption and performance, Gravitee also offers an enterprise-grade API Monitoring and Alerting solution called Gravitee Alert Engine (AE). To learn more about Gravitee AE, please refer to the [Gravitee AE documentation](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/WAKqxjzYogMr1tk18evT/).
 
 ### Making APIs more performant and reliable
 
 In addition to features used to measure API reliability and performance, Gravitee offers several features and technology support that are meant to actively improve API reliability and performance. We will include brief descriptions of each here, but we recommend referring to their specific documentation to learn more about how implement them:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><a href="broken-reference"><strong>Rate limiting policies</strong></a></td><td>While also useful for security measures, capping the amount of calls or requests per a given amount of time can ensure that an API is not "over consumed" and inducing too much load on backend systems, which can result in both poor performance and reliability incidents like downtime.</td><td></td></tr><tr><td><p><a href="broken-reference"><strong>Cache policy</strong></a></p><p></p><p>The cache policy allows the Gateway to cache upstream responses (content, status, and headers) to eliminate the need for subsequent calls to the back end. This can help you avoid you calling the backend (and therefore inducing load) for non-changing requests.</p></td><td></td><td></td></tr><tr><td><p><a href="broken-reference"><strong>Support for asynchronous APIs and communication</strong></a></p><p></p><p>Gravitee's support for a variety of asynchronous APIs allows you to introduce APIs that can deliver real-time customer experiences and real-time data without constantly having to poll your backend resources.</p></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><a href="broken-reference/"><strong>Rate limiting policies</strong></a></td><td>While also useful for security measures, capping the amount of calls or requests per a given amount of time can ensure that an API is not "over consumed" and inducing too much load on backend systems, which can result in both poor performance and reliability incidents like downtime.</td><td></td></tr><tr><td><p><a href="broken-reference/"><strong>Cache policy</strong></a></p><p>The cache policy allows the Gateway to cache upstream responses (content, status, and headers) to eliminate the need for subsequent calls to the back end. This can help you avoid you calling the backend (and therefore inducing load) for non-changing requests.</p></td><td></td><td></td></tr><tr><td><p><a href="broken-reference/"><strong>Support for asynchronous APIs and communication</strong></a></p><p>Gravitee's support for a variety of asynchronous APIs allows you to introduce APIs that can deliver real-time customer experiences and real-time data without constantly having to poll your backend resources.</p></td><td></td><td></td></tr></tbody></table>
