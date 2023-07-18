@@ -134,6 +134,7 @@
   * [Cache](reference/policy-reference/template-policy-rework-structure-2.md)
   * [Circuit Breaker](reference/policy-reference/template-policy-rework-structure-3.md)
   * [Data Logging Masking](reference/policy-reference/template-policy-rework-structure-4.md)
+  * [Message Filtering](reference/policy-reference/message-filtering.md)
 
 ## Releases & Changelog
 
