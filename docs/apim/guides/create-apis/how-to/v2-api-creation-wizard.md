@@ -4,9 +4,9 @@ description: >-
   definition
 ---
 
-# V2 API creation wizard
+# v2 API creation wizard
 
-{% @arcade/embed flowId="kApsIRtoWrfIFRzd7DQj" url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" fullWidth="true" %}
+{% @arcade/embed flowId="kApsIRtoWrfIFRzd7DQj" url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" %}
 
 ## Introduction
 
@@ -14,7 +14,7 @@ In Gravitee, your API definition is a JSON representation of your Gateway API. A
 
 ## Access the API creation wizard
 
-To create a v2 API in Gravitee, select the **APIs** tab in the lefthand nav. Then, select **+ Add API** in the top right corner of the UI.&#x20;
+To create a v2 API in Gravitee, select the **APIs** tab in the lefthand nav. Then, select **+ Add API** in the top right corner of the UI.
 
 Choose Create a v2 API from scratch to enter the API creation wizard for v2 APIs.
 
@@ -27,7 +27,7 @@ The first step is to define your API's general details. Give your API a:
 * Description
 * Context path: this is the path where the API is exposed
 
-Optionally, you can use the Advanced mode by selecting the Advanced mode hyperlink in the top right corner of the General page. This allows you to define:&#x20;
+Optionally, you can use the Advanced mode by selecting the Advanced mode hyperlink in the top right corner of the General page. This allows you to define:
 
 * Whether to use a group as the primary owner of the API
 * (Optional) the primary owner group
@@ -35,9 +35,9 @@ Optionally, you can use the Advanced mode by selecting the Advanced mode hyperli
 
 ## Step 2: Gateway
 
-In this step you will define your Backend, which is the target backend where the request will be received.&#x20;
+In this step you will define your Backend, which is the target backend where the request will be received.
 
-Optionally, you can select Advanced mode to define Tenants and/or Sharding tags for this API. These define the Gateways to which the API is deployed. For more information, please refer to the [Tenants](../../../getting-started/configuration/the-gravitee-api-gateway/tenants.md) and/or [Sharding tags](../../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md) documentation.&#x20;
+Optionally, you can select Advanced mode to define Tenants and/or Sharding tags for this API. These define the Gateways to which the API is deployed. For more information, please refer to the [Tenants](../../../getting-started/configuration/the-gravitee-api-gateway/tenants.md) and/or [Sharding tags](../../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md) documentation.
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM.png" alt=""><figcaption><p>Define your APIs Gateway settings</p></figcaption></figure>
 
@@ -53,9 +53,9 @@ The API creation wizard allows you to create either an **API key** or **Keyless*
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.11 PM.png" alt=""><figcaption><p>v2 API creation wizard: plans</p></figcaption></figure>
 
-Gravitee offers additional plan features, but these are not configured in the API creation wizard. For more in-depth information on plans, please refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md).&#x20;
+Gravitee offers additional plan features, but these are not configured in the API creation wizard. For more in-depth information on plans, please refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md).
 
-Once you have defined your plan, select Next**.**
+Once you have defined your plan, select Next\*\*.\*\*
 
 ## Step 4: Documentation
 
@@ -63,7 +63,7 @@ Once you have defined your plan, select Next**.**
 Currently, only the v2 API definition allows you to upload API documentation as a part of the API creation wizard.
 {% endhint %}
 
-On the Documentation page, you can either upload your API's documentation as a file or select Skip to continue without uploading API documentation.&#x20;
+On the Documentation page, you can either upload your API's documentation as a file or select Skip to continue without uploading API documentation.
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.43.58 PM.png" alt=""><figcaption><p>v2 API creation wizard: documentation</p></figcaption></figure>
 

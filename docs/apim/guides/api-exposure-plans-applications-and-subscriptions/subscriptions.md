@@ -31,16 +31,12 @@ When publishers create new plans, they can specify [auto-validation of subscript
 {% hint style="info" %}
 **Subscription request notifications**
 
-You can enable mail or portal notifications so you can be notified when a subscription validation task requires your attention. Simply select your API, scroll down and select **Notifications**, select **Portal Notification** or **Default Mail Notifications**, and select the types of events you want to trigger notifications.&#x20;
+You can enable mail or portal notifications so you can be notified when a subscription validation task requires your attention. Simply select your API, scroll down and select **Notifications**, select **Portal Notification** or **Default Mail Notifications**, and select the types of events you want to trigger notifications.
 
 Portal notifications are delivered both inside of APIM's Management Console and the Developer Portal.
 {% endhint %}
 
 {% @arcade/embed flowId="nTazQcgGLNWVFwHEyerB" url="https://app.arcade.software/share/nTazQcgGLNWVFwHEyerB" %}
-
-### Transfer subscriptions
-
-Tbd
 
 ### Security: API key plans
 

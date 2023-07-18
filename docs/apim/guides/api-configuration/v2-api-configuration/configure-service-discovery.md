@@ -1,7 +1,7 @@
 ---
 description: >-
   This article walks through how to configure service discovery if using either
-  the Gravitee-supported Eureka or HashiCorp Consul Service Discovery solutions.
+  the HashiCorp Consul Service Discovery solution.
 ---
 
 # Configure Service Discovery

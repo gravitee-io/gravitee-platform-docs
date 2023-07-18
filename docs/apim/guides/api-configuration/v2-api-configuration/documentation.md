@@ -6,7 +6,15 @@ description: >-
 
 # Documentation
 
-{% @arcade/embed flowId="2NtJYq9KSReDKxJPQD2q" url="https://app.arcade.software/share/2NtJYq9KSReDKxJPQD2q" fullWidth="true" %}
+{% @arcade/embed flowId="2NtJYq9KSReDKxJPQD2q" url="https://app.arcade.software/share/2NtJYq9KSReDKxJPQD2q" %}
+
+
+
+{% hint style="info" %}
+**v4 API limitations**
+
+As of Gravitee 4.0, you can not yet create documentation for v4 APIs. Support for this is planned for future releases.
+{% endhint %}
 
 ## Introduction
 
