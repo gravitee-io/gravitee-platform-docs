@@ -138,7 +138,12 @@
   * [Dynamic Routing](reference/policy-reference/dynamic-routing.md)
   * [Generate JWT](reference/policy-reference/template-policy-rework-structure-5.md)
   * [Groovy](reference/policy-reference/template-policy-rework-structure-6.md)
-  * [Copy of Template Policy - Rework Structure](reference/policy-reference/template-policy-rework-structure-7.md)
+  * [HTTP Callout](reference/policy-reference/template-policy-rework-structure-7.md)
+  * [IP filtering](reference/policy-reference/template-policy-rework-structure-8.md)
+  * [JSON Threat Protection](reference/policy-reference/template-policy-rework-structure-9.md)
+  * [JSON Validation](reference/policy-reference/template-policy-rework-structure-10.md)
+  * [JSON Web Signature (JWS)](reference/policy-reference/template-policy-rework-structure-11.md)
+  * [JSON Web Token (JWT)](reference/policy-reference/template-policy-rework-structure-12.md)
 
 ## Releases & Changelog
 

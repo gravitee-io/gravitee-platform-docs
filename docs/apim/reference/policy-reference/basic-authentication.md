@@ -16,18 +16,30 @@ layout:
 
 ## Overview
 
-You can use the Basic-authentication policy to manage basic authentication headers sent in API calls. The policy compares the user and password sent in the basic authentication header to a Gravitee API Management (APIM) user to determine if the user credentials are valid.
+Functional and implementation information for the Basic Authentication policy is organized into the following sections:
+
+* [Examples](basic-authentication.md#examples)
+* [Configuration](basic-authentication.md#configuration)
+* [Compatibility Matrix](basic-authentication.md#compatibility-matrix)
+* [Errors](basic-authentication.md#errors)
+* [Changelogs](basic-authentication.md#changelogs)
+
+## Examples
+
+You can use the `basic-authentication` policy to manage basic authentication headers sent in API calls. The policy compares the user and password sent in the basic authentication header to an APIM user to determine if the user credentials are valid.
 
 To use the policy in an API, you need to:
 
-* configure an LDAP, inline, or HTTP resource for your API plan, which specifies where the APIM users are stored
+* configure an LDAP, inline or http resource for your API plan, which specifies where the APIM users are stored
 * configure a basic authentication policy for the API flows
 
-{% hint style="warning" %}
-LDAP, inline, and HTTP resources are not part of the default APIM configuration, so you must [configure an LDAP, inline, or HTTP resource for APIM first](../../guides/api-configuration/resources.md).
+{% hint style="info" %}
+LDAP, inline and http resources are not part of the default APIM configuration, so you must configure an LDAP, inline or http resource for APIM first.
 {% endhint %}
 
-### Example
+{% tabs %}
+{% tab title="Proxy APIs" %}
+
 
 {% hint style="warning" %}
 This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
@@ -48,35 +60,29 @@ If an API is configured with the Basic-authentication policy, a request with inv
 
 The response headers will also contain a `WWW-Authenticate` header containing the `realm` value the API publisher configured.
 
-To authenticate, pass the `Authorization: Basic yourCredentials` header with your request.
+To authenticate, pass the `Authorization: Basic yourCredentials` header with your request
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies through the Policy Studio in the Management Console or interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
 
-{% tabs %}
-{% tab title="Management Console" %}
-<mark style="color:yellow;">We should wait to make these once the v4 Policy Studio is finalized</mark>
-{% endtab %}
-
-{% tab title="Managment API" %}
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
 {% code title="Sample Configuration" %}
 ```json
 {
   "name": "Custom name",
-  "description": "Adds basic auth to your Gateway API",
-  "policy": "basic-authentication",
+  "description": "Converts data from JSON to XML",
+  "policy": "json-xml",
   "configuration": {
-          "authenticationProviders": [ "Name of your resource" ],
-          "realm": "Sample realm"
-        }
+    "scope": "RESPONSE",
+    "rootElement": "root"
+  }
 }
 ```
 {% endcode %}
-{% endtab %}
-{% endtabs %}
 
 ### Reference
 

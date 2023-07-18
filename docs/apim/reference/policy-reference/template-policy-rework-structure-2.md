@@ -4,13 +4,9 @@ description: This page provides the technical details of the Cache policy
 
 # Cache
 
-{% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
-{% endhint %}
-
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+Functional and implementation information for the Cache policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-2.md#examples)
 * [Configuration](template-policy-rework-structure-2.md#configuration)
