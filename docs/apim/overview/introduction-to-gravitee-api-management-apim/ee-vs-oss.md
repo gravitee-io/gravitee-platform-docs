@@ -30,14 +30,14 @@ The features below are included in the default enterprise API Management distrib
 * [DCR Registration](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md#dynamic-client-registration-provider): Dynamic client registration (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint.
 * [Custom Roles](../../guides/administration/user-management-and-permissions.md#roles): Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application levels.
 * [Sharding Tags](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md): Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
-* [Bridge Gateway](../../getting-started/hybrid-deployment/#bridge-gateways): By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.&#x20;
+* [Bridge Gateway](../../getting-started/hybrid-deployment/#bridge-gateways): By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.
 
 ### Enterprise policy pack
 
 The Enterprise policy pack includes policies that are typically necessary for enterprise-grade, production API Management deployments:
 
-* **Data logging masking:** If you enable logging on APIs, you can use the data logging masking policy to configure rules to conceal sensitive data.
-* **Assign metrics:** Use the assign metrics policy to push extra metrics in addition to the natively provided request metrics. These metrics can be used for monetization invoices, analytics dashboards to create custom widgets, and, optionally, to apply aggregations based on their value.
+* [**Data logging masking**](../../reference/policy-reference/template-policy-rework-structure-4.md)**:** If you enable logging on APIs, you can use the data logging masking policy to configure rules to conceal sensitive data.
+* [**Assign metrics**](../../reference/policy-reference/template-policy-rework-structure-1.md)**:** Use the assign metrics policy to push extra metrics in addition to the natively provided request metrics. These metrics can be used for monetization invoices, analytics dashboards to create custom widgets, and, optionally, to apply aggregations based on their value.
 * **GeoIP filtering policy:** Use the GeoIP filtering policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
 * **GeoIP service:** Use the GeoIP service to load the GeoIP databases in memory. The GeoIP service is required to use the GeoIP filtering policy in APIM and for [Adaptive Multi-Factor Authentication in AM](https://documentation.gravitee.io/am).
 
@@ -59,8 +59,8 @@ The Observability pack includes capabilities to better implement enterprise-grad
 
 The Event-native pack includes capabilities that enable using Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
-* [**v4 message API entrypoints**](../../guides/create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) enable consumers to access the Gateway and/or consume various message-based backend resources via&#x20;
-  * **HTTP GET**&#x20;
+* [**v4 message API entrypoints**](../../guides/create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) enable consumers to access the Gateway and/or consume various message-based backend resources via
+  * **HTTP GET**
   * **HTTP POST**
   * **WebSocket**
   * **Webhooks**
@@ -71,10 +71,10 @@ The Event-native pack includes capabilities that enable using Gravitee to expose
   * **RabbitMQ**: Allow the Gateway to open up a persistent connection and/or call a backend RabbitMQ broker, as long as that broker is running on AMQP 0-9-1.
   * **Solace**: Allow the Gateway to expose Solace resources and event APIs via your chosen Gravitee entrypoint(s).
 * **CloudEvents policy**: Transform ingoing and outgoing data using the CloudEvents spec.
-* **Message filtering policy**: Filter messages streamed to clients/subscribers based on certain API publisher and/or client criteria.
+* [**Message filtering policy**:](../../reference/policy-reference/message-filtering.md) Filter messages streamed to clients/subscribers based on certain API publisher and/or client criteria.
 * **Avro <> JSON policy**: Transform information in Avro format into JSON format
 * **Gateway message reactor plugin**: Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* **Confluent Schema Registry resource**: Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](../../guides/api-configuration/resources.md#confluent-schema-registry): Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 ## Advanced API monitoring
 
@@ -82,7 +82,7 @@ Not technically a part of the Access Management product, Gravitee offers a stand
 
 ## Advanced environment management
 
-Gravitee APIM EE includes [Gravitee Cloud](https://documentation.gravitee.io/gravitee-cloud), which you can use to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.&#x20;
+Gravitee APIM EE includes [Gravitee Cloud](https://documentation.gravitee.io/gravitee-cloud), which you can use to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
 
 ## Hosting options
 

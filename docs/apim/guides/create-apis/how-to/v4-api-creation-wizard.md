@@ -52,7 +52,17 @@ To disable virtual hosts, select **X Disable virtual hosts**.
 
 <figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
 
-### Entrypoint options for the "Introspect messages from Event-driven backend" method ([Enterprise edition only](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md#event-native-pack))
+### Entrypoint options for the "Introspect messages from Event-driven backend" method
+
+{% hint style="warning" %}
+**Enterprise only**
+
+As of Gravitee 4.0, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
 
 If you chose **Introspect messages from Event-driven backend**, you are presented with a much different set of entrypoint options:
 
@@ -187,10 +197,10 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
 
 ### **Introspect messages from event-driven backend endpoints**
 
-{% hint style="info" %}
+{% hint style="warning" %}
 **Enterprise only**
 
-As of Gravitee 4.0, all message API endpoints are Enterprise Edition only. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+As of Gravitee 4.0, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
 * [Refer to the EE vs OSS documentation](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
