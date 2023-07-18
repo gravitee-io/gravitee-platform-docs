@@ -135,6 +135,10 @@
   * [Circuit Breaker](reference/policy-reference/template-policy-rework-structure-3.md)
   * [Data Logging Masking](reference/policy-reference/template-policy-rework-structure-4.md)
   * [Message Filtering](reference/policy-reference/message-filtering.md)
+  * [Dynamic Routing](reference/policy-reference/dynamic-routing.md)
+  * [Generate JWT](reference/policy-reference/template-policy-rework-structure-5.md)
+  * [Groovy](reference/policy-reference/template-policy-rework-structure-6.md)
+  * [Copy of Template Policy - Rework Structure](reference/policy-reference/template-policy-rework-structure-7.md)
 
 ## Releases & Changelog
 

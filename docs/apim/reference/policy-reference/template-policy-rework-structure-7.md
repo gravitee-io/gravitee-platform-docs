@@ -1,8 +1,8 @@
 ---
-description: This page provides the technical details of the Message Filtering policy
+description: This page provides the technical details of the JSON-to-XML policy
 ---
 
-# Message Filtering
+# Copy of Template Policy - Rework Structure
 
 {% hint style="warning" %}
 **This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
@@ -10,17 +10,17 @@ description: This page provides the technical details of the Message Filtering p
 
 ## Overview
 
-Functional and implementation information for the Message Filtering policy is organized into the following sections:
+Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
-* [Examples](message-filtering.md#examples)
-* [Configuration](message-filtering.md#configuration)
-* [Compatibility Matrix](message-filtering.md#compatibility-matrix)
-* [Errors](message-filtering.md#errors)
-* [Changelogs](message-filtering.md#changelogs)
+* [Examples](template-policy-rework-structure-7.md#examples)
+* [Configuration](template-policy-rework-structure-7.md#configuration)
+* [Compatibility Matrix](template-policy-rework-structure-7.md#compatibility-matrix)
+* [Errors](template-policy-rework-structure-7.md#errors)
+* [Changelogs](template-policy-rework-structure-7.md#changelogs)
 
 ## Examples
 
-The Message Filtering policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the JSON-to-XML policy.
+The JSON-to-XML policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the JSON-to-XML policy.
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -164,19 +164,23 @@ When using the Management API, policies are added as flows either directly to an
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Message Filtering policy:
+The phases checked below are supported by the JSON-to-XML policy:
 
 <table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the Message Filtering policy.
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
 <table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
 
 ## Errors
 
 <table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_PAYLOAD:</strong> Request payload cannot be transformed properly to XML</td></tr><tr><td>onResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_PAYLOAD:</strong><br>Response payload cannot be transformed properly to XML</td></tr><tr><td>onMessageRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Incoming message cannot be transformed properly to XML</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Outgoing message cannot be transformed properly to XML</td></tr></tbody></table>
+
+### Nested objects
+
+To limit the processing time in the case of a nested object, the default max depth of a nested object has been set to 1000. This default value can be overridden using the environment variable `gravitee_policy_jsonxml_maxdepth`.
 
 ## Changelogs
 

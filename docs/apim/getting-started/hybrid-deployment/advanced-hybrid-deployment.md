@@ -17,7 +17,7 @@ This documentation page relates to the installation of the client (On-Prem / Pri
 |                            <p>APIM Console<br>(for API producers)</p>                            | <p>This web UI gives easy access to some key APIM Management API services. <a href="../../#api-publisher">API publishers</a> can use it to publish APIs.<br>Administrators can also configure global platform settings and specific portal settings.</p>                                                                                                                                                                                                                |
 |                                        APIM Management API                                       | <p>This RESTful API exposes services to manage and configure the APIM Console and APIM Developer Portal web UIs.<br>All exposed services are restricted by authentication and authorization rules. For more information, see the<a href="../../reference/management-api-reference/"> Management API Reference</a> section.</p>                                                                                                                                          |
 | <p><a href="../../guides/developer-portal/">APIM Developer Portal</a><br>(for API consumers)</p> | This web UI gives easy access to some key APIM API services. Allows [API Consumers](../../#api-consumer) to [manage their applications](../../guides/api-exposure-plans-applications-and-subscriptions/#applications) and search for, view, try out, and subscribe to a published API.                                                                                                                                                                                  |
-|                                      APIM SaaS API Gateways                                      | <p>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="../../reference/policy-reference/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</p>                                               |
+|                                      APIM SaaS API Gateways                                      | <p>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="broken-reference">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</p>                                                                |
 |                                          Bridge Gateways                                         | A _bridge_ API Gateway exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, etc.)                                                                                                                                                                                                                                                                                           |
 |                                          Config Database                                         | All the API Management platform management data, such as API definitions, users, applications, and plans.                                                                                                                                                                                                                                                                                                                                                               |
 |                                  S3 Bucket + Analytics Database                                  | Analytics and logs data                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -27,11 +27,11 @@ This documentation page relates to the installation of the client (On-Prem / Pri
 
 ### On-prem / Private cloud components[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#on-prem-private-cloud-components) <a href="#on-prem-private-cloud-components" id="on-prem-private-cloud-components"></a>
 
-|   Component  | Description                                                                                                                                                                                                                                                                                                                                                                                                               |
-| :----------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| APIM Gateway | <p>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="../../reference/policy-reference/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</p> |
-|   Logstash   | Collect and send local Gateways logs and metrics to the Gravitee APIM SaaS Control Plane.                                                                                                                                                                                                                                                                                                                                 |
-|     Redis    | The database used locally for rate limits synchronized counters (RateLimit, Quota, Spike Arrest) and optionally, as an external cache for the Cache policy.                                                                                                                                                                                                                                                               |
+|   Component  | Description                                                                                                                                                                                                                                                                                                                                                                                              |
+| :----------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| APIM Gateway | <p>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="broken-reference">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</p> |
+|   Logstash   | Collect and send local Gateways logs and metrics to the Gravitee APIM SaaS Control Plane.                                                                                                                                                                                                                                                                                                                |
+|     Redis    | The database used locally for rate limits synchronized counters (RateLimit, Quota, Spike Arrest) and optionally, as an external cache for the Cache policy.                                                                                                                                                                                                                                              |
 
 ![Hybrid Architecture Connections](https://dobl1.github.io/gravitee-se-docs/assets/hybrid-architecture-connections.svg)
 
@@ -52,7 +52,7 @@ Please follow the APIM install instructions laid out in the [Install on Kubernet
 {% tab title="Docker" %}
 Please follow the APIM install instructions laid out in the [Install on Docker](../install-guides/install-on-docker/) guide.
 
-#### **Local file structure**
+**Local file structure**
 
 ```
 .
@@ -71,13 +71,13 @@ Please follow the APIM install instructions laid out in the [Install on Docker](
     └── gravitee-apim-repository-redis-3.18.3.zip
 ```
 
-#### **Download**&#x20;
+**Download**
 
 **Download plugins**
 
 * [gravitee-apim-repository-redis-3.18.3.zip](https://download.gravitee.io/graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis/gravitee-apim-repository-redis-3.18.3.zip)
 
-#### **plugins**
+**plugins**
 
 **Download plugins**
 
@@ -103,8 +103,6 @@ Please follow the APIM install instructions laid out in the [Install with `.ZIP`
 * [gravitee-apim-repository-redis-3.18.3.zip](https://download.gravitee.io/graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis/gravitee-apim-repository-redis-3.18.3.zip)
 {% endtab %}
 {% endtabs %}
-
-
 
 ## Configuration[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#configuration) <a href="#configuration" id="configuration"></a>
 

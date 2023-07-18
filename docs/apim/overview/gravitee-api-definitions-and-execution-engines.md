@@ -60,7 +60,7 @@ In this section, you can learn about all the differences between the new reactiv
 
 With the legacy execution engine, all existing supported policies will continue to work as before without a change.
 
-Over time, all policies will be migrated to support the new reactive execution engine. Each policy in the [Policy Reference](../reference/policy-reference/) guide will include a compatibility table.
+Over time, all policies will be migrated to support the new reactive execution engine. Each policy in the [Policy Reference](broken-reference) guide will include a compatibility table.
 
 ### v2 Gateway API compatibility mode
 
