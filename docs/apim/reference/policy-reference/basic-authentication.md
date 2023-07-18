@@ -21,7 +21,6 @@ Functional and implementation information for the Basic Authentication policy is
 * [Examples](basic-authentication.md#examples)
 * [Configuration](basic-authentication.md#configuration)
 * [Compatibility Matrix](basic-authentication.md#compatibility-matrix)
-* [Errors](basic-authentication.md#errors)
 * [Changelogs](basic-authentication.md#changelogs)
 
 ## Examples
@@ -39,8 +38,6 @@ LDAP, inline and http resources are not part of the default APIM configuration, 
 
 {% tabs %}
 {% tab title="Proxy APIs" %}
-
-
 {% hint style="warning" %}
 This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
@@ -70,89 +67,31 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
-{
-  "name": "Custom name",
-  "description": "Converts data from JSON to XML",
-  "policy": "json-xml",
-  "configuration": {
-    "scope": "RESPONSE",
-    "rootElement": "root"
-  }
-}
-```
-{% endcode %}
-
 ### Reference
 
-<table data-full-width="true"><thead><tr><th width="231">Property</th><th width="107" data-type="checkbox">Required</th><th>Description</th><th width="152" data-type="select">Type</th><th width="99">Options</th><th>Default</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>true</td><td>A list of authentication providers</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>realm</td><td>false</td><td>Name showed to the client in case of error</td><td></td><td>N/a</td><td>N/a</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="231">Property</th><th width="107" data-type="checkbox">Required</th><th>Description</th><th width="152">Type</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>true</td><td>A list of authentication providers</td><td>List of strings</td></tr><tr><td>realm</td><td>false</td><td>Name showed to the client in case of error</td><td>string</td></tr></tbody></table>
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. Depending on the [version of the Gateway API](../../overview/gravitee-api-definitions-and-execution-engines.md#policy-execution-phases-and-execution-order), the request and response are broken up into what are known as _phases_. Each policy has different compatibility with the available phases:
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-{% tabs %}
-{% tab title="v4 API definition" %}
-v4 APIs have the following phases:
+The phases checked below are supported by the Basic Authentication policy:
 
-* `onRequest`: This phase is executed before invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
-* `onMessageRequest`: This phase occurs after the `onRequest` phase and allows policies to act on each incoming message before being sent to the backend service. This only applies to message APIs.
-* `onResponse`: This phase is executed after invoking the backend services for both proxy and message APIs. Policies can act on the headers and the content for proxy APIs.
-* `onMessageResponse`: This phase after the `onResponse` phase and allows policies to act on each outgoing message before being sent to the client application. This only applies to message APIs.
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-This policy is compatible with the following v4 API phases:
+### Connected user
 
-<table data-full-width="false"><thead><tr><th width="138" data-type="checkbox">onRequest</th><th width="142" data-type="checkbox">onResponse</th><th data-type="checkbox">onMessageRequest</th><th data-type="checkbox">onMessageResponse</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
-{% endtab %}
+After successful authentication, connected username is stored in context attributes, accessible with `context.attributes['user']` expression language.
 
-{% tab title="v2 API definition" %}
-v2 APIs have the following phases:
+In order to display the connected username in API logging, you can enable the environment setting `Gateway > API logging > Display end user on API Logging`.
 
-* `onRequest`: This phase only allows policies to work on request headers. It never accesses the request body.
-* `onRequestContent`: This phase always occurs after the `onRequest` phase. It allows policies to work at the content level and access the request body.
-* `onResponse`: This phase only allows policies to work on response headers. It never accesses the response body.
-* `onResponseContent`: This phase always occurs after the `onResponse` phase. It allows policies to work at the content level and access the response body.
-
-This policy supports the following phases:
-
-<table><thead><tr><th width="172" data-type="checkbox">onRequest</th><th width="138" data-type="checkbox">onResponse</th><th width="182" data-type="checkbox">onRequestContent</th><th data-type="checkbox">onResponseContent</th></tr></thead><tbody><tr><td>true</td><td>false</td><td>false</td><td>false</td></tr></tbody></table>
-{% endtab %}
-{% endtabs %}
+This adds a `user` column in the logs table.
 
 ## Compatibility matrix
 
-In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `basic-authentication` policy.
 
-<table data-full-width="false"><thead><tr><th width="164.33333333333331">Plugin Version</th><th width="239">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>>=1.4</td><td>>=3.15</td><td>>=3.15</td></tr><tr><td>&#x3C;1.4</td><td>&#x3C;3.15</td><td>&#x3C;3.15</td></tr></tbody></table>
-
-## Installation and deployment
-
-Each version of APIM includes a number of policies by default. If the policy is not included in the default distribution or you would like to use a different version of the policy, you can modify the plugin.
-
-{% hint style="warning" %}
-Please ensure the policy version you select is compatible with your version of APIM.
-{% endhint %}
-
-To do so, follow these steps:
-
-1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/)
-2. Add the file into the `plugins` folder for both the Gateway and management API
-
-{% hint style="info" %}
-**Location of `plugins` folder**
-
-The location of the `plugins` folder varies depending on your installation. By default, it is in ${GRAVITEE\_HOME/plugins}. This can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository)
-
-Most installations will contain the `plugins` folder in`/gravitee/apim-gateway/plugins` for the Gateway and `/gravitee/apim-management-api/plugins` for the management API.
-{% endhint %}
-
-3. Remove any existing plugins of the same name.
-4. Restart your APIM nodes
-
-## Errors
-
-<table data-full-width="false"><thead><tr><th width="243">Phase</th><th>HTTP status code</th><th>Error template key</th><th>Description</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td>N/a</td><td>Unauthorized</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="164.33333333333331">Plugin Version</th><th width="239">Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>>=1.4</td><td>>=3.15</td><td>true</td></tr><tr><td>&#x3C;=1.x</td><td>&#x3C;3.15</td><td>true</td></tr></tbody></table>
 
 ## Changelog
 
