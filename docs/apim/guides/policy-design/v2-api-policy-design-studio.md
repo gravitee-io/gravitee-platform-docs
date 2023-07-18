@@ -199,7 +199,7 @@ Global resources are globally available to all flows associated with the Gateway
 
 ## Debug mode
 
-{% hint style="info" %}
+{% hint style="warning" %}
 **Enterprise only**
 
 As of Gravitee 4.0, Debug mode is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:

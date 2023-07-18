@@ -18,14 +18,14 @@ In this article, we will walk through how to set up:
 {% hint style="info" %}
 **By default**
 
-By default, **System Admins** (a role created by Gravitee) are the only roles that can create and edit more roles. However, you can create your own custom roles with these permissions.&#x20;
+By default, **System Admins** (a role created by Gravitee) are the only roles that can create and edit more roles. However, you can create your own custom roles with these permissions.
 {% endhint %}
 
 ### Roles
 
 {% @arcade/embed flowId="KyYnhU8h2uPwM46fbMdk" url="https://app.arcade.software/share/KyYnhU8h2uPwM46fbMdk" %}
 
-Gravitee API Management (APIM) allows you to create custom user roles to fit your needs. A role is a functional group of permissions, and can be defined at the Organization, Environment, API, and/or Application levels.&#x20;
+Gravitee API Management (APIM) allows you to create custom user roles to fit your needs. A role is a functional group of permissions, and can be defined at the Organization, Environment, API, and/or Application levels.
 
 Gravitee comes with some pre-built default roles, but there is no limit to the number of custom roles that you can create. Each role:
 
@@ -109,6 +109,16 @@ To set up roles, log-in to the Gravitee API Management Console, and select Organ
 | NOTIFICATION | Manages application notifications.                             |
 | ALERT        | Manages application alerting.                                  |
 
+{% hint style="warning" %}
+**Enterprise only**
+
+As of Gravitee 4.0, Custom Roles is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
+
 To create a role in Gravitee, select **+ Add a role** at your desired Scope. You'll be brought the the **Create a role in the (chosen scope) scope** page. Here, you will:
 
 * Give the role a name
@@ -139,8 +149,7 @@ To create a custom "Writer" role, follow these steps:
 1. Log-in to the API Management Console
 2. Select **Organizations** from the left-hand nav
 3. Select **Roles** under **User Management**
-4.  At the **API** scope, select **+ Add a role**\
-
+4.  At the **API** scope, select **+ Add a role**\\
 
     <figure><img src="../../.gitbook/assets/Add an API scope role.gif" alt=""><figcaption><p>Create an API scope role</p></figcaption></figure>
 5. Enter in "**Writer**" in the **Role name** text field
@@ -149,8 +158,7 @@ To create a custom "Writer" role, follow these steps:
 8. Define the following permissions:\
    **`Read`** permissions on **`DEFINITION`** and **`GATEWAY_DEFINITION`** : this allows the user to see the API in the API list\
    **`CRUD`** permissions on **`DOCUMENTATION`**: this allows the user to write new API documentation
-9.  Once you are done, select **Create.** \
-
+9.  Once you are done, select **Create.** \\
 
     <figure><img src="../../.gitbook/assets/Writer role.gif" alt=""><figcaption><p>Define the "Writer" role permissions</p></figcaption></figure>
 
@@ -162,7 +170,7 @@ Once you're done, you'll see the "**Writer**" role in the **API** Scope section.
 
 ### Users and user groups
 
-In Gravitee, users are simply profiles for individuals that use the platform. User groups are groupings of users that share the same role(s) for the **API** and/or **Application** Scope(s).&#x20;
+In Gravitee, users are simply profiles for individuals that use the platform. User groups are groupings of users that share the same role(s) for the **API** and/or **Application** Scope(s).
 
 #### Create and manage users
 
@@ -194,7 +202,7 @@ To delete a user from your Organization, select the **Delete user** icon from th
 
 To create and manage User groups, follow these steps:
 
-1. Log-in to the API Management Console, and select **Settings** from the left-hand nav.&#x20;
+1. Log-in to the API Management Console, and select **Settings** from the left-hand nav.
 2. Under **User Management,** select **Groups**.
 3. You'll be brought to a list of User groups. Here, you can create, edit, and delete User groups. To:
    * Create groups: select the + icon at the bottom right corner of the page

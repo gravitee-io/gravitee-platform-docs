@@ -65,6 +65,16 @@ Additional Oauth terminology:
 
 ### Dynamic client registration provider
 
+{% hint style="warning" %}
+**Enterprise only**
+
+As of Gravitee 4.0, Dynamic Client Registration is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
+
 [Dynamic client registration](https://www.rfc-editor.org/rfc/rfc7591) (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee's Developer Portal or Management Console. This outsources the issuer and management of application credentials to a third party, allowing for additional configuration options and compatibility with various OIDC features provided by the identity provider.
 
 Once dynamic client registration has been [enabled in the **Client Registration** settings,](plans-1.md#prerequisites) you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.

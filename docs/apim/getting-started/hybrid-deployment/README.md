@@ -27,7 +27,19 @@ In this infrastructure, the standard APIM Gateway can communicate with the bridg
 
 #### **Bridge Gateways**
 
-What we describe as a _bridge_ API Gateway is, in fact, a standard APIM Gateway augmented with a new plugin.&#x20;
+
+
+{% hint style="warning" %}
+**Enterprise only**
+
+As of Gravitee 4.0, Bridge Gateways are an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
+
+What we describe as a _bridge_ API Gateway is, in fact, a standard APIM Gateway augmented with a new plugin.
 
 By default, an API Gateway needs to connect to a repository (e.g., mongoDB) to retrieve the list of APIs, plans, subscriptions, etc. When deployed in a more complex environment (network zones, different data centers, etc.), there are concerns with an open connection to a database outside the network. The solution is to deploy a bridge Gateway, which acts as a proxy for the repository and allows for the sync between the API Gateway and database to take place over HTTP instead of the database protocol: API Gateway > bridge Gateway > database
 

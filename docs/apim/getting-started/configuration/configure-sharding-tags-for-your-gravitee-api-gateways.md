@@ -5,11 +5,23 @@ description: >-
   your API proxy settings.
 ---
 
-# Sharding tags
+# Sharding Tags
 
-### Introduction
 
-Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a Gateway is tagged, you will be able to deploy an API and select which (sharding) tag a Gateway should have in order for the API to be deployed on a Gateway. To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [this documentation](../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).&#x20;
+
+{% hint style="warning" %}
+**Enterprise only**
+
+As of Gravitee 4.0, the sharding Tags feature is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+
+* [Refer to the EE vs OSS documentation](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Check out the pricing page](https://www.gravitee.io/pricing)
+{% endhint %}
+
+## Introduction
+
+Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a Gateway is tagged, you will be able to deploy an API and select which (sharding) tag a Gateway should have in order for the API to be deployed on a Gateway. To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [this documentation](../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
 
 ### Configure sharding tags for your Gravitee API Gateways
 
