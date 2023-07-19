@@ -1,11 +1,8 @@
 # Table of contents
 
-* [Gravitee Cloud](README.md)
-* [Page 1](page-1.md)
-
 ## Overview
 
-* [Introduction to Gravitee Cloud](overview/introduction-to-gravitee-cloud.md)
+* [Introduction to Gravitee Cloud](README.md)
 
 ## Getting started
 
@@ -16,3 +13,10 @@
 * [Register installations](guides/register-installations.md)
 * [Monitor and check health of installations](guides/monitor-and-check-health-of-installations.md)
 * [Set up your Gravitee Cloud Hierarchy](guides/set-up-your-gravitee-cloud-hierarchy.md)
+
+## Community and Support
+
+* [Enterprise Support](community-and-support/enterprise-support.md)
+* [Community](community-and-support/community/README.md)
+  * [Support](https://community.gravitee.io/c/support/11)
+  * [Announcements and Events](https://community.gravitee.io/c/announcements/5)
