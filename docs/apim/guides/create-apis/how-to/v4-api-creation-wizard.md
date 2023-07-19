@@ -114,7 +114,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 
-Also, when using Webhooks as an entrypoint, you can set up a dead letter queue for storing undelivered messages. When configuring DLQ with webhook, you redirect all the messages that the webhook rejects to another location, such as a Kafka topic. To learn more, please refer to he Dead letter queue documentation.
+Also, when using Webhooks as an entrypoint, you can set up a dead letter queue for storing undelivered messages. When configuring DLQ with Webhook, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic. To learn more, please refer to he DLQ documentation.
 
 </details>
 
@@ -161,7 +161,7 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
 
 ## Step 3: Endpoints
 
-**Gateway endpoints** define the protocol and configuration by which the Gateway API will fetch data from or post data to the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.
+Gateway endpoints define the protocol and configuration by which the Gateway API will fetch data from or post data to the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.
 
 ### HTTP Proxy endpoints
 
@@ -362,7 +362,7 @@ curl http://localhost:8082/demo/sse/kafka-advanced/plaintext \n
     -H"Last-Event-ID: ${LAST_ID}" 
 ```
 
-With **HTTP-GET** entrypoint, the offset has to be provided using the `cursor` query parameter.`curl http://localhost:8082/messages/get?cursor=${LAST_ID}`
+For the HTTP-GET entrypoint, the offset must be provided using the `cursor` query parameter `curl http://localhost:8082/messages/get?cursor=${LAST_ID}`
 
 </details>
 
