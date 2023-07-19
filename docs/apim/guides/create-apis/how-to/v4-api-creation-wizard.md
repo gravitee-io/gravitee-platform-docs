@@ -340,7 +340,29 @@ As an example using SSE as an entrypoint, first define the QoS for the entrypoin
     ]
 ```
 
+The offset information provided during the Gateway connection must be encoded in base64. It can be passed in plain text by setting the `encodeMessageId` to **false** in the consumer configuration of the Kafka plugin.
 
+The offset information has to respect the convention `<topicName>@<partition-id>#<offset>`
+
+If the Kafka endpoint manages multiple topics or partitions, you can define multiple offsets using the following convention with a semicolon as the separator:
+
+```
+topic1@0#1
+topic1@0#1;anotherTopic@1#10
+```
+
+Next, initiate SSE consumption by providing the offsets via the `Last-Event-ID` header:
+
+```bash
+# generate the Last-Event-ID
+LAST_ID=$(echo -n "demo1@0#0" | base64)
+# Start the SSE event stream
+curl http://localhost:8082/demo/sse/kafka-advanced/plaintext \n 
+    -H'Accept: text/event-stream' \n
+    -H"Last-Event-ID: ${LAST_ID}" 
+```
+
+With **HTTP-GET** entrypoint, the offset has to be provided using the `cursor` query parameter.`curl http://localhost:8082/messages/get?cursor=${LAST_ID}`
 
 </details>
 
