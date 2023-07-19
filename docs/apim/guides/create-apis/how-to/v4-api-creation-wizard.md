@@ -320,6 +320,28 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
     * **None:** throw an exception to the consumer if no previous offset is found for the consumer's group.
     * **Anything else:** throw an exception to the consumer.
 
+**Recovering Kafka messages**
+
+Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.&#x20;
+
+As an example using SSE as an entrypoint, first define the QoS for the entrypoint:
+
+```
+"entrypoints": [
+        {
+            "type": "sse",
+            "qos": "at-least-once",
+            "configuration": {
+                "heartbeatIntervalInMs": 5000,
+                "metadataAsComment": true,
+                "headersAsComment": true
+            }
+        }
+    ]
+```
+
+
+
 </details>
 
 <details>
