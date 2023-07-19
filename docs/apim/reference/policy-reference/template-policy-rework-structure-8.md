@@ -1,28 +1,35 @@
 ---
-description: This page provides the technical details of the Groovy policy
+description: This page provides the technical details of the HTTP Signature policy
 ---
 
-# Groovy
+# HTTP Signature
 
 ## Overview
 
-Functional and implementation information for the Groovy policy is organized into the following sections:
+Functional and implementation information for the HTTP Signature policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-8.md#examples)
 * [Configuration](template-policy-rework-structure-8.md#configuration)
+* [Compatibility Matrix](template-policy-rework-structure-8.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-8.md#errors)
 * [Changelogs](template-policy-rework-structure-8.md#changelogs)
 
 ## Examples
 
-ou can use the [Groovy](http://www.groovy-lang.org/) policy to run Groovy scripts at any stage of request processing through the gateway.
+HTTP Signature is a kind of authentication method which is adding a new level of security. By using this policy, the consumer is enforced to send a _signature_ which is used to identify the request temporarily and ensure that the request is really coming from the requesting consumer, using a secret key.
 
-The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
+The "Signature" authentication scheme is based on the model that the client must authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
 
-```
-response.headers.remove 'X-Powered-By'
-response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
-```
+You can use:
+
+* Authorization header: For example: `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+* Signature header: For example, `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+
+
+
+{% hint style="info" %}
+The current version of the policy does not support **Digest**, **(request-target)**, **Host** and **Path** headers
+{% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -32,85 +39,16 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-#### onRequest / onResponse
-
-Some variables are automatically bound to the Groovy script to allow users to use them and define the policy behavior.
-
-| Name       | Description                                                                       |
-| ---------- | --------------------------------------------------------------------------------- |
-| `request`  | Inbound HTTP request                                                              |
-| `response` | Outbound HTTP response                                                            |
-| `context`  | `PolicyContext` used to access external components such as services and resources |
-| `result`   | Groovy script result                                                              |
-
-Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error` but you can override this behavior with the following properties: - `code`: An HTTP status code - `error`: The error message - `key`: The key of a response template:
-
 ```
-import io.gravitee.policy.groovy.PolicyResult.State
-
-if (request.headers.containsKey('X-Gravitee-Break')) {
-    result.key = 'RESPONSE_TEMPLATE_KEY';
-    result.state = State.FAILURE;
-    result.code = 500
-    result.error = 'Stop request processing due to X-Gravitee-Break header'
-} else {
-    request.headers.'X-Groovy-Policy' = 'ok'
+{
+  "http-signature": {
+	"scheme":"AUTHORIZATION",
+	"clockSkew":30,
+	"secret":"my-passphrase",
+	"algorithms":["HMAC_SHA256"],
+	"enforceHeaders":["Date","Host"]
+  }
 }
-```
-
-To customize the error sent by the policy:
-
-```
-import io.gravitee.policy.groovy.PolicyResult.State
-result.key = 'RESPONSE_TEMPLATE_KEY';
-result.state = State.FAILURE;
-result.code = 400
-result.error = '{"error":"My specific error message","code":"MY_ERROR_CODE"}'
-result.contentType = 'application/json'
-```
-
-#### OnRequestContent / OnResponseContent
-
-You can also transform request or response body content by applying a Groovy script on the `OnRequestContent` phase or the `OnResponseContent` phase.
-
-The following example shows you how to use the Groovy policy to transform JSON content:
-
-**Input body content**
-
-```
-[
-    {
-        "age": 32,
-        "firstname": "John",
-        "lastname": "Doe"
-    }
-]
-```
-
-**Groovy script**
-
-```
-import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
-
-def jsonSlurper = new JsonSlurper()
-def content = jsonSlurper.parseText(response.content)
-content[0].firstname = 'Hacked ' + content[0].firstname
-content[0].country = 'US'
-return JsonOutput.toJson(content)
-```
-
-**Output body content**
-
-```
-[
-    {
-        "age": 32,
-        "firstname": "Hacked John",
-        "lastname": "Doe",
-        "country": "US"
-    }
-]
 ```
 {% endtab %}
 {% endtabs %}
@@ -123,74 +61,50 @@ When using the Management API, policies are added as flows either directly to an
 
 {% code title="Sample Configuration" %}
 ```json
-"groovy": {
-    "onRequestScript": "request.headers.'X-Gravitee-Gateway' = '0.14.0'",
-    "onResponseScript": "response.headers.remove 'X-Powered-By'",
-    "onRequestContentScript": "" // Not executed if empty
-    "onResponseContentScript": "" // Not executed if empty
+{
+  "http-signature": {
+	"scheme":"AUTHORIZATION",
+	"clockSkew":30,
+	"secret":"my-passphrase",
+	"algorithms":["HMAC_SHA256"],
+	"enforceHeaders":["Date","Host"]
+  }
 }
 ```
 {% endcode %}
 
 ### Reference
 
-<table data-full-width="false"><thead><tr><th width="140">Property</th><th width="104" data-type="checkbox">Required</th><th width="207">Description</th><th width="111" data-type="select">Type</th><th width="247">Options</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td></tr><tr><td>description</td><td>false</td><td>Provide a description for your policy</td><td></td><td>N/a</td></tr><tr><td>rootElement</td><td>true</td><td>XML root element name that encloses content.</td><td></td><td>N/a<br><strong>root</strong></td></tr><tr><td>scope</td><td>true</td><td>The execution scope</td><td></td><td><strong>REQUEST</strong> RESPONSE</td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Default</th><th>Example</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td>authorization</td><td>-</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL).</td><td>-</td><td>passphrase</td></tr><tr><td>algorithms</td><td>false</td><td>A list of supported HMAC digest algorithms.</td><td>-</td><td>-</td></tr><tr><td>enforceHeaders</td><td>false</td><td>List of headers the consumer must at least use for HTTP signature creation.</td><td>-</td><td>-</td></tr><tr><td>clockSkew</td><td>false</td><td>Clock Skew in seconds to prevent replay attacks.</td><td>30</td><td>-</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Groovy policy:
+The phases checked below are supported by the HTTP Signature policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+
+## Compatibility matrix
+
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `http-signature` policy.
+
+<table><thead><tr><th>Plugin version</th><th>Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>1.5 and upper</td><td>3.15.x to latest</td><td>true</td></tr><tr><td>Up to 1.4</td><td>Up to 3.14.x</td><td>true</td></tr></tbody></table>
 
 ## Errors
 
-The Groovy policy comes with a native sandbox feature, which allows you to safely run Groovy scripts. The sandbox is based on a predefined list of allowed methods, fields, constructors, and annotations.
+If you’re looking to override the default response provided by the policy, you can do it thanks to the response templates feature. These templates must be define at the API level (see `Response Templates` from the `Proxy` menu).
 
-The complete whitelist can be found here : [gravitee groovy whitelist](https://gh.gravitee.io/gravitee-io/gravitee-policy-groovy/master/src/main/resources/groovy-whitelist)
+Here are the error keys send by this policy:
 
-This whitelist should be enough for almost all possible use cases. If you have specific needs which are not allowed by the built-in whitelist, you can extend (or even replace) the list with your own declarations. For that, you can configure the gravitee.yml by specifying:
+| Key                                 | Parameters |
+| ----------------------------------- | ---------- |
+| HTTP\_SIGNATURE\_INVALID\_SIGNATURE |            |
 
-* `groovy.whitelist.mode`: `append` or `replace`. This allows you to append some new whitelisted definitions to the built-in list or completely replace it. We recommend you always choose `append` unless you absolutely know what you are doing
-* `groovy.whitelist.list`: allows declaring other methods, constructors, fields or annotations to the whitelist
-  * start with `method` to allow a specific method (complete signature)
-  * start with `class` to allow a complete class. All methods, constructors and fields of the class will then be accessible
-  * start with `new` to allow a specific constructor (complete signature)
-  * start with `field` to allow access to a specific field of a class
-  * start with `annotation` to allow use of a specific annotation
+### Http status code
 
-Example:
-
-```
-groovy:
-  whitelist:
-    mode: append
-    list:
-        - method java.time.format.DateTimeFormatter ofLocalizedDate java.time.format.FormatStyle
-        - class java.time.format.DateTimeFormatter
-```
-
-
-
-{% hint style="info" %}
-**`DateTimeFormatter`**
-
-The `DateTimeFormatter` class is already part of the build-in whitelist.
-{% endhint %}
-
-
-
-{% hint style="danger" %}
-**Security implications**
-
-Be careful when you allow use of classes or methods. In some cases, giving access to all methods of a class may allow access by transitivity to unwanted methods and may open potential security breaches.
-{% endhint %}
-
-### HTTP status codes
-
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onResponse</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onRequestContent</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr></tbody></table>
+<table><thead><tr><th width="166.33333333333331">Phase</th><th>Code</th><th>Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td><p>In case of:</p><p>* Missing or signature</p><p>* Request does not contain headers part of the signature</p><p>* Enforce HTTP headers not part of the signature</p></td></tr></tbody></table>
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-groovy/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-http-signature/blob/master/CHANGELOG.md" %}

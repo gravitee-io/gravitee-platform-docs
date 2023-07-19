@@ -1,138 +1,117 @@
 ---
-description: This page provides the technical details of the JSON-to-XML policy
+description: This page provides the technical details of the Groovy policy
 ---
 
-# Copy of Template Policy - Rework Structure
-
-{% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
-{% endhint %}
+# Groovy
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+Functional and implementation information for the Groovy policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-6.md#examples)
 * [Configuration](template-policy-rework-structure-6.md#configuration)
-* [Compatibility Matrix](template-policy-rework-structure-6.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-6.md#errors)
 * [Changelogs](template-policy-rework-structure-6.md#changelogs)
 
 ## Examples
 
-The JSON-to-XML policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the JSON-to-XML policy.
+ou can use the [Groovy](http://www.groovy-lang.org/) policy to run Groovy scripts at any stage of request processing through the gateway.
+
+The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
+
+```
+response.headers.remove 'X-Powered-By'
+response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
+```
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="info" %}
-The proxy API example also applies to v2 APIs.
-{% endhint %}
-
-For proxy APIs, the JSON-to-XML policy is most commonly used for transforming JSON data before returning it to the client in the `response` phase.
-
-For example, the Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted like so:
-
-{% code title="Default response" %}
-```json
-{
-    "bodySize": 0,
-    "headers": {
-        "Accept": "*/*",
-        "Host": "api.gravitee.io",
-        "User-Agent": "{{user-agent-info}}",
-        "X-Gravitee-Request-Id": "{{generated-request-id}}",
-        "X-Gravitee-Transaction-Id": "{{generated-trx-id}}",
-        "accept-encoding": "deflate, gzip"
-    },
-    "query_params": {}
-}
-```
-{% endcode %}
-
-Adding a JSON-to-XML policy on the `response` phase for a proxy API will transform the response output to:
-
-{% code title="Transformed response" %}
-```xml
-<root>
-  <headers>
-    <Accept>*/*</Accept>
-    <Host>api.gravitee.io</Host>
-    <User-Agent>{{user-agent-info}}</User-Agent>
-    <X-Gravitee-Request-Id>{{generated-request-id}}</X-Gravitee-Request-Id>
-    <X-Gravitee-Transaction-Id>{{generated-trx-id}}</X-Gravitee-Transaction-Id>
-    <accept-encoding>deflate, gzip</accept-encoding>
-  </headers>
-  <query_params/>
-  <bodySize>0</bodySize>
-</root>
-```
-{% endcode %}
-{% endtab %}
-
-{% tab title="Message API example" %}
-{% hint style="warning" %}
-ONLY INCLUDE THIS SECTION IF MESSAGES ARE SUPPORTED. Otherwise, use a single example section with one of the following two hints:
-{% endhint %}
-
 {% hint style="warning" %}
 This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-{% hint style="warning" %}
-This example will work for [v2 APIs, v4 proxy APIs, and for the initial connection request of v4 message APIs](../../overview/gravitee-api-definitions-and-execution-engines.md).
+#### onRequest / onResponse
 
-Currently, this policy can **not** be applied at the message level.
-{% endhint %}
+Some variables are automatically bound to the Groovy script to allow users to use them and define the policy behavior.
 
-**Otherwise, provide a message example:**
+| Name       | Description                                                                       |
+| ---------- | --------------------------------------------------------------------------------- |
+| `request`  | Inbound HTTP request                                                              |
+| `response` | Outbound HTTP response                                                            |
+| `context`  | `PolicyContext` used to access external components such as services and resources |
+| `result`   | Groovy script result                                                              |
 
-For message APIs, the JSON-to-XML policy is used to transform the message `content` in either the `publish` or `subscribe` phase.
+Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error` but you can override this behavior with the following properties: - `code`: An HTTP status code - `error`: The error message - `key`: The key of a response template:
 
-For example, you can create a message API with an HTTP GET entrypoint and a mock endpoint. Suppose the endpoint is configured to return the message content as follows:
-
-{% code title="Default message" %}
-```json
-{ \"id\": \"1\", \"name\": \"bob\", \"v\": 2 }
 ```
-{% endcode %}
+import io.gravitee.policy.groovy.PolicyResult.State
 
-Adding a JSON-to-XML policy on the subscribe phase will return the payload to the client via the HTTP GET entrypoint as follows (the number of messages returned will vary by the number of messages specified in the Mock endpoint):
-
-{% code title="Transformed messages" %}
-```xml
-{
-    "items": [
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "0"
-        },
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "1"
-        },
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "2"
-        },
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "3"
-        }
-    ],
-    "pagination": {
-        "nextCursor": "3"
-    }
+if (request.headers.containsKey('X-Gravitee-Break')) {
+    result.key = 'RESPONSE_TEMPLATE_KEY';
+    result.state = State.FAILURE;
+    result.code = 500
+    result.error = 'Stop request processing due to X-Gravitee-Break header'
+} else {
+    request.headers.'X-Groovy-Policy' = 'ok'
 }
 ```
-{% endcode %}
 
-The output is the typical return structure for the HTTP GET entrypoint with each message `content` field transformed from JSON to XML.
+To customize the error sent by the policy:
 
-{% hint style="info" %}
-For the HTTP GET entrypoint specifically, the entire payload can be returned as XML by adding the `"Accept": "application/json"` header to the GET request. In this case, the message content is transformed into [CDATA](https://www.w3.org/TR/REC-xml/#sec-cdata-sect) and is therefore not treated as marked-up content for the purpose of the entrypoint using the `Accept` header.
-{% endhint %}
+```
+import io.gravitee.policy.groovy.PolicyResult.State
+result.key = 'RESPONSE_TEMPLATE_KEY';
+result.state = State.FAILURE;
+result.code = 400
+result.error = '{"error":"My specific error message","code":"MY_ERROR_CODE"}'
+result.contentType = 'application/json'
+```
+
+#### OnRequestContent / OnResponseContent
+
+You can also transform request or response body content by applying a Groovy script on the `OnRequestContent` phase or the `OnResponseContent` phase.
+
+The following example shows you how to use the Groovy policy to transform JSON content:
+
+**Input body content**
+
+```
+[
+    {
+        "age": 32,
+        "firstname": "John",
+        "lastname": "Doe"
+    }
+]
+```
+
+**Groovy script**
+
+```
+import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+
+def jsonSlurper = new JsonSlurper()
+def content = jsonSlurper.parseText(response.content)
+content[0].firstname = 'Hacked ' + content[0].firstname
+content[0].country = 'US'
+return JsonOutput.toJson(content)
+```
+
+**Output body content**
+
+```
+[
+    {
+        "age": 32,
+        "firstname": "Hacked John",
+        "lastname": "Doe",
+        "country": "US"
+    }
+]
+```
 {% endtab %}
 {% endtabs %}
 
@@ -144,14 +123,11 @@ When using the Management API, policies are added as flows either directly to an
 
 {% code title="Sample Configuration" %}
 ```json
-{
-  "name": "Custom name",
-  "description": "Converts data from JSON to XML",
-  "policy": "json-xml",
-  "configuration": {
-    "scope": "RESPONSE",
-    "rootElement": "root"
-  }
+"groovy": {
+    "onRequestScript": "request.headers.'X-Gravitee-Gateway' = '0.14.0'",
+    "onResponseScript": "response.headers.remove 'X-Powered-By'",
+    "onRequestContentScript": "" // Not executed if empty
+    "onResponseContentScript": "" // Not executed if empty
 }
 ```
 {% endcode %}
@@ -164,24 +140,57 @@ When using the Management API, policies are added as flows either directly to an
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the JSON-to-XML policy:
+The phases checked below are supported by the Groovy policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
-
-## Compatibility matrix
-
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
-
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_PAYLOAD:</strong> Request payload cannot be transformed properly to XML</td></tr><tr><td>onResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_PAYLOAD:</strong><br>Response payload cannot be transformed properly to XML</td></tr><tr><td>onMessageRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Incoming message cannot be transformed properly to XML</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Outgoing message cannot be transformed properly to XML</td></tr></tbody></table>
+The Groovy policy comes with a native sandbox feature, which allows you to safely run Groovy scripts. The sandbox is based on a predefined list of allowed methods, fields, constructors, and annotations.
 
-### Nested objects
+The complete whitelist can be found here : [gravitee groovy whitelist](https://gh.gravitee.io/gravitee-io/gravitee-policy-groovy/master/src/main/resources/groovy-whitelist)
 
-To limit the processing time in the case of a nested object, the default max depth of a nested object has been set to 1000. This default value can be overridden using the environment variable `gravitee_policy_jsonxml_maxdepth`.
+This whitelist should be enough for almost all possible use cases. If you have specific needs which are not allowed by the built-in whitelist, you can extend (or even replace) the list with your own declarations. For that, you can configure the gravitee.yml by specifying:
+
+* `groovy.whitelist.mode`: `append` or `replace`. This allows you to append some new whitelisted definitions to the built-in list or completely replace it. We recommend you always choose `append` unless you absolutely know what you are doing
+* `groovy.whitelist.list`: allows declaring other methods, constructors, fields or annotations to the whitelist
+  * start with `method` to allow a specific method (complete signature)
+  * start with `class` to allow a complete class. All methods, constructors and fields of the class will then be accessible
+  * start with `new` to allow a specific constructor (complete signature)
+  * start with `field` to allow access to a specific field of a class
+  * start with `annotation` to allow use of a specific annotation
+
+Example:
+
+```
+groovy:
+  whitelist:
+    mode: append
+    list:
+        - method java.time.format.DateTimeFormatter ofLocalizedDate java.time.format.FormatStyle
+        - class java.time.format.DateTimeFormatter
+```
+
+
+
+{% hint style="info" %}
+**`DateTimeFormatter`**
+
+The `DateTimeFormatter` class is already part of the build-in whitelist.
+{% endhint %}
+
+
+
+{% hint style="danger" %}
+**Security implications**
+
+Be careful when you allow use of classes or methods. In some cases, giving access to all methods of a class may allow access by transitivity to unwanted methods and may open potential security breaches.
+{% endhint %}
+
+### HTTP status codes
+
+<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onResponse</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onRequestContent</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr></tbody></table>
 
 ## Changelogs
 
-\{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-json-xml/blob/master/CHANGELOG.md" %\}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-groovy/blob/master/CHANGELOG.md" %}
