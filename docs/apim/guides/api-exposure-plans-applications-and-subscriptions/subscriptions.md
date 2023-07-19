@@ -38,6 +38,12 @@ Portal notifications are delivered both inside of APIM's Management Console and 
 
 {% @arcade/embed flowId="nTazQcgGLNWVFwHEyerB" url="https://app.arcade.software/share/nTazQcgGLNWVFwHEyerB" %}
 
+### Transfer subscriptions
+
+API publishers can transfer active subscriptions to a new plan with the _same_ security type.
+
+{% @arcade/embed flowId="UVhKz3t5HsY9e74hYms9" url="https://app.arcade.software/share/UVhKz3t5HsY9e74hYms9" %}
+
 ### Security: API key plans
 
 API publishers have additional management settings for subscriptions to API key plans:
