@@ -2,15 +2,11 @@
 
 ## Introduction
 
-Previously Cockpit, Gravitee Cloud is the environment management solution and “homepage” for your entire Gravitee platform. &#x20;
+Previously Cockpit, Gravitee Cloud is the environment management solution and “homepage” for your entire Gravitee platform.
 
-Here, you can add and manage various Gravitee API Management and Access Management installations and environments, promote APIs across higher and lower environments, and get started with a newly refreshed enterprise API Management free trial. The trial now includes pre-seeded APIs and a demo application so that you can test out all these new Gravitee 4.0 features without connecting your own application or building all new APIs. \
+Here, you can add and manage various Gravitee API Management and Access Management installations and environments, promote APIs across higher and lower environments, and get started with a newly refreshed enterprise API Management free trial. The trial now includes pre-seeded APIs and a demo application so that you can test out all these new Gravitee 4.0 features without connecting your own application or building all new APIs. \\
 
-
-To learn more, watch the video below, sign up for a trial yourself, or head to the Gravitee trial documentation.&#x20;
-
-\
-
+To learn more, watch the video below, sign up for a trial yourself, or head to the Gravitee trial documentation.
 
 ## Gravitee Cloud hierarchy
 

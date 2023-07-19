@@ -6,7 +6,7 @@ description: Learn how to access and set up Gravitee Cloud
 
 ## Access Gravitee Cloud
 
-To get started with Gravitee Cloud (GC), go to [https://cockpit.gravitee.io](https://cockpit.gravitee.io/), and click the **Register** button. Set up your account.&#x20;
+To get started with Gravitee Cloud (GC), go to [https://cockpit.gravitee.io](https://cockpit.gravitee.io/), and click the **Register** button. Set up your account.
 
 ## Navigating Gravitee Cloud
 
@@ -30,6 +30,10 @@ You can click your organization name in the left-hand menu to access an interact
 Click the settings icon ![cockpit settings icon](https://docs.gravitee.io/images/icons/cockpit-settings-icon.png) of any entity in the map to update its settings.
 
 ### API Management Free trial
+
+If you've signed up for Gravitee Cloud in order to sign up for a free trial of [Enterprise API Management](https://documentation.gravitee.io/apim/overview/ee-vs-oss), follow these steps:
+
+
 
 ## Set up your GC Hierarchy
 
@@ -58,7 +62,6 @@ To update settings for an entity in your organization:
 1. Click the organization name in the left-hand menu.
 2. Click the settings icon ![cockpit settings icon](https://docs.gravitee.io/images/icons/cockpit-settings-icon.png) of the entity.
 
-\
+\\
 
-
-\
+\\

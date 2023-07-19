@@ -6,26 +6,21 @@ description: Learn more about Gravitee Cloud
 
 ## Introduction
 
-Previously Cockpit, Gravitee Cloud is the environment management solution and “homepage” for your entire Gravitee platform. &#x20;
+Previously Cockpit, Gravitee Cloud is the environment management solution and “homepage” for your entire Gravitee platform.
 
 Here, you can:
 
 * Add and manage various Gravitee API Management and Access Management installations and environments
 * Promote APIs across higher and lower environments
-* Get started with an enterprise API Management free trial. The trial now includes pre-seeded APIs and a demo application so that you can test out all these new Gravitee 4.0 features without connecting your own application or building all new APIs.&#x20;
+* Get started with an enterprise API Management free trial. The trial now includes pre-seeded APIs and a demo application so that you can test out all these new Gravitee 4.0 features without connecting your own application or building all new APIs.
 
-To learn more, watch the video below, sign up for a trial yourself, or head to the Gravitee trial documentation.&#x20;
-
-\
-
+To learn more, watch the video below, sign up for a trial yourself, or head to the Gravitee trial documentation.
 
 ## Gravitee Cloud hierarchy
 
 Gravitee Cloud is based on a hierarchy of the following entity types:
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Gravitee Cloud hierarchy</p></figcaption></figure>
-
-
 
 | Account                                                                                                                                                                           | The top level entity, your company. One user can have multiple accounts.                                                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
