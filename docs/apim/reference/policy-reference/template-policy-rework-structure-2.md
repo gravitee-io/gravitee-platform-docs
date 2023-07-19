@@ -1,12 +1,16 @@
 ---
-description: This page provides the technical details of the Cache policy
+description: This page provides the technical details of the Assign Metrics policy
 ---
 
-# Cache
+# Assign Metrics
+
+{% hint style="warning" %}
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
+{% endhint %}
 
 ## Overview
 
-Functional and implementation information for the Cache policy is organized into the following sections:
+Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-2.md#examples)
 * [Configuration](template-policy-rework-structure-2.md#configuration)
@@ -16,17 +20,32 @@ Functional and implementation information for the Cache policy is organized into
 
 ## Examples
 
-You can use the `cache` policy to cache upstream responses (content, status and headers) to eliminate the need for subsequent calls to the back end.
+You can use the `assign-metrics` policy to push extra metrics in addition to the natively provided request metrics.
 
-This policy is based on a _cache resource_, which aligns the underlying cache system with the API lifecycle (stop / start).
+These metrics can then be used from analytics dashboards to create custom widgets and, optionally, apply aggregations based on their value.
 
-Consumers can bypass the cache by adding a `cache=BY_PASS_` query parameter or by providing a _`X-Gravitee-Cache=BY_PASS`_ HTTP header.
+{% tabs %}
+{% tab title="Proxy API example" %}
+{% hint style="warning" %}
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
-{% hint style="info" %}
-**Make sure you define your Cache resource**
-
-If no cache resource is defined for the policy, or it is not well configured, the API will not be deployed. The resource name is specified in the policy configuration `cacheName`.
+Currently, this policy can **not** be applied at the message level.
 {% endhint %}
+
+To display your request distribution based on a particular HTTP header in your dashboards, create the custom metric shown below.
+
+```
+"assign-metrics": {
+    "metrics": [
+        {
+            "name": "myCustomHeader,
+            "value": "{#request.headers['X-MyCustomHeader'] != null ? #request.headers['X-MyCustomHeader'][0] : null}"
+        }
+    ]
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
@@ -34,37 +53,7 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-Here is an example configuration:
-
-```
-"cache": {
-    "cacheName": "policy-cache",
-    "key": "{#request.params['productId']}",
-    "timeToLiveSeconds": 600,
-    "useResponseCacheHeaders": false,
-    "scope": "APPLICATION",
-    "methods": ["POST"],
-    "responseCondition": "{#upstreamResponse.status == 201}"
-}
-```
-
-#### Gateway configuration (gravitee.yml)
-
-{% hint style="info" %}
-**Compatibility**
-
-The `binary` serialization format is not compatible with the Redis cache resource.
-{% endhint %}
-
-```
-  policy:
-    cache:
-      serialization: text # default value or "binary" (not compatible with Redis)
-```
-
-The `policy.cache.serialization` allow to configure the serialization format of the cache.
-
-The default value is `text` but you can also use `binary` to use a binary serialization format (not compatible with Redis).
+You can enable or disable the policy with policy identifier `policy-assign-metrics`.
 
 ### Phases
 
@@ -72,14 +61,10 @@ Policies can be applied to the request or the response of a Gateway API transact
 
 The phases checked below are supported by the Assign Metrics policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `cache` policy.
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>&#x3C;=1.x</td><td>All</td><td>true</td></tr></tbody></table>
-
-## Changelog
-
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-cache/blob/master/CHANGELOG.md" %}
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>>=2.x</td><td>>=3.18</td><td>N/A</td></tr><tr><td>1.x - 2.x</td><td>&#x3C;3.17</td><td>N/A</td></tr></tbody></table>
