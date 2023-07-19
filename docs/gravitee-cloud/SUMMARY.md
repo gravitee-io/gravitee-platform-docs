@@ -15,3 +15,4 @@
 
 * [Register installations](guides/register-installations.md)
 * [Monitor and check health of installations](guides/monitor-and-check-health-of-installations.md)
+* [Set up your Gravitee Cloud Hierarchy](guides/set-up-your-gravitee-cloud-hierarchy.md)

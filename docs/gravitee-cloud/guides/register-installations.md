@@ -53,4 +53,4 @@ There are two ways to log in to an installation in GC:
 
 You are redirected to the Console login page of the APIM or AM instance.
 
-If multiple APIM or AM installations are linked, the Console login page of the first installation linked to the environment opens.\
+If multiple APIM or AM installations are linked, the Console login page of the first installation linked to the environment opens.
