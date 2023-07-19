@@ -31,37 +31,49 @@ Click the settings icon ![cockpit settings icon](https://docs.gravitee.io/images
 
 ### API Management Free trial
 
-If you've signed up for Gravitee Cloud in order to sign up for a free trial of [Enterprise API Management](https://documentation.gravitee.io/apim/overview/ee-vs-oss), follow these steps:
+If you want to sign up for Gravitee Cloud in order to start an [enterprise API Management trail](https://documentation.gravitee.io/apim/overview/ee-vs-oss), head to [https://cockpit.gravitee.io/](https://cockpit.gravitee.io/), and enter in the required information to register.&#x20;
 
+You'll be taken to the Gravitee Cloud setup flow. First, choose a **Company name**.&#x20;
 
+<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.38.13 AM.png" alt=""><figcaption><p>Set up your company</p></figcaption></figure>
 
-## Set up your GC Hierarchy
+Next, you'll have the option to choose either:
 
-### Create your GC hierarchy
+* **Quick setup**: automatically creates a Gravitee Cloud account, a Gravitee organization and environment, and a free trial instance
+* **Manual setup:** creates a Gravitee Cloud instance, but then requires you to create and start a trial manually
 
-You create your hierarchy from the GC dashboard, accessed by clicking **Home** in the left-hand menu.
+We recommend the **Quick setup,** but do include instructions for starting a trial using the manual mode in the [Manual trial setup section](access-and-set-up.md#manual-trial-setup). The rest of this section assumes a **Quick setup.**
 
-To create your hierarchy:
+After you select Quick setup, select Continue, and then define your **Organization** and **Environment names**.&#x20;
 
-1.  If you have multiple accounts, select the account from the drop-down in the breadcrumb navigation.
+<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.42.47 AM.png" alt=""><figcaption><p>Define an Organization and Environment name</p></figcaption></figure>
 
-    ![dashboard account select](https://docs.gravitee.io/images/cockpit/dashboard-account-select.png)
-2. Create an organization with **NEW ORGANIZATION**.
-3. Create the environments with **NEW ENVIRONMENT**. You will need to select the organization the environments belong to.
+Then, select **Complete setup.** At this point, Gravitee will handle trial set up. You'll be taken to the **Gravitee Cloud Dashboard** while the trial initializes. This typically takes around 5 minutes.&#x20;
 
-You can now link [installations to your environments.](../guides/register-installations.md)
+<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.44.33 AM.png" alt=""><figcaption><p>Gravitee Cloud Dashboard: trial initialization</p></figcaption></figure>
 
-### Update entity settings
+In the meantime, please feel free to check out the educational content. This content is useful for any team that's looking to find success with an enterprise APIM trial.
 
-You can update the settings of any entity within your hierarchy from the hierarchy map, accessed by clicking your organization name in the left-hand menu.
+Once the trial is set up, you'll see the option to access your API Management trial both in the bottom left corner of the screen and in the top left block of your **Dashboard**. Select either to get started.&#x20;
 
-You can update the general details of entities, delete entities, and manage users. You can also update specific settings such as API Designer settings for organizations.
+<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.46.28 AM.png" alt=""><figcaption><p>Gravitee Cloud Dashboard: free trial</p></figcaption></figure>
 
-To update settings for an entity in your organization:
+### Try out the pre-configured trial walk throughs
 
-1. Click the organization name in the left-hand menu.
-2. Click the settings icon ![cockpit settings icon](https://docs.gravitee.io/images/icons/cockpit-settings-icon.png) of the entity.
+Once you access your trial, you'll be brought to your Gravitee APIM trial environment. You'll have the option to follow pre-configured walk throughs that make use of a [Gravitee-built trial application](https://documentation.gravitee.io/apim/getting-started/tutorials), or explore APIM on your own. We recommend every team at least try the walk through first. To better assist you, we've documented the [free trial walk throughs in the Gravitee APIM free trial documentation. ](https://documentation.gravitee.io/apim/getting-started/tutorials)
 
-\\
+If, at any point, you want to contact sales to upgrade or book a demo, [you can do so here](https://www.gravitee.io/demo).
 
-\\
+### Manual trial setup
+
+If you choose the **Manual set up** option, you'll need to define your **Organization** and **Environment names**. When done, select **Complete setup.**&#x20;
+
+You'll be taken to the **Gravitee Cloud Dashboard**.&#x20;
+
+<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.54.20 AM.png" alt=""><figcaption><p>Gravitee Cloud Dashboard: manual setup</p></figcaption></figure>
+
+To create a trial environment, select **Start your APIM trial** in the bottom left of the screen, and then select **Start my free trial** in the pop-up dialog.
+
+Before initializing the trial, you'll need to select which **Organization** you want to link this trial to. Typically, this will be the **Organization** that you just created during Gravitee Cloud registration.&#x20;
+
+From here, Gravitee will work on initializing your trial. Once initialized, we recommend exploring via the [pre-configured APIM trial walkthroughs.](access-and-set-up.md#try-out-the-pre-configured-trial-walk-throughs)
