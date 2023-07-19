@@ -1,5 +1,15 @@
 ---
-description: WORK IN PROGRESS
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Gravitee API Definitions and Execution Engines
@@ -15,18 +25,10 @@ Since APIM 4.0, there is support for both the v2 and v4 Gravitee API definitions
 This guide is a deep dive into the difference between the two engines. In short, the reactive execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. This adds features such as native support for Pub/Sub (Publish-Subscribe) design and enabling policies at the message level.
 
 {% hint style="warning" %}
-You can also run v2 Gateway APIs in **compatibility mode** which emulates some of the execution flow improvements of the reactive execution engine. This is detailed in the [v2 Gateway API compatibility mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-compatibility-mode) section below.
+You can also run v2 Gateway APIs in **emulation mode** which emulates some of the execution flow improvements of the reactive execution engine. This is detailed in the [v2 Gateway API emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode) section below.
 {% endhint %}
 
 APIM fully supports both API definitions and execution engines. The [v2 API Creation Wizard ](../guides/create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the legacy execution engine that can be augmented with flows designed in the [v2 Policy Studio](../guides/policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](../guides/create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine that can be augmented with flows designed in the [v4 Policy Studio](../guides/policy-design/v4-api-policy-design-studio.md).
-
-To summarize, here is a table outlining the key differences in day-to-day usage:
-
-| Placeholder |   |   |
-| ----------- | - | - |
-|             |   |   |
-|             |   |   |
-|             |   |   |
 
 ### Key improvements
 
@@ -37,19 +39,19 @@ The new reactive engine provides the following capabilities:
 * The ability to execute policies in the exact order in which they have been placed in the Policy Studio. This addresses some issues experienced by users related to the order in which policies are executed by the legacy engine where policies interacting with the Head part of the request are always executed first, even when placed in a different order in the Policy Studio during the design phase. With the new reactive execution engine, it is possible to apply logic on a head policy based on the payload of the request - for example, to apply dynamic routing based on the request payload.
 
 {% hint style="warning" %}
-v2 Gateway APIs have this capability when [compatibility mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-compatibility-mode) is enabled.
+v2 Gateway APIs have this capability when [emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode) is enabled.
 {% endhint %}
 
 * Proper isolation between platform-level policies and API-level policies during policy execution. This ensures that platform-level policies are always executed prior to any API-level policies during the request stage and after any API-level policies during the response stage.
 
 {% hint style="warning" %}
-v2 Gateway APIs have this capability when [compatibility mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-compatibility-mode) is enabled.
+v2 Gateway APIs have this capability when [emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode) is enabled.
 {% endhint %}
 
 * Removal of the need to define a scope for policies (`onRequest`, `onRequestContent`, `onResponse`, `onResponseContent`).
 
 {% hint style="warning" %}
-v2 Gateway APIs have this capability when [compatibility mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-compatibility-mode) is enabled.
+v2 Gateway APIs have this capability when [emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode) is enabled.
 {% endhint %}
 
 * Support for message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhook.
@@ -58,11 +60,11 @@ In this section, you can learn about all the differences between the new reactiv
 
 ### Policy support
 
-With the legacy execution engine, all existing supported policies will continue to work as before without a change.
+With the legacy execution engine, all existing supported policies will continue to work as before without any changes.
 
-Over time, all policies will be migrated to support the new reactive execution engine. Each policy in the [Policy Reference](broken-reference) guide will include a compatibility table.
+All policies will also support the new reactive execution engine. However, only some policies are capable of being applied at the message level. This is detailed for each policy in the [Policy Reference](../reference/policy-reference/) Guide.
 
-### v2 Gateway API compatibility mode
+### v2 Gateway API emulation mode
 
 Need dev input
 
