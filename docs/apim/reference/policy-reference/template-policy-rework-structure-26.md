@@ -19,8 +19,10 @@ You can use the `rest-to-soap` policy to expose SOAP backend service as a REST A
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="info" %}
-The proxy API example also applies to v2 APIs.
+{% hint style="warning" %}
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+
+Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
 For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap` policy SOAP envelope content:
