@@ -158,6 +158,9 @@
   * [Request Content Limit](reference/policy-reference/template-policy-rework-structure-24.md)
   * [Resource Filtering](reference/policy-reference/template-policy-rework-structure-25.md)
   * [REST to SOAP](reference/policy-reference/template-policy-rework-structure-26.md)
+  * [Retry](reference/policy-reference/template-policy-rework-structure-27.md)
+  * [Role-based Access Control (RBAC)](reference/policy-reference/template-policy-rework-structure-28.md)
+  * [SSL Enforcement](reference/policy-reference/template-policy-rework-structure-29.md)
 
 ## Releases & Changelog
 
