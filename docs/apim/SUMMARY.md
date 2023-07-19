@@ -143,11 +143,12 @@
   * [HTTP Callout](reference/policy-reference/template-policy-rework-structure-7.md)
   * [HTTP Signature](reference/policy-reference/template-policy-rework-structure-8.md)
   * [IP filtering](reference/policy-reference/template-policy-rework-structure-9.md)
-  * [JSON Threat Protection](reference/policy-reference/template-policy-rework-structure-10.md)
-  * [JSON Validation](reference/policy-reference/template-policy-rework-structure-11.md)
-  * [JSON to JSON](reference/policy-reference/template-policy-rework-structure-14.md)
-  * [JSON Web Signature (JWS)](reference/policy-reference/template-policy-rework-structure-15.md)
-  * [JSON Web Token (JWT)](reference/policy-reference/template-policy-rework-structure-16.md)
+  * [Javascript](reference/policy-reference/template-policy-rework-structure-12.md)
+  * [JSON Threat Protection](reference/policy-reference/template-policy-rework-structure-13.md)
+  * [JSON Validation](reference/policy-reference/template-policy-rework-structure-14.md)
+  * [JSON to JSON](reference/policy-reference/template-policy-rework-structure-15.md)
+  * [JSON Web Signature (JWS)](reference/policy-reference/template-policy-rework-structure-16.md)
+  * [JSON Web Token (JWT)](reference/policy-reference/template-policy-rework-structure-17.md)
 
 ## Releases & Changelog
 

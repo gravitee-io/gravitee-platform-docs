@@ -14,9 +14,9 @@ Currently, this policy can **not** be applied at the message level.
 
 Functional and implementation information for the JSON Threat Protection policy is organized into the following sections:
 
-* [Configuration](template-policy-rework-structure-10.md#configuration)
-* [Errors](template-policy-rework-structure-10.md#errors)
-* [Changelogs](template-policy-rework-structure-10.md#changelogs)
+* [Configuration](template-policy-rework-structure-13.md#configuration)
+* [Errors](template-policy-rework-structure-13.md#errors)
+* [Changelogs](template-policy-rework-structure-13.md#changelogs)
 
 You can use the `json-threat-protection` policy to validate a JSON request body by specifying limits for various JSON structures (such as arrays, field names and string values). When an invalid request is detected (meaning the limit is reached), the request will be considered a threat and rejected with a `400 BAD REQUEST`.
 
