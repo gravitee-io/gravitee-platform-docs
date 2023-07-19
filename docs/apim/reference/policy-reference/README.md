@@ -28,7 +28,7 @@ To deploy the plugin, follow these steps:
 
 ## Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy has different compatibility with the available phases as described in the [Policy Studio documentation](../../guides/policy-design/).
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy has different compatibility with the available phases as described in the documentation for each individual policy.
 
 {% tabs %}
 {% tab title="v4 API definition" %}
