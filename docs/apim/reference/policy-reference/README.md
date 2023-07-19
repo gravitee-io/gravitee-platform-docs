@@ -1,5 +1,5 @@
 ---
-description: Discover how policies secure, transform, restrict, and monitor your APIs
+description: Detailed documentation for all of Gravitee's policies
 ---
 
 # Policy Reference
