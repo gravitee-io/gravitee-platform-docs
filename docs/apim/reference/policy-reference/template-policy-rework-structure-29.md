@@ -1,8 +1,8 @@
 ---
-description: This page provides the technical details of the SSL Enforcement policy
+description: This page provides the technical details of the RBAC policy
 ---
 
-# SSL Enforcement
+# Role-based Access Control (RBAC)
 
 {% hint style="warning" %}
 **This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
@@ -10,7 +10,7 @@ description: This page provides the technical details of the SSL Enforcement pol
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+Functional and implementation information for the RBAC policy is organized into the following sections:
 
 * [Configuration](template-policy-rework-structure-29.md#configuration)
 * [Compatibility](template-policy-rework-structure-29.md#compatibility-matrix)
@@ -23,9 +23,14 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-You can use the `ssl-enforcement` policy to filter incoming SSL requests. It allows you to restrict or allow access only to requests with client certificate authentication or only to a subset of valid clients.
+You can use the `role-based-access-control` policy (RBAC policy) to control access to a resource by specifying the required roles to access it.
 
-This policy is mainly used in plan configuration to allow access to consumers for a given set of certificates.
+The policy can be configured to either:
+
+* allow only incoming requests with roles exactly matching the configured roles (strict mode)
+* allow incoming requests with at least one role matching the configured roles
+
+The roles are checked against request attribute `gravitee.attribute.user.roles`.
 
 ## Configuration
 
@@ -35,37 +40,28 @@ When using the Management API, policies are added as flows either directly to an
 
 {% code title="Sample Configuration" %}
 ```json
-"ssl-enforcement" : {
-    "requiresSsl": true,
-    "requiresClientAuthentication": true,
-    "whitelistClientCertificates": [
-        "CN=localhost,O=GraviteeSource,C=FR"
-    ]
+{
+  "rbac": {
+    "roles": ["read", "write", "admin"],
+    "strict": true
+  }
 }
 ```
 {% endcode %}
 
-#### Ant style path pattern
-
-URL mapping matches URLs using the following rules:
-
-* `?` matches one character
-* `*` matches zero or more characters
-* `**` matches zero or more directories in a path
-
 ### Reference
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>requiresSsl</td><td>false</td><td>Is SSL requires to access this resource?</td><td>boolean</td><td>true</td></tr><tr><td>requiresClientAuthentication</td><td>false</td><td>Is client authentication required to access this resource?</td><td>boolean</td><td>false</td></tr><tr><td>whitelistClientCertificates</td><td>false</td><td>List of allowed X.500 names (from client certificate)</td><td>array of strings</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>roles</td><td>true</td><td>The list of required roles</td><td>Array of strings</td><td></td></tr><tr><td>strict</td><td>true</td><td>Validation mode — strict or not (must or should)</td><td>boolean</td><td>true</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the SSL Enforcement policy:
+The phases checked below are supported by the RBAC policy:
 
 <table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-## Compatibility matrix
+## Compatibility
 
 The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
 
@@ -73,10 +69,10 @@ The [changelog for each version of APIM](../../releases-and-changelog/changelog/
 
 #### HTTP status codes
 
-| Code  | Message                                                          |
-| ----- | ---------------------------------------------------------------- |
-| `401` | Access to the resource is unauthorized according to policy rules |
-| `403` | Access to the resource is forbidden according to policy rules    |
+| Code  | Message                                                                                                                                               |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `400` | <p>Applies if:</p><p>* The roles associated with the request are not valid</p>                                                                        |
+| `403` | <p>Applies if:</p><p>* No roles are associated with the current request</p><p>* Role(s) associated with the request do not match required role(s)</p> |
 
 #### Default response override
 
@@ -86,12 +82,12 @@ You can use the response template feature to override the default responses prov
 
 The error keys sent by this policy are as follows:
 
-| Key                                        | Parameters                                |
-| ------------------------------------------ | ----------------------------------------- |
-| SSL\_ENFORCEMENT\_SSL\_REQUIRED            | -                                         |
-| SSL\_ENFORCEMENT\_AUTHENTICATION\_REQUIRED | -                                         |
-| SSL\_ENFORCEMENT\_CLIENT\_FORBIDDEN        | name (X.500 name from client certificate) |
+| Key                              | Parameters |
+| -------------------------------- | ---------- |
+| RBAC\_NO\_USER\_ROLE (403)       | -          |
+| RBAC\_INVALID\_USER\_ROLES (400) | -          |
+| RBAC\_FORBIDDEN (403)            | -          |
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-ssl-enforcement/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-role-based-access-control/blob/master/CHANGELOG.md" %}

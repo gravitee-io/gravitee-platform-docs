@@ -24,13 +24,13 @@ The Gravitee APIM Enterprise Edition is available as three different packages, e
 
 The features below are included in the default enterprise API Management distribution and do not require additional enterprise plugins:
 
-* Enterprise OpenID Connect SSO: Use OpenId Connect SSO with your API Management platform.
-* [Debug Mode](../../guides/policy-design/v2-api-policy-design-studio.md#debug-mode): Easily test and debug your policy execution and enforcement.
-* [Audit trail](../../guides/api-measurement-tracking-and-analytics/#the-audit-trail): Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform over time.
-* [DCR Registration](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md#dynamic-client-registration-provider): Dynamic client registration (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint.
-* [Custom Roles](../../guides/administration/user-management-and-permissions.md#roles): Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application levels.
-* [Sharding Tags](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md): Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
-* [Bridge Gateway](../../getting-started/hybrid-deployment/#bridge-gateways): By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.
+* **Enterprise OpenID Connect SSO:** Use OpenId Connect SSO with your API Management platform.
+* [**Debug Mode**](../../guides/policy-design/v2-api-policy-design-studio.md#debug-mode)**:** Easily test and debug your policy execution and enforcement.
+* [**Audit trail**](../../guides/api-measurement-tracking-and-analytics/#the-audit-trail)**:** Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform over time.
+* [**DCR Registration**](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md#dynamic-client-registration-provider): Dynamic client registration (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint.
+* [**Custom Roles**](../../guides/administration/user-management-and-permissions.md#roles)**:** Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application levels.
+* [**Sharding Tags**](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md)**:** Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
+* [**Bridge Gateway**](../../getting-started/hybrid-deployment/#bridge-gateways)**:** By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.
 
 ### Enterprise policy pack
 
@@ -45,7 +45,7 @@ The Enterprise policy pack includes policies that are typically necessary for en
 
 The Legacy upgrade pack comprises the following plugins and capabilities that enable organizations to better migrate from and/or service legacy systems:
 
-* **XSLT policy plugin**: Use the XSLT policy to apply an XSL transformation to an incoming XML request body, or to the response body if your backend is exposing XML content.
+* [**XSLT policy plugin**](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/1120/reference/policy-reference/template-policy-rework-structure-35): Use the XSLT policy to apply an XSL transformation to an incoming XML request body, or to the response body if your backend is exposing XML content.
 * **WebSocket security authentication**: Enables the client to send a SOAP envelope with WSS details, where the policy will validate and check the credentials (currently supports username and password).
 
 ### Observability pack
