@@ -154,6 +154,10 @@
   * [OAuth2](reference/policy-reference/template-policy-rework-structure-20.md)
   * [OpenID Connect UserInfo](reference/policy-reference/template-policy-rework-structure-21.md)
   * [Rate Limit](reference/policy-reference/template-policy-rework-structure-22.md)
+  * [Regex Threat Protection](reference/policy-reference/template-policy-rework-structure-23.md)
+  * [Request Content Limit](reference/policy-reference/template-policy-rework-structure-24.md)
+  * [Resource Filtering](reference/policy-reference/template-policy-rework-structure-25.md)
+  * [REST to SOAP](reference/policy-reference/template-policy-rework-structure-26.md)
 
 ## Releases & Changelog
 
