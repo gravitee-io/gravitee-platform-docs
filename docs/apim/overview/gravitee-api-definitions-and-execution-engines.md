@@ -66,7 +66,27 @@ All policies will also support the new reactive execution engine. However, only 
 
 ### v2 Gateway API emulation mode
 
-Need dev input
+{% hint style="info" %}
+Emulation mode is not enabled for v2 APIs by default as it may cause unexpected changes in behavior.
+{% endhint %}
+
+All v2 Gateway APIs can be used in emulation mode as shown in the image below:
+
+<figure><img src="../.gitbook/assets/Screenshot 2023-07-19 at 4.45.21 PM.png" alt=""><figcaption><p>v2 API emulation mode</p></figcaption></figure>
+
+Enabling this option allows v2 Gateway APIs to easily access all the improvements of the reactive execution engine detailed in the following sections.
+
+{% hint style="warning" %}
+v4 Gateway APIs have some exclusive benefits that are tied to the API definition itself. v2 APIs in emulation mode will **not** have the following benefits:
+
+* Event native API management: support for event brokers, multi-entry points, QOS, etc.
+* Analytics improvements
+  * Message-level analytics with sampling
+  * Ability to disable analytics in the API definition
+* Modified flow execution phases: request, response, subscribe, publish
+* Flow required match option
+* Generic flow selectors
+{% endhint %}
 
 ## Policy execution phases and execution order
 
