@@ -145,8 +145,9 @@
   * [IP filtering](reference/policy-reference/template-policy-rework-structure-9.md)
   * [JSON Threat Protection](reference/policy-reference/template-policy-rework-structure-10.md)
   * [JSON Validation](reference/policy-reference/template-policy-rework-structure-11.md)
-  * [JSON Web Signature (JWS)](reference/policy-reference/template-policy-rework-structure-12.md)
-  * [JSON Web Token (JWT)](reference/policy-reference/template-policy-rework-structure-13.md)
+  * [JSON to JSON](reference/policy-reference/template-policy-rework-structure-14.md)
+  * [JSON Web Signature (JWS)](reference/policy-reference/template-policy-rework-structure-15.md)
+  * [JSON Web Token (JWT)](reference/policy-reference/template-policy-rework-structure-16.md)
 
 ## Releases & Changelog
 

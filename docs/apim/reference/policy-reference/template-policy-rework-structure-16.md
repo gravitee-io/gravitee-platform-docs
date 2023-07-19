@@ -8,11 +8,11 @@ description: This page provides the technical details of the JSON-to-XML policy
 
 Functional and implementation information for the JWT policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure-13.md#examples)
-* [Configuration](template-policy-rework-structure-13.md#configuration)
-* [Compatibility Matrix](template-policy-rework-structure-13.md#compatibility-matrix)
-* [Errors](template-policy-rework-structure-13.md#errors)
-* [Changelogs](template-policy-rework-structure-13.md#changelogs)
+* [Examples](template-policy-rework-structure-16.md#examples)
+* [Configuration](template-policy-rework-structure-16.md#configuration)
+* [Compatibility Matrix](template-policy-rework-structure-16.md#compatibility-matrix)
+* [Errors](template-policy-rework-structure-16.md#errors)
+* [Changelogs](template-policy-rework-structure-16.md#changelogs)
 
 ## Examples
 

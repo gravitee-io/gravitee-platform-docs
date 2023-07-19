@@ -8,10 +8,10 @@ description: This page provides the technical details of the JSON Web Signature 
 
 Functional and implementation information for the JWS policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure-12.md#examples)
-* [Configuration](template-policy-rework-structure-12.md#configuration)
-* [Errors](template-policy-rework-structure-12.md#errors)
-* [Changelogs](template-policy-rework-structure-12.md#changelogs)
+* [Examples](template-policy-rework-structure-15.md#examples)
+* [Configuration](template-policy-rework-structure-15.md#configuration)
+* [Errors](template-policy-rework-structure-15.md#errors)
+* [Changelogs](template-policy-rework-structure-15.md#changelogs)
 
 ## Examples
 
