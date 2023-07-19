@@ -153,8 +153,7 @@
   * [Keyless](reference/policy-reference/template-policy-rework-structure-19.md)
   * [OAuth2](reference/policy-reference/template-policy-rework-structure-20.md)
   * [OpenID Connect UserInfo](reference/policy-reference/template-policy-rework-structure-21.md)
-  * [Rate Limit](reference/policy-reference/template-policy-rework-structure-22/README.md)
-    * [Page 1](reference/policy-reference/template-policy-rework-structure-22/page-1.md)
+  * [Rate Limit](reference/policy-reference/template-policy-rework-structure-22.md)
 
 ## Releases & Changelog
 
