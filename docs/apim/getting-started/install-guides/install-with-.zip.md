@@ -39,7 +39,7 @@ Download the binaries [here](https://download.gravitee.io/graviteeio-apim/distri
 
 {% code overflow="wrap" %}
 ```sh
-curl -L https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-3.20.0.zip -o gravitee-standalone-distribution-3.20.0.zip
+curl -L https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-4.0.zip -o gravitee-standalone-distribution-4.0.zip
 ```
 {% endcode %}
 
@@ -47,11 +47,11 @@ curl -L https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-fu
 
 ### Extract the `.zip` archive
 
-Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-gateway-3.20.0` directory, then use the following commands:
+Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-gateway-4.0` directory, then use the following commands:
 
 ```sh
-$ unzip gravitee-standalone-distribution-3.20.0.zip
-$ cp -r graviteeio-full-3.20.0/graviteeio-apim-gateway-3.20.0 [DESTINATION_FOLDER]/
+$ unzip gravitee-standalone-distribution-4.0.zip
+$ cp -r graviteeio-full-4.0/graviteeio-apim-gateway-4.0 [DESTINATION_FOLDER]/
 ```
 
 ### Run APIM Gateway from the command line
@@ -61,7 +61,7 @@ By default, APIM Gateway runs in the foreground, prints its logs to standard out
 Run APIM Gateway from the command line as follows:
 
 ```sh
-$ cd [DESTINATION_FOLDER]/graviteeio-apim-gateway-3.20.0
+$ cd [DESTINATION_FOLDER]/graviteeio-apim-gateway-4.0
 $ ./bin/gravitee
 ```
 
@@ -69,7 +69,7 @@ Once APIM Gateway is running, you will see this log:
 
 ```sh
 ...
-11:01:53.162 [gravitee] [] INFO  i.g.g.standalone.node.GatewayNode - Gravitee - Gateway id[2e05c0fa-8e48-4ddc-85c0-fa8e48bddc11] version[3.20.0] pid[24930] build[175] jvm[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/25.121-b13] started in 15837 ms.
+11:01:53.162 [gravitee] [] INFO  i.g.g.standalone.node.GatewayNode - Gravitee - Gateway id[2e05c0fa-8e48-4ddc-85c0-fa8e48bddc11] version[4.0] pid[24930] build[175] jvm[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/25.121-b13] started in 15837 ms.
 ...
 ```
 
@@ -123,11 +123,11 @@ This section describes how to install Management API and verify the nodes are ru
 
 ### Extract the `.zip` archive
 
-Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-rest-api-3.20.0` directory, then use the following commands:
+Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-rest-api-4.0` directory, then use the following commands:
 
 ```sh
-$ unzip gravitee-standalone-distribution-3.20.0.zip
-$ cp -r graviteeio-full-3.20.0/graviteeio-apim-rest-api-3.20.0 [DESTINATION_FOLDER]/
+$ unzip gravitee-standalone-distribution-4.0.zip
+$ cp -r graviteeio-full-4.0/graviteeio-apim-rest-api-4.0 [DESTINATION_FOLDER]/
 ```
 
 ### Run Management API from the command line
@@ -135,7 +135,7 @@ $ cp -r graviteeio-full-3.20.0/graviteeio-apim-rest-api-3.20.0 [DESTINATION_FOLD
 You start APIM API from the command line as follows:
 
 ```sh
-$ cd [DESTINATION_FOLDER]/graviteeio-apim-rest-api-3.20.0
+$ cd [DESTINATION_FOLDER]/graviteeio-apim-rest-api-4.0
 $ ./bin/gravitee
 ```
 
@@ -149,7 +149,7 @@ Once the Management API is running, you will see a log such as this one:
 
 ```sh
 ...
-11:01:53.162 [main] INFO  i.g.r.a.s.node.GraviteeApisNode - Gravitee - Rest APIs id[2e05c0fa-8e48-4ddc-85c0-fa8e48bddc11] version[3.20.0] pid[24930] build[175] jvm[AdoptOpenJDK/OpenJDK 64-Bit Server VM/12.0.1+12] started in 8042 ms.
+11:01:53.162 [main] INFO  i.g.r.a.s.node.GraviteeApisNode - Gravitee - Rest APIs id[2e05c0fa-8e48-4ddc-85c0-fa8e48bddc11] version[4.0] pid[24930] build[175] jvm[AdoptOpenJDK/OpenJDK 64-Bit Server VM/12.0.1+12] started in 8042 ms.
 ...
 ```
 
@@ -226,11 +226,11 @@ Before you begin, ensure the Management API is installed and running.
 
 ### Extract the `.zip` archive
 
-Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-console-ui-3.20.0` directory, then use the following commands:
+Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-console-ui-4.0` directory, then use the following commands:
 
 ```sh
-$ unzip gravitee-standalone-distribution-3.20.0.zip
-$ cp -r graviteeio-full-3.20.0/graviteeio-apim-console-ui-3.20.0 [DESTINATION_FOLDER]/
+$ unzip gravitee-standalone-distribution-4.0.zip
+$ cp -r graviteeio-full-4.0/graviteeio-apim-console-ui-4.0 [DESTINATION_FOLDER]/
 ```
 
 ### Deploy or run the Management Console
@@ -242,7 +242,7 @@ The Management Console is a client-side-only AngularJS application and can be de
 #### Run with Python
 
 ```sh
-$ cd [DESTINATION_FOLDER]/graviteeio-apim-console-ui-3.20.0
+$ cd [DESTINATION_FOLDER]/graviteeio-apim-console-ui-4.0
 $ python3 -m http.server
 ```
 
@@ -250,7 +250,7 @@ $ python3 -m http.server
 
 ```sh
 $ npm install http-server -g
-$ cd [DESTINATION_FOLDER]/graviteeio-apim-console-ui-3.20.0
+$ cd [DESTINATION_FOLDER]/graviteeio-apim-console-ui-4.0
 $ http-server
 ```
 
@@ -262,11 +262,11 @@ Before you begin, ensure the Management API is installed and running.
 
 ### Extract the `.zip` archive
 
-Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-portal-ui-3.20.0` directory, then use the following commands:
+Extract the desired directory from the archive and place it in your `DESTINATION_FOLDER`. For example, if you wanted the `graviteeio-apim-portal-ui-4.0` directory, then use the following commands:
 
 ```sh
-$ unzip gravitee-standalone-distribution-3.20.0.zip
-$ cp -r graviteeio-full-3.20.0/graviteeio-apim-console-ui-3.20.0 [DESTINATION_FOLDER]/
+$ unzip gravitee-standalone-distribution-4.0.zip
+$ cp -r graviteeio-full-4.0/graviteeio-apim-console-ui-4.0 [DESTINATION_FOLDER]/
 ```
 
 ### Deploy or run the Developer Portal
@@ -277,7 +277,7 @@ The Developer Portal is a client-side-only Angular application and can be deploy
 
 ```sh
 $ npm install angular-http-server -g
-$ cd [DESTINATION_FOLDER]/graviteeio-apim-portal-ui-3.20.0
+$ cd [DESTINATION_FOLDER]/graviteeio-apim-portal-ui-4.0
 $ angular-http-server
 ```
 
