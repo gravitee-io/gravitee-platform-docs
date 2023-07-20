@@ -20,7 +20,7 @@ The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way t
 YAML (`yml`) format is sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
 {% endhint %}
 
-With the  `gravitee.yaml` file, you can configure the following:
+With the `gravitee.yaml` file, you can configure the following:
 
 * Configure HTTP Server
   * Enable HTTPS support
@@ -119,12 +119,17 @@ CORS (Cross-Origin Resource Sharing) is a mechanism that allows resources on a w
 
 For more information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors).
 
+CORS can be applied at three different levels:&#x20;
+
+1. [API](../../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-cors)
+2. Environment
+3. Organization
+
+where the more specific levels override the broader levels: API > Environment > Organization.
+
 You can configure CORS at the organization level using `gravitee.yml`, environment variables or directly in APIM Console.
 
-{% hint style="info" %}
-You can also apply CORS settings at the [API level](../../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-cors).
-{% endhint %}
-
+{% code title="gravitee.yaml" %}
 ```yaml
 http:
   api:
@@ -159,12 +164,15 @@ http:
     # Which headers to allow (default values: Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With, If-Match, X-Xsrf-Token)
 #      allow-headers: 'X-Requested-With'
 ```
+{% endcode %}
 
 ### Configure in APIM Console
 
-You can also configure CORS in the **Organization > Settings** section of the APIM Console:&#x20;
+You can also configure CORS at the organization level in the **Organization > Settings** section of the APIM Console:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-30 at 2.35.47 PM.png" alt=""><figcaption><p>Organization wide CORS settings</p></figcaption></figure>
+
+Or at the environment level in the **Settings > Settings** section of the APIM Console:
 
 ## Configure the Management repository
 
@@ -303,4 +311,4 @@ If you are using 2-Factor Authentication (which is recommended), you need to [ge
 
 The following is a reference of the default configuration of APIM Management API in your `gravitee.yml` file:
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-rest-api/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/src/main/resources/config/gravitee.yml" %}
+\{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-rest-api/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/src/main/resources/config/gravitee.yml" %\}
