@@ -13,12 +13,12 @@ Gravitee currently has three types of releases:
 * General availability
 
 {% hint style="info" %}
-&#x20;A release does not need to go through a tech preview or beta to reach general availability.
+A release does not need to go through a tech preview or beta to reach general availability.
 {% endhint %}
 
 ### Tech preview <a href="#tech-preview" id="tech-preview"></a>
 
-Tech Preview refers to a stage in which a particular feature is made available for testing and evaluation purposes to members of Gravitee's Early Access program.&#x20;
+Tech Preview refers to a stage in which a particular feature is made available for testing and evaluation purposes to members of Gravitee's Early Access program.
 
 {% hint style="info" %}
 **Join Gravitee's Early Access program**
@@ -87,5 +87,3 @@ The tables below provide information about the entire Gravitee platform's produc
 | 3.19    | 12 months     | 2022-10-04   | 2023-10-04 |
 | 3.20    | 12 months     | 2023-01-12   | 2024-01-12 |
 | 4.0     | 12 months     | 2023-7-20    | 2024-7-20  |
-
-\
