@@ -1,4 +1,4 @@
-# Push interface
+# Push Interface
 
 ## Overview
 
@@ -21,5 +21,3 @@ Three possible methods for pushing an API to a linked API Management installatio
 **Mocked:** Same as Documented, plus the API is deployed with a keyless plan and mock policy on the Gateway. Consumers can retrieve mock responses from the API, where the body of the mock response is based on the examples defined in the design interface.
 
 **Published:** Same as Mocked, plus the API is published on the Developer Portal. Consumers can subscribe to the API.
-
-\

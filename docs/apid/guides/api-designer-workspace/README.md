@@ -54,4 +54,4 @@ Click on the following **Settings** options in the left-hand nav to customize AP
 Only environments linked to active API Management installations will be shown.
 {% endhint %}
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td><a href="design-interface.md">Design interface</a></td><td></td></tr><tr><td></td><td><a href="push-interface.md">Push interface</a></td><td></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Design Interface</td><td></td><td><a href="design-interface.md">design-interface.md</a></td></tr><tr><td></td><td>Push Interface</td><td></td><td><a href="push-interface.md">push-interface.md</a></td></tr></tbody></table>

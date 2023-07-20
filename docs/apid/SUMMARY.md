@@ -11,8 +11,8 @@
 ## GUIDES
 
 * [API Designer Workspace](guides/api-designer-workspace/README.md)
-  * [Design interface](guides/api-designer-workspace/design-interface.md)
-  * [Push interface](guides/api-designer-workspace/push-interface.md)
+  * [Design Interface](guides/api-designer-workspace/design-interface.md)
+  * [Push Interface](guides/api-designer-workspace/push-interface.md)
 
 ## COMMUNITY & SUPPORT
 
