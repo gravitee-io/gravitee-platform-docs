@@ -48,7 +48,7 @@ v2 Gateway APIs have this capability when [emulation mode](gravitee-api-definiti
 v2 Gateway APIs have this capability when [emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode) is enabled.
 {% endhint %}
 
-* &#x20;Scopes have been simplified for API publishers by merging `onRequest` and `onRequestContent` into `onRequest` and `onResponse` and `onResponseContent` into `onResponse.` This means API publishers no longer have to define a scope in the policy configuration itself for v4 APIs.
+* &#x20;Scopes have been simplified for API publishers by merging `onRequest` and `onRequestContent` into `onRequest` and `onResponse` and `onResponseContent` into `onResponse`. This means API publishers no longer have to define a scope in the policy configuration itself for v4 APIs.
 * Support for message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhook.
 
 In this section, you can learn about all the differences between the new reactive execution engine and the existing legacy execution engine. Additionally, guidance is provided on managing changes in system behavior when switching to the reactive policy execution engine or enabling compatibility mode with a v2 API. The information is grouped by functional area in the sub-sections below.
