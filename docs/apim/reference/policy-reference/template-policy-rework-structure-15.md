@@ -1,12 +1,12 @@
 ---
-description: This page provides the technical details of the HTTP Signature policy
+description: This page provides the technical details of the HTTP Callout policy
 ---
 
-# HTTP Signature
+# HTTP Callout
 
 ## Overview
 
-Functional and implementation information for the HTTP Signature policy is organized into the following sections:
+Functional and implementation information for the HTTP Callout policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-15.md#examples)
 * [Configuration](template-policy-rework-structure-15.md#configuration)
@@ -16,18 +16,11 @@ Functional and implementation information for the HTTP Signature policy is organ
 
 ## Examples
 
-HTTP Signature is a kind of authentication method which is adding a new level of security. By using this policy, the consumer is enforced to send a _signature_ which is used to identify the request temporarily and ensure that the request is really coming from the requesting consumer, using a secret key.
+You can use the `callout-http` policy to invoke an HTTP(S) URL and place a subset or all of the content in one or more variables of the request execution context.
 
-The "Signature" authentication scheme is based on the model that the client must authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
+This can be useful if you need some data from an external service and want to inject it during request processing.
 
-You can use:
-
-* Authorization header: For example: `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
-* Signature header: For example, `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
-
-{% hint style="info" %}
-The current version of the policy does not support **Digest**, **(request-target)**, **Host** and **Path** headers
-{% endhint %}
+The result of the callout is placed in a variable called `calloutResponse` and is only available during policy execution. If no variable is configured the result of the callout is no longer available.
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -38,14 +31,17 @@ Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
 ```
-{
-  "http-signature": {
-	"scheme":"AUTHORIZATION",
-	"clockSkew":30,
-	"secret":"my-passphrase",
-	"algorithms":["HMAC_SHA256"],
-	"enforceHeaders":["Date","Host"]
-  }
+"policy-http-callout": {
+    "method": "GET",
+    "url": "https://api.gravitee.io/echo",
+    "headers": [ {
+        "name": "X-Gravitee-Request-Id",
+        "value": "{#request.id}"
+    }],
+    "variables": [{
+        "name": "my-server",
+        "value": "{#jsonPath(#calloutResponse.content, '$.headers.X-Forwarded-Server')}"
+    }]
 }
 ```
 {% endtab %}
@@ -59,50 +55,62 @@ When using the Management API, policies are added as flows either directly to an
 
 {% code title="Sample Configuration" %}
 ```json
-{
-  "http-signature": {
-	"scheme":"AUTHORIZATION",
-	"clockSkew":30,
-	"secret":"my-passphrase",
-	"algorithms":["HMAC_SHA256"],
-	"enforceHeaders":["Date","Host"]
-  }
+"policy-http-callout": {
+    "method": "GET",
+    "url": "https://api.gravitee.io/echo",
+    "headers": [ {
+        "name": "X-Gravitee-Request-Id",
+        "value": "{#request.id}"
+    }],
+    "variables": [{
+        "name": "my-server",
+        "value": "{#jsonPath(#calloutResponse.content, '$.headers.X-Forwarded-Server')}"
+    }]
 }
 ```
 {% endcode %}
 
 ### Reference
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Default</th><th>Example</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td>authorization</td><td>-</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL).</td><td>-</td><td>passphrase</td></tr><tr><td>algorithms</td><td>false</td><td>A list of supported HMAC digest algorithms.</td><td>-</td><td>-</td></tr><tr><td>enforceHeaders</td><td>false</td><td>List of headers the consumer must at least use for HTTP signature creation.</td><td>-</td><td>-</td></tr><tr><td>clockSkew</td><td>false</td><td>Clock Skew in seconds to prevent replay attacks.</td><td>30</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>method</td><td>true</td><td>HTTP Method used to invoke URL</td><td>HTTP method</td><td>GET</td></tr><tr><td>useSystemProxy</td><td>true</td><td>Use the system proxy configured by your administrator</td><td>boolean</td><td>false</td></tr><tr><td>url</td><td>true</td><td>URL invoked by the HTTP client (support EL)</td><td>URL</td><td>-</td></tr><tr><td>headers</td><td>true</td><td>List of HTTP headers used to invoke the URL (support EL)</td><td>HTTP Headers</td><td>-</td></tr><tr><td>body</td><td>true</td><td>The body content send when calling the URL (support EL)</td><td>string</td><td>-</td></tr><tr><td>fireAndForget</td><td>true</td><td>Make the http call without expecting any response. When activating this mode, context variables and exit on error are useless.</td><td>boolean</td><td>false</td></tr><tr><td>variables</td><td>true</td><td>The variables to set in the execution context when retrieving content of HTTP call (support EL)</td><td>List of variables</td><td>-</td></tr><tr><td>exitOnError</td><td>true</td><td>Terminate the request if the error condition is true</td><td>boolean</td><td>false</td></tr><tr><td>errorCondition</td><td>true</td><td>The condition which will be verified to end the request (support EL)</td><td>string</td><td>{#calloutResponse.status >= 400 and #calloutResponse.status ⇐ 599}</td></tr><tr><td>errorStatusCode</td><td>true</td><td>HTTP Status Code sent to the consumer if the condition is true</td><td>int</td><td>500</td></tr><tr><td>errorContent</td><td>true</td><td>The body response of the error if the condition is true (support EL)</td><td>string</td><td></td></tr></tbody></table>
+
+### System Proxy
+
+If the option `useSystemProxy` is checked, proxy information will be read from `JVM_OPTS` or from the `gravitee.yml` file if `JVM_OPTS` is not set. The system properties are as follows:
+
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th></tr></thead><tbody><tr><td>system.proxy.host</td><td>true</td><td>Proxy Hostname or IP</td></tr><tr><td>system.proxy.port</td><td>true</td><td>The proxy port</td></tr><tr><td>system.proxy.type</td><td>true</td><td>The type of proxy (HTTP, SOCK4, SOCK5)</td></tr><tr><td>system.proxy.username</td><td>false</td><td>Username for proxy authentication if any</td></tr><tr><td>system.proxy.password</td><td>false</td><td>Password for proxy authentication if any</td></tr></tbody></table>
+
+#### HTTP client proxy options
+
+```
+# global configuration of the http client
+system:
+  proxy:
+    type: HTTP
+    host: localhost
+    port: 3128
+    username: user
+    password: secret
+```
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the HTTP Signature policy:
+The phases checked below are supported by the HTTP Callout policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `http-signature` policy.
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `callout-http` policy.
 
-<table><thead><tr><th>Plugin version</th><th>Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>1.5 and upper</td><td>3.15.x to latest</td><td>true</td></tr><tr><td>Up to 1.4</td><td>Up to 3.14.x</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>>= 2.x</td><td>>=3.18</td><td>true</td></tr><tr><td>>= 1.15.x</td><td>3.15.x - 3.17.x</td><td>true</td></tr><tr><td>1.13.x - 1.14.x</td><td>3.10.x - 3.14.x</td><td>true</td></tr><tr><td>&#x3C;= 1.12.x</td><td>&#x3C;=3.9.x</td><td>true</td></tr></tbody></table>
 
 ## Errors
 
-If you’re looking to override the default response provided by the policy, you can do it thanks to the response templates feature. These templates must be define at the API level (see `Response Templates` from the `Proxy` menu).
-
-Here are the error keys send by this policy:
-
-| Key                                 | Parameters |
-| ----------------------------------- | ---------- |
-| HTTP\_SIGNATURE\_INVALID\_SIGNATURE |            |
-
-### Http status code
-
-<table><thead><tr><th width="166.33333333333331">Phase</th><th>Code</th><th>Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td><p>In case of:</p><p>* Missing or signature</p><p>* Request does not contain headers part of the signature</p><p>* Enforce HTTP headers not part of the signature</p></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>500</code></td><td>An error occurred while invoking URL</td></tr><tr><td>onResponse</td><td><code>500</code></td><td>An error occurred while invoking URL</td></tr><tr><td>onRequestContent</td><td><code>500</code></td><td>An error occurred while invoking URL</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>An error occurred while invoking URL</td></tr></tbody></table>
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-http-signature/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-callout-http/blob/master/CHANGELOG.md" %}

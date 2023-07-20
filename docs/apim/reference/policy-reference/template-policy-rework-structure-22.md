@@ -1,167 +1,45 @@
 ---
-description: This page provides the technical details of the JSON-to-JSON policy
+description: This page provides the technical details of the JSON Validation policy
 ---
 
-# JSON to JSON
+# JSON Validation
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure-22.md#examples)
+
+{% hint style="warning" %}
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+
+Currently, this policy can **not** be applied at the message level.
+{% endhint %}
+
+Functional and implementation information for the JSON Validation policy is organized into the following sections:
+
 * [Configuration](template-policy-rework-structure-22.md#configuration)
 * [Errors](template-policy-rework-structure-22.md#errors)
 * [Changelogs](template-policy-rework-structure-22.md#changelogs)
 
-## Examples
-
-You can use the `json-to-json` policy to apply a transformation (or mapping) on the request and/or response and/or message content.
-
-This policy is based on the [JOLT](https://github.com/bazaarvoice/jolt) library.
-
-In APIM, you need to provide the JOLT specification in the policy configuration.
-
-{% hint style="info" %}
-You can use APIM EL in the JOLT specification.
-{% endhint %}
-
-At request/response level, the policy will do nothing if the processed request/response does not contain JSON. This policy checks the `Content-Type` header before applying any transformation.
-
-At message level, the policy will do nothing if the processed message has no content. It means that the message will be re-emitted as is\
-
-
-{% tabs %}
-{% tab title="Proxy API example" %}
-{% hint style="info" %}
-The proxy API example also applies to v2 APIs.
-{% endhint %}
-
-For this input:
-
-Input
-
-```
-{
-    "_id": "57762dc6ab7d620000000001",
-    "name": "name",
-    "__v": 0
-}
-```
-
-And this JOLT specification:
-
-```
-[
-  {
-    "operation": "shift",
-    "spec": {
-      "_id": "id",
-      "*": {
-        "$": "&1"
-      }
-    }
-  },
-  {
-    "operation": "remove",
-    "spec": {
-      "__v": ""
-    }
-  }
-]
-```
-
-The output is as follows:
-
-```
-{
-    "id": "57762dc6ab7d620000000001",
-    "name": "name"
-}
-```
-
-\
-
-{% endtab %}
-
-{% tab title="Message API example" %}
-For this input:
-
-Input
-
-```
-{
-    "_id": "57762dc6ab7d620000000001",
-    "name": "name",
-    "__v": 0
-}
-```
-
-And this JOLT specification:
-
-```
-[
-  {
-    "operation": "shift",
-    "spec": {
-      "_id": "id",
-      "*": {
-        "$": "&1"
-      }
-    }
-  },
-  {
-    "operation": "remove",
-    "spec": {
-      "__v": ""
-    }
-  }
-]
-```
-
-The output is as follows:
-
-```
-{
-    "id": "57762dc6ab7d620000000001",
-    "name": "name"
-}
-```
-{% endtab %}
-{% endtabs %}
+You can use the `json-validation` policy to validate JSON payloads. This policy uses [JSON Schema Validator](https://github.com/java-json-tools/json-schema-validator). It returns 400 BAD REQUEST when request validation fails and 500 INTERNAL ERROR when response validation fails, with a custom error message body. It can inject processing report messages into request metrics for analytics.
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
+### Reference
 
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
-
-{% code title="Sample Configuration" %}
-```json
-{
-    "json-to-json": {
-        "scope": "REQUEST",
-        "specification": "[{ \"operation\": \"shift\", \"spec\": { \"_id\": \"id\", \"*\": { \"$\": \"&1\" } } }, { \"operation\": \"remove\", \"spec\": { \"__v\": \"\" } }]"
-    }
-}
-```
-{% endcode %}
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Policy scope from where the policy is executed</td><td>Policy scope</td><td>REQUEST_CONTENT</td></tr><tr><td>errorMessage</td><td>true</td><td>Custom error message in JSON format. Spel is allowed.</td><td>string</td><td>{"error":"Bad request"}</td></tr><tr><td>schema</td><td>true</td><td>Json schema.</td><td>string</td><td></td></tr><tr><td>deepCheck</td><td>false</td><td>Validate descendant even if JSON parent container is invalid</td><td>boolean</td><td>false</td></tr><tr><td>validateUnchecked</td><td>false</td><td>Unchecked validation means that conditions which would normally cause the processing to stop with an exception are instead inserted into the resulting report. Warning: this means that anomalous events like an unresolvable JSON Reference, or an invalid schema, are masked!.</td><td>boolean</td><td>false</td></tr><tr><td>straightRespondMode</td><td>false</td><td>Only for RESPONSE scope. Straight respond mode means that responses failed to validate still will be sent to user without replacement. Validation failures messages are still being written to the metrics for further inspection.</td><td>boolean</td><td>false</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the JSON-to-XML policy:
+The phases checked below are supported by the JSON Validation policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequestContent</td><td><code>500</code></td><td>Bad specification file or transformation cannot be executed properly</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>Bad specification file or transformation cannot be executed properly</td></tr><tr><td>onMessageRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Incoming message cannot be transformed properly to XML</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Outgoing message cannot be transformed properly to XML</td></tr></tbody></table>
-
-### Nested objects
-
-To limit the processing time in the case of a nested object, the default max depth of a nested object has been set to 1000. This default value can be overridden using the environment variable `gravitee_policy_jsonxml_maxdepth`.
+<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequestContent</td><td><code>400</code></td><td><p>Sent in the following cases:</p><p>* Invalid payload</p><p>* Invalid JSON schema</p><p>* Invalid error message JSON format</p></td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td><p>Sent in the following cases:</p><p>* Invalid payload</p><p>* Invalid JSON schema</p><p>* Invalid error message JSON format</p></td></tr></tbody></table>
 
 ## Changelogs
 
-\{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-json-xml/blob/master/CHANGELOG.md" %\}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-json-validation/blob/master/CHANGELOG.md" %}

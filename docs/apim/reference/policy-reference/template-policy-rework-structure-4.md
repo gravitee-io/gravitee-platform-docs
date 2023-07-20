@@ -1,92 +1,27 @@
 ---
-description: This page provides the technical details of the Assign Attributes policy
+description: This page provides the technical details of the AWS Lambda policy
 ---
 
-# Assign Attributes
+# AWS Lambda
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+Functional and implementation information for the AWS Lambda policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure-4.md#examples)
 * [Configuration](template-policy-rework-structure-4.md#configuration)
-* [Compatibility Matrix](template-policy-rework-structure-4.md#compatibility-matrix)
+* [Compatibility](template-policy-rework-structure-4.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-4.md#errors)
 * [Changelogs](template-policy-rework-structure-4.md#changelogs)
 
-## Examples
-
-You can use the `assign-attributes` policy to set variables such as request attributes and other execution context attributes.
-
-You can use it to retrieve initial request attributes after `Transform headers` or `Transform query parameters` policies and reuse them in other policies (`Dynamic routing`, for example).
-
-{% tabs %}
-{% tab title="Proxy API example" %}
 {% hint style="warning" %}
-The proxy API example also applies to v2 APIs. This policy can also be used at the message level for v4 APIs.
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+
+Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-Let’s say we want to inject request attributes into the context attributes:
+The AWS Lambda policy can be used to request a Lambda instead of or in addition to the backend.
 
-```
-"assign-attributes": {
-    "attributes": [
-        {
-            "name": "initialContentTypeHeader,
-            "value": "{#request.headers['Content-Type']}"
-        },
-        {
-            "name": "initialFooParamHeader,
-            "value": "{#request.params['foo']}"
-        }
-    ]
-}
-```
-
-To extract the request attributes you can use the following syntax:
-
-Get the content-type header:
-
-```
-{#context.attributes['initialContentTypeHeader']}
-```
-
-Get the foo query param:
-
-```
-{#context.attributes['initialFooParamHeader']}
-```
-
-#### Request objects
-
-You can also be more general and put complex objects into the context attributes:
-
-```
-"assign-attributes": {
-    "attributes": [
-        {
-            "name": "initialRequest,
-            "value": "{#request}"
-        }
-    ]
-}
-```
-
-To extract the request attributes you can use the following syntax:
-
-Get the content-type header:
-
-```
-{#context.attributes['initialRequest'].headers['content-type']}
-```
-
-Get the foo query param:
-
-```
-{#context.attributes['initialRequest'].params['foo']}
-```
-{% endtab %}
-{% endtabs %}
+By default, the Lambda is called in addition to the backend, meaning the consumer will not receive the response from the Lambda.
 
 ## Configuration
 
@@ -94,24 +29,62 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
+{% code title="Sample Configuration" %}
+```json
+"configuration": {
+    "variables": [
+      {
+        "name": "lambdaResponse",
+        "value": "{#jsonPath(#lambdaResponse.content, '$')}"
+      }
+    ],
+    "secretKey": "secretKey",
+    "accessKey":"accessKey",
+    "payload": "{ \"key\": \"value\" }",
+    "scope": "REQUEST",
+    "function": "lambda-example",
+    "region": "us-east-1",
+    "sendToConsumer": true,
+    "endpoint": "http://aws-lambda-url/function"
+}
+```
+{% endcode %}
+
+### Reference
+
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>The scope on which apply the policy</td><td>string</td><td>REQUEST</td></tr><tr><td>region</td><td>true</td><td>The AWS region</td><td>string</td><td>us-east-1</td></tr><tr><td>accessKey</td><td>false</td><td>AWS Access Key</td><td>string</td><td>-</td></tr><tr><td>secretKey</td><td>false</td><td>AWS Secret Key</td><td>string</td><td>-</td></tr><tr><td>function</td><td>true</td><td>The name of the AWS Lambda function to call</td><td>string</td><td>-</td></tr><tr><td>payload</td><td>false</td><td>Payload of the request to AWS Lambda function</td><td>string</td><td>-</td></tr><tr><td>variables</td><td>false</td><td>The variables to set in the execution context when retrieving content of HTTP call (support EL)</td><td>List of variables</td><td>-</td></tr><tr><td>sendToConsumer</td><td>false</td><td>Check this option if you want to send the response of the lambda to the initial consumer without going to the final upstream (endpoints) selected by the gateway.</td><td>boolean</td><td>false</td></tr></tbody></table>
+
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Assign Attributes policy:
+The phases checked below are supported by the AWS Lambda policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-## Compatibility matrix
+## Compatibility
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `assign-attributes` policy.
-
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>&#x3C;= 1.x</td><td>All</td><td>true</td></tr></tbody></table>
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>500</code></td><td>An error occurred while setting request attributes in the execution context</td></tr><tr><td>onResponse</td><td><code>500</code></td><td>An error occurred while setting request attributes in the execution context</td></tr><tr><td>onRequestContent</td><td><code>500</code></td><td>An error occurred while setting request attributes in the execution context</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>An error occurred while setting request attributes in the execution context</td></tr><tr><td>onMessageRequest</td><td><code>500</code></td><td>An error occurred while setting request attributes in the execution context</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td>An error occurred while setting request attributes in the execution context</td></tr></tbody></table>
+#### Default error <a href="#user-content-default-error" id="user-content-default-error"></a>
+
+| Code  | Message                   |
+| ----- | ------------------------- |
+| `500` | Request processing broken |
+
+#### Override errors <a href="#user-content-override-errors" id="user-content-override-errors"></a>
+
+You can override the default response provided by the policy with the response templates feature. These templates must be defined at the API level with the APIM Console **Proxy > Response Templates** function.
+
+The error keys sent by this policy are as follows:
+
+| Key                                | Default status | Parameters |
+| ---------------------------------- | -------------- | ---------- |
+| AWS\_LAMBDA\_INVALID\_RESPONSE     | 500            | -          |
+| AWS\_LAMBDA\_INVALID\_STATUS\_CODE | 400            | -          |
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-assign-attributes/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-json-xml/blob/master/CHANGELOG.md" %}

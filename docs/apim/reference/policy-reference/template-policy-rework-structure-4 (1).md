@@ -12,11 +12,11 @@ description: This page provides the technical details of the Assign Metrics poli
 
 Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure-5.md#examples)
-* [Configuration](template-policy-rework-structure-5.md#configuration)
-* [Compatibility Matrix](template-policy-rework-structure-5.md#compatibility-matrix)
-* [Errors](template-policy-rework-structure-5.md#errors)
-* [Changelogs](template-policy-rework-structure-5.md#changelogs)
+* [Examples](<template-policy-rework-structure-4 (1).md#examples>)
+* [Configuration](<template-policy-rework-structure-4 (1).md#configuration>)
+* [Compatibility Matrix](<template-policy-rework-structure-4 (1).md#compatibility-matrix>)
+* [Errors](<template-policy-rework-structure-4 (1).md#errors>)
+* [Changelogs](<template-policy-rework-structure-4 (1).md#changelogs>)
 
 ## Examples
 

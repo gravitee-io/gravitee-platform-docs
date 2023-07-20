@@ -1,34 +1,30 @@
 ---
-description: This page provides the technical details of the Resource Filtering policy
+description: This page provides the technical details of the Rate Limit policy
 ---
 
-# Resource Filtering
+# Rate Limit
 
 ## Overview
 
-Functional and implementation information for the Resource Filtering policy is organized into the following sections:
+Functional and implementation information for the Rate Limit policy is organized into the following sections:
 
+* [Examples](template-policy-rework-structure-31.md#examples)
 * [Configuration](template-policy-rework-structure-31.md#configuration)
-* [Compatibility](template-policy-rework-structure-31.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-31.md#errors)
 * [Changelogs](template-policy-rework-structure-31.md#changelogs)
 
-You can use the `resource-filtering` policy to filter REST resources. By applying this filter, you can restrict or allow access to a specific resource determined by a path and a method (or an array of methods).
+## Examples
 
-This policy is mainly used in plan configuration, to limit subscriber access to specific resources only.
+There are three `rate-limit` policies:
 
-A typical usage would be to allow access to all paths (`/**`) but in read-only mode (GET method).
-
-
+* **Quota**: configures the number of requests allowed over a period of time (hours, days, weeks, months)
+* **Rate-Limit**: configures the number of requests allowed over a limited period of time (seconds, minutes)
+* **Spike-Arrest**: throttles the number of requests processed and sends them to the backend to avoid a spike
 
 {% hint style="warning" %}
 This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
-{% endhint %}
-
-{% hint style="info" %}
-You can’t apply whitelisting and blacklisting to the same resource. Whitelisting takes precedence over blacklisting.
 {% endhint %}
 
 ## Configuration
@@ -37,71 +33,84 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
+### Quota
+
 {% code title="Sample Configuration" %}
 ```json
-"resource-filtering" : {
-    "whitelist":[
-        {
-            "pattern":"/**",
-            "methods": ["GET"]
-        }
-    ]
-}
+"quota": {
+    "limit": "1000",
+    "periodTime": 1,
+    "periodTimeUnit": "MONTHS"
+  }
 ```
 {% endcode %}
 
-#### **Ant style path pattern**
+#### Reference
 
-URL mapping matches URLs using the following rules:
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>key</td><td>false</td><td>Key to identify a consumer to apply the quota against. Leave it empty to apply the default behavior (plan/subscription pair). Supports Expression Language.</td><td>String</td><td>null</td></tr><tr><td>limit</td><td>false</td><td>Static limit on the number of requests that can be sent (this limit is used if the value > 0).</td><td>integer</td><td>0</td></tr><tr><td>dynamicLimit</td><td>false</td><td>Dynamic limit on the number of requests that can be sent (this limit is used if static limit = 0). The dynamic value is based on Expression Language expressions.</td><td>string</td><td>null</td></tr><tr><td>periodTime</td><td>true</td><td>Time duration</td><td>Integer</td><td>1</td></tr><tr><td>periodTimeUnit</td><td>true</td><td>Time unit (<code>HOURS</code>, <code>DAYS</code>, <code>WEEKS</code>, <code>MONTHS</code>)</td><td>String</td><td>MONTHS</td></tr></tbody></table>
 
-* `?` matches one character
-* `*` matches zero or more characters
-* `**` matches zero or more directories in a path
+### Rate Limit
 
-### Reference
+{% code title="Sample Configuration" %}
+```json
+"rate": {
+    "limit": "10",
+    "periodTime": 10,
+    "periodTimeUnit": "MINUTES"
+  }
+```
+{% endcode %}
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>whitelist</td><td>false</td><td>List of allowed resources</td><td>array of <a href="https://docs.gravitee.io/apim/3.x/apim_policies_resource_filtering.html#gravitee-policy-resource-filtering-resource"><code>resources</code></a></td><td>-</td></tr><tr><td>blacklist</td><td>false</td><td>List of restricted resources</td><td>array of <a href="https://docs.gravitee.io/apim/3.x/apim_policies_resource_filtering.html#gravitee-policy-resource-filtering-resource"><code>resources</code></a></td><td>-</td></tr></tbody></table>
+#### Reference
 
-A resource is defined as follows:
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>key</td><td>false</td><td>Key to identify a consumer to apply rate-limiting against. Leave it empty to use the default behavior (plan/subscription pair). Supports Expression Language.</td><td>String</td><td>null</td></tr><tr><td>limit</td><td>false</td><td>Static limit on the number of requests that can be sent (this limit is used if the value > 0).</td><td>integer</td><td>0</td></tr><tr><td>dynamicLimit</td><td>false</td><td>Dynamic limit on the number of requests that can be sent (this limit is used if static limit = 0). The dynamic value is based on Expression Language expressions.</td><td>string</td><td>null</td></tr><tr><td>periodTime</td><td>true</td><td>Time duration</td><td>Integer</td><td>1</td></tr><tr><td>periodTimeUnit</td><td>true</td><td>Time unit ("SECONDS", "MINUTES" )</td><td>String</td><td><p></p><p></p><p>SECONDS</p></td></tr></tbody></table>
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>pattern</td><td>true</td><td>An <a href="https://docs.gravitee.io/apim/3.x/apim_policies_resource_filtering.html#gravitee-policy-resource-filtering-ant">Ant-style path patterns</a> (<a href="http://ant.apache.org/">Apache Ant</a>).</td><td>string</td><td>-</td></tr><tr><td>methods</td><td>false</td><td>List of HTTP methods for which filter is applied.</td><td>array of HTTP methods</td><td>All HTTP methods</td></tr></tbody></table>
+### Spike Arrest
+
+{% code title="Sample Configuration" %}
+```json
+"spike": {
+    "limit": "10",
+    "periodTime": 10,
+    "periodTimeUnit": "MINUTES"
+  }
+```
+{% endcode %}
+
+#### Reference
+
+The Spike-Arrest policy configures the number of requests allow over a limited period of time (from seconds to minutes). This policy prevents request spikes by throttling incoming requests. For example, a SpikeArrest policy configured to 2000 requests/second will limit the execution of simultaneous requests to 200 requests per 100ms.
+
+By default, the SpikeArrest policy is applied to a plan, not a consumer. To apply a spike arrest to a consumer, you need to use the `key` attribute, which supports Expression Language.
+
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>key</td><td>false</td><td>Key to identify a consumer to apply spike arresting against. Leave it empty to use the default behavior. Supports Expression Language (example: <code>{#request.headers['x-consumer-id']}</code>).</td><td>String</td><td>null</td></tr><tr><td>limit</td><td>false</td><td>Static limit on the number of requests that can be sent (this limit is used if the value > 0).</td><td>integer</td><td>0</td></tr><tr><td>dynamicLimit</td><td>false</td><td>Dynamic limit on the number of requests that can be sent (this limit is used if static limit = 0). The dynamic value is based on Expression Language expressions.</td><td>string</td><td>null</td></tr><tr><td>periodTime</td><td>true</td><td>Time duration</td><td>Integer</td><td>1</td></tr><tr><td>periodTimeUnit</td><td>true</td><td>Time unit (<code>SECONDS</code>, <code>MINUTES</code>)</td><td>String</td><td>SECONDS</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the JSON-to-XML policy:
+The phases checked below are supported by the Rate Limit policies:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
-
-## Compatibility matrix
-
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
-
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Errors
 
-#### HTTP status codes
-
-| Code  | Message                                                                   |
-| ----- | ------------------------------------------------------------------------- |
-| `403` | Access to the resource is forbidden according to resource-filtering rules |
-| `405` | Method not allowed while accessing this resource                          |
-
 #### Default response override
 
-You can use the response template feature to override the default responses provided by the policy. These templates must be defined at the API level (see the API Console **Response Templates** option in the API **Proxy** menu).
+You can use the response template feature to override the default response provided by the policies. These templates must be defined at the API level (see the API Console **Response Templates** option in the API **Proxy** menu).
 
 #### Error keys
 
-The error keys sent by this policy are as follows:
+The error keys sent by these policies are as follows:
 
-| Key                                       | Parameters    |
-| ----------------------------------------- | ------------- |
-| RESOURCE\_FILTERING\_FORBIDDEN            | path - method |
-| RESOURCE\_FILTERING\_METHOD\_NOT\_ALLOWED | path - method |
+| Key                                | Parameters                                                                                            |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| RATE\_LIMIT\_TOO\_MANY\_REQUESTS   | limit - period\_time - period\_unit                                                                   |
+| QUOTA\_TOO\_MANY\_REQUESTS         | limit - period\_time - period\_unit                                                                   |
+| SPIKE\_ARREST\_TOO\_MANY\_REQUESTS | limit - period\_time - period\_unit - slice\_limit - slice\_period\_time - slice\_limit\_period\_unit |
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-resource-filtering/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-ratelimit/blob/master/CHANGELOG.md" %}
+
+\
