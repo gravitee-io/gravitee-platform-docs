@@ -4,6 +4,8 @@ description: This page provides the technical details of the API Key policy
 
 # API Key
 
+## Overview
+
 You can use the `api-key` policy to enforce API key checks during request processing, allowing only apps with approved API keys to access your APIs.
 
 This policy ensures that API keys are valid, have not been revoked or expired and are approved to consume the specific resources associated with your API.

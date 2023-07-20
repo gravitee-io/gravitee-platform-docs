@@ -1,12 +1,12 @@
 ---
-description: This page provides the technical details of the Groovy policy
+description: This page provides the technical details of the Generate JWT policy
 ---
 
-# Groovy
+# Generate JWT
 
 ## Overview
 
-Functional and implementation information for the Groovy policy is organized into the following sections:
+Functional and implementation information for the Generate JWT policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-9.md#examples)
 * [Configuration](template-policy-rework-structure-9.md#configuration)
@@ -15,14 +15,9 @@ Functional and implementation information for the Groovy policy is organized int
 
 ## Examples
 
-ou can use the [Groovy](http://www.groovy-lang.org/) policy to run Groovy scripts at any stage of request processing through the gateway.
+You use the `generate-JWT` policy to generate a signed JWT with a configurable set of claims. This JWT can subsequently be forwarded to backend targets, or used in some other way.
 
-The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
-
-```
-response.headers.remove 'X-Powered-By'
-response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
-```
+When a signed JWT is generated, it is put in the `jwt.generated` attribute of the request execution context.
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -32,85 +27,17 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-#### onRequest / onResponse
-
-Some variables are automatically bound to the Groovy script to allow users to use them and define the policy behavior.
-
-| Name       | Description                                                                       |
-| ---------- | --------------------------------------------------------------------------------- |
-| `request`  | Inbound HTTP request                                                              |
-| `response` | Outbound HTTP response                                                            |
-| `context`  | `PolicyContext` used to access external components such as services and resources |
-| `result`   | Groovy script result                                                              |
-
-Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error` but you can override this behavior with the following properties: - `code`: An HTTP status code - `error`: The error message - `key`: The key of a response template:
-
 ```
-import io.gravitee.policy.groovy.PolicyResult.State
-
-if (request.headers.containsKey('X-Gravitee-Break')) {
-    result.key = 'RESPONSE_TEMPLATE_KEY';
-    result.state = State.FAILURE;
-    result.code = 500
-    result.error = 'Stop request processing due to X-Gravitee-Break header'
-} else {
-    request.headers.'X-Groovy-Policy' = 'ok'
+"policy-generate-jwt": {
+    "signature":"RSA_RS256",
+    "expiresIn":30,
+    "expiresInUnit":"SECONDS",
+    "issuer":"urn://gravitee-api-gw",
+    "audiences":["graviteeam"],
+    "customClaims":[],
+    "id":"817c6cfa-6ae6-446e-a631-5ded215b404b",
+    "content":"-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDg0MY5LcTnpM/N\nd9ohW/mls6CqF3PoVocwUpKSb324QFuSGvo5s2qzM1JkR2uNTS5lapGltF0Krc5j\nmUgKqVZUx3ie76ngvHTVrz9qNHe9znsTFndtpsaFZuNIiGT8X+eAYgqKUaoKA+3y\nNWynEmXL9ywtFtGommPO1iBwMYfbucuxBmwtklkzxCrFGftAsTJANy8T+CV61TpB\nP2LbFVngfT0uDgjfoG/KMSBUZR88YZNvEyj1mEDPvZPZD6vYUBlTMlWgAwAD+pUn\n6b/a1BsZ69mMvMzvOg9NhuwMLwGDwQ45Gh51Swnzk6a/Oamgpa/ehySfZkypJhPL\ndiutySELAgMBAAECggEBALjo/yFok9wzovfM7I0jqWKxLCS6xYsEII2OXSA0s6Mo\nzCiQJ9/twoVCYTI5zCycntyrmsBAaYavDmK9YJPkVC3HI18WoRNH7pETY4VnQlXL\nz08T24dE9WQkDC1MgkNSXocqHKFIKiOyt7PQXV3NtAzfcGZlrmyPECi/1k5xbt05\nmU1AaM0HAKP5kGmoANEWyaPhYSrShD3EQH8QEjPwrmua62e7kas7x5u5u01tFndv\nG1/rYlApvruwoczBdD3R8WQEdziFn09IcGZUnpBWDkPlEn62qLW8/3k+uF9An9dd\n1c0IoyNopefLvm9W4CXtzFEzJsre32BIutpj66EECAECgYEA+2GYTmd7lVAAMgj/\nMes+HNVqRtg5OiAggx6qvjhi+6hhMLeVKS8mqslMQXewHthbY0+PdyvKRCZnNURj\nUmeZxxk04kOJZqN5ak45NJ6T10PnlZ0vtf2Ym9Mmi4Q29Mzk9SCR9NtVuwRHhGmP\nzOPCXQCwFHeVkqzqkYHIji1ko0sCgYEA5PI5WkWFG/uAPxVZbQreyD1iRgTxEz8B\nn1XefxQ1IV8L5/n48XAgeK1NUbhr4jPSbXL98mX5/RdyCmZORdbPLDRqSVrRepQ3\nAXF82Xp2X9Py/Gn/pIZPXEW54ctnEiW8WVRD2XQ2df1sUq+H5gX/RraiI2O9/CyF\nixZkkC4tIUECgYEAw/lt15HtUpYv0NIawTv4DFqEo/5lft8U+aOq0Oj8ody/CE/W\nxWiw6GxOOquobiOV+3JHEkzdPwwBYhGSrOd/hywrgknMkGvZd/rLti36a9PQc187\nltHBa5nNbu8AORCTXlap8w4bY9UOPDhflwfousCShSJFRTfxFsbrJ4xT7MkCgYBQ\np8TsuHEcWo3jq3HFqH6zrGxinnsPfLLlnyqzOjs9dm6LWtUIuae229bRY1ceaYNI\na6prKuHW99uFLmWE1RhHSm/nR8dkl7KJH6IMO8hYGiMQKYeWPnrW1vmVQkMdcY3Z\nKoZ8pSRKjO0MdCo8LwCvuMeGEC1uGYEybsEeyiW8AQKBgBnkExWeD6KQQL9rrImq\nwhPqz9yuMpIsBtf93fDLXwmy/0VG9L6uDf/3MKl+RYs4PQGe+QQSmXTgqcbHr5ug\nNEFDDK0C9k0Gd0Zl/Z29H6vZWJH9E4ur/xZToeADc3sQT/Ga78LwF8s5EtOPuGVD\nOyCUoLQJgofJWKk2Tp5gKogB\n-----END PRIVATE KEY-----"
 }
-```
-
-To customize the error sent by the policy:
-
-```
-import io.gravitee.policy.groovy.PolicyResult.State
-result.key = 'RESPONSE_TEMPLATE_KEY';
-result.state = State.FAILURE;
-result.code = 400
-result.error = '{"error":"My specific error message","code":"MY_ERROR_CODE"}'
-result.contentType = 'application/json'
-```
-
-#### OnRequestContent / OnResponseContent
-
-You can also transform request or response body content by applying a Groovy script on the `OnRequestContent` phase or the `OnResponseContent` phase.
-
-The following example shows you how to use the Groovy policy to transform JSON content:
-
-**Input body content**
-
-```
-[
-    {
-        "age": 32,
-        "firstname": "John",
-        "lastname": "Doe"
-    }
-]
-```
-
-**Groovy script**
-
-```
-import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
-
-def jsonSlurper = new JsonSlurper()
-def content = jsonSlurper.parseText(response.content)
-content[0].firstname = 'Hacked ' + content[0].firstname
-content[0].country = 'US'
-return JsonOutput.toJson(content)
-```
-
-**Output body content**
-
-```
-[
-    {
-        "age": 32,
-        "firstname": "Hacked John",
-        "lastname": "Doe",
-        "country": "US"
-    }
-]
 ```
 {% endtab %}
 {% endtabs %}
@@ -121,76 +48,38 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
-"groovy": {
-    "onRequestScript": "request.headers.'X-Gravitee-Gateway' = '0.14.0'",
-    "onResponseScript": "response.headers.remove 'X-Powered-By'",
-    "onRequestContentScript": "" // Not executed if empty
-    "onResponseContentScript": "" // Not executed if empty
-}
-```
-{% endcode %}
-
 ### Reference
 
-<table data-full-width="false"><thead><tr><th width="140">Property</th><th width="104" data-type="checkbox">Required</th><th width="207">Description</th><th width="111" data-type="select">Type</th><th width="247">Options</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td></tr><tr><td>description</td><td>false</td><td>Provide a description for your policy</td><td></td><td>N/a</td></tr><tr><td>rootElement</td><td>true</td><td>XML root element name that encloses content.</td><td></td><td>N/a<br><strong>root</strong></td></tr><tr><td>scope</td><td>true</td><td>The execution scope</td><td></td><td><strong>REQUEST</strong> RESPONSE</td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>signature</td><td>true</td><td>Signature used to sign the token</td><td>Algorithm</td><td>RS256</td></tr><tr><td>kid</td><td>false</td><td>key ID (<code>kid</code>) to include in the JWT header</td><td>string</td><td>-</td></tr><tr><td>id</td><td>false</td><td>JWT ID (<code>jti</code>) claim is a unique identifier for the JWT</td><td>string</td><td>UUID</td></tr><tr><td>audiences</td><td>false</td><td>JWT audience claim; can be a string or an array of strings</td><td>List of string</td><td>-</td></tr><tr><td>issuer</td><td>false</td><td>Claim that identifies the issuer of the JWT</td><td>string</td><td>-</td></tr><tr><td>subject</td><td>false</td><td>Claim that identifies or makes a statement about the subject of the JWT</td><td>string</td><td>-</td></tr></tbody></table>
+
+### Attributes
+
+| Name          | Description                 |
+| ------------- | --------------------------- |
+| jwt.generated | JWT generated by the policy |
+
+You can read the token using the [Gravitee Expression Language](../../guides/policy-design/gravitee-expression-language.md):
+
+```
+{#context.attributes['jwt.generated']}
+```
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Groovy policy:
+The phases checked below are supported by the Generate JWT policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Errors
 
-The Groovy policy comes with a native sandbox feature, which allows you to safely run Groovy scripts. The sandbox is based on a predefined list of allowed methods, fields, constructors, and annotations.
+<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>500</code></td><td>Unexpected error while creating and signing the token</td></tr></tbody></table>
 
-The complete whitelist can be found here : [gravitee groovy whitelist](https://gh.gravitee.io/gravitee-io/gravitee-policy-groovy/master/src/main/resources/groovy-whitelist)
+### Nested objects
 
-This whitelist should be enough for almost all possible use cases. If you have specific needs which are not allowed by the built-in whitelist, you can extend (or even replace) the list with your own declarations. For that, you can configure the gravitee.yml by specifying:
-
-* `groovy.whitelist.mode`: `append` or `replace`. This allows you to append some new whitelisted definitions to the built-in list or completely replace it. We recommend you always choose `append` unless you absolutely know what you are doing
-* `groovy.whitelist.list`: allows declaring other methods, constructors, fields or annotations to the whitelist
-  * start with `method` to allow a specific method (complete signature)
-  * start with `class` to allow a complete class. All methods, constructors and fields of the class will then be accessible
-  * start with `new` to allow a specific constructor (complete signature)
-  * start with `field` to allow access to a specific field of a class
-  * start with `annotation` to allow use of a specific annotation
-
-Example:
-
-```
-groovy:
-  whitelist:
-    mode: append
-    list:
-        - method java.time.format.DateTimeFormatter ofLocalizedDate java.time.format.FormatStyle
-        - class java.time.format.DateTimeFormatter
-```
-
-
-
-{% hint style="info" %}
-**`DateTimeFormatter`**
-
-The `DateTimeFormatter` class is already part of the build-in whitelist.
-{% endhint %}
-
-
-
-{% hint style="danger" %}
-**Security implications**
-
-Be careful when you allow use of classes or methods. In some cases, giving access to all methods of a class may allow access by transitivity to unwanted methods and may open potential security breaches.
-{% endhint %}
-
-### HTTP status codes
-
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onResponse</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onRequestContent</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr></tbody></table>
+To limit the processing time in the case of a nested object, the default max depth of a nested object has been set to 1000. This default value can be overridden using the environment variable `gravitee_policy_jsonxml_maxdepth`.
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-groovy/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-generate-jwt/blob/master/CHANGELOG.md" %}
