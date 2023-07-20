@@ -445,7 +445,7 @@ Repeat these steps on each component (APIM Gateway and APIM API) where the SQL d
 
 ### Configure the Rate Limit repository plugin
 
-The Rate Limi repository plugin should be configured as shown below:
+The Rate Limit repository plugin should be configured as shown below:
 
 ```yaml
 # ===================================================================
@@ -484,6 +484,5 @@ ratelimit:
 {% hint style="info" %}
 **Don't forget**
 
-If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify if Redis repository is healthy. You can find health endpoints in the [Internal API documentation](configure-apim-management-api/internal-api.md).\
-
+If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify if Redis repository is healthy. You can find health endpoints in the [Internal API documentation](configure-apim-management-api/internal-api.md).\\
 {% endhint %}
