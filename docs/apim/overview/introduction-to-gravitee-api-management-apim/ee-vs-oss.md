@@ -36,7 +36,7 @@ The features below are included in the default enterprise API Management distrib
 
 The Enterprise policy pack includes policies that are typically necessary for enterprise-grade, production API Management deployments:
 
-* [**Data logging masking**](../../reference/policy-reference/template-policy-rework-structure-7.md)**:** If you enable logging on APIs, you can use the data logging masking policy to configure rules to conceal sensitive data.
+* [**Data logging masking**](<../../reference/policy-reference/template-policy-rework-structure-4 (1).md>)**:** If you enable logging on APIs, you can use the data logging masking policy to configure rules to conceal sensitive data.
 * [**Assign metrics**](../../reference/policy-reference/template-policy-rework-structure-1.md)**:** Use the assign metrics policy to push extra metrics in addition to the natively provided request metrics. These metrics can be used for monetization invoices, analytics dashboards to create custom widgets, and, optionally, to apply aggregations based on their value.
 * **GeoIP filtering policy:** Use the GeoIP filtering policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
 * **GeoIP service:** Use the GeoIP service to load the GeoIP databases in memory. The GeoIP service is required to use the GeoIP filtering policy in APIM and for [Adaptive Multi-Factor Authentication in AM](https://documentation.gravitee.io/am).

@@ -1,12 +1,12 @@
 ---
-description: This page provides the technical details of the JSON Web Signature policy
+description: This page provides the technical details of the OAuth2 policy
 ---
 
-# JSON Web Signature (JWS)
+# OAuth2
 
 ## Overview
 
-Functional and implementation information for the JWS policy is organized into the following sections:
+Functional and implementation information for the OAuth2 policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-21.md#examples)
 * [Configuration](template-policy-rework-structure-21.md#configuration)
@@ -15,45 +15,16 @@ Functional and implementation information for the JWS policy is organized into t
 
 ## Examples
 
-You can use the `jws-validator` policy to validate the JWS token signature, certificate information, and expiration date before sending the API call to the target backend.
+You can use the `oauth2` policy to check access token validity during request processing using token introspection.
 
-JWT in JWS format enables secure content to be shared across security domains. The RFC standards are as follows:
+If the access token is valid, the request is allowed to proceed. If not, the process stops and rejects the request.
 
-* JWS (Json Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
-* JOSE Header standard RFC: [https://tools.ietf.org/html/rfc7515#section-4](https://tools.ietf.org/html/rfc7515#section-4)
-* JWT (Json Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
-
-### JWT
-
-A JWT is composed of three parts: a header, a payload and a signature. You can see some examples here: [http://jwt.io](http://jwt.io/).
-
-* The header contains attributes indicating the algorithm used to sign the token.
-* The payload contains some information inserted by the AS (Authorization Server), such as the expiration date and UID of the user.
-
-Both the header and payload are encoded with Base64, so anyone can read the content.
-
-* The third and last part is the signature (for more details, see the RFC).
-
-### Input
+The access token must be supplied in the `Authorization` HTTP request header:
 
 ```
-======================= =================================================
-Request Method          POST
-Request Content-Type    application/jose+json
-Request Body            eyJ0....ifQ.eyJzdWIiOiI...lIiwiYWRtaW4iOnRydWV9.TJVA95...h7HgQ
-Response Codes          Backend response or 401 Unauthorized
-======================= =================================================
+$ curl -H "Authorization: Bearer |accessToken|" \
+           http://gateway/api/resource
 ```
-
-According to the [JWS RFC](https://tools.ietf.org/html/rfc7515#section-4.1.10), the JWT/JWS header must contain the following information if correct content is to be provided to the backend:
-
-A `typ` value of `JOSE` can be used by applications to indicate that this object is a JWS or JWE using JWS Compact Serialization or the JWE Compact Serialization. A `typ` value of `JOSE+JSON` can be used by applications to indicate that this object is a JWS or JWE using JWS JSON Serialization or JWE JSON Serialization.
-
-The `cty` (content type) header parameter is used by JWS applications to declare the media type \[IANA.MediaTypes] of the secured content (the payload). To keep messages compact in typical scenarios, it is strongly recommended that senders omit the `application/` prefix of a media type value in a `cty` header parameter when no other `/` appears in the media type value.
-
-{% hint style="info" %}
-A recipient using the media type value must treat it as if `application/` were prepended to any `cty` value not containing a `/`.
-{% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -63,14 +34,25 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
+Given the following introspection response payload:
+
 ```
 {
- "typ":"JOSE+JSON",
- "cty":"json",
- "alg":"RS256",
- "x5c":"string",
- "kid":"string"
+    "active": true,
+    "client_id": "VDE",
+    "exp": 1497536237,
+    "jti": "5e075c1c-f4eb-42a5-8b56-fd367133b242",
+    "scope": "read write delete",
+    "token_type": "bearer",
+    "username": "flx"
 }
+```
+
+You can extract the `username` from the payload using the following JsonPath:
+
+```
+{#jsonPath(#context.attributes['oauth.payload'], '$.username')}
+
 ```
 {% endtab %}
 {% endtabs %}
@@ -84,45 +66,67 @@ When using the Management API, policies are added as flows either directly to an
 {% code title="Sample Configuration" %}
 ```json
 {
- "typ":"JOSE+JSON",
- "cty":"json",
- "alg":"RS256",
- "x5c":"string",
- "kid":"string"
+  "oauth2": {
+    "oauthResource": "oauth2-resource-name",
+    "oauthCacheResource": "cache-resource-name",
+    "extractPayload": true,
+    "checkRequiredScopes": true,
+    "requiredScopes": ["openid", "resource:read", "resource:write"]
+  }
 }
 ```
 {% endcode %}
 
 ### Reference
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>checkCertificateValidity</td><td>false</td><td>Check if the certificate used to sign the JWT is correct and has valid <code>not_before</code> and <code>not_after</code> dates</td><td>boolean</td><td>false</td></tr><tr><td>checkCertificateRevocation</td><td>false</td><td>Check if the certificate used to sign the JWT is not revoked via the CRL Distribution Points. The CRL is stored inside the X509v3 CRL Distribution Extension Points.</td><td>boolean</td><td>false</td></tr></tbody></table>
+The OAuth2 policy requires a resource to access an OAuth2 Authorization Server for token introspection. APIM supports two types of authorization server:
 
-To validate the token signature, the policy needs to use the JWS validator policy public key set in the APIM Gateway `gravitee.yml` file:
+* [Generic OAuth2 Authorization Server](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_generic.html) — a resource which can be configured to cover any authorization server.
+* [Gravitee.io Access Management](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_am.html) — a resource which can be easily plugged into APIM using Gravitee.io Access Management with security domain support.
 
-```
-policy:
-  jws:
-    kid:
-      default: ssh-rsa myValidationKey anEmail@domain.com
-      kid-2016: /filepath/to/pemFile/certificate.pem
-```
-
-The policy will inspect the JWT/JWS header to extract the key id (`kid` attribute) of the public key. If no key id is found then it is set to `default`.
-
-The gateway will be able to retrieve the corresponding public key and the JOSE Header using `x5c` (X.509 Certificate Chain). The header parameter will be used to verify certificate information and check that the JWT was signed using the private key corresponding to the specified public key.
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>oauthResource</td><td>true</td><td>The OAuth2 resource used to validate <code>access_token</code>. This must reference a valid Gravitee.io OAuth2 resource.</td><td>string</td><td></td></tr><tr><td>oauthCacheResource</td><td>false</td><td>The Cache resource used to store the <code>access_token</code>. This must reference a valid Gravitee.io Cache resource.</td><td>string</td><td></td></tr><tr><td>extractPayload</td><td>false</td><td>When the access token is validated, the token endpoint payload is saved in the <code>oauth.payload</code> context attribute</td><td>boolean</td><td>false</td></tr><tr><td>checkRequiredScopes</td><td>false</td><td>Whether the policy needs to check <code>required</code> scopes to access the underlying resource</td><td>boolean</td><td>false</td></tr><tr><td>requiredScopes</td><td>false</td><td>List of scopes to check to access the resource</td><td>boolean</td><td>array of string</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the JWS policy:
+The phases checked below are supported by the OAuth2 policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+
+## Compatibility matrix
+
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td>Bad token format, content, signature, certificate, expired token or any other issue preventing the policy from validating the token</td></tr></tbody></table>
+#### HTTP status code
+
+| Code  | Message                                                                                                                                                                                                                                                      |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `401` | <p>Issue encountered:</p><p>* No OAuth Authorization Server resource has been configured</p><p>* No OAuth authorization header was supplied</p><p>* No OAuth access token was supplied</p><p>* Access token can not be validated by authorization server</p> |
+| `403` | <p>Issue encountered:</p><p>* Access token can not be validated because of a technical error with authorization server</p><p>* One of the required scopes was missing while introspecting access token</p>                                                   |
+
+#### Default response override
+
+You can use the response template feature to override the default response provided by the policy. These templates must be defined at the API level (see the API Console **Response Templates** option in the API **Proxy** menu).
+
+#### Error keys
+
+The error keys sent by this policy are as follows:
+
+| Key                               | Parameters |
+| --------------------------------- | ---------- |
+| OAUTH2\_MISSING\_SERVER           | -          |
+| OAUTH2\_MISSING\_HEADER           | -          |
+| OAUTH2\_MISSING\_ACCESS\_TOKEN    | -          |
+| OAUTH2\_INVALID\_ACCESS\_TOKEN    | -          |
+| OAUTH2\_INVALID\_SERVER\_RESPONSE | -          |
+| OAUTH2\_INSUFFICIENT\_SCOPE       | -          |
+| OAUTH2\_SERVER\_UNAVAILABLE       | -          |
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-jws/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-OAuth2/blob/master/CHANGELOG.md" %}
