@@ -369,7 +369,7 @@ ratelimit:
 
 If you want to use a custom prefix, you need to follow the following [instructions](../configure-repositories.md#use-a-custom-prefix-1).
 
-### Store counters in standalone Redis
+### Store counters in Redis Standalone
 
 ```yaml
 ratelimit:
@@ -380,7 +380,7 @@ ratelimit:
     password: 'mysecretpassword'
 ```
 
-Configuration information for Sentinel and SSL Redis can be found [here](../configure-repositories.md#redis).
+Redis Sentinel and Redis SSL configuration options are presented [here](../configure-repositories.md#redis).
 
 ## Configure reporters
 
