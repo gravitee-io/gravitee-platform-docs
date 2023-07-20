@@ -10,4 +10,4 @@ Developed to accelerate business-driven innovation, Gravitee API Designer:
 
 To get started, [register with Gravitee Cloud](https://cockpit.gravitee.io) and explore the API Designer Workspace.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><a href="guides/api-designer-workspace/">API Designer Workspace</a></td><td></td><td></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>API Designer Workspace</td><td></td><td><a href="guides/api-designer-workspace/">api-designer-workspace</a></td></tr></tbody></table>
