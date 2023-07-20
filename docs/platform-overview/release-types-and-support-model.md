@@ -85,5 +85,6 @@ The tables below provide information about the entire Gravitee platform's produc
 | Version | Support model | Release Date | EOL Date   |
 | ------- | ------------- | ------------ | ---------- |
 | 3.19    | 12 months     | 2022-10-04   | 2023-10-04 |
-| 3.20    | 12 months     | 2023-01-12   | 2024-01-12 |
+| 3.20    | 15 months     | 2023-01-12   | 2024-03-30 |
 | 4.0     | 12 months     | 2023-7-20    | 2024-7-20  |
+
