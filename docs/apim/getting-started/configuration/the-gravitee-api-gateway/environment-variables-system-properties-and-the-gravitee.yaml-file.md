@@ -369,6 +369,17 @@ ratelimit:
 
 If you want to use a custom prefix, you need to follow the following [instructions](../configure-repositories.md#use-a-custom-prefix-1).
 
+### Store counters in Redis
+
+```yaml
+ratelimit:
+  type: redis
+  redis:
+    host: 'redis.mycompany'
+    port: 6379
+    password: 'mysecretpassword'
+```
+
 ## Configure reporters
 
 You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property '`enabled: false`'
