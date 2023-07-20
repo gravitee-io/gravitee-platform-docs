@@ -8,11 +8,11 @@ description: This page provides the technical details of the Cache policy
 
 Functional and implementation information for the Cache policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure-2.md#examples)
-* [Configuration](template-policy-rework-structure-2.md#configuration)
-* [Compatibility Matrix](template-policy-rework-structure-2.md#compatibility-matrix)
-* [Errors](template-policy-rework-structure-2.md#errors)
-* [Changelogs](template-policy-rework-structure-2.md#changelogs)
+* [Examples](template-policy-rework-structure-5.md#examples)
+* [Configuration](template-policy-rework-structure-5.md#configuration)
+* [Compatibility Matrix](template-policy-rework-structure-5.md#compatibility-matrix)
+* [Errors](template-policy-rework-structure-5.md#errors)
+* [Changelogs](template-policy-rework-structure-5.md#changelogs)
 
 ## Examples
 

@@ -1,79 +1,25 @@
 ---
-description: This page provides the technical details of the JSON Web Signature policy
+description: This page provides the technical details of the JSON-to-XML policy
 ---
 
-# JSON Web Signature (JWS)
+# XML Threat Protection
 
 ## Overview
 
-Functional and implementation information for the JWS policy is organized into the following sections:
+Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure-18.md#examples)
 * [Configuration](template-policy-rework-structure-18.md#configuration)
+* [Compatibility](template-policy-rework-structure-18.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-18.md#errors)
 * [Changelogs](template-policy-rework-structure-18.md#changelogs)
 
-## Examples
-
-You can use the `jws-validator` policy to validate the JWS token signature, certificate information, and expiration date before sending the API call to the target backend.
-
-JWT in JWS format enables secure content to be shared across security domains. The RFC standards are as follows:
-
-* JWS (Json Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
-* JOSE Header standard RFC: [https://tools.ietf.org/html/rfc7515#section-4](https://tools.ietf.org/html/rfc7515#section-4)
-* JWT (Json Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
-
-### JWT
-
-A JWT is composed of three parts: a header, a payload and a signature. You can see some examples here: [http://jwt.io](http://jwt.io/).
-
-* The header contains attributes indicating the algorithm used to sign the token.
-* The payload contains some information inserted by the AS (Authorization Server), such as the expiration date and UID of the user.
-
-Both the header and payload are encoded with Base64, so anyone can read the content.
-
-* The third and last part is the signature (for more details, see the RFC).
-
-### Input
-
-```
-======================= =================================================
-Request Method          POST
-Request Content-Type    application/jose+json
-Request Body            eyJ0....ifQ.eyJzdWIiOiI...lIiwiYWRtaW4iOnRydWV9.TJVA95...h7HgQ
-Response Codes          Backend response or 401 Unauthorized
-======================= =================================================
-```
-
-According to the [JWS RFC](https://tools.ietf.org/html/rfc7515#section-4.1.10), the JWT/JWS header must contain the following information if correct content is to be provided to the backend:
-
-A `typ` value of `JOSE` can be used by applications to indicate that this object is a JWS or JWE using JWS Compact Serialization or the JWE Compact Serialization. A `typ` value of `JOSE+JSON` can be used by applications to indicate that this object is a JWS or JWE using JWS JSON Serialization or JWE JSON Serialization.
-
-The `cty` (content type) header parameter is used by JWS applications to declare the media type \[IANA.MediaTypes] of the secured content (the payload). To keep messages compact in typical scenarios, it is strongly recommended that senders omit the `application/` prefix of a media type value in a `cty` header parameter when no other `/` appears in the media type value.
-
-{% hint style="info" %}
-A recipient using the media type value must treat it as if `application/` were prepended to any `cty` value not containing a `/`.
-{% endhint %}
-
-{% tabs %}
-{% tab title="Proxy API example" %}
 {% hint style="warning" %}
 This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-```
-{
- "typ":"JOSE+JSON",
- "cty":"json",
- "alg":"RS256",
- "x5c":"string",
- "kid":"string"
-}
-```
-{% endtab %}
-{% endtabs %}
+You can use the `xml-threat-protection` policy to validate an XML request body by applying limits on XML structures such as elements, entities, attributes and string values. When an invalid request is detected (meaning the limit is reached), the request will be considered a threat and rejected with a 400 BAD REQUEST.
 
 ## Configuration
 
@@ -81,48 +27,51 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
-{
- "typ":"JOSE+JSON",
- "cty":"json",
- "alg":"RS256",
- "x5c":"string",
- "kid":"string"
-}
-```
-{% endcode %}
-
 ### Reference
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>checkCertificateValidity</td><td>false</td><td>Check if the certificate used to sign the JWT is correct and has valid <code>not_before</code> and <code>not_after</code> dates</td><td>boolean</td><td>false</td></tr><tr><td>checkCertificateRevocation</td><td>false</td><td>Check if the certificate used to sign the JWT is not revoked via the CRL Distribution Points. The CRL is stored inside the X509v3 CRL Distribution Extension Points.</td><td>boolean</td><td>false</td></tr></tbody></table>
-
-To validate the token signature, the policy needs to use the JWS validator policy public key set in the APIM Gateway `gravitee.yml` file:
-
-```
-policy:
-  jws:
-    kid:
-      default: ssh-rsa myValidationKey anEmail@domain.com
-      kid-2016: /filepath/to/pemFile/certificate.pem
-```
-
-The policy will inspect the JWT/JWS header to extract the key id (`kid` attribute) of the public key. If no key id is found then it is set to `default`.
-
-The gateway will be able to retrieve the corresponding public key and the JOSE Header using `x5c` (X.509 Certificate Chain). The header parameter will be used to verify certificate information and check that the JWT was signed using the private key corresponding to the specified public key.
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>maxElements</td><td>false</td><td>Maximum number of elements allowed in an XML document. Example: <code>&#x3C;root>&#x3C;a>1&#x3C;/a>2&#x3C;b>&#x3C;/b>&#x3C;/root></code> has 3 elements.</td><td>integer (-1 to specify no limit)</td><td>1000</td></tr><tr><td>maxDepth</td><td>false</td><td>Maximum depth of XML structure. Example: <code>&#x3C;root>&#x3C;a>&#x3C;b>1&#x3C;/b>&#x3C;/a>&#x3C;/root></code> has a depth of 2.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxLength</td><td>false</td><td>Maximum number of characters allowed for the whole XML document.</td><td>integer (-1 to specify no limit)</td><td>1000</td></tr><tr><td>maxAttributesPerElement</td><td>false</td><td>Maximum number of attributes allowed for single XML element.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxAttributeValueLength</td><td>false</td><td>Maximum length of individual attribute values.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxChildrenPerElement</td><td>false</td><td>Maximum number of child elements for a given element. Example: <code>&#x3C;code>&#x3C;root>&#x3C;a>&#x3C;b>1&#x3C;/b>&#x3C;c>2&#x3C;/c>&#x3C;/a>&#x3C;/root>&#x3C;/code></code> <code>a</code> element has 2 children.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxTextValueLength</td><td>false</td><td>Maximum length of individual text value.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxEntities</td><td>false</td><td>Maximum number of entity expansions allowed. XML entities are a type of macro and vulnerable to entity expansion attacks (for more information on XML entity expansion attacks, see <a href="https://en.wikipedia.org/wiki/Billion_laughs_attack">Billion laughs attack</a>).</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxEntityDepth</td><td>false</td><td>Maximum depth of nested entity expansions allowed.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>allowExternalEntities</td><td>false</td><td>Whether to allow inclusion of external entities. WARNING: Since XML can be vulnerable to <a href="https://en.wikipedia.org/wiki/XML_external_entity_attack">XXE injection</a>, only enable this feature if you can really trust your consumers.</td><td>boolean</td><td>false</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the JWS policy:
+The phases checked below are supported by the JSON-to-XML policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+
+## Compatibility
+
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td>Bad token format, content, signature, certificate, expired token or any other issue preventing the policy from validating the token</td></tr></tbody></table>
+#### HTTP status code
+
+| Code              | Message                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `400 Bad Request` | <p>Applies to:</p><ul><li>Invalid xml structure</li><li>Maximum xml elements exceeded</li><li>Maximum xml depth exceeded</li><li>Maximum xml length exceeded</li><li>Maximum attributes per element exceeded</li><li>Maximum attribute value length exceeded</li><li>Maximum children per element exceeded</li><li>Maximum text value length exceeded</li><li>Maximum xml entities exceeded</li><li>Maximum xml entity depth exceeded</li><li>External entity is used when prohibited</li></ul> |
+
+#### Default response override
+
+You can use the response template feature to override the default response provided by the policy. These templates must be defined at the API level (see the API Console **Response Templates** option in the API **Proxy** menu).
+
+#### Error keys
+
+The error keys sent by this policy are as follows:
+
+| Key                                        | Parameters |
+| ------------------------------------------ | ---------- |
+| XML\_THREAT\_DETECTED                      | -          |
+| XML\_THREAT\_MAX\_DEPTH                    | -          |
+| XML\_THREAT\_MAX\_LENGTH                   | -          |
+| XML\_THREAT\_MAX\_ATTRIBUTES               | -          |
+| XML\_THREAT\_MAX\_ATTRIBUTE\_VALUE\_LENGTH | -          |
+| XML\_MAX\_CHILD\_ELEMENTS                  | -          |
+| XML\_THREAT\_MAX\_TEXT\_VALUE\_LENGTH      | -          |
+| XML\_THREAT\_MAX\_ENTITIES                 | -          |
+| XML\_THREAT\_MAX\_ENTITY\_DEPTH            | -          |
+| XML\_THREAT\_EXTERNAL\_ENTITY\_FORBIDDEN   | -          |
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-jws/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-xml-threat-protection/blob/master/CHANGELOG.md" %}
