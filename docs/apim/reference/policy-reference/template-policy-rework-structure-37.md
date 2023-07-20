@@ -1,19 +1,15 @@
 ---
-description: This page provides the technical details of the RBAC policy
+description: This page provides the technical details of the Retry policy
 ---
 
-# Role-based Access Control (RBAC)
-
-{% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
-{% endhint %}
+# Retry
 
 ## Overview
 
-Functional and implementation information for the RBAC policy is organized into the following sections:
+Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
 * [Configuration](template-policy-rework-structure-37.md#configuration)
-* [Compatibility](template-policy-rework-structure-37.md#compatibility-matrix)
+* [Compatibility Matrix](template-policy-rework-structure-37.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-37.md#errors)
 * [Changelogs](template-policy-rework-structure-37.md#changelogs)
 
@@ -23,14 +19,13 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-You can use the `role-based-access-control` policy (RBAC policy) to control access to a resource by specifying the required roles to access it.
+You can use the `retry` policy to replay requests when experiencing backend connection issues or if the response meets a given _condition_.
 
-The policy can be configured to either:
+If the retry takes too long, relative to the `timeout` value, the request stops and returns status code `502`.
 
-* allow only incoming requests with roles exactly matching the configured roles (strict mode)
-* allow incoming requests with at least one role matching the configured roles
-
-The roles are checked against request attribute `gravitee.attribute.user.roles`.
+{% hint style="info" %}
+To replay a request with a payload, the gateway stores it in memory. We recommend you avoid applying it to requests with a large payload.
+{% endhint %}
 
 ## Configuration
 
@@ -41,53 +36,41 @@ When using the Management API, policies are added as flows either directly to an
 {% code title="Sample Configuration" %}
 ```json
 {
-  "rbac": {
-    "roles": ["read", "write", "admin"],
-    "strict": true
+  "retry": {
+    "condition": "{#response.status > 500}",
+    "maxRetries": 3,
+    "timeout": 1000
   }
 }
+
 ```
 {% endcode %}
 
 ### Reference
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>roles</td><td>true</td><td>The list of required roles</td><td>Array of strings</td><td></td></tr><tr><td>strict</td><td>true</td><td>Validation mode — strict or not (must or should)</td><td>boolean</td><td>true</td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Default</th><th>Example</th></tr></thead><tbody><tr><td>condition</td><td>true</td><td>Condition to test to determine whether or not to retry the request (supports Expression Language)</td><td>-</td><td>{#response.status > 500}</td></tr><tr><td>maxRetries</td><td>true</td><td>Number of retries before failing (502 - Bad Gateway)</td><td>1</td><td>-</td></tr><tr><td>delay</td><td>false</td><td>Time between each attempt</td><td>0</td><td>-</td></tr><tr><td>timeout</td><td>true</td><td>Time after which an operation is considered a failure</td><td>1000</td><td>-</td></tr><tr><td>lastResponse</td><td>false</td><td>Returns the last attempt response, even if it failed regarding the configured condition. In timeout case, <code>502</code> is returned.</td><td>false</td><td>-</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the RBAC policy:
+The phases checked below are supported by the Retry policy:
 
 <table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-## Compatibility
+## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+
+| Plugin version | Supported APIM versions |
+| -------------- | ----------------------- |
+| 2.x and upper  | 3.10.x to latest        |
+| Up to 1.x      | Up to 3.9.x             |
 
 ## Errors
 
-#### HTTP status codes
-
-| Code  | Message                                                                                                                                               |
-| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `400` | <p>Applies if:</p><p>* The roles associated with the request are not valid</p>                                                                        |
-| `403` | <p>Applies if:</p><p>* No roles are associated with the current request</p><p>* Role(s) associated with the request do not match required role(s)</p> |
-
-#### Default response override
-
-You can use the response template feature to override the default responses provided by the policy. These templates must be defined at the API level (see the API Console **Response Templates** option in the API **Proxy** menu).
-
-#### Error keys
-
-The error keys sent by this policy are as follows:
-
-| Key                              | Parameters |
-| -------------------------------- | ---------- |
-| RBAC\_NO\_USER\_ROLE (403)       | -          |
-| RBAC\_INVALID\_USER\_ROLES (400) | -          |
-| RBAC\_FORBIDDEN (403)            | -          |
+<table data-full-width="false"><thead><tr><th width="171">HTTP status code</th><th width="387">Reason</th></tr></thead><tbody><tr><td><code>502</code></td><td><p>Received in the following cases:</p><ul><li>No response satisfies the condition after <code>maxRetries</code></li><li>Technical errors when calling the backend (for example, connection refused, timeout)</li></ul></td></tr></tbody></table>
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-role-based-access-control/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-retry/blob/master/CHANGELOG.md" %}

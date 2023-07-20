@@ -1,79 +1,26 @@
 ---
-description: This page provides the technical details of the JSON Web Signature policy
+description: This page provides the technical details of the AVRO <> JSON policy
 ---
 
-# JSON Web Signature (JWS)
+# AVRO <> JSON
+
+{% hint style="warning" %}
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
+{% endhint %}
 
 ## Overview
 
-Functional and implementation information for the JWS policy is organized into the following sections:
+Functional and implementation information for the AVRO <> JSON policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure-26.md#examples)
 * [Configuration](template-policy-rework-structure-26.md#configuration)
 * [Errors](template-policy-rework-structure-26.md#errors)
-* [Changelogs](template-policy-rework-structure-26.md#changelogs)
 
-## Examples
+You can use the `avro-json` policy to apply a transformation (or mapping) on the request and/or response and/or message content. This policy is using the [Avro](https://avro.apache.org/docs/1.11.1/) library.
 
-You can use the `jws-validator` policy to validate the JWS token signature, certificate information, and expiration date before sending the API call to the target backend.
+To serialize data in Avro, you need a [schema](https://avro.apache.org/docs/1.11.1/#schemas). There are two ways to provide a schema:
 
-JWT in JWS format enables secure content to be shared across security domains. The RFC standards are as follows:
-
-* JWS (Json Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
-* JOSE Header standard RFC: [https://tools.ietf.org/html/rfc7515#section-4](https://tools.ietf.org/html/rfc7515#section-4)
-* JWT (Json Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
-
-### JWT
-
-A JWT is composed of three parts: a header, a payload and a signature. You can see some examples here: [http://jwt.io](http://jwt.io/).
-
-* The header contains attributes indicating the algorithm used to sign the token.
-* The payload contains some information inserted by the AS (Authorization Server), such as the expiration date and UID of the user.
-
-Both the header and payload are encoded with Base64, so anyone can read the content.
-
-* The third and last part is the signature (for more details, see the RFC).
-
-### Input
-
-```
-======================= =================================================
-Request Method          POST
-Request Content-Type    application/jose+json
-Request Body            eyJ0....ifQ.eyJzdWIiOiI...lIiwiYWRtaW4iOnRydWV9.TJVA95...h7HgQ
-Response Codes          Backend response or 401 Unauthorized
-======================= =================================================
-```
-
-According to the [JWS RFC](https://tools.ietf.org/html/rfc7515#section-4.1.10), the JWT/JWS header must contain the following information if correct content is to be provided to the backend:
-
-A `typ` value of `JOSE` can be used by applications to indicate that this object is a JWS or JWE using JWS Compact Serialization or the JWE Compact Serialization. A `typ` value of `JOSE+JSON` can be used by applications to indicate that this object is a JWS or JWE using JWS JSON Serialization or JWE JSON Serialization.
-
-The `cty` (content type) header parameter is used by JWS applications to declare the media type \[IANA.MediaTypes] of the secured content (the payload). To keep messages compact in typical scenarios, it is strongly recommended that senders omit the `application/` prefix of a media type value in a `cty` header parameter when no other `/` appears in the media type value.
-
-{% hint style="info" %}
-A recipient using the media type value must treat it as if `application/` were prepended to any `cty` value not containing a `/`.
-{% endhint %}
-
-{% tabs %}
-{% tab title="Proxy API example" %}
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
-
-Currently, this policy can **not** be applied at the message level.
-{% endhint %}
-
-```
-{
- "typ":"JOSE+JSON",
- "cty":"json",
- "alg":"RS256",
- "x5c":"string",
- "kid":"string"
-}
-```
-{% endtab %}
-{% endtabs %}
+* Inlined in the policy configuration
+* With a Schema Registry
 
 ## Configuration
 
@@ -81,48 +28,62 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
+### Inline Schema <a href="#user-content-inline-schema" id="user-content-inline-schema"></a>
+
+You can provide the Schema to use directly in the configuration of the policy:
+
+```
 {
- "typ":"JOSE+JSON",
- "cty":"json",
- "alg":"RS256",
- "x5c":"string",
- "kid":"string"
+    "name": "avro-2-json",
+    "policy": "avro-json",
+    "configuration": {
+        "conversion": "avro-to-json",
+        "schemaLocation": "inline",
+        "schemaDefinition": "{\"namespace\": \"io.confluent.examples.clients.basicavro\", \"type\": \"record\", \"name\": \"Payment\", \"fields\": [{\"name\": \"id\", \"type\": \"string\"}, {\"name\": \"amount\", \"type\": \"double\"}]}"
+    }
 }
 ```
-{% endcode %}
 
-### Reference
+### Schema Registry <a href="#user-content-schema-registry" id="user-content-schema-registry"></a>
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>checkCertificateValidity</td><td>false</td><td>Check if the certificate used to sign the JWT is correct and has valid <code>not_before</code> and <code>not_after</code> dates</td><td>boolean</td><td>false</td></tr><tr><td>checkCertificateRevocation</td><td>false</td><td>Check if the certificate used to sign the JWT is not revoked via the CRL Distribution Points. The CRL is stored inside the X509v3 CRL Distribution Extension Points.</td><td>boolean</td><td>false</td></tr></tbody></table>
+To use a schema registry to fetch a schema, you will need to declare a Gravitee resource in your API in addition to this policy.
 
-To validate the token signature, the policy needs to use the JWS validator policy public key set in the APIM Gateway `gravitee.yml` file:
+Currently we only provide a resource to interact with Confluent Schema Registry. You can find the plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/resources/gravitee-resource-schema-registry-confluent/).
 
 ```
-policy:
-  jws:
-    kid:
-      default: ssh-rsa myValidationKey anEmail@domain.com
-      kid-2016: /filepath/to/pemFile/certificate.pem
+{
+    "name": "avro-2-json",
+    "policy": "avro-json",
+    "configuration": {
+        "conversion": "avro-to-json",
+        "schemaLocation": "schema-registry",
+        "serializationFormat": "confluent",
+        "resourceName": "confluent-schema-registry"
+    }
+}
 ```
 
-The policy will inspect the JWT/JWS header to extract the key id (`kid` attribute) of the public key. If no key id is found then it is set to `default`.
+Currently, we only support [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format). The policy will extract the schema id from the binary and will use it to fetch the Schema in the registry.
 
-The gateway will be able to retrieve the corresponding public key and the JOSE Header using `x5c` (X.509 Certificate Chain). The header parameter will be used to verify certificate information and check that the JWT was signed using the private key corresponding to the specified public key.
+{% hint style="warning" %}
+The use of Schema Registry is only available to transform message on the `onMessageResponse` phase.
+{% endhint %}
+
+#### Serialization format <a href="#user-content-serialization-format" id="user-content-serialization-format"></a>
+
+The policy is supporting the serialization formats:
+
+* `simple`: the binary contains only the serialized Avro.
+* `confluent`: the binary has been generated using [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format).
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the JWS policy:
+The phases checked below are supported by the AVRO <> JSON policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td>Bad token format, content, signature, certificate, expired token or any other issue preventing the policy from validating the token</td></tr></tbody></table>
-
-## Changelogs
-
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-jws/blob/master/CHANGELOG.md" %}
+<table><thead><tr><th width="179">Code</th><th>Error template key</th><th>Description</th></tr></thead><tbody><tr><td><code>500</code></td><td>INVALID_AVRO_TRANSFORMATION</td><td>When the transform fail to be applied to the payload.</td></tr><tr><td><code>500</code></td><td>UNSUPPORTED_CONFIGURATION_KEY</td><td>When the policy configuration is not supported. For example, when the policy needs a schema registry but also use the <code>simple</code> serialization format.</td></tr></tbody></table>
