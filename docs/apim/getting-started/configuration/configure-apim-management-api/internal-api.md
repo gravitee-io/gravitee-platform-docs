@@ -127,7 +127,7 @@ CORS can be applied at three different levels:&#x20;
 
 where the more specific levels override the broader levels: API > Environment > Organization.
 
-You can configure CORS at the organization level using `gravitee.yml`, environment variables or directly in APIM Console.
+You can configure CORS at the organization level using `gravitee.yml`, environment variables or directly in APIM Console. Here's an example of configuring CORS using the `gravitee.yml` file:
 
 {% code title="gravitee.yaml" %}
 ```yaml
@@ -168,11 +168,17 @@ http:
 
 ### Configure in APIM Console
 
+{% hint style="info" %}
+If you change the CORS settings using the `gravitee.yml` or environment variables, then the CORS settings will be greyed out in the APIM console.
+{% endhint %}
+
 You can also configure CORS at the organization level in the **Organization > Settings** section of the APIM Console:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-30 at 2.35.47 PM.png" alt=""><figcaption><p>Organization wide CORS settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-30 at 2.35.47 PM.png" alt=""><figcaption><p>Organization CORS settings</p></figcaption></figure>
 
 Or at the environment level in the **Settings > Settings** section of the APIM Console:
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-20 at 3.20.53 PM.png" alt=""><figcaption><p>Environment CORS settings</p></figcaption></figure>
 
 ## Configure the Management repository
 
@@ -264,6 +270,15 @@ This section shows the SMTP configuration used for sending email.
 
 You can configure SMTP using `gravitee.yml`, environment variables or directly in APIM Console. If SMTP is configured with `gravitee.yml` or environment variables, then that configuration will be used, even if settings exist in the database.
 
+SMTP can be applied at two different levels:&#x20;
+
+1. Environment
+2. Organization
+
+where the more specific level overrides the broader level:  Environment > Organization.
+
+Here's an example of configuring SMTP using the `gravitee.yml` file:
+
 ```yaml
 email:
   host: smtp.my.domain
@@ -276,15 +291,17 @@ email:
 
 ### Configure in APIM Console
 
-You configure SMTP in the **SMTP** section of the APIM Console and APIM Portal **Settings** pages:
+{% hint style="info" %}
+If you change the SMTP settings using the `gravitee.yml` or environment variables, then the SMTP settings will be greyed out in the APIM console.
+{% endhint %}
 
-* For APIM Portal, go to **Settings > Settings**. If no email configuration is set for APIM Portal, then the APIM Console configuration is used.
+You can also configure SMTP at the organization level in the **Organization > Settings** section of the APIM Console:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/configuration/graviteeio-installation-environment-configuration-smtp.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-20 at 3.27.18 PM.png" alt=""><figcaption><p>Organization SMTP settings</p></figcaption></figure>
 
-* For APIM Console, go to **Organization Settings > Settings**
+Or at the environment level in the **Settings > Settings** section of the APIM Console:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/configuration/graviteeio-installation-organization-configuration-smtp.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-20 at 3.30.01 PM.png" alt=""><figcaption><p>Environment SMTP settings</p></figcaption></figure>
 
 ### Configure the Gmail SMTP server
 
