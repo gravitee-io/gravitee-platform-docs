@@ -25,31 +25,31 @@ AE is not part of the Community Edition - it is an exclusive Enterprise feature 
 To perform a new EE installation:
 
 1. Download the full bundles of the desired products (APIM, AM, AE) from [the Gravitee platform downloads page](https://www.gravitee.io/downloads).
-2. Install the relevant product bundles by following the [APIM](https://docs.gravitee.io/apim/3.x/apim\_installguide.html) and [AM](https://docs.gravitee.io/am/current/am\_installguide\_introduction.html) installation guides respectively.
-3. Download/install the [desired EE modules](https://docs.gravitee.io/ee/ee\_overview.html#ee\_components).&#x20;
+2. Install the relevant product bundles by following the relevant [APIM](https://documentation.gravitee.io/apim/getting-started/install-guides) and [AM](https://documentation.gravitee.io/am/getting-started/install-and-upgrade-guides) installation guides.
+3. Download/install the desired EE modules.
    1. To install AE, consult the Alert Engine section on the [Gravitee downloads web page](https://www.gravitee.io/downloads) and/or follow [AE](https://docs.gravitee.io/ae/installguide\_introduction.html) installation guide.
-   2. EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the [Data Logging Masking Policy](https://docs.gravitee.io/apim/3.x/apim\_policies\_data\_logging\_masking.html) repository is at [https://github.com/gravitee-io/gravitee-policy-data-logging-masking](https://github.com/gravitee-io/gravitee-policy-data-logging-masking). To request access to private EE plugin repositories, email [contact@graviteesource.com](mailto:contact@graviteesource.com) in case you have not been granted such access already as part of your EE license request process.
-4. [Request](https://docs.gravitee.io/ee/ee\_licensing.html#ask-license) an EE license.
-5. [Apply the EE license](https://docs.gravitee.io/ee/ee\_licensing.html#apply\_the\_license) to the relevant existing product instances.
+   2. EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking Policy repository is at [https://github.com/gravitee-io/gravitee-policy-data-logging-masking](https://github.com/gravitee-io/gravitee-policy-data-logging-masking). To request access to private EE plugin repositories, email [contact@graviteesource.com](mailto:contact@graviteesource.com) in case you have not been granted such access already as part of your EE license request process.
+4. Request an EE license by emailing [contact@graviteesource.com](mailto:contact@graviteesource.com).
+5. [Apply the EE license](enterprise-edition-licensing.md#applying-an-ee-license) to the relevant existing product instances.
 6. Restart.
 
 {% hint style="info" %}
 **EE Docker deprecation**
 
-We have removed the option to install EE bundles and EE licenses using Docker as we have simplified the installation process for EE through the use of unified platform distribution bundles for each product, as described below. The process for EE license requests, installation, and support is described in [the EE Licensing section](https://docs.gravitee.io/ee/ee\_licensing.html).
+We have removed the option to install EE bundles and EE licenses using Docker as we have simplified the installation process for EE through the use of unified platform distribution bundles for each product, as described below. The process for EE license requests, installation, and support is described in the [EE Licensing section.](enterprise-edition-licensing.md)
 {% endhint %}
 
 ### Migrating from an existing CE installation
 
 {% hint style="warning" %}
-Before you proceed, please ensure that you are running a [long-term support (LTS) version](https://docs.gravitee.io/ee/ee\_version.html) of the respective product(s).
+Before you proceed, please ensure that you are running a [long-term support (LTS) version](../../release-types-and-support-model.md) of the respective product(s).
 {% endhint %}
 
 To migrate from an existing Community Edition (CE) installation to EE:
 
-1. Download/install the [desired EE modules](https://docs.gravitee.io/ee/ee\_overview.html#ee\_components).
-2. [Request](https://docs.gravitee.io/ee/ee\_licensing.html#ask-license) an EE license.
-3. [Apply the EE license](https://docs.gravitee.io/ee/ee\_licensing.html#apply\_the\_license) to the relevant existing product instances.
+1. Download/install the desired EE modules.
+2. Request an EE license by emailing [contact@graviteesource.com](mailto:contact@graviteesource.com).
+3. [Apply the EE license](enterprise-edition-licensing.md#applying-an-ee-license) to the relevant existing product instances.
 4. Restart.
 
 ## Gravitee Cloud
