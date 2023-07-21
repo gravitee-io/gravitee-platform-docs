@@ -18,8 +18,6 @@ For more information on how to use the new v4 API Creation wizard, please refer 
 
 ## The new v4 Policy Studio
 
-(Insert Arcade)
-
 We've released a brand new Policy Studio that enables you to design policy flows and enforcement mechanisms for v4 APIs. Policies designed using the new v4 API Design Studio can be designed and enforced at the request, response, publish, and/or subscribe phases. They can also be enforced at the message level for use cases where message-based APIs and communication are being utilized. This enables greater API governance, as you can now use a one, centralized tool and approach to make sure synchronous and asynchronous APIs are secured, made reliable, transformed, etc.
 
 For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../../guides/policy-design/v4-api-policy-design-studio.md).
@@ -57,13 +55,9 @@ For more information on policies, please refer to our policy reference documenta
 
 ## Support for Schema registry as a resource
 
-(Insert arcade)
-
 When designing policies and flows, you can now define Confluent Schema Registry as a resource. This allows Gravitee to serialize and deserialize information between Avro and JSON via various serialization and deserialization policies. Serialization and deserialization will be validated against target schemas stored in specified schema registries. The schema ID can be obtained dynamically through a message header or attribute.
 
 ## Webhook subscription configuration in the Developer Portal
-
-(Insert arcade)
 
 We released support for Webhook subscriptions a while ago, but now we've made the consumer experience much better with the ability to define your Webhook subscription in the Gravitee Developer Portal.
 
@@ -88,8 +82,6 @@ In addition to making Gravitee API Management more "event-native," we've also ma
 
 ### Gravitee as ingress controller
 
-(insert arcade)
-
 Another major update to the Gravitee Kubernetes Operator is its ability to act as an ingress controller. Now, you can use Gravitee as an ingress controller as opposed to using a third-party ingress controller, such as NGNIx or Traffik. This will result in less complexity and maintenance across the entirety of your infrastructure.
 
 ## More new features
@@ -97,8 +89,6 @@ Another major update to the Gravitee Kubernetes Operator is its ability to act a
 While not included in this release's major highlights, here are the other features released in Gravitee API Management 4.0.
 
 ### New API Management Console support for v4 APIs
-
-(Insert arcade)
 
 As a part of our additional support for v4 APIs and asynchronous APIs, we've added more support for v4 APIs in the UI. This support includes:
 
