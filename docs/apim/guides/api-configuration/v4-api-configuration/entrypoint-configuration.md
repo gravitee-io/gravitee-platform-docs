@@ -6,15 +6,11 @@ description: This article walks through how to configure v4 API entrypoints
 
 ## Introduction
 
-In Gravitee, Gateway Entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The Gateway entrypoint dictates how the backend API is exposed through the gateway.
+In Gravitee, Gateway entrypoints define the protocol and configuration settings by which the API consumer accesses the Gateway API. The Gateway entrypoint dictates how the backend API is exposed through the gateway.
 
-After you've created your Gateway API and selected your Entrypoint(s), you can configure them on the API's page. This article walks through that process.
+After you've created your Gateway API and selected your entrypoint(s), you can configure them on the API's page.  This article walks through that process for configuring v4 Message API entrypoints and v4 Proxy API entrypoints.
 
-## Configure v4 message&#x20;
-
-##
-
-## API Entrypoints
+## Configure v4 message API entrypoints
 
 {% hint style="warning" %}
 **Enterprise only**
@@ -26,7 +22,7 @@ As of Gravitee 4.0, the ability to create APIs with message API entrypoints is a
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
-v4 APIs support multiple types of Entrypoints:
+v4 APIs support the following entrypoints:
 
 * HTTP GET: exposes a backend resource via the HTTP GET method
 * HTTP POST: exposes a backend resource via the HTTP POST method
@@ -168,9 +164,7 @@ To use OAuth2, the `auth` object should look like this:
         }
 ```
 
-<details>
-
-<summary>Server-sent Events</summary>
+## Server-Sent Events
 
 If you chose **SSE** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -181,11 +175,11 @@ If you chose **SSE** as an entrypoint, you will be brought to a page where you c
   * Choose to allow or disallow sending message metadata to the client as SSE comments by toggling **Allow sending messages metadata to client as SSE comments** ON or OFF.
   * Choose to allow or disallow sending message headers to the client as SSE comments by toggling **Allow sending messages headers to client as SSE comments** ON or OFF.
 
-</details>
-
+{% hint style="info" %}
 You can also add an Entrypoint to your API by selecting **Add an entrypoint.** From here, you will simply need to configure the entrypoint using the details specific to that entrypoint (see exapandable sections above).
 
 When you are done configuring your entrypoints, make sure to select **Save changes.**
+{% endhint %}
 
 ## Configure v4 Proxy API entrypoints
 
