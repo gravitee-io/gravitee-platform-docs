@@ -24,11 +24,11 @@ As of Gravitee 4.0, the ability to create APIs with message API entrypoints is a
 
 v4 APIs support the following entrypoints:
 
-* HTTP GET: exposes a backend resource via the HTTP GET method
-* HTTP POST: exposes a backend resource via the HTTP POST method
-* WebSocket: exposes a backend resource via a WebSocket stream
-* Webhooks: exposes a backend resource via a Webhooks subscription
-* Server-sent events (SSE): exposes a backend resource via a unidirectional, SSE stream
+* **HTTP GET:** exposes a backend resource via the HTTP GET method
+* **HTTP POST:** exposes a backend resource via the HTTP POST method
+* **WebSocket:** exposes a backend resource via a WebSocket stream
+* **Webhooks:** exposes a backend resource via a Webhooks subscription
+* **Server-sent events (SSE):** exposes a backend resource via a unidirectional, SSE stream
 
 To access entrypoint configuration, head to the **APIs** page and select your API. Then, under **Entrypoints,** select **General.**
 
@@ -182,7 +182,7 @@ To use OAuth2, the `auth` object should look like this:
 
 <details>
 
-<summary>Server-sent Events</summary>
+<summary>Server-sent events</summary>
 
 If you chose **SSE** as an entrypoint, you will be brought to a page where you can configure:
 
