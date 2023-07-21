@@ -11,12 +11,9 @@ Gravitee version 4.0 was released on July 20th, 2023. 4.0 brought major improvem
 {% hint style="info" %}
 **Changelog vs release notes**
 
-If you want a more condensed version of what's new, please refer to the [Changelog](../../changelog/apim/gravitee-4.0.x-changelog.md). Also, if you want to learn about breaking changes or bug fixes, we are tracking those in the changelog as well.
+If you want a more condensed version of what's new, please refer to the [Changelog](../../changelog/gravitee-4.0.x-changelog.md). Also, if you want to learn about breaking changes or bug fixes, we are tracking those in the changelog as well.
 {% endhint %}
 
 This section of documentation has release notes for Gravitee versions:
 
 * [Gravitee APIM 4.0](apim-4.0.md)
-
-
-

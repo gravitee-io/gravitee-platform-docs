@@ -1,14 +1,14 @@
 ---
 description: >-
-  This page contains the changelog entries for APIM 4.0 and any future minor
-  APIM 4.x.x releases
+  This page contains the changelog entries for APIM 4.0 and any future minor or
+  patch APIM 4.x.x releases
 ---
 
 # APIM 4.x.x (2023-07-20)
 
 ## About upgrades
 
-For upgrade instructions, please refer to the Gravitee [API Management (APIM) Upgrade Guide.](../../../getting-started/install-guides/installation-guide-migration/)
+For upgrade instructions, please refer to the Gravitee [API Management (APIM) Upgrade Guide.](../../getting-started/install-guides/installation-guide-migration/)
 
 {% hint style="danger" %}
 If you plan to skip versions when you upgrade, ensure that you read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
@@ -20,7 +20,7 @@ Need to include a list of policies and their version in each release of APIM
 
 ## Gravitee API Management 4.0 - July 20, 2023
 
-For more in-depth information on what's new, please refer to the [Gravitee APIM 4.0 release notes](../../release-notes/gravitee-4.x/apim-4.0.md).
+For more in-depth information on what's new, please refer to the [Gravitee APIM 4.0 release notes](../release-notes/gravitee-4.x/apim-4.0.md).
 
 <details>
 
@@ -107,21 +107,25 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 * APIM now requires a minimum of JDK 17.
 * Starting with 4.0.0, there will no longer be enterprise tags (i.e. suffixed by `-ee`).
 * Cluster managers are now available as plugins. Therefore, Hazelcast Cluster Manager has been removed from the default distribution.
-*   TLS 1.0 and TLS 1.1 protocols are disabled by default. You can still enable these protocols with the proper TCP SSL configuration of the Gateway.
+* TLS 1.0 and TLS 1.1 protocols are disabled by default. You can still enable these protocols with the proper TCP SSL configuration of the Gateway.
 
-    {% code title="gravitee.yaml" %}
-    ```yaml
-    http:
-      ssl:
-        tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 
-    ```
-    {% endcode %}
+{% code title="gravitee.yaml" %}
+````
+```yaml
+http:
+  ssl:
+    tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 
+```
+````
+{% endcode %}
 
-    Or using environment variables:
+````
+Or using environment variables:
 
-    ```bash
-    GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
-    ```
+```bash
+GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
+```
+````
 
 **Monitoring APIM**
 
