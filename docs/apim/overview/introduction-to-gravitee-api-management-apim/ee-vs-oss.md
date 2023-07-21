@@ -38,7 +38,7 @@ The Enterprise policy pack includes policies that are typically necessary for en
 
 * [**Data logging masking**](../../reference/policy-reference/template-policy-rework-structure-6.md)**:** If you enable logging on APIs, you can use the data logging masking policy to configure rules to conceal sensitive data.
 * [**Assign metrics**](../../reference/policy-reference/template-policy-rework-structure-1.md)**:** Use the assign metrics policy to push extra metrics in addition to the natively provided request metrics. These metrics can be used for monetization invoices, analytics dashboards to create custom widgets, and, optionally, to apply aggregations based on their value.
-* **GeoIP filtering policy:** Use the GeoIP filtering policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
+* [**GeoIP filtering policy**](../../reference/policy-reference/template-policy-rework-structure-8.md)**:** Use the GeoIP filtering policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
 * **GeoIP service:** Use the GeoIP service to load the GeoIP databases in memory. The GeoIP service is required to use the GeoIP filtering policy in APIM and for [Adaptive Multi-Factor Authentication in AM](https://documentation.gravitee.io/am).
 
 ### Legacy upgrade pack
@@ -46,7 +46,7 @@ The Enterprise policy pack includes policies that are typically necessary for en
 The Legacy upgrade pack comprises the following plugins and capabilities that enable organizations to better migrate from and/or service legacy systems:
 
 * [**XSLT policy plugin**](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/1120/reference/policy-reference/template-policy-rework-structure-35): Use the XSLT policy to apply an XSL transformation to an incoming XML request body, or to the response body if your backend is exposing XML content.
-* **WebSocket security authentication**: Enables the client to send a SOAP envelope with WSS details, where the policy will validate and check the credentials (currently supports username and password).
+* [**WebSocket security authentication**](../../reference/policy-reference/template-policy-rework-structure-43.md): Enables the client to send a SOAP envelope with WSS details, where the policy will validate and check the credentials (currently supports username and password).
 
 ### Observability pack
 
@@ -72,7 +72,7 @@ The Event-native pack includes capabilities that enable using Gravitee to expose
   * **Solace**: Allow the Gateway to expose Solace resources and event APIs via your chosen Gravitee entrypoint(s).
 * **CloudEvents policy**: Transform ingoing and outgoing data using the CloudEvents spec.
 * [**Message filtering policy**:](../../reference/policy-reference/message-filtering.md) Filter messages streamed to clients/subscribers based on certain API publisher and/or client criteria.
-* **Avro <> JSON policy**: Transform information in Avro format into JSON format
+* [**Avro <> JSON policy**](../../reference/policy-reference/template-policy-rework-structure-2.md): Transform information in Avro format into JSON format
 * **Gateway message reactor plugin**: Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
 * [**Confluent Schema Registry resource**](../../guides/api-configuration/resources.md#confluent-schema-registry): Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
