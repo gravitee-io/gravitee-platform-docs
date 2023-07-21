@@ -4,5 +4,5 @@
 
 APIM Management API includes endpoints for APIM Console and APIM Developer Portal. The links below will take you to the reference documentation for the respective service:
 
-* [APIM Console API reference](https://apim-master-api.team-apim.gravitee.dev/management/v2/#/)
-* [APIM Portal API reference](https://docs.gravitee.io/apim/3.x/portal-api/3.20/)
+* [APIM Console API reference](https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/4.0.0/gravitee-apim-rest-api/gravitee-apim-rest-api-management-v2/gravitee-apim-rest-api-management-v2-rest/src/main/resources/openapi/management-openapi-v2.yaml)
+* [APIM Portal API reference](https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/4.0.0/gravitee-apim-rest-api/gravitee-apim-rest-api-portal/gravitee-apim-rest-api-portal-rest/src/main/resources/portal-openapi.yaml)
