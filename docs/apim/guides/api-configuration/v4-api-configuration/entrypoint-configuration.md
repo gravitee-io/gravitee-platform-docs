@@ -30,11 +30,15 @@ v4 APIs support the following entrypoints:
 * Webhooks: exposes a backend resource via a Webhooks subscription
 * Server-sent events (SSE): exposes a backend resource via a unidirectional, SSE stream
 
-To access Entrypoint configuration, head to the APIs page and select your API. Then, under **Entrypoints,** select **General.**
+To access entrypoint configuration, head to the **APIs** page and select your API. Then, under **Entrypoints,** select **General.**
 
-Depending on which Entrypoint your API utilizes, entrypoint configuration may differ. Please refer to the following sections that cover configuration details for each.
+Depending on which entrypoint your API utilizes, entrypoint configuration may differ. Please refer to the following sections that cover configuration details for each.
 
-## HTTP GET
+
+
+<details>
+
+<summary>HTTP GET</summary>
 
 If you chose **HTTP GET** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -45,7 +49,11 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
   * **Limit messages duration:** defines the maximum duration, in milliseconds, to wait to retrieve the expected number of messages (See **Limit messages count**). The effective number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved. To set a custom limit, enter a numeric value in the **Limit messages duration** text field.
   * **HTTP GET permissions:** allow or disallow **Allow sending messages headers to client in payload** and **Allow sending messages metadata to client in payload** by toggling these actions ON or OFF.
 
-## HTTP POST
+</details>
+
+<details>
+
+<summary>HTTP POST</summary>
 
 If you chose **HTTP POST** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -53,7 +61,11 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
 * **Virtual hosts:** enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **HTTP POST permissions:** allow or disallow add request Headers to the generated message by toggling **Allow add request Headers to the generated message** ON or OFF.
 
-## WebSocket
+</details>
+
+<details>
+
+<summary>WebSocket</summary>
 
 If you chose **WebSocket** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -63,7 +75,11 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
   * **Publisher configuration:** choose to either enable or disable the publication capability by toggling **Enable the publication capability** ON or OFF. Disabling it assumes that the application will never be able to publish any message.
   * **Subscriber configuration:** choose to enable or disable the subscription capability by toggling **Enable the subscription capability** ON or OFF. Disabling it assumes that the application will never receive any message.
 
-## Webhooks
+</details>
+
+<details>
+
+<summary>Webhooks</summary>
 
 If you chose **Webhook** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -86,11 +102,9 @@ A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-ser
 
 Also, when using Webhooks as an entrypoint, you can set up both dead letter queues for storing undelivered messages and secure callbacks. When configuring DLQ with webhook, you redirect all the messages that the webhook rejects to another location, such as a Kafka topic.
 
-{% hint style="info" %}
 **UI Limitations**
 
 As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition. Support for configuration in the Gravitee APIM Console is planned for future releases.
-{% endhint %}
 
 ### Set up your dead letter queue
 
@@ -164,7 +178,11 @@ To use OAuth2, the `auth` object should look like this:
         }
 ```
 
-## Server-Sent Events
+</details>
+
+<details>
+
+<summary>Server-sent Events</summary>
 
 If you chose **SSE** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -175,11 +193,11 @@ If you chose **SSE** as an entrypoint, you will be brought to a page where you c
   * Choose to allow or disallow sending message metadata to the client as SSE comments by toggling **Allow sending messages metadata to client as SSE comments** ON or OFF.
   * Choose to allow or disallow sending message headers to the client as SSE comments by toggling **Allow sending messages headers to client as SSE comments** ON or OFF.
 
-{% hint style="info" %}
-You can also add an Entrypoint to your API by selecting **Add an entrypoint.** From here, you will simply need to configure the entrypoint using the details specific to that entrypoint (see exapandable sections above).
+</details>
+
+You can also add an Entrypoint to your API by selecting **Add an entrypoint.** From here, you will simply need to configure the entrypoint using the details specific to that entrypoint (see expandable sections above).
 
 When you are done configuring your entrypoints, make sure to select **Save changes.**
-{% endhint %}
 
 ## Configure v4 Proxy API entrypoints
 
