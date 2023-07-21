@@ -1,38 +1,84 @@
 ---
-description: This page provides the technical details of the Request Validation policy
+description: This page provides the technical details of the XSLT policy
 ---
 
-# Request Validation
+# XSLT
+
+{% hint style="warning" %}
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
+{% endhint %}
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+Functional and implementation information for the XSLT policy is organized into the following sections:
 
+* [Examples](template-policy-rework-structure-42.md#examples)
 * [Configuration](template-policy-rework-structure-42.md#configuration)
-* [Compatibility](template-policy-rework-structure-42.md#compatibility-matrix)
+* [Compatibility Matrix](template-policy-rework-structure-42.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-42.md#errors)
 * [Changelogs](template-policy-rework-structure-42.md#changelogs)
 
+## Examples
+
+You can use the `xslt` policy to apply an XSL transformation to an incoming XML request body or to the response body if your backend is exposing XML content.
+
+This policy is based on the [Saxon](https://sourceforge.net/projects/saxon/) library.
+
+By default, a DOCTYPE declaration will cause an error. This is for security. If you want to allow it, you can set `policy.xslt.secure-processing` to `false` in the Gateway configuration file (`gravitee.yml`).
+
+{% tabs %}
+{% tab title="Proxy API example" %}
 {% hint style="warning" %}
 This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-You can use the `request-validation` policy to validate an incoming HTTP request according to defined rules. A rule is defined for an input value. This input value supports Expression Language expressions and is validated against constraint rules.
+#### Remove SOAP elements when calling a WS
 
-Constraint rules can be:
+```
+<xsl:stylesheet version="2.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions"
+    exclude-result-prefixes="fn xsl">
 
-* `NOT_NULL` — Input value is required
-* `MIN` — Input value is a number and its value is greater than or equal to a given parameter
-* `MAX` — Input value is a number and its value is lower than or equal to a given parameter
-* `MAIL` — Input value is valid according to the mail pattern
-* `DATE` — Input value is valid according to the date format pattern given as a parameter
-* `PATTERN` — Input value is valid according to the pattern given as a parameter
-* `SIZE` — Input value length is between two given parameters
-* `ENUM` — Field value included in ENUM
+    <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" />
 
-By default, if none of the rules can be validated, the policy returns a `400` status code.
+    <!-- template to copy elements -->
+    <xsl:template match="*">
+        <xsl:if test="normalize-space(string(.)) != ''">
+            <xsl:element name="{local-name()}">
+                <xsl:apply-templates select="@* | node()"/>
+            </xsl:element>
+        </xsl:if>
+    </xsl:template>
+
+    <!-- template to copy attributes -->
+    <xsl:template match="@*">
+        <xsl:attribute name="{local-name()}">
+            <xsl:value-of select="."/>
+        </xsl:attribute>
+    </xsl:template>
+
+    <!-- template to copy the rest of the nodes -->
+    <xsl:template match="comment() | text() | processing-instruction()">
+        <xsl:copy/>
+    </xsl:template>
+
+    <xsl:template match="soapenv:*">
+        <xsl:apply-templates select="@* | node()" />
+    </xsl:template>
+
+    <xsl:template match="@xsi:nil[.='true']"/>
+</xsl:stylesheet>
+```
+
+\
+
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
@@ -42,62 +88,48 @@ When using the Management API, policies are added as flows either directly to an
 
 {% code title="Sample Configuration" %}
 ```json
-"policy-request-validation": {
-    "rules": [
+"xslt": {
+    "scope": "RESPONSE",
+    "stylesheet": "<xsl:stylesheet \n  version=\"2.0\"\n  xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\"\n  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"   xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:fn=\"http://www.w3.org/2005/xpath-functions\" exclude-result-prefixes=\"fn xsl\">\n  <xsl:output method=\"xml\" version=\"1.0\" encoding=\"UTF-8\" indent=\"yes\"/>\n\n  <!-- template to copy elements -->\n    <xsl:template match=\"*\">\n<xsl:if test=\"normalize-space(string(.)) != ''\">\n        <xsl:element name=\"{local-name()}\">\n            <xsl:apply-templates select=\"@* | node()\"/>\n        </xsl:element>\n</xsl:if>\n    </xsl:template>\n\n    <!-- template to copy attributes -->\n    <xsl:template match=\"@*\">\n        <xsl:attribute name=\"{local-name()}\">\n            <xsl:value-of select=\".\"/>\n        </xsl:attribute>\n    </xsl:template>\n\n    <!-- template to copy the rest of the nodes -->\n    <xsl:template match=\"comment() | text() | processing-instruction()\">\n        <xsl:copy/>\n    </xsl:template>\n\n  <xsl:template match=\"soapenv:*\">\n    <xsl:apply-templates select=\"@* | node()\" />\n  </xsl:template>\n\n  <xsl:template match=\"@xsi:nil[.='true']\"/>\n</xsl:stylesheet>",
+    "parameters": [
         {
-            "constraint": {
-                "parameters": [
-                    ".*\\\\.(txt)$"
-                ],
-                "type": "PATTERN"
-            },
-            "input": "{#request.pathInfos[2]}"
+            "name": "my-parameter",
+            "value": "my-value"
         }
-    ],
-    "status": "400"
+    ]
 }
 
 ```
 {% endcode %}
 
+#### Gateway
+
+By default, a DOCTYPE declaration will cause an error. This is for security. If you want to allow it, you can set `policy.xslt.secure-processing` to `false` in the Gateway configuration file (`gravitee.yml`).
+
+Configuration
+
+```
+policy:
+  xslt:
+    secure-processing: false
+```
+
 ### Reference
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Phase when the policy is executed</td><td>Policy scope</td><td>ON_REQUEST</td></tr><tr><td>status</td><td>true</td><td>HTTP status code send to the consumer in case of validation issues</td><td>HTTP status code</td><td>400</td></tr><tr><td>rules</td><td>true</td><td>Rules to apply to incoming request</td><td>List of rules</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>RESPONSE</code></td></tr><tr><td>stylesheet</td><td>true</td><td>XSLT stylesheet to apply</td><td>string</td><td></td></tr><tr><td>parameters</td><td>false</td><td>Parameters to inject while running XSL transformation</td><td>Array of XSLT parameters</td><td>-</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the JSON-to-XML policy:
+The phases checked below are supported by the XSLT policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-## Compatibility matrix
+## Compatibility
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
-
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.
 
 ## Errors
 
-#### HTTP status code
-
-| Code  | Message                                     |
-| ----- | ------------------------------------------- |
-| `400` | Incoming HTTP request can not be validated. |
-
-#### Default response override
-
-You can use the response template feature to override the default response provided by the policy. These templates must be defined at the API level (see the API Console **Response Templates** option in the API **Proxy** menu).
-
-#### Error keys
-
-The error keys sent by this policy are as follows:
-
-| Key                          | Parameters |
-| ---------------------------- | ---------- |
-| REQUEST\_VALIDATION\_INVALID | violations |
-
-## Changelogs
-
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-request-validation/blob/master/CHANGELOG.md" %}
+<table data-full-width="false"><thead><tr><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td><code>500</code></td><td>Bad stylesheet file or XSLT transformation cannot be executed properly</td></tr></tbody></table>

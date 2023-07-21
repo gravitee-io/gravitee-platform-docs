@@ -1,44 +1,64 @@
 ---
-description: This page provides the technical details of the REST to SOAP policy
+description: This page provides the technical details of the Transform Headers policy
 ---
 
-# REST to SOAP
+# Transform Headers
 
 ## Overview
 
-Functional and implementation information for the REST to SOAP policy is organized into the following sections:
+Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-36.md#examples)
 * [Configuration](template-policy-rework-structure-36.md#configuration)
-* [Compatibility](template-policy-rework-structure-36.md#compatibility-matrix)
+* [Compatibility Matrix](template-policy-rework-structure-36.md#compatibility-matrix)
 * [Changelogs](template-policy-rework-structure-36.md#changelogs)
 
 ## Examples
 
-You can use the `rest-to-soap` policy to expose SOAP backend service as a REST API. The policy will pass the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
+You can use the `transformheaders` policy to override HTTP headers in incoming requests or outbound responses. You can override the HTTP headers by:
+
+* Adding to or updating the list of headers
+* Removing headers individually
+* Defining a whitelist == Compatibility with APIM
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
-
-Currently, this policy can **not** be applied at the message level.
+{% hint style="info" %}
+The proxy API example also applies to v2 APIs.
 {% endhint %}
 
-For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap` policy SOAP envelope content:
+```
+transform-headers": {
+    "addHeaders": [
+        {
+            "name": "X-Gravitee-Request-Id",
+            "value": "{#request.id}"
+        }
+    ],
+    "removeHeaders": [
+        "X-Gravitee-TransactionId"
+    ],
+    "whitelistHeaders": [
+        "Content-Type",
+        "Content-Length"
+    ],
+    "scope": "REQUEST"
+}
+```
+
+Add a header from the request’s payload:
 
 ```
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope\\\" xmlns:web=\\\"http://www.oorsprong.org/websamples.countryinfo">
-   <soap:Header/>
-   <soap:Body>
-      <web:CountryISOCode>
-         <web:sCountryName>{#request.params['countryName']}</web:sCountryName>
-      </web:CountryISOCode>
-   </soap:Body>
-</soap:Envelope>
+"transform-headers": {
+    "addHeaders": [
+        {
+            "name": "X-Product-Id",
+            "value": "{#jsonPath(#request.content, '$.product.id')}"
+        }
+    ]
+    "scope": "REQUEST_CONTENT"
+}
 ```
-
-Will give you the ISO country code for `France`
 {% endtab %}
 {% endtabs %}
 
@@ -48,36 +68,20 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
-"rest-to-soap": {
-  "envelope": "<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">
-                 <soap:Header/>
-                 <soap:Body>
-                    <web:ListOfCountryNamesByName/>
-                 </soap:Body>
-              </soap:Envelope>",
-  "soapAction": null
-}
-```
-{% endcode %}
-
-### Reference
-
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>SOAP Envelope</td><td>true</td><td></td><td>SOAP envelope used to invoke WS (supports Expression Language)</td><td></td></tr><tr><td>SOAP Action</td><td>false</td><td></td><td>'SOAPAction' HTTP header sent when invoking WS</td><td></td></tr><tr><td>Charset</td><td>false</td><td></td><td>This charset will be appended to the <code>Content-Type</code> header value</td><td></td></tr><tr><td>Preserve Query Parameters</td><td>false</td><td></td><td>Whether the query parameters are propagated to the backend SOAP service</td><td></td></tr></tbody></table>
-
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the JSON-to-XML policy:
+The phases checked below are supported by the Transform Headers policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
-## Compatibility
+## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>1.x</td><td>&#x3C;=3.x</td><td>true</td></tr><tr><td>>=2.x</td><td>>=4.x</td><td>true</td></tr></tbody></table>
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-rest-to-soap/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-transform-headers/blob/master/CHANGELOG.md" %}

@@ -1,66 +1,31 @@
 ---
-description: This page provides the technical details of the Transform Headers policy
+description: This page provides the technical details of the Interrupt policy
 ---
 
-# Transform Headers
+# Interrupt
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+Functional and implementation information for the Interrupt policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure-12.md#examples)
 * [Configuration](template-policy-rework-structure-12.md#configuration)
 * [Compatibility Matrix](template-policy-rework-structure-12.md#compatibility-matrix)
+* [Errors](template-policy-rework-structure-12.md#errors)
 * [Changelogs](template-policy-rework-structure-12.md#changelogs)
 
-## Examples
-
-You can use the `transformheaders` policy to override HTTP headers in incoming requests or outbound responses. You can override the HTTP headers by:
-
-* Adding to or updating the list of headers
-* Removing headers individually
-* Defining a whitelist == Compatibility with APIM
-
-{% tabs %}
-{% tab title="Proxy API example" %}
 {% hint style="info" %}
-The proxy API example also applies to v2 APIs.
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+
+Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-```
-transform-headers": {
-    "addHeaders": [
-        {
-            "name": "X-Gravitee-Request-Id",
-            "value": "{#request.id}"
-        }
-    ],
-    "removeHeaders": [
-        "X-Gravitee-TransactionId"
-    ],
-    "whitelistHeaders": [
-        "Content-Type",
-        "Content-Length"
-    ],
-    "scope": "REQUEST"
-}
-```
+The `Interrupt` policy can be used to break the entire request processing in case of a condition This is defined on the policy. By default, if no policy condition is defined, the policy will always break request processing.
 
-Add a header from the request’s payload:
+Breaking the request processing means that no more policies will be executed and no endpoint will be called by the gateway.
 
-```
-"transform-headers": {
-    "addHeaders": [
-        {
-            "name": "X-Product-Id",
-            "value": "{#jsonPath(#request.content, '$.product.id')}"
-        }
-    ]
-    "scope": "REQUEST_CONTENT"
-}
-```
-{% endtab %}
-{% endtabs %}
+By default, the policy will return a response payload to the consumer which contains the `message` (see the configuration section).
+
+If you want to override this standard response from the policy, you can define an `errorKey` which will be then be used to define a Response Template.
 
 ## Configuration
 
@@ -68,20 +33,43 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
+{% code title="Sample Configuration" %}
+```json
+"policy-interrupt": {
+    "errorKey": "MY_CUSTOM_KEY",
+    "message": "You got a problem, sir !",
+    "variables": [{
+        "name": "custom-variable",
+        "value": "{#request.headers['origin']}"
+    }]
+}
+```
+{% endcode %}
+
+### Reference
+
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>errorKey</td><td>true</td><td>The error Key to use for defining a Response Template</td><td>string</td><td>-</td></tr><tr><td>message</td><td>true</td><td>Default response template</td><td>string</td><td>-</td></tr><tr><td>variables</td><td>false</td><td>The variables for Response Template purpose</td><td>List of variables</td><td>-</td></tr></tbody></table>
+
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Transform Headers policy:
+The phases checked below are supported by the JSON-to-XML policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Compatibility matrix
 
 The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>1.x</td><td>&#x3C;=3.x</td><td>true</td></tr><tr><td>>=2.x</td><td>>=4.x</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th></tr></thead><tbody><tr><td>>=1.x</td><td>>=3.10.x</td></tr></tbody></table>
+
+## Errors
+
+| Code  | Message                   |
+| ----- | ------------------------- |
+| `500` | Request processing broken |
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-transform-headers/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-interrupt/blob/master/CHANGELOG.md" %}

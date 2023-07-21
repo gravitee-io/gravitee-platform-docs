@@ -1,10 +1,8 @@
 ---
-description: >-
-  This page provides the technical details of the WS Security Authentication
-  policy
+description: This page provides the technical details of the Assign Metrics policy
 ---
 
-# WS Security Authentication
+# Assign Metrics
 
 {% hint style="warning" %}
 **This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
@@ -12,18 +10,7 @@ description: >-
 
 ## Overview
 
-You can use the `wssecurity-authentication` policy to manage the security of SOAP API calls. The policy compares the username and password sent in the soap header to an APIM user to determine if the user credentials are valid.
-
-To use the policy in an API, you need to:
-
-* configure an LDAP, inline, or http resource for your API plan, which specifies where the APIM users are stored
-* configure a WS-Security authentication policy for the API flows
-
-{% hint style="info" %}
-LDAP, inline and http resources are not part of the default APIM configuration, so you must download these resource plugins from [here](https://download.gravitee.io/#graviteeio-apim/plugins/resources/).
-{% endhint %}
-
-Functional and implementation information for the WS Security Authentication policy is organized into the following sections:
+Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-1.md#examples)
 * [Configuration](template-policy-rework-structure-1.md#configuration)
@@ -33,31 +20,30 @@ Functional and implementation information for the WS Security Authentication pol
 
 ## Examples
 
+You can use the `assign-metrics` policy to push extra metrics in addition to the natively provided request metrics.
+
+These metrics can then be used from analytics dashboards to create custom widgets and, optionally, apply aggregations based on their value.
+
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="info" %}
-The proxy API example also applies to v2 APIs.
+{% hint style="warning" %}
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+
+Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-In the example below, the policy will extract **foo** & **bar** from the payload.
+To display your request distribution based on a particular HTTP header in your dashboards, create the custom metric shown below.
 
-{% code title="Default response" %}
-```xml
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-    <soap:Header>
-        <wsse:Security xmlns:wsse="http://schemas.xmlsoap.org/ws/2003/06/secext">
-            <wsse:UsernameToken>
-                <wsse:Username>foo</wsse:Username>
-                <wsse:Password>bar</wsse:Password>
-            </wsse:UsernameToken>
-        </wsse:Security>
-    </soap:Header>
-    <soap:Body>
-        ...
-    </soap:Body>
-</soap:Envelope>
 ```
-{% endcode %}
+"assign-metrics": {
+    "metrics": [
+        {
+            "name": "myCustomHeader,
+            "value": "{#request.headers['X-MyCustomHeader'] != null ? #request.headers['X-MyCustomHeader'][0] : null}"
+        }
+    ]
+}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -67,31 +53,18 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
-{
-  "name": "Custom name",
-  "description": "Manage the security of SOAP API calls",
-  "policy": "policy-wssecurity-authentication",
-  "configuration": {
-   "authenticationProviders" : [ "authProvider" ]
-  }
-}
-```
-{% endcode %}
-
-### Reference
-
-<table data-full-width="false"><thead><tr><th width="140">Property</th><th width="104" data-type="checkbox">Required</th><th width="207">Description</th><th width="111" data-type="select">Type</th><th width="247">Options</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>false</td><td>List the authentication providers</td><td></td><td>N/a</td></tr></tbody></table>
+You can enable or disable the policy with policy identifier `policy-assign-metrics`.
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the WS Security Authentication policy:
+The phases checked below are supported by the Assign Metrics policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-## Errors
+## Compatibility matrix
 
-There are no out-of-the-box errors returned by this policy.
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>>=2.x</td><td>>=3.18</td><td>N/A</td></tr><tr><td>1.x - 2.x</td><td>&#x3C;3.17</td><td>N/A</td></tr></tbody></table>

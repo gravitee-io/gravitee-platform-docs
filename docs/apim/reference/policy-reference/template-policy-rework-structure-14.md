@@ -1,28 +1,20 @@
 ---
-description: This page provides the technical details of the Groovy policy
+description: This page provides the technical details of the Javascript policy
 ---
 
-# Groovy
+# Javascript
 
 ## Overview
 
-Functional and implementation information for the Groovy policy is organized into the following sections:
+Functional and implementation information for the Javascript policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-14.md#examples)
 * [Configuration](template-policy-rework-structure-14.md#configuration)
-* [Errors](template-policy-rework-structure-14.md#errors)
 * [Changelogs](template-policy-rework-structure-14.md#changelogs)
 
 ## Examples
 
-ou can use the [Groovy](http://www.groovy-lang.org/) policy to run Groovy scripts at any stage of request processing through the gateway.
-
-The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
-
-```
-response.headers.remove 'X-Powered-By'
-response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
-```
+You can use this policy to run [Javascript](http://www.javascript.com/) scripts at every stage of gateway processing.
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -32,50 +24,25 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-#### onRequest / onResponse
+#### onRequest phase
 
-Some variables are automatically bound to the Groovy script to allow users to use them and define the policy behavior.
-
-| Name       | Description                                                                       |
-| ---------- | --------------------------------------------------------------------------------- |
-| `request`  | Inbound HTTP request                                                              |
-| `response` | Outbound HTTP response                                                            |
-| `context`  | `PolicyContext` used to access external components such as services and resources |
-| `result`   | Groovy script result                                                              |
-
-Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error` but you can override this behavior with the following properties: - `code`: An HTTP status code - `error`: The error message - `key`: The key of a response template:
+As an example of what you can do in the **onRequest** phase, this script stops the processing if the request contains a certain header.
 
 ```
-import io.gravitee.policy.groovy.PolicyResult.State
-
 if (request.headers.containsKey('X-Gravitee-Break')) {
-    result.key = 'RESPONSE_TEMPLATE_KEY';
     result.state = State.FAILURE;
     result.code = 500
-    result.error = 'Stop request processing due to X-Gravitee-Break header'
+    result.error = 'Stopped processing due to X-Gravitee-Break header'
 } else {
-    request.headers.'X-Groovy-Policy' = 'ok'
+    request.headers.set('X-Javascript-Policy', 'ok');
 }
 ```
 
-To customize the error sent by the policy:
+#### Phase - onRequestContent
 
-```
-import io.gravitee.policy.groovy.PolicyResult.State
-result.key = 'RESPONSE_TEMPLATE_KEY';
-result.state = State.FAILURE;
-result.code = 400
-result.error = '{"error":"My specific error message","code":"MY_ERROR_CODE"}'
-result.contentType = 'application/json'
-```
+In the **onRequestContent** phase you have access to the **content** object, also known as the [request body](https://dzone.com/articles/rest-api-path-vs-request-body-parameters). You can modify this object.
 
-#### OnRequestContent / OnResponseContent
-
-You can also transform request or response body content by applying a Groovy script on the `OnRequestContent` phase or the `OnResponseContent` phase.
-
-The following example shows you how to use the Groovy policy to transform JSON content:
-
-**Input body content**
+As an example, assuming the following request body:
 
 ```
 [
@@ -87,20 +54,17 @@ The following example shows you how to use the Groovy policy to transform JSON c
 ]
 ```
 
-**Groovy script**
+Then you can do the following:
 
 ```
-import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
+var content = JSON.parse(request.content);
+content[0].firstname = 'Hacked ' + content[0].firstname;
+content[0].country = 'US';
 
-def jsonSlurper = new JsonSlurper()
-def content = jsonSlurper.parseText(response.content)
-content[0].firstname = 'Hacked ' + content[0].firstname
-content[0].country = 'US'
-return JsonOutput.toJson(content)
+JSON.stringify(content);
 ```
 
-**Output body content**
+And the request body being passed to the API would be:
 
 ```
 [
@@ -112,6 +76,39 @@ return JsonOutput.toJson(content)
     }
 ]
 ```
+
+{% hint style="info" %}
+When working with scripts on onRequestContent phase, the last instruction of the script **must be** the new body content that would be returned by the policy.
+{% endhint %}
+
+#### Phase - onResponseContent
+
+In the **onResponseContent** phase you have access to the **content** object, also known response message. You can modify this object.
+
+As an example, assume that you sent the request body modified in the **onRequestContent** phase to an **echo** API. You can do the following:
+
+```
+var content = JSON.parse(response.content);
+content[0].firstname = content[0].firstname.substring(7);
+delete content[0].country;
+JSON.stringify(content);
+```
+
+And the response message would be:
+
+```
+[
+    {
+        "age": 32,
+        "firstname": "John",
+        "lastname": "Doe"
+    }
+]
+```
+
+{% hint style="info" %}
+When working with scripts on onResponseContent phase, the last instruction of the script **must be** the new body content that would be returned by the policy.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 
@@ -121,76 +118,87 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
-"groovy": {
-    "onRequestScript": "request.headers.'X-Gravitee-Gateway' = '0.14.0'",
-    "onResponseScript": "response.headers.remove 'X-Powered-By'",
-    "onRequestContentScript": "" // Not executed if empty
-    "onResponseContentScript": "" // Not executed if empty
-}
-```
-{% endcode %}
-
 ### Reference
 
-<table data-full-width="false"><thead><tr><th width="140">Property</th><th width="104" data-type="checkbox">Required</th><th width="207">Description</th><th width="111" data-type="select">Type</th><th width="247">Options</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td></tr><tr><td>description</td><td>false</td><td>Provide a description for your policy</td><td></td><td>N/a</td></tr><tr><td>rootElement</td><td>true</td><td>XML root element name that encloses content.</td><td></td><td>N/a<br><strong>root</strong></td></tr><tr><td>scope</td><td>true</td><td>The execution scope</td><td></td><td><strong>REQUEST</strong> RESPONSE</td></tr></tbody></table>
+#### onRequest phase
+
+| Object  | Property       | Type                           | Description |
+| ------- | -------------- | ------------------------------ | ----------- |
+| request | id             | string                         | -           |
+| request | transactionId  | string                         | -           |
+| request | uri            | string                         | -           |
+| request | path           | string                         | -           |
+| request | pathInfo       | string                         | -           |
+| request | contextPath    | string                         | -           |
+| request | parameters     | multivalue map                 | -           |
+| request | pathParameters | multivalue map                 | -           |
+| request | headers        | iterable map \<string, string> | -           |
+| request | method         | enum                           | -           |
+| request | version        | enum                           | -           |
+| request | timestamp      | long                           | -           |
+| request | remoteAddress  | string                         | -           |
+| request | localAddress   | string                         | -           |
+| request | scheme         | string                         | -           |
+| request | sslSession     | javax.net.ssl.SSLSession       | -           |
+| request | metrics        | object                         |             |
+
+#### Phase - onResponse
+
+In the **onResponse** phase you have access to the **request**, the **response** and the **context** object.
+
+| Object   | Property | Type                           | Description |
+| -------- | -------- | ------------------------------ | ----------- |
+| response | status   | int                            | -           |
+| response | reason   | String                         | -           |
+| response | headers  | iterable map \<string, string> | -           |
+
+#### Metrics
+
+It is highly advisable to use the Metrics Reporter in order to manage the metrics. However, the request object does contain a **metrics** object.
+
+| Object  | Property              | Type   | Description                                                    |
+| ------- | --------------------- | ------ | -------------------------------------------------------------- |
+| metrics | api                   | String | ID of the API                                                  |
+| metrics | apiResponseTimeMs     | long   | Response time spend to call the backend upstream               |
+| metrics | application           | String | ID of the consuming application                                |
+| metrics | endpoint              | String | -                                                              |
+| metrics | errorKey              | String | Key of the error if the policy chain is failing                |
+| metrics | host                  | String | Host header value                                              |
+| metrics | httpMethod            | enum   | -                                                              |
+| metrics | localAddress          | String | -                                                              |
+| metrics | log                   | object | -                                                              |
+| metrics | mappedPath            | String | -                                                              |
+| metrics | message               | String | -                                                              |
+| metrics | path                  | String | -                                                              |
+| metrics | plan                  | String | ID of the plan                                                 |
+| metrics | proxyLatencyMs        | long   | Latency of the gateway to apply policies                       |
+| metrics | proxyResponseTimeMs   | long   | Global response time to process and respond to the consumer    |
+| metrics | remoteAddress         | String | -                                                              |
+| metrics | requestContentLength  | long   | -                                                              |
+| metrics | requestId             | String | -                                                              |
+| metrics | responseContentLength | long   | -                                                              |
+| metrics | securityToken         | String | -                                                              |
+| metrics | securityType          | enum   | -                                                              |
+| metrics | status                | int    | -                                                              |
+| metrics | subscription          | String | ID of the subscription                                         |
+| metrics | tenant                | String | gateway tenant value                                           |
+| metrics | transactionId         | String | -                                                              |
+| metrics | uri                   | String | -                                                              |
+| metrics | user                  | String | End-user doing the call (in case of OAuth2 / JWT / Basic Auth) |
+| metrics | userAgent             | String | Value of the user-agent header                                 |
+| metrics | zone                  | String | Gateway zone                                                   |
+
+|   | The metrics object changes in the different processing phases and some properties may not make sense in certain phases! |
+| - | ----------------------------------------------------------------------------------------------------------------------- |
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Groovy policy:
+The phases checked below are supported by the Javascript policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
-
-## Errors
-
-The Groovy policy comes with a native sandbox feature, which allows you to safely run Groovy scripts. The sandbox is based on a predefined list of allowed methods, fields, constructors, and annotations.
-
-The complete whitelist can be found here : [gravitee groovy whitelist](https://gh.gravitee.io/gravitee-io/gravitee-policy-groovy/master/src/main/resources/groovy-whitelist)
-
-This whitelist should be enough for almost all possible use cases. If you have specific needs which are not allowed by the built-in whitelist, you can extend (or even replace) the list with your own declarations. For that, you can configure the gravitee.yml by specifying:
-
-* `groovy.whitelist.mode`: `append` or `replace`. This allows you to append some new whitelisted definitions to the built-in list or completely replace it. We recommend you always choose `append` unless you absolutely know what you are doing
-* `groovy.whitelist.list`: allows declaring other methods, constructors, fields or annotations to the whitelist
-  * start with `method` to allow a specific method (complete signature)
-  * start with `class` to allow a complete class. All methods, constructors and fields of the class will then be accessible
-  * start with `new` to allow a specific constructor (complete signature)
-  * start with `field` to allow access to a specific field of a class
-  * start with `annotation` to allow use of a specific annotation
-
-Example:
-
-```
-groovy:
-  whitelist:
-    mode: append
-    list:
-        - method java.time.format.DateTimeFormatter ofLocalizedDate java.time.format.FormatStyle
-        - class java.time.format.DateTimeFormatter
-```
-
-
-
-{% hint style="info" %}
-**`DateTimeFormatter`**
-
-The `DateTimeFormatter` class is already part of the build-in whitelist.
-{% endhint %}
-
-
-
-{% hint style="danger" %}
-**Security implications**
-
-Be careful when you allow use of classes or methods. In some cases, giving access to all methods of a class may allow access by transitivity to unwanted methods and may open potential security breaches.
-{% endhint %}
-
-### HTTP status codes
-
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onResponse</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onRequestContent</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>The Groovy script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-groovy/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-javascript/blob/master/CHANGELOG.md" %}

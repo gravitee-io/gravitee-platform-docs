@@ -1,20 +1,59 @@
 ---
-description: This page provides the technical details of the Javascript policy
+description: This page provides the technical details of the JSON Web Signature policy
 ---
 
-# Javascript
+# JSON Web Signature (JWS)
 
 ## Overview
 
-Functional and implementation information for the Javascript policy is organized into the following sections:
+Functional and implementation information for the JWS policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-19.md#examples)
 * [Configuration](template-policy-rework-structure-19.md#configuration)
+* [Errors](template-policy-rework-structure-19.md#errors)
 * [Changelogs](template-policy-rework-structure-19.md#changelogs)
 
 ## Examples
 
-You can use this policy to run [Javascript](http://www.javascript.com/) scripts at every stage of gateway processing.
+You can use the `jws-validator` policy to validate the JWS token signature, certificate information, and expiration date before sending the API call to the target backend.
+
+JWT in JWS format enables secure content to be shared across security domains. The RFC standards are as follows:
+
+* JWS (Json Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
+* JOSE Header standard RFC: [https://tools.ietf.org/html/rfc7515#section-4](https://tools.ietf.org/html/rfc7515#section-4)
+* JWT (Json Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
+
+### JWT
+
+A JWT is composed of three parts: a header, a payload and a signature. You can see some examples here: [http://jwt.io](http://jwt.io/).
+
+* The header contains attributes indicating the algorithm used to sign the token.
+* The payload contains some information inserted by the AS (Authorization Server), such as the expiration date and UID of the user.
+
+Both the header and payload are encoded with Base64, so anyone can read the content.
+
+* The third and last part is the signature (for more details, see the RFC).
+
+### Input
+
+```
+======================= =================================================
+Request Method          POST
+Request Content-Type    application/jose+json
+Request Body            eyJ0....ifQ.eyJzdWIiOiI...lIiwiYWRtaW4iOnRydWV9.TJVA95...h7HgQ
+Response Codes          Backend response or 401 Unauthorized
+======================= =================================================
+```
+
+According to the [JWS RFC](https://tools.ietf.org/html/rfc7515#section-4.1.10), the JWT/JWS header must contain the following information if correct content is to be provided to the backend:
+
+A `typ` value of `JOSE` can be used by applications to indicate that this object is a JWS or JWE using JWS Compact Serialization or the JWE Compact Serialization. A `typ` value of `JOSE+JSON` can be used by applications to indicate that this object is a JWS or JWE using JWS JSON Serialization or JWE JSON Serialization.
+
+The `cty` (content type) header parameter is used by JWS applications to declare the media type \[IANA.MediaTypes] of the secured content (the payload). To keep messages compact in typical scenarios, it is strongly recommended that senders omit the `application/` prefix of a media type value in a `cty` header parameter when no other `/` appears in the media type value.
+
+{% hint style="info" %}
+A recipient using the media type value must treat it as if `application/` were prepended to any `cty` value not containing a `/`.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -24,91 +63,15 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-#### onRequest phase
-
-As an example of what you can do in the **onRequest** phase, this script stops the processing if the request contains a certain header.
-
 ```
-if (request.headers.containsKey('X-Gravitee-Break')) {
-    result.state = State.FAILURE;
-    result.code = 500
-    result.error = 'Stopped processing due to X-Gravitee-Break header'
-} else {
-    request.headers.set('X-Javascript-Policy', 'ok');
+{
+ "typ":"JOSE+JSON",
+ "cty":"json",
+ "alg":"RS256",
+ "x5c":"string",
+ "kid":"string"
 }
 ```
-
-#### Phase - onRequestContent
-
-In the **onRequestContent** phase you have access to the **content** object, also known as the [request body](https://dzone.com/articles/rest-api-path-vs-request-body-parameters). You can modify this object.
-
-As an example, assuming the following request body:
-
-```
-[
-    {
-        "age": 32,
-        "firstname": "John",
-        "lastname": "Doe"
-    }
-]
-```
-
-Then you can do the following:
-
-```
-var content = JSON.parse(request.content);
-content[0].firstname = 'Hacked ' + content[0].firstname;
-content[0].country = 'US';
-
-JSON.stringify(content);
-```
-
-And the request body being passed to the API would be:
-
-```
-[
-    {
-        "age": 32,
-        "firstname": "Hacked John",
-        "lastname": "Doe",
-        "country": "US"
-    }
-]
-```
-
-{% hint style="info" %}
-When working with scripts on onRequestContent phase, the last instruction of the script **must be** the new body content that would be returned by the policy.
-{% endhint %}
-
-#### Phase - onResponseContent
-
-In the **onResponseContent** phase you have access to the **content** object, also known response message. You can modify this object.
-
-As an example, assume that you sent the request body modified in the **onRequestContent** phase to an **echo** API. You can do the following:
-
-```
-var content = JSON.parse(response.content);
-content[0].firstname = content[0].firstname.substring(7);
-delete content[0].country;
-JSON.stringify(content);
-```
-
-And the response message would be:
-
-```
-[
-    {
-        "age": 32,
-        "firstname": "John",
-        "lastname": "Doe"
-    }
-]
-```
-
-{% hint style="info" %}
-When working with scripts on onResponseContent phase, the last instruction of the script **must be** the new body content that would be returned by the policy.
-{% endhint %}
 {% endtab %}
 {% endtabs %}
 
@@ -118,87 +81,48 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
+{% code title="Sample Configuration" %}
+```json
+{
+ "typ":"JOSE+JSON",
+ "cty":"json",
+ "alg":"RS256",
+ "x5c":"string",
+ "kid":"string"
+}
+```
+{% endcode %}
+
 ### Reference
 
-#### onRequest phase
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>checkCertificateValidity</td><td>false</td><td>Check if the certificate used to sign the JWT is correct and has valid <code>not_before</code> and <code>not_after</code> dates</td><td>boolean</td><td>false</td></tr><tr><td>checkCertificateRevocation</td><td>false</td><td>Check if the certificate used to sign the JWT is not revoked via the CRL Distribution Points. The CRL is stored inside the X509v3 CRL Distribution Extension Points.</td><td>boolean</td><td>false</td></tr></tbody></table>
 
-| Object  | Property       | Type                           | Description |
-| ------- | -------------- | ------------------------------ | ----------- |
-| request | id             | string                         | -           |
-| request | transactionId  | string                         | -           |
-| request | uri            | string                         | -           |
-| request | path           | string                         | -           |
-| request | pathInfo       | string                         | -           |
-| request | contextPath    | string                         | -           |
-| request | parameters     | multivalue map                 | -           |
-| request | pathParameters | multivalue map                 | -           |
-| request | headers        | iterable map \<string, string> | -           |
-| request | method         | enum                           | -           |
-| request | version        | enum                           | -           |
-| request | timestamp      | long                           | -           |
-| request | remoteAddress  | string                         | -           |
-| request | localAddress   | string                         | -           |
-| request | scheme         | string                         | -           |
-| request | sslSession     | javax.net.ssl.SSLSession       | -           |
-| request | metrics        | object                         |             |
+To validate the token signature, the policy needs to use the JWS validator policy public key set in the APIM Gateway `gravitee.yml` file:
 
-#### Phase - onResponse
+```
+policy:
+  jws:
+    kid:
+      default: ssh-rsa myValidationKey anEmail@domain.com
+      kid-2016: /filepath/to/pemFile/certificate.pem
+```
 
-In the **onResponse** phase you have access to the **request**, the **response** and the **context** object.
+The policy will inspect the JWT/JWS header to extract the key id (`kid` attribute) of the public key. If no key id is found then it is set to `default`.
 
-| Object   | Property | Type                           | Description |
-| -------- | -------- | ------------------------------ | ----------- |
-| response | status   | int                            | -           |
-| response | reason   | String                         | -           |
-| response | headers  | iterable map \<string, string> | -           |
-
-#### Metrics
-
-It is highly advisable to use the Metrics Reporter in order to manage the metrics. However, the request object does contain a **metrics** object.
-
-| Object  | Property              | Type   | Description                                                    |
-| ------- | --------------------- | ------ | -------------------------------------------------------------- |
-| metrics | api                   | String | ID of the API                                                  |
-| metrics | apiResponseTimeMs     | long   | Response time spend to call the backend upstream               |
-| metrics | application           | String | ID of the consuming application                                |
-| metrics | endpoint              | String | -                                                              |
-| metrics | errorKey              | String | Key of the error if the policy chain is failing                |
-| metrics | host                  | String | Host header value                                              |
-| metrics | httpMethod            | enum   | -                                                              |
-| metrics | localAddress          | String | -                                                              |
-| metrics | log                   | object | -                                                              |
-| metrics | mappedPath            | String | -                                                              |
-| metrics | message               | String | -                                                              |
-| metrics | path                  | String | -                                                              |
-| metrics | plan                  | String | ID of the plan                                                 |
-| metrics | proxyLatencyMs        | long   | Latency of the gateway to apply policies                       |
-| metrics | proxyResponseTimeMs   | long   | Global response time to process and respond to the consumer    |
-| metrics | remoteAddress         | String | -                                                              |
-| metrics | requestContentLength  | long   | -                                                              |
-| metrics | requestId             | String | -                                                              |
-| metrics | responseContentLength | long   | -                                                              |
-| metrics | securityToken         | String | -                                                              |
-| metrics | securityType          | enum   | -                                                              |
-| metrics | status                | int    | -                                                              |
-| metrics | subscription          | String | ID of the subscription                                         |
-| metrics | tenant                | String | gateway tenant value                                           |
-| metrics | transactionId         | String | -                                                              |
-| metrics | uri                   | String | -                                                              |
-| metrics | user                  | String | End-user doing the call (in case of OAuth2 / JWT / Basic Auth) |
-| metrics | userAgent             | String | Value of the user-agent header                                 |
-| metrics | zone                  | String | Gateway zone                                                   |
-
-|   | The metrics object changes in the different processing phases and some properties may not make sense in certain phases! |
-| - | ----------------------------------------------------------------------------------------------------------------------- |
+The gateway will be able to retrieve the corresponding public key and the JOSE Header using `x5c` (X.509 Certificate Chain). The header parameter will be used to verify certificate information and check that the JWT was signed using the private key corresponding to the specified public key.
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Javascript policy:
+The phases checked below are supported by the JWS policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+
+## Errors
+
+<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td>Bad token format, content, signature, certificate, expired token or any other issue preventing the policy from validating the token</td></tr></tbody></table>
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-javascript/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-jws/blob/master/CHANGELOG.md" %}

@@ -1,31 +1,33 @@
 ---
-description: This page provides the technical details of the Mock policy
+description: This page provides the technical details of the HTTP Signature policy
 ---
 
-# Mock
+# HTTP Signature
 
 ## Overview
 
-Functional and implementation information for the Mock policy is organized into the following sections:
+Functional and implementation information for the HTTP Signature policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-11.md#examples)
 * [Configuration](template-policy-rework-structure-11.md#configuration)
 * [Compatibility Matrix](template-policy-rework-structure-11.md#compatibility-matrix)
+* [Errors](template-policy-rework-structure-11.md#errors)
 * [Changelogs](template-policy-rework-structure-11.md#changelogs)
 
 ## Examples
 
-You can use the `mock` policy to create mock responses when a consumer calls one of your services. This means you do not have to provide a functional backend as soon as you create your API, giving you more time to think about your API contract.
+HTTP Signature is a kind of authentication method which is adding a new level of security. By using this policy, the consumer is enforced to send a _signature_ which is used to identify the request temporarily and ensure that the request is really coming from the requesting consumer, using a secret key.
 
-You can think of the policy as a contract-first approach — you are able to create a fully-functional API without needing to write a single line of code to handle consumer calls.
+The "Signature" authentication scheme is based on the model that the client must authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
 
-Internally, this policy replaces the default HTTP invoker with a mock invoker. There are no more HTTP calls between the gateway and a remote service or backend.
+You can use:
+
+* Authorization header: For example: `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+* Signature header: For example, `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
 
 {% hint style="info" %}
-The Mock policy will **not** cause the other policies to be skipped, regardless of its location in the flow.
+The current version of the policy does not support **Digest**, **(request-target)**, **Host** and **Path** headers
 {% endhint %}
-
-When defining the response body content, you can use Expression Language to provide a dynamic mock response.
 
 {% tabs %}
 {% tab title="Proxy API example" %}
@@ -35,28 +37,15 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-Note that you don’t need to provide the `Content-Type` header, since the Mock policy can automatically detect the content type.
-
-#### Body content example (XML)
-
-```
-<user id="{#request.paths[3]}">
-    <firstname>{#properties['firstname_' + #request.paths[3]]}</firstname>
-	<lastname>{#properties['lastname_' + #request.paths[3]]}</lastname>
-	<age>{(T(java.lang.Math).random() * 60).intValue()}</age>
-	<createdAt>{(new java.util.Date()).getTime()}</createdAt>
-</user>
-```
-
-#### Body content example (JSON)
-
 ```
 {
-    "id": "{#request.paths[3]}",
-    "firstname": "{#properties['firstname_' + #request.paths[3]]}",
-    "lastname": "{#properties['lastname_' + #request.paths[3]]}",
-    "age": {(T(java.lang.Math).random() * 60).intValue()},
-    "createdAt": {(new java.util.Date()).getTime()}
+  "http-signature": {
+	"scheme":"AUTHORIZATION",
+	"clockSkew":30,
+	"secret":"my-passphrase",
+	"algorithms":["HMAC_SHA256"],
+	"enforceHeaders":["Date","Host"]
+  }
 }
 ```
 {% endtab %}
@@ -70,40 +59,50 @@ When using the Management API, policies are added as flows either directly to an
 
 {% code title="Sample Configuration" %}
 ```json
-"mock": {
-    "status": "200",
-    "headers": [
-        {
-            "name": "Content-Type",
-            "value": "application/json"
-        }, {
-            "name": "Server",
-            "value": "Gravitee.io"
-        }
-    ],
-    "content": "<user id=\"{#request.paths[3]}\">\n\t<firstname>{#properties['firstname_' + #request.paths[3]]}</firstname>\n\t<lastname>{#properties['lastname_' + #request.paths[3]]}</lastname>\n\t<age>{(T(java.lang.Math).random() * 60).intValue()}</age>\n\t<createdAt>{(new java.util.Date()).getTime()}</createdAt>\n</user>"
+{
+  "http-signature": {
+	"scheme":"AUTHORIZATION",
+	"clockSkew":30,
+	"secret":"my-passphrase",
+	"algorithms":["HMAC_SHA256"],
+	"enforceHeaders":["Date","Host"]
+  }
 }
 ```
 {% endcode %}
 
 ### Reference
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>status</td><td>true</td><td>HTTP Status Code</td><td>integer</td><td></td></tr><tr><td>headers</td><td>true</td><td>HTTP Headers</td><td>Array of HTTP headers</td><td></td></tr><tr><td>content</td><td>true</td><td>HTTP Body content</td><td>string</td><td></td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Default</th><th>Example</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td>authorization</td><td>-</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL).</td><td>-</td><td>passphrase</td></tr><tr><td>algorithms</td><td>false</td><td>A list of supported HMAC digest algorithms.</td><td>-</td><td>-</td></tr><tr><td>enforceHeaders</td><td>false</td><td>List of headers the consumer must at least use for HTTP signature creation.</td><td>-</td><td>-</td></tr><tr><td>clockSkew</td><td>false</td><td>Clock Skew in seconds to prevent replay attacks.</td><td>30</td><td>-</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Mock policy:
+The phases checked below are supported by the HTTP Signature policy:
 
 <table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `http-signature` policy.
 
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th></tr></thead><tbody><tr><td>&#x3C;=1.x</td><td>All</td></tr></tbody></table>
+<table><thead><tr><th>Plugin version</th><th>Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>1.5 and upper</td><td>3.15.x to latest</td><td>true</td></tr><tr><td>Up to 1.4</td><td>Up to 3.14.x</td><td>true</td></tr></tbody></table>
+
+## Errors
+
+If you’re looking to override the default response provided by the policy, you can do it thanks to the response templates feature. These templates must be define at the API level (see `Response Templates` from the `Proxy` menu).
+
+Here are the error keys send by this policy:
+
+| Key                                 | Parameters |
+| ----------------------------------- | ---------- |
+| HTTP\_SIGNATURE\_INVALID\_SIGNATURE |            |
+
+### Http status code
+
+<table><thead><tr><th width="166.33333333333331">Phase</th><th>Code</th><th>Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td><p>In case of:</p><p>* Missing or signature</p><p>* Request does not contain headers part of the signature</p><p>* Enforce HTTP headers not part of the signature</p></td></tr></tbody></table>
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-mock/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-http-signature/blob/master/CHANGELOG.md" %}

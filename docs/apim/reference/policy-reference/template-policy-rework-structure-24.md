@@ -1,118 +1,59 @@
 ---
-description: This page provides the technical details of the JSON-to-XML policy
+description: This page provides the technical details of the OAuth2 policy
 ---
 
-# JSON to XML
+# OAuth2
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+Functional and implementation information for the OAuth2 policy is organized into the following sections:
 
 * [Examples](template-policy-rework-structure-24.md#examples)
 * [Configuration](template-policy-rework-structure-24.md#configuration)
-* [Compatibility Matrix](template-policy-rework-structure-24.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-24.md#errors)
 * [Changelogs](template-policy-rework-structure-24.md#changelogs)
 
 ## Examples
 
-The JSON-to-XML policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client. To transform XML content to JSON, please see the JSON-to-XML policy.
+You can use the `oauth2` policy to check access token validity during request processing using token introspection.
+
+If the access token is valid, the request is allowed to proceed. If not, the process stops and rejects the request.
+
+The access token must be supplied in the `Authorization` HTTP request header:
+
+```
+$ curl -H "Authorization: Bearer |accessToken|" \
+           http://gateway/api/resource
+```
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="info" %}
-The proxy API example also applies to v2 APIs.
+{% hint style="warning" %}
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+
+Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-For proxy APIs, the JSON-to-XML policy is most commonly used for transforming JSON data before returning it to the client in the `response` phase.
+Given the following introspection response payload:
 
-For example, the Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted like so:
-
-{% code title="Default response" %}
-```json
+```
 {
-    "bodySize": 0,
-    "headers": {
-        "Accept": "*/*",
-        "Host": "api.gravitee.io",
-        "User-Agent": "{{user-agent-info}}",
-        "X-Gravitee-Request-Id": "{{generated-request-id}}",
-        "X-Gravitee-Transaction-Id": "{{generated-trx-id}}",
-        "accept-encoding": "deflate, gzip"
-    },
-    "query_params": {}
+    "active": true,
+    "client_id": "VDE",
+    "exp": 1497536237,
+    "jti": "5e075c1c-f4eb-42a5-8b56-fd367133b242",
+    "scope": "read write delete",
+    "token_type": "bearer",
+    "username": "flx"
 }
 ```
-{% endcode %}
 
-Adding a JSON-to-XML policy on the `response` phase for a proxy API will transform the response output to:
+You can extract the `username` from the payload using the following JsonPath:
 
-{% code title="Transformed response" %}
-```xml
-<root>
-  <headers>
-    <Accept>*/*</Accept>
-    <Host>api.gravitee.io</Host>
-    <User-Agent>{{user-agent-info}}</User-Agent>
-    <X-Gravitee-Request-Id>{{generated-request-id}}</X-Gravitee-Request-Id>
-    <X-Gravitee-Transaction-Id>{{generated-trx-id}}</X-Gravitee-Transaction-Id>
-    <accept-encoding>deflate, gzip</accept-encoding>
-  </headers>
-  <query_params/>
-  <bodySize>0</bodySize>
-</root>
 ```
-{% endcode %}
-{% endtab %}
+{#jsonPath(#context.attributes['oauth.payload'], '$.username')}
 
-{% tab title="Message API example" %}
-**Otherwise, provide a message example:**
-
-For message APIs, the JSON-to-XML policy is used to transform the message `content` in either the `publish` or `subscribe` phase.
-
-For example, you can create a message API with an HTTP GET entrypoint and a mock endpoint. Suppose the endpoint is configured to return the message content as follows:
-
-{% code title="Default message" %}
-```json
-{ \"id\": \"1\", \"name\": \"bob\", \"v\": 2 }
 ```
-{% endcode %}
-
-Adding a JSON-to-XML policy on the subscribe phase will return the payload to the client via the HTTP GET entrypoint as follows (the number of messages returned will vary by the number of messages specified in the Mock endpoint):
-
-{% code title="Transformed messages" %}
-```xml
-{
-    "items": [
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "0"
-        },
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "1"
-        },
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "2"
-        },
-        {
-            "content": "<root><id>1</id><name>bob</name><v>2</v></root>",
-            "id": "3"
-        }
-    ],
-    "pagination": {
-        "nextCursor": "3"
-    }
-}
-```
-{% endcode %}
-
-The output is the typical return structure for the HTTP GET entrypoint with each message `content` field transformed from JSON to XML.
-
-{% hint style="info" %}
-For the HTTP GET entrypoint specifically, the entire payload can be returned as XML by adding the `"Accept": "application/json"` header to the GET request. In this case, the message content is transformed into [CDATA](https://www.w3.org/TR/REC-xml/#sec-cdata-sect) and is therefore not treated as marked-up content for the purpose of the entrypoint using the `Accept` header.
-{% endhint %}
 {% endtab %}
 {% endtabs %}
 
@@ -125,12 +66,12 @@ When using the Management API, policies are added as flows either directly to an
 {% code title="Sample Configuration" %}
 ```json
 {
-  "name": "Custom name",
-  "description": "Converts data from JSON to XML",
-  "policy": "json-xml",
-  "configuration": {
-    "scope": "RESPONSE",
-    "rootElement": "root"
+  "oauth2": {
+    "oauthResource": "oauth2-resource-name",
+    "oauthCacheResource": "cache-resource-name",
+    "extractPayload": true,
+    "checkRequiredScopes": true,
+    "requiredScopes": ["openid", "resource:read", "resource:write"]
   }
 }
 ```
@@ -138,15 +79,20 @@ When using the Management API, policies are added as flows either directly to an
 
 ### Reference
 
-<table data-full-width="false"><thead><tr><th width="140">Property</th><th width="104" data-type="checkbox">Required</th><th width="207">Description</th><th width="111" data-type="select">Type</th><th width="247">Options</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td></tr><tr><td>description</td><td>false</td><td>Provide a description for your policy</td><td></td><td>N/a</td></tr><tr><td>rootElement</td><td>true</td><td>XML root element name that encloses content.</td><td></td><td>N/a<br><strong>root</strong></td></tr><tr><td>scope</td><td>true</td><td>The execution scope</td><td></td><td><strong>REQUEST</strong> RESPONSE</td></tr></tbody></table>
+The OAuth2 policy requires a resource to access an OAuth2 Authorization Server for token introspection. APIM supports two types of authorization server:
+
+* [Generic OAuth2 Authorization Server](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_generic.html) — a resource which can be configured to cover any authorization server.
+* [Gravitee.io Access Management](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_am.html) — a resource which can be easily plugged into APIM using Gravitee.io Access Management with security domain support.
+
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>oauthResource</td><td>true</td><td>The OAuth2 resource used to validate <code>access_token</code>. This must reference a valid Gravitee.io OAuth2 resource.</td><td>string</td><td></td></tr><tr><td>oauthCacheResource</td><td>false</td><td>The Cache resource used to store the <code>access_token</code>. This must reference a valid Gravitee.io Cache resource.</td><td>string</td><td></td></tr><tr><td>extractPayload</td><td>false</td><td>When the access token is validated, the token endpoint payload is saved in the <code>oauth.payload</code> context attribute</td><td>boolean</td><td>false</td></tr><tr><td>checkRequiredScopes</td><td>false</td><td>Whether the policy needs to check <code>required</code> scopes to access the underlying resource</td><td>boolean</td><td>false</td></tr><tr><td>requiredScopes</td><td>false</td><td>List of scopes to check to access the resource</td><td>boolean</td><td>array of string</td></tr></tbody></table>
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the JSON-to-XML policy:
+The phases checked below are supported by the OAuth2 policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Compatibility matrix
 
@@ -156,12 +102,31 @@ The [changelog for each version of APIM](../../releases-and-changelog/changelog/
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_PAYLOAD:</strong> Request payload cannot be transformed properly to XML</td></tr><tr><td>onResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_PAYLOAD:</strong><br>Response payload cannot be transformed properly to XML</td></tr><tr><td>onMessageRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Incoming message cannot be transformed properly to XML</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Outgoing message cannot be transformed properly to XML</td></tr></tbody></table>
+#### HTTP status code
 
-### Nested objects
+| Code  | Message                                                                                                                                                                                                                                                      |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `401` | <p>Issue encountered:</p><p>* No OAuth Authorization Server resource has been configured</p><p>* No OAuth authorization header was supplied</p><p>* No OAuth access token was supplied</p><p>* Access token can not be validated by authorization server</p> |
+| `403` | <p>Issue encountered:</p><p>* Access token can not be validated because of a technical error with authorization server</p><p>* One of the required scopes was missing while introspecting access token</p>                                                   |
 
-To limit the processing time in the case of a nested object, the default max depth of a nested object has been set to 1000. This default value can be overridden using the environment variable `gravitee_policy_jsonxml_maxdepth`.
+#### Default response override
+
+You can use the response template feature to override the default response provided by the policy. These templates must be defined at the API level (see the API Console **Response Templates** option in the API **Proxy** menu).
+
+#### Error keys
+
+The error keys sent by this policy are as follows:
+
+| Key                               | Parameters |
+| --------------------------------- | ---------- |
+| OAUTH2\_MISSING\_SERVER           | -          |
+| OAUTH2\_MISSING\_HEADER           | -          |
+| OAUTH2\_MISSING\_ACCESS\_TOKEN    | -          |
+| OAUTH2\_INVALID\_ACCESS\_TOKEN    | -          |
+| OAUTH2\_INVALID\_SERVER\_RESPONSE | -          |
+| OAUTH2\_INSUFFICIENT\_SCOPE       | -          |
+| OAUTH2\_SERVER\_UNAVAILABLE       | -          |
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-json-xml/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-OAuth2/blob/master/CHANGELOG.md" %}

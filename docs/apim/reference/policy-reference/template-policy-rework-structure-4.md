@@ -1,27 +1,32 @@
 ---
-description: This page provides the technical details of the AWS Lambda policy
+description: This page provides the technical details of the Cache policy
 ---
 
-# AWS Lambda
+# Cache
 
 ## Overview
 
-Functional and implementation information for the AWS Lambda policy is organized into the following sections:
+Functional and implementation information for the Cache policy is organized into the following sections:
 
+* [Examples](template-policy-rework-structure-4.md#examples)
 * [Configuration](template-policy-rework-structure-4.md#configuration)
-* [Compatibility](template-policy-rework-structure-4.md#compatibility-matrix)
+* [Compatibility Matrix](template-policy-rework-structure-4.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-4.md#errors)
 * [Changelogs](template-policy-rework-structure-4.md#changelogs)
 
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+## Examples
 
-Currently, this policy can **not** be applied at the message level.
+You can use the `cache` policy to cache upstream responses (content, status and headers) to eliminate the need for subsequent calls to the back end.
+
+This policy is based on a _cache resource_, which aligns the underlying cache system with the API lifecycle (stop / start).
+
+Consumers can bypass the cache by adding a `cache=BY_PASS_` query parameter or by providing a _`X-Gravitee-Cache=BY_PASS`_ HTTP header.
+
+{% hint style="info" %}
+**Make sure you define your Cache resource**
+
+If no cache resource is defined for the policy, or it is not well configured, the API will not be deployed. The resource name is specified in the policy configuration `cacheName`.
 {% endhint %}
-
-The AWS Lambda policy can be used to request a Lambda instead of or in addition to the backend.
-
-By default, the Lambda is called in addition to the backend, meaning the consumer will not receive the response from the Lambda.
 
 ## Configuration
 
@@ -29,62 +34,52 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
-"configuration": {
-    "variables": [
-      {
-        "name": "lambdaResponse",
-        "value": "{#jsonPath(#lambdaResponse.content, '$')}"
-      }
-    ],
-    "secretKey": "secretKey",
-    "accessKey":"accessKey",
-    "payload": "{ \"key\": \"value\" }",
-    "scope": "REQUEST",
-    "function": "lambda-example",
-    "region": "us-east-1",
-    "sendToConsumer": true,
-    "endpoint": "http://aws-lambda-url/function"
+Here is an example configuration:
+
+```
+"cache": {
+    "cacheName": "policy-cache",
+    "key": "{#request.params['productId']}",
+    "timeToLiveSeconds": 600,
+    "useResponseCacheHeaders": false,
+    "scope": "APPLICATION",
+    "methods": ["POST"],
+    "responseCondition": "{#upstreamResponse.status == 201}"
 }
 ```
-{% endcode %}
 
-### Reference
+#### Gateway configuration (gravitee.yml)
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>The scope on which apply the policy</td><td>string</td><td>REQUEST</td></tr><tr><td>region</td><td>true</td><td>The AWS region</td><td>string</td><td>us-east-1</td></tr><tr><td>accessKey</td><td>false</td><td>AWS Access Key</td><td>string</td><td>-</td></tr><tr><td>secretKey</td><td>false</td><td>AWS Secret Key</td><td>string</td><td>-</td></tr><tr><td>function</td><td>true</td><td>The name of the AWS Lambda function to call</td><td>string</td><td>-</td></tr><tr><td>payload</td><td>false</td><td>Payload of the request to AWS Lambda function</td><td>string</td><td>-</td></tr><tr><td>variables</td><td>false</td><td>The variables to set in the execution context when retrieving content of HTTP call (support EL)</td><td>List of variables</td><td>-</td></tr><tr><td>sendToConsumer</td><td>false</td><td>Check this option if you want to send the response of the lambda to the initial consumer without going to the final upstream (endpoints) selected by the gateway.</td><td>boolean</td><td>false</td></tr></tbody></table>
+{% hint style="info" %}
+**Compatibility**
+
+The `binary` serialization format is not compatible with the Redis cache resource.
+{% endhint %}
+
+```
+  policy:
+    cache:
+      serialization: text # default value or "binary" (not compatible with Redis)
+```
+
+The `policy.cache.serialization` allow to configure the serialization format of the cache.
+
+The default value is `text` but you can also use `binary` to use a binary serialization format (not compatible with Redis).
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the AWS Lambda policy:
+The phases checked below are supported by the Assign Metrics policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-## Compatibility
+## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `cache` policy.
 
-## Errors
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>&#x3C;=1.x</td><td>All</td><td>true</td></tr></tbody></table>
 
-#### Default error <a href="#user-content-default-error" id="user-content-default-error"></a>
+## Changelog
 
-| Code  | Message                   |
-| ----- | ------------------------- |
-| `500` | Request processing broken |
-
-#### Override errors <a href="#user-content-override-errors" id="user-content-override-errors"></a>
-
-You can override the default response provided by the policy with the response templates feature. These templates must be defined at the API level with the APIM Console **Proxy > Response Templates** function.
-
-The error keys sent by this policy are as follows:
-
-| Key                                | Default status | Parameters |
-| ---------------------------------- | -------------- | ---------- |
-| AWS\_LAMBDA\_INVALID\_RESPONSE     | 500            | -          |
-| AWS\_LAMBDA\_INVALID\_STATUS\_CODE | 400            | -          |
-
-## Changelogs
-
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-json-xml/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-cache/blob/master/CHANGELOG.md" %}

@@ -1,12 +1,16 @@
 ---
-description: This page provides the technical details of the Request Content Limit policy
+description: This page provides the technical details of the SSL Enforcement policy
 ---
 
-# Request Content Limit
+# SSL Enforcement
+
+{% hint style="warning" %}
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
+{% endhint %}
 
 ## Overview
 
-Functional and implementation information for the Request Content Limit policy is organized into the following sections:
+Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
 * [Configuration](template-policy-rework-structure-34.md#configuration)
 * [Compatibility](template-policy-rework-structure-34.md#compatibility-matrix)
@@ -19,7 +23,9 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-You can use the `request-content-limit` policy to specify a maximum request content length allowed. This limit is compared to the content length header of the request.
+You can use the `ssl-enforcement` policy to filter incoming SSL requests. It allows you to restrict or allow access only to requests with client certificate authentication or only to a subset of valid clients.
+
+This policy is mainly used in plan configuration to allow access to consumers for a given set of certificates.
 
 ## Configuration
 
@@ -29,59 +35,63 @@ When using the Management API, policies are added as flows either directly to an
 
 {% code title="Sample Configuration" %}
 ```json
-"request-content-limit": {
-  "limit": 1000
+"ssl-enforcement" : {
+    "requiresSsl": true,
+    "requiresClientAuthentication": true,
+    "whitelistClientCertificates": [
+        "CN=localhost,O=GraviteeSource,C=FR"
+    ]
 }
 ```
 {% endcode %}
 
+#### Ant style path pattern
+
+URL mapping matches URLs using the following rules:
+
+* `?` matches one character
+* `*` matches zero or more characters
+* `**` matches zero or more directories in a path
+
 ### Reference
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th></tr></thead><tbody><tr><td>limit</td><td>true</td><td>Maximum length of request content allowed</td><td>int</td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>requiresSsl</td><td>false</td><td>Is SSL requires to access this resource?</td><td>boolean</td><td>true</td></tr><tr><td>requiresClientAuthentication</td><td>false</td><td>Is client authentication required to access this resource?</td><td>boolean</td><td>false</td></tr><tr><td>whitelistClientCertificates</td><td>false</td><td>List of allowed X.500 names (from client certificate)</td><td>array of strings</td><td>-</td></tr></tbody></table>
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Request Content Limit policy:
+The phases checked below are supported by the SSL Enforcement policy:
 
 <table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-## Compatibility
+## Compatibility matrix
 
 The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
 
 ## Errors
 
-#### Default errors
+#### HTTP status codes
 
-| Code  | Message                                                                           |
-| ----- | --------------------------------------------------------------------------------- |
-| `400` | The limit from the configuration is not correct.                                  |
-| `413` | Incoming HTTP request payload exceed the size limit.                              |
-| `411` | The HTTP request is not chunked and does not specify the `Content-Length` header. |
+| Code  | Message                                                          |
+| ----- | ---------------------------------------------------------------- |
+| `401` | Access to the resource is unauthorized according to policy rules |
+| `403` | Access to the resource is forbidden according to policy rules    |
 
 #### Default response override
 
 You can use the response template feature to override the default responses provided by the policy. These templates must be defined at the API level (see the API Console **Response Templates** option in the API **Proxy** menu).
 
-Some possible responses are:
-
-| Error | description                                                                                         |
-| ----- | --------------------------------------------------------------------------------------------------- |
-| 400   | Content-length is not a valid integer.                                                              |
-| 411   | The request did not specify the length of its content, which is required by the requested resource. |
-| 413   | The request is larger than the server is willing or able to process.                                |
-
 #### Error keys
 
 The error keys sent by this policy are as follows:
 
-| Key                                       | Parameters     |
-| ----------------------------------------- | -------------- |
-| REQUEST\_CONTENT\_LIMIT\_TOO\_LARGE       | length - limit |
-| REQUEST\_CONTENT\_LIMIT\_LENGTH\_REQUIRED | limit          |
+| Key                                        | Parameters                                |
+| ------------------------------------------ | ----------------------------------------- |
+| SSL\_ENFORCEMENT\_SSL\_REQUIRED            | -                                         |
+| SSL\_ENFORCEMENT\_AUTHENTICATION\_REQUIRED | -                                         |
+| SSL\_ENFORCEMENT\_CLIENT\_FORBIDDEN        | name (X.500 name from client certificate) |
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-request-content-limit/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-ssl-enforcement/blob/master/CHANGELOG.md" %}
