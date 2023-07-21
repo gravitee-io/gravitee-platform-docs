@@ -1,32 +1,66 @@
 ---
-description: >-
-  This page provides the technical details of the Transform Query Parameters
-  policy
+description: This page provides the technical details of the Transform Headers policy
 ---
 
-# Transform Query Parameters
+# Transform Headers
 
 ## Overview
 
 Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
+* [Examples](template-policy-rework-structure-37.md#examples)
 * [Configuration](template-policy-rework-structure-37.md#configuration)
-* [Compatibility](template-policy-rework-structure-37.md#compatibility-matrix)
+* [Compatibility Matrix](template-policy-rework-structure-37.md#compatibility-matrix)
 * [Changelogs](template-policy-rework-structure-37.md#changelogs)
 
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+## Examples
 
-Currently, this policy can **not** be applied at the message level.
+You can use the `transformheaders` policy to override HTTP headers in incoming requests or outbound responses. You can override the HTTP headers by:
+
+* Adding to or updating the list of headers
+* Removing headers individually
+* Defining a whitelist == Compatibility with APIM
+
+{% tabs %}
+{% tab title="Proxy API example" %}
+{% hint style="info" %}
+The proxy API example also applies to v2 APIs.
 {% endhint %}
 
-You can use the `transformqueryparams` policy to override incoming HTTP request query parameters. You can override the HTTP query parameters by:
+```
+transform-headers": {
+    "addHeaders": [
+        {
+            "name": "X-Gravitee-Request-Id",
+            "value": "{#request.id}"
+        }
+    ],
+    "removeHeaders": [
+        "X-Gravitee-TransactionId"
+    ],
+    "whitelistHeaders": [
+        "Content-Type",
+        "Content-Length"
+    ],
+    "scope": "REQUEST"
+}
+```
 
-* Clearing all existing query parameters
-* Adding to or updating the list of query parameters
-* Removing query parameters individually
+Add a header from the request’s payload:
 
-The query parameter values of the incoming request are accessible via the `{#request.params['query_parameter_name']}` construct
+```
+"transform-headers": {
+    "addHeaders": [
+        {
+            "name": "X-Product-Id",
+            "value": "{#jsonPath(#request.content, '$.product.id')}"
+        }
+    ]
+    "scope": "REQUEST_CONTENT"
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
@@ -34,34 +68,20 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
-"transform-queryparams": {
-    "addQueryParameters": [
-        {
-            "name": "myParam",
-            "value": "{#request.id}"
-        }
-    ],
-    "removeQueryParameters": [
-        "secretParam"
-    ]
-}
-```
-{% endcode %}
-
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Transform Query Parameters policy:
+The phases checked below are supported by the Transform Headers policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
-## Compatibility
+## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+
+<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>1.x</td><td>&#x3C;=3.x</td><td>true</td></tr><tr><td>>=2.x</td><td>>=4.x</td><td>true</td></tr></tbody></table>
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-transformqueryparams/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-transform-headers/blob/master/CHANGELOG.md" %}
