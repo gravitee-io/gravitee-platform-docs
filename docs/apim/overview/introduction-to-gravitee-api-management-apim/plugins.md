@@ -2,7 +2,7 @@
 
 ## Overview
 
-Plugins are additional components that can be _plugged into_ Gravitee API Management [(APIM) Gateway](broken-reference/) or [APIM API](broken-reference/). They can customize the component’s behavior to exactly fit your needs and technical constraints.
+Plugins are additional components that can be _plugged into_ Gravitee API Management (APIM) Gateway or APIM Management API. They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
 {% hint style="info" %}
 For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](../../guides/developer-contributions/dev-guide-plugins.md).
@@ -10,7 +10,7 @@ For more technical information about plugins, including details of their directo
 
 ## Types of Plugins
 
-The table below lists the different types of plugins you can use with APIM, with the component(s) they can be plugged into and some examples. For more details of what each plugin type does, see the sections below.
+The table below lists the different types of plugins you can use with APIM, the component(s) they can be plugged into, and some examples. For more details of what each plugin type does, see the sections below.
 
 | Type                                                | Component                       | Examples                                    |
 | --------------------------------------------------- | ------------------------------- | ------------------------------------------- |
@@ -42,11 +42,11 @@ A **policy** modifies the behavior of the request or response handled by APIM Ga
 
 Examples of a policy are:
 
-* Authorization using an API key (see the [api-key policy documentation](broken-reference/))
+* Authorization using an API key&#x20;
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
-Want to know how to create, use, and deploy a custom policy? Check out the [Policies Developer Guide](../../guides/developer-contributions/dev-guide-policies.md).
+Want to know how to create, use, and deploy a custom policy? Check out the [Custom Policies Developer Guide](../../guides/developer-contributions/dev-guide-policies.md).
 
 ### Reporters
 
@@ -63,7 +63,7 @@ _Out-of-the-box_ reporters are :
 * File Reporter
 * TCP reporter
 
-As with all plugins, you can create, use and deploy custom reporters as described in the [Plugins Developer Guide](../../guides/developer-contributions/dev-guide-plugins.md).
+As with all plugins, you can create, use and deploy custom reporters as described in the [Custom Plugins Developer Guide](../../guides/developer-contributions/dev-guide-plugins.md).
 
 ### Repositories
 

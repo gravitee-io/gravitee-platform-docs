@@ -6,9 +6,7 @@ description: >-
 
 # Integrations
 
-## Gravitee API Management integrations
-
-Please see the below sections and tables that outline major integrations that Gravitee API Management offers with other enterprise tooling.
+Please see the below sections and tables that outline major integrations that Gravitee API Management (APIM) offers with other enterprise tooling.
 
 ### Event brokers
 

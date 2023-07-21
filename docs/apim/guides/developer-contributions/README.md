@@ -10,7 +10,7 @@ This section explains how to set up your environment to start contributing to Gr
 
 You will need the following tools installed on your computer:
 
-* Java (JDK >= 11)
+* Java (JDK >= 17)
 * Maven
 * Docker
 * NPM (preferably managed with NVM)
