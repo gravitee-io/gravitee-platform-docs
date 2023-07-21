@@ -22,7 +22,7 @@ We've released a brand new Policy Studio that enables you to design policy flows
 
 For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../../guides/policy-design/v4-api-policy-design-studio.md).
 
-### Existing Gravitee policies that now support v4 message APIs
+### Existing v2 API Gravitee policies that now support v4 message APIs
 
 As a part of the new Policy Studio release, we've made some existing Gravitee policies now work for v4 message APIs. Message APIs are APIs created using the Introspect Messages from Event-driven Backend option. These policies are:
 
@@ -40,22 +40,26 @@ As a part of the new Policy Studio release, we've made some existing Gravitee po
 * Cache policy
 * Transform headers policy
 
-For more information on policies, please refer to our policy reference documentation.
+{% hint style="info" %}
+While these policies can be used for v4 message APIS, not all of these policies support execution at the message level. For more information on the execution phase for each policy, please refer to our [Policy Reference documentation](../../../reference/policy-reference/).&#x20;
+{% endhint %}
+
+For more information on policies, please refer to our [policy reference documentation](../../../reference/policy-reference/).
 
 ### New policies for v4 APIs
 
-We've also released brand new policies that will support v4 message APIs:
+We've also released a brand new policy that will support v4 message APIs:
 
-* Cloud Events policy: this policy enables the Gateway to transform incoming data into Cloud Events format.
 * Serialization and Deserialization policies:
-  * JSON to Avro: transform information in JSON format to Avro format
-  * Avro to JSON: transform information from Avro format into JSON format
+  * [Avro <> JSON](../../../reference/policy-reference/template-policy-rework-structure-2.md): transform information between Avro and JSON format
 
-For more information on policies, please refer to our policy reference documentation.
+For more information on policies, please refer to our [policy reference documentation](../../../reference/policy-reference/).
 
 ## Support for Schema registry as a resource
 
 When designing policies and flows, you can now define Confluent Schema Registry as a resource. This allows Gravitee to serialize and deserialize information between Avro and JSON via various serialization and deserialization policies. Serialization and deserialization will be validated against target schemas stored in specified schema registries. The schema ID can be obtained dynamically through a message header or attribute.
+
+For more information, please refer to our [Resources documentation](../../../guides/api-configuration/resources.md).
 
 ## Webhook subscription configuration in the Developer Portal
 
@@ -66,11 +70,11 @@ When in the Developer Portal, you'll be able to:
 * Configure the details of your plan in the portal, including defining a custom Webhook callback URL
 * Add basic authentication and an API key as a bearer token
 
-This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the Developer Portal documentation.
+This will all be done while creating an application in the Gravitee Developer Portal.
 
 ## v2 Management API
 
-We've created a new version of the Gravitee API Management Management API (M-API). This new version of the Management API enables you to act on v4 APIs "as code" via the API. For more information on the v2 Management API, please refer to the API reference documentation.
+We've created a new version of the Gravitee API Management Management API (M-API). This new version of the Management API enables you to act on v4 APIs "as code" via the API. For more information on the v2 Management API, please refer to the [API reference documentation](../../../reference/management-api-reference/).
 
 ## New Kubernetes Operator enhancements
 
@@ -80,9 +84,13 @@ In addition to making Gravitee API Management more "event-native," we've also ma
 * You can now manage application-level CRDs through the Gravitee Kubernetes Operator. This enables you to configure a platform level configuration using a k8s declarative approach
 * The Kubernetes Operator now supports both local and global configurations. This means that you can define the ManagementContext for your CRD and control whether the API should be local or global.
 
+For more information, please refer to our [Kubernetes Operator documentation](../../../guides/gravitee-kubernetes-operator.md).&#x20;
+
 ### Gravitee as ingress controller
 
 Another major update to the Gravitee Kubernetes Operator is its ability to act as an ingress controller. Now, you can use Gravitee as an ingress controller as opposed to using a third-party ingress controller, such as NGNIx or Traffik. This will result in less complexity and maintenance across the entirety of your infrastructure.
+
+For more information please refer to our [Kubernetes Operator - Ingress Controller documentation](../../../guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md).&#x20;
 
 ## More new features
 
@@ -102,4 +110,4 @@ As a part of our additional support for v4 APIs and asynchronous APIs, we've add
 
 ### Datadog reporter
 
-The Datadog reporter enables you to push API monitoring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the Datadog reporter documentation.
+The Datadog reporter enables you to push API monitoring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the [Datadog reporter documentation.](apim-4.0.md#datadog-reporter)
