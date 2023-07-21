@@ -1,7 +1,5 @@
 # Basic Security and Access Control
 
-{% hint style="warning" %}
-Accessing the demo application requires starting an [enterprise trial](../install-and-upgrade/free-trial.md).
+{% hint style="danger" %}
+**Coming soon!** The updated 4.0 trial and trial application are not yet available.
 {% endhint %}
-
-This tutorial showcases Gravitee API Management's core features which include securing a Gateway API, applying API access restrictions, and managing applications and subscriptions.
