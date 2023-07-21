@@ -110,22 +110,18 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 * TLS 1.0 and TLS 1.1 protocols are disabled by default. You can still enable these protocols with the proper TCP SSL configuration of the Gateway.
 
 {% code title="gravitee.yaml" %}
-````
 ```yaml
 http:
   ssl:
-    tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2 
+    tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
 ```
-````
 {% endcode %}
 
-````
 Or using environment variables:
 
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
-````
 
 **Monitoring APIM**
 
