@@ -1,8 +1,8 @@
 ---
-description: This page provides the technical details of the Request Validation policy
+description: This page provides the technical details of the JSON-to-XML policy
 ---
 
-# Request Validation
+# XML Threat Protection
 
 ## Overview
 
@@ -19,20 +19,7 @@ This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-You can use the `request-validation` policy to validate an incoming HTTP request according to defined rules. A rule is defined for an input value. This input value supports Expression Language expressions and is validated against constraint rules.
-
-Constraint rules can be:
-
-* `NOT_NULL` — Input value is required
-* `MIN` — Input value is a number and its value is greater than or equal to a given parameter
-* `MAX` — Input value is a number and its value is lower than or equal to a given parameter
-* `MAIL` — Input value is valid according to the mail pattern
-* `DATE` — Input value is valid according to the date format pattern given as a parameter
-* `PATTERN` — Input value is valid according to the pattern given as a parameter
-* `SIZE` — Input value length is between two given parameters
-* `ENUM` — Field value included in ENUM
-
-By default, if none of the rules can be validated, the policy returns a `400` status code.
+You can use the `xml-threat-protection` policy to validate an XML request body by applying limits on XML structures such as elements, entities, attributes and string values. When an invalid request is detected (meaning the limit is reached), the request will be considered a threat and rejected with a 400 BAD REQUEST.
 
 ## Configuration
 
@@ -40,29 +27,9 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-{% code title="Sample Configuration" %}
-```json
-"policy-request-validation": {
-    "rules": [
-        {
-            "constraint": {
-                "parameters": [
-                    ".*\\\\.(txt)$"
-                ],
-                "type": "PATTERN"
-            },
-            "input": "{#request.pathInfos[2]}"
-        }
-    ],
-    "status": "400"
-}
-
-```
-{% endcode %}
-
 ### Reference
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Phase when the policy is executed</td><td>Policy scope</td><td>ON_REQUEST</td></tr><tr><td>status</td><td>true</td><td>HTTP status code send to the consumer in case of validation issues</td><td>HTTP status code</td><td>400</td></tr><tr><td>rules</td><td>true</td><td>Rules to apply to incoming request</td><td>List of rules</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>maxElements</td><td>false</td><td>Maximum number of elements allowed in an XML document. Example: <code>&#x3C;root>&#x3C;a>1&#x3C;/a>2&#x3C;b>&#x3C;/b>&#x3C;/root></code> has 3 elements.</td><td>integer (-1 to specify no limit)</td><td>1000</td></tr><tr><td>maxDepth</td><td>false</td><td>Maximum depth of XML structure. Example: <code>&#x3C;root>&#x3C;a>&#x3C;b>1&#x3C;/b>&#x3C;/a>&#x3C;/root></code> has a depth of 2.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxLength</td><td>false</td><td>Maximum number of characters allowed for the whole XML document.</td><td>integer (-1 to specify no limit)</td><td>1000</td></tr><tr><td>maxAttributesPerElement</td><td>false</td><td>Maximum number of attributes allowed for single XML element.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxAttributeValueLength</td><td>false</td><td>Maximum length of individual attribute values.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxChildrenPerElement</td><td>false</td><td>Maximum number of child elements for a given element. Example: <code>&#x3C;code>&#x3C;root>&#x3C;a>&#x3C;b>1&#x3C;/b>&#x3C;c>2&#x3C;/c>&#x3C;/a>&#x3C;/root>&#x3C;/code></code> <code>a</code> element has 2 children.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxTextValueLength</td><td>false</td><td>Maximum length of individual text value.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxEntities</td><td>false</td><td>Maximum number of entity expansions allowed. XML entities are a type of macro and vulnerable to entity expansion attacks (for more information on XML entity expansion attacks, see <a href="https://en.wikipedia.org/wiki/Billion_laughs_attack">Billion laughs attack</a>).</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>maxEntityDepth</td><td>false</td><td>Maximum depth of nested entity expansions allowed.</td><td>integer (-1 to specify no limit)</td><td>100</td></tr><tr><td>allowExternalEntities</td><td>false</td><td>Whether to allow inclusion of external entities. WARNING: Since XML can be vulnerable to <a href="https://en.wikipedia.org/wiki/XML_external_entity_attack">XXE injection</a>, only enable this feature if you can really trust your consumers.</td><td>boolean</td><td>false</td></tr></tbody></table>
 
 ### Phases
 
@@ -70,21 +37,19 @@ Policies can be applied to the request or the response of a Gateway API transact
 
 The phases checked below are supported by the JSON-to-XML policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-## Compatibility matrix
+## Compatibility
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
-
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td><td>>=3.21</td></tr><tr><td>2.1</td><td>^3.0</td><td>>=3.0 &#x3C;3.21</td></tr><tr><td>2.0</td><td>^3.0</td><td>N/a</td></tr></tbody></table>
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
 
 ## Errors
 
 #### HTTP status code
 
-| Code  | Message                                     |
-| ----- | ------------------------------------------- |
-| `400` | Incoming HTTP request can not be validated. |
+| Code              | Message                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `400 Bad Request` | <p>Applies to:</p><ul><li>Invalid xml structure</li><li>Maximum xml elements exceeded</li><li>Maximum xml depth exceeded</li><li>Maximum xml length exceeded</li><li>Maximum attributes per element exceeded</li><li>Maximum attribute value length exceeded</li><li>Maximum children per element exceeded</li><li>Maximum text value length exceeded</li><li>Maximum xml entities exceeded</li><li>Maximum xml entity depth exceeded</li><li>External entity is used when prohibited</li></ul> |
 
 #### Default response override
 
@@ -94,10 +59,19 @@ You can use the response template feature to override the default response provi
 
 The error keys sent by this policy are as follows:
 
-| Key                          | Parameters |
-| ---------------------------- | ---------- |
-| REQUEST\_VALIDATION\_INVALID | violations |
+| Key                                        | Parameters |
+| ------------------------------------------ | ---------- |
+| XML\_THREAT\_DETECTED                      | -          |
+| XML\_THREAT\_MAX\_DEPTH                    | -          |
+| XML\_THREAT\_MAX\_LENGTH                   | -          |
+| XML\_THREAT\_MAX\_ATTRIBUTES               | -          |
+| XML\_THREAT\_MAX\_ATTRIBUTE\_VALUE\_LENGTH | -          |
+| XML\_MAX\_CHILD\_ELEMENTS                  | -          |
+| XML\_THREAT\_MAX\_TEXT\_VALUE\_LENGTH      | -          |
+| XML\_THREAT\_MAX\_ENTITIES                 | -          |
+| XML\_THREAT\_MAX\_ENTITY\_DEPTH            | -          |
+| XML\_THREAT\_EXTERNAL\_ENTITY\_FORBIDDEN   | -          |
 
 ## Changelogs
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-request-validation/blob/master/CHANGELOG.md" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-xml-threat-protection/blob/master/CHANGELOG.md" %}

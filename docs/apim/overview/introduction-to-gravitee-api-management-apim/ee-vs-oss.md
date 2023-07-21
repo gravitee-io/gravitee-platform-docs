@@ -36,9 +36,9 @@ The features below are included in the default enterprise API Management distrib
 
 The Enterprise policy pack includes policies that are typically necessary for enterprise-grade, production API Management deployments:
 
-* [**Data logging masking**](../../reference/policy-reference/template-policy-rework-structure-7.md)**:** If you enable logging on APIs, you can use the data logging masking policy to configure rules to conceal sensitive data.
+* [**Data logging masking**](<../../reference/policy-reference/template-policy-rework-structure-6 (1).md>)**:** If you enable logging on APIs, you can use the data logging masking policy to configure rules to conceal sensitive data.
 * [**Assign metrics**](../../reference/policy-reference/template-policy-rework-structure-1.md)**:** Use the assign metrics policy to push extra metrics in addition to the natively provided request metrics. These metrics can be used for monetization invoices, analytics dashboards to create custom widgets, and, optionally, to apply aggregations based on their value.
-* [**GeoIP filtering policy**](../../reference/policy-reference/template-policy-rework-structure-9.md)**:** Use the GeoIP filtering policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
+* [**GeoIP filtering policy**](../../reference/policy-reference/template-policy-rework-structure-8.md)**:** Use the GeoIP filtering policy to control access to your API by filtering IP addresses. You can allow IPs by country or distance.
 * **GeoIP service:** Use the GeoIP service to load the GeoIP databases in memory. The GeoIP service is required to use the GeoIP filtering policy in APIM and for [Adaptive Multi-Factor Authentication in AM](https://documentation.gravitee.io/am).
 
 ### Legacy upgrade pack
@@ -46,7 +46,7 @@ The Enterprise policy pack includes policies that are typically necessary for en
 The Legacy upgrade pack comprises the following plugins and capabilities that enable organizations to better migrate from and/or service legacy systems:
 
 * [**XSLT policy plugin**](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/1120/reference/policy-reference/template-policy-rework-structure-35): Use the XSLT policy to apply an XSL transformation to an incoming XML request body, or to the response body if your backend is exposing XML content.
-* [**WebSocket security authentication**](../../reference/policy-reference/template-policy-rework-structure-44.md): Enables the client to send a SOAP envelope with WSS details, where the policy will validate and check the credentials (currently supports username and password).
+* [**WebSocket security authentication**](../../reference/policy-reference/template-policy-rework-structure-43.md): Enables the client to send a SOAP envelope with WSS details, where the policy will validate and check the credentials (currently supports username and password).
 
 ### Observability pack
 
