@@ -9,7 +9,7 @@ description: This page provides the technical details of the AWS Lambda policy
 Functional and implementation information for the AWS Lambda policy is organized into the following sections:
 
 * [Configuration](template-policy-rework-structure-3.md#configuration)
-* [Compatibility](template-policy-rework-structure-3.md#compatibility-matrix)
+* [Compatibility](template-policy-rework-structure-3.md#compatibility)
 * [Errors](template-policy-rework-structure-3.md#errors)
 * [Changelogs](template-policy-rework-structure-3.md#changelogs)
 
