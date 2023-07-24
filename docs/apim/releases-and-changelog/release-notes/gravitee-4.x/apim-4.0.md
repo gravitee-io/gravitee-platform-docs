@@ -50,7 +50,7 @@ For more information on policies, please refer to our [policy reference document
 
 We've also released two brand new policies that will support v4 message APIs:
 
-* [Cloud Events policy](../../../reference/policy-reference/template-policy-rework-structure-6.md): You can use the `cloud-events` policy to create a cloud-events `JSON` object from messages. The `datacontenttype` will be set accordingly to the message `Content-type` if any.
+* [Cloud Events policy](../../../reference/policy-reference/cloud-events.md): You can use the `cloud-events` policy to create a cloud-events `JSON` object from messages. The `datacontenttype` will be set accordingly to the message `Content-type` if any.
 * Serialization and Deserialization policies:
   * [Avro <> JSON](../../../reference/policy-reference/avro-json.md): transform information between Avro and JSON format
 
