@@ -6,11 +6,11 @@ This page describes how to install and run APIM Community Edition or APIM Enterp
 
 Docker must be installed and running. For more information about installing Docker, see the [Docker website](https://www.docker.com/).
 
-If you want to install the Enterprise Edition, you must have a license key for the APIM Enterprise Edition. For more information about getting a license key, visit the [Gravitee pricing page](https://www.gravitee.io/pricing).
+To install the Enterprise Edition, you must have a license key for the APIM Enterprise Edition. For more information about getting a license key, visit the [Gravitee pricing page](https://www.gravitee.io/pricing).
 
 ## Installing APIM
 
-1. We need the following directory structure for persisting data, and storing plugins.
+1. We need the following directory structure for persisting data and storing plugins.
 
 ```
 /gravitee
@@ -45,8 +45,6 @@ mkdir -p /gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-ga
 $ docker network create storage
 $ docker network create frontend
 ```
-
-The `storage` network is for storage communication, and the `frontend` network is for frontend communication.
 
 4. Install MongoDB using the following commands.
 
@@ -90,7 +88,7 @@ If you are installing the Community Edition, remove the following line from the 
 ```
 {% endhint %}
 
-<pre class="language-sh"><code class="lang-sh">$ docker pull graviteeio/apim-gateway:3.20.0
+<pre class="language-sh"><code class="lang-sh">$ docker pull graviteeio/apim-gateway:4.0
 $ docker run --publish 8082:8082 \
   --volume /gravitee/apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext \
   --volume /gravitee/apim-gateway/logs:/opt/graviteeio-gateway/logs \
@@ -102,7 +100,7 @@ $ docker run --publish 8082:8082 \
   --env gravitee_plugins_path_1=/opt/graviteeio-gateway/plugins-ext \
   --net storage \
   --name gio_apim_gateway \
-  --detach graviteeio/apim-gateway:3.20.0 
+  --detach graviteeio/apim-gateway:4.0
 $ docker network connect frontend gio_apim_gateway
 </code></pre>
 
@@ -119,7 +117,7 @@ If you are installing the Community Edition, remove the following line before ru
 {% endhint %}
 
 ```sh
-$ docker pull graviteeio/apim-management-api:3.20.0
+$ docker pull graviteeio/apim-management-api:4.0
 $ docker run --publish 8083:8083 \
   --volume /gravitee/apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext \
   --volume /gravitee/apim-management-api/logs:/opt/graviteeio-management-api/logs \
@@ -130,7 +128,7 @@ $ docker run --publish 8083:8083 \
   --env gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext \
   --net storage \
   --name gio_apim_management_api \
-  --detach graviteeio/apim-management-api:3.20.0
+  --detach graviteeio/apim-management-api:4.0
 $ docker network connect frontend gio_apim_management_api
 ```
 
@@ -138,13 +136,13 @@ Note that the Management API is on both the `storage` and `frontend` networks, a
 
 8. Install the Console using the following commands.
 
-<pre class="language-sh"><code class="lang-sh">$ docker pull graviteeio/apim-management-ui:latest
+<pre class="language-sh"><code class="lang-sh">$ docker pull graviteeio/apim-management-ui:4.0
 <strong>$ docker run --publish 8084:8080 \
 </strong>  --volume /gravitee/apim-management-ui/logs:/var/log/nginx \
   --net frontend \
   --name gio_apim_management_ui \
   --env MGMT_API_URL=http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT \
-  --detach graviteeio/apim-management-ui:latest
+  --detach graviteeio/apim-management-ui:4.0
 </code></pre>
 
 Note that the Console is on the `frontend` network, and it uses `/gravitee/apim-management-ui` for persistent storage.
@@ -152,18 +150,18 @@ Note that the Console is on the `frontend` network, and it uses `/gravitee/apim-
 9. Install the Developer Portal using the following commands.
 
 ```sh
-$ docker pull graviteeio/apim-portal-ui:latest
+$ docker pull graviteeio/apim-portal-ui:4.0
 $ docker run --publish 8085:8080 \
   --volume /gravitee/apim-portal-ui/logs:/var/log/nginx \
   --net frontend \
   --name gio_apim_portal_ui \
   --env PORTAL_API_URL=http://localhost:8083/portal/environments/DEFAULT \
-  --detach graviteeio/apim-portal-ui:latest
+  --detach graviteeio/apim-portal-ui:4.0
 ```
 
 Note that the Developer Portal is on the `frontend` network, and it uses `/gravitee/apim-portal-ui` for persistent storage.
 
-10. In your browser, go to [`http://localhost:8084`](http://localhost:8084/) to open the Console, and go to [`http://localhost:8085`](http://localhost:8085/) to open the Developer Portal. You can log in to both with the username `admin` and password `admin`.
+10. In your browser, go to [`http://localhost:8084`](http://localhost:8084/) to open the APIM Console, and go to [`http://localhost:8085`](http://localhost:8085/) to open the APIM Developer Portal. You can log in to both with the username `admin` and password `admin`.
 
 {% hint style="info" %}
 **Container initialization**
@@ -176,7 +174,5 @@ You can adapt the above instructions to suit your architecture if you need to.
 {% hint style="success" %}
 Congratulations! Now that APIM is up and running, check out the [Tutorials](../../tutorials/) for your next steps.
 {% endhint %}
-
-1. Remove this line if you are installing the Community Edition
 
 [^1]: Remove this line if you are installing the Community Edition
