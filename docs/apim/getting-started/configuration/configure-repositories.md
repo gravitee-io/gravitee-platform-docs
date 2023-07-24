@@ -452,6 +452,8 @@ Repeat these steps on each component (APIM Gateway and APIM API) where the SQL d
 
 The Rate Limit repository plugin should be configured as shown below:
 
+
+
 ```yaml
 # ===================================================================
 # MINIMUM REDIS REPOSITORY PROPERTIES
@@ -484,6 +486,31 @@ ratelimit:
           port : 26381
         }
       ]
+      # Following SSL settings are REQUIRED ONLY for Redis client SSL
+      # SSL settings
+      ssl: true
+      trustAll: false
+      tlsProtocols: TLSv1.2, TLSv1.3
+      tlsCiphers: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+      alpn: false
+      openssl: false
+      # Keystore for redis mTLS (client certificate)
+      keystore:
+        type: jks
+        path: ${gravitee.home}/security/redis-keystore.jks
+        password: secret
+        keyPassword:
+        alias:
+        certificates: # Certificates are required if keystore's type is pem
+  #        - cert: ${gravitee.home}/security/redis-mycompany.org.pem
+  #          key: ${gravitee.home}/security/redis-mycompany.org.key
+  #        - cert: ${gravitee.home}/security/redis-myothercompany.com.pem
+  #          key: ${gravitee.home}/security/redis-myothercompany.com.key
+      truststore:
+        type: pem
+        path: ${gravitee.home}/security/redis-truststore.jks
+        password: secret
+        alias:
 ```
 
 {% hint style="info" %}
