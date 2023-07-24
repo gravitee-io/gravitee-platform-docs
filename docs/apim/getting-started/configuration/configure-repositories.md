@@ -450,9 +450,11 @@ Repeat these steps on each component (APIM Gateway and APIM API) where the SQL d
 
 ### Configure the Rate Limit repository plugin
 
-The Rate Limit repository plugin should be configured as shown below:
+The Rate Limit repository plugin should be configured based on the following options:
 
 
+
+Sample configurations for the Rate Limit repository plugin:
 
 ```yaml
 # ===================================================================
