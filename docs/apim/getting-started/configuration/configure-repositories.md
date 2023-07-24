@@ -433,7 +433,12 @@ If you are migrating an existing installation, follow these steps:
 
 ## Redis
 
-This Redis repository plugin enables you to connect to Redis databases for the Rate Limit feature.
+This Redis repository plugin enables you to connect to Redis databases for the Rate Limit feature. The following table shows dependency prerequisites:
+
+| Dependency | Version | Link                                                                  |
+| ---------- | ------- | --------------------------------------------------------------------- |
+| Maven      | 3+      | [Download](https://maven.apache.org/download.cgi)                     |
+| JDK        | 8+      | [Download](https://www.oracle.com/java/technologies/downloads/#java8) |
 
 ### Install the Rate Limit repository plugin
 
