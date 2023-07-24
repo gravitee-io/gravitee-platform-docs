@@ -9,7 +9,7 @@ description: This page provides the technical details of the Request Content Lim
 Functional and implementation information for the Request Content Limit policy is organized into the following sections:
 
 * [Configuration](template-policy-rework-structure-29.md#configuration)
-* [Compatibility](template-policy-rework-structure-29.md#compatibility-matrix)
+* [Compatibility](template-policy-rework-structure-29.md#compatibility)
 * [Errors](template-policy-rework-structure-29.md#errors)
 * [Changelogs](template-policy-rework-structure-29.md#changelogs)
 

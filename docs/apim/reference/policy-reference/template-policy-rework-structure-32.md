@@ -10,7 +10,7 @@ Functional and implementation information for the REST to SOAP policy is organiz
 
 * [Examples](template-policy-rework-structure-32.md#examples)
 * [Configuration](template-policy-rework-structure-32.md#configuration)
-* [Compatibility](template-policy-rework-structure-32.md#compatibility-matrix)
+* [Compatibility](template-policy-rework-structure-32.md#compatibility)
 * [Changelogs](template-policy-rework-structure-32.md#changelogs)
 
 ## Examples
