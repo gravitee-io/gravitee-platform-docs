@@ -8,11 +8,11 @@ description: This page provides the technical details of the Assign Attributes p
 
 Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
-* [Examples](template-policy-rework-structure.md#examples)
-* [Configuration](template-policy-rework-structure.md#configuration)
-* [Compatibility Matrix](template-policy-rework-structure.md#compatibility-matrix)
-* [Errors](template-policy-rework-structure.md#errors)
-* [Changelogs](template-policy-rework-structure.md#changelogs)
+* [Examples](assign-attributes.md#examples)
+* [Configuration](assign-attributes.md#configuration)
+* [Compatibility Matrix](assign-attributes.md#compatibility-matrix)
+* [Errors](assign-attributes.md#errors)
+* [Changelogs](assign-attributes.md#changelogs)
 
 ## Examples
 

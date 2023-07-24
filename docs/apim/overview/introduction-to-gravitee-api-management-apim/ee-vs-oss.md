@@ -72,7 +72,7 @@ The Event-native pack includes capabilities that enable using Gravitee to expose
   * **Solace**: Allow the Gateway to expose Solace resources and event APIs via your chosen Gravitee entrypoint(s).
 * **CloudEvents policy**: Transform ingoing and outgoing data using the CloudEvents spec.
 * [**Message filtering policy**:](../../reference/policy-reference/message-filtering.md) Filter messages streamed to clients/subscribers based on certain API publisher and/or client criteria.
-* [**Avro <> JSON policy**](../../reference/policy-reference/template-policy-rework-structure-2.md): Transform information in Avro format into JSON format
+* [**Avro <> JSON policy**](../../reference/policy-reference/avro-json.md): Transform information in Avro format into JSON format
 * **Gateway message reactor plugin**: Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
 * [**Confluent Schema Registry resource**](../../guides/api-configuration/resources.md#confluent-schema-registry): Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 

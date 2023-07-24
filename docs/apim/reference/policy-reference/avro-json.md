@@ -12,8 +12,8 @@ description: This page provides the technical details of the AVRO <> JSON policy
 
 Functional and implementation information for the AVRO <> JSON policy is organized into the following sections:
 
-* [Configuration](template-policy-rework-structure-2.md#configuration)
-* [Errors](template-policy-rework-structure-2.md#errors)
+* [Configuration](avro-json.md#configuration)
+* [Errors](avro-json.md#errors)
 
 You can use the `avro-json` policy to apply a transformation (or mapping) on the request and/or response and/or message content. This policy is using the [Avro](https://avro.apache.org/docs/1.11.1/) library.
 
