@@ -12,27 +12,27 @@ In Gravitee, repositories are used to store different type of data (different sc
 
 The following matrix shows scope and storage compatibility.
 
-<table><thead><tr><th width="317">Scope</th><th data-type="checkbox">MongoDB</th><th data-type="checkbox">Redis</th><th data-type="checkbox">Elasticsearch</th><th data-type="checkbox">JDBC</th></tr></thead><tbody><tr><td>Management: All the API Management platform management data, such as API definitions, users, applications and plans</td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Rate Limit: rate limiting data</td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td>Analytics: analytics data</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Distributed Sync: responsible for keeping the sync state for a cluster</td><td>false</td><td>true</td><td>false</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="317">Scope</th><th data-type="checkbox">MongoDB</th><th data-type="checkbox">Redis</th><th data-type="checkbox">Elasticsearch</th><th data-type="checkbox">JDBC</th></tr></thead><tbody><tr><td>Management: All the API Management platform management data such as API definitions, users, applications, and plans</td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Rate Limit: rate limiting data</td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td>Analytics: analytics data</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Distributed Sync: responsible for keeping the sync state for a cluster</td><td>false</td><td>true</td><td>false</td><td>false</td></tr></tbody></table>
 
-Please see the sections below that walk through how to configure each kind of repository.
+Please see the sections below for how to configure each kind of repository.
 
 ## ElasticSearch
 
 The Elasticsearch (ES) connector is based on the HTTP API exposed by ES instances. This connector supports all versions of ES, from 5.x to 7.x, and OpenSearch v1.x.
 
-You can find more detail about supported versions of ElasticSearch at [https://www.elastic.co/support/eol](https://www.elastic.co/support/eol).
+More details about supported versions of ElasticSearch are at [https://www.elastic.co/support/eol](https://www.elastic.co/support/eol).
 
 {% hint style="info" %}
 **Deprecated support for the native ES client**
 
-Gravitee no longer supports native ES client. Previous connectors provided by us are no longer supported.
+Gravitee no longer supports the native ES client. Previous connectors provided by Gravitee are no longer supported.
 {% endhint %}
 
 ### Configuration
 
 #### APIM API configuration
 
-The Elasticsearch client does not support URL schemes in format http://USERNAME:PASSWORD@server.org. You must provide the username and password using the analytics.elasticsearch.security.username and analytics.elasticsearch.security.password properties.
+The ElasticSearch client does not support URL schemes in the format `http://USERNAME:PASSWORD@server.org`. You must provide the username and password using the `analytics.elasticsearch.security.username` and `analytics.elasticsearch.security.password` properties.
 
 ```yaml
 analytics:
@@ -86,7 +86,7 @@ reporters:
 
 ### Index management with ES Curator
 
-ES Curator is a great tool for ES administration. For optimizing data footprint and ES performance, you can define a retention window and periodically merge shards into only one segment.
+ES Curator is a tool for ES administration. To optimize data footprint and ES performance, define a retention window and periodically merge shards into only one segment.
 
 {% code overflow="wrap" %}
 ```sh
@@ -154,7 +154,7 @@ actions:
 {% hint style="info" %}
 **ES curator deployment hint**
 
-If you deploy ES Curator on every ES data node, you need to set master\_only: True in the curator configuration file. This ensures the curator is run only once on the elected current master.
+If you deploy ES Curator on every ES data node, set `master_only: True` in the curator configuration file. This ensures the curator is run only once on the elected current master.
 {% endhint %}
 
 ### Index management with ES ILM
@@ -162,10 +162,10 @@ If you deploy ES Curator on every ES data node, you need to set master\_only: Tr
 {% hint style="info" %}
 **APIM version compatibility**
 
-To use the ILM feature, you need to use Gravitee version 3.8.5 (for APIM 3.10.x) or version 3.12.1 of the plugin (for APIM 3.15.x and beyond).
+To use the ILM feature, use Gravitee version 3.8.5 (for APIM 3.10.x) or version 3.12.1 of the plugin (for APIM 3.15.x and beyond).
 {% endhint %}
 
-You can configure Index Lifecycle Management (ILM) policies to automatically manage indices according to your retention requirements. For example, you can use ILM to create a new index each day and archive the previous ones. You can check the documentation [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/set-up-lifecycle-policy.html#ilm-create-policy) for more information.
+You can configure Index Lifecycle Management (ILM) policies to automatically manage indices according to your retention requirements. For example, you can use ILM to create a new index each day and archive the previous ones. Refer to the documentation [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/set-up-lifecycle-policy.html#ilm-create-policy) for more information.
 
 By default, the `index_mode` configuration value is `daily`: Gravitee suffixes index names with the date.
 
@@ -173,7 +173,7 @@ If you want to let ILM handles that, you can set `index_mode` to `ILM`. Gravitee
 
 You also need to tell your APIM Gateway which ILM policies to use.
 
-Here’s an example of configuration for APIM Gateway:
+Here’s an example configuration for APIM Gateway:
 
 ```yaml
   elasticsearch:
@@ -192,7 +192,7 @@ Here’s an example of configuration for APIM Gateway:
 
 ## MongoDB
 
-Please see the below table for versions of APIM that support using MongoDB as a repository:
+The table below shows APIM versions that support using MongoDB as a repository:
 
 | APIM Version    | Version tested        | APIM plugin                                                                                                                                             |
 | --------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -205,7 +205,7 @@ Please see the below table for versions of APIM that support using MongoDB as a 
 
 #### Mandatory configuration
 
-The example below shows the minimum configuration needed to get started with a JDBC database.
+The example below shows the minimum configuration needed to get started with a MongoDB database.
 
 ```yaml
 # ===================================================================
@@ -290,7 +290,7 @@ management:
 
 {% hint style="info" %}
 **Gravitee version compatiblity**\
-From Gravite version 3.10.0 and beyond, Gravitee APIM uses the 4.1.2 version of the Java Driver. Therefore, some settings are no longer available:
+Starting with Gravitee version 3.10.0, Gravitee APIM uses the 4.1.2 version of the Java Driver. Therefore, some settings are no longer available:
 
 * `threadsAllowedToBlockForConnectionMultiplier` and `socketKeepAlive` have been deprecated in 3.12 and removed in 4.0
 * `heartbeatConnectTimeout` and `heartbeatSocketTimeout` can’t be used to configure the `MongoClient` object. Instead, `connectTimeout` and `socketTimeout` values are used to configure the heartbeat
@@ -484,5 +484,5 @@ ratelimit:
 {% hint style="info" %}
 **Don't forget**
 
-If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify if Redis repository is healthy. You can find health endpoints in the [Internal API documentation](configure-apim-management-api/internal-api.md).
+If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify that Redis repository is healthy. You can find health endpoints in the [Internal API documentation](configure-apim-management-api/internal-api.md).
 {% endhint %}
