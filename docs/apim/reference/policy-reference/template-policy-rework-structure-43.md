@@ -16,8 +16,8 @@ You can use the `wssecurity-authentication` policy to manage the security of SOA
 
 To use the policy in an API, you need to:
 
-* configure an LDAP, inline, or http resource for your API plan, which specifies where the APIM users are stored
-* configure a WS-Security authentication policy for the API flows
+* Configure an LDAP, inline, or http resource for your API plan, which specifies where the APIM users are stored
+* Configure a WS-Security authentication policy for the API flows
 
 {% hint style="info" %}
 LDAP, inline and http resources are not part of the default APIM configuration, so you must download these resource plugins from [here](https://download.gravitee.io/#graviteeio-apim/plugins/resources/).
