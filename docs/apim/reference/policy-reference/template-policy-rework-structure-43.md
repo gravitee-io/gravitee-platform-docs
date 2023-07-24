@@ -27,7 +27,6 @@ Functional and implementation information for the WS Security Authentication pol
 
 * [Examples](template-policy-rework-structure-43.md#examples)
 * [Configuration](template-policy-rework-structure-43.md#configuration)
-* [Compatibility Matrix](template-policy-rework-structure-43.md#compatibility-matrix)
 * [Errors](template-policy-rework-structure-43.md#errors)
 * [Changelogs](template-policy-rework-structure-43.md#changelogs)
 

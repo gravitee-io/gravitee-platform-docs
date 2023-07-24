@@ -14,7 +14,7 @@ Functional and implementation information for the XSLT policy is organized into 
 
 * [Examples](template-policy-rework-structure-42.md#examples)
 * [Configuration](template-policy-rework-structure-42.md#configuration)
-* [Compatibility Matrix](template-policy-rework-structure-42.md#compatibility-matrix)
+* [Compatibility Matrix](template-policy-rework-structure-42.md#compatibility)
 * [Errors](template-policy-rework-structure-42.md#errors)
 * [Changelogs](template-policy-rework-structure-42.md#changelogs)
 

@@ -11,7 +11,7 @@ description: >-
 Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
 * [Configuration](template-policy-rework-structure-37.md#configuration)
-* [Compatibility](template-policy-rework-structure-37.md#compatibility-matrix)
+* [Compatibility](template-policy-rework-structure-37.md#compatibility)
 * [Changelogs](template-policy-rework-structure-37.md#changelogs)
 
 {% hint style="warning" %}
