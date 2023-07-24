@@ -6,27 +6,32 @@ description: This article covers how to configure various repositories
 
 ## Introduction
 
-In Gravitee, repositories are used to store different type of data (different scopes). Repositories are configured in the `gravitee.yml` configuration file and can be different for each scope. For example, you can decide to store management data in MongoDB, rate limiting data in Redis, and analytics data in Elasticsearch.
+In Gravitee, repositories are used to store different type of data (different scopes). Repositories are configured in the `gravitee.yml` configuration file and can be different for each scope. For example, you can decide to store management data in MongoDB, rate limiting data in Redis, and analytics data in ElasticSearch.
 
 ## Supported storage
 
 The following matrix shows scope and storage compatibility.
 
-<table><thead><tr><th width="317">Scope</th><th data-type="checkbox">MongoDB</th><th data-type="checkbox">Redis</th><th data-type="checkbox">Elasticsearch</th><th data-type="checkbox">JDBC</th></tr></thead><tbody><tr><td>Management: All the API Management platform management data such as API definitions, users, applications, and plans</td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Rate Limit: rate limiting data</td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td>Analytics: analytics data</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Distributed Sync: responsible for keeping the sync state for a cluster</td><td>false</td><td>true</td><td>false</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="317">Scope</th><th data-type="checkbox">MongoDB</th><th data-type="checkbox">Redis</th><th data-type="checkbox">ElasticSearch</th><th data-type="checkbox">JDBC</th></tr></thead><tbody><tr><td>Management: All the API Management platform management data such as API definitions, users, applications, and plans</td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Rate Limit: rate limiting data</td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td>Analytics: analytics data</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Distributed Sync: responsible for keeping the sync state for a cluster</td><td>false</td><td>true</td><td>false</td><td>false</td></tr></tbody></table>
 
 Please see the sections below for how to configure each kind of repository.
 
 ## ElasticSearch
 
-The ElasticSearch (ES) connector is based on the HTTP API exposed by ES instances. This connector supports all versions of ES, from 5.x to 7.x, and OpenSearch v1.x.
-
-More details about supported versions of ElasticSearch are at [https://www.elastic.co/support/eol](https://www.elastic.co/support/eol).
+The ElasticSearch (ES) connector is based on the HTTP API exposed by ES instances.
 
 {% hint style="info" %}
 **Deprecated support for the native ES client**
 
 Gravitee no longer supports the native ES client. Previous connectors provided by Gravitee are no longer supported.
 {% endhint %}
+
+### Supported databases
+
+| Database      | Version tested |
+|---------------|----------------|
+| ElasticSearch | 7.17.x / 8.8.x |
+| OpenSearch    | 1.x / 2.x      |
 
 ### Configuration
 
@@ -115,7 +120,7 @@ logging:
 actions:
   1:
     action: forcemerge
-    description: "Perform a forceMerge on selected indices to 'max_num_segments' per shard. Merge Days - 1 index for optimize disk space footprint on Elasticsearch TS"
+    description: "Perform a forceMerge on selected indices to 'max_num_segments' per shard. Merge Days - 1 index for optimize disk space footprint on ElasticSearch TS"
     options:
       max_num_segments: 1
       continue_if_exception: True
@@ -159,13 +164,7 @@ If you deploy ES Curator on every ES data node, set `master_only: True` in the c
 
 ### Index management with ES ILM
 
-{% hint style="info" %}
-**APIM version compatibility**
-
-To use the ILM feature, use Gravitee version 3.8.5 (for APIM 3.10.x) or version 3.12.1 of the plugin (for APIM 3.15.x and beyond).
-{% endhint %}
-
-You can configure Index Lifecycle Management (ILM) policies to automatically manage indices according to your retention requirements. For example, you can use ILM to create a new index each day and archive the previous ones. Refer to the documentation [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/set-up-lifecycle-policy.html#ilm-create-policy) for more information.
+You can configure Index Lifecycle Management (ILM) policies to automatically manage indices according to your retention requirements. For example, you can use ILM to create a new index each day and archive the previous ones. You can check the documentation [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/set-up-lifecycle-policy.html#ilm-create-policy) for more information.
 
 By default, the `index_mode` configuration value is `daily`: Gravitee suffixes index names with the date.
 
@@ -192,12 +191,25 @@ Here’s an example configuration for APIM Gateway:
 
 ## MongoDB
 
-The table below shows APIM versions that support using MongoDB as a repository:
+The MongoDB plugin is part of the default distribution of APIM.
 
-| APIM Version    | Version tested        | APIM plugin                                                                                                                                             |
-| --------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.30.x to 3.9.x | 3.6 / 4.0 / 4.2       | [Download the same version as your APIM platform](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-mongodb/) |
-| 3.10.x          | 3.6 / 4.0 / 4.2 / 4.4 |                                                                                                                                                         |
+### Supported databases
+
+| Database | Version tested        |
+|----------|-----------------------|
+| MongoDB  | 4.4.x / 5.0.x / 6.0.x |
+
+{% hint style="info" %}
+**Support of databases with MongoDB compatibility**
+
+Some databases are almost fully compatible with MongoDB, like:
+- DocumentDB (AWS)
+- Azure Cosmos DB for MongoDB (Azure)
+
+However, some features might not be supported or act differently in terms of behavior or performance.
+That's why they are not considered as officially supported databases.
+
+{% endhint %}
 
 ### Configuration
 
@@ -266,7 +278,7 @@ management:
     connectionsPerHost:         # mongodb max connections per host (default 100)
     minConnectionsPerHost:      # mongodb min connections per host (default 0)
 
-## Server settings
+    ## Server settings
     heartbeatFrequency:         # mongodb heartbeat frequency (default 10000)
     minHeartbeatFrequency:      # mongodb min heartbeat frequency (default 500)
 
@@ -288,25 +300,9 @@ management:
     keyPassword:                # password for recovering keys in the KeyStore (when sslEnabled is true, default null)
 ```
 
-{% hint style="info" %}
-**Gravitee version compatiblity**\
-Starting with Gravitee version 3.10.0, Gravitee APIM uses the 4.1.2 version of the Java Driver. Therefore, some settings are no longer available:
-
-* `threadsAllowedToBlockForConnectionMultiplier` and `socketKeepAlive` have been deprecated in 3.12 and removed in 4.0
-* `heartbeatConnectTimeout` and `heartbeatSocketTimeout` can’t be used to configure the `MongoClient` object. Instead, `connectTimeout` and `socketTimeout` values are used to configure the heartbeat
-* `cursorFinalizerEnabled` has been removed
-
-See:\
-[https://mongodb.github.io/mongo-java-driver/3.12/javadoc/com/mongodb/MongoClientOptions.html#getThreadsAllowedToBlockForConnectionMultiplier(](https://mongodb.github.io/mongo-java-driver/3.12/javadoc/com/mongodb/MongoClientOptions.html#getThreadsAllowedToBlockForConnectionMultiplier\())
-
-[https://mongodb.github.io/mongo-java-driver/3.12/javadoc/com/mongodb/MongoClientOptions.html#isSocketKeepAlive(](https://mongodb.github.io/mongo-java-driver/3.12/javadoc/com/mongodb/MongoClientOptions.html#isSocketKeepAlive\())
-
-[https://github.com/mongodb/mongo-java-driver/blob/master/driver-core/src/main/com/mongodb/MongoClientSettings.java#L807-L814](https://github.com/mongodb/mongo-java-driver/blob/master/driver-core/src/main/com/mongodb/MongoClientSettings.java#L807-L814)
-{% endhint %}
-
 ### Use a custom prefix
 
-From APIM 3.7 and beyond, you can use a custom prefix for your collection names. This is useful if you want to use the same databases for APIM and AM, for example.
+You can use a custom prefix for your collection names. This is useful if you want to use the same databases for APIM and AM, for example.
 
 #### Use a custom prefix on a new installation
 
@@ -321,7 +317,7 @@ By default, these values are empty.
 
 Before running any scripts, you must create a dump of your existing database. You need to repeat these steps on both APIM Gateway and APIM API.
 
-To prefix your collections, you need to rename them. You can use [this script](https://gh.gravitee.io/gravitee-io/gravitee-api-management/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/3.7.0/1-rename-collections-with-prefix.js), which renames all the collections by adding a prefix and rateLimitPrefix of your choice.
+To prefix your collections, you need to rename them. You can use [this script](https://gh.gravitee.io/gravitee-io/gravitee-api-management/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/3.7.0/1-rename-collections-with-prefix.js),  which renames all the collections by adding a prefix and rateLimitPrefix of your choice.
 
 Then, update these values: `management.mongodb.prefix` and `ratelimit.mongodb.prefix` in the `gravitee.yml` file.
 
@@ -334,22 +330,23 @@ You can create an index using the [script](https://github.com/gravitee-io/gravit
 Sometimes, you need to apply specific security constraints and rules to users accessing your database. The following table summarizes how to define fine-grained constraints per collection.
 
 | Component    | Read-only                           | Read-write                       |
-| ------------ | ----------------------------------- | -------------------------------- |
+|--------------|-------------------------------------|----------------------------------|
 | APIM Gateway | apis - keys - subscriptions - plans | events - ratelimit - commands    |
 | APIM API     | -                                   | all collections except ratelimit |
 
 ## JDBC
 
-The JDBC plugin is part of the default distribution of APIM. However, you need to install the correct driver for the database you are using in order to use JDBC as a repository.
+The JDBC plugin is part of the default distribution of APIM. However, you need to install the correct driver for the
+database you are using in order to use JDBC as a repository.
 
 ### Supported databases
 
-| Database             | Version tested            | JDBC Driver                                                                                                                           |
-| -------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| PostgreSQL           | 9 / 10 / 11 / 12 / 13     | [Download page](https://jdbc.postgresql.org/download/)                                                                                |
-| MySQL                | 5.6 / 5.7 / 8.0           | [Download page](https://dev.mysql.com/downloads/connector/j/)                                                                         |
-| MariaDB              | 10.1 / 10.2 / 10.3 / 10.4 | [Download page](https://downloads.mariadb.org/connector-java/)                                                                        |
-| Microsoft SQL Server | 2017-CU12                 | [Download page](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) |
+| Database             | Version tested                                      | JDBC Driver                                                                                                                           |
+|----------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| PostgreSQL           | 11.x / 12.x / 13.x / 14.x / 15.x                    | [Download page](https://jdbc.postgresql.org/download/)                                                                                |
+| MySQL                | 5.7.x / 8.0.x                                       | [Download page](https://dev.mysql.com/downloads/connector/j/)                                                                         |
+| MariaDB              | 10.4.x / 10.5.x / 10.6.x / 10.10.x / 10.11.x / 11.x | [Download page](https://downloads.mariadb.org/connector-java/)                                                                        |
+| Microsoft SQL Server | 2017-x / 2019-x / 2022-x                            | [Download page](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) |
 
 ### Install the JDBC driver
 
@@ -401,7 +398,7 @@ management:
 
 ### Use a custom prefix
 
-From APIM 3.7 and beyond, you can use a custom prefix for your table names. This is useful if you want to use the same databases for APIM and AM, for example.
+You can use a custom prefix for your table names. This is useful if you want to use the same databases for APIM and AM, for example.
 
 The following steps explain how to rename your tables with a custom prefix, using the prefix `prefix_` as an example.
 
@@ -431,26 +428,37 @@ If you are migrating an existing installation, follow these steps:
 5. Rename your indexes using format `idx_prefix_indexname`.
 6. Rename your primary keys using format `pk_prefix_pkname`.
 
+#### Database enforcing use of primary key on all tables
+
+Some databases have an option to enforce the use of a primary key on all tables, for instance: MySQL 8.0.13+ with `sql_require_primary_key` set to `true`.
+
+If you are using a database with such option activated, during the *installation of APIM*, you will need to:
+
+- disable this option
+- start APIM Management API, to allow the database migration tool, Liquibase, to create the APIM tables and add the primary keys
+- re-enable this option
+
+*Why APIM isn't setting the primary keys when creating the tables?*
+
+Because, as of today, Liquibase is creating 2 tables for its own use and both don't have a primary key by default, more about it [here](https://forum.liquibase.org/t/why-does-databasechangelog-not-have-a-primary-key/3270).
+To avoid any compatibility issue with Liquibase, we decided to not override the creation of these tables.
+
 ## Redis
 
-This Redis repository plugin enables you to connect to Redis databases for the Rate Limit feature. The following table shows dependency prerequisites:
+This Redis repository plugin enables you to connect to Redis databases for the Rate Limit feature.
+The Redis plugin is part of the default distribution of APIM.
 
-| Dependency | Version | Link                                                                  |
-| ---------- | ------- | --------------------------------------------------------------------- |
-| Maven      | 3+      | [Download](https://maven.apache.org/download.cgi)                     |
-| JDK        | 8+      | [Download](https://www.oracle.com/java/technologies/downloads/#java8) |
+### Supported databases
 
-### Install the Rate Limit repository plugin
-
-Repeat these steps on each component (APIM Gateway and APIM API) where the SQL database is used:
-
-1. Download the plugin corresponding to your APIM version (take the latest maintenance release)
-2. Place the zip file in the plugin directory for each component (`$GRAVITEE_HOME/plugins`)
-3. Configure your `gravitee.yml` files, as described in the next section
+| Database | Version tested |
+|----------|----------------|
+| Redis    | 6.2.x / 7.0.x  |
 
 ### Configure the Rate Limit repository plugin
 
 The Rate Limit repository plugin should be configured as shown below:
+
+
 
 ```yaml
 # ===================================================================
@@ -484,6 +492,31 @@ ratelimit:
           port : 26381
         }
       ]
+      # Following SSL settings are REQUIRED ONLY for Redis client SSL
+      # SSL settings
+      ssl: true
+      trustAll: false
+      tlsProtocols: TLSv1.2, TLSv1.3
+      tlsCiphers: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+      alpn: false
+      openssl: false
+      # Keystore for redis mTLS (client certificate)
+      keystore:
+        type: jks
+        path: ${gravitee.home}/security/redis-keystore.jks
+        password: secret
+        keyPassword:
+        alias:
+        certificates: # Certificates are required if keystore's type is pem
+  #        - cert: ${gravitee.home}/security/redis-mycompany.org.pem
+  #          key: ${gravitee.home}/security/redis-mycompany.org.key
+  #        - cert: ${gravitee.home}/security/redis-myothercompany.com.pem
+  #          key: ${gravitee.home}/security/redis-myothercompany.com.key
+      truststore:
+        type: pem
+        path: ${gravitee.home}/security/redis-truststore.jks
+        password: secret
+        alias:
 ```
 
 {% hint style="info" %}
