@@ -35,7 +35,7 @@ In Gravitee, you can configure several API proxy settings. You can use the inter
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC
+{% @arcade/embed flowId="tn8DhyHNq83ZWp8pyqOC" url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -59,7 +59,7 @@ Load balancing is a technique used to distribute incoming traffic across multipl
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-"https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM"
+{% @arcade/embed flowId="q2cetEPiktDGaSv7t4gM" url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
