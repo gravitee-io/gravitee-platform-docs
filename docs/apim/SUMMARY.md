@@ -132,7 +132,7 @@
   * [AVRO <> JSON](reference/policy-reference/avro-json.md)
   * [AWS Lambda](reference/policy-reference/template-policy-rework-structure-3.md)
   * [Basic Authentication](reference/policy-reference/basic-authentication.md)
-  * [Cache](reference/policy-reference/template-policy-rework-structure-4.md)
+  * [Cache](reference/policy-reference/cache.md)
   * [Circuit Breaker](reference/policy-reference/template-policy-rework-structure-5.md)
   * [Cloud Events](reference/policy-reference/template-policy-rework-structure-6.md)
   * [Data Logging Masking](<reference/policy-reference/template-policy-rework-structure-6 (1).md>)
