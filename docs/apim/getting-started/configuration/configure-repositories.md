@@ -18,7 +18,7 @@ Please see the sections below for how to configure each kind of repository.
 
 ## ElasticSearch
 
-The Elasticsearch (ES) connector is based on the HTTP API exposed by ES instances. This connector supports all versions of ES, from 5.x to 7.x, and OpenSearch v1.x.
+The ElasticSearch (ES) connector is based on the HTTP API exposed by ES instances. This connector supports all versions of ES, from 5.x to 7.x, and OpenSearch v1.x.
 
 More details about supported versions of ElasticSearch are at [https://www.elastic.co/support/eol](https://www.elastic.co/support/eol).
 
@@ -199,7 +199,7 @@ The table below shows APIM versions that support using MongoDB as a repository:
 | 1.30.x to 3.9.x | 3.6 / 4.0 / 4.2       | [Download the same version as your APIM platform](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-mongodb/) |
 | 3.10.x          | 3.6 / 4.0 / 4.2 / 4.4 |                                                                                                                                                         |
 
-### Configure MongoDB
+### Configuration
 
 [MongoDB](https://www.mongodb.org/) is the default repository implementation used by APIM.
 
