@@ -87,7 +87,10 @@ The phases checked below are supported by the HTTP Signature policy:
 
 The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `http-signature` policy.
 
-<table><thead><tr><th>Plugin version</th><th>Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>1.5 and upper</td><td>3.15.x to latest</td><td>true</td></tr><tr><td>Up to 1.4</td><td>Up to 3.14.x</td><td>true</td></tr></tbody></table>
+| Plugin version | Supported APIM versions |
+| -------------- | ----------------------- |
+| 1.5 and upper  | 3.15.x to latest        |
+| Up to 1.4      | Up to 3.14.x            |
 
 ## Errors
 

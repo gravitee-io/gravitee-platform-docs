@@ -45,7 +45,7 @@ The [changelog for each version of APIM](../../releases-and-changelog/changelog/
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td><code>500</code></td><td>Server error</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>HTTP status code</th><th>Message</th></tr></thead><tbody><tr><td><code>500</code></td><td>Server error</td></tr></tbody></table>
 
 ## Changelogs
 

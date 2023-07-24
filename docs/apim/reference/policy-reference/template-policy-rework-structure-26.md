@@ -89,7 +89,7 @@ The phases checked below are supported by the Override HTTP Method policy:
 
 In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `override-http-method` policy.
 
-<table data-full-width="false"><thead><tr><th width="179">Plugin Version</th><th width="233">Supported APIM versions</th><th>Included in APIM default distribution</th></tr></thead><tbody><tr><td>&#x3C;=2.x</td><td>>=3.21</td><td>>= 3.21</td></tr><tr><td>&#x3C;=1.x</td><td>All</td><td>&#x3C;= 3.20</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>&#x3C;=2.x</td><td>>=3.21</td></tr><tr><td>&#x3C;=1.x</td><td>All</td></tr></tbody></table>
 
 ## Errors
 

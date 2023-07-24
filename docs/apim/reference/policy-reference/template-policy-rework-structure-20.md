@@ -121,7 +121,12 @@ The phases checked below are supported by the JWT policy:
 
 The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `jwt` policy.
 
-<table><thead><tr><th width="216">Plugin version</th><th>Supported APIM versions</th><th data-type="checkbox">Included in APIM default distribution</th></tr></thead><tbody><tr><td>2.x and upper</td><td>3.18.x to latest</td><td>true</td></tr><tr><td>1.22.x and upper</td><td>3.15.x to 3.17.x</td><td>true</td></tr><tr><td>1.20.x to 1.21.x</td><td>3.10.x to 3.14.x</td><td>true</td></tr><tr><td>Up to 1.19.x</td><td>Up to 3.9.x</td><td>true</td></tr></tbody></table>
+| Plugin version   | Supported APIM versions |
+| ---------------- | ----------------------- |
+| 2.x and upper    | 3.18.x to latest        |
+| 1.22.x and upper | 3.15.x to 3.17.x        |
+| 1.20.x to 1.21.x | 3.10.x to 3.14.x        |
+| Up to 1.19.x     | Up to 3.9.x             |
 
 ## Errors
 

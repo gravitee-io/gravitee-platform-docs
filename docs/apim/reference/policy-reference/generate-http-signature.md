@@ -20,7 +20,6 @@ Functional and implementation information for the JSON-to-XML policy is organize
 
 * [Examples](generate-http-signature.md#examples)
 * [Configuration](generate-http-signature.md#configuration)
-* [Compatibility Matrix](generate-http-signature.md#compatibility-matrix)
 * [Errors](generate-http-signature.md#errors)
 * [Changelogs](generate-http-signature.md#changelogs)
 

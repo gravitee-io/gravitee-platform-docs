@@ -102,7 +102,7 @@ The phases checked below are supported by the Mock policy:
 
 The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
-<table data-full-width="false"><thead><tr><th width="161.33333333333331">Plugin Version</th><th width="242">Supported APIM versions</th></tr></thead><tbody><tr><td>&#x3C;=1.x</td><td>All</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>&#x3C;=1.x</td><td>All</td></tr></tbody></table>
 
 ## Changelogs
 
