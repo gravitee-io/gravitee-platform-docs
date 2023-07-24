@@ -6,7 +6,7 @@ description: This article covers how to configure various repositories
 
 ## Introduction
 
-In Gravitee, repositories are used to store different type of data (different scopes). Repositories are configured in the `gravitee.yml` configuration file and can be different for each scope. For example, you can decide to store management data in MongoDB, rate limiting data in Redis, and analytics data in ElasticSearch.
+Gravitee uses repositories to store different types of data. They are configured in `gravitee.yml`, where each repository can correspond to a particular scope. For example, management data can be stored in MongoDB, rate limiting data in Redis, and analytics data in ElasticSearch.
 
 ## Supported storage
 
@@ -29,7 +29,7 @@ Gravitee no longer supports the native ES client. Previous connectors provided b
 ### Supported databases
 
 | Database      | Version tested |
-|---------------|----------------|
+| ------------- | -------------- |
 | ElasticSearch | 7.17.x / 8.8.x |
 | OpenSearch    | 1.x / 2.x      |
 
@@ -196,19 +196,18 @@ The MongoDB plugin is part of the default distribution of APIM.
 ### Supported databases
 
 | Database | Version tested        |
-|----------|-----------------------|
+| -------- | --------------------- |
 | MongoDB  | 4.4.x / 5.0.x / 6.0.x |
 
 {% hint style="info" %}
 **Support of databases with MongoDB compatibility**
 
 Some databases are almost fully compatible with MongoDB, like:
-- DocumentDB (AWS)
-- Azure Cosmos DB for MongoDB (Azure)
 
-However, some features might not be supported or act differently in terms of behavior or performance.
-That's why they are not considered as officially supported databases.
+* DocumentDB (AWS)
+* Azure Cosmos DB for MongoDB (Azure)
 
+However, some features might not be supported or act differently in terms of behavior or performance. That's why they are not considered as officially supported databases.
 {% endhint %}
 
 ### Configuration
@@ -235,7 +234,7 @@ management:
 
 #### Optional configuration
 
-You can configure the following additional properties to customize the behavior of a MongoDB database:
+You can configure the following additional properties to customize the behavior of a MongoDB database.
 
 ```yaml
 # ===================================================================
@@ -302,7 +301,7 @@ management:
 
 ### Use a custom prefix
 
-You can use a custom prefix for your collection names. This is useful if you want to use the same databases for APIM and AM, for example.
+You can use a custom prefix for your collection names. For example, this is useful if you want to use the same databases for APIM and AM.
 
 #### Use a custom prefix on a new installation
 
@@ -317,9 +316,9 @@ By default, these values are empty.
 
 Before running any scripts, you must create a dump of your existing database. You need to repeat these steps on both APIM Gateway and APIM API.
 
-To prefix your collections, you need to rename them. You can use [this script](https://gh.gravitee.io/gravitee-io/gravitee-api-management/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/3.7.0/1-rename-collections-with-prefix.js),  which renames all the collections by adding a prefix and rateLimitPrefix of your choice.
+To prefix your collections, you need to rename them. You can use [this script](https://gh.gravitee.io/gravitee-io/gravitee-api-management/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/3.7.0/1-rename-collections-with-prefix.js), which renames all the collections by adding a prefix and rateLimitPrefix of your choice.
 
-Then, update these values: `management.mongodb.prefix` and `ratelimit.mongodb.prefix` in the `gravitee.yml` file.
+Then, update the values of `management.mongodb.prefix` and `ratelimit.mongodb.prefix` in the `gravitee.yml` file.
 
 ### Index
 
@@ -327,22 +326,21 @@ You can create an index using the [script](https://github.com/gravitee-io/gravit
 
 ### Security
 
-Sometimes, you need to apply specific security constraints and rules to users accessing your database. The following table summarizes how to define fine-grained constraints per collection.
+You may need to apply specific security constraints and rules to users accessing your database. The following table summarizes how to define granular constraints per collection.
 
 | Component    | Read-only                           | Read-write                       |
-|--------------|-------------------------------------|----------------------------------|
+| ------------ | ----------------------------------- | -------------------------------- |
 | APIM Gateway | apis - keys - subscriptions - plans | events - ratelimit - commands    |
 | APIM API     | -                                   | all collections except ratelimit |
 
 ## JDBC
 
-The JDBC plugin is part of the default distribution of APIM. However, you need to install the correct driver for the
-database you are using in order to use JDBC as a repository.
+The JDBC plugin is part of the default distribution of APIM. However, you need to install the correct driver for the database you are using in order to use JDBC as a repository.
 
 ### Supported databases
 
 | Database             | Version tested                                      | JDBC Driver                                                                                                                           |
-|----------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | PostgreSQL           | 11.x / 12.x / 13.x / 14.x / 15.x                    | [Download page](https://jdbc.postgresql.org/download/)                                                                                |
 | MySQL                | 5.7.x / 8.0.x                                       | [Download page](https://dev.mysql.com/downloads/connector/j/)                                                                         |
 | MariaDB              | 10.4.x / 10.5.x / 10.6.x / 10.10.x / 10.11.x / 11.x | [Download page](https://downloads.mariadb.org/connector-java/)                                                                        |
@@ -377,7 +375,7 @@ management:
 
 #### Optional configuration
 
-You can configure the following additional properties to fine-tune your JDBC connection and control the behavior of your JDBC database:
+You can configure the following additional properties to fine-tune your JDBC connection and control the behavior of your JDBC database.
 
 ```yaml
 management:
@@ -398,7 +396,7 @@ management:
 
 ### Use a custom prefix
 
-You can use a custom prefix for your table names. This is useful if you want to use the same databases for APIM and AM, for example.
+You can use a custom prefix for your table names. For example, this is useful if you want to use the same databases for APIM and AM.
 
 The following steps explain how to rename your tables with a custom prefix, using the prefix `prefix_` as an example.
 
@@ -430,39 +428,33 @@ If you are migrating an existing installation, follow these steps:
 
 #### Database enforcing use of primary key on all tables
 
-Some databases have an option to enforce the use of a primary key on all tables, for instance: MySQL 8.0.13+ with `sql_require_primary_key` set to `true`.
+Some databases have an option to enforce the use of a primary key on all tables, e.g., MySQL 8.0.13+ with `sql_require_primary_key` set to `true`.
 
-If you are using a database with such option activated, during the *installation of APIM*, you will need to:
+If you are using a database with such an option activated, you will need to do the following **during the installation of APIM**:
 
-- disable this option
-- start APIM Management API, to allow the database migration tool, Liquibase, to create the APIM tables and add the primary keys
-- re-enable this option
+1. Disable this option.
+2. Start APIM Management API to allow the database migration tool, Liquibase, to create the APIM tables and add the primary keys.
+3. Re-enable this option.
 
-*Why APIM isn't setting the primary keys when creating the tables?*
+{% hint style="info" %}
+**APIM does not currently set primary keys when creating tables**&#x20;
 
-Because, as of today, Liquibase is creating 2 tables for its own use and both don't have a primary key by default, more about it [here](https://forum.liquibase.org/t/why-does-databasechangelog-not-have-a-primary-key/3270).
-To avoid any compatibility issue with Liquibase, we decided to not override the creation of these tables.
+By default, Liquibase creates 2 tables without primary keys for its own use. To avoid a compatibility issue with Liquibase, Gravitee does not override the creation of these tables. See [here](https://forum.liquibase.org/t/why-does-databasechangelog-not-have-a-primary-key/3270) for more information.
+{% endhint %}
 
 ## Redis
 
-This Redis repository plugin enables you to connect to Redis databases for the Rate Limit feature.
-The Redis plugin is part of the default distribution of APIM.
+This Redis repository plugin enables you to connect to Redis databases for the Rate Limit feature. The Redis plugin is part of the default distribution of APIM.
 
 ### Supported databases
 
 | Database | Version tested |
-|----------|----------------|
+| -------- | -------------- |
 | Redis    | 6.2.x / 7.0.x  |
 
 ### Configure the Rate Limit repository plugin
 
-The Rate Limit repository plugin should be configured based on the following options:
-
-
-
-Sample configurations for the Rate Limit repository plugin:
-
-
+Sample configurations for the Rate Limit repository plugin are shown below:
 
 ```yaml
 # ===================================================================
@@ -497,7 +489,6 @@ ratelimit:
         }
       ]
       # Following SSL settings are REQUIRED ONLY for Redis client SSL
-      # SSL settings
       ssl: true
       trustAll: false
       tlsProtocols: TLSv1.2, TLSv1.3
