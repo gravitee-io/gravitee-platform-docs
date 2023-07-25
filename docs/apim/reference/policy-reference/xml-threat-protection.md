@@ -9,12 +9,12 @@ description: This page provides the technical details of the JSON-to-XML policy
 Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
 * [Configuration](xml-threat-protection.md#configuration)
-* [Compatibility](xml-threat-protection.md#compatibility-matrix)
+* [Compatibility](xml-threat-protection.md#compatibility)
 * [Errors](xml-threat-protection.md#errors)
 * [Changelogs](xml-threat-protection.md#changelogs)
 
 {% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}

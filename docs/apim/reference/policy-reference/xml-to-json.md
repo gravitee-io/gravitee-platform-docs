@@ -9,7 +9,7 @@ description: This page provides the technical details of the XML to JSON policy
 Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
 
 * [Configuration](xml-to-json.md#configuration)
-* [Compatibility Matrix](xml-to-json.md#compatibility-matrix)
+* [Compatibility](xml-to-json.md#compatibility)
 * [Errors](xml-to-json.md#errors)
 * [Changelogs](xml-to-json.md#changelogs)
 
