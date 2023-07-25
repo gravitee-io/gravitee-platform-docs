@@ -10,7 +10,7 @@ description: >-
 
 In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API.
 
-After you've created your Gateway API and selected your endpoints(s), you can configure them on the API's page. This article walks through that process for configuring v4 Message API endpoints and v4 Proxy API endpoints.
+After you've created your Gateway API and selected your endpoint(s), you can configure them on the API's page. This article walks through that process for configuring v4 Message API endpoints and v4 Proxy API endpoints.
 
 ## Configure v4 message API endpoints
 
