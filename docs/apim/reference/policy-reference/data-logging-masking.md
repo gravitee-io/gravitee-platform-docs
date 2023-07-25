@@ -14,8 +14,6 @@ Functional and implementation information for the Data Logging Masking policy is
 
 * [Configuration](data-logging-masking.md#configuration)
 * [Compatibility Matrix](data-logging-masking.md#compatibility-matrix)
-* [Errors](data-logging-masking.md#errors)
-* [Changelogs](data-logging-masking.md#changelogs)
 
 **If you enable logging on APIs**, you can use the `data-logging-masking` policy to configure rules to conceal sensitive data. You can use `json-path`, `xml-path` or a regular expression to identify the information to hide.
 

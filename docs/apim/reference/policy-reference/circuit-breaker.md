@@ -8,7 +8,7 @@ description: This page provides the technical details of the Circuit Breaker pol
 
 Functional and implementation information for the Circuit Breaker policy is organized into the following sections:
 
-* [Configuration](circuit-breaker.md#configuration)
+* [Configuration](circuit-breaker.md#configuration-reference)
 * [Compatibility Matrix](circuit-breaker.md#compatibility-matrix)
 * [Changelogs](circuit-breaker.md#changelogs)
 

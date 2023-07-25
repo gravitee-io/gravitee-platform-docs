@@ -8,8 +8,8 @@ description: This page provides the technical details of the Cloud Events policy
 
 Functional and implementation information for the Cloud Events policy is organized into the following sections:
 
-* [Configuration](cloud-events.md#configuration)
-* [Errors](cloud-events.md#errors)
+* [Configuration](cloud-events.md#user-content-configuration)
+* [Errors](cloud-events.md#user-content-errors)
 
 You can use the `cloud-events` policy to create a cloud-events `JSON` object from messages. The `datacontenttype` will be set accordingly to the message `Content-type` if any.
 
