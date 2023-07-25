@@ -30,7 +30,7 @@
     * [APIM Full Stack Installation](getting-started/install-guides/install-on-red-hat-and-centos/install-the-full-apim-stack.md)
     * [APIM Components Installation](getting-started/install-guides/install-on-red-hat-and-centos/apim-components/README.md)
   * [Install With .ZIP](getting-started/install-guides/install-with-.zip.md)
-  * [Upgrade Guide](getting-started/install-guides/installation-guide-migration/README.md)
+  * [4.0 Upgrade Guide](getting-started/install-guides/installation-guide-migration/README.md)
 * [Configuration](getting-started/configuration/README.md)
   * [Configure APIM Gateway](getting-started/configuration/components/the-gravitee-api-gateway.md)
     * [General Configuration](getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
