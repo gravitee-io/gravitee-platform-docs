@@ -6,6 +6,14 @@ description: This page provides the technical details of the Keyless policy
 
 ## Overview
 
+Functional and implementation information for the Keyless policy is organized into the following sections:
+
+* [Configuration](keyless.md#configuration)
+* [Errors](keyless.md#errors)
+* [Changelogs](keyless.md#changelogs)
+
+## Configuration
+
 This security policy does not block any requests as it considers them as valid by default.
 
 It sets multiple attributes during policy execution, as follows:
@@ -21,7 +29,7 @@ The phases checked below are supported by the Keyless policy:
 
 <table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="176.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-### Errors
+## Errors
 
 This policy cannot fail as it does not carry out any validation.
 

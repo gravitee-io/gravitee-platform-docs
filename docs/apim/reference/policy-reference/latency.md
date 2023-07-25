@@ -10,6 +10,7 @@ Functional and implementation information for the Latency policy is organized in
 
 * [Configuration](latency.md#configuration)
 * [Compatibility Matrix](latency.md#compatibility-matrix)
+* [Errors](latency.md#errors)
 * [Changelogs](latency.md#changelogs)
 
 You can use the latency policy to add latency to either the request or the response. So for example, if you configure the policy on the request with a latency of 100ms, the gateway waits 100ms before routing the request to the backend service.
