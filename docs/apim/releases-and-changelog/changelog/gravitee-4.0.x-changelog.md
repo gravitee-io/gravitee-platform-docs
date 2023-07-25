@@ -14,10 +14,6 @@ For upgrade instructions, please refer to the Gravitee [API Management (APIM) Up
 If you plan to skip versions when you upgrade, ensure that you read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
 {% endhint %}
 
-## Default policy distribution
-
-Need to include a list of policies and their version in each release of APIM
-
 ## Gravitee API Management 4.0 - July 20, 2023
 
 For more in-depth information on what's new, please refer to the [Gravitee APIM 4.0 release notes](../release-notes/gravitee-4.x/apim-4.0.md).
