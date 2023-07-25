@@ -21,7 +21,7 @@ Functional and implementation information for the Basic Authentication policy is
 * [Examples](basic-authentication.md#examples)
 * [Configuration](basic-authentication.md#configuration)
 * [Compatibility Matrix](basic-authentication.md#compatibility-matrix)
-* [Changelogs](basic-authentication.md#changelogs)
+* [Changelog](basic-authentication.md#changelog)
 
 ## Examples
 
@@ -29,8 +29,8 @@ You can use the `basic-authentication` policy to manage basic authentication hea
 
 To use the policy in an API, you need to:
 
-* configure an LDAP, inline or http resource for your API plan, which specifies where the APIM users are stored
-* configure a basic authentication policy for the API flows
+* Configure an LDAP, inline or http resource for your API plan, which specifies where the APIM users are stored
+* Configure a basic authentication policy for the API flows
 
 {% hint style="info" %}
 LDAP, inline and http resources are not part of the default APIM configuration, so you must configure an LDAP, inline or http resource for APIM first.

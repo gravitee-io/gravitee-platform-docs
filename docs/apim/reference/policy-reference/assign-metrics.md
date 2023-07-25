@@ -15,8 +15,6 @@ Functional and implementation information for the JSON-to-XML policy is organize
 * [Examples](assign-metrics.md#examples)
 * [Configuration](assign-metrics.md#configuration)
 * [Compatibility Matrix](assign-metrics.md#compatibility-matrix)
-* [Errors](assign-metrics.md#errors)
-* [Changelogs](assign-metrics.md#changelogs)
 
 ## Examples
 

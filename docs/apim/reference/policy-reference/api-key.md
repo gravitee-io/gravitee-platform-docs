@@ -12,7 +12,6 @@ This policy ensures that API keys are valid, have not been revoked or expired an
 
 Functional and implementation information for the Assign Content policy is organized into the following sections:
 
-* [Examples](api-key.md#examples)
 * [Configuration](api-key.md#configuration)
 * [Compatibility Matrix](api-key.md#compatibility-matrix)
 * [Errors](api-key.md#errors)

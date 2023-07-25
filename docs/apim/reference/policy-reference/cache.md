@@ -11,8 +11,7 @@ Functional and implementation information for the Cache policy is organized into
 * [Examples](cache.md#examples)
 * [Configuration](cache.md#configuration)
 * [Compatibility Matrix](cache.md#compatibility-matrix)
-* [Errors](cache.md#errors)
-* [Changelogs](cache.md#changelogs)
+* [Changelog](cache.md#changelog)
 
 ## Examples
 
