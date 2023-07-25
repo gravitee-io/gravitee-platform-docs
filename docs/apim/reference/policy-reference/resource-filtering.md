@@ -19,10 +19,8 @@ This policy is mainly used in plan configuration, to limit subscriber access to 
 
 A typical usage would be to allow access to all paths (`/**`) but in read-only mode (GET method).
 
-
-
 {% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}

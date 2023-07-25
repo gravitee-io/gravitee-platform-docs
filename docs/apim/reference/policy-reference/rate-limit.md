@@ -8,24 +8,21 @@ description: This page provides the technical details of the Rate Limit policy
 
 Functional and implementation information for the Rate Limit policy is organized into the following sections:
 
-* [Examples](rate-limit.md#examples)
 * [Configuration](rate-limit.md#configuration)
 * [Errors](rate-limit.md#errors)
 * [Changelogs](rate-limit.md#changelogs)
 
-## Examples
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+
+Currently, this policy can **not** be applied at the message level.
+{% endhint %}
 
 There are three `rate-limit` policies:
 
 * **Quota**: configures the number of requests allowed over a period of time (hours, days, weeks, months)
 * **Rate-Limit**: configures the number of requests allowed over a limited period of time (seconds, minutes)
 * **Spike-Arrest**: throttles the number of requests processed and sends them to the backend to avoid a spike
-
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
-
-Currently, this policy can **not** be applied at the message level.
-{% endhint %}
 
 ## Configuration
 
