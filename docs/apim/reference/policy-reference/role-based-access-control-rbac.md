@@ -13,12 +13,12 @@ description: This page provides the technical details of the RBAC policy
 Functional and implementation information for the RBAC policy is organized into the following sections:
 
 * [Configuration](role-based-access-control-rbac.md#configuration)
-* [Compatibility](role-based-access-control-rbac.md#compatibility-matrix)
+* [Compatibility](role-based-access-control-rbac.md#compatibility)
 * [Errors](role-based-access-control-rbac.md#errors)
 * [Changelogs](role-based-access-control-rbac.md#changelogs)
 
 {% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
