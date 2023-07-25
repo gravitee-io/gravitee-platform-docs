@@ -6,14 +6,6 @@ description: >-
 
 # APIM 4.x.x (2023-07-20)
 
-## About upgrades
-
-For upgrade instructions, please refer to the Gravitee [API Management (APIM) Upgrade Guide.](../../getting-started/install-guides/installation-guide-migration/)
-
-{% hint style="danger" %}
-If you plan to skip versions when you upgrade, ensure that you read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
-{% endhint %}
-
 ## Gravitee API Management 4.0 - July 20, 2023
 
 For more in-depth information on what's new, please refer to the [Gravitee APIM 4.0 release notes](../release-notes/gravitee-4.x/apim-4.0.md).
