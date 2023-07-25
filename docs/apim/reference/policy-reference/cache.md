@@ -11,7 +11,7 @@ Functional and implementation information for the Cache policy is organized into
 * [Examples](cache.md#examples)
 * [Configuration](cache.md#configuration)
 * [Compatibility Matrix](cache.md#compatibility-matrix)
-* [Changelog](cache.md#changelog)
+* [Changelogs](cache.md#changelogs)
 
 ## Examples
 
@@ -79,6 +79,6 @@ The [changelog for each version of APIM](../../releases-and-changelog/changelog/
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>&#x3C;=1.x</td><td>All</td></tr></tbody></table>
 
-## Changelog
+## Changelogs
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-cache/blob/master/CHANGELOG.md" %}

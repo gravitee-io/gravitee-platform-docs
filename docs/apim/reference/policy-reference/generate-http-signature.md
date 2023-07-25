@@ -21,7 +21,7 @@ Functional and implementation information for the JSON-to-XML policy is organize
 * [Examples](generate-http-signature.md#examples)
 * [Configuration](generate-http-signature.md#configuration)
 * [Errors](generate-http-signature.md#errors)
-* [Changelog](generate-http-signature.md#changelog)
+* [Changelogs](generate-http-signature.md#changelogs)
 
 ## Examples
 
@@ -103,6 +103,6 @@ Policies can be applied to the request or the response of a Gateway API transact
 
 <table data-full-width="false"><thead><tr><th width="243">Phase</th><th width="178">HTTP status code</th><th width="184">Error template key</th><th>Description</th></tr></thead><tbody><tr><td>onRequest</td><td><code>400</code></td><td>HTTP_SIGNATURE_IMPOSSIBLE_GENERATION</td><td><p>In case of:</p><ul><li>Request does not contain every header in the configuration headers list.</li><li>Request does not contain <code>Date</code> header and the configuration headers list is empty. Policy needs at least <code>Date</code> header to create a signature.</li><li>Unable to sign because of bad configuration.</li></ul></td></tr></tbody></table>
 
-## Changelog
+## Changelogs
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-generate-http-signature/blob/master/CHANGELOG.md" %}

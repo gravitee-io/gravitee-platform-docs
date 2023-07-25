@@ -102,7 +102,7 @@ Here are the error keys send by this policy:
 | ----------------------------------- | ---------- |
 | HTTP\_SIGNATURE\_INVALID\_SIGNATURE |            |
 
-### Http status code
+### HTTP status code
 
 <table><thead><tr><th width="166.33333333333331">Phase</th><th>Code</th><th>Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td><p>In case of:</p><p>* Missing or signature</p><p>* Request does not contain headers part of the signature</p><p>* Enforce HTTP headers not part of the signature</p></td></tr></tbody></table>
 

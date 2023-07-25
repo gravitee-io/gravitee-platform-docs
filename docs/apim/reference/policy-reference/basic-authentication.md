@@ -21,7 +21,7 @@ Functional and implementation information for the Basic Authentication policy is
 * [Examples](basic-authentication.md#examples)
 * [Configuration](basic-authentication.md#configuration)
 * [Compatibility Matrix](basic-authentication.md#compatibility-matrix)
-* [Changelog](basic-authentication.md#changelog)
+* [Changelogs](basic-authentication.md#changelogs)
 
 ## Examples
 
@@ -93,6 +93,6 @@ In the [changelog for each version of APIM](../../releases-and-changelog/changel
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>>=1.4</td><td>>=3.15</td></tr><tr><td>&#x3C;=1.x</td><td>&#x3C;3.15</td></tr></tbody></table>
 
-## Changelog
+## Changelogs
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-basic-authentication/blob/master/CHANGELOG.md" %}
