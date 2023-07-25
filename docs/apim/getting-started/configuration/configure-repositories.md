@@ -454,7 +454,25 @@ This Redis repository plugin enables you to connect to Redis databases for the R
 
 ### Configure the Rate Limit repository plugin
 
-Sample configurations for the Rate Limit repository plugin are shown below:
+The following tables show the configuration options for different Redis implementations. All specific configurations are located under the `ratelimit.redis` attribute.
+
+#### Redis Standalone
+
+| Parameter | Default   | Description |
+| --------- | --------- | ----------- |
+| host      | localhost |             |
+| port      | 6379      |             |
+| password  |           |             |
+
+#### Redis Sentinel
+
+<table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>sentinel.nodes</td><td></td><td>List of sentinels with host and port</td></tr><tr><td>sentinel.master</td><td></td><td>Mandatory when using Sentinel</td></tr><tr><td>password</td><td></td><td></td></tr></tbody></table>
+
+#### Redis SSL
+
+
+
+The example below shows the minimum configuration needed to get started with a Redis database.
 
 ```yaml
 # ===================================================================
