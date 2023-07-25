@@ -36,11 +36,11 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 * The name of the sync probe has been changed from `api-sync` to `sync-process` to make it explicit when all sync processes have been completed.
 * The content of the sync handler has changed slightly to align with new concepts:
   * `initialDone`: `true` if the first initial synchronization is done
-  * `counter`: the number of iterations
-  * `nextSyncTime`: when is the next synchronization
-  * `lastOnError`: the latest synchronization with an error
-  * `lastErrorMessage`: if `lastOnError` is `true`, the content of the error message
-  * `totalOnErrors`: the number of iterations with an error
+  * `counter`: The number of iterations
+  * `nextSyncTime`: Time of the next synchronization
+  * `lastOnError`: The latest synchronization with an error
+  * `lastErrorMessage`: If `lastOnError` is `true`, the content of the error message
+  * `totalOnErrors`: The number of iterations with an error
 * v4 APIs currently only support the ElasticSearch reporter. If any other reporter is configured at the Gateway level, each v4 API call will produce an error log.
   * When using a different reporter, it remains possible to disable analytics on a per-API basis to avoid generating error logs for v4 APIs.
 
@@ -60,14 +60,18 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
   * By default, any v2 API created or imported will emulate V4 Engine.
   * All new requests will use the new `HttpProtocolVerticle` introduced with the V4 engine. The old `ReactorVerticle` has been removed.
   * The default timeout is set to 30s for any request.
-* Security policies such as Keyless, ApiKey, JWT, and Oauth2 have been updated to return a simple Unauthorized message in case of an error. No additional details are provided to protect against a potential attacker. **This impacts both v2 and v4 APIs.** However, error keys are still available for error templating. Here is a list of error keys by policy:
-  * ApiKey
+*   Security policies such as Keyless, ApiKey, JWT, and Oauth2 have been updated to return a simple Unauthorized message in case of an error. No additional details are provided to protect against a potential attacker. **This impacts both v2 and v4 APIs.** Error keys remain available for error templating. Here is a list of error keys by policy:
+
+    **ApiKey**
+
     * API\_KEY\_MISSING
     * API\_KEY\_INVALID
-  * JWT
-    * JWT\_MISSING\_TOKEN
-    * JWT\_INVALID\_TOKEN
-  * Oauth2
+    * JWT
+      * JWT\_MISSING\_TOKEN
+      * JWT\_INVALID\_TOKEN
+
+    **Oauth2**
+
     * OAUTH2\_MISSING\_SERVER
     * OAUTH2\_MISSING\_HEADER
     * OAUTH2\_MISSING\_ACCESS\_TOKEN
@@ -75,30 +79,34 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
     * OAUTH2\_INVALID\_SERVER\_RESPONSE
     * OAUTH2\_INSUFFICIENT\_SCOPE
     * OAUTH2\_SERVER\_UNAVAILABLE
-* Plan selection has been changed to reflect the actual security applied on the API:
-  * Keyless
-    * Will ignore any type of security (API key, Bearer token, etc.)
-    * **If another plan has detected a security token, valid or invalid, all flows assigned to the Keyless plan will be ignored**
-  * API Key
-    * Retrieve the API key from the request header or query parameters (default header: `X-Gravitee-Api-Key` and default query parameter: `api-key`)
-    * While it was previously ignored, **an empty API key is now considered invalid**
-  * JWT
-    * Retrieve JWT from `Authorization` header or query parameters
-    * Ignore empty `Authorization` header or any type other than Bearer
-    * While it was previously ignored, **an empty Bearer token is now considered invalid**
-  * OAuth2
-    * Retrieve OAuth2 from `Authorization` header or query parameters
-    * Ignore empty `Authorization` header or any type other than Bearer
-    * While it was previously ignored, **an empty Bearer token is now considered invalid**
-* Plugins are now overridden when duplicates (id/type) are found. The plugin zip file with the most recent modified time is kept and others are ignored. Notably, this allows `additionalPlugins` for Helm chart-based deployment to work efficiently without the need to remove bundled plugins.
-* The v4 API definition now expects a `FlowExecution` object instead of a `FlowMode` enumeration.
-* The `Endpoint` schema is now split into two schemas and the `Endpoint` object contains two string fields to manage:
-  * The configuration specific to the endpoint.
-  * The configuration that may be overridden from the `EndpointGroup`.
-* Endpoint name and endpoint group name must be unique.
-*   Analytics have been introduced and the old logging configuration has been moved. The following is only applicable for v4 APIs:
+*   Plan selection has been changed to reflect the actual security applied on the API:
 
-    A new `Analytics` object is available on the API allowing you to configure all aspects of analytics:
+    **Keyless**
+
+    * Will ignore any type of security (API key, Bearer token, etc.).
+    * **If another plan has detected a security token, valid or invalid, all flows assigned to the Keyless plan will be ignored.**
+
+    **API Key**
+
+    * Retrieve the API key from the request header or query parameters (default header: `X-Gravitee-Api-Key` and default query parameter: `api-key`).
+    * While it was previously ignored, **an empty API key is now considered invalid**.
+
+    **JWT**
+
+    * Retrieve JWT from `Authorization` header or query parameters.
+    * Ignore empty `Authorization` header or any type other than Bearer.
+    * While it was previously ignored, **an empty Bearer token is now considered invalid**.
+
+    **OAuth2**
+
+    * Retrieve OAuth2 from `Authorization` header or query parameters.
+    * Ignore empty `Authorization` header or any type other than Bearer.
+    * While it was previously ignored, **an empty Bearer token is now considered invalid**.
+* Plugins are now overridden when duplicates (id/type) are found. The plugin zip file with the most recent modified time is kept and others are ignored. Notably, this allows `additionalPlugins` for Helm chart-based deployment to operate efficiently without the need to remove bundled plugins.
+* The v4 API definition now expects a `FlowExecution` object instead of a `FlowMode` enumeration.
+* The `Endpoint` schema is now split into two schemas and the `Endpoint` object contains two string fields to manage both the configuration specific to the endpoint and the configuration that may be overridden from the `EndpointGroup`.
+* Endpoint name and endpoint group name must be unique.
+*   Analytics have been introduced and the old logging configuration has been moved. **For v4 APIs only**, a new `Analytics` object is available on the API allowing you to configure all aspects of analytics:
 
     ```json
     "analytics": {
