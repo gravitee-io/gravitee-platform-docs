@@ -28,7 +28,6 @@ Functional and implementation information for the WS Security Authentication pol
 * [Examples](ws-security-authentication.md#examples)
 * [Configuration](ws-security-authentication.md#configuration)
 * [Errors](ws-security-authentication.md#errors)
-* [Changelogs](ws-security-authentication.md#changelogs)
 
 ## Examples
 

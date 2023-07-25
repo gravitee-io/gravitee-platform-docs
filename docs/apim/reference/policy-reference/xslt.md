@@ -16,7 +16,6 @@ Functional and implementation information for the XSLT policy is organized into 
 * [Configuration](xslt.md#configuration)
 * [Compatibility Matrix](xslt.md#compatibility)
 * [Errors](xslt.md#errors)
-* [Changelogs](xslt.md#changelogs)
 
 ## Examples
 
