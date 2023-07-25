@@ -34,7 +34,9 @@ v4 APIs currently support the following endpoints:
 
 To access Endpoint configuration, head to the **APIs** page, and select your API. Then under **Endpoints**, select **Backend Services.** Depending on which Endpoint(s) your API utilizes, Endpoint configuration may differ. Please refer to the following sections that cover configuration details for each.
 
-### Kafka
+<details>
+
+<summary>Kafka</summary>
 
 The **Kafka** endpoint allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
@@ -96,7 +98,11 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
     * **None:** throw an exception to the consumer if no previous offset is found for the consumer's group.
     * **Anything else:** throw an exception to the consumer.
 
-### MQTT 5
+</details>
+
+<details>
+
+<summary>MQTT5</summary>
 
 The **MQTT 5** endpoint allows the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x, via an MQTT client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
@@ -117,9 +123,13 @@ The **MQTT 5** endpoint allows the Gateway to open up a persistent connection an
   * **Retain settings:** whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
   * **Message expiry interval:** defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the "retained=true" option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
   * **Response topic:** represents the topics on which the responses from the message receivers are expected.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume messages.
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume messages
 
-### Solace
+</details>
+
+<details>
+
+<summary>Solace</summary>
 
 If you choose the Solace endpoint, the Gravitee Gateway will be able to create an API that exposes Solace resources and event APIs via your chosen Gravitee Entrypoint(s). You will need to configure:
 
@@ -136,7 +146,11 @@ If you choose the Solace endpoint, the Gravitee Gateway will be able to create a
     * Define the username used for authentication
     * Define the password used for authentication
 
-### RabbitMQ
+</details>
+
+<details>
+
+<summary>RabbitMQ</summary>
 
 The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ resource, as long as that RabbitMQ resoure communicates over AMQP 0-9-1 protocol. If you choose this endpoint, you will need to confoigure the following:
 
@@ -160,13 +174,19 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
   * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** exchange is deleted when last queue is unbound from it
   * **Routing Key**
 
-### Mock
+</details>
+
+<details>
+
+<summary>Mock</summary>
 
 The Endpoint Mock endpoint allows you to mock a backend service to emulate the behavior of a typical HTTP server and test processes. If you chose this endpoint, you will need to configure:
 
 * **Interval between messages publication:** defines, in milliseconds, the interval between published messages. The default is 1000.
 * **Content of published messages:** defines the content of the message body that will be streamed. The default is "mock message".
 * **Count of published messages:** defines, as an integer, the maximum number of published messages that are streamed as a part of the mocking. If left unspecified, there will be no limit.
+
+</details>
 
 ## Configure v4 Proxy API endpoints
 
