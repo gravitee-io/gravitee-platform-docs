@@ -15,7 +15,7 @@ You are reading the documentation for Gravitee 4.0 and later!
 
 Welcome to Gravitee’s official documentation. Gravitee is an open-source, event-native API management platform that helps you design, deploy, manage, and secure synchronous and asynchronous APIs throughout the entire lifecycle.
 
-The Gravitee platform is available in two distributions, Community Edition (CE) and Enterprise Edition (EE), and comprises five main products:
+The Gravitee platform is available in two distribution versions, Community Edition (CE) and Enterprise Edition (EE), and comprises five main products:
 
 * **Gravitee API Management (APIM)**
 * **Gravitee Access Management (AM)**
