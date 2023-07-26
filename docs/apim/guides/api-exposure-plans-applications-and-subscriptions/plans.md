@@ -10,7 +10,7 @@ To expose your API to internal or external consumers, it must have at least one 
 
 Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](broken-reference/). You can also create them later with the **Portal > Plans** function as shown below.
 
-\{% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %\}
+{% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
 
 Creating a plan begins by navigating to your API, selecting **Plans** in the sidebar, and then selecting **Add new plan** in the top right of the page.
 
@@ -155,13 +155,13 @@ You can provide a custom API key when:
 
 The shared API key mode allows consumers to reuse the same API key across all API subscriptions of an application.
 
-With this mode enabled, consumers will be asked on their second subscription to choose between reusing their key across all subscriptions or generating one different API key for each subscription (which is the default mode). This is known as the application API key type.
-
 {% hint style="info" %}
 **Shared API key limitations**
 
 For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct Gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically.
 {% endhint %}
+
+With this mode enabled, consumers will be asked on their application's second subscription to choose between reusing their key across all subscriptions or generating one different API key for each subscription (which is the default mode). This is known as the application API key type.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the Developer Portal</p></figcaption></figure>
 
@@ -169,13 +169,13 @@ For technical reasons, in shared mode, API keys can only be shared across API ke
 
 This choice is _permanent_ for that application and consumers will not be able to switch between application API key types after the initial decision.
 
-When disabling the shared API key mode in environment settings, applications that have already been configured to use a shared key will continue to work this way, but consumers will stop being asked to choose between one mode or the other on their second subscription.
-
 {% hint style="warning" %}
 **Missing API key type selection menu?**
 
-Shared API key mode must be enabled in settings before creating an application in order to have this option show up. If you are having issues, the best option is to create a new application and immediately subscribe to two API key plans.
+Shared API key mode must be [enabled in settings](plans.md#api-key-plan) **before** creating an application in order to have this option show up. If you are having issues, the best option is to create a new application and immediately subscribe to two API key plans.
 {% endhint %}
+
+When disabling the shared API key mode in environment settings, applications that have already been configured to use a shared key will continue to work this way, but consumers will stop being asked to choose between one mode or the other on their second subscription.
 
 Shared API key mode also has an important consequence you should be aware of before enabling. Because the shared API key may be used to call APIs that are owned by another group of API publishers, shared API keys cannot be edited from the API publisher subscription view. So while shared API keys are still readable by API publishers, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared API key mode.
 
@@ -186,12 +186,6 @@ Instead, it is the responsibility of the application owner to perform such opera
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4.png" alt=""><figcaption><p>Manage shared API key in the Management Console</p></figcaption></figure>
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-4-portal.png" alt=""><figcaption><p>Manage shared API key in the Developer Portal</p></figcaption></figure>
-
-{% hint style="info" %}
-**Shared API key limitations**
-
-For technical reasons, in shared mode, API keys can only be shared across API key plans that belong to distinct Gateway APIs. Therefore, if you attempt to subscribe to two API key plans on the same Gateway API, no prompt will be made to choose the application API key type and the default mode will be used automatically
-{% endhint %}
 
 ### JSON Web Token (JWT) plan
 
@@ -303,8 +297,6 @@ Deprecating plans allow consumers of the API time to migrate without breaking th
 <figure><img src="../../.gitbook/assets/Screenshot 2023-03-21 at 3.44.11 PM.png" alt=""><figcaption><p>Stages of a plan in the UI</p></figcaption></figure>
 
 Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the change.
-
-
 
 {% @arcade/embed flowId="vOBfQE9VInuyA1g7b4kF" url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" %}
 
