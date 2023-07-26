@@ -14,7 +14,7 @@ Functional and implementation information for the OpenID Connect UserInfo policy
 Use the `policy-openid-userinfo` to get the OpenId Connect user info from an OAuth2 resource through its UserInfo endpoint.
 
 {% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}

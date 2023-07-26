@@ -8,12 +8,9 @@ description: This page provides the technical details of the Cache policy
 
 Functional and implementation information for the Cache policy is organized into the following sections:
 
-* [Examples](cache.md#examples)
 * [Configuration](cache.md#configuration)
 * [Compatibility Matrix](cache.md#compatibility-matrix)
 * [Changelogs](cache.md#changelogs)
-
-## Examples
 
 You can use the `cache` policy to cache upstream responses (content, status and headers) to eliminate the need for subsequent calls to the back end.
 
