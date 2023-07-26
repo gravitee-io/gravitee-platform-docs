@@ -166,139 +166,131 @@ Revocation endpoint URL: `https://am-gateway/{domain}/oauth/revoke`
 Let’s imagine that a user wants to access his personal data via a web application. The personal data is exposed through an API secured by OAuth 2.0 protocol.
 
 1. The user must be logged in to access his data. The user requests the web application to sign in.
-2.  The web application sends an authorization request (resource owner requests access to be granted to the resource owner’s data) to the authorization server.
+2. The web application sends an authorization request (resource owner requests access to be granted to the resource owner’s data) to the authorization server.
 
-    {% code overflow="wrap" %}
-    ```sh
-    GET  https://am-gateway/{domain}/oauth/authorize?response=code&client_id=web-app&redirect_uri=https://web-app/callback&state=6789DSKL HTTP/1.1
-    ```
-    {% endcode %}
-3.  The authorization server authenticates the resource owner and obtains authorization.
+{% code overflow="wrap" %}
+```bash
+GET  https://am-gateway/{domain}/oauth/authorize?response=code&client_id=web-app&redirect_uri=https://web-app/callback&state=6789DSKL HTTP/1.1
+```
+{% endcode %}
 
-    {% code overflow="wrap" %}
-    ```sh
-    HTTP/1.1 302 Found
-    Location: https://am-gateway/{domain}/login?client_id=web-app
+3. The authorization server authenticates the resource owner and obtains authorization.
 
-    Login page with username/password form
-    ```
-    {% endcode %}
+{% code overflow="wrap" %}
+```bash
+HTTP/1.1 302 Found
+Location: https://am-gateway/{domain}/login?client_id=web-app
 
+Login page with username/password form
+```
+{% endcode %}
 
+{% code overflow="wrap" %}
+```bash
+HTTP/1.1 302 Found
+Location: https://am-gateway/{domain}/oauth/confirm_access
 
-    {% code overflow="wrap" %}
-    ```sh
-    HTTP/1.1 302 Found
-    Location: https://am-gateway/{domain}/oauth/confirm_access
+Consent resource owner page. The resource owner accepts or denies permission for the web application to access the resource owner's personal data
+```
+{% endcode %}
 
-    Consent resource owner page. The resource owner accepts or denies permission for the web application to access the resource owner's personal data
-    ```
-    {% endcode %}
+```bash
+HTTP/1.1 302 Found
+Location: https://web-app/callback?code=js89p2x1&state=6789DSKL
 
+Return to the web application
+```
 
+4\. The resource owner is an authenticated and approved web application acting on the resource owner’s behalf. The web application can request an access token.
 
-    ```sh
-    HTTP/1.1 302 Found
-    Location: https://web-app/callback?code=js89p2x1&state=6789DSKL
+{% code overflow="wrap" %}
+```bash
+POST https://am-gateway/{domain}/oauth/token HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+grant_type=authorization_code&code=6789DSKL&redirect_uri=https://web-app/callback&state=6789DSKL
+```
+{% endcode %}
 
-    Return to the web application
-    ```
-4.  The resource owner is an authenticated and approved web application acting on the resource owner’s behalf. The web application can request an access token.
+```bash
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+{
+    "access_token": "b02063f8-2698-4141-a063-f82698e1419c",
+    "token_type": "bearer",
+    "expires_in": 7199,
+    "scope": "read",
+    "refresh_token": "4f85e0ad-b5df-4717-85e0-adb5dfc7174d"
+}
+```
 
-    {% code overflow="wrap" %}
-    ```sh
-    POST https://am-gateway/{domain}/oauth/token HTTP/1.1
-    Content-Type: application/x-www-form-urlencoded
-    Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-    grant_type=authorization_code&code=6789DSKL&redirect_uri=https://web-app/callback&state=6789DSKL
-    ```
-    {% endcode %}
+5\. The web application has obtained an access token, which it can use to get the user’s personal data.
 
+```bash
+GET  https://api.company.com/users/@me
+Authorization: Bearer b02063f8-2698-4141-a063-f82698e1419c
+```
 
+6\. The Users API must check the incoming token to determine the active state of the access token and decide whether to accept or deny the request.
 
-    ```sh
-    HTTP/1.1 200 OK
-    Content-Type: application/json;charset=UTF-8
-    Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-    Pragma: no-cache
-    {
-        "access_token": "b02063f8-2698-4141-a063-f82698e1419c",
-        "token_type": "bearer",
-        "expires_in": 7199,
-        "scope": "read",
-        "refresh_token": "4f85e0ad-b5df-4717-85e0-adb5dfc7174d"
-    }
-    ```
-5.  The web application has obtained an access token, which it can use to get the user’s personal data.
+```bash
+POST https://am-gateway/{domain}/oauth/introspect HTTP/1.1
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+token=b02063f8-2698-4141-a063-f82698e1419c
 
-    ```sh
-    GET  https://api.company.com/users/@me
-    Authorization: Bearer b02063f8-2698-4141-a063-f82698e1419c
-    ```
-6.  The Users API must check the incoming token to determine the active state of the access token and decide whether to accept or deny the request.
-
-    ```sh
-    POST https://am-gateway/{domain}/oauth/introspect HTTP/1.1
-    Accept: application/json
-    Content-Type: application/x-www-form-urlencoded
-    Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-    token=b02063f8-2698-4141-a063-f82698e1419c
-
-    Introspection request
-    ```
+Introspection request
 
 
 
-    ```sh
-    HTTP/1.1 200 OK
-    Content-Type: application/json
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-    {
-      "active": true,
-      "client_id": "web-app",
-      "username": "jdoe",
-      "sub": "Z5O3upPC88QrAjx00dis",
-      "aud": "https://web-app",
-      "iss": "https://am-gateway/",
-      "exp": 1419356238,
-      "iat": 1419350238
-    }
+{
+  "active": true,
+  "client_id": "web-app",
+  "username": "jdoe",
+  "sub": "Z5O3upPC88QrAjx00dis",
+  "aud": "https://web-app",
+  "iss": "https://am-gateway/",
+  "exp": 1419356238,
+  "iat": 1419350238
+}
 
-    Introspection response
-    ```
+Introspection response
 
 
 
-    ```sh
-    HTTP/1.1 200 OK
-    Content-Type: application/json
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-    {
-      "username": "jdoe",
-      "family_name": "doe",
-      "name": "John doe",
-      "email": "jdoe@mail.com"
-    }
+{
+  "username": "jdoe",
+  "family_name": "doe",
+  "name": "John doe",
+  "email": "jdoe@mail.com"
+}
 
-    Users API response
-    ```
-7. The access is valid and the web application can display the resource owner’s personal data.
-8.  If the resource owner decides to log out, the web application can ask the authorization server to revoke the active access token.
+Users API response
+```
 
-    ```sh
-    POST https://am-gateway/{domain}/oauth/revoke HTTP/1.1
-    Host: server.example.com
-    Content-Type: application/x-www-form-urlencoded
-    Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-    token=b02063f8-2698-4141-a063-f82698e1419c
+7\. The access is valid and the web application can display the resource owner’s personal data. 8. If the resource owner decides to log out, the web application can ask the authorization server to revoke the active access token.
 
-    Revocation request
-    ```
+```bash
+POST https://am-gateway/{domain}/oauth/revoke HTTP/1.1
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+token=b02063f8-2698-4141-a063-f82698e1419c
+
+Revocation request
 
 
 
-    ```
-    HTTP/1.1 200 OK
+HTTP/1.1 200 OK
 
-    Revocation response
-    ```
+Revocation response
+```
