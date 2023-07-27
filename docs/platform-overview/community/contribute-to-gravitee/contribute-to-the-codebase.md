@@ -1,3 +1,7 @@
+---
+description: This page describes how you can contribute to Gravitee repos
+---
+
 # Contribute to the codebase
 
 ## Using GitHub issues
