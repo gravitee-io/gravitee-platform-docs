@@ -15,7 +15,7 @@ description: This page summarizes rules and best practices for docs language
 
 ## Terminology
 
-* Refer to the company or platform as “Gravitee,” not “[Gravitee.io](http://gravitee.io).”
+* Refer to the company or platform as “Gravitee,” not “Gravitee.io.”
 * Refer to the Gravitee Glossary for product/feature capitalization rules and apply them consistently.
 * All product names should be capitalized and preceded by “Gravitee” when first introduced, e.g., Gravitee API Management.&#x20;
   * Subsequent product mentions must remain capitalized, but the preceding “Gravitee” may be omitted, e.g., API Management.
