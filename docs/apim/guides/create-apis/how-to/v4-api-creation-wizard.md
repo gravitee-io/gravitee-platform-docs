@@ -391,7 +391,7 @@ If you choose the Solace endpoint, the Gravitee Gateway will be able to create a
 
 <summary>RabbitMQ</summary>
 
-The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ resource, as long as that RabbitMQ resoure communicates over AMQP 0-9-1 protocol. If you choose this endpoint, you will need to confoigure the following:
+The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ resource, as long as that RabbitMQ resource communicates over AMQP 0-9-1 protocol. If you choose this endpoint, you will need to configure the following:
 
 * **Server host:** define the host of your RabbitMQ resource
 * **Server port**: define the port that RabbitMQ is using
