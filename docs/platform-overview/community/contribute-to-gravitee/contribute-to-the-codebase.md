@@ -2,10 +2,10 @@
 
 This page describes how you can contribute to Gravitee code:
 
-* Using GitHub issues
-* Submitting changes
-* Updating a forked `gravitee-gateway` repo
-* Bootstrapping your dev env
+* [Using GitHub issues](contribute-to-the-codebase.md#using-github-issues)
+* [Submitting changes](contribute-to-the-codebase.md#submitting-changes)
+* [Updating a forked `gravitee-gateway` repo](contribute-to-the-codebase.md#using-a-fork-of-the-old-gravitee-gateway-repository)
+* [Bootstrapping your dev env](contribute-to-the-codebase.md#bootstrapping-your-dev-environment)
 
 ## Using GitHub issues
 

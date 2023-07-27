@@ -2,7 +2,7 @@
 description: This page describes how you can contribute to Gravitee's documentation
 ---
 
-# Contribute to Gravitee docs
+# Contribute to Docs
 
 To submit modifications or additions to Gravitee's documentation:
 
