@@ -1,23 +1,4 @@
----
-description: This page describes how to contribute to Gravitee's codebase and documentation
----
-
-# Contribute to Gravitee
-
-## Overview
-
-You think Gravitee is awesome and you're psyched to contribute?? Here are some guidelines to help you get started with:
-
-### Contributing to the codebase
-
-* [Using GitHub issues](contribute-to-gravitee.md#using-github-issues)
-* [Submitting changes](contribute-to-gravitee.md#submitting-changes)
-* [Updating a forked `gravitee-gateway` repo](contribute-to-gravitee.md#using-a-fork-of-the-old-gravitee-gateway-repository)
-* [Bootstrapping your dev env](contribute-to-gravitee.md#bootstrapping-your-dev-environment)
-
-### Contributing to the documentation
-
-* Style Guide and Best Practices
+# Contribute to the codebase
 
 ## Using GitHub issues
 
@@ -170,7 +151,7 @@ docker run -d --name local-es7 -p 9200:9200 -p 9300:9300 -e "discovery.type=sing
 #### **APIM Gateway (gravitee-apim-gateway)**
 
 {% tabs %}
-{% tab title="CLI Version" %}
+{% tab title="CLI method" %}
 Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory
 {% endtab %}
 
@@ -182,7 +163,7 @@ The project includes by default the configuration `Gateway - MongoDB` to run the
 #### APIM Management API (gravitee-apim-rest-api)
 
 {% tabs %}
-{% tab title="CLI Version" %}
+{% tab title="CLI method" %}
 Run `./gravitee` from the `${GRAVITEE_HOME}/bin` directory
 {% endtab %}
 
@@ -194,7 +175,7 @@ The project includes by default the configuration `Rest API - MongoDB` to run th
 #### APIM Console (gravitee-apim-console-webui)&#x20;
 
 {% tabs %}
-{% tab title="CLI Version" %}
+{% tab title="CLI method" %}
 Run `npm run serve` from the `gravitee-api-management/gravitee-apim-console-webui` directory to start the UI
 {% endtab %}
 
@@ -214,7 +195,7 @@ To `npm install`, duplicate this configuration and choose **Command > Install**.
 #### APIM Portal (gravitee-apim-portal-webui)&#x20;
 
 {% tabs %}
-{% tab title="CLI Version" %}
+{% tab title="CLI method" %}
 Run `npm run serve` from the `gravitee-api-management/gravitee-apim-portal-webui` directory to start the UI
 {% endtab %}
 
