@@ -1,19 +1,11 @@
----
-description: This page describes how you can contribute to Gravitee repos
----
-
 # Contribute to the codebase
 
-## Overview
+This page describes how you can contribute to Gravitee code:
 
-You think Gravitee is awesome and you're psyched to contribute?? Here are some guidelines to help you get started with:
-
-### Contributing to the codebase
-
-* [Using GitHub issues](contribute-to-the-codebase.md#using-github-issues)
-* [Submitting changes](contribute-to-the-codebase.md#submitting-changes)
-* [Updating a forked `gravitee-gateway` repo](contribute-to-the-codebase.md#using-a-fork-of-the-old-gravitee-gateway-repository)
-* [Bootstrapping your dev env](contribute-to-the-codebase.md#bootstrapping-your-dev-environment)
+* Using GitHub issues
+* Submitting changes
+* Updating a forked `gravitee-gateway` repo
+* Bootstrapping your dev env
 
 ## Using GitHub issues
 
@@ -226,3 +218,5 @@ Create a new Run configuration in IntelliJ:
 To `npm install`, duplicate this configuration and choose **Command > Install**.
 {% endtab %}
 {% endtabs %}
+
+a
