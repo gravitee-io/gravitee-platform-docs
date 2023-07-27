@@ -9,7 +9,7 @@ description: >-
 {% hint style="info" %}
 **Product limitations**
 
-The v4 Policy Studio can only design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing flows at the message level or for pub/sub use cases.&#x20;
+The v4 Policy Studio can only design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing flows at the message level or for pub/sub use cases.
 
 \
 The v4 Policy Studio does not currently support Gravitee Debug mode. Support for this is planned for future releases.
@@ -37,7 +37,7 @@ In the Policy Studio, you can create a flow, then add one or more policies to th
 * **Publish phase:** A policy is applied on messages sent to the endpoint. The Gateway enforces the policy when messages are published, before a client is given access to the API that they are trying to call.
 * **Subscribe phase:** A policy is applied on messages received by the entrypoint. The Gateway enforces the policy after messages are subscribed to, but before the response is returned to the client.
 
-You can create multiple policies for a single flow, each with a different configuration and applied to a different phase of the API. Flows can also be associated with specific plans or exist at the API level as common flows.&#x20;
+You can create multiple policies for a single flow, each with a different configuration and applied to a different phase of the API. Flows can also be associated with specific plans or exist at the API level as common flows.
 
 The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. Flows can be set to target subscribers of any of these three plans, like the "sample API Key flow", or they can target all users of the API, such as the "sample HTTP Get flow" and "sample Websocket flow".
 
@@ -64,7 +64,7 @@ Once you've clicked **Create** to add a flow, be sure to also click **Save** in 
 
 ### Add policies
 
-Policies are added to flows to enforce security, reliability, and proper data transfer. Examples of policies include traffic shaping, authentication/authorization, rate limiting, and dynamic routing.&#x20;
+Policies are added to flows to enforce security, reliability, and proper data transfer. Examples of policies include traffic shaping, authentication/authorization, rate limiting, and dynamic routing.
 
 To add a policy to a flow, click the **+** icon in the phase where you want the policy enforced. The module that appears is pre-populated with only the selections that are valid and/or supported based on the entrypoints and endpoints chosen for the flow. For example, below are the possible policies to configure for the **Request phase** of the "sample HTTP Get flow" shown above:
 
@@ -82,7 +82,7 @@ Whenever you add or edit a flow or policy, you'll need to redeploy your API to t
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **Default** and **Best Match**. The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** the specified path, or **Channel**. Choose the **Best Match** option to select the flow that's the closest match to the API request path.&#x20;
+Gravitee offers two flow modes: **Default** and **Best Match**. The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** the specified path, or **Channel**. Choose the **Best Match** option to select the flow that's the closest match to the API request path.
 
 To select the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module, then use the drop-down menu. You can also toggle **Fail on flow mismatch** to ON to generate an error when there is no match between the request **Channel** and any defined flow.
 
@@ -90,7 +90,7 @@ To select the flow mode, click the gear icon in the **Flows** panel to open the 
 
 ## API properties
 
-Properties are key-value pairs you can define at the Gateway API level to implement different logic in your flows and policies. Properties are read-only during the Gateway's execution of an API transaction but can be accessed from within a flow using Gravitee's Expression Language (EL) and the `#properties` statement.
+Properties are key-value pairs you can define at the Gateway API level to implement different logic in your flows and policies. Properties are read-only during the Gateway's execution of an API transaction but can be accessed from within a flow using Gravitee's Expression Language (EL) and the `#api.properties` statement.
 
 To configure API properties, select **Properties** from the inner left nav. To hardcode properties, either specify properties one at a time or toggle from **Simple** to **Expert** mode and enter property definitions in `<key>=<value>` format.
 
@@ -98,7 +98,7 @@ To configure API properties, select **Properties** from the inner left nav. To h
 
 ### Encryption
 
-Gravitee supports encryption to protect sensitive or confidential data stored as hardcoded property values. The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security.&#x20;
+Gravitee supports encryption to protect sensitive or confidential data stored as hardcoded property values. The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security.
 
 {% hint style="warning" %}
 The secret must be 32 bytes in length.
@@ -125,7 +125,7 @@ Encrypted values can be used by API policies, but encrypted data should be used 
 
 ### **Dynamic properties**
 
-In addition to hardcoded properties, Gravitee supports dynamic properties. The dynamic properties associated with a Gateway API are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.&#x20;
+In addition to hardcoded properties, Gravitee supports dynamic properties. The dynamic properties associated with a Gateway API are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.
 
 To access the dynamic properties module, select **Properties** from the inner left nav and click **CONFIGURE DYNAMIC PROPERTIES**.
 
@@ -185,7 +185,7 @@ The first step is to define a list of properties for the shops. For each propert
 
 <figure><img src="../../.gitbook/assets/example1_properties.png" alt=""><figcaption></figcaption></figure>
 
-We then configure a dynamic routing policy for the API via a routing rule that builds a new URL dynamically through property matching. The URL is created with a `#properties` statement that matches properties returned by querying the request header that contains the shop ID.
+We then configure a dynamic routing policy for the API via a routing rule that builds a new URL dynamically through property matching. The URL is created with a `#api.properties` statement that matches properties returned by querying the request header that contains the shop ID.
 
 <figure><img src="../../.gitbook/assets/example1_dynamic routing.png" alt=""><figcaption></figcaption></figure>
 
@@ -197,15 +197,14 @@ If the ID in the request header matches the key of one of the properties, it is 
 This example applies to v4 APIs using the [**Introspect Messages from Event-Driven Backend**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
 {% endhint %}
 
-In this example, our Gateway API sends an alert whenever inventory is added to our online store that sells limited edition designer merchandise at discount prices. Casual shoppers pay a certain amount to learn about item availability in slightly less than real-time, while our best customers pay more to access this data in true real-time.&#x20;
+In this example, our Gateway API sends an alert whenever inventory is added to our online store that sells limited edition designer merchandise at discount prices. Casual shoppers pay a certain amount to learn about item availability in slightly less than real-time, while our best customers pay more to access this data in true real-time.
 
-To monetize data delivery, we can use the Keyless and API Key plans introduced [above](v4-api-policy-design-studio.md#design). First, we add a "sample Keyless flow" to our Keyless plan.&#x20;
+To monetize data delivery, we can use the Keyless and API Key plans introduced [above](v4-api-policy-design-studio.md#design). First, we add a "sample Keyless flow" to our Keyless plan.
 
 <figure><img src="../../.gitbook/assets/sample keyless flow.png" alt=""><figcaption></figcaption></figure>
 
-Next, we apply a latency policy to our Keyless plan.&#x20;
+Next, we apply a latency policy to our Keyless plan.
 
 <figure><img src="../../.gitbook/assets/sample keyless policy.png" alt=""><figcaption></figcaption></figure>
 
-Customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. However, customers who purchase our API Key plan are given unlimited access to real-time data.&#x20;
-
+Customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. However, customers who purchase our API Key plan are given unlimited access to real-time data.

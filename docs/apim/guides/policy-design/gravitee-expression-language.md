@@ -30,7 +30,7 @@ therefore, bracket notation should be used for property names that have a space 
 
 EL allows you to reference certain values injected into the EL context as object properties. The available object properties will be further detailed in the following sections. EL adds the following root-level object properties:
 
-* `{#properties}` : Contains custom properties defined by the API publisher for that Gateway API.
+* `{#api.properties}` : Contains custom properties defined by the API publisher for that Gateway API.
 * `{#dictionaries}` : Contains custom dictionaries defined by the API publisher for that Gateway API.
 * `{#endpoints}` : Contains information about the Gateway API's respective endpoint.
 * `{#request}` : Contains information about the current API request.
@@ -102,12 +102,12 @@ Using EL, you can access information about a Gateway API through several root-le
 
 ### Custom Properties
 
-As an API publisher, you can define [custom properties ](v4-api-policy-design-studio.md#api-properties)for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#properties}` root-level object property.
+As an API publisher, you can define [custom properties ](v4-api-policy-design-studio.md#api-properties)for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#api.properties}` root-level object property.
 
 #### **Examples**
 
-* Get the value of the property `my-property` defined in an API's custom properties: `{#properties['my-property']}`
-* Get the value of the property `my-secret` defined and encrypted in an API's custom properties : `{#properties['my-secret']}` to pass a secured property to your backend
+* Get the value of the property `my-property` defined in an API's custom properties: `{#api.properties['my-property']}`
+* Get the value of the property `my-secret` defined and encrypted in an API's custom properties : `{#api.properties['my-secret']}` to pass a secured property to your backend
 
 {% hint style="info" %}
 **Encrypted custom properties**
@@ -277,7 +277,7 @@ In previous examples, we showed various ways to manipulate objects available in 
 
 For example, we can retrieve the value of an HTTP header where the name is based on an API custom property named `my-property`:
 
-`{#request.headers[#properties['my-property']]}`
+`{#request.headers[#api.properties['my-property']]}`
 
 ## Conditions
 
@@ -303,6 +303,6 @@ If you are having a hard time debugging your expression, here's the best way to 
 
 When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. So how do you know the actual output of the `#request.content.length()` expression? You can easily check the output of an expression using the assign-attributes policy as shown in the arcade below:
 
-\{% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %\}
+{% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %}
 
 [^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.
