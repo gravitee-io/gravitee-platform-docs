@@ -17,7 +17,7 @@ If you want to install the Enterprise Edition, you must have a license key. For 
 1. Download the `docker-compose.yml` file as `docker-compose-apim.yml`.
 
 ```
-curl -L https://bit.ly/docker-apim-3x -o docker-compose-apim.yml
+curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
 ```
 
 2. If you are installing the Enterprise Edition, open `docker-compose-apim.yml` in a text editor, and under `$services.gateway.volumes` add the following line.

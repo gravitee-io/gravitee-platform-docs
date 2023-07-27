@@ -15,7 +15,7 @@ Alternatively, you can install the full APIM stack and dependencies as detailed 
 
 * Amazon instance running
 * Gravitee `yum` repository added
-* Java 11 JRE installed
+* Java 17 JRE installed
 * MongoDB installed and running
 * Elasticsearch installed and running
 
@@ -28,7 +28,7 @@ Alternatively, you can install the full APIM stack and dependencies as detailed 
 1. Install gateway:
 
 ```sh
-sudo yum install graviteeio-apim-gateway-3x -y
+sudo yum install graviteeio-apim-gateway-4x -y
 ```
 
 2. Enable Gateway on startup:
@@ -89,7 +89,7 @@ If the installation was successful, then this API call should return: **No conte
 1. Install management API:
 
 ```sh
-sudo yum install graviteeio-apim-rest-api-3x -y
+sudo yum install graviteeio-apim-rest-api-4x -y
 ```
 
 2. Enable Management API on startup:
@@ -150,7 +150,7 @@ If the installation was successful, then both of these API requests will return 
 1. Install Management Console:
 
 ```sh
-sudo yum install graviteeio-apim-management-ui-3x -y
+sudo yum install graviteeio-apim-management-ui-4x -y
 ```
 
 2. Restart Nginx:
@@ -194,7 +194,7 @@ The Management Console package does not provide its own service. It provides:
 1. Install Developer Portal:
 
 ```sh
-sudo yum install graviteeio-apim-portal-ui-3x -y
+sudo yum install graviteeio-apim-portal-ui-4x -y
 ```
 
 2. Restart Nginx:

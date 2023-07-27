@@ -1,6 +1,6 @@
 # APIM Full Stack Installation
 
-This section describes how to install the full Gravitee API Management (APIM) stack, including all the components and, optionally, dependencies (MongoDB, Elasticsearch).&#x20;
+This section describes how to install the full Gravitee API Management (APIM) stack, including all the components and, optionally, dependencies (MongoDB, Elasticsearch).
 
 Alternatively, you can install the APIM components individually as detailed on the [APIM Components page.](apim-components/)
 
@@ -21,7 +21,7 @@ $ sudo yum install nginx
 To install the APIM package only, run the following command:
 
 ```sh
-sudo yum install graviteeio-apim-3x
+sudo yum install graviteeio-apim-4x
 ```
 
 ## Install the APIM stack with dependencies

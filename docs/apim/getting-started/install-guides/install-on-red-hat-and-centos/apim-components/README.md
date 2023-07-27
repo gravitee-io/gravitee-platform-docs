@@ -20,7 +20,7 @@ The following steps assume you have configured your package management system as
 To install the last stable version of the Gravitee API Management (APIM) Gateway, run the following command:
 
 ```sh
-sudo yum install -y graviteeio-apim-gateway-3x
+sudo yum install -y graviteeio-apim-gateway-4x
 ```
 
 ### Run APIM Gateway
@@ -78,7 +78,7 @@ The following steps assume you have configured your package management system as
 To install the last stable version of the management API, run the following command:
 
 ```sh
-sudo yum install -y graviteeio-apim-rest-api-3x
+sudo yum install -y graviteeio-apim-rest-api-4x
 ```
 
 ### Run the management API
@@ -132,7 +132,7 @@ sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 Before you install the Management Console, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
-2. Install and run the [management API](broken-reference).
+2. Install and run the [management API](broken-reference/).
 3. Install Nginx by running the following commands:
 
 ```sh
@@ -145,7 +145,7 @@ $ sudo yum install nginx
 To install the last stable version of the Management Console, run the following command:
 
 ```sh
-$ sudo yum install -y graviteeio-apim-management-ui-3x
+$ sudo yum install -y graviteeio-apim-management-ui-4x
 ```
 
 ### Run the Management Console
@@ -197,7 +197,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 Before you install the Developer Portal, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](../#configure-the-package-management-system-yum)
-2. Install and run the [management API](broken-reference).
+2. Install and run the [management API](broken-reference/).
 3. Install Nginx by running the following commands:
 
 ```sh
@@ -210,7 +210,7 @@ $ sudo yum install nginx
 To install the last stable version of The Developer Portal , run the following command:
 
 ```sh
-sudo yum install -y graviteeio-apim-portal-ui-3x
+sudo yum install -y graviteeio-apim-portal-ui-4x
 ```
 
 ### Run the Developer Portal

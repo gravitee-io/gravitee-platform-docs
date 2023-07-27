@@ -45,7 +45,7 @@ mkdir -p /gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-ga
 3. Download the `docker-compose.yml` file as `docker-compose-apim.yml`.
 
 ```
-curl -L https://bit.ly/docker-apim-3x -o docker-compose-apim.yml
+curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
 ```
 
 ### Edit `docker-compose-apim.yml`

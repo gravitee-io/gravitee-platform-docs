@@ -52,20 +52,20 @@ sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
 ```
 {% endcode %}
 
-## Install Java 11
+## Install Java 17
 
-Running the Gravitee APIM components requires a Java 11 Java Runtime Environment (JRE). Follow the steps below to install the Java 11 JRE
+Running the Gravitee APIM components requires a Java 17 Java Runtime Environment (JRE). Follow the steps below to install the Java 17 JRE:
 
 1. Enable the repository that contains Java:
 
 ```sh
-sudo amazon-linux-extras enable java-openjdk11
+sudo amazon-linux-extras enable java-openjdk17
 ```
 
 2. Install Java:
 
 ```sh
-sudo yum install java-11-openjdk -y
+sudo yum install java-17-openjdk -y
 ```
 
 3. Verify:
