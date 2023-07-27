@@ -6,8 +6,8 @@ description: This page describes how you can contribute to Gravitee's documentat
 
 To submit modifications or additions to Gravitee's documentation:
 
-1. Go to `gravitee-platform-docs`
-2. Create a local copy of the repo
+1. Go to [https://github.com/gravitee-io](https://github.com/gravitee-io)&#x20;
+2. Create a local copy of `gravitee-platform-docs`
 3. Create a branch with your suggested changes
    * You must follow Gravitee's Style Guide and Best Practices
 4. Push your branch to the reop

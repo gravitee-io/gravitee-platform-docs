@@ -22,5 +22,6 @@
 * [Contribute to Gravitee](community/contribute-to-gravitee/README.md)
   * [Contribute to the codebase](community/contribute-to-gravitee/contribute-to-the-codebase.md)
   * [Contribute to Docs](community/contribute-to-gravitee/contribute-to-gravitee-docs.md)
+  * [Style Guide and Best Practices](community/contribute-to-gravitee/style-guide-and-best-practices.md)
 * [Support](https://community.gravitee.io/c/support/11)
 * [Announcement & Events](https://community.gravitee.io/c/announcements/5)
