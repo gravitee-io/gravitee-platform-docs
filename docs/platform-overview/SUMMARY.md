@@ -21,6 +21,6 @@
 * [About the Community](community/about-the-community.md)
 * [Contribute to Gravitee](community/contribute-to-gravitee/README.md)
   * [Contribute to the codebase](community/contribute-to-gravitee/contribute-to-the-codebase.md)
-  * [Contribute to Gravitee docs](community/contribute-to-gravitee/contribute-to-gravitee-docs.md)
+  * [Contribute to Docs](community/contribute-to-gravitee/contribute-to-docs.md)
 * [Support](https://community.gravitee.io/c/support/11)
 * [Announcement & Events](https://community.gravitee.io/c/announcements/5)
