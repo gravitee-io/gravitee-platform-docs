@@ -8,10 +8,16 @@ description: This page describes how to contribute to Gravitee's codebase and do
 
 You think Gravitee is awesome and you're psyched to contribute?? Here are some guidelines to help you get started with:
 
+### Contributing to the codebase
+
 * [Using GitHub issues](contribute-to-gravitee.md#using-github-issues)
 * [Submitting changes](contribute-to-gravitee.md#submitting-changes)
 * [Updating a forked `gravitee-gateway` repo](contribute-to-gravitee.md#using-a-fork-of-the-old-gravitee-gateway-repository)
 * [Bootstrapping your dev env](contribute-to-gravitee.md#bootstrapping-your-dev-environment)
+
+### Contributing to the documentation
+
+* Style Guide and Best Practices
 
 ## Using GitHub issues
 
