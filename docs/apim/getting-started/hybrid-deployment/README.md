@@ -21,7 +21,7 @@ The following diagram shows a typical hybrid APIM architecture:
 For the APIM Gateway to work in this setup, you need two components:
 
 * A _bridge_ API Gateway (shown in green in the diagram above) exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, etc.).
-* A _standard_ APIM Gateway (shown in red in the diagram above) with the default repository plugin switched to a new HTTP bridge repository plugin.
+* A _standard_ APIM Gateway (shown in red in the diagram above) with the default repository plugin switched to the bridge repository plugin.
 
 In this infrastructure, the standard APIM Gateway can communicate with the bridge API Gateway through a secure HTTP/S channel, and your cloud data center does not need to have a datastore installed.
 
@@ -45,27 +45,14 @@ By default, an API Gateway needs to connect to a repository (e.g., mongoDB) to r
 
 ## HTTP bridge Gateway (server)
 
+{% hint style="info" %}
+The bridge plugin can be enabled on both the API Gateway and the Management API if you prefer to limit the number of components 
+to deploy.
+{% endhint %}
+
 ### **Basic installation**
 
-To expose the new HTTP API and setup a bridge Gateway, you need to install a new plugin inside the `plugins` directory of the APIM Gateway. This plugin can be found [here](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-server/).
-
-{% hint style="info" %}
-This plugin is disabled by default from APIM 3.13.0.
-{% endhint %}
-
-{% code overflow="wrap" %}
-```sh
-wget -O ${GRAVITEEIO_HOME}/plugins https://download.gravitee.io/graviteeio-apim/plugins/repositories/gravitee-apim-repository-gateway-bridge-http-server/gravitee-apim-repository-gateway-bridge-http-server-${PLUGIN_VERSION}.zip
-```
-{% endcode %}
-
-{% hint style="info" %}
-You can safely remove all plugins that start with the following names - these are not used on a bridge server Gateway but are available by default in the APIM Gateway:
-
-* gravitee-apim-gateway-services-sync\*
-* gravitee-policy-\*
-* gravitee-resource-\*
-{% endhint %}
+In APIM 4.x, the bridge plugin is part of the default bundle (in both the API Gateway and Management API), so there is no specific installation step to get ready to deploy an hybrid architecture.
 
 ### **Basic configuration**
 
