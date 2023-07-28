@@ -1,8 +1,6 @@
 # APIM Full Stack Installation
 
-This section describes how to install the full APIM stack and its dependencies at once.&#x20;
-
-Alternatively, you can install the components individually as detailed on the [APIM Components Installation page. ](../apim-components-installation.md)
+This page describes how to install the full APIM stack and its dependencies at once.
 
 ## Prerequisites
 
