@@ -14,76 +14,49 @@ For more in-depth information on what's new, please refer to the [Gravitee AM 4.
 
 <summary>What's new</summary>
 
-**API Management Console**
+**Enterprise Edition**
 
-* API List support for v4 APIs
-* New API General page for for v4 APIs
-* New support for configuring v4 APIs:
-  * Dynamic Entrypoint configuration
-  * Dynamic Endpoint configuration
-  * Plan configuration
-  * Subscription configuration
+Some plugins are now part of the Enterprise Edition:
 
-**API Creation Wizard**
+* idp-saml2
+* idp-ldap
+* idp-azure-ad
+* idp-franceconnect
+* idp-salesforce
+* factor-call
+* factor-sms&#x20;
+* factor-fido2
+* factor-http
+* factor-recovery-code
+* factor-otp-sender
+* resource-twilio
 
-* New API creation wizard that supports the Gravitee v4 API definition.
-* v4 API Creation wizard support for the following Endpoints:
-  * Kafka
-  * MQTT
-  * RabbitMQ (if using AMQP 0-9-1 protocol)
-  * Mock
-* v4 API Creation wizard support for the following Entrypoints:
-  * WebSocket
-  * Webhooks
-  * Server-sent Events (SSE)
-  * HTTP GET
-  * HTTP POST
-* Support for Gravitee protocol mediation in the new v4 API Creation Wizard
-* New RabbitMQ endpoint
+**Community Edition**
 
-**Policy Design and Enforcement**
+If you use the Community Edition, for each enterprise feature you will have a dedicated pop-up to suggest the enterprise version.
 
-* New Policy Studio that supports v4 APIs
-* v4 Policy Studio support for message-level policies
-* v4 Policy Studio support for policy enforcement on publish and subscribe phases for pub/sub communication
-* Made existing Gravitee policies enforceable for v4 APIs:
-  * API key policy
-  * JWT policy
-  * Keyless policy
-  * OAuth2 policy
-  * JSON to JSON policy
-  * JSON to XML policy
-  * XML to JSON
-  * Assign attributes policy
-  * Latency policy
-  * Circuit breaker policy
-  * Retry policy
-  * Cache policy
-  * Transform headers policy
-* New Cloud Events policy
-* New serialization and deserialization policies
-  * JSON to Avro policy
-  * Avro to JSON policy
+* Password - Password salt format option
+* Flows - add new TOKEN flow
+* MFA - initiating MFA Enrollment via OpenID Connect 1.0
+* Send email verification link
+* \[Admin] Be able to re-trigger verification email
+* Passwordless - Name passwordless device
 
-**Developer Portal**
+**Gateway**
 
-* Configure Webhook subscription details in the Developer Portal (by the consumer/subscriber)
-
-**Integrations**
-
-* Datadog reporter
+* **\[gateway]\[audit]:** It is impossible to see the user that consented the user consent in the audit log https://github.com/gravitee-io/issues/issues/9049\[#9049]
+* **\[gateway]\[mfa]:** Allow OTP factor to handle clock drift issues https://github.com/gravitee-io/issues/issues/9074\[#9074]
 
 **Management API**
 
-* v2 Management API that supports actions for v4 APIs
+* Create account with uppercase username https://github.com/gravitee-io/issues/issues/8966\[#8966]
 
-**Kubernetes Operator**
+**Other**
 
-* Use the Kubernetes Operator as a Kubernetes ingress controller
-* Maintain a unique custom resource defintion (CRD) for your API across all Gravitee environments
-* Manage application-level CRDs through the Gravitee Kubernetes Operator
-*
-* Define the ManagementContext for your CRD and control whether the API should be local or global
+* Index name too long https://github.com/gravitee-io/issues/issues/8814\[#8814]
+* \[policies] allow Enrich User Profile policy to accept objects as new claims
+* WebAuthn post login flow does not contain webAuthnCredentialId
+* Column messages in i18n\_dictionary\_entries  table has too little characters
 
 </details>
 
