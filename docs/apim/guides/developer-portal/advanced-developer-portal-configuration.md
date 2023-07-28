@@ -120,7 +120,19 @@ Administrators can modify what is shown in the sidebar of an API's **General inf
 
 </div>
 
-In APIM, select **API Portal Information** in the secondary sidebar to display the following options:
+To modify the access URL, select **Organization** in the sidebar of the Management Console. Next, select **Sharding tags** in the sidebar under the **Gateway** subheader. This page allows you to modify the **Default entrypoint** of the Gravitee Gateway. The access URL for each API in the Developer Portal will display the default entrypoint followed by that API's contect path.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-28 at 12.51.56 PM.png" alt=""><figcaption><p>Modify the access URL</p></figcaption></figure>
+
+{% hint style="info" %}
+&#x20;**Sharding Tags and Gateway Entrypoint Mappings**
+
+At a high-level, sharding tags are assigned to APIs and Gravitee Gateways to provide a method to deploy an API to a subset of gateways. Adding a mapping between these sharding tags and a gateway’s entrypoint URL allows the developer portal to intelligently display different entrypoints depending on the API’s sharding tags.
+
+Sharding tags are used to help manage complex distributed architectures. Check out the [Sharding Tags guide](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md) to learn more.
+{% endhint %}
+
+For the rest of the sidebar settings, return to the Console's homescreen then select **Settings >** **API Portal Information** to display the following options:
 
 <figure><img src="../../.gitbook/assets/dev_portal_api_display_settings.png" alt=""><figcaption><p>Developer portal API sidebar display settings</p></figcaption></figure>
 
