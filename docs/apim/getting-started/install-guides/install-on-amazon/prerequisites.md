@@ -1,8 +1,8 @@
 # Prerequisites
 
-This page will walk you through all the prerequisites needed to install Gravitee API Management (APIM) on an Amazon instance. Once completed, you can elect to install all the APIM components individually or install the full APIM stack.
+This page will walk you through all the prerequisites to install Gravitee API Management (APIM) on an Amazon instance. Once completed, you can elect to [install all the APIM components individually](apim-components-installation.md) or [install the full APIM stack](gravitee-components/).
 
-Alternatively, you can skip this page and follow the quick install guide to install all prerequisites and the full APIM stack at the same time.
+Alternatively, you can skip this page and follow the [quick install guide](full-stack.md) to install all prerequisites and the full APIM stack at the same time.
 
 ## Provision an Amazon instance
 
@@ -16,7 +16,7 @@ Provision and start an Amazon instance with the following minimum specifications
 * Storage: Increase the root volume size to **40GB**
 * Security Groups: **SSH** access is sufficient
 
-## Setup Gravitee YUM repository
+## Set up Gravitee YUM repository
 
 Amazon Linux instances use the package manager `yum`. The steps below show how to use `yum` to set up access to Gravitee's repository containing the APIM components.
 
@@ -80,7 +80,7 @@ You don’t have to install this particular build of OpenJDK.
 
 ## Install MongoDB
 
-APIM uses MongoDB as its default repository to store global configurations. Follow the steps below to set up MongoDB. For further customization to the installation, more information can be found in the [MongoDB Installation documentation.](https://docs.mongodb.com/v3.6/tutorial/install-mongodb-on-amazon/)
+APIM uses MongoDB as its default repository to store global configurations. Follow the steps below to set up MongoDB. For further customization of the installation, refer to the [MongoDB Installation documentation.](https://docs.mongodb.com/v3.6/tutorial/install-mongodb-on-amazon/)
 
 1. Create a file called `/etc/yum.repos.d/mongodb-org-6.0.repo` using the following command:
 
@@ -131,9 +131,9 @@ sudo ss -lntp '( sport = 27017 )'
 
 You should see that there’s a process listening on that port.
 
-## Install Elasticsearch
+## Install ElasticSearch
 
-APIM uses Elasticsearch as the default reporting and analytics repository. Follow the steps below to set up Elasticsearch. For further customization to the installation, more information can be found in the [Elasticsearch installation documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html#rpm-repo).
+APIM uses ElasticSearch as the default reporting and analytics repository. Follow the steps below to set up ElasticSearch. For further customization to the installation, more information can be found in the [ElasticSearch installation documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/rpm.html#rpm-repo).
 
 ### Instructions
 
@@ -154,20 +154,20 @@ EOF
 ```
 {% endcode %}
 
-2. Install Elasticsearch:
+2. Install ElasticSearch:
 
 ```sh
 sudo yum install --enablerepo=elasticsearch elasticsearch -y
 sudo sed "0,/xpack.security.enabled:.*/s/xpack.security.enabled:.*/xpack.security.enabled: false/" -i /etc/elasticsearch/elasticsearch.yml
 ```
 
-3. Enable Elasticsearch on startup:
+3. Enable ElasticSearch on startup:
 
 <pre class="language-sh"><code class="lang-sh"><strong>$ sudo systemctl daemon-reload
 </strong><strong>$ sudo systemctl enable elasticsearch.service
 </strong></code></pre>
 
-4. Start Elasticsearch:
+4. Start ElasticSearch:
 
 ```sh
 sudo systemctl start elasticsearch.service
@@ -183,7 +183,7 @@ You should see that there’s a process listening on that port.
 
 ## Install Nginx
 
-Both APIM user interfaces (Management Console and Developer Portal) use Nginx as their webserver. Follow the steps below to set up Nginx. For further customization to the installation, more information can be found in the [Nginx Installation documentation.](https://nginx.org/en/linux\_packages.html#Amazon-Linux)
+Both APIM user interfaces (Management Console and Developer Portal) use Nginx as their webserver. Follow the steps below to set up Nginx. For further customization of the installation, refer to the [Nginx Installation documentation.](https://nginx.org/en/linux\_packages.html#Amazon-Linux)
 
 1. Create a file called `/etc/yum.repos.d/nginx.repo` using the following command:
 
@@ -230,4 +230,4 @@ You should see that there’s a process listening on that port.
 
 ## Next steps
 
-You have completed all the prerequisites. The next step is either installing the [individual APIM components](apim-components-installation.md) or [installing the full APIM stack](../install-on-red-hat-and-centos/install-the-full-apim-stack.md) in one go.
+You have completed all the prerequisites. The next step is to either [install the individual APIM components](apim-components-installation.md) or [install the full APIM stack](gravitee-components/).
