@@ -1,6 +1,6 @@
 # APIM Components Installation
 
-This section describes how to install the individual components from the Gravitee API Management (APIM) stack.
+This page describes how to install the individual components of the Gravitee API Management (APIM) stack.
 
 * Install APIM gateway
 * Install management API

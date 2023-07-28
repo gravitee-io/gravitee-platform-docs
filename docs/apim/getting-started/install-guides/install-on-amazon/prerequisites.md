@@ -1,5 +1,7 @@
 # Prerequisites
 
+the prerequisites necessary to install Gravitee API Management (APIM) on an Amazon instance
+
 ## Provision an Amazon instance
 
 {% hint style="warning" %}
