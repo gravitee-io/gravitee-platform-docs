@@ -4,11 +4,11 @@ description: This page provides high-level overview of the Gravitee ecosystem
 
 # Gravitee Core Concepts
 
-The API lifecycle includes API design, development, testing, deployment, troubleshooting, monitoring, and security. The challenges imposed by novel architectures and use cases have underscored API complexity and driven the development of comprehensive API management solutions, of which Gravitee is best-in-class.
+The API lifecycle includes API design, development, testing, deployment, troubleshooting, monitoring, and security. The ever increasing quantity and complexity of APIs has driven the development of comprehensive API management solutions, of which Gravitee is best-in-class.
 
 ## Overview <a href="#overview-2" id="overview-2"></a>
 
-Gravitee offers an API lifecycle toolset that extends beyond conventional API strategy and implementation. One of Gravitee’s core differentiators is that it's an event-native API solution that provides centralized support for both asynchronous and synchronous APIs. Built on event-driven architecture and implemented with reactive programming, Gravitee also supports the traditional request/response model and can even mediate between sync and async application layer protocols.
+Gravitee offers an API lifecycle toolset that extends beyond conventional API strategy and implementation. One of Gravitee’s core differentiators is that it's an event-native API solution. This means Gravitee is built on an event-driven architecture implemented with reactive programming to manage asynchronous, event-driven APIs while still fully supporting synchronous request/response style APIs in a centralized control plane. Gravitee even supports mediating between synchronous and asynchronous protocols.
 
 Key Gravitee concepts and terminology are introduced below as a foundation for more detailed product documentation.
 
@@ -23,13 +23,17 @@ The architecture diagrams below offer a high-level conceptualization of the Grav
 Key takeaways:
 
 * API publishers make requests to the Management API either programmatically or from the Management Console.
-* The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from end users to backend APIs, and exposing backend APIs in a Developer Portal for access by API consumers.
+* The Management API focuses on creating and deploying APIs to the Gateway, which determines how requests are proxied from clients to backend APIs and how backend APIs are exposed in the Developer Portal for access by API consumers.
 * A single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
 
 ## Gravitee Cloud architecture
 
-Each APIM and AM instance is attached to a Gravitee Cloud environment. Gravitee Cloud observes a hierarchy of three entity types:
+Each APIM and AM instance can be attached to a Gravitee Cloud environment. Gravitee Cloud observes a hierarchy of three entity types:
+
+{% hint style="info" %}
+Gravitee-managed deployments are connected to Gravitee Cloud by default.
+{% endhint %}
 
 * Account: Top level. Typically a company, not an individual user.
 * Organization: Second level. Typically a logical part of the company in a particular context, such as a region or business unit.
@@ -39,7 +43,7 @@ Each APIM and AM instance is attached to a Gravitee Cloud environment. Gravitee 
 
 ## API Gateway <a href="#api-gateway-policies-and-plugins-5" id="api-gateway-policies-and-plugins-5"></a>
 
-API Management encompasses API design, API security and access management, API reliability, API delivery, and API productization. At the core of APIM, the API Gateway is a reverse proxy that sits in front of your APIs. It routes requests to the appropriate backend services while performing various tasks such as rate limiting, authentication, and request or response transformations.
+API Management encompasses API design, API security and access management, API reliability, API delivery, and API productization. At the core of APIM, the API Gateway is a reverse proxy that sits in front of your backend APIs and event brokers. It routes requests to the appropriate backend services while performing various tasks such as rate limiting, authentication, and request or response transformations.
 
 ## API policies
 
@@ -141,7 +145,7 @@ Example 2: To allow an API consumer to POST data onto a Kafka topic via an HTTP 
 
 Gravitee supports two major categories of deployment: the APIs themselves and the Gravitee infrastructure, which includes the API Gateway and Management Console (among other components). While the deployment and installation of each Gravitee product is documented in detail, this section provides a high-level overview Gravitee's API deployment options.
 
-To support IaC use cases, Gravitee must support API deployment to the API Gateway, testing, and promotion across environments (test, dev, prod, etc.) "as code," i.e., without requiring use of a UI.
+To support Infrastructure as Code (IaC) use cases, Gravitee must support API deployment to the API Gateway, testing, and promotion across environments (test, dev, prod, etc.) "as code," i.e., without requiring the use of a UI.
 
 Many Gravitee Enterprise Edition customers currently implement IaC using Gravitee. While the IaC practices of some customers predate their use of Gravitee (e.g., customers with existing GitOps or Kubernetes maturity), others gradually adopt an IaC-compatible approach.
 
