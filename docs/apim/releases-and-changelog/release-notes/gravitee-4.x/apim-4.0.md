@@ -111,4 +111,4 @@ As a part of our additional support for v4 APIs and asynchronous APIs, we've add
 
 ### Datadog reporter
 
-The Datadog reporter enables you to push API monitoring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the [Datadog reporter documentation.](apim-4.0.md#datadog-reporter)
+The Datadog reporter enables you to push API monitoring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the [Datadog reporter documentation](../../../getting-started/configuration/configure-reporters.md#datadog-reporter).
