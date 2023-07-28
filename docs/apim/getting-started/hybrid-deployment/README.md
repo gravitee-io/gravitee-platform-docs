@@ -27,8 +27,6 @@ In this infrastructure, the standard APIM Gateway can communicate with the bridg
 
 #### **Bridge Gateways**
 
-
-
 {% hint style="warning" %}
 **Enterprise only**
 
@@ -46,13 +44,12 @@ By default, an API Gateway needs to connect to a repository (e.g., mongoDB) to r
 ## HTTP bridge Gateway (server)
 
 {% hint style="info" %}
-The bridge plugin can be enabled on both the API Gateway and the Management API if you prefer to limit the number of components 
-to deploy.
+The bridge plugin can be enabled on both the API Gateway and the Management API if you prefer to limit the number of components to deploy.
 {% endhint %}
 
 ### **Basic installation**
 
-In APIM 4.x, the bridge plugin is part of the default bundle (in both the API Gateway and Management API), so there is no specific installation step to get ready to deploy an hybrid architecture.
+In APIM 4.x, the bridge plugin is part of the default bundle (in both the API Gateway and Management API), so there is no specific installation step to prepare for deploying a hybrid architecture.
 
 ### **Basic configuration**
 
