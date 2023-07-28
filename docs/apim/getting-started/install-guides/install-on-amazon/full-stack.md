@@ -26,7 +26,7 @@ Provision and start an Amazon instance with the following minimum specifications
 1. Install all the prerequisites and Gravitee APIM components:
 
 ```sh
-curl -L https://bit.ly/install-apim-3x | sudo bash
+curl -L https://bit.ly/install-apim-4x | sudo bash
 ```
 
 2. Verify:

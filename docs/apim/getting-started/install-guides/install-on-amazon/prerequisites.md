@@ -82,17 +82,24 @@ You don’t have to install this particular build of OpenJDK.
 
 APIM uses MongoDB as its default repository to store global configurations. Follow the steps below to set up MongoDB. For further customization to the installation, more information can be found in the [MongoDB Installation documentation.](https://docs.mongodb.com/v3.6/tutorial/install-mongodb-on-amazon/)
 
-1. Create a file called `/etc/yum.repos.d/mongodb-org-3.6.repo` using the following command:
+1. Create a file called `/etc/yum.repos.d/mongodb-org-6.0.repo` using the following command:
 
-{% code title="/etc/yum.repos.d/mongodb-org-3.6.repo" %}
+{% code title="/etc/yum.repos.d/mongodb-org-6.0.repo" %}
 ```sh
-sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
-[mongodb-org-3.6]
+case "`uname -i`" in
+    x86_64|amd64)
+        baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/;;
+    aarch64)
+        baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/aarch64/;;
+esac
+
+sudo tee -a /etc/yum.repos.d/mongodb-org-6.0.repo <<EOF
+[mongodb-org-6.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/amazon/2013.03/mongodb-org/3.6/x86_64/
+baseurl=${baseurl}
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
 EOF
 ```
 {% endcode %}
@@ -136,11 +143,11 @@ APIM uses Elasticsearch as the default reporting and analytics repository. Follo
 ```sh
 sudo tee -a /etc/yum.repos.d/elasticsearch.repo <<EOF
 [elasticsearch]
-name=Elasticsearch repository for 7.x packages
-baseurl=https://artifacts.elastic.co/packages/7.x/yum
+name=Elasticsearch repository for 8.x packages
+baseurl=https://artifacts.elastic.co/packages/8.x/yum
 gpgcheck=1
 gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
-enabled=0
+enabled=1
 autorefresh=1
 type=rpm-md
 EOF
@@ -151,6 +158,7 @@ EOF
 
 ```sh
 sudo yum install --enablerepo=elasticsearch elasticsearch -y
+sudo sed "0,/xpack.security.enabled:.*/s/xpack.security.enabled:.*/xpack.security.enabled: false/" -i /etc/elasticsearch/elasticsearch.yml
 ```
 
 3. Enable Elasticsearch on startup:
@@ -189,6 +197,7 @@ gpgcheck=1
 enabled=1
 gpgkey=https://nginx.org/keys/nginx_signing.key
 module_hotfixes=true
+priority=9
 EOF
 ```
 {% endcode %}

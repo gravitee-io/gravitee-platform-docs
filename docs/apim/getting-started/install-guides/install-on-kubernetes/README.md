@@ -30,7 +30,7 @@ The following command line tools must be installed before proceeding with instal
 helm repo add graviteeio https://helm.gravitee.io
 ```
 
-2. Now, install the chart from the Helm repo by specifying the desired release. For example, you could use `graviteeio-apim3x` as in the example below.
+2. Now, install the chart from the Helm repo by specifying the desired release. For example, you could use `graviteeio-apim4x` as in the example below.
 
 {% hint style="warning" %}
 **Dedicated namespace**

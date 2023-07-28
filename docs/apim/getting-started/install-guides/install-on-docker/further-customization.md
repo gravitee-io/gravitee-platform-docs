@@ -16,10 +16,6 @@ Some plugins need to be installed on both the API Gateway and the Management API
 
 ## Use Redis as the datastore for rate-limiting counters
 
-To use Redis as the datastore for rate-limiting counters, you have to have the Redis plugin installed on the API Gateway, and you have to start the container using some additional environment variables.
-
-If you do not have the Redis plugin, you can download it from the [Redis plugin download page](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis/).
-
 ### Using with `docker compose`
 
 To use Redis with `docker compose`, edit the `$services.gateway.environment` section of the Docker compose file to include the following lines, and remove the line containing `gravitee_ratelimit_mongodb_uri`.

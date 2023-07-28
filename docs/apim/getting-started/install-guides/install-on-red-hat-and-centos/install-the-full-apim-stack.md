@@ -31,30 +31,30 @@ Before you install the APIM package, you may need to add third-party repositorie
 ### **MongoDB**
 
 {% hint style="info" %}
-For guidance on installing and configuring MongoDB, see the [MongoDB Installation documentation](https://docs.mongodb.com/v3.6/tutorial/install-mongodb-on-red-hat/).
+For guidance on installing and configuring MongoDB, see the [MongoDB Installation documentation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-red-hat/).
 {% endhint %}
 
-<pre class="language-sh" data-overflow="wrap"><code class="lang-sh"><strong>$ echo "[mongodb-org-3.6]
+<pre class="language-sh" data-overflow="wrap"><code class="lang-sh"><strong>$ echo "[mongodb-org-6.0]
 </strong>name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/3.6/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/6.0/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc" | sudo tee /etc/yum.repos.d/mongodb-org-3.6.repo > /dev/null
+gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc" | sudo tee /etc/yum.repos.d/mongodb-org-6.0.repo > /dev/null
 $ sudo yum install -y mongodb-org
 $ sudo systemctl start mongod
 </code></pre>
 
-### **Elasticsearch 7.x**
+### **Elasticsearch 8.x**
 
 {% hint style="info" %}
-For guidance on installing and configuring Elasticsearch, see the [Elasticsearch Installation documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/rpm.html#rpm-repo).
+For guidance on installing and configuring Elasticsearch, see the [Elasticsearch Installation documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.9/rpm.html#rpm-repo).
 {% endhint %}
 
 ```sh
-$ echo "[elasticsearch-7.x]
-name=Elasticsearch repository for 7.x packages
-baseurl=https://artifacts.elastic.co/packages/7.x/yum
-gpgcheck=1
+$ echo "[elastic-8.x]
+name=Elastic repository for 8.x packages
+baseurl=https://artifacts.elastic.co/packages/8.x/yum
+gpgcheck=0
 gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
 enabled=1
 autorefresh=1
@@ -66,7 +66,7 @@ $ sudo systemctl start elasticsearch
 ### Install APIM stack
 
 ```sh
-curl -L https://bit.ly/install-apim-3x | bash
+curl -L https://bit.ly/install-apim-4x | bash
 ```
 
 ## Run APIM with `systemd`

@@ -76,7 +76,7 @@ If the installation was successful, then this API call should return: **No conte
 
 * Amazon instance running
 * Gravitee `yum` repository added
-* Java 11 JRE installed
+* Java 17 JRE installed
 * MongoDB installed and running
 * Elasticsearch installed and running
 

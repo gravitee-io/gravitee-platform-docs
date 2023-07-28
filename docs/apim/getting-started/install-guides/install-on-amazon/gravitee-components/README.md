@@ -8,7 +8,7 @@ Alternatively, you can install the components individually as detailed on the [A
 
 * Amazon instance running
 * Gravitee `yum` repository added
-* Java 11 JRE installed
+* Java 17 JRE installed
 * MongoDB installed and running
 * Elasticsearch installed and running
 * Nginx installed
@@ -25,7 +25,7 @@ Alternatively, you can install the components individually as detailed on the [A
 1. Install all Gravitee APIM components:
 
 ```sh
-sudo yum install graviteeio-apim-3x -y
+sudo yum install graviteeio-apim-4x -y
 ```
 
 2. Enable Gateway and Management API on startup:
