@@ -9,7 +9,7 @@ This page describes how you can contribute to Gravitee code:
 
 ## Using GitHub issues
 
-We use GitHub issues to track bugs and enhancements. Found a bug in the source code? Want to propose new features or enhancements? You can help us by submitting an issue to our repository. But before you do, please search the issues archive to see if your question has already been answered.
+We use GitHub issues to track bugs and enhancements. Found a bug in the source code? Want to propose new features or enhancements? You can help us by submitting an [issue](https://github.com/gravitee-io/gravitee-platform-docs/issues) to our repository. But before you do, please search the issues archive to see if your question has already been answered.
 
 Providing the following information will help us deal with your issue quickly:
 
@@ -52,7 +52,7 @@ mvn clean install
 git push origin issue/<issue-id>-my-fix-branch
 ```
 
-2. In GitHub, send a pull request to `<gravitee-io/gravitee-api-management>:master`.
+2. In GitHub, send a pull request to the master branch, e.g., `<gravitee-io/gravitee-api-management>:master`.
 3. If we suggest changes:
    1. Make the required updates.
    2. Re-run the test suite to ensure tests are still passing.
@@ -73,7 +73,7 @@ You can find more detailed information about contributing in the [Github guides]
 
 ## Using a fork of the old `gravitee-gateway` repository?
 
-If you have a fork of `gravitee-gateway` and want to update it to get the full API Management monorepo, you can run:
+If you have a fork of `gravitee-gateway`, you can update it to get the full API Management monorepo:
 
 ```sh
 # Add APIM monorepo remote
@@ -93,7 +93,7 @@ git push origin YOUR_BRANCH
 
 ## Bootstrapping your dev environment
 
-This section explains how to set up your environment to start contributing to APIM.
+This section describes how to configure your environment to contribute to Gravitee APIM. When generalized, it can function as a loose template for contributions to other projects.
 
 ### Prerequisites
 
@@ -218,5 +218,3 @@ Create a new Run configuration in IntelliJ:
 To `npm install`, duplicate this configuration and choose **Command > Install**.
 {% endtab %}
 {% endtabs %}
-
-a
