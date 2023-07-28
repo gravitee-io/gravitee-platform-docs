@@ -48,11 +48,11 @@ $ docker network create frontend
 
 4. Install MongoDB using the following commands.
 
-<pre class="language-sh"><code class="lang-sh"><strong>$ docker pull mongo:5
+<pre class="language-sh"><code class="lang-sh"><strong>$ docker pull mongo:6
 </strong><strong>$ docker run --name gio_apim_mongodb \
 </strong>  --net storage \
   --volume /gravitee/mongodb/data:/data/db \
-  --detach mongo:5
+  --detach mongo:6
 </code></pre>
 
 Note that MongoDB is on the `storage` network and uses `/gravitee/mongodb` for persistent storage.
@@ -60,7 +60,7 @@ Note that MongoDB is on the `storage` network and uses `/gravitee/mongodb` for p
 5. Install Elasticsearch using the following commands.
 
 ```sh
-$ docker pull docker.elastic.co/elasticsearch/elasticsearch:7.7.0
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch:8.8.1
 $ docker run --name gio_apim_elasticsearch \
   --net storage \
   --hostname elasticsearch \
@@ -73,7 +73,7 @@ $ docker run --name gio_apim_elasticsearch \
   --env discovery.type=single-node \
   --env "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
   --volume /gravitee/elasticsearch/data:/var/lib/elasticsearch/data \
-  --detach docker.elastic.co/elasticsearch/elasticsearch:7.7.0
+  --detach docker.elastic.co/elasticsearch/elasticsearch:8.8.1
 ```
 
 Note that Elasticsearch is on the `storage` network and uses `/gravitee/elasticsearch` for persistent storage.
