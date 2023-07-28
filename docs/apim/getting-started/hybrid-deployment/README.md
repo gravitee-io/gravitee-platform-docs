@@ -53,7 +53,7 @@ In APIM 4.x, the bridge plugin is part of the default bundle (in both the API Ga
 
 ### **Basic configuration**
 
-You configure the new plugin in the `gravitee.yaml` file.
+Configure the new plugin in the `gravitee.yaml` file.
 
 {% code title="gravitee.yml" %}
 ```yaml
@@ -109,7 +109,7 @@ You can learn how to add this plugin to your deployment [here](../../overview/in
 
 ### **Basic configuration**
 
-You configure the new plugin in the `gravitee.yaml` file in the APIM Gateway `config` directory.
+Configure the new plugin in the `gravitee.yaml` file in the APIM Gateway `config` directory.
 
 {% code title="gravitee.yaml" %}
 ```yaml
