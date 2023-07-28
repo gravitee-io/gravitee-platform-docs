@@ -129,7 +129,7 @@
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes.md)
-* [Changelogs](releases-and-changelog/changelogs.md)
+* [Changelog](releases-and-changelog/changelogs.md)
 
 ## Community & Support
 
