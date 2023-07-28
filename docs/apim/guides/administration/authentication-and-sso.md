@@ -17,7 +17,7 @@ Gravitee API Management (APIM) natively support several types of authentication 
 
 In this article, we will walk through how to configure each by using the `gravitee.yaml` file and the Gravitee API Management Console.
 
-\{% @arcade/embed flowId="iVIQA53PE3vtm6hoNo7b" url="https://app.arcade.software/share/iVIQA53PE3vtm6hoNo7b" %\}
+{% @arcade/embed flowId="iVIQA53PE3vtm6hoNo7b" url="https://app.arcade.software/share/iVIQA53PE3vtm6hoNo7b" %}
 
 ## Configure in-memory users
 
