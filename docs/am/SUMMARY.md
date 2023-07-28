@@ -19,7 +19,7 @@
   * [Install on Amazon](getting-started/install-and-upgrade-guides/install-on-amazon.md)
   * [Deploy in Kubernetes](getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md)
   * [Configure a Production-ready AM Environment](getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md)
-  * [Upgrade Guide](getting-started/install-and-upgrade-guides/upgrade-guide.md)
+  * [4.0 Upgrade Guide](getting-started/install-and-upgrade-guides/upgrade-guide.md)
 * [Configuration](getting-started/configuration/README.md)
   * [Configure AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)

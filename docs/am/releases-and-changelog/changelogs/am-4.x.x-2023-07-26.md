@@ -44,19 +44,19 @@ If you use the Community Edition, for each enterprise feature you will have a de
 
 **Gateway**
 
-* **\[gateway]\[audit]:** It is impossible to see the user that consented the user consent in the audit log https://github.com/gravitee-io/issues/issues/9049\[#9049]
-* **\[gateway]\[mfa]:** Allow OTP factor to handle clock drift issues https://github.com/gravitee-io/issues/issues/9074\[#9074]
+* \[gateway]\[audit] It is impossible to see the user that consented the user consent in the audit log: [#9049](https://github.com/gravitee-io/issues/issues/9049)
+* \[gateway]\[mfa] Allow OTP factor to handle clock drift issues: [#9074](https://github.com/gravitee-io/issues/issues/9074)
 
 **Management API**
 
-* Create account with uppercase username https://github.com/gravitee-io/issues/issues/8966\[#8966]
+* Create account with uppercase username: [#8966](https://github.com/gravitee-io/issues/issues/8966)
 
 **Other**
 
-* Index name too long https://github.com/gravitee-io/issues/issues/8814\[#8814]
+* Index name is too long: [#8814](https://github.com/gravitee-io/issues/issues/8814)
 * \[policies] allow Enrich User Profile policy to accept objects as new claims
 * WebAuthn post login flow does not contain webAuthnCredentialId
-* Column messages in i18n\_dictionary\_entries  table has too little characters
+* Column messages in `i18n_dictionary_entries` table has too few characters
 
 </details>
 
@@ -71,11 +71,11 @@ If you use the Community Edition, for each enterprise feature you will have a de
 * :page-folder: am/installation-guide
 * :page-layout: am
 
-**NOTE:** To take advantage of these new features and incorporate these breaking changes, use the migration guide.
+**NOTE:** To take advantage of these new features and incorporate these breaking changes, use the [migration guide](../../getting-started/install-and-upgrade-guides/upgrade-guide.md).
 
 **MongoDB index names**
 
-Starting from AM 4.0, the MongoDB indices are now named using the first letters of the fields that compose the index. This change will allow the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete and then recreate AM indices. See the migration guide.
+Starting from AM 4.0, the MongoDB indices are now named using the first letters of the fields that compose the index. This change will allow the automatic management of index creation on DocumentDB. This change requires the execution of a MongoDB script to delete and then recreate AM indices. See the [migration guide](../../getting-started/install-and-upgrade-guides/upgrade-guide.md).
 
 **Enterprise Edition plugins**
 

@@ -1,42 +1,23 @@
-# Upgrade Guide
+# 4.0 Upgrade Guide
 
 ## Overview
 
-If you plan to skip versions when you upgrade, ensure that you read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
+Upgrading to APIM 4.0 is deployment-specific. The 4.0 breaking changes cited below must be noted and/or adopted for a successful upgrade.
 
 {% hint style="warning" %}
-Make sure to run scripts on the correct database since `gravitee-am` is not always the default database! Check your db name by running `show dbs`.
+**If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
+
+**Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
 {% endhint %}
 
-## Upgrade to 3.20
 
-### Certificate Rotation
 
-Starting from AM 3.20, the certificate generated during the domain creation is marked as a "system" certificate. This is useful for the new "Certificate Rotation" feature that enables you to generate a new system certificate and then assign this certificate to the applications that are using the previous system certificate.
+\
 
-When the Management API of AM 3.20 is about to start for the first time, the upgrader process will try to mark existing certificates as "system", based on the certificate name (which should be "Default") and the creation date (which should be the same as the domain creation date). If no "system" certificate can be determined, the domain and the application will continue to work without issues.
 
-## Upgrade to 3.19.3
+## MongoDB indexes
 
-### User Registration and ResetPassword
 
-From AM version 3.19.3, when a custom callback URL is defined for registration or password reset, the query parameters provided during the form post will be propagated to the custom callback URL.
 
-You can disable this behavior by defining this setting in the `gravitee.yaml`:
+Starting from AM 4.0, the MongoDB indexes are now named using the first letter of the fields that compose the index. This change will allow to manage automatically indexes creation on DocumentDB. Before starting the Management API service, please execute the following link:https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/gravitee-am-repository/gravitee-am-repository-mongodb/src/main/resources/scripts/create-index.js\[script] to delete indexes and recreate them with the right convention.
 
-{% code title="gravitee.yaml" %}
-```yaml
-legacy:
-  registration:
-    keepParams: false
-  resetPassword:
-    keepParams: false
-```
-{% endcode %}
-
-Another option is to disable it using environment variables, as shown below:
-
-```sh
-$ export gravitee_legacy_registration_keepParams = false
-$ export gravitee_legacy_resetPassword_keepParams = false
-```
