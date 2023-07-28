@@ -8,7 +8,7 @@ This page describes how to install the full APIM stack and its dependencies at o
 * Gravitee `yum` repository added
 * Java 17 JRE installed
 * MongoDB installed and running
-* Elasticsearch installed and running
+* ElasticSearch installed and running
 * Nginx installed
 
 ## Security group
@@ -33,7 +33,7 @@ sudo yum install graviteeio-apim-4x -y
 $ sudo systemctl enable graviteeio-apim-rest-api
 </code></pre>
 
-3. Start Gateway and management API:
+3. Start Gateway and Management API:
 
 ```sh
 $ sudo systemctl start graviteeio-apim-gateway

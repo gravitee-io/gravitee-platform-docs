@@ -2,12 +2,10 @@
 
 This page describes how to install the individual components of the Gravitee API Management (APIM) stack.
 
-* Install APIM gateway
-* Install management API
+* Install APIM Gateway
+* Install Management API
 * Install Management Console
 * Install Developer Portal
-
-Alternatively, you can install the full APIM stack and dependencies as detailed on the [APIM Full Stack Installation page.](gravitee-components/)
 
 ## Install APIM Gateway
 
@@ -17,15 +15,15 @@ Alternatively, you can install the full APIM stack and dependencies as detailed 
 * Gravitee `yum` repository added
 * Java 17 JRE installed
 * MongoDB installed and running
-* Elasticsearch installed and running
+* ElasticSearch installed and running
 
 ### Security group
 
-* open port 8082
+* Open port 8082
 
 ### Instructions
 
-1. Install gateway:
+1. Install Gateway:
 
 ```sh
 sudo yum install graviteeio-apim-gateway-4x -y
@@ -38,13 +36,13 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl enable graviteeio-apim-gateway
 ```
 
-3. Start gateway:
+3. Start Gateway:
 
 ```sh
 sudo systemctl start graviteeio-apim-gateway
 ```
 
-4. Verify, if any of the prerequisites are missing, you will receive errors during this step:
+4. Verify that, if any of the prerequisites are missing, you will receive errors during this step:
 
 ```sh
 sudo journalctl -f
@@ -78,15 +76,15 @@ If the installation was successful, then this API call should return: **No conte
 * Gravitee `yum` repository added
 * Java 17 JRE installed
 * MongoDB installed and running
-* Elasticsearch installed and running
+* ElasticSearch installed and running
 
 ### Security group
 
-* open port 8083
+* Open port 8083
 
 ### Instructions
 
-1. Install management API:
+1. Install Management API:
 
 ```sh
 sudo yum install graviteeio-apim-rest-api-4x -y
@@ -105,7 +103,7 @@ $ sudo systemctl enable graviteeio-apim-rest-api
 sudo systemctl start graviteeio-apim-rest-api
 ```
 
-4. Verify, if any of the prerequisites are missing, you will receive errors during this step:
+4. Verify that, if any of the prerequisites are missing, you will receive errors during this step:
 
 ```sh
 sudo journalctl -f
@@ -143,7 +141,7 @@ If the installation was successful, then both of these API requests will return 
 
 ### Security group
 
-* open port 8084
+* Open port 8084
 
 ### Instructions
 
@@ -187,7 +185,7 @@ The Management Console package does not provide its own service. It provides:
 
 ### Security group
 
-* open port 8085
+* Open port 8085
 
 ### Instructions
 
@@ -221,5 +219,5 @@ The Developer Portal package does not provide its own service. It provides:
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](../../tutorials/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Tutorials](../../../tutorials/) for your next steps.
 {% endhint %}
