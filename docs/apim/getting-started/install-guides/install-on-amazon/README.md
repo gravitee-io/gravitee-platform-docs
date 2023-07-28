@@ -1,12 +1,13 @@
 # Install on Amazon
 
-There are three methods for installing Gravitee API Management (APIM) on an Amazon instance:
+There are three methods for installing Gravitee API Management (APIM) on an Amazon instance. Following the [quick install guide](full-stack.md) will install all prerequisites and the full APIM stack at the same time. The other two methods involve the [manual installation of prerequisites](prerequisites.md), after which you can elect to [install all the APIM components individually](apim-components-installation.md) or [install the full APIM stack](gravitee-components/).
 
 * **Quick install**
-  * To provision a machine, then install all prerequisites and the full APIM stack at the same time, start [here](full-stack.md)
+  * Provision a machine, then install all prerequisites and the full APIM stack at the same time
 * **APIM component installation**
-  * To install the prerequisites one by one, start [here](prerequisites.md)
+  * Install the prerequisites one by one
   * Install the APIM components one by one
 * **APIM full stack installation**
-  * To install the prerequisites one by one, start [here](prerequisites.md)
+  * Install the prerequisites one by one
   * Install the full APIM stack
+
