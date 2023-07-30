@@ -64,13 +64,6 @@ If you use the Community Edition, for each enterprise feature you will have a de
 
 <summary>Breaking Changes</summary>
 
-**General**
-
-* :page-sidebar: am\_3\_x\_sidebar
-* :page-permalink: am/current/am\_breaking\_changes\_4.0.html
-* :page-folder: am/installation-guide
-* :page-layout: am
-
 **NOTE:** To take advantage of these new features and incorporate these breaking changes, use the [migration guide](../../getting-started/install-and-upgrade-guides/upgrade-guide.md).
 
 **MongoDB index names**
