@@ -1,6 +1,6 @@
-# Contribute to the codebase
+# Contribute to the Codebase
 
-This page describes how you can contribute to Gravitee code:
+This page describes how you can contribute to Gravitee's codebase:
 
 * [Using GitHub issues](contribute-to-the-codebase.md#using-github-issues)
 * [Submitting changes](contribute-to-the-codebase.md#submitting-changes)
