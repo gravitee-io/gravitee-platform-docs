@@ -35,17 +35,17 @@ Some plugins are now part of the Enterprise Edition:
 
 If you use the Community Edition, for each enterprise feature you will have a dedicated pop-up to suggest the enterprise version.
 
-* Password - Password salt format option
-* Flows - add new TOKEN flow
-* MFA - initiating MFA Enrollment via OpenID Connect 1.0
+* Password: Password salt format option
+* Flows: Add new TOKEN flow
+* MFA: Initiate MFA Enrollment via OpenID Connect 1.0
 * Send email verification link
-* \[Admin] Be able to re-trigger verification email
-* Passwordless - Name passwordless device
+* Ability to re-trigger verification email
+* Passwordless: Name passwordless device
 
 **Gateway**
 
-* \[gateway]\[audit] It is impossible to see the user that consented the user consent in the audit log: [#9049](https://github.com/gravitee-io/issues/issues/9049)
-* \[gateway]\[mfa] Allow OTP factor to handle clock drift issues: [#9074](https://github.com/gravitee-io/issues/issues/9074)
+* It is impossible to see the user that consented the user consent in the audit log: [#9049](https://github.com/gravitee-io/issues/issues/9049)
+* Allow OTP factor to handle clock drift issues: [#9074](https://github.com/gravitee-io/issues/issues/9074)
 
 **Management API**
 
@@ -54,7 +54,7 @@ If you use the Community Edition, for each enterprise feature you will have a de
 **Other**
 
 * Index name is too long: [#8814](https://github.com/gravitee-io/issues/issues/8814)
-* \[policies] allow Enrich User Profile policy to accept objects as new claims
+* Allow Enrich User Profile policy to accept objects as new claims
 * WebAuthn post login flow does not contain webAuthnCredentialId
 * Column messages in `i18n_dictionary_entries` table has too few characters
 
