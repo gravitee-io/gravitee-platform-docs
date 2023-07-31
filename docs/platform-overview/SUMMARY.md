@@ -18,7 +18,11 @@
 
 ## Community
 
-* [About the Community](community/about-the-community.md)
+* [Enterprise Support](community/enterprise-support.md)
+* [Community](community/community/README.md)
+  * [Support](https://community.gravitee.io/c/support/11)
+  * [Roadmap & Feedback](https://app.productboard.com/?redirect\_to=https://gravitee.productboard.com/portal/3-internal-gravitee-io-roadmap/tabs/6aa173be-1ba7-4984-b790-4c920e09e6b0)
+  * [Announcement & Events](https://community.gravitee.io/c/announcements/5)
 * [Contribute to Gravitee](community/contribute-to-gravitee/README.md)
   * [Contribute to the Codebase](community/contribute-to-gravitee/contribute-to-the-codebase.md)
   * [Contribute to Docs](community/contribute-to-gravitee/contribute-to-gravitee-docs.md)
@@ -31,5 +35,3 @@
     * [Admonitions](community/contribute-to-gravitee/style-guide-and-best-practices/admonitions.md)
     * [Code Blocks](community/contribute-to-gravitee/style-guide-and-best-practices/code-blocks.md)
     * [Media](community/contribute-to-gravitee/style-guide-and-best-practices/media.md)
-* [Support](https://community.gravitee.io/c/support/11)
-* [Announcement & Events](https://community.gravitee.io/c/announcements/5)
