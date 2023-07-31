@@ -43,7 +43,7 @@ You can find below a docker-compose configuration snippet that mounts two volume
 
 ```sh
   management:
-    image: graviteeio/am-management-api:3.18.0
+    image: graviteeio/am-management-api:latest
     container_name: gio_am_management
     volumes:
       - /path/to/plugins-dir:/opt/graviteeio-am-management-api/plugins-ee
@@ -63,9 +63,6 @@ You can find below a docker-compose configuration snippet that mounts two volume
       - GRAVITEE_PLUGINS_PATH_0=/opt/graviteeio-am-gateway/plugins
       - GRAVITEE_PLUGINS_PATH_1=/opt/graviteeio-am-gateway/plugins-ee
 ```
-
-|   | For versions prior to version 3.18, please use explicitly a version tagged EE like `3.15.0-ee`. |
-| - | ----------------------------------------------------------------------------------------------- |
 
 ## Check AM is running
 
@@ -87,18 +84,22 @@ GIO_AM_VERSION=3 NGINX_PORT=18000 docker-compose up
 
 ## Run AM with a single command
 
-If you want to get up and running quickly with AM 3.x, you can also run the following command line:
+If you want to get up and running quickly with AM 4.x, you can also run the following command line:
 
+{% code overflow="wrap" %}
 ```sh
-curl -L https://bit.ly/docker-am-3x | bash
+curl -L https://raw.githubusercontent.com/gravitee-io/graviteeio-access-management/master/docker/launch.sh | bash
 ```
+{% endcode %}
 
 {% hint style="info" %}
 You can change default http port (80), by passing `-s <port>` argument to the curl command.
 {% endhint %}
 
+{% code overflow="wrap" %}
 ```sh
-curl -L https://bit.ly/docker-am-3x | bash -s 8080
+curl -L https://raw.githubusercontent.com/gravitee-io/graviteeio-access-management/master/docker/launch.sh | bash -s 8080
 ```
+{% endcode %}
 
 The validation steps are the same as in the previous section.
