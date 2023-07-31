@@ -21,7 +21,7 @@ This documentation page relates to the installation of the client (On-Prem / Pri
 |                                          Bridge Gateways                                         | A _bridge_ API Gateway exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, etc.)                                                                                                                                                                                                                                                                                           |
 |                                          Config Database                                         | All the API Management platform management data, such as API definitions, users, applications, and plans.                                                                                                                                                                                                                                                                                                                                                               |
 |                                  S3 Bucket + Analytics Database                                  | Analytics and logs data                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|                                <p>[Optional]<br>Gravitee Cloud</p>                               | Gravitee Cloud is a centralized, multi-environments / organizations tool for managing all your Gravitee API Management and Access Management installations in a single place.                                                                                                                                                                                                                                                                                           |
+|                                <p>[Optional]<br>Gravitee Cockpit</p>                               | Gravitee Cockpit is a centralized, multi-environments / organizations tool for managing all your Gravitee API Management and Access Management installations in a single place.                                                                                                                                                                                                                                                                                           |
 |                                 <p>[Optional]<br>API Designer</p>                                | Drag-and-Drop graphical (MindMap) API designer to quickly and intuitively design your APIs (Swagger / OAS) and deploy mocked APIs for quick testing.                                                                                                                                                                                                                                                                                                                    |
 |                                 <p>[Optional]<br>Alert Engine</p>                                | <p>Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and using Webhooks.<br>AE does not require any external components or a database as it does not store anything. It receives events and sends notifications under the conditions which have been pre-configured upstream with triggers.</p> |
 
@@ -112,7 +112,7 @@ There are at least 3 connections to configure:
 * The connection to push Analytics and Logs using the file or TCP reporter to push data for Logstash and send to the SaaS storage.
 * The connection to the local rate limits database (Redis).
 
-Additionally, you can optionally configure a connection to Alert Engine and Gravitee Cloud.
+Additionally, you can optionally configure a connection to Alert Engine and Gravitee Cockpit.
 
 * \[Optional] The connection to the SaaS Alert Engine.
 
@@ -390,7 +390,7 @@ alerts:
 
 ### **Gravite Cloud**
 
-Please head over to our Gravitee Cloud documentation to get started.
+Please head over to our Gravitee Cockpit documentation to get started.
 
 ### **Full example**
 

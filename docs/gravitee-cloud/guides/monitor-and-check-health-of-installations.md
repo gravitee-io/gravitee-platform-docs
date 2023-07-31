@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Installations that are registered with Gravitee Cloud (GC) will report valuable information, including configuration of the installation, list of nodes, plugins, and also some regular updates regarding their health status.
+Installations that are registered with Gravitee Cockpit (GC) will report valuable information, including configuration of the installation, list of nodes, plugins, and also some regular updates regarding their health status.
 
 ### Nodes
 

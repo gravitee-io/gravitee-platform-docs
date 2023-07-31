@@ -1,18 +1,18 @@
 ---
-description: Learn how to access and set up Gravitee Cloud
+description: Learn how to access and set up Gravitee Cockpit
 ---
 
 # Access and set up
 
-## Access Gravitee Cloud
+## Access Gravitee Cockpit
 
-To get started with Gravitee Cloud (GC), go to [https://cockpit.gravitee.io](https://cockpit.gravitee.io/), and click the **Register** button. Set up your account.
+To get started with Gravitee Cockpit (GC), go to [https://cockpit.gravitee.io](https://cockpit.gravitee.io/), and click the **Register** button. Set up your account.
 
-## Navigating Gravitee Cloud
+## Navigating Gravitee Cockpit
 
 ### Dashboard
 
-After login, Gravitee Cloud opens the dashboard, which displays some analytics about your account organizations, environments, and installations. You can access the dashboard at any time by clicking **Home** in the left-hand menu.
+After login, Gravitee Cockpit opens the dashboard, which displays some analytics about your account organizations, environments, and installations. You can access the dashboard at any time by clicking **Home** in the left-hand menu.
 
 ![cockpit add organizations or environments](https://docs.gravitee.io/images/cockpit/cockpit-add-organizations-or-environments.png)
 
@@ -31,16 +31,16 @@ Click the settings icon ![cockpit settings icon](https://docs.gravitee.io/images
 
 ### API Management Free trial
 
-If you want to sign up for Gravitee Cloud in order to start an [enterprise API Management trail](https://documentation.gravitee.io/apim/overview/ee-vs-oss), head to [https://cockpit.gravitee.io/](https://cockpit.gravitee.io/), and enter in the required information to register.&#x20;
+If you want to sign up for Gravitee Cockpit in order to start an [enterprise API Management trail](https://documentation.gravitee.io/apim/overview/ee-vs-oss), head to [https://cockpit.gravitee.io/](https://cockpit.gravitee.io/), and enter in the required information to register.&#x20;
 
-You'll be taken to the Gravitee Cloud setup flow. First, choose a **Company name**.&#x20;
+You'll be taken to the Gravitee Cockpit setup flow. First, choose a **Company name**.&#x20;
 
 <figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.38.13 AM.png" alt=""><figcaption><p>Set up your company</p></figcaption></figure>
 
 Next, you'll have the option to choose either:
 
-* **Quick setup**: automatically creates a Gravitee Cloud account, a Gravitee organization and environment, and a free trial instance
-* **Manual setup:** creates a Gravitee Cloud instance, but then requires you to create and start a trial manually
+* **Quick setup**: automatically creates a Gravitee Cockpit account, a Gravitee organization and environment, and a free trial instance
+* **Manual setup:** creates a Gravitee Cockpit instance, but then requires you to create and start a trial manually
 
 We recommend the **Quick setup,** but do include instructions for starting a trial using the manual mode in the [Manual trial setup section](access-and-set-up.md#manual-trial-setup). The rest of this section assumes a **Quick setup.**
 
@@ -48,15 +48,15 @@ After you select Quick setup, select Continue, and then define your **Organizati
 
 <figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.42.47 AM.png" alt=""><figcaption><p>Define an Organization and Environment name</p></figcaption></figure>
 
-Then, select **Complete setup.** At this point, Gravitee will handle trial set up. You'll be taken to the **Gravitee Cloud Dashboard** while the trial initializes. This typically takes around 5 minutes.&#x20;
+Then, select **Complete setup.** At this point, Gravitee will handle trial set up. You'll be taken to the **Gravitee Cockpit Dashboard** while the trial initializes. This typically takes around 5 minutes.&#x20;
 
-<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.44.33 AM.png" alt=""><figcaption><p>Gravitee Cloud Dashboard: trial initialization</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.44.33 AM.png" alt=""><figcaption><p>Gravitee Cockpit Dashboard: trial initialization</p></figcaption></figure>
 
 In the meantime, please feel free to check out the educational content. This content is useful for any team that's looking to find success with an enterprise APIM trial.
 
 Once the trial is set up, you'll see the option to access your API Management trial both in the bottom left corner of the screen and in the top left block of your **Dashboard**. Select either to get started.&#x20;
 
-<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.46.28 AM.png" alt=""><figcaption><p>Gravitee Cloud Dashboard: free trial</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.46.28 AM.png" alt=""><figcaption><p>Gravitee Cockpit Dashboard: free trial</p></figcaption></figure>
 
 ### Try out the pre-configured trial walk throughs
 
@@ -68,12 +68,12 @@ If, at any point, you want to contact sales to upgrade or book a demo, [you can 
 
 If you choose the **Manual set up** option, you'll need to define your **Organization** and **Environment names**. When done, select **Complete setup.**&#x20;
 
-You'll be taken to the **Gravitee Cloud Dashboard**.&#x20;
+You'll be taken to the **Gravitee Cockpit Dashboard**.&#x20;
 
-<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.54.20 AM.png" alt=""><figcaption><p>Gravitee Cloud Dashboard: manual setup</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Screen Shot 2023-07-19 at 8.54.20 AM.png" alt=""><figcaption><p>Gravitee Cockpit Dashboard: manual setup</p></figcaption></figure>
 
 To create a trial environment, select **Start your APIM trial** in the bottom left of the screen, and then select **Start my free trial** in the pop-up dialog.
 
-Before initializing the trial, you'll need to select which **Organization** you want to link this trial to. Typically, this will be the **Organization** that you just created during Gravitee Cloud registration.&#x20;
+Before initializing the trial, you'll need to select which **Organization** you want to link this trial to. Typically, this will be the **Organization** that you just created during Gravitee Cockpit registration.&#x20;
 
 From here, Gravitee will work on initializing your trial. Once initialized, we recommend exploring via the [pre-configured APIM trial walkthroughs.](access-and-set-up.md#try-out-the-pre-configured-trial-walk-throughs)

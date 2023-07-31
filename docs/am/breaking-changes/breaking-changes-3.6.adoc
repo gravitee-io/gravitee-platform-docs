@@ -8,7 +8,7 @@ NOTE: For all these breaking changes, the Migration Guide can be found link:{{ '
 
 == AM Multi Environments introduced
 
-In preparation for the upcoming Gravitee Cloud product offering (see link:https://www.gravitee.io/products/roadmap[Roadmap > Cockpit]), we have introduced two concepts:
+In preparation for the upcoming Gravitee Cockpit product offering (see link:https://www.gravitee.io/products/roadmap[Roadmap > Cockpit]), we have introduced two concepts:
 
 * link:{{ '/am/current/am_adminguide_organizations_and_environments.html#organization' | relative_url }}[Organization]
 * link:{{ '/am/current/am_adminguide_organizations_and_environments.html#environment' | relative_url }}[Environment]

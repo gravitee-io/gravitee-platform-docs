@@ -1,8 +1,8 @@
-# Set up your Gravitee Cloud Hierarchy
+# Set up your Gravitee Cockpit Hierarchy
 
 ## Introduction
 
-Gravitee Cloud (GC) enables you to set up and edit Gravitee hierarchies.&#x20;
+Gravitee Cockpit (GC) enables you to set up and edit Gravitee hierarchies.&#x20;
 
 ## Set up your hierarchy
 

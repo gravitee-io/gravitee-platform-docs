@@ -4,7 +4,7 @@ description: Follow the steps below to access Gravitee API Designer
 
 # Get Started with API Designer
 
-Before you can use the API Designer, you must first create a [Gravitee Cloud](https://cockpit.gravitee.io/) account. Once you register or sign in, you click on **API Designer** in the left nav.
+Before you can use the API Designer, you must first create a [Gravitee Cockpit](https://cockpit.gravitee.io/) account. Once you register or sign in, you click on **API Designer** in the left nav.
 
 <figure><img src="../.gitbook/assets/api designer.png" alt=""><figcaption></figcaption></figure>
 

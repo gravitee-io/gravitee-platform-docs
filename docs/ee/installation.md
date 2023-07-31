@@ -16,7 +16,7 @@ Previously, the two editions used to be distributed as separate bundles (CE and 
 
 If you are a Gravitee CE user and you want to try out EE features, just install the unified bundle, request an EE license, add it to the installation, and restart. You no longer need to download and install a new, standalone EE version of APIM or AM!
 
-NOTE: You can now sign up for a free, time-limited, full EE-grade API Management trial with included Alert Engine, as part of the [free Gravitee Cloud trial registration](https://cockpit.gravitee.io/register). The Gravitee Cloud trial also allows you to try Gravitee API Designer.
+NOTE: You can now sign up for a free, time-limited, full EE-grade API Management trial with included Alert Engine, as part of the [free Gravitee Cockpit trial registration](https://cockpit.gravitee.io/register). The Gravitee Cockpit trial also allows you to try Gravitee API Designer.
 
 ## Alert Engine (AE)
 
@@ -56,15 +56,15 @@ AE is not part of the Community Edition - it is an Enterprise feature and requir
 
 Gravitee [Cockpit](https://www.gravitee.io/platform/cockpit) is a centralized, multi-environment tool for managing all your Gravitee API Management and Access Management installations in a single place.
 
-After version 3.15.0, Gravitee Cloud became a SaaS product, meaning that you do not need to install it as a self-hosted solution anymore. You can [register](https://cockpit.gravitee.io/register) and use Gravitee Cloud for free as part of the Community Edition, enabling you to also access a full, time-limited, EE-grade API Management trial (with Alert Engine included), manage Gravitee environments and installations, and design APIs with the Gravitee API Designer also included in the trial.
+After version 3.15.0, Gravitee Cockpit became a SaaS product, meaning that you do not need to install it as a self-hosted solution anymore. You can [register](https://cockpit.gravitee.io/register) and use Gravitee Cockpit for free as part of the Community Edition, enabling you to also access a full, time-limited, EE-grade API Management trial (with Alert Engine included), manage Gravitee environments and installations, and design APIs with the Gravitee API Designer also included in the trial.
 
-When used for free, Gravitee Cloud has a limitation of up to two environments per user. However, you can [upgrade](https://www.gravitee.io/contact-us) to a [paid Enterprise Edition plan](https://www.gravitee.io/pricing) to unlock more environments and use Gravitee Cloud as an Enterprise-grade tool for production.
+When used for free, Gravitee Cockpit has a limitation of up to two environments per user. However, you can [upgrade](https://www.gravitee.io/contact-us) to a [paid Enterprise Edition plan](https://www.gravitee.io/pricing) to unlock more environments and use Gravitee Cockpit as an Enterprise-grade tool for production.
 
-!!! info "Older, self-hosted Gravitee Cloud versions"
-    While this is not recommended, you can still install an older version of Gravitee Cloud (3.15.0 and below) as a self-hosted instance - see the legacy [Gravitee Cloud installation guide](https://docs.gravitee.io/cockpit/3.x/cockpit_installguide_introduction.html) for details.
+!!! info "Older, self-hosted Gravitee Cockpit versions"
+    While this is not recommended, you can still install an older version of Gravitee Cockpit (3.15.0 and below) as a self-hosted instance - see the legacy [Gravitee Cockpit installation guide](https://docs.gravitee.io/cockpit/3.x/cockpit_installguide_introduction.html) for details.
 
 ## API Designer
 
 Gravitee [API Designer](https://www.gravitee.io/platform/api-designer) is free to use with the Community Edition, with a limitation of one active design at any given time. [Contact us](https://www.gravitee.io/contact-us) if you need to remove this limitation by upgrading to a [paid Enterprise Edition plan](https://www.gravitee.io/pricing).
 
-To try Gravitee API Designer, sign up for a Gravitee Cloud trial [here](https://cockpit.gravitee.io/register) - API Designer is part of the trial.
+To try Gravitee API Designer, sign up for a Gravitee Cockpit trial [here](https://cockpit.gravitee.io/register) - API Designer is part of the trial.

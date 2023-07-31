@@ -18,7 +18,7 @@ At the bottom of this page, we also outline the enterprise hosting, deployment, 
 | ---------------------------------------- | ---------------------------------------- |
 | Open source version of API Management    | Enterprise version of API Management     |
 | Open source version of Access Management | Enterprise version of Access Management  |
-| Limited version of Gravitee Cloud        | Enterprise version of Gravitee Cloud     |
+| Limited version of Gravitee Cockpit        | Enterprise version of Gravitee Cockpit     |
 | Limited version of API Designer          | Enterprise version of API Designer       |
 | Self-hosted deployments only             | Support for self-hosted deployments      |
 |                                          | Support for Gravitee-managed deployments |
@@ -32,9 +32,9 @@ At the bottom of this page, we also outline the enterprise hosting, deployment, 
 
 {% embed url="https://documentation.gravitee.io/am/overview/open-source-vs-enterprise-am" %}
 
-## Enterprise version of Gravitee Cloud
+## Enterprise version of Gravitee Cockpit
 
-Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee Cloud.](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.&#x20;
+Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee Cockpit.](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.&#x20;
 
 ## Enterprise version of API Designer
 
