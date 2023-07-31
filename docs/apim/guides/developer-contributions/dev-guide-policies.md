@@ -8,7 +8,7 @@ description: How to build and deploy your own policies
 
 Policies are rules or logic that can be executed by the API Gateway during an API transaction. A policy acts as a proxy controller by guaranteeing that a given business rule is fulfilled during the processing of an API transaction.
 
-Let's look at an example of how to develop a policy.&#x20;
+Let's look at an example of how to develop a policy.
 
 {% hint style="warning" %}
 Before you start, don't forget to activate [OSS repositories](http://central.sonatype.org/pages/ossrh-guide.html) in your [Maven settings](https://maven.apache.org/settings.html).
@@ -137,14 +137,18 @@ JSON schema generation is performed by Gravitee's [json-schema-generator-maven-p
 
 As mentioned previously, a policy is a kind of Gravitee plugin. Each plugin is described by the _plugin.properties_ descriptor which declares the following parameters:
 
-| Parameter     | Description                 | Default value                                      |
-| ------------- | --------------------------- | -------------------------------------------------- |
-| `id`          | The policy identifier       | policy artifact id                                 |
-| `name`        | The policy name             | N/A (mandatory parameter)                          |
-| `version`     | The policy version          | N/A (mandatory parameter)                          |
-| `description` | The policy description      | "Description of the _Policy name_ Gravitee Policy" |
-| `class`       | The main policy class       | Path to the generated class file                   |
-| `type`        | The type of Gravitee plugin | `policy`                                           |
+| Parameter     | Description                        | Default value                                                                 |
+| ------------- | ---------------------------------- | ----------------------------------------------------------------------------- |
+| `id`          | The policy identifier              | policy artifact id                                                            |
+| `name`        | The policy name                    | N/A (mandatory parameter)                                                     |
+| `version`     | The policy version                 | N/A (mandatory parameter)                                                     |
+| `description` | The policy description             | "Description of the _Policy name_ Gravitee Policy"                            |
+| `class`       | The main policy class              | Path to the generated class file                                              |
+| `type`        | The type of Gravitee plugin        | `policy`                                                                      |
+| `category`    | The policy category                |                                                                               |
+| `icon`        | The policy icon                    |                                                                               |
+| `proxy`       | The policy's proxy manifest data   | N/A (options include REQUEST, RESPONSE)                                       |
+| `message`     | The policy's message manifest data | N/A (options include REQUEST, RESPONSE, MESSAGE\_REQUEST, MESSAGE\_RESPONSE)  |
 
 {% hint style="info" %}
 **Policy ID**
