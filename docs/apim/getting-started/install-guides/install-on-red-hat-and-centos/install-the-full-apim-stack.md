@@ -26,44 +26,7 @@ sudo yum install graviteeio-apim-4x
 
 ## Install the APIM stack with dependencies
 
-Before you install the APIM package, you may need to add third-party repositories.
-
-### **MongoDB**
-
-{% hint style="info" %}
-For guidance on installing and configuring MongoDB, see the [MongoDB Installation documentation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-red-hat/).
-{% endhint %}
-
-<pre class="language-sh" data-overflow="wrap"><code class="lang-sh"><strong>$ echo "[mongodb-org-6.0]
-</strong>name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/6.0/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc" | sudo tee /etc/yum.repos.d/mongodb-org-6.0.repo > /dev/null
-$ sudo yum install -y mongodb-org
-$ sudo systemctl start mongod
-</code></pre>
-
-### **Elasticsearch 8.x**
-
-{% hint style="info" %}
-For guidance on installing and configuring Elasticsearch, see the [Elasticsearch Installation documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.9/rpm.html#rpm-repo).
-{% endhint %}
-
-```sh
-$ echo "[elastic-8.x]
-name=Elastic repository for 8.x packages
-baseurl=https://artifacts.elastic.co/packages/8.x/yum
-gpgcheck=0
-gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
-enabled=1
-autorefresh=1
-type=rpm-md" | sudo tee /etc/yum.repos.d/elasticsearch.repo > /dev/null
-$ sudo yum install -y elasticsearch
-$ sudo systemctl start elasticsearch
-```
-
-### Install APIM stack
+The following command installs both the APIM package and third-party repositories:
 
 ```sh
 curl -L https://bit.ly/install-apim-4x | bash
