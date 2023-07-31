@@ -1,8 +1,5 @@
 ---
-description: >-
-  Everything you need to know about Gravitee's communityWe’re pleased to meet
-  you! Before you dive into the forum, we’d love to give you an overview of what
-  to expect.
+description: Everything you need to know about Gravitee's community
 ---
 
 # Community
@@ -48,3 +45,5 @@ Got some feedback on the product? Do you have a wish list of features you’d lo
 We hope you have a fabulous time!
 
 The [Gravitee](http://gravitee.io/) Developer Relations Team
+
+{% embed url="https://community.gravitee.io/" fullWidth="false" %}
