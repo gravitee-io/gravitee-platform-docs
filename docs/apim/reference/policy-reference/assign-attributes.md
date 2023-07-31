@@ -86,6 +86,10 @@ Get the foo query param:
 {#context.attributes['initialRequest'].params['foo']}
 ```
 {% endtab %}
+
+{% tab title="Message API example" %}
+To access an attribute (e.g., `bla`) of the current message in a Publish flow, use the format `message.attributes['bla']`
+{% endtab %}
 {% endtabs %}
 
 ## Configuration
