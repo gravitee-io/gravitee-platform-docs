@@ -67,7 +67,7 @@ $ sudo systemctl start nginx
 To install the AM package only, run the following command:
 
 ```sh
-sudo yum install graviteeio-am-3x
+sudo yum install graviteeio-am-4x
 ```
 
 ### Install the AM package with dependencies
@@ -95,7 +95,7 @@ sudo systemctl start mongod
 #### Install AM
 
 ```sh
-curl -L https://bit.ly/install-am-3x | bash
+curl -L https://bit.ly/install-am-4x | bash
 ```
 
 ### Run AM with `systemd`
@@ -104,7 +104,7 @@ To start up the AM components, run the following commands:
 
 ```
 $ sudo systemctl daemon-reload
-$ sudo systemctl start graviteeio-am-3x-gateway graviteeio-am-3x-management-api
+$ sudo systemctl start graviteeio-am-4x-gateway graviteeio-am-4x-management-api
 $ sudo systemctl restart nginx
 ```
 
@@ -123,7 +123,7 @@ When all components are started, you can do a quick test to see if everything is
 To install the latest stable version of AM Gateway, run the following command:
 
 ```sh
-sudo yum install -y graviteeio-am-gateway-3x
+sudo yum install -y graviteeio-am-gateway-4x
 ```
 
 ### Run AM Gateway
@@ -178,7 +178,7 @@ AM API is required to run AM Console. You must install AM API first before you c
 To install the latest stable version of AM API, run the following command:
 
 ```sh
-sudo yum install -y graviteeio-am-management-api-3x
+sudo yum install -y graviteeio-am-management-api-4x
 ```
 
 ### Run AM API
@@ -205,7 +205,7 @@ These commands provide no feedback as to whether AM API started successfully. th
 
 ### View the logs
 
-When `systemd` logging is enabled, the logging information are available using the `journalctl` commands.
+When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
 
 To tail the journal, run the following command:
 
@@ -267,7 +267,7 @@ $ sudo systemctl stop nginx
 
 ### View the logs
 
-When `systemd` logging is enabled, the logging information are available using the `journalctl` commands:
+When `systemd` logging is enabled, the logging information is available using the `journalctl` commands:
 
 To tail the journal, run the following command:
 

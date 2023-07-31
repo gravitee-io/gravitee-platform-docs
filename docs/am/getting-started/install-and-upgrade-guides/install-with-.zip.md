@@ -6,7 +6,7 @@ Your environment must meet the requirements listed below before you install AM d
 
 ### JDK
 
-AM Gateway & AM Management are supporting Java version 11. You can check your Java version as follows:
+AM Gateway & AM Management are supporting Java version 17. You can check your Java version as follows:
 
 <pre class="language-sh"><code class="lang-sh"><strong>$ java -version
 </strong>$ echo $JAVA_HOME
@@ -30,24 +30,24 @@ AM Management Console is a client-side Angular application that can be deployed 
 
 ## Full installation
 
-A full .zip distribution with all the components can be downloaded by clicking [here](https://download.gravitee.io/graviteeio-am/distributions/graviteeio-am-full-3.21.0.zip).sh
+A full .zip distribution with all the components can be downloaded by clicking [here](https://download.gravitee.io/graviteeio-am/distributions/graviteeio-am-full-4.0.0.zip).
 
 ## Install AM Gateway
 
 ### Download and extract the `.zip` archive
 
-1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-gateway/gravitee-am-gateway-standalone-3.21.0.zip) or from the [Gravitee download site](https://gravitee.io/downloads/access-management).
+1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-gateway/gravitee-am-gateway-standalone-4.0.0.zip) or from the [Gravitee download site](https://gravitee.io/downloads/access-management).
 
 {% code overflow="wrap" %}
 ```sh
-curl -L https://download.gravitee.io/graviteeio-am/components/gravitee-am-gateway/gravitee-am-gateway-standalone-3.21.0.zip -o gravitee-am-gateway-standalone-3.21.0.zip
+curl -L https://download.gravitee.io/graviteeio-am/components/gravitee-am-gateway/gravitee-am-gateway-standalone-4.0.0.zip -o gravitee-am-gateway-standalone-4.0.0.zip
 ```
 {% endcode %}
 
 2. Unpack the archive and place the folders in the required location.
 
 ```sh
-unzip gravitee-am-gateway-standalone-3.21.0.zip
+unzip gravitee-am-gateway-standalone-4.0.0.zip
 ```
 
 ### Check the installation
@@ -55,7 +55,7 @@ unzip gravitee-am-gateway-standalone-3.21.0.zip
 Run AM Gateway from the command line as follows:
 
 ```sh
-$ cd gravitee-am-gateway-standalone-3.21.0
+$ cd gravitee-am-gateway-standalone-4.0.0
 $ ./bin/gravitee
 ```
 
@@ -66,7 +66,7 @@ Once AM Gateway is running, you will see this log:
 {% code overflow="wrap" %}
 ```
 ...
-11:23:06.835 [main] [] INFO  i.g.am.gateway.node.GatewayNode - Gravitee - Access Management - Gateway id[92c03b26-5f21-4460-803b-265f211460be] version[3.21.0] pid[4528] build[${env.BUILD_NUMBER}#${env.GIT_COMMIT}] jvm[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/25.121-b13] started in 1860 ms.
+11:23:06.835 [main] [] INFO  i.g.am.gateway.node.GatewayNode - Gravitee - Access Management - Gateway id[92c03b26-5f21-4460-803b-265f211460be] version[4.0.0] pid[4528] build[${env.BUILD_NUMBER}#${env.GIT_COMMIT}] jvm[Oracle Corporation/Java HotSpot(TM) 64-Bit Server VM/25.121-b13] started in 1860 ms.
 ...
 ```
 {% endcode %}
@@ -115,18 +115,18 @@ AM API is required to run AM Console UI. You must install AM API first before yo
 
 ### Download and extract the `.zip` archive
 
-1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-management-api/gravitee-am-management-api-standalone-3.21.0.zip) or from the [Gravitee download site](https://gravitee.io/downloads/access-management).
+1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-management-api/gravitee-am-management-api-standalone-4.0.0.zip) or from the [Gravitee download site](https://gravitee.io/downloads/access-management).
 
 {% code overflow="wrap" %}
 ```sh
-curl -L https://download.gravitee.io/graviteeio-am/components/gravitee-am-management-api/gravitee-am-management-api-standalone-3.21.0.zip -o gravitee-am-management-api-standalone-3.21.0.zip
+curl -L https://download.gravitee.io/graviteeio-am/components/gravitee-am-management-api/gravitee-am-management-api-standalone-4.0.0.zip -o gravitee-am-management-api-standalone-4.0.0.zip
 ```
 {% endcode %}
 
 2. Unpack the archive and place the folders in the required location.
 
 ```sh
-unzip gravitee-am-management-api-standalone-3.21.0.zip
+unzip gravitee-am-management-api-standalone-4.0.0.zip
 ```
 
 ### Check the installation
@@ -134,7 +134,7 @@ unzip gravitee-am-management-api-standalone-3.21.0.zip
 Run AM API from the command line as follows:
 
 ```sh
-$ cd gravitee-am-management-api-standalone-3.21.0
+$ cd gravitee-am-management-api-standalone-4.0.0
 $ ./bin/gravitee
 ```
 
@@ -192,18 +192,18 @@ The following files and folders are in the `$GRAVITEE_HOME` directory, created w
 
 ### Download and extract the .zip archive
 
-1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-webui/gravitee-am-webui-3.21.0.zip) or from the [Gravitee download site](https://gravitee.io/downloads/access-management).
+1. Download the binaries [here](https://download.gravitee.io/graviteeio-am/components/gravitee-am-webui/gravitee-am-webui-4.0.0.zip) or from the [Gravitee download site](https://gravitee.io/downloads/access-management).
 
 {% code overflow="wrap" %}
 ```sh
-curl -L https://download.gravitee.io/graviteeio-am/components/gravitee-am-webui/gravitee-am-webui-3.21.0.zip -o gravitee-am-webui-3.21.0.zip
+curl -L https://download.gravitee.io/graviteeio-am/components/gravitee-am-webui/gravitee-am-webui-4.0.0.zip -o gravitee-am-webui-4.0.0.zip
 ```
 {% endcode %}
 
 2. Unpack the archive and place the folders in the required location.
 
 ```sh
-unzip gravitee-am-webui-3.21.0.zip
+unzip gravitee-am-webui-4.0.0.zip
 ```
 
 ### Deploy or run AM Console
@@ -211,7 +211,7 @@ unzip gravitee-am-webui-3.21.0.zip
 AM Console is a client-side Angular application and can be deployed on any HTTP server, such as [Apache](https://httpd.apache.org/) or [Nginx](http://nginx.org/).
 
 {% hint style="info" %}
-AM Console uses HTML5 mode and requires server side rewrites to make it work, such as in the Apache and Nginx examples below.
+AM Console uses HTML5 mode and requires server-side rewrites to make it work, such as in the Apache and Nginx examples below.
 {% endhint %}
 
 #### Apache
