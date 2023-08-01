@@ -10,7 +10,9 @@ Gravitee policies fall into several functional categories: security, transformat
 
 ## Installation and deployment
 
-Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. If you would like to use a different version of the policy or add a custom policy, you can follow the deployment instructions below.
+Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md) policy plugins are available for download [here](https://download.gravitee.io/).
+
+If you would like to use a different version of the policy or add a custom policy, you can follow the deployment instructions below.
 
 <details>
 
