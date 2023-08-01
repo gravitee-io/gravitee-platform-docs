@@ -20,7 +20,7 @@ Gravitee's platform extends beyond just Access Management. For information on en
 
 The Gravitee AM Enterprise Edition is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
-## Enterprise features <a href="#enterprise-features" id="enterprise-features"></a>
+### Enterprise features <a href="#enterprise-features" id="enterprise-features"></a>
 
 The features below are included in the default enterprise Access Management distribution and do not require additional enterprise plugins:
 
@@ -28,7 +28,11 @@ The features below are included in the default enterprise Access Management dist
 * SAML v2
 * Geo IP
 
-## Enterprise Identity Provider pack <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
+## Enterprise plugins <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
+
+The following packs consist of Gravitee Enterprise Edition plugins, which are available for download [here](https://download.gravitee.io/).
+
+### Enterprise Identity Provider pack <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
 
 The Enterprise Identity Provider pack enables the use of different IdPs when setting up your Gravitee Access Management OAuth2 server:
 
@@ -41,7 +45,7 @@ The Enterprise Identity Provider pack enables the use of different IdPs when set
 * France Connect
 * Salesforce
 
-## Enterprise MFA pack
+### Enterprise MFA pack
 
 The Enterprise MFA pack enables advanced authentication factors for MFA:
 
@@ -58,7 +62,7 @@ Not technically a part of the Access Management product, Gravitee offers a stand
 
 ## Advanced environment management
 
-Gravitee APIM EE includes [Gravitee Cockpit](https://documentation.gravitee.io/gravitee-cloud), which you can use to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.&#x20;
+Gravitee APIM EE includes [Gravitee Cockpit](https://documentation.gravitee.io/gravitee-cloud), which you can use to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
 
 ## Hosting options
 
@@ -68,7 +72,7 @@ An investment in Gravitee EE is an investment in deployment flexibility, and, op
 * **Gravitee-managed deployments**: Gravitee hosts and manages all AM components within its own cloud environment.
 * **Hybrid deployment**: Gravitee hosts and manages some AM components within its cloud environment while you manage others within your private cloud/environment.
 
-For more information on each, please refer to our [AM Architecture documentation](am-architecture.md).&#x20;
+For more information on each, please refer to our [AM Architecture documentation](am-architecture.md).
 
 ## Support options
 
