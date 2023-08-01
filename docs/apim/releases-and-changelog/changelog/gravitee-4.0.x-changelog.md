@@ -80,9 +80,13 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 **Kubernetes Operator**
 
 * Use the Kubernetes Operator as a Kubernetes ingress controller
-* Maintain a unique custom resource defintion (CRD) for your API across all Gravitee environments
+* Maintain a unique custom resource definition (CRD) for your API across all Gravitee environments
 * Manage application-level CRDs through the Gravitee Kubernetes Operator
 * Define the ManagementContext for your CRD and control whether the API should be local or global
+
+**MongoDB Migration Scripts**
+
+* MongoDB migration scripts are now embedded and automatically executed when starting APIM, no need to run JavaScript scripts manually anymore
 
 </details>
 
