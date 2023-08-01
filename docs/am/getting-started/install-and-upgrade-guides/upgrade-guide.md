@@ -12,5 +12,4 @@ Upgrading to APIM 4.0 is deployment-specific. The [4.0 breaking changes](../../r
 
 ## MongoDB indices
 
-Starting with AM 4.0, the MongoDB indices are now named using the first letters of the fields that compose the index. This change will allow automatic management of index creation on DocumentDB. Before starting the Management API service, please execute the following [script](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/master/gravitee-am-repository/gravitee-am-repository-mongodb/src/main/resources/scripts/create-index.js) to delete and recreate indices with the correct convention.
-
+Starting with AM 4.0, the MongoDB indices are now named using the first letters of the fields that compose the index. This change will allow automatic management of index creation on DocumentDB. Before starting the Management API service, please execute the following [script](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/d6536c287fd69ab1\[%E2%80%A6]itory-mongodb/src/main/resources/scripts/create-index.js) to delete and recreate indices with the correct convention.
