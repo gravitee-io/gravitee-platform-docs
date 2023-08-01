@@ -32,6 +32,10 @@ The features below are included in the default enterprise API Management distrib
 * [**Sharding Tags**](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md)**:** Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
 * [**Bridge Gateway**](../../getting-started/hybrid-deployment/#bridge-gateways)**:** By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.
 
+## Enterprise plugins
+
+The following packs consist of Gravitee Enterprise Edition plugins, which are available for download [here](https://download.gravitee.io/).
+
 ### Enterprise policy pack
 
 The Enterprise policy pack includes policies that are typically necessary for enterprise-grade, production API Management deployments:
