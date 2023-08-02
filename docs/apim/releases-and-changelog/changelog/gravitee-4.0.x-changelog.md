@@ -4,9 +4,11 @@ description: >-
   patch APIM 4.x.x releases
 ---
 
-# APIM 4.x.x (2023-07-20)
+# APIM 4.0.x
 
-## Gravitee API Management 4.0 - July 20, 2023
+[//]: # (DO NOT REMOVE THIS COMMENT - ANCHOR FOR FUTURE RELEASES)
+
+## Gravitee API Management 4.0.0 - July 20, 2023
 
 For more in-depth information on what's new, please refer to the [Gravitee APIM 4.0 release notes](../release-notes/gravitee-4.x/apim-4.0.md).
 
@@ -80,9 +82,13 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 **Kubernetes Operator**
 
 * Use the Kubernetes Operator as a Kubernetes ingress controller
-* Maintain a unique custom resource defintion (CRD) for your API across all Gravitee environments
+* Maintain a unique custom resource definition (CRD) for your API across all Gravitee environments
 * Manage application-level CRDs through the Gravitee Kubernetes Operator
 * Define the ManagementContext for your CRD and control whether the API should be local or global
+
+**MongoDB Migration Scripts**
+
+* MongoDB migration scripts are now embedded and automatically executed when starting APIM, no need to run JavaScript scripts manually anymore
 
 </details>
 
