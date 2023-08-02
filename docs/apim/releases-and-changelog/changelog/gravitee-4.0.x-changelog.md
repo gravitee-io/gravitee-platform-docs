@@ -94,7 +94,11 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 
 <summary>Breaking Changes</summary>
 
-### Running APIM
+#### EE plugins
+
+Starting with APIM 4.0, particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md) for additional information.
+
+#### Running APIM
 
 * APIM now requires a minimum of JDK 17.
 * Starting with 4.0.0, there will no longer be enterprise tags (i.e. suffixed by `-ee`).
@@ -115,7 +119,7 @@ or using environment variables:
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
 
-### **Monitoring APIM**
+#### **Monitoring APIM**
 
 * The name of the sync probe has been changed from `api-sync` to `sync-process` to make it explicit when all sync processes have been completed.
 * The content of the sync handler has changed slightly to align with new concepts:
@@ -128,7 +132,7 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 * v4 APIs currently only support the ElasticSearch reporter. If any other reporter is configured at the Gateway level, each v4 API call will produce an error log.
   * When using a different reporter, it remains possible to disable analytics on a per-API basis to avoid generating error logs for v4 APIs.
 
-### **Managing APIs**
+#### **Managing APIs**
 
 *   The endpoint configuration is now split into:
 
