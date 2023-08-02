@@ -12,7 +12,7 @@ Since EL is an extension of SpEL, all capabilities detailed in the SpEL document
 
 ### Syntax
 
-Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol. Both dot notation and bracket notation are supported for accessing the properties of an object: `{#context.attributes['user'].email}`
+Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol. Both dot notation and bracket notation are supported for accessing the properties of an object, e.g., `{#context.attributes['user'].email}`.
 
 {% hint style="info" %}
 **Dot notation vs bracket notation**
@@ -170,11 +170,7 @@ The object properties you can access in the `ssl` session object from the `{#req
 
 A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions. The `Principal` object is typically used with security policies such as OAuth2, JWT, or basic authentication to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
-The `client` and `server` objects are of type `Principal`. If the `Principal` object is not defined, all values are empty.
-
-Otherwise, the attributes you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below:
-
-**Common domain name attributes:**
+The `client` and `server` objects are of type `Principal`. If the `Principal` object is not defined, all values are empty. Otherwise, common domain name attributes you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below:
 
 <table><thead><tr><th width="223">Object Property</th><th>Description</th><th width="87">Type</th><th>Example</th></tr></thead><tbody><tr><td>businessCategory</td><td>Business category</td><td>string</td><td>-</td></tr><tr><td>c</td><td>Country code</td><td>string</td><td>FR</td></tr><tr><td>cn</td><td>Common name</td><td>string</td><td>-</td></tr><tr><td>countryOfCitizenship</td><td>RFC 3039 CountryOfCitizenship</td><td>string</td><td>-</td></tr><tr><td>countryOfResidence</td><td>RFC 3039 CountryOfResidence</td><td>string</td><td>-</td></tr><tr><td>dateOfBirth</td><td>RFC 3039 RFC 3039 DateOfBirth</td><td>string</td><td>19830719000000Z</td></tr><tr><td>dc</td><td>Domain component</td><td>string</td><td>-</td></tr><tr><td>description</td><td>Description</td><td>string</td><td>-</td></tr><tr><td>dmdName</td><td>RFC 2256 directory management domain</td><td>string</td><td>-</td></tr><tr><td>dnQualifier</td><td>Domain name qualifier</td><td>string</td><td>-</td></tr><tr><td>e</td><td>Email address in Verisign certificates</td><td>string</td><td>-</td></tr><tr><td>emailAddress</td><td>Email address (RSA PKCS#9 extension)</td><td>string</td><td>-</td></tr><tr><td>gender</td><td>RFC 3039 Gender</td><td>string</td><td>"M", "F", "m" or "f"</td></tr><tr><td>generation</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>givenname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>initials</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>l</td><td>Locality name</td><td>string</td><td>-</td></tr><tr><td>name</td><td>Name</td><td>string</td><td>-</td></tr><tr><td>nameAtBirth</td><td>ISIS-MTT NameAtBirth</td><td>string</td><td>-</td></tr><tr><td>o</td><td>Organization</td><td>string</td><td>-</td></tr><tr><td>organizationIdentifier</td><td>Organization identifier</td><td>string</td><td>-</td></tr><tr><td>ou</td><td>Organization unit name</td><td>string</td><td>-</td></tr><tr><td>placeOfBirth</td><td>RFC 3039 PlaceOfBirth</td><td>string</td><td>-</td></tr><tr><td>postalAddress</td><td>RFC 3039 PostalAddress</td><td>string</td><td>-</td></tr><tr><td>postalCode</td><td>Postal code</td><td>string</td><td>-</td></tr><tr><td>pseudonym</td><td>RFC 3039 Pseudonym</td><td>string</td><td>-</td></tr><tr><td>role</td><td>Role</td><td>string</td><td>-</td></tr><tr><td>serialnumber</td><td>Device serial number name</td><td>string</td><td>-</td></tr><tr><td>st</td><td>State or province name</td><td>string</td><td>-</td></tr><tr><td>street</td><td>Street</td><td>string</td><td>-</td></tr><tr><td>surname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>t</td><td>Title</td><td>string</td><td>-</td></tr><tr><td>telephoneNumber</td><td>Telephone number</td><td>string</td><td>-</td></tr><tr><td>uid</td><td>LDAP User id</td><td>string</td><td>-</td></tr><tr><td>uniqueIdentifier</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>unstructuredAddress</td><td>Unstructured address (from PKCS#9)</td><td>string</td><td>-</td></tr></tbody></table>
 
@@ -184,13 +180,9 @@ Otherwise, the attributes you can access from the `{#request.ssl.client}` and `{
 All attributes of the `Principal`object are flattened to be accessed directly with dot or bracket notation. While some of these attributes can be arrays, EL will only return the first item in the array. If you want to retrieve all values of an attribute, you can use the `attributes` object property shown in the table below.
 {% endhint %}
 
-**Other attributes:**
+Other attributes:
 
-| Object Property | Description                                                                              | Type        | Example                           |
-| --------------- | ---------------------------------------------------------------------------------------- | ----------- | --------------------------------- |
-| attributes      | Retrieves all the `Prinicipal` object's domain name attributes listed in the table above | key / value | "ou" → \["Test team", "Dev team"] |
-| defined         | Returns true if the principal object is defined and contains values. False otherwise.    | boolean     | -                                 |
-| dn              | Fully qualified domain name                                                              | string      | -                                 |
+<table><thead><tr><th width="175">Object Property</th><th>Description</th><th width="121">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Prinicipal</code> object's domain name attributes listed in the table above</td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values. Returns <code>false</code> otherwise.</td><td>boolean</td><td>-</td></tr><tr><td>dn</td><td>Fully qualified domain name</td><td>string</td><td>-</td></tr></tbody></table>
 
 #### Examples <a href="#examples" id="examples"></a>
 
@@ -205,13 +197,9 @@ All attributes of the `Principal`object are flattened to be accessed directly wi
 
 ## Response
 
-The object properties you can access for API responses from the `{#response}` root-level object property are listed below.
+The object properties you can access for API responses from the `{#response}` root-level object property are listed below:
 
-| Object Property | Description                 | Type        | Example            |
-| --------------- | --------------------------- | ----------- | ------------------ |
-| content         | Body content                | string      | -                  |
-| headers         | Headers                     | key / value | X-Custom → myvalue |
-| status          | Status of the HTTP response | int         | 200                |
+<table><thead><tr><th>Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>content</td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>status</td><td>Status of the HTTP response</td><td>int</td><td>200</td></tr></tbody></table>
 
 #### Example
 
