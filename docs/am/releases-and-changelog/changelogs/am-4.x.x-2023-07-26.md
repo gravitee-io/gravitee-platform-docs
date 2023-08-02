@@ -1,10 +1,10 @@
 ---
 description: >-
   This page contains the changelog entries for AM 4.0 and any future minor or
-  patch AM 4.x.x releases
+  patch AM 4.0.x releases
 ---
 
-# AM 4.x.x (2023-07-26)
+# AM 4.0.x
 
 ## Gravitee Access Management 4.0 - July 20, 2023
 
@@ -72,6 +72,6 @@ Starting from AM 4.0, the MongoDB indices are now named using the first letters 
 
 **Enterprise Edition plugins**
 
-As mentioned in the [changelog](am-4.x.x-2023-07-26.md), some plugins are now available for Enterprise Edition only and to use them requires a license.
+As mentioned in the [changelog](am-4.x.x-2023-07-26.md), some plugins are now only available to Enterprise Edition and to use them requires a license.
 
 </details>
