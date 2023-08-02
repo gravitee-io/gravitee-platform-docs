@@ -22,7 +22,7 @@ Imagine you want to create a policy that validates whether or not requests conta
 mvn archetype:generate\
     -DarchetypeGroupId=io.gravitee.maven.archetypes\
     -DarchetypeArtifactId=gravitee-policy-maven-archetype\
-    -DarchetypeVersion=1.8.0\
+    -DarchetypeVersion=1.10.1\
     -DartifactId=foo-header-check-policy\
     -DgroupId=my.gravitee.extension.policy\
     -Dversion=1.0.0-SNAPSHOT\
