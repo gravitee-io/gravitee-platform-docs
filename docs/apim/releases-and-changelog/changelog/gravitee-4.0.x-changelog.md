@@ -96,7 +96,7 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 
 #### EE plugins
 
-Starting with APIM 4.0, particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md) for additional information.
+* Starting with APIM 4.0, particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md) for additional information.
 
 #### Running APIM
 

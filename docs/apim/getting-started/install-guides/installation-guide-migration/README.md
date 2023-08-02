@@ -10,6 +10,10 @@ Upgrading to APIM 4.0 is deployment-specific. The 4.0 breaking changes cited bel
 **Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
 {% endhint %}
 
+## EE plugins
+
+* Starting with APIM 4.0, particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md) for additional information.
+
 ## Running APIM
 
 * APIM now requires a minimum of JDK 17.
