@@ -134,7 +134,7 @@ When you define endpoints for your API, you need to give them a name that is a u
 
 ## Request <a href="#request" id="request"></a>
 
-The object properties you can access from the `{#request}` root-level object property and use for API requests are listed below:
+The object properties you can access from the `{#request}` root-level object property and use for API requests are listed below.
 
 <table><thead><tr><th>Object Property</th><th>Description</th><th width="143">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>paths</td><td>Path parts</td><td>array of string</td><td>[,v2,store,MyStore]</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of string</td><td>[,store,MyStore]</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>method</td><td>HTTP method</td><td>string</td><td>GET</td></tr><tr><td>scheme</td><td>HTTP scheme</td><td>string</td><td>http</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>ssl</td><td>SSL session information</td><td><a href="broken-reference/">SSL Object</a></td><td>-</td></tr></tbody></table>
 
@@ -145,7 +145,7 @@ The object properties you can access from the `{#request}` root-level object pro
 
 ### Request context attributes
 
-When APIM Gateway handles an incoming API request, some object properties are automatically created or added during the execution phase through the Assign Attributes policy. These object properties are known as attributes. Attributes can be accessed from the `{#context.attributes}` root-level object property. Available attributes are listed below:
+When APIM Gateway handles an incoming API request, some object properties are automatically created or added during the execution phase through the Assign Attributes policy. These object properties are known as attributes. Attributes can be accessed from the `{#context.attributes}` root-level object property. Available attributes are listed below.
 
 <table><thead><tr><th>Object Property</th><th>Description</th><th width="87">Type</th><th>Nullable</th></tr></thead><tbody><tr><td>context-path</td><td>Context path</td><td>string</td><td>-</td></tr><tr><td>resolved-path</td><td>The path defined in policies</td><td>string</td><td>-</td></tr><tr><td>application</td><td>The authenticated application making incoming HTTP requests</td><td>string</td><td>X (for Keyless plan)</td></tr><tr><td>api</td><td>Called API</td><td>string</td><td>-</td></tr><tr><td>user-id</td><td><p>The user identifier of an incoming HTTP request:</p><p>* The subscription ID for an API Key plan</p><p>* The remote IP for a Keyless plan</p></td><td>string</td><td>-</td></tr><tr><td>plan</td><td>Plan used to manage incoming HTTP requests</td><td>string</td><td>-</td></tr><tr><td>api-key</td><td>The API key used (for an API Key plan)</td><td>string</td><td>X (for no API Key plan)</td></tr></tbody></table>
 
@@ -158,7 +158,7 @@ Additionally, some policies (e.g., the OAuth2 policy) register other attributes 
 
 ### SSL and principal objects <a href="#ssl_object" id="ssl_object"></a>
 
-The object properties you can access in the `ssl` session object from the `{#request.ssl}` root-level object property are listed below:
+The object properties you can access in the `ssl` session object from the `{#request.ssl}` root-level object property are listed below.
 
 <table><thead><tr><th>Object Property</th><th width="177">Description</th><th width="169">Type</th><th>Example</th></tr></thead><tbody><tr><td>clientHost</td><td>Host name of the client</td><td>string</td><td>client.domain.com</td></tr><tr><td>clientPort</td><td>Port number of the client</td><td>long</td><td>443</td></tr><tr><td>client</td><td>Client information</td><td>Principal Object</td><td>-</td></tr><tr><td>server</td><td>Server information</td><td>Principal Object</td><td>-</td></tr></tbody></table>
 
@@ -170,17 +170,19 @@ The object properties you can access in the `ssl` session object from the `{#req
 
 A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions. The `Principal` object is typically used with security policies such as OAuth2, JWT, or basic authentication to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
-The `client` and `server` objects are of type `Principal`. If the `Principal` object is not defined, all values are empty. Otherwise, common domain name attributes you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below:
+The `client` and `server` objects are of type `Principal`. If the `Principal` object is not defined, all values are empty. Otherwise, attributes you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below.
+
+**Common domain name attributes:**
 
 <table><thead><tr><th width="223">Object Property</th><th>Description</th><th width="87">Type</th><th>Example</th></tr></thead><tbody><tr><td>businessCategory</td><td>Business category</td><td>string</td><td>-</td></tr><tr><td>c</td><td>Country code</td><td>string</td><td>FR</td></tr><tr><td>cn</td><td>Common name</td><td>string</td><td>-</td></tr><tr><td>countryOfCitizenship</td><td>RFC 3039 CountryOfCitizenship</td><td>string</td><td>-</td></tr><tr><td>countryOfResidence</td><td>RFC 3039 CountryOfResidence</td><td>string</td><td>-</td></tr><tr><td>dateOfBirth</td><td>RFC 3039 RFC 3039 DateOfBirth</td><td>string</td><td>19830719000000Z</td></tr><tr><td>dc</td><td>Domain component</td><td>string</td><td>-</td></tr><tr><td>description</td><td>Description</td><td>string</td><td>-</td></tr><tr><td>dmdName</td><td>RFC 2256 directory management domain</td><td>string</td><td>-</td></tr><tr><td>dnQualifier</td><td>Domain name qualifier</td><td>string</td><td>-</td></tr><tr><td>e</td><td>Email address in Verisign certificates</td><td>string</td><td>-</td></tr><tr><td>emailAddress</td><td>Email address (RSA PKCS#9 extension)</td><td>string</td><td>-</td></tr><tr><td>gender</td><td>RFC 3039 Gender</td><td>string</td><td>"M", "F", "m" or "f"</td></tr><tr><td>generation</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>givenname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>initials</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>l</td><td>Locality name</td><td>string</td><td>-</td></tr><tr><td>name</td><td>Name</td><td>string</td><td>-</td></tr><tr><td>nameAtBirth</td><td>ISIS-MTT NameAtBirth</td><td>string</td><td>-</td></tr><tr><td>o</td><td>Organization</td><td>string</td><td>-</td></tr><tr><td>organizationIdentifier</td><td>Organization identifier</td><td>string</td><td>-</td></tr><tr><td>ou</td><td>Organization unit name</td><td>string</td><td>-</td></tr><tr><td>placeOfBirth</td><td>RFC 3039 PlaceOfBirth</td><td>string</td><td>-</td></tr><tr><td>postalAddress</td><td>RFC 3039 PostalAddress</td><td>string</td><td>-</td></tr><tr><td>postalCode</td><td>Postal code</td><td>string</td><td>-</td></tr><tr><td>pseudonym</td><td>RFC 3039 Pseudonym</td><td>string</td><td>-</td></tr><tr><td>role</td><td>Role</td><td>string</td><td>-</td></tr><tr><td>serialnumber</td><td>Device serial number name</td><td>string</td><td>-</td></tr><tr><td>st</td><td>State or province name</td><td>string</td><td>-</td></tr><tr><td>street</td><td>Street</td><td>string</td><td>-</td></tr><tr><td>surname</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>t</td><td>Title</td><td>string</td><td>-</td></tr><tr><td>telephoneNumber</td><td>Telephone number</td><td>string</td><td>-</td></tr><tr><td>uid</td><td>LDAP User id</td><td>string</td><td>-</td></tr><tr><td>uniqueIdentifier</td><td>Naming attributes of type X520name</td><td>string</td><td>-</td></tr><tr><td>unstructuredAddress</td><td>Unstructured address (from PKCS#9)</td><td>string</td><td>-</td></tr></tbody></table>
 
 {% hint style="info" %}
 **Limitation on arrays**
 
-All attributes of the `Principal`object are flattened to be accessed directly with dot or bracket notation. While some of these attributes can be arrays, EL will only return the first item in the array. If you want to retrieve all values of an attribute, you can use the `attributes` object property shown in the table below.
+All attributes of the `Principal`object are flattened to be accessed directly with dot or bracket notation. While some of these attributes can be arrays, EL will only return the first item in the array. To retrieve all values of an attribute, use the `attributes` object property shown in the table below.
 {% endhint %}
 
-Other attributes:
+**Other attributes:**
 
 <table><thead><tr><th width="175">Object Property</th><th>Description</th><th width="121">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Prinicipal</code> object's domain name attributes listed in the table above</td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values. Returns <code>false</code> otherwise.</td><td>boolean</td><td>-</td></tr><tr><td>dn</td><td>Fully qualified domain name</td><td>string</td><td>-</td></tr></tbody></table>
 
@@ -197,7 +199,7 @@ Other attributes:
 
 ## Response
 
-The object properties you can access for API responses from the `{#response}` root-level object property are listed below:
+The object properties you can access for API responses from the `{#response}` root-level object property are listed below.
 
 <table><thead><tr><th>Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>content</td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>status</td><td>Status of the HTTP response</td><td>int</td><td>200</td></tr></tbody></table>
 
@@ -207,27 +209,15 @@ The object properties you can access for API responses from the `{#response}` ro
 
 ## Nodes
 
-A node is a component that represents an instance of the Gravitee Gateway. Each node runs a copy of the gateway, which is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services. The object properties you can access for nodes from the `{#node}` root-level object property are listed below.
+A node is a component that represents an instance of the Gravitee Gateway. Each node runs a copy of the Gateway that is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services. The object properties you can access for nodes from the `{#node}` root-level object property are listed below.
 
-| Property     | Description                 | Type            | Example                              |
-| ------------ | --------------------------- | --------------- | ------------------------------------ |
-| id           | Node id                     | string          | 975de338-90ff-41ab-9de3-3890ff41ab62 |
-| version      | Node version                | string          | 3.14.0                               |
-| tenant       | Node tenant                 | string          | Europe                               |
-| shardingTags | Node sharding tag           | array of string | \[internal,external]                 |
-| zone         | Zone the node is grouped in | string          | europe-west-2                        |
+<table><thead><tr><th width="151">Property</th><th width="181">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Node ID</td><td>string</td><td>975de338-90ff-41ab-9de3-3890ff41ab62</td></tr><tr><td>version</td><td>Node version</td><td>string</td><td>3.14.0</td></tr><tr><td>tenant</td><td>Node tenant</td><td>string</td><td>Europe</td></tr><tr><td>shardingTags</td><td>Node sharding tag</td><td>array of string</td><td>[internal,external]</td></tr><tr><td>zone</td><td>Zone the node is grouped in</td><td>string</td><td>europe-west-2</td></tr></tbody></table>
 
 #### Example
 
 * Get the version of a node : `{#node.version}`
 
-## Policies
-
-You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the Policy Studio configuration.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
-
-## Mixin
+## Mixing property usage
 
 In previous examples, we showed various ways to manipulate objects available in the EL context. You can also mix root-level object property usage to provide an increasingly dynamic configuration.
 
@@ -235,29 +225,33 @@ For example, we can retrieve the value of an HTTP header where the name is based
 
 `{#request.headers[#api.properties['my-property']]}`
 
+## Policies
+
+You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the Policy Studio configuration.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
+
 ## Conditions
 
-You can also use the EL to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as `&&` or `||`, as shown in the example below:
+You can use the EL to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as `&&` or `||`, as shown in the example below:
 
 `{#request.headers['my-header'] != null && #request.headers['my-header'] == "my-value"}`
 
 {% hint style="info" %}
 **Alternate equality check**
 
-An alternative method is to use the `equals()` method instead of `==`. When you use `.equals()`, it is recommended to put the string first to prevent an error if `#request.headers['my-header']` is `null` - for example, then `'my-value'.equals(#request.headers['my-header'])`will prevent an error.
+You can use the `equals()` method instead of `==`. When you use `.equals()`, it is recommended to put the string first to prevent an error. For example, if `#request.headers['my-header']` is `null` , then `'my-value'.equals(#request.headers['my-header'])`will prevent an error.
 {% endhint %}
 
 ## Debugging
 
-In case of an error when using Expression Language, an exception will be raised :
+In case of an error when using EL, an exception will be raised :
 
 `The template evaluation returns an error. Expression: {#context.error}`
 
-If you are having a hard time debugging your expression, here's the best way to proceed. Let's say you have the following conditional expression on a flow:
+If debugging your expression is difficult, consider the following example for guidance:
 
-`{#request.content.length() >= 10}`
-
-When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. So how do you know the actual output of the `#request.content.length()` expression? You can easily check the output of an expression using the assign-attributes policy as shown in the arcade below:
+Let's say you have `{#request.content.length() >= 10}` as the conditional expression on a flow. When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. So how do you know the actual output of the `#request.content.length()` expression? You can easily check the output of an expression using the Assign Attributes policy as shown in the arcade below.
 
 {% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %}
 
