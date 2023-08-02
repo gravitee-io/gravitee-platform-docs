@@ -4,9 +4,7 @@ description: >-
   patch APIM 4.x.x releases
 ---
 
-# APIM 4.0.x
-
-[//]: # (DO NOT REMOVE THIS COMMENT - ANCHOR FOR FUTURE RELEASES)
+# APIM 4.x.x (2023-07-20)
 
 ## Gravitee API Management 4.0.0 - July 20, 2023
 
@@ -88,7 +86,7 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 
 **MongoDB Migration Scripts**
 
-* MongoDB migration scripts are now embedded and automatically executed when starting APIM, no need to run JavaScript scripts manually anymore
+* MongoDB migration scripts are now embedded and automatically executed when starting APIM. There is no longer a need to run JavaScript scripts manually.
 
 </details>
 
@@ -96,7 +94,7 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 
 <summary>Breaking Changes</summary>
 
-## Running APIM
+### Running APIM
 
 * APIM now requires a minimum of JDK 17.
 * Starting with 4.0.0, there will no longer be enterprise tags (i.e. suffixed by `-ee`).
@@ -117,7 +115,7 @@ or using environment variables:
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
 
-## **Monitoring APIM**
+### **Monitoring APIM**
 
 * The name of the sync probe has been changed from `api-sync` to `sync-process` to make it explicit when all sync processes have been completed.
 * The content of the sync handler has changed slightly to align with new concepts:
@@ -130,12 +128,12 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 * v4 APIs currently only support the ElasticSearch reporter. If any other reporter is configured at the Gateway level, each v4 API call will produce an error log.
   * When using a different reporter, it remains possible to disable analytics on a per-API basis to avoid generating error logs for v4 APIs.
 
-## **Managing APIs**
+### **Managing APIs**
 
 *   The endpoint configuration is now split into:
 
     * A shared configuration that can be used at the group level
-    * A configuration dedicated to the endpoint that can override the shared configuration.&#x20;
+    * A configuration dedicated to the endpoint that can override the shared configuration.
 
     Existing v4 APIs need to be updated and reconfigured accordingly.
 * An unused and outdated feature regarding file synchronization known as `localregistry` has been removed.
