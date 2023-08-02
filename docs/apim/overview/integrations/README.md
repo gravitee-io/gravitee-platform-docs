@@ -18,7 +18,7 @@ Please see the below sections and tables that outline major integrations that Gr
 
 ## Service Discovery
 
-<table><thead><tr><th width="144">Solution</th><th>Integration description</th><th>Plugin or add-on required</th></tr></thead><tbody><tr><td><a href="../../guides/api-configuration/v2-api-configuration/configure-service-discovery.md">Hashcorp Consul</a></td><td>Bind the backend endpoints of your API to a service managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.</td><td>Gravitee service discovery consul plugin</td></tr></tbody></table>
+<table><thead><tr><th width="144">Solution</th><th>Integration description</th><th>Plugin or add-on required</th></tr></thead><tbody><tr><td><a href="../../guides/api-configuration/v2-api-configuration/configure-service-discovery.md">HashiCorp Consul</a></td><td>Bind the backend endpoints of your API to a service managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.</td><td>Gravitee service discovery consul plugin</td></tr></tbody></table>
 
 ## API documentation
 
