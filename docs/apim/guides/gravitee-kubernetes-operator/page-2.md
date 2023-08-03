@@ -74,7 +74,7 @@ The [`ApiDefinition` custom resource](custom-resource-definitions/apidefinition-
 
 To create an `ApiDefinition` custom resource, you need a YAML file with the desired API Definition configuration. You can use the following sample YAML file from Gravitee directly, or as a template to base your configuration on:
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/config/samples/apim/api-with-context.yml" %}
+\{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/config/samples/apim/api-with-context.yml" %\}
 
 To create the `ApiDefinition` resource using the ready Gravitee sample file, run the following command:
 
