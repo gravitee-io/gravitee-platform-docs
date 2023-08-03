@@ -1,10 +1,12 @@
 ---
-description: This page contains the changelog entries for each minor version of APIM 4.x
+description: >-
+  This page contains the changelog entries for APIM 4.0.x and any future patch
+  APIM 4.0.x releases
 ---
 
-# APIM 4.x
+# APIM 4.0.x
 
-## Gravitee API Management 4.0 - July 20, 2023
+## Gravitee API Management 4.0.0 - July 20, 2023
 
 For more in-depth information on what's new, please refer to the [Gravitee APIM 4.0 release notes](../release-notes/gravitee-4.x/apim-4.0.md).
 
