@@ -10,14 +10,14 @@ description: >-
 
 In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API.
 
-After you've created your Gateway API and selected your endpoint(s), you can configure them on the API's page. This article walks through that process for configuring v4 Message API endpoints and v4 Proxy API endpoints.
+After you've created your Gateway API and selected your endpoint(s), you can configure them on the **API** page of the Developer Portal. This article walks through the process for configuring v4 Message API endpoints and v4 Proxy API endpoints.
 
 ## Configure v4 message API endpoints
 
 {% hint style="warning" %}
-**Enterprise only**
+**Enterprise-only**
 
-As of Gravitee 4.0, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+As of Gravitee 4.0, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
 * [Refer to the EE vs OSS documentation](../../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
@@ -26,30 +26,32 @@ As of Gravitee 4.0, the ability to create APIs with message API endpoints is an 
 
 v4 APIs currently support the following endpoints:
 
-* **Kafka**: enables the Gravitee API Gateway to establish a persistent connection with a Kafka topic as a backend resource or target
-* **MQTT 5**: enables the Gravitee API Gateway to establish a persistent connection with a MQTT topic as a backend resource or target
-* **RabbitMQ**: enables the Gravitee API Gateway to establish a persistent connection with RabbitMQ as a backend resource or target. This will only work if you are using RabbitMQ and the AMQP 0-9-1 protocol. Because this endpoint supports the AMQP 0-9-1 protocol, it may support other event brokers and message queues that communicate over the AMQP 0-9-1 protocol, however, we do not guarantee or officially support these implementations.
-* **Solace**: enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target
-* **Mock**: enables the Gateway to simulate responses from a server for testing API implementations
+* **Kafka**: Enables the Gravitee API Gateway to establish a persistent connection with a Kafka topic as a backend resource or target.
+* **MQTT 5**: Enables the Gravitee API Gateway to establish a persistent connection with an MQTT topic as a backend resource or target.
+* **RabbitMQ**: Enables the Gravitee API Gateway to establish a persistent connection with RabbitMQ as a backend resource or target. This will only work if you are using RabbitMQ and the AMQP 0-9-1 protocol. Because this endpoint supports the AMQP 0-9-1 protocol, it may support other event brokers and message queues that communicate over the AMQP 0-9-1 protocol. However, Gravitee does not guarantee or officially support these implementations.
+* **Solace**: Enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target.
+* **Mock**: Enables the Gateway to simulate responses from a server for testing API implementations.
 
-To access Endpoint configuration, head to the **APIs** page, and select your API. Then under **Endpoints**, select **Backend Services.** Depending on which Endpoint(s) your API utilizes, Endpoint configuration may differ. Please refer to the following sections that cover configuration details for each.
+To access endpoint configuration, go to the **API** page in the Developer Portal and select your API. Then, under **Endpoints**, select **Backend services.**&#x20;
+
+Endpoint configuration may differ depending on which endpoint(s) your API utilizes. Please refer to the following sections for the configuration details of each specific endpoint.
 
 <details>
 
 <summary>Kafka</summary>
 
-The **Kafka** endpoint allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
+The **Kafka** endpoint allows the Gateway to open up a persistent connection with and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
-* How the Gateway will interact the broker by instructing the Gravitee Gateway's Kafka client to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
-  * **Use Producer:** tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint
-  * **Use Consumer:** tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint
-  * **Use Producer and Consumer:** tell the Gateway Kafka client to both **Use Producer** and **Use Consumer**
-* **Bootstrap servers:** define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. The client will make use of all servers irrespective of which servers the list designates for bootstrapping - this list only pertains to the initial hosts used to discover the full set of servers.
-* **Initial security settings:** you will define more Gravitee Gateway-specific security settings later on, but this is where you define your Kafka-specific authentication flow. Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL as protocols. Depending on which you choose, you will need to define:
-  * **PLAINTEXT:** no further security config necessary.
+* How the Gateway will interact with the broker by instructing the Gravitee Gateway's Kafka client to act as a producer, a consumer, or both a producer and consumer. Choose **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu.
+  * **Use Producer:** Tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint.
+  * **Use Consumer:** Tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint.
+  * **Use Producer and Consumer:** Tell the Gateway Kafka client to both **Use Producer** and **Use Consumer**.
+* **Bootstrap servers:** Define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. The list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all backend servers irrespective of which servers the list designates for bootstrapping.&#x20;
+* **Initial security settings:** You will define more Gravitee Gateway-specific security settings later on, but this is where you define your Kafka-specific authentication flow. Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL protocols. Depending on which you choose, you will need to define:
+  * **PLAINTEXT:** No further security config necessary.
   * **SASL**
-    * **SASL mechanism:** used for client connections. This will be GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512.
-    * **SASL JAAS Config:** the JAAS login context parameters for SASL connections in the format used by JAAS configuration files.
+    * **SASL mechanism:** Used for client connections. This will be GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512.
+    * **SASL JAAS Config:** The JAAS login context parameters for SASL connections in JAAS configuration file format.
   * **SSL**
     * **Truststore:** depending on your truststore type, you will need to define:
       * **PEM with location**

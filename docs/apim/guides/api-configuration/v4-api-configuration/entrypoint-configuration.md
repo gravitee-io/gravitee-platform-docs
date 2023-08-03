@@ -32,7 +32,7 @@ v4 APIs support the following entrypoints:
 
 To access entrypoint configuration, go to the **API** page in the Developer Portal and select your API. Then, under **Entrypoints,** select **General.**
 
-Depending on which entrypoint your API utilizes, entrypoint configuration may differ. Please refer to the following sections for configuration details.
+Depending on which entrypoint your API utilizes, entrypoint configuration may differ. Please refer to the following sections for the configuration details of each specific entrypoint.
 
 <details>
 
