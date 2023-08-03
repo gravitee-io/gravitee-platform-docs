@@ -217,7 +217,7 @@ A node is a component that represents an instance of the Gravitee Gateway. Each 
 
 * Get the version of a node : `{#node.version}`
 
-## Mixing property usage
+## Mixin
 
 In previous examples, we showed various ways to manipulate objects available in the EL context. You can also mix root-level object property usage to provide an increasingly dynamic configuration.
 
