@@ -107,7 +107,7 @@ Also, when using Webhooks as an entrypoint, you can secure callbacks and set up 
 
 As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition.&#x20;
 
-### Set up your dead letter queue
+#### Set up DLQ
 
 To enable DLQ, declare another endpoint that will be used to configure the DLQ object in the Webhook entrypoint definition:
 
@@ -132,7 +132,7 @@ Once configured and deployed, any message rejected with a 4xx error response by 
 
 If you set up a DLQ, you can utilize the Gravitee Retry policy in order to "retry" delivery of undelivered messages from the DLQ. For more information on the Retry policy, please refer to the Retry policy reference.
 
-### Set up secure callbacks
+#### Set up secure callbacks
 
 Callbacks can be secured using basic authentication, JWT, and OAuth2.
 
@@ -187,25 +187,29 @@ To use OAuth2, the `auth` object should look like this:
 
 If you chose **SSE** as an entrypoint, you will be brought to a page where you can configure:
 
-* **Context path:** the URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-* **Virtual hosts:** enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
+* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
+* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **SSE characteristics and permissions**
-  * **Heartbeat intervals:** define the interval in which heartbeats are sent to the client by entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
+  * **Heartbeat intervals:** Define the interval in which heartbeats are sent to the client by entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
   * Choose to allow or disallow sending message metadata to the client as SSE comments by toggling **Allow sending messages metadata to client as SSE comments** ON or OFF.
   * Choose to allow or disallow sending message headers to the client as SSE comments by toggling **Allow sending messages headers to client as SSE comments** ON or OFF.
 
 </details>
 
-You can also add an Entrypoint to your API by selecting **Add an entrypoint.** From here, you will simply need to configure the entrypoint using the details specific to that entrypoint (see expandable sections above).
+You can also add an entrypoint to your API by selecting **Add an entrypoint.** From here, you will simply need to configure the entrypoint using the details specific to that entrypoint (see expandable sections above).
 
 When you are done configuring your entrypoints, make sure to select **Save changes.**
 
 ## Configure v4 Proxy API entrypoints
 
-To alter v4 Proxy API entrypoints, select your API, and then select **General** underneath the **Entrypoints** category in the left-hand nav.&#x20;
+To alter v4 Proxy API entrypoints, select your API, and then select **General** under the **Entrypoints** category in the left-hand nav.&#x20;
 
 <figure><img src="../../../.gitbook/assets/2023-07-18_10-50-48.png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
 
-From here, you can alter existing entrypoints by changing the context path, add a new entrypoint by selecting the **Add context path** button and then adding a new context path, and/or deleting existing entrypoints by selecting the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM.png" alt="" data-size="line"> icon that correlates to the entrypoint that you want to delete.&#x20;
+From here, you can:&#x20;
+
+* Alter existing entrypoints by changing the context path
+* Add a new entrypoint by selecting the **Add context path** button and then adding a new context path
+* Delete existing entrypoints by selecting the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM.png" alt="" data-size="line"> icon that correlates to the entrypoint that you want to delete
 
 When you are done, make sure to redeploy the API for your changes to take effect.
