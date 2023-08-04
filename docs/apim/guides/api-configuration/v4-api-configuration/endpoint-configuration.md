@@ -42,63 +42,63 @@ Endpoint configuration may differ depending on which endpoint(s) your API utiliz
 
 The **Kafka** endpoint allows the Gateway to open up a persistent connection with and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
-* How the Gateway will interact with the broker by instructing the Gravitee Gateway's Kafka client to act as a producer, a consumer, or both a producer and consumer. Choose **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu.
+* How the Gateway will interact with the broker. This is done by instructing the Gravitee Gateway's Kafka client to act as a producer, a consumer, or both a producer and consumer via the drop-down menu:
   * **Use Producer:** Tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint.
   * **Use Consumer:** Tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint.
   * **Use Producer and Consumer:** Tell the Gateway Kafka client to both **Use Producer** and **Use Consumer**.
-* **Bootstrap servers:** Define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. The list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all backend servers irrespective of which servers the list designates for bootstrapping.&#x20;
-* **Initial security settings:** You will define more Gravitee Gateway-specific security settings later on, but this is where you define your Kafka-specific authentication flow. Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL protocols. Depending on which you choose, you will need to define:
-  * **PLAINTEXT:** No further security config necessary.
-  * **SASL**
-    * **SASL mechanism:** Used for client connections. This will be GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512.
+* **Bootstrap servers:** Define the comma-separated list of host/port pairs used to establish the initial connection to the Kafka cluster. The list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all backend servers irrespective of which servers the list designates for bootstrapping.&#x20;
+*   **Initial security settings:** Define your Kafka-specific authentication flow (you will define additional Gravitee Gateway-specific security settings later). Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL protocols. Depending on which you choose, you will need to define:
+
+    **PLAINTEXT:** No further security configuration is necessary.
+
+    **SASL**
+
+    * **SASL mechanism:** Choose GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512 for client connections.
     * **SASL JAAS Config:** The JAAS login context parameters for SASL connections in JAAS configuration file format.
-  * **SSL**
-    * **Truststore:** depending on your truststore type, you will need to define:
-      * **PEM with location**
-        * Define the **location of your truststore file**.
-      * **PEM with certificates**
-        * Define the trusted certificates in the format specified by 'ssl.truststore.type'.
-      * **JKS with location**
-        * Define the **location of your truststore file**.
-        * Define the **SSL truststore password** for the truststore file.
-      * **JKS with certificates**
-        * Define the trusted certificates in the format specified by 'ssl.truststore.type'.
-        * Define the **SSL truststore password** for the truststore file.
-      * **PKCS12 with location**
-        * Define the **location of your truststore file**.
-        * Define the **SSL truststore password** for the truststore file.
-      * **PKCS12 with certificates**
-        * Define the **trusted certificates** in the format specified by 'ssl.truststore.type'.
-        * Define the **SSL truststore password** for the truststore file.
-    * **Keystore:**
-      * **PEM with location**
-        * Define the **SSL keystore certificate chain**.
-        * Define the location of your keystore file.
-      * **PEM with Key**
-        * Define the **SSL keystore certificate chain**.
-        * Define the **SSL keystore private key** by defining the **Key** and the **Key password**.
-      * **JKS with location**
-        * Define the **location of your keystore file**.
-        * Define the **SSL keystore password** for the keystore file.
-      * **JKS with Key**
-        * Define the **SSL keystore private key** by defining the **Key** and the **Key password**.
-        * Define the **SSL keystore password** for the keystore file.
-      * **PKCS12 with location**
-        * Define the **location of your keystore file**.
-        * Define the **SSL keystore password** for the keystore file.
-      * **PKCS12 with Key**
-        * Define the **SSL keystore private key** by defining the **Key** and the **Key password**.
-        * Define the **SSL keystore password** for the keystore file.
-* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
-  * **Topic:** the topic that the broker uses to filter messages for each connected client.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
-  * **Topic:** the topic(s) from which your Gravitee Gateway client will consume messages.
+
+    **SSL truststore:** Depending on your truststore type, you will need to define:
+
+    * **PEM with location:** The location of your truststore file.
+    * **PEM with certificates:** The trusted certificates, in the format specified by `ssl.truststore.type`.
+    * **JKS with location:** The truststore file's location and SSL truststore password.
+    * **JKS with certificates**
+      * The trusted certificates, in the format specified by `ssl.truststore.type`.
+      * The truststore file's SSL truststore password.
+    * **PKCS12 with location:** The truststore file's location and SSL truststore password.
+    * **PKCS12 with certificates**
+      * The trusted certificates, in the format specified by `ssl.truststore.type`.
+      * The truststore file's SSL truststore password.
+
+    **SSL keystore:** Depending on your keystore type, you will need to define:
+
+    * **PEM with location**
+      * The SSL keystore certificate chain.
+      * The location of the keystore file.
+    * **PEM with Key**
+      * The SSL keystore certificate chain.
+      * The SSL keystore private key via defining the Key and the Key password.
+    * **JKS with location**
+      * The location of the keystore file.
+      * The SSL keystore password for the keystore file.
+    * **JKS with Key**
+      * The SSL keystore private key via defining the Key and the Key password.
+      * The SSL keystore password for the keystore file.
+    * **PKCS12 with location**
+      * The location of your keystore file.
+      * The SSL keystore password for the keystore file.
+    * **PKCS12 with Key**
+      * The SSL keystore private key via defining the Key and the Key password.
+      * The SSL keystore password for the keystore file.
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to produce messages to your backend Kafka topic/broker. You will need to define:
+  * **Topic:** The topic that the broker uses to filter messages for each connected client.
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to consume messages from your backend Kafka topic/broker. You will need to define:
+  * **Topic:** The topic(s) from which your Gravitee Gateway client will consume messages.
   * **Encode message Id:** Toggle this ON or OFF to encode message IDs in base64.
   * **Auto offset reset:** Use the **Auto offset reset** drop-down menu to configure what happens when there is no initial offset in Kafka, or if the current offset no longer exists on the server:
-    * **Earliest:** automatically reset the offset to the earliest offset.
-    * **Latest:** automatically reset the offset to the latest offset.
-    * **None:** throw an exception to the consumer if no previous offset is found for the consumer's group.
-    * **Anything else:** throw an exception to the consumer.
+    * **Earliest:** Automatically reset the offset to the earliest offset.
+    * **Latest:** Automatically reset the offset to the latest offset.
+    * **None:** Throw an exception to the consumer if no previous offset is found for the consumer's group.
+    * **Anything else:** Throw an exception to the consumer.
 
 </details>
 
