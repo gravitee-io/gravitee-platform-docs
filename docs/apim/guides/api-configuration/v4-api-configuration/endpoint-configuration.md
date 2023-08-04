@@ -1,7 +1,5 @@
 ---
-description: >-
-  This article walks through how to configure endpoints for your Gravitee v4
-  APIs
+description: This article walks through how to configure v4 API endpoints
 ---
 
 # Endpoint configuration

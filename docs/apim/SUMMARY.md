@@ -78,6 +78,7 @@
     * [Endpoint configuration](guides/api-configuration/v4-api-configuration/endpoint-configuration.md)
     * [Portal General Settings](guides/api-configuration/v2-api-configuration/api-general-settings.md)
     * [Quality of Service](guides/api-configuration/v4-api-configuration/quality-of-service.md)
+    * [Endpoint implementation](guides/api-configuration/v4-api-configuration/endpoint-implementation.md)
   * [v2 API configuration](guides/api-configuration/v2-api-configuration/README.md)
     * [Documentation](guides/api-configuration/v2-api-configuration/documentation.md)
     * [Load-Balancing, Failover, and Health Checks](guides/api-configuration/load-balancing-failover-and-health-checks.md)
