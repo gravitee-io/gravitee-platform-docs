@@ -202,14 +202,14 @@ When you are done configuring your entrypoints, make sure to select **Save chang
 
 ## Configure v4 Proxy API entrypoints
 
-To alter v4 Proxy API entrypoints, select your API, and then select **General** under the **Entrypoints** category in the left-hand nav.&#x20;
+To alter v4 Proxy API entrypoints, select your API, and then select **General** from the **Entrypoints** category in the left-hand nav.&#x20;
 
 <figure><img src="../../../.gitbook/assets/2023-07-18_10-50-48.png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
 
 From here, you can:&#x20;
 
 * Alter existing entrypoints by changing the context path
-* Add a new entrypoint by selecting the **Add context path** button and then adding a new context path
-* Delete existing entrypoints by selecting the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM.png" alt="" data-size="line"> icon that correlates to the entrypoint that you want to delete
+* Add a new entrypoint by clicking **Add context path** and then adding a new context path
+* Delete existing entrypoints by clicking the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM.png" alt="" data-size="line"> icon associated with the entrypoint that you want to delete
 
 When you are done, make sure to redeploy the API for your changes to take effect.

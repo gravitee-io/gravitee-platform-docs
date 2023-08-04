@@ -192,7 +192,7 @@ The Endpoint Mock endpoint allows you to mock a backend service to emulate the b
 
 ## Configure v4 Proxy API endpoints
 
-To alter v4 Proxy API endpoints, select your API, and then select **Backend Services** underneath the **Endpoints** category in the left-hand nav.&#x20;
+To alter v4 Proxy API endpoints, select your API, then select **Backend services** from the **Endpoints** category in the left-hand nav.&#x20;
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt=""><figcaption><p>Access v4 Proxy API endpoint configuration</p></figcaption></figure>
 
@@ -200,12 +200,12 @@ From here, you can alter existing endpoints ([created during API creation](../..
 
 ### Alter and delete existing endpoints
 
-To alter your existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration as you see fit. You can find more information on v4 Proxy API configuration in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).&#x20;
+To alter an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration. You can find more information on v4 Proxy API configuration in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).&#x20;
 
-To delete your existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** within the Endpoints menu.
+To delete an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
 
 ### Create new endpoints
 
-To create a new endpoint for your v4 Proxy API, select the **Add endpoint** button, and then define it following the instructions laid out in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).
+To create a new endpoint for your v4 Proxy API, click **Add endpoint**. Configure the endpoint per the instructions in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).
 
 When you are done, make sure to redeploy the API for your changes to take effect.
