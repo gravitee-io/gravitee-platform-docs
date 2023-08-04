@@ -40,12 +40,12 @@ Endpoint configuration may differ depending on which endpoint(s) your API utiliz
 
 <summary>Kafka</summary>
 
-The **Kafka** endpoint allows the Gateway to open up a persistent connection with and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
+The **Kafka** endpoint allows the Gateway to open up a persistent connection to and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
 * How the Gateway will interact with the broker. This is done by instructing the Gravitee Gateway's Kafka client to act as a producer, a consumer, or both a producer and consumer via the drop-down menu:
   * **Use Producer:** Tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint.
   * **Use Consumer:** Tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint.
-  * **Use Producer and Consumer:** Tell the Gateway Kafka client to both **Use Producer** and **Use Consumer**.
+  * **Use Producer and Consumer:** Tells the Gateway Kafka client to both **Use Producer** and **Use Consumer**.
 * **Bootstrap servers:** Define the comma-separated list of host/port pairs used to establish the initial connection to the Kafka cluster. The list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all backend servers irrespective of which servers the list designates for bootstrapping.&#x20;
 *   **Initial security settings:** Define your Kafka-specific authentication flow (you will define additional Gravitee Gateway-specific security settings later). Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL protocols. Depending on which you choose, you will need to define:
 
@@ -89,9 +89,9 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection wit
     * **PKCS12 with Key**
       * The SSL keystore private key via defining the Key and the Key password.
       * The SSL keystore password for the keystore file.
-* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to produce messages to your backend Kafka topic/broker. You will need to define:
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to produce messages to your backend Kafka topic/broker:
   * **Topic:** The topic that the broker uses to filter messages for each connected client.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to consume messages from your backend Kafka topic/broker. You will need to define:
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to consume messages from your backend Kafka topic/broker:
   * **Topic:** The topic(s) from which your Gravitee Gateway client will consume messages.
   * **Encode message Id:** Toggle this ON or OFF to encode message IDs in base64.
   * **Auto offset reset:** Use the **Auto offset reset** drop-down menu to configure what happens when there is no initial offset in Kafka, or if the current offset no longer exists on the server:
@@ -106,23 +106,23 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection wit
 
 <summary>MQTT5</summary>
 
-The **MQTT 5** endpoint allows the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x, via an MQTT client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
+The **MQTT 5** endpoint allows the Gateway to open up a persistent connection to and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x via an MQTT client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
-* How the Gateway will interact the broker by instructing the Gravitee Gateway's MQTT client to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
-  * **Use Producer:** tells the Gateway MQTT client to be prepared to produce messages and send them to the MQTT broker that you define as your endpoint.
-  * **Use Consumer:** tells the Gateway MQTT client to be prepared to consume messages from the MQTT broker that you define as your endpoint.
-  * **Use Producer and Consumer**: tell the Gateway MQTT client to both **Use Producer** and **Use Consumer**.
-* **Server host:** define the serverHost for the MQTT broker that you are using as your endpoint.
-* **Server port:** define the serverPort for the MQTT broker that you are using as your endpoint.
-* **Reconnect attempts:** specify an integer number of reconnect attemps that the Gateway will initiate if the Gateway MQTT client disconnects from the MQTT broker. The maximum is 10.
-* **Session expiry interval:** defines the period of time that the broker stores the session information of that particular MQTT client. When the session expiry interval is set to **0** or the CONNECT packet does not contain an expiry value, the session information is immediately removed from the broker when the client network connection closes.
-* **Clean start:** toggle **Clean start** ON or OFF to enable or disable the **cleanStart** tag. This tag causes the MQTT broker to discard any previous session data and the Gateway MQTT client to connect with a fresh session.
-* **Initial security settings:** you will define more Gravitee Gateway-specific security settings later on, but this is where you define your MQTT-specific authentication flow. Gravitee supports username and password using TLS. You will need to define:
+* How the Gateway will interact the broker. This is done by instructing the Gravitee Gateway's MQTT client to act as either a producer, a consumer, or both a producer and consumer via the drop-down menu:
+  * **Use Producer:** Tells the Gateway MQTT client to be prepared to produce messages and send them to the MQTT broker that you define as your endpoint.
+  * **Use Consumer:** Tells the Gateway MQTT client to be prepared to consume messages from the MQTT broker that you define as your endpoint.
+  * **Use Producer and Consumer**: Tells the Gateway MQTT client to both **Use Producer** and **Use Consumer**.
+* **Server host:** Define the serverHost for the MQTT broker that you are using as your endpoint.
+* **Server port:** Define the serverPort for the MQTT broker that you are using as your endpoint.
+* **Reconnect attempts:** Specify an integer number (max 10) of reconnect attempts that the Gateway will initiate if the Gateway MQTT client disconnects from the MQTT broker.
+* **Session expiry interval:** Define the period of time that the broker stores the session information of that particular MQTT client. When the session expiry interval is set to 0 or the CONNECT packet does not contain an expiry value, the session information is immediately removed from the broker when the client network connection closes.
+* **Clean start:** Toggle **Clean start** ON or OFF to enable or disable the **cleanStart** tag. This tag causes the MQTT broker to discard any previous session data and the Gateway MQTT client to connect with a fresh session.
+* **Initial security settings:** Define your MQTT-specific authentication flow (you will define more Gravitee Gateway-specific security settings later). Gravitee uses TLS to support username and password. Define:
   * Username
   * Password
-* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for producing messages to your backend MQTT topic/broker. You will need to specify:
-  * **Topic:** the UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).
-  * **Retain settings:** whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway MQTT client will rely on to produce messages to your backend MQTT topic/broker:
+  * **Topic:** The UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).
+  * **Retain settings:** Whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
   * **Message expiry interval:** defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the "retained=true" option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
   * **Response topic:** represents the topics on which the responses from the message receivers are expected.
 * **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume messages
