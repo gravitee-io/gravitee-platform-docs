@@ -182,11 +182,11 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
 
 <summary>Mock</summary>
 
-The Endpoint Mock endpoint allows you to mock a backend service to emulate the behavior of a typical HTTP server and test processes. If you chose this endpoint, you will need to configure:
+The **Mock** endpoint allows you to mock a backend service to emulate the behavior of a typical HTTP server and test processes. If you chose this endpoint, you will need to configure:
 
-* **Interval between messages publication:** defines, in milliseconds, the interval between published messages. The default is 1000.
-* **Content of published messages:** defines the content of the message body that will be streamed. The default is "mock message".
-* **Count of published messages:** defines, as an integer, the maximum number of published messages that are streamed as a part of the mocking. If left unspecified, there will be no limit.
+* **Interval between messages publication:** Define, in milliseconds (default 1000), the interval between published messages.
+* **Content of published messages:** Define the content of the message body that will be streamed. The default is "mock message."
+* **Count of published messages:** Define, as an integer, the maximum number of published messages that are streamed as a part of the mocking. If left unspecified, there will be no limit.
 
 </details>
 
