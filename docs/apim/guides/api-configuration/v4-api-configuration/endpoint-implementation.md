@@ -40,8 +40,52 @@ A shared producer is created by the endpoint and reused for all requests that ha
 
 * **ClientId:** The client ID of the producer is generated with the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`.
 * **Partitioning:** The only supported method for targeting a specific partition is to define a key and rely on the built-in partitioning mechanism. Kafka uses the key to compute the associated partition ( hash(key) % nm of partition). Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee doesn't support overriding this mechanism to manually set the partition. To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` must be added to the message.
-* **QoS:** The producer uses one of the following:
-  * None
-  * Auto
-  * At Least Once
-  * At Most Once
+* **QoS:** The producer uses none, auto, at-least-once, or at-most-once QoS
+
+## RabbitMQ
+
+### Subscribe
+
+#### Exchange
+
+The endpoint will declare the exchange with the option provided by the configuration at the API level. The exchange name can be overridden with the attribute `rabbitmq.exchange`**.**
+
+If the exchange options provided are incompatible with the existing exchange found on Rabbit, the request will be interrupted with an error.
+
+#### Queue
+
+A queue will be created using the client identifier of the request following this format: `gravitee/gio-gateway/<clientIdentifier>`**.**
+
+The created queue will have different options depending on the QoS applied on the entrypoint:
+
+* None:
+  * durable = false
+  * autoDelete = true
+* Auto
+  * durable = true
+  * autoDelete = false
+* **Other not supported**
+
+If the queue already exists, the messages would be load-balanced between both clients.
+
+#### RoutingKey
+
+In order to route the right messages to the queue, A routing key is used from the API configuration and used to create the binding between the exchange and the queue.
+
+The routing key can be overridden with the attribute `rabbitmq.routingKey.`
+
+### QoS
+
+* None
+
+Strategy applying a high throughput, low latency, no durability, and no reliability.
+
+> The broker forgets about a message as soon as it has sent it to the consumer. Use this mode if downstream subscribers are very fast, at least faster than the flow of inbound messages. Messages will pile up in the JVM process memory if subscribers are not able to cope with the flow of messages, leading to out-of-memory errors. Note this mode uses the auto-acknowledgment mode when registering the RabbitMQ Consumer.
+
+* Auto
+
+Strategy balancing between performances and quality.
+
+When the entrypoint supports manual ack, the strategy will use it. Otherwise, it will use auto ack coming from the RabbitMQ Reactor library:
+
+> _With this mode, messages are acknowledged right after their arrival, in the Flux#doOnNext callback. This can help to cope with the flow of messages, avoiding the downstream subscribers to be overwhelmed. Note this mode does not use the auto-acknowledgment mode when registering the RabbitMQ Consumer. In this case, consumeAutoAck means messages are automatically acknowledged by the library in one the Flux hooks._
