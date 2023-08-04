@@ -5,6 +5,22 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.2 - August 4, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Portal**
+
+* Logout issue on portal [#9156](https://github.com/gravitee-io/issues/issues/9156)
+
+**Other**
+
+* API promotion fails if sharding tags applied on API [#9121](https://github.com/gravitee-io/issues/issues/9121)
+
+</details>
 
 ## Gravitee API Management 4.0.0 - July 20, 2023
 
