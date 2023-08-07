@@ -6,6 +6,40 @@ description: >-
 
 # APIM 4.0.x
 
+## Gravitee API Management 4.0.2 - August 4, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Portal**
+
+* Logout issue on portal [#9156](https://github.com/gravitee-io/issues/issues/9156)
+
+**Other**
+
+* API promotion fails if sharding tags applied on API [#9121](https://github.com/gravitee-io/issues/issues/9121)
+
+</details>
+
+## Gravitee API Management 4.0.1 - August 4, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Log exception parameter of execution failure [#9148](https://github.com/gravitee-io/issues/issues/9148)
+
+**Management API**
+
+* Dashboard for analytics is shown for all environments [#9058](https://github.com/gravitee-io/issues/issues/9058)
+* First API export causes API desynchronization [#9059](https://github.com/gravitee-io/issues/issues/9059)
+* Creating a plan on a v2 API leads to null values in the description [#9153](https://github.com/gravitee-io/issues/issues/9153)
+
+</details>
+
 ## Gravitee API Management 4.0.0 - July 20, 2023
 
 For more in-depth information on what's new, please refer to the [Gravitee APIM 4.0 release notes](../release-notes/gravitee-4.x/apim-4.0.md).
@@ -94,11 +128,11 @@ For more in-depth information on what's new, please refer to the [Gravitee APIM 
 
 <summary>Breaking Changes</summary>
 
-#### EE plugins
+**EE plugins**
 
 * Starting with APIM 4.0, particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md) for additional information.
 
-#### Running APIM
+**Running APIM**
 
 * APIM now requires a minimum of JDK 17.
 * Starting with 4.0.0, there will no longer be enterprise tags (i.e. suffixed by `-ee`).
@@ -119,7 +153,7 @@ or using environment variables:
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
 
-#### **Monitoring APIM**
+**Monitoring APIM**
 
 * The name of the sync probe has been changed from `api-sync` to `sync-process` to make it explicit when all sync processes have been completed.
 * The content of the sync handler has changed slightly to align with new concepts:
@@ -132,7 +166,7 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 * v4 APIs currently only support the ElasticSearch reporter. If any other reporter is configured at the Gateway level, each v4 API call will produce an error log.
   * When using a different reporter, it remains possible to disable analytics on a per-API basis to avoid generating error logs for v4 APIs.
 
-#### **Managing APIs**
+**Managing APIs**
 
 *   The endpoint configuration is now split into:
 
