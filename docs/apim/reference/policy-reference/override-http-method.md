@@ -87,7 +87,7 @@ The phases checked below are supported by the Override HTTP Method policy:
 
 ## Compatibility matrix
 
-In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `override-http-method` policy.
+In the [changelog for each version of APIM](../../releases-and-changelogs/changelogs/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `override-http-method` policy.
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>&#x3C;=2.x</td><td>>=3.21</td></tr><tr><td>&#x3C;=1.x</td><td>All</td></tr></tbody></table>
 

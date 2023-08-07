@@ -56,7 +56,7 @@ The phases checked below are supported by the JSON-to-XML policy:
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `traffic-shadowing` policy.
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `traffic-shadowing` policy.
 
 | Plugin version | Supported APIM versions            |
 | -------------- | ---------------------------------- |

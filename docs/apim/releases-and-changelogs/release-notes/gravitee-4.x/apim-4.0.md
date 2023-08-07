@@ -6,7 +6,7 @@ description: This article covers the new features released in Gravitee API Manag
 
 ## Introduction
 
-Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support for asynchronous APIs, event brokers, and protocol mediation-especially as it pertains to what is surfaced in the API Management Console. For a more paired-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../../changelog/gravitee-4.0.x-changelog.md). Otherwise, keep reading for a more in-depth exploration of everything that was released in APIM 4.0.
+Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support for asynchronous APIs, event brokers, and protocol mediation-especially as it pertains to what is surfaced in the API Management Console. For a more paired-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../../changelogs/apim-4.0.x-changelog.md). Otherwise, keep reading for a more in-depth exploration of everything that was released in APIM 4.0.
 
 ## The new v4 API creation wizard
 

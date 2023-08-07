@@ -79,7 +79,7 @@ This adds a `user` column in the logs table.
 
 ## Compatibility matrix
 
-In the [changelog for each version of APIM](../../releases-and-changelog/changelog/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `basic-authentication` policy.
+In the [changelog for each version of APIM](../../releases-and-changelogs/changelogs/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `basic-authentication` policy.
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>>=1.4</td><td>>=3.15</td></tr><tr><td>&#x3C;=1.x</td><td>&#x3C;3.15</td></tr></tbody></table>
 

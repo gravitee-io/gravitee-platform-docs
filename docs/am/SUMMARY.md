@@ -128,9 +128,9 @@
 
 ## Releases & Changelog
 
-* [Release Notes](releases-and-changelog/release-notes.md)
-* [Changelog](releases-and-changelog/changelogs/README.md)
-  * [AM 4.0.x](releases-and-changelog/changelogs/am-4.x.x-2023-07-26.md)
+* [Release Notes](releases-and-changelogs/release-notes.md)
+* [Changelog](releases-and-changelogs/changelogs/README.md)
+  * [AM 4.0.x](releases-and-changelogs/changelogs/am-4.0.x-changelog.md)
 
 ## Community & Support
 

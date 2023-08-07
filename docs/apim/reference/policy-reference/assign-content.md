@@ -66,7 +66,7 @@ The phases checked below are supported by the Assign Content policy:
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>>= 1.7.x</td><td>>=3.10</td></tr><tr><td>&#x3C;=1.6.x</td><td>&#x3C;=3.9</td></tr></tbody></table>
 
