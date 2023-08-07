@@ -44,7 +44,7 @@ By default, the consumer that is created will either resume from where it left o
 
 Offsets are determined by partitions, which results in numerous possible mappings. Due to the inherent complexity of offset selection, Gravitee has introduced a mechanism to target a specific position on a Kafka topic.&#x20;
 
-Given a compatible entrypoint (SSE, HTTP GET) and by using at-most-once or at-least-once QoS, it is possible to specify a last event ID. The format is encoded by default but follows the pattern:
+Given a compatible entrypoint (SSE, HTTP GET) and by using At Most Once or At Least Once QoS, it is possible to specify a last event ID. The format is encoded by default but follows the pattern:
 
 ```yaml
 <topic1>@<partition11>#<offset11>,<partition12>#<offset12>;<topic2>@<partition21>#<offset21>,<partition22>#<offset22>...
@@ -188,7 +188,7 @@ Publication is characterized by:
 
 #### Topic
 
-The topic is retrieved from the API configuration, and cannot be overridden with attributes.
+The topic is retrieved from the API configuration and cannot be overridden with attributes.
 
 </details>
 
