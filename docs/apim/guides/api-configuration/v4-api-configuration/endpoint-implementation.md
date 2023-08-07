@@ -18,7 +18,9 @@ Gravitee supports several different message brokers. This page describes the int
 
 <summary>Subscribe</summary>
 
-For each incoming request, a consumer is created and will persist until the request terminates. The Kafka endpoint retrieves information from the request to create a dedicated consumer characterized by:
+For each incoming request, a consumer is created and will persist until the request terminates. The Kafka endpoint retrieves information from the request to create a dedicated consumer.
+
+Subscription is characterized by:
 
 **ConsumerGroup**
 
@@ -28,7 +30,7 @@ The consumer group is computed from the request's client identifier and is used 
 
 A client ID is generated for the consumer with the format `gio-apim-consumer-<first part of uuid>`, e.g., `gio-apim-consumer-a0eebc99`.
 
-**Topics**
+**Topic**
 
 A topic is retrieved from the API configuration and can be overridden with the attribute `gravitee.attribute.kafka.topics`**.**
 
@@ -56,13 +58,15 @@ For example, `my-topic@1#0,2#0`.
 
 <summary>Publish</summary>
 
-A shared producer is created by the endpoint and reused for all requests that have the same configuration. A shared producer is characterized by:
+A shared producer is created by the endpoint and reused for all requests that have the same configuration.&#x20;
+
+A producer is characterized by:
 
 **ClientId**
 
 The client ID of the producer is generated with the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`.
 
-**Topics**
+**Topic**
 
 A topic is retrieved from the API configuration and can be overridden, either on the request for all messages or directly on the message, with the attribute `gravitee.attribute.kafka.topics`.
 
@@ -77,8 +81,6 @@ To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` mu
 </details>
 
 ## MQTT
-
-
 
 <details>
 
@@ -100,7 +102,9 @@ The default value is 86,400 seconds. If the value in the configuration is less t
 
 <summary>Subscribe</summary>
 
-On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to subscribe to a shared topic. The MQTT endpoint retrieves information from the request to configure the subscription. Subscription is characterized by:
+On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to subscribe to a shared topic. The MQTT endpoint retrieves information from the request to configure the subscription.&#x20;
+
+Subscription is characterized by:
 
 **Shared subscription**
 
@@ -120,7 +124,9 @@ When the entrypoint supports manual ack, the strategy will use it. Otherwise, it
 
 <summary>Publish</summary>
 
-On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to publish messages on a topic. This publication is done with MQTT at-least-once QoS, without expiration. Publication is characterized by:
+On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to publish messages on a topic. This publication is done with MQTT at-least-once QoS, without expiration.&#x20;
+
+Publication is characterized by:
 
 **Topic**
 
@@ -146,7 +152,9 @@ On each incoming request, the endpoint searches an internal cache for an existin
 
 <summary>Subscribe</summary>
 
-On each incoming request, the common messaging service ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#h3go9-common)) is used to create a dedicated message receiver. Subscription is characterized by:
+On each incoming request, the common messaging service ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#h3go9-common)) is used to create a Dedicated Message Receiver.&#x20;
+
+Subscription is characterized by:
 
 ### Message Receiver
 
@@ -170,29 +178,19 @@ The topic is retrieved from the API configuration and cannot be overridden via a
 
 </details>
 
-### Subscribe
-
-
-
-
-
 <details>
 
 <summary>Publish</summary>
 
+On each incoming request, the common messaging service ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#h3go9-common)) is used to create a Direct Message Publisher with a backpressure reject mode limited to 10 messages.
 
-
-</details>
-
-### Publish
-
-As for subscribe mode, on each incoming request, the endpoint searches from an internal cache an existing Solace messaging service for the API configuration, otherwise, it will create a new one from the API configuration.
-
-A Direct Message Publisher is created for the request with a backpressure reject mode limited to 10 messages.
+Publication is characterized by:
 
 #### Topic
 
 The topic is retrieved from the API configuration, and cannot be overridden with attributes.
+
+</details>
 
 ## RabbitMQ
 
