@@ -5,6 +5,24 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.1 - August 4, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Log exception parameter of execution failure [#9148](https://github.com/gravitee-io/issues/issues/9148)
+
+**Management API**
+
+* Dashboard for analytics are shown from all environments [#9058](https://github.com/gravitee-io/issues/issues/9058)
+* First API Export Causes API Desynchronization [#9059](https://github.com/gravitee-io/issues/issues/9059)
+* Creating a plan on a v2 API leads to null values in the description [#9153](https://github.com/gravitee-io/issues/issues/9153)
+
+</details>
 
 ## Gravitee API Management 4.0.0 - July 20, 2023
 
