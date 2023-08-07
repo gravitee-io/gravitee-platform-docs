@@ -40,7 +40,7 @@ The phases checked below are supported by the XML Validation policy:
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.&#x20;
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution.&#x20;
 
 ## Errors
 

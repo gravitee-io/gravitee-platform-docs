@@ -103,7 +103,7 @@ The phases checked below are supported by the HTTP Callout policy:
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `callout-http` policy.
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `callout-http` policy.
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>>= 2.x</td><td>>=3.18</td></tr><tr><td>>= 1.15.x</td><td>3.15.x - 3.17.x</td></tr><tr><td>1.13.x - 1.14.x</td><td>3.10.x - 3.14.x</td></tr><tr><td>&#x3C;= 1.12.x</td><td>&#x3C;=3.9.x</td></tr></tbody></table>
 

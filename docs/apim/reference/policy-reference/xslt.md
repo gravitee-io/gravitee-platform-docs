@@ -127,7 +127,7 @@ The phases checked below are supported by the XSLT policy:
 
 ## Compatibility
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution.
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution.
 
 ## Errors
 

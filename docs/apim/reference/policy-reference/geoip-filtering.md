@@ -67,7 +67,7 @@ The phases checked below are supported by the GeoIP-Filtering policy:
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `geoip-filtering` policy.
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `geoip-filtering` policy.
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>2.x and upper</td><td>4.0.x to latest</td></tr><tr><td>1.x</td><td>Up to 3.20.x</td></tr></tbody></table>
 
