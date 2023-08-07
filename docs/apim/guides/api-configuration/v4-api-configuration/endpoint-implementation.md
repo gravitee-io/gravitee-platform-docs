@@ -188,47 +188,51 @@ The topic is retrieved from the API configuration and cannot be overridden with 
 
 On each incoming request, the RabbitMQ endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. The consumer is characterized by:
 
-**Connection Name**
+### Connection Name
 
-The connection name of the consumer is generated and follows the format: `gio-apim-consumer-<first part of uuid>` for example `gio-apim-consumer-a0eebc99`
+The connection name of the consumer is generated with the format `gio-apim-consumer-<first part of uuid>`, e.g., `gio-apim-consumer-a0eebc99`.
 
-**Exchange**
+### Exchange
 
-The endpoint will declare the exchange with the option provided by the configuration at the API level. The exchange name can be overridden with the attribute `rabbitmq.exchange`**.**
+The endpoint will declare the exchange with the options provided by the configuration at the API level. The exchange name can be overridden with the attribute `rabbitmq.exchange`**.**
 
-If the exchange options provided are incompatible with the existing exchange found on Rabbit, the request will be interrupted with an error.
+If the provided exchange options are incompatible with the existing exchange found on RabbitMQ, the request will be interrupted with an error.
 
-**Queue**
+### Queue
 
-A queue will be created using the client identifier of the request following this format: `gravitee/gio-gateway/<clientIdentifier>`**.**
+A queue will be created using the request's client identifier with the format `gravitee/gio-gateway/<clientIdentifier>`**.**
 
 The created queue will have different options depending on the QoS applied on the entrypoint:
 
-* None:
-  * durable = false
-  * autoDelete = true
-* Auto
-  * durable = true
-  * autoDelete = false
-* **Other not supported**
+**None**
 
-If the queue already exists, the messages would be load-balanced between both clients.
+* durable = false
+* autoDelete = true
 
-**RoutingKey**
+**Auto**
 
-In order to route the right messages to the queue, a routing key is used from the API configuration to create the binding between the exchange and the queue.
+* durable = true
+* autoDelete = false
+
+**Other not supported**
+
+If the queue already exists, the messages will be load-balanced between both clients.
+
+### Routing Key
+
+In order to route the proper messages to the queue, a routing key is used from the API configuration to create the binding between the exchange and the queue.
 
 The routing key can be overridden with the attribute `rabbitmq.routingKey`
 
-**QoS**
+### QoS
 
-* None
+**None**
 
 Strategy applying a high throughput, low latency, no durability, and no reliability.
 
 The broker forgets about a message as soon as it has sent it to the consumer. Use this mode if downstream subscribers are very fast, at least faster than the flow of inbound messages. Messages will pile up in the JVM process memory if subscribers are not able to cope with the flow of messages, leading to out-of-memory errors. Note this mode uses the auto-acknowledgment mode when registering the RabbitMQ Consumer.
 
-* Auto
+**Auto**
 
 Strategy balancing between performances and quality.
 
