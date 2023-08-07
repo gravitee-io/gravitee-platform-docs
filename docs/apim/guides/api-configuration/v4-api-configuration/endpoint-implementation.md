@@ -18,9 +18,7 @@ Gravitee supports several different message brokers. This page describes the int
 
 <summary>Subscribe</summary>
 
-For each incoming request, a consumer is created and will persist until the request terminates. The Kafka endpoint retrieves information from the request to create a dedicated consumer.
-
-Subscription is characterized by:
+For each incoming request, the Kafka endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. The consumer is characterized by:
 
 **ConsumerGroup**
 
@@ -58,9 +56,7 @@ For example, `my-topic@1#0,2#0`.
 
 <summary>Publish</summary>
 
-A shared producer is created by the endpoint and reused for all requests that have the same configuration.&#x20;
-
-A producer is characterized by:
+A shared producer is created by the endpoint and reused for all requests that have the same configuration. The producer is characterized by:
 
 **ClientId**
 
@@ -102,9 +98,7 @@ The default value is 86,400 seconds. If the value in the configuration is less t
 
 <summary>Subscribe</summary>
 
-On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to subscribe to a shared topic. The MQTT endpoint retrieves information from the request to configure the subscription.&#x20;
-
-Subscription is characterized by:
+On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to subscribe to a shared topic. The MQTT endpoint retrieves information from the request to configure the subscription. Subscription is characterized by:
 
 **Shared subscription**
 
@@ -124,9 +118,7 @@ When the entrypoint supports manual ack, the strategy will use it. Otherwise, it
 
 <summary>Publish</summary>
 
-On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to publish messages on a topic. This publication is done with MQTT at-least-once QoS, without expiration.&#x20;
-
-Publication is characterized by:
+On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to publish messages on a topic. This publication is done with MQTT at-least-once QoS, without expiration. Publication is characterized by:
 
 **Topic**
 
@@ -152,9 +144,7 @@ On each incoming request, the endpoint searches an internal cache for an existin
 
 <summary>Subscribe</summary>
 
-On each incoming request, the common messaging service ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#h3go9-common)) is used to create a Dedicated Message Receiver.&#x20;
-
-Subscription is characterized by:
+On each incoming request, the common messaging service ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#h3go9-common)) is used to create a Dedicated Message Receiver characterized by:
 
 ### Message Receiver
 
@@ -182,11 +172,9 @@ The topic is retrieved from the API configuration and cannot be overridden via a
 
 <summary>Publish</summary>
 
-On each incoming request, the common messaging service ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#h3go9-common)) is used to create a Direct Message Publisher with a backpressure reject mode limited to 10 messages.
+On each incoming request, the common messaging service ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#h3go9-common)) is used to create a Direct Message Publisher with a backpressure reject mode limited to 10 messages. Publisher characteristics include:
 
-Publication is characterized by:
-
-#### Topic
+**Topic**
 
 The topic is retrieved from the API configuration and cannot be overridden with attributes.
 
@@ -194,23 +182,23 @@ The topic is retrieved from the API configuration and cannot be overridden with 
 
 ## RabbitMQ
 
-### Subscribe
+<details>
 
-On each incoming request, a consumer is created and will live until the request ends.
+<summary>Subscribe</summary>
 
-The RabbitMQ endpoint retrieves information from the request to create a dedicated consumer:
+On each incoming request, the RabbitMQ endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. The consumer is characterized by:
 
-#### Connection Name
+**Connection Name**
 
 The connection name of the consumer is generated and follows the format: `gio-apim-consumer-<first part of uuid>` for example `gio-apim-consumer-a0eebc99`
 
-#### Exchange
+**Exchange**
 
 The endpoint will declare the exchange with the option provided by the configuration at the API level. The exchange name can be overridden with the attribute `rabbitmq.exchange`**.**
 
 If the exchange options provided are incompatible with the existing exchange found on Rabbit, the request will be interrupted with an error.
 
-#### Queue
+**Queue**
 
 A queue will be created using the client identifier of the request following this format: `gravitee/gio-gateway/<clientIdentifier>`**.**
 
@@ -226,19 +214,19 @@ The created queue will have different options depending on the QoS applied on th
 
 If the queue already exists, the messages would be load-balanced between both clients.
 
-#### RoutingKey
+**RoutingKey**
 
 In order to route the right messages to the queue, a routing key is used from the API configuration to create the binding between the exchange and the queue.
 
 The routing key can be overridden with the attribute `rabbitmq.routingKey`
 
-#### QoS
+**QoS**
 
 * None
 
 Strategy applying a high throughput, low latency, no durability, and no reliability.
 
-> The broker forgets about a message as soon as it has sent it to the consumer. Use this mode if downstream subscribers are very fast, at least faster than the flow of inbound messages. Messages will pile up in the JVM process memory if subscribers are not able to cope with the flow of messages, leading to out-of-memory errors. Note this mode uses the auto-acknowledgment mode when registering the RabbitMQ Consumer.
+The broker forgets about a message as soon as it has sent it to the consumer. Use this mode if downstream subscribers are very fast, at least faster than the flow of inbound messages. Messages will pile up in the JVM process memory if subscribers are not able to cope with the flow of messages, leading to out-of-memory errors. Note this mode uses the auto-acknowledgment mode when registering the RabbitMQ Consumer.
 
 * Auto
 
@@ -246,7 +234,17 @@ Strategy balancing between performances and quality.
 
 When the entrypoint supports manual ack, the strategy will use it. Otherwise, it will use auto ack coming from the RabbitMQ Reactor library:
 
-> _With this mode, messages are acknowledged right after their arrival, in the Flux#doOnNext callback. This can help to cope with the flow of messages, avoiding the downstream subscribers to be overwhelmed. Note this mode does not use the auto-acknowledgment mode when registering the RabbitMQ Consumer. In this case, consumeAutoAck means messages are automatically acknowledged by the library in one the Flux hooks._
+_With this mode, messages are acknowledged right after their arrival, in the Flux#doOnNext callback. This can help to cope with the flow of messages, avoiding the downstream subscribers to be overwhelmed. Note this mode does not use the auto-acknowledgment mode when registering the RabbitMQ Consumer. In this case, consumeAutoAck means messages are automatically acknowledged by the library in one the Flux hooks._
+
+</details>
+
+<details>
+
+<summary>Publish</summary>
+
+
+
+</details>
 
 ### Publish
 
