@@ -6,16 +6,14 @@ The default settings created during APIM installation can be useful for testing 
 
 This guide highlights the APIM settings that require special attention while you prepare to move to a production environment. It is organized into the following sections:
 
-* Security checklist
-* Internal API
-* Deployment
-* Authentication
-* Brute force protection
-* [Disable internal APIs](configure-a-production-ready-apim-environment.md#disable-internal-apis)
-* [Update default users](configure-a-production-ready-apim-environment.md#update-default-users)
-* [Update the JWT secret](configure-a-production-ready-apim-environment.md#update-the-jwt-secret)
-* [Update the default APIM settings](configure-a-production-ready-apim-environment.md#update-the-default-apim-settings)
-* [Portal & Console default Nginx security config](configure-a-production-ready-apim-environment.md#portal-and-console-default-nginx-security-config)
+* [Security checklist](configure-a-production-ready-apim-environment.md#security-checklist)
+* [Internal APIs](configure-a-production-ready-apim-environment.md#internal-apis)
+* [Deployment](configure-a-production-ready-apim-environment.md#deployment)
+* [Authentication](configure-a-production-ready-apim-environment.md#authentication)
+* [Brute-force protection](configure-a-production-ready-apim-environment.md#brute-force-protection)
+* [Browser protection](configure-a-production-ready-apim-environment.md#browser-protection)
+* [Other configuration settings](configure-a-production-ready-apim-environment.md#other-configuration-settings)
+* [API Management safe practices](configure-a-production-ready-apim-environment.md#api-management-safe-practices)
 
 {% hint style="warning" %}
 **Configuring APIM**
@@ -56,7 +54,9 @@ APIM API and APIM Gateway include internal APIs that are enabled by default. The
 
 ### Disabling internal APIs
 
-If you do not intend to use an internal API, **we recommend you disable it**.
+APIM API and APIM Gateway include internal APIs which are enabled by default. If you do not intend to use them, **we recommend you disable them**.
+
+Perform the following steps on both the APIM API component and the APIM Gateway component:
 
 1. Open your `gravitee.yml` file.
 2. In the `services:` section, set the `http:` `enabled` value to `false`:
@@ -66,7 +66,16 @@ services:
   core:
     http:
       enabled: false
-      ...
+      port: 18083
+      host: localhost
+      authentication:
+        # authentication type to be used for the core services
+        # - none: to disable authentication
+        # - basic: to use basic authentication
+        # default is "basic"
+        type: basic
+        users:
+          admin: adminadmin
 ```
 
 ### Enforcing security
@@ -174,7 +183,7 @@ You can find additional details regarding HTTPS support for the REST APIs in the
 
 ### Identity provider
 
-**We highly recommend using your own corporate identity provider** (must be Oauth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:
+**We highly recommend using your own corporate identity provider** (must be OAuth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:
 
 * [Gravitee Access Management](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication)
 * [GitHub](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#github-authentication)
@@ -277,17 +286,23 @@ Console and Developer Portal settings are independent, allowing you to apply dif
 
 ### User session
 
-User session is managed using a signed JWT cookie. Consider the options below to enforce security:
+Each APIM component user session is managed using a signed JWT cookie. Any user with the JWT secret can log in to APIM and update their permissions. Consider the options below to enforce security:
 
 * **Adapt the session duration** to a shorter period of time to force users to reauthenticate more frequently.
 * **Enforce the JWT secret.** Ensure it is unique and rely on a password generator.
 * **Enable cookie-secure** to force the browser to send the session cookie over HTTPS only.
+
+You can also **update cookie-path and cookie-domain** to adapt them to your own environment. The values you define must be specific to the domain and path where the API is running and must not apply to any other environment (e.g., `.gravitee.io` could apply to any domain called `xxx.gravitee.io`, such as `dev.gravitee.io` or `qa.gravitee.io`)
 
 ```yaml
 jwt:
   secret: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3ecf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3ecf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3ecf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
   expire-after: 172800 # 2 days
   cookie-secure: true
+  #cookie-path: /
+  # Allows to define cookie domain (default "")
+  #cookie-domain: .gravitee.io
+  # Allows to define if cookie secure only (default false)
 ```
 
 ### Other options
@@ -416,7 +431,7 @@ notifiers:
 
 Specifying a list of authorized URLs allows the administrator to restrict URL notifications. This is particularly useful for companies that need to rely on a corporate Webhook system.
 
-## API management safe practices
+## API Management safe practices
 
 ### Roles, permissions, and groups
 
@@ -433,155 +448,27 @@ You can find detail on roles, groups, and permissions in the [Gravitee documenta
 
 ### API review & quality
 
-You can **enable API review and quality** to avoid unexpected public exposure to the Developer Portal without strong security requirements or if you want a member of a quality team to review API designs prior to deploying the API and make it accessible from the API consumers. This can be a smooth way to put a good API strategy in place with strong requirements.
+You can **enable API review and quality** to avoid public exposure to the Developer Portal that is unexpected and lacks strong security requirements, or if you want a member of a Quality team to review API designs prior to deploying the API and making it accessible to API consumers. This can seamlessly establish a robust API strategy.
 
-You will find more information about API review and quality in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature).
+You can find more information about API review and quality in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature).
 
 ### API design
 
-There is no "rule of thumb" when it comes to designing and exposing your APIs. It always depends on the business requirements. However, here are some considerations to keep up on the list to avoid mistakes and open unexpected security breaches:
+There is no "rule of thumb" when it comes to designing and exposing your APIs, as this always depends on the business requirements. However, consider the following to avoid mistakes and open unexpected security breaches:
 
-* Enable and configure Cors at API level. This ensures the best level of security when the API is consumed by browser-based applications. See [details here](https://documentation.gravitee.io/apim/guides/api-configuration/v2-api-configuration/configure-cors#configure-cors).
-* Avoid exposing an API without security (ie keyless plan) when possible. Always prefer stronger security solutions such as JWT or Oauth2.
-* Disable auto validation of API subscriptions to manually validate each of them. This ensures that you know your API consumers by reviewing each subscription.
-* Require the API consumer to put a comment when subscribing to an API. It's a simple way to understand why a subscription has been made and helps in detecting malicious attempts to access an API.
-* Regularly review the subscriptions and revoke those that are no longer used.
+* Enable and configure CORS at the API level. This ensures the best level of security when APIs are consumed by browser-based applications. See [details here](https://documentation.gravitee.io/apim/guides/api-configuration/v2-api-configuration/configure-cors#configure-cors).
+* Avoid exposing an API without security (i.e., using a keyless plan) when possible. Always prefer stronger security solutions such as JWT or OAuth2.
+* Disable auto-validation of API subscriptions. Instead, manually validate each subscription to ensure that you are familiar with your API consumers.
+* Require the API consumer to enter a comment when subscribing to an API. This is a simple way to understand the motivation for a subscription and helps detect malicious attempts to access an API.
+* Regularly review subscriptions and revoke those that are no longer used.
 
-More information on how to manage API subscription are detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
-
-##
+More information on how to manage API subscriptions is detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
 
 ##
 
 ##
 
-## Disable internal APIs
 
-APIM API and APIM Gateway include internal APIs which are enabled by default. If you do not intend to use them, we recommend you disable them.
-
-Perform the following steps on both the APIM API component and the APIM Gateway component:
-
-1. Open your `gravitee.yml` file.
-2.  In the `services:` section, set the `http:` `enabled` value to `false`:
-
-    ```yaml
-    services:
-      core:
-        http:
-          enabled: false
-          port: 18083
-          host: localhost
-          authentication:
-            # authentication type to be used for the core services
-            # - none: to disable authentication
-            # - basic: to use basic authentication
-            # default is "basic"
-            type: basic
-            users:
-              admin: adminadmin
-    ```
-
-To learn more about the internal APIs, see:
-
-* [Configure the APIM Management API internal API](configure-apim-management-api/internal-api.md)
-* [Configure the APIM Gateway internal API](the-gravitee-api-gateway/gateway-internal-api.md)
-
-## Update default users
-
-Some default users are created for you during installation. We recommend you remove any users you do not need.
-
-{% hint style="info" %}
-We strongly recommend that, regardless of the user management system you put in place, you keep the default **admin** user, so that you can recover APIM in case of issues. Remember to change the default administrator password.
-{% endhint %}
-
-Perform the following steps on the APIM API component:
-
-1. Open your `gravitee.yml` file.
-2.  In the `security \ providers` section, remove any users you do not need:
-
-    ```yaml
-    security:
-      # When using an authentication providers, use trustAll mode for TLS connections
-      # trustAll: false
-      providers:  # authentication providers
-        - type: memory
-          # allow search results to display the user email. Be careful, It may be contrary to the user privacy.
-    #      allow-email-in-search-results: true
-          # password encoding/hashing algorithm. One of:
-          # - bcrypt: passwords are hashed with bcrypt (supports only $2a$ algorithm)
-          # - none: passwords are not hashed/encrypted
-          # default value is bcrypt
-          password-encoding-algo: bcrypt
-          users:
-            - user:
-              username: user
-              #firstname:
-              #lastname:
-              # Passwords are encoded using BCrypt
-              # Password value: password
-              password: $2a$10$9kjw/SH9gucCId3Lnt6EmuFreUAcXSZgpvAYuW2ISv7hSOhHRH1AO
-              roles: ORGANIZATION:USER,ENVIRONMENT:USER
-              # Useful to receive notifications
-              #email:
-            - user:
-              username: admin
-              #firstname:
-              #lastname:
-              # Password value: admin
-              password: $2a$10$Ihk05VSds5rUSgMdsMVi9OKMIx2yUvMz7y9VP3rJmQeizZLrhLMyq
-              roles: ORGANIZATION:ADMIN,ENVIRONMENT:ADMIN
-              #email:
-            - user:
-              username: api1
-              #firstname:
-              #lastname:
-              # Password value: api1
-              password: $2a$10$iXdXO4wAYdhx2LOwijsp7.PsoAZQ05zEdHxbriIYCbtyo.y32LTji
-              # You can declare multiple roles using comma separator
-              roles: ORGANIZATION:USER,ENVIRONMENT:API_PUBLISHER
-              #email:
-            - user:
-              username: application1
-              #firstname:
-              #lastname:
-              # Password value: application1
-              password: $2a$10$2gtKPYRB9zaVaPcn5RBx/.3T.7SeZoDGs9GKqbo9G64fKyXFR1He.
-              roles: ORGANIZATION:USER,ENVIRONMENT:USER
-    ```
-3.  Update the default administrator password:
-
-    <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/admin-pwd.png" alt=""><figcaption><p>Default admin password</p></figcaption></figure>
-
-To learn more about configuring users, see [Authentication and SSO](../../guides/administration/authentication-and-sso.md).
-
-## Update the JWT secret
-
-The JWT secret is used for signing session cookies in the APIM UI components. Any users with this secret can log in to APIM and update their permissions.
-
-Perform the following steps on the APIM API component:
-
-1. Open your `gravitee.yml` file.
-2.  In the `jwt` section, update the `secret` value:
-
-    ```yaml
-    jwt:
-      secret: myJWT4Gr4v1t33_S3cr3t
-      # Allows to define the end of validity of the token in seconds (default 604800 = a week)
-      #expire-after: 604800
-      # Allows to define the end of validity of the token in seconds for email registration (default 86400 = a day)
-      #email-registration-expire-after: 86400
-      # Allows to define issuer (default gravitee-management-auth)
-      #issuer: gravitee-management-auth
-      # Allows to define cookie context path (default /)
-      #cookie-path: /
-      # Allows to define cookie domain (default "")
-      #cookie-domain: .gravitee.io
-      # Allows to define if cookie secure only (default false)
-      #cookie-secure: true
-    ```
-3. You can also update other values, such as:
-   * the `expire-after` value, to change the validity period from the default value of one week
-   * the `cookie-path` and `cookie-domain` values, to adapt them to your own environment; the values you define must be specific to the domain and path where the API is running and not apply to any other environment (for example, `.gravitee.io` could apply to any domain called `xxx.gravitee.io`, such as `dev.gravitee.io` or `qa.gravitee.io`)
 
 ## Update the default APIM settings
 
