@@ -10,16 +10,7 @@ description: >-
 
 The default settings created during APIM installation can be useful for testing your new instance. However, some may not be suitable for a production environment, where security is more of a consideration.
 
-This guide highlights the APIM settings that require special attention while you prepare to move to a production environment. It is organized into the following sections:
-
-* [Security checklist](configure-a-production-ready-apim-environment.md#security-checklist)
-* [Internal APIs](configure-a-production-ready-apim-environment.md#internal-apis)
-* [Deployment](configure-a-production-ready-apim-environment.md#deployment)
-* [Authentication](configure-a-production-ready-apim-environment.md#authentication)
-* [Brute-force protection](configure-a-production-ready-apim-environment.md#brute-force-protection)
-* [Browser protection](configure-a-production-ready-apim-environment.md#browser-protection)
-* [Other configuration settings](configure-a-production-ready-apim-environment.md#other-configuration-settings)
-* [API Management safe practices](configure-a-production-ready-apim-environment.md#api-management-safe-practices)
+This guide highlights the APIM settings that require special attention while you prepare to move to a production environment. The following high-level checklist links to the details of how and why you would enforce each list item.&#x20;
 
 {% hint style="warning" %}
 **Configuring APIM**
@@ -31,34 +22,38 @@ APIM includes many other configuration options and every environment is unique. 
 
 Review and amend the following before going into production and exposing your APIs.&#x20;
 
+{% hint style="info" %}
 The objective is not to apply all of the recommendations, but to ensure that all configurations have been made with caution.
+{% endhint %}
 
-* Disable or enforce the security of the internal API
-* Review the exposition of the console and developer portal to the outside world
-* Ensure the console and developer portal rest APIs are accessible through HTTPS
-* Configure authentication using an Identity Provider
-* Enable authentication to access the Developer Portal
-* Remove all the default users
-* Remove the admin user or enforce the admin user password
-* Disable user self-registration for bot console and portal
-* Disable auto-validation of self-registered users (if self-registration is enabled)
-* Change the user session signing secret and validity duration
-* Disable default application creation
-* Set the registration link validity to 1 day
-* Change the user reference secret
-* Configure brute force protection (Recaptcha or Fail2ban)
-* Enabled CSRF protection
-* Configure CORS for Console and Portal REST APIs
-* Change the property encryption secret
-* Enable documentation page sanitizer
-* Disable Webhook notifier or configure an authorized list of URLs
-* Apply safe practices when designing and deploying APIs
+* [Disable or enforce the security of the internal API](configure-a-production-ready-apim-environment.md#internal-apis)
+* [Review the exposition of the console and developer portal to the outside world](configure-a-production-ready-apim-environment.md#console-and-portal-apis)
+* [Ensure the console and developer portal rest APIs are accessible through HTTPS](configure-a-production-ready-apim-environment.md#enable-https)
+* [Configure authentication using an Identity Provider](configure-a-production-ready-apim-environment.md#identity-provider)
+* [Enable authentication to access the Developer Portal](configure-a-production-ready-apim-environment.md#developer-portal-authentication)
+* [Remove all the default users](configure-a-production-ready-apim-environment.md#default-users)
+* [Remove the admin user or enforce the admin user password](configure-a-production-ready-apim-environment.md#admin-user)
+* [Disable user self-registration for bot console and portal](configure-a-production-ready-apim-environment.md#user-self-registration)
+* [Disable auto-validation of self-registered users (if self-registration is enabled)](configure-a-production-ready-apim-environment.md#user-self-registration)
+* [Change the user session signing secret and validity duration](configure-a-production-ready-apim-environment.md#user-session)
+* [Disable default application creation](configure-a-production-ready-apim-environment.md#other-options)
+* [Set the registration link validity to 1 day](configure-a-production-ready-apim-environment.md#other-options)
+* [Change the user reference secret](configure-a-production-ready-apim-environment.md#other-options)
+* Configure brute force protection ([Recaptcha](configure-a-production-ready-apim-environment.md#recaptcha) or [Fail2ban](configure-a-production-ready-apim-environment.md#fail2ban))
+* [Enable CSRF protection](configure-a-production-ready-apim-environment.md#enable-csrf-protection)
+* [Configure CORS for Console and Portal REST APIs](configure-a-production-ready-apim-environment.md#configure-cors)
+* [Change the property encryption secret](configure-a-production-ready-apim-environment.md#property-encryption)
+* [Enable documentation page sanitizer](configure-a-production-ready-apim-environment.md#documentation-sanitizer)
+* [Disable Webhook notifier](configure-a-production-ready-apim-environment.md#notifiers)[ or configure an authorized list of URLs](configure-a-production-ready-apim-environment.md#notifiers)
+* [Apply safe practices when designing and deploying APIs](configure-a-production-ready-apim-environment.md#api-management-safe-practices)
 
-## Internal APIs
+The rest of this article primarily focuses on how to implement the items in this security checklist.
+
+### Internal APIs
 
 APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api-1)).
 
-### Disabling internal APIs
+#### Disabling internal APIs
 
 APIM API and APIM Gateway include internal APIs which are enabled by default. If you do not intend to use them, **we recommend you disable them**.
 
@@ -84,7 +79,7 @@ services:
           admin: adminadmin
 ```
 
-### Enforcing security
+#### Enforcing security
 
 If you plan to keep the internal API enabled, please consider enforcing the security by following the next steps.
 
@@ -133,9 +128,9 @@ To learn more about internal APIs, see:
 * [Configure the APIM Management API internal API](configure-apim-management-api/internal-api.md)
 * [Configure the APIM Gateway internal API](the-gravitee-api-gateway/gateway-internal-api.md)
 
-## Deployment
+### Deployment
 
-### Console and Portal APIs
+#### Console and Portal APIs
 
 Gravitee APIM Management API allows the simultaneous exposure of both Console and Developer Portal REST APIs. This enables quick setup when discovering the platform.
 
@@ -167,7 +162,7 @@ The Console REST API will remain inaccessible to the outside world if you decide
 
 Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#configure-the-management-and-portal-apis) for more information about Console and Portal APIs.
 
-### Enable HTTPS
+#### Enable HTTPS
 
 Whatever solution you rely on, **make sure your REST APIs are only reachable over HTTPS** to protect against man-in-the-middle attacks.
 
@@ -185,9 +180,9 @@ jetty:
 
 You can find additional details regarding HTTPS support for the REST APIs in the[ Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#enable-https-support).
 
-## Authentication
+### Authentication
 
-### Identity provider
+#### Identity provider
 
 **We highly recommend using your own corporate identity provider** (must be OAuth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:
 
@@ -200,7 +195,7 @@ Alternatively, you can rely on your [LDAP server](https://documentation.gravitee
 
 It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication) for an example of role or group mapping.
 
-### Developer Portal authentication
+#### Developer Portal authentication
 
 If there are no strong business requirements, **we highly recommend forcing user authentication to access the Developer Portal**. This limits service exposure to authenticated users only:
 
@@ -213,7 +208,7 @@ portal:
 
 The Developer Portal configuration can be fine-tuned to satisfy your needs. Additional details are in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/developer-portal/advanced-developer-portal-configuration).
 
-### Default users
+#### Default users
 
 Some default users are created for you during installation. These users are mainly there to discover the platform's capabilities with respect to roles and permissions.
 
@@ -234,7 +229,7 @@ security:
           username: application1
 ```
 
-### Admin user
+#### Admin user
 
 It is recommended to rely on an external IdP for authentication. Gravitee also recommends removing the default admin user and assigning proper admin roles and permissions to a restricted list of well-known users:
 
@@ -258,7 +253,7 @@ security:
           password: <bcrypt password>
 ```
 
-### User self-registration
+#### User self-registration
 
 We recommend **disabling the capability for a user to self-register** for both the Console and the Developer Portal to rely on your company IdP to manage your user provisioning. This dramatically decreases the risk of an external user unexpectedly accessing your system:
 
@@ -290,7 +285,7 @@ portal:
 
 Console and Developer Portal settings are independent, allowing you to apply different strategies.
 
-### User session
+#### User session
 
 Each APIM component user session is managed using a signed JWT cookie. Any user with the JWT secret can log in to APIM and update their permissions. Consider the options below to enforce security:
 
@@ -311,7 +306,7 @@ jwt:
   # Allows to define if cookie secure only (default false)
 ```
 
-### Other options
+#### Other options
 
 You can configure various user options:
 
@@ -323,9 +318,9 @@ You can configure various user options:
 
 You can find other information related to user management in the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/user-and-management-configuration).
 
-## Brute-force protection
+### Brute-force protection
 
-### ReCaptcha
+#### ReCaptcha
 
 Ensure that ReCaptcha is configured to protect forms against bots and brute-force attempts:
 
@@ -341,15 +336,15 @@ reCaptcha:
 
 Gravitee relies on [ReCaptcha V3](https://developers.google.com/recaptcha/docs/v3?hl=en), which is non-intrusive for the end user. You can obtain your site key and secret key directly from your Google developer account ([https://www.google.com/recaptcha/admin/create](https://www.google.com/recaptcha/admin/create)).
 
-### Fail2Ban
+#### Fail2Ban
 
 If your platform is particularly exposed to the outside world, we recommend adding additional protection against pure brute-force attacks by [setting up Fail2Ban](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/security#fail2ban).
 
 Fail2Ban scans log files and automatically bans IPs that show malicious signs, e.g., too many password failures, seeking an opportunity for exploitation, etc.
 
-## Browser protection
+### Browser protection
 
-### Enable CSRF protection
+#### Enable CSRF protection
 
 Cross-site request forgery (CSRF) is a web security vulnerability that allows an attacker to induce users to perform actions that they do not intend to perform. You can protect your end users by checking that the CSRF protection is enabled (enabled by default):
 
@@ -362,7 +357,7 @@ http:
 
 We strongly recommend **NEVER** disabling CSRF protection unless you are absolutely sure of what you are doing and that your users may be exposed to [Cross Site Request Forgery attacks](https://fr.wikipedia.org/wiki/Cross-site\_request\_forgery).
 
-### Configure CORS
+#### Configure CORS
 
 CORS is one of the most important things to set up to protect your users and your system against malicious attackers. It allows the user's browser to enable native protection preventing unauthorized websites to perform a JavaScript HTTP call to the Console or REST API. Basically, when well-configured, you only allow your own Console website (e.g., [https://gio-console.mycompany.com)](https://gio-console.my-comany.com\)) and Dev Portal website (e.g., [https://gio-portal.mycompany.com)](https://gio-portal.mycompany.com\)) to make calls from a browser to their respective APIs.
 
@@ -381,9 +376,9 @@ http:
 
 `allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#cors-configuration) for other useful information related to CORS.
 
-## Other configuration settings
+### Other configuration settings
 
-### Property encryption
+#### Property encryption
 
 Gravitee allows attaching properties to an API and offers the capability to store encrypted property values. **You must change the default encryption secret** with a custom secret that can't be determined easily. You must consider the following when changing the secret:
 
@@ -401,7 +396,7 @@ api:
 
 You can find additional details about property encryption in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/policy-design/v2-api-policy-design-studio#encryption).
 
-### Documentation sanitizer
+#### Documentation sanitizer
 
 Gravitee offers the capability to attach and expose API documentation. Once published, these pages can be accessible to API consumers to discover and understand the purpose of an API. **We recommend enabling the sanitization of the documentation pages** to avoid any script injection that could have an impact on the API consumer when the page is published on the Developer Portal.
 
@@ -411,7 +406,7 @@ documentation:
     sanitize: true
 ```
 
-### Notifiers
+#### Notifiers
 
 By default, APIM allows an API publisher to send notifications related to its APIs. This includes sending notifications over HTTP, which can be useful for automation. However, we recommend disabling this feature if you don't expect to use it:
 
@@ -437,7 +432,7 @@ notifiers:
 
 Specifying a list of authorized URLs allows the administrator to restrict URL notifications. This is particularly useful for companies that need to rely on a corporate Webhook system.
 
-### Update the default APIM settings
+#### Update the default APIM settings
 
 Perform the following steps in APIM Console to update the most common default settings.
 
@@ -474,7 +469,7 @@ Perform the following steps in APIM Console to update the most common default se
 
 </div>
 
-### Portal & Console default Nginx security config
+#### Portal & Console default Nginx security config
 
 The APIM Console uses this default config:
 
@@ -510,9 +505,9 @@ APIM Management Console uses an iframe to preview the portal theme configuration
 * X-Frame-Options [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 {% endhint %}
 
-## API Management safe practices
+### API Management safe practices
 
-### Roles, permissions, and groups
+#### Roles, permissions, and groups
 
 Gravitee offers the ability to fine-tune a permissions list and the concept of roles, which can be used to **restrict user access to only what is required**.
 
@@ -525,13 +520,13 @@ Some good practices to establish:
 
 You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
 
-### API review & quality
+#### API review & quality
 
 You can **enable API review and quality** to avoid public exposure to the Developer Portal that is unexpected and lacks strong security requirements, or if you want a member of a Quality team to review API designs prior to deploying the API and making it accessible to API consumers. This can seamlessly establish a robust API strategy.
 
 You can find more information about API review and quality in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature).
 
-### API design
+#### API design
 
 There is no "rule of thumb" when it comes to designing and exposing your APIs, as this always depends on the business requirements. However, consider the following to avoid mistakes and open unexpected security breaches:
 
