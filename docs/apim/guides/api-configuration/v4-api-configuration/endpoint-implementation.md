@@ -18,15 +18,15 @@ Gravitee supports several different message brokers. This page describes the int
 
 <summary>Subscribe</summary>
 
-For each incoming request, the Kafka endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. The consumer is characterized by:
+For each incoming request, the Kafka endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. Subscription relies on:
 
 **ConsumerGroup**
 
-The consumer group is computed from the request's client identifier and is used to load-balance consumption. Kafka doesn't offer a way to manually create a consumer group; a consumer group can only be created through a new consumer instance. See the [Kafka documentation](https://docs.confluent.io/platform/current/clients/consumer.html#concepts) for more information.
+The consumer group is computed from the request's client identifier and used to load-balance consumption. Kafka doesn't offer a way to manually create a consumer group; a consumer group can only be created through a new consumer instance. See the [Kafka documentation](https://docs.confluent.io/platform/current/clients/consumer.html#concepts) for more information.
 
 **ClientId**
 
-A client ID is generated for the consumer with the format `gio-apim-consumer-<first part of uuid>`, e.g., `gio-apim-consumer-a0eebc99`.
+A client ID is generated for the consumer per the format `gio-apim-consumer-<first part of uuid>`, e.g., `gio-apim-consumer-a0eebc99`.
 
 **Topic**
 
@@ -40,9 +40,9 @@ The `auto-offset-reset` of the API is managed at the endpoint level and cannot b
 
 By default, the consumer that is created will either resume from where it left off or use the `auto-offset-reset` configuration to position itself at the beginning or end of the topic.&#x20;
 
-Offsets are determined by partitions, which results in numerous possible mappings. Due to the inherent complexity of offset selection, Gravitee has introduced a mechanism to target a specific position on a Kafka topic.&#x20;
+Offsets are determined by partitions, resulting in numerous possible mappings. To mitigate the inherent complexity of offset selection, Gravitee has introduced a mechanism to target a specific position on a Kafka topic.&#x20;
 
-Given a compatible entrypoint (SSE, HTTP GET) and by using At Most Once or At Least Once QoS, it is possible to specify a last event ID. The format is encoded by default but follows the pattern:
+Given a compatible entrypoint (SSE, HTTP GET), and by using At-Most-Once or At-Least-Once QoS, it is possible to specify a last event ID. The format is encoded by default and follows the pattern:
 
 ```yaml
 <topic1>@<partition11>#<offset11>,<partition12>#<offset12>;<topic2>@<partition21>#<offset21>,<partition22>#<offset22>...
@@ -56,11 +56,11 @@ For example, `my-topic@1#0,2#0`.
 
 <summary>Publish</summary>
 
-A shared producer is created by the endpoint and reused for all requests that have the same configuration. The producer is characterized by:
+A shared producer is created by the endpoint and reused for all requests with that same configuration. Publication relies on:
 
 **ClientId**
 
-The client ID of the producer is generated with the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`.
+The client ID is generated for the producer per the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`.
 
 **Topic**
 
@@ -98,11 +98,11 @@ The default value is 86,400 seconds. If the value in the configuration is less t
 
 <summary>Subscribe</summary>
 
-On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to subscribe to a shared topic. The MQTT endpoint retrieves information from the request to configure the subscription. Subscription is characterized by:
+On each incoming request, the [common client](endpoint-implementation.md#common-to-subscribe-and-publish) is used to subscribe to a shared topic. The MQTT endpoint retrieves information from the request to configure the subscription. Subscription relies on:
 
 **Shared subscription**
 
-A shared subscription is created from the incoming request with the format `$share/<clientIdentifier>/<topic>`. This allows multiple clients using the same subscription to consume the same topic in parallel. In order to distinguish all clients using the same subscription, the client identifier must be overridden.
+A shared subscription is created from the incoming request per the format `$share/<clientIdentifier>/<topic>`. This allows multiple clients using the same subscription to consume the same topic in parallel. In order to distinguish all clients using the same subscription, the client identifier must be overridden.
 
 **Topic**
 
@@ -118,7 +118,7 @@ When the entrypoint supports manual ack, the strategy will use it. Otherwise, it
 
 <summary>Publish</summary>
 
-On each incoming request, the common client ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#hqy85-common)) is used to publish messages on a topic. This publication is done with MQTT at-least-once QoS, without expiration. Publication is characterized by:
+On each incoming request, the [common client](endpoint-implementation.md#common-to-subscribe-and-publish) is used to publish messages on a topic. This publication is done with MQTT At-Least-Once QoS, without expiration. Publication relies on:
 
 **Topic**
 
@@ -144,7 +144,7 @@ On each incoming request, the endpoint searches an internal cache for an existin
 
 <summary>Subscribe</summary>
 
-On each incoming request, the common messaging service ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#h3go9-common)) is used to create a Dedicated Message Receiver characterized by:
+On each incoming request, the [common messaging service](endpoint-implementation.md#common-to-subscribe-and-publish-1) is used to create a Dedicated Message Receiver. Subscription relies on:
 
 ### Message Receiver
 
@@ -152,11 +152,11 @@ The Solace endpoint consumes messages based on the QoS:
 
 **None**
 
-When the QoS is None, a Direct Message Receiver is created and a shared queue is named following the format `gravitee-gio-gateway-<clientIdentifier>`.
+When the QoS is None, a Direct Message Receiver is created and a shared queue is generated per the format `gravitee-gio-gateway-<clientIdentifier>`.
 
 This allows multiple clients using the same subscription to consume the same topic in parallel. In order to distinguish all clients using the same subscription, the client identifier must be overridden.
 
-**Auto / At least Once / At Most Once**
+**Auto / At-least-Once / At-Most-Once**
 
 A Persistent Message Receiver is created to keep track of messages.
 
@@ -172,7 +172,7 @@ The topic is retrieved from the API configuration and cannot be overridden via a
 
 <summary>Publish</summary>
 
-On each incoming request, the common messaging service ([Common](https://gravitee.slab.com/posts/endpoints-implementation-details-65woom0y#h3go9-common)) is used to create a Direct Message Publisher with a backpressure reject mode limited to 10 messages. Publisher characteristics include:
+On each incoming request, the [common messaging service](endpoint-implementation.md#common-to-subscribe-and-publish-1) is used to create a Direct Message Publisher with a backpressure reject mode limited to 10 messages. Publication relies on:
 
 **Topic**
 
@@ -186,11 +186,11 @@ The topic is retrieved from the API configuration and cannot be overridden with 
 
 <summary>Subscribe</summary>
 
-On each incoming request, the RabbitMQ endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. The consumer is characterized by:
+On each incoming request, the RabbitMQ endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. The subscription relies on:
 
 ### Connection Name
 
-The connection name of the consumer is generated with the format `gio-apim-consumer-<first part of uuid>`, e.g., `gio-apim-consumer-a0eebc99`.
+A connection name is generated for the consumer per the format `gio-apim-consumer-<first part of uuid>`, e.g., `gio-apim-consumer-a0eebc99`.
 
 ### Exchange
 
@@ -200,45 +200,33 @@ If the provided exchange options are incompatible with the existing exchange fou
 
 ### Queue
 
-A queue will be created using the request's client identifier with the format `gravitee/gio-gateway/<clientIdentifier>`**.**
+The request's client identifier will be used to create a queue per the format `gravitee/gio-gateway/<clientIdentifier>`**.**
 
 The created queue will have different options depending on the QoS applied on the entrypoint:
 
-**None**
+**None:** `durable = false` and `autoDelete = true`
 
-* durable = false
-* autoDelete = true
+**Auto:** `durable = true` and `autoDelete = false`
 
-**Auto**
-
-* durable = true
-* autoDelete = false
-
-**Other not supported**
-
-If the queue already exists, the messages will be load-balanced between both clients.
+**Other not supported:** If the queue already exists, the messages will be load-balanced between both clients.
 
 ### Routing Key
 
-In order to route the proper messages to the queue, a routing key is used from the API configuration to create the binding between the exchange and the queue.
-
-The routing key can be overridden with the attribute `rabbitmq.routingKey`
+In order to route the proper messages to the queue, a routing key from the API configuration is used to create the binding between the exchange and the queue. The routing key can be overridden with the attribute `rabbitmq.routingKey`
 
 ### QoS
 
-**None**
+**None:** Applies a strategy with high throughput, low latency, no durability, and no reliability.
 
-Strategy applying a high throughput, low latency, no durability, and no reliability.
+* The broker disregards a message as soon as it sends it to the consumer.&#x20;
+* Only use this mode if downstream subscribers can consume messages at a rate exceeding the flow of inbound messages. Otherwise, messages will accumulate in the JVM process memory, leading to out-of-memory errors.&#x20;
+* This mode uses auto-ack when registering the RabbitMQ Consumer.
 
-The broker forgets about a message as soon as it has sent it to the consumer. Use this mode if downstream subscribers are very fast, at least faster than the flow of inbound messages. Messages will pile up in the JVM process memory if subscribers are not able to cope with the flow of messages, leading to out-of-memory errors. Note this mode uses the auto-acknowledgment mode when registering the RabbitMQ Consumer.
+**Auto:** Applies a strategy that balances performance and quality.
 
-**Auto**
-
-Strategy balancing between performances and quality.
-
-When the entrypoint supports manual ack, the strategy will use it. Otherwise, it will use auto ack coming from the RabbitMQ Reactor library:
-
-_With this mode, messages are acknowledged right after their arrival, in the Flux#doOnNext callback. This can help to cope with the flow of messages, avoiding the downstream subscribers to be overwhelmed. Note this mode does not use the auto-acknowledgment mode when registering the RabbitMQ Consumer. In this case, consumeAutoAck means messages are automatically acknowledged by the library in one the Flux hooks._
+* When the entrypoint supports manual ack, the strategy will use it. Otherwise, it will use auto-ack from the RabbitMQ Reactor library.
+* Messages are acknowledged upon arrival in the `Flux#doOnNext` callback to promote a message flow that downstream subscribers can manage.&#x20;
+* This mode does not use auto-ack when registering the RabbitMQ Consumer. Instead, `consumeAutoAck` means messages are automatically acknowledged by the library in one the Flux hooks.
 
 </details>
 
@@ -246,28 +234,26 @@ _With this mode, messages are acknowledged right after their arrival, in the Flu
 
 <summary>Publish</summary>
 
+A shared producer is created by the endpoint and reused for all requests with that same configuration.
 
+All request messages will be published in the exchange using the routing key. It is not possible to select the exchange or routing key based on message attributes. Only request attributes are supported.
+
+Publication relies on:
+
+**Connection Name**
+
+A connection name is generated for the producer per the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`.
+
+**Exchange**
+
+The endpoint will declare the exchange with the options provided by the configuration at the API level. The exchange name can be overridden with the attribute `rabbitmq.exchange`**.**
+
+If the provided exchange options are incompatible with the existing exchange found on RabbitMQ, the request will be interrupted with an error.
+
+**RoutingKey**
+
+To route the correct messages to the queue, a routing key from the API configuration is used to create the binding between the exchange and the queue.
+
+The routing key can be overridden via the attribute `rabbitmq.routingKey`.
 
 </details>
-
-### Publish
-
-A shared producer is created by the endpoint and reused for all requests matching the same configuration.
-
-All messages of the request will be published in the exchange using the routing key. It is not possible to select an exchange or a routing key depending on the message attributes, only request attributes are supported.
-
-#### Connection Name
-
-The connection name of the consumer is generated and follows the format: `gio-apim-consumer-<first part of uuid>` for example `gio-apim-producer-a0eebc99`
-
-#### Exchange
-
-The endpoint will declare the exchange with the option provided by the configuration at the API level. The exchange name can be overridden with the attribute `rabbitmq.exchange`**.**
-
-If the exchange options provided are incompatible with the existing exchange found on Rabbit, the request will be interrupted with an error.
-
-#### RoutingKey
-
-In order to route the right messages to the queue, A routing key is used from the API configuration and used to create the binding between the exchange and the queue.
-
-The routing key can be overridden with the attribute `rabbitmq.routingKey.`

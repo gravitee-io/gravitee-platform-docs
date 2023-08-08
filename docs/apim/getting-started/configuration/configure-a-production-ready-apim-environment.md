@@ -4,13 +4,23 @@
 
 During APIM installation some default settings are created. While these default settings can be useful for testing your new installation, some of them may not be suitable for a production environment, where security is more of a consideration.
 
-This guide gives some tips on important settings to check in APIM when preparing to move to a production environment. APIM includes many other configuration options and every environment is unique.&#x20;
+This guide gives some tips on important settings to check in APIM when preparing to move to a production environment. It is organized into the following sections:
 
-### Configuring APIM
+* [Disable internal APIs](configure-a-production-ready-apim-environment.md#disable-internal-apis)
+* [Update default users](configure-a-production-ready-apim-environment.md#update-default-users)
+* [Update the JWT secret](configure-a-production-ready-apim-environment.md#update-the-jwt-secret)
+* [Update the default APIM settings](configure-a-production-ready-apim-environment.md#update-the-default-apim-settings)
+* [Portal & Console default Nginx security config](configure-a-production-ready-apim-environment.md#portal-and-console-default-nginx-security-config)
 
-You can configure APIM settings in various ways — the `gravitee.yml` file, the APIM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. Configure [APIM Gateway](components/the-gravitee-api-gateway.md) gives a good overview of this topic.
+APIM includes many other configuration options and every environment is unique.
 
-## Disable the internal APIs
+{% hint style="info" %}
+**Configuring APIM**
+
+You can configure APIM settings in various ways — the `gravitee.yml` file, the APIM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. [Configure APIM Gateway](components/the-gravitee-api-gateway.md) gives a good overview of this topic.
+{% endhint %}
+
+## Disable internal APIs
 
 APIM API and APIM Gateway include internal APIs which are enabled by default. If you do not intend to use them, we recommend you disable them.
 
@@ -41,7 +51,7 @@ To learn more about the internal APIs, see:
 * [Configure the APIM Management API internal API](configure-apim-management-api/internal-api.md)
 * [Configure the APIM Gateway internal API](the-gravitee-api-gateway/gateway-internal-api.md)
 
-## Update the default users
+## Update default users
 
 Some default users are created for you during installation. We recommend you remove any users you do not need.
 
@@ -105,8 +115,6 @@ Perform the following steps on the APIM API component:
     ```
 3.  Update the default administrator password:
 
-
-
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/admin-pwd.png" alt=""><figcaption><p>Default admin password</p></figcaption></figure>
 
 To learn more about configuring users, see [Authentication and SSO](../../guides/administration/authentication-and-sso.md).
@@ -153,23 +161,17 @@ Perform the following steps in APIM Console:
     1. Select **Settings** in the inner sidebar.
     2. Update the **Company name.**
 
-
-
     <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.34.14 PM.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
 4.  In the Gateway section:
 
     1. Select **API Logging**.
     2. Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
 
-
-
     <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.42.12 PM.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
 5. Select **Organization** in the main sidebar:
    1. In the **Gateway** section:
       1. Select **Sharding Tags**.
       2.  In the **Entrypoint mappings** section of the page, update the **Entrypoint** field with your APIM API endpoint.
-
-
 
           <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.38.19 PM.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
    2. Select **Settings** in the inner sidebar:
@@ -180,7 +182,7 @@ Perform the following steps in APIM Console:
 
 The recommended value depends on the type of logging you have enabled: the more information you log, the lower the value needs to be (although the value must be above zero to be taken into account).
 
-## Portal & Console default nginx security config
+## Portal & Console default Nginx security config
 
 The APIM Console uses this default config:
 
