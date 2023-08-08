@@ -2,22 +2,25 @@
 
 ## Overview
 
-During APIM installation some default settings are created. While these default settings can be useful for testing your new installation, some of them may not be suitable for a production environment, where security is more of a consideration.
+During APIM installation, default settings are created. While these default settings can be useful for testing your new installation, some may not be suitable for a production environment where security is more of a consideration.
 
-This guide gives some tips on important settings to check in APIM when preparing to move to a production environment. It is organized into the following sections:
+This guide highlights the APIM settings that require special attention while you prepare to move to a production environment. It is organized into the following sections:
 
+* Security checklist
+* Internal API
+* Deployment
+* Authentication
+* Brute force protection
 * [Disable internal APIs](configure-a-production-ready-apim-environment.md#disable-internal-apis)
 * [Update default users](configure-a-production-ready-apim-environment.md#update-default-users)
 * [Update the JWT secret](configure-a-production-ready-apim-environment.md#update-the-jwt-secret)
 * [Update the default APIM settings](configure-a-production-ready-apim-environment.md#update-the-default-apim-settings)
 * [Portal & Console default Nginx security config](configure-a-production-ready-apim-environment.md#portal-and-console-default-nginx-security-config)
 
-APIM includes many other configuration options and every environment is unique.
-
 {% hint style="info" %}
 **Configuring APIM**
 
-You can configure APIM settings in various ways — the `gravitee.yml` file, the APIM Console settings, and environment and system variables. When you configure new settings, it is important to understand that one configuration type can override another. [Configure APIM Gateway](components/the-gravitee-api-gateway.md) gives a good overview of this topic.
+APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](components/the-gravitee-api-gateway.md) gives a good overview of this topic.
 {% endhint %}
 
 ## Disable internal APIs
