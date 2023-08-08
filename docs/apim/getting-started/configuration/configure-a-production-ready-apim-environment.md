@@ -1,3 +1,9 @@
+---
+description: >-
+  These configuration settings and recommendations are critical to the security
+  of your production environment
+---
+
 # Configure a Production-ready APIM Environment
 
 ## Overview
@@ -431,6 +437,79 @@ notifiers:
 
 Specifying a list of authorized URLs allows the administrator to restrict URL notifications. This is particularly useful for companies that need to rely on a corporate Webhook system.
 
+### Update the default APIM settings
+
+Perform the following steps in APIM Console to update the most common default settings.
+
+1. Log in to APIM Console.
+2. Select **Settings**.
+3.  In the **Portal** section:
+
+    1. Select **Settings** in the inner sidebar.
+    2. Update the **Company name.**
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.34.14 PM.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
+4.  In the **Gateway** section:
+
+    1. Select **API Logging**.
+    2. Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.42.12 PM.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
+5. Select **Organization** in the main sidebar:
+   1.  In the **Gateway** section:
+
+       1. Select **Sharding Tags**.
+       2. In the **Entrypoint mappings** section of the page, update the **Entrypoint** field with your APIM API endpoint.
+
+
+
+       <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.38.19 PM.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
+   2. Select **Settings** in the inner sidebar:
+      * Update the **Title** of APIM Console to make it more appropriate to your own environment.
+      * Update the **Management URL** to your APIM Console URL.
+
+<div align="right" data-full-width="true">
+
+<figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.31.13 PM.png" alt="" width="563"><figcaption><p>Organization settings</p></figcaption></figure>
+
+</div>
+
+### Portal & Console default Nginx security config
+
+The APIM Console uses this default config:
+
+```
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header Content-Security-Policy "frame-ancestors 'self';" always;
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options nosniff;
+    add_header X-Permitted-Cross-Domain-Policies none;
+```
+
+The APIM Portal uses this default config:
+
+```
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options nosniff;
+    add_header X-Permitted-Cross-Domain-Policies none;
+```
+
+It is recommended to make use of these available mechanisms to have better control over the resources the user agent is allowed to load for a given page.
+
+For APIM Portal you can improve security to allow specific origins using these headers:
+
+```
+add_header X-Frame-Options "ALLOW-FROM=my-domain.com" always;
+add_header Content-Security-Policy "frame-ancestors my-domain.com;" always;
+```
+
+{% hint style="info" %}
+APIM Management Console uses an iframe to preview the portal theme configuration, so it is necessary to add the Management Console in the Developer Portal Nginx config. Learn more about:
+
+* Content-Security\_policy and framing [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors)
+* X-Frame-Options [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
+{% endhint %}
+
 ## API Management safe practices
 
 ### Roles, permissions, and groups
@@ -463,79 +542,3 @@ There is no "rule of thumb" when it comes to designing and exposing your APIs, a
 * Regularly review subscriptions and revoke those that are no longer used.
 
 More information on how to manage API subscriptions is detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
-
-##
-
-##
-
-
-
-## Update the default APIM settings
-
-The most common settings are described below. Not all of these settings need to be changed in every environment.
-
-Perform the following steps in APIM Console:
-
-1. Log in to APIM Console.
-2. Select **Settings**.
-3.  In the **Portal** section:
-
-    1. Select **Settings** in the inner sidebar.
-    2. Update the **Company name.**
-
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.34.14 PM.png" alt=""><figcaption><p>Portal settings</p></figcaption></figure>
-4.  In the Gateway section:
-
-    1. Select **API Logging**.
-    2. Update the maximum logging duration for APIM API logging to avoid flooding. In this example, we have configured a logging duration of 15 minutes:
-
-    <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.42.12 PM.png" alt=""><figcaption><p>API logging settings</p></figcaption></figure>
-5. Select **Organization** in the main sidebar:
-   1. In the **Gateway** section:
-      1. Select **Sharding Tags**.
-      2.  In the **Entrypoint mappings** section of the page, update the **Entrypoint** field with your APIM API endpoint.
-
-          <figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.38.19 PM.png" alt=""><figcaption><p>Save sharding tag</p></figcaption></figure>
-   2. Select **Settings** in the inner sidebar:
-      * Update the **Title** of APIM Console to make it more appropriate for your own environment.
-      * Update the **Management URL** to your APIM Console URL.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2023-07-11 at 3.31.13 PM.png" alt=""><figcaption><p>Organization settings</p></figcaption></figure>
-
-The recommended value depends on the type of logging you have enabled: the more information you log, the lower the value needs to be (although the value must be above zero to be taken into account).
-
-## Portal & Console default Nginx security config
-
-The APIM Console uses this default config:
-
-```
-    add_header X-Frame-Options "SAMEORIGIN" always;
-    add_header Content-Security-Policy "frame-ancestors 'self';" always;
-    add_header X-XSS-Protection "1; mode=block";
-    add_header X-Content-Type-Options nosniff;
-    add_header X-Permitted-Cross-Domain-Policies none;
-```
-
-The APIM Portal uses this default config:
-
-```
-    add_header X-XSS-Protection "1; mode=block";
-    add_header X-Content-Type-Options nosniff;
-    add_header X-Permitted-Cross-Domain-Policies none;
-```
-
-It is recommended to complete these mechanisms to have better control over the resources the user agent is allowed to load for a given page.
-
-For APIM Portal you can improve security to allow specific origins, with these headers:
-
-```
-add_header X-Frame-Options "ALLOW-FROM=my-domain.com" always;
-add_header Content-Security-Policy "frame-ancestors my-domain.com;" always;
-```
-
-{% hint style="info" %}
-APIM Management Console uses an iframe to preview the portal theme configuration, so it is necessary to add the Management Console in the Developer Portal nginx config. You can learn more about:
-
-* Content-Security\_policy and framing [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors)
-* X-Frame-Options [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
-{% endhint %}
