@@ -241,9 +241,13 @@ The object properties you can access for API responses from the `{#response}` ro
 
 <table><thead><tr><th>Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>content</td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>status</td><td>Status of the HTTP response</td><td>int</td><td>200</td></tr></tbody></table>
 
-#### Example
+<details>
 
-* Get the status of an HTTP response: `{#response.status}`
+<summary>Example</summary>
+
+Get the status of an HTTP response: `{#response.status}`
+
+</details>
 
 ## Nodes
 
@@ -251,17 +255,27 @@ A node is a component that represents an instance of the Gravitee Gateway. Each 
 
 <table><thead><tr><th width="151">Property</th><th width="181">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Node ID</td><td>string</td><td>975de338-90ff-41ab-9de3-3890ff41ab62</td></tr><tr><td>version</td><td>Node version</td><td>string</td><td>3.14.0</td></tr><tr><td>tenant</td><td>Node tenant</td><td>string</td><td>Europe</td></tr><tr><td>shardingTags</td><td>Node sharding tag</td><td>array of string</td><td>[internal,external]</td></tr><tr><td>zone</td><td>Zone the node is grouped in</td><td>string</td><td>europe-west-2</td></tr></tbody></table>
 
-#### Example
+<details>
 
-* Get the version of a node : `{#node.version}`
+<summary>Example</summary>
+
+Get the version of a node : `{#node.version}`
+
+</details>
 
 ## Mixin
 
 In previous examples, we showed various ways to manipulate objects available in the EL context. You can also mix root-level object property usage to provide an increasingly dynamic configuration.
 
-For example, we can retrieve the value of an HTTP header where the name is based on an API custom property named `my-property`:
+<details>
+
+<summary>Example</summary>
+
+To retrieve the value of an HTTP header where the name is based on an API custom property named `my-property`:
 
 `{#request.headers[#api.properties['my-property']]}`
+
+</details>
 
 ## Policies
 
