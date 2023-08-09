@@ -4,13 +4,19 @@ description: This article covers the new features released in Gravitee API Manag
 
 # APIM 4.0
 
+{% hint style="danger" %}
+**Make sure you upgrade your license file**
+
+If you are an existing Gravitee Enterprise customer upgrading to 4.x, please make sure that you upgrade your Gravitee license file. Reach out to your Customer Success Manager or Support team in order to receive a new 4.x license.
+{% endhint %}
+
 ## Introduction
 
 Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support for asynchronous APIs, event brokers, and protocol mediation-especially as it pertains to what is surfaced in the API Management Console. For a more paired-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../../changelogs/apim-4.0.x-changelog.md). Otherwise, keep reading for a more in-depth exploration of everything that was released in APIM 4.0.
 
 ## The new v4 API creation wizard
 
-{% @arcade/embed flowid="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
+{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
 
 The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs built with the Gravitee v4 API definition.&#x20;
 
