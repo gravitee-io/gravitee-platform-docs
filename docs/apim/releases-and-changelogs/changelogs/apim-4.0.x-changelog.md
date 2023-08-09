@@ -153,6 +153,19 @@ or using environment variables:
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
 
+**Docker images**
+
+To be compliant with [CIS_Docker_v1.5.0_L1](https://www.tenable.com/audits/items/CIS_Docker_v1.5.0_L1_Docker_Linux.audit:bdcea17ac365110218526796ae3095b1) the docker images are now using a dedicated user: `graviteeio`
+
+It means that if you: 
+ - use the official images and deploy them to Kubernetes, nothing changes.
+ - build your own Dockerfile based on Gravitee images, you must ensure the correct rights are set on the files and directories you add to the image.
+ - deploy in `openshift`, you have to add the following configuration to your deployment:
+```yaml
+securityContext:
+    runAsGroup: 1000
+```
+
 **Monitoring APIM**
 
 * The name of the sync probe has been changed from `api-sync` to `sync-process` to make it explicit when all sync processes have been completed.
@@ -272,5 +285,10 @@ eventsCollection.find({"type": "PUBLISH_API"}).forEach((event) => {
        eventsCollection.replaceOne({ _id: event._id }, event);
 });
 ```
+**Login Endpoint**
+
+In previous versions, sending a POST request to `/user/login` without an `Authorization` header returned HTTP Response 200.
+
+Starting with 4.0.0, if a POST request to `/user/login` does not have an `Authorization` header, it will receive an HTTP response 401 - Unauthorized.
 
 </details>
