@@ -10,15 +10,19 @@ Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support f
 
 ## The new v4 API creation wizard
 
-{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
+{% @arcade/embed flowid="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
 
-The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs that use the Gravitee v4 API definition. The v4 API definition enables organizations to start using Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. The new creation wizard enables you to create APIs that expose Kafka, MQTT, (new) RabbitMQ (if using AMQP 0-9-1 protocol), and Mock (simulated backend for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs, all using the Gravitee API Management Console.
+The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs built with the Gravitee v4 API definition.&#x20;
+
+The v4 API definition allows organizations to use Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. With the new creation wizard, you can use the Gravitee API Management Console to create APIs that expose Kafka, MQTT, RabbitMQ (if using AMQP 0-9-1 protocol), Solace, and Mock (simulated for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs.
 
 For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation.](../../../guides/create-apis/how-to/v4-api-creation-wizard.md)
 
 ## The new v4 Policy Studio
 
-We've released a brand new Policy Studio that enables you to design policy flows and enforcement mechanisms for v4 APIs. Policies designed using the new v4 API Design Studio can be designed and enforced at the request, response, publish, and/or subscribe phases. They can also be enforced at the message level for use cases where message-based APIs and communication are being utilized. This enables greater API governance, as you can now use a one, centralized tool and approach to make sure synchronous and asynchronous APIs are secured, made reliable, transformed, etc.
+We've released a brand new Policy Studio that enables you to design policy flows and enforcement mechanisms for v4 APIs. This enables greater API governance, as you can now use a single, centralized tool and approach to ensure synchronous and asynchronous APIs are secured, reliable, transformed, etc.
+
+Policies designed using the new v4 API Policy Studio can be designed and enforced at the request, response, publish, and/or subscribe phases. They can also be enforced at the message level for use cases where message-based APIs and communication are employed.&#x20;
 
 For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../../guides/policy-design/v4-api-policy-design-studio.md).
 
@@ -41,7 +45,7 @@ As a part of the new Policy Studio release, we've made some existing Gravitee po
 * Transform headers policy
 
 {% hint style="info" %}
-While these policies can be used for v4 message APIS, not all of these policies support execution at the message level. For more information on the execution phase for each policy, please refer to our [Policy Reference documentation](../../../reference/policy-reference/).&#x20;
+While these policies can be used for v4 message APIS, not all of these policies support execution at the message level. For more information on the execution phase for each policy, please refer to our [Policy Reference documentation](../../../reference/policy-reference/).
 {% endhint %}
 
 For more information on policies, please refer to our [policy reference documentation](../../../reference/policy-reference/).
@@ -58,7 +62,9 @@ For more information on policies, please refer to our [policy reference document
 
 ## Support for Schema registry as a resource
 
-When designing policies and flows, you can now define Confluent Schema Registry as a resource. This allows Gravitee to serialize and deserialize information between Avro and JSON via various serialization and deserialization policies. Serialization and deserialization will be validated against target schemas stored in specified schema registries. The schema ID can be obtained dynamically through a message header or attribute.
+When designing policies and flows, you can now define Confluent Schema Registry as a resource. This allows Gravitee to serialize and deserialize information between Avro and JSON via various serialization and deserialization policies.&#x20;
+
+Serialization and deserialization will be validated against target schemas stored in specified schema registries. The schema ID can be obtained dynamically through a message header or attribute.
 
 For more information, please refer to our [Resources documentation](../../../guides/api-configuration/resources.md).
 
@@ -71,7 +77,7 @@ When in the Developer Portal, you'll be able to:
 * Configure the details of your plan in the portal, including defining a custom Webhook callback URL
 * Add basic authentication and an API key as a bearer token
 
-This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the [Webhook subscription management documentation](../../../guides/developer-portal/webhook-subscription-management.md).&#x20;
+This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the [Webhook subscription management documentation](../../../guides/developer-portal/webhook-subscription-management.md).
 
 ## v2 Management API
 
@@ -85,13 +91,13 @@ In addition to making Gravitee API Management more "event-native," we've also ma
 * You can now manage application-level CRDs through the Gravitee Kubernetes Operator. This enables you to configure a platform level configuration using a k8s declarative approach
 * The Kubernetes Operator now supports both local and global configurations. This means that you can define the ManagementContext for your CRD and control whether the API should be local or global.
 
-For more information, please refer to our [Kubernetes Operator documentation](../../../guides/gravitee-kubernetes-operator.md).&#x20;
+For more information, please refer to our [Kubernetes Operator documentation](../../../guides/gravitee-kubernetes-operator.md).
 
 ### Gravitee as ingress controller
 
 Another major update to the Gravitee Kubernetes Operator is its ability to act as an ingress controller. Now, you can use Gravitee as an ingress controller as opposed to using a third-party ingress controller, such as NGNIx or Traffik. This will result in less complexity and maintenance across the entirety of your infrastructure.
 
-For more information please refer to our [Kubernetes Operator - Ingress Controller documentation](../../../guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md).&#x20;
+For more information please refer to our [Kubernetes Operator - Ingress Controller documentation](../../../guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md).
 
 ## More new features
 
@@ -113,9 +119,6 @@ As a part of our additional support for v4 APIs and asynchronous APIs, we've add
 
 The Datadog reporter enables you to push API monitoring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the [Datadog reporter documentation](../../../getting-started/configuration/configure-reporters.md#datadog-reporter).
 
-
 ### Redis repository plugin
 
-The Redis repository plugin is now embedded in the default distribution, meaning you do not need to download and install it on your own.
-The Helm chart has been updated accordingly, so no extra configuration is required anymore.
-
+The Redis repository plugin is now embedded in the default distribution, meaning you do not need to download and install it on your own. The Helm chart has been updated accordingly, so no additional configuration is required.
