@@ -503,7 +503,8 @@ ratelimit:
     port:                   # redis port (default 6379)
     password:               # redis password (default null)
     timeout:                # redis timeout (default -1)
-
+    ssl:                    # redis ssl mode (default false)
+    
     # Following properties are REQUIRED ONLY when running Redis in sentinel mode
     sentinel:
       master:               # redis sentinel master host

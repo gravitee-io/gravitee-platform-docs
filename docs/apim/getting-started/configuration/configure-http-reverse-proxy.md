@@ -22,7 +22,7 @@ volumes:
 services:
 
   mongodb:
-    image: mongo:${MONGODB_VERSION:-3.6}
+    image: mongo:${MONGODB_VERSION:-6.0}
     container_name: gio_apim_mongodb
     restart: always
     volumes:
@@ -32,7 +32,7 @@ services:
       - storage
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION:-7.7.0}
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION:-8.9.0}
     container_name: gio_apim_elasticsearch
     restart: always
     volumes:
@@ -55,7 +55,7 @@ services:
       - storage
 
   gateway:
-    image: graviteeio/apim-gateway:${APIM_VERSION:-nightly}
+    image: graviteeio/apim-gateway:${APIM_VERSION:-latest}
     container_name: gio_apim_gateway
     restart: always
     depends_on:
@@ -72,7 +72,7 @@ services:
       - frontend
 
   management_api:
-    image: graviteeio/apim-management-api:${APIM_VERSION:-nightly}
+    image: graviteeio/apim-management-api:${APIM_VERSION:-latest}
     container_name: gio_apim_management_api
     restart: always
     links:
@@ -94,7 +94,7 @@ services:
       - frontend
 
   management_ui:
-    image: graviteeio/apim-management-ui:${APIM_VERSION:-nightly}
+    image: graviteeio/apim-management-ui:${APIM_VERSION:-latest}
     container_name: gio_apim_management_ui
     restart: always
     depends_on:
@@ -107,7 +107,7 @@ services:
       - frontend
 
   portal_ui:
-    image: graviteeio/apim-portal-ui:${APIM_VERSION:-nightly}
+    image: graviteeio/apim-portal-ui:${APIM_VERSION:-latest}
     container_name: gio_apim_portal_ui
     restart: always
     depends_on:
