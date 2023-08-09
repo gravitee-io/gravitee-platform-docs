@@ -301,3 +301,33 @@ Publishing a plan is as simple as clicking the **Publish Plan** button, confirmi
 {% @arcade/embed flowId="vOBfQE9VInuyA1g7b4kF" url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" %}
 
 A published plan can either be deprecated or closed. Neither operation can be undone.
+
+## Plan selection
+
+APIM automatically routes each API request to the correct plan. The plan selection workflow parses all the published plans in the following order: JWT, OAuth2, API Key, Keyless. Each plan type has the following rules:
+
+{% hint style="warning" %}
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode.](../../overview/gravitee-api-definitions-and-execution-engines.md#plan-selection)
+{% endhint %}
+
+* JWT
+  * Retrieve JWT from `Authorization` Header or query parameters
+  * Ignore empty `Authorization` Header or any type other than Bearer
+  * An empty Bearer token is considered invalid
+* OAuth2
+  * Retrieve OAuth2 from `Authorization` Header or query parameters
+  * Ignore empty `Authorization` Header or any type other than Bearer
+  * An empty Bearer token is considered invalid
+* API Key
+  * Retrieve the API key from the request header or query parameters (default header: `X-Gravitee-Api-Key` and default query parameter: `api-key`)
+  * An empty Bearer token is considered invalid
+* Keyless
+  * Will ignore any type of security (API key, Bearer token, etc.)
+  * **If another plan has detected a security token, valid or invalid, all flows assigned to the Keyless plan will be ignored.** Therefore, if an API has multiple plans of different types and the incoming request contains a token or an API key that does not match any of the existing plans, then the Keyless plan will not be activated and the user will receive a generic `401` response without any details.
+
+The parsed plan is selected for execution if all the following conditions are met:
+
+* The request contains a token corresponding to the plan type (e.g., `X-Gravitee-Api-Key` header for API Key plans).
+* The plan condition rule is valid or not set.
+* There is an active subscription matching the incoming request.
+  * During the OAuth2 plan selection, a token introspection is completed to retrieve the `client_id` which allows searching for a subscription. If there are performance concerns, a cache system is available to avoid completing the same token introspection multiple times. Where possible, it is recommended to use selection rules if there are multiple OAuth2 plans to avoid any unnecessary token introspection.
