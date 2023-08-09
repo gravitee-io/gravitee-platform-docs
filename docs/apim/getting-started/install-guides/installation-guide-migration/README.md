@@ -1,5 +1,11 @@
 # 4.0 Upgrade Guide
 
+{% hint style="danger" %}
+**Make sure you upgrade your license file**
+
+If you are an existing Gravitee Enterprise customer upgrading to 4.x, please make sure that you upgrade your Gravitee license file. Reach out to your Customer Success Manager or Support team in order to receive a new 4.x license.
+{% endhint %}
+
 ## Overview
 
 Upgrading to APIM 4.0 is deployment-specific. The 4.0 breaking changes cited below must be noted and/or adopted for a successful upgrade.
