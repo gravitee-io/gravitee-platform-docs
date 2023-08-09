@@ -66,7 +66,9 @@ EL provides a variety of built-in functions to manipulate and transform data in 
 * `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).&#x20;
 * `#xpath`: To evaluate an `xpath` on some provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) in the SpEL documentation.
 
-#### `jsonPath` example
+<details>
+
+<summary>jsonPath example</summary>
 
 As an example of how `jsonPath` can be used with EL, suppose you have a JSON payload in the request body that contains the following data:
 
@@ -97,6 +99,8 @@ To extract the value of the `price` property for the book with `title` "The Lord
 
 `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`
 
+</details>
+
 ## APIs
 
 Using EL, you can access information about a Gateway API through several root-level objects that are injected into the EL context: custom properties, dictionaries, and endpoints
@@ -105,10 +109,14 @@ Using EL, you can access information about a Gateway API through several root-le
 
 As an API publisher, you can define [custom properties ](v4-api-policy-design-studio.md#api-properties)for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#api.properties}` root-level object property.
 
-#### **Examples**
+<details>
+
+<summary>Examples</summary>
 
 * Get the value of the property `my-property` defined in an API's custom properties using `{#api.properties['my-property']}`
 * Get the value of the property `my-secret` defined and encrypted in an API's custom properties using `{#api.properties['my-secret']}` to pass a secured property to your backend
+
+</details>
 
 {% hint style="info" %}
 **Encrypted custom properties**
@@ -120,17 +128,29 @@ When accessing an encrypted custom property, Gravitee's Gateway will automatical
 
 [Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary ID as well as the dictionary property name. Dictionary properties are simply key-value pairs that can be accessed from the `{#dictionaries}` root-level object property.
 
-#### **Example**
+<details>
 
-* Get the value of the dictionary property `dict-key` defined in dictionary `my-dictionary-id` using `{#dictionaries['my-dictionary-id']['dict-key']}`
+<summary>Example</summary>
+
+To get the value of the dictionary property `dict-key` defined in dictionary `my-dictionary-id`:&#x20;
+
+`{#dictionaries['my-dictionary-id']['dict-key']}`
+
+</details>
 
 ### Endpoints
 
 When you define endpoints for your API, you need to give them a name that is a unique identifier across all endpoints of the API. This identifier can be used to get an endpoint reference (i.e., a URI) from the `{#endpoints}` root-level object property.
 
-#### Example
+<details>
 
-* When you create an API, a default endpoint is created that corresponds to the value you set for the backend property. This endpoint can be retrieved with EL by using the following syntax: `{#endpoints['default']}`
+<summary>Example</summary>
+
+When you create an API, a default endpoint is created that corresponds to the value you set for the backend property.&#x20;
+
+This endpoint can be retrieved with EL by using the following syntax: `{#endpoints['default']}`
+
+</details>
 
 ## Request <a href="#request" id="request"></a>
 
@@ -138,10 +158,14 @@ The object properties you can access from the `{#request}` root-level object pro
 
 <table><thead><tr><th>Object Property</th><th>Description</th><th width="143">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>paths</td><td>Path parts</td><td>array of string</td><td>[,v2,store,MyStore]</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of string</td><td>[,store,MyStore]</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>method</td><td>HTTP method</td><td>string</td><td>GET</td></tr><tr><td>scheme</td><td>HTTP scheme</td><td>string</td><td>http</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>ssl</td><td>SSL session information</td><td><a href="broken-reference/">SSL Object</a></td><td>-</td></tr></tbody></table>
 
-#### Examples
+<details>
+
+<summary>Examples</summary>
 
 * Get the value of the `Content-Type` header for an incoming HTTP request using `{#request.headers['content-type']}`
 * Get the second part of the request path using `{#request.paths[1]}`
+
+</details>
 
 ### Request context attributes
 
@@ -151,10 +175,14 @@ When APIM Gateway handles an incoming API request, some object properties are au
 
 Additionally, some policies (e.g., the OAuth2 policy) register other attributes in the request context. For more information, refer to the documentation for individual policies.
 
-#### Examples
+<details>
+
+<summary>Examples</summary>
 
 * Get the value of the `user-id` attribute for an incoming HTTP request using `{#context.attributes['user-id']}`
 * Get the value of the `plan` attribute for an incoming HTTP request using `{#context.attributes['plan']}`
+
+</details>
 
 ### SSL and principal objects <a href="#ssl_object" id="ssl_object"></a>
 
@@ -162,9 +190,15 @@ The object properties you can access in the `ssl` session object from the `{#req
 
 <table><thead><tr><th>Object Property</th><th width="177">Description</th><th width="169">Type</th><th>Example</th></tr></thead><tbody><tr><td>clientHost</td><td>Host name of the client</td><td>string</td><td>client.domain.com</td></tr><tr><td>clientPort</td><td>Port number of the client</td><td>long</td><td>443</td></tr><tr><td>client</td><td>Client information</td><td>Principal Object</td><td>-</td></tr><tr><td>server</td><td>Server information</td><td>Principal Object</td><td>-</td></tr></tbody></table>
 
-#### Example <a href="#principal_object" id="principal_object"></a>
+<details>
 
-* Get the client HOST from the SSL session using `{#request.ssl.clientHost}`
+<summary>Example</summary>
+
+To get the client HOST from the SSL session:
+
+&#x20;`{#request.ssl.clientHost}`
+
+</details>
 
 #### Principal objects <a href="#principal_object" id="principal_object"></a>
 
@@ -186,7 +220,9 @@ All attributes of the `Principal`object are flattened to be accessed directly wi
 
 <table><thead><tr><th width="175">Object Property</th><th>Description</th><th width="121">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Prinicipal</code> object's domain name attributes listed in the table above</td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values. Returns <code>false</code> otherwise.</td><td>boolean</td><td>-</td></tr><tr><td>dn</td><td>Fully qualified domain name</td><td>string</td><td>-</td></tr></tbody></table>
 
-#### Examples <a href="#examples" id="examples"></a>
+<details>
+
+<summary>Examples</summary>
 
 * Get the client DN from the SSL session: `{#request.ssl.client.dn}`
 * Get the server organization from the SSL session: `{#request.ssl.server.o}`
@@ -196,6 +232,8 @@ All attributes of the `Principal`object are flattened to be accessed directly wi
   * `{#request.ssl.server.attributes['Ou'][2]}`
 * Get a custom attribute of the client from the SSL session: `{#request.ssl.client.attributes['1.2.3.4'][0]}`
 * Determine if the SSL attributes of the client are set: `{#request.ssl.client.defined}`
+
+</details>
 
 ## Response
 
