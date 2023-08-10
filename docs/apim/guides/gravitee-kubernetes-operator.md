@@ -6,7 +6,7 @@ You can use the GKO to define, deploy, and publish APIs to your API Developer Po
 
 Applying the [`ApiResource`](gravitee-kubernetes-operator/custom-resource-definitions/apiresource-crd.md) CRD enables you to create reusable [API resources](api-configuration/resources.md), such as cache or authentication providers, which can be defined a single time and maintained in a single place for reuse in multiple APIs. Any further updates to such a resource will be automatically propagated to all APIs containing a reference to that resource.
 
-In this guide, you will learn how to work with CRDs and how to synchronize your API CRDs with the APIM Management API, including how to start, stop, update, and delete your APIs.
+Choose from the guides below to learn how to use CRDs and synchronize your API CRDs with the APIM Management API, including how to start, stop, update, and delete your APIs.
 
 {% hint style="info" %}
 **Existing Gravitee Kubernetes Operator limitations**
@@ -26,3 +26,5 @@ The Gravitee Kubernetes Operator is not yet at full feature-parity with  Gravite
 * Configure permissions
 * Configure APIM dictionaries
 {% endhint %}
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Quick Start</td><td></td><td><a href="gravitee-kubernetes-operator/page-2.md">page-2.md</a></td></tr><tr><td></td><td>Monitoring GKO</td><td></td><td><a href="gravitee-kubernetes-operator/monitoring-gko.md">monitoring-gko.md</a></td></tr><tr><td></td><td>Test GKO after deployment</td><td></td><td><a href="gravitee-kubernetes-operator/test-gko-after-deployment.md">test-gko-after-deployment.md</a></td></tr><tr><td></td><td>Gravitee as an ingress controller</td><td></td><td><a href="gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md">gravitee-as-an-ingress-controller.md</a></td></tr><tr><td></td><td>Custom resource definitions</td><td></td><td><a href="gravitee-kubernetes-operator/page-1.md">page-1.md</a></td></tr></tbody></table>
