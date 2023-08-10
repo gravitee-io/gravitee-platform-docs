@@ -1,8 +1,8 @@
-# Custom Resource Definitions
+# Custom resource definitions
 
 ## Overview
 
-The Gravitee Kubernetes Operator comes with different Custom Resource Definitions (CRDs) - `ManagementContext`, `ApiDefinition`, `Application` and `ApiResource`.
+The Gravitee Kubernetes Operator comes with different custom resource definitions (CRDs) - `ManagementContext`, `ApiDefinition`, `Application` and `ApiResource`.
 
 ## `ManagementContext`
 
@@ -218,7 +218,7 @@ Resources:
 The following workflow is applied when a new `Application` resource is added to the cluster:
 
 1. The GKO listens for `Application` resources.
-2. The GKO resolves any references to external sources such as configmaps or secrets.
+2. The GKO resolves any references to external sources such as ConfigMaps or secrets.
 3. The GKO performs some required changes, such as adding default settings.
 4. The GKO converts the data to JSON format.
 5. If something has changed, the GKO pushes the definition to the Management API.
@@ -243,7 +243,7 @@ spec:
   description: "K8s Application"
 ```
 
-The same Application with support for application metadata is shown in the example below:
+The same `Application` with support for application metadata is shown in the example below:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1

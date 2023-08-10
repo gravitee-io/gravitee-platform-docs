@@ -106,7 +106,7 @@
   * [Monitoring GKO](guides/gravitee-kubernetes-operator/monitoring-gko.md)
   * [Test GKO After Deployment](guides/gravitee-kubernetes-operator/test-gko-after-deployment.md)
   * [Gravitee as an Ingress Controller](guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md)
-  * [Custom Resource Definitions](guides/gravitee-kubernetes-operator/page-1.md)
+  * [Custom resource definitions](guides/gravitee-kubernetes-operator/page-1.md)
     * [ManagementContext Resource](guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource.md)
     * [ApiDefinition CRD](guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd.md)
     * [ApiResource CRD](guides/gravitee-kubernetes-operator/custom-resource-definitions/apiresource-crd.md)
