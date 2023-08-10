@@ -25,7 +25,7 @@ For the APIM Gateway to work in this setup, you need two components:
 
 In this infrastructure, the standard APIM Gateway can communicate with the bridge API Gateway through a secure HTTP/S channel, and your cloud data center does not need to have a datastore installed.
 
-#### **Bridge Gateways**
+### **Bridge Gateways**
 
 {% hint style="warning" %}
 **Enterprise only**
