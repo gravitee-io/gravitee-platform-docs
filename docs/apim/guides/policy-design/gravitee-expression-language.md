@@ -10,9 +10,11 @@ EL allows you to reference values from the current API transaction. This means y
 
 Since EL is an extension of SpEL, all capabilities detailed in the SpEL documentation are available in EL. This section focuses on Gravitee's modifications to the SpEL syntax, object properties added to the EL context, and commonly used operators and functions.
 
-### Syntax
+{% tabs %}
+{% tab title="Syntax" %}
+Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol. Both dot notation and bracket notation are supported for accessing the properties of an object.
 
-Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol. Both dot notation and bracket notation are supported for accessing the properties of an object, e.g., `{#context.attributes['user'].email}`.
+Example: `{#context.attributes['user'].email}`
 
 {% hint style="info" %}
 **Dot notation vs bracket notation**
@@ -25,9 +27,9 @@ Bracket notation should be used for property names that include a space or a hyp
 
 `{#request.headers['my-header']}`
 {% endhint %}
+{% endtab %}
 
-### Object properties
-
+{% tab title="Object properties" %}
 EL allows you to reference certain values injected into the EL context as object properties. The available object properties will be further detailed in later sections. EL adds the following root-level object properties:
 
 * `{#api.properties}` : Contains custom properties defined by the API publisher for that Gateway API.
@@ -48,18 +50,18 @@ The terms "custom property" and "attribute" have special meaning in the Gravitee
 
 Both custom properties and attributes are _object properties._ Object properties are variables that belong to an object. They are part of an object's structure and accessible via dot or bracket notation and their associated, root-level object property.
 {% endhint %}
+{% endtab %}
 
-### Operators
-
+{% tab title="Operators" %}
 EL supports various operators, such as arithmetic, logical, comparison, and ternary operators. Examples of commonly used operators in Gravitee include:
 
 * Arithmetic operators: `+, -, *, /`
 * Logical operators: `&& (logical and), || (logical or), ! (logical not)`
 * Comparison operators: `==, !=, <, <=, >, >=`
 * Ternary operators: `condition ? expression1 : expression2`
+{% endtab %}
 
-### Functions
-
+{% tab title="Functions" %}
 EL provides a variety of built-in functions to manipulate and transform data in expressions. Examples of commonly used functions in Gravitee include:
 
 * String functions: `length(), substring(), replace()`
@@ -96,13 +98,15 @@ As an example of how `jsonPath` can be used with EL, suppose you have a JSON pay
 To extract the value of the `price` property for the book with `title` "The Lord of the Rings," you can use the following expression:
 
 `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`
+{% endtab %}
+{% endtabs %}
 
 ## APIs
 
-Using EL, you can access information about a Gateway API through several root-level objects that are injected into the EL context: custom properties, dictionaries, and endpoints
+Using EL, you can access information about a Gateway API through several root-level objects that are injected into the EL context: custom properties, dictionaries, and endpoints.
 
-### Custom properties
-
+{% tabs %}
+{% tab title="Custom properties" %}
 As an API publisher, you can define [custom properties ](v4-api-policy-design-studio.md#api-properties)for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#api.properties}` root-level object property.
 
 #### Examples
@@ -115,22 +119,24 @@ As an API publisher, you can define [custom properties ](v4-api-policy-design-st
 
 When accessing an encrypted custom property, Gravitee's Gateway will automatically manage the decryption and provide a plain text value.
 {% endhint %}
+{% endtab %}
 
-### Dictionaries
-
+{% tab title="Dictionaries" %}
 [Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary ID as well as the dictionary property name. Dictionary properties are simply key-value pairs that can be accessed from the `{#dictionaries}` root-level object property.
 
 #### Example
 
-* Get the value of the dictionary property `dict-key` defined in dictionary `my-dictionary-id` using `{#dictionaries['my-dictionary-id']['dict-key']}`
+Get the value of the dictionary property `dict-key` defined in dictionary `my-dictionary-id` using `{#dictionaries['my-dictionary-id']['dict-key']}`.
+{% endtab %}
 
-### Endpoints
-
+{% tab title="Endpoints" %}
 When you define endpoints for your API, you need to give them a name that is a unique identifier across all endpoints of the API. This identifier can be used to get an endpoint reference (i.e., a URI) from the `{#endpoints}` root-level object property.
 
 #### Example
 
-* When you create an API, a default endpoint is created that corresponds to the value you set for the backend property. This endpoint can be retrieved with EL by using the following syntax: `{#endpoints['default']}`
+When you create an API, a default endpoint is created that corresponds to the value you set for the backend property. This endpoint can be retrieved with EL by using the following syntax: `{#endpoints['default']}`.
+{% endtab %}
+{% endtabs %}
 
 ## Request <a href="#request" id="request"></a>
 
