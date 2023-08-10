@@ -52,35 +52,35 @@ tags: ‘product,store,!partner’
 
 Once the Gateways have been tagged, you will need to define the same sharding tags within API Manager:
 
-1\. Log in to your API Management Console.
+1. Log in to your API Management Console.
 
 ![](https://dubble-prod-01.s3.amazonaws.com/assets/c04ad6f1-b85c-4196-bb64-dbcb62c22c97.png?0)
 
-2\. In the left-hand nav, select **Organization**.
+2. In the left-hand nav, select **Organization**.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/ed080e94-c73d-48a0-8c1c-6170de95b250/1/3.7037037037037/88.486842105263?0)
 
-3\. On the Organization page, select **Sharding tags**.
+3. On the Organization page, select **Sharding tags**.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/ef5532a2-ba56-49ae-b438-041ed3ff5c9d/1.5/0.34722222222222/42.47618558114?0)
 
-4\. Select **+ Add a tag.**
+4. Click **+ Add a tag.**
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/50391eb9-7eda-480f-97ce-4f86d6bfb9d7/1.5/84.548611111111/24.835526315789?0)
 
-5\. Create the same tags that you created in the `gravitee.yaml` file and ensure that the names are an exact match. First, let's create the "internal" tag using the **Name** field.
+5. Create the same tags that you created in the `gravitee.yaml` file and ensure that the names are an exact match. First, let's create the "internal" tag using the **Name** field.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/71721c67-2277-400a-b577-790311e3d38d/2.5/50/43.23516310307?0)
 
-6\. (Optional) You can choose to restrict groups. This restricts usage of the tag to certain groups, as defined in Gravitee user administration. We'll skip this.
+6. (Optional) You can choose to restrict groups. This restricts usage of the tag to certain groups, as defined in Gravitee user administration. We'll skip this.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/56135924-46cc-45a5-baf2-69e0e937ef5a/2.5/50/54.913651315789?0)
 
-7\. When you're done, select **Ok**.
+7. Click **Ok**.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/a27f351a-c1c3-44a5-ac8c-f6d15b4a7eba/2.5/60.272442853009/75.206448739035?0)
 
-8\. Let's add the "external" tag. Follow the same steps as you did for the "internal" tag.
+8. Let's add the "external" tag. Follow the same steps as you did for the "internal" tag.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/ca600fb5-e338-48a4-ab61-9a12292442d9/2.5/84.548611111111/24.835526315789?0)
 
@@ -94,18 +94,18 @@ Gravitee also provides a way to automatically apply a sharding tag to APIs based
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/397a968c-5ae8-4d85-9b4c-5f534a0d9132/2/50/49.980650154799?0)
 
-3. &#x20;In the **Sharding tags** drop down menu, select the proper tag that you want mapped to your entrypoints. I'll choose my internal tag.
+3. In the **Sharding tags** drop down menu, select the tag that you want mapped to your entrypoints. For this example, let's choose the "internal test" tag.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/505ea3bc-5fb0-4bbe-8d8b-229e67f1f7c7/1/50/50?0)
 
-14\. When done, select **Ok**.
+4. Click **Ok**.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/23db58e8-6576-49aa-a51f-9fdcd37073cb/1.5/60.272442853009/69.892447110423?0)
 
-You'll now see your entrypoint mapping in the Entrypoint mappings section.
+You'll see your entrypoint mapping in the **Entrypoint mappings** section.
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-You've now learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs (in order to control where those APIs are deployed), refer to [this documentation](../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
+You've now learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
 {% endhint %}
