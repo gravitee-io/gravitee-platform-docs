@@ -5,6 +5,29 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.3 - August 10, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Snappy dependency error when calling kafka API [#9181](https://github.com/gravitee-io/issues/issues/9181)
+
+**Management API**
+
+* Improve MongoDB indexes [#9162](https://github.com/gravitee-io/issues/issues/9162)
+* Improve v4 API import [#9163](https://github.com/gravitee-io/issues/issues/9163)
+* DB upgrade fails on JDBC repositories 3.20.x to 4.x [#9182](https://github.com/gravitee-io/issues/issues/9182)
+
+**Console**
+
+* After creation of a plan, user should be redirected to the staging view [#9166](https://github.com/gravitee-io/issues/issues/9166)
+* Subscription creation is impossible for APIs created with the Kubernetes Operator [#9175](https://github.com/gravitee-io/issues/issues/9175)
+
+</details>
 
 ## Gravitee API Management 4.0.2 - August 4, 2023
 
