@@ -192,4 +192,4 @@ After applying this configuration, you should not find any `ConfigMap` linked to
 
 ## Next steps
 
-Learn how to use GKO to define, deploy, and publish APIs to your API Portal and API Gateway and to manage Custom Resource Definitions (CRDs) in our [GKO guide](../../../guides/gravitee-kubernetes-operator.md).
+Learn how to use GKO to define, deploy, and publish APIs to your API Portal and API Gateway and to manage custom resource definitions (CRDs) in our [GKO guide](../../../guides/gravitee-kubernetes-operator.md).
