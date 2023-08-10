@@ -19,6 +19,12 @@ As of Gravitee 4.0, the sharding Tags feature is an Enterprise Edition capabilit
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
+{% hint style="info" %}
+**v4 API limitations**
+
+As of Gravitee 4.0, you cannot implement sharding tags for v4 APIs using the APIM Console. You can only do it via the [Management API](../../reference/management-api-reference/).&#x20;
+{% endhint %}
+
 ## Introduction
 
 Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a Gateway is tagged, you will be able to deploy an API and select which (sharding) tag a Gateway should have in order for the API to be deployed on a Gateway. To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [this documentation](../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
