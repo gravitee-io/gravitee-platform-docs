@@ -140,37 +140,55 @@ When you create an API, a default endpoint is created that corresponds to the va
 
 ## Request <a href="#request" id="request"></a>
 
+EL can be used to access request properties and attributes as described below.
+
+### Request object properties
+
 The object properties you can access from the `{#request}` root-level object property and use for API requests are listed below.
 
-<table><thead><tr><th>Object Property</th><th>Description</th><th width="143">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>paths</td><td>Path parts</td><td>array of string</td><td>[,v2,store,MyStore]</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of string</td><td>[,store,MyStore]</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>method</td><td>HTTP method</td><td>string</td><td>GET</td></tr><tr><td>scheme</td><td>HTTP scheme</td><td>string</td><td>http</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>ssl</td><td>SSL session information</td><td><a href="broken-reference/">SSL Object</a></td><td>-</td></tr></tbody></table>
+{% tabs %}
+{% tab title="Table" %}
+<table><thead><tr><th width="175">Object Property</th><th>Description</th><th width="143">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>paths</td><td>Path parts</td><td>array of string</td><td>[,v2,store,MyStore]</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of string</td><td>[,store,MyStore]</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>method</td><td>HTTP method</td><td>string</td><td>GET</td></tr><tr><td>scheme</td><td>HTTP scheme</td><td>string</td><td>http</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>ssl</td><td>SSL session information</td><td><a href="broken-reference/">SSL Object</a></td><td>-</td></tr></tbody></table>
+{% endtab %}
 
-#### Examples
-
+{% tab title="Examples" %}
 * Get the value of the `Content-Type` header for an incoming HTTP request using `{#request.headers['content-type']}`
 * Get the second part of the request path using `{#request.paths[1]}`
+{% endtab %}
+{% endtabs %}
 
 ### Request context attributes
 
-When APIM Gateway handles an incoming API request, some object properties are automatically created or added during the execution phase through the Assign Attributes policy. These object properties are known as attributes. Attributes can be accessed from the `{#context.attributes}` root-level object property. Available attributes are listed below.
+When APIM Gateway handles an incoming API request, some object properties are automatically created or added during the execution phase through the Assign Attributes policy. These object properties are known as attributes. Attributes can be accessed from the `{#context.attributes}` root-level object property.
 
-<table><thead><tr><th>Object Property</th><th>Description</th><th width="87">Type</th><th>Nullable</th></tr></thead><tbody><tr><td>context-path</td><td>Context path</td><td>string</td><td>-</td></tr><tr><td>resolved-path</td><td>The path defined in policies</td><td>string</td><td>-</td></tr><tr><td>application</td><td>The authenticated application making incoming HTTP requests</td><td>string</td><td>X (for Keyless plan)</td></tr><tr><td>api</td><td>Called API</td><td>string</td><td>-</td></tr><tr><td>user-id</td><td><p>The user identifier of an incoming HTTP request:</p><p>* The subscription ID for an API Key plan</p><p>* The remote IP for a Keyless plan</p></td><td>string</td><td>-</td></tr><tr><td>plan</td><td>Plan used to manage incoming HTTP requests</td><td>string</td><td>-</td></tr><tr><td>api-key</td><td>The API key used (for an API Key plan)</td><td>string</td><td>X (for no API Key plan)</td></tr></tbody></table>
+Some policies (e.g., the OAuth2 policy) register other attributes in the request context. For more information, refer to the documentation for individual policies. Request context attributes and examples are listed below.
 
-Additionally, some policies (e.g., the OAuth2 policy) register other attributes in the request context. For more information, refer to the documentation for individual policies.
+{% tabs %}
+{% tab title="Table" %}
+<table><thead><tr><th width="170">Object Property</th><th width="190">Description</th><th width="104">Type</th><th>Nullable</th></tr></thead><tbody><tr><td>context-path</td><td>Context path</td><td>string</td><td>-</td></tr><tr><td>resolved-path</td><td>The path defined in policies</td><td>string</td><td>-</td></tr><tr><td>application</td><td>The authenticated application making incoming HTTP requests</td><td>string</td><td>X (for Keyless plan)</td></tr><tr><td>api</td><td>Called API</td><td>string</td><td>-</td></tr><tr><td>user-id</td><td><p>The user identifier of an incoming HTTP request:</p><p>* The subscription ID for an API Key plan</p><p>* The remote IP for a Keyless plan</p></td><td>string</td><td>-</td></tr><tr><td>plan</td><td>Plan used to manage incoming HTTP requests</td><td>string</td><td>-</td></tr><tr><td>api-key</td><td>The API key used (for an API Key plan)</td><td>string</td><td>X (for no API Key plan)</td></tr></tbody></table>
+{% endtab %}
 
-#### Examples
-
+{% tab title="Examples" %}
 * Get the value of the `user-id` attribute for an incoming HTTP request using `{#context.attributes['user-id']}`
 * Get the value of the `plan` attribute for an incoming HTTP request using `{#context.attributes['plan']}`
+{% endtab %}
+{% endtabs %}
 
 ### SSL and principal objects <a href="#ssl_object" id="ssl_object"></a>
 
 The object properties you can access in the `ssl` session object from the `{#request.ssl}` root-level object property are listed below.
 
+{% tabs %}
+{% tab title="Table" %}
 <table><thead><tr><th>Object Property</th><th width="177">Description</th><th width="169">Type</th><th>Example</th></tr></thead><tbody><tr><td>clientHost</td><td>Host name of the client</td><td>string</td><td>client.domain.com</td></tr><tr><td>clientPort</td><td>Port number of the client</td><td>long</td><td>443</td></tr><tr><td>client</td><td>Client information</td><td>Principal Object</td><td>-</td></tr><tr><td>server</td><td>Server information</td><td>Principal Object</td><td>-</td></tr></tbody></table>
+{% endtab %}
 
-#### Example <a href="#principal_object" id="principal_object"></a>
+{% tab title="Example" %}
+Get the client HOST from the SSL session using `{#request.ssl.clientHost}`
+{% endtab %}
+{% endtabs %}
 
-* Get the client HOST from the SSL session using `{#request.ssl.clientHost}`
+
 
 #### Principal objects <a href="#principal_object" id="principal_object"></a>
 
