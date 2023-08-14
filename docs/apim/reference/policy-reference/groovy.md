@@ -15,7 +15,7 @@ Functional and implementation information for the Groovy policy is organized int
 
 ## Examples
 
-ou can use the [Groovy](http://www.groovy-lang.org/) policy to run Groovy scripts at any stage of request processing through the gateway.
+You can use the [Groovy](http://www.groovy-lang.org/) policy to run Groovy scripts at any stage of request processing through the Gateway.
 
 The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
 

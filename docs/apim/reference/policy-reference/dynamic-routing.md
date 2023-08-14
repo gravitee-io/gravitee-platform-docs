@@ -43,7 +43,7 @@ Currently, this policy can **not** be applied at the message level.
 }
 ```
 
-You can also select endpoints configured for your API by name using expression language:
+You can also select endpoints configured for your API by name using Gravitee Expression Language:
 
 ```
 "dynamic-routing": {
