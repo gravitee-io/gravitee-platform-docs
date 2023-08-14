@@ -238,15 +238,15 @@ Get the status of an HTTP response: `{#response.status}`
 
 ## Message
 
-The object properties you can access for API messages from the `{#message}` root-level object property are listed below. A message sent as a request can contain attributes that can be retrieved via `{#message.attributes[key]}`.
+The object properties you can access for API messages from the `{#message}` root-level object property are listed below. A message that is sent or received can also contain attributes that can be retrieved via `{#message.attributes[key]}`.
 
 {% hint style="info" %}
-EL is the same for request messages and response messages because it is executed on the message itself; whether the message is part of a request or response is irrelevant.
+EL is the same for a message on subscribe and publish phases because it is executed on the message itself, which renders the phase irrelevant.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="172">Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>ID of the message</td><td>string</td><td>-</td></tr><tr><td>content</td><td>Content of the message</td><td>string</td><td>-</td></tr><tr><td>contentLength</td><td>Size of the content</td><td>integer</td><td>-</td></tr><tr><td>error</td><td>Flag regarding the error state of the message</td><td>boolean</td><td>-</td></tr><tr><td>headers</td><td>Headers attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>metadata</td><td>Metadata attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>attributeNames</td><td>The names of the attributes</td><td>list / array</td><td>-</td></tr><tr><td>attributes[]</td><td>Attributes attached to a message</td><td>key / value</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th width="172">Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>ID of the message</td><td>string</td><td>-</td></tr><tr><td>content</td><td>Content of the message</td><td>string</td><td>-</td></tr><tr><td>contentLength</td><td>Size of the content</td><td>integer</td><td>-</td></tr><tr><td>error</td><td>Flag regarding the error state of the message</td><td>boolean</td><td>-</td></tr><tr><td>headers</td><td>Headers attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>metadata</td><td>Metadata attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>attributeNames</td><td>The names of the attributes</td><td>list / array</td><td>-</td></tr><tr><td>attributes[]</td><td>Attributes attached to the message</td><td>key / value</td><td>-</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Examples" %}
