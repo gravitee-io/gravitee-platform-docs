@@ -249,7 +249,7 @@ The EL used for a message does not change based on phase. EL is executed on the 
 <table><thead><tr><th width="172">Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>ID of the message</td><td>string</td><td>-</td></tr><tr><td>content</td><td>Content of the message</td><td>string</td><td>-</td></tr><tr><td>contentLength</td><td>Size of the content</td><td>integer</td><td>-</td></tr><tr><td>error</td><td>Flag regarding the error state of the message</td><td>boolean</td><td>-</td></tr><tr><td>headers</td><td>Headers attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>metadata</td><td>Metadata attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>attributeNames</td><td>The names of the attributes</td><td>list / array</td><td>-</td></tr><tr><td>attributes[]</td><td>Attributes attached to the message</td><td>key / value</td><td>-</td></tr></tbody></table>
 {% endtab %}
 
-{% tab title="Example" %}
+{% tab title="Examples" %}
 * Get the value of the `Content-Type` header for a message using `{#message.headers['content-type']}`
 * Get the size of a message using `{#message.contentLength}`
 {% endtab %}
