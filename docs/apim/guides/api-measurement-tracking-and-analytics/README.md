@@ -44,7 +44,7 @@ While there is less "measurement" here, the APIs menu is crucial for being able 
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-\{% @arcade/embed flowId="6XNg5xzEOEkNwJRZ6Ogm" url="https://app.arcade.software/share/6XNg5xzEOEkNwJRZ6Ogm" %\}
+{% @arcade/embed flowId="6XNg5xzEOEkNwJRZ6Ogm" url="https://app.arcade.software/share/6XNg5xzEOEkNwJRZ6Ogm" %}
 {% endtab %}
 
 {% tab title="Second Tab" %}

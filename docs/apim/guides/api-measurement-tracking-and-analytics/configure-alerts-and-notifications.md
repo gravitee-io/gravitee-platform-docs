@@ -4,7 +4,7 @@ description: >-
   APIs.
 ---
 
-# Configure Alerts and Notifications
+# Configure Notifications
 
 ## Introduction
 
@@ -217,9 +217,9 @@ The available attributes are summarized below. Use the [Apache Freemarker templa
 The following documentation is only relevant if you have Gravitee Alert Engine enabled, which is an Enterprise-only capability. To enable the following alerting capabilities, please [contact us](https://www.gravitee.io/contact-us) or reach out to your CSM.
 {% endhint %}
 
-{% @arcade/embed flowId="5HCcKbjuS7rfjlFsxPTI" url="https://app.arcade.software/share/5HCcKbjuS7rfjlFsxPTI" %}
+\{% @arcade/embed flowId="5HCcKbjuS7rfjlFsxPTI" url="https://app.arcade.software/share/5HCcKbjuS7rfjlFsxPTI" %\}
 
-When configuring an API's settings, you can also set up alerting conditions for the Gateway. To configure alerts for an API, select the API from the **APIs** menu. Then, under **Notifications,** select **Alerts**.&#x20;
+When configuring an API's settings, you can also set up alerting conditions for the Gateway. To configure alerts for an API, select the API from the **APIs** menu. Then, under **Notifications,** select **Alerts**.
 
 If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
 
@@ -232,11 +232,11 @@ Select the **+** icon to create your first alert. On the **Create a new alert** 
 * **Condition:** Set conditions for when your rule should operate and trigger alerts
 * **Filters:** Define a subset of events to which your conditions and rules are applied
 
-By default, alerts will show up in your **Dashboard** under the **Alerts** tab and on the **Alerts** page.&#x20;
+By default, alerts will show up in your **Dashboard** under the **Alerts** tab and on the **Alerts** page.
 
 <figure><img src="../../.gitbook/assets/Alert areas.gif" alt=""><figcaption><p>You can see alerts in the Alerts tab and the Alerts page.</p></figcaption></figure>
 
-In addition to viewing alerts in these locations, you can configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications** tab**.** On this page, you can:
+In addition to viewing alerts in these locations, you can configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications** tab\*\*.\*\* On this page, you can:
 
 * **Define a dampening rule:** Limit the number of notifications if the trigger is fired multiple times for the same condition
 * **Add a notification:** Add a notification type to your alerts to trigger notifications when alerts are processed. The available notification channels are email, Slack, system email, and Webhook.
@@ -248,8 +248,8 @@ Depending on the notification channel you choose, you will need to configure mul
 For email notifications, you can define the following:
 
 * SMTP Host
-* SMTP Port:&#x20;
-* SMTP Username:&#x20;
+* SMTP Port:
+* SMTP Username:
 * SMTP Password:
 * Allowed authentication methods
 * The "sender" email addresses
@@ -265,7 +265,7 @@ For email notifications, you can define the following:
 {% endtab %}
 
 {% tab title="Slack" %}
-If you choose Slack as your notification channel,  you can define the following:
+If you choose Slack as your notification channel, you can define the following:
 
 * The Slack channel where you want the alert sent
 * The Slack token of the app or the Slackbot

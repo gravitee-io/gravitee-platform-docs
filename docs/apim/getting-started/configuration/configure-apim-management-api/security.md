@@ -1,22 +1,22 @@
 # Security
 
-## Brute Force attacks
+## Brute-force attacks
 
-Brute Force attacks consist of submitting a high volume of authentication requests of password permutations. Even with OAuth 2.0 enabled, you can leave behind a login form for in-memory or local users. Some tools can help you to prevent malicious actions by banning IPs.
+A brute-force attack is the submission of a high volume of authentication requests consisting of password permutations. Even with OAuth 2.0 enabled, you can leave behind a login form for in-memory or local users. Some tools can help you to prevent malicious actions by banning IPs.
 
 ## Fail2Ban
 
-This section explains how to secure the APIM UI components (Management and Portal) and APIM APIs against brute force attacks using Fail2Ban. For instructions on installing Fail2Ban, see the [Fail2Ban website](https://www.fail2ban.org).
+This section explains how to secure the APIM UI components (Management and Portal) and APIM APIs against brute-force attacks using Fail2Ban. For instructions on installing Fail2Ban, see the [Fail2Ban website](https://www.fail2ban.org).
 
 ### **Configuration**
 
 APIM API logs all authentication failures in the Gravitee log file. Follow the steps below to configure Fail2Ban to work with the Gravitee log file.
 
 {% hint style="info" %}
-Each time you modify Fail2Ban configuration resources you need to restart the service.
+Each time you modify Fail2Ban configuration resources, you need to restart the service.
 {% endhint %}
 
-1.  Configure a Fail2Ban filter to extract Gravitee authentication failure events.
+1.  Configure a Fail2Ban filter to extract Gravitee authentication failure events:
 
     ```
     2019-05-03 16:03:03.304 [gravitee-listener-31] WARN  i.g.m.s.l.AuthenticationFailureListener - Authentication failed event for : admin - IP : 10.50.24.18
@@ -77,7 +77,7 @@ Each time you modify Fail2Ban configuration resources you need to restart the se
 
     [Init]
     ```
-4.  Declare the new Gravitee Fail2Ban block in the main configuration file, with the required parameters.
+4.  Declare the new Gravitee Fail2Ban block in the main configuration file with the required parameters:
 
     ```
     [gravitee]
