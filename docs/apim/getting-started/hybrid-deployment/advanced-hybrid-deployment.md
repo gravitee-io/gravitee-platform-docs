@@ -33,7 +33,7 @@ This documentation page relates to the installation of the client (on-Prem / pri
 |   Logstash   | Collect and send local Gateways logs and metrics to the Gravitee APIM SaaS Control Plane.                                                                                                                                                                                                                                                                                                                 |
 |     Redis    | The database used locally for rate limits synchronized counters (RateLimit, Quota, Spike Arrest) and optionally, as an external cache for the Cache policy.                                                                                                                                                                                                                                               |
 
-![Hybrid Architecture Connections](https://dobl1.github.io/gravitee-se-docs/assets/hybrid-architecture-connections.svg)
+<img src="../../.gitbook/assets/file.excalidraw (4).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
 
 ## Self-hosted hybrid Gateway installation[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#installation) <a href="#installation" id="installation"></a>
 
