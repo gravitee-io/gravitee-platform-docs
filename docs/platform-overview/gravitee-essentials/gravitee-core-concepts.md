@@ -182,5 +182,7 @@ This approach eliminates reliance on the Management Console and underlying Manag
 {% hint style="info" %}
 **Kubernetes source of truth**
 
-Once the Kubernetes YAML file has been deployed it is the source of truth. Although the API and API definition remain visible in the Gravitee Console and the API can still be deployed to the Developer Portal, there are API components that the administrator cannot change. While this may seem like a restriction, it is a feature, not a bug. A key principle of infrastructure as code (IaC) is to never change something in its “live form.” Instead, it should be changed via code and the changes observed as they manifest in the frontend.
+Once the Kubernetes YAML file has been deployed, it is the source of truth. The API and API definition remain visible in the Gravitee Console and the API can still be deployed to the Developer Portal, but there are API components that the administrator cannot change.&#x20;
+
+While this may seem like a restriction, it is a feature, not a bug. A key principle of infrastructure as code (IaC) is to never change something in its “live form.” Instead, it should be changed via code and the changes observed as they manifest in the frontend.
 {% endhint %}
