@@ -238,10 +238,10 @@ Get the status of an HTTP response: `{#response.status}`
 
 ## Message
 
-The object properties you can access for API messages from the `{#message}` root-level object property are listed below. A message that is sent or received can also contain attributes that can be retrieved via `{#message.attributes[key]}`.
+API message object properties are accessible from the `{#message}` root-level object property and listed below. A message (either sent or received) may also contain attributes that can be retrieved via `{#message.attributes[key]}`.
 
 {% hint style="info" %}
-The EL used for a message does not change depending on whether that message is associated with the subscribe or publish phase. EL is executed on the message itself, so phase is irrelevant.
+The EL used for a message does not change based on phase. EL is executed on the message itself, so whether the message is part of the subscribe or publish phase is irrelevant.
 {% endhint %}
 
 {% tabs %}
