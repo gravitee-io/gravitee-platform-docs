@@ -251,6 +251,7 @@ The EL used for a message does not change based on phase. EL is executed on the 
 
 {% tab title="Example" %}
 * Get the value of the `Content-Type` header for a message using `{#message.headers['content-type']}`
+* Get the size of a message using `{#message.contentLength}`
 {% endtab %}
 {% endtabs %}
 
