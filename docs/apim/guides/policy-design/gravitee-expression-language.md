@@ -218,7 +218,7 @@ Principle object custom properties are listed below.
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="218">Object Property</th><th width="154">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Prinicipal</code> object's domain name attributes listed in the table above</td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values. Returns <code>false</code> otherwise.</td><td>boolean</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th width="218">Object Property</th><th width="154">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Prinicipal</code> object's domain name attributes listed in the table below</td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values. Returns <code>false</code> otherwise.</td><td>boolean</td><td>-</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Examples" %}
@@ -233,7 +233,7 @@ Principle object custom properties are listed below.
 
 #### Attributes
 
-If the `Principal` object is not defined, `client` and `server` object values are empty. Otherwise, attributes you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below.
+If the `Principal` object is not defined, `client` and `server` object values are empty. Otherwise, domain name attributes you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below.
 
 {% hint style="info" %}
 **Limitation on arrays**
