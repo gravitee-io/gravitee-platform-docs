@@ -214,7 +214,7 @@ The `Principal` object is typically used with security policies such as OAuth2, 
 
 #### Custom properties <a href="#principal_object" id="principal_object"></a>
 
-Principle object custom properties are listed below.
+Principal object custom properties are listed below.
 
 {% tabs %}
 {% tab title="Table" %}
