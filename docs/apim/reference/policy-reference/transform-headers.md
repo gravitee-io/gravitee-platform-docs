@@ -15,7 +15,7 @@ Functional and implementation information for the JSON-to-XML policy is organize
 
 ## Examples
 
-You can use the `transformheaders` policy to override HTTP headers in incoming requests or outbound responses. You can override the HTTP headers by:
+You can use the `transform-headers` policy to override HTTP headers in incoming requests or outbound responses. You can override the HTTP headers by:
 
 * Adding to or updating the list of headers
 * Removing headers individually
@@ -28,7 +28,7 @@ The proxy API example also applies to v2 APIs.
 {% endhint %}
 
 ```
-transform-headers": {
+"transform-headers": {
     "addHeaders": [
         {
             "name": "X-Gravitee-Request-Id",
@@ -70,7 +70,7 @@ When using the Management API, policies are added as flows either directly to an
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the Transform Headers policy:
 
