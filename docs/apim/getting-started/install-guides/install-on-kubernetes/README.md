@@ -69,7 +69,7 @@ Alternatively, a YAML file that specifies the values for the parameters can be p
 helm install my-release -f values.yaml gravitee
 ```
 
-When you install APIM, it automatically uses the default values from the `values.yml` config file which can be modified using the parameters in the tables in the [configuration](./#configuration) section.
+When you install APIM, it automatically uses the default values from the `values.yml` config file which can be modified using the parameters in the tables in the [configuration](configure-helm-chart.md) section.
 {% endhint %}
 
 3. **(Optional)** Alternatively, you can also package this chart directory into a chart archive by running:
