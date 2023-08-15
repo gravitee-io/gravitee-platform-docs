@@ -6,9 +6,27 @@ EL is a language used for querying and manipulating an object graph. It is an ex
 
 EL allows you to reference values from the current API transaction. This means you can use expressions to create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
 
-## Basic usage
+## EL vs SpEL
 
-Since EL is an extension of SpEL, all capabilities detailed in the SpEL documentation are available in EL. This section focuses on Gravitee's modifications to the SpEL syntax, object properties added to the EL context, and commonly used operators and functions.
+Since EL is an extension of SpEL, all capabilities detailed in the SpEL documentation are available in EL. However, Gravitee has implemented certain customizations.
+
+### Object properties
+
+Object properties are variables that belong to an object. They are part of an object's structure and accessible via dot or bracket notation and their associated, root-level object property.
+
+Both custom properties and attributes are object properties, but the terms "custom property" and "attribute" have special meaning in the Gravitee ecosystem:
+
+* **Custom Properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](v4-api-policy-design-studio.md#api-properties).
+* **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the`assign-attributes` policy. Attributes are essentially a kind of variable that is dropped after the API transaction is completed.
+
+### Basic usage
+
+The information below summarizes:
+
+* Gravitee's modifications to the SpEL syntax
+* Object properties added to the EL context
+*
+* Commonly used operators and functions
 
 {% tabs %}
 {% tab title="Syntax" %}
@@ -41,17 +59,6 @@ EL allows you to reference certain values injected into the EL context as object
 * `{#message.attributes}` : Contains attributes automatically created by the APIM Gateway during a v4 message API transaction, or added during the execution phase through the [Assign Attributes policy](../../reference/policy-reference/assign-attributes.md).
 * `{#context.attributes}` : Contains attributes automatically created by the APIM Gateway during a v2 or v4 proxy API transaction, or added during the execution phase through the [Assign Attributes policy](../../reference/policy-reference/assign-attributes.md).
 * `{#node}` : Contains information about the node hosting the instance of the Gateway handling the API transaction.
-
-{% hint style="info" %}
-**Object properties: custom properties vs attributes**
-
-The terms "custom property" and "attribute" have special meaning in the Gravitee ecosystem.
-
-* **Custom Properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](v4-api-policy-design-studio.md#api-properties).
-* **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the`assign-attributes` policy. Attributes are essentially a kind of variable that is dropped after the API transaction is completed.
-
-Both custom properties and attributes are _object properties._ Object properties are variables that belong to an object. They are part of an object's structure and accessible via dot or bracket notation and their associated, root-level object property.
-{% endhint %}
 {% endtab %}
 
 {% tab title="Operators" %}
