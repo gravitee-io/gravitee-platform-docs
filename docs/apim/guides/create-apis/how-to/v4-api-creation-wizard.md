@@ -29,8 +29,16 @@ The API details step is where you can define a name, version number, and descrip
 
 The first part of the Entrypoints step is to choose how you want to expose your backend. As of today, Gravitee offers two options:
 
-* **Proxy upstream protocol:** use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
-* **Introspect messages from event-driven backend:** use this method if you want to expose backend event brokers, such as Kafka and MQTT.
+* **Proxy upstream protocol:** Use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
+* **Introspect messages from event-driven backend:** Use this method if you want to expose backend event brokers, such as Kafka and MQTT.
+
+{% hint style="info" %}
+The Gravitee documentation adopts concise terminology to differentiate between these API types:
+
+**Proxy API:** An API created using **Proxy upstream protocol**&#x20;
+
+**Message API:** An API created using **Introspect messages from event-driven backend**&#x20;
+{% endhint %}
 
 What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation](../#backend-exposure-methods).
 
