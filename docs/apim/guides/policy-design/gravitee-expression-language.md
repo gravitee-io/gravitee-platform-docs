@@ -38,6 +38,7 @@ EL allows you to reference certain values injected into the EL context as object
 * `{#request}` : Contains information about the current API request.
 * `{#response}` : Contains information about the current API response.
 * `{#message}` : Contains information about the current API message.
+* `{#message.attributes}` : Contains attributes automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](../../reference/policy-reference/assign-attributes.md).
 * `{#context.attributes}` : Contains attributes automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](../../reference/policy-reference/assign-attributes.md).
 * `{#node}` : Contains information about the node hosting the instance of the Gateway handling the API transaction.
 
