@@ -25,7 +25,7 @@ The information below summarizes:
 
 * Gravitee's modifications to the SpEL syntax
 * Object properties added to the EL context
-*
+* The distinction governing attribute access
 * Commonly used operators and functions
 
 {% tabs %}
@@ -50,15 +50,20 @@ Bracket notation should be used for property names that include a space or a hyp
 {% tab title="Object properties" %}
 EL allows you to reference certain values injected into the EL context as object properties. The available object properties will be further detailed in later sections. EL adds the following root-level object properties:
 
-* `{#api.properties}` : Contains custom properties defined by the API publisher for that Gateway API.
-* `{#dictionaries}` : Contains custom dictionaries defined by the API publisher for that Gateway API.
-* `{#endpoints}` : Contains information about the Gateway API's respective endpoints.
-* `{#request}` : Contains information about the current API request.
-* `{#response}` : Contains information about the current API response.
-* `{#message}` : Contains information about the current API message.
-* `{#message.attributes}` : Contains attributes automatically created by the APIM Gateway during a v4 message API transaction, or added during the execution phase through the [Assign Attributes policy](../../reference/policy-reference/assign-attributes.md).
-* `{#context.attributes}` : Contains attributes automatically created by the APIM Gateway during a v2 or v4 proxy API transaction, or added during the execution phase through the [Assign Attributes policy](../../reference/policy-reference/assign-attributes.md).
+* `{#api.properties}`: Contains custom properties defined by the API publisher for that Gateway API.
+* `{#dictionaries}`: Contains custom dictionaries defined by the API publisher for that Gateway API.
+* `{#endpoints}`: Contains information about the Gateway API's respective endpoints.
+* `{#request}`: Contains information about the current API request.
+* `{#response}`: Contains information about the current API response.
+* `{#message}`: Contains information about the current API message.
 * `{#node}` : Contains information about the node hosting the instance of the Gateway handling the API transaction.
+{% endtab %}
+
+{% tab title="Attributes" %}
+The `attributes` object property contains attributes that are automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](../../reference/policy-reference/assign-attributes.md). However, attributes fall into one of two categories depending on API type:
+
+* `{#message.attributes}`: Contains attributes associated with v4 Message APIs. These APIs are created using&#x20;
+* `{#context.attributes}`: Contains attributes associated with v2 APIs or v4 Proxy APIs. A v4 Proxy API is created using&#x20;
 {% endtab %}
 
 {% tab title="Operators" %}
