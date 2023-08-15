@@ -62,8 +62,8 @@ EL allows you to reference certain values injected into the EL context as object
 {% tab title="Attributes" %}
 The `attributes` object property contains attributes that are automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](../../reference/policy-reference/assign-attributes.md). However, attributes fall into one of two categories based on API type:
 
-* `{#message.attributes}`: Contains attributes associated with v4 Message APIs. These APIs are created using the **Proxy upstream protocol** method.
-* `{#context.attributes}`: Contains attributes associated with v2 APIs or v4 Proxy APIs. A v4 Proxy API is created using the **Introspect messages from event-driven backend** method.
+* `{#context.attributes}`: Contains attributes associated with v2 APIs or v4 Proxy APIs. A v4 Proxy API is created using the **Proxy upstream protocol** method.
+* `{#message.attributes}`: Contains attributes associated with v4 Message APIs. These APIs are created using the **Introspect messages from event-driven backend** method.
 
 See the [v4 API creation wizard](../create-apis/how-to/v4-api-creation-wizard.md) for more details.
 {% endtab %}
@@ -164,7 +164,7 @@ The object properties you can access from the `{#request}` root-level object pro
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="175">Object Property</th><th>Description</th><th width="143">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>paths</td><td>Path parts</td><td>array of string</td><td>[,v2,store,MyStore]</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of string</td><td>[,store,MyStore]</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>method</td><td>HTTP method</td><td>string</td><td>GET</td></tr><tr><td>scheme</td><td>HTTP scheme</td><td>string</td><td>http</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>ssl</td><td>SSL session information</td><td><a href="broken-reference/">SSL Object</a></td><td>-</td></tr></tbody></table>
+<table><thead><tr><th width="175">Object Property</th><th>Description</th><th width="143">Type</th><th>Example</th></tr></thead><tbody><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>method</td><td>HTTP method</td><td>string</td><td>GET</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of string</td><td>[,store,MyStore]</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>paths</td><td>Path parts</td><td>array of string</td><td>[,v2,store,MyStore]</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>scheme</td><td>HTTP version</td><td>string</td><td>http</td></tr><tr><td>ssl</td><td>SSL session information</td><td><a href="broken-reference/">SSL Object</a></td><td>-</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Examples" %}
@@ -194,7 +194,7 @@ Request context attributes and examples are listed below.
 
 ### SSL and principal objects <a href="#ssl_object" id="ssl_object"></a>
 
-EL can be used to access SSL properties and principal attributes as described below.
+EL can be used to access SSL object properties and principal object attributes as described below.
 
 #### SSL object properties
 
@@ -202,7 +202,7 @@ The object properties you can access in the `ssl` session object from the `{#req
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th>Object Property</th><th width="177">Description</th><th width="169">Type</th><th>Example</th></tr></thead><tbody><tr><td>clientHost</td><td>Host name of the client</td><td>string</td><td>client.domain.com</td></tr><tr><td>clientPort</td><td>Port number of the client</td><td>long</td><td>443</td></tr><tr><td>client</td><td>Client information</td><td>Principal Object</td><td>-</td></tr><tr><td>server</td><td>Server information</td><td>Principal Object</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th width="172">Object Property</th><th width="177">Description</th><th width="169">Type</th><th>Example</th></tr></thead><tbody><tr><td>clientHost</td><td>Host name of the client</td><td>string</td><td>client.domain.com</td></tr><tr><td>clientPort</td><td>Port number of the client</td><td>long</td><td>443</td></tr><tr><td>client</td><td>Client information</td><td>Principal Object</td><td>-</td></tr><tr><td>server</td><td>Server information</td><td>Principal Object</td><td>-</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Example" %}
@@ -212,7 +212,9 @@ Get the client HOST from the SSL session using `{#request.ssl.clientHost}`
 
 #### Principal objects <a href="#principal_object" id="principal_object"></a>
 
-A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions. The `Principal` object is typically used with security policies such as OAuth2, JWT, or basic authentication to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
+A `Principal` object represents the currently authenticated user who is making the request to the API. The `Principal` object provides access to various attributes of the user, such as their username, email address, roles, and permissions.&#x20;
+
+The `Principal` object is typically used with security policies such as OAuth2, JWT, or basic authentication to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
 The `client` and `server` objects are of type `Principal`. If the `Principal` object is not defined, all values are empty. Otherwise, attributes you can access from the `{#request.ssl.client}` and `{#request.ssl.server}`root-level object properties are listed below.
 
