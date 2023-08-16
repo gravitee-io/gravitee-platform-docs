@@ -62,7 +62,7 @@ We can now install the Gravitee Gateway using the following command:
 helm upgrade --install gravitee-ingress \
   -n gravitee-ingress \
   -f values.yml \
-  graviteeio/apim4
+  graviteeio/apim
 ```
 
 ### Deploy the Gravitee Kubernetes Operator
