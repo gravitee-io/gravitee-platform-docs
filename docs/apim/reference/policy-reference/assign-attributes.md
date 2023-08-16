@@ -16,17 +16,17 @@ Functional and implementation information for the JSON-to-XML policy is organize
 
 ## Examples
 
+{% hint style="info" %}
+The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+{% endhint %}
+
 You can use the `assign-attributes` policy to set variables such as request attributes and other execution context attributes.
 
 You can use it to retrieve initial request attributes after `Transform headers` or `Transform query parameters` policies and reuse them in other policies (`Dynamic routing`, for example).
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="warning" %}
-The proxy API example also applies to v2 APIs. This policy can also be used at the message level for v4 APIs.
-{% endhint %}
-
-Let’s say we want to inject request attributes into the context attributes:
+To inject request attributes into the context attributes:
 
 ```
 "assign-attributes": {
@@ -88,7 +88,7 @@ Get the foo query param:
 {% endtab %}
 
 {% tab title="Message API example" %}
-Let’s say we want to inject attributes into the message:
+To inject attributes into the message:
 
 ```
 "assign-attributes": {
@@ -118,6 +118,19 @@ Get the foo metadata:
 ```
 {#message.attributes['initialFooMetadataHeader']}
 ```
+
+To assign an attribute to the content of a message:
+
+```
+"assign-attributes": {
+    "attributes": [
+        {
+            "name": "messageContent,
+            "value": "{#message.content}"
+        }
+    ]
+}
+```
 {% endtab %}
 {% endtabs %}
 
@@ -135,11 +148,21 @@ The phases checked below are supported by the Assign Attributes policy:
 
 <table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
+### Options
+
+You can configure the Assign Attributes policy with the following options:
+
+<table><thead><tr><th width="134">Property</th><th>Required</th><th width="171">Description</th><th width="86">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>only for v4 proxy APIs</td><td>The execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>REQUEST</code></td></tr><tr><td>attributes</td><td>X</td><td>List of attributes</td><td>See table below</td><td></td></tr></tbody></table>
+
+Where attributes are defined as follows:
+
+<table><thead><tr><th width="134">Property</th><th>Required</th><th width="171">Description</th><th width="86">Type</th><th>Default</th></tr></thead><tbody><tr><td>name</td><td>X</td><td>Attribute name</td><td>string</td><td></td></tr><tr><td>value</td><td>X</td><td>Attribute value (can be EL)</td><td>string</td><td></td></tr></tbody></table>
+
 ## Compatibility matrix
 
 The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `assign-attributes` policy.
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>&#x3C;= 1.x</td><td>All</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>All</td></tr><tr><td>From 2.x</td><td>4.0+</td></tr></tbody></table>
 
 ## Errors
 
