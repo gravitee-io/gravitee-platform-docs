@@ -41,7 +41,7 @@ To inject request attributes into the context attributes:
         },
         {
             "name": "isJson,
-            "value": "yes"
+            "value": "'application/json'.equals(#request.headers['Content-Type'])"
         }
     ]
 }
