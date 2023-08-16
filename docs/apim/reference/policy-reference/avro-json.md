@@ -10,17 +10,17 @@ description: This page provides the technical details of the AVRO <> JSON policy
 
 ## Overview
 
-Functional and implementation information for the AVRO <> JSON policy is organized into the following sections:
+You can use the `avro-json` policy to apply a transformation (or mapping) on the request and/or response and/or message content.&#x20;
+
+This policy uses the [Avro](https://avro.apache.org/docs/1.11.1/) library. To serialize data in Avro, you need a [schema](https://avro.apache.org/docs/1.11.1/#schemas). There are two ways to provide a schema:
+
+* Inline in the policy configuration
+* With a Schema Registry
+
+Functional and implementation information for the `avro-json` policy is organized into the following sections:
 
 * [Configuration](avro-json.md#configuration)
 * [Errors](avro-json.md#errors)
-
-You can use the `avro-json` policy to apply a transformation (or mapping) on the request and/or response and/or message content. This policy is using the [Avro](https://avro.apache.org/docs/1.11.1/) library.
-
-To serialize data in Avro, you need a [schema](https://avro.apache.org/docs/1.11.1/#schemas). There are two ways to provide a schema:
-
-* Inlined in the policy configuration
-* With a Schema Registry
 
 ## Configuration
 
@@ -48,7 +48,7 @@ You can provide the Schema to use directly in the configuration of the policy:
 
 To use a schema registry to fetch a schema, you will need to declare a Gravitee resource in your API in addition to this policy.
 
-Currently we only provide a resource to interact with Confluent Schema Registry. You can find the plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/resources/gravitee-resource-schema-registry-confluent/).
+Currently, we only provide a resource to interact with Confluent Schema Registry. You can find the plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/resources/gravitee-resource-schema-registry-confluent/).
 
 ```
 {
@@ -63,27 +63,27 @@ Currently we only provide a resource to interact with Confluent Schema Registry.
 }
 ```
 
-Currently, we only support [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format). The policy will extract the schema id from the binary and will use it to fetch the Schema in the registry.
+Currently, we only support [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format). The policy will extract the schema ID from the binary and will use it to fetch the schema in the registry.
 
 {% hint style="warning" %}
-The use of Schema Registry is only available to transform message on the `onMessageResponse` phase.
+The use of Confluent Schema Registry is only available to transform message on the `onMessageResponse` phase.
 {% endhint %}
 
 #### Serialization format <a href="#user-content-serialization-format" id="user-content-serialization-format"></a>
 
-The policy is supporting the serialization formats:
+The policy supports the serialization formats:
 
-* `simple`: the binary contains only the serialized Avro.
-* `confluent`: the binary has been generated using [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format).
+* `simple`: The binary contains only the serialized Avro
+* `confluent`: The binary has been generated using [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format)
 
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the AVRO <> JSON policy:
+The phases checked below are supported by the `avro-json` policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="133" data-type="checkbox">Compatible?</th><th width="198.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
 ## Errors
 
-<table><thead><tr><th width="179">Code</th><th>Error template key</th><th>Description</th></tr></thead><tbody><tr><td><code>500</code></td><td>INVALID_AVRO_TRANSFORMATION</td><td>When the transform fail to be applied to the payload.</td></tr><tr><td><code>500</code></td><td>UNSUPPORTED_CONFIGURATION_KEY</td><td>When the policy configuration is not supported. For example, when the policy needs a schema registry but also use the <code>simple</code> serialization format.</td></tr></tbody></table>
+<table><thead><tr><th width="99">Code</th><th width="301">Error template key</th><th>Description</th></tr></thead><tbody><tr><td><code>500</code></td><td>INVALID_AVRO_TRANSFORMATION</td><td>The transform fails to be applied to the payload</td></tr><tr><td><code>500</code></td><td>UNSUPPORTED_CONFIGURATION_KEY</td><td>The policy configuration is not supported. For example, the policy needs a schema registry but also use the <code>simple</code> serialization format.</td></tr></tbody></table>
