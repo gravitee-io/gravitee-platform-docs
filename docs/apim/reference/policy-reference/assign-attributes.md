@@ -6,7 +6,11 @@ description: This page provides the technical details of the Assign Attributes p
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+You can use the `assign-attributes` policy to set variables such as request attributes and other execution context attributes.
+
+You can use it to retrieve initial request attributes after `Transform headers` or `Transform query parameters` policies and reuse them in other policies (`Dynamic routing`, for example).
+
+Functional and implementation information for the `assign-attributes` policy is organized into the following sections:
 
 * [Examples](assign-attributes.md#examples)
 * [Configuration](assign-attributes.md#configuration)
@@ -19,10 +23,6 @@ Functional and implementation information for the JSON-to-XML policy is organize
 {% hint style="info" %}
 The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
 {% endhint %}
-
-You can use the `assign-attributes` policy to set variables such as request attributes and other execution context attributes.
-
-You can use it to retrieve initial request attributes after `Transform headers` or `Transform query parameters` policies and reuse them in other policies (`Dynamic routing`, for example).
 
 {% tabs %}
 {% tab title="Proxy API example" %}
