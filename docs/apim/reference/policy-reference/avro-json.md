@@ -30,7 +30,7 @@ When using the Management API, policies are added as flows either directly to an
 
 ### Inline Schema <a href="#user-content-inline-schema" id="user-content-inline-schema"></a>
 
-You can provide the Schema to use directly in the configuration of the policy:
+You can provide the schema to use directly in the configuration of the policy:
 
 ```
 {
@@ -63,18 +63,18 @@ Currently, we only provide a resource to interact with Confluent Schema Registry
 }
 ```
 
-Currently, we only support [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format). The policy will extract the schema ID from the binary and will use it to fetch the schema in the registry.
+The policy will extract the schema ID from the binary and will use it to fetch the schema in the registry.
 
 {% hint style="warning" %}
-The use of Confluent Schema Registry is only available to transform message on the `onMessageResponse` phase.
+The use of Confluent Schema Registry is only available to transform messages on the `onMessageResponse` phase.
 {% endhint %}
 
-#### Serialization format <a href="#user-content-serialization-format" id="user-content-serialization-format"></a>
+### Serialization format
 
 The policy supports the serialization formats:
 
-* `simple`: The binary contains only the serialized Avro
-* `confluent`: The binary has been generated using [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format)
+* `confluent`: The binary has been generated using [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format). By default, Gravitee uses the `confluent` format. This is the serialization format used by `kafka-avro-serializer` library.
+* `simple`: The binary contains only the serialized Avro. The `simple` format can only be used for inline schema. If you serialize data "manually" (without `kafka-serializer`) the policy may not able to deserialize the binary.
 
 ### Phases
 
