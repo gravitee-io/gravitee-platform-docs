@@ -144,13 +144,13 @@ When using the Management API, policies are added as flows either directly to an
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Assign Attributes policy:
+The phases checked below are supported by the `assign-attributes` policy:
 
 <table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
 ### Options
 
-You can configure the Assign Attributes policy with the following options:
+You can configure the `assign-attributes` policy with the following options:
 
 <table><thead><tr><th width="134">Property</th><th>Required</th><th width="171">Description</th><th width="86">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>only for v4 proxy APIs</td><td>The execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>REQUEST</code></td></tr><tr><td>attributes</td><td>X</td><td>List of attributes</td><td>See table below</td><td></td></tr></tbody></table>
 

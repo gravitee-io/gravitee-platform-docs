@@ -12,7 +12,7 @@ This policy is compatible with the [Freemarker](https://freemarker.apache.org/) 
 
 By default, you can access multiple objects from the template context: request and response bodies, dictionaries, context attributes and more.
 
-Functional and implementation information for the Assign Content policy is organized into the following sections:
+Functional and implementation information for the `assign-content` policy is organized into the following sections:
 
 * [Examples](assign-content.md#examples)
 * [Configuration](assign-content.md#configuration)
@@ -69,7 +69,7 @@ When using the Management API, policies are added as flows either directly to an
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Assign Content policy:
+The phases checked below are supported by the `assign-content` policy:
 
 <table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
