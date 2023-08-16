@@ -62,7 +62,7 @@ We can now install the Gravitee Gateway using the following command:
 helm upgrade --install gravitee-ingress \
   -n gravitee-ingress \
   -f values.yml \
-  graviteeio/apim3
+  graviteeio/apim4
 ```
 
 ### Deploy the Gravitee Kubernetes Operator
@@ -279,7 +279,7 @@ curl --insecure -v https://foo.com/httpbin
 
 ## Extending an ingress using an API definition template
 
-Using policies, you can apply custom behaviors on requests issued to a backend service. This can be achieved using an API definition labeled as a template.&#x20;
+Using policies, you can apply custom behaviors on requests issued to a backend service. This can be achieved using an API definition labeled as a template.
 
 The examples below will build on the previous example in the deployment section using the `httpbin` service.
 
