@@ -1,5 +1,5 @@
 ---
-description: This page provides the technical details of the JSON-to-XML policy
+description: This page provides the technical details of the JWT Token Validation policy
 ---
 
 # JSON Web Token (JWT)
