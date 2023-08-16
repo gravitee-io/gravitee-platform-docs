@@ -19,7 +19,7 @@ Object properties are variables that hold information about the state of an obje
 Both custom properties and attributes are object properties, but the terms "custom property" and "attribute" have special meanings in the Gravitee ecosystem:
 
 * **Custom Properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](v4-api-policy-design-studio.md#api-properties).
-* **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the`assign-attributes` policy. Attributes are essentially a kind of variable that is dropped after the API transaction is completed.
+* **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the`assign-attributes` policy. Attributes are used to attach additional information to a request or message via a variable that is dropped after the API transaction is completed.
 
 ## Basic usage
 
