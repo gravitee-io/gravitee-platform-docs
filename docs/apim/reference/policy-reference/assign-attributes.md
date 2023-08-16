@@ -38,6 +38,10 @@ To inject request attributes into the context attributes:
         {
             "name": "initialFooParamHeader,
             "value": "{#request.params['foo']}"
+        },
+        {
+            "name": "isJson,
+            "value": "yes"
         }
     ]
 }
@@ -55,6 +59,12 @@ Get the foo query param:
 
 ```
 {#context.attributes['initialFooParamHeader']}
+```
+
+Get the format of the content:
+
+```
+{#context.attributes['isJson']}
 ```
 
 **Request objects**
@@ -100,6 +110,10 @@ To inject attributes into the message:
         {
             "name": "initialFooMetadataHeader,
             "value": "{#message.metadata['foo']}"
+        },
+        {
+            "name": "isJson,
+            "value": "yes"
         }
     ]
 }
@@ -117,6 +131,12 @@ Get the foo metadata:
 
 ```
 {#message.attributes['initialFooMetadataHeader']}
+```
+
+Get the format of the content:
+
+```
+{#message.attributes['isJson']}
 ```
 
 To assign an attribute to the content of a message:
