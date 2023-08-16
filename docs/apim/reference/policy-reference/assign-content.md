@@ -75,6 +75,8 @@ The phases checked below are supported by the `assign-content` policy:
 
 ### Options
 
+You can configure the `assign-content` policy with the following options:
+
 <table><thead><tr><th width="121">Property</th><th width="101" data-type="checkbox">Required</th><th width="202">Description</th><th width="87">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>The execution scope of the policy</td><td>scope</td><td><code>REQUEST</code></td></tr><tr><td>body</td><td>true</td><td>The data to push as request or response body content</td><td>string</td><td>-</td></tr></tbody></table>
 
 ## Compatibility matrix
