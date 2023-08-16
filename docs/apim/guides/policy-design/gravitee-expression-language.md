@@ -213,12 +213,12 @@ The `client` and `server` objects are of type `Principal`. A `Principal` object 
 
 The `Principal` object is typically used with security policies such as OAuth2, JWT, or basic authentication to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
-If the `Principal` object is not defined, `client` and `server` object values are empty. Otherwise, the domain name properties you can access from the `{#request.ssl.client}` and `{#request.ssl.server}` `Prinicipal` object are listed below:
+If the `Principal` object is not defined, `client` and `server` object values are empty. Otherwise, there are domain name attributes you can access from the `{#request.ssl.client}` and `{#request.ssl.server}` `Prinicipal` objects as shown in the table below:
 
 {% hint style="warning" %}
 **Limitation on arrays**
 
-All properties of the `Principal`object are flattened to be accessed directly with dot or bracket notation. While some of these attributes can be arrays, EL will only return the first item in the array. To retrieve all values of an attribute, use the `attributes` object property shown in the table and examples below.
+All attributes of the `Principal`object are flattened to be accessed directly with dot or bracket notation. While some of these attributes can be arrays, EL will only return the first item in the array. To retrieve all values of an attribute, use the `attributes` object property shown in the table and examples below.
 {% endhint %}
 
 {% tabs %}
