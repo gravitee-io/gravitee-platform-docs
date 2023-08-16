@@ -12,10 +12,30 @@ This policy ensures that API keys are valid, have not been revoked or expired an
 
 Functional and implementation information for the `api-key` policy is organized into the following sections:
 
+* [Examples](api-key.md#examples)
 * [Configuration](api-key.md#configuration)
 * [Compatibility Matrix](api-key.md#compatibility-matrix)
 * [Errors](api-key.md#errors)
 * [Changelogs](api-key.md#changelogs)
+
+## Examples
+
+{% hint style="info" %}
+This proxy API example also applies to v2 APIs. This policy is not applied at the message level for v4 APIs.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Proxy API example" %}
+You can configure the policy in the APIM Gateway configuration file (`gravitee.yml`). You can customize the `X-Gravitee-Api-Key` header and `api-key` query parameter.
+
+```
+policy:
+  api-key:
+    header: My-Custom-Api-Key
+    param: custom-api-key
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
@@ -31,15 +51,6 @@ When using the Management API, policies are added as flows either directly to an
 ```
 {% endcode %}
 
-You can also configure the policy in the APIM Gateway configuration file (`gravitee.yml`). You can customize the `X-Gravitee-Api-Key` header and `api-key` query parameter.
-
-```
-policy:
-  api-key:
-    header: My-Custom-Api-Key
-    param: custom-api-key
-```
-
 ### Phases
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
@@ -47,9 +58,6 @@ Policies can be applied to the request or the response of a Gateway API transact
 The phases checked below are supported by the `api-key` policy:
 
 <table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
-
-```
-```
 
 ### Options
 
