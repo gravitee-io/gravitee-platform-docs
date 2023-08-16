@@ -86,4 +86,4 @@ The phases checked below are supported by the `avro-json` policy:
 
 ## Errors
 
-<table><thead><tr><th width="99">Code</th><th width="301">Error template key</th><th>Description</th></tr></thead><tbody><tr><td><code>500</code></td><td>INVALID_AVRO_TRANSFORMATION</td><td>The transform fails to be applied to the payload</td></tr><tr><td><code>500</code></td><td>UNSUPPORTED_CONFIGURATION_KEY</td><td>The policy configuration is not supported. For example, the policy needs a schema registry but also use the <code>simple</code> serialization format.</td></tr></tbody></table>
+<table><thead><tr><th width="99">Code</th><th width="301">Error template key</th><th>Description</th></tr></thead><tbody><tr><td><code>500</code></td><td>INVALID_AVRO_TRANSFORMATION</td><td>The transform fails to be applied to the payload</td></tr><tr><td><code>500</code></td><td>UNSUPPORTED_CONFIGURATION_KEY</td><td>The policy configuration is not supported. For example, the policy needs a schema registry but also uses the <code>simple</code> serialization format.</td></tr></tbody></table>
