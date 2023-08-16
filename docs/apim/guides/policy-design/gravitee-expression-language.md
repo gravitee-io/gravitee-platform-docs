@@ -243,23 +243,6 @@ All attributes of the `Principal`object are flattened to be accessed directly wi
 {% endtab %}
 {% endtabs %}
 
-tet
-
-{% tabs %}
-{% tab title="Table" %}
-<table><thead><tr><th width="176">Object Property</th><th width="174">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Prinicipal</code> object's domain name attributes </td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values. Returns <code>false</code> otherwise.</td><td>boolean</td><td>-</td></tr></tbody></table>
-{% endtab %}
-
-{% tab title="Examples" %}
-* Get all the organization units of the server from the SSL session:
-  * `{#request.ssl.server.attributes['ou'][0]}`
-  * `{#request.ssl.server.attributes['OU'][1]}`
-  * `{#request.ssl.server.attributes['Ou'][2]}`
-* Get a custom attribute of the client from the SSL session: `{#request.ssl.client.attributes['1.2.3.4'][0]}`
-* Determine if the SSL attributes of the client are set: `{#request.ssl.client.defined}`
-{% endtab %}
-{% endtabs %}
-
 ## Response
 
 The object properties you can access for API responses from the `{#response}` root-level object property are listed below.
