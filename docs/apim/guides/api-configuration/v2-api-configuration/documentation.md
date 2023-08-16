@@ -22,6 +22,7 @@ The easiest way to create documentation for your APIs is to use the Gravitee API
 
 * ASCIIDOC
 * AsyncAPI spec
+* OpenAPI spec
 * Swagger
 * Markdown
 
