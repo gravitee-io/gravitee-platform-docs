@@ -13,6 +13,12 @@ You are reading the documentation for Gravitee 4.0 and later!
 * Support for prior versions will end on April 30, 2024.
 {% endhint %}
 
+{% hint style="warning" %}
+**Search field limitation**&#x20;
+
+You must navigate to a product's documentation before searching for related terms. For example, click on the API Management header link before searching for an APIM feature.
+{% endhint %}
+
 Welcome to Gravitee’s official documentation. Gravitee is an open-source, event-native API management platform that helps you design, deploy, manage, and secure synchronous and asynchronous APIs throughout the entire lifecycle.
 
 The Gravitee platform is available in two distribution versions, Community Edition (CE) and Enterprise Edition (EE), and comprises five main products:
@@ -24,10 +30,6 @@ The Gravitee platform is available in two distribution versions, Community Editi
 * **Gravitee Cockpit (GC)**
 
 Each of these products has its own documentation page accessible from the navigation menu at the top of the screen. Some of these products, such as APIM, contain a number of core components. Each product's documentation fully details and explores its respective components.
-
-{% hint style="info" %}
-To return information relating to a specific feature or concept, you must navigate to the site of the corresponding product before performing a keyword search. For example, to learn more about Gravitee API definitions, you must search from within the [APIM documentation](https://documentation.gravitee.io/apim/overview/readme).
-{% endhint %}
 
 ### Choose your path
 
