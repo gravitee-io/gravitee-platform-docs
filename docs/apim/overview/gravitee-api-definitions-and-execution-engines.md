@@ -20,34 +20,59 @@ A Gravitee API definition is very similar to an API specification (e.g., OpenAPI
 
 To execute your Gateway APIs and policy flows, the Gateway needs a runtime environment, or engine. This is generally referred to as the execution engine. As of APIM 4.0, there is support for both the v2 and v4 Gravitee API definitions, where v2 API definitions run on the legacy execution engine and v4 API definitions run on the reactive execution engine.
 
-The [v2 API Creation Wizard ](../guides/create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the legacy execution engine that can be augmented with flows designed in the [v2 Policy Studio](../guides/policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](../guides/create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine that can be augmented with flows designed in the [v4 Policy Studio](../guides/policy-design/v4-api-policy-design-studio.md).
-
-This guide is a deep dive into the difference between the two engines. Essentially, the reactive execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. Added features include native support for pub/sub (publish-subscribe) design and the capability to enforce policies at the message level.
-
 {% hint style="warning" %}
 You can run v2 Gateway APIs in [emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode), which emulates some of the execution flow improvements of the reactive execution engine.&#x20;
 {% endhint %}
 
-### Reactive execution engine
+The [v2 API Creation Wizard ](../guides/create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the legacy execution engine that can be augmented with flows designed in the [v2 Policy Studio](../guides/policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](../guides/create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine that can be augmented with flows designed in the [v4 Policy Studio](../guides/policy-design/v4-api-policy-design-studio.md).
 
-The reactive execution engine is based on a modern and fully reactive architecture. It is designed to address a number of challenges associated with the legacy execution engine used for v2 APIs. The new reactive engine offers:
+This guide is a deep dive into the differences between the new reactive execution engine and the existing legacy execution engine. Additionally, guidance is provided on managing changes in system behavior when switching to the reactive policy execution engine or enabling compatibility mode with a v2 API. The information is grouped by functional area.
 
-* The ability to execute policies in the exact order in which they have been placed in the Policy Studio. This addresses user issues related to the order in which policies are executed by the legacy engine, where policies interacting with the Head part of the request are always executed first, even when placed in a different order in the Policy Studio during the design phase. With the new reactive execution engine, it is possible to apply logic on a Head policy based on the payload of the request, e.g., to apply dynamic routing based on the request payload.
+## Reactive execution engine
 
-{% hint style="warning" %}
+The reactive execution engine is based on a modern and fully reactive architecture.  It enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. Added features include native support for pub/sub (publish-subscribe) design and the capability to enforce policies at the message level.&#x20;
+
+### Key improvements
+
+The new reactive engine is designed to address a number of challenges associated with the legacy execution engine used for v2 APIs.
+
+<details>
+
+<summary>Policy execution order</summary>
+
+Policies can be executed in the exact order in which they have been placed in the Policy Studio. This addresses a limitation of the legacy engine where policies interacting with the Head part of the request are always executed first, regardless of how they are ordered during the design phase.&#x20;
+
+With the new reactive execution engine, it is possible to apply logic on a Head policy based on the payload of the request, e.g., to apply dynamic routing based on the request payload.
+
 v2 Gateway APIs have this capability when [emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode) is enabled.
-{% endhint %}
 
-* Proper isolation between platform-level policies and API-level policies during policy execution. This ensures that platform-level policies are always executed prior to any API-level policies during the request stage and after any API-level policies during the response stage.
+</details>
 
-{% hint style="warning" %}
+<details>
+
+<summary>Policy isolation</summary>
+
+Proper isolation between platform-level policies and API-level policies is enforced during policy execution. This ensures that platform-level policies are executed before any API-level policies during the request stage and after any API-level policies during the response stage.
+
 v2 Gateway APIs have this capability when [emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode) is enabled.
-{% endhint %}
 
-* &#x20;Scopes have been simplified for API publishers by merging `onRequest` and `onRequestContent` into `onRequest` and `onResponse` and `onResponseContent` into `onResponse`. This means API publishers no longer have to define a scope in the policy configuration itself for v4 APIs.
-* Support for message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhook.
+</details>
 
-In this section, you can learn about all the differences between the new reactive execution engine and the existing legacy execution engine. Additionally, guidance is provided on managing changes in system behavior when switching to the reactive policy execution engine or enabling compatibility mode with a v2 API. The information is grouped by functional area in the sub-sections below.
+<details>
+
+<summary>Simplified scopes</summary>
+
+Scopes have been simplified for API publishers by merging `onRequest` and `onRequestContent` into `onRequest` and `onResponse` and `onResponseContent` into `onResponse`. This means API publishers no longer have to define a scope in the policy configuration for v4 APIs.
+
+</details>
+
+<details>
+
+<summary>Async support</summary>
+
+Message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhook are supported.
+
+</details>
 
 ### Policy support
 
