@@ -17,7 +17,7 @@ Functional and implementation information for the `aws-lambda` policy is organiz
 * [Errors](aws-lambda.md#errors)
 * [Changelogs](aws-lambda.md#changelogs)
 
-{% hint style="warning" %}
+{% hint style="info" %}
 This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
 
 Currently, this policy can **not** be applied at the message level.
@@ -62,7 +62,7 @@ The phases checked below are supported by the `aws-lambda` policy:
 
 You can configure the `aws-lambda` policy with the following options:
 
-<table><thead><tr><th width="186">Property</th><th width="100" data-type="checkbox">Required</th><th width="199">Description</th><th width="105">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>The scope on which apply the policy</td><td>string</td><td>REQUEST</td></tr><tr><td>region</td><td>true</td><td>The AWS region</td><td>string</td><td>us-east-1</td></tr><tr><td>accessKey</td><td>false</td><td>AWS Access Key</td><td>string</td><td>-</td></tr><tr><td>secretKey</td><td>false</td><td>AWS Secret Key</td><td>string</td><td>-</td></tr><tr><td>function</td><td>true</td><td>The name of the AWS Lambda function to call</td><td>string</td><td>-</td></tr><tr><td>payload</td><td>false</td><td>Payload of the request to AWS Lambda function</td><td>string</td><td>-</td></tr><tr><td>variables</td><td>false</td><td>The variables to set in the execution context when retrieving content of HTTP call (support EL)</td><td>List of variables</td><td>-</td></tr><tr><td>sendToConsumer</td><td>false</td><td>Check this option if you want to send the response of the lambda to the initial consumer without going to the final upstream (endpoints) selected by the gateway.</td><td>boolean</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="186">Property</th><th width="115" data-type="checkbox">Required</th><th width="199">Description</th><th width="105">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>The scope on which apply the policy</td><td>string</td><td>REQUEST</td></tr><tr><td>region</td><td>true</td><td>The AWS region</td><td>string</td><td>us-east-1</td></tr><tr><td>accessKey</td><td>false</td><td>AWS Access Key</td><td>string</td><td>-</td></tr><tr><td>secretKey</td><td>false</td><td>AWS Secret Key</td><td>string</td><td>-</td></tr><tr><td>function</td><td>true</td><td>The name of the AWS Lambda function to call</td><td>string</td><td>-</td></tr><tr><td>payload</td><td>false</td><td>Payload of the request to AWS Lambda function</td><td>string</td><td>-</td></tr><tr><td>variables</td><td>false</td><td>The variables to set in the execution context when retrieving content of HTTP call (support EL)</td><td>List of variables</td><td>-</td></tr><tr><td>sendToConsumer</td><td>false</td><td>Check this option if you want to send the response of the lambda to the initial consumer without going to the final upstream (endpoints) selected by the gateway.</td><td>boolean</td><td>false</td></tr></tbody></table>
 
 ## Compatibility
 
