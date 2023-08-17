@@ -12,6 +12,10 @@ description: This page provides the technical details of the Data Logging Maskin
 
 If you enable logging on APIs, you can use the `data-logging-masking` policy to configure rules to conceal sensitive data. You can use `json-path`, `xml-path` or a regular expression to identify the information to hide.
 
+{% hint style="warning" %}
+The `data-logging-masking` policy must be the last to run. Don’t forget to add it in final position on both the request and the response.
+{% endhint %}
+
 Functional and implementation information for the `data-logging-masking` policy is organized into the following sections:
 
 * [Configuration](data-logging-masking.md#configuration)
@@ -22,6 +26,19 @@ Functional and implementation information for the `data-logging-masking` policy 
 Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+
+When configuring the `data-logging-masking` policy, note the following:
+
+* If you use the `path` property in a rule without regex, all the data corresponding to this path will be hidden.
+* If you use a `MaskPattern` type property or a custom regular expression without a `path`, the transformation will apply to all the raw data.
+* We provide some patterns that you can use and adapt as required:
+  * _`CUSTOM`_: Use to write your own regular expression
+  * _`CREDIT_CARD`_: Use to catch and hide credit card numbers (supports Visa, Mastercard and American Express)
+  * _`EMAIL`_: Use to pick up and hide email addresses (doesn’t support Unicode)
+  * _`IP`_: Use to pick up and hide IP addresses (supports IPv4 and IPv6 format)
+  * _`Uri`_: Use to catch and hide sensitive addresses (supports HTTP, HTTPS, FTP, mailto and file)
+
+You can enable or disable the policy with policy identifier `policy-data-logging-masking`.
 
 ### Phases
 
@@ -35,21 +52,18 @@ The phases checked below are supported by the `data-logging-masking` policy:
 
 You can configure the `data-logging-masking` policy with the following options:
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Scope where the policy is executed</td><td>Policy scope</td><td>REQUEST_CONTENT</td></tr><tr><td>headerRules</td><td>false</td><td>List of mask rules to apply on client and proxy headers</td><td>List&#x3C;MaskHeaderRule></td><td></td></tr><tr><td>bodyRules</td><td>false</td><td>List of mask rules to apply on client and proxy body</td><td>List&#x3C;MaskBodyRule></td><td></td></tr></tbody></table>
+<table><thead><tr><th width="153">Property</th><th data-type="checkbox">Required</th><th width="164">Description</th><th width="209">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Scope where the policy is executed</td><td>Policy scope</td><td>REQUEST_CONTENT</td></tr><tr><td>headerRules</td><td>false</td><td>List of mask rules to apply on client and proxy headers</td><td>List&#x3C;MaskHeaderRule></td><td></td></tr><tr><td>bodyRules</td><td>false</td><td>List of mask rules to apply on client and proxy body</td><td>List&#x3C;MaskBodyRule></td><td></td></tr></tbody></table>
 
 #### Mask header rule
 
-| Property | Required | Description              | Type   | Default |
-| -------- | -------- | ------------------------ | ------ | ------- |
-| path     |          | Header name to transform | String |         |
-| replacer |          | Replacement character    | String | \*      |
+<table><thead><tr><th width="129">Property</th><th data-type="checkbox">Required</th><th width="165">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>path</td><td>false</td><td>Header name to transform</td><td>String</td><td></td></tr><tr><td>replacer</td><td>false</td><td>Replacement character</td><td>String</td><td>*</td></tr></tbody></table>
 
 #### Mask body rule
 
-<table><thead><tr><th>Property</th><th width="104">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>path</td><td></td><td>Context-dependent. If "Content-type" is <code>application / json</code> you must use <code>json-path</code>, if it is "application / xml" you must use <code>xml-path</code>, otherwise not used.</td><td>String</td><td></td></tr><tr><td>type</td><td></td><td>Value selector type</td><td>MaskPattern</td><td></td></tr><tr><td>regex</td><td></td><td>Custom value selector (use regular expression)</td><td>String</td><td></td></tr><tr><td>replacer</td><td></td><td>Replacement character</td><td>String</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="121">Property</th><th width="104" data-type="checkbox">Required</th><th width="261">Description</th><th width="129">Type</th><th>Default</th></tr></thead><tbody><tr><td>path</td><td>false</td><td>Context-dependent. If "Content-type" is <code>application / json</code> you must use <code>json-path</code>, if it is "application / xml" you must use <code>xml-path</code>, otherwise not used.</td><td>String</td><td></td></tr><tr><td>type</td><td>false</td><td>Value selector type</td><td>MaskPattern</td><td></td></tr><tr><td>regex</td><td>false</td><td>Custom value selector (use regular expression)</td><td>String</td><td></td></tr><tr><td>replacer</td><td>false</td><td>Replacement character</td><td>String</td><td>*</td></tr></tbody></table>
 
 ### Compatibility matrix
 
 The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `data-logging-masking` policy.
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>>= 2.x</td><td>>=3.18</td></tr><tr><td>1.x - 2.x</td><td>&#x3C;= 3.17.x</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>Up to 3.17.x</td></tr><tr><td>2.0 to 2.x</td><td>3.18.x to 3.20.x</td></tr><tr><td>3.0+</td><td>4.0+</td></tr></tbody></table>
