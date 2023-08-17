@@ -26,19 +26,11 @@ The proxy API example also applies to v2 APIs. This policy can also be applied a
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-To inject request attributes into the context attributes:
+To inject an attribute that will dynamically determine if the content is in JSON format:
 
 ```
 "assign-attributes": {
     "attributes": [
-        {
-            "name": "initialContentTypeHeader,
-            "value": "{#request.headers['Content-Type']}"
-        },
-        {
-            "name": "initialFooParamHeader,
-            "value": "{#request.params['foo']}"
-        },
         {
             "name": "isJson,
             "value": "'application/json'.equals(#request.headers['Content-Type'])"
@@ -47,21 +39,7 @@ To inject request attributes into the context attributes:
 }
 ```
 
-To extract the request attributes you can use the following syntax:
-
-Get the content-type header:
-
-```
-{#context.attributes['initialContentTypeHeader']}
-```
-
-Get the foo query param:
-
-```
-{#context.attributes['initialFooParamHeader']}
-```
-
-Get the format of the content:
+To extract the request attribute and get the format of the content you can use the following syntax:
 
 ```
 {#context.attributes['isJson']}
@@ -69,7 +47,7 @@ Get the format of the content:
 
 **Request objects**
 
-You can also be more general and put complex objects into the context attributes:
+You can also be more general and inject complex objects into the context attributes:
 
 ```
 "assign-attributes": {
@@ -82,61 +60,52 @@ You can also be more general and put complex objects into the context attributes
 }
 ```
 
-To extract the request attributes you can use the following syntax:
-
-Get the content-type header:
+To extract request attributes and get the Content-Type header you can use the following syntax:
 
 ```
-{#context.attributes['initialRequest'].headers['content-type']}
-```
-
-Get the foo query param:
-
-```
-{#context.attributes['initialRequest'].params['foo']}
+{#context.attributes['initialRequest'].headers['Content-Type']}
 ```
 {% endtab %}
 
 {% tab title="Message API example" %}
-To inject attributes into the message:
+To inject an attribute that will dynamically determine if the content is in JSON format:
 
 ```
 "assign-attributes": {
     "attributes": [
         {
-            "name": "initialContentTypeHeader,
-            "value": "{#message.headers['Content-Type']}"
-        },
-        {
-            "name": "initialFooMetadataHeader,
-            "value": "{#message.metadata['foo']}"
-        },
-        {
             "name": "isJson,
-            "value": "yes"
+            "value": "'application/json'.equals(#message.headers['Content-Type'])"
         }
     ]
 }
 ```
 
-To extract the message attributes you can use the following syntax:
-
-Get the content-type header:
-
-```
-{#message.attributes['initialContentTypeHeader']}
-```
-
-Get the foo metadata:
-
-```
-{#message.attributes['initialFooMetadataHeader']}
-```
-
-Get the format of the content:
+To extract the message attribute and get the format of the content you can use the following syntax:
 
 ```
 {#message.attributes['isJson']}
+```
+
+**Message objects**
+
+You can also be more general and inject complex objects into the message attributes:
+
+```
+"assign-attributes": {
+    "attributes": [
+        {
+            "name": "initialMessage,
+            "value": "{#message}"
+        }
+    ]
+}
+```
+
+To extract message attributes and get the Content-Type header you can use the following syntax:
+
+```
+{#message.attributes['initialMessage'].headers['Content-Type']}
 ```
 
 To assign an attribute to the content of a message:
