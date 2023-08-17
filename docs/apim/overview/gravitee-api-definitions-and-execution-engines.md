@@ -16,27 +16,23 @@ layout:
 
 ## Overview
 
-A Gravitee API definition is a specification for your Gravitee API Management (APIM) Gateway. A Gravitee API definition is very similar to an API specification (OpenAPI, AsynAPI, etc.) except it is a specification _for your Gravitee Gateway._ It’s a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, create plans for, etc., your APIs and their traffic.
+A Gravitee API definition is very similar to an API specification (e.g., OpenAPI, AsyncAPI) except it is a specification for your Gravitee API Management (APIM) Gateway_._ It’s a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, create plans for, etc., your APIs and their traffic.
 
-To execute your Gateway APIs and policy flows, the Gateway needs a runtime environment or engine. This is generally referred to as the execution engine.
+To execute your Gateway APIs and policy flows, the Gateway needs a runtime environment, or engine. This is generally referred to as the execution engine. As of APIM 4.0, there is support for both the v2 and v4 Gravitee API definitions, where v2 API definitions run on the legacy execution engine and v4 API definitions run on the reactive execution engine.
 
-Since APIM 4.0, there is support for both the v2 and v4 Gravitee API definitions through the legacy and reactive Gateway execution engines. You can think of these in pairs: v2 API definitions run on the legacy execution engine and v4 API definitions run on the reactive execution engine.
+The [v2 API Creation Wizard ](../guides/create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the legacy execution engine that can be augmented with flows designed in the [v2 Policy Studio](../guides/policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](../guides/create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine that can be augmented with flows designed in the [v4 Policy Studio](../guides/policy-design/v4-api-policy-design-studio.md).
 
-This guide is a deep dive into the difference between the two engines. In short, the reactive execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. This adds features such as native support for Pub/Sub (Publish-Subscribe) design and enabling policies at the message level.
+This guide is a deep dive into the difference between the two engines. Essentially, the reactive execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. Added features include native support for pub/sub (publish-subscribe) design and the capability to enforce policies at the message level.
 
 {% hint style="warning" %}
-You can also run v2 Gateway APIs in **emulation mode** which emulates some of the execution flow improvements of the reactive execution engine. This is detailed in the [v2 Gateway API emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode) section below.
+You can run v2 Gateway APIs in [emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode), which emulates some of the execution flow improvements of the reactive execution engine.&#x20;
 {% endhint %}
 
-APIM fully supports both API definitions and execution engines. The [v2 API Creation Wizard ](../guides/create-apis/how-to/v2-api-creation-wizard.md)creates v2 Gateway APIs compatible with the legacy execution engine that can be augmented with flows designed in the [v2 Policy Studio](../guides/policy-design/v2-api-policy-design-studio.md). The [v4 API Creation Wizard](../guides/create-apis/how-to/v4-api-creation-wizard.md) creates v4 APIs compatible with the reactive execution engine that can be augmented with flows designed in the [v4 Policy Studio](../guides/policy-design/v4-api-policy-design-studio.md).
+### Reactive execution engine
 
-### Key improvements
+The reactive execution engine is based on a modern and fully reactive architecture. It is designed to address a number of challenges associated with the legacy execution engine used for v2 APIs. The new reactive engine offers:
 
-The reactive execution engine enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. It is based on a modern and fully reactive architecture designed to address a number of challenges Gravitee users have been facing with the existing, legacy execution engine, available with the Gravitee’s v2 API definition.
-
-The new reactive engine provides the following capabilities:
-
-* The ability to execute policies in the exact order in which they have been placed in the Policy Studio. This addresses some issues experienced by users related to the order in which policies are executed by the legacy engine where policies interacting with the Head part of the request are always executed first, even when placed in a different order in the Policy Studio during the design phase. With the new reactive execution engine, it is possible to apply logic on a head policy based on the payload of the request - for example, to apply dynamic routing based on the request payload.
+* The ability to execute policies in the exact order in which they have been placed in the Policy Studio. This addresses user issues related to the order in which policies are executed by the legacy engine, where policies interacting with the Head part of the request are always executed first, even when placed in a different order in the Policy Studio during the design phase. With the new reactive execution engine, it is possible to apply logic on a Head policy based on the payload of the request, e.g., to apply dynamic routing based on the request payload.
 
 {% hint style="warning" %}
 v2 Gateway APIs have this capability when [emulation mode](gravitee-api-definitions-and-execution-engines.md#v2-gateway-api-emulation-mode) is enabled.
