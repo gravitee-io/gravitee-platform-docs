@@ -10,10 +10,10 @@ HTTP Signature is an authentication method for adding additional security.
 
 The `Signature` authentication model requires the client to authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
 
-To authenticate, clients can use:
+To authenticate, clients can use `Authorization` header: or `Signature` header. For example:
 
-* `Authorization` header: For example: `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
-* `Signature` header: For example, `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+* `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+* `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
 
 {% hint style="info" %}
 The current version of the policy does not support `Digest`, `request-target`, `Host`, or `Path` headers.
@@ -23,6 +23,7 @@ Functional and implementation information for the `generate-http-signature` poli
 
 * [Examples](generate-http-signature.md#examples)
 * [Configuration](generate-http-signature.md#configuration)
+* [Compatibility Matrix](generate-http-signature.md#compatibility-matrix)
 * [Errors](generate-http-signature.md#errors)
 * [Changelogs](generate-http-signature.md#changelogs)
 
@@ -81,7 +82,7 @@ When using the Management API, policies are added as flows either directly to an
 
 You can configure the `generate-http-signature` policy with the following options:
 
-<table data-full-width="false"><thead><tr><th width="139">Property</th><th width="103" data-type="checkbox">Required</th><th width="264">Description</th><th width="128" data-type="select">Type</th><th width="169">Options</th><th>Default</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td></td><td>AUTHORIZATION, SIGNATURE</td><td>AUTHORIZATION</td></tr><tr><td>keyId</td><td>true</td><td>The key ID used to generate the signature (supports EL)</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL)</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>algorithm</td><td>true</td><td>The HMAC digest algorithm</td><td></td><td>N/a</td><td>HMAC_SHA256</td></tr><tr><td>headers</td><td>false</td><td>List of headers to build the signature. If no headers, the request must at least contains <code>Date</code> header.</td><td></td><td>N/a</td><td>N/a</td></tr><tr><td>created</td><td>true</td><td>Include the created timestamp in the signature and (created) header</td><td></td><td>true, false</td><td>true</td></tr><tr><td>expires</td><td>true</td><td>Include the expires timestamp in the signature and (expires) header</td><td></td><td>true, false</td><td>true</td></tr><tr><td>validityDuration</td><td>false</td><td>Signature’s maximum validation duration in seconds (minimum is 1). Applied when <code>expires</code> is set to true.</td><td></td><td>N/a</td><td>3</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="175">Property</th><th width="103" data-type="checkbox">Required</th><th width="232">Description</th><th width="156">Default</th><th>Example</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td>authorization</td><td>-</td></tr><tr><td>keyId</td><td>true</td><td>The key ID used to generate the signature (supports EL)</td><td>-</td><td>rsa-key-1</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL)</td><td>-</td><td>passphrase</td></tr><tr><td>algorithm</td><td>true</td><td>The HMAC digest algorithm</td><td>HMAC_SHA256</td><td>-</td></tr><tr><td>headers</td><td>false</td><td>List of headers to build the signature. If no headers, the request must at least contains <code>Date</code> header.</td><td>-</td><td>-</td></tr><tr><td>created</td><td>true</td><td>Include the created timestamp in the signature and (created) header</td><td>true</td><td>-</td></tr><tr><td>expires</td><td>true</td><td>Include the expires timestamp in the signature and (expires) header</td><td>true</td><td>-</td></tr><tr><td>validityDuration</td><td>false</td><td>Signature’s maximum validation duration in seconds (minimum is 1). Applied when <code>expires</code> is set to true.</td><td>3</td><td>-</td></tr></tbody></table>
 
 ### Phases
 
@@ -91,9 +92,19 @@ The phases checked below are supported by the `generate-http-signature` policy:
 
 <table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
+## Compatibility matrix
+
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `generate-http-signature` policy.
+
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>All</td></tr></tbody></table>
+
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="137">Phase</th><th width="128">HTTP status code</th><th width="177">Error template key</th><th>Description</th></tr></thead><tbody><tr><td>onRequest</td><td><code>400</code></td><td>HTTP_SIGNATURE_IMPOSSIBLE_GENERATION</td><td><p>In case of:</p><ul><li>Request does not contain every header in the configuration headers list.</li><li>Request does not contain <code>Date</code> header and the configuration headers list is empty. Policy needs at least <code>Date</code> header to create a signature.</li><li>Unable to sign because of bad configuration.</li></ul></td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="188">HTTP status code</th><th>Description</th></tr></thead><tbody><tr><td><code>400</code></td><td><ul><li>Request does not contain every header in the configuration headers list.</li><li>Request does not contain <code>Date</code> header and the configuration headers list is empty. Policy needs at least <code>Date</code> header to create a signature.</li><li>Unable to sign because of bad configuration.</li></ul></td></tr></tbody></table>
+
+If you’re looking to override the default response provided by the policy, you can do it thanks to the response templates feature. These templates must be define at the API level (see `Response Templates` from the `Proxy` menu).
+
+Here are the error keys send by this policy: HTTP\_SIGNATURE\_IMPOSSIBLE\_GENERATION
 
 ## Changelogs
 
