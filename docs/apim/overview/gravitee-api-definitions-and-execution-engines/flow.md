@@ -6,6 +6,8 @@ description: This page discusses improvements to flow conditions and interruptio
 
 ## Flow conditions
 
+### Legacy execution engine behavior
+
 With the legacy execution engine, a condition can be defined once for the whole flow, but the condition is evaluated before executing each phase of the flow (`REQUEST` and `RESPONSE` phases). This could lead to a partial flow execution.
 
 For instance, a condition could be defined based on a request header that is removed during the `REQUEST` phase (e.g. the user does not want the request header to be transmitted to the backend). In such cases, the condition is re-evaluated and the `RESPONSE` phase is skipped completely.
@@ -33,6 +35,8 @@ If you expect the `RESPONSE` phase to be skipped in the scenario described above
 To mimic the legacy engine behavior with the reactive engine, you can remove the flow condition from the flow configuration and add it directly to the policies themselves.
 
 ## Flow interruption
+
+### Legacy execution engine behavior
 
 With the legacy execution engine, when a policy fails, the execution flow is interrupted and the response is returned to the client application. As a result, the platform flow response is also skipped. This leads to unexpected behavior, especially when `POST` actions are expected like in a custom metrics reporter.
 

@@ -1,6 +1,6 @@
 # Timeout management
 
-## Overview
+## Legacy execution engine behavior
 
 With the legacy execution engine, when a timeout is configured (`http.requestTimeout`) and triggered due to a request that is too slow (or a policy taking too much time to execute), the API platform flows are always skipped and a `504` status is sent as a response to the client.
 

@@ -4,7 +4,7 @@ description: This page discusses the improved response to origin validation
 
 # Access-Control-Allowed-Origin
 
-## Overview
+## Legacy execution engine behavior
 
 With the legacy execution engine, you can configure Cross-Origin Resource Sharing (CORS) to allow a specific subset of origins. The Gateway properly validates the origin but returns `Access-Control-Allowed-Origin: *` in the response header regardless of the actual configuration.
 
