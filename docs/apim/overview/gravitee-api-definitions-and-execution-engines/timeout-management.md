@@ -2,7 +2,7 @@
 
 ## Legacy execution engine behavior
 
-With the legacy execution engine, when a timeout is configured (`http.requestTimeout`) and triggered due to a request that is too slow (or a policy taking too much time to execute), the API platform flows are always skipped and a `504` status is sent as a response to the client.
+When using the legacy execution engine, if a timeout is configured (`http.requestTimeout`) and triggered due to a request that is too slow or a policy that is taking too much time to execute, the API platform flows are always skipped and a `504` status is sent as a response to the client.
 
 ## Reactive execution engine improvements
 
@@ -24,17 +24,19 @@ The timeout value is calculated from the following two properties:
 {% hint style="info" %}
 **Timeout configuration**
 
-With the reactive execution engine, timeout values of `0` and less are treated as meaning 'no timeout' (like the legacy engine). If you configure the timeout with a positive value, then it will act normally.
+The reactive execution engine interprets timeout values less than or equal to `0` as "no timeout" (same as the legacy engine).&#x20;
+
+If you configure the timeout with a positive value, then it will act normally.
 
 If no configuration is provided, a default configuration is set to default to 30000 ms timeout.
 {% endhint %}
 
 ## **Examples**
 
-In the following examples, we assume that there is no timeout defined for the backend in the API’s endpoint configuration. In real life, those timeout values should be shorter than `http.requestTimeout`, and should interrupt the flow at the invoker level.
-
-We will use `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms`.
-
 The example below shows timelines indicating when a timeout should occur depending on the duration of the API flow and the response platform flows:
+
+* We assume that there is no timeout defined for the backend in the API’s endpoint configuration.&#x20;
+  * In real life, those timeout values should be shorter than `http.requestTimeout` and should interrupt the flow at the invoker level.
+* We are using `http.requestTimeout=2000ms` and `http.requestTimeoutGraceDelay=30ms`.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-timeout.png" alt=""><figcaption><p>Reactive engine timeout management</p></figcaption></figure>
