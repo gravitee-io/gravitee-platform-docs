@@ -6,7 +6,7 @@ description: >-
 
 # Policy execution
 
-## Overview
+## Legacy execution engine behavior
 
 With the legacy execution engine, different execution scopes are required in order to indicate at which level a policy will work, as follows:
 

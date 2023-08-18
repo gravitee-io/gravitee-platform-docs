@@ -8,7 +8,7 @@ description: >-
 
 ## EL condition evaluation
 
-### Overview
+### Legacy execution engine behavior
 
 With the legacy execution engine, the Gateway returns a `500` error with an obscure message when the Gateway provides a valid Gravitee Expression Language (EL) expression that fails to be evaluated because it is trying to access missing data.
 
@@ -37,7 +37,7 @@ However, the execution will fail and throw an error if the provided EL expressio
 
 ## EL expression parsing
 
-### Overview
+### Legacy execution engine behavior
 
 With the legacy execution engine, an EL expression is parsed each time it is evaluated.
 
@@ -47,7 +47,7 @@ With the reactive execution engine, a new caching mechanism allows the Gateway t
 
 ## EL body expressions
 
-### Overview
+### Legacy execution engine behavior
 
 With the legacy execution engine, using an EL expression such as `{#request.content == 'something'}` is limited to policies working at `REQUEST_CONTENT` or `RESPONSE_CONTENT` phases (e.g. Assign Metrics, Assign Content, Request Validation, etc.).
 

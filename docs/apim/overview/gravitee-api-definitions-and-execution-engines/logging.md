@@ -4,7 +4,7 @@ description: This page focuses on legacy logging issues and improvements
 
 # Logging
 
-## Overview
+## Legacy execution engine behavior
 
 With the legacy execution engine, the following issues exist with logging:
 
