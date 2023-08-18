@@ -27,7 +27,7 @@ Functional and implementation information for the `cache` policy is organized in
 
 ## Examples
 
-{% hint style="info" %}
+{% hint style="warning" %}
 This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
 
 Currently, this policy can **not** be applied at the message level.

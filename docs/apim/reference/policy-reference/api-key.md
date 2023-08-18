@@ -20,8 +20,8 @@ Functional and implementation information for the `api-key` policy is organized 
 
 ## Examples
 
-{% hint style="info" %}
-This proxy API example also applies to v2 APIs. This policy is not applied at the message level for v4 APIs.
+{% hint style="warning" %}
+This proxy API example also applies to v2 APIs. Currently, this policy can **not** be applied at the message level for v4 APIs.
 {% endhint %}
 
 {% tabs %}

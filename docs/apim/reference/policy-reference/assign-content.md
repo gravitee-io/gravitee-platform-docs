@@ -22,7 +22,7 @@ Functional and implementation information for the `assign-content` policy is org
 
 ## Examples
 
-{% hint style="info" %}
+{% hint style="warning" %}
 The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
 {% endhint %}
 
