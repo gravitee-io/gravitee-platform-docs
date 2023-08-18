@@ -6,6 +6,13 @@ The changelog is the best place for in-depth overviews of what's new in Gravitee
 
 ## Alert Engine changelog
 
+### 2.1.5 (2023-08-18)
+
+_**General**_
+
+* fix: webhook notifier 1.1.2
+
+
 ### 2.1.4 (2023-07-06)
 
 _**General**_
