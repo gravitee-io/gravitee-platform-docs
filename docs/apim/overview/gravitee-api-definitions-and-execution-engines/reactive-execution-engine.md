@@ -52,27 +52,27 @@ Message-based, asynchronous APIs such as Kafka, MQTT, WebSocket, SSE, and Webhoo
 
 ## Policy support
 
-With the legacy execution engine, all existing supported policies will continue to work as before without any changes.
+The legacy execution engine supports all Gravitee policies that existed prior to the 4.0 release. These policies will continue to function without any changes to configuration or execution.
 
-All policies will also support the new reactive execution engine. However, only some policies are capable of being applied at the message level. This is detailed for each policy in the [Policy Reference](../../reference/policy-reference/) Guide.
+All policies will also support the new reactive execution engine, but not all policies can being applied at the message level. Whether a policy can be applied to v4 proxy APIs and/or v4 message APIs is detailed per policy in the [Policy Reference](../../reference/policy-reference/) Guide.
 
 ## v2 Gateway API emulation mode
 
 {% hint style="info" %}
-By default, emulation mode is not enabled for v2 APIs as it may cause unexpected changes in behavior. Please review this guide in its entirety before enabling emulation mode.
+By default, emulation mode is not enabled for v2 APIs because it may cause unexpected changes in behavior. Please review this guide in its entirety before enabling emulation mode.
 {% endhint %}
 
-All v2 Gateway APIs can be used in emulation mode as shown in the image below:
+v2 Gateway APIs can be run in emulation mode:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-07-19 at 4.45.21 PM.png" alt=""><figcaption><p>v2 API emulation mode</p></figcaption></figure>
 
-Enabling this option allows v2 Gateway APIs to easily access all the improvements of the reactive execution engine detailed in the following sections.
+Enabling this option allows v2 Gateway APIs to access the improvements built into the reactive execution engine. The functional benefits provided by the reactive engine are detailed in subsequent sections.
 
 {% hint style="warning" %}
-v4 Gateway APIs have some features that are dependent on the API definition itself instead of the execution engine. Therefore, v2 APIs in emulation mode will **not** have the following benefits:
+Some v4 Gateway API features are dependent on the API definition, not the execution engine. Therefore, v2 APIs in emulation mode will **not** receive the following benefits:
 
-* Event native API management: support for event brokers, multi-entry points, QOS, etc.
-* Analytics improvements
+* Event-native API management: Support for event brokers, multi-entry points, QoS, etc.
+* Analytics improvements:
   * Message-level analytics with sampling
   * Ability to disable analytics in the API definition
 * Modified flow execution phases: request, response, subscribe, publish
