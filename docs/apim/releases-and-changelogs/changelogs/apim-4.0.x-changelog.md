@@ -5,6 +5,29 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.4 - August 18, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Management API**
+
+* "Export as CSV" on Subscriptions only export displayed values [#8965](https://github.com/gravitee-io/issues/issues/8965)
+* Membership duplication ignores Primary Owner of source API and can create a duplicated membership in the new API [#9184](https://github.com/gravitee-io/issues/issues/9184)
+* Pages duplication does not update lastContributor attribute [#9185](https://github.com/gravitee-io/issues/issues/9185)
+
+**Console**
+
+* Console Analytics & Logs: 500 error is displayed when trying to view analytics and logs using a date range bigger than 90 days [#6777](https://github.com/gravitee-io/issues/issues/6777)
+* Health Check Active When Configured Globally but Not Enabled on the Endpoint [#9149](https://github.com/gravitee-io/issues/issues/9149)
+
+**Other**
+
+* Improve permission granulation on environment settings [#9150](https://github.com/gravitee-io/issues/issues/9150)
+
+</details>
 
 ## Gravitee API Management 4.0.3 - August 10, 2023
 
