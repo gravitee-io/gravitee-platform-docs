@@ -16,6 +16,7 @@
   * [Flow](overview/gravitee-api-definitions-and-execution-engines/flow.md)
   * [Access-Control-Allowed-Origin](overview/gravitee-api-definitions-and-execution-engines/access-control-allowed-origin.md)
   * [Timeout management](overview/gravitee-api-definitions-and-execution-engines/timeout-management.md)
+  * [Plan selection](overview/gravitee-api-definitions-and-execution-engines/plan-selection.md)
 
 ## Getting Started
 
