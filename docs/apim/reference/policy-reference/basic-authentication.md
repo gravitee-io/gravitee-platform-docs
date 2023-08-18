@@ -27,7 +27,7 @@ Functional and implementation information for the `basic-authentication` policy 
 ## Examples
 
 {% hint style="info" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
@@ -59,7 +59,7 @@ When using the Management API, policies are added as flows either directly to an
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the `basic-authentication` policy:
 

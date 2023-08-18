@@ -30,14 +30,14 @@ When defining the response body content, you can use Expression Language to prov
 {% tabs %}
 {% tab title="Proxy API example" %}
 {% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
 Note that you don’t need to provide the `Content-Type` header, since the Mock policy can automatically detect the content type.
 
-#### Body content example (XML)
+**Body content example (XML)**
 
 ```
 <user id="{#request.paths[3]}">
@@ -48,7 +48,7 @@ Note that you don’t need to provide the `Content-Type` header, since the Mock 
 </user>
 ```
 
-#### Body content example (JSON)
+**Body content example (JSON)**
 
 ```
 {
@@ -92,7 +92,7 @@ When using the Management API, policies are added as flows either directly to an
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the Mock policy:
 

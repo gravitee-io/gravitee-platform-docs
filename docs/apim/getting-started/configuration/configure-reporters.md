@@ -89,7 +89,7 @@ As of Gravitee 4.0, the TCP Reporter is an Enterprise Edition capability. To lea
 {% endhint %}
 
 {% hint style="warning" %}
-Does not yet support v4 APIs. Learn more [here](../../overview/gravitee-api-definitions-and-execution-engines.md).
+Does not yet support v4 APIs. Learn more [here](../../overview/gravitee-api-definitions-and-execution-engines/).
 {% endhint %}
 
 #### **Configuration Parameters**
@@ -145,7 +145,7 @@ As of Gravitee 4.0, the Datadog Reporter is an Enterprise Edition capability. To
 {% endhint %}
 
 {% hint style="warning" %}
-Does not yet support v4 APIs. Learn more [here](../../overview/gravitee-api-definitions-and-execution-engines.md).
+Does not yet support v4 APIs. Learn more [here](../../overview/gravitee-api-definitions-and-execution-engines/).
 {% endhint %}
 
 This reporter allows you to send APIM Gateway events to Datadog listening server.

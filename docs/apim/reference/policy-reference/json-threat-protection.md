@@ -7,7 +7,7 @@ description: This page provides the technical details of the JSON Threat Protect
 ## Overview
 
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines.md)
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
@@ -28,7 +28,7 @@ You can use the `json-threat-protection` policy to validate a JSON request body 
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the JSON Threat Protection policy:
 

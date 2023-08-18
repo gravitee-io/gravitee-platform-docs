@@ -59,7 +59,7 @@ When using the Management API, policies are added as flows either directly to an
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines.md). Each policy is compatible with a subset of the available phases.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the GeoIP-Filtering policy:
 
@@ -74,4 +74,3 @@ The [changelog for each version of APIM](../../releases-and-changelogs/changelog
 ## Errors
 
 <table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>403</code></td><td>You’re not allowed to access this resource</td></tr></tbody></table>
-
