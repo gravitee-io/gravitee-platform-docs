@@ -27,4 +27,4 @@ The reactive execution engine does not consider the `REQUEST_CONTENT` and `RESPO
 
 ## Migration considerations
 
-If you have designed your APIs assuming the policy ordering provided by the legacy execution engine, you must review your existing flows when enabling compatibility mode or migrating to a v4 API definition. There may be policy execution behavior changes due to the changes in execution order at runtime. You can use the debug mode to test the new behavior and adapt your APIs to ensure they are safely redeployed.
+If you have designed your APIs assuming the policy ordering imposed by the legacy execution engine, you must review your existing flows when enabling compatibility mode or migrating to a v4 API definition. There may be policy execution behavior changes due to the changes in execution order at runtime. You can use the debug mode to test the new behavior and adapt your APIs to ensure they are safely redeployed.
