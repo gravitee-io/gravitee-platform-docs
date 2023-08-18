@@ -13,7 +13,7 @@ Another typical use case is defining routing similar to the following:
 * Requests from [`http://gateway/apis/store/12/info`](http://gateway/apis/store/12/info) are redirected to [`http://backend_store12/info`](http://backend\_store12/info)
 * Requests from [`http://gateway/apis/store/45/info`](http://gateway/apis/store/45/info) are redirected to [`http://backend_store45/info`](http://backend\_store45/info)
 
-Functional and implementation information for the Dynamic Routing policy is organized into the following sections:
+Functional and implementation information for the `dynamic-routing` policy is organized into the following sections:
 
 * [Examples](dynamic-routing.md#examples)
 * [Configuration](dynamic-routing.md#configuration)
@@ -83,13 +83,13 @@ You can also use named groups instead of indexed groups: `/api/(?<version>v[0-9]
 
 Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
-The phases checked below are supported by the Dynamic Routing policy:
+The phases checked below are supported by the `dynamic-routing` policy:
 
 <table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `data-logging-masking` policy.
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `dynamic-routing` policy.
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>All</td></tr></tbody></table>
 
