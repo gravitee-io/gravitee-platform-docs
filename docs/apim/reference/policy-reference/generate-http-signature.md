@@ -88,7 +88,7 @@ You can configure the `generate-http-signature` policy with the following option
 
 <table data-full-width="false"><thead><tr><th width="175">Property</th><th width="103" data-type="checkbox">Required</th><th width="232">Description</th><th width="156">Default</th><th>Example</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td>authorization</td><td>-</td></tr><tr><td>keyId</td><td>true</td><td>The key ID used to generate the signature (supports EL)</td><td>-</td><td>rsa-key-1</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL)</td><td>-</td><td>passphrase</td></tr><tr><td>algorithm</td><td>true</td><td>The HMAC digest algorithm</td><td>HMAC_SHA256</td><td>-</td></tr><tr><td>headers</td><td>false</td><td>List of headers to build the signature. If no headers, the request must at least contains <code>Date</code> header.</td><td>-</td><td>-</td></tr><tr><td>created</td><td>true</td><td>Include the created timestamp in the signature and (created) header</td><td>true</td><td>-</td></tr><tr><td>expires</td><td>true</td><td>Include the expires timestamp in the signature and (expires) header</td><td>true</td><td>-</td></tr><tr><td>validityDuration</td><td>false</td><td>Signature’s maximum validation duration in seconds (minimum is 1). Applied when <code>expires</code> is set to true.</td><td>3</td><td>-</td></tr></tbody></table>
 
-### Compatibility matrix
+## Compatibility matrix
 
 The following is the compatibility matrix for APIM and the `generate-http-signature` policy:
 

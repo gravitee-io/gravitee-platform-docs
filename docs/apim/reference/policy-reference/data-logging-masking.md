@@ -56,7 +56,7 @@ You can configure the `data-logging-masking` policy with the following options:
 
 <table><thead><tr><th width="121">Property</th><th width="104" data-type="checkbox">Required</th><th width="261">Description</th><th width="129">Type</th><th>Default</th></tr></thead><tbody><tr><td>path</td><td>false</td><td>Context-dependent. If "Content-type" is <code>application / json</code> you must use <code>json-path</code>, if it is "application / xml" you must use <code>xml-path</code>, otherwise not used.</td><td>String</td><td></td></tr><tr><td>type</td><td>false</td><td>Value selector type</td><td>MaskPattern</td><td></td></tr><tr><td>regex</td><td>false</td><td>Custom value selector (use regular expression)</td><td>String</td><td></td></tr><tr><td>replacer</td><td>false</td><td>Replacement character</td><td>String</td><td>*</td></tr></tbody></table>
 
-### Compatibility matrix
+## Compatibility matrix
 
 The following is the compatibility matrix for APIM and the `data-logging-masking` policy:
 

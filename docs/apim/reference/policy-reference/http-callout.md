@@ -97,7 +97,7 @@ system:
     password: secret
 ```
 
-### Compatibility matrix
+## Compatibility matrix
 
 The following is the compatibility matrix for APIM and the `callout-http` policy:
 
