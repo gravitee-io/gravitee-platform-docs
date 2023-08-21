@@ -6,27 +6,28 @@ description: This page provides the technical details of the Generate JWT policy
 
 ## Overview
 
-Functional and implementation information for the Generate JWT policy is organized into the following sections:
+You use the `generate-JWT` policy to generate a signed JWT with a configurable set of claims. This JWT can subsequently be forwarded to backend targets, or used in some other way.
+
+When a signed JWT is generated, it is put in the `jwt.generated` attribute of the request execution context.
+
+Functional and implementation information for the `generate-JWT` policy is organized into the following sections:
 
 * [Examples](generate-jwt.md#examples)
 * [Configuration](generate-jwt.md#configuration)
+* [Compatibility Matrix](generate-jwt.md#compatibility-matrix)
 * [Errors](generate-jwt.md#errors)
 * [Changelogs](generate-jwt.md#changelogs)
 
 ## Examples
 
-You use the `generate-JWT` policy to generate a signed JWT with a configurable set of claims. This JWT can subsequently be forwarded to backend targets, or used in some other way.
-
-When a signed JWT is generated, it is put in the `jwt.generated` attribute of the request execution context.
-
-{% tabs %}
-{% tab title="Proxy API example" %}
 {% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
 
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
+{% tabs %}
+{% tab title="Proxy API example" %}
 ```
 "policy-generate-jwt": {
     "signature":"RSA_RS256",
@@ -48,11 +49,23 @@ Policies can be added to flows that are assigned to an API or to a plan. Gravite
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
-### Reference
+### Phases
 
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>signature</td><td>true</td><td>Signature used to sign the token</td><td>Algorithm</td><td>RS256</td></tr><tr><td>kid</td><td>false</td><td>key ID (<code>kid</code>) to include in the JWT header</td><td>string</td><td>-</td></tr><tr><td>id</td><td>false</td><td>JWT ID (<code>jti</code>) claim is a unique identifier for the JWT</td><td>string</td><td>UUID</td></tr><tr><td>audiences</td><td>false</td><td>JWT audience claim; can be a string or an array of strings</td><td>List of string</td><td>-</td></tr><tr><td>issuer</td><td>false</td><td>Claim that identifies the issuer of the JWT</td><td>string</td><td>-</td></tr><tr><td>subject</td><td>false</td><td>Claim that identifies or makes a statement about the subject of the JWT</td><td>string</td><td>-</td></tr></tbody></table>
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+
+The phases checked below are supported by the `generate-JWT` policy:
+
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+
+### Options
+
+The `generate-JWT` policy can be configured with the following options:
+
+<table><thead><tr><th width="131">Property</th><th width="103" data-type="checkbox">Required</th><th width="210">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>signature</td><td>true</td><td>Signature used to sign the token</td><td>Algorithm</td><td>RS256</td></tr><tr><td>kid</td><td>false</td><td>key ID (<code>kid</code>) to include in the JWT header</td><td>string</td><td>-</td></tr><tr><td>id</td><td>false</td><td>JWT ID (<code>jti</code>) claim is a unique identifier for the JWT</td><td>string</td><td>UUID</td></tr><tr><td>audiences</td><td>false</td><td>JWT audience claim; can be a string or an array of strings</td><td>List of string</td><td>-</td></tr><tr><td>issuer</td><td>false</td><td>Claim that identifies the issuer of the JWT</td><td>string</td><td>-</td></tr><tr><td>subject</td><td>false</td><td>Claim that identifies or makes a statement about the subject of the JWT</td><td>string</td><td>-</td></tr></tbody></table>
 
 ### Attributes
+
+The `generate-JWT` policy can be configured with the following attributes:
 
 | Name          | Description                 |
 | ------------- | --------------------------- |
@@ -64,17 +77,15 @@ You can read the token using the [Gravitee Expression Language](../../guides/pol
 {#context.attributes['jwt.generated']}
 ```
 
-### Phases
+## Compatibility matrix
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `generate-JWT` policy.
 
-The phases checked below are supported by the Generate JWT policy:
-
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>All</td></tr></tbody></table>
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>500</code></td><td>Unexpected error while creating and signing the token</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="180">Phase</th><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>500</code></td><td>Unexpected error while creating and signing the token</td></tr></tbody></table>
 
 ### Nested objects
 
