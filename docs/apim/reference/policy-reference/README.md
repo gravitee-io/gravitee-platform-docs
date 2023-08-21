@@ -30,9 +30,15 @@ To deploy the plugin, follow these steps:
 
 </details>
 
+## Configuration
+
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
+
+When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+
 ## Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy has different compatibility with the available phases as described in the documentation for each individual policy.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases. Refer to an individual policy's documentation for phase support information.
 
 {% tabs %}
 {% tab title="v4 API definition" %}
@@ -53,6 +59,10 @@ v2 APIs have the following phases:
 * `onResponseContent`: This phase always occurs after the `onResponse` phase. It allows policies to work at the content level and access the response body.
 {% endtab %}
 {% endtabs %}
+
+## Compatibility matrices
+
+The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The documentation for each policy includes the compatibility matrix for APIM and that particular policy.
 
 ## Related learning
 

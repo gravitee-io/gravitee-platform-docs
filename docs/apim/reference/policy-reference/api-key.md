@@ -39,9 +39,7 @@ policy:
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+Sample policy configuration is shown below:
 
 {% code title="Sample Configuration" %}
 ```json
@@ -52,8 +50,6 @@ When using the Management API, policies are added as flows either directly to an
 {% endcode %}
 
 ### Phases
-
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the `api-key` policy:
 
@@ -67,13 +63,13 @@ You can configure the `api-key` policy with the following options:
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `assign-metrics` policy.
+The following is the compatibility matrix for APIM and the `assign-metrics` policy:
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>2.x</td><td>3.x</td></tr><tr><td>4.x</td><td>4.0+</td></tr></tbody></table>
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">Key</th></tr></thead><tbody><tr><td>onRequest</td><td>API_KEY_MISSING</td></tr><tr><td></td><td>API_KEY_INVALID_KEY</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="230.3858267716535">Phase</th><th width="334">Key</th></tr></thead><tbody><tr><td>onRequest</td><td>API_KEY_MISSING</td></tr><tr><td></td><td>API_KEY_INVALID_KEY</td></tr></tbody></table>
 
 ## Changelogs
 

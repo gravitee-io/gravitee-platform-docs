@@ -53,13 +53,7 @@ To authenticate, pass the `Authorization: Basic yourCredentials` header with you
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
-
 ### Phases
-
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the `basic-authentication` policy:
 
@@ -79,7 +73,7 @@ In order to display the connected username in API logging, you can enable the en
 
 ## Compatibility matrix
 
-In the [changelog for each version of APIM](../../releases-and-changelogs/changelogs/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `basic-authentication` policy.
+The following is the compatibility matrix for APIM and the `basic-authentication` policy:
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>Up to 3.14.x</td></tr><tr><td>1.4.x+</td><td>3.15.x+</td></tr></tbody></table>
 

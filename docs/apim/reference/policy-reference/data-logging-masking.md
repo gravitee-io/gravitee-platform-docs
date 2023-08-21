@@ -23,10 +23,6 @@ Functional and implementation information for the `data-logging-masking` policy 
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
-
 When configuring the `data-logging-masking` policy, note the following:
 
 * If you use the `path` property in a rule without regex, all the data corresponding to this path will be hidden.
@@ -41,8 +37,6 @@ When configuring the `data-logging-masking` policy, note the following:
 You can enable or disable the policy with policy identifier `policy-data-logging-masking`.
 
 ### Phases
-
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the `data-logging-masking` policy:
 
@@ -64,6 +58,6 @@ You can configure the `data-logging-masking` policy with the following options:
 
 ### Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `data-logging-masking` policy.
+The following is the compatibility matrix for APIM and the `data-logging-masking` policy:
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>Up to 3.17.x</td></tr><tr><td>2.0 to 2.x</td><td>3.18.x to 3.20.x</td></tr><tr><td>3.0+</td><td>4.0+</td></tr></tbody></table>

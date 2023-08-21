@@ -52,9 +52,7 @@ You could use the Assign Content policy to inject a dictionary value and metadat
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+Sample policy configuration is shown below:
 
 {% code title="Sample Configuration" %}
 ```json
@@ -66,8 +64,6 @@ When using the Management API, policies are added as flows either directly to an
 {% endcode %}
 
 ### Phases
-
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the `assign-content` policy:
 
@@ -81,7 +77,7 @@ You can configure the `assign-content` policy with the following options:
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `assign-content` policy.
+The following is the compatibility matrix for APIM and the `assign-content` policy:
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.6.x</td><td>Up to 3.9.x</td></tr><tr><td>1.7.x</td><td>3.10.x to 3.20.x</td></tr><tr><td>2.x</td><td>4.0+</td></tr></tbody></table>
 

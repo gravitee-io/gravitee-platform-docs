@@ -125,13 +125,7 @@ To assign an attribute to the content of a message:
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
-
 ### Phases
-
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the `assign-attributes` policy:
 
@@ -143,13 +137,15 @@ You can configure the `assign-attributes` policy with the following options:
 
 <table><thead><tr><th width="134">Property</th><th>Required</th><th width="171">Description</th><th width="86">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>only for v4 proxy APIs</td><td>The execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>REQUEST</code></td></tr><tr><td>attributes</td><td>X</td><td>List of attributes</td><td>See table below</td><td></td></tr></tbody></table>
 
-Where attributes are defined as follows:
+### Attributes
+
+You can configure the `assign-attributes` policy with the following attributes:
 
 <table><thead><tr><th width="134">Property</th><th>Required</th><th width="171">Description</th><th width="86">Type</th><th>Default</th></tr></thead><tbody><tr><td>name</td><td>X</td><td>Attribute name</td><td>string</td><td></td></tr><tr><td>value</td><td>X</td><td>Attribute value (can be EL)</td><td>string</td><td></td></tr></tbody></table>
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `assign-attributes` policy.
+The following is the compatibility matrix for APIM and the `assign-attributes` policy:
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>All</td></tr><tr><td>From 2.x</td><td>4.0+</td></tr></tbody></table>
 

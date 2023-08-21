@@ -21,10 +21,6 @@ Functional and implementation information for the `avro-json` policy is organize
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
-
 ### Inline schema <a href="#user-content-inline-schema" id="user-content-inline-schema"></a>
 
 You can directly provide the schema to use in the policy configuration:
@@ -70,8 +66,6 @@ The `avro-json` policy supports the following serialization formats:
 * `simple`: The binary contains only the serialized Avro. The `simple` format can only be used for inline schema. If you serialize data "manually" (without `kafka-serializer`), the policy may not able to deserialize the binary.
 
 ### Phases
-
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 Phases supported by the `avro-json` policy differ based on schema type.
 

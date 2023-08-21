@@ -59,10 +59,6 @@ You can also select endpoints configured for your API by name using Gravitee Exp
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
-
 You can configure multiple rules and their respective redirections relative to the initial request path. When you define rules, it is important to remember that the API `context-path` must not be part of the rule’s path.&#x20;
 
 For example, if your `context-path` is `/myapi` and your call is `/myapi/123`, if you want to select `123`, the regular expression is `/(.*)` (don’t forget the `/`).
@@ -75,21 +71,21 @@ For example, to capture the end of a path after `/v1/stores/`, the rule path is 
 
 You can also use named groups instead of indexed groups: `/api/(?<version>v[0-9]+)/stores.*` ⇒ `http://host1/products/api/{#groupName'version'}`
 
-### Attributes
-
-<table data-full-width="false"><thead><tr><th width="140">Name</th><th width="207">Description</th></tr></thead><tbody><tr><td>request.endpoint</td><td>The endpoint URL invoked by the gateway after dynamic routing</td></tr></tbody></table>
-
 ### Phases
-
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
 
 The phases checked below are supported by the `dynamic-routing` policy:
 
 <table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
+### Attributes
+
+The `dynamic-routing` policy can be configured with the following attributes:
+
+<table data-full-width="false"><thead><tr><th width="140">Name</th><th width="207">Description</th></tr></thead><tbody><tr><td>request.endpoint</td><td>The endpoint URL invoked by the gateway after dynamic routing</td></tr></tbody></table>
+
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `dynamic-routing` policy.
+The following is the compatibility matrix for APIM and the `dynamic-routing` policy:
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>All</td></tr></tbody></table>
 
