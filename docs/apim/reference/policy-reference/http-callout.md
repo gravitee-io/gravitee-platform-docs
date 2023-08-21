@@ -10,7 +10,7 @@ You can use the `callout-http` policy to invoke an HTTP(S) URL and place a subse
 
 This can be useful if you need some data from an external service and want to inject it during request processing.
 
-The result of the callout is placed in a variable called `calloutResponse` and is only available during policy execution. If no variable is configured the result of the callout is no longer available.
+The result of the callout is placed in a variable called `calloutResponse` and is only available during policy execution. If no variable is configured, the result of the callout is no longer available.
 
 Functional and implementation information for the `callout-http` policy is organized into the following sections:
 
@@ -101,11 +101,17 @@ system:
 
 The following is the compatibility matrix for APIM and the `callout-http` policy:
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>>= 2.x</td><td>>=3.18</td></tr><tr><td>>= 1.15.x</td><td>3.15.x - 3.17.x</td></tr><tr><td>1.13.x - 1.14.x</td><td>3.10.x - 3.14.x</td></tr><tr><td>&#x3C;= 1.12.x</td><td>&#x3C;=3.9.x</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>2.x+</td><td>3.18+</td></tr><tr><td>1.15.x+</td><td>3.15.x to 3.17.x</td></tr><tr><td>1.13.x to 1.14.x</td><td>3.10.x to 3.14.x</td></tr><tr><td>Up to 1.12.x</td><td>Up to 3.9.x</td></tr></tbody></table>
 
 ## Errors
 
 <table data-full-width="false"><thead><tr><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td><code>500</code></td><td>An error occurred while invoking URL</td></tr></tbody></table>
+
+You can override the default response provided by the policy with the response templates feature. These templates must be defined at the API level with the APIM Console **Proxy > Response Templates** function.
+
+The error keys sent by this policy are as follows:
+
+<table data-full-width="false"><thead><tr><th>Key</th><th>Parameters</th></tr></thead><tbody><tr><td>CALLOUT_EXIT_ON_ERROR</td><td>-</td></tr><tr><td>CALLOUT_HTTP_ERROR</td><td>-</td></tr></tbody></table>
 
 ## Changelogs
 
