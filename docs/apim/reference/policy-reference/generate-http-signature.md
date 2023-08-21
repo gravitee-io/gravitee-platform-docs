@@ -10,13 +10,13 @@ HTTP Signature is an authentication method for adding additional security.
 
 The `Signature` authentication model requires the client to authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
 
-To authenticate, clients can use `Authorization` header: or `Signature` header. For example:
+To authenticate, clients can use `Authorization` header or `Signature` header. For example:
 
 * `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
 * `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
 
 {% hint style="info" %}
-The current version of the policy does not support `Digest`, `request-target`, `Host`, or `Path` headers.
+The current version of the policy does not support `Digest`, (`request-target)`, `Host`, or `Path` headers.
 {% endhint %}
 
 Functional and implementation information for the `generate-http-signature` policy is organized into the following sections:
@@ -30,7 +30,7 @@ Functional and implementation information for the `generate-http-signature` poli
 ## Examples
 
 {% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
 {% tabs %}
@@ -102,9 +102,9 @@ The [changelog for each version of APIM](../../releases-and-changelogs/changelog
 
 <table data-full-width="false"><thead><tr><th width="188">HTTP status code</th><th>Description</th></tr></thead><tbody><tr><td><code>400</code></td><td><ul><li>Request does not contain every header in the configuration headers list.</li><li>Request does not contain <code>Date</code> header and the configuration headers list is empty. Policy needs at least <code>Date</code> header to create a signature.</li><li>Unable to sign because of bad configuration.</li></ul></td></tr></tbody></table>
 
-If you’re looking to override the default response provided by the policy, you can do it thanks to the response templates feature. These templates must be define at the API level (see `Response Templates` from the `Proxy` menu).
+You can override the default response provided by the policy via the response templates feature. These templates must be defined at the API level (see `Response Templates` from the `Proxy` menu). The following keys are sent by the `generate-http-signature` policy:
 
-Here are the error keys send by this policy: HTTP\_SIGNATURE\_IMPOSSIBLE\_GENERATION
+<table data-full-width="false"><thead><tr><th width="401">Key</th><th>Parameters</th></tr></thead><tbody><tr><td>HTTP_SIGNATURE_IMPOSSIBLE_GENERATION</td><td>-</td></tr></tbody></table>
 
 ## Changelogs
 
