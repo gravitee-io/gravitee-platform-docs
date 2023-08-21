@@ -4,29 +4,29 @@ description: This page discusses improvements to flow conditions and interruptio
 
 # Flow
 
+{% hint style="info" %}
+Flows can be scoped to different execution contexts:
+
+* **plan:** A flow scoped to a plan only executes for subscribers
+* **API:** A flow scoped to an API executes for all consumers of that API
+* **platform:** A flow scoped to the platform executes for all API consumers using the Gateway
+{% endhint %}
+
 ## Flow conditions
 
 ### Legacy execution engine behavior
 
 When using the legacy execution engine, a condition can be defined once for the whole flow, but the condition is evaluated before executing each phase of the flow (`REQUEST` and `RESPONSE` phases). This could lead to a partial flow execution.
 
-For example, a condition could be defined based on a request header that is removed during the `REQUEST` phase (e.g., the user does not want the request header to be transmitted to the backend). In this case, the condition is re-evaluated and the `RESPONSE` phase is skipped completely.
-
-{% hint style="info" %}
-This could also occur with a platform flow.
-{% endhint %}
-
-The example illustrates this behavior:
+For example, a condition could be defined based on a request header that is removed during the `REQUEST` phase (e.g., the user does not want the request header to be transmitted to the backend). The condition is then re-evaluated and the `RESPONSE` phase is skipped completely, as shown below:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-flow-condition-1.png" alt=""><figcaption><p>Partial flow execution example</p></figcaption></figure>
 
 ### Reactive execution engine improvements
 
-When using the reactive execution engine, the flow condition will be applied once for the whole flow. If the condition is evaluated as `true`, then both the `REQUEST` and the `RESPONSE` phases will be executed.
+When using the reactive execution engine, the flow condition will be applied once for the whole flow. If the condition is evaluated as `true`, then both the `REQUEST` and the `RESPONSE` phases will be executed, as shown below:
 
-The example below shows the new behavior:
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-flow-condition-2.png" alt=""><figcaption><p>Reactive exectution engine flow condition improvements</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/event-native/event-native-api-management-flow-condition-2.png" alt=""><figcaption><p>Reactive execution engine flow condition improvements</p></figcaption></figure>
 
 ### Migration considerations
 
