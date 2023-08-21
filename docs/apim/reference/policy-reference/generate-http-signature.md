@@ -8,17 +8,6 @@ description: This page provides the technical details of the Generate HTTP Signa
 
 HTTP Signature is an authentication method for adding additional security.
 
-The `Signature` authentication model requires the client to authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
-
-To authenticate, clients can use `Authorization` header or `Signature` header. For example:
-
-* `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
-* `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
-
-{% hint style="info" %}
-The current version of the policy does not support `Digest`, (`request-target)`, `Host`, or `Path` headers.
-{% endhint %}
-
 Functional and implementation information for the `generate-http-signature` policy is organized into the following sections:
 
 * [Examples](generate-http-signature.md#examples)
@@ -53,6 +42,17 @@ This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravit
 {% endtabs %}
 
 ## Configuration
+
+The `Signature` authentication model requires the client to authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
+
+To authenticate, clients can use `Authorization` header or `Signature` header. For example:
+
+* `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+* `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+
+{% hint style="info" %}
+The current version of the policy does not support `Digest`, (`request-target)`, `Host`, or `Path` headers.
+{% endhint %}
 
 Sample policy configuration is shown below:
 

@@ -6,7 +6,9 @@ description: This page provides the technical details of the HTTP Signature poli
 
 ## Overview
 
-Functional and implementation information for the HTTP Signature policy is organized into the following sections:
+HTTP Signature is a kind of authentication method which is adding a new level of security. By using this policy, the consumer is enforced to send a _signature_ which is used to identify the request temporarily and ensure that the request is really coming from the requesting consumer, using a secret key.
+
+Functional and implementation information for the `http-signature` policy is organized into the following sections:
 
 * [Examples](http-signature.md#examples)
 * [Configuration](http-signature.md#configuration)
@@ -16,27 +18,12 @@ Functional and implementation information for the HTTP Signature policy is organ
 
 ## Examples
 
-HTTP Signature is a kind of authentication method which is adding a new level of security. By using this policy, the consumer is enforced to send a _signature_ which is used to identify the request temporarily and ensure that the request is really coming from the requesting consumer, using a secret key.
-
-The "Signature" authentication scheme is based on the model that the client must authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
-
-You can use:
-
-* Authorization header: For example: `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
-* Signature header: For example, `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
-
-{% hint style="info" %}
-The current version of the policy does not support **Digest**, **(request-target)**, **Host** and **Path** headers
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
-
-Currently, this policy can **not** be applied at the message level.
-{% endhint %}
-
 ```
 {
   "http-signature": {
@@ -53,9 +40,18 @@ Currently, this policy can **not** be applied at the message level.
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
+The "Signature" authentication scheme is based on the model that the client must authenticate itself with a digital signature produced by either a private asymmetric key (e.g., RSA) or a shared symmetric key (e.g., HMAC).
 
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+To authenticate, clients can use `Authorization` header or `Signature` header. For example:
+
+* `Authorization: Signature "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+* `Signature: "keyId="rsa-key-1",created=1630590825,expires=1630590831061,algorithm="hmac-sha256",headers="host",signature="Ib/KOuoDjyZPmLbKPvrnz+wj/kcEFZt5aPCxF4e7tO0="",`
+
+{% hint style="info" %}
+The current version of the policy does not support `Digest`, `(request-target)`, `Host`, and `Path` headers
+{% endhint %}
+
+Sample policy configuration is shown below:
 
 {% code title="Sample Configuration" %}
 ```json
@@ -71,40 +67,35 @@ When using the Management API, policies are added as flows either directly to an
 ```
 {% endcode %}
 
-### Reference
-
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Default</th><th>Example</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td>authorization</td><td>-</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL).</td><td>-</td><td>passphrase</td></tr><tr><td>algorithms</td><td>false</td><td>A list of supported HMAC digest algorithms.</td><td>-</td><td>-</td></tr><tr><td>enforceHeaders</td><td>false</td><td>List of headers the consumer must at least use for HTTP signature creation.</td><td>-</td><td>-</td></tr><tr><td>clockSkew</td><td>false</td><td>Clock Skew in seconds to prevent replay attacks.</td><td>30</td><td>-</td></tr></tbody></table>
-
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
-
-The phases checked below are supported by the HTTP Signature policy:
+The phases checked below are supported by the `http-signature` policy:
 
 <table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
+### Options
+
+The `http-signature` policy can be configured with the following options:
+
+<table><thead><tr><th width="183">Property</th><th width="113" data-type="checkbox">Required</th><th width="248">Description</th><th width="136">Default</th><th>Example</th></tr></thead><tbody><tr><td>scheme</td><td>true</td><td>Signature Scheme (authorization header or signature header)</td><td>authorization</td><td>-</td></tr><tr><td>secret</td><td>true</td><td>The secret key used to generate and verify the signature (supports EL).</td><td>-</td><td>passphrase</td></tr><tr><td>algorithms</td><td>false</td><td>A list of supported HMAC digest algorithms.</td><td>-</td><td>-</td></tr><tr><td>enforceHeaders</td><td>false</td><td>List of headers the consumer must at least use for HTTP signature creation.</td><td>-</td><td>-</td></tr><tr><td>clockSkew</td><td>false</td><td>Clock Skew in seconds to prevent replay attacks.</td><td>30</td><td>-</td></tr></tbody></table>
+
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `http-signature` policy.
+The following is the compatibility matrix for APIM and the `http-signature` policy:
 
 | Plugin version | Supported APIM versions |
 | -------------- | ----------------------- |
-| 1.5 and upper  | 3.15.x to latest        |
-| Up to 1.4      | Up to 3.14.x            |
+| 1.x            | All                     |
 
 ## Errors
 
-If you’re looking to override the default response provided by the policy, you can do it thanks to the response templates feature. These templates must be define at the API level (see `Response Templates` from the `Proxy` menu).
+<table><thead><tr><th width="102.5">Code</th><th>Message</th></tr></thead><tbody><tr><td><code>401</code></td><td><ul><li>Missing or signature</li><li>Request does not contain headers part of the signature</li><li>Enforce HTTP headers not part of the signature</li></ul></td></tr></tbody></table>
 
-Here are the error keys send by this policy:
+To override the default response provided by the policy, use the response templates feature. These templates must be define at the API level (see `Response Templates` from the `Proxy` menu).
 
-| Key                                 | Parameters |
-| ----------------------------------- | ---------- |
-| HTTP\_SIGNATURE\_INVALID\_SIGNATURE |            |
+Below are the error keys sent by the `http-signature` policy:
 
-### HTTP status code
-
-<table><thead><tr><th width="166.33333333333331">Phase</th><th>Code</th><th>Message</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td><p>In case of:</p><p>* Missing or signature</p><p>* Request does not contain headers part of the signature</p><p>* Enforce HTTP headers not part of the signature</p></td></tr></tbody></table>
+<table><thead><tr><th width="360.5">Key</th><th>Parameters</th></tr></thead><tbody><tr><td>HTTP_SIGNATURE_INVALID_SIGNATURE</td><td>-</td></tr></tbody></table>
 
 ## Changelogs
 
