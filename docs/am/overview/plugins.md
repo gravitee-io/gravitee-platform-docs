@@ -8,13 +8,13 @@ Plugins are additional components that can be _plugged into_ AM Gateway or AM Ma
 
 The table below lists the different types of plugins you can use with AM, with the component(s) they can be plugged into and some examples. For more details of what each plugin type does, see the sections below.
 
-| Type                                                                                                         | Components               | Examples                   |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------ | -------------------------- |
-| [Identity Providers](https://docs.gravitee.io/am/current/am\_overview\_plugins.html#gravitee-plugins-idp)    | Management API/ Gateway  | LDAP, Database, Social, …​ |
-| [Policies](https://docs.gravitee.io/am/current/am\_overview\_plugins.html#gravitee-plugins-policies)         | Management API / Gateway | Callout                    |
-| [Reporters](https://docs.gravitee.io/am/current/am\_overview\_plugins.html#gravitee-plugins-reporters)       | Management API / Gateway | MongoDB                    |
-| [Repositories](https://docs.gravitee.io/am/current/am\_overview\_plugins.html#gravitee-plugins-repositories) | Management API / Gateway | MongoDB                    |
-| [Alerts](https://docs.gravitee.io/am/current/am\_overview\_plugins.html#gravitee-plugins-alerts)             | Management API / Gateway | Vertx                      |
+| Type                                                | Components               | Examples                   |
+| --------------------------------------------------- | ------------------------ | -------------------------- |
+| [Identity Providers](plugins.md#identity-providers) | Management API/ Gateway  | LDAP, Database, Social, …​ |
+| [Policies](plugins.md#policies)                     | Management API / Gateway | Callout                    |
+| [Reporters](plugins.md#reporters)                   | Management API / Gateway | MongoDB                    |
+| [Repositories](plugins.md#repositories)             | Management API / Gateway | MongoDB                    |
+| [Alerts](plugins.md#alerts)                         | Management API / Gateway | Vertx                      |
 
 ### Identity providers
 
@@ -56,4 +56,4 @@ Out-of-the-box repositories are :
 
 ### Alerts
 
-An **alert** allows AM to send triggers or events to the Alert Engine which can be processed to send a notification using the configured plugin notifier. Configuring the notifier is the responsibility of the trigger.\
+An **alert** allows AM to send triggers or events to the Alert Engine which can be processed to send a notification using the configured plugin notifier. Configuring the notifier is the responsibility of the trigger.\\
