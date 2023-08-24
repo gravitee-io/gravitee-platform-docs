@@ -9,7 +9,7 @@ description: >-
 {% hint style="info" %}
 **v4 vs v2 API configuration**
 
-The Info settings configuration is the same for both v2 and v4 APIs, except for the API Quality section. As of Gravitee APIM 4.1, only v2 APIs support the API Quality feature.
+The Info settings configuration is the same for both v2 and v4 APIs, except for the API Quality section. As of Gravitee APIM 4.0, only v2 APIs support the API Quality feature.
 {% endhint %}
 
 ## Introduction
