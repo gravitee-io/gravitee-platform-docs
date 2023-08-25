@@ -1,4 +1,12 @@
+---
+description: Learn more about the Gravitee Kubernetes Operator
+---
+
 # Gravitee Kubernetes Operator
+
+{% embed url="https://www.loom.com/share/f13544964f9b4b8c9fd8852aaa7e211d?sid=997c11ad-57ba-44f4-aae8-12df348e1a86" %}
+Brief intro to the GKO
+{% endembed %}
 
 The Gravitee Kubernetes Operator (GKO) is a technical component designed to be deployed on an existing Gravitee API Management (APIM)-ready Kubernetes Cluster. It can also be deployed on a local cluster for testing purposes.
 
