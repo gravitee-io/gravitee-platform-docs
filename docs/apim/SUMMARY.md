@@ -94,6 +94,7 @@
     * [Configure Service Discovery](guides/api-configuration/v2-api-configuration/configure-service-discovery.md)
     * [Configure General Proxy Settings](guides/api-configuration/v2-api-configuration/configure-cors.md)
     * [Configure User and Group Access](guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md)
+    * [General Info Settings](<guides/api-configuration/v2-api-configuration/api-general-settings (1).md>)
   * [Resources](guides/api-configuration/resources.md)
 * [Policy Studio](guides/policy-design/README.md)
   * [v2 API Policy Studio](guides/policy-design/v2-api-policy-design-studio.md)
