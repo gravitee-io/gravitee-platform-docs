@@ -6,7 +6,14 @@ description: This page provides the technical details of the JWT policy
 
 ## Overview
 
-Functional and implementation information for the JWT policy is organized into the following sections:
+You can use the `jwt` policy to validate the token signature and expiration date before sending the API call to the target backend.
+
+Some authorization servers use OAuth2 protocol to provide access tokens. These access token can be in JWS/JWT format. For the RFC standards, see:
+
+* JWS (JSON Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
+* JWT (JSON Web Token) standard RFC: ([https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
+
+Functional and implementation information for the `jwt` policy is organized into the following sections:
 
 * [Examples](json-web-token-jwt.md#examples)
 * [Configuration](json-web-token-jwt.md#configuration)
@@ -16,21 +23,12 @@ Functional and implementation information for the JWT policy is organized into t
 
 ## Examples
 
-You can use the `jwt` policy to validate the token signature and expiration date before sending the API call to the target backend.
-
-Some authorization servers use OAuth2 protocol to provide access tokens. These access token can be in JWS/JWT format. For the RFC standards, see:
-
-* JWS (JSON Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
-* JWT (JSON Web Token) standard RFC: ([https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
-
-Currently, this policy can **not** be applied at the message level.
-{% endhint %}
-
 Given the following JWT claims (payload):
 
 ```
@@ -52,9 +50,7 @@ You can extract the issuer from JWT using the following Expression Language stat
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
 
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
 
 {% code title="Sample Configuration" %}
 ```json
@@ -70,7 +66,7 @@ When using the Management API, policies are added as flows either directly to an
 ```
 {% endcode %}
 
-### Reference
+### Options
 
 <table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>publicKeyResolver</td><td>true</td><td>Used to resolve the public key needed to validate the signature</td><td>enum</td><td>GIVEN_KEY</td></tr><tr><td>resolverParameter</td><td>false</td><td>Needed if you use the <code>GATEWAY_KEYS</code> or <code>GIVEN_ISSUER</code> resolver (EL support)</td><td>string</td><td></td></tr><tr><td>useSystemProxy</td><td>false</td><td>Select this option if you want use system proxy (only useful when resolver is <code>JWKS_URL</code>)</td><td>boolean</td><td>false</td></tr><tr><td>extractClaims</td><td>false</td><td>Select this option if you want to extract claims into the request context</td><td>boolean</td><td>false</td></tr><tr><td>clientIdClaim</td><td>false</td><td>Required if the client_id should be read from non-standard claims (azp, aud, client_id)</td><td>string</td><td></td></tr></tbody></table>
 
