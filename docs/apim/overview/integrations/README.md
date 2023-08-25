@@ -34,9 +34,15 @@ Please see the below sections and tables that outline major integrations that Gr
 
 ## Custom backend integrations
 
-Gravitee's flexible API and protocol support enables you to integrate Gravitee with any backend system that is built on:
+Gravitee's flexible API and protocol support enables you to integrate Gravitee with any backend system that can communicate over:
 
 * SOAP
 * REST
 * WebSocket
 * gRPC
+
+{% hint style="info" %}
+**For example: Salesforce**
+
+Gravitee can be used for some custom Salesforce integration use cases, as Salesforce provides streaming APIs. For more information on how to use Gravitee for these use cases, we recommend [booking a demo with one of our Solutions Engineers](https://www.gravitee.io/demo).
+{% endhint %}
