@@ -6,15 +6,6 @@ description: This page provides the technical details of the JSON-to-JSON policy
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
-
-* [Examples](json-to-json.md#examples)
-* [Configuration](json-to-json.md#configuration)
-* [Errors](json-to-json.md#errors)
-* [Changelogs](json-to-json.md#changelogs)
-
-## Examples
-
 You can use the `json-to-json` policy to apply a transformation (or mapping) on the request and/or response and/or message content.
 
 This policy is based on the [JOLT](https://github.com/bazaarvoice/jolt) library.
@@ -27,20 +18,27 @@ You can use APIM EL in the JOLT specification.
 
 At request/response level, the policy will do nothing if the processed request/response does not contain JSON. This policy checks the `Content-Type` header before applying any transformation.
 
-At message level, the policy will do nothing if the processed message has no content. It means that the message will be re-emitted as is\
+At message level, the policy will do nothing if the processed message has no content. It means that the message will be re-emitted as is.
 
+Functional and implementation information for the `json-to-json` policy is organized into the following sections:
+
+* [Examples](json-to-json.md#examples)
+* [Configuration](json-to-json.md#configuration)
+* [Compatibility Matrix](json-to-json.md#compatibility-matrix)
+* [Errors](json-to-json.md#errors)
+* [Changelogs](json-to-json.md#changelogs)
+
+## Examples
+
+{% hint style="warning" %}
+The proxy API example applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="info" %}
-The proxy API example also applies to v2 APIs.
-{% endhint %}
-
 For this input:
 
-Input
-
-```
+```json
 {
     "_id": "57762dc6ab7d620000000001",
     "name": "name",
@@ -50,7 +48,7 @@ Input
 
 And this JOLT specification:
 
-```
+```java
 [
   {
     "operation": "shift",
@@ -72,23 +70,18 @@ And this JOLT specification:
 
 The output is as follows:
 
-```
+```json
 {
     "id": "57762dc6ab7d620000000001",
     "name": "name"
 }
 ```
-
-\
-
 {% endtab %}
 
 {% tab title="Message API example" %}
 For this input:
 
-Input
-
-```
+```json
 {
     "_id": "57762dc6ab7d620000000001",
     "name": "name",
@@ -98,7 +91,7 @@ Input
 
 And this JOLT specification:
 
-```
+```java
 [
   {
     "operation": "shift",
@@ -120,7 +113,7 @@ And this JOLT specification:
 
 The output is as follows:
 
-```
+```json
 {
     "id": "57762dc6ab7d620000000001",
     "name": "name"
@@ -131,9 +124,7 @@ The output is as follows:
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+Sample policy configuration is shown below:
 
 {% code title="Sample Configuration" %}
 ```json
@@ -146,22 +137,34 @@ When using the Management API, policies are added as flows either directly to an
 ```
 {% endcode %}
 
+### Options
+
+The `json-to-json` policy can be configured with the following options:
+
+<table><thead><tr><th width="210">Property</th><th width="165">Required</th><th width="238">Description</th><th width="83">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>only for legacy execution engine</td><td>The execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>REQUEST</code></td></tr><tr><td>specification</td><td>X</td><td><p>The <a href="http://jolt-demo.appspot.com/">JOLT</a> specification to apply on a given content.</p><p>Can contain EL.</p></td><td>string</td><td></td></tr><tr><td>overrideContentType</td><td></td><td>Override the Content-Type to <code>application/json</code></td><td>string</td><td><code>true</code></td></tr></tbody></table>
+
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+The phases checked below are supported by the `json-to-json` policy:
 
-The phases checked below are supported by the JSON-to-XML policy:
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="199.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+## Compatibility matrix
+
+The following is the compatibility matrix for APIM and the `json-to-json` policy:
+
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>1.x</td><td>Up to 3.19.x</td></tr><tr><td>2.x</td><td>3.20.x</td></tr><tr><td>3.x</td><td>4.0+</td></tr></tbody></table>
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequestContent</td><td><code>500</code></td><td>Bad specification file or transformation cannot be executed properly</td></tr><tr><td>onResponseContent</td><td><code>500</code></td><td>Bad specification file or transformation cannot be executed properly</td></tr><tr><td>onMessageRequest</td><td><code>400</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Incoming message cannot be transformed properly to XML</td></tr><tr><td>onMessageResponse</td><td><code>500</code></td><td><strong>JSON_INVALID_MESSAGE_PAYLOAD:</strong> Outgoing message cannot be transformed properly to XML</td></tr></tbody></table>
+Legacy execution engine:
 
-### Nested objects
+<table data-full-width="false"><thead><tr><th width="171">Code</th><th width="387">Message</th></tr></thead><tbody><tr><td><code>500</code></td><td>Bad specification file or transformation cannot be executed properly</td></tr></tbody></table>
 
-To limit the processing time in the case of a nested object, the default max depth of a nested object has been set to 1000. This default value can be overridden using the environment variable `gravitee_policy_jsonxml_maxdepth`.
+Reactive execution engine:&#x20;
+
+<table data-full-width="false"><thead><tr><th width="98.5">Code</th><th width="302">Error template key</th><th>Description</th></tr></thead><tbody><tr><td><code>500</code></td><td>INVALID_JSON_TRANSFORMATION</td><td>Unable to apply JOLT transformation to payload</td></tr></tbody></table>
 
 ## Changelogs
 
-\{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-json-xml/blob/master/CHANGELOG.md" %\}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-json-xml/blob/master/CHANGELOG.md" %}
