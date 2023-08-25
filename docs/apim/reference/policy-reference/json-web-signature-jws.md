@@ -6,15 +6,6 @@ description: This page provides the technical details of the JSON Web Signature 
 
 ## Overview
 
-Functional and implementation information for the JWS policy is organized into the following sections:
-
-* [Examples](json-web-signature-jws.md#examples)
-* [Configuration](json-web-signature-jws.md#configuration)
-* [Errors](json-web-signature-jws.md#errors)
-* [Changelogs](json-web-signature-jws.md#changelogs)
-
-## Examples
-
 You can use the `jws-validator` policy to validate the JWS token signature, certificate information, and expiration date before sending the API call to the target backend.
 
 JWT in JWS format enables secure content to be shared across security domains. The RFC standards are as follows:
@@ -22,6 +13,50 @@ JWT in JWS format enables secure content to be shared across security domains. T
 * JWS (Json Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
 * JOSE Header standard RFC: [https://tools.ietf.org/html/rfc7515#section-4](https://tools.ietf.org/html/rfc7515#section-4)
 * JWT (Json Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
+
+Functional and implementation information for the `jws-validator` policy is organized into the following sections:
+
+* [Examples](json-web-signature-jws.md#examples)
+* [Configuration](json-web-signature-jws.md#configuration)
+* [Compatibility matrix](json-web-signature-jws.md#compatibility-matrix)
+* [Errors](json-web-signature-jws.md#errors)
+* [Changelogs](json-web-signature-jws.md#changelogs)
+
+## Examples
+
+{% hint style="warning" %}
+This policy applies to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Proxy API example" %}
+```json
+{
+ "typ":"JOSE+JSON",
+ "cty":"json",
+ "alg":"RS256",
+ "x5c":"string",
+ "kid":"string"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Configuration
+
+To validate the token signature, the policy needs to use the `jws-validator` policy public key set in the APIM Gateway `gravitee.yml` file:
+
+```
+policy:
+  jws:
+    kid:
+      default: ssh-rsa myValidationKey anEmail@domain.com
+      kid-2016: /filepath/to/pemFile/certificate.pem
+```
+
+The policy will inspect the JWT/JWS header to extract the key id (`kid` attribute) of the public key. If no key id is found then it is set to `default`.
+
+The gateway will be able to retrieve the corresponding public key and the JOSE Header using `x5c` (X.509 Certificate Chain). The header parameter will be used to verify certificate information and check that the JWT was signed using the private key corresponding to the specified public key.
 
 ### JWT
 
@@ -55,73 +90,27 @@ The `cty` (content type) header parameter is used by JWS applications to declare
 A recipient using the media type value must treat it as if `application/` were prepended to any `cty` value not containing a `/`.
 {% endhint %}
 
-{% tabs %}
-{% tab title="Proxy API example" %}
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
-
-Currently, this policy can **not** be applied at the message level.
-{% endhint %}
-
-```
-{
- "typ":"JOSE+JSON",
- "cty":"json",
- "alg":"RS256",
- "x5c":"string",
- "kid":"string"
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## Configuration
-
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
-
-{% code title="Sample Configuration" %}
-```json
-{
- "typ":"JOSE+JSON",
- "cty":"json",
- "alg":"RS256",
- "x5c":"string",
- "kid":"string"
-}
-```
-{% endcode %}
-
-### Reference
-
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>checkCertificateValidity</td><td>false</td><td>Check if the certificate used to sign the JWT is correct and has valid <code>not_before</code> and <code>not_after</code> dates</td><td>boolean</td><td>false</td></tr><tr><td>checkCertificateRevocation</td><td>false</td><td>Check if the certificate used to sign the JWT is not revoked via the CRL Distribution Points. The CRL is stored inside the X509v3 CRL Distribution Extension Points.</td><td>boolean</td><td>false</td></tr></tbody></table>
-
-To validate the token signature, the policy needs to use the JWS validator policy public key set in the APIM Gateway `gravitee.yml` file:
-
-```
-policy:
-  jws:
-    kid:
-      default: ssh-rsa myValidationKey anEmail@domain.com
-      kid-2016: /filepath/to/pemFile/certificate.pem
-```
-
-The policy will inspect the JWT/JWS header to extract the key id (`kid` attribute) of the public key. If no key id is found then it is set to `default`.
-
-The gateway will be able to retrieve the corresponding public key and the JOSE Header using `x5c` (X.509 Certificate Chain). The header parameter will be used to verify certificate information and check that the JWT was signed using the private key corresponding to the specified public key.
-
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
-
-The phases checked below are supported by the JWS policy:
+The phases checked below are supported by the `jws-validator` policy:
 
 <table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
+### Options
+
+The `jws-validator` policy can be configured with the following options:
+
+<table><thead><tr><th width="274">Property</th><th data-type="checkbox">Required</th><th width="210">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>checkCertificateValidity</td><td>false</td><td>Check if the certificate used to sign the JWT is correct and has valid <code>not_before</code> and <code>not_after</code> dates</td><td>boolean</td><td>false</td></tr><tr><td>checkCertificateRevocation</td><td>false</td><td>Check if the certificate used to sign the JWT is not revoked via the CRL Distribution Points. The CRL is stored inside the X509v3 CRL Distribution Extension Points.</td><td>boolean</td><td>false</td></tr></tbody></table>
+
+## Compatibility matrix
+
+The following is the compatibility matrix for APIM and the `jws-validator` policy:
+
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>1.x</td><td>All</td></tr></tbody></table>
+
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="210">Phase</th><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td>onRequest</td><td><code>401</code></td><td>Bad token format, content, signature, certificate, expired token or any other issue preventing the policy from validating the token</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="203.5">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td><code>401</code></td><td>Bad token format, content, signature, certificate, expired token or any other issue preventing the policy from validating the token</td></tr></tbody></table>
 
 ## Changelogs
 
