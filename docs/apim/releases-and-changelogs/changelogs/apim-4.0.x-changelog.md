@@ -25,7 +25,7 @@ description: >-
 
 **Other**
 
-* Unable to connect to a self-signed ElasticSearch due to multiple issues [#9208](https://github.com/gravitee-io/issues/issues/9208)
+* ElasticSearch configuration for keystore certs and keys not mapped correctly [#9208](https://github.com/gravitee-io/issues/issues/9208)
 
 </details>
 
