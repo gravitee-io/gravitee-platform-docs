@@ -5,6 +5,29 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.5 - August 28, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Management API**
+
+* Primary owner can remove himself from application with management api [#9171](https://github.com/gravitee-io/issues/issues/9171)
+* v4 API analytics sampling not mapped on get or export [#9203](https://github.com/gravitee-io/issues/issues/9203)
+
+**Console**
+
+* A right-click on an item of side navigation menu links does not allow to "open in a new tab" [#9146](https://github.com/gravitee-io/issues/issues/9146)
+* 503 errors when tenants are specified [#9176](https://github.com/gravitee-io/issues/issues/9176)
+* Redeploy banner not shown when new plan published [#9200](https://github.com/gravitee-io/issues/issues/9200)
+
+**Other**
+
+* Unable to connect to a self signed elasticsearch due to multiple issues [#9208](https://github.com/gravitee-io/issues/issues/9208)
+
+</details>
 
 ## Gravitee API Management 4.0.4 - August 18, 2023
 
