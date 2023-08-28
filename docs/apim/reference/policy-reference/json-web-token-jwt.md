@@ -101,7 +101,7 @@ The `jwt` policy can be configured with the following attributes:
 
 ## Compatibility matrix
 
-The following is the compatibility matrix for APIM and the `jwt` policy.
+The following is the compatibility matrix for APIM and the `jwt` policy:
 
 | Plugin version   | Supported APIM versions |
 | ---------------- | ----------------------- |

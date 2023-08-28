@@ -6,14 +6,6 @@ description: This page provides the technical details of the Keyless policy
 
 ## Overview
 
-Functional and implementation information for the Keyless policy is organized into the following sections:
-
-* [Configuration](keyless.md#configuration)
-* [Errors](keyless.md#errors)
-* [Changelogs](keyless.md#changelogs)
-
-## Configuration
-
 This security policy does not block any requests as it considers them as valid by default.
 
 It sets multiple attributes during policy execution, as follows:
@@ -21,13 +13,29 @@ It sets multiple attributes during policy execution, as follows:
 * `application`: Anonymous application value, which is equal to `1`.
 * `user-id`: Internet Protocol (IP) address of the client or last proxy that sent the request.
 
+Functional and implementation information for the `keyless` policy is organized into the following sections:
+
+* [Configuration](keyless.md#configuration)
+* [Compatibility Matrix](keyless.md#compatibility-matrix)
+* [Errors](keyless.md#errors)
+* [Changelogs](keyless.md#changelogs)
+
+## Configuration
+
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
-
-The phases checked below are supported by the Keyless policy:
+The phases checked below are supported by the `keyless` policy:
 
 <table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="176.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+
+## Compatibility matrix
+
+The following is the compatibility matrix for APIM and the `keyless` policy:
+
+| Plugin version | Supported APIM versions |
+| -------------- | ----------------------- |
+| 1.x            | Up to 3.20              |
+| 3.x            | 4.0+                    |
 
 ## Errors
 
