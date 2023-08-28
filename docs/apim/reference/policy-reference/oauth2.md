@@ -6,37 +6,36 @@ description: This page provides the technical details of the OAuth2 policy
 
 ## Overview
 
-Functional and implementation information for the OAuth2 policy is organized into the following sections:
-
-* [Examples](oauth2.md#examples)
-* [Configuration](oauth2.md#configuration)
-* [Errors](oauth2.md#errors)
-* [Changelogs](oauth2.md#changelogs)
-
-## Examples
-
 You can use the `oauth2` policy to check access token validity during request processing using token introspection.
 
 If the access token is valid, the request is allowed to proceed. If not, the process stops and rejects the request.
 
 The access token must be supplied in the `Authorization` HTTP request header:
 
-```
+```sh
 $ curl -H "Authorization: Bearer |accessToken|" \
            http://gateway/api/resource
 ```
 
-{% tabs %}
-{% tab title="Proxy API example" %}
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
+Functional and implementation information for the `oauth2` policy is organized into the following sections:
 
-Currently, this policy can **not** be applied at the message level.
+* [Examples](oauth2.md#examples)
+* [Configuration](oauth2.md#configuration)
+* [Compatibility Matrix](oauth2.md#compatibility-matrix)
+* [Errors](oauth2.md#errors)
+* [Changelogs](oauth2.md#changelogs)
+
+## Examples
+
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
+{% tabs %}
+{% tab title="Proxy API example" %}
 Given the following introspection response payload:
 
-```
+```json
 {
     "active": true,
     "client_id": "VDE",
@@ -50,7 +49,7 @@ Given the following introspection response payload:
 
 You can extract the `username` from the payload using the following JsonPath:
 
-```
+```json
 {#jsonPath(#context.attributes['oauth.payload'], '$.username')}
 
 ```
@@ -59,9 +58,10 @@ You can extract the `username` from the payload using the following JsonPath:
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
+The `oauth2` policy requires a resource to access an OAuth2 Authorization Server for token introspection. APIM supports two types of authorization server:
 
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+* [Generic OAuth2 Authorization Server](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_generic.html) — a resource which can be configured to cover any authorization server.
+* [Gravitee.io Access Management](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_am.html) — a resource which can be easily plugged into APIM using Gravitee.io Access Management with security domain support.
 
 {% code title="Sample Configuration" %}
 ```json
@@ -77,55 +77,39 @@ When using the Management API, policies are added as flows either directly to an
 ```
 {% endcode %}
 
-### Reference
-
-The OAuth2 policy requires a resource to access an OAuth2 Authorization Server for token introspection. APIM supports two types of authorization server:
-
-* [Generic OAuth2 Authorization Server](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_generic.html) — a resource which can be configured to cover any authorization server.
-* [Gravitee.io Access Management](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_am.html) — a resource which can be easily plugged into APIM using Gravitee.io Access Management with security domain support.
-
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>oauthResource</td><td>true</td><td>The OAuth2 resource used to validate <code>access_token</code>. This must reference a valid Gravitee.io OAuth2 resource.</td><td>string</td><td></td></tr><tr><td>oauthCacheResource</td><td>false</td><td>The Cache resource used to store the <code>access_token</code>. This must reference a valid Gravitee.io Cache resource.</td><td>string</td><td></td></tr><tr><td>extractPayload</td><td>false</td><td>When the access token is validated, the token endpoint payload is saved in the <code>oauth.payload</code> context attribute</td><td>boolean</td><td>false</td></tr><tr><td>checkRequiredScopes</td><td>false</td><td>Whether the policy needs to check <code>required</code> scopes to access the underlying resource</td><td>boolean</td><td>false</td></tr><tr><td>requiredScopes</td><td>false</td><td>List of scopes to check to access the resource</td><td>boolean</td><td>array of string</td></tr></tbody></table>
-
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+The phases checked below are supported by the `oauth2` policy:
 
-The phases checked below are supported by the OAuth2 policy:
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+### Options
+
+The `oauth2` policy can be configured with the following options:
+
+<table><thead><tr><th width="223">Property</th><th data-type="checkbox">Required</th><th width="243">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>oauthResource</td><td>true</td><td>The OAuth2 resource used to validate <code>access_token</code>. This must reference a valid Gravitee.io OAuth2 resource.</td><td>string</td><td></td></tr><tr><td>oauthCacheResource</td><td>false</td><td>The Cache resource used to store the <code>access_token</code>. This must reference a valid Gravitee.io Cache resource.</td><td>string</td><td></td></tr><tr><td>extractPayload</td><td>false</td><td>When the access token is validated, the token endpoint payload is saved in the <code>oauth.payload</code> context attribute</td><td>boolean</td><td>false</td></tr><tr><td>checkRequiredScopes</td><td>false</td><td>Whether the policy needs to check <code>required</code> scopes to access the underlying resource</td><td>boolean</td><td>false</td></tr><tr><td>requiredScopes</td><td>false</td><td>List of scopes to check to access the resource</td><td>boolean</td><td>array of string</td></tr></tbody></table>
+
+### Attributes
+
+The `oauth2` policy can be configured with the following attributes:
+
+<table><thead><tr><th width="201.5">Name</th><th>Description</th></tr></thead><tbody><tr><td>oauth.access_token</td><td>Access token extracted from <code>Authorization</code> HTTP header.</td></tr><tr><td>oauth.payload</td><td>Payload from token endpoint / authorization server, useful when you want to parse and extract data from it. Only if <code>extractPayload</code> is enabled in policy configuration.</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+The following is the compatibility matrix for APIM and the `oauth2` policy:
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>2.2</td><td>>=3.20</td></tr><tr><td>2.1</td><td>^3.0</td></tr><tr><td>2.0</td><td>^3.0</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>1.x</td><td>Up to 3.19.x</td></tr><tr><td>2.0.x</td><td>3.20.x</td></tr><tr><td>3.x</td><td>4.x+</td></tr></tbody></table>
 
 ## Errors
 
-#### HTTP status code
-
-| Code  | Message                                                                                                                                                                                                                                                      |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `401` | <p>Issue encountered:</p><p>* No OAuth Authorization Server resource has been configured</p><p>* No OAuth authorization header was supplied</p><p>* No OAuth access token was supplied</p><p>* Access token can not be validated by authorization server</p> |
-| `403` | <p>Issue encountered:</p><p>* Access token can not be validated because of a technical error with authorization server</p><p>* One of the required scopes was missing while introspecting access token</p>                                                   |
-
-#### Default response override
+<table><thead><tr><th width="195.5">HTTP Status Code</th><th>Message</th></tr></thead><tbody><tr><td><code>401</code></td><td><p>* No OAuth Authorization Server resource has been configured</p><p>* No OAuth authorization header was supplied</p><p>* No OAuth access token was supplied</p><p>* Access token can not be validated by authorization server</p></td></tr><tr><td><code>403</code></td><td><p>* Access token can not be validated because of a technical error with authorization server</p><p>* One of the required scopes was missing while introspecting access token</p></td></tr></tbody></table>
 
 You can use the response template feature to override the default response provided by the policy. These templates must be defined at the API level (see the API Console **Response Templates** option in the API **Proxy** menu).
 
-#### Error keys
-
 The error keys sent by this policy are as follows:
 
-| Key                               | Parameters |
-| --------------------------------- | ---------- |
-| OAUTH2\_MISSING\_SERVER           | -          |
-| OAUTH2\_MISSING\_HEADER           | -          |
-| OAUTH2\_MISSING\_ACCESS\_TOKEN    | -          |
-| OAUTH2\_INVALID\_ACCESS\_TOKEN    | -          |
-| OAUTH2\_INVALID\_SERVER\_RESPONSE | -          |
-| OAUTH2\_INSUFFICIENT\_SCOPE       | -          |
-| OAUTH2\_SERVER\_UNAVAILABLE       | -          |
+<table><thead><tr><th width="416.5">Key</th><th>Parameters</th></tr></thead><tbody><tr><td>OAUTH2_MISSING_SERVER</td><td>-</td></tr><tr><td>OAUTH2_MISSING_HEADER</td><td>-</td></tr><tr><td>OAUTH2_MISSING_ACCESS_TOKEN</td><td>-</td></tr><tr><td>OAUTH2_INVALID_ACCESS_TOKEN</td><td>-</td></tr><tr><td>OAUTH2_INVALID_SERVER_RESPONSE</td><td>-</td></tr><tr><td>OAUTH2_INSUFFICIENT_SCOPE</td><td>-</td></tr><tr><td>OAUTH2_SERVER_UNAVAILABLE</td><td>-</td></tr></tbody></table>
 
 ## Changelogs
 
