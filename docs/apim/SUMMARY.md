@@ -113,7 +113,6 @@
 * [Gravitee Expression Language](guides/policy-design/gravitee-expression-language.md)
 * [Gravitee Kubernetes Operator](guides/gravitee-kubernetes-operator.md)
   * [Quick Start](guides/gravitee-kubernetes-operator/page-2.md)
-  * [Architecture and Deployment](http://127.0.0.1:5000/s/ZOkrVhrgwaygGUoFNHRF/getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator#architecture-overview)
   * [Test GKO After Deployment](guides/gravitee-kubernetes-operator/test-gko-after-deployment.md)
   * [Monitoring GKO](guides/gravitee-kubernetes-operator/monitoring-gko.md)
   * [Gravitee as an Ingress Controller](guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md)
