@@ -21,15 +21,13 @@ A higher quality of service could lead to lower system performance depending on 
 
 The quality of service is set on the entrypoints. A given quality of service may or may not be supported by a given endpoint. Support also depends on the protocol used for the entrypoint. Please see the following table that outlines QoS compatibility:
 
-| Entrypoint       | MQTT endpoint               | MQTT Advanced endpoint      | Kafka endpoint | Kafka Advanced endpoint                 |
-| ---------------- | --------------------------- | --------------------------- | -------------- | --------------------------------------- |
-| HTTP POST        | None, Auto                  | None, Auto                  | None, Auto     | None, Auto                              |
-| HTTP GET         | Auto                        | Auto                        | Auto           | Auto, At-Least-Once, At-Most-Once       |
-| SSE              | None, Auto                  | None, Auto                  | None, Auto     | None, Auto                              |
-| SSE Advanced     | None, Auto                  | None, Auto                  | None, Auto     | None, Auto, At-Least-Once, At-Most-Once |
-| WebSocket        | None, Auto                  | None, Auto                  | None, Auto     | None, Auto                              |
-| Webhook          | At-Least-Once, At-Most-Once | At-Least-Once, At-Most-Once | None, Auto     | None, Auto, At-Least-Once, At-Most-Once |
-| Webhook Advanced | At-Least-Once, At-Most-Once | At-Least-Once, At-Most-Once | None, Auto     | None, Auto, At-Least-Once, At-Most-Once |
+| Entrypoint       | Kafka endpoint                          | Mock endpoint                                                    | MQTT 5.x endpoint                          | RabbitMQ endpoint | Solace Endpoint                          |
+|------------------|-----------------------------------------|------------------------------------------------------------------|--------------------------------------------|-------------------|------------------------------------------|
+| **HTTP GET**     | Auto, At-Least-Once, At-Most-Once       | Auto, At-Least-Once, At-Most-Once                                | Auto, At-Least-Once, At-Most-Once          | Auto              | Auto, At-Least-Once, At-Most-Once        |
+| **HTTP POST**    | None, Auto                              | None, Auto                                                       | None, Auto                                 | None, Auto        | None, Auto                               |
+| **SSE**          | None, Auto, At-Least-Once, At-Most-Once | None, Auto, At-Least-Once, At-Most-Once                          | None, Auto, At-Least-Once, At-Most-Once    | None, Auto        | None, Auto, At-Least-Once, At-Most-Once  |
+| **Webhook**      | None, Auto, At-Least-Once, At-Most-Once | None, Auto, At-Least-Once, At-Most-Once                          | None, Auto, At-Least-Once, At-Most-Once    | None, Auto        | None, Auto, At-Least-Once, At-Most-Once  |
+| **WebSocket**    | None, Auto                              | None, Auto                                                       | None, Auto                                 | None, Auto        | None, Auto                               |
 
 ## Setting quality of service for Gravitee v4 APIs
 
