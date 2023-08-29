@@ -21,15 +21,7 @@ A higher quality of service could lead to lower system performance depending on 
 
 The quality of service is set on the entrypoints. A given quality of service may or may not be supported by a given endpoint. Support also depends on the protocol used for the entrypoint. Please see the following table that outlines QoS compatibility:
 
-| Entrypoint       | MQTT endpoint               | MQTT Advanced endpoint      | Kafka endpoint | Kafka Advanced endpoint                 |
-| ---------------- | --------------------------- | --------------------------- | -------------- | --------------------------------------- |
-| HTTP POST        | None, Auto                  | None, Auto                  | None, Auto     | None, Auto                              |
-| HTTP GET         | Auto                        | Auto                        | Auto           | Auto, At-Least-Once, At-Most-Once       |
-| SSE              | None, Auto                  | None, Auto                  | None, Auto     | None, Auto                              |
-| SSE Advanced     | None, Auto                  | None, Auto                  | None, Auto     | None, Auto, At-Least-Once, At-Most-Once |
-| WebSocket        | None, Auto                  | None, Auto                  | None, Auto     | None, Auto                              |
-| Webhook          | At-Least-Once, At-Most-Once | At-Least-Once, At-Most-Once | None, Auto     | None, Auto, At-Least-Once, At-Most-Once |
-| Webhook Advanced | At-Least-Once, At-Most-Once | At-Least-Once, At-Most-Once | None, Auto     | None, Auto, At-Least-Once, At-Most-Once |
+<table><thead><tr><th>Entrypoint</th><th width="162">MQTT endpoint</th><th>Kafka endpoint</th><th>Solace endpoint</th></tr></thead><tbody><tr><td>SSE</td><td>None<br>Auto</td><td>None<br>Auto<br>At-Least-Once<br>At-Most-Once</td><td>None<br>Auto</td></tr><tr><td>HTTP POST</td><td>None<br>Auto</td><td>None<br>Auto</td><td>None<br>Auto</td></tr><tr><td>HTTP GET</td><td>Auto</td><td>Auto<br>At-Least-Once<br>At-Most-Once</td><td>Auto</td></tr><tr><td>WebSocket</td><td>None<br>Auto</td><td>None<br>Auto</td><td>None<br>Auto</td></tr><tr><td>Webhook</td><td>None<br>Auto<br>At-Least-Once<br>At-Most-Once</td><td>None<br>Auto<br>At-Least-Once<br>At-Most-Once</td><td>None<br>Auto<br>At-Least-Once<br>At-Most-Once</td></tr></tbody></table>
 
 ## Setting quality of service for Gravitee v4 APIs
 
