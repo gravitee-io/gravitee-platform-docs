@@ -8,7 +8,7 @@ description: This article walks through how to configure v4 API endpoints
 
 In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API.
 
-After you've created your Gateway API and selected your endpoint(s), you can configure them on the **API** page of the Developer Portal. This article walks through the process for configuring v4 Message API endpoints and v4 Proxy API endpoints.
+After you've created your Gateway API and selected your endpoint(s), you can configure them on the **API** page of the Management Console. This article walks through the process for configuring v4 Message API endpoints and v4 Proxy API endpoints.
 
 ## Configure v4 message API endpoints
 
@@ -190,11 +190,35 @@ The **Mock** endpoint allows you to mock a backend service to emulate the behavi
 
 ## Configure v4 Proxy API endpoints
 
-To alter v4 Proxy API endpoints, select your API, then select **Backend services** from the **Endpoints** category in the left-hand nav.&#x20;
+To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.** Next, configure your HTTP Proxy endpoint as follows:
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt=""><figcaption><p>Access v4 Proxy API endpoint configuration</p></figcaption></figure>
-
-From here, you can alter existing endpoints ([created during API creation](../../create-apis/how-to/v4-api-creation-wizard.md)), delete existing endpoints, and/or create new endpoints for your API.&#x20;
+* **Define your target URL:** enter your target URL in the **Target URL** text field.
+* **Define your HTTP options:**
+  * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
+    * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
+  * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF.
+    * If enabled, you'll need to define a numeric timeout value in the **Connect timeout** text field by either entering a numerical value or using the arrow keys.
+  * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.
+    * If enabled, you'll need to define a numeric timeout value in the **Read timeout** text field by either entering a numerical value or using the arrow keys.
+  * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.
+  * **Configure your idle timeout settings:** define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
+  * Choose whether to follow HTTP redirects by toggling **Follow HTTP redirects** ON or OFF.
+  * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
+  * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
+  * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
+* **Define your Proxy options:**
+  * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
+    * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down:
+      * HTTP proxy
+      * SOCKS4
+      * SOCKS5
+  * **Use system proxy:** choose whether to use the proxy configured at system level. If enabled, you'll need to define the following:
+    * Proxy host: enter your proxy host in the **Proxy host** text field.
+    * Proxy port: enter your proxy port in the **Proxy port** text field.
+    * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
+    * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
+* **Define your SSL options**
+* **Define your Key store**
 
 ### Alter and delete existing endpoints
 
