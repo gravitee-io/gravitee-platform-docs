@@ -5,16 +5,16 @@ description: This page provides the technical details of the Override HTTP Metho
 # Override HTTP Method
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
+This feature requires [Gravitee's Enterprise Edition](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
 {% endhint %}
 
 ## Overview
 
-The `override-http-method` policy alters the HTTP method that the API consumer specifies when calling the API and uses a new method specified in the flow to make the call.
+You can use the `override-http-method` policy to override the HTTP method provided by the initial consumer with a new configured value when the inbound request is sent to the backend API.
 
 This policy does not act on messages and only applies to the request phase of API flows.
 
-Functional and implementation information for the Override HTTP Method policy is organized into the following sections:
+Functional and implementation information for the `override-http-method` policy is organized into the following sections:
 
 * [Examples](override-http-method.md#examples)
 * [Configuration](override-http-method.md#configuration)
@@ -24,15 +24,13 @@ Functional and implementation information for the Override HTTP Method policy is
 
 ## Examples
 
-{% tabs %}
-{% tab title="Proxy API example" %}
 {% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
-
-Currently, this policy can **not** be applied at the message level.
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-The Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted like so:
+{% tabs %}
+{% tab title="Proxy API example" %}
+The Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted as follows:
 
 {% code title="Default response" %}
 ```json
@@ -57,9 +55,7 @@ This API would typically be called with just a `GET` request, but if a client tr
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the management API, check out the[ reference documentation here.](../management-api-reference/)
+Sample policy configuration is shown below:
 
 {% code title="Sample Configuration" %}
 ```json
@@ -73,23 +69,23 @@ When using the management API, policies are added as flows either directly to an
 ```
 {% endcode %}
 
-### Reference
-
-<table data-full-width="false"><thead><tr><th width="128">Property</th><th width="101" data-type="checkbox">Required</th><th width="280">Description</th><th width="95" data-type="select">Type</th><th width="149">Options</th></tr></thead><tbody><tr><td>name</td><td>false</td><td>Provide a descriptive name for your policy</td><td></td><td>N/a</td></tr><tr><td>method</td><td>true</td><td>HTTP method used regardless of method called</td><td></td><td>GET<br>POST<br>PUT<br>DELETE<br>PATCH<br>HEAD<br>CONNECT<br>OPTIONS<br>TRACE</td></tr></tbody></table>
-
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+The phases checked below are supported by the `override-http-method` policy:
 
-The phases checked below are supported by the Override HTTP Method policy:
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+### Options
+
+The `override-http-method` policy can be configured with the following options:
+
+<table data-full-width="false"><thead><tr><th width="121">Property</th><th width="100" data-type="checkbox">Required</th><th width="156">Description</th><th width="94" data-type="select">Type</th><th width="149">Options</th></tr></thead><tbody><tr><td>method</td><td>true</td><td>HTTP method used regardless of method called</td><td></td><td>GET<br>POST<br>PUT<br>DELETE<br>PATCH<br>HEAD<br>CONNECT<br>OPTIONS<br>TRACE</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-In the [changelog for each version of APIM](../../releases-and-changelogs/changelogs/), we provide a list of policies included in the default distribution. The chart below summarizes this information in relation to the `override-http-method` policy.
+The following is the compatibility matrix for APIM and the`override-http-method` policy:
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>&#x3C;=2.x</td><td>>=3.21</td></tr><tr><td>&#x3C;=1.x</td><td>All</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>2.0 to 2.1</td><td>4.0+</td></tr><tr><td>Up to 1.x</td><td>Up to 3.20</td></tr></tbody></table>
 
 ## Errors
 
