@@ -1,7 +1,8 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Release Types and Support Model](release-types-and-support-model.md)
+* [Release Types](release-types-and-support-model.md)
+* [Support Model](support-model.md)
 
 ## Gravitee Essentials
 

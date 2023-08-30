@@ -1,24 +1,24 @@
 ---
-description: Gravitee's approach to software development, deployment, and support
+description: Gravitee's approach to software development and deployment
 ---
 
-# Release Types and Support Model
+# Release Types
 
-## Release types <a href="#tech-preview" id="tech-preview"></a>
+## Overview <a href="#tech-preview" id="tech-preview"></a>
 
-Gravitee currently has three types of releases:
+Gravitee currently has three types of releases: [Tech Preview](release-types-and-support-model.md#tech-preview-1), [Beta](release-types-and-support-model.md#beta), and [general availability](release-types-and-support-model.md#general-availability). Feature identification and usage considerations for each release type are summarized below:
 
-* Tech preview
-* Beta
-* General availability
+<table><thead><tr><th width="149.66666666666666">Release type</th><th width="238">Identification</th><th>Usage</th></tr></thead><tbody><tr><td>Tech preview</td><td>A tech preview feature is available only to members of the Early Access program and tagged as <strong>Tech Preview</strong> in-product</td><td>Features are intended for experimental use only and are not suitable for production environments</td></tr><tr><td>Beta</td><td>A beta feature is publicly available and tagged as <strong>Beta</strong> in-product </td><td>Features are available for usability testing but are not suitable for production environments</td></tr><tr><td>General availability</td><td>A feature is considered generally available if its documentation lacks a <strong>Tech Preview</strong> or <strong>Beta</strong> tag</td><td>Features can be confidently deployed in production environments because they are stable and officially supported</td></tr></tbody></table>
 
-{% hint style="info" %}
 A release does not need to go through a tech preview or beta to reach general availability.
+
+## Tech Preview <a href="#tech-preview" id="tech-preview"></a>
+
+{% hint style="warning" %}
+Deploying a tech preview feature or version in a production environment is strongly discouraged
 {% endhint %}
 
-### Tech preview <a href="#tech-preview" id="tech-preview"></a>
-
-Tech Preview refers to a stage in which a particular feature is made available for testing and evaluation purposes to members of Gravitee's Early Access program.
+Tech preview refers to a stage in which a particular feature is made available to members of Gravitee's Early Access program for testing and evaluation. Tech previews are often referred to as "alpha" releases in other software products.
 
 {% hint style="info" %}
 **Join Gravitee's Early Access program**
@@ -26,65 +26,30 @@ Tech Preview refers to a stage in which a particular feature is made available f
 If you'd like to get access to Gravitee's cutting-edge features and help shape the future of the product, you can apply to join Gravitee's Early Access program by [contacting us](https://www.gravitee.io/contact-us) or reaching out to your CSM.
 {% endhint %}
 
-It is important to note that tech preview features may have limited or no documentation, lack official support, and are not guaranteed to be included as part of the general availability (GA) release in the future. Tech previews are often referred to as "alpha" releases in other software products.
+Tech preview features may have limited or no documentation, lack official support, and are not guaranteed to be included as part of the future general availability (GA) release. Do not rely on a tech preview feature becoming a fully developed product. If it does progress to that stage, anticipate substantial modifications to its functionality and behavior.
 
-Tech preview features are experimental by nature, and as such, the interfaces associated with these features may undergo significant changes that are not compatible with previous versions. It is important not to rely on a tech preview feature becoming a fully developed product. If it does progress to that stage, anticipate substantial modifications to its functionality and behavior.
+Tech preview features are experimental by nature, meaning the interfaces associated with these features may undergo significant changes that are not compatible with previous versions.&#x20;
 
-#### **Usage considerations**
+## Beta <a href="#beta" id="beta"></a>
 
-It is crucial to understand that deploying a tech preview feature or version in a production environment is strongly discouraged. **These features are intended for experimental use only and are not suitable for production-level implementation.**
+{% hint style="warning" %}
+Deploying a beta feature or version in a production environment is strongly discouraged
+{% endhint %}
 
-#### **Identifying tech preview features**
+The beta designation signifies that a feature or release version has achieved a high level of quality. However, beta features or versions should still not be deployed in a production environment.
 
-Tech preview features will only be available to members of the Early Access program and will be designated in-product with a **Tech Preview** tag.
+A beta feature or version is made accessible to the general public for usability testing and to gather valuable feedback before it is released as production-ready and stable. This allows users to provide input and help shape the final release, ensuring a more robust and reliable product.
 
-### Beta <a href="#beta" id="beta"></a>
+When utilizing a beta feature or version, please note:
 
-The beta designation signifies that a feature or release version has achieved a high level of quality. However, it is important to note that beta features or versions should still not be deployed in a production environment.
+* **Reporting Issues:** Customers are strongly encouraged to engage with Gravitee Support to report any issues encountered during beta testing.
+  * Support requests should be submitted with normal priority.&#x20;
+  * Contractual Service Level Agreements (SLAs) do not apply to beta features.
+* **Support Limitations:** Support for tasks such as data recovery, rollback, or other related activities is not available when using a beta feature or version.
+* **Documentation Caveats:** User documentation for beta features might be unavailable, incomplete, or not fully reflect the entire functionality of the feature.
 
-A beta feature or version is made accessible to the general public for the purposes of usability testing and to gather valuable feedback before it is released as a production-ready and stable feature or version. This allows users to provide input and help shape the final release, ensuring a more robust and reliable product.
+## General availability <a href="#general-availability" id="general-availability"></a>
 
-#### **Usage considerations**
+When a feature or release version reaches general availability, it signifies that the software has been publicly released and is fully supported according to [Gravitee's support and maintenance policy](release-types-and-support-model.md#support-model). Generally available features are officially documented and their interfaces are stable.
 
-**Beta releases are not suitable for production-level implementation**. When utilizing a beta feature or version, please take note of the following:
-
-1. **Reporting Issues:** Beta customers are strongly encouraged to engage with Gravitee Support for reporting any issues encountered during beta testing. Support requests should be submitted with normal priority; however, contractual Service Level Agreements (SLAs) will not apply to beta features.
-2. **Support Limitations:** Support for tasks such as data recovery, rollback, or other related activities is not available when using a beta feature or version.
-3. **Documentation Caveats:** Please be aware that user documentation for beta features might be unavailable, incomplete, or may not fully reflect the entire functionality of the feature.
-
-#### **Identifying beta features**
-
-Beta features will be publicly available and will be designated in product with a **Beta** tag.
-
-### General availability <a href="#general-availability" id="general-availability"></a>
-
-When a software feature or release version reaches general availability (GA), it signifies that the software has been publicly released and is fully supported according to [Gravitee's support and maintenance policy](release-types-and-support-model.md#support-model). Generally available features come with official documentation, as needed, and their interfaces are stable.
-
-It is important to note that interfaces associated with GA features adhere to a [semantic versioning model](https://semver.org/). This ensures that any changes made to the interfaces follow a consistent and predictable versioning scheme, maintaining compatibility with existing implementations.
-
-#### **Usage considerations**
-
-GA features can be confidently deployed in production environments, given their stability and official support.
-
-#### **Identifying GA features**
-
-If a feature documentation lacks the labels "tech preview" or "beta," it is considered generally available.
-
-## Support model
-
-**From version 3.18.0 and above: 12-month support model for all minor versions**
-
-As of version 3.18.0 (released on 7th July 2022), we have changed the model of support we provide for released versions of the Gravitee Platform.
-
-We now provide 12 months of support for each minor version. A minor version is considered a quarterly release version with a second-digit increment in the version cadence, for example 3.18 (but not 3.18.1 - this is a maintenance release version). Maintenance release versions will be supported for as long as their "parent" minor version is. So, for example, 3.18.1 would be supported until the deprecation of 3.18 support.
-
-### Supported product versions and EOL dates
-
-The tables below provide information about the entire Gravitee platform's product versions and their release and EOL (end of life) dates, as well as the support model used for each.
-
-| Version | Support model | Release Date | EOL Date   |
-| ------- | ------------- | ------------ | ---------- |
-| 3.19    | 12 months     | 2022-10-04   | 2023-10-04 |
-| 3.20    | 15 months     | 2023-01-12   | 2024-03-30 |
-| 4.0     | 12 months     | 2023-7-20    | 2024-7-20  |
-
+Interfaces associated with GA features adhere to a [semantic versioning model](https://semver.org/). This ensures that any changes made to the interfaces follow a consistent and predictable versioning scheme, maintaining compatibility with existing implementations.
