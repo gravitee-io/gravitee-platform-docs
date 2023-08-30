@@ -217,7 +217,7 @@ The available attributes are summarized below. Use the [Apache Freemarker templa
 The following documentation is only relevant if you have Gravitee Alert Engine enabled, which is an Enterprise-only capability. To enable the following alerting capabilities, please [contact us](https://www.gravitee.io/contact-us) or reach out to your CSM.
 {% endhint %}
 
-\{% @arcade/embed flowId="5HCcKbjuS7rfjlFsxPTI" url="https://app.arcade.software/share/5HCcKbjuS7rfjlFsxPTI" %\}
+{% @arcade/embed flowId="5HCcKbjuS7rfjlFsxPTI" url="https://app.arcade.software/share/5HCcKbjuS7rfjlFsxPTI" %}
 
 When configuring an API's settings, you can also set up alerting conditions for the Gateway. To configure alerts for an API, select the API from the **APIs** menu. Then, under **Notifications,** select **Alerts**.
 
