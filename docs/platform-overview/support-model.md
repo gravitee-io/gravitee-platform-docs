@@ -6,7 +6,9 @@ description: Gravitee's approach to software support
 
 ## Overview
 
-**For version 3.18.0 and above: 12-month support model for all minor versions**
+{% hint style="info" %}
+For version 3.18.0 and above: 12-month support model for all minor versions
+{% endhint %}
 
 As of version 3.18.0 (released on 7th July 2022), released versions of the Gravitee platform adhere to a new support model.
 
