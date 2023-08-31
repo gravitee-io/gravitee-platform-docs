@@ -29,7 +29,6 @@ If you want to install the Enterprise Edition, you must have a license key for t
  │    └── logs
  ├── elasticsearch
  │    └── data
- ├── installation
  └── mongodb
      └── data
 ```
@@ -180,13 +179,13 @@ If you are installing the Enterprise Edition, you need to add the license key. I
 2. Open `docker-compose-apim.yml` in a text editor, and under `$services.gateway.volumes` add the following line.
 
 ```
- - /gravitee/license.key:/opt/graviteeio-gateway/license/license.key
+ - ./license.key:/opt/graviteeio-gateway/license/license.key
 ```
 
 3. Under `$services.management_api.volumes` add the following line.
 
 ```
- - /gravitee/license.key:/opt/graviteeio-management-api/license/license.key
+ - ./license.key:/opt/graviteeio-management-api/license/license.key
 ```
 
 ### Run `docker compose`
