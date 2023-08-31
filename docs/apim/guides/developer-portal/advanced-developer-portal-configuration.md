@@ -98,7 +98,7 @@ Once you finish creating your password, you will be able to sign in.
 
 All users can be viewed in APIM's Management Console by anyone with administrator privileges. To view users, select **Organization** at the bottom of the sidebar. Once there, navigate to the **Users** tab in the sidebar. Here, you will see a list of all current users tied to the organization. As an administrator, you can select any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
 
 {% hint style="info" %}
 **Detailed user administration**

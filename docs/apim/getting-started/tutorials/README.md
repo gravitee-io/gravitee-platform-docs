@@ -1,19 +1,33 @@
 ---
-description: Learn API management concepts with our trial application
+description: Learn Gravitee API Management with a hands-on application
 ---
 
-# Tutorial: Trial Application
+# Tutorials: Trial Application
 
-{% hint style="danger" %}
-**Coming soon!** The updated 4.0 trial and trial application are not yet available.
+## Overview
+
+These tutorials are designed as a hands-on introduction to Gravitee API Management (APIM) and employ techniques that are fundamental to working with APIM. To demonstrate how APIM applies to real-world use cases, you will be completing these tutorials with a preconfigured trial application. For more detailed exposure to each of APIM's core concepts and features, visit our [Guides section](../../guides/prologue.md).
+
+Share your trial experience and suggest ideas for future tutorials on the Gravitee [community forum](https://community.gravitee.io/).
+
+{% hint style="info" %}
+For documentation suggestions, changes can be submitted by selecting the three-dot menu at the top of any page, selecting **Edit on GitHub**, and creating a pull request. Please check out the [Contribute to Docs guide](https://documentation.gravitee.io/platform-overview/contribute/contribute-to-gravitee/contribute-to-gravitee-docs) for more information.
 {% endhint %}
-
-These tutorials do not assume any existing Gravitee API Management (APIM) knowledge and are designed for people who prefer to learn by doing. The techniques you’ll learn in the tutorial are fundamental to working with APIM. You will be using a trial application that simulates how APIM might be used in a real-world use case. If you'd prefer to learn APIM's core concepts step by step, head over to our [Guides section](../../guides/prologue.md) to explore our detailed walkthroughs.
 
 ## Prerequisites
 
-These tutorials are designed to work seamlessly with our enterprise trial as they demonstrate a number of [enterprise-only features](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md). To get started with the free enterprise trial, simply follow the [instructions laid out here](../install-and-upgrade/free-trial.md). Setting up a new trial takes approximately five minutes. Then you can return here to experience the power of Gravitee API Management alongside our demo application.&#x20;
+These tutorials demonstrate some [enterprise-only features](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md) and are designed to work seamlessly with Gravitee's enterprise trial.&#x20;
 
-The introductory use case: Basic Security and Access Control, should be completed first as the advanced use cases are dependent on it. The advanced use cases can then be completed in any order:
+To begin, [sign up for an enterprise trial of Gravitee API Management](../install-and-upgrade/free-trial.md). Your first environment will be set up in just a few minutes and is preconfigured with APIs to help demonstrate the value of both traditional and event-native API Management.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><em>Introductory Use Case</em></td><td><strong>Basic Security and Access Control</strong><br><br>This tutorial showcases Gravitee's core features which include securing a Gateway API, applying API access restrictions, and managing applications and subscriptions.<br><br><em>Gateway API Type:</em> Proxy<br><em>Entrypoint:</em> REST<br><em>Endpoint:</em> REST<br><em>Plan Security:</em> API Key<br><em>Policies:</em> Quota</td><td></td></tr><tr><td><em>Advanced Use Case 1</em></td><td><strong>Real-time Data and Protocol Mediation</strong><br><br>This tutorial showcases Gravitee's event-native API management capabilities that can natively handle, and mediate between, both asynchronous and synchronous protocols.<br><br><em>Gateway API Type:</em> Message<br><em>Entrypoint:</em> WebSocket<br><em>Endpoint:</em> Kafka<br><em>Plan Security:</em> Shared API Key<br><em>Policies:</em> Latency, Transform Headers (Platform Policy)</td><td></td></tr><tr><td><em>Advanced Use Case 2</em></td><td><strong>Advanced Policies and Security</strong><br><br>This tutorial details more advanced policies and security measures.<br><br><em>Gateway API Type:</em> Proxy<br><em>Entrypoint:</em> REST<br><em>Endpoint:</em> REST<br><em>Plan Security:</em> JWT<br><em>Policies:</em> Assign Metrics, Transform Headers</td><td></td></tr></tbody></table>
+Once you're set-up, you can return here to experience the power of Gravitee API Management alongside our trial application.&#x20;
+
+{% hint style="info" %}
+If you are relatively new to web APIs and/or Gravitee's approach to API management, we recommend first taking a look at the [Gravitee Essentials guide](https://documentation.gravitee.io/platform-overview/gravitee-essentials/overview).
+{% endhint %}
+
+## Getting started
+
+We recommend first completing the beginner use case, Gateway APIs and Policies, for an easy and quick introduction to the Gravitee APIM fundamentals. The intermediate and advanced use cases can then be completed in any order:
+
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><h3><strong>Gateway APIs and Policies</strong></h3></td><td><p><strong>Beginner use case</strong><br></p><p>This tutorial demonstrates Gravitee's core features which include managing and deploying a Gateway API and applying API access restrictions with a policy.<br><br><strong>Gateway API Type:</strong> Proxy<br><strong>Entrypoint:</strong> REST<br><strong>Endpoint:</strong> REST<br><strong>Plan Security:</strong> Keyless<br><strong>Policies:</strong> Quota</p></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><h3><strong>Security and Protocol Mediation</strong></h3></td><td><strong>Intermediate use case</strong> <br><br>This tutorial showcases Gravitee's event-native API management capabilities that can manage, secure, and mediate between both asynchronous and synchronous protocols.<br><br><strong>Gateway API Type:</strong> Message<br><strong>Entrypoint:</strong> HTTP POST, WebSocket<br><strong>Endpoint:</strong> Kafka<br><strong>Plan Security:</strong> API Key<br><strong>Policies:</strong> Latency</td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>

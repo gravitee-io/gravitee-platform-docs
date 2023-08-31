@@ -17,7 +17,7 @@ Dictionary properties are based on key-value pairs. You can create two types of 
 
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### How are dictionaries used?
 
@@ -36,9 +36,9 @@ Then, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10
 
 ### Create a manual dictionary
 
-To create a manual dictionary, choose **Manual** as the **Type**, and then select **Create.** You'll then be brought to a page where you can define the static properties for your dictionary. To create properties, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="" data-size="line">icon.&#x20;
+To create a manual dictionary, choose **Manual** as the **Type**, and then select **Create.** You'll then be brought to a page where you can define the static properties for your dictionary. To create properties, select the <img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.22.56 AM.png" alt="" data-size="line">icon.
 
-Then, just give your properties a name and a value.&#x20;
+Then, just give your properties a name and a value.
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-28 at 10.24.08 AM.png" alt=""><figcaption><p>Add properties to your dictionary</p></figcaption></figure>
 
@@ -46,7 +46,7 @@ When you're done, select Add, and then **Save Properties** when you are done def
 
 ### Create a dynamic dictionary
 
-To create a manual dictionary, choose **Dynamic** as the **Type**. **Trigger** and **Provider** sections will then appear.&#x20;
+To create a manual dictionary, choose **Dynamic** as the **Type**. **Trigger** and **Provider** sections will then appear.
 
 #### Define your Trigger settings
 
