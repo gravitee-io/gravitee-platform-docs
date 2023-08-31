@@ -527,11 +527,10 @@ api:
         - api-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
       annotations:
         route.openshift.io/termination: edge
-  securityContext: null
   deployment:
     securityContext:
       runAsUser: null
-      runAsGroup: null
+      runAsGroup: 1000
       runAsNonRoot: true
       allowPrivilegeEscalation: false
       capabilities:
@@ -547,11 +546,10 @@ gateway:
       - gw-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
     annotations:
       route.openshift.io/termination: edge
-  securityContext: null
   deployment:
     securityContext:
       runAsUser: null
-      runAsGroup: null
+      runAsGroup: 1000
       runAsNonRoot: true
       allowPrivilegeEscalation: false
       capabilities:
@@ -601,4 +599,4 @@ ui:
 ```
 {% endcode %}
 
-By setting the value to `null` for `runAsUser` and `runAsGroup` it forces OpenShift to define the correct values for you while deploying the Helm Chart.
+By setting the value to `null` for `runAsUser` it forces OpenShift to define the correct values for you while deploying the Helm Chart.
