@@ -70,7 +70,7 @@
   * [Advanced Hybrid Deployment](getting-started/hybrid-deployment/advanced-hybrid-deployment.md)
 * [Tutorials: Trial Application](getting-started/tutorials/README.md)
   * [Beginner: Gateway APIs and Policies](getting-started/tutorials/comprehensive.md)
-  * [Intermediate: Security and Event-native capabilities](getting-started/tutorials/real-time-data-and-protocol-mediation.md)
+  * [Intermediate: Security and Protocol Mediation](getting-started/tutorials/real-time-data-and-protocol-mediation.md)
 
 ## Guides
 
