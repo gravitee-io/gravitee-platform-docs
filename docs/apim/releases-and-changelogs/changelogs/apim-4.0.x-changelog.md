@@ -5,6 +5,27 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.6 - August 31, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Override Kafka topic using attribute isn't possible at the moment [#9201](https://github.com/gravitee-io/issues/issues/9201)
+
+**Management API**
+
+* Webhook Notifier has hardcoded 200 value for status code and will not accept other 20x codes [#9096](https://github.com/gravitee-io/issues/issues/9096)
+
+**Console**
+
+* Service Discovery configuration isn't taken in account [#9152](https://github.com/gravitee-io/issues/issues/9152)
+* Fix permissions for new ng routes [#9164](https://github.com/gravitee-io/issues/issues/9164)
+
+</details>
 
 ## Gravitee API Management 4.0.5 - August 28, 2023
 
