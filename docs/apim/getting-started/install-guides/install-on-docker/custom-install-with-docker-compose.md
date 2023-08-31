@@ -16,6 +16,7 @@ If you want to install the Enterprise Edition, you must have a license key for t
 
 ```
 /gravitee
+ ├── docker-compose-apim.yaml
  ├── apim-gateway
  │    ├── logs
  │    └── plugins
@@ -37,11 +38,11 @@ Create it with the following command.
 
 {% code overflow="wrap" %}
 ```sh
-mkdir -p ./gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-gateway/logs,apim-management-api/plugins,apim-management-api/logs,apim-management-ui/logs,apim-portal-ui/logs,installation}
+mkdir -p ./gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-gateway/logs,apim-management-api/plugins,apim-management-api/logs,apim-management-ui/logs,apim-portal-ui/logs}
 ```
 {% endcode %}
 
-2. Change to the `/gravitee/installation` directory.
+2. Enter the `/gravitee` directory.
 3. Download the `docker-compose.yml` file as `docker-compose-apim.yml`.
 
 ```
@@ -73,7 +74,7 @@ to
 
 ```
     volumes:
-      - /gravitee/mongodb/data:/data/db
+      - ./mongodb/data:/data/db
 ```
 
 {% hint style="info" %}
@@ -91,7 +92,7 @@ to
 
 ```
     volumes:
-      - /gravitee/elasticsearch/data:/var/lib/elasticsearch/data
+      - ./elasticsearch/data:/var/lib/elasticsearch/data
 ```
 
 {% hint style="info" %}
@@ -109,8 +110,8 @@ to
 
 ```
     volumes:
-      - /gravitee/apim-gateway/logs:/opt/graviteeio-gateway/logs
-      - /gravitee/apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
+      - ./apim-gateway/logs:/opt/graviteeio-gateway/logs
+      - ./apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
 ```
 
 6. Add the following lines to `$services.gateway.environment`.
@@ -132,8 +133,8 @@ to
 
 ```
     volumes:
-      - /gravitee/apim-management-api/logs:/opt/graviteeio-management-api/logs
-      - /gravitee/apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
+      - ./apim-management-api/logs:/opt/graviteeio-management-api/logs
+      - ./apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
 ```
 
 9. Add the following lines to `$services.management_api.environment`.
@@ -154,7 +155,7 @@ to
 
 ```
     volumes:
-      - /gravitee/apim-management-ui/logs:/var/log/nginx
+      - ./apim-management-ui/logs:/var/log/nginx
 ```
 
 11. Change `$services.portal_ui.volumes` section from
@@ -168,7 +169,7 @@ to
 
 ```
     volumes:
-      - /gravitee/apim-portal-ui/logs:/var/log/nginx
+      - ./apim-portal-ui/logs:/var/log/nginx
 ```
 
 ### Add the license key
