@@ -1,5 +1,5 @@
 ---
-description: Learn how to import APIs onto your Gravitee Gateway.
+description: Learn how to import APIs onto your Gravitee Gateway
 ---
 
 # Import APIs
@@ -18,24 +18,24 @@ Gravitee supports importing APIs as:
 {% hint style="info" %}
 Product limitation
 
-There is an existing limitation around API import. As of Gravitee 4.0, APIs using the v4  API definition cannot be imported.
+There is an existing limitation around API import. As of Gravitee 4.0, APIs using the v4 API definition cannot be imported.
 {% endhint %}
 
 ## Import your API
 
-To import your API, head to the **APIs** page and select **+ Add API.** You'll be presented with three options for creating APIs. Select **Import an existing API.**&#x20;
+To import your API, head to the **APIs** page and select **+ Add API.** You'll be presented with three options for creating APIs. Select **Import an existing API.**
 
 You'll be presented with the following options:
 
-* **Upload a file:** this allows you to import an API as an uploaded file. You can import yml, yaml, json, wsdl, and xml files. Once you've uploaded your file, select **Import.** If the import runs smoothly, you'll be brought to the newly created APIs details page.&#x20;
-* **Swagger / OpenAPI:** if you choose this option, you'll need to provide a Swagger descriptor URL and choose your configuration options. These include:
+* **Upload a file:** This allows you to import an API as an uploaded file. You can import yml, yaml, json, wsdl, and xml files. Once you've uploaded your file, select **Import.** If the import runs smoothly, you'll be brought to the newly created APIs details page.
+* **Swagger / OpenAPI:** If you choose this option, you'll need to provide a Swagger descriptor URL and choose your configuration options. These include:
   * Create documentation: This will overwrite documentation if there is only one existing, or create it if it does not exist yet.
   * Create the path mapping for analytics: This will overwrite all the path-mappings.
   * Create policies on paths: This will overwrite all the policies. Policies that you can create upon import include:
-    * **JSON validation policy**
-    * **Mock Policy**
+    * **JSON Validation policy**
+    * **Mock policy**
     * **REST to SOAP transformer**
-    * **Validate Request Policy**
+    * **Validate Request policy**
     * **XML Validation policy**
 
 {% hint style="info" %}
@@ -45,7 +45,7 @@ You can use a vendor extension to add more information to OpenAPI specifications
 
 Please keep the following in mind:
 
-* categories must contain either a key or an id.&#x20;
+* categories must contain either a key or an id.
 * Only existing categories are imported.
 * Import will fail if virtualHosts are already in use by other APIs.
 * If set, virtualHosts will override contextPath.
@@ -58,8 +58,6 @@ Please keep the following in mind:
   * MAIL
   * URL
 * picture only accepts Data-URI format. Please see the example below:
-
-
 
 ```
 openapi: "3.0.0"
@@ -99,20 +97,18 @@ x-graviteeio-definition:
 paths:
 ...
 ```
-
-
 {% endhint %}
 
-* **API definition:** if you choose this option, you'll need to include a URL that links to your API definition&#x20;
-* **WSDL:** if you choose this option, you'll need to provide a WSDL descriptor URL. Like the Swagger/OpenAPI option, you'll be able to configure the following prior to import:
+* **API definition:** If you choose this option, you'll need to include a URL that links to your API definition.
+* **WSDL:** If you choose this option, you'll need to provide a WSDL descriptor URL. Like the Swagger/OpenAPI option, you'll be able to configure the following prior to import:
   * Create documentation: This will overwrite documentation if there is only one existing, or create it if it does not exist yet.
   * Create the path mapping for analytics: This will overwrite all the path-mappings.
   * Create policies on paths: This will overwrite all the policies. Policies that you can create upon import include:
-    * JSON validation policy
-    * Mock Policy
-    * REST to SOAP transformer
-    * Validate REquest Policy
-    * XML Validation policy
+    * **JSON Validation policy**
+    * **Mock policy**
+    * **REST to SOAP transformer**
+    * **Validate Request policy**
+    * **XML Validation policy**
 
 {% hint style="success" %}
 **Success!**
