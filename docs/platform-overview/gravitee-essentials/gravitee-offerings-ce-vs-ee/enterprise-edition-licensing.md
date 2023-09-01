@@ -1,6 +1,8 @@
 # Enterprise Edition Licensing
 
-To run a Gravitee Enterprise Edition (EE) node, you must have a valid license file.
+{% hint style="warning" %}
+To run a Gravitee Enterprise Edition (EE) node, you must have a valid license file
+{% endhint %}
 
 ## Getting an EE license
 
@@ -10,17 +12,16 @@ To get an EE license, email [contact@graviteesource.com](mailto:contact@gravitee
 
 You can provide the EE license data for a Gravitee EE product in two ways:
 
-1. Using an environmental variable.
-2. Using a file.
-
-It is possible to add an EE license in Kubernetes by using any of these two approaches to provide the license information.
+1. Using an environment variable
+2. Using a file
+3. Using Kubernetes to provide the environment variable or file
 
 ### Applying an EE license using an environment variable
 
-Provide the content of the license file directly in `Base64` format using an environmental variable called "license.key":
+Provide the content of the license file directly in `Base64` format using an environment variable called "license.key":
 
-1. Create a new secret from your Gravitee license data.
-2. Update your deployment description and provide a new ENV with the license data from a Kubernetes secret, as shown in the example below.
+1. Create a new secret from your Gravitee license data
+2. Update your deployment description and provide a new ENV with the license data from a Kubernetes secret, as shown in the example below:
 
 ```yaml
 spec:
@@ -40,19 +41,17 @@ For more information, see the [Kubernetes documentation](https://kubernetes.io/d
 
 ### Applying an EE license using a file
 
-Gravitee looks for the EE license file inside the `GRAVITEE_HOME/license/license.key` folder by default. You can override this by using another property called `gravitee.license`.
+By default, Gravitee looks for the EE license file inside the `GRAVITEE_HOME/license/license.key` folder. You can override this by using a property called `gravitee.license`.
 
 How it works:
 
-1. Gravitee will first look for the `license.key` environmental variable.
-2. If it cannot find it, Gravitee will look into the `gravitee.license` property.
-3. If the `gravitee.license` property is not set, Gravitee will try to retrieve the key from the `GRAVITEE_HOME` folder.
+1. Gravitee will first look for the `license.key` environment variable
+2. If it cannot find it, Gravitee will look at the `gravitee.license` property
+3. If the `gravitee.license` property is not set, Gravitee will try to retrieve the key from the `GRAVITEE_HOME` folder
 
-#### **Provide EE License using Kubernetes**
+### **Providing an EE License via Kubernetes**
 
-Kubernetes allows you to mount the content of a special [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) inside your pod. You can use this solution to provide the EE license file to Gravitee.
-
-To do so:
+Kubernetes allows you to mount the content of a special [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) inside your pod. You can use this solution to provide the EE license file to Gravitee:
 
 1. Create a `Secret` containing the EE license data. Make sure to name the key "license.key".
 2.  Mount this content into your pod using `Volumes`. Note that the `mountPath` is not unique and is different for each product, as follows:
@@ -90,11 +89,11 @@ spec:
       optional: false # default setting; "mysecret" must exist
 ```
 
-**Provide EE License using Helm**
+### **Providing an EE License via Helm**
 
-You can use the solutions described above if you want to modify existing resources that have already been deployed in the cluster. Alternatively, you can also provide the license information using [Helm](https://helm.sh/) and when installing or updating existing installations.
+You can use the solutions described above if you want to modify existing resources that have already been deployed in the cluster. Alternatively, you can also provide the license information using [Helm](https://helm.sh/), when installing or updating existing installations.
 
-The example below shows the contents of a simple `values.yaml` file that you can use to provide the EE license data using Helm.
+The example below shows the contents of a simple `values.yaml` file that you can use to provide the EE license data using Helm:
 
 {% code title="values.yaml" %}
 ```yaml

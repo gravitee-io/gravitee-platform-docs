@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Release Types](release-types-and-support-model.md)
-* [Support Model](support-model.md)
+* [Support Model](support-model/README.md)
   * [Support for v1 APIs](support-model/support-for-v1-apis.md)
 
 ## Gravitee Essentials
