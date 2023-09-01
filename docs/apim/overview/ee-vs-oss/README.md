@@ -42,7 +42,7 @@ EE plugins are installed from their respective repositories in GitHub. Graviteeâ
 
 If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com).
 
-Information on plugin deployment can be found [here](plugins.md#deployment).
+Information on plugin deployment can be found [here](../introduction-to-gravitee-api-management-apim/plugins.md#deployment).
 
 ### Enterprise policy pack
 
@@ -104,7 +104,7 @@ An investment in Gravitee EE is an investment in deployment flexibility, and, op
 * **Gravitee-managed deployments**: Gravitee hosts and manages all APIM components within its own cloud environment.
 * **Hybrid deployment**: Gravitee hosts and manages some APIM components within its cloud environment while you manage others within your private cloud/environment.
 
-For more information on each, please refer to our [APIM Architecture documentation](apim-architecture.md).
+For more information on each, please refer to our [APIM Architecture documentation](../introduction-to-gravitee-api-management-apim/apim-architecture.md).
 
 ## Support options
 

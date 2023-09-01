@@ -58,14 +58,12 @@ The Cache Redis resource can operate standalone or with the Redis Sentinel monit
 
 ### Confluent Schema Registry
 
-
-
 {% hint style="warning" %}
 **Enterprise only**
 
 As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)
+* [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}

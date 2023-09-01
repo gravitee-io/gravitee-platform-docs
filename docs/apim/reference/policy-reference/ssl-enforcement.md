@@ -5,7 +5,7 @@ description: This page provides the technical details of the SSL Enforcement pol
 # SSL Enforcement
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/ee-vs-oss/)**.**
 {% endhint %}
 
 ## Overview

@@ -6,7 +6,7 @@ A growing customer base brings new challenges, e.g., how to:
 
 * Reduce the time taken to enroll new partners
 * Identify partners and manage their API consumption
-* Measure consumption from the perspective of a consumer and/or producer&#x20;
+* Measure consumption from the perspective of a consumer and/or producer
 * Share and discover existing APIs
 * Manage the API lifecycle, versioning, documentation, etc.
 
@@ -14,7 +14,7 @@ Gravitee API Management (APIM) enables businesses to address these challenges se
 
 ## Gravitee API Management
 
-Gravitee API Management is a lightweight and performant event-native API management platform that accelerates and streamlines the governance and security of both synchronous and asynchronous APIs.&#x20;
+Gravitee API Management is a lightweight and performant event-native API management platform that accelerates and streamlines the governance and security of both synchronous and asynchronous APIs.
 
 As a highly flexible and scalable solution, Gravitee APIM seamlessly integrates with a customer's infrastructure and expertly conforms to specific business needs. We’ve designed and developed APIM to be fully extensible using its own internal plugin system: customers can define their own policies, develop their own reporting systems, and more.
 
@@ -56,4 +56,4 @@ APIM frequently uses Ant notation for path matching:
 
 Ready to use Gravitee API Management? Select from the options below to learn more about APIM and get it up and running.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Architecture</td><td></td><td><a href="overview/introduction-to-gravitee-api-management-apim/apim-architecture.md">apim-architecture.md</a></td></tr><tr><td></td><td>Plugins</td><td></td><td><a href="overview/introduction-to-gravitee-api-management-apim/plugins.md">plugins.md</a></td></tr><tr><td></td><td>Integrations</td><td></td><td><a href="overview/integrations/">integrations</a></td></tr><tr><td></td><td>Open Source vs Enterprise Edition</td><td></td><td><a href="overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md">ee-vs-oss.md</a></td></tr><tr><td></td><td>Install &#x26; Upgrade Guides</td><td></td><td><a href="getting-started/install-and-upgrade/install-guides/">install-guides</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Architecture</td><td></td><td><a href="overview/introduction-to-gravitee-api-management-apim/apim-architecture.md">apim-architecture.md</a></td></tr><tr><td></td><td>Plugins</td><td></td><td><a href="overview/introduction-to-gravitee-api-management-apim/plugins.md">plugins.md</a></td></tr><tr><td></td><td>Integrations</td><td></td><td><a href="overview/integrations/">integrations</a></td></tr><tr><td></td><td>Open Source vs Enterprise Edition</td><td></td><td><a href="overview/ee-vs-oss/">ee-vs-oss</a></td></tr><tr><td></td><td>Install &#x26; Upgrade Guides</td><td></td><td><a href="getting-started/install-and-upgrade/install-guides/">install-guides</a></td></tr></tbody></table>

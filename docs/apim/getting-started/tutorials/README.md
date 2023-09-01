@@ -16,7 +16,7 @@ For documentation suggestions, changes can be submitted by selecting the three-d
 
 ## Prerequisites
 
-These tutorials demonstrate some [enterprise-only features](../../overview/introduction-to-gravitee-api-management-apim/ee-vs-oss.md) and are designed to work seamlessly with Gravitee's enterprise trial.&#x20;
+These tutorials demonstrate some [enterprise-only features](../../overview/ee-vs-oss/) and are designed to work seamlessly with Gravitee's enterprise trial.&#x20;
 
 To begin, [sign up for an enterprise trial of Gravitee API Management](../install-and-upgrade/free-trial.md). Your first environment will be set up in just a few minutes and is preconfigured with APIs to help demonstrate the value of both traditional and event-native API Management.
 
