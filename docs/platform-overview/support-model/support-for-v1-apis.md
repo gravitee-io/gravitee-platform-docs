@@ -6,16 +6,21 @@ description: This page details the go-forward strategy for supporting v1 APIs in
 
 ## Overview
 
-This document outlines how we intend to manage and support v1 APIs in future versions of APIM. The following FAQs present the details:&#x20;
+This document outlines how we intend to manage and support v1 APIs in future versions of APIM. The following FAQ present the details:&#x20;
 
 * [Can a user create v1 APIs today?](support-for-v1-apis.md#can-a-user-create-v1-apis-today)
 * [What happens when APIM is updated from \~3.15 to 4.0?](support-for-v1-apis.md#what-happens-when-apim-is-updated-from-3.15-to-4.0)
 * [When will v1 APIs stop running on the Gateway?](support-for-v1-apis.md#when-will-v1-apis-stop-running-on-the-gateway)
+* [How will we support upgrading v1 APIs in v4?](support-for-v1-apis.md#how-will-we-support-upgrading-v1-apis-in-v4)
 * [Why include the upgrader in the backend and not in the UI?](support-for-v1-apis.md#why-include-the-upgrader-in-the-backend-and-not-in-the-ui)
 * [What will happen to users who still have v1 APIs in 5.0?](support-for-v1-apis.md#what-will-happen-to-users-who-still-have-v1-apis-in-5.0)
 * [What will happen to the v1 API code?](support-for-v1-apis.md#what-will-happen-to-the-v1-api-code)
 
-Although v1 APIs have been **deprecated**, they are still supported. Gravitee uses deprecation to publicly signal that we intend to remove the functionality in a future release.
+Although v1 APIs have been **deprecated**, they are still supported. Gravitee uses deprecation to publicly signal that we intend to remove the deprecated functionality from a future release.
+
+## FAQ
+
+The following FAQ cover the details of future support for v1 APIs.
 
 ### Can a user create v1 APIs today?
 
@@ -32,6 +37,12 @@ Many customers are running versions of APIM that support creating v1 APIs (e.g.,
 ### When will v1 APIs stop running on the Gateway?
 
 For version 4.0, v1 APIs will **continue running** on the Gateway but will be read only. We will not prevent v1 APIs from running on the Gateway until we release APIM 5.0. The earliest release date for APIM 5.0 will be in summer of 2024.
+
+### How will we support upgrading v1 APIs in v4?
+
+We plan to add an automated v1 API upgrader that can be turned on with a certain configuration of the APIM instance's properties in `gravitee.yml`. This will leverage an existing upgrader framework we use for APIM, where the upgrader  will be runnable in a "dry run" mode. "Dry run" will be able to report which APIs still need upgrading and which are able to be upgraded automatically.&#x20;
+
+If an API cannot be automatically upgraded, we will log the incompatibility. If an API cannot be migrated at all, Gravitee will be available to assist its customers in manually upgrading the API via manipulations to the database.
 
 ### Why include the upgrader in the backend and not in the UI?
 
