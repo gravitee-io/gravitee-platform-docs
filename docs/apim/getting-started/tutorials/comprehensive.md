@@ -40,14 +40,14 @@ Starting the tutorial will begin an in-trial guide:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-31 at 6.16.46 PM.png" alt=""><figcaption><p>In-trial guide example</p></figcaption></figure>
 
-You will be redirected back to this documentation after completing all the steps in your in-trial guide.
+Please complete the in-trial guide before proceeding to gain access to the trial app. Upon completion, you will be redirected to the following section of this documentation, **Trial app architecture.**
 
 ## Trial app architecture
 
 Before you begin using the trial app to test the Gateway API you created in the APIM Console, it is helpful to understand how the relevant portions of the trial application function and how they are augmented by the Gravitee Gateway with respect to this tutorial.
 
 {% hint style="info" %}
-&#x20;For the curious, you can explore the application code in the [open-source, public repository](https://github.com/gravitee-io-labs/trial-sample-app).
+&#x20;For the curious, you can explore all the application code in the [open-source, public repository](https://github.com/gravitee-io-labs/trial-sample-app).
 {% endhint %}
 
 This tutorial is built around the todo list page. The todo list page functions as a simple task manager built on the MERN stack. A MERN application is a type of web application that uses four main technologies:
