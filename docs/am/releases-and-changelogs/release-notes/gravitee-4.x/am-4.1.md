@@ -4,10 +4,11 @@ description: This article covers the required steps to fix the duplicate usernam
 
 # AM 4.1.0
 
-## Remove duplicate user name
+## Remove users with duplicate user name
 
 we have introduced a unique constraint on the `username` field  in the **users** collection/table in AM version 4.1.0.
-This constraint was necessary to fix the [ AM-680 ](https://gravitee.atlassian.net/browse/AM-680) bug to avoid users with the same user name within an identity provider (IDP).
+This constraint was necessary to fix the [ AM-680 ](https://github.com/gravitee-io/issues/issues/9117) bug to avoid users with the same user name within an identity provider (IDP).
+Users with same user name are not active user and it is not possible to log in using these user's details. 
 As a result you may experience issues while upgrading AM from any previous version to 4.1.0 in case the **users** collection/table already has more than one user with the same user name in the `username` field.
 For the relational database there could be a unique constraint error in the management API log and for the MongoDB the application may not start as MongoDB won't be able to apply the unique constraint due to duplicate data.
 To start the application you will need to delete the duplicate users from both the **users** collection/table  and the corresponding identity provider collection/table.
