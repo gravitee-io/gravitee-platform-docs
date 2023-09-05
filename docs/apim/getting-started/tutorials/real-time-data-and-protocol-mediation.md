@@ -234,13 +234,13 @@ First, open the subscription you just created and scroll to the bottom of the pa
 
 Copy the API key to your clipboard and open the trial app. Select **Configuration** in the sidebar:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-13 at 11.23.22 PM.png" alt=""><figcaption><p>Trial app configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-09-04 at 11.09.34 PM.png" alt=""><figcaption><p>Trial app configuration</p></figcaption></figure>
 
 Under the **Authorization** header, select **API Key** and paste the API key inside the input box.&#x20;
 
 Next, select **On** under the **Analytics** header. Finally, select **Save Changes** on the top right.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-13 at 11.20.02 PM.png" alt=""><figcaption><p>Save updated configuration</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-09-04 at 11.10.27 PM.png" alt=""><figcaption><p>Save updated configuration</p></figcaption></figure>
 
 ### Test API Key Plan subscriptions
 
@@ -256,7 +256,7 @@ With both the application and Gravitee Gateway functioning as expected, we are r
 
 Let's experiment with protocol mediation using the analytic graphs. In the trial app, return to the **Configuration** page and select the **On** toggle underneath the **Analytic Graphs** header:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-13 at 11.34.22 PM.png" alt=""><figcaption><p>Turn on analytic graphs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-09-04 at 11.10.56 PM.png" alt=""><figcaption><p>Turn on analytic graphs</p></figcaption></figure>
 
 Make sure you save your changes then return to the **Todo List** page. Depending on what actions you completed on the Todo List page, the graphs should already contain some data:
 
@@ -332,56 +332,38 @@ You can now move on to another advanced tutorial or even modify this policy to s
 This section is only recommended for users already familiar with Kafka.&#x20;
 {% endhint %}
 
-As detailed [here](../../guides/api-configuration/v4-api-configuration/endpoint-implementation.md), Gravitee APIM follows certain rules for creating Kafka consumer groups. In summary:
+The data shown in the analytics graphs is data that has been consumed from a Kafka broker. This can result in some confusing behavior if you're unfamiliar with how Gravitee APIM handles client identifiers and consumer groups.
 
-> By default, every subscription creates a new consumer group. If there is no subscription required (i.e., a Keyless Plan), then the client's IP address is used to create and identify the consumer group.
+As detailed [here](../../guides/api-configuration/v4-api-configuration/endpoint-implementation.md), APIM follows specific rules for determining a consumer's client identifier which Kafka uses to compute the consumer group. In summary:
 
-The trial app provides a concrete example. Each graph has a WebSocket connection tied to a different plan. Specifically, there is a subscription to the API Key Plan and a connection to a Keyless Plan. This results in two consumer groups where each graph will receive all messages published to the Kafka broker.
+> By default, every subscription creates a new client identifier, and therefore, a new consumer group. If there is no subscription required (i.e., a Keyless Plan), then the client's IP address is used to create or find the client identifier.
 
-However, in some cases, this may not be ideal:
+The trial app provides a concrete example. Each graph has a WebSocket connection tied to a different plan. Specifically, there is a subscription to the API Key Plan and a connection to a Keyless Plan. This results in two consumer groups where each graph will receive all messages published to the Kafka broker.&#x20;
 
-1. Duplicating the trial app in a new tab results in two additional WebSocket connections but does **not** create two new consumer groups. And because we set up the Kafka topic with one partition, the first consumer from each group to connect will receive all the messages from that partition until it disconnects.
-2. Refreshing the page results in losing your "analytics history." This is because refreshing the page does not create new consumer groups and the prior data was already consumed.
+These two consumer groups will persist for the life of the subscriptions. However, in some cases, this may not be ideal. Let's take the trial app for example:
+
+1. Duplicating the trial app in a new tab results in an additional consumer joining each consumer group. And because we set up the Kafka topic with one partition, the first consumer from each group to connect will receive all the messages from that partition until it disconnects.
+2. Refreshing the page results in losing your "analytics history" from the perspective of the application. This is because refreshing the page creates a new consumer that is still part of the same consumer group.
 
 {% hint style="info" %}
-To distribute the load between multiple consumers in a single consumer group, you must create additional partitions in your Kafka topic. Kafka only allows for a single consumer per partition.
+To distribute the load between multiple consumers in a single consumer group, you must create additional partitions in your Kafka topic. Per consumer group, Kafka only allows for a single consumer per partition.
 {% endhint %}
 
 You can verify these limitations yourself by duplicating the trial app in your browser and completing actions. The graphs in the original trial app tab will receive all the data.
 
 You may prefer each instance of the trial app to create two new consumer groups. Thankfully, Gravitee enables this:
 
-> To manually create a new consumer group, pass the `X-Gravitee-Client-Identifier` header with a unique value.
+> To manually create a new consumer group, pass the `X-Gravitee-Client-Identifier` header or query parameter with a unique value.
 
-With this, Gravitee provides an easy way to create a new consumer group without creating a new subscription. However, it's a bit more complicated in the case of the trial app as [Javascript's WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets\_API) does not allow you to pass headers. Fortunately, this can still be achieved via query parameters and Gravitee's platform policies.&#x20;
+With this, Gravitee provides an easy way to create a new consumer group without creating a new subscription.&#x20;
 
-### Implement a platform policy
+The trial app can take advantage of this functionality. Head back to the Configuration page and select the **On with history** toggle under **Analytics Graphs**.
 
-As a quick overview, the trial app currently generates two universally unique identifiers (UUIDs) when it is loaded and each WebSocket connection passes a UUID with the `x-gravitee-client-identifier` query parameter.&#x20;
+<figure><img src="../../.gitbook/assets/Screenshot 2023-09-04 at 11.36.09 PM.png" alt=""><figcaption><p>Enable history in the analytics graphs</p></figcaption></figure>
 
-Using [Gravitee Expression Language (EL)](../../guides/policy-design/gravitee-expression-language.md) in a platform policy will allow us to transform this query parameter into a header.
+This setting essentially modifies the trial app to generate and pass a universally unique identifier (UUID) as the `X-Gravitee-Client-Identifier` query parameter when establishing each WebSocket connection. A new UUID is generated every time you refresh the page.
 
-{% hint style="info" %}
-A platform policy is required because the consumer group must be set before the Gateway execution engine begins processing the API request.
-{% endhint %}
-
-To get started, select **Organization** in the APIM Console. Then, under the Gateway subheader, select **Policies**:
-
-<figure><img src="../../.gitbook/assets/image (34).png" alt=""><figcaption><p>Platform policy configuration</p></figcaption></figure>
-
-Next, select the **+** icon to start designing a new flow. Name your flow and add the EL expression `{#request.path == '/todo-actions'}` to ensure the flow will only apply to API requests to the `/todo-actions` path. Select the **check** icon in the top right of the configuration box to create a flow similar to the following:
-
-<figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption><p>Configuring platform flow</p></figcaption></figure>
-
-Now we just need to add a Transform Headers policy with EL to create a new `X-Gravitee-Client-Identifier` header, extract the value passed from the `x-gravitee-client-identifier` query parameter, and use the value for the `X-Gravitee-Client-Identifier` header.
-
-In the policy sidebar, search for the Transform Headers policy and drag it into the request phase. Next, we need to configure the policy to add a `X-Gravitee-Client-Identifier` header with the value set to the EL expression `{#request.params['x-gravitee-client-identifier']}`.
-
-The final configuration is shown below. Make sure you select the **check** icon in the top right of the configuration box again, select **Save**, and then **Confirm** in the pop-up dialogue box:
-
-<figure><img src="../../.gitbook/assets/image (36).png" alt=""><figcaption><p>Transform Headers platform policy</p></figcaption></figure>
-
-From here, you should be able to duplicate the trial app as many times as you desire. Each instance of the application will receive all the messages published to the Kafka topic the WebSocket connections are subscribed to.&#x20;
+From here, you should be able to duplicate the trial app as many times as you desire. Each instance of the application will receive all the data generated by any instance of the application. This is because each instance of the trial app is still publishing data to the same Kafka topic, but now has consumers in totally separate consumer groups.
 
 Additionally, since we configured the Kafka endpoint with the [earliest offset](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management), each new instance will receive all the messages ever published to the Kafka broker, even if that trial app instance did not exist when the message was produced. This maintains your analytics history but may not be ideal for the delayed graph as the backlog of data will quickly become massive. If preferred, you can easily change to the latest offset in the Messages API's **Backend services** configuration.&#x20;
 
