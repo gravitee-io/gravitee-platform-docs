@@ -6,27 +6,23 @@ description: This page provides the technical details of the Traffic Shadowing p
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+Traffic shadowing allows to asynchronously copy the traffic to another service. By using this policy, the requests are duplicated and sent to the target. The target is an endpoint defined at the API level. The request can be enriched with additional headers.
 
+Functional and implementation information for the `traffic-shadowing` policy is organized into the following sections:
+
+* [Examples](traffic-shadowing.md#examples)
 * [Configuration](traffic-shadowing.md#configuration)
 * [Compatibility Matrix](traffic-shadowing.md#compatibility-matrix)
 * [Changelogs](traffic-shadowing.md#changelogs)
 
-{% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
+## Examples
 
-Currently, this policy can **not** be applied at the message level.
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-Traffic shadowing allows to asynchronously copy the traffic to another service. By using this policy, the requests are duplicated and sent to the target. The target is an endpoint defined at the API level. The request can be enriched with additional headers.
-
-## Configuration
-
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
-
-{% code title="Sample Configuration" %}
+{% tabs %}
+{% tab title="Proxy API example" %}
 ```json
 {
   "traffic-shadowing": {
@@ -40,28 +36,30 @@ When using the Management API, policies are added as flows either directly to an
   }
 }
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
-### Reference
-
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Default</th><th>Example</th></tr></thead><tbody><tr><td>target</td><td>true</td><td>The target endpoint (supports EL).</td><td>-</td><td>{#endpoints['my-endpoint']}</td></tr><tr><td>headers</td><td>false</td><td>A list of HTTP headers.</td><td>-</td><td>-</td></tr></tbody></table>
+## Configuration
 
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+The phases checked below are supported by the `traffic-shadowing` policy:
 
-The phases checked below are supported by the JSON-to-XML policy:
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="138" data-type="checkbox">Compatible?</th><th width="211.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+### Options
+
+The `traffic-shadowing` policy can be configured with the following options:
+
+<table><thead><tr><th width="147">Property</th><th data-type="checkbox">Required</th><th width="228">Description</th><th width="87">Default</th><th>Example</th></tr></thead><tbody><tr><td>target</td><td>true</td><td>The target endpoint (supports EL).</td><td>-</td><td>{#endpoints['my-endpoint']}</td></tr><tr><td>headers</td><td>false</td><td>A list of HTTP headers.</td><td>-</td><td>-</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `traffic-shadowing` policy.
+The following is the compatibility matrix for APIM and the `traffic-shadowing` policy:
 
 | Plugin version | Supported APIM versions            |
 | -------------- | ---------------------------------- |
 | 2.x and upper  | 3.18.20, 3.19.9, 3.20.3 and upper. |
-| Up to 1.1.x    | Up to 3.14.x                       |
 
 ## Changelogs
 
