@@ -6,26 +6,24 @@ description: This page provides the technical details of the REST to SOAP policy
 
 ## Overview
 
-Functional and implementation information for the REST to SOAP policy is organized into the following sections:
+You can use the `rest-to-soap` policy to expose SOAP backend service as a REST API. The policy will pass the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
+
+Functional and implementation information for the `rest-to-soap` policy is organized into the following sections:
 
 * [Examples](rest-to-soap.md#examples)
 * [Configuration](rest-to-soap.md#configuration)
-* [Compatibility](rest-to-soap.md#compatibility)
+* [Compatibility Matrix](rest-to-soap.md#compatibility-matrix)
 * [Changelogs](rest-to-soap.md#changelogs)
 
 ## Examples
 
-You can use the `rest-to-soap` policy to expose SOAP backend service as a REST API. The policy will pass the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
-
-Currently, this policy can **not** be applied at the message level.
-{% endhint %}
-
-For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap` policy SOAP envelope content:
+A SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap` policy SOAP envelope content:
 
 ```
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope\\\" xmlns:web=\\\"http://www.oorsprong.org/websamples.countryinfo">
@@ -44,9 +42,7 @@ Will give you the ISO country code for `France`
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+Sample policy configuration is shown below:
 
 {% code title="Sample Configuration" %}
 ```json
@@ -62,21 +58,25 @@ When using the Management API, policies are added as flows either directly to an
 ```
 {% endcode %}
 
-### Reference
-
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>SOAP Envelope</td><td>true</td><td></td><td>SOAP envelope used to invoke WS (supports Expression Language)</td><td></td></tr><tr><td>SOAP Action</td><td>false</td><td></td><td>'SOAPAction' HTTP header sent when invoking WS</td><td></td></tr><tr><td>Charset</td><td>false</td><td></td><td>This charset will be appended to the <code>Content-Type</code> header value</td><td></td></tr><tr><td>Preserve Query Parameters</td><td>false</td><td></td><td>Whether the query parameters are propagated to the backend SOAP service</td><td></td></tr></tbody></table>
-
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+The phases checked below are supported by the `rest-to-soap` policy:
 
-The phases checked below are supported by the JSON-to-XML policy:
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+### Options
 
-## Compatibility
+The `rest-to-soap` policy can be configured with the following options:
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution.
+<table><thead><tr><th width="152">Property</th><th width="115" data-type="checkbox">Required</th><th width="126">Description</th><th width="278">Type</th><th>Default</th></tr></thead><tbody><tr><td>SOAP Envelope</td><td>true</td><td></td><td>SOAP envelope used to invoke WS (supports Expression Language)</td><td></td></tr><tr><td>SOAP Action</td><td>false</td><td></td><td>'SOAPAction' HTTP header sent when invoking WS</td><td></td></tr><tr><td>Charset</td><td>false</td><td></td><td>This charset will be appended to the <code>Content-Type</code> header value</td><td></td></tr><tr><td>Preserve Query Parameters</td><td>false</td><td></td><td>Whether the query parameters are propagated to the backend SOAP service</td><td></td></tr></tbody></table>
+
+## Compatibility matrix
+
+The following is the compatibility matrix for APIM and the `rest-to-soap` policy:&#x20;
+
+| Plugin version | Supported APIM versions |
+| -------------- | ----------------------- |
+| 1.x            | All                     |
 
 ## Changelogs
 
