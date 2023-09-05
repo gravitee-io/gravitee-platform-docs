@@ -10,26 +10,29 @@ You can use the `request-content-limit` policy to specify a maximum request cont
 
 Functional and implementation information for the `request-content-limit` policy is organized into the following sections:
 
+* [Examples](request-content-limit.md#examples)
 * [Configuration](request-content-limit.md#configuration)
 * [Compatibility Matrix](request-content-limit.md#compatibility-matrix)
 * [Errors](request-content-limit.md#errors)
 * [Changelogs](request-content-limit.md#changelogs)
 
+## Examples
+
 {% hint style="warning" %}
 This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-## Configuration
-
-Sample policy configuration is shown below:
-
-{% code title="Sample Configuration" %}
+{% tabs %}
+{% tab title="Proxy API example" %}
 ```json
 "request-content-limit": {
   "limit": 1000
 }
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## Configuration
 
 ### Phases
 

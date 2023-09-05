@@ -14,20 +14,20 @@ A typical usage would be to allow access to all paths (`/**`) but in read-only m
 
 Functional and implementation information for the `resource-filtering` policy is organized into the following sections:
 
+* [Examples](resource-filtering.md#examples)
 * [Configuration](resource-filtering.md#configuration)
 * [Compatibility Matrix](resource-filtering.md#compatibility-matrix)
 * [Errors](resource-filtering.md#errors)
 * [Changelogs](resource-filtering.md#changelogs)
 
+## Examples
+
 {% hint style="warning" %}
 This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-## Configuration
-
-Sample policy configuration is shown below:
-
-{% code title="Sample Configuration" %}
+{% tabs %}
+{% tab title="Proxy API example" %}
 ```json
 "resource-filtering" : {
     "whitelist":[
@@ -38,9 +38,12 @@ Sample policy configuration is shown below:
     ]
 }
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
-The implementation supports Ant style path patterns, where URL mapping matches URLs using the following rules:
+## Configuration
+
+The implementation of the `resource-filtering` policy supports Ant-style path patterns, where URL mapping matches URLs using the following rules:
 
 * `?` matches one character
 * `*` matches zero or more characters
