@@ -6,7 +6,13 @@ description: This page provides the technical details of the Transform Headers p
 
 ## Overview
 
-Functional and implementation information for the JSON-to-XML policy is organized into the following sections:
+You can use the `transform-headers` policy to override HTTP headers in incoming requests or outbound responses. You can override the HTTP headers by:
+
+* Adding to or updating the list of headers
+* Removing headers individually
+* Defining a whitelist == Compatibility with APIM
+
+Functional and implementation information for the `transform-headers` policy is organized into the following sections:
 
 * [Examples](transform-headers.md#examples)
 * [Configuration](transform-headers.md#configuration)
@@ -15,19 +21,13 @@ Functional and implementation information for the JSON-to-XML policy is organize
 
 ## Examples
 
-You can use the `transform-headers` policy to override HTTP headers in incoming requests or outbound responses. You can override the HTTP headers by:
-
-* Adding to or updating the list of headers
-* Removing headers individually
-* Defining a whitelist == Compatibility with APIM
+{% hint style="warning" %}
+The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-{% hint style="info" %}
-The proxy API example also applies to v2 APIs.
-{% endhint %}
-
-```
+```json
 "transform-headers": {
     "addHeaders": [
         {
@@ -48,7 +48,7 @@ The proxy API example also applies to v2 APIs.
 
 Add a header from the request’s payload:
 
-```
+```json
 "transform-headers": {
     "addHeaders": [
         {
@@ -60,27 +60,54 @@ Add a header from the request’s payload:
 }
 ```
 {% endtab %}
+
+{% tab title="Message API example" %}
+```json
+"transform-headers": {
+    "addHeaders": [
+        {
+            "name": "X-Gravitee-Message-Id",
+            "value": "{#message.id}"
+        }
+    ],
+    "removeHeaders": [
+        "X-Gravitee-TransactionId"
+    ],
+    "whitelistHeaders": [
+        "Content-Type",
+        "Content-Length"
+    ],
+}
+```
+
+Add a header from the message’s payload:
+
+```json
+"transform-headers": {
+    "addHeaders": [
+        {
+            "name": "X-Product-Id",
+            "value": "{#jsonPath(#message.content, '$.product.id')}"
+        }
+    ]
+}
+```
+{% endtab %}
 {% endtabs %}
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
-
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+The phases checked below are supported by the `transform-headers` policy:
 
-The phases checked below are supported by the Transform Headers policy:
-
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="204.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>true</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>true</td></tr></tbody></table>
 
 ## Compatibility matrix
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution. The chart below summarizes this information in relation to the `json-xml` policy.
+The following is the compatibility matrix for APIM and the `transform-headers` policy:
 
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>1.x</td><td>&#x3C;=3.x</td></tr><tr><td>>=2.x</td><td>>=4.x</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>1.x</td><td>3.x</td></tr><tr><td>3.x</td><td>4.0+</td></tr></tbody></table>
 
 ## Changelogs
 
