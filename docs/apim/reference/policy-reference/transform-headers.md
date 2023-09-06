@@ -22,11 +22,15 @@ Functional and implementation information for the `transform-headers` policy is 
 ## Examples
 
 {% hint style="warning" %}
-The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+This policy can be applied to v2 APIs, v4 proxy APIs, and v4 message APIs.&#x20;
+{% endhint %}
+
+{% hint style="info" %}
+The policy configuration for a v2 API using the legacy execution engine must include the `scope`. If the policy is applied to a v4 API or a v2 API using the emulated reactive engine, the configuration does not include `scope`.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API example" %}
+{% tab title="v2 API example" %}
 ```json
 "transform-headers": {
     "addHeaders": [
@@ -57,6 +61,39 @@ Add a header from the request’s payload:
         }
     ]
     "scope": "REQUEST_CONTENT"
+}
+```
+{% endtab %}
+
+{% tab title="Proxy API example" %}
+```json
+"transform-headers": {
+    "addHeaders": [
+        {
+            "name": "X-Gravitee-Request-Id",
+            "value": "{#request.id}"
+        }
+    ],
+    "removeHeaders": [
+        "X-Gravitee-TransactionId"
+    ],
+    "whitelistHeaders": [
+        "Content-Type",
+        "Content-Length"
+    ],
+}
+```
+
+Add a header from the request’s payload:
+
+```json
+"transform-headers": {
+    "addHeaders": [
+        {
+            "name": "X-Product-Id",
+            "value": "{#jsonPath(#request.content, '$.product.id')}"
+        }
+    ]
 }
 ```
 {% endtab %}
