@@ -6,11 +6,11 @@ description: A detailed guide for installing and configuring a hybrid APIM deplo
 
 ## Introduction
 
-This documentation page relates to the installation of the client (on-Prem / private cloud) part of the API Management platform in a hybrid architecture (SaaS + on-prem / private cloud).
+The following concerns the installation of the client (on-prem / private cloud) part of the API Management platform in a hybrid architecture (SaaS + on-prem / private cloud).
 
 <img src="../../.gitbook/assets/file.excalidraw (5).svg" alt="" class="gitbook-drawing">
 
-### SaaS Components <a href="#saas-components" id="saas-components"></a>
+### SaaS components <a href="#saas-components" id="saas-components"></a>
 
 |                                             Component                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | :----------------------------------------------------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ This documentation page relates to the installation of the client (on-Prem / pri
 |                                 <p>[Optional]<br>API Designer</p>                                | Drag-and-Drop graphical (MindMap) API designer to quickly and intuitively design your APIs (Swagger / OAS) and deploy mocked APIs for quick testing.                                                                                                                                                                                                                                                                                                                    |
 |                                 <p>[Optional]<br>Alert Engine</p>                                | <p>Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and using Webhooks.<br>AE does not require any external components or a database as it does not store anything. It receives events and sends notifications under the conditions which have been pre-configured upstream with triggers.</p> |
 
-### On-prem / Private cloud components[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#on-prem-private-cloud-components) <a href="#on-prem-private-cloud-components" id="on-prem-private-cloud-components"></a>
+### On-prem / private cloud components[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#on-prem-private-cloud-components) <a href="#on-prem-private-cloud-components" id="on-prem-private-cloud-components"></a>
 
 |   Component  | Description                                                                                                                                                                                                                                                                                                                                                                                               |
 | :----------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -388,7 +388,7 @@ alerts:
 {% endtab %}
 {% endtabs %}
 
-### **Gravite Cloud**
+### **Gravitee Cloud**
 
 Please head over to our Gravitee Cockpit documentation to get started.
 
