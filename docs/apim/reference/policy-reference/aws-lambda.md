@@ -12,9 +12,12 @@ By default, the Lambda is called in addition to the backend, meaning the consume
 
 Functional and implementation information for the `aws-lambda` policy is organized into the following sections:
 
+* [Examples](aws-lambda.md#examples)
 * [Configuration](aws-lambda.md#configuration)
 * [Errors](aws-lambda.md#errors)
 * [Changelogs](aws-lambda.md#changelogs)
+
+## Examples
 
 {% hint style="warning" %}
 This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
@@ -22,11 +25,8 @@ This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravit
 Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-## Configuration
-
-Sample policy configuration is shown below:
-
-{% code title="Sample Configuration" %}
+{% tabs %}
+{% tab title="Proxy APIs" %}
 ```json
 "configuration": {
     "variables": [
@@ -45,13 +45,14 @@ Sample policy configuration is shown below:
     "endpoint": "http://aws-lambda-url/function"
 }
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 ### Phases
 
 The phases checked below are supported by the `aws-lambda` policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="203.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>true</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ### Options
 
@@ -61,22 +62,15 @@ You can configure the `aws-lambda` policy with the following options:
 
 ## Errors
 
-#### Default error <a href="#user-content-default-error" id="user-content-default-error"></a>
-
-| Code  | Message                   |
-| ----- | ------------------------- |
-| `500` | Request processing broken |
-
-#### Override errors <a href="#user-content-override-errors" id="user-content-override-errors"></a>
+| HTTP status code | Message                   |
+| ---------------- | ------------------------- |
+| `500`            | Request processing broken |
 
 You can override the default response provided by the policy with the response templates feature. These templates must be defined at the API level with the APIM Console **Proxy > Response Templates** function.
 
 The error keys sent by this policy are as follows:
 
-| Key                                | Default status | Parameters |
-| ---------------------------------- | -------------- | ---------- |
-| AWS\_LAMBDA\_INVALID\_RESPONSE     | 500            | -          |
-| AWS\_LAMBDA\_INVALID\_STATUS\_CODE | 400            | -          |
+<table><thead><tr><th width="356">Key</th><th>Default status</th><th>Parameters</th></tr></thead><tbody><tr><td>AWS_LAMBDA_INVALID_RESPONSE</td><td>500</td><td>-</td></tr><tr><td>AWS_LAMBDA_INVALID_STATUS_CODE</td><td>400</td><td>-</td></tr></tbody></table>
 
 ## Changelogs
 
