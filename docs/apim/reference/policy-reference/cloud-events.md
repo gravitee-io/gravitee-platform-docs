@@ -14,14 +14,18 @@ In APIM, you need to provide the cloud-events information in the policy configur
 
 Functional and implementation information for the `cloud-events` policy is organized into the following sections:
 
+* [Examples](cloud-events.md#examples)
 * [Configuration](cloud-events.md#user-content-configuration)
 * [Errors](cloud-events.md#user-content-errors)
 
-## Configuration <a href="#user-content-configuration" id="user-content-configuration"></a>
+## Examples
 
-Sample policy configuration is shown below:
+{% hint style="warning" %}
+This policy can be applied at the message level. This policy can **not** be applied to v2 APIs or v4 proxy APIs.
+{% endhint %}
 
-{% code title="Sample Configuration" %}
+{% tabs %}
+{% tab title="Message APIs" %}
 ```json
 {
     "cloud-events": {
@@ -31,7 +35,10 @@ Sample policy configuration is shown below:
     }
 }
 ```
-{% endcode %}
+{% endtab %}
+{% endtabs %}
+
+## Configuration <a href="#user-content-configuration" id="user-content-configuration"></a>
 
 ### Phases
 

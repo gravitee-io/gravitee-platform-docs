@@ -12,7 +12,7 @@ description: This page provides the technical details of the Data Logging Maskin
 
 If you enable logging on APIs, you can use the `data-logging-masking` policy to configure rules to conceal sensitive data. You can use `json-path`, `xml-path` or a regular expression to identify the information to hide.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 The `data-logging-masking` policy must be the last to run. Don’t forget to add it in final position on both the request and the response.
 {% endhint %}
 
@@ -20,6 +20,10 @@ Functional and implementation information for the `data-logging-masking` policy 
 
 * [Configuration](data-logging-masking.md#configuration)
 * [Compatibility Matrix](data-logging-masking.md#compatibility-matrix)
+
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+{% endhint %}
 
 ## Configuration
 
