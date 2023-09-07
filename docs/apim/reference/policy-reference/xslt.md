@@ -33,7 +33,7 @@ This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravit
 {% tab title="Proxy API example" %}
 Remove SOAP elements when calling a WS:
 
-```
+```xml
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

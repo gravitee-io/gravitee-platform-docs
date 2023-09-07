@@ -20,23 +20,24 @@ To use the policy in an API, you need to:
 * Configure a WS-Security authentication policy for the API flows
 
 {% hint style="info" %}
-LDAP, inline and http resources are not part of the default APIM configuration, so you must download these resource plugins from [here](https://download.gravitee.io/#graviteeio-apim/plugins/resources/).
+LDAP, inline and http resources are not part of the default APIM configuration, so you must download these resource plugins [here](https://download.gravitee.io/#graviteeio-apim/plugins/resources/).
 {% endhint %}
 
-Functional and implementation information for the WS Security Authentication policy is organized into the following sections:
+Functional and implementation information for the `wssecurity-authentication` policy is organized into the following sections:
 
 * [Examples](ws-security-authentication.md#examples)
 * [Configuration](ws-security-authentication.md#configuration)
+* [Compatibility Matrix](ws-security-authentication.md#compatibility-matrix)
 * [Errors](ws-security-authentication.md#errors)
 
 ## Examples
 
-{% tabs %}
-{% tab title="Proxy API example" %}
-{% hint style="info" %}
-The proxy API example also applies to v2 APIs.
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
+{% tabs %}
+{% tab title="Proxy API example" %}
 In the example below, the policy will extract **foo** & **bar** from the payload.
 
 {% code title="Default response" %}
@@ -61,9 +62,7 @@ In the example below, the policy will extract **foo** & **bar** from the payload
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+Sample policy configuration is shown below:
 
 {% code title="Sample Configuration" %}
 ```json
@@ -78,17 +77,23 @@ When using the Management API, policies are added as flows either directly to an
 ```
 {% endcode %}
 
-### Reference
-
-<table data-full-width="false"><thead><tr><th width="140">Property</th><th width="104" data-type="checkbox">Required</th><th width="207">Description</th><th width="111" data-type="select">Type</th><th width="247">Options</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>false</td><td>List the authentication providers</td><td></td><td>N/a</td></tr></tbody></table>
-
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+The phases checked below are supported by the `wssecurity-authentication` policy:
 
-The phases checked below are supported by the WS Security Authentication policy:
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="208.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>false</td><td>onRequest</td><td>false</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>true</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+### Options
+
+The `wssecurity-authentication` policy can be configured with the following options:
+
+<table data-full-width="false"><thead><tr><th width="234">Property</th><th width="104" data-type="checkbox">Required</th><th width="313">Description</th><th width="111" data-type="select">Type</th><th width="247">Options</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>false</td><td>List the authentication providers</td><td></td><td>N/a</td></tr></tbody></table>
+
+## Compatibility matrix
+
+The following is the compatibility matrix for APIM and the `wssecurity-authentication` policy:
+
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>2.x</td><td>3.x</td></tr><tr><td>3.x</td><td>4.0+</td></tr></tbody></table>
 
 ## Errors
 
