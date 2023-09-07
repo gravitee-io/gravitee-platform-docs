@@ -28,7 +28,7 @@ Sharding tags allow you to “tag” a Gateway with a specific keyword. Once a G
 
 ### Configure sharding tags for your Gravitee API Gateways
 
-Our discussion of sharding tag configuration assumes that the architecture includes both DMZ Gateways and internal, corporate Gateways. We want to tag these Gateways as external only and internal only, respectively, per the corresponding diagram below:
+Our discussion of sharding tag configuration assumes that the architecture includes both DMZ Gateways and internal, corporate Gateways. We want to tag these Gateways as external-only and internal-only, respectively, per the corresponding diagram below:
 
 <figure><img src="../../.gitbook/assets/Example architecture (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -44,7 +44,9 @@ Internal Network Gateways:
 tags: ‘internal’
 ```
 
-Gateways can be tagged with one or more sharding tags, and you can add more nuance to the tagging strategy by specifying exclusion rules via the`!` symbol before the tag name. For example, imagine you have Gateways tagged as “external” and also as “partner." If you wanted to configure a Gateway so that it can host external APIs that are not dedicated to partners, you would define the sharding tag like this:
+Gateways can be tagged with one or more sharding tags, and you can add more nuance to the tagging strategy by specifying exclusion rules via the`!` symbol before the tag name.&#x20;
+
+For example, imagine you have Gateways tagged as “external” and also as “partner." If you wanted to configure a Gateway so that it can host external APIs that are not dedicated to partners, you would define the sharding tag like this:
 
 ```
 tags: ‘product,store,!partner’
@@ -84,7 +86,9 @@ Once the Gateways have been tagged, you will need to define the same sharding ta
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/ca600fb5-e338-48a4-ab61-9a12292442d9/2.5/84.548611111111/24.835526315789?0)
 
-Gravitee also provides a way to automatically apply a sharding tag to APIs based on the entrypoint. This instructs Gravitee API Manager to apply the “external” tag to all APIs with this entrypoint so the APIs will be deployed on your chosen Gateway. To do so, follow these steps:
+If you are using the Developer Portal, Gravitee also provides a way to map different entrypoint URLs to specific sharding tags. The Portal will then display available entrypoints based on an API's tag(s).
+
+To demonstrate, we will instruct Gravitee API Manager to apply the “external” tag to all APIs with this entrypoint, which will deploy these APIs on your chosen Gateway:
 
 1. &#x20;Select **+ Add a mapping**.
 
@@ -94,7 +98,7 @@ Gravitee also provides a way to automatically apply a sharding tag to APIs based
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/397a968c-5ae8-4d85-9b4c-5f534a0d9132/2/50/49.980650154799?0)
 
-3. In the **Sharding tags** drop down menu, select the tag that you want mapped to your entrypoints. For this example, let's choose the "internal test" tag.
+3. In the **Sharding tags** drop-down menu, select the tag that you want mapped to your entrypoints. For this example, let's choose the "internal test" tag.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/505ea3bc-5fb0-4bbe-8d8b-229e67f1f7c7/1/50/50?0)
 
@@ -107,5 +111,5 @@ You'll see your entrypoint mapping in the **Entrypoint mappings** section.
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-You've now learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
+You've just learned how to configure sharding tags for your Gravitee API Gateways. To apply sharding tags to APIs in order to control where those APIs are deployed, refer to [this documentation](../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-deployments).
 {% endhint %}
