@@ -57,7 +57,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Flow:** The method to control where, and under what conditions, policies act on an API transaction.
 
-**Backend API:** The source or target API that is proxied by the gateway.
+**Backend API:** The source or target API that is proxied by the Gateway.
 
 **Gateway API:** An API deployed on the Gateway by an API publisher to expose and proxy a backend API. All Gateway APIs require at least one entrypoint and an endpoint.
 
@@ -65,7 +65,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Gateway endpoint:** Defines the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API.
 
-**Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the Gateway API. The Gateway entrypoint dictates how the backend API is exposed through the gateway.
+**Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer accesses the Gateway API. The Gateway entrypoint dictates how the backend API is exposed through the Gateway.
 
 **Gravitee Expression Language (EL):** A [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html)-based superset that enables API publishers to dynamically configure aspects and policies of an API by referencing object properties of the current API transaction.
 
@@ -86,9 +86,9 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Resource:** The element with which Gravitee defines reusable configurations.
 
-**Sharding tag:** A mechanism to deploy a Gateway API to a subset of gateways. A sharding tag can be mapped to a gateway’s fully qualified domain name to prompt the Developer Portal to display the access URL of a similarly tagged API.
+**Sharding tag:** A mechanism to deploy a Gateway API to a subset of Gateways. A sharding tag can be mapped to a Gateway’s fully qualified domain name to prompt the Developer Portal to display the access URL of a similarly tagged API.
 
-**Tenant:** A tag that can be assigned to gateways and Gateway endpoints to allow the same API to target different backend APIs based on which Gateway receives the request.
+**Tenant:** A tag that can be assigned to Gateways and Gateway endpoints to allow the same API to target different backend APIs based on which Gateway receives the request.
 
 ## General API terminology
 
