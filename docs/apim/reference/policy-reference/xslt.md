@@ -10,30 +10,28 @@ description: This page provides the technical details of the XSLT policy
 
 ## Overview
 
-Functional and implementation information for the XSLT policy is organized into the following sections:
-
-* [Examples](xslt.md#examples)
-* [Configuration](xslt.md#configuration)
-* [Compatibility Matrix](xslt.md#compatibility)
-* [Errors](xslt.md#errors)
-
-## Examples
-
 You can use the `xslt` policy to apply an XSL transformation to an incoming XML request body or to the response body if your backend is exposing XML content.
 
 This policy is based on the [Saxon](https://sourceforge.net/projects/saxon/) library.
 
 By default, a DOCTYPE declaration will cause an error. This is for security. If you want to allow it, you can set `policy.xslt.secure-processing` to `false` in the Gateway configuration file (`gravitee.yml`).
 
-{% tabs %}
-{% tab title="Proxy API example" %}
-{% hint style="warning" %}
-This example will work for [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
+Functional and implementation information for the `xslt` policy is organized into the following sections:
 
-Currently, this policy can **not** be applied at the message level.
+* [Examples](xslt.md#examples)
+* [Configuration](xslt.md#configuration)
+* [Compatibility Matrix](xslt.md#compatibility-matrix)
+* [Errors](xslt.md#errors)
+
+## Examples
+
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
-**Remove SOAP elements when calling a WS**
+{% tabs %}
+{% tab title="Proxy API example" %}
+Remove SOAP elements when calling a WS:
 
 ```
 <xsl:stylesheet version="2.0"
@@ -73,16 +71,12 @@ Currently, this policy can **not** be applied at the message level.
     <xsl:template match="@xsi:nil[.='true']"/>
 </xsl:stylesheet>
 ```
-
-\\
 {% endtab %}
 {% endtabs %}
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
-
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference/)
+Sample policy configuration is shown below:
 
 {% code title="Sample Configuration" %}
 ```json
@@ -96,38 +90,35 @@ When using the Management API, policies are added as flows either directly to an
         }
     ]
 }
-
 ```
 {% endcode %}
 
-#### Gateway
+By default, a DOCTYPE declaration will cause an error. This is for security. If you want to allow it, you can set `policy.xslt.secure-processing` to `false` in the Gateway configuration file (`gravitee.yml`):
 
-By default, a DOCTYPE declaration will cause an error. This is for security. If you want to allow it, you can set `policy.xslt.secure-processing` to `false` in the Gateway configuration file (`gravitee.yml`).
-
-Configuration
-
-```
+```yaml
 policy:
   xslt:
     secure-processing: false
 ```
 
-### Reference
-
-<table><thead><tr><th>Property</th><th data-type="checkbox">Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>RESPONSE</code></td></tr><tr><td>stylesheet</td><td>true</td><td>XSLT stylesheet to apply</td><td>string</td><td></td></tr><tr><td>parameters</td><td>false</td><td>Parameters to inject while running XSL transformation</td><td>Array of XSLT parameters</td><td>-</td></tr></tbody></table>
-
 ### Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into [phases](broken-reference/) that depend on the [Gateway API version](../../overview/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases.
+The phases checked below are supported by the `xslt` policy:
 
-The phases checked below are supported by the XSLT policy:
+<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="134" data-type="checkbox">Compatible?</th><th width="196.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+### Options
 
-## Compatibility
+The `xslt` policy can be configured with the following options:
 
-The [changelog for each version of APIM](../../releases-and-changelogs/changelogs/) provides a list of policies included in the default distribution.
+<table><thead><tr><th width="148">Property</th><th data-type="checkbox">Required</th><th width="205">Description</th><th width="135">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>RESPONSE</code></td></tr><tr><td>stylesheet</td><td>true</td><td>XSLT stylesheet to apply</td><td>string</td><td></td></tr><tr><td>parameters</td><td>false</td><td>Parameters to inject while running XSL transformation</td><td>Array of XSLT parameters</td><td>-</td></tr></tbody></table>
+
+## Compatibility matrix
+
+The following is the compatibility matrix for APIM and the `xslt` policy:
+
+<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>2.x</td><td>3.x</td></tr><tr><td>3.x</td><td>4.0+</td></tr></tbody></table>
 
 ## Errors
 
-<table data-full-width="false"><thead><tr><th width="171">HTTP status code</th><th width="387">Error template key</th></tr></thead><tbody><tr><td><code>500</code></td><td>Bad stylesheet file or XSLT transformation cannot be executed properly</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="188.5">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td><code>500</code></td><td>Bad stylesheet file or XSLT transformation cannot be executed properly</td></tr></tbody></table>
