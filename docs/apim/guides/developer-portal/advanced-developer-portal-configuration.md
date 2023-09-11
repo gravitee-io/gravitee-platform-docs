@@ -223,7 +223,7 @@ It is important to note that nested folders must be published to be seen in the 
 
 #### Manage Links <a href="#manage_links" id="manage_links"></a>
 
-To create a link, open a system folder and select the **+ icon** then select the **Link** icon\*\*.\*\* This will take you to a new page to select your link type and provide some additional information about your link.
+To create a link, open a system folder and select the **+ icon** then select the **Link** icon. This will take you to a new page to select your link type and provide some additional information about your link.
 
 <figure><img src="../../.gitbook/assets/dev_portal_create_a_link.png" alt=""><figcaption><p>Create a new Developer Portal link</p></figcaption></figure>
 
