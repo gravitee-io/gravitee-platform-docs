@@ -5,6 +5,24 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.7 - September 11, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Do not consider semicolon as query param separator [#9131](https://github.com/gravitee-io/issues/issues/9131)
+* Gateway defaults to v3 execution mode while apim defaults to v4 [#9217](https://github.com/gravitee-io/issues/issues/9217)
+* APIs with `null` sharding tags shouldn't be deployed on Gateway with tags [#9219](https://github.com/gravitee-io/issues/issues/9219)
+
+**Console**
+
+* Restart UI Container leads to HTTP 301 [#9186](https://github.com/gravitee-io/issues/issues/9186)
+
+</details>
 
 ## Gravitee API Management 4.0.6 - August 31, 2023
 
