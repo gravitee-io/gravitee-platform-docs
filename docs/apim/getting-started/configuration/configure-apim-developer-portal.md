@@ -4,9 +4,25 @@
 
 The configuration file for APIM Portal is `assets\config.json`. The default configuration is included below:
 
+{% code title="config.json" %}
+```json
+{
+  "baseURL": "/portal/environments/DEFAULT",
+  "homepage": {
+    "featured": {
+      "size": 9
+    }
+  },
+  "loaderURL": "assets/images/gravitee-loader.gif",
+  "pagination": {
+    "size": {
+      "default": 10,
+      "values": [5, 10, 25, 50, 100]
+    }
+  }
+}
 ```
-Unresolved directive in installation-guide-portal-ui-configuration.adoc - include::https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-portal-webui/src/assets/config.json[]
-```
+{% endcode %}
 
 The only mandatory value in `config.json` file is `baseURL`, which describes the location of the APIM API Portal endpoint. You must set this value for APIM Portal to send requests to the endpoint.
 
