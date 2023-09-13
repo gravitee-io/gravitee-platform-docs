@@ -2,7 +2,7 @@
 
 ## How to use the Application (`Application`) custom resource
 
-The `Application` custom resource represents the configuration for an application. It is similar to a YAML representation of an Application in JSON format.
+The `Application` custom resource represents the configuration for an application. It is similar to a YAML representation of an application in JSON format.
 
 The example below shows a simple `Application` custom resource definition:
 
@@ -28,20 +28,20 @@ The `Application` resource has a `Processing Status` field that makes it possibl
 
 | Status      | Description                                                                                                                              |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| \[None]     | The Application has been created but not processed yet.                                                                                  |
-| Completed   | The Application has been created or updated successfully.                                                                                |
+| \[None]     | The application has been created but not processed yet.                                                                                  |
+| Completed   | The application has been created or updated successfully.                                                                                |
 | Reconciling | The operator has encountered a recoverable error. A retry will be performed every 5 seconds until the cluster retry limit is reached.    |
 | Failed      | The operator has encountered an unrecoverable error. These are errors that require manual action to correct. No retry will be performed. |
 
-Events are added to the resource as part of each action performed by the operator. To view these events, ensure that the CRD creation steps described above are completed, and then run the following command:
+Events are added to the resource as part of each action performed by the operator. To view these events, ensure that the CRD creation steps described above are completed, then run the following command:
 
 ```sh
 kubectl describe -n default application.gravitee.io basic-application
 ```
 
-## Example
+Example output is shown below:
 
-```
+```bash
 Name:         basic-application
 Namespace:    default
 [...]

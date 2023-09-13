@@ -2,7 +2,7 @@
 
 ## Creating a reusable API resource
 
-You can use the GKO to create reusable [API resources](../../api-configuration/resources.md) by applying the [ApiResource CRD](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/docs/api/reference.md#apidefinitionspecresourcesindex). This enables you to define resources such as cache or authentication providers once only and maintain them in a single place, and then reuse them in multiple APIs - any further resource changes will be automatically propagated to all APIs containing a reference to the updated resource(s).
+You can use the GKO to create reusable [API resources](../../api-configuration/resources.md) by applying the [ApiResource CRD](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/docs/api/reference.md#apidefinitionspecresourcesindex). This allows you to define resources (cache or authentication providers, etc.) a single time and maintain them in a single place, then reuse these resources in multiple APIs. Subsequent updates to a resource will be automatically propagated to all APIs that reference that resource.
 
 The example below shows a [Redis cache resource](../../api-configuration/resources.md#cache-redis) that can be applied using the `ApiResource` CRD:
 
@@ -34,7 +34,7 @@ spec:
 
 ## Referencing API resources in your API definitions
 
-Once an API resource has been created, it can be used as a reference in one or more API definitions. The example below shows how to use the `reusable-resource-cache-redis` resource in an API definition, using a reference to the resource name and namespace:
+Once an API resource has been created, it can be referenced in one or more API definitions. The example below shows how to use the `reusable-resource-cache-redis` resource in an API definition via references to the resource name and namespace:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -83,7 +83,7 @@ spec:
     enabled: true
 ```
 
-You can also define resources inline in your API definitions. The following API reuses the Redis cache resource defined above, and defines inline an in-memory authentication provider:
+Resources can also be defined inline in API definitions. The following API reuses the `reusable-resource-cache-redis` resource defined above and defines an in-memory authentication provider inline:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1

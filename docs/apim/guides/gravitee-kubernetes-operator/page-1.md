@@ -1,24 +1,27 @@
-# Custom resource definitions
+# Custom Resource Definitions
 
 ## Overview
 
-The Gravitee Kubernetes Operator comes with different custom resource definitions (CRDs) - `ManagementContext`, `ApiDefinition`, `Application` and `ApiResource`.
+The Gravitee Kubernetes Operator provides several custom resource definitions (CRDs):&#x20;
+
+* [`ManagementContext`](page-1.md#managementcontext)
+* [`ApiDefinition`](page-1.md#apidefinition)
+* [`ApiResource`](page-1.md#apiresource)
+* [`Application`](page-1.md#application)
 
 ## `ManagementContext`
 
-The `ManagementContext` custom resource represents the configuration for a Management API.
-
-Resources:
+The `ManagementContext` custom resource represents the configuration for a Management API. For more information:
 
 * The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext\_types.go).
 * The `ManagementContext` CRD API reference is documented [here](../../reference/gravitee-kubernetes-operator-api-reference.md).
 * You can learn how to use the `ManagementContext` CRD in [this section](custom-resource-definitions/managementcontext-resource.md).
 
-The `ManagementContext` refers to a remote Management API. You can have as many `ManagementContext` resources as you want; however, you need to reference the relevant `ManagementContext` from the API Definition to indicate to the GKO where the API should be published.
+The `ManagementContext` resource refers to a remote Management API. You can have any number of `ManagementContext` resources, but you need to reference the appropriate `ManagementContext` in the API definition to indicate to the GKO where the API should be published.
 
 ### Examples
 
-A basic example of an `ManagementContext` resource is shown below:
+A basic example of a `ManagementContext` resource is shown below:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -35,7 +38,7 @@ spec:
       password: admin
 ```
 
-The next example shows the same resource but with a Personal Token:
+The next example shows the same resource, but with a Personal Token:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -50,7 +53,7 @@ spec:
     bearerToken: xxxx-yyyy-zzzz
 ```
 
-You can then refer to the `ManagementContext` from the API, as shown in the example below:
+You can then refer to the `ManagementContext` resource from the API:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -75,9 +78,7 @@ spec:
 
 ## `ApiDefinition`
 
-The `APIDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API Definition in JSON format.
-
-Resources:
+The `APIDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API Definition in JSON format. For more information:
 
 * The `ApiDefinition` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/apidefinition\_types.go).
 * The `ApiDefinition` CRD API reference is documented [here](../../reference/gravitee-kubernetes-operator-api-reference.md).
@@ -88,9 +89,9 @@ Resources:
 The following workflow is applied when a new `ApiDefinition` resource is added to the cluster:
 
 1. The GKO listens for `ApiDefinition` resources.
-2. The GKO performs some required changes, such as automatically computing IDs or CrossIDs (for APIs or Plans).
+2. The GKO performs required changes, such as automatically computing IDs or CrossIDs (for APIs or plans).
 3. The GKO converts the definition to JSON format.
-4. The GKO compares the definition to the existing definition. If something has changed, the GKO pushes the definition to the Management API (if a `ManagementContext` is provided).
+4. The GKO compares the definition to the existing definition. If something has changed, the GKO pushes the definition to the Management API (if a `ManagementContext` resource is provided).
 5. The GKO deploys the API to the API Gateway.
 
 ### Examples
@@ -115,7 +116,7 @@ spec:
             target: "https://api.gravitee.io/echo"
 ```
 
-The same API with support for plans is shown in the example below:
+Here is the same API with support for plans:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -152,7 +153,9 @@ spec:
 
 ## `ApiResource`
 
-The `ApiResource` custom resource allows you to use the GKO to create reusable [API resources](https://docs.gravitee.io/apim/3.x/apim\_resources\_overview.html) by applying the `ApiResource` custom resource definition. This enables you to define resources such as cache or authentication providers once only and maintain them in a single place, and then reuse them in multiple APIs - any further updates to such a resource will be automatically propagated to all APIs containing a reference to that resource.
+You can use the GKO to create reusable [API resources](https://docs.gravitee.io/apim/3.x/apim\_resources\_overview.html) by applying the `ApiResource` custom resource definition.&#x20;
+
+The `ApiResource` custom resource allows you to define resources (cache, authentication providers, etc.) a single time and maintain them in a single place, then reuse these resources in multiple APIs. Any additional updates to the resource will be automatically propagated to all APIs that reference that resource.
 
 {% hint style="info" %}
 Read more about the`ApiResource`[here.](custom-resource-definitions/apiresource-crd.md)
@@ -178,7 +181,7 @@ spec:
       maxEntriesLocalHeap: 1000
 ```
 
-This reusable resource can then be later referenced in any `ApiDefinition` resource using a reference to its namespaced name in the `resources` field:
+This reusable resource can be subsequently referenced in any `ApiDefinition` resource via its namespace and name in the `resources` field:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -205,11 +208,9 @@ spec:
 
 ## `Application`
 
-The `Application` custom resource represents the configuration for an Application. It is similar to a YAML representation of an Application in JSON format.
+The `Application` custom resource represents the configuration for an application. It is similar to a YAML representation of an application in JSON format. For more information:
 
-Resources:
-
-* The `Appication` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application\_types.go).
+* The `Application` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/application\_types.go).
 * The `Application` CRD API reference is documented [here](../../reference/gravitee-kubernetes-operator-api-reference.md).
 * You can learn how to use the `Application` resource in [this section.](custom-resource-definitions/application-crd.md)
 
@@ -218,10 +219,10 @@ Resources:
 The following workflow is applied when a new `Application` resource is added to the cluster:
 
 1. The GKO listens for `Application` resources.
-2. The GKO resolves any references to external sources such as ConfigMaps or secrets.
-3. The GKO performs some required changes, such as adding default settings.
+2. The GKO resolves any references to external sources such as configmaps or secrets.
+3. The GKO performs required changes, such as adding default settings.
 4. The GKO converts the data to JSON format.
-5. If something has changed, the GKO pushes the definition to the Management API.
+5. The GKO compares the definition to the existing definition. If something has changed, the GKO pushes the definition to the Management API (if a `ManagementContext` resource is provided).
 
 ### Examples
 
@@ -243,7 +244,7 @@ spec:
   description: "K8s Application"
 ```
 
-The same `Application` with support for application metadata is shown in the example below:
+Here is the same `Application` resource with support for application metadata:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -266,10 +267,10 @@ spec:
       format: "STRING"
 ```
 
-## CRD dependencies - resource deletion
+## Resource deletion
 
-Since an `ApiDefinition` can rely on a `ManagementContext`, resource deletion is restricted until a check is performed first whether there is an API associated with the respective `ManagementContext`. This is achieved through the use of [Finalizers](https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/).
+The potential dependency of an `ApiDefinition` resource on a `ManagementContext` resource places restrictions on resource deletion. First, a check must be performed to determine whether there is an API associated with the particular `ManagementContext` resource. This check is conducted via [Finalizers](https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/).
 
 ## CRD samples
 
-Check out some sample CRDs in the [GKO GitHub repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/config/samples/apim).
+Check out sample CRDs in the [GKO GitHub repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/config/samples/apim).

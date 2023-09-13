@@ -2,15 +2,15 @@
 
 ## Overview
 
-In this section, you will learn how to set up and deploy monitoring capabilities for a Gravitee Kubernetes Operator (GKO) on an existing Gravitee API Management (APIM) ready Kubernetes cluster.
+This page describes how to set up and deploy monitoring capabilities for a Gravitee Kubernetes Operator (GKO) on an existing Gravitee API Management (APIM)-ready Kubernetes cluster.
 
 {% hint style="info" %}
-If you do not have an existing Gravitee Kubernetes Operator deployment, see the [GKO Deployment Guide](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md) first.
+If you do not have an existing Gravitee Kubernetes Operator deployment, first see the [GKO Deployment Guide](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
 {% endhint %}
 
 ## Prerequisites
 
-Before you start the monitoring deployment process, ensure that you have access to the following libraries:
+Before you begin the process of monitoring the deployment, ensure that you have access to the following libraries:
 
 * The kubectl command-line tool installed on your local machine and configured to connect to your cluster. Learn more about installing kubectl in the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/).
 * The Helm package manager installed on your local machine. Learn more about installing Helm in the [official Helm documentation](https://helm.sh/docs/intro/install/).
@@ -28,7 +28,7 @@ $ kubectl create namespace monitoring
 $ kubectl config set-context --current --namespace=monitoring
 ```
 
-Then run the following commands to deploy the Prometheus stack:
+Next, run the following commands to deploy the Prometheus stack:
 
 {% code overflow="wrap" %}
 ```sh
@@ -64,7 +64,7 @@ To access the Grafana dashboard, run the following command:
 kubectl port-forward -n monitoring svc/prometheus-grafana 8000:80
 ```
 
-Grafana is now available at [http://localhost:8000](http://localhost:8000/). An admin user is created by default. To find out the password for that user, run the following command:
+Grafana is now available at [http://localhost:8000](http://localhost:8000/). An admin user is created by default. To retrieve the password for that user, run the following command:
 
 {% code overflow="wrap" %}
 ```sh
@@ -74,7 +74,9 @@ kubectl get secrets prometheus-grafana -n monitoring -o jsonpath='{.data.admin-p
 
 ### Link the Prometheus stack to the GKO
 
-The Prometheus resource declaratively describes the desired state of a Prometheus deployment, while `ServiceMonitor` resources describe the targets to be monitored by Prometheus. The GKO provides a basic `ServiceMonitor` resource that can be discovered by Prometheus. To enable this, run the following command:
+The Prometheus resource declaratively describes the desired state of a Prometheus deployment, while `ServiceMonitor` resources describe the targets to be monitored by Prometheus.&#x20;
+
+The GKO provides a basic `ServiceMonitor` resource that can be discovered by Prometheus. To enable this resource, run the following command:
 
 {% code overflow="wrap" %}
 ```sh
@@ -96,5 +98,5 @@ controller-manager-metrics-monitor   21s
 ```
 
 {% hint style="warning" %}
-Most of the actions described above are not persistent and should mainly be used for development/test purposes and not in production.
+Most of the actions described above are not persistent. They should primarily be used for development/test purposes and not in production.
 {% endhint %}

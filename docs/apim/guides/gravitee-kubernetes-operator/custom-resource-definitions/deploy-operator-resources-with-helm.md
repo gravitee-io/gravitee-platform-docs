@@ -2,23 +2,23 @@
 
 ## Overview
 
-Helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
+Helm assists in the management of Kubernetes applications. In particular, Helm Charts facilitate the definition, installation, and upgrade of even the most complex Kubernetes applications.
 
-You can also use Helm to deploy your CRDs into the cluster and leverage all the features that Helm provides such as templating.
+You can also use Helm to deploy your CRDs into your cluster and leverage all of the features that Helm provides (e.g., templating).
 
-These are the basic steps to deploy CRDs with Helm:sh
+Below are the basic steps to deploy CRDs with Helm:
 
 1. Create an empty project using Helm
 2. Add required templates for the Gravitee CRDs
-3. Install/Upgrade your helm charts
+3. Install/upgrade your Helm Charts
 
-You can create an empty project using the following command
+You can create an empty project using the following command:
 
 ```sh
 helm create sample-crds
 ```
 
-And these should give us a project with the following structure
+The project will have the following structure:
 
 ```
 sample-crds
@@ -37,7 +37,7 @@ sample-crds
 └── values.yaml
 ```
 
-The next step is to get rid of existing templates inside the templates folder and replace them with new templates for our CRDs. For example, this can be something that you can use for `ManagementContext` CRD:
+The next step is to delete existing templates from the templates folder and replace them with new templates for your CRDs. For example, the template below can be used for the `ManagementContext` CRD:
 
 ```yaml
 {{ - range $context := .Values.contexts }}
@@ -67,22 +67,22 @@ contexts:
     token: de6b0c76-abe1-440d-ab0c-76abe1740d99
 ```
 
-If you want to reference an `ConfigMap` or a `Secret` inside your templates so that they will be resolved during the deployment by the GKO, you can use the following syntax for the values:
+The GKO can resolve a `ConfigMap` or `Secret` during deployment if it is referenced in a template. Use the following syntax:
 
 ```
 [[ secret `YOUR_SECRET_NAME/KEY_NAME` ]]
 [[ configmap `YOUR_CONFIGMAP_NAME/KEY_NAME` ]]
 ```
 
-Once you finished all your templates, you can packages your templates and install/upgrade your helm charts into the cluster with the following commands:
+Once your templates have been created, you can package them and install/upgrade your Helm Charts by running the following commands:
 
 ```sh
 $ helm package .
 $ helm install sample-crds sample-crds-0.1.0.tgz
 ```
 
-For more information on Helm, head over to the [website](https://helm.sh/).
+For more information on Helm, see the [documentation](https://helm.sh/).
 
 {% hint style="info" %}
-For a complete example around the topic described in this section, you can checkout the [GKO repository guide](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/alpha/docs/guides/deploy-crd-with-helm).
+For a comprehensive example of the topics introduced in this section, check out the [GKO repository guide](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/alpha/docs/guides/deploy-crd-with-helm).
 {% endhint %}

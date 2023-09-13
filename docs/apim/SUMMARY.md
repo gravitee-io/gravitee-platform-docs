@@ -121,7 +121,7 @@
     * [ApiDefinition CRD](guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd.md)
     * [ApiResource CRD](guides/gravitee-kubernetes-operator/custom-resource-definitions/apiresource-crd.md)
     * [Application CRD](guides/gravitee-kubernetes-operator/custom-resource-definitions/application-crd.md)
-    * [Sync CRDs with APIM Management API](guides/gravitee-kubernetes-operator/sync-crds-with-apim-management-api.md)
+    * [Sync CRDs with API Management API](guides/gravitee-kubernetes-operator/sync-crds-with-apim-management-api.md)
     * [Deploy Operator Resources with Helm](guides/gravitee-kubernetes-operator/custom-resource-definitions/deploy-operator-resources-with-helm.md)
 * [Administration](guides/administration/README.md)
   * [Administering organizations and environments](guides/administration/how-to.md)
