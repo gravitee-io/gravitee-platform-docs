@@ -5,7 +5,7 @@ description: >-
   configurations.
 ---
 
-# Configure General Proxy settings
+# Configure General Proxy Settings
 
 ### Introduction
 
@@ -21,7 +21,7 @@ This article walks through how to configure each of the above.
 {% hint style="info" %}
 **Different levels of support for v4 APIs**
 
-In Gravitee 4.0, v4 APIs will have limited&#x20;
+In Gravitee 4.0, v4 APIs will have limited
 {% endhint %}
 
 ### Configure Entrypoints
@@ -62,7 +62,7 @@ Select **Save**. You've now configured your Entrypoints.
 
 ### Configure CORS
 
-CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API. If you want to know more about CORS at the conceptual level, refer to the CORS "Concepts" article. If you want to learn more about CORS at a conceptual level, we recommend referring to the [CORS section](broken-reference) of the "Concepts" article for this section.
+CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API. If you want to know more about CORS at the conceptual level, refer to the CORS "Concepts" article. If you want to learn more about CORS at a conceptual level, we recommend referring to the [CORS section](broken-reference/) of the "Concepts" article for this section.
 
 To configure CORS for an API, follow these steps:
 
@@ -114,12 +114,12 @@ In the **Access-Control-Expose-Headers** field, you can define a list of headers
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/a45c9e34-8b63-44f3-a4ca-9394d148a8c2/1.2507598784195/64.178240740741/70.663215944272?0)
 
-&#x20;If you want the API Gateway to execute policies for preflight-requests, toggle **Run policies for preflight requests** ON. By default, this is not enabled.
+If you want the API Gateway to execute policies for preflight-requests, toggle **Run policies for preflight requests** ON. By default, this is not enabled.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/869aea62-91f0-4929-8471-4a10b0193fbd/2/60.345262096774/93.644675510936?0)
 
 {% hint style="success" %}
-You've configured your CORS settings for your API. When you are done, select **Save.**.&#x20;
+You've configured your CORS settings for your API. When you are done, select **Save.**.
 {% endhint %}
 
 {% hint style="info" %}
@@ -127,14 +127,14 @@ You've configured your CORS settings for your API. When you are done, select **S
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-![](<../../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png>)
+<img src="../../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png" alt="" data-size="original">
 {% endhint %}
 
 ### Configure Deployments
 
-The **Deployments** tab is where you can choose to use Sharding tags to control where your API is deployed. Sharding tags are configured at the **Organization** level in Gravitee; for more information on Sharding tags, what they are useful for, and how to configure them, please refer to our ["How-to" article on configuring Sharding tags](../../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
+The **Deployments** tab is where you can choose to use sharding tags to control where your API is deployed. Sharding tags are configured at the **Organization** level in Gravitee. For more information on sharding tags, what they are useful for, and how to configure them, refer to [this article](../../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
 
-To choose Sharding tags, follow the below interactive tutorial, or, follow the steps below.
+To choose sharding tags, follow the below interactive tutorial, or, follow the steps below.
 
 {% @arcade/embed flowId="d6TOgaGsnGu4ycqJ4PUr" url="https://app.arcade.software/share/d6TOgaGsnGu4ycqJ4PUr" %}
 
@@ -162,7 +162,7 @@ Select the **Sharding tags** drop down menu.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/2b14b4dd-bbb5-4f59-95c8-5b4966ff8ee0/1.5/98.26953125/31.236032479142?0)
 
-Choose the Sharding tag that you want to assign to the API. This will dictate where it is deployed.
+Choose the sharding tag that you want to assign to the API. This will dictate where it is deployed.
 
 ![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/d019ecb2-ac33-417e-abe5-76a8f04dcabb/1.5/41.708333333333/53.003016984505?0)
 
@@ -226,7 +226,7 @@ Response templates are configured in an API's General Proxy settings. You'll fin
 
 To configure Response templates, follow these few steps:
 
-1. Choose the template key by using the **Template key** drop-down.&#x20;
+1. Choose the template key by using the **Template key** drop-down.
 2. Choose the requests header that should trigger your response template to be used. By default, the value is `*/*`. However, if you want to send the template override values only for JSON or XML requests, specify `JSON` or `XML.`
 3. Specify the status code that you want to send to the API consumer using **Status code** drop-down.
 4. Specify the override values to send to the API consumer. These can either be:
@@ -236,9 +236,7 @@ To configure Response templates, follow these few steps:
 <figure><img src="../../../.gitbook/assets/Response templates.gif" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
 
 {% hint style="success" %}
-**Success!**&#x20;
+**Success!**
 
-From here, you can either finish up or add more Response templates by following the above steps.&#x20;
+From here, you can either finish up or add more Response templates by following the above steps.
 {% endhint %}
-
-\
