@@ -36,15 +36,15 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 * Tagged Gateway instances will never deploy tagless APIs.
 * Tagless Gateway instances will deploy every API, regardless of how the APIs are tagged.
-* An API defined with a specific tag will be only be deployed on a Gateway that has been assigned to that tag.
+* An API defined with a specific tag will only be deployed on a Gateway that has been assigned that tag.
 
 ### Examples
 
 * A tagless API will not be deployed on a Gateway tagged with `x`.
 * An API tagged with `x` will be deployed on a tagless Gateway.
 * A tagless API will be deployed on a tagless Gateway.
-* An API defined with tag `x` will be deployed on a Gateway that has been assigned to `x`.
-* An API defined with tag `x` will be deployed on a Gateway that has been assigned to the tag `!y`. The tag `!y` means that the Gateway has been assigned to every tag but `y`.
+* An API defined with tag `x` will be deployed on a Gateway that has been assigned tag `x`.
+* An API defined with tag `x` will be deployed on a Gateway that has been assigned tag `!y`. The tag `!y` means that the Gateway has been assigned every tag but `y`.
 
 ## Configure sharding tags for your Gravitee API Gateways
 
