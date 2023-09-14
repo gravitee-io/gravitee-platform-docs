@@ -8,7 +8,7 @@ description: This article describes how to configure tenants
 
 Tenants are a way to leverage Gravitee's multi-endpoint capability, i.e., the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
 
-## Tagged Gateway/API behavior
+## Tagged Gateway / API endpoint behavior
 
 Endpoint deployment is impacted by how tags are applied to API endpoints and Gateways.
 
