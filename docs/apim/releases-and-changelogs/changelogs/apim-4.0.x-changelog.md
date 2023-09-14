@@ -5,6 +5,19 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.8 - September 14, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Management API**
+
+* Path with ":*" in path mappings is breaking down the environment [#9214](https://github.com/gravitee-io/issues/issues/9214)
+* Upgrade Guava to `32.1.2-jre` [#9223](https://github.com/gravitee-io/issues/issues/9223)
+
+</details>
 
 ## Gravitee API Management 4.0.7 - September 11, 2023
 
