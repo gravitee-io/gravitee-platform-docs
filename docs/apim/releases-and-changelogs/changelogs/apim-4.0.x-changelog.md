@@ -5,7 +5,7 @@ description: >-
 ---
 
 # APIM 4.0.x
- 
+
 ## Gravitee API Management 4.0.8 - September 14, 2023
 
 <details>
@@ -14,8 +14,9 @@ description: >-
 
 **Management API**
 
-* Path with ":*" in path mappings is breaking down the environment [#9214](https://github.com/gravitee-io/issues/issues/9214)
+* Path with ":\*" in path mappings is breaking down the environment [#9214](https://github.com/gravitee-io/issues/issues/9214)
 * Upgrade Guava to `32.1.2-jre` [#9223](https://github.com/gravitee-io/issues/issues/9223)
+* Add support for MTLS certificate-bound tokens verification in the JWT policy
 
 </details>
 
