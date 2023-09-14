@@ -378,20 +378,20 @@ For the HTTP-GET entrypoint, the offset must be provided using the `cursor` quer
 
 <summary>Solace</summary>
 
-If you choose the Solace endpoint, the Gravitee Gateway will be able to create an API that exposes Solace resources and event APIs via your chosen Gravitee Entrypoint(s). You will need to configure:
+Choosing the **Solace** endpoint enables the Gravitee Gateway to create an API that exposes Solace resources and event APIs via your chosen Gravitee entrypoint(s). You will need to configure:
 
-* **Url**: your Soalce broker's url
+* **URL:** Your Solace broker's URL
 * **VPN name**
-* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for producing messages to your backend MQTT topic/broker. You will need to specify:
-  * **Topic:** the UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).
-  * **Retain settings:** whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
-  * **Message expiry interval:** defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the "retained=true" option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
-  * **Response topic:** represents the topics on which the responses from the message receivers are expected.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume message
-* **Security settings**:
-  * Toggle Authentication configuration ON or OFF. If you toggle this OFF, you will have no further configuration necessary. If you toggle this ON, you will need to:
-    * Define the username used for authentication
-    * Define the password used for authentication
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on for producing messages to your backend Solace topic/broker. You will need to specify:
+  * **Topic:** The UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).
+  * **Retain settings:** Whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
+  * **Message expiry interval:** Defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the `retained=true` option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
+  * **Response topic:** Represents the topics on which the responses from the message receivers are expected.
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.&#x20;
+  * Define the **Topic** from which the Gateway Solace client will consume messages.
+  * Toggle Authentication configuration ON or OFF. When OFF, no further configuration is necessary. When ON, you will need to:
+    * Define the username used for authentication.
+    * Define the password used for authentication.
 
 </details>
 
