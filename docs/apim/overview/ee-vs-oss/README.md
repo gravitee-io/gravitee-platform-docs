@@ -64,8 +64,8 @@ The Legacy upgrade pack comprises the following plugins and capabilities that en
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../../getting-started/configuration/configure-reporters.md#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](../../getting-started/configuration/configure-reporters.md#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](../../getting-started/configuration/configure-reporters/#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](../../getting-started/configuration/configure-reporters/#tcp-reporter): Report Gateway events to a TCP listening server.
 
 ### Event-native pack
 

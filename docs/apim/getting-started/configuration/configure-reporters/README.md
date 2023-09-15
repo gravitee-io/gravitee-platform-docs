@@ -1,14 +1,14 @@
 # Configure Reporters
 
-## Introduction
+## Overview
 
 Reporters are designed to record a variety of events occurring in the Gravitee API Management (APIM) Gateway and output them to a new source in their order of occurrence. This enables you to manage your data using a solution of your choice.
 
 The following sections detail:
 
-* [Supported event types](configure-reporters.md#event-types)
-* [Available reporters](configure-reporters.md#available-reporters)
-* [Reporter configurations](configure-reporters.md#configuring-reporters)
+* [Supported event types](./#event-types)
+* [Available reporters](./#available-reporters)
+* [Reporter configurations](./#configuring-reporters)
 
 ## Event types
 
@@ -20,25 +20,25 @@ The following event types are supported:
 
 The following reporters are currently compatible with APIM:
 
-<table><thead><tr><th width="151">Type</th><th data-type="checkbox">Bundled in Distribution</th><th data-type="checkbox">Default</th><th data-type="checkbox">Enterprise only</th><th data-type="checkbox">v4 support</th></tr></thead><tbody><tr><td><a href="configure-reporters.md#elasticsearch-reporter">Elasticsearch</a></td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td><a href="configure-reporters.md#file-reporter">File</a></td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td><a href="configure-reporters.md#tcp-reporter">TCP</a></td><td>true</td><td>false</td><td>true</td><td>false</td></tr><tr><td><a href="configure-reporters.md#datadog-reporter">Datadog</a></td><td>false</td><td>false</td><td>true</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="151">Type</th><th data-type="checkbox">Bundled in Distribution</th><th data-type="checkbox">Default</th><th data-type="checkbox">Enterprise only</th><th data-type="checkbox">v4 support</th></tr></thead><tbody><tr><td><a href="./#elasticsearch-reporter">Elasticsearch</a></td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td><a href="./#file-reporter">File</a></td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td><a href="./#tcp-reporter">TCP</a></td><td>true</td><td>false</td><td>true</td><td>false</td></tr><tr><td><a href="./#datadog-reporter">Datadog</a></td><td>false</td><td>false</td><td>true</td><td>false</td></tr></tbody></table>
 
-As of Gravitee 4.0, the TCP and Datadog reporters are Enterprise Edition capabilities that do not support [v4 APIs](../../overview/gravitee-api-definitions-and-execution-engines/).
+As of Gravitee 4.0, the TCP and Datadog reporters are Enterprise Edition capabilities that do not support [v4 APIs](../../../overview/gravitee-api-definitions-and-execution-engines/).
 
 {% hint style="warning" %}
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
 ## Configuring reporters
 
-Elasticsearch is the default reporter, but this section will show you how to configure different reporters. If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../overview/introduction-to-gravitee-api-management-apim/plugins.md) guide to learn more.
+Elasticsearch is the default reporter, but this section will show you how to configure different reporters. If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md) guide to learn more.
 
 ### Elasticsearch reporter
 
-Configuration details for the Elasticsearch reporter are available in the [Elasticsearch Repository](configure-repositories.md#elasticsearch) documentation.
+Configuration details for the Elasticsearch reporter are available in the [Elasticsearch Repository](../configure-repositories.md#elasticsearch) documentation.
 
 ### File reporter
 
@@ -50,7 +50,7 @@ The file reporter has the following configuration parameters:
 {% endtab %}
 
 {% tab title="Example" %}
-The configuration example below excludes all fields from the request JSON file except the `api` and `application` fields, renames the `application` field to `app`, and excludes `log`, `node`, and `healthcheck` events from being reported.
+The configuration example below excludes all fields from the request JSON file except the `api` and `application` fields, renames the `application` field to `app`, and excludes `log`, `node`, and `healthcheck` events from being reported:
 
 ```yaml
 reporters:
