@@ -4,6 +4,10 @@ description: This article describes how to configure tenants
 
 # Tenants
 
+{% hint style="warning" %}
+As of Gravitee 4.0, you cannot implement tenants for v4 APIs.
+{% endhint %}
+
 ## Introduction
 
 Tenants are a way to leverage Gravitee's multi-endpoint capability, i.e., the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
@@ -23,18 +27,9 @@ Endpoint deployment is impacted by how tags are applied to API endpoints and Gat
 
 To explain tenant usage and behavior, we will build off of our example use case for [sharding tags](../configure-sharding-tags-for-your-gravitee-api-gateways.md#configure-sharding-tags-for-your-gravitee-api-gateways). A single API can be deployed to many different Gateways and endpoints, but by using sharding tags you can specify the target Gateway(s), and by using tenants you can specify the target endpoint(s).
 
-Similar to sharding tags, tenant configuration is a two-step process. You must “tag” a Gateway to identify in which region it has been deployed by adding the following configuration to each Gateway’s `gravitee.yaml` file:
+Similar to sharding tags, tenant configuration is a two-step process. You must “tag” a Gateway to identify in which region it has been deployed. To demonstrate, we will add the following configuration to each Gateway’s `gravitee.yaml` file, which tags all USA-deployed Gateways with “usa" and all EU-deployed Gateways with "eu":
 
-```
-# Multi-tenant configuration
-# Allow only a single-value
-USA Region: tenant: ‘tenant name’
-EU Region: tenant: ‘tenant name’
-```
-
-To demonstrate, we will tag all USA-deployed Gateways with “usa" and all EU-deployed Gateways with "eu." The `gravitee.yaml` file will include the following:
-
-```
+```yaml
 # Multi-tenant configuration
 # Allow only a single-value
 USA Region: tenant: ‘usa’

@@ -103,7 +103,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 ### Additional configuration
 
-Also, when using Webhooks as an entrypoint, you can secure callbacks and set up dead letter queues to store undelivered messages. When configuring DLQ with Webhook, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic.
+When using Webhooks as an entrypoint, you can secure callbacks and set up dead letter queues to store undelivered messages. When configuring DLQ with Webhook, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic.
 
 As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition.&#x20;
 
