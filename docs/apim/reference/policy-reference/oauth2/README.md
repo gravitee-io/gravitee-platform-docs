@@ -19,16 +19,16 @@ $ curl -H "Authorization: Bearer |accessToken|" \
 
 Functional and implementation information for the `oauth2` policy is organized into the following sections:
 
-* [Examples](oauth2.md#examples)
-* [Configuration](oauth2.md#configuration)
-* [Compatibility Matrix](oauth2.md#compatibility-matrix)
-* [Errors](oauth2.md#errors)
-* [Changelogs](oauth2.md#changelogs)
+* [Examples](./#examples)
+* [Configuration](./#configuration)
+* [Compatibility Matrix](./#compatibility-matrix)
+* [Errors](./#errors)
+* [Changelogs](./#changelogs)
 
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
 
 {% tabs %}
@@ -60,8 +60,8 @@ You can extract the `username` from the payload using the following JsonPath:
 
 The `oauth2` policy requires a resource to access an OAuth2 Authorization Server for token introspection. APIM supports two types of authorization server:
 
-* [Generic OAuth2 Authorization Server](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_generic.html) — a resource which can be configured to cover any authorization server.
-* [Gravitee.io Access Management](https://docs.gravitee.io/apim/3.x/apim\_resources\_oauth2\_am.html) — a resource which can be easily plugged into APIM using Gravitee.io Access Management with security domain support.
+* [Generic OAuth2 Authorization Server](generic-oauth2-authorization-server.md): A resource which can be configured to cover any authorization server.
+* [Gravitee.io Access Management](gravitee.io-access-management.md): A resource which can be easily plugged into APIM using Gravitee.io Access Management with security domain support.
 
 {% code title="Sample Configuration" %}
 ```json
