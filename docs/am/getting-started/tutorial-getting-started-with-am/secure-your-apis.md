@@ -14,26 +14,20 @@ Ensure you have set up a new AM application and have your Client ID, Client Secr
 
 ## Protect your API with OAuth 2
 
-Start by configuring the API security policy in the Gravitee API Management Portal.
+Start by configuring the API security policy in the Gravitee API Management Console.
 
-1. Log in to APIM Developer Portal.
-2. Click **My APIs** in the navigation bar (or **Administration** if you are an admin user).
-3. Click **APIs** and select the API you want to secure.
-4. Link your API with AM:
-   1. Click **Resources** and the plus icon ![plus icon](https://docs.gravitee.io/images/icons/plus-icon.png).
-   2. Enter a new resource name and select **Gravitee AM Authorization Server Resource** as the resource type.
-   3.  In the **Configuration** section, specify the **Gravitee.io AM Server URL**, your **Security domain**, your **Client ID** and your **Client Secret**, then click **SAVE**.
-
-
-
-       <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-secure-apis-resource.png" alt=""><figcaption><p>Add AM as a resource in APIM</p></figcaption></figure>
-5. Click **Policies** and drag and drop the `OAuth2` policy to the selected API’s path.
-6.  Specify the resource name you created for your API and click **SAVE**.
-
-
-
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-quickstart-secure-apis-policy.png" alt=""><figcaption><p>Deploy API in APIM</p></figcaption></figure>
-7. Deploy your API.
+1. Log in to APIM Management Console.
+2. Click **APIs** in the left sidebar.
+3. Select the API you want to secure.
+4. Select the flow you want to secure.
+5. Under the Initial connection tab, click the <img src="../../.gitbook/assets/plus sign.png" alt="" data-size="line"> icon of the **Request phase**.&#x20;
+   * The OAuth2 policy can be applied to [v2 APIs and v4 proxy APIs.](broken-reference) It cannot be applied at the message level.
+6. In the resulting dialog box, **Select** the OAuth2 tile.
+7. Configure the OAuth2 policy per the [documentation](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2).
+   * The OAuth2 policy requires a resource to access an OAuth2 Authorization Server for token introspection.&#x20;
+   * APIM supports [Generic OAuth2 Authorization Server](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2/generic-oauth2-authorization-server) and [Gravitee.io Access Management](https://documentation.gravitee.io/apim/reference/policy-reference/oauth2/gravitee.io-access-management) authorization server resources.
+8. Click **Add policy**.
+9. **Save** and deploy/redeploy your API.
 
 You can test that your API is OAuth2 secured by calling it through APIM Gateway.
 
@@ -102,13 +96,15 @@ Pragma: no-cache
 You can use the access token obtained in the previous section to make API calls.
 
 1. In APIM Portal, go to your API page and choose the operation you want to call.
-2.  Provide your access token and get your secured API data.
+2. Provide your access token and get your secured API data.
 
-    {% code overflow="wrap" %}
-    ```sh
-    curl -X GET http://GRAVITEEIO-APIM-GATEWAY-HOST/echo -H 'Authorization: Bearer :access_token'
-    ```
-    {% endcode %}
+{% code overflow="wrap" %}
+````
+```sh
+curl -X GET http://GRAVITEEIO-APIM-GATEWAY-HOST/echo -H 'Authorization: Bearer :access_token'
+```
+````
+{% endcode %}
 
 {% hint style="info" %}
 See the APIM OAuth2 Policy for more information about how to supply the access token while making the API call.
