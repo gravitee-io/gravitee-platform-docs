@@ -12,9 +12,13 @@ Gravitee uses repositories to store different types of data. They are configured
 
 The following matrix shows scope and storage compatibility.
 
-<table><thead><tr><th width="317">Scope</th><th data-type="checkbox">MongoDB</th><th data-type="checkbox">Redis</th><th data-type="checkbox">ElasticSearch</th><th data-type="checkbox">JDBC</th></tr></thead><tbody><tr><td>Management: All the API Management platform management data such as API definitions, users, applications, and plans</td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Rate Limit: rate limiting data</td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td>Analytics: analytics data</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Distributed Sync: responsible for keeping the sync state for a cluster</td><td>false</td><td>true</td><td>false</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="270">Scope</th><th width="115" data-type="checkbox">MongoDB</th><th data-type="checkbox">Redis</th><th width="143" data-type="checkbox">ElasticSearch</th><th data-type="checkbox">JDBC</th></tr></thead><tbody><tr><td>Management: All the API Management platform management data such as API definitions, users, applications, and plans</td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td>Rate Limit: rate limiting data</td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td>Analytics: analytics data</td><td>false</td><td>false</td><td>true</td><td>false</td></tr><tr><td>Distributed Sync: responsible for keeping the sync state for a cluster</td><td>false</td><td>true</td><td>false</td><td>false</td></tr></tbody></table>
 
 Please see the sections below for how to configure each kind of repository.
+
+{% hint style="warning" %}
+Using JDBC as a rate limit repository is not recommended because concurrent threads do not share a counter. This can result in inaccuracies in limit calculations.
+{% endhint %}
 
 ## ElasticSearch
 
@@ -437,7 +441,7 @@ If you are using a database with such an option activated, you will need to do t
 3. Re-enable this option.
 
 {% hint style="info" %}
-**APIM does not currently set primary keys when creating tables**&#x20;
+**APIM does not currently set primary keys when creating tables**
 
 By default, Liquibase creates 2 tables without primary keys for its own use. To avoid a compatibility issue with Liquibase, Gravitee does not override the creation of these tables. See [here](https://forum.liquibase.org/t/why-does-databasechangelog-not-have-a-primary-key/3270) for more information.
 {% endhint %}
