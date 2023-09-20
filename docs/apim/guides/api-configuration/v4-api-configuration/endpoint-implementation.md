@@ -2,7 +2,7 @@
 description: This article discusses the implementation details of v4 API endpoints
 ---
 
-# Endpoint implementation
+# Endpoint Implementation
 
 ## Overview
 
@@ -73,6 +73,8 @@ The only supported method for targeting a specific partition is to define a key 
 Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee doesn't support overriding this mechanism to manually set the partition.&#x20;
 
 To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` must be added to the message.
+
+To extract an attribute from a message, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
 
 </details>
 
