@@ -16,6 +16,14 @@ Gravitee supports several different message brokers. This page describes the int
 
 <details>
 
+<summary>Common to Subscribe and Publish</summary>
+
+Properties can be accessed from a Kafka cluster programmatically using [Gravitee Expression Language](../../policy-design/gravitee-expression-language.md) (EL). To extract message metadata with EL, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
+
+</details>
+
+<details>
+
 <summary>Subscribe</summary>
 
 For each incoming request, the Kafka endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. Subscription relies on:
@@ -74,8 +82,6 @@ Repeated use of the same key on each message guarantees that messages are relega
 
 To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` must be added to the message.
 
-To extract an attribute from a message, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
-
 </details>
 
 ## MQTT
@@ -84,7 +90,7 @@ To extract an attribute from a message, use the syntax `{#message.metadata.[]}`,
 
 <summary>Common to Subscribe and Publish</summary>
 
-On each incoming request, an MQTT client is created and will persist until the request is terminated. This behavior applies to both Subscribe and Publish modes, as does the following:
+On each incoming request, an MQTT client is created and will persist until the request is terminated. This relies on:
 
 **MQTT Client Identifier**
 
@@ -146,11 +152,9 @@ On each incoming request, the endpoint searches an internal cache for an existin
 
 <summary>Subscribe</summary>
 
-On each incoming request, the [common messaging service](endpoint-implementation.md#common-to-subscribe-and-publish-1) is used to create a Dedicated Message Receiver. Subscription relies on:
-
 ### Message Receiver
 
-The Solace endpoint consumes messages based on the QoS:
+On each incoming request, the [common messaging service](endpoint-implementation.md#common-to-subscribe-and-publish-1) is used to create a Dedicated Message Receiver. The Solace endpoint consumes messages based on the QoS:
 
 **None**
 
@@ -174,7 +178,9 @@ The topic is retrieved from the API configuration and cannot be overridden via a
 
 <summary>Publish</summary>
 
-On each incoming request, the [common messaging service](endpoint-implementation.md#common-to-subscribe-and-publish-1) is used to create a Direct Message Publisher with a backpressure reject mode limited to 10 messages. Publication relies on:
+**Direct Message Publisher**
+
+On each incoming request, the [common messaging service](endpoint-implementation.md#common-to-subscribe-and-publish-1) is used to create a Direct Message Publisher with a backpressure reject mode limited to 10 messages.
 
 **Topic**
 
@@ -188,7 +194,7 @@ The topic is retrieved from the API configuration and cannot be overridden with 
 
 <summary>Subscribe</summary>
 
-On each incoming request, the RabbitMQ endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. The subscription relies on:
+On each incoming request, the RabbitMQ endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. Subscription relies on:
 
 ### Connection Name
 
