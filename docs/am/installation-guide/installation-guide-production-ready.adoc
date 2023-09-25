@@ -256,3 +256,24 @@ http:
     directives:
     - frame-ancestors 'none';
 ----
+
+== Step 8: Email sending
+
+The AM Management API and the AM Gateway are able to send email, for doing that the `gravitee.yaml` of each service provides an `email` section.
+Since the version 4.0.2 of AM, the `allowedfrom` attribute has been added in order to restrict the FROM attribute a user can define through the AM UI during the custom email form definition or the configuration `Send Email` policy. We strongly encourage you to update this value to at a minimum restrict to the domain names authorized.
+
+----
+# SMTP configuration used to send mails
+email:
+  enabled: false
+  host: smtp.my.domain
+  subject: "[Gravitee.io] %s"
+  port: 587
+  from: noreply@my.domain
+  username: user@my.domain
+  password: password
+  # List of allowed from
+  allowedfrom:
+     - ${email.from}
+     - *@mydomain.org
+----
