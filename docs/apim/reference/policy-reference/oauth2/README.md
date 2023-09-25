@@ -61,7 +61,7 @@ You can extract the `username` from the payload using the following JsonPath:
 The `oauth2` policy requires a resource to access an OAuth2 Authorization Server for token introspection. APIM supports two types of authorization server:
 
 * [Generic OAuth2 Authorization Server](generic-oauth2-authorization-server.md): A resource which can be configured to cover any authorization server.
-* [Gravitee.io Access Management](gravitee.io-access-management.md): A resource which can be easily plugged into APIM using Gravitee.io Access Management with security domain support.
+* [Gravitee.io AM Authorization Server](gravitee.io-am-authorization-server.md): A resource which can be easily plugged into APIM using Gravitee.io Access Management with security domain support.
 
 {% code title="Sample Configuration" %}
 ```json

@@ -34,7 +34,9 @@
   * [Login to AM Console](getting-started/tutorial-getting-started-with-am/login-to-am-console.md)
   * [Set Up Your First Application](getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md)
   * [Get User Profile Information](getting-started/tutorial-getting-started-with-am/get-user-profile-information.md)
-  * [Secure Your APIs](getting-started/tutorial-getting-started-with-am/secure-your-apis.md)
+  * [Secure Your APIs](getting-started/tutorial-getting-started-with-am/secure-your-apis/README.md)
+    * [Configure Generic OAuth2 Authorization Server](getting-started/tutorial-getting-started-with-am/secure-your-apis/configure-generic-oauth2-authorization-server.md)
+    * [Configure Gravitee.io Access Management](getting-started/tutorial-getting-started-with-am/secure-your-apis/configure-gravitee.io-access-management.md)
   * [Configure a Flow](getting-started/tutorial-getting-started-with-am/configure-a-flow.md)
   * [Add Custom Claims to Tokens](getting-started/tutorial-getting-started-with-am/add-custom-claims-to-tokens.md)
 
