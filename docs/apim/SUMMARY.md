@@ -174,7 +174,7 @@
   * [Mock](reference/policy-reference/mock.md)
   * [OAuth2](reference/policy-reference/oauth2/README.md)
     * [Generic OAuth2 Authorization Server](reference/policy-reference/oauth2/generic-oauth2-authorization-server.md)
-    * [Gravitee.io Access Management](reference/policy-reference/oauth2/gravitee.io-access-management.md)
+    * [Gravitee.io AM Authorization Server](reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md)
   * [OpenID Connect UserInfo](reference/policy-reference/openid-connect-userinfo.md)
   * [Override HTTP Method](reference/policy-reference/override-http-method.md)
   * [Rate Limit](reference/policy-reference/rate-limit.md)

@@ -26,6 +26,66 @@ If you are deploying in another namespace and you need to access a secret there,
 For more information about roles, see [Role and ClusterRole](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) in the [Kubernetes documentation](https://kubernetes.io/docs/).
 {% endhint %}
 
+### **Minimal configuration example**
+
+Here is the minimal `value-light.yml` you have to provide for a development deployment. (Do not use in production!)
+Change the `domain` value and run the following command: 
+```
+helm install gravitee-apim graviteeio/apim -f value-light.yml
+```
+
+```yaml
+# Deploy an elasticsearch cluster.
+elasticsearch:
+  enabled: true
+
+# Elasticsearch uri, do not change.
+es:
+  endpoints:
+    - http://graviteeio-apim-elasticsearch-ingest-hl:9200
+
+# Deploy a mongoDB cluster.
+mongodb:
+  enabled: true
+
+# MongoDB uri, do not change.
+mongo:
+  uri: mongodb://graviteeio-apim-mongodb-replicaset-headless:27017/gravitee?replicaset=rs0&connectTimeoutMS=30000
+
+# Change the ingress host with your host domain.
+# no TLS provided here. Check the documentation if needed.
+api:
+  ingress:
+    management:
+      hosts:
+        - management-api.mydomain.com
+    portal:
+      hosts:
+        - management-api.mydomain.com
+
+# Change the ingress host with your host domain.
+# no TLS provided here. Check the documentation if needed.
+gateway:
+  ingress:
+    hosts:
+      - gateway.mydomain.com
+
+# Change the ingress host with your host domain.
+# no TLS provided here. Check the documentation if needed.
+portal:
+  ingress:
+    hosts:
+      - portal.mydomain.com
+
+# Change the ingress host with your host domain.
+# no TLS provided here. Check the documentation if needed.
+ui:
+  ingress:
+    hosts:
+      - management-ui.mydomain.com
+
+```
+
 ### **External configuration file**
 
 If you want to use an external configuration file, such as `gravitee.yaml` for the Gateway or API management, or `constant.json` for the UI, add the following lines to the helm chart.
