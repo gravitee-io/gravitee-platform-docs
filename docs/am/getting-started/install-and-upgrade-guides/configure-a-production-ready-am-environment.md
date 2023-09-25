@@ -19,26 +19,28 @@ AM API and AM Gateway include internal APIs which are enabled by default. If you
 Perform the following steps on both the AM API component and the AM Gateway component:
 
 1. Open your `gravitee.yml` file.
-2.  In the `services:` section, set the `http:` `enabled` value to `false`:
+2. In the `services:` section, set the `http:` `enabled` value to `false`:
 
-    {% code title="gravitee.yml" %}
-    ```yaml
-    services:
-      core:
-        http:
-          enabled: false
-          port: 18093
-          host: localhost
-          authentication:
-            # authentication type to be used for the core services
-            # - none : to disable authentication
-            # - basic : to use basic authentication
-            # default is "basic"
-            type: basic
-            users:
-              admin: adminadmin
-    ```
-    {% endcode %}
+{% code title="gravitee.yml" %}
+````
+```yaml
+services:
+  core:
+    http:
+      enabled: false
+      port: 18093
+      host: localhost
+      authentication:
+        # authentication type to be used for the core services
+        # - none : to disable authentication
+        # - basic : to use basic authentication
+        # default is "basic"
+        type: basic
+        users:
+          admin: adminadmin
+```
+````
+{% endcode %}
 
 To learn more about the internal APIs, see:
 
@@ -56,43 +58,44 @@ We strongly recommend that, regardless of the user management system you put in 
 Perform the following steps on the AM API component:
 
 1. Open your `gravitee.yml` file.
-2.  In the `security \ providers` section, remove any users you do not need:
+2. In the `security \ providers` section, remove any users you do not need:
 
-    {% code title="gravitee.yml" overflow="wrap" %}
-    ```yaml
-    # Security section is used to defined organization users available on AM bootstrap
-    security:
-      # If true create on AM bootstrap an inline identity provider with an admin user (login: admin)
-      # this is the legacy mode
-      defaultAdmin: false
-      ## authentication providers
-      ## currently, only "in memory" provider is supported
-      providers:
-        - type: memory
-          enabled: false
-          ## Name of IdentityProvider
-          ## If missing the type will be used to create a generic name (ex: Memory users)
-          #name:
-          ## password encoding/hashing algorithm. One of:
-          ## - BCrypt : passwords are hashed with bcrypt (supports only $2a$ algorithm)
-          ## - none : passwords are not hashed/encrypted
-          #default value is BCrypt
-          password-encoding-algo: BCrypt
-          users:
-            - user:
-              username: admin
-              #email:
-              firstname: Administrator
-              lastname: Administrator
-              ## Passwords are encoded using BCrypt
-              ## Password value: adminadmin
-              password: $2a$10$NG5WLbspq8V1yJDzUKfUK.oum94qL/Ne3B5fQCgekw/Y4aOEaoFZq
-              role: ORGANIZATION_OWNER
-    ```
-    {% endcode %}
+{% code title="gravitee.yml" overflow="wrap" %}
+````
+```yaml
+# Security section is used to defined organization users available on AM bootstrap
+security:
+  # If true create on AM bootstrap an inline identity provider with an admin user (login: admin)
+  # this is the legacy mode
+  defaultAdmin: false
+  ## authentication providers
+  ## currently, only "in memory" provider is supported
+  providers:
+    - type: memory
+      enabled: false
+      ## Name of IdentityProvider
+      ## If missing the type will be used to create a generic name (ex: Memory users)
+      #name:
+      ## password encoding/hashing algorithm. One of:
+      ## - BCrypt : passwords are hashed with bcrypt (supports only $2a$ algorithm)
+      ## - none : passwords are not hashed/encrypted
+      #default value is BCrypt
+      password-encoding-algo: BCrypt
+      users:
+        - user:
+          username: admin
+          #email:
+          firstname: Administrator
+          lastname: Administrator
+          ## Passwords are encoded using BCrypt
+          ## Password value: adminadmin
+          password: $2a$10$NG5WLbspq8V1yJDzUKfUK.oum94qL/Ne3B5fQCgekw/Y4aOEaoFZq
+          role: ORGANIZATION_OWNER
+```
+````
+{% endcode %}
+
 3.  Update the default administrator password:
-
-
 
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/how-tos/configure-apim/admin-pwd.png" alt=""><figcaption><p>Admin password</p></figcaption></figure>
 
@@ -113,21 +116,24 @@ As the secret is used between AM API and AM Gateway, be sure to set the same val
 Perform the following steps on the AM API and Gateway components:
 
 1. Open your `gravitee.yml` file.
-2.  In the `jwt` section, update the `secret` value:
+2. In the `jwt` section, update the `secret` value:
 
-    {% code title="gravitee.yml" overflow="wrap" %}
-    ```yaml
-    # JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails
-    jwt:
-      secret: s3cR3t4grAv1t3310AMS1g1ingDftK3y # jwt secret used to sign JWT tokens (HMAC algorithm)
-      #kid: default-gravitee-AM-key # kid (key ID) Header Parameter is a hint indicating which key was used to secure the JWT
-      #expire-after: 604800 # the end of validity of the token in seconds (default 604800 = a week)
-      #issuer: https://gravitee.am # the principal that issued the JWT (default https://gravitee.am)
-      #cookie-path: / # cookie context path (default /)
-      #cookie-domain: .gravitee.io # cookie domain (default "")
-      #cookie-secure: true # cookie secure flag (default false)
-    ```
-    {% endcode %}
+{% code title="gravitee.yml" overflow="wrap" %}
+````
+```yaml
+# JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails
+jwt:
+  secret: s3cR3t4grAv1t3310AMS1g1ingDftK3y # jwt secret used to sign JWT tokens (HMAC algorithm)
+  #kid: default-gravitee-AM-key # kid (key ID) Header Parameter is a hint indicating which key was used to secure the JWT
+  #expire-after: 604800 # the end of validity of the token in seconds (default 604800 = a week)
+  #issuer: https://gravitee.am # the principal that issued the JWT (default https://gravitee.am)
+  #cookie-path: / # cookie context path (default /)
+  #cookie-domain: .gravitee.io # cookie domain (default "")
+  #cookie-secure: true # cookie secure flag (default false)
+```
+````
+{% endcode %}
+
 3. You can also update other values, such as:
    * the `expire-after` value, to change the validity period from the default value of one week
    * the `cookie-path` and `cookie-domain` values, to adapt them to your own environment; the values you define must be specific to the domain and path where the API is running and not apply to any another environment (for example, `.gravitee.io` could apply to any domain called `xxx.gravitee.io`, such as `dev.gravitee.io` or `qa.gravitee.io`)
@@ -214,39 +220,44 @@ Cookies are used by AM API and AM Gateway to keep minimal information about user
 Perform the following steps on the AM API component:
 
 1. Open your `gravitee.yml` file.
-2.  In the `jwt` section, update the `cookie-secure` value:
+2. In the `jwt` section, update the `cookie-secure` value:
 
-    {% code title="gravitee.yml" overflow="wrap" %}
-    ```yaml
-    # JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails
-    jwt:
-      secret: s3cR3t4grAv1t3310AMS1g1ingDftK3y # jwt secret used to sign JWT tokens (HMAC algorithm)
-      #kid: default-gravitee-AM-key # kid (key ID) Header Parameter is a hint indicating which key was used to secure the JWT
-      #expire-after: 604800 # the end of validity of the token in seconds (default 604800 = a week)
-      #issuer: https://gravitee.am # the principal that issued the JWT (default https://gravitee.am)
-      #cookie-path: / # cookie context path (default /)
-      #cookie-domain: .gravitee.io # cookie domain (default "")
-      #cookie-secure: true # cookie secure flag (default false)
-    ```
-    {% endcode %}
+{% code title="gravitee.yml" overflow="wrap" %}
+````
+```yaml
+# JWT used to generate signed token for management security mechanism (Bearer Token) and to verify emails
+jwt:
+  secret: s3cR3t4grAv1t3310AMS1g1ingDftK3y # jwt secret used to sign JWT tokens (HMAC algorithm)
+  #kid: default-gravitee-AM-key # kid (key ID) Header Parameter is a hint indicating which key was used to secure the JWT
+  #expire-after: 604800 # the end of validity of the token in seconds (default 604800 = a week)
+  #issuer: https://gravitee.am # the principal that issued the JWT (default https://gravitee.am)
+  #cookie-path: / # cookie context path (default /)
+  #cookie-domain: .gravitee.io # cookie domain (default "")
+  #cookie-secure: true # cookie secure flag (default false)
+```
+````
+{% endcode %}
 
 Perform the following steps on the AM Gateway component:
 
 1. Open your `gravitee.yml` file.
-2.  In the `http.cookie` section, update the `secure` value:
+2. In the `http.cookie` section, update the `secure` value:
 
-    {% code title="gravitee.yml" overflow="wrap" %}
-    ```yaml
-    #http
-    ##  cookie:
-    #    secure: false # Default is false for demonstration purpose but we highly recommend you to enable cookie secure.
-    #    sameSite: Lax
-    #    session:
-    #      name: session-name
-    #      timeout: 1800000 # (in milliseconds)
-    ```
-    {% endcode %}
-3. You can also consider updating the `sameSite` to [Strict](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#syntax) and adapt the session timeout:
+{% code title="gravitee.yml" overflow="wrap" %}
+````
+```yaml
+#http
+##  cookie:
+#    secure: false # Default is false for demonstration purpose but we highly recommend you to enable cookie secure.
+#    sameSite: Lax
+#    session:
+#      name: session-name
+#      timeout: 1800000 # (in milliseconds)
+```
+````
+{% endcode %}
+
+3\. You can also consider updating the \`sameSite\` to \[Strict]\(https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#syntax) and adapt the session timeout:
 
 ## Step 7: Mitigate Cross-Site Scripting (XSS) and Cross Site Framing
 
@@ -265,4 +276,26 @@ http:
   csp:
     directives:
     - frame-ancestors 'none';
+```
+
+## Step 8: Sending email
+
+The AM Management API and the AM Gateway are able to send email via the `email` section in the `gravitee.yaml` of each service.&#x20;
+
+As of AM version 4.0.2, the `allowedfrom` attribute has been added to restrict the FROM attribute a user can define in the AM UI when customizing the email form or when configuring the `Send Email` policy. It is highly recommended to update this value to restrict authorized domain names.
+
+```yaml
+# SMTP configuration used to send mails
+email:
+  enabled: false
+  host: smtp.my.domain
+  subject: "[Gravitee.io] %s"
+  port: 587
+  from: noreply@my.domain
+  username: user@my.domain
+  password: password
+  # List of allowed from
+  allowedfrom:
+     - ${email.from}
+     - *@mydomain.org
 ```
