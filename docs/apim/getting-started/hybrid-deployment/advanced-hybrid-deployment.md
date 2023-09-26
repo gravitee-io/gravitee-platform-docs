@@ -6,17 +6,17 @@ description: A detailed guide for installing and configuring a hybrid APIM deplo
 
 ## Introduction
 
-The following concerns the installation of the Self-Hosted Data-Plane part of the API Management platform in a hybrid architecture (SaaS Control-Plane + Self-Hosted Data-Plane).
+This page focuses on the installation of the Self-Hosted Data-Plane, which is part of the API Management platform in a hybrid architecture (SaaS Control-Plane + Self-Hosted Data-Plane).
 
 <img src="../../.gitbook/assets/file.excalidraw (5).svg" alt="" class="gitbook-drawing">
 
 ### SaaS Control-Plane components <a href="#saas-components" id="saas-components"></a>
 
-<table><thead><tr><th width="203" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Console<br>(for API producers)</td><td>This web UI gives easy access to some key APIM Management API services. <a href="../../#api-publisher">API publishers</a> can use it to publish APIs.<br>Administrators can also configure global platform settings and specific portal settings.</td></tr><tr><td align="center">APIM Management API</td><td>This RESTful API exposes services to manage and configure the APIM Console and APIM Developer Portal web UIs.<br>All exposed services are restricted by authentication and authorization rules. For more information, see the<a href="../../reference/management-api-reference/"> Management API Reference</a> section.</td></tr><tr><td align="center"><a href="../../guides/developer-portal/">APIM Developer Portal</a><br>(for API consumers)</td><td>This web UI gives easy access to some key APIM API services. It allows <a href="../../#api-consumer">API Consumers</a> to <a href="../../guides/api-exposure-plans-applications-and-subscriptions/#applications">manage their applications</a> and search for, view, try out, and subscribe to a published API.</td></tr><tr><td align="center">APIM SaaS API Gateways</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="broken-reference/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Bridge Gateways</td><td>A <em>bridge</em> API Gateway exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, etc.)</td></tr><tr><td align="center">Config Database</td><td>All the API Management platform management data, such as API definitions, users, applications, and plans.</td></tr><tr><td align="center">S3 Bucket + Analytics Database</td><td>Analytics and logs data</td></tr><tr><td align="center">Gravitee Cockpit</td><td>Gravitee Cockpit is a centralized, multi-environments / organizations tool for managing all your Gravitee API Management and Access Management installations in a single place.</td></tr><tr><td align="center">[Optional]<br>API Designer</td><td>Drag-and-Drop graphical (MindMap) API designer to quickly and intuitively design your APIs (Swagger / OAS) and deploy mocked APIs for quick testing.</td></tr><tr><td align="center">[Optional]<br>Alert Engine</td><td>Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and using Webhooks.<br>AE does not require any external components or a database as it does not store anything. It receives events and sends notifications under the conditions which have been pre-configured upstream with triggers.</td></tr></tbody></table>
+<table><thead><tr><th width="228" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Console<br>(for API producers)</td><td>This web UI gives easy access to some key APIM Management API services. <a href="../../#api-publisher">API publishers</a> can use it to publish APIs.<br>Administrators can also configure global platform settings and specific portal settings.</td></tr><tr><td align="center">APIM Management API</td><td>This RESTful API exposes services to manage and configure the APIM Console and APIM Developer Portal web UIs.<br>All exposed services are restricted by authentication and authorization rules. For more information, see the<a href="../../reference/management-api-reference/"> Management API Reference</a> section.</td></tr><tr><td align="center"><a href="../../guides/developer-portal/">APIM Developer Portal</a><br>(for API consumers)</td><td>This web UI gives easy access to some key APIM API services. It allows <a href="../../#api-consumer">API Consumers</a> to <a href="../../guides/api-exposure-plans-applications-and-subscriptions/#applications">manage their applications</a> and search for, view, try out, and subscribe to a published API.</td></tr><tr><td align="center">APIM SaaS API Gateways</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="broken-reference/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Bridge Gateways</td><td>A <em>bridge</em> API Gateway exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, etc.)</td></tr><tr><td align="center">Config Database</td><td>All the API Management platform management data, such as API definitions, users, applications, and plans.</td></tr><tr><td align="center">S3 Bucket + Analytics Database</td><td>Analytics and logs data.</td></tr><tr><td align="center">Gravitee Cockpit</td><td>Gravitee Cockpit is a centralized, multi-environments / organizations tool for managing all your Gravitee API Management and Access Management installations in a single place.</td></tr><tr><td align="center">[Optional]<br>API Designer</td><td>Drag-and-Drop graphical (MindMap) API designer to quickly and intuitively design your APIs (Swagger / OAS) and deploy mocked APIs for quick testing.</td></tr><tr><td align="center">[Optional]<br>Alert Engine</td><td>Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and using Webhooks.<br>AE does not require any external components or a database as it does not store anything. It receives events and sends notifications under the conditions which have been pre-configured upstream with triggers.</td></tr></tbody></table>
 
 ### Self-Hosted Data-Plane components[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#on-prem-private-cloud-components) <a href="#on-prem-private-cloud-components" id="on-prem-private-cloud-components"></a>
 
-<table><thead><tr><th width="133" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Gateway</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="broken-reference/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Logstash</td><td>Collect and send local Gateways logs and metrics to the Gravitee APIM SaaS Control Plane.</td></tr><tr><td align="center">Redis</td><td>The database used locally for rate limits synchronized counters (RateLimit, Quota, Spike Arrest) and optionally, as an external cache for the Cache policy.</td></tr></tbody></table>
+<table><thead><tr><th width="133" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Gateway</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="broken-reference/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Logstash</td><td>Collect and send local Gateway logs and metrics to the Gravitee APIM SaaS Control Plane.</td></tr><tr><td align="center">Redis</td><td>The database used locally for rate limit synchronized counters (RateLimit, Quota, Spike Arrest) and, optionally, as an external cache for the Cache policy.</td></tr></tbody></table>
 
 <img src="../../.gitbook/assets/file.excalidraw (4).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
 
@@ -25,7 +25,7 @@ The following concerns the installation of the Self-Hosted Data-Plane part of th
 ### Installation <a href="#installation" id="installation"></a>
 
 {% hint style="danger" %}
-Make sure the version you are installing is aligned with the Control-Plane SaaS version.
+Make sure the version you are installing aligns with the Control-Plane SaaS version.
 {% endhint %}
 
 {% hint style="info" %}
@@ -34,8 +34,8 @@ Don't forget to add the Gravitee.io License file.
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-Please follow the APIM install instructions laid out in the [Install on Kubernetes](../install-guides/install-on-kubernetes/) guide.\
-Please install **only the gateway**, disabling the other components in your `values.yaml` configuration file.
+* Follow the APIM installation instructions in the [Install on Kubernetes](../install-guides/install-on-kubernetes/) guide.
+* Install **only the Gateway** and disable the other components in your `values.yaml` configuration file.
 
 {% hint style="info" %}
 **Additional assets**
@@ -46,24 +46,24 @@ Please install **only the gateway**, disabling the other components in your `val
 {% endtab %}
 
 {% tab title="Docker" %}
-Please follow the APIM install instructions laid out in the [Install on Docker](../install-guides/install-on-docker/) guide.
+Follow the APIM installation instructions in the [Install on Docker](../install-guides/install-on-docker/) guide.
 
 {% hint style="info" %}
-**Dont' forget to download and mount the required plugins for the Gravitee.io gateway :**
+**Download and mount the required plugins for the Gravitee.io Gateway:**
 
-* [Redis Repository](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis) (The database used locally for rate limits synchronized counters)
-* [TCP Reporter](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/) (To push events to Logstash)
+* [Redis Repository](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis): The database used locally for rate limits synchronized counters
+* [TCP Reporter](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/): To push events to Logstash
 {% endhint %}
 {% endtab %}
 
 {% tab title="VM" %}
-Please follow the APIM install instructions laid out in the [Install with `.ZIP`](../install-guides/install-with-.zip.md) guide.
+Follow the APIM installation instructions in the [Install with `.ZIP`](../install-guides/install-with-.zip.md) guide.
 
 {% hint style="info" %}
-**Dont' forget to download and mount the required plugins for the Gravitee.io gateway :**
+**Download and mount the required plugins for the Gravitee.io Gateway:**
 
-* [Redis Repository](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis) (The database used locally for rate limits synchronized counters)
-* [TCP Reporter](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/) (To push events to Logstash)
+* [Redis Repository](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis): The database used locally for rate limits synchronized counters
+* [TCP Reporter](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/): To push events to Logstash
 {% endhint %}
 {% endtab %}
 {% endtabs %}
@@ -75,10 +75,7 @@ There are at least 3 connections to configure:
 * The connection to the SaaS Control-Plane via the Bridge Gateway.
 * The connection to push Analytics and Logs using the file or TCP reporter to push data to Logstash and send to the SaaS storage.
 * The connection to the local rate limits database (Redis).
-
-Additionally, you can optionally configure a connection to Alert Engine.
-
-* \[Optional] The connection to the SaaS Alert Engine.
+* (Optional) The connection to the SaaS Alert Engine.
 
 #### **Management (SaaS Control-Plane Bridge Gateway)**[**¶**](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#management)
 
@@ -117,7 +114,7 @@ gateway:
 {% hint style="info" %}
 **Additional assets**
 
-* [Hybrid Deployment on Kubernetes](hybrid-deployment-on-kubernetes.md)
+* [Hybrid deployment on Kubernetes](hybrid-deployment-on-kubernetes.md)
 * [Gravitee Helm charts](https://artifacthub.io/packages/helm/graviteeio/apim3)
 {% endhint %}
 {% endtab %}
@@ -350,7 +347,7 @@ alerts:
 {% endtab %}
 {% endtabs %}
 
-### **Configuration full example**
+### **Configuration: Full example**
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
@@ -603,7 +600,7 @@ classloader:
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-[Bitnami helm charts](https://artifacthub.io/packages/helm/bitnami/redis)
+[Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis)
 {% endtab %}
 
 {% tab title="Docker" %}
@@ -646,8 +643,8 @@ services:
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-* [Official helm charts](https://artifacthub.io/packages/helm/elastic/logstash#how-to-install-oss-version-of-logstash)
-* [Bitnami helm charts](https://bitnami.com/stack/logstash/helm)
+* [Official Helm charts](https://artifacthub.io/packages/helm/elastic/logstash#how-to-install-oss-version-of-logstash)
+* [Bitnami Helm charts](https://bitnami.com/stack/logstash/helm)
 {% endtab %}
 
 {% tab title="Docker" %}
