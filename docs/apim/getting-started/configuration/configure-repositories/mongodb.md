@@ -10,19 +10,20 @@ The MongoDB plugin is part of the default distribution of APIM.
 
 ## Supported databases
 
-| Database | Version tested        |
-| -------- | --------------------- |
-| MongoDB  | 4.4.x / 5.0.x / 6.0.x |
+| Database | Version tested                |
+| -------- | ----------------------------- |
+| MongoDB  | 4.4.x / 5.0.x / 6.0.x / 7.0.x |
 
 {% hint style="info" %}
-**Support of databases with MongoDB compatibility**
+**Support for databases with MongoDB compatibility**
 
 Some databases are almost fully compatible with MongoDB, like:
 
 * DocumentDB (AWS)
 * Azure Cosmos DB for MongoDB (Azure)
 
-However, some features might not be supported or act differently in terms of behavior or performance. That's why they are not considered as officially supported databases.
+However, some features might not be supported or act differently in terms of behavior or performance.
+That's why **they are not considered as officially supported databases**, making **MongoDB the only officially supported database** for now.
 {% endhint %}
 
 ## Configuration
