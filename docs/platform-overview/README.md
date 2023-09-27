@@ -5,7 +5,7 @@ description: What is Gravitee?
 # Introduction
 
 {% hint style="warning" %}
-**Gravitee 4.0 Documentation**
+**Gravitee 4.x Documentation**
 
 You are reading the documentation for Gravitee 4.0 and later!
 
