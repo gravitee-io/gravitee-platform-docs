@@ -1,0 +1,11 @@
+# Release Notes
+
+### Introduction <a href="#introduction" id="introduction"></a>
+
+The Gravitee release notes section is the best place for in-depth overviews of what's new in Gravitee major and minor releases. Please note that this documentation site will only include release notes for Gravitee 4.0 and beyond.
+
+### User feedback portal <a href="#user-feedback-portal" id="user-feedback-portal"></a>
+
+If you want to see what we are working on, leave feedback on potential roadmap items, and help shape the future of the Gravitee platform, please refer to our public-facing product feedback portal:
+
+{% embed url="https://www.gravitee.io/user-feedback" %}
