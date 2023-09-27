@@ -14,16 +14,15 @@ Gravitee enables you to configure and view logs for your APIs. In this article, 
 
 {% @arcade/embed flowId="nifDyFJpS1oFPpGfCwqu" url="https://app.arcade.software/share/nifDyFJpS1oFPpGfCwqu" %}
 
-An API's logs will be visible at the level of the individual API. This is viewed under an APIs **Analytics** by selecting **Logs.**\
-
+An API's logs will be visible at the level of the individual API. This is viewed under an APIs **Analytics** by selecting **Logs.**\\
 
 <figure><img src="../../.gitbook/assets/Access API logs.gif" alt=""><figcaption><p>Access an API's logs</p></figcaption></figure>
 
-If logging isn't enabled for your API, you will need to enable it manually. You can enable logging at the both the Gateway and the API levels.&#x20;
+If logging isn't enabled for your API, you will need to enable it manually. You can enable logging at the both the Gateway and the API levels.
 
 ### Configure logging at the API level
 
-To first enable logging at the API level, select **Configure the logging** at the top of your APIs logs page. You'll be brought to the **Logging configuration** page. To enable logging, toggle **Enable logging** ON.&#x20;
+To first enable logging at the API level, select **Configure the logging** at the top of your APIs logs page. You'll be brought to the **Logging configuration** page. To enable logging, toggle **Enable logging** ON.
 
 Once you've enabled logging, you can further define how logging works in Gravitee by defining the **Logging mode, Content Mode, Scope Mode,** and any **Conditions**. Please see the tabs below to learn more about each.
 

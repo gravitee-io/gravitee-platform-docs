@@ -31,7 +31,7 @@ The features below are included in the default enterprise API Management distrib
 * [**Audit trail**](../../guides/api-measurement-tracking-and-analytics/#the-audit-trail)**:** Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform over time.
 * [**DCR Registration**](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md#dynamic-client-registration-provider): Dynamic client registration (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint.
 * [**Custom Roles**](../../guides/administration/user-management-and-permissions.md#roles)**:** Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application levels.
-* [**Sharding Tags**](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md)**:** Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
+* [**Sharding Tags**](../../getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md)**:** Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
 * [**Bridge Gateway**](../../getting-started/hybrid-deployment/#bridge-gateways)**:** By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.
 
 ## Enterprise plugins
@@ -42,7 +42,7 @@ EE plugins are installed from their respective repositories in GitHub. Graviteeâ
 
 If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com).
 
-Information on plugin deployment can be found [here](../introduction-to-gravitee-api-management-apim/plugins.md#deployment).
+Information on plugin deployment can be found [here](../plugins.md#deployment).
 
 ### Enterprise policy pack
 
@@ -104,7 +104,7 @@ An investment in Gravitee EE is an investment in deployment flexibility, and, op
 * **Gravitee-managed deployments**: Gravitee hosts and manages all APIM components within its own cloud environment.
 * **Hybrid deployment**: Gravitee hosts and manages some APIM components within its cloud environment while you manage others within your private cloud/environment.
 
-For more information on each, please refer to our [APIM Architecture documentation](../introduction-to-gravitee-api-management-apim/apim-architecture.md).
+For more information on each, please refer to our [APIM Architecture documentation](../apim-architecture.md).
 
 ## Support options
 

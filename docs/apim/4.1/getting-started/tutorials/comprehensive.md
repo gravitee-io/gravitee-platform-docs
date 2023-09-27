@@ -16,7 +16,7 @@ The trial application will not function properly if you do not access it from di
 
 This tutorial demonstrates a few of Gravitee's core concepts and features, which include managing and deploying a Gateway API and applying basic API access restrictions using a policy.
 
-The first part of this tutorial is designed to be completed within the enterprise trial. After [starting your trial](../install-and-upgrade/free-trial.md) and [accessing Gravitee API Management (APIM](comprehensive.md#start-your-in-trial-tutorial)), a modal will pop up and guide you through the APIM Console UI. Completing the in-trial tutorial will grant you access to an integrated trial application.
+The first part of this tutorial is designed to be completed within the enterprise trial. After [starting your trial](../install-guides/free-trial.md) and [accessing Gravitee API Management (APIM](comprehensive.md#start-your-in-trial-tutorial)), a modal will pop up and guide you through the APIM Console UI. Completing the in-trial tutorial will grant you access to an integrated trial application.
 
 ### Start your in-trial tutorial
 
@@ -87,7 +87,7 @@ An API request occurs every time you create, complete, archive, or delete a task
 
 ## Test your Gateway API
 
-When detailing the trial app architecture, we left out one key piece: the Gravitee APIM Gateway. The Gravitee APIM Gateway acts as a middleman between the frontend and backend of the application to augment every API request with [policies](../../overview/introduction-to-gravitee-api-management-apim/plugins.md#policies). These policies add functionality, e.g., quota and rate limiting access control, authentication/authorization, and request/response/message-level transformations.&#x20;
+When detailing the trial app architecture, we left out one key piece: the Gravitee APIM Gateway. The Gravitee APIM Gateway acts as a middleman between the frontend and backend of the application to augment every API request with [policies](../../overview/plugins.md#policies). These policies add functionality, e.g., quota and rate limiting access control, authentication/authorization, and request/response/message-level transformations.&#x20;
 
 So let's go ahead and finish this tutorial by using the trial app to test out our Gateway API with a Quota policy!
 

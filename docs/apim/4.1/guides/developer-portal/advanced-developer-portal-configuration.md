@@ -98,7 +98,7 @@ Once you finish creating your password, you will be able to sign in.
 
 All users can be viewed in APIM's Management Console by anyone with administrator privileges. To view users, select **Organization** at the bottom of the sidebar. Once there, navigate to the **Users** tab in the sidebar. Here, you will see a list of all current users tied to the organization. As an administrator, you can select any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (38).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
 
 {% hint style="info" %}
 **Detailed user administration**
@@ -129,7 +129,7 @@ To modify the access URL, select **Organization** in the sidebar of the Manageme
 
 At a high-level, sharding tags are assigned to APIs and Gravitee Gateways to provide a method to deploy an API to a subset of gateways. Adding a mapping between these sharding tags and a gateway’s entrypoint URL allows the developer portal to intelligently display different entrypoints depending on the API’s sharding tags.
 
-Sharding tags are used to help manage complex distributed architectures. Check out the [Sharding Tags guide](../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md) to learn more.
+Sharding tags are used to help manage complex distributed architectures. Check out the [Sharding Tags guide](../../getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md) to learn more.
 {% endhint %}
 
 For the rest of the sidebar settings, return to the Console's homescreen then select **Settings >** **API Portal Information** to display the following options:
@@ -150,7 +150,7 @@ Administrators can also modify how API consumers browsing experience in the Deve
 
 In APIM, select **API Portal Information** in the secondary sidebar to display the following options shown below.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (41).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
 
 * The other options are detailed in the [API sidebar](advanced-developer-portal-configuration.md#api-sidebar) section above.
 *   **API Page list options**

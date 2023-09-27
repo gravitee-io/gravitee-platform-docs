@@ -6,7 +6,7 @@ description: This article covers criticial Gravitee API creation concepts
 
 ## Introduction
 
-Gravitee enables teams to create Gateway APIs. Gateway APIs are what your API consumers will call or subscribe to in order to retrieve data, functionality, etc. from your backend APIs. Your backend APIs are essentially the data source or functionality that you want to expose to your consumers.&#x20;
+Gravitee enables teams to create Gateway APIs. Gateway APIs are what your API consumers will call or subscribe to in order to retrieve data, functionality, etc. from your backend APIs. Your backend APIs are essentially the data source or functionality that you want to expose to your consumers.
 
 Gravitee currently supports two kinds of Gateway APIs:
 
@@ -17,7 +17,7 @@ We plan to focus our future efforts and innovation on the v4 API definition, as 
 
 Keep reading this article to learn more about these different concepts. If you want to see step-by-step API creation documentation, please skip ahead to:
 
-* [The API creation wizard documentation:](how-to.md) covers how to use the API creation wizard in the UI
+* [The API creation wizard documentation:](how-to/) covers how to use the API creation wizard in the UI
 * [The Import APIs documentation](import-apis.md): covers how to import APIs in Gravitee
 
 ## v4 API creation concepts
@@ -32,10 +32,10 @@ The important v4 API creation concepts are:
 
 When creating v4 APIs, you will need to define your Gateway entrypoints and endpoints. These are:
 
-* **Gateway entrypoints:** define the protocol and configuration by which the API consumer accesses the Gateway API. This essentially defines how the backend API is exposed through the gateway.&#x20;
-* &#x20;**Gateway endpoints:** define the protocol and configuration by which the Gateway API will fetch data from, or post data to, the backend API.
+* **Gateway entrypoints:** define the protocol and configuration by which the API consumer accesses the Gateway API. This essentially defines how the backend API is exposed through the gateway.
+* **Gateway endpoints:** define the protocol and configuration by which the Gateway API will fetch data from, or post data to, the backend API.
 
-For example, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint and Kafka endpoint. If you wanted to expose a backend REST API as a Gateway REST API (i.e. a "pure" RESt API use case), your entrypoint would be your context path (the URL location of your Gateway API) and the endpoint would be your target url (the url for the backend resource that you want to expose).&#x20;
+For example, if you wanted to make a Kafka topic consumable over Websockets, you would choose the Websockets entrypoint and Kafka endpoint. If you wanted to expose a backend REST API as a Gateway REST API (i.e. a "pure" RESt API use case), your entrypoint would be your context path (the URL location of your Gateway API) and the endpoint would be your target url (the url for the backend resource that you want to expose).
 
 ### Backend exposure methods
 
@@ -93,11 +93,11 @@ It's important to know that v4 APIs currently do not support:
 * Gravitee Debug mode
 * Analytics or logs in the API Management Console
 * Auditing functionality
-* Messages and notifications&#x20;
+* Messages and notifications
 {% endhint %}
 
 ## v2 API creation concepts
 
-v2 APIs don't bring as many concepts with them. In order to start creating v2 APIs in Gravitee, you mainly to understand that, one, endpoints refer to the ultimate backend target or data source of the request, and, two, that there is no concept of entrypoints.&#x20;
+v2 APIs don't bring as many concepts with them. In order to start creating v2 APIs in Gravitee, you mainly to understand that, one, endpoints refer to the ultimate backend target or data source of the request, and, two, that there is no concept of entrypoints.
 
 Because there is no decoupling of entrypoints and endpoints, v2 APIs do not support protocol mediation between event brokers and messaging services. If creating v2 APIs in Gravitee, you will be limited to proxying backend APIs that communicate over HTTP 1 or HTTP 2 by exposing Gateway APIs that communicate over HTTP 1 or HTTP 2, with full support for policy enforcement at the request/response levels, but no support for message-level policies.

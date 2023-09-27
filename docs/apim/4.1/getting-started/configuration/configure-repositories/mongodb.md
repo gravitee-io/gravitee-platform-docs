@@ -22,8 +22,7 @@ Some databases are almost fully compatible with MongoDB, like:
 * DocumentDB (AWS)
 * Azure Cosmos DB for MongoDB (Azure)
 
-However, some features might not be supported or act differently in terms of behavior or performance.
-That's why **they are not considered as officially supported databases**, making **MongoDB the only officially supported database** for now.
+However, some features might not be supported or act differently in terms of behavior or performance. That's why **they are not considered as officially supported databases**, making **MongoDB the only officially supported database** for now.
 {% endhint %}
 
 ## Configuration

@@ -9,7 +9,7 @@ description: This article walks through how to administer Organizations and Envi
 Gravitee offers simple methods for managing Organizations and Environments. In this article, we will cover:
 
 * Defining general Organization settings
-* Configuring Authentication settings (Identity Providers) for accessing the Gravitee API Management platform&#x20;
+* Configuring Authentication settings (Identity Providers) for accessing the Gravitee API Management platform
 * Setting up notification templates
 * Connecting Gravitee API Management to Gravitee Cockpit for advanced Environment Management
 
@@ -17,7 +17,7 @@ Gravitee offers simple methods for managing Organizations and Environments. In t
 
 {% @arcade/embed flowId="sAy3l769Swk9epGVWCED" url="https://app.arcade.software/share/sAy3l769Swk9epGVWCED" %}
 
-To access your Organization settings, log-in to your Gravitee API Management Console and select **Organization** from the left-hand nav. From here, you can edit all of your Organization settings. To define general organization settings, select **Settings** under **Console.**&#x20;
+To access your Organization settings, log-in to your Gravitee API Management Console and select **Organization** from the left-hand nav. From here, you can edit all of your Organization settings. To define general organization settings, select **Settings** under **Console.**
 
 You'll be brought the **Settings** page, where you can define:
 
@@ -39,10 +39,10 @@ You'll be brought the **Settings** page, where you can define:
 {% hint style="info" %}
 **CORS at the API level**
 
-CORS can also be configured at the API level. To configure CORS at the API level, refer to the [CORS documentation within the API Configuration section](../api-configuration/v2-api-configuration/configure-cors.md#configure-cors).&#x20;
+CORS can also be configured at the API level. To configure CORS at the API level, refer to the [CORS documentation within the API Configuration section](../api-configuration/v2-api-configuration/configure-cors.md#configure-cors).
 {% endhint %}
 
-* **SMTP settings**: defines organization-wide emailing settings, which will impact how platform users are notified via email for organization-wide events. To learn more about notifications, refer to the [Configure Notifications](broken-reference) documentation. Within this section, you will define:
+* **SMTP settings**: defines organization-wide emailing settings, which will impact how platform users are notified via email for organization-wide events. To learn more about notifications, refer to the [Configure Notifications](../../../guides/administration/broken-reference/) documentation. Within this section, you will define:
   * Whether or not you will enable emailing
   * Host
   * Port

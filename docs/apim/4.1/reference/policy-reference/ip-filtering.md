@@ -62,7 +62,7 @@ The `ip-filtering`  policy can be configured with the following options:
 
 ## Compatibility matrix
 
-&#x20;The following is the compatibility matrix for APIM and the `ip-filtering` policy:
+The following is the compatibility matrix for APIM and the `ip-filtering` policy:
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>1.x</td><td>All</td></tr></tbody></table>
 

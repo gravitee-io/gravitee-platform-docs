@@ -6,13 +6,13 @@ description: Overview of core concepts around API exposure for both consumers an
 
 ## Introduction
 
-API exposure in Gravitee API Management (APIM) revolves around three pillars: plans, applications, and subscriptions. Once a Gateway API is started, deployed, and published, it will be visible in the Developer Portal, but can not be consumed until a plan is published. A plan with the keyless authentication type can be consumed immediately. However, all other types of authentication require the API consumer to register an application and subscribe to one of the published plans for that Gateway API. This allows the API publisher to closely monitor and control access to their APIs at a much more granular level.&#x20;
+API exposure in Gravitee API Management (APIM) revolves around three pillars: plans, applications, and subscriptions. Once a Gateway API is started, deployed, and published, it will be visible in the Developer Portal, but can not be consumed until a plan is published. A plan with the keyless authentication type can be consumed immediately. However, all other types of authentication require the API consumer to register an application and subscribe to one of the published plans for that Gateway API. This allows the API publisher to closely monitor and control access to their APIs at a much more granular level.
 
 ## Plans
 
 There are many possible types of API access scenarios, which can be difficult to encode into your APIs. Different types of access scenarios often require external tools and modifying your backend APIs. In APIM, however, Gateway APIs are deployed with plans which allow the API publisher to quickly iterate on, and extend the functionality of, their backend APIs.
 
-A plan provides a service and access layer on top of your APIs for consumer applications. A plan specifies access limits, subscription validation modes, and other configurations to tailor it to a specific application.&#x20;
+A plan provides a service and access layer on top of your APIs for consumer applications. A plan specifies access limits, subscription validation modes, and other configurations to tailor it to a specific application.
 
 The most important part of plan configuration is selecting the security type. APIM supports the following four security types:
 
@@ -27,9 +27,7 @@ Exposing an API to a consumer requires at least one plan, but can support as man
 * Premium access with public resources and access limits for your partners.
 * Unlimited access to your internal enterprise applications.
 
-
-
-<figure><img src="../../../images/apim/3.x/api-publisher-guide/plans-subscriptions/plan-diagram.png" alt=""><figcaption><p>High-level plan diagram</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/plan-diagram.png" alt=""><figcaption><p>High-level plan diagram</p></figcaption></figure>
 
 After creating a plan, it's initially in the first of the four stages of a plan: staging, published, deprecated, and closed.
 

@@ -1,4 +1,4 @@
-# Quick Install
+# Quick install
 
 This is the fastest way to get Gravitee API Management (APIM) up and running on an Amazon instance. It installs all prerequisites and the full APIM stack at the same time.
 

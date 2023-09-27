@@ -224,7 +224,7 @@ servers:
 
 ### Local installation
 
-You can configure the APIM Gateway [plugins](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md) directory with `plugins.path` configuration property:
+You can configure the APIM Gateway [plugins](../../../overview/plugins.md) directory with `plugins.path` configuration property:
 
 ```yaml
 plugins:
@@ -234,7 +234,7 @@ plugins:
 Users can add plugins not included in APIM's default distribution to this directory. This includes different versions of Gravitee plugins or their own [custom plugins](../../../guides/developer-contributions/dev-guide-plugins.md).&#x20;
 
 {% hint style="info" %}
-To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md#discovery-and-loading)
+To understand how Gravitee handles duplicate plugins, see plugins [discovery and loading.](../../../overview/plugins.md#discovery-and-loading)
 {% endhint %}
 
 If you do not wish to modify the default directory, Gravitee also lets you specify additional folders in an array:
@@ -264,7 +264,7 @@ api:
 ```
 {% endcode %}
 
-The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md#discovery-and-loading) for more information.
+The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../../overview/plugins.md#discovery-and-loading) for more information.
 
 ## Configure the Management repository
 
@@ -448,7 +448,7 @@ In this example, we are configuring deployment only for APIs tagged as `product`
 tags: 'product,store,!international'
 ```
 
-For more in-depth information on how to configure sharding tags, please refer to the [Sharding Tags documentation.](../configure-sharding-tags-for-your-gravitee-api-gateways.md)
+For more in-depth information on how to configure sharding tags, please refer to the [Sharding Tags documentation.](configure-sharding-tags-for-your-gravitee-api-gateways.md)
 
 ## Configure organizations and environments
 

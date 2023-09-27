@@ -22,7 +22,7 @@ API Quality is configured at the Portal Settings level. To access these settings
 
 <figure><img src="../../.gitbook/assets/Access API Quality settings.gif" alt=""><figcaption><p>Access the API Quality settings</p></figcaption></figure>
 
-The API Quality feature allows you to ensure that every API you publish or deploy to production is of high quality, based on your organization's standards. You can choose to use this feature as merely a way to measure and view the quality of your APIs, or, you can use it to actually introduce necessary friction into the API lifecycle.&#x20;
+The API Quality feature allows you to ensure that every API you publish or deploy to production is of high quality, based on your organization's standards. You can choose to use this feature as merely a way to measure and view the quality of your APIs, or, you can use it to actually introduce necessary friction into the API lifecycle.
 
 To simply enable quality to be measured and viewable within an APIs details, check the **Enable API Quality Metrics** checkbox. If you want to build API Quality review into your workflow, and not allow an API to be published without first having undergone review (which gives a reviewer a chance to review the quality score), check the **Enable API review** checkbox.
 
@@ -40,14 +40,12 @@ Your API Quality scores will be dependent on weighted values that you give eithe
   * Technical documentation
 * **Endpoint**: is there a health check set up for the API?
 
-If you leverage the pre-built rules, quality scores will be assigned automatically, as the Gravitee API Management solution can takes those rules and measure API quality against them automatically.&#x20;
+If you leverage the pre-built rules, quality scores will be assigned automatically, as the Gravitee API Management solution can takes those rules and measure API quality against them automatically.
 
 However, In addition to these pre-built rules, you can also add your own manual rules. To add a manual rule, follow these steps:
 
-1. In the **API Quality** settings, select the + **Add a new quality rule** icon in the bottom right corner of the page.&#x20;
+1. In the **API Quality** settings, select the + **Add a new quality rule** icon in the bottom right corner of the page.
 2. Define your rule by giving it a name, a description, and a weight.
-
-
 
 Once created, you can enforce this custom rule manually across your APIs.
 
@@ -55,12 +53,12 @@ Once created, you can enforce this custom rule manually across your APIs.
 
 ### View and review APIs based on API Quality scoring
 
-An APIs quality score is visible in its **General** details page. To view an API Quality score, follow these steps:&#x20;
+An APIs quality score is visible in its **General** details page. To view an API Quality score, follow these steps:
 
 1. Log in to the API Management Console.
 2. On the APIs page, select the API for which you want to view a Quality score.
-3. Select General under Portal.&#x20;
+3. Select General under Portal.
 
-You'll see the Quality score along with the various Quality rules that are impacting the score.&#x20;
+You'll see the Quality score along with the various Quality rules that are impacting the score.
 
 <figure><img src="../../.gitbook/assets/View quality score.gif" alt=""><figcaption></figcaption></figure>

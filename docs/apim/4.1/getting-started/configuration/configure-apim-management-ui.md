@@ -399,8 +399,6 @@ For example:
 
 The api status page is a panel in the dashboard that displays the status of all APIs.
 
-The tab is enabled by default, but depending on the number of APIs, it may take a while to load. You can disable it in your Gateway settings. [Please refer to this documentation to learn more about dashboards.](../../guides/api-performance-and-measurement/how-to.md)
+The tab is enabled by default, but depending on the number of APIs, it may take a while to load. You can disable it in your Gateway settings. [Please refer to this documentation to learn more about dashboards.](../../guides/api-measurement-tracking-and-analytics/how-to.md)
 
-\
-
-
+\\
