@@ -1,17 +1,19 @@
 # Configure Helm Chart
 
-This guide will detail all the configuration options for APIM's helm chart.
+This article discusses all of the configuration options for the APIM Helm chart.
 
 ## Configuration
 
-The following tables list the Gravitee chart's configurable parameters and their default values.
+The following tables list the Gravitee Helm chart's configurable parameters and their default values.
 
-You can rely on Kubernetes ConfigMaps and _Secrets_ to initialize Gravitee settings. To use this feature, you have to create the ServiceAccount that allows Gravitee API Management (APIM) to connect to the Kubernetes API which the Helm chart does by default. Then you must define your application settings like this:
+By default, the Helm chart creates a ServiceAccount that enables Gravitee API Management (APIM) to connect to the Kubernetes API. This allows Kubernetes ConfigMaps and Secrets to initialize Gravitee settings.
 
-* for a Secret : `kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>`
-* for a ConfigMap : `kubernetes://<namespace>/configmaps/<my-configmap-name>/<my-configmap-key>`
+Application settings must be defined as follows:
 
-Here is an example for the mongodb URI initialized from the `mongo` secret deployed in the `default` namespace:
+* Secret settings: `kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>`
+* ConfigMap settings: `kubernetes://<namespace>/configmaps/<my-configmap-name>/<my-configmap-key>`
+
+For example, the MongoDB URI initialized from the `mongo` Secret deployed in the `default` namespace is defined as:
 
 ```
 mongo:
@@ -19,20 +21,23 @@ mongo:
 ```
 
 {% hint style="info" %}
-If you need to access a secret, you have to create a role within your namespace.
+To access a Secret, create a role within your namespace.
 
-If you are deploying in another namespace and you need to access a secret there, you have to create a separate role in that namespace. The two roles can have the same name, but they are completely separate objects - each role only gives access to the namespace it is created in.
+To deploy in another namespace from which you will access a Secret, create a another role in that namespace. The two roles can have the same name but are completely separate objects. Each role only provides access to the namespace in which it is created.
 
-For more information about roles, see [Role and ClusterRole](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) in the [Kubernetes documentation](https://kubernetes.io/docs/).
+For more information on roles, see [Role and ClusterRole](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) in the [Kubernetes documentation](https://kubernetes.io/docs/).
 {% endhint %}
 
-### **Minimal configuration example**
+### **Minimum configuration example**
 
-Here is the minimal `value-light.yml` you have to provide for a development deployment. (Do not use in production!)
-Change the `domain` value and run the following command: 
-```
-helm install gravitee-apim graviteeio/apim -f value-light.yml
-```
+Below is the minimum `value-light.yml` configuration required by a development deployment. Change the `domain` value and run the following command:
+
+{% hint style="warning" %}
+Do not use `value-light.yml` in production.
+{% endhint %}
+
+<pre><code><strong>helm install gravitee-apim graviteeio/apim -f value-light.yml
+</strong></code></pre>
 
 ```yaml
 # Deploy an elasticsearch cluster.
@@ -88,7 +93,7 @@ ui:
 
 ### **External configuration file**
 
-If you want to use an external configuration file, such as `gravitee.yaml` for the Gateway or API management, or `constant.json` for the UI, add the following lines to the helm chart.
+To use an external configuration file, such as `gravitee.yaml` for the Gateway or API management, or `constant.json` for the UI, add the following to the Helm chart (`gravitee-config-configmap-name` is the name of the ConfigMap that contains the external configuration file):
 
 ```yaml
 extraVolumes: |
@@ -97,31 +102,33 @@ extraVolumes: |
         name: gravitee-config-configmap-name
 ```
 
-Where `gravitee-config-configmap-name` is the configmap name containing the external configuration file.
-
 {% hint style="warning" %}
-External configuration files are only available for the AE Helm chart 1.1.42 and above, the AM Helm chart 1.0.53 and above, and the APIM Helm chart 3.1.60 and above.
+External configuration files are only available for:&#x20;
+
+* AE Helm charts 1.1.42 and later
+* AM Helm charts 1.0.53 and later
+* APIM Helm charts 3.1.60 and later
 {% endhint %}
 
-### **Shared Configuration**
+### **Shared configuration**
 
 To configure common features such as:
 
-* chaos testing (see [chaoskube](https://github.com/kubernetes/charts/tree/master/stable/chaoskube) chart).
-* configuration database (see [mongodb](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) chart).
-* logs database (see [elasticsearch](https://github.com/bitnami/charts/tree/master/bitnami/elasticsearch) chart).
+* Chaos testing: See [chaoskube](https://github.com/kubernetes/charts/tree/master/stable/chaoskube) chart
+* Configuration database: See [mongodb](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) chart
+* Logs database: See [elasticsearch](https://github.com/bitnami/charts/tree/master/bitnami/elasticsearch) chart
 
-| Parameter              | Description        | Default |
-| ---------------------- | ------------------ | ------- |
-| `chaos.enabled`        | Enable Chaos test  | false   |
-| `inMemoryAuth.enabled` | Enable oauth login | true    |
-| `ldap.enabled`         | Enable LDAP login  | false   |
+<table><thead><tr><th width="270.66666666666663">Parameter</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td><code>chaos.enabled</code></td><td>Enable Chaos test</td><td>false</td></tr><tr><td><code>inMemoryAuth.enabled</code></td><td>Enable oauth login</td><td>true</td></tr><tr><td><code>ldap.enabled</code></td><td>Enable LDAP login</td><td>false</td></tr></tbody></table>
 
 ### **MongoDB**
 
-To install MongoDB via Helm command, run the following: `helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t`
+To install MongoDB with Helm:&#x20;
 
-#### **MongoDB Connections**
+```
+helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
+```
+
+#### **MongoDB connections**
 
 There are three ways to configure MongoDB connections.
 
@@ -131,7 +138,7 @@ There are three ways to configure MongoDB connections.
 | ----------- | ----------- | ------- |
 | `mongo.uri` | Mongo URI   | `null`  |
 
-2. If no `mongo.uri` is provided, you can provide a `mongo.servers` raw definition in combination with `mongo.dbname`, plus eventual authentication configuration:
+2. If no `mongo.uri` is provided, you can provide a `mongo.servers` raw definition in combination with `mongo.dbname` and an authentication configuration:
 
 ```yaml
 mongo:
@@ -147,50 +154,41 @@ mongo:
     password:
 ```
 
-3. If neither `mongo.uri` or `mongo.servers` are provided, you must define the following configuration options:
+3. If neither `mongo.uri` nor `mongo.servers` is provided, you must define the following configuration options:
 
-| Parameter             | Description                                | Default                    |
-| --------------------- | ------------------------------------------ | -------------------------- |
-| `mongo.rsEnabled`     | Whether Mongo replicaset is enabled or not | `true`                     |
-| `mongo.rs`            | Mongo replicaset name                      | `rs0`                      |
-| `mongo.dbhost`        | Mongo host address                         | `mongo-mongodb-replicaset` |
-| `mongo.dbport`        | Mongo host port                            | `27017`                    |
-| `mongo.dbname`        | Mongo DB name                              | `gravitee`                 |
-| `mongo.auth.enabled`  | Enable Mongo DB authentication             | `false`                    |
-| `mongo.auth.username` | Mongo DB username                          | `null`                     |
-| `mongo.auth.password` | Mongo DB password                          | `null`                     |
+<table><thead><tr><th width="247.66666666666666">Parameter</th><th width="190">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>mongo.rsEnabled</code></td><td>Whether Mongo replicaset is enabled or not</td><td><code>true</code></td></tr><tr><td><code>mongo.rs</code></td><td>Mongo replicaset name</td><td><code>rs0</code></td></tr><tr><td><code>mongo.dbhost</code></td><td>Mongo host address</td><td><code>mongo-mongodb-replicaset</code></td></tr><tr><td><code>mongo.dbport</code></td><td>Mongo host port</td><td><code>27017</code></td></tr><tr><td><code>mongo.dbname</code></td><td>Mongo DB name</td><td><code>gravitee</code></td></tr><tr><td><code>mongo.auth.enabled</code></td><td>Enable Mongo DB authentication</td><td><code>false</code></td></tr><tr><td><code>mongo.auth.username</code></td><td>Mongo DB username</td><td><code>null</code></td></tr><tr><td><code>mongo.auth.password</code></td><td>Mongo DB password</td><td><code>null</code></td></tr></tbody></table>
 
-**Other Keys**
+**Other keys**
 
 | Parameter               | Description                      | Default |
 | ----------------------- | -------------------------------- | ------- |
 | `mongo.sslEnabled`      | Enable SSL connection to MongoDB | `false` |
 | `mongo.socketKeepAlive` | Enable keep alive for socket     | `false` |
 
-**Mongo Replica Set**
-
-| Parameter                    | Description                           | Default |
-| ---------------------------- | ------------------------------------- | ------- |
-| `mongodb-replicaset.enabled` | Enable deployment of Mongo replicaset | `false` |
-
-See [MongoDB](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) for detailed documentation on helm chart.
-
-Please be aware that the mongodb-replicaset installed by Gravitee is NOT recommended in production and it is just for testing purpose and running APIM locally.
+**Mongo replica set**
 
 {% hint style="warning" %}
-You may encounter issues while running this Helm Charts on Apple Silicon M1 (see [https://github.com/bitnami/charts/issues/7305](https://github.com/bitnami/charts/issues/7305)). If you want to deploy MongoDB on M1 we encourage you to switch to another Helm chart for deploying MongoDB.
+The mongodb-replicaset installed by Gravitee is NOT recommended in production. It should be used for testing purpose and running APIM locally.
+{% endhint %}
+
+<table><thead><tr><th width="233.66666666666666">Parameter</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td><code>mongodb-replicaset.enabled</code></td><td>Enable deployment of Mongo replicaset</td><td><code>false</code></td></tr></tbody></table>
+
+See [MongoDB](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) for detailed Helm chart documentation.
+
+{% hint style="warning" %}
+You may encounter issues while [running this Helm chart on Apple Silicon M1](https://github.com/bitnami/charts/issues/7305). If you want to deploy MongoDB on M1, we encourage you to use another Helm chart.
 {% endhint %}
 
 ### **PostgresSQL (via JDBC Connection)**
 
-To install a new PostgresSQL database, use the command below and update the `username`, `password`, and `databasename` parameters:
+To install a new PostgresSQL database, run the command below after updating the `username`, `password`, and `databasename` parameters:
 
 ```sh
 helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
 --set postgresqlDatabase=graviteeapim postgres-apim bitnami/postgresql
 ```
 
-Check that PostgreSQL pod is up and running before proceeding by running `kubectl get pods` as indicated below.
+Verify that the PostgreSQL pod is up and running via `kubectl get pods`:
 
 ```sh
 kubectl get pods
@@ -203,7 +201,7 @@ postgres-apim-postgresql-0                1/1     Running      0           98s
 ```
 {% endcode %}
 
-For PostgrestSQL, use the information below in `values.yml` and replace the `username`, `password`, `URL` and `database name` with details for your specific instance.
+Modify the `values.yml` content below to use the `username`, `password`, `URL`, and `database name` specific to your instance:
 
 ```yaml
 jdbc:
