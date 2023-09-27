@@ -16,7 +16,7 @@ If you want to configure logs at the API level, please refer to the [Configure a
 
 ## Configure logging at the Gateway level
 
-You can configure logging permissions and settings at the Gateway level. To do this, select Settings in the far left-hand nav. Then, within the Settings menu, select **API Logging** underneath the **Gateway** section of your settings.&#x20;
+You can configure logging permissions and settings at the Gateway level. To do this, select Settings in the far left-hand nav. Then, within the Settings menu, select **API Logging** underneath the **Gateway** section of your settings.
 
 <figure><img src="../../../.gitbook/assets/2023-06-28_10-39-47 (1).gif" alt=""><figcaption></figcaption></figure>
 
@@ -27,4 +27,3 @@ From here, you can choose to enable:
 * Generation of API logging as audit events (API\_LOGGING\_ENABLED, API\_LOGGING\_DISABLED, API\_LOGGING\_UPDATED)
 
 You can also define the maximum duration (in ms) for the activation of logging mode by entering in a numerical value in the **Maximum duration** text field.
-

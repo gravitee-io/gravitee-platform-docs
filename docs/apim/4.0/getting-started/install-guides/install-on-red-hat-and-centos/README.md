@@ -48,7 +48,7 @@ You can choose to install the full APIM stack or install the components one by o
 
 * [Install the full APIM stack](install-the-full-apim-stack.md) (includes all components below)
 * Install APIM Components
-  * [Install APIM Gateway](apim-components/#install-apim-gateway)
-  * [Install APIM Management API](apim-components/#install-management-api)
-  * [Install APIM Console](apim-components/#install-management-console)
-  * [Install APIM Developer Portal](apim-components/#install-developer-portal)
+  * [Install APIM Gateway](apim-components.md#install-apim-gateway)
+  * [Install APIM Management API](apim-components.md#install-management-api)
+  * [Install APIM Console](apim-components.md#install-management-console)
+  * [Install APIM Developer Portal](apim-components.md#install-developer-portal)

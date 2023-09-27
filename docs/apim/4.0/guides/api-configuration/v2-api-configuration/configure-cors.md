@@ -62,7 +62,7 @@ Select **Save**. You've now configured your Entrypoints.
 
 ### Configure CORS
 
-CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API. If you want to know more about CORS at the conceptual level, refer to the CORS "Concepts" article. If you want to learn more about CORS at a conceptual level, we recommend referring to the [CORS section](broken-reference/) of the "Concepts" article for this section.
+CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API. If you want to know more about CORS at the conceptual level, refer to the CORS "Concepts" article. If you want to learn more about CORS at a conceptual level, we recommend referring to the [CORS section](../../../../guides/api-configuration/v2-api-configuration/broken-reference/) of the "Concepts" article for this section.
 
 To configure CORS for an API, follow these steps:
 
@@ -127,12 +127,12 @@ You've configured your CORS settings for your API. When you are done, select **S
 
 All requests rejected because of CORS issues will generate logs that you can view in the `Analytics` section of your API logs.
 
-<img src="../../../.gitbook/assets/graviteeio-troubleshooting-cors (1).png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="" data-size="original">
 {% endhint %}
 
 ### Configure Deployments
 
-The **Deployments** tab is where you can choose to use sharding tags to control where your API is deployed. Sharding tags are configured at the **Organization** level in Gravitee. For more information on sharding tags, what they are useful for, and how to configure them, refer to [this article](../../../getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md).
+The **Deployments** tab is where you can choose to use sharding tags to control where your API is deployed. Sharding tags are configured at the **Organization** level in Gravitee. For more information on sharding tags, what they are useful for, and how to configure them, refer to [this article](../../../getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md).
 
 To choose sharding tags, follow the below interactive tutorial, or, follow the steps below.
 

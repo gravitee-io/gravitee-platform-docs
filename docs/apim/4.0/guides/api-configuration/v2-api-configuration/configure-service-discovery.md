@@ -102,7 +102,7 @@ curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "ap
 
 Check the Consul web UI and you should see the new service named `whattimeisit`:
 
-<figure><img src="../../../../images/apim/3.x/api-publisher-guide/service-discovery/service-discovery-consul-services.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/service-discovery-consul-services.png" alt=""><figcaption></figcaption></figure>
 
 You can also verify that your service is successfully registered in Consul by interacting with Consul Agent API. To do so, se the following cURL command:
 
@@ -256,7 +256,7 @@ You've now integrated the Gravitee API Gateway with HashiCorp Consul, which enab
 {% hint style="info" %}
 **Additional considerations if integrating Gravitee with HashiCorp Consul:**
 
-If you have integrated Gravitee and HashiCorp Consul for Service Discovery, you may want to enable health checks for your API. This will allow you to view the status of all endpoints under the Per-endpoint availability section in Gravitee, including the endpoints managed by HashiCorp Consul. For more details on how to enable Gravitee health checks, refer to [this documentation](../load-balancing-failover-and-health-checks.md#configure-gravitee-health-checks).
+If you have integrated Gravitee and HashiCorp Consul for Service Discovery, you may want to enable health checks for your API. This will allow you to view the status of all endpoints under the Per-endpoint availability section in Gravitee, including the endpoints managed by HashiCorp Consul. For more details on how to enable Gravitee health checks, refer to [this documentation](load-balancing-failover-and-health-checks.md#configure-gravitee-health-checks).
 
-<img src="../../../../images/apim/3.x/api-publisher-guide/service-discovery/service-discovery-consul-healthcheck.png" alt="" data-size="original">
+<img src="../../../.gitbook/assets/enable health check to monitor backend endpoints managed by Hashicorp Consul.png" alt="" data-size="original">
 {% endhint %}

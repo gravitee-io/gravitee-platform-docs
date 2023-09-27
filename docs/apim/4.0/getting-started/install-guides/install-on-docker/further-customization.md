@@ -8,7 +8,7 @@ APIM Docker images contain the default plugins. To add an additional plugin, cop
 
 You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
 
-For more information, about plugin deployment, see [Deployment](../../../overview/introduction-to-gravitee-api-management-apim/plugins.md#deployment).
+For more information, about plugin deployment, see [Deployment](../../../overview/plugins.md#deployment).
 
 {% hint style="warning" %}
 Some plugins need to be installed on both the API Gateway and the Management API. Please verify the specific plugin’s documentation for the details.

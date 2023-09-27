@@ -41,7 +41,7 @@ You can create multiple policies for a single flow, each with a different config
 
 The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. Flows can be set to target subscribers of any of these three plans, like the "sample API Key flow", or they can target all users of the API, such as the "sample HTTP Get flow" and "sample Websocket flow".
 
-<figure><img src="../../.gitbook/assets/policy studio_flow (1).png" alt=""><figcaption><p>Sample v4 Policy Studio</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_flow.png" alt=""><figcaption><p>Sample v4 Policy Studio</p></figcaption></figure>
 
 ### Create a flow
 
@@ -58,7 +58,7 @@ Define the following:
 * **Channel:** Define the path to use in conjunction with the **Operator** to determine if this flow should be applied.
 * **Entrypoints:** Select the entrypoint(s) for which you want the flow to be executed. If none are selected, the flow will be executed for all possible entrypoints, assuming required conditions are met. Available entrypoints are **HTTP GET**, **HTTP POST**, **Websocket**, **Server-Sent Events**, and **Webhook**.
 * **Entrypoints supported operations:** Select **Publish** and/or **Subscribe** as the operation(s) supported by the entrypoint(s). If none are selected, both will be supported.
-* **Condition:** Define specific conditions that will trigger flow execution using [Gravitee's Expression Language (EL)](gravitee-expression-language.md).
+* **Condition:** Define specific conditions that will trigger flow execution using [Gravitee's Expression Language (EL)](../gravitee-expression-language.md).
 
 Once you've clicked **Create** to add a flow, be sure to also click **Save** in the upper right of the Policy Studio.
 
@@ -129,7 +129,7 @@ In addition to hardcoded properties, Gravitee supports dynamic properties. The d
 
 To access the dynamic properties module, select **Properties** from the inner left nav and click **CONFIGURE DYNAMIC PROPERTIES**.
 
-<figure><img src="../../.gitbook/assets/policy studio_dynamic properties (1).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/policy studio_dynamic properties.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
 To configure dynamic properties:
 

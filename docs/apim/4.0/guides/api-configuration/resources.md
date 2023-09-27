@@ -27,7 +27,7 @@ APIM includes several default resources, each of which is described in more deta
 * **Keycloak Adapter:** Introspects an access token.
 
 {% hint style="warning" %}
-The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and [deploy](../../overview/introduction-to-gravitee-api-management-apim/plugins.md#deployment) it. For information on configuring cache in APIM, see [Configure cache](../../getting-started/configuration/configure-cache.md). For information on configuring the rate limit repository plugin for Redis, see [Redis](../../getting-started/configuration/configure-repositories/#redis).
+The **Cache Redis** plugin is not included in the default APIM distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and [deploy](../../overview/plugins.md#deployment) it. For information on configuring cache in APIM, see [Configure cache](../../getting-started/configuration/configure-cache.md). For information on configuring the rate limit repository plugin for Redis, see [Redis](../../getting-started/configuration/configure-repositories/#redis).
 {% endhint %}
 
 ### OAuth2 APIM compatibility

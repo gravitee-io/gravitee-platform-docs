@@ -67,8 +67,8 @@ API publishers can create cache resources:
 
 The default distribution comes with the Cache resource plugin. This plugin stores content in memory and is locally managed on each Gateway node of the installation.
 
-Configuration of cache resources cannot be managed using the `hazelcast.xml` file. The configuration is directly defined on the cache resource.&#x20;
+Configuration of cache resources cannot be managed using the `hazelcast.xml` file. The configuration is directly defined on the cache resource.
 
 ### Persistent cache
 
-APIM also supports the Gravitee Redis Cache resource plugin based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) the plugin and follow these [instructions](../../overview/introduction-to-gravitee-api-management-apim/plugins.md#deployment) to deploy it.
+APIM also supports the Gravitee Redis Cache resource plugin based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) the plugin and follow these [instructions](../../overview/plugins.md#deployment) to deploy it.
