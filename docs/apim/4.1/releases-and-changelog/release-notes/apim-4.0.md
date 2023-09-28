@@ -38,7 +38,7 @@ You can manage user and group access to individual APIs via the Management Conso
 
 4.1 introduces enhanced QoS support for various entrypoint, protocol, and endpoint selections. The QoS compatibility matrix can be found [here](../../guides/api-configuration/v4-api-configuration/quality-of-service.md).
 
-## API management
+## Importing and duplicating v4 APIs
 
 You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis.md).
 
