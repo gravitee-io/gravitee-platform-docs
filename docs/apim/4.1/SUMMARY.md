@@ -199,7 +199,8 @@
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
-  * [APIM 4.1](releases-and-changelog/release-notes/apim-4.0.md)
+  * [APIM 4.0](releases-and-changelog/release-notes/apim-4.1.md)
+  * [APIM 4.1](releases-and-changelog/release-notes/apim-4.1-1.md)
 * [Changelog](releases-and-changelog/changelogs/README.md)
   * [APIM 4.1.x](releases-and-changelog/changelogs/apim-4.0.x-changelog.md)
 
