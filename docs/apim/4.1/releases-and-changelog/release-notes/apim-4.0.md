@@ -1,5 +1,5 @@
 ---
-description: This article covers the new features released in Gravitee API Management 4.1
+description: This article covers the new features released in Gravitee API Management 4.0
 ---
 
 # APIM 4.0
