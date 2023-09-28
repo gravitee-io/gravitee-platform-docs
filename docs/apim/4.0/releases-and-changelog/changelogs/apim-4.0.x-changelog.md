@@ -6,6 +6,35 @@ description: >-
 
 # APIM 4.0.x
 
+## Gravitee API Management 4.0.9 - September 28, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* 401 Error with OAuth2 plan after API synchronization [#9251](https://github.com/gravitee-io/issues/issues/9251)
+* Metrics for long running connection reported only once closed [#9259](https://github.com/gravitee-io/issues/issues/9259)
+* Metrics timers for message API request are not set [#9263](https://github.com/gravitee-io/issues/issues/9263)
+
+**Console**
+
+* Deprecated API is displayed as Published on Dashboard (CE only), Published appears twice [#9249](https://github.com/gravitee-io/issues/issues/9249)
+* API Status shows a default API picture icon instead of the configured one [#9250](https://github.com/gravitee-io/issues/issues/9250)
+* DCR Provider Does Not Appear in UI [#9257](https://github.com/gravitee-io/issues/issues/9257)
+
+**Other**
+
+* Mock Policy - Example value is not correct when the GET method returns an array [#6289](https://github.com/gravitee-io/issues/issues/6289)
+* \[MQTT5.x] Improve security choice [#9173](https://github.com/gravitee-io/issues/issues/9173)
+* No flow in Design API [#9242](https://github.com/gravitee-io/issues/issues/9242)
+* Remove SMTP default example configuration in Helm [#9243](https://github.com/gravitee-io/issues/issues/9243)
+* Allow ingress wildcard in Helm chart [#9246](https://github.com/gravitee-io/issues/issues/9246)
+* Getting 400 bad requests and random timeouts APIM version 3.20.14 [#9266](https://github.com/gravitee-io/issues/issues/9266)
+
+</details>
+
 ## Gravitee API Management 4.0.8 - September 14, 2023
 
 <details>
