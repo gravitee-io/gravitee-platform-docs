@@ -1,8 +1,8 @@
 ---
-description: This article covers the new features released in Gravitee API Management 4.0
+description: This article covers the new features released in Gravitee API Management 4.1
 ---
 
-# APIM 4.0
+# APIM 4.1
 
 {% hint style="danger" %}
 **Make sure you upgrade your license file**
@@ -12,7 +12,7 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 ## Introduction
 
-Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support for asynchronous APIs, event brokers, and protocol mediation-especially as it pertains to what is surfaced in the API Management Console. For a more paired-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../../changelogs/apim-4.0.x-changelog.md). Otherwise, keep reading for a more in-depth exploration of everything that was released in APIM 4.0.
+Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support for asynchronous APIs, event brokers, and protocol mediation-especially as it pertains to what is surfaced in the API Management Console. For a more paired-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../changelogs/apim-4.0.x-changelog.md). Otherwise, keep reading for a more in-depth exploration of everything that was released in APIM 4.0.
 
 ## The new v4 API creation wizard
 
@@ -22,7 +22,7 @@ The new v4 API creation wizard enables you to use the Gravitee API Management Co
 
 The v4 API definition allows organizations to use Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. With the new creation wizard, you can use the Gravitee API Management Console to create APIs that expose Kafka, MQTT, RabbitMQ (if using AMQP 0-9-1 protocol), Solace, and Mock (simulated for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs.
 
-For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation.](../../../guides/create-apis/how-to/v4-api-creation-wizard.md)
+For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation.](../../guides/create-apis/how-to/v4-api-creation-wizard.md)
 
 ## The new v4 Policy Studio
 
@@ -30,7 +30,7 @@ We've released a brand new Policy Studio that enables you to design policy flows
 
 Policies designed using the new v4 API Policy Studio can be designed and enforced at the request, response, publish, and/or subscribe phases. They can also be enforced at the message level for use cases where message-based APIs and communication are employed.&#x20;
 
-For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../../guides/policy-design/v4-api-policy-design-studio.md).
+For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../guides/policy-design/v4-api-policy-design-studio.md).
 
 ### Existing v2 API Gravitee policies that now support v4 message APIs
 
@@ -51,20 +51,20 @@ As a part of the new Policy Studio release, we've made some existing Gravitee po
 * Transform headers policy
 
 {% hint style="info" %}
-While these policies can be used for v4 message APIS, not all of these policies support execution at the message level. For more information on the execution phase for each policy, please refer to our [Policy Reference documentation](../../../reference/policy-reference/).
+While these policies can be used for v4 message APIS, not all of these policies support execution at the message level. For more information on the execution phase for each policy, please refer to our [Policy Reference documentation](../../reference/policy-reference/).
 {% endhint %}
 
-For more information on policies, please refer to our [policy reference documentation](../../../reference/policy-reference/).
+For more information on policies, please refer to our [policy reference documentation](../../reference/policy-reference/).
 
 ### New policies for v4 message APIs
 
 We've also released two brand new policies that will support v4 message APIs:
 
-* [Cloud Events policy](../../../reference/policy-reference/cloud-events.md): You can use the `cloud-events` policy to create a cloud-events `JSON` object from messages. The `datacontenttype` will be set accordingly to the message `Content-type` if any.
+* [Cloud Events policy](../../reference/policy-reference/cloud-events.md): You can use the `cloud-events` policy to create a cloud-events `JSON` object from messages. The `datacontenttype` will be set accordingly to the message `Content-type` if any.
 * Serialization and Deserialization policies:
-  * [Avro <> JSON](../../../reference/policy-reference/avro-json.md): transform information between Avro and JSON format
+  * [Avro <> JSON](../../reference/policy-reference/avro-json.md): transform information between Avro and JSON format
 
-For more information on policies, please refer to our [policy reference documentation](../../../reference/policy-reference/).
+For more information on policies, please refer to our [policy reference documentation](../../reference/policy-reference/).
 
 ## Support for Schema registry as a resource
 
@@ -72,7 +72,7 @@ When designing policies and flows, you can now define Confluent Schema Registry 
 
 Serialization and deserialization will be validated against target schemas stored in specified schema registries. The schema ID can be obtained dynamically through a message header or attribute.
 
-For more information, please refer to our [Resources documentation](../../../guides/api-configuration/resources.md).
+For more information, please refer to our [Resources documentation](../../guides/api-configuration/resources.md).
 
 ## Webhook subscription configuration in the Developer Portal
 
@@ -83,11 +83,11 @@ When in the Developer Portal, you'll be able to:
 * Configure the details of your plan in the portal, including defining a custom Webhook callback URL
 * Add basic authentication and an API key as a bearer token
 
-This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the [Webhook subscription management documentation](../../../guides/developer-portal/webhook-subscription-management.md).
+This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the [Webhook subscription management documentation](../../guides/developer-portal/webhook-subscription-management.md).
 
 ## v2 Management API
 
-We've created a new version of the Gravitee API Management Management API (M-API). This new version of the Management API enables you to act on v4 APIs "as code" via the API. For more information on the v2 Management API, please refer to the [API reference documentation](../../../reference/management-api-reference.md).
+We've created a new version of the Gravitee API Management Management API (M-API). This new version of the Management API enables you to act on v4 APIs "as code" via the API. For more information on the v2 Management API, please refer to the [API reference documentation](../../reference/management-api-reference.md).
 
 ## New Kubernetes Operator enhancements
 
@@ -97,13 +97,13 @@ In addition to making Gravitee API Management more "event-native," we've also ma
 * You can now manage application-level CRDs through the Gravitee Kubernetes Operator. This enables you to configure a platform level configuration using a k8s declarative approach
 * The Kubernetes Operator now supports both local and global configurations. This means that you can define the ManagementContext for your CRD and control whether the API should be local or global.
 
-For more information, please refer to our [Kubernetes Operator documentation](../../../guides/gravitee-kubernetes-operator/).
+For more information, please refer to our [Kubernetes Operator documentation](../../guides/gravitee-kubernetes-operator/).
 
 ### Gravitee as ingress controller
 
 Another major update to the Gravitee Kubernetes Operator is its ability to act as an ingress controller. Now, you can use Gravitee as an ingress controller as opposed to using a third-party ingress controller, such as NGNIx or Traffik. This will result in less complexity and maintenance across the entirety of your infrastructure.
 
-For more information please refer to our [Kubernetes Operator - Ingress Controller documentation](../../../guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md).
+For more information please refer to our [Kubernetes Operator - Ingress Controller documentation](../../guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md).
 
 ## More new features
 
@@ -123,7 +123,7 @@ As a part of our additional support for v4 APIs and asynchronous APIs, we've add
 
 ### Datadog reporter
 
-The Datadog reporter enables you to push API monitoring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the [Datadog reporter documentation](../../../getting-started/configuration/configure-reporters/#datadog-reporter).
+The Datadog reporter enables you to push API monitoring metrics and analytics into Datadog, so that you can ensure that your Datadog instance doesn't have any API monitoring blind spots. To learn more about the Datadog reporter, please refer to the [Datadog reporter documentation](../../getting-started/configuration/configure-reporters/#datadog-reporter).
 
 ### Redis repository plugin
 
