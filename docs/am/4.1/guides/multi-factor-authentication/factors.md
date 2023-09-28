@@ -56,7 +56,7 @@ If you enable an SMS type factor for your application, next time your users log 
 You can change the look and feel of forms using [custom pages](../branding/#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
 {% endhint %}
 
-## Phone Call
+## Phone call
 
 With Phone call verification, you can receive a verification code via a phone call to be used as the second factor to validate a user’s account.
 
@@ -73,6 +73,12 @@ If you enable a **Call** type factor for your application, the next time your us
 {% hint style="info" %}
 You can change the look and feel of forms using [custom pages](../branding/#custom-pages). The enrollment form must send the phone number using the `phone` parameter in E.164 notation.
 {% endhint %}
+
+### Twilio phone factor enhancement
+
+Extension support promotes the adoptability of MFA by offering a solution that does not require the involvement of a personal device. Instead, MFA can use office extensions to rely on a corporate phone network.
+
+To implement this service, the enrollment screen for a Twilio phone factor offers an optional field in which to enter an extension. If an extension is present in the user's enrollment data, the MFA call utilizes Twilio's sendDigits function to direct the call to the extension before playing the audible message containing the MFA code.
 
 ## Email
 

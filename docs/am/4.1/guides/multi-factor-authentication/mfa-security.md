@@ -2,10 +2,19 @@
 
 ## Overview
 
-Gravitee Access Management (AM) enhances MFA security further by introducing two new security features - MFA Rate Limit and Brute Force Detection. This new functionality is designed to make the multi-factor authentication process more resilient to bad actor attacks. The new features enable you to:
+Gravitee Access Management (AM) enhances MFA security further by introducing three new security features - an MFA Challenge policy, MFA Rate Limit, and Brute Force Detection. This new functionality is designed to make the multi-factor authentication process more resilient to bad actor attacks. The new features enable you to:
 
+* Add an MFA step to account actions to protect a user account.
 * Specify the maximum number of MFA challenges the application can request to obtain SMS or Email verification code.
 * Enforce the maximum attempts of MFA code verification.
+
+## MFA Challenge policy
+
+The MFA Challenge policy is an [Enterprise Edition](../../overview/open-source-vs-enterprise-am/) policy plugin. It allows a security domain or application owner to apply an MFA step during password reset or account unlock, etc., to enforce security and ensure that the user account has not been compromised. You can specify which MFA Factor will be used to do the challenge step.
+
+For example, consider an end user who wants to reset their password. After clicking on the RESET PASSWORD email link, the user must complete the form on the MFA Challenge page before their password can be changed.
+
+<figure><img src="../../.gitbook/assets/mfa challenge policy.png" alt=""><figcaption><p>Password reset triggers MFA Challenge</p></figcaption></figure>
 
 ## MFA Rate Limit
 
