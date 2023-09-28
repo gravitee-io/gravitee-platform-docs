@@ -198,8 +198,7 @@
 ## Releases & Changelog
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
-  * [APIM 4.x](releases-and-changelog/release-notes/gravitee-4.x/README.md)
-    * [APIM 4.0](releases-and-changelog/release-notes/gravitee-4.x/apim-4.0.md)
+  * [APIM 4.0](releases-and-changelog/release-notes/apim-4.0.md)
 * [Changelog](releases-and-changelog/changelogs/README.md)
   * [APIM 4.0.x](releases-and-changelog/changelogs/apim-4.0.x-changelog.md)
 
