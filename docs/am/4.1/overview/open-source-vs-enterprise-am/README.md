@@ -29,6 +29,7 @@ The features below are included in the default enterprise Access Management dist
 * Risk Assessment
 * SAML v2
 * Geo IP
+* Account Linking
 
 ## Enterprise plugins <a href="#enterprise-policy-pack" id="enterprise-policy-pack"></a>
 
@@ -61,6 +62,7 @@ The Enterprise MFA pack enables advanced authentication factors for MFA:
 * Recovery Code
 * SMS Factor
 * Twilio Resource
+* MFA Challenge
 
 ## Advanced API monitoring <a href="#advanced-api-monitoring" id="advanced-api-monitoring"></a>
 

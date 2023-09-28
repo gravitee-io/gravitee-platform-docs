@@ -4,13 +4,22 @@
 
 When a user is signing in, AM stores the fact that the user is authenticated for a certain period of time in what we call a **HTTP Session**.
 
-This mechanism avoids the need for the user to re-authenticate every time he wants to perform some actions. The same principle applies to your application or when you use an external identity provider such as Facebook, Twitter, etc.
+This mechanism avoids the need for the user to re-authenticate every time they want to perform some actions. The same principle applies to your application or when you use an external identity provider such as Facebook, Twitter, etc.
 
 {% hint style="info" %}
-By default the session last 30 minutes, you can change this value via the gravitee.yml of the gateway, see [configuration section.](../getting-started/configuration/configure-am-gateway/)
+By default, the session lasts 30 minutes. You can change this value via the Gateway's `gravitee.yml` file (see the [configuration section](../getting-started/configuration/configure-am-gateway/)).
 {% endhint %}
 
-### Session layers
+## Session cookie option
+
+The session cookie option allows the end user to consent to a "remember me" feature by enabling the corresponding checkbox. With this option selected, the user is not logged out of an application after a period of idling.&#x20;
+
+The "remember me" feature implements the following:
+
+* If an end user enables **Remember me**, the session cookie that is provisioned for that session is set to the corresponding expiration configured at the security domain level.
+* If an end user disables **Remember me**, the session cookie that is provisioned for that session is set to the corresponding expiration configured in `gravitee.yml`.
+
+## Session layers
 
 There are three-session layers you need to consider when you want to sign-out your users:
 
@@ -25,15 +34,15 @@ To automatically authenticate your user across applications (SSO), your applicat
 
 ### Invalidate session
 
-For the application session layer, it is up to you to clean everything if you want to log out your users.
+Application session layer: It is up to you to clean everything if you want to log out your users.
 
-For the AM and identity provider sessions, you can read the logout section below to learn how to invalidate them.
+AM and identity provider sessions: Refer to the logout section below to learn how to invalidate these.
 
 ## Logout
 
 ### Invalidate session
 
-Authenticated users who want to invalidate their session can call the following URL: [`https://AM_GATEWAY_HOST/{domain}/logout`](https://am\_gateway\_host/%7Bdomain%7D/logout)
+Authenticated users who want to invalidate their session can call the following URL: [`https://AM_GATEWAY_HOST/{domain}/logout`](https://am\_gateway\_host/%7Bdomain%7D/logout).
 
 {% hint style="info" %}
 By default, access tokens and refresh tokens are not revoked. You can add the `invalidate_tokens=true` query parameter to the request to invalidate current user tokens.
@@ -51,7 +60,7 @@ You can define a signedlist of allowed URLs where the user will be redirected af
 
 Single logout lets your end users sign out of both their Gravitee AM session and the social identity provider (configured in your application) with a single action.
 
-To enable the single logout feature :
+To enable the single logout feature:
 
 1. Log in to AM Console.
 2. Select your application and click **Settings > General**.
@@ -61,7 +70,7 @@ Call the default logout endpoint and your users will be logout at both places.
 
 #### Limitations
 
-Currently, only the following identity providers are compatible with the Single Sign Out feature :
+Currently, only the following identity providers are compatible with the Single Sign Out feature:
 
 * Certified OpenID Connect provider
 * Azure AD
