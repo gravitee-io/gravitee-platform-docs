@@ -10,12 +10,12 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. The API creation wizard is comprised of several steps, each of which requires you to define certain sets of information:
 
-* API details
-* Entrypoints
-* Endpoints
-* Security
-* Documentation
-* Summary
+* [API details](v4-api-creation-wizard.md#step-1-api-details)
+* [Entrypoints](v4-api-creation-wizard.md#step-2-entrypoints)
+* [Endpoints](v4-api-creation-wizard.md#step-3-endpoints)
+* [Security](v4-api-creation-wizard.md#step-4-security)
+* [Documentation](v4-api-creation-wizard.md#step-5-documentation)
+* [Summary](v4-api-creation-wizard.md#step-6-summary)
 
 ## Step 1: API details
 
@@ -48,24 +48,41 @@ After you choose your method of exposure, select **Select my API architecture,**
 
 ### Entrypoint options for the "Proxy upstream protocol" method
 
-If you chose **Proxy upstream protocol**, the Entrypoints step will require you to define a context path and decide whether or not you want to enable virtual hosts. The context path is the URL of your API. Please note that the context path must start with a '/' and can only contain uppercase letters, numbers, dashes or underscores.
+If you chose **Proxy upstream protocol**, you are presented with the following entrypoint options:
 
-If you select :heavy\_check\_mark:**Enable virtual hosts**, you'll have to define the following in addition to your context path:
-
-* **Virtual host:** the host that must be set in the HTTP request to access your entrypoint.
-* **Override access:** override the access URL of your Portal using a virtual host.
-  * To enable or disable this, toggle **Enable** ON or OFF.
-
-To disable virtual hosts, select **X Disable virtual hosts**.
-
-<figure><img src="../../../.gitbook/assets/HTTP proxy entrypoints.gif" alt=""><figcaption><p>HTTP-Proxy entrypoints</p></figcaption></figure>
+* **Define your target URL:** Enter your target URL in the **Target URL** text field.
+* **Define your HTTP options:**
+  * Select the HTTP protocol version to use. **HTTP 1.1** and **HTTP 2** are supported.
+  * (HTTP 2 only) Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
+  * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF.
+    * If enabled, you'll need to define a numeric timeout value in the **Connect timeout** text field by either entering a numeric value or using the arrow keys.
+  * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.
+    * If enabled, you'll need to define a numeric timeout value in the **Read timeout** text field by either entering a numeric value or using the arrow keys.
+  * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.
+  * **Configure your idle timeout settings:** Define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
+  * Choose whether to follow HTTP redirects by toggling **Follow HTTP redirects** ON or OFF.
+  * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
+  * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
+  * **Define your Proxy options:**
+    * Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
+      * If you chose **Use proxy for client connections**, define the following:
+        * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+        * **Proxy host:** Enter your proxy host in the text field.
+        * **Proxy port:** Enter your proxy port in the text field.
+        * (Optional) **Proxy username:** Enter your proxy username in the text field.
+        * (Optional) **Proxy password:** Enter your proxy password in the text field.
+  * **Define your SSL options:**
+    * **Verify Host:** Toggle to enable or disable host name verification.
+    * **Trust all:** When toggled ON, the Gateway must trust any origin certificates. The connection will still be encrypted but this mode is vulnerable to "man in the middle" attacks.
+    * **Truststore:** Select an option from the drop-down menu.
+    * **Key store:** Select an option from the drop-down menu.
 
 ### Entrypoint options for the "Introspect messages from Event-driven backend" method
 
 {% hint style="warning" %}
 **Enterprise only**
 
-As of Gravitee 4.0, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
@@ -74,11 +91,11 @@ As of Gravitee 4.0, the ability to create APIs with message API entrypoints is a
 
 If you chose **Introspect messages from Event-driven backend**, you are presented with a much different set of entrypoint options:
 
-* **HTTP GET:** allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP GET request.
-* **HTTP POST:** allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP POST request.
-* **Server-sent Events:** allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client.
-* **Webhook**: allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
-* **WebSocket**: allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
+* **HTTP GET:** Allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP GET request.
+* **HTTP POST:** Allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP POST request.
+* **Server-sent Events:** Allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client.
+* **Webhook**: Allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
+* **WebSocket**: Allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM.png" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
 
@@ -90,12 +107,13 @@ Once you select your entrypoints from the entrypoints page, additional configura
 
 If you chose **SSE** as an entrypoint, you will be brought to a page where you can configure:
 
-* **Context path:** the URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-* **Virtual hosts:** enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
+* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
+* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **SSE characteristics and permissions**
-  * **Heartbeat intervals:** define the interval in which heartbeats are sent to the client by entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
+  * **Heartbeat intervals:** Define the interval in which heartbeats are sent to the client by entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
   * Choose to allow or disallow sending message metadata to the client as SSE comments by toggling **Allow sending messages metadata to client as SSE comments** ON or OFF.
   * Choose to allow or disallow sending message headers to the client as SSE comments by toggling **Allow sending messages headers to client as SSE comments** ON or OFF.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -106,23 +124,95 @@ If you chose **SSE** as an entrypoint, you will be brought to a page where you c
 If you chose **Webhook** as an entrypoint, you will be brought to a page where you can configure:
 
 * **HTTP Options**
-  * **Connect timeout:** the maximum time, in milliseconds, to connect to the Webhook. Either enter a numeric value or use the arrows to the right of the text field.
-  * **Read timeout:** the maximum time, in milliseconds, allotted for the Webhook to complete the request (including response). Either enter a numeric value or use the arrows to the right of the text field.
-  * **Idle timeout:** the maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources. Either enter a numeric value or use the arrows to the right of the text field.
-* **Proxy options**
-  * Choose whether to use a proxy for client connections by toggling **Use proxy** ON or OFF. If enabled, you will need to select from the proxy types in the **Proxy type** drop-down:
-    * HTTP proxy
-    * SOCKS4
-    * SOCKS5
-  * Choose whether to use the proxy configured at system level by toggling **Use system proxy** ON or OFF. If enabled, you will need to define:
-    * Proxy host: enter your proxy host in the **Proxy host** text field.
-    * Proxy port: enter your proxy port in the **Proxy port** text field.
-    * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
-    * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
+  * **Connect timeout:** The maximum time, in milliseconds, to connect to the Webhook. Either enter a numeric value or use the arrows to the right of the text field.
+  * **Read timeout:** The maximum time, in milliseconds, allotted for the Webhook to complete the request (including response). Either enter a numeric value or use the arrows to the right of the text field.
+  * **Idle timeout:** The maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources. Either enter a numeric value or use the arrows to the right of the text field.
+* **Proxy Options**
+  * Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
+    * If you chose **Use proxy for client connections**, define the following:
+      * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+      * **Proxy host:** Enter your proxy host in the text field.
+      * **Proxy port:** Enter your proxy port in the text field.
+      * (Optional) **Proxy username:** Enter your proxy username in the text field.
+      * (Optional) **Proxy password:** Enter your proxy password in the text field.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
+* **Enable Dead Letter Queue:** Toggle **Dead Letter Queue** ON to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy.
 
-A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+**DLQ Configuration**
 
-Also, when using Webhooks as an entrypoint, you can set up a dead letter queue for storing undelivered messages. When configuring DLQ with Webhook, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic. To learn more, please refer to he DLQ documentation.
+As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition.&#x20;
+
+**1. Set up DLQ**
+
+To enable DLQ, declare another endpoint that will be used to configure the DLQ object in the Webhook entrypoint definition:
+
+```json
+{
+    "type": "webhook-advanced",
+    "dlq": {
+        "endpoint": "dlq-endpoint"
+    },
+    "configuration": {}
+}
+```
+
+The endpoint used for the dead letter queue:
+
+* Must support PUBLISH mode
+* Should be based on a broker that can persist messages, such as Kafka
+
+Once configured and deployed, any message rejected with a 4xx error response by the Webhook will be automatically sent to the DLQ endpoint and the consumption of messages will continue.
+
+**2. Combining DLQ with the retry policy**
+
+If you set up a DLQ, you can utilize the Gravitee Retry policy in order to "retry" delivery of undelivered messages from the DLQ. For more information on the Retry policy, please refer to the Retry policy reference.
+
+**3. Set up secure callbacks**
+
+Callbacks can be secured using basic authentication, JWT, and OAuth2.
+
+To secure a callback, add an `auth` object to the configuration section of your API definition. The following example shows how to configure basic authentication:
+
+```json
+{
+    "configuration": {
+        "entrypointId": "webhook-advanced",
+        "callbackUrl": "https://example.com",
+        "auth": {
+            "type": "basic",
+            "basic": {
+                "username": "username",
+                "password": "a-very-secured-password"
+            }
+        }
+    }
+}
+```
+
+To use JWT, the `auth` object should look like this:
+
+```json
+        "auth": {
+            "type": "token",
+            "token": {
+                "value": "eyJraWQiOiJk..."
+            }
+        }
+```
+
+To use OAuth2, the `auth` object should look like this:
+
+```json
+        "auth": {
+            "type": "oauth2",
+            "oauth2": {
+                "endpoint": "https://auth.gravitee.io/my-domain/oauth/token",
+                "clientId": "a-client-id",
+                "clientSecret": "a-client-secret",
+                "scopes": ["roles"]
+            }
+        }
+```
 
 </details>
 
@@ -132,11 +222,12 @@ Also, when using Webhooks as an entrypoint, you can set up a dead letter queue f
 
 If you chose **WebSocket** as an entrypoint, you will be brought to a page where you can configure:
 
-* **Context path:** the URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-* **Virtual hosts:** enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
+* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
+* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **WebSocket configuration**
-  * **Publisher configuration:** choose to either enable or disable the publication capability by toggling **Enable the publication capability** ON or OFF. Disabling it assumes that the application will never be able to publish any message.
-  * **Subscriber configuration:** choose to enable or disable the subscription capability by toggling **Enable the subscription capability** ON or OFF. Disabling it assumes that the application will never receive any message.
+  * **Publisher configuration:** Choose to either enable or disable the publication capability by toggling **Enable the publication capability** ON or OFF. Disabling it assumes that the application will never be able to publish any message.
+  * **Subscriber configuration:** Choose to enable or disable the subscription capability by toggling **Enable the subscription capability** ON or OFF. Disabling it assumes that the application will never receive any message.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -146,9 +237,10 @@ If you chose **WebSocket** as an entrypoint, you will be brought to a page where
 
 If you chose **HTTP POST** as an entrypoint, you will be brought to a page where you can configure:
 
-* **Context path:** the URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-* **Virtual hosts:** enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
-* **HTTP POST permissions:** allow or disallow add request Headers to the generated message by toggling **Allow add request Headers to the generated message** ON or OFF.
+* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
+* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
+* **HTTP POST permissions:** Allow or disallow add request Headers to the generated message by toggling **Allow add request Headers to the generated message** ON or OFF.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -158,12 +250,13 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
 
 If you chose **HTTP GET** as an entrypoint, you will be brought to a page where you can configure:
 
-* **Context path:** the URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-* **Virtual hosts:** enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
+* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
+* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **HTTP GET characteristics**
-  * **Limit messages count:** defines the maximum number of messages to retrieve via HTTP GET. The default is 500. To set a custom limit, enter a numeric value in the **Limit messages count** text field.
-  * **Limit messages duration:** defines the maximum duration, in milliseconds, to wait to retrieve the expected number of messages (See **Limit messages count**). The effective number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved. To set a custom limit, enter a numeric value in the **Limit messages duration** text field.
-  * **HTTP GET permissions:** allow or disallow **Allow sending messages headers to client in payload** and **Allow sending messages metadata to client in payload** by toggling these actions ON or OFF.
+  * **Limit messages count:** Defines the maximum number of messages to retrieve via HTTP GET. The default is 500. To set a custom limit, enter a numeric value in the **Limit messages count** text field.
+  * **Limit messages duration:** Defines the maximum duration, in milliseconds, to wait to retrieve the expected number of messages (See **Limit messages count**). The effective number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved. To set a custom limit, enter a numeric value in the **Limit messages duration** text field.
+  * **HTTP GET permissions:** Allow or disallow **Allow sending messages headers to client in payload** and **Allow sending messages metadata to client in payload** by toggling these actions ON or OFF.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
 
@@ -175,7 +268,7 @@ Gateway endpoints define the protocol and configuration by which the Gateway API
 
 If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To configure this endpoint, you will be brought to a page where you can:
 
-* **Define your target URL:** enter your target URL in the **Target URL** text field.
+* **Define your target URL:** Enter your target URL in the **Target URL** text field.
 * **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
@@ -184,31 +277,34 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
   * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.
     * If enabled, you'll need to define a numeric timeout value in the **Read timeout** text field by either entering a numerical value or using the arrow keys.
   * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.
-  * **Configure your idle timeout settings:** define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
+  * **Configure your idle timeout settings:** Define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
   * Choose whether to follow HTTP redirects by toggling **Follow HTTP redirects** ON or OFF.
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
-    * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down:
-      * HTTP proxy
-      * SOCKS4
-      * SOCKS5
-  * **Use system proxy:** choose whether to use the proxy configured at system level. If enabled, you'll need to define the following:
-    * Proxy host: enter your proxy host in the **Proxy host** text field.
-    * Proxy port: enter your proxy port in the **Proxy port** text field.
-    * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
-    * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
+    * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
+  * **Use system proxy:** Choose whether to use the proxy configured at system level. If enabled, you'll need to define the following:
+    * **Proxy host:** Enter your proxy host in the text field.
+    * **Proxy port:** Enter your proxy port in the text field.
+    * (Optional) **Proxy username:** Enter your proxy username in the text field.
+    * (Optional) **Proxy password:** Enter your proxy password in the text field.
 * **Define your SSL options**
-* **Define your Key store**
+* **Define your keystore**
+
+The endpoint configuration will determine the endpoint group’s default configuration, and the endpoint will inherit the configuration of the group by default.
+
+By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
+
+<figure><img src="../../../.gitbook/assets/default proxy endpoint names.png" alt=""><figcaption><p>Default proxy API endpoint names</p></figcaption></figure>
 
 ### **Introspect messages from event-driven backend endpoints**
 
 {% hint style="warning" %}
 **Enterprise only**
 
-As of Gravitee 4.0, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
@@ -217,7 +313,7 @@ As of Gravitee 4.0, the ability to create APIs with message API endpoints is an 
 
 If you chose **Introspect messages from event-driven backend** as your exposure method, you will be able to choose from the following endpoints:
 
-* Endpoint Mock
+* Mock
 * MQTT 5.X
 * Kafka
 * RabbitMQ
@@ -227,13 +323,13 @@ Depending on which endpoint you choose, you will need to further define certain 
 
 <details>
 
-<summary>Endpoint Mock</summary>
+<summary>Mock</summary>
 
 The Endpoint Mock endpoint allows you to mock a backend service to emulate the behavior of a typical HTTP server and test processes. If you chose this endpoint, you will need to configure:
 
-* **Interval between messages publication:** defines, in milliseconds, the interval between published messages. The default is 1000.
-* **Content of published messages:** defines the content of the message body that will be streamed. The default is "mock message".
-* **Count of published messages:** defines, as an integer, the maximum number of published messages that are streamed as a part of the mocking. If left unspecified, there will be no limit.
+* **Interval between messages publication:** Defines, in milliseconds, the interval between published messages. The default is 1000.
+* **Content of published messages:** Defines the content of the message body that will be streamed. The default is "mock message".
+* **Count of published messages:** Defines, as an integer, the maximum number of published messages that are streamed as a part of the mocking. If left unspecified, there will be no limit.
 
 </details>
 
@@ -425,6 +521,12 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
   * **Routing Key**
 
 </details>
+
+The endpoint configuration will determine the endpoint group’s default configuration, and the endpoint will inherit the configuration of the group by default.
+
+By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
+
+<figure><img src="../../../.gitbook/assets/default message endpoint names.png" alt=""><figcaption><p>Default message API endpoint names</p></figcaption></figure>
 
 ## Step 4: Security
 
