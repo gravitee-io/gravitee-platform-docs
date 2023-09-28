@@ -10,7 +10,7 @@ The Gravitee release notes section is the best place for in-depth overviews of w
 
 ## Overview of Gravitee version 4.0
 
-Gravitee version 4.0 was released on July 20th, 2023. 4.0 brought major improvements to Gravitee's support for asynchronous APIs, policy execution at the message level, and more. Keep reading to learn more!
+Gravitee version 4.0 was released on July 20th, 2023. 4.0 brought major improvements to Gravitee's support for asynchronous APIs, policy execution at the message level, and more!
 
 {% hint style="info" %}
 **Changelog vs release notes**
