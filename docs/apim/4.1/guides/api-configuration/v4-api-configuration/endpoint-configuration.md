@@ -8,21 +8,23 @@ description: This article walks through how to configure v4 API endpoints
 
 In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API.
 
-After you've created your Gateway API and selected your endpoint(s), you can configure them on the **API** page of the Management Console. This article walks through the process for configuring v4 Message API endpoints and v4 Proxy API endpoints.
+After you've created your Gateway API and selected your endpoint(s), you can configure them on the **API** page of the API Management Console.&#x20;
+
+This article discusses default endpoint behavior and the processes for configuring and managing v4 API endpoints.
 
 ## Configure v4 message API endpoints
 
 {% hint style="warning" %}
 **Enterprise-only**
 
-As of Gravitee 4.0, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
+As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
-v4 APIs currently support the following endpoints:
+v4 message APIs currently support the following endpoints:
 
 * **Kafka**: Enables the Gravitee API Gateway to establish a persistent connection with a Kafka topic as a backend resource or target.
 * **MQTT 5**: Enables the Gravitee API Gateway to establish a persistent connection with an MQTT topic as a backend resource or target.
@@ -30,7 +32,7 @@ v4 APIs currently support the following endpoints:
 * **Solace**: Enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target.
 * **Mock**: Enables the Gateway to simulate responses from a server for testing API implementations.
 
-To access endpoint configuration, go to the **API** page in the Developer Portal and select your API. Then, under **Endpoints**, select **Backend services.**&#x20;
+To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.**&#x20;
 
 Endpoint configuration may differ depending on which endpoint(s) your API utilizes. Please refer to the following sections for the configuration details of each specific endpoint.
 
@@ -188,11 +190,11 @@ The **Mock** endpoint allows you to mock a backend service to emulate the behavi
 
 </details>
 
-## Configure v4 Proxy API endpoints
+## Configure v4 proxy API endpoints
 
 To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.** Next, configure your HTTP Proxy endpoint as follows:
 
-* **Define your target URL:** enter your target URL in the **Target URL** text field.
+* **Define your target URL:** Enter your target URL in the **Target URL** text field.
 * **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
@@ -201,33 +203,66 @@ To access endpoint configuration, go to the **API** page in the Management Conso
   * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.
     * If enabled, you'll need to define a numeric timeout value in the **Read timeout** text field by either entering a numerical value or using the arrow keys.
   * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.
-  * **Configure your idle timeout settings:** define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
+  * **Configure your idle timeout settings:** Define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
   * Choose whether to follow HTTP redirects by toggling **Follow HTTP redirects** ON or OFF.
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
-    * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down:
-      * HTTP proxy
-      * SOCKS4
-      * SOCKS5
-  * **Use system proxy:** choose whether to use the proxy configured at system level. If enabled, you'll need to define the following:
-    * Proxy host: enter your proxy host in the **Proxy host** text field.
-    * Proxy port: enter your proxy port in the **Proxy port** text field.
-    * (Optional) Proxy username: enter your proxy username in the **Proxy username** text field.
-    * (Optional) Proxy password: enter your proxy password in the **Proxy password** text field.
+    * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
+  * **Use system proxy:** Choose whether to use the proxy configured at system level. If enabled, you'll need to define the following:
+    * **Proxy host:** Enter your proxy host in the text field.
+    * **Proxy port:** Enter your proxy port in the text field.
+    * (Optional) **Proxy username:** Enter your proxy username in the text field.
+    * (Optional) **Proxy password:** Enter your proxy password in the text field.
 * **Define your SSL options**
-* **Define your Key store**
+* **Define your keystore**
 
-### Alter and delete existing endpoints
+## Endpoint management
 
-To alter an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration. You can find more information on v4 Proxy API configuration in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).&#x20;
+### Single endpoints
 
-To delete an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
+After you've configured your endpoints, you can modify or delete existing endpoints, or add new ones:
 
-### Create new endpoints
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt=""><figcaption><p>v4 proxy API backend</p></figcaption></figure>
 
-To create a new endpoint for your v4 Proxy API, click **Add endpoint**. Configure the endpoint per the instructions in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md#entrypoint-options-for-the-proxy-upstream-protocol-method).
+* **Modify:** To alter an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration.&#x20;
+* **Delete:** To delete an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
+* **Add:** To add a new endpoint, click **Add endpoint**. Configure the endpoint per the instructions in the [API creation documentation](../../create-apis/how-to/v4-api-creation-wizard.md).
 
 When you are done, make sure to redeploy the API for your changes to take effect.
+
+### Endpoint groups
+
+After you've configured your endpoints, you can modify or delete existing endpoint groups, or add new ones:
+
+<figure><img src="../../../.gitbook/assets/endpoint groups v4 message api backend.png" alt=""><figcaption><p>v4 message API backend</p></figcaption></figure>
+
+* **Modify:** To modify an endpoint group, click **Edit** to the right of the group name.
+* **Delete:** To delete an endpoint group, click **Delete** to the right of the group name**.** You will be prompted to confirm deletion of the endpoint group. If only one endpoint group exists, you will not have the option to delete it.
+* **Add:** To add a new endpoint group, click **Add endpoint group** at the bottom of the page and configure the group's default values. Only one type of endpoint group can be created at a time. By default, the new endpoint group will contain an endpoint that automatically inherits the group's default configuration.
+
+When you are done, make sure to redeploy the API for your changes to take effect.
+
+## Default behavior
+
+### Single endpoint
+
+Within an endpoint group, clicking `Add Endpoint` toggles `Inherit configuration from the endpoint group` to ON by default:
+
+<figure><img src="../../../.gitbook/assets/default behavior toggle to inherit.png" alt=""><figcaption><p>Toggle to inherit endpoint configuration</p></figcaption></figure>
+
+If an endpoint is added to the endpoint group, it will inherit the group's configuration by default. This allows an API publisher to quickly add new endpoints with the same settings and behavior as other endpoints in the group.
+
+If `Inherit configuration from the endpoint group` is toggled OFF, changes can be made to the new endpoint's configuration. When these changes are saved, the configuration is updated.&#x20;
+
+If `Inherit configuration from the endpoint group` remains OFF, the updated values will persist. Subsequent updates to the group’s default configuration will not override this endpoint's configuration once it has been modified to no longer inherit from the group.
+
+### Endpoint group
+
+* During the API creation workflow, the endpoint configuration determines the endpoint group’s default configuration. The endpoint then inherits this configuration from the group by default.
+* If the configuration of an endpoint group is updated, all the endpoints with `Inherit configuration from the endpoint group` enabled will be similarly updated and remain static.
+* By default, the API will use the first endpoint group listed. This is indicated by the **Default** badge next to the group name. You can click the up/down arrow keys to reorder the endpoint groups and assign a different default:
+
+<figure><img src="../../../.gitbook/assets/default endpoint group (1).png" alt=""><figcaption><p>Default endpoint group</p></figcaption></figure>

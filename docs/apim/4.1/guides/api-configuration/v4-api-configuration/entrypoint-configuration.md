@@ -13,9 +13,9 @@ After you've created your Gateway API and selected your entrypoint(s), you can c
 ## Configure v4 message API entrypoints
 
 {% hint style="warning" %}
-**Enterprise-only**
+**Enterprise only**
 
-As of Gravitee 4.0, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
+As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
@@ -27,7 +27,7 @@ v4 APIs support the following entrypoints:
 * **HTTP GET:** Exposes a backend resource via the HTTP GET method
 * **HTTP POST:** Exposes a backend resource via the HTTP POST method
 * **WebSocket:** Exposes a backend resource via a WebSocket stream
-* **Webhooks:** Exposes a backend resource via a Webhooks subscription
+* **Webhook:** Exposes a backend resource via a Webhooks subscription
 * **Server-sent events (SSE):** Exposes a backend resource via a unidirectional SSE stream
 
 To access entrypoint configuration, go to the **API** page in the Developer Portal and select your API. Then, under **Entrypoints,** select **General.**
@@ -40,12 +40,10 @@ Depending on which entrypoint your API utilizes, entrypoint configuration may di
 
 If you chose **HTTP GET** as an entrypoint, you will be brought to a page where you can configure:
 
-* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
-* **HTTP GET characteristics**
-  * **Limit messages count:** Defines the maximum number of messages to retrieve via HTTP GET. The default is 500. To set a custom limit, enter a numeric value in the **Limit messages count** text field.
-  * **Limit messages duration:** Defines the maximum duration, in milliseconds, to wait to retrieve the expected number of messages (see **Limit messages count**). To set a custom limit, enter a numeric value in the **Limit messages duration** text field. The actual number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved.
-  * **HTTP GET permissions:** Allow or disallow **Allow sending messages headers to client in payload** and **Allow sending messages metadata to client in payload** by toggling these actions ON or OFF.
+* **Limit messages count:** Defines the maximum number of messages to retrieve via HTTP GET. The default is 500. To set a custom limit, enter a numeric value in the **Limit messages count** text field.
+* **Limit messages duration:** Defines the maximum duration, in milliseconds, to wait to retrieve the expected number of messages (see **Limit messages count**). To set a custom limit, enter a numeric value in the **Limit messages duration** text field. The actual number of retrieved messages could be less than expected if maximum duration is reached before all messages are retrieved.
+* **HTTP GET permissions:** Allow or disallow **Allow sending messages headers to client in payload** and **Allow sending messages metadata to client in payload** by toggling these actions ON or OFF.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](quality-of-service.md).
 
 </details>
 
@@ -55,9 +53,8 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
 
 If you chose **HTTP POST** as an entrypoint, you will be brought to a page where you can configure:
 
-* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 * **HTTP POST permissions:** Allow or disallow add request Headers to the generated message by toggling **Allow add request Headers to the generated message** ON or OFF.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](quality-of-service.md).
 
 </details>
 
@@ -67,19 +64,15 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
 
 If you chose **WebSocket** as an entrypoint, you will be brought to a page where you can configure:
 
-* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
-* **WebSocket configuration**
-  * **Publisher configuration:** Choose to either enable or disable the publication capability by toggling **Enable the publication capability** ON or OFF. Disabling it assumes that the application will never publish any message.
-  * **Subscriber configuration:** Choose to enable or disable the subscription capability by toggling **Enable the subscription capability** ON or OFF. Disabling it assumes that the application will never receive any message.
+* **Publisher configuration:** Choose to either enable or disable the publication capability by toggling **Enable the publication capability** ON or OFF. Disabling it assumes that the application will never publish any message.
+* **Subscriber configuration:** Choose to enable or disable the subscription capability by toggling **Enable the subscription capability** ON or OFF. Disabling it assumes that the application will never receive any message.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](quality-of-service.md).
 
 </details>
 
 <details>
 
-<summary>Webhooks</summary>
-
-### Basic Configuration
+<summary>Webhook</summary>
 
 If you chose **Webhook** as an entrypoint, you will be brought to a page where you can configure:
 
@@ -87,31 +80,27 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
   * **Connect timeout:** The maximum time, in milliseconds, to connect to the Webhook. Either enter a numeric value or use the arrows to the right of the text field.
   * **Read timeout:** The maximum time, in milliseconds, allotted for the Webhook to complete the request (including response). Either enter a numeric value or use the arrows to the right of the text field.
   * **Idle timeout:** The maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources. Either enter a numeric value or use the arrows to the right of the text field.
-* **Proxy options**
-  *   Choose whether to use a proxy for client connections by toggling **Use proxy** ON or OFF. If enabled, you will need to select from the proxy types in the **Proxy type** drop-down:
+* **Proxy Options**
+  * Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
+    * If you chose **Use proxy for client connections**, define the following:
+      * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+      * **Proxy host:** Enter your proxy host in the text field.
+      * **Proxy port:** Enter your proxy port in the text field.
+      * (Optional) **Proxy username:** Enter your proxy username in the text field.
+      * (Optional) **Proxy password:** Enter your proxy password in the text field.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](quality-of-service.md).
+* **Enable Dead Letter Queue:** Toggle **Dead Letter Queue** ON to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy:
+  * Use the drop-down menu to select a pre-existing and supported endpoint or endpoint group to use for the DLQ.
 
-      * HTTP proxy
-      * SOCKS4
-      * SOCKS5
+**DLQ Configuration using the API definition**
 
-      A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
-  * Choose whether to use the proxy configured at system level by toggling **Use system proxy** ON or OFF. If enabled, you will need to define:
-    * Proxy host: Enter your proxy host in the **Proxy host** text field.
-    * Proxy port: Enter your proxy port in the **Proxy port** text field.
-    * (Optional) Proxy username: Enter your proxy username in the **Proxy username** text field.
-    * (Optional) Proxy password: Enter your proxy password in the **Proxy password** text field.
+To configure DLQs and secure callbacks for your Webhook via the API definition:
 
-### Additional configuration
-
-When using Webhooks as an entrypoint, you can secure callbacks and set up dead letter queues to store undelivered messages. When configuring DLQ with Webhook, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic.
-
-As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition.&#x20;
-
-#### Set up DLQ
+**1. Set up DLQ**
 
 To enable DLQ, declare another endpoint that will be used to configure the DLQ object in the Webhook entrypoint definition:
 
-```
+```json
 {
     "type": "webhook-advanced",
     "dlq": {
@@ -128,17 +117,17 @@ The endpoint used for the dead letter queue:
 
 Once configured and deployed, any message rejected with a 4xx error response by the Webhook will be automatically sent to the DLQ endpoint and the consumption of messages will continue.
 
-#### Combining DLQ with the retry policy
+**2. Combining DLQ with the retry policy**
 
 If you set up a DLQ, you can utilize the Gravitee Retry policy in order to "retry" delivery of undelivered messages from the DLQ. For more information on the Retry policy, please refer to the Retry policy reference.
 
-#### Set up secure callbacks
+**3. Set up secure callbacks**
 
 Callbacks can be secured using basic authentication, JWT, and OAuth2.
 
 To secure a callback, add an `auth` object to the configuration section of your API definition. The following example shows how to configure basic authentication:
 
-```
+```json
 {
     "configuration": {
         "entrypointId": "webhook-advanced",
@@ -156,7 +145,7 @@ To secure a callback, add an `auth` object to the configuration section of your 
 
 To use JWT, the `auth` object should look like this:
 
-```
+```json
         "auth": {
             "type": "token",
             "token": {
@@ -167,7 +156,7 @@ To use JWT, the `auth` object should look like this:
 
 To use OAuth2, the `auth` object should look like this:
 
-```
+```json
         "auth": {
             "type": "oauth2",
             "oauth2": {
@@ -187,12 +176,10 @@ To use OAuth2, the `auth` object should look like this:
 
 If you chose **SSE** as an entrypoint, you will be brought to a page where you can configure:
 
-* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
-* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
-* **SSE characteristics and permissions**
-  * **Heartbeat intervals:** Define the interval in which heartbeats are sent to the client by entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
-  * Choose to allow or disallow sending message metadata to the client as SSE comments by toggling **Allow sending messages metadata to client as SSE comments** ON or OFF.
-  * Choose to allow or disallow sending message headers to the client as SSE comments by toggling **Allow sending messages headers to client as SSE comments** ON or OFF.
+* **Heartbeat intervals:** Define the interval in which heartbeats are sent to the client by entering a numeric value into the **Define the interval in which heartbeats** **are sent to client** text field or by using the arrow keys. Intervals must be greater than or equal to 2000ms. Each heartbeat will be sent as an empty comment: `''`.
+* Choose to allow or disallow sending message metadata to the client as SSE comments by toggling **Allow sending messages metadata to client as SSE comments** ON or OFF.
+* Choose to allow or disallow sending message headers to the client as SSE comments by toggling **Allow sending messages headers to client as SSE comments** ON or OFF.
+* **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](quality-of-service.md).
 
 </details>
 
