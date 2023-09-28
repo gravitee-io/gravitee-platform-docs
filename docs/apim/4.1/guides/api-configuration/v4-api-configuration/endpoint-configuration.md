@@ -225,7 +225,7 @@ To access endpoint configuration, go to the **API** page in the Management Conso
 
 After you've configured your endpoints, you can modify or delete existing endpoints, or add new ones:
 
-<figure><img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt=""><figcaption><p>v4 proxy API backend</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.41.53 AM.png" alt=""><figcaption><p>Edit single endpoints</p></figcaption></figure>
 
 * **Modify:** To alter an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.43.13 AM.png" alt="" data-size="line"> icon, and then edit your endpoint configuration.&#x20;
 * **Delete:** To delete an existing endpoint, select the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.46.30 AM.png" alt="" data-size="line">icon underneath **ACTIONS** in the **Endpoints** menu.
@@ -237,7 +237,7 @@ When you are done, make sure to redeploy the API for your changes to take effect
 
 After you've configured your endpoints, you can modify or delete existing endpoint groups, or add new ones:
 
-<figure><img src="../../../.gitbook/assets/endpoint groups v4 message api backend.png" alt=""><figcaption><p>v4 message API backend</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/endpoint groups v4 message api backend.png" alt=""><figcaption><p>Edit endpoint groups</p></figcaption></figure>
 
 * **Modify:** To modify an endpoint group, click **Edit** to the right of the group name.
 * **Delete:** To delete an endpoint group, click **Delete** to the right of the group name**.** You will be prompted to confirm deletion of the endpoint group. If only one endpoint group exists, you will not have the option to delete it.
