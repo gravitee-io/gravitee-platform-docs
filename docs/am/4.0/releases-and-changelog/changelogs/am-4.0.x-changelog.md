@@ -8,35 +8,35 @@ description: >-
 
 ## Gravitee Access Management 4.0.2 - September 29, 2023
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* AM allows invalid emails during MFA enrol which prevents future logins and presents an attack vector. https://github.com/gravitee-io/issues/issues/8887[#8887]
-* Gravitee AM : search users using scim query https://github.com/gravitee-io/issues/issues/9109[#9109]
-* 500 internal server error due to invalid HTML template in enroll, login , challenge form https://github.com/gravitee-io/issues/issues/9111[#9111]
-* [AM] Invalid encoding value after multiple redirect https://github.com/gravitee-io/issues/issues/9154[#9154]
-* Filter is not implemented in SCIM groupendpoint https://github.com/gravitee-io/issues/issues/9183[#9183]
-* Key usage is always "enc" https://github.com/gravitee-io/issues/issues/9236[#9236]
+* AM allows invalid emails during MFA enrollment which prevents future logins and presents an attack vector [#8887](https://github.com/gravitee-io/issues/issues/8887)
+* Gravitee AM: Search users using SCIM query [#9109](https://github.com/gravitee-io/issues/issues/9109)
+* 500 internal server error due to invalid HTML template in enroll, login , challenge form [#9111](https://github.com/gravitee-io/issues/issues/9111)
+* AM: Invalid encoding value after multiple redirects [#9154](https://github.com/gravitee-io/issues/issues/9154)
+* Filter is not implemented in SCIM group endpoint [#9183](https://github.com/gravitee-io/issues/issues/9183)
+* Key usage is always "enc" [#9236](https://github.com/gravitee-io/issues/issues/9236)
 
 **Management API**
 
-* Multiple concurrent requests creates users with duplicated usernames https://github.com/gravitee-io/issues/issues/9117[#9117]
+* Multiple concurrent requests create users with duplicated usernames [#9117](https://github.com/gravitee-io/issues/issues/9117)
 
 **Console**
 
-* After a migration, the IDP checkbox `Allow CRUD operation` is not shown as enabled in the UI (but is enabled in the backend) https://github.com/gravitee-io/issues/issues/9123[#9123]
+* After a migration, the IDP checkbox `Allow CRUD operation` is not shown as enabled in the UI but is enabled in the backend [#9123](https://github.com/gravitee-io/issues/issues/9123)
 
 **Other**
 
-* When pre-registration option is set we are not able to finish the registration properly https://github.com/gravitee-io/issues/issues/9221[#9221]
-* Allow to bypass MongoDB indexes creation https://github.com/gravitee-io/issues/issues/9232[#9232]
-* Map of claims unusable in EL https://github.com/gravitee-io/issues/issues/9240[#9240]
-* Alerts Dashboard is not retaining the alert channel selection/deselection. https://github.com/gravitee-io/issues/issues/9253[#9253]
-</details>
+* When the pre-registration option is set, we are not able to finish the registration properly [#9221](https://github.com/gravitee-io/issues/issues/9221)
+* Allow the bypass of MongoDB indices creation [#9232](https://github.com/gravitee-io/issues/issues/9232)
+* Map of claims unusable in EL [#9240](https://github.com/gravitee-io/issues/issues/9240)
+* Alerts Dashboard is not retaining the alert channel selection/deselection [#9253](https://github.com/gravitee-io/issues/issues/9253)
 
+</details>
 
 ## Gravitee Access Management 4.0 - July 20, 2023
 
@@ -56,7 +56,7 @@ Some plugins are now part of the Enterprise Edition:
 * idp-franceconnect
 * idp-salesforce
 * factor-call
-* factor-sms&#x20;
+* factor-sms
 * factor-fido2
 * factor-http
 * factor-recovery-code
