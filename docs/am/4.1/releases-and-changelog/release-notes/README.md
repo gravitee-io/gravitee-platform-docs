@@ -1,3 +1,7 @@
+---
+description: Learn more about the Gravitee release notes section
+---
+
 # Release Notes
 
 ## Introduction
