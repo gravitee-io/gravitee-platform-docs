@@ -6,6 +6,38 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.2 - September 29, 2023
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* AM allows invalid emails during MFA enrol which prevents future logins and presents an attack vector. https://github.com/gravitee-io/issues/issues/8887[#8887]
+* Gravitee AM : search users using scim query https://github.com/gravitee-io/issues/issues/9109[#9109]
+* 500 internal server error due to invalid HTML template in enroll, login , challenge form https://github.com/gravitee-io/issues/issues/9111[#9111]
+* [AM] Invalid encoding value after multiple redirect https://github.com/gravitee-io/issues/issues/9154[#9154]
+* Filter is not implemented in SCIM groupendpoint https://github.com/gravitee-io/issues/issues/9183[#9183]
+* Key usage is always "enc" https://github.com/gravitee-io/issues/issues/9236[#9236]
+
+**Management API**
+
+* Multiple concurrent requests creates users with duplicated usernames https://github.com/gravitee-io/issues/issues/9117[#9117]
+
+**Console**
+
+* After a migration, the IDP checkbox `Allow CRUD operation` is not shown as enabled in the UI (but is enabled in the backend) https://github.com/gravitee-io/issues/issues/9123[#9123]
+
+**Other**
+
+* When pre-registration option is set we are not able to finish the registration properly https://github.com/gravitee-io/issues/issues/9221[#9221]
+* Allow to bypass MongoDB indexes creation https://github.com/gravitee-io/issues/issues/9232[#9232]
+* Map of claims unusable in EL https://github.com/gravitee-io/issues/issues/9240[#9240]
+* Alerts Dashboard is not retaining the alert channel selection/deselection. https://github.com/gravitee-io/issues/issues/9253[#9253]
+</details>
+
+
 ## Gravitee Access Management 4.0 - July 20, 2023
 
 For more in-depth information on what's new, please refer to the [Gravitee AM 4.0 release notes](../release-notes.md).
