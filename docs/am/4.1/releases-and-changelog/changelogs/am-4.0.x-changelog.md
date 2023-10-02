@@ -6,7 +6,7 @@ description: >-
 
 # AM 4.1.x
 
-## Gravitee Access Management 4.1 - September 29, 2023
+## Gravitee Access Management 4.1 - September 28, 2023
 
 For more in-depth information on what's new, please refer to the [Gravitee AM 4.1 release notes](../release-notes/).
 
@@ -14,14 +14,8 @@ For more in-depth information on what's new, please refer to the [Gravitee AM 4.
 
 <summary>What's new</summary>
 
+**Enterprise Edition**
 
-
-</details>
-
-<details>
-
-<summary>Breaking Changes</summary>
-
-
+New MFA Challenge policy is now available to apply an MFA step during actions such as reset password or unlock account.&#x20;
 
 </details>

@@ -10,7 +10,7 @@ The Gravitee release notes section is the best place for in-depth overviews of w
 
 ## Overview of Gravitee version 4.1
 
-Gravitee version 4.1 was released on September 29th, 2023. 4.1 focused on improvements to Gravitee's MFA features, introduced account linking, and enhanced session management.
+Gravitee version 4.1 was released on September 28th, 2023. 4.1 focused on improvements to Gravitee's MFA features, introduced account linking, and enhanced session management.
 
 {% hint style="info" %}
 **Changelog vs release notes**
