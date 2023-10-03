@@ -28,7 +28,52 @@ To deploy in another namespace from which you will access a Secret, create a ano
 For more information on roles, see [Role and ClusterRole](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) in the [Kubernetes documentation](https://kubernetes.io/docs/).
 {% endhint %}
 
-### **Minimum configuration example**
+### **DB-less mode: minimum configuration example**&#x20;
+
+DB-less mode allows a Gateway to be deployed with no dependencies, assuming only that there is an operator running in the same cluster or namespace. Although the setup does not include Elasticsearch or MongoDB, analytics can still be configured using a custom reporter such as Datadog, TCP with Logstash, etc.
+
+Below is the minimum `value-dbless.yml` APIM configuration required by a DB-less deployment. Change the `domain` value and run the following command:
+
+<pre><code><strong>helm install gravitee-apim graviteeio/apim -f values-dbless.yml
+</strong></code></pre>
+
+{% code title="values-dbless.yaml" %}
+```yaml
+api:
+  enabled: false
+
+portal:
+  enabled: false
+
+ui:
+  enabled: false
+
+es:
+  enabled: false
+
+gateway:
+  replicaCount: 1
+  autoscaling:
+    enabled: false
+  image:
+    repository: graviteeio.azurecr.io/apim-gateway
+    tag: master-latest
+  services:
+    sync:
+      kubernetes:
+        enabled: true
+  dbLess: true
+  reporters:
+    elasticsearch:
+      enabled: false
+```
+{% endcode %}
+
+{% hint style="info" %}
+The above is just one example of a DB-less mode configuration. Note that if DB-less mode is configured without a running APIM instance to sync with, the `management-context`resource serves no purpose.
+{% endhint %}
+
+### **Dev environment: minimum configuration example**
 
 Below is the minimum `value-light.yml` configuration required by a development deployment. Change the `domain` value and run the following command:
 

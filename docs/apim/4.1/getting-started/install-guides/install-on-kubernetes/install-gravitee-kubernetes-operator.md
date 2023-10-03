@@ -94,13 +94,20 @@ By default, the Kubernetes synchronizer is configured to watch for API definitio
 helm repo add graviteeio https://helm.gravitee.io
 ```
 
-2. Install the chart with the release name `graviteeio-gko`:
+2.  Install the chart with the release name `graviteeio-gko`:
 
-```sh
-helm install graviteeio-gko graviteeio/gko
-```
+    * For all deployments other than DB-less:&#x20;
 
-3. **(Optional)** By default, the operator listens to resources created anywhere in the cluster. To restrict the operator to the release namespace, set `manager.scope.cluster``=false`:
+    ```bash
+    helm install graviteeio-gko graviteeio/gko
+    ```
+
+    * For a DB-less deployment:
+
+    ```bash
+    helm upgrade --install --create-namespace -n dbless-gko graviteeio-gko graviteeio/gko
+    ```
+3. **(Optional)** By default, the operator listens to resources created anywhere in the cluster. To restrict the operator to the release namespace, set `manager.scope.cluster=false`:
 
 {% code overflow="wrap" %}
 ```sh
