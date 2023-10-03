@@ -12,7 +12,11 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 ## Introduction
 
-Gravitee 4.1 was released on September 28th, 2023, and introduced broadened support for asynchronous APIs, event brokers, and protocol mediation, especially as it pertains to what is surfaced in the API Management Console. For a paired-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../changelogs/apim-4.0.x-changelog.md).
+Gravitee 4.1 was released on September 28th, 2023, and introduced DB-less mode, enhancements to v4 API configuration, the ability to import and duplicate v4 APIs, and improved logging capabilities. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../changelogs/apim-4.0.x-changelog.md).
+
+## DB-less mode
+
+DB-less mode allows a Gateway to be deployed with no dependencies, assuming only that there is an operator running in the same cluster or namespace. Although the setup does not include Elasticsearch or MongoDB, analytics can still be configured using a custom reporter such as Datadog, TCP with Logstash, etc. For more information on configuring a DB-less deployment, see [this section](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md#db-less-mode-minimum-configuration-example).
 
 ## v4 API configuration
 
