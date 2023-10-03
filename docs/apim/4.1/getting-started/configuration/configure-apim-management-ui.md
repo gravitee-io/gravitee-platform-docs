@@ -330,16 +330,6 @@ These parameters can be modified in the APIM Console be accessing your **Organiz
 
 <figure><img src="../../.gitbook/assets/2023-06-28_10-53-03 (1).gif" alt=""><figcaption></figcaption></figure>
 
-### Theme
-
-You can customize the theme of APIM Console by modifying `default-theme.json` or `light-theme.json`.
-
-The `default-theme.json` file is as follows:
-
-```
-Unresolved directive in installation-guide-management-ui-configuration.adoc - include::https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-console-webui/themes/default-theme.json[]
-```
-
 ### Dashboard
 
 Gravitee comes with two Dashboards, each being configurable:
