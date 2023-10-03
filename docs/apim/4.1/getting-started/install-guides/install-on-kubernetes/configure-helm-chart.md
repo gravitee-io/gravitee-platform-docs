@@ -56,8 +56,8 @@ gateway:
   autoscaling:
     enabled: false
   image:
-    repository: graviteeio.azurecr.io/apim-gateway
-    tag: master-latest
+    repository: graviteeio/apim-gateway
+    tag: 4.1.0
   services:
     sync:
       kubernetes:
