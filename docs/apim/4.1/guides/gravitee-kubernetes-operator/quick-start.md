@@ -54,7 +54,7 @@ The process involves the following stages:
 
 ### Create a `ManagementContext` custom resource
 
-The [`ManagementContext` custom resource](page-1/managementcontext-resource.md) represents the configuration for a Management API.
+The [`ManagementContext` custom resource](custom-resource-definitions/managementcontext-resource.md) represents the configuration for a Management API.
 
 To create a `ManagementContext` custom resource requires a YAML file with the correct Management Context configuration. The following sample Gravitee YAML file can be used directly or as a template:
 
@@ -74,7 +74,7 @@ For full details on creating a `ManagementContext` custom resource, see [Create 
 
 ### Create an `ApiDefinition` custom resource
 
-The [`ApiDefinition` custom resource](page-1/apidefinition-crd.md) represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API definition in JSON format.
+The [`ApiDefinition` custom resource](custom-resource-definitions/apidefinition-crd.md) represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API definition in JSON format.
 
 To create an `ApiDefinition` custom resource requires a YAML file with the desired API Definition configuration. The following sample Gravitee YAML file can be used directly or as a template:
 
