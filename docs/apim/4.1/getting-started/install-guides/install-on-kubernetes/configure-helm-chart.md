@@ -14,6 +14,13 @@ The tables in the following sections list the Gravitee Helm chart's configurable
 
 By default, the Helm chart creates a ServiceAccount that enables Gravitee API Management (APIM) to connect to the Kubernetes API. This allows Kubernetes ConfigMaps and Secrets to initialize Gravitee settings.
 
+[Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) enable use of the service account:
+
+* By default, the service account created does not have a cluster role.&#x20;
+* The Helm chart includes an option to configure the service account to use a cluster role.
+* To access a Secret, create a role within your namespace.&#x20;
+* To deploy in another namespace from which you will access a Secret, create a another role in that namespace. The two roles can have the same name but are completely separate objects. Each role only provides access to the namespace in which it is created.
+
 Application settings must be defined as follows:
 
 * Secret settings: `kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>`
@@ -25,14 +32,6 @@ For example, the MongoDB URI initialized from the `mongo` Secret deployed in the
 mongo:
   uri: kubernetes://default/secrets/mongo/mongouri
 ```
-
-{% hint style="info" %}
-To access a Secret, create a role within your namespace.
-
-To deploy in another namespace from which you will access a Secret, create a another role in that namespace. The two roles can have the same name but are completely separate objects. Each role only provides access to the namespace in which it is created.
-
-For more information on roles, see [Role and ClusterRole](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) in the [Kubernetes documentation](https://kubernetes.io/docs/).
-{% endhint %}
 
 ## **Configuration types**
 
