@@ -1,10 +1,16 @@
+---
+description: >-
+  This article discusses the possible configuration options for the APIM Helm
+  chart
+---
+
 # Configure Helm Chart
 
-This article discusses all of the configuration options for the APIM Helm chart.
+## Introduction
 
-## Configuration
+The tables in the following sections list the Gravitee Helm chart's configurable parameters and their default values. Gravitee supports a variety of configuration types and database options.
 
-The following tables list the Gravitee Helm chart's configurable parameters and their default values.
+## Application settings
 
 By default, the Helm chart creates a ServiceAccount that enables Gravitee API Management (APIM) to connect to the Kubernetes API. This allows Kubernetes ConfigMaps and Secrets to initialize Gravitee settings.
 
@@ -28,8 +34,12 @@ To deploy in another namespace from which you will access a Secret, create a ano
 For more information on roles, see [Role and ClusterRole](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) in the [Kubernetes documentation](https://kubernetes.io/docs/).
 {% endhint %}
 
-### **DB-less mode: minimum configuration example**&#x20;
+## **Configuration types**
 
+DB-less mode, development deployment, external, and shared configuration types are described in detail below.&#x20;
+
+{% tabs %}
+{% tab title="DB-less mode" %}
 DB-less mode allows a Gateway to be deployed with no dependencies, assuming only that there is an operator running in the same cluster or namespace. Although the setup does not include Elasticsearch or MongoDB, analytics can still be configured using a custom reporter such as Datadog, TCP with Logstash, etc.
 
 Below is the minimum `value-dbless.yml` APIM configuration required by a DB-less deployment. Change the `domain` value and run the following command:
@@ -72,9 +82,9 @@ gateway:
 {% hint style="info" %}
 The above is just one example of a DB-less mode configuration. Note that if DB-less mode is configured without a running APIM instance to sync with, the `management-context`resource serves no purpose.
 {% endhint %}
+{% endtab %}
 
-### **Dev environment: minimum configuration example**
-
+{% tab title="Dev deployment" %}
 Below is the minimum `value-light.yml` configuration required by a development deployment. Change the `domain` value and run the following command:
 
 {% hint style="warning" %}
@@ -133,11 +143,10 @@ ui:
   ingress:
     hosts:
       - management-ui.mydomain.com
-
 ```
+{% endtab %}
 
-### **External configuration file**
-
+{% tab title="External configuration" %}
 To use an external configuration file, such as `gravitee.yaml` for the Gateway or API management, or `constant.json` for the UI, add the following to the Helm chart (`gravitee-config-configmap-name` is the name of the ConfigMap that contains the external configuration file):
 
 ```yaml
@@ -154,26 +163,32 @@ External configuration files are only available for:&#x20;
 * AM Helm charts 1.0.53 and later
 * APIM Helm charts 3.1.60 and later
 {% endhint %}
+{% endtab %}
 
-### **Shared configuration**
-
+{% tab title="Shared configuration" %}
 To configure common features such as:
 
 * Chaos testing: See [chaoskube](https://github.com/kubernetes/charts/tree/master/stable/chaoskube) chart
 * Configuration database: See [mongodb](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) chart
 * Logs database: See [elasticsearch](https://github.com/bitnami/charts/tree/master/bitnami/elasticsearch) chart
 
-<table><thead><tr><th width="270.66666666666663">Parameter</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td><code>chaos.enabled</code></td><td>Enable Chaos test</td><td>false</td></tr><tr><td><code>inMemoryAuth.enabled</code></td><td>Enable oauth login</td><td>true</td></tr><tr><td><code>ldap.enabled</code></td><td>Enable LDAP login</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="255">Parameter</th><th width="190">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>chaos.enabled</code></td><td>Enable Chaos test</td><td>false</td></tr><tr><td><code>inMemoryAuth.enabled</code></td><td>Enable oauth login</td><td>true</td></tr><tr><td><code>ldap.enabled</code></td><td>Enable LDAP login</td><td>false</td></tr></tbody></table>
+{% endtab %}
+{% endtabs %}
 
-### **MongoDB**
+## **Database options**
 
+Gravitee supports MongoDB, PostgreSQL, Elasticsearch, and Redis configurations. Installation instructions and parameters are detailed below.
+
+{% tabs %}
+{% tab title="MongoDB" %}
 To install MongoDB with Helm:&#x20;
 
 ```
 helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
 ```
 
-#### **MongoDB connections**
+**MongoDB connections**
 
 There are three ways to configure MongoDB connections.
 
@@ -223,10 +238,10 @@ See [MongoDB](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) for
 {% hint style="warning" %}
 You may encounter issues while [running this Helm chart on Apple Silicon M1](https://github.com/bitnami/charts/issues/7305). If you want to deploy MongoDB on M1, we encourage you to use another Helm chart.
 {% endhint %}
+{% endtab %}
 
-### **PostgresSQL (via JDBC Connection)**
-
-To install a new PostgresSQL database, run the command below after updating the `username`, `password`, and `databasename` parameters:
+{% tab title="PostgreSQL" %}
+To install a new PostgresSQL database via JDBC, first run the command below after updating the `username`, `password`, and `databasename` parameters:
 
 ```sh
 helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
@@ -257,22 +272,10 @@ jdbc:
 management:
   type: jdbc
 ```
+{% endtab %}
 
-### **Elasticsearch**
-
-| Parameter                  | Description                                       | Default                                                                |
-| -------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------- |
-| `es.security.enabled`      | Elasticsearch username and password enabled       | false                                                                  |
-| `es.security.username`     | Elasticsearch username                            | `example`                                                              |
-| `es.security.password`     | Elasticsearch password                            | `example`                                                              |
-| `es.tls.enabled`           | Elasticsearch TLS enabled                         | false                                                                  |
-| `es.tls.keystore.type`     | Elasticsearch TLS keystore type (jks, pem or pfx) | `null`                                                                 |
-| `es.tls.keystore.path`     | Elasticsearch TLS keystore path (jks, pfx)        | `null`                                                                 |
-| `es.tls.keystore.password` | Elasticsearch TLS keystore password (jks, pfx)    | `null`                                                                 |
-| `es.tls.keystore.certs`    | Elasticsearch TLS certs (only pems)               | `null`                                                                 |
-| `es.tls.keystore.keys`     | Elasticsearch TLS keys (only pems)                | `null`                                                                 |
-| `es.index`                 | Elasticsearch index                               | `gravitee`                                                             |
-| `es.endpoints`             | Elasticsearch endpoint array                      | `[http://elastic-elasticsearch-client.default.svc.cluster.local:9200]` |
+{% tab title="Elasticsearch" %}
+<table><thead><tr><th width="201">Parameter</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td><code>es.security.enabled</code></td><td>Elasticsearch username and password enabled</td><td>false</td></tr><tr><td><code>es.security.username</code></td><td>Elasticsearch username</td><td><code>example</code></td></tr><tr><td><code>es.security.password</code></td><td>Elasticsearch password</td><td><code>example</code></td></tr><tr><td><code>es.tls.enabled</code></td><td>Elasticsearch TLS enabled</td><td>false</td></tr><tr><td><code>es.tls.keystore.type</code></td><td>Elasticsearch TLS keystore type (jks, pem or pfx)</td><td><code>null</code></td></tr><tr><td><code>es.tls.keystore.path</code></td><td>Elasticsearch TLS keystore path (jks, pfx)</td><td><code>null</code></td></tr><tr><td><code>es.tls.keystore.password</code></td><td>Elasticsearch TLS keystore password (jks, pfx)</td><td><code>null</code></td></tr><tr><td><code>es.tls.keystore.certs</code></td><td>Elasticsearch TLS certs (only pems)</td><td><code>null</code></td></tr><tr><td><code>es.tls.keystore.keys</code></td><td>Elasticsearch TLS keys (only pems)</td><td><code>null</code></td></tr><tr><td><code>es.index</code></td><td>Elasticsearch index</td><td><code>gravitee</code></td></tr><tr><td><code>es.endpoints</code></td><td>Elasticsearch endpoint array</td><td><code>[http://elastic-elasticsearch-client.default.svc.cluster.local:9200]</code></td></tr></tbody></table>
 
 **Elasticsearch Cluster**
 
@@ -280,15 +283,15 @@ management:
 | ----------------------- | ------------------------------------------ | ------- |
 | `elasticsearch.enabled` | Enable deployment of Elasticsearch cluster | `false` |
 
-See [Elasticsearch](https://artifacthub.io/packages/helm/bitnami/elasticsearch) for detailed documentation on optional requirements Helm chart.
+See [Elasticsearch](https://artifacthub.io/packages/helm/bitnami/elasticsearch) for detailed documentation on optional Helm chart requirements.
 
 {% hint style="warning" %}
-Please be aware that the Elasticsearch installed by Gravitee is NOT recommended in production and it is just for testing purposes and running APIM locally.
+The Elasticsearch installed by Gravitee is NOT recommended in production. It is for testing purposes and running APIM locally.
 {% endhint %}
+{% endtab %}
 
-### **Redis**
-
-To install Redis, use the command below :
+{% tab title="Redis" %}
+To install Redis, use the command below:
 
 ```sh
 helm install --set auth.password=p@ssw0rd redis-apim bitnami/redis
@@ -348,9 +351,15 @@ gateway:
 | ---------------------------------- | ------------------------------ | ------- |
 | `gateway.ratelimit.redis.ssl`      | Enable SSL connection to Redis | `false` |
 | `gateway.ratelimit.redis.password` | Redis password                 | `false` |
+{% endtab %}
+{% endtabs %}
 
-### **Gravitee UI**
+### **Gravitee parameters**
 
+The following tables list the available configuration parameters for the Gravitee UI, Gravitee API, Gravitee Gateway, and Alert Engine.
+
+{% tabs %}
+{% tab title="Gravitee UI" %}
 | Parameter                                 | Description                                                                                                                                                                       | Default                                                                                                                                                                                                    |
 | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ui.name`                                 | UI service name                                                                                                                                                                   | `ui`                                                                                                                                                                                                       |
@@ -390,9 +399,9 @@ gateway:
 | `ui.resources.requests.memory`            | K8s pod deployment requests definition for memory                                                                                                                                 | `64Mi`                                                                                                                                                                                                     |
 | `ui.lifecycle.postStart`                  | K8s pod deployment [postStart](https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/#define-poststart-and-prestop-handlers) command definition | `null`                                                                                                                                                                                                     |
 | `ui.lifecycle.preStop`                    | K8s pod deployment [preStop](https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/#define-poststart-and-prestop-handlers) command definition   | `null`                                                                                                                                                                                                     |
+{% endtab %}
 
-### **Gravitee API**
-
+{% tab title="Gravitee API" %}
 | Parameter                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Default                                                                                                                                                     |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `api.name`                                            | API service name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `api`                                                                                                                                                       |
@@ -480,9 +489,9 @@ gateway:
 | `api.resources.requests.memory`                       | K8s pod deployment requests definition for memory                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `512Mi`                                                                                                                                                     |
 | `api.lifecycle.postStart`                             | K8s pod deployment [postStart](https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/#define-poststart-and-prestop-handlers) command definition                                                                                                                                                                                                                                                                                                                                                                                                                                        | `null`                                                                                                                                                      |
 | `api.lifecycle.preStop`                               | K8s pod deployment [preStop](https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/#define-poststart-and-prestop-handlers) command definition                                                                                                                                                                                                                                                                                                                                                                                                                                          | `null`                                                                                                                                                      |
+{% endtab %}
 
-### **Gravitee Gateway**
-
+{% tab title="Gravitee Gateway" %}
 | Parameter                                      | Description                                                                                                                                                                                                | Default                                                                                                                                                                                                                     |
 | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `gateway.name`                                 | Gateway service name                                                                                                                                                                                       | `gateway`                                                                                                                                                                                                                   |
@@ -533,59 +542,60 @@ gateway:
 | `gateway.resources.requests.memory`            | K8s pod deployment requests definition for memory                                                                                                                                                          | `256Mi`                                                                                                                                                                                                                     |
 | `gateway.lifecycle.postStart`                  | K8s pod deployment [postStart](https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/#define-poststart-and-prestop-handlers) command definition                          | `null`                                                                                                                                                                                                                      |
 | `gateway.lifecycle.preStop`                    | K8s pod deployment [preStop](https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/#define-poststart-and-prestop-handlers) command definition                            | `null`                                                                                                                                                                                                                      |
+{% endtab %}
 
-### **Alert Engine**
+{% tab title="Alert Engine" %}
+| Parameter                                               | Description                                                              | Default                    |
+| ------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------------- |
+| `alerts.enabled`                                        | Enables AE connectivity                                                  | `true`                     |
+| `alerts.endpoints`                                      | Defines AE endpoints                                                     | `- http://localhost:8072/` |
+| `alerts.security.enabled`                               | Enables AE secure connectivity                                           | `false`                    |
+| `alerts.security.username`                              | The AE username                                                          | `"admin"`                  |
+| `alerts.security.password`                              | The AE password                                                          | `"password"`               |
+| `alerts.options.sendEventsOnHttp`                       | Send event on http to AE (websocket otherwise)                           | `true`                     |
+| `alerts.options.useSystemProxy`                         | Use system proxy to connect to AE                                        | `false`                    |
+| `alerts.options.connectTimeout`                         | AE connection timeout                                                    | `2000`                     |
+| `alerts.options.idleTimeout`                            | AE idleTimeout timeout                                                   | `120000`                   |
+| `alerts.options.keepAlive`                              | Keep the connection alive                                                | `true`                     |
+| `alerts.options.pipelining`                             | Enables event pipelining                                                 | `true`                     |
+| `alerts.options.tryCompression`                         | Enables event compression                                                | `true`                     |
+| `alerts.options.maxPoolSize`                            | Set the maximum numner of connection                                     | `50`                       |
+| `alerts.options.bulkEventsSize`                         | Send events by packets                                                   | `100`                      |
+| `alerts.options.bulkEventsWait`                         | Duration for events to be ready to be sent                               | `100`                      |
+| `alerts.options.ssl.trustall`                           | Ssl trust all                                                            | `false`                    |
+| `alerts.options.ssl.keystore.type`                      | Type of the keystore (jks, pkcs12, pem)                                  | `null`                     |
+| `alerts.options.ssl.keystore.path`                      | Path to the keystore                                                     | `null`                     |
+| `alerts.options.ssl.keystore.password`                  | Path to the keystore                                                     | `null`                     |
+| `alerts.options.ssl.keystore.certs`                     | Keystore cert paths (array, only for pem)                                | `null`                     |
+| `alerts.options.ssl.keystore.keys`                      | Keystore key paths (array, only for pem)                                 | `null`                     |
+| `alerts.options.ssl.truststore.type`                    | Type of the truststore                                                   | `null`                     |
+| `alerts.options.ssl.truststore.path`                    | Path to the truststore                                                   | `null`                     |
+| `alerts.options.ssl.truststore.password`                | Password of the truststore                                               | `null`                     |
+| `alerts.engines.<cluster-name>.endpoints`               | Defines AE endpoints on the cluster \<cluster-name>                      | `- http://localhost:8072/` |
+| `alerts.engines.<cluster-name>.security.username`       | The AE username on the cluster \<cluster-name>                           | `"admin"`                  |
+| `alerts.engines.<cluster-name>.security.password`       | The AE password on the cluster \<cluster-name>                           | `"password"`               |
+| `alerts.engines.<cluster-name>.ssl.trustall`            | Ssl trust all on the cluster \<cluster-name>                             | `false`                    |
+| `alerts.engines.<cluster-name>.ssl.keystore.type`       | Type of the keystore (jks, pkcs12, pem) on the cluster \<cluster-name>   | `null`                     |
+| `alerts.engines.<cluster-name>.ssl.keystore.path`       | Path to the keystore (jks, pkcs12, pem) on the cluster \<cluster-name>   | `null`                     |
+| `alerts.engines.<cluster-name>.ssl.keystore.password`   | Path to the keystore on the cluster \<cluster-name>                      | `null`                     |
+| `alerts.engines.<cluster-name>.ssl.keystore.certs`      | Keystore cert paths (array, only for pem) on the cluster \<cluster-name> | `null`                     |
+| `alerts.engines.<cluster-name>.ssl.keystore.keys`       | Keystore key paths (array, only for pem) on the cluster \<cluster-name>  | `null`                     |
+| `alerts.engines.<cluster-name>.ssl.truststore.type`     | Type of the truststore on the cluster \<cluster-name>                    | `null`                     |
+| `alerts.engines.<cluster-name>.ssl.truststore.path`     | Path to the truststore on the cluster \<cluster-name>                    | `null`                     |
+| `alerts.engines.<cluster-name>.ssl.truststore.password` | Password of the truststore on the cluster \<cluster-name>                | `null`                     |
+{% endtab %}
+{% endtabs %}
 
-| Parameter                                              | Description                                                              | Default                    |
-| ------------------------------------------------------ | ------------------------------------------------------------------------ | -------------------------- |
-| alerts.enabled                                         | Enables AE connectivity                                                  | `true`                     |
-| alerts.endpoints                                       | Defines AE endpoints                                                     | `- http://localhost:8072/` |
-| alerts.security.enabled                                | Enables AE secure connectivity                                           | `false`                    |
-| alerts.security.username                               | The AE username                                                          | `"admin"`                  |
-| alerts.security.password                               | The AE password                                                          | `"password"`               |
-| alerts.options.sendEventsOnHttp                        | Send event on http to AE (websocket otherwise)                           | `true`                     |
-| alerts.options.useSystemProxy                          | Use system proxy to connect to AE                                        | `false`                    |
-| alerts.options.connectTimeout                          | AE connection timeout                                                    | `2000`                     |
-| alerts.options.idleTimeout                             | AE idleTimeout timeout                                                   | `120000`                   |
-| alerts.options.keepAlive                               | Keep the connection alive                                                | `true`                     |
-| alerts.options.pipelining                              | Enables event pipelining                                                 | `true`                     |
-| alerts.options.tryCompression                          | Enables event compression                                                | `true`                     |
-| alerts.options.maxPoolSize                             | Set the maximum numner of connection                                     | `50`                       |
-| alerts.options.bulkEventsSize                          | Send events by packets                                                   | `100`                      |
-| alerts.options.bulkEventsWait                          | Duration for events to be ready to be sent                               | `100`                      |
-| alerts.options.ssl.trustall                            | Ssl trust all                                                            | `false`                    |
-| alerts.options.ssl.keystore.type                       | Type of the keystore (jks, pkcs12, pem)                                  | `null`                     |
-| alerts.options.ssl.keystore.path                       | Path to the keystore                                                     | `null`                     |
-| alerts.options.ssl.keystore.password                   | Path to the keystore                                                     | `null`                     |
-| alerts.options.ssl.keystore.certs                      | Keystore cert paths (array, only for pem)                                | `null`                     |
-| alerts.options.ssl.keystore.keys                       | Keystore key paths (array, only for pem)                                 | `null`                     |
-| alerts.options.ssl.truststore.type                     | Type of the truststore                                                   | `null`                     |
-| alerts.options.ssl.truststore.path                     | Path to the truststore                                                   | `null`                     |
-| alerts.options.ssl.truststore.password                 | Password of the truststore                                               | `null`                     |
-| alerts.engines.\<cluster-name>.endpoints               | Defines AE endpoints on the cluster \<cluster-name>                      | `- http://localhost:8072/` |
-| alerts.engines.\<cluster-name>.security.username       | The AE username on the cluster \<cluster-name>                           | `"admin"`                  |
-| alerts.engines.\<cluster-name>.security.password       | The AE password on the cluster \<cluster-name>                           | `"password"`               |
-| alerts.engines.\<cluster-name>.ssl.trustall            | Ssl trust all on the cluster \<cluster-name>                             | `false`                    |
-| alerts.engines.\<cluster-name>.ssl.keystore.type       | Type of the keystore (jks, pkcs12, pem) on the cluster \<cluster-name>   | `null`                     |
-| alerts.engines.\<cluster-name>.ssl.keystore.path       | Path to the keystore (jks, pkcs12, pem) on the cluster \<cluster-name>   | `null`                     |
-| alerts.engines.\<cluster-name>.ssl.keystore.password   | Path to the keystore on the cluster \<cluster-name>                      | `null`                     |
-| alerts.engines.\<cluster-name>.ssl.keystore.certs      | Keystore cert paths (array, only for pem) on the cluster \<cluster-name> | `null`                     |
-| alerts.engines.\<cluster-name>.ssl.keystore.keys       | Keystore key paths (array, only for pem) on the cluster \<cluster-name>  | `null`                     |
-| alerts.engines.\<cluster-name>.ssl.truststore.type     | Type of the truststore on the cluster \<cluster-name>                    | `null`                     |
-| alerts.engines.\<cluster-name>.ssl.truststore.path     | Path to the truststore on the cluster \<cluster-name>                    | `null`                     |
-| alerts.engines.\<cluster-name>.ssl.truststore.password | Password of the truststore on the cluster \<cluster-name>                | `null`                     |
+## **Licenses**
 
-### **License**
+Enterprise plugins require a [license](https://docs.gravitee.io/ee/ee\_license.html) in APIM. To define a license, enter the `license.key` value in the `values.yml` file and add the Helm argument `--set license.key=<license.key in base64>`.
 
-For Enterprise plugin, and only for them, you have to include a [license](https://docs.gravitee.io/ee/ee\_license.html) in APIM. You can define it by:
+{% hint style="info" %}
+The `license.key` value you enter must be encoded in `base64`:
 
-* fill the `license.key` field in the `values.yml` file.
-* add helm arg: `--set license.key=<license.key in base64>`
-
-To get the license.key value, encode your file `license.key` in `base64`:
-
-* linux: `base64 -w 0 license.key`
+* Linux: `base64 -w 0 license.key`
 * macOS: `base64 license.key`
+{% endhint %}
 
 Example:
 
@@ -598,17 +608,17 @@ $ helm install \
   graviteeio/apim3
 ```
 
-| Parameter   | Description | Default                            |
-| ----------- | ----------- | ---------------------------------- |
-| license.key | string      | license.key file encoded in base64 |
+| Parameter     | Description | Default                            |
+| ------------- | ----------- | ---------------------------------- |
+| `license.key` | string      | license.key file encoded in base64 |
 
 ## OpenShift
 
-The Gravitee API Management Helm chart supports OpenShift > 3.10 This chart is only supporting Ingress standard objects and not the specific OpenShift Routes, reason why OpenShift is supported started from 3.10.
+The Gravitee API Management Helm chart supports Ingress standard objects and not specific OpenShift Routes. It is therefore compatible with OpenShift versions 3.10 and later.
 
 There are two major considerations to have in mind when deploying APIM within OpenShift: 1\_ Use full host domain instead of paths for all the components (ingress paths are not well supported by OpenShift) 2\_ Override the security context to let OpenShift to define automatically the user-id and the group-id to run the containers.
 
-Also, for Openshift to automatically create Routes from Ingress, you must define the `ingressClassName` to `none`.
+For Openshift to automatically create Routes from the Ingress, you must define the `ingressClassName` as `none`.
 
 Here is a standard `values.yaml` used to deploy APIM into OpenShift:
 
