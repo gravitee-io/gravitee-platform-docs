@@ -1,2 +1,0 @@
-# Get User Profile Information
-

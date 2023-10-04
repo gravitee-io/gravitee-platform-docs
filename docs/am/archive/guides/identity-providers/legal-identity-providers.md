@@ -1,2 +1,0 @@
-# Legal Identity Providers
-

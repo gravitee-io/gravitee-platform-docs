@@ -1,3 +1,0 @@
-# Tutorial: Quick Start
-
-Welcome
