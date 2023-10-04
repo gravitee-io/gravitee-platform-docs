@@ -81,7 +81,7 @@ spec:
     bearerToken: xxxx-yyyy-zzzz
 ```
 
-Alternatively, here is how to use a Kubernetes Secret to store the token:
+Alternatively, here is how to use a Kubernetes secret to store the token:
 
 ```sh
 kubectl create secret generic management-context-credentials \
