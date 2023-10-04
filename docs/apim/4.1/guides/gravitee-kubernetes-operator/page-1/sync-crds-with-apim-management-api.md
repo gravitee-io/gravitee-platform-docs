@@ -50,6 +50,13 @@ spec:
 EOF
 ```
 
+{% hint style="warning" %}
+By default, the service account created for the Gateway does not have a cluster role. Therefore, to sync a CRD with a Management API:
+
+* Your definitions must sit in the same namespace (e.g., `apim-example`)
+* The name of the context must match the reference in the API definition (e.g., the names of `ManagementContext` and `contextRef` above are both`apim-example-context`)
+{% endhint %}
+
 ## Using an APIM export endpoint to create an API definition from an existing API
 
 The Management API feature provides an [export endpoint](https://docs.gravitee.io/apim/3.x/management-api/3.20/index.html#tag/APIs/operation/exportApiCRD) that allows you to export an API as an API Definition resource.
