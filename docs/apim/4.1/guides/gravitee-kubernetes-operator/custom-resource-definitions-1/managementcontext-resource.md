@@ -1,2 +1,0 @@
-# ManagementContext Resource
-

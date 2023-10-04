@@ -14,7 +14,7 @@ This section describes how to test Gravitee Kubernetes Operator (GKO) functional
 * Ensure that `services.sync.kubernetes` is set to `true`. This property is disabled by default, but must be enabled for the Gateway to communicate with a Kubernetes Operator. How the Gateway is deployed determines how the property is configured:
   * If your Gateway is deployed using a Helm Chart, you can enable the Kubernetes Operator option [through helm values](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md#gravitee-gateway).
   * For [other deployment strategies](../../getting-started/install-guides/) (e.g., deployment using a VM), you can update the configuration:
-    * &#x20;By setting an environment variable: `GRAVITEE_SERVICES_SYNC_KUBERNETES_ENABLED=true`
+    * By setting an environment variable: `GRAVITEE_SERVICES_SYNC_KUBERNETES_ENABLED=true`
     * Directly in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file:
 
 {% code title="gravitee.yml" %}
@@ -32,7 +32,7 @@ See the [Configure APIM Gateway](../../getting-started/configuration/the-gravite
 
 ## 1. Create a `ManagementContext` custom resource
 
-To create a [`ManagementContext` custom resource](page-1/managementcontext-resource.md) for your APIM instance requires a YAML file with the correct Management Context configuration. The following sample Gravitee YAML file can be used directly or as a template:
+To create a [`ManagementContext` custom resource](custom-resource-definitions/managementcontext-resource.md) for your APIM instance requires a YAML file with the correct Management Context configuration. The following sample Gravitee YAML file can be used directly or as a template:
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/config/samples/context/k3d/management-context-with-credentials.yml" %}
 
@@ -62,7 +62,7 @@ The Management Context resource has now been created.
 
 ## 2. Create an `ApiDefinition` custom resource
 
-To create an [`ApiDefinition` custom resource](page-1/apidefinition-crd.md) requires a YAML file with the desired API Definition configuration. The following sample Gravitee YAML file can be used directly or as a template:
+To create an [`ApiDefinition` custom resource](custom-resource-definitions/apidefinition-crd.md) requires a YAML file with the desired API Definition configuration. The following sample Gravitee YAML file can be used directly or as a template:
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/config/samples/apim/api-with-context.yml" %}
 
@@ -110,4 +110,4 @@ To test the API, you can call it through the APIM Gateway with the following com
 curl -i http://<YOUR_GATEWAY_URL>/gateway/k8s-basic-with-ctx
 ```
 
-If you are using a local cluster created through the local cluster installation process, the Gateway URL is likely `http://localhost:9000/gateway/k8s-basic-with-ctx`. However, the entrypoint used for the Gateway URL may differ depending on your deployment.&#x20;
+If you are using a local cluster created through the local cluster installation process, the Gateway URL is likely `http://localhost:9000/gateway/k8s-basic-with-ctx`. However, the entrypoint used for the Gateway URL may differ depending on your deployment.
