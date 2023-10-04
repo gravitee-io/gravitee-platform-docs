@@ -1,5 +1,5 @@
 ---
-description: An overview of Helm charts and Kubernetes operators
+description: An overview of Helm Charts and Kubernetes operators
 ---
 
 # Install on Kubernetes
@@ -8,7 +8,7 @@ description: An overview of Helm charts and Kubernetes operators
 This guide assumes familiarity with Kubernetes and its terms.
 {% endhint %}
 
-Installing Gravitee API Management (APIM) on Kubernetes is made easy with the help of our Helm chart. **This Helm chart supports Gravitee APIM Management (APIM) versions: 3.0.x and higher** and deploys the following:
+Installing Gravitee API Management (APIM) on Kubernetes is made easy with the help of our Helm Chart. **This Helm Chart supports Gravitee APIM Management (APIM) versions: 3.0.x and higher** and deploys the following:
 
 * APIM Management API
 * APIM Management Console
@@ -26,7 +26,7 @@ The following command line tools must be installed:
 
 ## Installation Steps
 
-1. Add the Gravitee Helm charts repo:
+1. Add the Gravitee Helm Chart repo:
 
 ```sh
 helm repo add graviteeio https://helm.gravitee.io
@@ -88,7 +88,7 @@ helm install apim-4.0.0.tgz
 
 ## Configure installation
 
-Refer to our [Helm chart reference page](configure-helm-chart.md) to learn how to customize your installation.
+Refer to our [Helm Chart reference page](configure-helm-chart.md) to learn how to customize your installation.
 
 ## Deployment management
 

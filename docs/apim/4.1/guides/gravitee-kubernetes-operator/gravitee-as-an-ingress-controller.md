@@ -30,7 +30,7 @@ The APIM components used to gather analytics and review our configuration will b
 
 ### Configure your deployment
 
-Next, use the [Gravitee Helm charts](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md) to install the Gateway that will act as an Ingress runtime on your Kubernetes cluster. Below is the minimum set of properties that your Helm values should contain:&#x20;
+Next, use the [Gravitee Helm Chart](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md) to install the Gateway that will act as an Ingress runtime on your Kubernetes cluster. Below is the minimum set of properties that your Helm values should contain:&#x20;
 
 {% code title="values.yml" %}
 ```yaml
@@ -68,7 +68,7 @@ helm upgrade --install gravitee-ingress \
 
 ### Deploy the Gravitee Kubernetes Operator
 
-The Gravitee Kubernetes Operator that will act as our Ingress controller can also be installed using the Gravitee Helm charts. You can find the operator Helm chart documentation [here](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
+The Gravitee Kubernetes Operator that will act as our Ingress controller can also be installed using the Gravitee Helm Chart. You can find the operator Helm Chart documentation [here](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
 
 ```sh
 helm upgrade --install gravitee-gko \
@@ -207,7 +207,7 @@ After the keystore is added to the cluster, you need to configure the Gateway to
 ```
 
 {% hint style="info" %}
-You must also add this label to your Gateway `ConfigMap`to tell the controller where your Gateway configuration is located.
+You must also add this label to your Gateway `ConfigMap` to tell the controller where your Gateway configuration is located.
 {% endhint %}
 
 Restart the Gateway for the changes to take effect.
@@ -222,7 +222,7 @@ There are two ways that the GKO can modify your keystore:
 gravitee.io/component=gateway
 ```
 
-2\) Create a new secret and provide the name of the Gateway keystore and its password:
+2\) Create a new Secret and provide the name of the Gateway keystore and its password:
 
 ```sh
 kubectl create secret generic gw-keystore-config \
@@ -231,7 +231,7 @@ kubectl create secret generic gw-keystore-config \
 --from-literal=password=changeme
 ```
 
-You also need to label the secret:
+You also need to label the Secret:
 
 ```
 gravitee.io/gw-keystore-config=true
@@ -239,10 +239,10 @@ gravitee.io/gw-keystore-config=true
 
 #### Add TLS to the ingress resources <a href="#user-content-add-tls-to-the-ingress-resources" id="user-content-add-tls-to-the-ingress-resources"></a>
 
-Assuming you have a [keypair for your host and added it to the cluster](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets), you can reference the secret inside your ingress file, as shown below:
+Assuming you have a [keypair for your host and added it to the cluster](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets), you can reference the Secret inside your ingress file, as shown below:
 
 {% hint style="info" %}
-The secret must be in the same namespace.
+The Secret must be in the same namespace.
 {% endhint %}
 
 ```yaml

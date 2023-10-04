@@ -219,7 +219,7 @@ The `Application` custom resource represents the configuration for an applicatio
 The following workflow is applied when a new `Application` resource is added to the cluster:
 
 1. The GKO listens for `Application` resources.
-2. The GKO resolves any references to external sources such as configmaps or secrets.
+2. The GKO resolves any references to external sources such as ConfigMaps or Secrets.
 3. The GKO performs required changes, such as adding default settings.
 4. The GKO converts the data to JSON format.
 5. The GKO compares the definition to the existing definition. If something has changed, the GKO pushes the definition to the Management API (if a `ManagementContext` resource is provided).

@@ -88,7 +88,7 @@ By default, the Kubernetes synchronizer is configured to watch for API definitio
 
 ### Install using Helm
 
-1. Add the Gravitee Helm charts repo:
+1. Add the Gravitee Helm Chart repo:
 
 ```sh
 helm repo add graviteeio https://helm.gravitee.io
