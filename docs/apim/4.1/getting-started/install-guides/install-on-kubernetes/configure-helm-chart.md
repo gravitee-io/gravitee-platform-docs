@@ -614,13 +614,12 @@ $ helm install \
 
 ## OpenShift
 
-The Gravitee API Management Helm chart supports Ingress standard objects and not specific OpenShift Routes. It is therefore compatible with OpenShift versions 3.10 and later.
+The Gravitee API Management Helm chart supports Ingress standard objects and does not support specific OpenShift Routes. It is therefore compatible with OpenShift versions 3.10 and later. When deploying APIM within OpenShift:&#x20;
 
-There are two major considerations to have in mind when deploying APIM within OpenShift: 1\_ Use full host domain instead of paths for all the components (ingress paths are not well supported by OpenShift) 2\_ Override the security context to let OpenShift to define automatically the user-id and the group-id to run the containers.
+* Use the full host domain instead of paths for all components (ingress paths are not supported well by OpenShift)&#x20;
+* Override the security context to let OpenShift automatically define the `user-id` and `group-id` used to run the containers
 
-For Openshift to automatically create Routes from the Ingress, you must define the `ingressClassName` as `none`.
-
-Here is a standard `values.yaml` used to deploy APIM into OpenShift:
+For Openshift to automatically create Routes from the Ingress, you must define the `ingressClassName` as `none`. Here is a standard `values.yaml` used to deploy APIM into OpenShift:
 
 {% code title="values.yml" %}
 ```yaml
@@ -712,4 +711,4 @@ ui:
 ```
 {% endcode %}
 
-By setting the value to `null` for `runAsUser` it forces OpenShift to define the correct values for you while deploying the Helm Chart.
+By setting `runAsUser` to `null`, OpenShift is forced to define the correct values when deploying the Helm Chart.
