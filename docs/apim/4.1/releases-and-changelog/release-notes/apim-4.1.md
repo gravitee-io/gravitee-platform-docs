@@ -12,7 +12,7 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 ## Introduction
 
-Gravitee 4.1 was released on September 28th, 2023, and introduced DB-less mode, enhancements to v4 API configuration, the ability to import and duplicate v4 APIs, and improved logging capabilities. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../changelogs/apim-4.0.x-changelog.md).
+Gravitee 4.1 was released on September 28th, 2023, and introduced DB-less mode, enhancements to v4 API configuration, the ability to import and duplicate v4 APIs, and improved logging capabilities. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.x](../changelogs/apim-4.1.x-changelog.md).
 
 ## DB-less mode
 
