@@ -22,7 +22,7 @@ Historically, Gravitee customers have deployed APIs using the following:
 * **Gravitee Management Console:** Gravitee includes an easy-to-use, self-serve UI. The Console is often used as a development tool and is connected to a backend service that is part of the Gravitee web application.
 * **Gravitee management API:** Every action in the Gravitee Management Console represents a REST API with a JSON payload that is documented using an API spec. Consequently, every UI action can be performed via REST API calls backed by JSON files. A Gravitee API definition is also a JSON file that explains endpoints, protections, etc.
 
-While the REST API method is compatible with IaC, customer feedback favors a Kubernetes-native deployment of APIs, the Gravitee APIM Gateway and the Console via [Custom Resource Definitions (CRDs)](../../../guides/gravitee-kubernetes-operator/page-1/). The introduction of the Gravitee Kubernetes Operator (GKO) makes this possible.
+While the REST API method is compatible with IaC, customer feedback favors a Kubernetes-native deployment of APIs, the Gravitee APIM Gateway and the Console via [Custom Resource Definitions (CRDs)](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/). The introduction of the Gravitee Kubernetes Operator (GKO) makes this possible.
 
 ### How it works
 
@@ -56,7 +56,7 @@ The following diagram illustrates the multi-cluster deployment architectural app
 
 ### Deployment on multiple environments
 
-In this scenario, a single GKO is deployed that can publish APIs to different environments (logical or physical). This is managed directly from the [ApiDefinition custom resource](../../../guides/gravitee-kubernetes-operator/page-1/apidefinition-crd.md), which refers to a [ManagementContext custom resource](../../../guides/gravitee-kubernetes-operator/page-1/managementcontext-resource.md).
+In this scenario, a single GKO is deployed that can publish APIs to different environments (logical or physical). This is managed directly from the [ApiDefinition custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd.md), which refers to a [ManagementContext custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource.md).
 
 {% hint style="info" %}
 Different APIs are published on each of the environments because although APIs use the `ManagementContext` CRD, which can reference any Management API, an `ApiDefinition` CRD can only have one Management Context.

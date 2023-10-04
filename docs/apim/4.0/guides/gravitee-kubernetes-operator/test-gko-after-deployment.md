@@ -32,7 +32,7 @@ See the [Configure APIM Gateway](../../getting-started/configuration/the-gravite
 
 ## 1. Create a `ManagementContext` custom resource
 
-To create a [`ManagementContext` custom resource](page-1/managementcontext-resource.md) for your APIM instance requires a YAML file with the correct Management Context configuration. The following sample Gravitee YAML file can be used directly or as a template:
+To create a [`ManagementContext` custom resource](custom-resource-definitions/managementcontext-resource.md) for your APIM instance requires a YAML file with the correct Management Context configuration. The following sample Gravitee YAML file can be used directly or as a template:
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/config/samples/context/k3d/management-context-with-credentials.yml" %}
 
@@ -62,7 +62,7 @@ The Management Context resource has now been created.
 
 ## 2. Create an `ApiDefinition` custom resource
 
-To create an [`ApiDefinition` custom resource](page-1/apidefinition-crd.md) requires a YAML file with the desired API Definition configuration. The following sample Gravitee YAML file can be used directly or as a template:
+To create an [`ApiDefinition` custom resource](custom-resource-definitions/apidefinition-crd.md) requires a YAML file with the desired API Definition configuration. The following sample Gravitee YAML file can be used directly or as a template:
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/config/samples/apim/api-with-context.yml" %}
 
