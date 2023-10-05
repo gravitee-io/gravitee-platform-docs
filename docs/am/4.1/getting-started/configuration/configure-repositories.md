@@ -108,10 +108,11 @@ AM uses the JDBC and R2DBC drivers together, since AM uses [liquibase](https://w
 
 | Database             | Version tested | JDBC Driver                                                                                                                           | R2DBC Driver                                                                                                               |
 | -------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Postgresql           | 9.6            | [Download page](https://jdbc.postgresql.org/download.html)                                                                            | [Download page](https://repo1.maven.org/maven2/io/r2dbc/r2dbc-postgresql/0.8.5.RELEASE/r2dbc-postgresql-0.8.5.RELEASE.jar) |
-| MySQL                | 5.7            | [Download page](https://dev.mysql.com/downloads/connector/j/)                                                                         | [Download page](https://repo1.maven.org/maven2/dev/miku/r2dbc-mysql/0.8.2.RELEASE/r2dbc-mysql-0.8.2.RELEASE.jar)           |
-| MariaDB              | 10.3           | [Download page](https://downloads.mariadb.org/connector-java/)                                                                        | [Download page](https://repo1.maven.org/maven2/org/mariadb/r2dbc-mariadb/0.8.4-rc/r2dbc-mariadb-0.8.4-rc.jar)              |
-| Microsoft SQL Server | 2017-CU12      | [Download page](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) | [Download page](https://repo1.maven.org/maven2/io/r2dbc/r2dbc-mssql/0.8.4.RELEASE/r2dbc-mssql-0.8.4.RELEASE.jar)           |
+| Postgresql           | 9.6            | [Download page](https://jdbc.postgresql.org/download.html)                                                                            | [Download page](https://repo1.maven.org/maven2/org/postgresql/r2dbc-postgresql/1.0.2.RELEASE/r2dbc-postgresql-1.0.2.RELEASE.jar) |
+| MySQL                | 5.7            | [Download page](https://dev.mysql.com/downloads/connector/j/)                                                                         | [Download page](https://repo1.maven.org/maven2/io/asyncer/r2dbc-mysql/1.0.2/r2dbc-mysql-1.0.2.jar)           |
+| MariaDB              | 10.3           | [Download page](https://downloads.mariadb.org/connector-java/)                                                                        | [Download page](https://repo1.maven.org/maven2/org/mariadb/r2dbc-mariadb/1.1.3/r2dbc-mariadb-1.1.3.jar)              |
+| Microsoft SQL Server | 2017-CU12      | [Download page](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) | [Download page](https://repo1.maven.org/maven2/io/r2dbc/r2dbc-mssql/1.0.0.RELEASE/r2dbc-mssql-1.0.0.RELEASE.jar)           |
+
 
 ### Install the JDBC plugin
 
