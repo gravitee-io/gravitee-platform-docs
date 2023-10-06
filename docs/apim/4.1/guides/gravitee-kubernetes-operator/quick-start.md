@@ -33,12 +33,6 @@ $ helm install graviteeio-gko graviteeio/gko
 ```
 {% endcode %}
 
-As an optional but recommended next step, check if the Gravitee CRDs are available on your cluster:
-
-```sh
-kubectl get crd
-```
-
 ## Testing the deployed GKO
 
 After GKO deployment, you can test GKO functionality by creating CRDs and sending API calls from the API Gateway.

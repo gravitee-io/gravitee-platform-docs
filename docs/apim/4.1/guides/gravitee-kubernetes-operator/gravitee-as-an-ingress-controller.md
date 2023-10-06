@@ -30,7 +30,7 @@ The APIM components used to gather analytics and review our configuration will b
 
 ### Configure your deployment
 
-Next, use the [Gravitee Helm Chart](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md) to install the Gateway that will act as an Ingress runtime on your Kubernetes cluster. Below is the minimum set of properties that your Helm values should contain:&#x20;
+Next, use the [Gravitee Helm Chart](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md) to install the Gateway that will act as an Ingress runtime on your Kubernetes cluster. Below is the minimum set of properties that your Helm values should contain:
 
 {% code title="values.yml" %}
 ```yaml
@@ -131,7 +131,7 @@ kubectl apply -f httpbin.yaml
 
 ### Define your ingress
 
-Once the `httpbin` service is created, it can be used as a reference in one or more ingress resources.&#x20;
+Once the `httpbin` service is created, it can be used as a reference in one or more ingress resources.
 
 The example below specifies the rules for routing traffic to your backend service. The GKO's ingress controller interprets this ingress resource and publishes a new API on the Gravitee Gateway. The Gateway acts as a runtime ingress, handling traffic and forwarding it to your backend service.
 
@@ -173,7 +173,7 @@ curl -i https://graviteeio.example.com/httpbin/hostname
 
 ### Secure your Gateway and ingress resources <a href="#user-content-secure-your-gateway-and-ingress-resources" id="user-content-secure-your-gateway-and-ingress-resources"></a>
 
-To secure the connection between your client and the Gateway, you must modify the Gateway `ConfigMap`.&#x20;
+To secure the connection between your client and the Gateway, you must modify the Gateway `ConfigMap`.
 
 As a prerequisite, a keystore must be added to the cluster. You can create a keystore using the following command:
 
@@ -300,7 +300,7 @@ apiVersion: "gravitee.io/v1alpha1"
 kind: "ApiDefinition"
 metadata:
   name: "ingress-cache-template"
-  labels:
+  annotations:
     gravitee.io/template: "true"
 spec:
   name: "ingress-cache-template"
