@@ -24,11 +24,12 @@ Before deploying the GKO, you should have:
 
 The GKO deployment process is the same for both remote and local Kubernetes clusters.
 
-To deploy the GKO on the cluster of your current Kubernetes context, run the following command (working directory is irrelevant):
+To deploy the GKO on the cluster of your current Kubernetes context, run the following commands:
 
 {% code overflow="wrap" %}
 ```sh
-kubectl apply -f https://github.com/gravitee-io/gravitee-kubernetes-operator/releases/latest/download/bundle.yml
+$ helm repo add graviteeio https://helm.gravitee.io
+$ helm install graviteeio-gko graviteeio/gko
 ```
 {% endcode %}
 
