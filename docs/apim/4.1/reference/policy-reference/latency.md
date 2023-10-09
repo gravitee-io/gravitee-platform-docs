@@ -15,10 +15,163 @@ This policy is particularly useful in two scenarios:
 
 Functional and implementation information for the `latency` policy is organized into the following sections:
 
+* [Examples](latency.md#examples)
 * [Configuration](latency.md#configuration)
 * [Compatibility Matrix](latency.md#compatibility-matrix)
 * [Errors](latency.md#errors)
 * [Changelogs](latency.md#changelogs)
+
+## Examples
+
+{% hint style="warning" %}
+The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Proxy APIs" %}
+Example policy configuration for a proxy API:
+
+```json
+{
+    "id": "my-proxy-api",
+    "name": "my-proxy-api",
+    "apiVersion": "1.0",
+    "definitionVersion": "4.0.0",
+    "type": "proxy",
+    "listeners": [
+        {
+            "type": "http",
+            "paths": [
+                {
+                    "path": "/test"
+                }
+            ],
+            "entrypoints": [
+                {
+                    "type": "http-proxy"
+                }
+            ]
+        }
+    ],
+    "endpointGroups": [
+        {
+            "name": "default-group",
+            "type": "http-proxy",
+            "endpoints": [
+                {
+                    "name": "default",
+                    "type": "http-proxy",
+                    "weight": 1,
+                    "inheritConfiguration": false,
+                    "configuration": {
+                        "target": "http://localhost:8080/endpoint"
+                    }
+                }
+            ]
+        }
+    ],
+    "flows": [
+        {
+            "name": "flow-1",
+            "enabled": true,
+            "request": [
+                {
+                    "name": "Latency policy",
+                    "description": "",
+                    "enabled": true,
+                    "policy": "latency",
+                    "configuration": {
+                        "time": 2,
+                        "timeUnit": "SECONDS"
+                    }
+                }
+            ],
+            "response": [],
+            "subscribe": [],
+            "publish": []
+        }
+    ],
+    "analytics": {
+        "enabled ": true
+    }
+}
+```
+{% endtab %}
+
+{% tab title="Message APIs" %}
+Example subscription configuration for a message API:
+
+```json
+{
+    "id": "my-message-subscribe-api",
+    "name": "my-message-subscribe-api",
+    "apiVersion": "1.0",
+    "definitionVersion": "4.0.0",
+    "type": "message",
+    "listeners": [
+        {
+            "type": "http",
+            "paths": [
+                {
+                    "path": "/test"
+                }
+            ],
+            "entrypoints": [
+                {
+                    "type": "sse",
+                    "configuration": {
+                        "headersAsComment": true
+                    }
+                }
+            ]
+        }
+    ],
+    "endpointGroups": [
+        {
+            "name": "default-group",
+            "type": "mock",
+            "endpoints": [
+                {
+                    "name": "default",
+                    "type": "mock",
+                    "weight": 1,
+                    "inheritConfiguration": false,
+                    "configuration": {
+                        "messageContent": "{ \"message\": \"hello\" }",
+                        "messageCount": 1
+                    }
+                }
+            ]
+        }
+    ],
+    "flows": [
+        {
+            "name": "flow-1",
+            "enabled": true,
+            "subscribe": [
+                {
+                    "name": "Latency policy",
+                    "description": "",
+                    "enabled": true,
+                    "policy": "latency",
+                    "configuration": {
+                        "time": 2,
+                        "timeUnit": "SECONDS"
+                    }
+                }
+            ],
+            "request": [],
+            "response": [],
+            "publish": []
+        }
+    ],
+    "analytics": {
+        "enabled ": true
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
