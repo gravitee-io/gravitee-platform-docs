@@ -23,11 +23,11 @@ Functional and implementation information for the `avro-json` policy is organize
 ## Examples
 
 {% hint style="warning" %}
-The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 message APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy APIs" %}
+{% tab title="Proxy API example" %}
 Example of inline request:
 
 ```json
@@ -111,7 +111,7 @@ Example of inline request:
 ```
 {% endtab %}
 
-{% tab title="Message APIs" %}
+{% tab title="Message API example" %}
 Example of inline publishing:
 
 <pre class="language-json"><code class="lang-json"><strong>{

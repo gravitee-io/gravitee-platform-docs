@@ -28,7 +28,7 @@ This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 
 {% tab title="Proxy API example" %}
 To inject an attribute that will dynamically determine if the content is in JSON format:
 
-```
+```json
 "assign-attributes": {
     "attributes": [
         {
@@ -41,7 +41,7 @@ To inject an attribute that will dynamically determine if the content is in JSON
 
 To extract the request attribute and get the format of the content you can use the following syntax:
 
-```
+```json
 {#context.attributes['isJson']}
 ```
 
@@ -49,7 +49,7 @@ To extract the request attribute and get the format of the content you can use t
 
 You can also be more general and inject complex objects into the context attributes:
 
-```
+```json
 "assign-attributes": {
     "attributes": [
         {
@@ -62,7 +62,7 @@ You can also be more general and inject complex objects into the context attribu
 
 To extract request attributes and get the Content-Type header you can use the following syntax:
 
-```
+```json
 {#context.attributes['initialRequest'].headers['Content-Type']}
 ```
 {% endtab %}
@@ -70,7 +70,7 @@ To extract request attributes and get the Content-Type header you can use the fo
 {% tab title="Message API example" %}
 To inject an attribute that will dynamically determine if the content is in JSON format:
 
-```
+```json
 "assign-attributes": {
     "attributes": [
         {
@@ -83,7 +83,7 @@ To inject an attribute that will dynamically determine if the content is in JSON
 
 To extract the message attribute and get the format of the content you can use the following syntax:
 
-```
+```json
 {#message.attributes['isJson']}
 ```
 
@@ -91,7 +91,7 @@ To extract the message attribute and get the format of the content you can use t
 
 You can also be more general and inject complex objects into the message attributes:
 
-```
+```json
 "assign-attributes": {
     "attributes": [
         {
@@ -104,13 +104,13 @@ You can also be more general and inject complex objects into the message attribu
 
 To extract message attributes and get the Content-Type header you can use the following syntax:
 
-```
+```json
 {#message.attributes['initialMessage'].headers['Content-Type']}
 ```
 
 To assign an attribute to the content of a message:
 
-```
+```json
 "assign-attributes": {
     "attributes": [
         {

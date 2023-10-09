@@ -25,7 +25,9 @@ This policy can be applied to v4 message APIs. It cannot be applied to v2 APIs o
 {% endhint %}
 
 {% tabs %}
-{% tab title="Message APIs" %}
+{% tab title="Message API example" %}
+Sample policy configuration:
+
 ```json
 {
     "cloud-events": {

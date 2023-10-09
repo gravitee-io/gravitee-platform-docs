@@ -32,24 +32,24 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy APIs" %}
+{% tab title="Proxy API example" %}
 The key used to store elements in cache can use the Gravitee Expression Language to provide a dynamic value.
 
 Key based on the `productId` query parameter:
 
-```
+```json
 "key": "{#request.params['productId']}"
 ```
 
 Key based on the `api-key` of the consumer:
 
-```
+```json
 "key": "{#request.headers['X-Gravitee-Api-Key']}"
 ```
 
 Key based on an API’s property and a query parameter:
 
-```
+```json
 "key": "{#properties['siteID']}-{#request.params['productId']}"
 ```
 {% endtab %}
@@ -57,9 +57,10 @@ Key based on an API’s property and a query parameter:
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
-```
+{% code title="Sample Configuration" %}
+```json
 "cache": {
     "cacheName": "policy-cache",
     "key": "{#request.params['productId']}",
@@ -70,10 +71,11 @@ Sample policy configuration is shown below:
     "responseCondition": "{#upstreamResponse.status == 201}"
 }
 ```
+{% endcode %}
 
 #### Gateway configuration (gravitee.yml)
 
-```
+```yaml
   policy:
     cache:
       serialization: text # default value or "binary" (not compatible with Redis)

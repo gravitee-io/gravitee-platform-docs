@@ -30,7 +30,7 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 {% tab title="Proxy API example" %}
 To display your request distribution based on a particular HTTP header in your dashboards, create the custom metric shown below.
 
-```
+```json
 "assign-metrics": {
     "metrics": [
         {

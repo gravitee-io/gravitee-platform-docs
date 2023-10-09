@@ -30,7 +30,7 @@ This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 
 {% tab title="Proxy API" %}
 You could use the Assign Content policy to inject a dictionary value and application into the request payload:
 
-```
+```json
 {
   "example": "${context.dictionaries['my-dictionary']['my-value']}",
   "application": "${context.attributes['application']}"
@@ -41,7 +41,7 @@ You could use the Assign Content policy to inject a dictionary value and applica
 {% tab title="Message API" %}
 You could use the Assign Content policy to inject a dictionary value and metadata into the message:
 
-```
+```json
 {
   "example": "${message.dictionaries['my-dictionary']['my-value']}",
   "metadata": "${message.attributes['metadata']}"
@@ -52,7 +52,7 @@ You could use the Assign Content policy to inject a dictionary value and metadat
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
 {% code title="Sample Configuration" %}
 ```json

@@ -28,7 +28,9 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-```
+Sample policy configuration:
+
+```json
 "policy-http-callout": {
     "method": "GET",
     "url": "https://api.gravitee.io/echo",
@@ -47,7 +49,7 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
 {% code title="Sample Configuration" %}
 ```json
