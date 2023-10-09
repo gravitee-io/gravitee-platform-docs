@@ -21,7 +21,7 @@ Functional and implementation information for the `api-key` policy is organized 
 ## Examples
 
 {% hint style="warning" %}
-This proxy API example also applies to v2 APIs. Currently, this policy can **not** be applied at the message level for v4 APIs.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}

@@ -22,7 +22,7 @@ Functional and implementation information for the `transform-headers` policy is 
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs, v4 proxy APIs, and v4 message APIs.&#x20;
+This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 message APIs.&#x20;
 {% endhint %}
 
 {% hint style="info" %}

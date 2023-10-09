@@ -19,11 +19,11 @@ Functional and implementation information for the `xml-json` policy is organized
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs, v4 proxy APIs, and v4 message APIs.&#x20;
+This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 message APIs.&#x20;
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy APIs" %}
+{% tab title="Proxy API example" %}
 Example request configuration:
 
 ```json
@@ -95,7 +95,7 @@ Example request configuration:
 ```
 {% endtab %}
 
-{% tab title="Message APIs" %}
+{% tab title="Message API example" %}
 Example subscribe configuration:
 
 ```json

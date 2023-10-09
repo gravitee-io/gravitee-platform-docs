@@ -25,7 +25,7 @@ Functional and implementation information for the `jws-validator` policy is orga
 ## Examples
 
 {% hint style="warning" %}
-This policy applies to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}

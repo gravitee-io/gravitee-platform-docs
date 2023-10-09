@@ -21,7 +21,7 @@ Functional and implementation information for the `assign-attributes` policy is 
 ## Examples
 
 {% hint style="warning" %}
-The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 message APIs.
 {% endhint %}
 
 {% tabs %}

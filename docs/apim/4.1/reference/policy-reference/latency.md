@@ -24,11 +24,11 @@ Functional and implementation information for the `latency` policy is organized 
 ## Examples
 
 {% hint style="warning" %}
-The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 message APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy APIs" %}
+{% tab title="Proxy API example" %}
 Example policy configuration for a proxy API:
 
 ```json
@@ -98,7 +98,7 @@ Example policy configuration for a proxy API:
 ```
 {% endtab %}
 
-{% tab title="Message APIs" %}
+{% tab title="Message API example" %}
 Example subscription configuration for a message API:
 
 ```json
