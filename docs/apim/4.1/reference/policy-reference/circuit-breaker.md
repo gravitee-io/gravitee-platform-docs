@@ -14,9 +14,73 @@ Implementation is based on Resilience4j. Refer to [their documentation](https://
 
 Functional and implementation information for the `circuit-breaker` policy is organized into the following sections:
 
+* [Examples](circuit-breaker.md#examples)
 * [Configuration](circuit-breaker.md#configuration)
 * [Compatibility Matrix](circuit-breaker.md#compatibility-matrix)
 * [Changelogs](circuit-breaker.md#changelogs)
+
+## Examples
+
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Proxy APIs" %}
+Sample policy configuration:
+
+```json
+{
+  "id": "my-api",
+  "name": "my-api",
+  "gravitee": "2.0.0",
+  "proxy": {
+    "context_path": "/test",
+    "endpoints": [
+      {
+        "name": "default",
+        "target": "http://localhost:8080/endpoint",
+        "http": {
+          "connectTimeout": 3000,
+          "readTimeout": 60000
+        }
+      }
+    ]
+  },
+  "flows": [
+    {
+      "name": "flow-1",
+      "methods": [
+        "GET"
+      ],
+      "enabled": true,
+      "path-operator": {
+        "path": "/",
+        "operator": "STARTS_WITH"
+      },
+      "pre": [
+        {
+          "name": "Circuit breaker",
+          "description": "",
+          "enabled": true,
+          "policy": "policy-circuit-breaker",
+          "configuration": {
+            "failureRateThreshold": 1,
+            "slowCallRateThreshold": 10,
+            "slowCallDurationThreshold": 500,
+            "windowSize": 2,
+            "waitDurationInOpenState": 50000,
+            "redirectToURL": ""
+          }
+        }
+      ],
+      "post": []
+    }
+  ]
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
