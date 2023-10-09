@@ -17,7 +17,7 @@ The `graviteeio` ingress class does not currently support the following features
 
 The Gravitee Gateway will be deployed in the `gravitee-ingress` namespace and available at the `graviteeio.example.com` domain name.
 
-Our backend service(s) routed and made available through our ingress(es) will be deployed in the `gravitee-apis` namespace.
+A Gravitee backend service routed and made available through a Gravitee ingress will be deployed in the `gravitee-apis` namespace.
 
 The APIM components used to gather analytics and review our configuration will be deployed in the `gravitee-apim` namespace.
 
