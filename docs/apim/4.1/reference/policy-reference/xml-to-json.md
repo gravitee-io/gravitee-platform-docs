@@ -23,10 +23,160 @@ This policy can be applied to v2 APIs, v4 proxy APIs, and v4 message APIs.&#x20;
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API example" %}
+{% tab title="Proxy APIs" %}
+Example request configuration:
+
 ```json
-"xml-json": {
-    "scope": "RESPONSE"
+{
+    "id": "api-request",
+    "name": "api-request",
+    "apiVersion": "1.0",
+    "definitionVersion": "4.0.0",
+    "type": "proxy",
+    "analytics": {},
+    "description": "api-request",
+    "properties": [],
+    "listeners": [
+        {
+            "type": "http",
+            "paths": [
+                {
+                    "path": "/test"
+                }
+            ],
+            "entrypoints": [
+                {
+                    "type": "http-proxy"
+                }
+            ]
+        }
+    ],
+    "endpointGroups": [
+        {
+            "name": "default",
+            "type": "http-proxy",
+            "endpoints": [
+                {
+                    "name": "default",
+                    "type": "http-proxy",
+                    "configuration": {
+                        "target": "http://localhost:8080/team"
+                    }
+                }
+            ]
+        }
+    ],
+    "flows": [
+        {
+            "name": "flow-1",
+            "enabled": true,
+            "selectors": [
+                {
+                    "type": "http",
+                    "path": "/",
+                    "pathOperator": "STARTS_WITH"
+                }
+            ],
+            "request": [
+                {
+                    "name": "Xml to Json",
+                    "description": "",
+                    "enabled": true,
+                    "policy": "xml-json",
+                    "configuration": {}
+                }
+            ],
+            "response": [],
+            "subscribe": [],
+            "publish": []
+        }
+    ]
+}
+```
+{% endtab %}
+
+{% tab title="Message APIs" %}
+Example subscribe configuration:
+
+```json
+{
+    "id": "api-request",
+    "name": "api-request",
+    "apiVersion": "1.0",
+    "definitionVersion": "4.0.0",
+    "type": "message",
+    "analytics": {},
+    "description": "api-request",
+    "properties": [],
+    "listeners": [
+        {
+            "type": "http",
+            "paths": [
+                {
+                    "path": "/test"
+                }
+            ],
+            "entrypoints": [
+                {
+                    "type": "http-get",
+                    "configuration": {
+                        "messagesLimitCount": 2,
+                        "messagesLimitDurationMs": 500,
+                        "headersInPayload": true,
+                        "metadataInPayload": true
+                    }
+                },
+                {
+                    "type": "http-post",
+                    "configuration": {
+                        "requestHeadersToMessage": true
+                    }
+                }
+            ]
+        }
+    ],
+    "endpointGroups": [
+        {
+            "name": "default",
+            "type": "mock",
+            "endpoints": [
+                {
+                    "name": "default-endpoint",
+                    "type": "mock",
+                    "weight": 1,
+                    "inheritConfiguration": false,
+                    "configuration": {
+                        "messageInterval": 1,
+                        "messageContent": "<root>\n    <_id>57762dc6ab7d620000000001</_id>\n    <name>name</name><__v>0</__v>\n</root>",
+                        "messageCount": 2
+                    }
+                }
+            ]
+        }
+    ],
+    "flows": [
+        {
+            "name": "flow-1",
+            "enabled": true,
+            "selectors": [
+                {
+                    "type": "http",
+                    "path": "/",
+                    "pathOperator": "STARTS_WITH"
+                }
+            ],
+            "subscribe": [
+                {
+                    "name": "Xml to Json",
+                    "description": "",
+                    "enabled": true,
+                    "policy": "xml-json",
+                    "configuration": {}
+                }
+            ],
+            "publish": []
+        }
+    ]
 }
 ```
 {% endtab %}

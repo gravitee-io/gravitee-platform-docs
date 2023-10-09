@@ -146,7 +146,7 @@
   * [Assign Content](reference/policy-reference/assign-content.md)
   * [Assign Metrics](reference/policy-reference/assign-metrics.md)
   * [API Key](reference/policy-reference/api-key.md)
-  * [AVRO <> JSON](reference/policy-reference/avro-json.md)
+  * [AVRO to JSON](reference/policy-reference/avro-json.md)
   * [AWS Lambda](reference/policy-reference/aws-lambda.md)
   * [Basic Authentication](reference/policy-reference/basic-authentication.md)
   * [Cache](reference/policy-reference/cache.md)

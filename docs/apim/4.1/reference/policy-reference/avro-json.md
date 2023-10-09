@@ -1,8 +1,8 @@
 ---
-description: This page provides the technical details of the AVRO <> JSON policy
+description: This page provides the technical details of the AVRO to JSON policy
 ---
 
-# AVRO <> JSON
+# AVRO to JSON
 
 {% hint style="warning" %}
 **This feature requires** [**Gravitee's Enterprise Edition**](../../overview/ee-vs-oss/)**.**
@@ -28,7 +28,7 @@ The proxy API example also applies to v2 APIs. This policy can also be applied a
 
 {% tabs %}
 {% tab title="Proxy APIs" %}
-Example of inline request of Avro to JSON:
+Example of inline request:
 
 ```json
 {
@@ -112,7 +112,7 @@ Example of inline request of Avro to JSON:
 {% endtab %}
 
 {% tab title="Message APIs" %}
-Example of inline publishing of Avro to JSON:
+Example of inline publishing:
 
 <pre class="language-json"><code class="lang-json"><strong>{
 </strong>    "id": "inline_publish_avro_to_json",

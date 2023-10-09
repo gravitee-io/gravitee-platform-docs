@@ -14,12 +14,124 @@ The request will fail with a 401 status if the policy’s Oauth2 resource is mis
 
 Functional and implementation information for the `openid-userinfo` policy is organized into the following sections:
 
+* [Examples](openid-connect-userinfo.md#examples)
 * [Configuration](openid-connect-userinfo.md#configuration)
 * [Changelogs](openid-connect-userinfo.md#changelogs)
 
 {% hint style="warning" %}
 This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
 {% endhint %}
+
+## Examples
+
+{% hint style="warning" %}
+This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Proxy APIs" %}
+Sample policy configuration:
+
+```json
+{
+  "id": "my-api",
+  "name": "my-api",
+  "gravitee": "2.0.0",
+  "proxy": {
+    "context_path": "/test",
+    "endpoints": [
+      {
+        "name": "default",
+        "target": "http://localhost:8080/endpoint",
+        "http": {
+          "connectTimeout": 3000,
+          "readTimeout": 60000
+        }
+      }
+    ]
+  },
+  "flows": [
+    {
+      "name": "No payload extraction flow",
+      "methods": [
+        "GET"
+      ],
+      "enabled": true,
+      "path-operator": {
+        "path": "/no-payload-extraction",
+        "operator": "STARTS_WITH"
+      },
+      "pre": [
+        {
+          "name": "OpenId Connect - UserInfo",
+          "description": "",
+          "enabled": true,
+          "policy": "policy-openid-userinfo",
+          "configuration": {
+            "oauthResource": "dummy-oauth-resource",
+            "extractPayload": false
+          }
+        }
+      ],
+      "post": []
+    },
+    {
+      "name": "Payload extraction flow",
+      "methods": [
+        "GET"
+      ],
+      "enabled": true,
+      "path-operator": {
+        "path": "/payload-extraction",
+        "operator": "STARTS_WITH"
+      },
+      "pre": [
+        {
+          "name": "OpenId Connect - UserInfo",
+          "description": "",
+          "enabled": true,
+          "policy": "policy-openid-userinfo",
+          "configuration": {
+            "oauthResource": "dummy-oauth-resource",
+            "extractPayload": true
+          }
+        }
+      ],
+      "post": []
+    },
+    {
+      "name": "Attribute copy to response payload",
+      "methods": [
+        "GET"
+      ],
+      "enabled": true,
+      "path-operator": {
+        "path": "/",
+        "operator": "STARTS_WITH"
+      },
+      "post": [{
+        "name": "Copy attribute from UserInfoPolicy to payload",
+        "description": "",
+        "enabled": true,
+        "policy": "copy-attribute-to-response",
+        "configuration": {
+        }
+      }]
+    }
+  ],
+  "resources": [
+    {
+      "name": "dummy-oauth-resource",
+      "enabled": true,
+      "type": "dummy-oauth",
+      "configuration": {
+      }
+    }
+  ]
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
