@@ -16,8 +16,103 @@ This policy uses the [Avro](https://avro.apache.org/docs/1.11.1/) library. To se
 
 Functional and implementation information for the `avro-json` policy is organized into the following sections:
 
+* [Examples](avro-json.md#examples)
 * [Configuration](avro-json.md#configuration)
 * [Errors](avro-json.md#errors)
+
+## Examples
+
+{% hint style="warning" %}
+The proxy API example also applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Message APIs" %}
+Example of inline publishing of Avro to JSON:
+
+```json
+{
+    "id": "inline_publish_avro_to_json",
+    "name": "inline_publish_avro_to_json",
+    "apiVersion": "1.0",
+    "definitionVersion": "4.0.0",
+    "type": "message",
+    "description": "inline_publish_avro_to_json",
+    "listeners": [
+        {
+            "type": "http",
+            "paths": [
+                {
+                    "path": "/inline_publish_avro_to_json"
+                }
+            ],
+            "entrypoints": [
+                {
+                    "type": "http-post",
+                    "configuration": {}
+                }
+            ]
+        }
+    ],
+    "endpointGroups": [
+        {
+            "name": "default",
+            "type": "kafka",
+            "endpoints": [
+                {
+                    "name": "default",
+                    "type": "kafka",
+                    "weight": 1,
+                    "inheritConfiguration": false,
+                    "configuration": {
+                        "bootstrapServers": "bootstrap-server"
+                    },
+                    "sharedConfigurationOverride": {
+                        "producer": {
+                            "enabled": true,
+                            "topics": ["json-topic"]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "flows": [
+        {
+            "name": "flow-1",
+            "enabled": true,
+            "selectors": [
+                {
+                    "type": "http",
+                    "path": "/",
+                    "pathOperator": "STARTS_WITH"
+                }
+            ],
+            "request": [],
+            "response": [],
+            "subscribe": [],
+            "publish": [
+                {
+                    "name": "avro-2-json",
+                    "description": "avro-2-json",
+                    "enabled": true,
+                    "policy": "avro-json",
+                    "configuration": {
+                        "conversion": "avro-to-json",
+                        "schemaLocation": "inline",
+                        "schemaDefinition": "{\"namespace\": \"io.confluent.examples.clients.basicavro\", \"type\": \"record\", \"name\": \"Payment\", \"fields\": [{\"name\": \"id\", \"type\": \"string\"}, {\"name\": \"amount\", \"type\": \"double\"}]}\n"
+                    }
+                }
+            ]
+        }
+    ],
+    "analytics": {
+        "enabled": false
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
@@ -25,7 +120,7 @@ Functional and implementation information for the `avro-json` policy is organize
 
 You can directly provide the schema to use in the policy configuration:
 
-```
+```json
 {
     "name": "avro-2-json",
     "policy": "avro-json",
@@ -43,7 +138,7 @@ To use a schema registry to fetch a schema, you will need to declare a Gravitee 
 
 Currently, we only provide a resource to interact with Confluent Schema Registry. You can find the plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/resources/gravitee-resource-schema-registry-confluent/).
 
-```
+```json
 {
     "name": "avro-2-json",
     "policy": "avro-json",
