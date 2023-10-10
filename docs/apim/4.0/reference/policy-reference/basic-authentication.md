@@ -27,13 +27,11 @@ Functional and implementation information for the `basic-authentication` policy 
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
-
-Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy APIs" %}
+{% tab title="Proxy API example" %}
 If an API is configured with the `basic-authentication` policy, a request with invalid credentials will result in the following response:
 
 {% code title="Default response" %}
@@ -57,7 +55,7 @@ To authenticate, pass the `Authorization: Basic yourCredentials` header with you
 
 The phases checked below are supported by the `basic-authentication` policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="188.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="196.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ### Options
 

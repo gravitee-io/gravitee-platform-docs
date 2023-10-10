@@ -18,7 +18,7 @@ Functional and implementation information for the `javascript` policy is organiz
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
@@ -91,7 +91,7 @@ And the request body being passed to the API will be (output body content):
 
 Assume that you sent the request body modified above to an **echo** API. You can run the following:
 
-```
+```javascript
 var content = JSON.parse(response.content);
 content[0].firstname = content[0].firstname.substring(7);
 delete content[0].country;
@@ -100,7 +100,7 @@ JSON.stringify(content);
 
 And the response message will be:
 
-```
+```json
 [
     {
         "age": 32,
@@ -162,7 +162,7 @@ Both dictionaries (defined at the environment level) and properties (defined at 
 
 Here is an example of how to set a request header based on a property:
 
-```
+```javascript
 request.headers.set('X-JavaScript-Policy', context.properties()['KEY_OF_MY_PROPERTY']);
 ```
 

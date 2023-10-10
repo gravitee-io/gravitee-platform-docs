@@ -22,7 +22,7 @@ Functional and implementation information for the `transform-headers` policy is 
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs, v4 proxy APIs, and v4 message APIs.&#x20;
+This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 message APIs.&#x20;
 {% endhint %}
 
 {% hint style="info" %}
@@ -31,6 +31,8 @@ The policy configuration for a v2 API using the legacy execution engine must inc
 
 {% tabs %}
 {% tab title="v2 API example" %}
+Sample policy configuration:
+
 ```json
 "transform-headers": {
     "addHeaders": [
@@ -66,6 +68,8 @@ Add a header from the request’s payload:
 {% endtab %}
 
 {% tab title="Proxy API example" %}
+Sample policy configuration:
+
 ```json
 "transform-headers": {
     "addHeaders": [
@@ -99,6 +103,8 @@ Add a header from the request’s payload:
 {% endtab %}
 
 {% tab title="Message API example" %}
+Sample policy configuration:
+
 ```json
 "transform-headers": {
     "addHeaders": [

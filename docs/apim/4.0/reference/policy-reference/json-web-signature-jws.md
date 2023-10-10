@@ -25,7 +25,7 @@ Functional and implementation information for the `jws-validator` policy is orga
 ## Examples
 
 {% hint style="warning" %}
-This policy applies to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
@@ -46,7 +46,7 @@ This policy applies to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-
 
 To validate the token signature, the policy needs to use the `jws-validator` policy public key set in the APIM Gateway `gravitee.yml` file:
 
-```
+```yaml
 policy:
   jws:
     kid:
@@ -71,7 +71,7 @@ Both the header and payload are encoded with Base64, so anyone can read the cont
 
 ### Input
 
-```
+```json
 ======================= =================================================
 Request Method          POST
 Request Content-Type    application/jose+json

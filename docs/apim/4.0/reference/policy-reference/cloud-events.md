@@ -21,11 +21,13 @@ Functional and implementation information for the `cloud-events` policy is organ
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied at the message level. This policy can **not** be applied to v2 APIs or v4 proxy APIs.
+This policy can be applied to v4 message APIs. It cannot be applied to v2 APIs or v4 proxy APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Message APIs" %}
+{% tab title="Message API example" %}
+Sample policy configuration:
+
 ```json
 {
     "cloud-events": {

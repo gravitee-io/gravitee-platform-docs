@@ -18,12 +18,97 @@ The `data-logging-masking` policy must be the last to run. Don’t forget to add
 
 Functional and implementation information for the `data-logging-masking` policy is organized into the following sections:
 
+* [Examples](data-logging-masking.md#examples)
 * [Configuration](data-logging-masking.md#configuration)
 * [Compatibility Matrix](data-logging-masking.md#compatibility-matrix)
 
+## Examples
+
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs. It cannot be applied to v4 proxy APIs or v4 message APIs.
 {% endhint %}
+
+{% tabs %}
+{% tab title="Proxy API example" %}
+Sample policy configuration:
+
+```json
+{
+    "id": "my-api",
+    "name": "my-api",
+    "gravitee": "2.0.0",
+    "proxy": {
+        "context_path": "/test",
+        "endpoints": [
+            {
+                "name": "default",
+                "target": "http://localhost:8080/endpoint",
+                "http": {
+                    "connectTimeout": 3000,
+                    "readTimeout": 60000
+                }
+            }
+        ]
+    },
+    "flows": [
+        {
+            "name": "flow-1",
+            "methods": ["GET"],
+            "enabled": true,
+            "path-operator": {
+                "path": "/",
+                "operator": "STARTS_WITH"
+            },
+            "pre": [
+                {
+                    "name": "Data Logging Masking",
+                    "description": "Data Logging Masking configured for RAW or JSON",
+                    "enabled": true,
+                    "policy": "policy-data-logging-masking",
+                    "configuration": {
+                        "scope": "REQUEST_CONTENT",
+                        "headerRules": [
+                            {
+                                "path": "reqHeaderToHide",
+                                "replacer": "*"
+                            }
+                        ],
+                        "bodyRules": [
+                            {
+                                "path": "$.field",
+                                "replacer": "-"
+                            },
+                            {
+                                "type": "EMAIL",
+                                "replacer": "@"
+                            },
+                            {
+                                "type": "URI",
+                                "replacer": "U"
+                            },
+                            {
+                                "type": "IP",
+                                "replacer": "IP"
+                            },
+                            {
+                                "type": "CREDIT_CARD",
+                                "replacer": "$"
+                            },
+                            {
+                                "regex": "(proto?:/.w*)(:\\d*)?\\/?(.*?)",
+                                "replacer": "S"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "post": []
+        }
+    ]
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 

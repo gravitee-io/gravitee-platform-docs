@@ -23,12 +23,14 @@ Functional and implementation information for the `rate-limit` policies are orga
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
 **Quota**
+
+Sample policy configuration:
 
 ```json
 "quota": {
@@ -40,6 +42,8 @@ This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravit
 
 **Rate Limit**
 
+Sample policy configuration:
+
 ```json
 "rate": {
     "limit": "10",
@@ -50,7 +54,9 @@ This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravit
 
 **Spike Arrest**
 
-```
+Sample policy configuration:
+
+```json
 "spike": {
     "limit": "10",
     "periodTime": 10,

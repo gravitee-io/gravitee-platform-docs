@@ -24,14 +24,14 @@ Functional and implementation information for the `jwt` policy is organized into
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
 Given the following JWT claims (payload):
 
-```
+```json
 {
   "iss": "Gravitee.io AM",
   "sub": "1234567890",
@@ -42,7 +42,7 @@ Given the following JWT claims (payload):
 
 You can extract the issuer from JWT using the following Expression Language statement:
 
-```
+```json
 {#context.attributes['jwt.claims']['iss']}
 ```
 {% endtab %}
@@ -58,7 +58,7 @@ The policy prompts you to choose between three (`GIVEN_KEY`, `GIVEN_ISSUER`, `GA
 * `GIVEN_ISSUER` — If you want to filter on several authorization servers then you only need to specify the issuer name; the gateway will only accept JWTs with a permitted issuer attribute. If `GATEWAY_KEYS` is set, the issuer is also used to retrieve the public key from the `gravitee.yml` file.
 * `GATEWAY_KEYS` — You can set some public keys in the APIM Gateway `gravitee.yml` file
 
-```
+```yaml
 policy:
   jwt:
     issuer:

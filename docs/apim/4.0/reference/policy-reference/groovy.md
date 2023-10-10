@@ -19,7 +19,7 @@ Functional and implementation information for the Groovy policy is organized int
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
@@ -28,7 +28,7 @@ This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravit
 
 The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
 
-```
+```groovy
 response.headers.remove 'X-Powered-By'
 response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
 ```
@@ -39,7 +39,7 @@ The following example shows you how to use the Groovy policy to transform JSON c
 
 **Input body content**
 
-```
+```json
 [
     {
         "age": 32,
@@ -51,7 +51,7 @@ The following example shows you how to use the Groovy policy to transform JSON c
 
 **Groovy script**
 
-```
+```groovy
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
@@ -64,7 +64,7 @@ return JsonOutput.toJson(content)
 
 **Output body content**
 
-```
+```json
 [
     {
         "age": 32,
@@ -79,10 +79,10 @@ return JsonOutput.toJson(content)
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
 {% code title="Sample Configuration" %}
-```json
+```groovy
 "groovy": {
     "onRequestScript": "request.headers.'X-Gravitee-Gateway' = '0.14.0'",
     "onResponseScript": "response.headers.remove 'X-Powered-By'",

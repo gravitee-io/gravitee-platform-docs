@@ -21,14 +21,14 @@ Functional and implementation information for the `api-key` policy is organized 
 ## Examples
 
 {% hint style="warning" %}
-This proxy API example also applies to v2 APIs. Currently, this policy can **not** be applied at the message level for v4 APIs.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
 You can configure the policy in the APIM Gateway configuration file (`gravitee.yml`). You can customize the `X-Gravitee-Api-Key` header and `api-key` query parameter.
 
-```
+```yaml
 policy:
   api-key:
     header: My-Custom-Api-Key
@@ -39,7 +39,7 @@ policy:
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
 {% code title="Sample Configuration" %}
 ```json

@@ -28,14 +28,14 @@ Functional and implementation information for the `geoip-filtering` policy is or
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/)
-
-Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-```
+Sample policy configuration:
+
+```json
 "geoip-filtering": {
   "failOnUnknown": true,
   "whitelistRules": [
@@ -55,7 +55,7 @@ Currently, this policy can **not** be applied at the message level.
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
 {% code title="Sample Configuration" %}
 ```json

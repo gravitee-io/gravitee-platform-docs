@@ -21,7 +21,7 @@ Functional and implementation information for the `message-filtering` policy is 
 ## Examples
 
 {% hint style="warning" %}
-This policy can only be applied at the message level. This policy cannot be applied to v2 APIs or v4 proxy APIs.&#x20;
+This policy can be applied to v4 message APIs. It cannot be applied to v2 APIs or v4 proxy APIs.
 {% endhint %}
 
 {% tabs %}
@@ -53,7 +53,7 @@ I will be able to filter any messages according to subscriptions metadata `produ
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
 {% code title="Sample Configuration" %}
 ```json

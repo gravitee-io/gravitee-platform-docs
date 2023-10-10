@@ -28,7 +28,7 @@ Functional and implementation information for the `mock` policy is organized int
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
@@ -37,7 +37,7 @@ Note that you don’t need to provide the `Content-Type` header, since the `mock
 
 **Body content example (XML)**
 
-```json
+```xml
 <user id="{#request.paths[3]}">
     <firstname>{#properties['firstname_' + #request.paths[3]]}</firstname>
 	<lastname>{#properties['lastname_' + #request.paths[3]]}</lastname>
