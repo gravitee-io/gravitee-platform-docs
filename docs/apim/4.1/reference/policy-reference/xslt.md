@@ -76,7 +76,7 @@ Remove SOAP elements when calling a WS:
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
 {% code title="Sample Configuration" %}
 ```json

@@ -25,7 +25,7 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 {% tab title="Proxy API example" %}
 A SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap` policy SOAP envelope content:
 
-```
+```xml
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope\\\" xmlns:web=\\\"http://www.oorsprong.org/websamples.countryinfo">
    <soap:Header/>
    <soap:Body>
@@ -36,7 +36,7 @@ A SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with th
 </soap:Envelope>
 ```
 
-Will give you the ISO country code for `France`
+Will give you the ISO country code for `France`.
 {% endtab %}
 {% endtabs %}
 

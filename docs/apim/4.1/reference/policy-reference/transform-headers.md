@@ -31,6 +31,8 @@ The policy configuration for a v2 API using the legacy execution engine must inc
 
 {% tabs %}
 {% tab title="v2 API example" %}
+Sample policy configuration:
+
 ```json
 "transform-headers": {
     "addHeaders": [
@@ -66,6 +68,8 @@ Add a header from the request’s payload:
 {% endtab %}
 
 {% tab title="Proxy API example" %}
+Sample policy configuration:
+
 ```json
 "transform-headers": {
     "addHeaders": [
@@ -99,6 +103,8 @@ Add a header from the request’s payload:
 {% endtab %}
 
 {% tab title="Message API example" %}
+Sample policy configuration:
+
 ```json
 "transform-headers": {
     "addHeaders": [

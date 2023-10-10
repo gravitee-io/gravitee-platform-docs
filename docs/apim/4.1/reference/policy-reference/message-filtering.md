@@ -53,7 +53,7 @@ I will be able to filter any messages according to subscriptions metadata `produ
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
 {% code title="Sample Configuration" %}
 ```json

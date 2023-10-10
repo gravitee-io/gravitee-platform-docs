@@ -62,7 +62,7 @@ In the example below, the policy will extract **foo** & **bar** from the payload
 
 ## Configuration
 
-Sample policy configuration is shown below:
+Sample policy configuration:
 
 {% code title="Sample Configuration" %}
 ```json
