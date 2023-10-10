@@ -1,5 +1,5 @@
 ---
-description: This page provides the technical details of the JSON-to-JSON policy
+description: This page provides the technical details of the JSON to JSON policy
 ---
 
 # JSON to JSON
@@ -31,7 +31,7 @@ Functional and implementation information for the `json-to-json` policy is organ
 ## Examples
 
 {% hint style="warning" %}
-The proxy API example applies to v2 APIs. This policy can also be applied at the message level for v4 APIs.
+This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 message APIs.
 {% endhint %}
 
 {% tabs %}

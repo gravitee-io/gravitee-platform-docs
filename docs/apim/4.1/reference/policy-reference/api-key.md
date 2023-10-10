@@ -28,7 +28,7 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 {% tab title="Proxy API example" %}
 You can configure the policy in the APIM Gateway configuration file (`gravitee.yml`). You can customize the `X-Gravitee-Api-Key` header and `api-key` query parameter.
 
-```json
+```yaml
 policy:
   api-key:
     header: My-Custom-Api-Key

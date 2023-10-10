@@ -49,25 +49,6 @@ Sample policy configuration:
 
 ## Configuration
 
-Sample policy configuration:
-
-{% code title="Sample Configuration" %}
-```json
-"policy-http-callout": {
-    "method": "GET",
-    "url": "https://api.gravitee.io/echo",
-    "headers": [ {
-        "name": "X-Gravitee-Request-Id",
-        "value": "{#request.id}"
-    }],
-    "variables": [{
-        "name": "my-server",
-        "value": "{#jsonPath(#calloutResponse.content, '$.headers.X-Forwarded-Server')}"
-    }]
-}
-```
-{% endcode %}
-
 ### Phases
 
 The phases checked below are supported by the `callout-http` policy:

@@ -58,7 +58,7 @@ The policy prompts you to choose between three (`GIVEN_KEY`, `GIVEN_ISSUER`, `GA
 * `GIVEN_ISSUER` — If you want to filter on several authorization servers then you only need to specify the issuer name; the gateway will only accept JWTs with a permitted issuer attribute. If `GATEWAY_KEYS` is set, the issuer is also used to retrieve the public key from the `gravitee.yml` file.
 * `GATEWAY_KEYS` — You can set some public keys in the APIM Gateway `gravitee.yml` file
 
-```
+```yaml
 policy:
   jwt:
     issuer:

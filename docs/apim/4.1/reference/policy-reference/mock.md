@@ -37,7 +37,7 @@ Note that you don’t need to provide the `Content-Type` header, since the `mock
 
 **Body content example (XML)**
 
-```json
+```xml
 <user id="{#request.paths[3]}">
     <firstname>{#properties['firstname_' + #request.paths[3]]}</firstname>
 	<lastname>{#properties['lastname_' + #request.paths[3]]}</lastname>

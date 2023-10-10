@@ -28,7 +28,7 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 
 The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
 
-```json
+```groovy
 response.headers.remove 'X-Powered-By'
 response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
 ```
@@ -51,7 +51,7 @@ The following example shows you how to use the Groovy policy to transform JSON c
 
 **Groovy script**
 
-```json
+```groovy
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
@@ -82,7 +82,7 @@ return JsonOutput.toJson(content)
 Sample policy configuration:
 
 {% code title="Sample Configuration" %}
-```json
+```groovy
 "groovy": {
     "onRequestScript": "request.headers.'X-Gravitee-Gateway' = '0.14.0'",
     "onResponseScript": "response.headers.remove 'X-Powered-By'",

@@ -27,7 +27,7 @@ This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API" %}
+{% tab title="Proxy API example" %}
 You could use the Assign Content policy to inject a dictionary value and application into the request payload:
 
 ```json
@@ -38,7 +38,7 @@ You could use the Assign Content policy to inject a dictionary value and applica
 ```
 {% endtab %}
 
-{% tab title="Message API" %}
+{% tab title="Message API example" %}
 You could use the Assign Content policy to inject a dictionary value and metadata into the message:
 
 ```json

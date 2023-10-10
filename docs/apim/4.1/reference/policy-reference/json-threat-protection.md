@@ -6,10 +6,6 @@ description: This page provides the technical details of the JSON Threat Protect
 
 ## Overview
 
-{% hint style="warning" %}
-This policy can be applied to [v2 APIs and v4 proxy APIs.](../../overview/gravitee-api-definitions-and-execution-engines/) Currently, this policy can **not** be applied at the message level.
-{% endhint %}
-
 You can use the `json-threat-protection` policy to validate a JSON request body by specifying limits for various JSON structures (such as arrays, field names and string values). When an invalid request is detected (meaning the limit is reached), the request will be considered a threat and rejected with a `400 BAD REQUEST`.
 
 Functional and implementation information for the `json-threat-protection` policy is organized into the following sections:
@@ -17,6 +13,10 @@ Functional and implementation information for the `json-threat-protection` polic
 * [Configuration](json-threat-protection.md#configuration)
 * [Errors](json-threat-protection.md#errors)
 * [Changelogs](json-threat-protection.md#changelogs)
+
+{% hint style="warning" %}
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
+{% endhint %}
 
 ## Configuration
 
