@@ -105,7 +105,7 @@ Some variables are automatically bound to the Groovy script to allow users to us
 
 Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error` but you can override this behavior with the following properties: - `code`: An HTTP status code - `error`: The error message - `key`: The key of a response template:
 
-```
+```groovy
 import io.gravitee.policy.groovy.PolicyResult.State
 
 if (request.headers.containsKey('X-Gravitee-Break')) {
@@ -120,7 +120,7 @@ if (request.headers.containsKey('X-Gravitee-Break')) {
 
 To customize the error sent by the policy:
 
-```
+```groovy
 import io.gravitee.policy.groovy.PolicyResult.State
 result.key = 'RESPONSE_TEMPLATE_KEY';
 result.state = State.FAILURE;
@@ -163,7 +163,7 @@ This whitelist should be enough for almost all possible use cases. If you have s
 
 Example:
 
-```
+```groovy
 groovy:
   whitelist:
     mode: append
