@@ -117,11 +117,11 @@ When configuring the `data-logging-masking` policy, note the following:
 * If you use the `path` property in a rule without regex, all the data corresponding to this path will be hidden.
 * If you use a `MaskPattern` type property or a custom regular expression without a `path`, the transformation will apply to all the raw data.
 * We provide some patterns that you can use and adapt as required:
-  * _`CUSTOM`_: Use to write your own regular expression
-  * _`CREDIT_CARD`_: Use to catch and hide credit card numbers (supports Visa, Mastercard and American Express)
-  * _`EMAIL`_: Use to pick up and hide email addresses (doesn’t support Unicode)
-  * _`IP`_: Use to pick up and hide IP addresses (supports IPv4 and IPv6 format)
-  * _`Uri`_: Use to catch and hide sensitive addresses (supports HTTP, HTTPS, FTP, mailto and file)
+  * `CUSTOM`: Use to write your own regular expression
+  * `CREDIT_CARD`: Use to catch and hide credit card numbers (supports Visa, Mastercard and American Express)
+  * `EMAIL`: Use to pick up and hide email addresses (doesn’t support Unicode)
+  * `IP`: Use to pick up and hide IP addresses (supports IPv4 and IPv6 format)
+  * `Uri`: Use to catch and hide sensitive addresses (supports HTTP, HTTPS, FTP, mailto and file)
 
 You can enable or disable the policy with policy identifier `policy-data-logging-masking`.
 
