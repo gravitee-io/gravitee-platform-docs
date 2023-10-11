@@ -16,9 +16,9 @@ By default, the Helm Chart creates a ServiceAccount that enables Gravitee API Ma
 
 [Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) enable use of the service account:
 
-* By default, the service account created does not have a cluster role.&#x20;
+* By default, the service account created does not have a cluster role.
 * The Helm Chart includes an option to configure the service account to use a cluster role.
-* To access a Secret, create a role within your namespace.&#x20;
+* To access a Secret, create a role within your namespace.
 * To deploy in another namespace from which you will access a Secret, create a another role in that namespace. The two roles can have the same name but are completely separate objects. Each role only provides access to the namespace in which it is created.
 
 Application settings must be defined as follows:
@@ -35,7 +35,7 @@ mongo:
 
 ## **Configuration types**
 
-DB-less mode, development deployment, external, and shared configuration types are described in detail below.&#x20;
+DB-less mode, development deployment, external, and shared configuration types are described in detail below.
 
 {% tabs %}
 {% tab title="DB-less mode" %}
@@ -60,13 +60,19 @@ ui:
 es:
   enabled: false
 
+ratelimit:
+  type: none
+
 gateway:
   replicaCount: 1
   autoscaling:
     enabled: false
+  ingress:
+    enabled: false
   image:
     repository: graviteeio/apim-gateway
-    tag: 4.1.0
+    tag: 4.1
+    pullPolicy: Always
   services:
     sync:
       kubernetes:
@@ -156,7 +162,7 @@ extraVolumes: |
 ```
 
 {% hint style="warning" %}
-External configuration files are only available for:&#x20;
+External configuration files are only available for:
 
 * AE Helm Charts 1.1.42 and later
 * AM Helm Charts 1.0.53 and later
@@ -181,7 +187,7 @@ Gravitee supports MongoDB, PostgreSQL, Elasticsearch, and Redis configurations. 
 
 {% tabs %}
 {% tab title="MongoDB" %}
-To install MongoDB with Helm:&#x20;
+To install MongoDB with Helm:
 
 ```
 helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
@@ -613,9 +619,9 @@ $ helm install \
 
 ## OpenShift
 
-The Gravitee API Management Helm Chart supports Ingress standard objects and does not support specific OpenShift Routes. It is therefore compatible with OpenShift versions 3.10 and later. When deploying APIM within OpenShift:&#x20;
+The Gravitee API Management Helm Chart supports Ingress standard objects and does not support specific OpenShift Routes. It is therefore compatible with OpenShift versions 3.10 and later. When deploying APIM within OpenShift:
 
-* Use the full host domain instead of paths for all components (ingress paths are not supported well by OpenShift)&#x20;
+* Use the full host domain instead of paths for all components (ingress paths are not supported well by OpenShift)
 * Override the security context to let OpenShift automatically define the `user-id` and `group-id` used to run the containers
 
 For Openshift to automatically create Routes from the Ingress, you must define the `ingressClassName` as `none`. Here is a standard `values.yaml` used to deploy APIM into OpenShift:
