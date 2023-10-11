@@ -18,12 +18,6 @@ In Gravitee, there is a **General** subsection of the **Proxy** section. In the 
 
 This article walks through how to configure each of the above.
 
-{% hint style="info" %}
-**Different levels of support for v4 APIs**
-
-In Gravitee 4.0, v4 APIs will have limited
-{% endhint %}
-
 ### Configure Entrypoints
 
 To configure Entrypoints, follow the below interactive tutorial, or, follow the numbered steps below.
