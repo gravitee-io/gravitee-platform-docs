@@ -328,4 +328,4 @@ If you are using 2-Factor Authentication (which is recommended), you need to [ge
 
 The following is a reference of the default configuration of APIM Management API in your `gravitee.yml` file:
 
-\{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-rest-api/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/src/main/resources/config/gravitee.yml" %\}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-rest-api/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/src/main/resources/config/gravitee.yml" %}
