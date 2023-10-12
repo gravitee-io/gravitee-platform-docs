@@ -58,7 +58,7 @@ You can change the look and feel of forms using [custom pages](../branding/#cust
 
 ## Phone call
 
-With Phone call verification, you can receive a verification code via a phone call to be used as the second factor to validate a user’s account.
+With phone call verification, you can receive a verification code via a phone call to be used as the second factor to validate a user’s account.
 
 {% hint style="info" %}
 Phone call MFA requires a compatible [resource](../resources/).
@@ -76,7 +76,7 @@ You can change the look and feel of forms using [custom pages](../branding/#cust
 
 ### Twilio phone factor enhancement
 
-Extension support promotes the adoptability of MFA by offering a solution that does not require the involvement of a personal device. Instead, MFA can use office extensions to rely on a corporate phone network.
+Support for phone number extensions promotes the adoptability of MFA by offering a solution that does not require the involvement of a personal device. Instead, MFA can use office extensions to rely on a corporate phone network.
 
 To implement this service, the enrollment screen for a Twilio phone factor offers an optional field in which to enter an extension. If an extension is present in the user's enrollment data, the MFA call utilizes Twilio's sendDigits function to direct the call to the extension before playing the audible message containing the MFA code.
 
