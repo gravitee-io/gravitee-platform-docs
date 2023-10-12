@@ -103,7 +103,7 @@ You should see the task appear immediately, along with a toast notification on t
 
 Finally, attempt to create a second and a third task. When you attempt to create the third task, you will see the Quota policy you configured in action as evidenced by the new toast notification in the bottom right:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-31 at 6.24.30 PM.png" alt=""><figcaption><p>Quota policy blocking your POST request</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-10-12 at 5.50.37 PM.png" alt=""><figcaption><p>Quota policy blocking your POST request</p></figcaption></figure>
 
 The Quota policy running on the Gravitee Gateway blocks the trial app's `POST` request to the `/todos` route. This rejection results in the HTTP **`429 Too Many Requests`** response shown in the toast notification. The Gravitee Gateway also provides additional information in the response about the Quota policy's current settings of a limit of (less than) 4 requests per 1 hour(s).
 
