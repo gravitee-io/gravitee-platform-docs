@@ -1,10 +1,12 @@
-# Gravitee Kubernetes Operator Deployment
+# Gravitee Kubernetes Operator K8s Installation
 
 ## Overview
 
 A [Kubernetes operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) is an application-specific controller that extends the functionality of the Kubernetes API to create, configure, deploy, and manage application instances using `kubectl` tooling.
 
-### Context for introducing an operator
+<details>
+
+<summary>Context for introducing an operator</summary>
 
 Gravitee is able to deploy the following components:
 
@@ -24,16 +26,28 @@ Historically, Gravitee customers have deployed APIs using the following:
 
 While the REST API method is compatible with IaC, customer feedback favors a Kubernetes-native deployment of APIs, the Gravitee APIM Gateway and the Console via [Custom Resource Definitions (CRDs)](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/). The introduction of the Gravitee Kubernetes Operator (GKO) makes this possible.
 
-### How it works
+</details>
+
+<details>
+
+<summary>How it works</summary>
 
 An API deployed in a Kubernetes cluster can be described as an API extension of Kubernetes using CRDs. This approach relies on the Management Console or the Management API to use the GKO and the Kubernetes API to deploy the API to your API Gateway.
+
+</details>
+
+The sections below introduce the following:
+
+* [Architecture overview and possible deployments](install-gravitee-kubernetes-operator.md#architecture-overview)
+* [Installation steps](install-gravitee-kubernetes-operator.md#installation)
+* [API deployments in Kubernetes](install-gravitee-kubernetes-operator.md#api-deployment-in-a-kubernetes-cluster)
 
 ## Architecture overview
 
 The current functionality of the Gravitee Kubernetes Operator supports three main deployment scenarios, as described below.
 
-### Standard deployment
-
+{% tabs %}
+{% tab title="Standard" %}
 In a standard deployment, the Management API and the API Gateway are deployed in the same Kubernetes cluster.
 
 With this workflow, the GKO listens for CRDs. For each custom resource, an API is pushed to the Management API using the import endpoint and the API Gateway deploys the APIs accordingly.
@@ -41,10 +55,10 @@ With this workflow, the GKO listens for CRDs. For each custom resource, an API i
 The following diagram illustrates the standard deployment architectural approach:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-1-standard.png" alt=""><figcaption><p>Standard deployment architecture</p></figcaption></figure>
+{% endtab %}
 
-### Deployment on multiple clusters
-
-This scenario assumes the following:
+{% tab title="Multiple clusters" %}
+A deployment on multiple clusters assumes the following:
 
 1. The user manages multiple Kubernetes clusters using a different set of APIs for each cluster
 2. All APIs are managed using a single API Console
@@ -53,10 +67,10 @@ This scenario assumes the following:
 The following diagram illustrates the multi-cluster deployment architectural approach:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-2-multi-cluster.png" alt=""><figcaption><p>Multi-cluster deployment architecture</p></figcaption></figure>
+{% endtab %}
 
-### Deployment on multiple environments
-
-In this scenario, a single GKO is deployed that can publish APIs to different environments (logical or physical). This is managed directly from the [ApiDefinition custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd.md), which refers to a [ManagementContext custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource.md).
+{% tab title="Multiple environments" %}
+In a multi-environment deployment, a single GKO is deployed that can publish APIs to different environments (logical or physical). This is managed directly from the [ApiDefinition custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd.md), which refers to a [ManagementContext custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource.md).
 
 {% hint style="info" %}
 Different APIs are published on each of the environments because although APIs use the `ManagementContext` CRD, which can reference any Management API, an `ApiDefinition` CRD can only have one Management Context.
@@ -65,6 +79,8 @@ Different APIs are published on each of the environments because although APIs u
 The following diagram illustrates the multi-environment deployment architectural approach:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-3-multi-env.png" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ## Installation
 
@@ -123,12 +139,12 @@ If you are installing the operator with the cluster scope enabled (the default),
 
 ## API deployment in a Kubernetes Cluster
 
-You can deploy an API on Gravitee Gateways deployed in different Kubernetes clusters. The Management API will be deployed in the same cluster as the GKO.
+You can deploy an API on Gravitee Gateways deployed in different Kubernetes clusters. The Management API will be deployed in the same cluster as the GKO. The following reference diagram is the basis for both the single and multi-Gateway deployment options discussed below:
 
 <figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>Gateways in different Kubernetes Clusters</p></figcaption></figure>
 
-### Deploy on a single Gateway
-
+{% tabs %}
+{% tab title="Single Gateway" %}
 To deploy an API on a single Gateway, apply the following configuration on the Gateway 1 cluster:
 
 ```yaml
@@ -160,9 +176,9 @@ kubectl get cm -n gateway-1-cluster
 NAMESPACE            NAME                DATA    AGE
 gateway-1-namespace  local-api-example   1       1m
 ```
+{% endtab %}
 
-### Deploy on multiple clusters
-
+{% tab title="Multiple clusters" %}
 To deploy an API on multiple Gateways, use a custom resource that can be applied to any cluster. As long as the Management API is available, the `ApiDefinition` refers to a `ManagementContext` and the `local` field is set to `false`.
 
 ```yaml
@@ -188,6 +204,8 @@ spec:
 ```
 
 With the above configuration, there should be no `ConfigMap` linked to the `ApiDefinition` in the cluster where the custom resource has been applied because the `ApiDefinition` was deployed using the Management API and the `ApiDefinition` is not local to the cluster.
+{% endtab %}
+{% endtabs %}
 
 ## Next steps
 

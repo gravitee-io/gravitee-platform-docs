@@ -1,14 +1,21 @@
 ---
 description: >-
-  This article discusses the possible configuration options for the APIM Helm
-  chart
+  This article covers how to install APIM into K8s with Helm and the possible
+  APIM Helm chart configurations
 ---
 
-# Configure Helm Chart
+# APIM K8s Installation
 
 ## Introduction
 
-The tables in the following sections list the Gravitee Helm Chart's configurable parameters and their default values. Gravitee supports a variety of configuration types and database options.
+Gravitee supports a variety of configuration types and database options. Gravitee Helm Chart parameters, default values, and other configuration details are summarized in the following sections:
+
+* [Application settings](configure-helm-chart.md#application-settings)
+* [Configuration types](configure-helm-chart.md#configuration-types)
+* [Database options](configure-helm-chart.md#database-options)
+* [Gravitee parameters](configure-helm-chart.md#gravitee-parameters)
+* [OpenShift](configure-helm-chart.md#openshift)
+* [Licenses](configure-helm-chart.md#licences)
 
 ## Application settings
 
@@ -591,32 +598,6 @@ The following tables list the available configuration parameters for the Gravite
 {% endtab %}
 {% endtabs %}
 
-## **Licenses**
-
-Enterprise plugins require a [license](https://docs.gravitee.io/ee/ee\_license.html) in APIM. To define a license, enter the `license.key` value in the `values.yml` file and add the Helm argument `--set license.key=<license.key in base64>`.
-
-{% hint style="info" %}
-The `license.key` value you enter must be encoded in `base64`:
-
-* Linux: `base64 -w 0 license.key`
-* macOS: `base64 license.key`
-{% endhint %}
-
-Example:
-
-```sh
-$ export GRAVITEESOURCE_LICENSE_B64="$(base64 -w 0 license.key)"
-$ helm install \
-  --set license.key=${GRAVITEESOURCE_LICENSE_B64} \
-  --create-namespace --namespace gravitee-apim \
-  graviteeio-apim3x \
-  graviteeio/apim3
-```
-
-| Parameter     | Description | Default                            |
-| ------------- | ----------- | ---------------------------------- |
-| `license.key` | string      | license.key file encoded in base64 |
-
 ## OpenShift
 
 The Gravitee API Management Helm Chart supports Ingress standard objects and does not support specific OpenShift Routes. It is therefore compatible with OpenShift versions 3.10 and later. When deploying APIM within OpenShift:
@@ -717,3 +698,29 @@ ui:
 {% endcode %}
 
 By setting `runAsUser` to `null`, OpenShift is forced to define the correct values when deploying the Helm Chart.
+
+## Licences
+
+Enterprise plugins require a [license](https://docs.gravitee.io/ee/ee\_license.html) in APIM. To define a license, enter the `license.key` value in the `values.yml` file and add the Helm argument `--set license.key=<license.key in base64>`.
+
+{% hint style="info" %}
+The `license.key` value you enter must be encoded in `base64`:
+
+* Linux: `base64 -w 0 license.key`
+* macOS: `base64 license.key`
+{% endhint %}
+
+Example:
+
+```sh
+$ export GRAVITEESOURCE_LICENSE_B64="$(base64 -w 0 license.key)"
+$ helm install \
+  --set license.key=${GRAVITEESOURCE_LICENSE_B64} \
+  --create-namespace --namespace gravitee-apim \
+  graviteeio-apim3x \
+  graviteeio/apim3
+```
+
+| Parameter     | Description | Default                            |
+| ------------- | ----------- | ---------------------------------- |
+| `license.key` | string      | license.key file encoded in base64 |
