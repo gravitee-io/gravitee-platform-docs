@@ -10,7 +10,7 @@ You can use the `cache` policy to cache upstream responses (content, status and 
 
 This policy is based on a _cache resource_, which aligns the underlying cache system with the API lifecycle (stop/start).
 
-Consumers can bypass the cache by adding a `cache=BY_PASS_` query parameter or by providing a _`X-Gravitee-Cache=BY_PASS`_ HTTP header.
+Consumers can bypass the cache by adding a `cache=BY_PASS` query parameter or by providing a _`X-Gravitee-Cache=BY_PASS`_ HTTP header.
 
 {% hint style="info" %}
 **Make sure to define your Cache resource**
