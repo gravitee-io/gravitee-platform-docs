@@ -44,7 +44,7 @@ The sections below introduce the following:
 
 ## Architecture overview
 
-The current functionality of the Gravitee Kubernetes Operator supports three main deployment scenarios, as described below:
+The current functionality of the Gravitee Kubernetes Operator supports three main deployment scenarios, as described below.
 
 {% tabs %}
 {% tab title="Standard" %}
@@ -150,7 +150,14 @@ $ helm upgrade --install graviteeio-gko graviteeio/gko
 
 ### Parameters
 
-The Gravitee Kubernetes Operator Helm Chart supports configuration of the following parameters:
+The Gravitee Kubernetes Operator Helm Chart supports configuration of the following:
+
+* [RBAC](install-gravitee-kubernetes-operator.md#rbac)
+* [RBAC Proxy](install-gravitee-kubernetes-operator.md#rbac-proxy)
+* [Controller Manager](install-gravitee-kubernetes-operator.md#controller-manager)
+* [Ingress](install-gravitee-kubernetes-operator.md#ingress)
+* [Cert Manager](install-gravitee-kubernetes-operator.md#cert-manager)
+* [HTTP Client](install-gravitee-kubernetes-operator.md#http-client)
 
 {% tabs %}
 {% tab title="RBAC" %}
@@ -234,7 +241,7 @@ This section is deprecated and will be removed in version 1.0.0. The `httpClient
 
 ## API deployment in a Kubernetes Cluster
 
-You can deploy an API on Gravitee Gateways deployed in different Kubernetes clusters. The Management API will be deployed in the same cluster as the GKO. The following reference diagram is the basis for both the single and multi-Gateway deployment options discussed below:
+You can deploy an API on Gravitee Gateways deployed in different Kubernetes clusters. The Management API will be deployed in the same cluster as the GKO. The following reference diagram is the basis for both the single and multi-Gateway deployment options discussed below.
 
 <figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>Gateways in different Kubernetes Clusters</p></figcaption></figure>
 
