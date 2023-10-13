@@ -10,7 +10,7 @@ There are [additional steps to perform](../developer-contributions/gravitee-kube
 
 ## Deploy the GKO
 
-For full details on deployment, see the [GKO Deployment Guide](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
+For full details on deployment, see the [GKO Install Guide](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
 
 ### Prerequisites
 

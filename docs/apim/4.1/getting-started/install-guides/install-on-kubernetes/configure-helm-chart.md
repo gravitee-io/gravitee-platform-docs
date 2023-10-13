@@ -1,14 +1,16 @@
 ---
 description: >-
-  This article covers how to install APIM into K8s with Helm and the possible
-  APIM Helm chart configurations
+  This article covers how to install and configure APIM with Gravitee's official
+  Helm chart
 ---
 
-# APIM K8s Installation
+# APIM Helm Install and Configuration
 
 ## Introduction
 
-Gravitee supports a variety of configuration types and database options. Gravitee Helm Chart parameters, default values, and other configuration details are summarized in the following sections:
+This guide will walk you through how to install APIM on a Kubernetes cluster using our official Helm chart.
+
+Additionally, the Helm chart supports a variety of configuration types and database options. Gravitee Helm Chart parameters, default values, and other configuration details are summarized in the following sections:
 
 * [Application settings](configure-helm-chart.md#application-settings)
 * [Configuration types](configure-helm-chart.md#configuration-types)
@@ -16,6 +18,77 @@ Gravitee supports a variety of configuration types and database options. Gravite
 * [Gravitee parameters](configure-helm-chart.md#gravitee-parameters)
 * [OpenShift](configure-helm-chart.md#openshift)
 * [Licenses](configure-helm-chart.md#licences)
+
+## Installation
+
+### Prerequisites
+
+The following command line tools must be installed:
+
+* [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+* [Helm v3](https://helm.sh/docs/intro/install/)
+
+### Install steps
+
+1. Add the Gravitee Helm Chart repo:
+
+```sh
+helm repo add graviteeio https://helm.gravitee.io
+```
+
+2. Install the chart from the Helm repo by specifying the desired release. The example below uses `graviteeio-apim4x`.
+
+{% hint style="warning" %}
+**Dedicated namespace**
+
+To prevent potential issues, it is best practice to create a separate namespace for your installation and avoid using the default Kubernetes namespace. This is not mandatory, but the installation command below follows this recommendation.
+{% endhint %}
+
+{% tabs %}
+{% tab title="Dedicated Namespace" %}
+To install the Helm Chart using a dedicated namespace (e.g., `gravitee-apim`), run the following command:
+
+{% code overflow="wrap" %}
+```sh
+helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="Default Namespace" %}
+To install the Helm Chart using the default namespace (not recommended), run the following command:
+
+```sh
+helm install graviteeio-apim4x graviteeio/apim
+```
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+**Installation tips**
+
+Specify each parameter using `helm install` and the `--set key=value[,key=value]`.
+
+Alternatively, provide a YAML file that specifies the values for the parameters when installing the chart. For example:
+
+```sh
+helm install my-release -f values.yaml gravitee
+```
+
+By default, APIM uses the values in the `values.yml` config file during installation. These can be modified via the parameters in the [configuration](configure-helm-chart.md) tables.
+{% endhint %}
+
+3. **(Optional)** Alternatively, you can package this chart directory into a chart archive:
+
+```sh
+helm package .
+```
+
+To install the chart using the chart archive, run:
+
+```sh
+helm install apim-4.0.0.tgz
+```
 
 ## Application settings
 

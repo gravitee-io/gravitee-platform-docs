@@ -1,8 +1,14 @@
-# Gravitee Kubernetes Operator K8s Installation
+---
+description: >-
+  This article covers how to install and configure the GKO with Gravitee's
+  official Helm chart
+---
+
+# Gravitee Kubernetes Operator Helm Install and Configuration
 
 ## Overview
 
-A [Kubernetes operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) is an application-specific controller that extends the functionality of the Kubernetes API to create, configure, deploy, and manage application instances using `kubectl` tooling.
+A [Kubernetes operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) is an application-specific controller that extends the functionality of the Kubernetes API to create, configure, deploy, and manage application instances using `kubectl` tooling. The Gravitee Kubernetes Operator (GKO) takes advantage of this functionality to allow you to manage your APIs in a fully declarative fashion.
 
 <details>
 
@@ -32,7 +38,7 @@ While the REST API method is compatible with IaC, customer feedback favors a Kub
 
 <summary>How it works</summary>
 
-An API deployed in a Kubernetes cluster can be described as an API extension of Kubernetes using CRDs. This approach relies on the Management Console or the Management API to use the GKO and the Kubernetes API to deploy the API to your API Gateway.
+An API deployed with Gravitee in a Kubernetes cluster can be described as an API extension of Kubernetes using custom resource definitions (CRDs). These CRDs become the source of truth for your APIs and are synced to the APIM cluster using the ManagementContext CRD. You can learn more in the [GKO guide](../../../guides/gravitee-kubernetes-operator/) after completing the installation.
 
 </details>
 
@@ -103,7 +109,7 @@ If your architecture requires the management of multiple Kubernetes clusters, ea
 By default, the Kubernetes synchronizer is configured to watch for API definitions in the API Gateway namespace. To watch all namespaces, set`gateway.services.sync.kubernetes.namespaces=all` in the Gateway configuration. Alternatively, you can provide a specific list of namespaces to watch. This requires that the Gateway service account has the `list` permissions for ConfigMaps at the cluster level or that the`gateway.services.sync.kubernetes.namespaces` property defines the list of namespaces.
 {% endhint %}
 
-### Install using Helm
+### Install steps
 
 1.  Add the Gravitee Helm Chart repo:
 
@@ -139,16 +145,16 @@ By default, the Kubernetes synchronizer is configured to watch for API definitio
     * If you are installing the operator with the cluster scope disabled, you can install multiple instances of the operator in the same cluster, with each one watching a different namespace.
     {% endhint %}
 
-### Upgrading the Operator
+## Upgrading the Operator
 
-Assuming that the repository as been aliased as `graviteeio` and that the release name is `graviteeio-gko`:
+Assuming that the repository has been aliased as `graviteeio` and that the release name is `graviteeio-gko`:
 
 ```bash
 $ helm repo update graviteeio
 $ helm upgrade --install graviteeio-gko graviteeio/gko
 ```
 
-### Parameters
+## Configuration parameters
 
 The Gravitee Kubernetes Operator Helm Chart supports configuration of the following:
 
@@ -236,76 +242,6 @@ This section is deprecated and will be removed in version 1.0.0. The `httpClient
 {% endhint %}
 
 <table><thead><tr><th width="241">Name</th><th width="200.66666666666666">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>httpClient.insecureSkipCertVerify</code></td><td>If true, the manager HTTP client will not verify the certificate used by the Management API.</td><td><code>false</code></td></tr></tbody></table>
-{% endtab %}
-{% endtabs %}
-
-## API deployment in a Kubernetes Cluster
-
-You can deploy an API on Gravitee Gateways deployed in different Kubernetes clusters. The Management API will be deployed in the same cluster as the GKO. The following reference diagram is the basis for both the single and multi-Gateway deployment options discussed below.
-
-<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>Gateways in different Kubernetes Clusters</p></figcaption></figure>
-
-{% tabs %}
-{% tab title="Single Gateway" %}
-To deploy an API on a single Gateway, apply the following configuration on the Gateway 1 cluster:
-
-```yaml
-apiVersion: gravitee.io/v1alpha1
-kind: ApiDefinition
-metadata:
-  name: local-api-example
-spec:
-  name: "GKO Basic"
-  version: "1.1"
-  description: "Basic api managed by Gravitee Kubernetes Operator"
-  proxy:
-    virtual_hosts:
-      - path: "/k8s-basic"
-    groups:
-      - endpoints:
-          - name: "Default"
-            target: "https://api.gravitee.io/echo"
-  local: true
-```
-
-The `local` field is optional and is set to `true` by default to indicate that the API will be deployed only in the cluster where the custom resource is applied. Run the following command to verify that the API ConfigMap has been created in the Gateway 1 cluster:
-
-```sh
-kubectl get cm -n gateway-1-cluster
-```
-
-```
-NAMESPACE            NAME                DATA    AGE
-gateway-1-namespace  local-api-example   1       1m
-```
-{% endtab %}
-
-{% tab title="Multiple clusters" %}
-To deploy an API on multiple Gateways, use a custom resource that can be applied to any cluster. As long as the Management API is available, the `ApiDefinition` refers to a `ManagementContext` and the `local` field is set to `false`.
-
-```yaml
-apiVersion: gravitee.io/v1alpha1
-kind: ApiDefinition
-metadata:
-  name: global-api-example
-spec:
-  name: "GKO Basic"
-  version: "1.1"
-  description: "Basic api managed by Gravitee Kubernetes Operator"
-  contextRef:
-    name: apim-example-context
-    namespace: apim-example
-  proxy:
-    virtual_hosts:
-      - path: "/k8s-basic"
-    groups:
-      - endpoints:
-          - name: "Default"
-            target: "https://api.gravitee.io/echo"
-  local: false
-```
-
-With the above configuration, there should be no `ConfigMap` linked to the `ApiDefinition` in the cluster where the custom resource has been applied because the `ApiDefinition` was deployed using the Management API and the `ApiDefinition` is not local to the cluster.
 {% endtab %}
 {% endtabs %}
 
