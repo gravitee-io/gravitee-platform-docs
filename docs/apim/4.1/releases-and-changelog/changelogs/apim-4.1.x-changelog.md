@@ -5,7 +5,7 @@ description: >-
 ---
 
 # APIM 4.1.x
- 
+
 ## Gravitee API Management 4.1.1 - October 13, 2023
 
 <details>
@@ -14,28 +14,28 @@ description: >-
 
 **Gateway**
 
-* Health Check doesn't support Endpoint with EL [#8700](https://github.com/gravitee-io/issues/issues/8700)
-* resource-filtering policy does not work with debug mode [#9267](https://github.com/gravitee-io/issues/issues/9267)
-* Gateways take proxy configuration while it mustn't  [#9278](https://github.com/gravitee-io/issues/issues/9278)
+* Health check doesn't support endpoint with EL [#8700](https://github.com/gravitee-io/issues/issues/8700)
+* `resource-filtering` policy does not work with debug mode [#9267](https://github.com/gravitee-io/issues/issues/9267)
+* Gateways take proxy configuration but should not [#9278](https://github.com/gravitee-io/issues/issues/9278)
 
 **Management API**
 
-* Email related to closed, paused and resumed subscription of PUSH plan are not sent [#9281](https://github.com/gravitee-io/issues/issues/9281)
-* unable to update health checks on endpoints with REST API v2 [#9283](https://github.com/gravitee-io/issues/issues/9283)
+* Emails related to closed, paused, and resumed subscription of PUSH plan are not sent [#9281](https://github.com/gravitee-io/issues/issues/9281)
+* Unable to update health checks on endpoints with REST API v2 [#9283](https://github.com/gravitee-io/issues/issues/9283)
 
 **Console**
 
-* Configure logging mode link not working [#9213](https://github.com/gravitee-io/issues/issues/9213)
-* Add members button does not work for group admin [#9241](https://github.com/gravitee-io/issues/issues/9241)
+* "Configure logging mode" link not working [#9213](https://github.com/gravitee-io/issues/issues/9213)
+* "Add members" button does not work for group admin [#9241](https://github.com/gravitee-io/issues/issues/9241)
 * Unable to remove expiration date of an API Key [#9248](https://github.com/gravitee-io/issues/issues/9248)
-* Non admin users can't see api keys of APIs they created [#9268](https://github.com/gravitee-io/issues/issues/9268)
-* Console - Add date time picker instead of only date for subscription date field [#9271](https://github.com/gravitee-io/issues/issues/9271)
+* Non-admin users can't see API Keys of APIs they created [#9268](https://github.com/gravitee-io/issues/issues/9268)
+* Console: Add date time picker instead of only date for subscription date field [#9271](https://github.com/gravitee-io/issues/issues/9271)
 * Log Content Not Visible in V2 API Logs [#9290](https://github.com/gravitee-io/issues/issues/9290)
 
 **Other**
 
-* User claim in OAuth2 resource seems ignored [#9168](https://github.com/gravitee-io/issues/issues/9168)
-* Typo in the documentation of  "cache policy" [#9262](https://github.com/gravitee-io/issues/issues/9262)
+* User claim in OAuth2 resource is ignored [#9168](https://github.com/gravitee-io/issues/issues/9168)
+* Typo in the documentation of `cache-policy` [#9262](https://github.com/gravitee-io/issues/issues/9262)
 
 </details>
 
