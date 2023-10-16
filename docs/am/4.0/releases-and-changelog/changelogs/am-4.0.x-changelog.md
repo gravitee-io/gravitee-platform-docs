@@ -1,6 +1,6 @@
 ---
 description: >-
-  This page contains the changelog entries for AM 4.0 and any future minor or
+  This page contains the changelog entries for AM 4.0.x and any future minor or
   patch AM 4.0.x releases
 ---
 
@@ -8,28 +8,26 @@ description: >-
 
 ## Gravitee Access Management 4.0.3 - October 16, 2023
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Align XSRF token ttl to the user session ttl https://github.com/gravitee-io/issues/issues/9282[#9282]
+* Align XSRF token TTL to the user session TTL [#9282](https://github.com/gravitee-io/issues/issues/9282)
 
 **Management API**
 
-* Wrong values returned by Gravitee AM management API https://github.com/gravitee-io/issues/issues/9141[#9141]
-* AM Management API should start even with missing or unknown Identity Provider plugins https://github.com/gravitee-io/issues/issues/9230[#9230]
-
-
+* Wrong values returned by Gravitee AM Management API [#9141](https://github.com/gravitee-io/issues/issues/9141)
+* AM Management API should start even with missing or unknown Identity Provider plugins [#9230](https://github.com/gravitee-io/issues/issues/9230)
 
 **Other**
 
-* MS SqlServer 10.2 onwards driver support https://github.com/gravitee-io/issues/issues/9178[#9178]
-* Upgrade script of the 3.21.6 does not work as expected https://github.com/gravitee-io/issues/issues/9288[#9288]
-* Update mongo script to create indexes https://github.com/gravitee-io/issues/issues/9291[#9291]
-</details>
+* MS SqlServer 10.2 onwards driver support [#9178](https://github.com/gravitee-io/issues/issues/9178)
+* Upgrade script for 3.21.6 does not work as expected [#9288](https://github.com/gravitee-io/issues/issues/9288)
+* Update Mongo script to create indices [#9291](https://github.com/gravitee-io/issues/issues/9291)
 
+</details>
 
 ## Gravitee Access Management 4.0.2 - September 29, 2023
 
