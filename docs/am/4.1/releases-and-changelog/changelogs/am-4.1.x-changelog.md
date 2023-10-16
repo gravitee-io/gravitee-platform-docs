@@ -1,6 +1,6 @@
 ---
 description: >-
-  This page contains the changelog entries for AM 4.1 and any future minor or
+  This page contains the changelog entries for AM 4.1.x and any future minor or
   patch AM 4.1.x releases
 ---
 

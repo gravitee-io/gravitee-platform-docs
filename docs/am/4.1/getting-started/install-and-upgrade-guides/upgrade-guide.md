@@ -8,7 +8,7 @@
 
 ## General
 
-Upgrading to AM 4.0 is deployment-specific. The [4.0 breaking changes](../../releases-and-changelog/changelogs/am-4.0.x-changelog.md#gravitee-access-management-40---july-20-2023) must be noted and/or adopted for a successful upgrade.
+Upgrading to AM 4.0 is deployment-specific. The [4.0 breaking changes](../../releases-and-changelog/changelogs/am-4.1.x-changelog.md#gravitee-access-management-40---july-20-2023) must be noted and/or adopted for a successful upgrade.
 
 ## MongoDB indices
 

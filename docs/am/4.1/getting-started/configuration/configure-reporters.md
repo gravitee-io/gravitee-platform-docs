@@ -2,7 +2,7 @@
 
 ## Overview
 
-_Reporters_ are used by AM Gateway and API instances to report many types of events:
+Reporters are used by AM Gateway and API instances to report many types of events:
 
 * Administration metrics: administrative tasks (CRUD on resources)
 * Authentication / Authorization metrics: (sign-in activity, sign-up activity)
@@ -15,14 +15,11 @@ From AM version 3.6, you can create additional reporters.
 
 This implementation is a file-based reporter for writing events to a dedicated file. You can use it for ingesting events into a third party system.
 
-### aConfiguration
+### Configuration
 
 File reporters are configurable in the `gravitee.yml` file `reporter` section with the following properties:
 
-| property  | type   | required | description                                                                                             |
-| --------- | ------ | -------- | ------------------------------------------------------------------------------------------------------- |
-| directory | string | N        | Path to the file creation directory. The directory must exist (default: `${gravitee.home}/audit-logs/`) |
-| output    | string | N        | Format used to export events. Possible values: JSON, MESSAGE\_PACK, ELASTICSEARCH, CSV (default: JSON)  |
+<table><thead><tr><th width="121">property</th><th width="83">type</th><th width="97">required</th><th>description</th></tr></thead><tbody><tr><td>directory</td><td>string</td><td>N</td><td>Path to the file creation directory. The directory must exist (default: <code>${gravitee.home}/audit-logs/</code>)</td></tr><tr><td>output</td><td>string</td><td>N</td><td>Format used to export events. Possible values: JSON, MESSAGE_PACK, ELASTICSEARCH, CSV (default: JSON)</td></tr></tbody></table>
 
 ```yaml
 reporters:
