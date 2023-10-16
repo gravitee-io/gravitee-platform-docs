@@ -162,7 +162,6 @@ The Gravitee Kubernetes Operator Helm Chart supports configuration of the follow
 * [RBAC Proxy](install-gravitee-kubernetes-operator.md#rbac-proxy)
 * [Controller Manager](install-gravitee-kubernetes-operator.md#controller-manager)
 * [Ingress](install-gravitee-kubernetes-operator.md#ingress)
-* [Cert Manager](install-gravitee-kubernetes-operator.md#cert-manager)
 * [HTTP Client](install-gravitee-kubernetes-operator.md#http-client)
 
 {% tabs %}
@@ -194,16 +193,7 @@ If this is disabled, the Prometheus metrics endpoint will be exposed with no acc
 {% tab title="Controller Manager" %}
 Use these parameters to configure the deployment itself and the ways in which the operator will interact with APIM and custom resources in your cluster.
 
-| Name                                        | Description                                                                                  | Value                            |
-| ------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------- |
-| `manager.image.repository`                  | Specifies the Docker registry and image name to use.                                         | `graviteeio/kubernetes-operator` |
-| `manager.image.tag`                         | Specifies the Docker image tag to use.                                                       | `latest`                         |
-| `manager.logs.json`                         | Whether to output manager logs in JSON format.                                               | `true`                           |
-| `manager.configMap.name`                    | The name of the ConfigMap used to set the manager config.                                    | `gko-config`                     |
-| `manager.scope.cluster`                     | Use false to listen only in the release namespace.                                           | `true`                           |
-| `manager.applyCRDs`                         | If true, the manager will patch custom resource definitions on startup.                      | `true`                           |
-| `manager.metrics.enabled`                   | If true, a metrics server will be created so that metrics can be scraped using Prometheus.   | `true`                           |
-| `manager.httpClient.insecureSkipCertVerify` | If true, the manager HTTP client will not verify the certificate used by the Management API. | `false`                          |
+<table><thead><tr><th>Name</th><th width="206">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>manager.image.repository</code></td><td>Specifies the Docker registry and image name to use.</td><td><code>graviteeio/kubernetes-operator</code></td></tr><tr><td><code>manager.image.tag</code></td><td>Specifies the Docker image tag to use.</td><td><code>latest</code></td></tr><tr><td><code>manager.logs.json</code></td><td>Whether to output manager logs in JSON format.</td><td><code>true</code></td></tr><tr><td><code>manager.configMap.name</code></td><td>The name of the ConfigMap used to set the manager config.</td><td><code>gko-config</code></td></tr><tr><td><code>manager.scope.cluster</code></td><td>Use false to listen only in the release namespace.</td><td><code>true</code></td></tr><tr><td><code>manager.applyCRDs</code></td><td>If true, the manager will patch custom resource definitions on startup.</td><td><code>true</code></td></tr><tr><td><code>manager.metrics.enabled</code></td><td>If true, a metrics server will be created so that metrics can be scraped using Prometheus.</td><td><code>true</code></td></tr><tr><td><code>manager.httpClient.insecureSkipCertVerify</code></td><td>If true, the manager HTTP client will not verify the certificate used by the Management API.</td><td><code>false</code></td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Ingress" %}
@@ -216,24 +206,7 @@ content: '{ "message": "Not Found" }'
 contentType: application/json
 ```
 
-| Name                              | Description                                                                | Value |
-| --------------------------------- | -------------------------------------------------------------------------- | ----- |
-| `ingress.templates.404.name`      | Name of the ConfigMap storing the HTTP 404 ingress response template.      | `""`  |
-| `ingress.templates.404.namespace` | Namespace of the ConfigMap storing the HTTP 404 ingress response template. | `""`  |
-{% endtab %}
-
-{% tab title="Cert Manager" %}
-Use the following parameters to enable and configure the `cert-manager` dependency. The Cert Manager is necessary to enable Webhook conversions and validation required by the operator.
-
-{% hint style="warning" %}
-The Cert Manager manages non-namespaced resources in a cluster. **It must be installed exactly once.**&#x20;
-
-Enabling the `cert-manager` dependency ties the lifecycle of `cert-manager` to the operator. This property is intended for testing purposes. In production, we recommend installing `cert-manager` as a separate component.
-{% endhint %}
-
-The namespace defined to install `cert-manager` must have been created prior to enabling the `cert-manager` dependency. Learn more [here](https://cert-manager.io/docs/installation/helm).
-
-<table><thead><tr><th width="217">Name</th><th width="233">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>cert-manager.enabled</code></td><td>If true, <code>cert-manager</code> will be installed as a dependency.</td><td><code>false</code></td></tr><tr><td><code>cert-manager.namespace</code></td><td>Defines the namespace where <code>cert-manager</code> will be installed.</td><td><code>cert-manager</code></td></tr></tbody></table>
+<table><thead><tr><th width="229">Name</th><th width="271">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>ingress.templates.404.name</code></td><td>Name of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr><tr><td><code>ingress.templates.404.namespace</code></td><td>Namespace of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="HTTP Client" %}
