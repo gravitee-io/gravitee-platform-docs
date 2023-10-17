@@ -618,7 +618,10 @@ Once you're done with your general details, select Next to define your JWT authe
 * Choose whether to enable extra JWT claims.
 * Choose whether to propagate Authorization headers.
 * Define the User claim where users can be extracted.
-* Define the Client Id claim where the client can be extracted.
+* Define the Client ID claim where the client can be extracted.
+* Choose whether to ignore missing CNF.
+* Choose whether to enable certificate bound thumbprint validation.
+* Choose whether to extract client certificate from headers and add the header name.
 * Define additional selection rules using the Gravitee Expression Language.
 
 Select Next to define any restrictions associated with this plan. Your options include:
