@@ -8,30 +8,28 @@ description: >-
 
 ## Gravitee Access Management 4.1.1 - October 16, 2023
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Align XSRF token ttl to the user session ttl https://github.com/gravitee-io/issues/issues/9282[#9282]
+* Align XSRF token TTL to the user session TTL [#9282](https://github.com/gravitee-io/issues/issues/9282)
 
 **Management API**
 
-* Wrong values returned by Gravitee AM management API https://github.com/gravitee-io/issues/issues/9141[#9141]
-* AM Management API should start even with missing or unknown Identity Provider plugins https://github.com/gravitee-io/issues/issues/9230[#9230]
-
-
+* Wrong values returned by Gravitee AM Management API [#9141](https://github.com/gravitee-io/issues/issues/9141)
+* AM Management API should start even with missing or unknown Identity Provider plugins [#9230](https://github.com/gravitee-io/issues/issues/9230)
 
 **Other**
 
-* MS SqlServer 10.2 onwards driver support https://github.com/gravitee-io/issues/issues/9178[#9178]
-* Upgrade script of the 3.21.6 does not work as expected https://github.com/gravitee-io/issues/issues/9288[#9288]
-* Update mongo script to create indexes https://github.com/gravitee-io/issues/issues/9291[#9291]
+* MS SqlServer 10.2 onwards driver support [#9178](https://github.com/gravitee-io/issues/issues/9178)
+* Upgrade script for 3.21.6 does not work as expected [#9288](https://github.com/gravitee-io/issues/issues/9288)
+* Update Mongo script to create indices [#9291](https://github.com/gravitee-io/issues/issues/9291)
+
 </details>
 
-
-## Gravitee Access Management 4.1 - September 28, 2023
+## Gravitee Access Management 4.1.0 - September 28, 2023
 
 For more in-depth information on what's new, please refer to the [Gravitee AM 4.1 release notes](../release-notes/).
 
@@ -41,7 +39,7 @@ For more in-depth information on what's new, please refer to the [Gravitee AM 4.
 
 **Enterprise Edition**
 
-The MFA Challenge policy is now available to apply an MFA step during actions such as reset password or unlock account.&#x20;
+The MFA Challenge policy is now available to apply an MFA step during actions such as reset password or unlock account.
 
 **Twilio phone factor enhancement**
 
