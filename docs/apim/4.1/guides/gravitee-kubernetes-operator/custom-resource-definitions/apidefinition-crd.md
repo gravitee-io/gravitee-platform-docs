@@ -1,8 +1,8 @@
-# ApiDefinition CRD
+# ApiDefinition
 
 ## How to use the API Definition (`ApiDefinition`) custom resource
 
-The `APIDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API definition in JSON format.
+The `ApiDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API definition in JSON format.
 
 The example below shows a simple `ApiDefinition` custom resource definition:
 
