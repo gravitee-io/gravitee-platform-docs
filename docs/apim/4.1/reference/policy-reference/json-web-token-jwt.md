@@ -11,7 +11,7 @@ You can use the `jwt` policy to validate the token signature and expiration date
 Some authorization servers use OAuth2 protocol to provide access tokens. These access token can be in JWS/JWT format. For the RFC standards, see:
 
 * JWS (JSON Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
-* JWT (JSON Web Token) standard RFC: ([https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
+* JWT (JSON Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
 
 A JWT is composed of three parts: A header, a payload and a signature. Examples can be found here: [http://jwt.io](http://jwt.io/).
 
