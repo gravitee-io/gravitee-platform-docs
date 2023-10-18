@@ -2,16 +2,18 @@
 
 ## Overview
 
-Caches are used to store different types of data in Gravitee API Management (APIM).
+Caches are used to store different types of data in Gravitee API Management (APIM). The following Cache Managers are available as plugins:
 
-Cache Managers are now available via plugins. Default distribution contains a Standalone Cache Manager which was and still is the default one.
+* **Standalone Cache Manager:** The default plugin. The cache will not be distributed and will always remain local to the node (in-memory).
+* **Hazelcast Cache Manager:** Must be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).&#x20;
 
-Two plugins are available :
+The following is an example of the Hazelcast implementation:
 
-* Standalone Cache Manager which is the default plugin. The cache will not be distributed and will always remain local to the node (in-memory).
-* Hazelcast Cache Manager which has to be added to the distribution and enable by setting `cache.type` to `hazelcast`. With this plugin the cache could be either local (in-memory) or distributed (Hazelcast IMap). Please see the below example of the Hazelcast implementation:
+{% hint style="warning" %}
+The below example must be modified according to your installation context.
+{% endhint %}
 
-```
+```xml
 <cluster-name>gio-apim-distributed-cache</cluster-name>
 <network>
     <port auto-increment="true" port-count="100">5701</port>
@@ -25,14 +27,9 @@ Two plugins are available :
 </network>
 ```
 
-{% hint style="info" %}
-**This is just an example**\
-Please be aware that this is just a basic example. You will need to adapt your implementation based on your installation context.
-{% endhint %}
+## Networking
 
-### Networking
-
-There are multiple ways to configure Hazelcast networking depending on your installation (regular VMs, Kubernetes, AWS, etc.​). However, we do not currently recommend enabling the distribution mode with Hazelcast unless there is a strong and clear reason to do so. The distribution mode is not relevant for most use cases. The provided default configuration is designed to work in standalone mode.
+Depending on your installation (regular VMs, Kubernetes, AWS, etc.​), there are multiple ways to configure Hazelcast networking. The default configuration is designed to work in standalone mode. Distribution mode is not relevant to most use cases and not recommended.
 
 If you need run Hazelcast in a cluster, the simplest way is to enable multicast:
 
@@ -55,20 +52,20 @@ If you need run Hazelcast in a cluster, the simplest way is to enable multicast:
 ```
 
 {% hint style="info" %}
-You can find more information in the [Hazelcast documentation](https://docs.hazelcast.org/docs) which details how to configure Hazelcast as a cluster.
+More information can be found in the [Hazelcast documentation](https://docs.hazelcast.org/docs), including how to configure Hazelcast as a cluster.
 {% endhint %}
 
 ## Cache resource management
 
-API publishers can create cache resources:
+API publishers can [create Cache resources](../../guides/api-configuration/resources.md#how-to-create-a-resource):
 
-* to cache upstream of a response with the Cache policy.
-* to cache access tokens with the OAuth2 policy.
+* To cache upstream of a response with the [Cache policy](../../reference/policy-reference/cache.md)
+* To cache access tokens with the [OAuth2 policy](../../reference/policy-reference/oauth2/)
 
-The default distribution comes with the Cache resource plugin. This plugin stores content in memory and is locally managed on each Gateway node of the installation.
+The default distribution includes the [Cache resource](../../guides/api-configuration/resources.md#cache) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 
-Configuration of cache resources cannot be managed using the `hazelcast.xml` file. The configuration is directly defined on the cache resource.
+Configuration of Cache resources cannot be managed using the `hazelcast.xml` file. The configuration is directly defined on the Cache resource.
 
-### Persistent cache
+## Persistent cache
 
-APIM also supports the Gravitee Redis Cache resource plugin based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but you can [download](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) the plugin and follow these [instructions](../../overview/plugins.md#deployment) to deploy it.
+APIM also supports the Gravitee [Redis Cache resource](../../guides/api-configuration/resources.md#cache-redis) plugin based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../../overview/plugins.md#deployment).
