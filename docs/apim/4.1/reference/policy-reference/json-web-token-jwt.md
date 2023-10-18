@@ -13,11 +13,10 @@ Some authorization servers use OAuth2 protocol to provide access tokens. These a
 * JWS (JSON Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
 * JWT (JSON Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
 
-A JWT is composed of three parts: A header, a payload and a signature. Examples can be found here: [http://jwt.io](http://jwt.io/).
+A JWT is composed of three parts: A header, a payload and a signature. Each must be base64 encoded. Examples can be found here: [http://jwt.io](http://jwt.io/).
 
 * The header contains attributes indicating the algorithm used to sign the token.
 * The payload contains information inserted by the AS (Authorization Server), such as the expiration date and UID of the user.
-* Both the header and payload are encoded with Base64, so anyone can read the content.
 * The third and last part is the signature (for more details, see the RFC).
 
 Functional and implementation information for the `jwt` policy is organized into the following sections:
