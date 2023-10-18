@@ -4,8 +4,8 @@
 
 Caches are used to store different types of data in Gravitee API Management (APIM). The following Cache Managers are available as plugins:
 
-* Standalone Cache Manager: The default plugin. The cache will not be distributed and will always remain local to the node (in-memory).
-* Hazelcast Cache Manager: Must be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).&#x20;
+* **Standalone Cache Manager:** The default plugin. The cache will not be distributed and will always remain local to the node (in-memory).
+* **Hazelcast Cache Manager:** Must be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).&#x20;
 
 The following is an example of the Hazelcast implementation:
 
