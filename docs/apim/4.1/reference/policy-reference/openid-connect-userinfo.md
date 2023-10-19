@@ -26,104 +26,18 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-Sample policy configuration:
+Sample policy configuration for a payload extraction flow:
 
 ```json
 {
-  "id": "my-api",
-  "name": "my-api",
-  "gravitee": "2.0.0",
-  "proxy": {
-    "context_path": "/test",
-    "endpoints": [
-      {
-        "name": "default",
-        "target": "http://localhost:8080/endpoint",
-        "http": {
-          "connectTimeout": 3000,
-          "readTimeout": 60000
-        }
-      }
-    ]
-  },
-  "flows": [
-    {
-      "name": "No payload extraction flow",
-      "methods": [
-        "GET"
-      ],
-      "enabled": true,
-      "path-operator": {
-        "path": "/no-payload-extraction",
-        "operator": "STARTS_WITH"
-      },
-      "pre": [
-        {
-          "name": "OpenId Connect - UserInfo",
-          "description": "",
-          "enabled": true,
-          "policy": "policy-openid-userinfo",
-          "configuration": {
-            "oauthResource": "dummy-oauth-resource",
-            "extractPayload": false
-          }
-        }
-      ],
-      "post": []
-    },
-    {
-      "name": "Payload extraction flow",
-      "methods": [
-        "GET"
-      ],
-      "enabled": true,
-      "path-operator": {
-        "path": "/payload-extraction",
-        "operator": "STARTS_WITH"
-      },
-      "pre": [
-        {
-          "name": "OpenId Connect - UserInfo",
-          "description": "",
-          "enabled": true,
-          "policy": "policy-openid-userinfo",
-          "configuration": {
-            "oauthResource": "dummy-oauth-resource",
-            "extractPayload": true
-          }
-        }
-      ],
-      "post": []
-    },
-    {
-      "name": "Attribute copy to response payload",
-      "methods": [
-        "GET"
-      ],
-      "enabled": true,
-      "path-operator": {
-        "path": "/",
-        "operator": "STARTS_WITH"
-      },
-      "post": [{
-        "name": "Copy attribute from UserInfoPolicy to payload",
-        "description": "",
-        "enabled": true,
-        "policy": "copy-attribute-to-response",
-        "configuration": {
-        }
-      }]
-    }
-  ],
-  "resources": [
-    {
-      "name": "dummy-oauth-resource",
-      "enabled": true,
-      "type": "dummy-oauth",
-      "configuration": {
-      }
-    }
-  ]
+  "name": "OpenId Connect - UserInfo",
+  "description": "",
+  "enabled": true,
+  "policy": "policy-openid-userinfo",
+  "configuration": {
+    "oauthResource": "dummy-oauth-resource",
+    "extractPayload": true
+  }
 }
 ```
 {% endtab %}
@@ -135,7 +49,7 @@ Sample policy configuration:
 
 The phases checked below are supported by the `openid-userinfo` policy:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="137" data-type="checkbox">Compatible?</th><th width="200.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="206">v2 Phases</th><th width="137" data-type="checkbox">Compatible?</th><th width="200.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ### Options
 
