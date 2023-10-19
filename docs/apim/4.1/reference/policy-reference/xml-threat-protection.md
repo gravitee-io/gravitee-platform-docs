@@ -10,14 +10,43 @@ You can use the `xml-threat-protection` policy to validate an XML request body b
 
 Functional and implementation information for the `xml-threat-protection` policy is organized into the following sections:
 
+* [Examples](xml-threat-protection.md#examples)
 * [Configuration](xml-threat-protection.md#configuration)
 * [Compatibility Matrix](xml-threat-protection.md#compatibility-matrix)
 * [Errors](xml-threat-protection.md#errors)
 * [Changelogs](xml-threat-protection.md#changelogs)
 
+## Examples
+
 {% hint style="warning" %}
 This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
+
+{% tabs %}
+{% tab title="Proxy API example" %}
+Sample policy configuration:
+
+```json
+{
+        "name" : "XML Threat Protection",
+        "enabled" : true,
+        "policy" : "xml-threat-protection",
+        "configuration" : {
+          "maxDepth" : 90,
+          "maxChildrenPerElement" : 90,
+          "maxEntities" : 90,
+          "maxAttributesPerElement" : 90,
+          "allowExternalEntities" : false,
+          "maxElements" : 900,
+          "maxEntityDepth" : 90,
+          "maxAttributeValueLength" : 90,
+          "maxTextValueLength" : 90,
+          "maxLength" : 900
+        }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
