@@ -27,16 +27,16 @@ Sample policy configuration:
 
 ```json
 {
-        "name" : "JSON Threat Protection",
-        "enabled" : true,
-        "policy" : "json-threat-protection",
-        "configuration" : {
-          "maxDepth" : 90,
-          "maxNameLength" : 90,
-          "maxValueLength" : 400,
-          "maxEntries" : 90,
-          "maxArraySize" : 90
-        }
+  "name" : "JSON Threat Protection",
+  "enabled" : true,
+  "policy" : "json-threat-protection",
+  "configuration" : {
+    "maxDepth" : 90,
+    "maxNameLength" : 90,
+    "maxValueLength" : 400,
+    "maxEntries" : 90,
+    "maxArraySize" : 90
+  }
 }
 ```
 {% endtab %}
