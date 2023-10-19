@@ -34,77 +34,45 @@ Sample policy configuration:
 
 ```json
 {
-    "id": "my-api",
-    "name": "my-api",
-    "gravitee": "2.0.0",
-    "proxy": {
-        "context_path": "/test",
-        "endpoints": [
+    "name": "Data Logging Masking",
+    "description": "Data Logging Masking configured for RAW or JSON",
+    "enabled": true,
+    "policy": "policy-data-logging-masking",
+    "configuration": {
+        "scope": "REQUEST_CONTENT",
+        "headerRules": [
             {
-                "name": "default",
-                "target": "http://localhost:8080/endpoint",
-                "http": {
-                    "connectTimeout": 3000,
-                    "readTimeout": 60000
-                }
+                "path": "reqHeaderToHide",
+                "replacer": "*"
+            }
+        ],
+        "bodyRules": [
+            {
+                "path": "$.field",
+                "replacer": "-"
+            },
+            {
+                "type": "EMAIL",
+                "replacer": "@"
+            },
+            {
+                "type": "URI",
+                "replacer": "U"
+            },
+            {
+                "type": "IP",
+                "replacer": "IP"
+            },
+            {
+                "type": "CREDIT_CARD",
+                "replacer": "$"
+            },
+            {
+                "regex": "(proto?:/.w*)(:\\d*)?\\/?(.*?)",
+                "replacer": "S"
             }
         ]
-    },
-    "flows": [
-        {
-            "name": "flow-1",
-            "methods": ["GET"],
-            "enabled": true,
-            "path-operator": {
-                "path": "/",
-                "operator": "STARTS_WITH"
-            },
-            "pre": [
-                {
-                    "name": "Data Logging Masking",
-                    "description": "Data Logging Masking configured for RAW or JSON",
-                    "enabled": true,
-                    "policy": "policy-data-logging-masking",
-                    "configuration": {
-                        "scope": "REQUEST_CONTENT",
-                        "headerRules": [
-                            {
-                                "path": "reqHeaderToHide",
-                                "replacer": "*"
-                            }
-                        ],
-                        "bodyRules": [
-                            {
-                                "path": "$.field",
-                                "replacer": "-"
-                            },
-                            {
-                                "type": "EMAIL",
-                                "replacer": "@"
-                            },
-                            {
-                                "type": "URI",
-                                "replacer": "U"
-                            },
-                            {
-                                "type": "IP",
-                                "replacer": "IP"
-                            },
-                            {
-                                "type": "CREDIT_CARD",
-                                "replacer": "$"
-                            },
-                            {
-                                "regex": "(proto?:/.w*)(:\\d*)?\\/?(.*?)",
-                                "replacer": "S"
-                            }
-                        ]
-                    }
-                }
-            ],
-            "post": []
-        }
-    ]
+    }
 }
 ```
 {% endtab %}
