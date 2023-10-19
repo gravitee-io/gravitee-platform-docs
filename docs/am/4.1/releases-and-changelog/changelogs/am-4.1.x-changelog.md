@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.2 - October 19, 2023
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* Twilio Phone Extension with Self-Service API  https://github.com/gravitee-io/issues/issues/9289[#9289]
+
+
+
+
+
+**Other**
+
+* EnrichProfile reset factor defined by EnrollMFA policy https://github.com/gravitee-io/issues/issues/9161[#9161]
+</details>
+
+
 ## Gravitee Access Management 4.1.1 - October 16, 2023
 
 <details>
