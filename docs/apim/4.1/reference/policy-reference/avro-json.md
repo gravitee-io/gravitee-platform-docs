@@ -32,80 +32,14 @@ Example of inline request:
 
 ```json
 {
-    "id": "inline_request_avro_to_json",
-    "name": "inline_request_avro_to_json",
-    "apiVersion": "1.0",
-    "definitionVersion": "4.0.0",
-    "type": "proxy",
-    "description": "inline_request_avro_to_json",
-    "properties": [
-        {
-            "key": "my-prop",
-            "value": "my-value",
-            "encrypted": false
-        }
-    ],
-    "listeners": [
-        {
-            "type": "http",
-            "paths": [
-                {
-                    "path": "/inline_request_avro_to_json"
-                }
-            ],
-            "entrypoints": [
-                {
-                    "type": "http-proxy"
-                }
-            ]
-        }
-    ],
-    "endpointGroups": [
-        {
-            "name": "default",
-            "type": "http-proxy",
-            "endpoints": [
-                {
-                    "name": "default",
-                    "type": "http-proxy",
-                    "configuration": {
-                        "target": "http://localhost:8080/avro"
-                    }
-                }
-            ]
-        }
-    ],
-    "flows": [
-        {
-            "name": "flow-1",
-            "enabled": true,
-            "selectors": [
-                {
-                    "type": "http",
-                    "path": "/",
-                    "pathOperator": "STARTS_WITH"
-                }
-            ],
-            "request": [
-                {
-                    "name": "avro-2-json",
-                    "description": "avro-2-json",
-                    "enabled": true,
-                    "policy": "avro-json",
-                    "configuration": {
-                        "conversion": "avro-to-json",
-                        "schemaLocation": "inline",
-                        "schemaDefinition": "{\"namespace\": \"io.confluent.examples.clients.basicavro\", \"type\": \"record\", \"name\": \"Payment\", \"fields\": [{\"name\": \"id\", \"type\": \"string\"}, {\"name\": \"amount\", \"type\": \"double\"}]}\n"
-                    }
-                }
-            ],
-            "response": [],
-            "subscribe": [],
-            "publish": []
-        }
-    ],
-    "analytics": {
-        "enabled": false
+    "name": "avro-2-json",
+    "description": "avro-2-json",
+    "enabled": true,
+    "policy": "avro-json",
+    "configuration": {
+        "conversion": "avro-to-json",
+        "schemaLocation": "inline",
+        "schemaDefinition": "{\"namespace\": \"io.confluent.examples.clients.basicavro\", \"type\": \"record\", \"name\": \"Payment\", \"fields\": [{\"name\": \"id\", \"type\": \"string\"}, {\"name\": \"amount\", \"type\": \"double\"}]}\n"
     }
 }
 ```
@@ -114,86 +48,19 @@ Example of inline request:
 {% tab title="Message API example" %}
 Example of inline publishing:
 
-<pre class="language-json"><code class="lang-json"><strong>{
-</strong>    "id": "inline_publish_avro_to_json",
-    "name": "inline_publish_avro_to_json",
-    "apiVersion": "1.0",
-    "definitionVersion": "4.0.0",
-    "type": "message",
-    "description": "inline_publish_avro_to_json",
-    "listeners": [
-        {
-            "type": "http",
-            "paths": [
-                {
-                    "path": "/inline_publish_avro_to_json"
-                }
-            ],
-            "entrypoints": [
-                {
-                    "type": "http-post",
-                    "configuration": {}
-                }
-            ]
-        }
-    ],
-    "endpointGroups": [
-        {
-            "name": "default",
-            "type": "kafka",
-            "endpoints": [
-                {
-                    "name": "default",
-                    "type": "kafka",
-                    "weight": 1,
-                    "inheritConfiguration": false,
-                    "configuration": {
-                        "bootstrapServers": "bootstrap-server"
-                    },
-                    "sharedConfigurationOverride": {
-                        "producer": {
-                            "enabled": true,
-                            "topics": ["json-topic"]
-                        }
-                    }
-                }
-            ]
-        }
-    ],
-    "flows": [
-        {
-            "name": "flow-1",
-            "enabled": true,
-            "selectors": [
-                {
-                    "type": "http",
-                    "path": "/",
-                    "pathOperator": "STARTS_WITH"
-                }
-            ],
-            "request": [],
-            "response": [],
-            "subscribe": [],
-            "publish": [
-                {
-                    "name": "avro-2-json",
-                    "description": "avro-2-json",
-                    "enabled": true,
-                    "policy": "avro-json",
-                    "configuration": {
-                        "conversion": "avro-to-json",
-                        "schemaLocation": "inline",
-                        "schemaDefinition": "{\"namespace\": \"io.confluent.examples.clients.basicavro\", \"type\": \"record\", \"name\": \"Payment\", \"fields\": [{\"name\": \"id\", \"type\": \"string\"}, {\"name\": \"amount\", \"type\": \"double\"}]}\n"
-                    }
-                }
-            ]
-        }
-    ],
-    "analytics": {
-        "enabled": false
+```json
+{
+    "name": "avro-2-json",
+    "description": "avro-2-json",
+    "enabled": true,
+    "policy": "avro-json",
+    "configuration": {
+        "conversion": "avro-to-json",
+        "schemaLocation": "inline",
+        "schemaDefinition": "{\"namespace\": \"io.confluent.examples.clients.basicavro\", \"type\": \"record\", \"name\": \"Payment\", \"fields\": [{\"name\": \"id\", \"type\": \"string\"}, {\"name\": \"amount\", \"type\": \"double\"}]}\n"
     }
 }
-</code></pre>
+```
 {% endtab %}
 {% endtabs %}
 
