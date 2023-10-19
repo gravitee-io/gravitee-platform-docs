@@ -14,14 +14,38 @@ You can use the `regex-threat-protection` policy to extract information from a r
 
 Functional and implementation information for the `regex-threat-protection` policy is organized into the following sections:
 
+* [Examples](regex-threat-protection.md#examples)
 * [Configuration](regex-threat-protection.md#configuration)
 * [Compatibility Matrix](regex-threat-protection.md#compatibility-matrix)
 * [Errors](regex-threat-protection.md#errors)
 * [Changelogs](regex-threat-protection.md#changelogs)
 
+## Examples
+
 {% hint style="warning" %}
 This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
+
+{% tabs %}
+{% tab title="Proxy API example" %}
+Sample policy configuration for SQL Injection regex detection:
+
+```json
+{
+        "name" : "Regex Threat Protection",
+        "enabled" : true,
+        "policy" : "regex-threat-protection",
+        "configuration" : {
+          "regex" : ".*[\\s]*((delete)|(exec)|(drop\\s*table)|(insert)|(shutdown)|(update)|(\\bor\\b)).*",
+          "checkPath" : true,
+          "checkBody" : true,
+          "caseSensitive" : false,
+          "checkHeaders" : true
+        }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
