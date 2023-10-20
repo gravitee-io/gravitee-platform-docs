@@ -10,13 +10,29 @@ You can use the `xml-validation` policy to validate XML using an XSD schema. Thi
 
 Functional and implementation information for the `xml-validation` policy is organized into the following sections:
 
+* [Examples](xml-validation.md#examples)
 * [Configuration](xml-validation.md#configuration)
 * [Compatibility Matrix](xml-validation.md#compatibility-matrix)
 * [Errors](xml-validation.md#errors)
 
+## Examples
+
 {% hint style="warning" %}
 This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
+
+{% tabs %}
+{% tab title="Proxy API example" %}
+Sample policy configuration:
+
+```json
+{
+    "errorMessage":"XML payload is improperly formatted",
+    "xsdSchema":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" attributeFormDefault=\"unqualified\"\n           elementFormDefault=\"qualified\">\n    <xs:element name=\"root\" type=\"rootType\">\n    </xs:element>\n\n    <xs:complexType name=\"rootType\">\n        <xs:sequence>\n            <xs:element name=\"companies\" type=\"companiesType\"/>\n        </xs:sequence>\n    </xs:complexType>\n\n    <xs:complexType name=\"companiesType\">\n        <xs:sequence>\n            <xs:element name=\"company\" type=\"companyType\" maxOccurs=\"unbounded\" minOccurs=\"0\"/>\n        </xs:sequence>\n    </xs:complexType>\n\n    <xs:complexType name=\"companyType\">\n        <xs:sequence>\n            <xs:element type=\"xs:string\" name=\"name\"/>\n            <xs:element type=\"xs:integer\" name=\"employeeNumber\"/>\n            <xs:element type=\"xs:long\" name=\"sales\"/>\n            <xs:element type=\"xs:string\" name=\"CEO\"/>\n        </xs:sequence>\n    </xs:complexType>\n</xs:schema>"
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 

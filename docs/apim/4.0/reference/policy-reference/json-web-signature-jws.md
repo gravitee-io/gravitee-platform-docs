@@ -10,9 +10,9 @@ You can use the `jws-validator` policy to validate the JWS token signature, cert
 
 JWT in JWS format enables secure content to be shared across security domains. The RFC standards are as follows:
 
-* JWS (Json Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
+* JWS (JSON Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
 * JOSE Header standard RFC: [https://tools.ietf.org/html/rfc7515#section-4](https://tools.ietf.org/html/rfc7515#section-4)
-* JWT (Json Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
+* JWT (JSON Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
 
 Functional and implementation information for the `jws-validator` policy is organized into the following sections:
 
@@ -32,11 +32,11 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 {% tab title="Proxy API example" %}
 ```json
 {
- "typ":"JOSE+JSON",
- "cty":"json",
- "alg":"RS256",
- "x5c":"string",
- "kid":"string"
+    "typ":"JOSE+JSON",
+    "cty":"json",
+    "alg":"RS256",
+    "x5c":"string",
+    "kid":"string"
 }
 ```
 {% endtab %}

@@ -31,52 +31,18 @@ Sample policy configuration:
 
 ```json
 {
-  "id": "my-api",
-  "name": "my-api",
-  "gravitee": "2.0.0",
-  "proxy": {
-    "context_path": "/test",
-    "endpoints": [
-      {
-        "name": "default",
-        "target": "http://localhost:8080/endpoint",
-        "http": {
-          "connectTimeout": 3000,
-          "readTimeout": 60000
-        }
-      }
-    ]
-  },
-  "flows": [
-    {
-      "name": "flow-1",
-      "methods": [
-        "GET"
-      ],
-      "enabled": true,
-      "path-operator": {
-        "path": "/",
-        "operator": "STARTS_WITH"
-      },
-      "pre": [
-        {
-          "name": "Circuit breaker",
-          "description": "",
-          "enabled": true,
-          "policy": "policy-circuit-breaker",
-          "configuration": {
-            "failureRateThreshold": 1,
-            "slowCallRateThreshold": 10,
-            "slowCallDurationThreshold": 500,
-            "windowSize": 2,
-            "waitDurationInOpenState": 50000,
-            "redirectToURL": ""
-          }
-        }
-      ],
-      "post": []
-    }
-  ]
+  "name": "Circuit breaker",
+  "description": "",
+  "enabled": true,
+  "policy": "policy-circuit-breaker",
+  "configuration": {
+    "failureRateThreshold": 1,
+    "slowCallRateThreshold": 10,
+    "slowCallDurationThreshold": 500,
+    "windowSize": 2,
+    "waitDurationInOpenState": 50000,
+    "redirectToURL": ""
+  }
 }
 ```
 {% endtab %}

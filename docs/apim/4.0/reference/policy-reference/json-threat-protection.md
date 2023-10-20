@@ -10,13 +10,37 @@ You can use the `json-threat-protection` policy to validate a JSON request body 
 
 Functional and implementation information for the `json-threat-protection` policy is organized into the following sections:
 
+* [Examples](json-threat-protection.md#examples)
 * [Configuration](json-threat-protection.md#configuration)
 * [Errors](json-threat-protection.md#errors)
 * [Changelogs](json-threat-protection.md#changelogs)
 
+## Examples
+
 {% hint style="warning" %}
 This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
+
+{% tabs %}
+{% tab title="Proxy API example" %}
+Sample policy configuration:
+
+```json
+{
+  "name" : "JSON Threat Protection",
+  "enabled" : true,
+  "policy" : "json-threat-protection",
+  "configuration" : {
+    "maxDepth" : 90,
+    "maxNameLength" : 90,
+    "maxValueLength" : 400,
+    "maxEntries" : 90,
+    "maxArraySize" : 90
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 

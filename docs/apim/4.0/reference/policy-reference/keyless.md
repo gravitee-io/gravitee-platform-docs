@@ -31,48 +31,14 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 {% tab title="Proxy API example" %}
 Sample policy configuration:
 
-```json
-{
-    "id": "my-api",
-    "name": "my-api",
-    "gravitee": "2.0.0",
-    "proxy": {
-        "context_path": "/test",
-        "endpoints": [
-            {
-                "name": "default",
-                "target": "http://localhost:8080/team",
-                "http": {
-                    "connectTimeout": 3000,
-                    "readTimeout": 60000
-                }
-            }
-        ]
-    },
-    "flows": [
-        {
-            "name": "flow-1",
-            "methods": ["GET"],
-            "enabled": true,
-            "path-operator": {
-                "path": "/",
-                "operator": "STARTS_WITH"
-            },
-            "pre": [
-                {
-                    "name": "Key less",
-                    "description": "",
-                    "enabled": true,
-                    "policy": "key-less",
-                    "configuration": {}
-                }
-            ],
-            "post": []
-        }
-    ],
-    "resources": []
+<pre class="language-json"><code class="lang-json">{
+<strong>    "name": "Key less",
+</strong>    "description": "",
+    "enabled": true,
+    "policy": "key-less",
+    "configuration": {}
 }
-```
+</code></pre>
 {% endtab %}
 {% endtabs %}
 

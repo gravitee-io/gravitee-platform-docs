@@ -51,7 +51,6 @@ You can extract the `username` from the payload using the following JsonPath:
 
 ```json
 {#jsonPath(#context.attributes['oauth.payload'], '$.username')}
-
 ```
 {% endtab %}
 {% endtabs %}

@@ -11,7 +11,13 @@ You can use the `jwt` policy to validate the token signature and expiration date
 Some authorization servers use OAuth2 protocol to provide access tokens. These access token can be in JWS/JWT format. For the RFC standards, see:
 
 * JWS (JSON Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
-* JWT (JSON Web Token) standard RFC: ([https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
+* JWT (JSON Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
+
+A JWT is composed of three parts: A header, a payload and a signature. Each must be base64 encoded. Examples can be found here: [http://jwt.io](http://jwt.io/).
+
+* The header contains attributes indicating the algorithm used to sign the token.
+* The payload contains information inserted by the AS (Authorization Server), such as the expiration date and UID of the user.
+* The third and last part is the signature (for more details, see the RFC).
 
 Functional and implementation information for the `jwt` policy is organized into the following sections:
 
@@ -82,7 +88,7 @@ Regarding the `client_id`, the standard behavior is to read it from the `azp` cl
 
 The phases checked below are supported by the `jwt` policy:
 
-<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="120" data-type="checkbox">Compatible?</th><th width="203.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="202">v2 Phases</th><th width="137" data-type="checkbox">Compatible?</th><th width="203.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
 
 ### Options
 
@@ -90,14 +96,17 @@ The `jwt` policy can be configured with the following options:
 
 <table><thead><tr><th width="194">Property</th><th width="105" data-type="checkbox">Required</th><th width="224">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>publicKeyResolver</td><td>true</td><td>Used to resolve the public key needed to validate the signature</td><td>enum</td><td>GIVEN_KEY</td></tr><tr><td>resolverParameter</td><td>false</td><td>Needed if you use the <code>GATEWAY_KEYS</code> or <code>GIVEN_ISSUER</code> resolver (EL support)</td><td>string</td><td></td></tr><tr><td>useSystemProxy</td><td>false</td><td>Select this option if you want use system proxy (only useful when resolver is <code>JWKS_URL</code>)</td><td>boolean</td><td>false</td></tr><tr><td>extractClaims</td><td>false</td><td>Select this option if you want to extract claims into the request context</td><td>boolean</td><td>false</td></tr><tr><td>clientIdClaim</td><td>false</td><td>Required if the client_id should be read from non-standard claims (azp, aud, client_id)</td><td>string</td><td></td></tr></tbody></table>
 
+#### Confirmation Method validation options
+
+The following options are specific to Confirmation Method validation:
+
+<table><thead><tr><th width="283">Property</th><th width="106" data-type="checkbox">Required</th><th width="338">Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>confirmationMethodValidation.ignoreMissing</td><td>false</td><td>Will ignore CNF validation if the token doesn’t contain any CNF information.</td><td>boolean</td><td>false</td></tr><tr><td>confirmationMethodValidation.certificateBoundThumbprint.enabled</td><td>false</td><td>Will validate the certificate thumbprint extracted from the access_token using the one provided by the client.</td><td>boolean</td><td>false</td></tr><tr><td>confirmationMethodValidation.certificateBoundThumbprint.extractCertificateFromHeader</td><td>false</td><td>Enabled to extract the client certificate from request header. Necessary when the M-TLS connection is handled by a proxy.</td><td>boolean</td><td>false</td></tr><tr><td>confirmationMethodValidation.certificateBoundThumbprint.headerName</td><td>false</td><td>Name of the header under which to find the client certificate.</td><td>string</td><td>ssl-client-cert</td></tr></tbody></table>
+
 ### Attributes
 
 The `jwt` policy can be configured with the following attributes:
 
-| Name       | Description                                                                                                                                         |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| jwt.token  | JWT token extracted from the `Authorization` HTTP header                                                                                            |
-| jwt.claims | A map of claims registered in the JWT token body, used for extracting data from it. Only if `extractClaims` is enabled in the policy configuration. |
+<table><thead><tr><th width="159.5">Name</th><th>Description</th></tr></thead><tbody><tr><td>jwt.token</td><td>JWT token extracted from the <code>Authorization</code> HTTP header</td></tr><tr><td>jwt.claims</td><td>A map of claims registered in the JWT token body, used for extracting data from it. Only if <code>extractClaims</code> is enabled in the policy configuration.</td></tr></tbody></table>
 
 ## Compatibility matrix
 
