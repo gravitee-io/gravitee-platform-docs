@@ -1,8 +1,12 @@
+---
+description: This article describes how to modify how APIs are presented to API consumers
+---
+
 # Layout and Theme Customization
 
-This section will detail how to modify how APIs are presented to API consumers.
+## API Sidebar
 
-### API Sidebar
+Clicking on an API in the Developer Portal&#x20;
 
 Administrators can modify what is shown in the sidebar of an API's **General information**.
 
@@ -34,7 +38,7 @@ For the rest of the sidebar settings, return to the Console's homescreen then se
 * **Configure the information list:** Display custom values in the Developer Portal. Use the **+ icon** in the bottom right to add new values.
 * **API Page list options:** Detailed in the [catalog tabs](layout-and-theme-customization.md#catalog-tabs) section below
 
-### API Catalog
+## API Catalog
 
 Administrators can also modify how API consumers browsing experience in the Developer Portal's API catalog.
 
@@ -83,7 +87,7 @@ From here, administrators can add new APIs with the **+ icon**, reorder the top 
 If you are having issues seeing Gateway APIs you added to the Top APIs list, make sure the API is public or the user logged into the Developer Portal has access to that API. Administrators can see all the APIs but individual users are restricted to public APIs and APIs they have been granted access to through user and group access settings.
 {% endhint %}
 
-### Custom navigation
+## Custom navigation
 
 Administrators can customize the Developer Portal navigation in the header and footer. This is done by creating link pages in Gravitee's system folders. There are three kinds of links:
 
@@ -133,7 +137,7 @@ The`TopFooter`system folder is the only system folder that accepts nested folder
 <img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM.png" alt="" data-size="original">
 {% endhint %}
 
-### Theming
+## Theming
 
 Administrators can change the default theme of the Developer Portal to their own custom theme. To modify the theme, in the APIM settings select **Theme** in the secondary sidebar.
 
