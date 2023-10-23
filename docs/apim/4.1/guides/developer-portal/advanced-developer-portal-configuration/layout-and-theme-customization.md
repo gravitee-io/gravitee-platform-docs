@@ -6,9 +6,7 @@ description: This article describes how to modify how APIs are presented to API 
 
 ## API Sidebar
 
-Clicking on an API in the Developer Portal&#x20;
-
-Administrators can modify what is shown in the sidebar of an API's **General information**.
+You can click on an API in the Developer Portal to access its details. Selecting the **General information** header tab will display the API's description and reviews (if any have been submitted), as well as a sidebar on the right that contains additional information.&#x20;
 
 <div data-full-width="false">
 
@@ -16,19 +14,30 @@ Administrators can modify what is shown in the sidebar of an API's **General inf
 
 </div>
 
-To modify the access URL, select **Organization** in the sidebar of the Management Console. Next, select **Sharding tags** in the sidebar under the **Gateway** subheader. This page allows you to modify the **Default entrypoint** of the Gravitee Gateway. The access URL for each API in the Developer Portal will display the default entrypoint followed by that API's contect path.
+Administrators can control what is shown in the sidebar. To modify the access URL:
+
+1. Select **Organization** at the bottom of the left sidebar of the Management Console
+2. In the organization's left sidebar, select **Sharding tags** under the **Gateway** subheader
+3. Modify the **Default entrypoint** of the Gravitee Gateway
+
+The access URL for each API in the Developer Portal is the default entrypoint followed by that API's context path.
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-07-28 at 12.51.56 PM.png" alt=""><figcaption><p>Modify the access URL</p></figcaption></figure>
 
 {% hint style="info" %}
 &#x20;**Sharding Tags and Gateway Entrypoint Mappings**
 
-At a high-level, sharding tags are assigned to APIs and Gravitee Gateways to provide a method to deploy an API to a subset of gateways. Adding a mapping between these sharding tags and a gateway’s entrypoint URL allows the developer portal to intelligently display different entrypoints depending on the API’s sharding tags.
+[Sharding Tags](../../../getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md) tags are used to help manage complex distributed architectures:
 
-Sharding tags are used to help manage complex distributed architectures. Check out the [Sharding Tags guide](../../../getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md) to learn more.
+* By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.&#x20;
+* By mapping sharding tags to a Gateway’s entrypoint URL, the Developer Portal can intelligently display different entrypoints based on an API's sharding tags.
 {% endhint %}
 
-For the rest of the sidebar settings, return to the Console's homescreen then select **Settings >** **API Portal Information** to display the following options:
+To modify the other sidebar settings:
+
+1. Return to the Management Console's home page&#x20;
+2. Select **Settings** from the left sidebar
+3. Select **API Portal Information** from the inner left sidebar to display the following options:
 
 <figure><img src="../../../.gitbook/assets/dev_portal_api_display_settings.png" alt=""><figcaption><p>Developer portal API sidebar display settings</p></figcaption></figure>
 
