@@ -1,32 +1,58 @@
+---
+description: This section describes user management configuration in the Developer Portal
+---
+
 # User Management
 
-Accessing the Developer Portal directly from the Management Console automatically signs you in with the same account. However, the power of the Developer Portal revolves around exposing your APIs to both internal and external API consumers. This necessitates the ability to create new accounts which requires some additional configuration.
+## Overview
 
-### User sign-up
+When you access the Developer Portal directly from the Management Console, you are automatically signed in with the same account. However, to expose your APIs to consumers you will need to create new accounts, which requires additional configuration.
 
-The ability to create new user accounts has two requirements:
+## User sign-up
 
-1. Enabling the **Allow User Registration** option
-2. Simple mail transfer protocol (SMTP) configuration to confirm user account creation
+To create new user accounts you must:
 
-As detailed in [General settings](user-management.md#general-settings), the **Allow User Registration** option is already enabled by default.
+* Enable the **Allow User Registration** option. This option is a [general setting](general-settings.md) and enabled by default.
+* Configure simple mail transfer protocol (SMTP) to confirm user account creation. See the sections below for detailed instructions.
 
-To view SMTP settings, navigate to **Settings** in the Management Console. Then, in the secondary sidebar, select **Settings** under the **Portal** header in the submenu. The **SMTP** settings are at the bottom of the page; however, for many deployments, these settings will be greyed out. This is due to the `gravitee.yml` configuration file disabling email by default since it requires configuring an SMTP email service. This [SMTP configuration guide](../../../getting-started/configuration/) will walk you through setting up email for your APIM deployment.
+### Configure SMTP
+
+To configure SMTP settings:
+
+1. Log in to the Management Console
+2. Select **Settings** from the left sidebar
+3. Select **Settings** from the inner left sidebar&#x20;
+4. Configure the **SMTP** settings are at the bottom of the page
+
+{% hint style="info" %}
+By default, the `gravitee.yml` configuration file disables email because email requires configuring an SMTP email service. You must set up email for your APIM deployment per the [SMTP configuration guide](../../../getting-started/configuration/) to be able to modify the SMTP settings.
+{% endhint %}
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 12.03.55 PM.png" alt=""><figcaption><p>SMTP default settings</p></figcaption></figure>
 
-After configuring SMTP, you should be able to create a new user in the Developer Portal. You can test this by opening the Developer Portal in an incognito window to avoid being automatically signed in with the same account being used in the Management Console. In the new incognito window, select **Sign up** at the bottom of the modal. Provide the required information and select the **Sign Up** button.
+### Create a user
+
+After configuring SMTP, you can create a new user in the Developer Portal:
+
+1. Open the Developer Portal in an incognito window to avoid being automatically signed in with the same account used by the Management Console
+2. In the new incognito window, select **Sign up** at the bottom of the modal
+3. Provide the required information and click the **Sign Up** button
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 12.14.03 PM.png" alt=""><figcaption><p>Developer portal sign up page</p></figcaption></figure>
 
-You should receive a registration confirmation and an email to the address you provided. Open the email and click the link. Make sure the link opens in the incognito tab; otherwise, it will just open the Developer Portal with the account signed into the Management Console.
+You will receive a registration confirmation at the email address you provided.&#x20;
 
-You will be taken to a page to finalize your account and add a password. By default, the password must meet the following requirements:
+### Complete sign-up
 
-* 8 to 32 characters
-* no more than 2 consecutive equal characters
-* min 1 special characters (@ & # …)
-* min 1 upper case character
+To complete the sign-up process:
+
+1. Open the email and click the link
+2. Ensure the link opens in the incognito tab (otherwise, the Developer Portal will use the same account as the Management Console)
+3. Finalize your account and add a password that meets the following requirements:
+   * 8 to 32 characters
+   * No more than 2 consecutive identical characters
+   * Minimum of 1 special character (@ & # …)
+   * Minimum of 1 uppercase character
 
 {% hint style="info" %}
 **Password customization**
@@ -34,16 +60,21 @@ You will be taken to a page to finalize your account and add a password. By defa
 Password requirements can be modified by changing the regex pattern under **User Management Configuration** in the `gravitee.yml` file or by using environment variables.
 {% endhint %}
 
-Once you finish creating your password, you will be able to sign in.
+Once your password has been created, you will be able to sign in.
 
-### User overview
+## User overview
 
-All users can be viewed in APIM's Management Console by anyone with administrator privileges. To view users, select **Organization** at the bottom of the sidebar. Once there, navigate to the **Users** tab in the sidebar. Here, you will see a list of all current users tied to the organization. As an administrator, you can select any user for more details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button in the top right.
+All users can be viewed in the Management Console by anyone with administrator privileges. To view users:
+
+1. Select **Organization** at the bottom of the left sidebar
+2. Select **Users** from the organization's left sidebar to display a list of all current users tied to the organization
+
+As an administrator, you can click on an entry for user details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button on the top right of the page.
 
 <figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
 
 {% hint style="info" %}
 **Detailed user administration**
 
-For a more detailed look at managing users including roles, groups, and permissions, head over to the [Administration guide.](../../administration/#introduction)
+For additional information on user management, including roles, groups, and permissions, see the [Administration guide.](../../administration/#introduction)
 {% endhint %}
