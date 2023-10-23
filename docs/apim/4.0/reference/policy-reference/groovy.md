@@ -24,7 +24,7 @@ This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to
 
 {% tabs %}
 {% tab title="Proxy API example" %}
-### onRequest / onResponse
+#### onRequest / onResponse
 
 The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
 
@@ -33,7 +33,7 @@ response.headers.remove 'X-Powered-By'
 response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
 ```
 
-### OnRequestContent / OnResponseContent
+#### OnRequestContent / OnResponseContent
 
 The following example shows you how to use the Groovy policy to transform JSON content:
 
