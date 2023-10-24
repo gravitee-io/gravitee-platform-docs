@@ -10,7 +10,7 @@ You can click on an API in the Developer Portal to access its details. Selecting
 
 <div data-full-width="false">
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM.png" alt=""><figcaption><p>Developer portal API sidebar</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM.png" alt=""><figcaption><p>Developer Portal API sidebar</p></figcaption></figure>
 
 </div>
 
@@ -39,28 +39,38 @@ To modify the other sidebar settings:
 2. Select **Settings** from the left sidebar
 3. Select **API Portal Information** from the inner left sidebar to display the following options:
 
-<figure><img src="../../../.gitbook/assets/dev_portal_api_display_settings.png" alt=""><figcaption><p>Developer portal API sidebar display settings</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/dev_portal_api_display_settings.png" alt=""><figcaption><p>Developer Portal API sidebar display settings</p></figcaption></figure>
 
 * **Add extra information**
   * **Show tags list in the API header:** Display all API labels in the Developer Portal
   * **Show categories list in the API header:** Display all API categories in the Developer Portal
 * **Configure the information list:** Display custom values in the Developer Portal. Use the **+** icon on the bottom right of the page to add new values.
-*   **API Page list options:** Display a banner at the top of each page in the API catalog to promote a particular API. The tab automatically determines which API to promote, e.g., the **Starred** tab will feature the API that was most recently reviewed.
+*   **API Page list options:** Display a banner at the top of each page in the API Catalog to promote a particular API. The tab automatically determines which API to promote, e.g., the **Starred** tab will feature the API that was most recently reviewed.
 
-    <figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM.png" alt=""><figcaption><p>Developer portal promotion banner</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM.png" alt=""><figcaption><p>Developer Portal promotion banner</p></figcaption></figure>
 
 ## API Catalog
 
-Administrators can modify the browsing experience offered by the Developer Portal's API catalog. By adding API categories and a **Categories** tab to the catalog, APIs can be organized based on the category applied to a Gateway API.
+### Catagories
 
+Administrators can modify the browsing experience offered by the Developer Portal's API Catalog. To organize APIs by category:
 
+* API categories must be added
+* One or more categories must be applied to each API
+* The **Categories** tab must be added to the API Catalog
+
+#### Apply categories
+
+To apply categories:
 
 1. Select **APIs** from the left sidebar of the Management Console
 2. Select the API to which you want to add categories
 3. Select **Info** from the inner left sidebar
-4.  Use the **Categories** dropdown to select categories:&#x20;
+4. Use the **Categories** dropdown to select one or more categories to apply to the API
 
-    <figure><img src="../../../.gitbook/assets/api catalog_categories.png" alt=""><figcaption><p>Apply categories to a Gateway API</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/api catalog_categories.png" alt=""><figcaption><p>Apply categories to a Gateway API</p></figcaption></figure>
+
+#### Add and show categories
 
 To enable the **Categories** tab and modify categories:
 
@@ -71,21 +81,24 @@ To enable the **Categories** tab and modify categories:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 1.59.06 PM.png" alt=""><figcaption><p>APIM categories settings page</p></figcaption></figure>
 
-With the toggle enabled, users accessing the Developer Portal will have access to the page shown below:
+With the toggle enabled, a **Categories** tab will appear in the header of the API Catalog:
 
-<figure><img src="../../../.gitbook/assets/dev_portal_categories.png" alt=""><figcaption><p>Dev portal categories page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/dev_portal_categories.png" alt=""><figcaption><p>Dev Portal categories page</p></figcaption></figure>
 
-#### Top/featured APIs
+### Top/featured APIs
 
-Administrators also have control over what is displayed on the **Featured** page of the API catalog by modifying the top APIs. Navigate to APIM **Settings** and select **Top APIs** in the secondary sidebar.
+Administrators can also control what is displayed on the **Featured** page of the API Catalog by modifying the top APIs:
+
+1. Select **Settings** from the left sidebar of the Management Console
+2. Select **Top APIs** from the inner left sidebar
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.10.58 PM.png" alt=""><figcaption><p>Top APIs settings</p></figcaption></figure>
 
-From here, administrators can add new APIs with the **+ icon**, reorder the top APIs, and remove APIs from the list. APIs added here are displayed on both the Developer Portal's homepage and on the API catalog's **Featured** page as shown below.
+Administrators can use the **+** icon to add new APIs, reorder APIs, and remove APIs from the list. APIs added here are displayed on both the Developer Portal's homepage and on the API catalog's **Featured** page:
 
-<figure><img src="../../../.gitbook/assets/dev_portal_homepage.png" alt=""><figcaption><p>Developer portal homepage displaying top APIs</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/dev_portal_homepage.png" alt=""><figcaption><p>Developer Portal homepage displaying top APIs</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.14.32 PM.png" alt=""><figcaption><p>Developer portal Featured page in API catalog</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.14.32 PM.png" alt=""><figcaption><p>Developer portal Featured page in the API Catalog</p></figcaption></figure>
 
 {% hint style="info" %}
 **Top API visibility**
