@@ -51,7 +51,7 @@ To modify the other sidebar settings:
 
 ## API Catalog
 
-### Catagories
+### Categories
 
 Administrators can modify the browsing experience offered by the Developer Portal's API Catalog. To organize APIs by category:
 
@@ -98,76 +98,81 @@ Administrators can use the **+** icon to add new APIs, reorder APIs, and remove 
 
 <figure><img src="../../../.gitbook/assets/dev_portal_homepage.png" alt=""><figcaption><p>Developer Portal homepage displaying top APIs</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.14.32 PM.png" alt=""><figcaption><p>Developer portal Featured page in the API Catalog</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.14.32 PM.png" alt=""><figcaption><p>Developer Portal Featured page in the API Catalog</p></figcaption></figure>
 
 {% hint style="info" %}
 **Top API visibility**
 
-If you are having issues seeing Gateway APIs you added to the Top APIs list, make sure the API is public or the user logged into the Developer Portal has access to that API. Administrators can see all the APIs but individual users are restricted to public APIs and APIs they have been granted access to through user and group access settings.
+* Administrators can view all of the Gateway APIs added to the Top APIs list
+* The Top APIs visible to individual users are restricted to public APIs and APIs they have been granted access to through user and group access settings
 {% endhint %}
 
 ## Custom navigation
 
-Administrators can customize the Developer Portal navigation in the header and footer. This is done by creating link pages in Gravitee's system folders. There are three kinds of links:
+Administrators can customize the header and footer navigation of the Developer Portal by creating link pages in Gravitee's system folders. There are three types of links:
 
 * External link
 * Link to an existing documentation page
 * Link to a category
 
-Each link is treated as a new documentation page. To learn about all the features and functionality of Developer Portal documentation, head to the[ Documentation section](layout-and-theme-customization.md#documentation) of this page.
+Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see the[ Documentation section](layout-and-theme-customization.md#documentation).
 
-#### System folders
+### System folders
 
-Gravitee's system folders are accessible in the Management Console under **Settings > Documentation** and can be identified by their padlock icon as shown below.
+To access Gravitee's system folders:
+
+1. Select **Settings** from the left sidebar of the Management Console
+2. Select **Documentation** from the inner left sidebar
+
+System folders are identified by a padlock icon:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 10.44.36 AM.png" alt=""><figcaption><p>Gravitee's system folders</p></figcaption></figure>
 
 There are three system folders: `Header`, `TopFooter` and `Footer`. Each system folder corresponds to an area of the Developer Portal:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-link-portal-zones.png" alt=""><figcaption><p>Developer portal - system folder mapping</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-link-portal-zones.png" alt=""><figcaption><p>Developer Portal - system folder mapping</p></figcaption></figure>
 
 {% hint style="warning" %}
 **`TopFooter`system folder nesting**
 
-The`TopFooter`system folder is the only system folder that accepts nested folders. As shown in the image above, folders nested under the `TopFooter` system folder are used to group links together.
-
-It is important to note that nested folders must be published to be seen in the Developer Portal.
+The`TopFooter`system folder is the only system folder that accepts nested folders, which are used to group links together. Nested folders must be published to be visible in the Developer Portal.
 
 <img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM.png" alt="" data-size="original">
 {% endhint %}
 
-#### Manage Links <a href="#manage_links" id="manage_links"></a>
+### Manage Links <a href="#manage_links" id="manage_links"></a>
 
-To create a link, open a system folder and select the **+ icon** then select the **Link** icon. This will take you to a new page to select your link type and provide some additional information about your link.
+To create a link:
+
+1. Open a system folder
+2. Select the **+** icon
+3. Select the **Link** icon
+
+This will take you to a new page to select your link type and provide additional information about your link:
 
 <figure><img src="../../../.gitbook/assets/dev_portal_create_a_link.png" alt=""><figcaption><p>Create a new Developer Portal link</p></figcaption></figure>
 
-Select **Save**, and navigate to the Developer Portal to see your new link in action.
+To view your new link, click **Save** and navigate to the Developer Portal:
 
 <figure><img src="../../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link has additional features such as translations and access control that you can learn more about in the [Documentation section](layout-and-theme-customization.md#documentation).
-
-{% hint style="warning" %}
-**Publishing`TopFooter`nested folders**
-
-The`TopFooter`system folder is the only system folder that accepts nested folders. It is important to note that nested folders must be published to be seen in the Developer Portal.
-
-<img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM.png" alt="" data-size="original">
-{% endhint %}
+Each custom link has additional features such as translations and access control. See the [Documentation section](layout-and-theme-customization.md#documentation) for more information.
 
 ## Theming
 
-Administrators can change the default theme of the Developer Portal to their own custom theme. To modify the theme, in the APIM settings select **Theme** in the secondary sidebar.
+Administrators can change the default theme of the Developer Portal to their own custom theme. To modify the theme:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.50.54 PM.png" alt=""><figcaption><p>Developer portal theme settings</p></figcaption></figure>
+1. Select **Settings** from the left sidebar of the Management Console
+2. Select **Theme** from the inner left sidebar
 
-This page allows the administrator to customize every aspect of the Developer Portal's look and feel. Edits made are shown in a live preview to the right.
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 2.50.54 PM.png" alt=""><figcaption><p>Developer Portal theme settings</p></figcaption></figure>
+
+This page allows the administrator to customize every aspect of the Developer Portal's look and feel. Edits are shown in a live preview on the right.
 
 {% hint style="warning" %}
 **Enable live preview**
 
-If you are not seeing a live preview, this is due to not providing a Portal URL as detailed in the [General settings section](layout-and-theme-customization.md#general-settings).
+To enable a live preview, you must provide a Portal URL per the [General settings section](layout-and-theme-customization.md#general-settings).
 {% endhint %}
 
 #### Top menu
