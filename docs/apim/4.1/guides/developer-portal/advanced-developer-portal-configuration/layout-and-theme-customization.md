@@ -44,33 +44,30 @@ To modify the other sidebar settings:
 * **Add extra information**
   * **Show tags list in the API header:** Display all API labels in the Developer Portal
   * **Show categories list in the API header:** Display all API categories in the Developer Portal
-* **Configure the information list:** Display custom values in the Developer Portal. Use the **+ icon** in the bottom right to add new values.
-* **API Page list options:** Detailed in the [catalog tabs](layout-and-theme-customization.md#catalog-tabs) section below
-
-## API Catalog
-
-Administrators can also modify how API consumers browsing experience in the Developer Portal's API catalog.
-
-#### Promotion banner
-
-In APIM, select **API Portal Information** in the secondary sidebar to display the following options shown below.
-
-<figure><img src="../../../.gitbook/assets/image (41).png" alt=""><figcaption><p>Developer portal API display settings</p></figcaption></figure>
-
-* The other options are detailed in the [API sidebar](layout-and-theme-customization.md#api-sidebar) section above.
-*   **API Page list options**
-
-    * **Display promotion banner:** Adds a banner to the top of each page in the API catalog to promote a particular API. The API that is promoted is determined automatically based on the tab. For example, the **Starred** tab will show the API that was most recently reviewed in the promotion banner.
+* **Configure the information list:** Display custom values in the Developer Portal. Use the **+** icon on the bottom right of the page to add new values.
+*   **API Page list options:** Display a banner at the top of each page in the API catalog to promote a particular API. The tab automatically determines which API to promote, e.g., the **Starred** tab will feature the API that was most recently reviewed.
 
     <figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM.png" alt=""><figcaption><p>Developer portal promotion banner</p></figcaption></figure>
 
-#### Categories tab
+## API Catalog
 
-Administrators have the option to include a **Categories** tab in the API catalog. This organizes APIs based on the category applied to a Gateway API. Categories can be added on the **General** page of a Gateway API as shown below:
+Administrators can modify the browsing experience offered by the Developer Portal's API catalog. By adding API categories and a **Categories** tab to the catalog, APIs can be organized based on the category applied to a Gateway API.
 
-<figure><img src="../../../.gitbook/assets/api_categories.png" alt=""><figcaption><p>Applying categories to a Gateway API</p></figcaption></figure>
 
-To enable the Categories tab in the Developer Portal, go to APIM and select **Categories** in the secondary sidebar. Here you can also create new categories and modify or delete existing categories.
+
+1. Select **APIs** from the left sidebar of the Management Console
+2. Select the API to which you want to add categories
+3. Select **Info** from the inner left sidebar
+4.  Use the **Categories** dropdown to select categories:&#x20;
+
+    <figure><img src="../../../.gitbook/assets/api catalog_categories.png" alt=""><figcaption><p>Apply categories to a Gateway API</p></figcaption></figure>
+
+To enable the **Categories** tab and modify categories:
+
+1. Select **Settings** from the left sidebar of the Management Console
+2. Select **Categories** from the inner left sidebar
+   * Toggle **Enable Category Mode** to display the **Categories** tab
+   * Create new categories and/or modify or delete existing categories
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 1.59.06 PM.png" alt=""><figcaption><p>APIM categories settings page</p></figcaption></figure>
 
