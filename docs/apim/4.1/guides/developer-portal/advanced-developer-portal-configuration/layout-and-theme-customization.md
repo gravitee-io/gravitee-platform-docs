@@ -1,8 +1,13 @@
----
-description: This article describes how to modify how APIs are presented to API consumers
----
-
 # Layout and Theme Customization
+
+## Overview
+
+Administrators have the option to modify the layout and theme of the Developer Portal to customize how APIs are presented to API consumers. The following sections describe which elements can be modified and provide instructions:
+
+* [API Sidebar](layout-and-theme-customization.md#api-sidebar)
+* [API Catalog](layout-and-theme-customization.md#api-catalog)
+* [Custom navigation](layout-and-theme-customization.md#custom-navigation)
+* [Theming](layout-and-theme-customization.md#theming)
 
 ## API Sidebar
 
@@ -14,6 +19,8 @@ You can click on an API in the Developer Portal to access its details. Selecting
 
 </div>
 
+{% tabs %}
+{% tab title="Modify the access URL" %}
 Administrators can control what is shown in the sidebar. To modify the access URL:
 
 1. Select **Organization** at the bottom of the left sidebar of the Management Console
@@ -32,8 +39,10 @@ The access URL for each API in the Developer Portal is the default entrypoint fo
 * By assigning sharding tags to APIs and Gravitee Gateways, an API is deployed to a subset of the available Gateways.&#x20;
 * By mapping sharding tags to a Gateway’s entrypoint URL, the Developer Portal can intelligently display different entrypoints based on an API's sharding tags.
 {% endhint %}
+{% endtab %}
 
-To modify the other sidebar settings:
+{% tab title="Modify sidebar settings" %}
+To modify the sidebar settings:
 
 1. Return to the Management Console's home page&#x20;
 2. Select **Settings** from the left sidebar
@@ -48,6 +57,8 @@ To modify the other sidebar settings:
 *   **API Page list options:** Display a banner at the top of each page in the API Catalog to promote a particular API. The tab automatically determines which API to promote, e.g., the **Starred** tab will feature the API that was most recently reviewed.
 
     <figure><img src="../../../.gitbook/assets/Screenshot 2023-05-31 at 2.21.47 PM.png" alt=""><figcaption><p>Developer Portal promotion banner</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ## API Catalog
 
@@ -59,19 +70,8 @@ Administrators can modify the browsing experience offered by the Developer Porta
 * One or more categories must be applied to each API
 * The **Categories** tab must be added to the API Catalog
 
-#### Apply categories
-
-To apply categories:
-
-1. Select **APIs** from the left sidebar of the Management Console
-2. Select the API to which you want to add categories
-3. Select **Info** from the inner left sidebar
-4. Use the **Categories** dropdown to select one or more categories to apply to the API
-
-<figure><img src="../../../.gitbook/assets/api catalog_categories.png" alt=""><figcaption><p>Apply categories to a Gateway API</p></figcaption></figure>
-
-#### Add and show categories
-
+{% tabs %}
+{% tab title="Edit and show categories" %}
 To enable the **Categories** tab and modify categories:
 
 1. Select **Settings** from the left sidebar of the Management Console
@@ -80,6 +80,19 @@ To enable the **Categories** tab and modify categories:
    * Create new categories and/or modify or delete existing categories
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-06-01 at 1.59.06 PM.png" alt=""><figcaption><p>APIM categories settings page</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="Apply categories" %}
+To apply categories:
+
+1. Select **APIs** from the left sidebar of the Management Console
+2. Select the API to which you want to add categories
+3. Select **Info** from the inner left sidebar
+4. Use the **Categories** dropdown to select one or more categories to apply to the API
+
+<figure><img src="../../../.gitbook/assets/api catalog_categories.png" alt=""><figcaption><p>Apply categories to a Gateway API</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 With the toggle enabled, a **Categories** tab will appear in the header of the API Catalog:
 
@@ -117,8 +130,8 @@ Administrators can customize the header and footer navigation of the Developer P
 
 Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see the[ Documentation section](layout-and-theme-customization.md#documentation).
 
-### System folders
-
+{% tabs %}
+{% tab title="System folders" %}
 To access Gravitee's system folders:
 
 1. Select **Settings** from the left sidebar of the Management Console
@@ -139,9 +152,9 @@ The`TopFooter`system folder is the only system folder that accepts nested folder
 
 <img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 11.24.49 AM.png" alt="" data-size="original">
 {% endhint %}
+{% endtab %}
 
-### Manage Links <a href="#manage_links" id="manage_links"></a>
-
+{% tab title="Manage links" %}
 To create a link:
 
 1. Open a system folder
@@ -156,11 +169,13 @@ To view your new link, click **Save** and navigate to the Developer Portal:
 
 <figure><img src="../../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link has additional features such as translations and access control. See the [Documentation section](layout-and-theme-customization.md#documentation) for more information.
+Each custom link offers additional features such as translations and access control. See the [Documentation section](layout-and-theme-customization.md#documentation) for more information.
+{% endtab %}
+{% endtabs %}
 
 ## Theming
 
-Administrators can change the default theme of the Developer Portal to their own custom theme. To modify the theme:
+Administrators can change the default theme of the Developer Portal to a custom theme. To modify the theme:
 
 1. Select **Settings** from the left sidebar of the Management Console
 2. Select **Theme** from the inner left sidebar
@@ -175,14 +190,12 @@ This page allows the administrator to customize every aspect of the Developer Po
 To enable a live preview, you must provide a Portal URL per the [General settings section](layout-and-theme-customization.md#general-settings).
 {% endhint %}
 
-#### Top menu
+The top menu includes the following options:
 
-The top menu provides the following options:
-
-* **Fullscreen:** This button opens the preview in a new window, making it easier to edit if you have several screens
-* **Reset:** This button allows you to reset the theme from the last backup. Backups occur when you select the **Save** button
-* **Save:** This button saves your theme
-* **Enabled:** This toggle activates the theme in APIM Portal
-* **Import:** Upload a custom theme in `JSON` format. To see the required structure of the `JSON` file, export the current theme
-* **Export:** Download your current theme in `JSON` format
-* **Restore Default Theme:** This button overwrites your modifications with the theme provided by default
+* **Fullscreen:** Opens the preview in a new window to avoid switching screens when editing.
+* **Reset:** Resets the theme from the last backup. Backups occur when you select the **Save** button.
+* **Save:** Saves your theme.
+* **Enabled:** Activates the theme in APIM Portal.
+* **Import:** Upload a custom theme in `JSON` format. To view the required structure of the `JSON` file, **Export** the current theme.
+* **Export:** Downloads your current theme in `JSON` format.
+* **Restore Default Theme:** Overwrites your modifications with the default theme.
