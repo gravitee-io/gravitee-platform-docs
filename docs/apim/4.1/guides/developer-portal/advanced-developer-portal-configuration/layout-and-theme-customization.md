@@ -128,7 +128,7 @@ Administrators can customize the header and footer navigation of the Developer P
 * Link to an existing documentation page
 * Link to a category
 
-Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see the[ Documentation section](layout-and-theme-customization.md#documentation).
+Each link is treated as a new documentation page. To learn about the features and functionality of Developer Portal documentation, see [Documentation](documentation.md).
 
 {% tabs %}
 {% tab title="System folders" %}
@@ -169,7 +169,7 @@ To view your new link, click **Save** and navigate to the Developer Portal:
 
 <figure><img src="../../../.gitbook/assets/dev_portal_custom_link_example.png" alt=""><figcaption><p>Sample "Gravitee Homepage" custom link</p></figcaption></figure>
 
-Each custom link offers additional features such as translations and access control. See the [Documentation section](layout-and-theme-customization.md#documentation) for more information.
+Each custom link offers additional features such as translations and access control. See [Documentation](documentation.md) for more information.
 {% endtab %}
 {% endtabs %}
 
