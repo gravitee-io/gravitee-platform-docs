@@ -1,80 +1,70 @@
 # Documentation
 
-Outside of APIs and applications, administrators can also provide site-wide documentation for API publishers and consumers. This documentation creates a direct line of communication with your developer community through a single channel. For example, you can use it to communicate your best practices, configure your own homepage, or even reference it in links when using [custom navigation](documentation.md#custom-navigation). All published documentation can be accessed in the Developer Portal's **Documentation** page as shown below.
+## Overview
+
+Site-wide documentation creates a direct line of communication with your developer community. Administrators can use site-wide documentation to communicate best practices, configure pages, or as a reference via [custom navigation](layout-and-theme-customization.md#custom-navigation). Published documentation is accessible from the Developer Portal's **Documentation** page:
 
 {% hint style="info" %}
-Site-wide documentation is separate from API documentation which can be added to an API by an API publisher.
+Site-wide documentation is separate from API documentation, which can be added to an API by an API publisher.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM.png" alt=""><figcaption><p>Developer portal documentation page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM.png" alt=""><figcaption><p>Developer Portal documentation page</p></figcaption></figure>
 
-### Documentation types
+The following sections discuss how to:
 
-To add some documentation, you can either create new pages or import them from a file or external source.
+* [Create documentation](documentation.md#create-documentation)
+* [Generate content](documentation.md#generate-content)
+* [Import multiple pages](documentation.md#import-multiple-pages)
 
-APIM supports multiple types of documentation:
+## Create documentation
 
-* Markdown (for more information, see [Markdown documentation](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_markdown.html) and [Markdown templates](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_markdown\_template.html))
-* AsciiDoc (for more information, see [AsciiDoc documentation](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_asciidoc.html))
-* OpenAPI (Swagger) (for more information, see [OpenAPI documentation](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_publish\_documentation\_openapi.html))
-* AsynAPI (for more information, see [AsycAPI documentation](https://www.asyncapi.com/docs))
+To create documentation:
 
-### Create documentation
+1. Select **Settings** from the left sidebar of the Management Console
+2.  Select **Documentation** from the inner left sidebar&#x20;
 
-To create documentation, go to **Settings > Documentation** in the Management Console.
+    <figure><img src="../../../.gitbook/assets/documentation_settings.png" alt=""><figcaption><p>Documentation settings page</p></figcaption></figure>
+3.  Select the **+** icon on the bottom right to display the options below.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 3.22.29 PM.png" alt=""><figcaption><p>Documentation settings page</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/documentation_options.png" alt=""><figcaption><p>Create new documentation options</p></figcaption></figure>
 
-{% hint style="info" %}
-**System folders**
+*   **Folder:** Generate a folder to organize your documentation. Optionally generate [translations](documentation.md#translations) of the folder by selecting **Translate Folder**.&#x20;
 
-Header, TopFooter, and Footer are known as system folders. They can be used to customize the Developer Portal's navigation by adding custom links. For more information, see [Custom navigation.](documentation.md#custom-navigation)
-{% endhint %}
+    <figure><img src="../../../.gitbook/assets/documenation_folder.png" alt=""><figcaption><p>Sample documentation folder</p></figcaption></figure>
+* **Markdown Template:** Create templates reusable for site-wide and API Markdown documentation.
+* **Markdown:** Use the Markdown syntax for the documentation page.
+* **AsciiDoc:** Use the Asciidoc syntax for the documentation page.
+* **OpenAPI (Swagger):** Use the OpenAPI syntax for the documentation page.
+* **AsyncAPI:** Use the AsyncAPI syntax for the documentation page.&#x20;
 
-From here, you can create a new documentation page by selecting the **+ icon** in the bottom right. This presents you with the following options:
+Each documentation type provides similar configuration options and a compatible text editor.&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 3.45.43 PM.png" alt=""><figcaption><p>Create new documentation options</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/new_docs_page.png" alt=""><figcaption><p>Create a documentation page</p></figcaption></figure>
 
-* **Folder:** Generate a folder to organize your documentation. This also allows you to quickly generate translations of the entire folder by selecting **Translate Folder**. More information is provided on [translations below](documentation.md#translate-a-page).
+* **Name:** Provide a title for your documentation page.
+*   **Set as homepage:** Use the documentation page as the homepage of the Developer Portal. If multiple documentation pages are set as the homepage, the page most recently set will be selected.&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-05 at 3.49.15 PM.png" alt=""><figcaption><p>Sample documentaion folder</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/documentation_homepage.png" alt=""><figcaption><p>Custom homepage example</p></figcaption></figure>
+* **Publish this page:** Make the page available in the Developer Portal.
+* **Make private:** Make the page private to you and the users you explicitly allow using [access control](documentation.md#access-control).&#x20;
 
-* **Markdown Template:** Create templates to be re-used for both site-wide and API markdown documentation.
-* **Markdown:** Use the Markdown syntax for the documentation page
-* **Asciidoc:** Use the Asciidoc syntax for the documentation page
-* **OpenAPI (Swagger):** Use the OpenAPI syntax for the documentation page
-* **AsyncAPI:** Use the AsyncAPI syntax for the documentation page
+## Generate content
 
-Regardless of your selection, each documentation type provides similar configuration options followed by a text editor matching the type of document you selected.
+APIM provides three methods for generating documentation content:
 
-<figure><img src="../../../.gitbook/assets/new_docs_page.png" alt=""><figcaption><p>Creating a documentation page</p></figcaption></figure>
+* [Fill the content inline (supports templating with API properties)](documentation.md#fill-content-inline)
+* [Import from file](documentation.md#import-from-file)
+* [External source (Gitlab, Bitbucket, etc.)](documentation.md#external-source)
 
-* **Name:** Provide a label for your documentation page
-* **Set as homepage:** Use the documentation page on the homepage of the Developer Portal
+{% tabs %}
+{% tab title="Fill content inline" %}
+This method uses the text editor to generate content based on your selected documentation type. In addition, APIM supports templating with API properties.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-07 at 3.04.50 PM.png" alt=""><figcaption><p>Custom homepage example</p></figcaption></figure>
+**Templating with API properties**
 
-{% hint style="info" %}
-If you set multiple documentation pages as the homepage, only the page most recently set as the homepage will be active.
-{% endhint %}
+Use the following syntax to access the API data in your API documentation: `${api.name} or ${api.metadata['foo-bar']}`.&#x20;
 
-* **Publish this page:** Make the page available in the Developer Portal
-* **Make private:** Make the page private to you and the users you explicitly allow through access control. Access control is detailed in the [Page configuration](documentation.md#configure-a-page) section.
-
-The rest of the settings revolve around generating content for your new documentation page. APIM provides three main methods for generating documentation content
-
-* Fill the content inline
-  * Supports templating with API properties
-* Import from file
-* Import from an external source (Gitlab, Bitbucket, etc.)
-
-### Fill the content inline (templating support)
-
-This method is mostly self-explanatory as you will use the text editor to generate content based on the documentation type you selected. However, APIM also supports templating with API properties.
-
-#### Templating with API properties
-
-You can access your API data in your API documentation with the following syntax: `${api.name} or ${api.metadata['foo-bar']}`. This example shows how to create documentation templates based on the Apache [FreeMarker template engine](https://freemarker.apache.org/). Below the example, you can find a full reference table of available API properties.
+The sample script below creates a documentation template based on the Apache [FreeMarker template engine](https://freemarker.apache.org/):
 
 {% code overflow="wrap" fullWidth="false" %}
 ```ftl
@@ -126,44 +116,47 @@ The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwne
 ```
 {% endcode %}
 
-This has the following result in the Developer Portal:
+The above sample script creates the following in the Developer Portal:
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-template.png" alt=""><figcaption><p>Result of templating engine example</p></figcaption></figure>
 
-#### API properties reference
+**API properties reference**
+
+The following reference table shows all available API properties.
 
 <table data-full-width="false"><thead><tr><th>Field name</th><th>Field type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>String</td><td>70e72a24-59ac-4bad-a72a-2459acbbad39</td></tr><tr><td>name</td><td>String</td><td>My first API</td></tr><tr><td>description</td><td>String</td><td>My first API</td></tr><tr><td>version</td><td>String</td><td>1</td></tr><tr><td>metadata</td><td>Map</td><td>{"email-support": "<a href="mailto:support.contact@company.com">support.contact@company.com</a>"}</td></tr><tr><td>createdAt</td><td>Date</td><td>12 juil. 2018 14:44:00</td></tr><tr><td>updatedAt</td><td>Date</td><td>12 juil. 2018 14:46:00</td></tr><tr><td>deployedAt</td><td>Date</td><td>12 juil. 2018 14:49:00</td></tr><tr><td>picture</td><td>String</td><td>data:image/png;base64,iVBO…​</td></tr><tr><td>state</td><td>String</td><td>STARTED/STOPPED</td></tr><tr><td>visibility</td><td>String</td><td>PUBLIC/PRIVATE</td></tr><tr><td>tags</td><td>Array</td><td>["internal", "sales"]</td></tr><tr><td>proxy.contextPath</td><td>String</td><td>/stores</td></tr><tr><td>primaryOwner.displayName</td><td>String</td><td>Firstname Lastname</td></tr><tr><td>primaryOwner.email</td><td>String</td><td><a href="mailto:firstname.lastname@company.com">firstname.lastname@company.com</a></td></tr></tbody></table>
+{% endtab %}
 
-### Import from file
+{% tab title="Import from file" %}
+This method allows you to generate content by importing a file that matches the documentation type.
+{% endtab %}
 
-This method allows you to import a file matching the documentation type to generate the content.
-
-### External source
-
-The final method allows you to import your documentation from external sources. APIM includes five types of fetchers:
+{% tab title="External source" %}
+This method allows you to import your documentation from external sources. APIM includes five types of fetchers:
 
 * **GitHub:** fetch your documentation from a GitHub repository
 * **GitLab:** fetch your documentation from a GitLab repository
 * **Git:** fetch your documentation from any Git repository
 * **WWW:** fetch your documentation from the web
-* **Bitbucket:** fetch your documentation from a Bitbucket repository
+* **Bitbucket:** fetch your documentation from a Bitbucket repository&#x20;
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-external-source-auto-fetch.png" alt=""><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/documentation_external source.png" alt=""><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
 
 The documentation is fetched and stored locally in APIM in the following three scenarios:
 
-1. Documentation is fetched a single time after you finish configuring your fetcher
-2. Any time you select **Fetch All**
+* Once after you finish configuring your fetcher
+*   Any time you select **Fetch All** on the **Documentation** page&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-07 at 4.02.38 PM.png" alt=""><figcaption><p>Update all documentation from external sources</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/documentation_fetch all.png" alt=""><figcaption><p>Update all documentation from external sources</p></figcaption></figure>
+* At regular intervals when auto-fetch is configured
+{% endtab %}
+{% endtabs %}
 
-3. At regular intervals if you configure auto-fetch
+## Import multiple pages
 
-#### Import multiple pages
+If you have existing documentation for your API in a GitHub or GitLab repository, you can configure the GitHub or GitLab fetcher to import the complete documentation structure on a one-off or regular basis.
 
-If you have an existing documentation set for your API in a GitHub or GitLab repository, you can configure the GitHub or GitLab fetcher to import the complete documentation structure on a one-off or regular basis.
-
-Additionally, you can import the documentation into APIM in a different structure from the source repository structure. To do this, you need to create a Gravitee descriptor file (`.gravitee.json`), at the root of the repository, describing both the source and destination structure.
+You can import the documentation into APIM in a structure different from that of the source repository by creating a Gravitee descriptor file (`.gravitee.json`) at the repository root that describes both the source and destination structures.
 
 You can then configure a fetcher in APIM to read the JSON file and import the documentation according to the structure defined in the file.
 
