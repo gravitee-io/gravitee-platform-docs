@@ -5,7 +5,7 @@ description: >-
 ---
 
 # APIM 4.0.x
- 
+
 ## Gravitee API Management 4.0.11 - October 27, 2023
 
 <details>
@@ -17,19 +17,19 @@ description: >-
 * Can't create Backend-to-Backend applications [#9157](https://github.com/gravitee-io/issues/issues/9157)
 * Can't assign a group to a Backend-to-Backend application [#9158](https://github.com/gravitee-io/issues/issues/9158)
 * Invalid CORS Allow Origin Can Be Imported To Create New API [#9212](https://github.com/gravitee-io/issues/issues/9212)
-* Unable to create custom email notification template  [#9284](https://github.com/gravitee-io/issues/issues/9284)
+* Unable to create custom email notification template [#9284](https://github.com/gravitee-io/issues/issues/9284)
 * Attached Media is lost when the API Documentation is renamed [#9285](https://github.com/gravitee-io/issues/issues/9285)
 * User email address policy treats valid email address as invalid [#9293](https://github.com/gravitee-io/issues/issues/9293)
 * Endpoint Configuration Resets to Default after Redeployment [#9296](https://github.com/gravitee-io/issues/issues/9296)
 * Alert template not automatically applied to new APIs [#9323](https://github.com/gravitee-io/issues/issues/9323)
 * Unable to import OpenAPI spec with unused `variables` in `servers` definition [#9329](https://github.com/gravitee-io/issues/issues/9329)
-* User with quotes in lastname isn't properly sanitized [#9336](https://github.com/gravitee-io/issues/issues/9336)
+* User with quotes in last name isn't properly sanitized [#9336](https://github.com/gravitee-io/issues/issues/9336)
 * Listening Hosts are mandatory in Virtual Hosts mode [#9343](https://github.com/gravitee-io/issues/issues/9343)
 * The OpenAPI schema to close a plan has incorrect response code [#9351](https://github.com/gravitee-io/issues/issues/9351)
 
 **Console**
 
-* Unable to Update API with Open API yaml File [#9202](https://github.com/gravitee-io/issues/issues/9202)
+* Unable to Update API with Open API YAML File [#9202](https://github.com/gravitee-io/issues/issues/9202)
 * Unable to edit flows once saved with an invalid configuration [#9274](https://github.com/gravitee-io/issues/issues/9274)
 
 **Portal**
@@ -38,11 +38,11 @@ description: >-
 
 **Other**
 
-* IP filtering policy blacklist does not work if there is a space in the IP address [#9083](https://github.com/gravitee-io/issues/issues/9083)
+* IP Filtering policy blacklist does not work if there is a space in the IP address [#9083](https://github.com/gravitee-io/issues/issues/9083)
 * Domain name (host) in whitelist does not work in IP Filtering policy [#9198](https://github.com/gravitee-io/issues/issues/9198)
-* JWS Policy doesn't work with Java 17 [#9211](https://github.com/gravitee-io/issues/issues/9211)
-* Gravitee : Policy Data Loggin Masking [#9215](https://github.com/gravitee-io/issues/issues/9215)
-* Jaeger not working in with APIM 4+ [#9331](https://github.com/gravitee-io/issues/issues/9331)
+* JWS policy doesn't work with Java 17 [#9211](https://github.com/gravitee-io/issues/issues/9211)
+* Data Logging Masking policy [#9215](https://github.com/gravitee-io/issues/issues/9215)
+* Jaeger not working with APIM 4+ [#9331](https://github.com/gravitee-io/issues/issues/9331)
 * Quotify the namespace defined in ServiceAccount to avoid errors [#9345](https://github.com/gravitee-io/issues/issues/9345)
 
 </details>
