@@ -154,20 +154,23 @@ The documentation is fetched and stored locally in APIM in the following three s
 
 ## Import multiple pages
 
-If you have existing documentation for your API in a GitHub or GitLab repository, you can configure the GitHub or GitLab fetcher to import the complete documentation structure on a one-off or regular basis.
+If you have existing documentation for your API in a GitHub or GitLab repository, you can:&#x20;
 
-You can import the documentation into APIM in a structure different from that of the source repository by creating a Gravitee descriptor file (`.gravitee.json`) at the repository root that describes both the source and destination structures.
-
-You can then configure a fetcher in APIM to read the JSON file and import the documentation according to the structure defined in the file.
+* Configure the GitHub or GitLab fetcher to import the complete documentation structure on a one-off or regular basis
+* Import the documentation into APIM in a structure different from that of the source repository by:
+  * Creating a Gravitee descriptor file (`.gravitee.json`) at the repository root that describes both the source and destination structures
+  * Configuring a fetcher in APIM to read the JSON file and import the documentation according to the structure defined in the file
 
 {% hint style="warning" %}
 The Gravitee descriptor file must be named `.gravitee.json` and must be placed at the root of the repository.
 {% endhint %}
 
-The following Gravitee descriptor describes a documentation set that includes:
+### Sample Gravitee descriptor file
 
-* A home page in Markdown format in a folder called `/newdoc` to be placed at the root of the APIM documentation structure
-* A JSON file containing a Swagger specification at the root of the repository, to be placed in a folder called `/technical` in the APIM documentation structure.
+The following `.gravitee.json` describes a documentation set that includes:
+
+* A homepage in Markdown format in a folder called `/newdoc`, to be placed at the root of the APIM documentation structure
+* A JSON file containing a Swagger specification at the root of the repository, to be placed in a folder called `/technical` in the APIM documentation structure
 
 {% code title=".gravitee.json" %}
 ```json
@@ -192,23 +195,24 @@ The following Gravitee descriptor describes a documentation set that includes:
 ```
 {% endcode %}
 
-The following steps detail how to actually configure a fetcher to import multiple files:
+### Configure a fetcher
 
-1. Select **Import multiple files**
+Follow the steps below to configure a fetcher to import multiple files:
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-07 at 4.04.23 PM.png" alt=""><figcaption><p>Import multiple documentation files</p></figcaption></figure>
+1.  From the **Documentation** page, select **Import multiple files**&#x20;
 
-2. If you want to publish the pages on import, select **Publish all imported pages**
+    <figure><img src="../../../.gitbook/assets/documentation_import multiple files.png" alt=""><figcaption><p>Import multiple documentation files</p></figcaption></figure>
+2.  To publish the pages on import, select **Publish all imported pages**&#x20;
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files.png" alt=""><figcaption></figcaption></figure>
-
+    <figure><img src="../../../.gitbook/assets/import-multiple-files.png" alt=""><figcaption><p>Option to publish all imported files</p></figcaption></figure>
 3. Select the **GitHub** or **GitLab** fetcher
 4.  Specify the details of the external source, such as the URL of the external API, the name of the repository, and the branch. The fields vary slightly depending on the fetcher.
 
     <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-file-dets.png" alt=""><figcaption><p>Configure a fetcher</p></figcaption></figure>
-5. In **Filepath**, enter the path to your JSON documentation specification file
-6. Enter an access token, which you need to generate in your GitHub or GitLab user profile
-7. Select **Auto Fetch** and specify the `crontab` update frequency, if you want the pages to be updated at regular intervals.
+5. In the **Filepath** field, enter the path to your JSON documentation specification file
+6. Enter a **Username** to authenticate the request
+7. Enter a **Personal Access Token**, which must be generated in your GitHub or GitLab user profile
+8. To update the pages at regular intervals, select **Auto Fetch** and specify the `crontab` update frequency
 
 {% hint style="info" %}
 **`cron` expressions**
@@ -223,7 +227,7 @@ For example:
 If the APIM administrator [configured a maximum fetch frequency](documentation.md#general-settings), the value configured by the APIM administrator will override the frequency you specify.
 {% endhint %}
 
-8. Select **IMPORT** and APIM adds the files to your documentation set.
+9. Select **IMPORT** for APIM to add the files to your documentation set
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files-result.png" alt=""><figcaption><p>Import technical folder documentation with fetcher</p></figcaption></figure>
 
