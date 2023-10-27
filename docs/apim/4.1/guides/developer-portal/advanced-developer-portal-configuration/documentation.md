@@ -15,6 +15,7 @@ The following sections discuss how to:
 * [Create documentation](documentation.md#create-documentation)
 * [Generate content](documentation.md#generate-content)
 * [Import multiple pages](documentation.md#import-multiple-pages)
+* [Page management](documentation.md#page-management)
 
 ## Create documentation
 
@@ -217,34 +218,34 @@ Follow the steps below to configure a fetcher to import multiple files:
 {% hint style="info" %}
 **`cron` expressions**
 
-A `cron` expression is a string consisting of six fields that describe the schedule (representing seconds, minutes, hours, days, months and weekdays).
-
-For example:
+A `cron` expression is a string consisting of six fields (representing seconds, minutes, hours, days, months, and weekdays) that describe the schedule. For example:
 
 * Fetch every second: `* * */1 * * *`
 * At 00:00 on Saturday : `0 0 0 * * SAT`
 
-If the APIM administrator [configured a maximum fetch frequency](documentation.md#general-settings), the value configured by the APIM administrator will override the frequency you specify.
+If the APIM administrator configured a [maximum fetch frequency](general-settings.md), the value configured by the APIM administrator will override the frequency you specify.
 {% endhint %}
 
-9. Select **IMPORT** for APIM to add the files to your documentation set
+9.  Select **IMPORT** for APIM to add the files to your documentation set&#x20;
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/import-multiple-files-result.png" alt=""><figcaption><p>Import technical folder documentation with fetcher</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/import-multiple-files-result.png" alt=""><figcaption><p>Import technical folder documentation with fetcher</p></figcaption></figure>
 
-### Page management
+## Page management
 
-You can select a page from the list and configure the settings below. For
+Select a page to configure the following via the header tabs:
 
-* [**Page:**](documentation.md#create-documentation) Manage the content of the documentation page by using the inline editor or importing files
-* [**Translations:**](documentation.md#translate-a-page) Add translations of your page
+* **Page:** Manage the content of the documentation page by via the inline editor or by importing files
+* **Translations:** Add translations of your page
 * **Configuration:** Toggle options to publish your page and use it as the homepage
-* [**External Source:**](documentation.md#external-source) Configure a fetcher for the page
-* [**Access Control:**](documentation.md#access-control) Fine-grained access control over your page
-* **Attached Resources:** Add additional files to your documentation page. This [setting must be enabled](documentation.md#general-settings) by the administrator.
+* **External Source:** Configure a fetcher for the page
+* **Access Control:** Fine-grained access control over your page
+* **Attached Resources:** Add additional files to your documentation page. This [setting](general-settings.md) must be enabled by the administrator.
 
-#### Translations
+<figure><img src="../../../.gitbook/assets/documentation_page banner.png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
 
-You can add translations for your pages. In the **Translations** tab:
+{% tabs %}
+{% tab title="Translations" %}
+You can add translations for your pages via the **Translations** tab:
 
 1. Select **Add a translation**
 2. Enter your 2-character language code (FR for French, CZ for Czech, IT for Italian, etc.)
@@ -253,11 +254,14 @@ You can add translations for your pages. In the **Translations** tab:
 5. Click **Save Translation** at the bottom of the page
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-translations-1.png" alt=""><figcaption><p>Translate a page</p></figcaption></figure>
+{% endtab %}
 
-#### Access control
+{% tab title="Access control" %}
+From the **Access Control** tab:
 
-In the **Access Control** tab, you can mark a page as **Private** if you want to deny access to anonymous users.
-
-For private pages, you can configure access lists by required or to be excluded roles/groups. You can learn more about creating roles/groups in our [Administration Guide](../../administration/).
+* You can mark a page as **Private** if you want to deny access to anonymous users.
+* If a page is **Private**, you can configure access lists to either require or exclude certain [roles and groups](../../administration/) by toggling the **Excluded** option.&#x20;
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
