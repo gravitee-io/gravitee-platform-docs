@@ -135,17 +135,17 @@ This method allows you to generate content by importing a file that matches the 
 {% tab title="External source" %}
 This method allows you to import your documentation from external sources. APIM includes five types of fetchers:
 
-* **GitHub:** fetch your documentation from a GitHub repository
-* **GitLab:** fetch your documentation from a GitLab repository
-* **Git:** fetch your documentation from any Git repository
-* **WWW:** fetch your documentation from the web
-* **Bitbucket:** fetch your documentation from a Bitbucket repository&#x20;
+* **GitHub:** Fetch your documentation from a GitHub repository
+* **GitLab:** Fetch your documentation from a GitLab repository
+* **Git:** Fetch your documentation from any Git repository
+* **WWW:** Fetch your documentation from the web
+* **Bitbucket:** Fetch your documentation from a Bitbucket repository&#x20;
 
 <figure><img src="../../../.gitbook/assets/documentation_external source.png" alt=""><figcaption><p>Documentation fetcher configuration</p></figcaption></figure>
 
 The documentation is fetched and stored locally in APIM in the following three scenarios:
 
-* Once after you finish configuring your fetcher
+* Once, after you finish configuring your fetcher
 *   Any time you select **Fetch All** on the **Documentation** page&#x20;
 
     <figure><img src="../../../.gitbook/assets/documentation_fetch all.png" alt=""><figcaption><p>Update all documentation from external sources</p></figcaption></figure>
@@ -162,11 +162,11 @@ If you have existing documentation for your API in a GitHub or GitLab repository
   * Creating a Gravitee descriptor file (`.gravitee.json`) at the repository root that describes both the source and destination structures
   * Configuring a fetcher in APIM to read the JSON file and import the documentation according to the structure defined in the file
 
+{% tabs %}
+{% tab title="Gravitee descriptor file" %}
 {% hint style="warning" %}
 The Gravitee descriptor file must be named `.gravitee.json` and must be placed at the root of the repository.
 {% endhint %}
-
-### Sample Gravitee descriptor file
 
 The following `.gravitee.json` describes a documentation set that includes:
 
@@ -195,9 +195,9 @@ The following `.gravitee.json` describes a documentation set that includes:
 }
 ```
 {% endcode %}
+{% endtab %}
 
-### Configure a fetcher
-
+{% tab title="Configure a fetcher" %}
 Follow the steps below to configure a fetcher to import multiple files:
 
 1.  From the **Documentation** page, select **Import multiple files**&#x20;
@@ -229,6 +229,8 @@ If the APIM administrator configured a [maximum fetch frequency](general-setting
 9.  Select **IMPORT** for APIM to add the files to your documentation set&#x20;
 
     <figure><img src="../../../.gitbook/assets/import-multiple-files-result.png" alt=""><figcaption><p>Import technical folder documentation with fetcher</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ## Page management
 
@@ -242,6 +244,8 @@ Select a page to configure the following via the header tabs:
 * **Attached Resources:** Add additional files to your documentation page. This [setting](general-settings.md) must be enabled by the administrator.
 
 <figure><img src="../../../.gitbook/assets/documentation_page banner.png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
+
+**Translations** and **Access Control** are described in greater detail below.
 
 {% tabs %}
 {% tab title="Translations" %}
