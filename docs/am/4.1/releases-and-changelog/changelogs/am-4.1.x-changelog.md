@@ -6,6 +6,33 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.3 - October 27, 2023
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* Application error when using a non defined translation https://github.com/gravitee-io/issues/issues/9237[#9237]
+* Registration confirmation Javascript error (anti-XSRF token) https://github.com/gravitee-io/issues/issues/9276[#9276]
+* Quotes are lost in Gravitee AM forms https://github.com/gravitee-io/issues/issues/9326[#9326]
+* When a resource plugin has been removed from the installation, other resources may not be loaded https://github.com/gravitee-io/issues/issues/9344[#9344]
+* On error during CONNECT flow redirection is not processed https://github.com/gravitee-io/issues/issues/9346[#9346]
+* User created using SCIM is disabled when password is missing https://github.com/gravitee-io/issues/issues/9347[#9347]
+
+**Management API**
+
+* Management API hangs completely https://github.com/gravitee-io/issues/issues/9339[#9339]
+
+
+
+**Other**
+
+* EnrollMFA should be able to update the factor https://github.com/gravitee-io/issues/issues/9350[#9350]
+</details>
+
+
 ## Gravitee Access Management 4.1.2 - October 19, 2023
 
 <details>
