@@ -241,7 +241,8 @@ Select a page to configure the following via the header tabs:
 * **Configuration:** Toggle options to publish your page and use it as the homepage
 * **External Source:** Configure a fetcher for the page
 * **Access Control:** Fine-grained access control over your page
-* **Attached Resources:** Add additional files to your documentation page. This [setting](general-settings.md) must be enabled by the administrator.
+* **Attached Resources:** Add additional files to your documentation page.
+  * This requires the administrator to configure **Allow Upload Images** and **Max size upload file (bytes)** in [general settings](general-settings.md).
 
 <figure><img src="../../../.gitbook/assets/documentation_page banner.png" alt=""><figcaption><p>Page management options</p></figcaption></figure>
 
