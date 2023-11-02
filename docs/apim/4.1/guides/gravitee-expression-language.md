@@ -2,24 +2,31 @@
 
 ## Overview
 
-The Gravitee Expression Language (EL) is a powerful tool that can be used by API publishers to dynamically configure various aspects and policies of an API.
+The Gravitee Expression Language (EL) is a language used for querying and manipulating an object graph. It is an extended version of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that augments standard SpEL capabilities by providing additional object properties inside the expression language context. Since EL is an extension of SpEL, all capabilities detailed in the [SpEL documentation ](https://docs.spring.io/spring-framework/reference/core/expressions.html)are available in EL. However, Gravitee has implemented some customizations that are detailed on this page.
 
-EL is a language used for querying and manipulating an object graph. It is an extended version of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that augments standard SpEL capabilities by providing additional object properties inside the expression language context.
+EL is a powerful tool that can be used by API publishers to dynamically configure various aspects and policies of an API. It allows you to reference values from the current API transaction, meaning you can use expressions to create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
 
 {% hint style="info" %}
-Since EL is an extension of SpEL, all capabilities detailed in the [SpEL documentation ](https://docs.spring.io/spring-framework/reference/core/expressions.html)are available in EL. However, Gravitee has implemented some customizations that are detailed on this page.
-{% endhint %}
-
-EL allows you to reference values from the current API transaction. This means you can use expressions to create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
-
-### Object properties
-
-Object properties are variables that hold information about the state of an object. They are part of an object's structure and are accessible via dot or bracket notation.
+**Object properties** are variables that hold information about the state of an object. They are part of an object's structure and are accessible via dot or bracket notation.
 
 Both custom properties and attributes are object properties, but the terms "custom property" and "attribute" have special meanings in the Gravitee ecosystem:
 
 * **Custom Properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](policy-design/v4-api-policy-design-studio.md#api-properties).
-* **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the`assign-attributes` policy. Attributes are used to attach additional information to a request or message via a variable that is dropped after the API transaction is completed.
+* **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the `assign-attributes` policy. Attributes are used to attach additional information to a request or message via a variable that is dropped after the API transaction is completed.
+{% endhint %}
+
+The following sections define the scope and usage of EL:
+
+* [Basic usage](gravitee-expression-language.md#basic-usage)
+* [APIs](gravitee-expression-language.md#apis)
+* [Request](gravitee-expression-language.md#request)
+* [Response](gravitee-expression-language.md#response)
+* [Message](gravitee-expression-language.md#message)
+* [Nodes](gravitee-expression-language.md#nodes)
+* [Mixin](gravitee-expression-language.md#mixin)
+* [Policies](gravitee-expression-language.md#policies)
+* [Conditions](gravitee-expression-language.md#conditions)
+* [Debugging](gravitee-expression-language.md#debugging)
 
 ## Basic usage
 
@@ -31,6 +38,8 @@ The information below summarizes:
 
 {% tabs %}
 {% tab title="Syntax" %}
+**Expressions**
+
 Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol. Both dot notation and bracket notation are supported for accessing the properties of an object.
 
 Example: `{#context.attributes['user'].email}`
@@ -46,6 +55,14 @@ Bracket notation should be used for property names that include a space or a hyp
 
 `{#request.headers['my-header']}`
 {% endhint %}
+
+**Lists**
+
+Expressions can be used to assign lists, e.g., `{({'admin', 'writer'})}`
+
+1. The outer enclosing brackets start and end the EL expression
+2. The parentheses indicates an object is being instantiated
+3. The list comprises the inner brackets and enclosed values, e.g., `{'admin', 'writer'}`&#x20;
 {% endtab %}
 
 {% tab title="Object properties" %}
@@ -85,7 +102,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
 * `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).&#x20;
 * `#xpath`: To evaluate an `xpath` on some provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) in the SpEL documentation.
 
-#### `jsonPath` example
+#### **`jsonPath` example**
 
 As an example of how `jsonPath` can be used with EL, suppose you have a JSON payload in the request body that contains the following data:
 
