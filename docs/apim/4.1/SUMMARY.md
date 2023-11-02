@@ -118,6 +118,7 @@
   * [Tools and Features](guides/developer-portal/tools-and-features/README.md)
     * [Webhook Subscription Management](guides/developer-portal/tools-and-features/webhook-subscription-management.md)
     * [Applications](guides/developer-portal/tools-and-features/applications.md)
+    * [Documentation](guides/developer-portal/tools-and-features/documentation.md)
 * [API Measurement, Tracking, and Analytics](guides/api-measurement-tracking-and-analytics/README.md)
   * [Configure the Dashboard with Custom API Analytics](guides/api-measurement-tracking-and-analytics/how-to.md)
   * [Using the API Quality feature](guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md)
