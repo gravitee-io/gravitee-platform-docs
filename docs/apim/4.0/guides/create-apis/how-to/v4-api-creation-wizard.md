@@ -591,7 +591,7 @@ Select Next to be taken to the **Restriction** page to define any additional res
 
 ## Step 5: Documentation
 
-he Documentation step is not supported for v4 APIs. This will be added in future releases.
+The Documentation step is not currently supported for v4 APIs. This will be added in a future release.
 
 ## Step 6: Summary
 
