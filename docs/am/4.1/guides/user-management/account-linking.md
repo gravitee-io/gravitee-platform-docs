@@ -14,6 +14,14 @@ By default, Gravitee Access Management associates each user identity with a uniq
 
 A new user is prompted to provide identity attributes during account registration. The Account Linking feature automatically links user accounts from various identity providers to this primary account if the user attributes are identical. A user who is recognized and associated with an existing profile is allowed to authenticate from other accounts without having to re-enroll.
 
+{% hint style="info" %}
+When a user is linked to a primary account, it may be useful to access to the user information provided by the identity provider in expression language expressions. For doing so, the Access Management context give you access to the latest identiy information and to the list of all identities linked to the primary account. 
+
+To directly have access to the information provided by the identity provider used by the user, you can use the `lastIdentityInformation` attribute.(ex `{#context.attributes['user']['lastIdentityInformation']['test-key']}`)
+
+To access to information from a specific provider, you can use the `identitiesAsMap` attributes that will give you access to a map of object identified by the identity provider id. (ex `{#context.attributes['user']['identitiesAsMap']['a826b06e-9f55-42eb-a6b0-6e9f5502eb99']['additionalInformation']['test-key']}` )
+{% endhint %}
+
 ## Activate Account Linking
 
 The Account Linking feature can be activated at the application level or at the security domain level.&#x20;
