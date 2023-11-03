@@ -15,16 +15,15 @@ By default, Gravitee Access Management associates each user identity with a uniq
 A new user is prompted to provide identity attributes during account registration. The Account Linking feature automatically links user accounts from various identity providers to this primary account if the user attributes are identical. A user who is recognized and associated with an existing profile is allowed to authenticate from other accounts without having to re-enroll.
 
 {% hint style="info" %}
-When a user is linked to a primary account, it may be useful to access to the user information provided by the identity provider in expression language expressions. For doing so, the Access Management context give you access to the latest identiy information and to the list of all identities linked to the primary account. 
+When a user is linked to a primary account, it may be useful to access the information supplied by the identity provider in Gravitee Expression Language expressions. The Access Management context allows you to access the latest identity information and the list of all identities linked to the primary account:
 
-To directly have access to the information provided by the identity provider used by the user, you can use the `lastIdentityInformation` attribute.(ex `{#context.attributes['user']['lastIdentityInformation']['test-key']}`)
-
-To access to information from a specific provider, you can use the `identitiesAsMap` attributes that will give you access to a map of object identified by the identity provider id. (ex `{#context.attributes['user']['identitiesAsMap']['a826b06e-9f55-42eb-a6b0-6e9f5502eb99']['additionalInformation']['test-key']}` )
+* Use the `lastIdentityInformation` attribute to directly access the information supplied by the user's identity provider, e.g., `{#context.attributes['user']['lastIdentityInformation']['test-key']}`
+* Use the `identitiesAsMap`attribute to access a map of objects tied to a specific identity provider's ID, e.g., `{#context.attributes['user']['identitiesAsMap']['a826b06e-9f55-42eb-a6b0-6e9f5502eb99']['additionalInformation']['test-key']}`
 {% endhint %}
 
 ## Activate Account Linking
 
-The Account Linking feature can be activated at the application level or at the security domain level.&#x20;
+The Account Linking feature can be activated at the application level or at the security domain level.
 
 ### Link at the application level
 
@@ -36,7 +35,7 @@ To activate the Account Linking feature for a particular application:
 4. Select **Flows** from the page header tabs.
 5. Click on the CONNECT flow.
 6. Drag the Account Linking policy onto the CONNECT flow to add it.
-7. Configure the CONNECT flow with the following options:&#x20;
+7. Configure the CONNECT flow with the following options:
    1. **Description:** Identify the flow step with a meaningful description.
    2. **Condition:** Execute the flow step if this condition is met (supports [Expression Language](../am-expression-language.md)).
    3. **Exit if no account:** Toggle ON to terminate the request if no account has been found.
@@ -59,8 +58,8 @@ To activate the Account Linking feature for the security domain:
 2. Click on **Flows** in the inner left sidebar.
 3. Select **Flows** from the page header tabs.
 4. Click on the CONNECT flow.
-5. Drag the Account Linking policy onto the CONNECT flow to add it.&#x20;
-6. Configure the CONNECT flow with the following options:&#x20;
+5. Drag the Account Linking policy onto the CONNECT flow to add it.
+6. Configure the CONNECT flow with the following options:
    1. **Description:** Identify the flow step with a meaningful description.
    2. **Condition:** Execute the flow step if this condition is met (supports [Expression Language](../am-expression-language.md)).
    3. **Exit if no account:** Toggle ON to terminate the request if no account has been found.
