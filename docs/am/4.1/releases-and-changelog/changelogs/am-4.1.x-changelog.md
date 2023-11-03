@@ -6,6 +6,24 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.4 - November 3, 2023
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* Use SingleSignOut with linked account https://github.com/gravitee-io/issues/issues/9358[#9358]
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.1.3 - October 27, 2023
 
 <details>
