@@ -13,7 +13,7 @@
 * [Register installations](guides/register-installations.md)
 * [Monitor and check health of installations](guides/monitor-and-check-health-of-installations.md)
 * [Set up your Gravitee Cockpit Hierarchy](guides/set-up-your-gravitee-cloud-hierarchy.md)
-* [Single Sign On](guides/single-sign-on.md)
+* [Configure Single Sign On](guides/configure-sso.md)
 
 ## Community and Support
 
