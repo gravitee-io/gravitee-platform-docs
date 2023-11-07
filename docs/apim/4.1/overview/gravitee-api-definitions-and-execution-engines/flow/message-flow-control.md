@@ -146,7 +146,7 @@ tcp.port == 8082 && ip.addr == 127.0.0.1 && http
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/KXYST4VJ9NyRoyqdq9nQvS0q.png" alt=""><figcaption></figcaption></figure>
 
-4. Pause the curl command by typing CTRL+Z. In the span of a few seconds, you will observe the window size decrease until it reaches 0.
+4. Pause the curl command by typing `CTRL+Z`. In the span of a few seconds, the window size will decrease until it reaches 0.
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/preload/xmzt-p6tSU3PiId5i5z2N6II.png" alt=""><figcaption></figcaption></figure>
 
@@ -156,7 +156,7 @@ tcp.port == 8082 && ip.addr == 127.0.0.1 && http
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/gnXYThJ_vcyWrl-KB4RJ4l7N.png" alt=""><figcaption></figcaption></figure>
 
-2. Internally, the Gateway creates a `DefaultMessage` instance for each Kafka message it receives. You can make several Heap Dumps to verify that the number of message instances in memory remains unchanged.
+2. Internally, the Gateway creates a `DefaultMessage` instance for each Kafka message it receives. We can make several Heap Dumps to verify that the number of message instances in memory remains unchanged.
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/2GSgj5iVDHEqcQge9oS2MOLK.png" alt=""><figcaption></figcaption></figure>
 
