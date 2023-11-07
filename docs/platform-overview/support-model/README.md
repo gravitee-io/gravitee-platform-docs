@@ -20,4 +20,4 @@ A third digit increment in the version cadence indicates a maintenance version, 
 
 The table below summarizes the Gravitee platform's product versions and their respective release and EOL (end of life) dates, as well as the support model used for each:
 
-<table><thead><tr><th width="127">Version</th><th width="173">Support model</th><th>Release Date</th><th>EOL Date</th></tr></thead><tbody><tr><td>3.19</td><td>12 months</td><td>2022-10-04</td><td>2023-10-04</td></tr><tr><td>3.20</td><td>15 months</td><td>2023-01-12</td><td>2024-03-30</td></tr><tr><td>4.0</td><td>12 months</td><td>2023-7-20</td><td>2024-7-20</td></tr></tbody></table>
+<table><thead><tr><th width="127">Version</th><th width="173">Support model</th><th>Release Date</th><th>EOL Date</th></tr></thead><tbody><tr><td>3.20</td><td>15 months</td><td>2023-01-12</td><td>2024-03-30</td></tr><tr><td>4.0</td><td>12 months</td><td>2023-07-20</td><td>2024-07-20</td></tr><tr><td>4.1</td><td>12 months</td><td>2023-09-28</td><td>2024-09-28</td></tr></tbody></table>
