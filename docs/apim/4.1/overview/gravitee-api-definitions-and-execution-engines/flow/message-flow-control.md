@@ -33,7 +33,7 @@ The concept of flow control originates with the Reactive Foundation. Flow contro
 
 ## Flow control in Gravitee APIM Gateway
 
-Gravitee terminology refers to the entrypoint and the endpoint of an API. These act as the subscriber and publisher, respectively. The Gravitee APIM Gateway employs a flow control mechanism so that the endpoint can adapt the volume of messages produced to the amount requested by the entrypoint. This is implemented when an API consumer calls an API exposing an SSE entrypoint to consume messages from a Kafka endpoint.
+Gravitee terminology refers to the entrypoint and the endpoint of an API. These act as the subscriber and publisher, respectively. The Gravitee APIM Gateway employs a flow control mechanism so that the endpoint can adapt the volume of messages produced to the amount requested by the entrypoint. [For example](message-flow-control.md#flow-control-in-action), this is implemented when an API consumer calls an API exposing an SSE entrypoint to consume messages from a Kafka endpoint.
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/isYWmsCnn0-yl84wke5wcq_T.png" alt=""><figcaption><p>Gateway internal flow control</p></figcaption></figure>
 
