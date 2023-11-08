@@ -46,11 +46,18 @@ What you choose will dictate the kinds of entrypoints and endpoints that you can
 
 After you choose your method of exposure, select **Select my API architecture,** and you'll be taken to the entrypoint selection screen. Please read the following content to learn more about entrypoint selection and configuration, based on your selected exposure method.
 
-### Entrypoint options for the "Proxy upstream protocol" method
+### HTTP proxy entrypoints
 
-If you chose **Proxy upstream protocol**, you are presented with the following entrypoint options:
+If you chose **Proxy upstream protocol**, your entrypoint will be an HTTP proxy.
+
+<details>
+
+<summary>Configure HTTP proxy entrypoints</summary>
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
+
+<!---->
+
 * **Define your HTTP options:**
   * Select the HTTP protocol version to use. **HTTP 1.1** and **HTTP 2** are supported.
   * (HTTP 2 only) Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
@@ -77,12 +84,14 @@ If you chose **Proxy upstream protocol**, you are presented with the following e
     * **Truststore:** Select an option from the drop-down menu.
     * **Key store:** Select an option from the drop-down menu.
 
-### Entrypoint options for the "Introspect messages from Event-driven backend" method
+</details>
+
+### Message introspection entrypoints
 
 {% hint style="warning" %}
 **Enterprise only**
 
-As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
@@ -264,11 +273,18 @@ If you chose **HTTP GET** as an entrypoint, you will be brought to a page where 
 
 Gateway endpoints define the protocol and configuration by which the Gateway API will fetch data from or post data to the backend API. Your endpoints will be dictated by the API architecture that you selected earlier.
 
-### HTTP Proxy endpoints
+### HTTP proxy endpoints
 
-If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To configure this endpoint, you will be brought to a page where you can:
+If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
+
+<details>
+
+<summary>Configure HTTP proxy endpoints</summary>
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
+
+<!---->
+
 * **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
@@ -282,6 +298,9 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
+
+<!---->
+
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
     * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
@@ -290,8 +309,16 @@ If you chose the HTTP Proxy option, your endpoint will be an HTTP Proxy. To conf
     * **Proxy port:** Enter your proxy port in the text field.
     * (Optional) **Proxy username:** Enter your proxy username in the text field.
     * (Optional) **Proxy password:** Enter your proxy password in the text field.
+
+<!---->
+
 * **Define your SSL options**
+
+<!---->
+
 * **Define your keystore**
+
+</details>
 
 The endpoint configuration will determine the endpoint group’s default configuration, and the endpoint will inherit the configuration of the group by default.
 
@@ -304,7 +331,7 @@ By default, the endpoint group will be named **Default \<endpoint type> group** 
 {% hint style="warning" %}
 **Enterprise only**
 
-As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)

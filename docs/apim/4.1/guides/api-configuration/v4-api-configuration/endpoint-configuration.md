@@ -1,23 +1,21 @@
 ---
-description: This article walks through how to configure v4 API endpoints
+description: >-
+  This article discusses endpoint behavior and the processes for configuring and
+  managing v4 API endpoints
 ---
 
 # Endpoint Configuration
 
 ## Introduction
 
-In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API.
-
-After you've created your Gateway API and selected your endpoint(s), you can configure them on the **API** page of the API Management Console.&#x20;
-
-This article discusses default endpoint behavior and the processes for configuring and managing v4 API endpoints.
+In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API. After you've created your Gateway API and selected your endpoint(s), you can configure them on the **API** page of the API Management Console.
 
 ## Configure v4 message API endpoints
 
 {% hint style="warning" %}
 **Enterprise-only**
 
-As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages, please:
+As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
@@ -34,7 +32,7 @@ v4 message APIs currently support the following endpoints:
 
 To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.**&#x20;
 
-Endpoint configuration may differ depending on which endpoint(s) your API utilizes. Please refer to the following sections for the configuration details of each specific endpoint.
+Endpoint configuration may differ depending on which endpoint(s) your API utilizes. The configuration details of each specific endpoint are discussed below.
 
 <details>
 
@@ -192,9 +190,16 @@ The **Mock** endpoint allows you to mock a backend service to emulate the behavi
 
 ## Configure v4 proxy API endpoints
 
-To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.** Next, configure your HTTP Proxy endpoint as follows:
+To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.** Next, configure your HTTP proxy endpoint:
+
+<details>
+
+<summary>HTTP proxy</summary>
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
+
+<!---->
+
 * **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
@@ -208,6 +213,9 @@ To access endpoint configuration, go to the **API** page in the Management Conso
   * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
+
+<!---->
+
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
     * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
@@ -216,8 +224,16 @@ To access endpoint configuration, go to the **API** page in the Management Conso
     * **Proxy port:** Enter your proxy port in the text field.
     * (Optional) **Proxy username:** Enter your proxy username in the text field.
     * (Optional) **Proxy password:** Enter your proxy password in the text field.
+
+<!---->
+
 * **Define your SSL options**
+
+<!---->
+
 * **Define your keystore**
+
+</details>
 
 ## Endpoint management
 
