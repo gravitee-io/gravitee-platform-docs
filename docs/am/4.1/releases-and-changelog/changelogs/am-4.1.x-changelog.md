@@ -9,23 +9,24 @@ description: >-
 ## Gravitee Access Management 4.1.5 - November 8, 2023
 
 <details>
-<summary>What's new !</summary>
-=**What's new!**
+
+<summary>What's new</summary>
 
 * Addition of Consent settings into the Chart values
 * Improve FranceConnect IDP to accept additional query parameters
+
 </details>
 
 <details>
-<summary>Bug fixes</summary>
 
+<summary>Bug fixes</summary>
 
 **Other**
 
-* Upgrade Groovy policy https://github.com/gravitee-io/issues/issues/9229[#9229]
-* EnrollmentMFA policy doesn't manage the useVariableFactorSecurity setting https://github.com/gravitee-io/issues/issues/9365[#9365]
-</details>
+* Upgrade Groovy policy [#9229](https://github.com/gravitee-io/issues/issues/9229)
+* EnrollmentMFA policy doesn't manage the `useVariableFactorSecurity` setting [#9365](https://github.com/gravitee-io/issues/issues/9365)
 
+</details>
 
 ## Gravitee Access Management 4.1.4 - November 3, 2023
 
