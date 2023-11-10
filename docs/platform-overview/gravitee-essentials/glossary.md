@@ -51,7 +51,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 * **Proxy upstream protocol:** A backend exposure method in the Policy Studio that lets you use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
 * **Introspect messages from event-driven backend:** A backend exposure method in the Policy Studio that lets you use Gravitee to expose backend event brokers, such as Kafka and MQTT and enforce policies at the message level.
 
-**Context path:** A unique route targeting a specific Gateway API. The context path does not include the root URL, i.e., the context path of the fully qualified domain name `https://apim-gateway:8082/my-context-path` is `/my-context-path`.
+**Context path:** A unique route targeting a specific Gateway API. The context path does not include the root URL, i.e., the context path of the URL `https://apim-gateway:8082/my-context-path` is `/my-context-path`.
 
 **Execution context:** The runtime environment in which APIs are deployed and executed. It encompasses components and settings that are used during API transaction processing.
 
