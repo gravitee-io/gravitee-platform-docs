@@ -8,24 +8,20 @@ description: >-
 
 ## Gravitee Access Management 4.0.5 - November 10, 2023
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Deadlock during generate AccessToken https://github.com/gravitee-io/issues/issues/9238[#9238]
-
-
-
-
+* Deadlock during generate AccessToken [#9238](https://github.com/gravitee-io/issues/issues/9238)
 
 **Other**
 
-* Upgrade Groovy policy https://github.com/gravitee-io/issues/issues/9229[#9229]
-* EnrollmentMFA policy doesn't manage the useVariableFactorSecurity setting https://github.com/gravitee-io/issues/issues/9365[#9365]
-</details>
+* Upgrade Groovy policy [#9229](https://github.com/gravitee-io/issues/issues/9229)
+* EnrollmentMFA policy doesn't manage the useVariableFactorSecurity setting [#9365](https://github.com/gravitee-io/issues/issues/9365)
 
+</details>
 
 ## Gravitee Access Management 4.0.4 - October 27, 2023
 
