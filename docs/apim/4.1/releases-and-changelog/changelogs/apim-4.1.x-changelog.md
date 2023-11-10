@@ -5,7 +5,7 @@ description: >-
 ---
 
 # APIM 4.1.x
- 
+
 ## Gravitee API Management 4.1.3 - November 10, 2023
 
 <details>
@@ -15,21 +15,21 @@ description: >-
 **Gateway**
 
 * Gateways not able to send bulk index data to ES8 [#9361](https://github.com/gravitee-io/issues/issues/9361)
-* When using push plan there is no log when subscription webhook ends in error  [#9363](https://github.com/gravitee-io/issues/issues/9363)
+* When using push plan there is no log when subscription Webhook ends in error [#9363](https://github.com/gravitee-io/issues/issues/9363)
 
 **Management API**
 
-* Email related to closed, paused and resumed subscription of API_KEY plan are sent with an empty body [#9355](https://github.com/gravitee-io/issues/issues/9355)
-* JDBC deadlocks on Command table when running multiple Management API [#9356](https://github.com/gravitee-io/issues/issues/9356)
-* Error running graviteeio-apim-rest-api-4.1.2 [#9360](https://github.com/gravitee-io/issues/issues/9360)
+* Email related to closed, paused, and resumed subscription of API\_KEY plan are sent with an empty body [#9355](https://github.com/gravitee-io/issues/issues/9355)
+* JDBC deadlocks on Command table when running multiple Management APIs [#9356](https://github.com/gravitee-io/issues/issues/9356)
+* Error running `graviteeio-apim-rest-api-4.1.2` [#9360](https://github.com/gravitee-io/issues/issues/9360)
 * Unable to access Alerts screen when there are millions of AlertEvents [#9362](https://github.com/gravitee-io/issues/issues/9362)
-* Unable to deploy an API with huge API definition and already a lot of deployments [#9364](https://github.com/gravitee-io/issues/issues/9364)
-* Security - Enforce password policy for users [#9374](https://github.com/gravitee-io/issues/issues/9374)
+* Unable to deploy an API with a huge API definition and a lot of existing deployments [#9364](https://github.com/gravitee-io/issues/issues/9364)
+* Security: Enforce password policy for users [#9374](https://github.com/gravitee-io/issues/issues/9374)
 
 **Other**
 
-* GKO - API state does not get updated [#9338](https://github.com/gravitee-io/issues/issues/9338)
-* [RabbitMQ] message not logged when Rabbit's message does not defined correlationId [#9353](https://github.com/gravitee-io/issues/issues/9353)
+* GKO: API state does not get updated [#9338](https://github.com/gravitee-io/issues/issues/9338)
+* \[RabbitMQ] message not logged when Rabbit's message does not define correlationId [#9353](https://github.com/gravitee-io/issues/issues/9353)
 * Groovy policy with On-request script not working in v4 engine emulation mode [#9367](https://github.com/gravitee-io/issues/issues/9367)
 * Generate JWT not working with APIM 4.x [#9371](https://github.com/gravitee-io/issues/issues/9371)
 * Missing “generate JWT policy” on a v4 message API entrypoint Request phase [#9373](https://github.com/gravitee-io/issues/issues/9373)
