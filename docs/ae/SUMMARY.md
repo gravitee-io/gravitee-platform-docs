@@ -8,7 +8,7 @@
 
 ## Getting Started
 
-* [Install and Upgrade Guides](getting-started/install-and-upgrade-guides/README.md)
+* [Install and Upgrade](getting-started/install-and-upgrade-guides/README.md)
   * [Sizing requirements](getting-started/install-and-upgrade-guides/sizing-requirements.md)
   * [Install via .ZIP file](getting-started/install-and-upgrade-guides/install-via-.zip-file.md)
   * [Install via Docker](getting-started/install-and-upgrade-guides/install-via-docker.md)
