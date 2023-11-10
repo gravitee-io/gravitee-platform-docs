@@ -80,7 +80,7 @@ Discovery mode is very useful when running a cluster of Alert Engine. By using i
 
 ### Event sending mode
 
-Sicne Alert Engine v1.5.0, it is possible to configure the connection to send events either over WebSocket (default) or HTTP.
+Since Alert Engine v1.5.0, it is possible to configure the connection to send events either over WebSocket (default) or HTTP.
 
 On an environment with high throughput (\~1000 rps), we highly recommend configuring the event sending over http in order to benefit from a good load balancing and load repartition.
 
@@ -101,4 +101,4 @@ alerts:
       bulkEventsWait: 100    # Set the duration to wait for bulk events to be ready for sending. When set to 100ms with event size of 100, it means that we will wait for 100 events to be ready to be sent during 100ms. After this period of time, events will be sent event if there are less than 100 events to send.
 ```
 
-By default, to keep the same behavior of the previous version, events are sent over a websocket connection. The default behavior will switch to HTTP in a future version.\
+By default, to keep the same behavior of the previous version, events are sent over a WebSocket connection. The default behavior will switch to HTTP in a future version.
