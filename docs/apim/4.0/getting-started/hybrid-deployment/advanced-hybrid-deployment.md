@@ -691,7 +691,7 @@ input {
 }
 
 filter {
-    if [type] != "request" {
+    if [type] != "request" or [type] != "v4-metrics" {
         mutate { remove_field => ["path", "host"] }
     }
 }
@@ -715,3 +715,95 @@ output {
 
 * [Configuring Logstash](https://www.elastic.co/guide/en/logstash/current/configuration.html)
 {% endhint %}
+
+
+## Fluentd <a href="#fluentd" id="fluentd"></a>
+
+### Installation
+
+{% tabs %}
+{% tab title="Kubernetes (Helm)" %}
+* [Official Helm charts](https://artifacthub.io/packages/helm/fluent/fluentd)
+* [Bitnami Helm charts](https://bitnami.com/stack/fluentd/helm)
+  {% endtab %}
+
+{% tab title="Docker" %}
+{% code title="docker-compose.yaml" lineNumbers="true" %}
+
+You have to build your own docker image:
+
+Dockerfile
+```
+FROM fluent/fluentd:v1.16.2-1.0
+USER root
+RUN ["gem", "install", "fluent-plugin-s3"]
+USER fluent
+```
+
+docker-compose.yaml
+```yaml
+version: '3'
+
+services:
+  fluentd:
+    image: fluentd:s3
+    container_name: gio_apim_fluentd
+    hostname: fluentd
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./fluentd_conf:/fluentd/etc
+```
+{% endcode %}
+{% endtab %}
+
+{% tab title="VM" %}
+[Download Fluentd](https://www.fluentd.org/download)
+{% endtab %}
+{% endtabs %}
+
+### Configuration
+
+{% code title="fluentd.conf" lineNumbers="true" %}
+```
+<source>
+  @type tcp
+  tag tcp
+  <parse>
+    @type json
+  </parse>
+  port 9000
+</source>
+
+<match *.**>
+  @type s3
+  aws_key_id "xxxxxxxxxxxxxxx"
+  aws_sec_key "xxxxxxxxxxxxxxx"
+  s3_bucket "my-s3-bucket"
+  s3_region "my-s3-region"
+  
+  path /
+  time_slice_format %Y%m%d%H
+  time_slice_wait 10m
+  time_format %Y%m%d%H%M
+
+  buffer_type file
+  buffer_path /fluentd/log
+  buffer_chunk_limit 256m
+  buffer_queue_limit 512
+  flush_interval 10s
+  flush_at_shutdown true
+  
+  <format>
+    @type json
+  </format>
+</match>
+```
+{% endcode %}
+
+{% hint style="info" %}
+**Additional assets**
+
+* [Configuring Fluentd](https://docs.fluentd.org/)
+  {% endhint %}
