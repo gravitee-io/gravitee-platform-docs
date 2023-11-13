@@ -2,7 +2,7 @@
 
 Gravitee Access Management (AM) is a flexible, lightweight and easy-to-use open-source Identity and Access Management (IAM) solution. It offers a centralized authentication and authorization service to deliver secure access for authorized users to your applications and APIs from any device.
 
-With its intuitive, centralized design and easy integration with our API Management product, Access Management is the natural Identity and Access Management platform choice for our customers.
+With its intuitive, centralized design, and easy integration with our API Management product, Access Management is the natural Identity and Access Management platform choice for our customers.
 
 ## Use cases
 
