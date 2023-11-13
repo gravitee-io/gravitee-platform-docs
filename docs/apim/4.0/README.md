@@ -4,7 +4,7 @@ An API management solution allows an organization to securely and reliably expos
 
 A growing customer base brings new challenges, e.g., how to:
 
-* Reduce the time taken to enroll new partners
+* Reduce the time required to enroll new partners
 * Identify partners and manage their API consumption
 * Measure consumption from the perspective of a consumer and/or producer
 * Share and discover existing APIs
