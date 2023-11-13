@@ -691,7 +691,7 @@ input {
 }
 
 filter {
-    if [type] != "request" {
+    if [type] != "request" or [type] != "v4-metrics" {
         mutate { remove_field => ["path", "host"] }
     }
 }
