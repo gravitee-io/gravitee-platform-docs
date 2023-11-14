@@ -29,11 +29,7 @@ This value describes where the APIM API Management endpoint is and must be set s
 
 ## Default configuration
 
-This is the default configuration:
-
-```
-Unresolved directive in installation-guide-management-ui-configuration.adoc - include::https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-console-webui/constants.json[]
-```
+The default configuration is available [here](https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-console-webui/constants.json).
 
 ## Configuration endpoints
 
@@ -400,5 +396,3 @@ For example:
 The api status page is a panel in the dashboard that displays the status of all APIs.
 
 The tab is enabled by default, but depending on the number of APIs, it may take a while to load. You can disable it in your Gateway settings. [Please refer to this documentation to learn more about dashboards.](../../guides/api-measurement-tracking-and-analytics/how-to.md)
-
-\\
