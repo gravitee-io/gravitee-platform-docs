@@ -29,11 +29,7 @@ This value describes where the APIM API Management endpoint is and must be set s
 
 ## Default configuration
 
-This is the default configuration:
-
-```
-Unresolved directive in installation-guide-management-ui-configuration.adoc - include::https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-console-webui/constants.json[]
-```
+The default configuration is available [here](https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-console-webui/constants.json).
 
 ## Configuration endpoints
 
