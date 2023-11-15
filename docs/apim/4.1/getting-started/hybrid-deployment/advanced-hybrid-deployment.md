@@ -727,19 +727,19 @@ output {
   {% endtab %}
 
 {% tab title="Docker" %}
-{% code title="docker-compose.yaml" lineNumbers="true" %}
 
 You have to build your own docker image:
 
-Dockerfile
+{% code title="Dockerfile" lineNumbers="false" %}
 ```
 FROM fluent/fluentd:v1.16.2-1.0
 USER root
 RUN ["gem", "install", "fluent-plugin-s3"]
 USER fluent
 ```
+{% endcode %}
 
-docker-compose.yaml
+{% code title="docker-compose.yaml" lineNumbers="true" %}
 ```yaml
 version: '3'
 
