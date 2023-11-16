@@ -382,6 +382,9 @@ alerts:
 {% endtab %}
 
 {% tab title="Docker" %}
+
+{% hint style="info" %} Don't forget to install and configure Redis and Logstash {% endhint %}
+
 {% code title="docker-compose.yaml" lineNumbers="true" %}
 ```yaml
 version: '3'
