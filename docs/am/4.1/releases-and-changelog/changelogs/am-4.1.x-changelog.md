@@ -14,7 +14,7 @@ description: >-
 
 **Gateway**
 
-* Make the IDToken accessible in the UserMapper [#9238](https://github.com/gravitee-io/issues/issues/9238)
+* Make the IDToken accessible in the UserMapper [#9381](https://github.com/gravitee-io/issues/issues/9381)
 * Deadlock during generate AccessToken [#9238](https://github.com/gravitee-io/issues/issues/9238)
 * Excessive number of ExpiredJWTException errors in Gravitee logs [#9261](https://github.com/gravitee-io/issues/issues/9261)
 
