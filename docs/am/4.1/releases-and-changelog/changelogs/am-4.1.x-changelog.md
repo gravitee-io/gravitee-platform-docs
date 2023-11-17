@@ -8,23 +8,17 @@ description: >-
 
 ## Gravitee Access Management 4.1.6 - November 17, 2023
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Make the IDToken accessible in the UserMapper https://github.com/gravitee-io/issues/issues/9238[#9238]
-* Deadlock during generate AccessToken https://github.com/gravitee-io/issues/issues/9238[#9238]
-* Excessive number of ExpiredJWTException errors in Gravitee logs https://github.com/gravitee-io/issues/issues/9261[#9261]
-
-
-
-
-
+* Make the IDToken accessible in the UserMapper [#9238](https://github.com/gravitee-io/issues/issues/9238)
+* Deadlock during generate AccessToken [#9238](https://github.com/gravitee-io/issues/issues/9238)
+* Excessive number of ExpiredJWTException errors in Gravitee logs [#9261](https://github.com/gravitee-io/issues/issues/9261)
 
 </details>
-
 
 ## Gravitee Access Management 4.1.5 - November 8, 2023
 
