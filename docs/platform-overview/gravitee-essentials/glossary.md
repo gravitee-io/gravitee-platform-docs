@@ -80,7 +80,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Policy:** Logic that is executed by the API Gateway during an API transaction. The functionality of the policy is enabled through plugins.
 
-**Policy Studio:** The APIM Management Console feature used to interactively create a Gateway API.
+**Policy Studio:** The interface in the APIM Console UI that is used to visually design flows and apply policies to Gateway APIs.
 
 **Subscription:** A contract between an API consumer and an API publisher that requires the Gateway API to offer a plan and the API consumer to submit at least one application.
 
