@@ -118,7 +118,7 @@ After you've configured health checks, you can view health check information and
 * **Global availability**: average availability and average response times for _all_ health-checked endpoints
 * **Per-endpoint availability:** average availability and average response times for _specific_ endpoints
 * **Per-gateway availability:** average availability and response times per API Gateway where health-check is enabled
-* **Latest check:** a running list of most recent health checks. [You can choose to show only status transitions](https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a)[https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a](https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a)
+* **Latest check:** a running list of most recent health checks. You can choose to show only status transitions.
 {% endtab %}
 {% endtabs %}
 
