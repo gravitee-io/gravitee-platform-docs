@@ -1,4 +1,4 @@
-# 4.0 Upgrade Guide
+# 4.1 Upgrade Guide
 
 {% hint style="warning" %}
 **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
@@ -8,7 +8,7 @@
 
 ## General
 
-Upgrading to AM 4.0 is deployment-specific. The [4.0 breaking changes](../../releases-and-changelog/changelogs/am-4.1.x-changelog.md#gravitee-access-management-40---july-20-2023) must be noted and/or adopted for a successful upgrade.
+Upgrading to AM 4.1 is deployment-specific. The [4.0 breaking changes](../../releases-and-changelog/changelogs/am-4.1.x-changelog.md#gravitee-access-management-40---july-20-2023) must be noted and/or adopted for a successful upgrade.
 
 ## MongoDB indices
 
