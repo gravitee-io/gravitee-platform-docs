@@ -14,12 +14,13 @@ There are many possible types of API access scenarios, which can be difficult to
 
 A plan provides a service and access layer on top of your APIs for consumer applications. A plan specifies access limits, subscription validation modes, and other configurations to tailor it to a specific application.
 
-The most important part of plan configuration is selecting the security type. APIM supports the following four security types:
+The most important part of plan configuration is selecting the security type. APIM supports the following five security types:
 
 * Keyless (public)
 * API Key
 * OAuth 2.0
 * JWT
+* Push
 
 Exposing an API to a consumer requires at least one plan, but can support as many plans as needed. These are just some sample access scenarios APIM can manage with plans:
 
