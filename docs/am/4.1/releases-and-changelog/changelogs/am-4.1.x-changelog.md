@@ -8,21 +8,15 @@ description: >-
 
 ## Gravitee Access Management 4.1.7 - November 22, 2023
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Don't keep FranceConnect Session active https://github.com/gravitee-io/issues/issues/9382[#9382]
-
-
-
-
-
+* Don't keep FranceConnect Session active [#9382](https://github.com/gravitee-io/issues/issues/9382)
 
 </details>
-
 
 ## Gravitee Access Management 4.1.6 - November 17, 2023
 
