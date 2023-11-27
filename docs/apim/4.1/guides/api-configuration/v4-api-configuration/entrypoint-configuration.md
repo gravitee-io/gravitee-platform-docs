@@ -191,12 +191,18 @@ When you are done configuring your entrypoints, make sure to select **Save chang
 
 To alter v4 Proxy API entrypoints, select your API, and then select **General** from the **Entrypoints** category in the left-hand nav.&#x20;
 
-<figure><img src="../../../.gitbook/assets/2023-07-18_10-50-48.png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/virtual host_on (1).png" alt=""><figcaption><p>v4 proxy API entrypoint configuration</p></figcaption></figure>
 
 From here, you can:&#x20;
 
 * Alter existing entrypoints by changing the context path
 * Add a new entrypoint by clicking **Add context path** and then adding a new context path
 * Delete existing entrypoints by clicking the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM.png" alt="" data-size="line"> icon associated with the entrypoint that you want to delete
+* Disable virtual hosts, then define:
+  * **Virtual host:** Host set in the HTTP request to access your entrypoint
+  * **Context path:** Keep the current path or enter a new one
+  *   **Override access:** Choose whether to enable override of your Portal's access URL via virtual host
+
+      <figure><img src="../../../.gitbook/assets/virtual host_off.png" alt=""><figcaption><p>Disable virtual hosts fields</p></figcaption></figure>
 
 When you are done, make sure to redeploy the API for your changes to take effect.
