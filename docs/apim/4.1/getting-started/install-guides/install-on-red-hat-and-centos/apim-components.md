@@ -256,5 +256,5 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 ```
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](../../tutorials/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
 {% endhint %}

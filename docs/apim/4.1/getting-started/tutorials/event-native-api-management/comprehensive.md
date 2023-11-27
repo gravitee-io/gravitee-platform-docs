@@ -7,7 +7,7 @@ description: 5-10 minute introductory tutorial
 {% hint style="warning" %}
 **Prerequisites**
 
-To access the demo application, you must start a Gravitee API Management (APIM) enterprise trial as detailed in the [introduction to the tutorials](./#prerequisites). The trial application can then be accessed in the APIM sidebar.&#x20;
+To access the demo application, you must start a Gravitee API Management (APIM) enterprise trial as detailed in the [introduction to the tutorials](../#prerequisites). The trial application can then be accessed in the APIM sidebar.&#x20;
 
 The trial application will not function properly if you do not access it from directly inside the Gravitee API Management enterprise trial.
 {% endhint %}
@@ -16,13 +16,13 @@ The trial application will not function properly if you do not access it from di
 
 This tutorial demonstrates a few of Gravitee's core concepts and features, which include managing and deploying a Gateway API and applying basic API access restrictions using a policy.
 
-The first part of this tutorial is designed to be completed within the enterprise trial. After [starting your trial](../install-guides/free-trial.md) and [accessing Gravitee API Management (APIM](comprehensive.md#start-your-in-trial-tutorial)), a modal will pop up and guide you through the APIM Console UI. Completing the in-trial tutorial will grant you access to an integrated trial application.
+The first part of this tutorial is designed to be completed within the enterprise trial. After [starting your trial](../../install-guides/free-trial.md) and [accessing Gravitee API Management (APIM](comprehensive.md#start-your-in-trial-tutorial)), a modal will pop up and guide you through the APIM Console UI. Completing the in-trial tutorial will grant you access to an integrated trial application.
 
 ### Start your in-trial tutorial
 
 After your APIM trial is provisioned, you can access it from the bottom left of the Cockpit sidebar:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Cockpit homescreen</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Cockpit homescreen</p></figcaption></figure>
 
 Upon opening APIM, you will be greeted by a modal that includes the option to experience APIM with the trial app as shown below:
 
@@ -30,15 +30,15 @@ Upon opening APIM, you will be greeted by a modal that includes the option to ex
 Some ad blockers disable the in-trial guides. Please whitelist Gravitee products to avoid this.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-31 at 6.58.24 PM.png" alt=""><figcaption><p>Start of trial guide</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-31 at 6.58.24 PM.png" alt=""><figcaption><p>Start of trial guide</p></figcaption></figure>
 
 To begin this tutorial, select **Get started** under **Explore use cases with our trial application**. If you decide to explore APIM on your own, you can elect to open the trial app and start the tutorial later via the **Open trial app** button in the top nav.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-31 at 6.13.56 PM.png" alt=""><figcaption><p>Open the trial app from the top nav</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-31 at 6.13.56 PM.png" alt=""><figcaption><p>Open the trial app from the top nav</p></figcaption></figure>
 
 Starting the tutorial will begin an in-trial guide:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-31 at 6.16.46 PM.png" alt=""><figcaption><p>In-trial guide example</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-31 at 6.16.46 PM.png" alt=""><figcaption><p>In-trial guide example</p></figcaption></figure>
 
 Please complete the in-trial guide before proceeding to gain access to the trial app. Upon completion, you will be redirected to the following section of this documentation, **Trial app architecture.**
 
@@ -61,11 +61,11 @@ This tutorial is built around the todo list page. The todo list page functions a
 
 The REST API, and the `todos` resource the API manipulates and exposes, are the backbone of the todo list page. Consider the schema the `todos` resource:
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Mindmap of the todos schema made in Gravitee API Designer</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Mindmap of the todos schema made in Gravitee API Designer</p></figcaption></figure>
 
 The `todos` resource is created and modified through the endpoints shown in the image below, where `{id}` is a path parameter used to target a specific task in the collection. It should be noted that `userId` from the data schema and `id` in the API endpoints, are not related properties. The `userId` is tied to the user of the application while the `id` is a unique value autogenerated for every task created.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Backend API endpoints</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Backend API endpoints</p></figcaption></figure>
 
 In the trial app, every available action directly related to task management is tied to one of these five endpoints.
 
@@ -75,11 +75,11 @@ An endpoint consists of a URL _and an_ HTTP method. If you are unfamiliar with t
 
 For example, you can create a task by typing in the input box:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-10 at 4.32.13 PM.png" alt=""><figcaption><p>Task input box</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-10 at 4.32.13 PM.png" alt=""><figcaption><p>Task input box</p></figcaption></figure>
 
 and pressing **Enter**:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-10 at 4.33.00 PM.png" alt=""><figcaption><p>Creating a task</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-10 at 4.33.00 PM.png" alt=""><figcaption><p>Creating a task</p></figcaption></figure>
 
 Pressing **Enter** triggers an action that sends a `POST` request to the `/todos` route on the Express.js server. The payload of the `POST` request contains a JSON object matching the structure of the `todos` schema, where the `text` property is set to "This is a task!". &#x20;
 
@@ -87,23 +87,23 @@ An API request occurs every time you create, complete, archive, or delete a task
 
 ## Test your Gateway API
 
-When detailing the trial app architecture, we left out one key piece: the Gravitee APIM Gateway. The Gravitee APIM Gateway acts as a middleman between the frontend and backend of the application to augment every API request with [policies](../../overview/plugins.md#policies). These policies add functionality, e.g., quota and rate limiting access control, authentication/authorization, and request/response/message-level transformations.&#x20;
+When detailing the trial app architecture, we left out one key piece: the Gravitee APIM Gateway. The Gravitee APIM Gateway acts as a middleman between the frontend and backend of the application to augment every API request with [policies](../../../overview/plugins.md#policies). These policies add functionality, e.g., quota and rate limiting access control, authentication/authorization, and request/response/message-level transformations.&#x20;
 
 So let's go ahead and finish this tutorial by using the trial app to test out our Gateway API with a Quota policy!
 
 Return to the trial app and select the **Todo List** in the sidebar:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-31 at 6.23.57 PM.png" alt=""><figcaption><p>Navigate to the Todo List page</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-31 at 6.23.57 PM.png" alt=""><figcaption><p>Navigate to the Todo List page</p></figcaption></figure>
 
 Create a task by typing in the input box and pressing **Enter**:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-31 at 6.23.22 PM.png" alt=""><figcaption><p>Create your first task</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-08-31 at 6.23.22 PM.png" alt=""><figcaption><p>Create your first task</p></figcaption></figure>
 
 You should see the task appear immediately, along with a toast notification on the bottom right confirming your action.
 
 Finally, attempt to create a second and a third task. When you attempt to create the third task, you will see the Quota policy you configured in action as evidenced by the new toast notification in the bottom right:
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-10-12 at 5.50.37 PM.png" alt=""><figcaption><p>Quota policy blocking your POST request</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-10-12 at 5.50.37 PM.png" alt=""><figcaption><p>Quota policy blocking your POST request</p></figcaption></figure>
 
 The Quota policy running on the Gravitee Gateway blocks the trial app's `POST` request to the `/todos` route. This rejection results in the HTTP **`429 Too Many Requests`** response shown in the toast notification. The Gravitee Gateway also provides additional information in the response about the Quota policy's current settings of a limit of (less than) 4 requests per 1 hour(s).
 
