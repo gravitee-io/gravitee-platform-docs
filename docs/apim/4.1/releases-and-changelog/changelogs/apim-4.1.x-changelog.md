@@ -5,6 +5,54 @@ description: >-
 ---
 
 # APIM 4.1.x
+ 
+## Gravitee API Management 4.1.4 - November 24, 2023
+<details>
+
+<summary>BugFixes</summary>
+
+**Management API**
+
+* Application api_key_mode is automatically and incorrectly set to EXCLUSIVE mode without owner consent [#9348](https://github.com/gravitee-io/issues/issues/9348)
+* Environment rights : API "update" right is not enough to edit the entrypoint [#9372](https://github.com/gravitee-io/issues/issues/9372)
+* APIM - flows table / name column / extend column size [#9377](https://github.com/gravitee-io/issues/issues/9377)
+* Cannot Import API Definition with Automatic Group Association [#9385](https://github.com/gravitee-io/issues/issues/9385)
+
+**Console**
+
+* API subscription fails with insufficient rights error [#9341](https://github.com/gravitee-io/issues/issues/9341)
+* History not available if too many deployments  [#9359](https://github.com/gravitee-io/issues/issues/9359)
+* APIM console doc links point to old documentation site [#9386](https://github.com/gravitee-io/issues/issues/9386)
+
+**Portal**
+
+* API subscription fails with insufficient rights error [#9341](https://github.com/gravitee-io/issues/issues/9341)
+* The "All rights reserved" mention on Portal is using an old date [#9384](https://github.com/gravitee-io/issues/issues/9384)
+
+**Other**
+
+* Configuration files are beeing overwritten during yum update [#9368](https://github.com/gravitee-io/issues/issues/9368)
+* Transform headers policy should be case insensitive [#9378](https://github.com/gravitee-io/issues/issues/9378)
+* Generate JWT Policy Key Resolver wrong value [#9389](https://github.com/gravitee-io/issues/issues/9389)
+* OAuth2 introspection and userinfo should send a 503 when technical exception instead of 401 [#9390](https://github.com/gravitee-io/issues/issues/9390)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Health-Check: allow to use response time in assertion [#9388](https://github.com/gravitee-io/issues/issues/9388)
+
+**Helm Charts**
+
+* Allow to configure gateway timeouts  in the helm chart [#9392](https://github.com/gravitee-io/issues/issues/9392)
+
+</details>
+
+
 
 ## Gravitee API Management 4.1.3 - November 10, 2023
 
