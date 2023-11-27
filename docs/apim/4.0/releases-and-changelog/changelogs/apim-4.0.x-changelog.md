@@ -5,23 +5,24 @@ description: >-
 ---
 
 # APIM 4.0.x
- 
+
 ## Gravitee API Management 4.0.13 - November 24, 2023
+
 <details>
 
 <summary>BugFixes</summary>
 
 **Management API**
 
-* Application api_key_mode is automatically and incorrectly set to EXCLUSIVE mode without owner consent [#9348](https://github.com/gravitee-io/issues/issues/9348)
-* Environment rights : API "update" right is not enough to edit the entrypoint [#9372](https://github.com/gravitee-io/issues/issues/9372)
-* APIM - flows table / name column / extend column size [#9377](https://github.com/gravitee-io/issues/issues/9377)
+* Application `api_key_mode` is automatically and incorrectly set to EXCLUSIVE mode without owner consent [#9348](https://github.com/gravitee-io/issues/issues/9348)
+* Environment rights: API "update" right is not enough to edit the entrypoint [#9372](https://github.com/gravitee-io/issues/issues/9372)
+* APIM: flows table / name column / extend column size [#9377](https://github.com/gravitee-io/issues/issues/9377)
 * Cannot Import API Definition with Automatic Group Association [#9385](https://github.com/gravitee-io/issues/issues/9385)
 
 **Console**
 
 * API subscription fails with insufficient rights error [#9341](https://github.com/gravitee-io/issues/issues/9341)
-* History not available if too many deployments  [#9359](https://github.com/gravitee-io/issues/issues/9359)
+* History not available if too many deployments [#9359](https://github.com/gravitee-io/issues/issues/9359)
 * APIM console doc links point to old documentation site [#9386](https://github.com/gravitee-io/issues/issues/9386)
 
 **Portal**
@@ -31,9 +32,9 @@ description: >-
 
 **Other**
 
-* Configuration files are beeing overwritten during yum update [#9368](https://github.com/gravitee-io/issues/issues/9368)
-* Transform headers policy should be case insensitive [#9378](https://github.com/gravitee-io/issues/issues/9378)
-* Generate JWT Policy Key Resolver wrong value [#9389](https://github.com/gravitee-io/issues/issues/9389)
+* Configuration files are being overwritten during Yum update [#9368](https://github.com/gravitee-io/issues/issues/9368)
+* Transform Headers policy should be case insensitive [#9378](https://github.com/gravitee-io/issues/issues/9378)
+* Generate JWT policy Key Resolver wrong value [#9389](https://github.com/gravitee-io/issues/issues/9389)
 * OAuth2 introspection and userinfo should send a 503 when technical exception instead of 401 [#9390](https://github.com/gravitee-io/issues/issues/9390)
 
 </details>
@@ -44,16 +45,14 @@ description: >-
 
 **Gateway**
 
-* Health-Check: allow to use response time in assertion [#9388](https://github.com/gravitee-io/issues/issues/9388)
+* Health Check: Allow to use response time in assertion [#9388](https://github.com/gravitee-io/issues/issues/9388)
 
 **Helm Charts**
 
-* Allow to configure gateway timeouts  in the helm chart [#9392](https://github.com/gravitee-io/issues/issues/9392)
+* Allow to configure Gateway timeouts in the Helm Chart [#9392](https://github.com/gravitee-io/issues/issues/9392)
 
 </details>
 
-
- 
 ## Gravitee API Management 4.0.12 - November 10, 2023
 
 <details>
@@ -63,11 +62,11 @@ description: >-
 **Gateway**
 
 * Gateways not able to send bulk index data to ES8 [#9361](https://github.com/gravitee-io/issues/issues/9361)
-* When using push plan there is no log when subscription webhook ends in error  [#9363](https://github.com/gravitee-io/issues/issues/9363)
+* When using push plan there is no log when subscription webhook ends in error [#9363](https://github.com/gravitee-io/issues/issues/9363)
 
 **Management API**
 
-* Email related to closed, paused and resumed subscription of API_KEY plan are sent with an empty body [#9355](https://github.com/gravitee-io/issues/issues/9355)
+* Email related to closed, paused and resumed subscription of API\_KEY plan are sent with an empty body [#9355](https://github.com/gravitee-io/issues/issues/9355)
 * JDBC deadlocks on Command table when running multiple Management API [#9356](https://github.com/gravitee-io/issues/issues/9356)
 * Error running graviteeio-apim-rest-api-4.1.2 [#9360](https://github.com/gravitee-io/issues/issues/9360)
 * Unable to access Alerts screen when there are millions of AlertEvents [#9362](https://github.com/gravitee-io/issues/issues/9362)
@@ -77,7 +76,7 @@ description: >-
 **Other**
 
 * GKO - API state does not get updated [#9338](https://github.com/gravitee-io/issues/issues/9338)
-* [RabbitMQ] message not logged when Rabbit's message does not defined correlationId [#9353](https://github.com/gravitee-io/issues/issues/9353)
+* \[RabbitMQ] message not logged when Rabbit's message does not defined correlationId [#9353](https://github.com/gravitee-io/issues/issues/9353)
 * Groovy policy with On-request script not working in v4 engine emulation mode [#9367](https://github.com/gravitee-io/issues/issues/9367)
 * Generate JWT not working with APIM 4.x [#9371](https://github.com/gravitee-io/issues/issues/9371)
 * Missing “generate JWT policy” on a v4 message API entrypoint Request phase [#9373](https://github.com/gravitee-io/issues/issues/9373)
