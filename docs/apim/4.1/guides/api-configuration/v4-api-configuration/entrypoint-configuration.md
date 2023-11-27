@@ -32,17 +32,9 @@ v4 APIs support the following entrypoints:
 
 To access entrypoint configuration, go to the **API** page in the Developer Portal and select your API. Then, under **Entrypoints,** select **General**.
 
-Here, you can choose to disable virtual hosts by clicking on that option:
+Here, you can choose to enable or disable virtual hosts. Enabling virtual hosts requires you to define your virtual host and optionally enable override access.
 
 <figure><img src="../../../.gitbook/assets/virtual host_on message.png" alt=""><figcaption><p>v4 message API entrypoint configuration</p></figcaption></figure>
-
-If you disable virtual hosts, you will need to specify:
-
-* **Virtual host:** Host set in the HTTP request to access your entrypoint
-* **Context path:** Keep the current path or enter a new one
-*   **Override access:** Choose whether to enable override of your Portal's access URL via virtual host&#x20;
-
-    <figure><img src="../../../.gitbook/assets/virtual host_off message.png" alt=""><figcaption><p>Disable virtual hosts</p></figcaption></figure>
 
 Next, depending on which entrypoint(s) your API utilizes, specific entrypoint configuration may differ. Please refer to the following sections for the configuration details of each specific entrypoint.
 
@@ -210,11 +202,6 @@ From here, you can:&#x20;
 * Alter existing entrypoints by changing the context path
 * Add a new entrypoint by clicking **Add context path** and then adding a new context path
 * Delete existing entrypoints by clicking the <img src="../../../.gitbook/assets/Screen Shot 2023-07-18 at 10.51.56 AM.png" alt="" data-size="line"> icon associated with the entrypoint that you want to delete
-* Disable virtual hosts, then define:
-  * **Virtual host:** Host set in the HTTP request to access your entrypoint
-  * **Context path:** Keep the current path or enter a new one
-  *   **Override access:** Choose whether to enable override of your Portal's access URL via virtual host
-
-      <figure><img src="../../../.gitbook/assets/virtual host_off.png" alt=""><figcaption><p>Disable virtual hosts</p></figcaption></figure>
+* Choose to enable or disable virtual hosts. Enabling virtual hosts requires you to define your virtual host and optionally enable override access.
 
 When you are done, make sure to redeploy the API for your changes to take effect.

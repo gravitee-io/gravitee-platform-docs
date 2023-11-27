@@ -54,35 +54,8 @@ If you chose **Proxy upstream protocol**, your entrypoint will be an HTTP proxy.
 
 <summary>Configure HTTP proxy entrypoints</summary>
 
-* **Define your target URL:** Enter your target URL in the **Target URL** text field.
-
-<!---->
-
-* **Define your HTTP options:**
-  * Select the HTTP protocol version to use. **HTTP 1.1** and **HTTP 2** are supported.
-  * (HTTP 2 only) Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
-  * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF.
-    * If enabled, you'll need to define a numeric timeout value in the **Connect timeout** text field by either entering a numeric value or using the arrow keys.
-  * Choose to either enable or disable HTTP pipelining by toggling **Enable HTTP pipelining** ON or OFF.
-    * If enabled, you'll need to define a numeric timeout value in the **Read timeout** text field by either entering a numeric value or using the arrow keys.
-  * Choose to either enable or disable compression by toggling **Enable compression (gzip, deflate)** ON or OFF.
-  * **Configure your idle timeout settings:** Define, in milliseconds, the maximum time a connection will stay in the pool without being used by entering a numeric value or using the arrow keys in the text field. Once the specified time has elapsed, the unused connection will be closed, freeing the associated resources.
-  * Choose whether to follow HTTP redirects by toggling **Follow HTTP redirects** ON or OFF.
-  * Define the number of max concurrent connections by entering a numeric value or using the arrow keys in the text field.
-  * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
-  * **Define your Proxy options:**
-    * Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
-      * If you chose **Use proxy for client connections**, define the following:
-        * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
-        * **Proxy host:** Enter your proxy host in the text field.
-        * **Proxy port:** Enter your proxy port in the text field.
-        * (Optional) **Proxy username:** Enter your proxy username in the text field.
-        * (Optional) **Proxy password:** Enter your proxy password in the text field.
-  * **Define your SSL options:**
-    * **Verify Host:** Toggle to enable or disable host name verification.
-    * **Trust all:** When toggled ON, the Gateway must trust any origin certificates. The connection will still be encrypted but this mode is vulnerable to "man in the middle" attacks.
-    * **Truststore:** Select an option from the drop-down menu.
-    * **Key store:** Select an option from the drop-down menu.
+* **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
+* **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
 
 </details>
 
