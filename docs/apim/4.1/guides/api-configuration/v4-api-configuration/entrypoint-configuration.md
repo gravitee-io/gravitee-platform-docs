@@ -30,9 +30,21 @@ v4 APIs support the following entrypoints:
 * **Webhook:** Exposes a backend resource via a Webhooks subscription
 * **Server-sent events (SSE):** Exposes a backend resource via a unidirectional SSE stream
 
-To access entrypoint configuration, go to the **API** page in the Developer Portal and select your API. Then, under **Entrypoints,** select **General.**
+To access entrypoint configuration, go to the **API** page in the Developer Portal and select your API. Then, under **Entrypoints,** select **General**.
 
-Depending on which entrypoint your API utilizes, entrypoint configuration may differ. Please refer to the following sections for the configuration details of each specific entrypoint.
+Here, you can choose to disable virtual hosts by clicking on that option:
+
+<figure><img src="../../../.gitbook/assets/virtual host_on message.png" alt=""><figcaption><p>v4 message API entrypoint configuration</p></figcaption></figure>
+
+If you disable virtual hosts, you will need to specify:
+
+* **Virtual host:** Host set in the HTTP request to access your entrypoint
+* **Context path:** Keep the current path or enter a new one
+*   **Override access:** Choose whether to enable override of your Portal's access URL via virtual host&#x20;
+
+    <figure><img src="../../../.gitbook/assets/virtual host_off message.png" alt=""><figcaption><p>Disable virtual hosts</p></figcaption></figure>
+
+Next, depending on which entrypoint(s) your API utilizes, specific entrypoint configuration may differ. Please refer to the following sections for the configuration details of each specific entrypoint.
 
 <details>
 
@@ -183,7 +195,7 @@ If you chose **SSE** as an entrypoint, you will be brought to a page where you c
 
 </details>
 
-You can also add an entrypoint to your API by selecting **Add an entrypoint.** From here, you will simply need to configure the entrypoint using the details specific to that entrypoint (see expandable sections above).
+You can also add an entrypoint to your API by clicking **Add an entrypoint.** From here, you must configure the entrypoint using the details specific to that entrypoint (see expandable sections above).
 
 When you are done configuring your entrypoints, make sure to select **Save changes.**
 
@@ -203,6 +215,6 @@ From here, you can:&#x20;
   * **Context path:** Keep the current path or enter a new one
   *   **Override access:** Choose whether to enable override of your Portal's access URL via virtual host
 
-      <figure><img src="../../../.gitbook/assets/virtual host_off.png" alt=""><figcaption><p>Disable virtual hosts fields</p></figcaption></figure>
+      <figure><img src="../../../.gitbook/assets/virtual host_off.png" alt=""><figcaption><p>Disable virtual hosts</p></figcaption></figure>
 
 When you are done, make sure to redeploy the API for your changes to take effect.
