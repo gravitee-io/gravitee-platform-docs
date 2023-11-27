@@ -10,20 +10,20 @@ description: >-
 
 <details>
 
-<summary>BugFixes</summary>
+<summary>Bug fixes</summary>
 
 **Management API**
 
 * Application `api_key_mode` is automatically and incorrectly set to EXCLUSIVE mode without owner consent [#9348](https://github.com/gravitee-io/issues/issues/9348)
 * Environment rights: API "update" right is not enough to edit the entrypoint [#9372](https://github.com/gravitee-io/issues/issues/9372)
-* APIM: flows table / name column / extend column size [#9377](https://github.com/gravitee-io/issues/issues/9377)
+* APIM: Flows table / name column / extend column size [#9377](https://github.com/gravitee-io/issues/issues/9377)
 * Cannot Import API Definition with Automatic Group Association [#9385](https://github.com/gravitee-io/issues/issues/9385)
 
 **Console**
 
 * API subscription fails with insufficient rights error [#9341](https://github.com/gravitee-io/issues/issues/9341)
 * History not available if too many deployments [#9359](https://github.com/gravitee-io/issues/issues/9359)
-* APIM console doc links point to old documentation site [#9386](https://github.com/gravitee-io/issues/issues/9386)
+* APIM Console doc links point to old documentation site [#9386](https://github.com/gravitee-io/issues/issues/9386)
 
 **Portal**
 
