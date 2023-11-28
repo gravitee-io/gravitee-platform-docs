@@ -1,41 +1,39 @@
 ---
-description: 20-25 minute advanced tutorial
+description: 20-25 minute intermediate tutorial
 ---
 
-# Intermediate: Security and Protocol Mediation
+# Beginner: Security and Protocol Mediation
 
 {% hint style="warning" %}
 **Prerequisites**
 
-1. To access the demo application, you must start a Gravitee API Management enterprise trial as detailed in the [introduction to the tutorials](./#prerequisites).&#x20;
-2. We recommend completing the [Gateway APIs and Policies](comprehensive.md) tutorial first as it introduces you to both Gravitee and the trial application
+1. To access the sample application, you must have a running Gravitee API Management enterprise trial as detailed in the [introduction to the tutorials](./#prerequisites).&#x20;
+2. We highly recommend completing the [Quickstart guide](../quickstart-guide/) before completing this tutorial.
 {% endhint %}
 
 ## Overview
 
-This tutorial showcases Gravitee's event-native API management capabilities that can manage, secure, and mediate between both asynchronous and synchronous protocols.
-
-At this point, you should already be familiar with the basics of Gateway APIs and policies. This intermediate tutorial is focused on Gravitee's event-native capabilities, security, plans, applications, and subscriptions.
+This tutorial showcases Gravitee's event-native API management (APIM) capabilities that can manage, secure, and mediate between both asynchronous and synchronous protocols.
 
 For those who are unfamiliar, event-native means that Gravitee is built on an event-driven architecture implemented with reactive programming to natively manage asynchronous, event-driven APIs. Gravitee fully supports synchronous (request/response) APIs management alongside asynchronous APIs in a centralized control plane, and can even mediate between synchronous and asynchronous protocols.
 
-This tutorial shows how to test these capabilities with the trial app. Unlike the beginner tutorial, this tutorial goes further in-depth and requires additional configuration of Gravitee API Management (APIM).&#x20;
+This tutorial shows how to properly configure these capabilities in APIM, and then demonstrates them inside a sample application.
 
-### Trial app access
+### Access the sample app
 
-Before beginning, you must ensure you have access to the trial application. The trial app can be accessed in the APIM trial's sidebar with the **Open trial app** button:
+Before beginning, you must ensure you have access to the sample application. The sample app can be accessed from any APIM [enterprise trial](../install-guides/free-trial.md) in the Console's sidebar with the **Open sample app** button:
 
 {% hint style="warning" %}
-Some ad blockers disable the **Open trial app** button. Please whitelist Gravitee products to avoid this.
+Some ad blockers disable the **Open sample app** button. Please whitelist Gravitee products to avoid this.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-08-31 at 6.28.06 PM.png" alt=""><figcaption><p>Open the trial app from the top nav</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-08-31 at 6.28.06 PM.png" alt=""><figcaption><p>Open the sample app from the top nav</p></figcaption></figure>
 
-The trial application will not function properly if you do not access it from directly inside the Gravitee API Management enterprise trial.
+The sample application will not function properly if you do not access it from directly inside the Gravitee API Management enterprise trial.
 
-## Trial app architecture
+## Sample app architecture
 
-Each tutorial takes advantage of different aspects of the trial app. This section provides an overview of the relevant trial app functionality and architecture to help you get the most out of this tutorial. The next step of the tutorial will show you how to configure Gravitee API management (APIM) and how it augments the trial app architecture detailed here.&#x20;
+Each tutorial takes advantage of different aspects of the sample app. This section provides an overview of the relevant sample app functionality and architecture to help you get the most out of this tutorial. The next step of the tutorial will show you how to configure Gravitee API management (APIM) and how it augments the sample app architecture detailed here.&#x20;
 
 {% hint style="info" %}
 &#x20;For the curious, you can explore the application code in the [open-source, public repository](https://github.com/gravitee-io-labs/trial-sample-app).
@@ -50,10 +48,6 @@ This tutorial is built around the todo list page. The todo list page functions a
 
 ### Todo list: REST API
 
-{% hint style="info" %}
-If you completed the beginner tutorial, feel free to skip to the next section focused on the todo list's [Kafka architecture](real-time-data-and-protocol-mediation.md#kafka-broker).
-{% endhint %}
-
 The REST API, and the `todos` resource the API manipulates and exposes, are the backbone of the todo list page. Consider the schema the `todos` resource:
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Mindmap of the todos schema made in Gravitee API Designer</p></figcaption></figure>
@@ -62,7 +56,7 @@ The `todos` resource is created and modified through the endpoints shown in the 
 
 <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Backend API endpoints</p></figcaption></figure>
 
-In the trial app, every available action directly related to task management is tied to one of these five endpoints.
+In the sample app, every available action directly related to task management is tied to one of these five endpoints.
 
 {% hint style="info" %}
 An endpoint consists of a URL _and an_ HTTP method. If you are unfamiliar with this terminology, check out our [API Fundamentals guide](https://documentation.gravitee.io/platform-overview/gravitee-essentials/api-fundamentals)!
@@ -86,9 +80,9 @@ The todo list page is also integrated with a Kafka broker to help demonstrate AP
 
 Completing task management actions (i.e., creating, completing, archiving, and deleting tasks) produces data to a Kafka broker hosted on Confluent Cloud _without_ setting up or managing a Kafka client in the trial app.&#x20;
 
-As we will demonstrate a bit later, the trial app is simply sending an HTTP `POST` request with a JSON payload to a Gateway API at the `/todo-actions` route. The Gravitee Gateway takes data sent to this endpoint and publishes it to the Kafka broker.&#x20;
+As we will demonstrate a bit later, the sample app is simply sending an HTTP `POST` request with a JSON payload to a Gateway API at the `/todo-actions` route. The Gravitee Gateway takes data sent to this endpoint and publishes it to the Kafka broker.&#x20;
 
-Additionally, this same Gateway API also exposes a WebSocket endpoint at the `/todo-actions` route. The trial app has two WebSocket connections to the Gravitee Gateway through this endpoint. Any data published to the Kafka broker is consumed by these WebSocket connections _without_ setting up or managing a Kafka client in the trial app.
+Additionally, this same Gateway API also exposes a WebSocket endpoint at the `/todo-actions` route. The sample app has two WebSocket connections to the Gravitee Gateway through this endpoint. Any data published to the Kafka broker is consumed by these WebSocket connections _without_ setting up or managing a Kafka client in the sample app.
 
 The Gravitee Gateway seamlessly mediates between HTTP, Kafka's binary protocol, and WebSockets. Let's dive into Gravitee's Console UI to learn a bit more about how this is set up.
 
@@ -102,7 +96,7 @@ The synchronous Gateway API acts as a reverse proxy for [the REST API](real-time
 
 <figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption><p>Sync API backend configuration</p></figcaption></figure>
 
-However, the trial app is integrated with an additional **Backend service**: a Kafka broker. The Kafka broker cannot be included as an additional backend service in the same Gateway API because it requires a different type of Gateway API to handle message-level data. Consequently, a second Gateway API, **Trial App - Async Use Cases**, was created to manage the Kafka broker on the backend.&#x20;
+However, the sample app is integrated with an additional **Backend service**: a Kafka broker. The Kafka broker cannot be included as an additional backend service in the same Gateway API because it requires a different type of Gateway API to handle message-level data. Consequently, a second Gateway API, **Trial App - Async Use Cases**, was created to manage the Kafka broker on the backend.&#x20;
 
 APIM supports [two v4 API types](../../guides/create-apis/how-to/v4-api-creation-wizard.md#choose-your-backend-exposure-method): Proxy and Message. When creating your own Gateway APIs in the [v4 API creation wizard](../../guides/create-apis/how-to/v4-api-creation-wizard.md), you will encounter this choice between API types:
 
@@ -118,7 +112,7 @@ Now let's see how to integrate the trial app with these APIs.
 
 API exposure in Gravitee APIM revolves around three pillars: plans, applications, and subscriptions. Once a Gateway API is started, deployed, and published (we've already done all three for you), it will be visible to API consumers, but cannot be consumed until a plan is published. Plans are an access layer around APIs that provide the API producer with a method to secure, monitor, and transparently communicate the details of access.
 
-The beginner tutorial provided a plan with the keyless authorization type, which allows the Gateway API to be consumed immediately. However, all other types of authorization (API Key, JWT, and OAuth2.0) require the API consumer to register an application and subscribe to one of the published plans of that Gateway API.&#x20;
+Plans can have several different authorization types. Besides the keyless authorization type, all other types of authorization (API Key, Push, JWT, and OAuth2.0) require the API consumer to register an application and subscribe to one of the published plans of that Gateway API.&#x20;
 
 In addition to allowing an API consumer to register and agree to an API producer's plan, an application also enables an API publisher to closely monitor subscriptions and fine-tune access to its APIs. If one consumer turns out to be a bad actor engaging in malicious activity, applications provide API publishers with the granular control needed to revoke access for that one consumer instead of shutting the API down for all consumers.
 
@@ -126,9 +120,9 @@ In addition to allowing an API consumer to register and agree to an API producer
 More advanced authorization methods like OAuth 2.0 require the client to provide information such as a client ID, which can be done when [registering an application](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md).
 {% endhint %}
 
-### Create an application
+### Create an APIM application
 
-Next, we are going to create an application to allow us to subscribe to a plan with security for each Gateway API. This application essentially acts as an identifier for the trial app in your instance of APIM.&#x20;
+Next, we are going to create an application inside of APIM to allow us to subscribe to a plan with security for each Gateway API. This application essentially acts as an identifier for the sample app in your instance of APIM.&#x20;
 
 However, we first want to enable a setting called [shared API keys](../../guides/api-exposure-plans-applications-and-subscriptions/plans.md#shared-api-key) which allows an application to use a single API key for multiple subscriptions.
 
@@ -148,7 +142,7 @@ Onto creating the actual application. Select the **Applications** tab in the sid
 
 <figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Applications page</p></figcaption></figure>
 
-Then select + **Add application** on the top right of the page. Provide a name and description for your application. The domain of the application is the domain of the trial app: `https://gravitee-io-labs.github.io/`. Add the domain, then select **Next**:
+Then select + **Add application** on the top right of the page. Provide a name and description for your application. The domain of the application is the domain of the sample app: `https://gravitee-io-labs.github.io/trial-sample-app`. Add the domain, then select **Next**:
 
 <figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption><p>Application creation General screen</p></figcaption></figure>
 
@@ -172,13 +166,13 @@ First, go to the **APIs** page and select the **Trial App - Sync Use Cases** API
 
 <figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption><p>APIs page</p></figcaption></figure>
 
-Inside the Gateway API, select **Plans** from the inner sidebar to see all of the plans associated with your API. The **Basic Keyless Plan** is what we used in the beginner tutorial, and it has the Quota policy assigned to it.
+Inside the Gateway API, select **Plans** from the inner sidebar to see all of the plans associated with your API.
 
 <figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption><p>Plans page</p></figcaption></figure>
 
-Policies can be assigned to [flows at the platform, API, or plan level](../../guides/policy-design/v4-api-policy-design-studio.md#design). To circumvent the Quota policy assigned to the **Basic Keyless Plan**, we can subscribe to a plan that uses authorization: the **Premium API Key Plan**.
+Policies can be assigned to [flows at the platform, API, or plan level](../../guides/policy-design/v4-api-policy-design-studio.md#design). For this Gateway API, a Quota policy is assigned to the **Basic Keyless Plan** and will be applied to all API requests that do not pass any form of authorization. To pass authorization, we need to receive a valid authorization token by subscribing to a plan that uses authorization: the **Premium API Key Plan**.
 
-We are calling it "premium" because it does not have any API access restrictions like a Quota policy assigned to it, which allows API consumers subscribed to the plan to have unfettered access to the trial app's capabilities (i.e., API consumers subscribed to the premium plan can create an unlimited number of tasks).
+We are calling it "premium" because it does not have any API access restrictions like a Quota policy assigned to it, which allows API consumers subscribed to the plan to have unfettered access to the sample app's capabilities (i.e. API consumers subscribed to the premium plan can create an unlimited number of tasks).
 
 You can verify this by taking a quick look at the **Policy Studio** page. The **Limit Creation of Tasks** flow is assigned to the **Basic Keyless Plan**:
 
@@ -224,9 +218,9 @@ Your application is now subscribed to an API Key Plan for each Gateway API using
 A shared API key was used to simplify several aspects of this tutorial. Before using a shared API key in production applications, you should be [aware of the implications](../../guides/api-exposure-plans-applications-and-subscriptions/plans.md#shared-api-key).
 {% endhint %}
 
-## Configure the Trial App
+## Configure the Sample App
 
-With the subscriptions set up, you need to provide the trial app the API key to use in its requests to the Gravitee Gateway.&#x20;
+With the subscriptions set up, you need to provide the sample app the API key to use in its requests to the Gravitee Gateway.&#x20;
 
 First, open the subscription you just created and scroll to the bottom of the page:
 
@@ -244,9 +238,9 @@ Next, select **On** under the **Analytics** header. Finally, select **Save Chang
 
 ### Test API Key Plan subscriptions
 
-With the modifications you just made, each of the trial app's requests to the `/todos` route will include an `X-Gravitee-Api-Key` header that contains your API key. The Gravitee Gateway will detect the `X-Gravitee-Api-Key` header and [automatically select the Premium API Key Plan](../../guides/api-exposure-plans-applications-and-subscriptions/plans.md#plan-selection).
+With the modifications you just made, each of the sample app's requests to the `/todos` route will include an `X-Gravitee-Api-Key` header that contains your API key. The Gravitee Gateway will detect the `X-Gravitee-Api-Key` header and [automatically select the Premium API Key Plan](../../guides/api-exposure-plans-applications-and-subscriptions/plans.md#plan-selection).
 
-To test this, return to the **Todo List** in the trial app. If you remember from the introductory tutorial, the Quota policy blocked us from creating more than three tasks an hour. However, that policy was tied to the Keyless Plan. The new subscription to the API Key Plan does not limit the number of tasks you can create:
+To test this, return to the **Todo List** in the trial app. The new subscription to the API Key Plan allows you to circumvent the Quota policy tied to the keyless plan and create an unlimited number of tasks:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-13 at 11.25.28 PM.png" alt=""><figcaption><p>Unrestricted API access</p></figcaption></figure>
 
@@ -254,7 +248,7 @@ With both the application and Gravitee Gateway functioning as expected, we are r
 
 ## Event-native API Management
 
-Let's experiment with protocol mediation using the analytic graphs. In the trial app, return to the **Configuration** page and select the **On** toggle underneath the **Analytic Graphs** header:
+Let's experiment with protocol mediation using the analytic graphs. In the sample app, return to the **Configuration** page and select the **On** toggle underneath the **Analytic Graphs** header:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-09-04 at 11.10.56 PM.png" alt=""><figcaption><p>Turn on analytic graphs</p></figcaption></figure>
 
@@ -314,7 +308,7 @@ A delay of four seconds is added to every message on the subscribe phase:
 
 Each action completed on the **Todo List** page results in a new message being produced which adds an additional four-second delay. This explains why the delayed graph is updated after the real-time graph. The delay creates a backlog because each action is consumed by the WebSocket in the order the message was produced.&#x20;
 
-This backlog is why the delayed graph can continue receiving data after clearing the graphs. For example, rapidly select the checkbox for one task about 10 times then select the **Clear Graphs** button and wait. Because the real-time graph consumed all the messages from the Kafka broker in real time, it has no new data to consume. However, the delayed graph acts as a separate Kafka consumer and is essentially drip-fed the data in the backlog.
+This backlog is why the delayed graph can continue receiving data after clearing the graphs. For example, inside the sample app, rapidly select the checkbox for one task about 10 times then select the **Clear Graphs** button and wait. Because the real-time graph consumed all the messages from the Kafka broker in real time, it has no new data to consume. However, the delayed graph acts as a separate Kafka consumer and is essentially drip-fed the data in the backlog.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-08-13 at 11.55.07 PM.png" alt=""><figcaption><p>Delayed graph backlog</p></figcaption></figure>
 
@@ -323,7 +317,7 @@ You may be asking why you would ever want to add latency to the consumption of y
 {% hint style="success" %}
 Congratulations! You've just experienced the power of Gravitee's event-native API management.&#x20;
 
-You can now move on to another advanced tutorial or even modify this policy to see the impact on the trial app. Just don't forget to redeploy the API after saving!
+You can now move on to another advanced tutorial or even modify this policy to see the impact on the sample app. Just don't forget to redeploy the API after saving!
 {% endhint %}
 
 ## Appendix: Kafka consumer groups
@@ -338,34 +332,34 @@ As detailed [here](../../guides/api-configuration/v4-api-configuration/endpoint-
 
 > By default, every subscription creates a new client identifier, and therefore, a new consumer group. If there is no subscription required (i.e., a Keyless Plan), then the client's IP address is used to create or find the client identifier.
 
-The trial app provides a concrete example. Each graph has a WebSocket connection tied to a different plan. Specifically, there is a subscription to the API Key Plan and a connection to a Keyless Plan. This results in two consumer groups where each graph will receive all messages published to the Kafka broker.&#x20;
+The sample app provides a concrete example. Each graph has a WebSocket connection tied to a different plan. Specifically, there is a subscription to the API Key Plan and a connection to a Keyless Plan. This results in two consumer groups where each graph will receive all messages published to the Kafka broker.&#x20;
 
-These two consumer groups will persist for the life of the subscriptions. However, in some cases, this may not be ideal. Let's take the trial app for example:
+These two consumer groups will persist for the life of the subscriptions. However, in some cases, this may not be ideal. Let's take the sample app for example:
 
-1. Duplicating the trial app in a new tab results in an additional consumer joining each consumer group. And because we set up the Kafka topic with one partition, the first consumer from each group to connect will receive all the messages from that partition until it disconnects.
+1. Duplicating the sample app in a new tab results in an additional consumer joining each consumer group. And because we set up the Kafka topic with one partition, the first consumer from each group to connect will receive all the messages from that partition until it disconnects.
 2. Refreshing the page results in losing your "analytics history" from the perspective of the application. This is because refreshing the page creates a new consumer that is still part of the same consumer group.
 
 {% hint style="info" %}
 To distribute the load between multiple consumers in a single consumer group, you must create additional partitions in your Kafka topic. Per consumer group, Kafka only allows for a single consumer per partition.
 {% endhint %}
 
-You can verify these limitations yourself by duplicating the trial app in your browser and completing actions. The graphs in the original trial app tab will receive all the data.
+You can verify these limitations yourself by duplicating the sample app in your browser and completing actions. The graphs in the original sample app tab will receive all the data.
 
-You may prefer each instance of the trial app to create two new consumer groups. Thankfully, Gravitee enables this:
+You may prefer each instance of the sample app to create two new consumer groups. Thankfully, Gravitee enables this:
 
 > To manually create a new consumer group, pass the `X-Gravitee-Client-Identifier` header or query parameter with a unique value.
 
 With this, Gravitee provides an easy way to create a new consumer group without creating a new subscription.&#x20;
 
-The trial app can take advantage of this functionality. Head back to the Configuration page and select the **On with history** toggle under **Analytics Graphs**.
+The sample app can take advantage of this functionality. Head back to the Configuration page and select the **On with history** toggle under **Analytics Graphs**.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-09-04 at 11.36.09 PM.png" alt=""><figcaption><p>Enable history in the analytics graphs</p></figcaption></figure>
 
-This setting essentially modifies the trial app to generate and pass a universally unique identifier (UUID) as the `X-Gravitee-Client-Identifier` query parameter when establishing each WebSocket connection. A new UUID is generated every time you refresh the page.
+This setting essentially modifies the sample app to generate and pass a universally unique identifier (UUID) as the `X-Gravitee-Client-Identifier` query parameter when establishing each WebSocket connection. A new UUID is generated every time you refresh the page.
 
-From here, you should be able to duplicate the trial app as many times as you desire. Each instance of the application will receive all the data generated by any instance of the application. This is because each instance of the trial app is still publishing data to the same Kafka topic, but now has consumers in totally separate consumer groups.
+From here, you should be able to duplicate the sample app as many times as you desire. Each instance of the application will receive all the data generated by any instance of the application. This is because each instance of the sample app is still publishing data to the same Kafka topic, but now has consumers in totally separate consumer groups.
 
-Additionally, since we configured the Kafka endpoint with the [earliest offset](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management), each new instance will receive all the messages ever published to the Kafka broker, even if that trial app instance did not exist when the message was produced. This maintains your analytics history but may not be ideal for the delayed graph as the backlog of data will quickly become massive. If preferred, you can easily change to the latest offset in the Messages API's **Backend services** configuration.&#x20;
+Additionally, since we configured the Kafka endpoint with the [earliest offset](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management), each new instance will receive all the messages ever published to the Kafka broker, even if that sample app instance did not exist when the message was produced. This maintains your analytics history but may not be ideal for the delayed graph as the backlog of data will quickly become massive. If preferred, you can easily change to the latest offset in the Messages API's **Backend services** configuration.&#x20;
 
 Feel free to experiment with any of the settings and policies to test the impact on the trial app.
 
