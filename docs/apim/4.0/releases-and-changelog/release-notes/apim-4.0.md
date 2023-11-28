@@ -83,7 +83,7 @@ When in the Developer Portal, you'll be able to:
 * Configure the details of your plan in the portal, including defining a custom Webhook callback URL
 * Add basic authentication and an API key as a bearer token
 
-This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the [Webhook subscription management documentation](../../guides/developer-portal/webhook-subscription-management.md).
+This will all be done while creating an application in the Gravitee Developer Portal. For more information, please refer to the [Webhook subscription management documentation](../../guides/developer-portal/webhook-subscription-management/).
 
 ## v2 Management API
 
