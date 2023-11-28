@@ -20,4 +20,4 @@ The appearance and content of the Developer Portal are configurable by an admini
 
 Click on the tiles below to explore the major capabilities and functionality offered by the Developer Portal:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Webhook subscription management</td><td></td><td><a href="webhook-subscription-management.md">webhook-subscription-management.md</a></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Webhook subscription management</td><td></td><td><a href="webhook-subscription-management.md">webhook-subscription-management.md</a></td></tr><tr><td></td><td></td><td>Applications</td><td><a href="applications.md">applications.md</a></td></tr><tr><td></td><td></td><td>Documentation</td><td><a href="documentation.md">documentation.md</a></td></tr></tbody></table>
