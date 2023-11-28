@@ -45,7 +45,7 @@ Note, if you are mostly interested in managing message/event brokers, we highly 
 
 Regardless of how APIM is deployed, the next step will be to access the APIM Console UI. The APIM Console is the easiest way to manage all your APIs and the configuration for your Gravitee Gateway.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Access APIM Console: enterprise trial</strong></td><td>How to access the APIM Console in an enterprise trial</td><td></td><td><a href="./#getting-started-enterprise-trial">#getting-started-enterprise-trial</a></td></tr><tr><td><strong>Access APIM Console: self-managed installation</strong></td><td>How to access the APIM Console in a self-managed installation</td><td></td><td><a href="./#getting-started-customer-managed-installation">#getting-started-customer-managed-installation</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Access APIM Console: enterprise trial</strong></td><td>How to access the APIM Console in an enterprise trial</td><td></td><td><a href="./#access-apim-console-enterprise-trial">#access-apim-console-enterprise-trial</a></td></tr><tr><td><strong>Access APIM Console: self-managed installation</strong></td><td>How to access the APIM Console in a self-managed installation</td><td></td><td><a href="./#access-apim-console-self-managed-installation">#access-apim-console-self-managed-installation</a></td></tr></tbody></table>
 
 ## Access APIM Console: enterprise trial
 
