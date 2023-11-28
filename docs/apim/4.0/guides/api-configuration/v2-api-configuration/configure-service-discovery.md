@@ -45,7 +45,7 @@ consul-server:
      - "8600:8600/udp"
     command: "agent"
     networks:
-     - backend
+     - storage
 ```
 
 In the example above, we declare a volume to mount the directory containing Consul configuration files as a read-only (:ro) volume.
