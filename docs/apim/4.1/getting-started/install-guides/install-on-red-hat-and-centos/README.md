@@ -53,16 +53,15 @@ You can choose to install the full APIM stack or install the components one by o
   * [Install APIM Console](apim-components.md#install-management-console)
   * [Install APIM Developer Portal](apim-components.md#install-developer-portal)
 
-
 ## Upgrade APIM
 
-Since maintained version 4.0.13, 4.1.4 and above the rpm upgrade of APIM component is easier. Now you can simply upgrade and restart APIM.
+For version 4.1.4 and above, you can upgrade and restart APIM to perform an `rpm` upgrade of APIM components.
 
 {% hint style="warning" %}
-Always take a look on the changelog to follow potential breaking change.
+Refer to the [changelog](../../../releases-and-changelog/changelogs/apim-4.1.x-changelog.md) to follow potential breaking changes.
 {% endhint %}
 
-You can find your upgrade process related to your type of installation:
+The appropriate upgrade process depends on the type of installation:
 
 * [Upgrade the full APIM stack](install-the-full-apim-stack.md#upgrade)
 * Upgrade APIM Components

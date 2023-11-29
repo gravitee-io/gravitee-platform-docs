@@ -3,15 +3,15 @@
 {% hint style="info" %}
 **Gravitee dependencies**
 
-Gravitee's installation & upgrade guides provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+Gravitee's [Installation & Upgrade Guides](../) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
 {% endhint %}
 
 This section describes how to install the individual components from the Gravitee API Management (APIM) stack.
 
-* [Install APIM Gateway](#install-apim-gateway)
-* [Install APIM API](#install-management-api)
-* [Install APIM Console](#install-management-console)
-* [Install APIM Portal](#install-developer-portal)
+* [Install APIM Gateway](apim-components.md#install-apim-gateway)
+* [Install APIM API](apim-components.md#install-management-api)
+* [Install APIM Console](apim-components.md#install-management-console)
+* [Install APIM Portal](apim-components.md#install-developer-portal)
 
 Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](install-the-full-apim-stack.md) page.
 
@@ -75,7 +75,7 @@ sudo journalctl --unit graviteeio-apim-gateway --since  "2020-01-30 12:13:14"
 
 ### Upgrade the APIM Gateway package
 
-Since maintained version 4.1.4 and above, to upgrade an APIM component you can simply do a yum upgrade and restart APIM:
+For version 4.1.4 and above, to upgrade an APIM component, you can perform a `yum` upgrade and restart APIM:
 
 ```sh
 sudo yum upgrade -y graviteeio-apim-gateway-4x
@@ -142,7 +142,7 @@ sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 
 ### Upgrade the Management API package
 
-Since maintained version 4.1.4 and above, to upgrade an APIM component you can simply do a yum upgrade and restart APIM:
+For version 4.1.4 and above, to upgrade an APIM component, you can perform a `yum` upgrade and restart APIM:
 
 ```sh
 sudo yum upgrade -y graviteeio-apim-rest-api-4x
@@ -216,7 +216,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 
 ### Upgrade the Management Console package
 
-Since maintained version 4.1.4 and above, to upgrade an APIM component you can simply do a yum upgrade and restart APIM:
+For version 4.1.4 and above, to upgrade an APIM component, you can perform a `yum` upgrade and restart APIM:
 
 ```sh
 sudo yum upgrade -y graviteeio-apim-management-ui-4x
@@ -290,7 +290,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 
 ### Upgrade the Developer Portal package
 
-Since maintained version 4.1.4 and above, to upgrade an APIM component you can simply do a yum upgrade and restart APIM:
+For version 4.1.4 and above, to upgrade an APIM component, you can perform a `yum` upgrade and restart APIM:
 
 ```sh
 sudo yum upgrade -y graviteeio-apim-portal-ui-4x
