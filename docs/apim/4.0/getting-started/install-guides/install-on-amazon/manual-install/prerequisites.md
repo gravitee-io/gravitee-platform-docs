@@ -80,24 +80,24 @@ You don’t have to install this particular build of OpenJDK.
 
 APIM uses MongoDB as its default repository to store global configurations. Follow the steps below to set up MongoDB. For further customization of the installation, refer to the [MongoDB Installation documentation.](https://docs.mongodb.com/v3.6/tutorial/install-mongodb-on-amazon/)
 
-1. Create a file called `/etc/yum.repos.d/mongodb-org-6.0.repo` using the following command:
+1. Create a file called `/etc/yum.repos.d/mongodb-org-7.0.repo` using the following command:
 
-{% code title="/etc/yum.repos.d/mongodb-org-6.0.repo" %}
+{% code title="/etc/yum.repos.d/mongodb-org-7.0.repo" %}
 ```sh
 case "`uname -i`" in
     x86_64|amd64)
-        baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/;;
+        baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/7.0/x86_64/;;
     aarch64)
-        baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/aarch64/;;
+        baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/7.0/aarch64/;;
 esac
 
-sudo tee -a /etc/yum.repos.d/mongodb-org-6.0.repo <<EOF
-[mongodb-org-6.0]
+sudo tee -a /etc/yum.repos.d/mongodb-org-7.0.repo <<EOF
+[mongodb-org-7.0]
 name=MongoDB Repository
 baseurl=${baseurl}
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
 EOF
 ```
 {% endcode %}
