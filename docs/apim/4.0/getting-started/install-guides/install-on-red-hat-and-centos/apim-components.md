@@ -75,7 +75,7 @@ sudo journalctl --unit graviteeio-apim-gateway --since  "2020-01-30 12:13:14"
 
 ### Upgrade the APIM Gateway package
 
-For version 4.0.13 and above, to upgrade an APIM component, you can perform a YUM upgrade and restart APIM:
+For version 4.0.13 and above, to upgrade an APIM component, you can perform a `yum` upgrade and restart APIM:
 
 ```sh
 sudo yum upgrade -y graviteeio-apim-gateway-4x
@@ -142,7 +142,7 @@ sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 
 ### Upgrade the Management API package
 
-For version 4.0.13 and above, to upgrade an APIM component, you can perform a YUM upgrade and restart APIM:
+For version 4.0.13 and above, to upgrade an APIM component, you can perform a `yum` upgrade and restart APIM:
 
 ```sh
 sudo yum upgrade -y graviteeio-apim-rest-api-4x
@@ -216,7 +216,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 
 ### Upgrade the Management Console package
 
-For version 4.0.13 and above, to upgrade an APIM component, you can perform a YUM upgrade and restart APIM:
+For version 4.0.13 and above, to upgrade an APIM component, you can perform a `yum` upgrade and restart APIM:
 
 ```sh
 sudo yum upgrade -y graviteeio-apim-management-ui-4x
@@ -290,7 +290,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 
 ### Upgrade the Developer Portal package
 
-For version 4.0.13 and above, to upgrade an APIM component, you can perform a YUM upgrade and restart APIM:
+For version 4.0.13 and above, to upgrade an APIM component, you can perform a `yum` upgrade and restart APIM:
 
 ```sh
 sudo yum upgrade -y graviteeio-apim-portal-ui-4x

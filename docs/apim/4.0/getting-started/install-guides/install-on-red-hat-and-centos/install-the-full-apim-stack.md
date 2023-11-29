@@ -62,7 +62,7 @@ Congratulations! Now that APIM is up and running, check out the [Tutorials](../.
 In order to upgrade your APIM installation, perform the package upgrade and then restart APIM:
 
 {% hint style="info" %}
-For version 4.0.13 and above, upgrade and restart APIM to perform an RPM upgrade of APIM components.
+For version 4.0.13 and above, upgrade and restart APIM to perform an `rpm` upgrade of APIM components.
 {% endhint %}
 
 {% hint style="warning" %}
