@@ -57,16 +57,16 @@ When all components are started, you can run a quick test by checking these URLs
 Congratulations! Now that APIM is up and running, check out the [Tutorials](../../tutorials/) for your next steps.
 {% endhint %}
 
-
 ## Upgrade
 
-In order to upgrade your APIM installation, you will have to proceed the package upgrade and then restart apim:
+In order to upgrade your APIM installation, perform the package upgrade and then restart APIM:
 
 {% hint style="info" %}
-Since maintained version 4.0.13 and above the rpm upgrade of APIM component is easier. Now you can simply upgrade and restart APIM.
+For version 4.0.13 and above, upgrade and restart APIM to perform an RPM upgrade of APIM components.
 {% endhint %}
+
 {% hint style="warning" %}
-Always take a look on the changelog to follow potential breaking change.
+Refer to the [changelog](../../../releases-and-changelog/changelogs/apim-4.0.x-changelog.md) to follow potential breaking changes.
 {% endhint %}
 
 ```sh

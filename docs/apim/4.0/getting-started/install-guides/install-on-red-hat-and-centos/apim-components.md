@@ -3,7 +3,7 @@
 {% hint style="info" %}
 **Gravitee dependencies**
 
-Gravitee's installation & upgrade guides provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+Gravitee's [Installation & Upgrade Guides](../) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
 {% endhint %}
 
 This section describes how to install the individual components from the Gravitee API Management (APIM) stack.
