@@ -2,13 +2,13 @@
 description: 20-25 minute advanced tutorial
 ---
 
-# Intermediate: Security and Protocol Mediation
+# Beginner: Security and Protocol Mediation
 
 {% hint style="warning" %}
 **Prerequisites**
 
 1. To access the demo application, you must start a Gravitee API Management enterprise trial as detailed in the [introduction to the tutorials](./#prerequisites).&#x20;
-2. We recommend completing the [Gateway APIs and Policies](comprehensive.md) tutorial first as it introduces you to both Gravitee and the trial application
+2. We recommend completing the [Gateway APIs and Policies](broken-reference) tutorial first as it introduces you to both Gravitee and the trial application
 {% endhint %}
 
 ## Overview

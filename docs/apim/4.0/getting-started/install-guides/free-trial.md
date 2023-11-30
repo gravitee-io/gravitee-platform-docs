@@ -35,5 +35,5 @@ This will take you to your APIM home screen which should look similar to this:
 <figure><img src="../../.gitbook/assets/ET_apim homescreen.png" alt=""><figcaption><p>APIM homescreen</p></figcaption></figure>
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../quickstart-guide.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../quickstart-guide/) for your next steps.
 {% endhint %}

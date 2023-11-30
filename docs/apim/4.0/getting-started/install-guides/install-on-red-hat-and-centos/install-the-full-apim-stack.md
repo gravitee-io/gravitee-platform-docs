@@ -54,7 +54,7 @@ When all components are started, you can run a quick test by checking these URLs
 | APIM Portal     | [http://localhost:8085/](http://localhost:8085/)                                                                                                                     |
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide.md) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
 {% endhint %}
 
 ## Upgrade
