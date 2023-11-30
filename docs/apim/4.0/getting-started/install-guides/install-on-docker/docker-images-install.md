@@ -1,5 +1,7 @@
 # Docker Images Install
 
+## Overview
+
 This page describes how to install and run APIM Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker` command and a specified filesystem for persistence and plugins. Compared to the [Quick Install with Docker Compose](quick-install-with-docker-compose.md), installing in this way gives more granular control of where persistence data is stored and the ability to add plugins.
 
 ## Prerequisites
@@ -172,7 +174,7 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 You can adapt the above instructions to suit your architecture if you need to.
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Tutorials](../../tutorials/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide.md) for your next steps.
 {% endhint %}
 
 [^1]: Remove this line if you are installing the Community Edition

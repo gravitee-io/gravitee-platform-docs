@@ -42,6 +42,7 @@
     * [APIM Components Installation](getting-started/install-guides/install-on-red-hat-and-centos/apim-components.md)
   * [Install With .ZIP](getting-started/install-guides/install-with-.zip.md)
   * [4.0 Upgrade Guide](getting-started/install-guides/installation-guide-migration.md)
+* [Quickstart Guide](getting-started/quickstart-guide.md)
 * [Configuration](getting-started/configuration/README.md)
   * [Configure APIM Gateway](getting-started/configuration/the-gravitee-api-gateway/README.md)
     * [General Configuration](getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
@@ -74,7 +75,7 @@
 * [Hybrid Deployment](getting-started/hybrid-deployment/README.md)
   * [Hybrid Deployment on Kubernetes](getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md)
   * [Advanced Hybrid Deployment](getting-started/hybrid-deployment/advanced-hybrid-deployment.md)
-* [Tutorials: Trial Application](getting-started/tutorials/README.md)
+* [Advanced Tutorials](getting-started/tutorials/README.md)
   * [Beginner: Gateway APIs and Policies](getting-started/tutorials/comprehensive.md)
   * [Intermediate: Security and Protocol Mediation](getting-started/tutorials/real-time-data-and-protocol-mediation.md)
 
