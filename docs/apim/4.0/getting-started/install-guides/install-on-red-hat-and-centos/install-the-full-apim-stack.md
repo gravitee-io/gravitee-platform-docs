@@ -12,8 +12,8 @@ Before you install the full APIM stack, you must complete the following configur
 2. Install Nginx by running the following commands:
 
 ```sh
-$ sudo yum install epel-release
-$ sudo yum install nginx
+sudo yum install epel-release
+sudo yum install nginx
 ```
 
 ## Install the APIM stack without dependencies
@@ -37,9 +37,9 @@ curl -L https://bit.ly/install-apim-4x | bash
 To start up the APIM components, run the following commands:
 
 ```sh
-$ sudo systemctl daemon-reload
-$ sudo systemctl start graviteeio-apim-gateway graviteeio-apim-rest-api
-$ sudo systemctl restart nginx
+sudo systemctl daemon-reload
+sudo systemctl start graviteeio-apim-gateway graviteeio-apim-rest-api
+sudo systemctl restart nginx
 ```
 
 ## Check the APIM components are running
@@ -56,3 +56,21 @@ When all components are started, you can run a quick test by checking these URLs
 {% hint style="success" %}
 Congratulations! Now that APIM is up and running, check out the [Tutorials](../../tutorials/) for your next steps.
 {% endhint %}
+
+## Upgrade
+
+In order to upgrade your APIM installation, perform the package upgrade and then restart APIM:
+
+{% hint style="info" %}
+For version 4.0.13 and above, upgrade and restart APIM to perform an `rpm` upgrade of APIM components.
+{% endhint %}
+
+{% hint style="warning" %}
+Refer to the [changelog](../../../releases-and-changelog/changelogs/apim-4.0.x-changelog.md) to follow potential breaking changes.
+{% endhint %}
+
+```sh
+sudo yum upgrade -y graviteeio-apim-4x
+sudo systemctl daemon-reload
+sudo systemctl restart graviteeio-apim-gateway graviteeio-apim-rest-api nginx
+```

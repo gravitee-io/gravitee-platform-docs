@@ -1,11 +1,17 @@
 # APIM Components Installation
 
+{% hint style="info" %}
+**Gravitee dependencies**
+
+Gravitee's installation & upgrade guides provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+{% endhint %}
+
 This section describes how to install the individual components from the Gravitee API Management (APIM) stack.
 
-* [Install APIM Gateway](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_gateway.html)
-* [Install APIM API](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_api.html)
-* [Install APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_management\_ui.html)
-* [Install APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_redhat\_portal.html)
+* [Install APIM Gateway](#install-apim-gateway)
+* [Install APIM API](#install-management-api)
+* [Install APIM Console](#install-management-console)
+* [Install APIM Portal](#install-developer-portal)
 
 Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](../install-the-full-apim-stack.md) page.
 
@@ -30,15 +36,15 @@ These steps assume that you are using the default settings.
 To configure APIM Gateway to start automatically when the system boots up, run the following commands:
 
 ```sh
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable graviteeio-apim-gateway
+sudo systemctl daemon-reload
+sudo systemctl enable graviteeio-apim-gateway
 ```
 
 To start and stop APIM Gateway, run the following commands:
 
 ```sh
-$ sudo systemctl start graviteeio-apim-gateway
-$ sudo systemctl stop graviteeio-apim-gateway
+sudo systemctl start graviteeio-apim-gateway
+sudo systemctl stop graviteeio-apim-gateway
 ```
 
 {% hint style="info" %}
@@ -65,6 +71,15 @@ To list journal entries for the APIM Gateway service starting from a given time,
 
 ```sh
 sudo journalctl --unit graviteeio-apim-gateway --since  "2020-01-30 12:13:14"
+```
+
+### Upgrade the APIM Gateway package
+
+Since maintained version 4.1.4 and above, to upgrade an APIM component you can simply do a yum upgrade and restart APIM:
+
+```sh
+sudo yum upgrade -y graviteeio-apim-gateway-4x
+sudo systemctl restart graviteeio-apim-gateway
 ```
 
 ## Install Management API
@@ -123,6 +138,15 @@ To list journal entries for the Management API service starting from a given tim
 
 ```sh
 sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
+```
+
+### Upgrade the Management API package
+
+Since maintained version 4.1.4 and above, to upgrade an APIM component you can simply do a yum upgrade and restart APIM:
+
+```sh
+sudo yum upgrade -y graviteeio-apim-rest-api-4x
+sudo systemctl restart graviteeio-apim-rest-api
 ```
 
 ## Install Management Console
@@ -190,6 +214,15 @@ To list journal entries for the Nginx service starting from a given time, run th
 sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 ```
 
+### Upgrade the Management Console package
+
+Since maintained version 4.1.4 and above, to upgrade an APIM component you can simply do a yum upgrade and restart APIM:
+
+```sh
+sudo yum upgrade -y graviteeio-apim-management-ui-4x
+sudo systemctl restart nginx
+```
+
 ## Install Developer Portal
 
 ### Prerequisites
@@ -253,6 +286,15 @@ To list journal entries for the Nginx service starting from a given time, run th
 
 ```sh
 sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
+```
+
+### Upgrade the Developer Portal package
+
+Since maintained version 4.1.4 and above, to upgrade an APIM component you can simply do a yum upgrade and restart APIM:
+
+```sh
+sudo yum upgrade -y graviteeio-apim-portal-ui-4x
+sudo systemctl restart nginx
 ```
 
 {% hint style="success" %}
