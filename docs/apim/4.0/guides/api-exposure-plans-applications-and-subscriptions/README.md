@@ -20,6 +20,7 @@ The most important part of plan configuration is selecting the security type. AP
 * API Key
 * OAuth 2.0
 * JWT
+* Push
 
 Exposing an API to a consumer requires at least one plan, but can support as many plans as needed. These are just some sample access scenarios APIM can manage with plans:
 
