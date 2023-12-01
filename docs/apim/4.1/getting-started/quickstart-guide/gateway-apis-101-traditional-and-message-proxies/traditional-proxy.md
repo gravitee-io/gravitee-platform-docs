@@ -12,7 +12,7 @@ A traditional proxy is the classic API Gateway use case. The Gateway will connec
 
 Let's continue with the API creation wizard to see how easily a traditional proxy can be created with Gravitee.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-11-09 at 7.52.06 PM.png" alt=""><figcaption><p>Creating a tradtional proxy</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-11-09 at 7.52.06 PM.png" alt=""><figcaption><p>Creating a traditional proxy</p></figcaption></figure>
 
 > * [x] Select **Proxy Upstream Protocol**
 > * [x] Click **Select my API Architecture** to continue
