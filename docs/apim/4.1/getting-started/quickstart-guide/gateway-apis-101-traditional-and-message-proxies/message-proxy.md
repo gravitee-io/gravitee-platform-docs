@@ -70,7 +70,7 @@ Endpoints are how your Gateway API connects to your backend message brokers. Eac
 
 For the purposes of this tutorial, we will select the **Mock** endpoint which is ideal for testing and demo purposes. The Mock endpoint will allow us to generate data without actually having to run a backend server.&#x20;
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-11-17 at 1.33.23 PM.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-11-17 at 1.33.23 PM.png" alt=""><figcaption><p>Select your endpoints</p></figcaption></figure>
 
 > * [x] Select the **Mock** endpoint
 > * [x] Click **Select my endpoints** to continue
@@ -177,3 +177,5 @@ Congrats! You have successfully deployed your first API to the Gateway and sent 
 You should now have a basic understanding of Gravitee APIM's most fundamental concept: Gateway APIs. The Quickstart guide will now build on that knowledge by diving into the real power of APIM: Plans and Policies.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><strong>Plans and Policies 101</strong></td><td></td><td><a href="../plans-and-policies-101.md">plans-and-policies-101.md</a></td></tr></tbody></table>
+
+cc
