@@ -27,8 +27,6 @@ Gravitee encourages you to engage with our support team if you experience issues
     <figure><img src="../../.gitbook/assets/support_portal menu (1).png" alt=""><figcaption></figcaption></figure>
 2.  Use the drop-down menus and text fields to enter the ticket details&#x20;
 
-
-
     <figure><img src="../../.gitbook/assets/support_portal ticket.png" alt=""><figcaption></figcaption></figure>
 3. Choose whether to receive a copy of the email, then click **SEND YOUR REQUEST**
 
@@ -40,8 +38,6 @@ You can send a message to the support team from the current API.
 
     <figure><img src="../../.gitbook/assets/support_api menu (1).png" alt=""><figcaption></figcaption></figure>
 2.  Use the drop-down menu and text fields to enter the ticket details
-
-
 
     <figure><img src="../../.gitbook/assets/support_api ticket.png" alt=""><figcaption></figcaption></figure>
 3. Choose whether to receive a copy of the email, then click **SEND YOUR REQUEST**
@@ -77,5 +73,3 @@ You can view your tickets from the current API.
 
     <figure><img src="../../.gitbook/assets/support_tix from api.png" alt=""><figcaption></figcaption></figure>
 2. Click a ticket entry in the list to view the ticket details and any messages
-
-\
