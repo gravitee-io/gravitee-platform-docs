@@ -144,6 +144,7 @@
 * [Administration](guides/administration/README.md)
   * [Administering organizations and environments](guides/administration/how-to.md)
   * [User Management and Permissions](guides/administration/user-management-and-permissions.md)
+  * [Support](guides/administration/support.md)
 * [Developer Contributions](guides/developer-contributions/README.md)
   * [Custom Plugins](guides/developer-contributions/dev-guide-plugins.md)
   * [Custom Policies](guides/developer-contributions/dev-guide-policies.md)
