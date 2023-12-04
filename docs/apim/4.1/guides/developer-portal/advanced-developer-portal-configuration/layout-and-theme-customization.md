@@ -64,6 +64,14 @@ To modify the sidebar settings:
 
 ### Categories
 
+{% hint style="warning" %}
+Categories currently only support v2 APIs. You can learn more about the differences between v4 vs v2 [here](../../../overview/gravitee-api-definitions-and-execution-engines/).
+{% endhint %}
+
+{% hint style="info" %}
+At least one API inside the category must be published for the category to be visible. You can publish an API from its Info page in the Management Console.
+{% endhint %}
+
 Administrators can modify the browsing experience offered by the Developer Portal's API Catalog. To organize APIs by category:
 
 * API categories must be added
