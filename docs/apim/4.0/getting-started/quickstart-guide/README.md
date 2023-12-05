@@ -50,7 +50,7 @@ To start an enterprise trial, follow these steps:
 > * [x] Confirm your email
 > * [x] Complete the setup ensuring you select **Quick setup** on the second step
 
-After you complete registration and your Enterprise trial has initialized, you will receive an email with a link to access Gravitee Cockpit. Gravitee Cockpit is an environment management solution and the “homepage” for your entire Gravitee platform.
+After you complete registration and your enterprise trial has initialized, you will receive an email with a link to access Gravitee Cockpit. Gravitee Cockpit is an environment management solution and the “homepage” for your entire Gravitee platform.
 
 <figure><img src="../../.gitbook/assets/ET_access apim.png" alt=""><figcaption><p>Cockpit homescreen</p></figcaption></figure>
 
