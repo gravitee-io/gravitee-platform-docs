@@ -68,7 +68,7 @@ After you complete registration and your enterprise trial has initialized, you w
 > * [x] Access Gravitee Cockpit from the registration email
 > * [x] After initialization is complete, access the APIM Console by selecting either of the **Access API Management** buttons (in the red boxes in the image above)
 
-This will take you to your APIM Console home screen, which should look similar to the following:
+This will take you to your APIM Console homescreen, which should look similar to the following:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-13 at 4.56.10 PM.png" alt=""><figcaption><p>APIM homescreen</p></figcaption></figure>
 
