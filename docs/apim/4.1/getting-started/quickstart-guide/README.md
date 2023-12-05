@@ -26,7 +26,7 @@ These guides will switch between explaining APIM concepts and directing you to c
 
 ## Prerequisites
 
-Before getting starting with this guide, you'll need:
+Before getting started, you'll need:
 
 1. Basic familiarity with web APIs and/or message brokers
 2. Gravitee APIM 4.0 or later up and running
@@ -51,7 +51,7 @@ Regardless of how APIM is deployed, the next step is to access the APIM Console.
 
 To start an enterprise trial, follow these steps:
 
-1. Navigate to [Gravitee Cockpit to register](https://cockpit.gravitee.io/)
+1. Navigate to [Gravitee Cockpit ](https://cockpit.gravitee.io/)to register
 2. Fill out and submit the registration form
 3. Walk through the setup guide to initialize your enterprise trial. In the step shown below, make sure you select **Quick setup**.
 
@@ -88,11 +88,11 @@ For the default local Docker installation, navigate to [`http://localhost:8084`]
 
 > * [x] Navigate to [`http://localhost:8084`](http://localhost:8084/) in your browser
 
-For a new installation, the default login is `admin` for both **Username** and **Password**. Logging in will take you to your APIM Console home screen, which should look similar to this:
+For a new installation, the default login is `admin` for both **Username** and **Password**. Logging in will take you to your APIM Console homescreen, which should look similar to this:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-02 at 12.20.36 PM.png" alt=""><figcaption><p>APIM Console Dashboard</p></figcaption></figure>
 
-> * [x] Log in to the APIM Console using `admin` for both **Username** and **Password**.
+> * [x] Log in to the APIM Console using `admin` for both **Username** and **Password**
 
 {% hint style="success" %}
 With access to the APIM Console, you'll be ready to dive straight into the Quickstart Guide. You should complete the 101 guides in order, as they build upon each other.
