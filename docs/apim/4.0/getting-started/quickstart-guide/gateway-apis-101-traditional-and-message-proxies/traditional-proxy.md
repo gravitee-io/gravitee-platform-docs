@@ -28,7 +28,7 @@ The next step is configuring how the Gateway will communicate with clients and b
 
 ### Entrypoints&#x20;
 
-For traditional proxies, the Gateway entrypoint will use the same protocol as your API server. This keeps entrypoint configuration very simple as the only requirement is one or more context-paths. A context-path is the unique route of the Gateway API.
+For traditional proxies, the Gateway entrypoint will use the same protocol as your API server. This keeps entrypoint configuration very simple, as the only requirement is one or more context-paths. A context-path is the unique route of the Gateway API.
 
 There are two important items to note about the context-path:
 
@@ -60,7 +60,7 @@ GET https://backend-api-server/orders
 
 ### Endpoints
 
-For traditional proxies, there are significantly more configuration options for the Gateway endpoints than entrypoints. However, we will only focus on a few of the options since most of them are standard HTTP configuration options.
+In addition to the standard HTTP configuration options, traditional proxies include several key Gateway endpoint settings. These are discussed in detail below.
 
 <figure><img src="../../../.gitbook/assets/traditional proxy_endpoint config.png" alt=""><figcaption><p>Endpoint configuration</p></figcaption></figure>
 
@@ -83,17 +83,17 @@ Let's imagine your backend API server, `https://backend-api-server/`, has two re
 
 #### Additional endpoint options
 
-As previously mentioned, the majority of the remaining configuration options are standard HTTP configuration options that you would generally pass as HTTP request headers such as managing connection timeouts, pipelining, redirects, etc. We will leave the default value for all of these settings.
+The majority of the remaining configuration options are standard HTTP configuration options that you would generally pass as HTTP request headers to manage connection timeouts, pipelining, redirects, etc. We will leave the default value for each of these settings.
 
 {% hint style="info" %}
 **SSL Options**
 
-It is worth clarifying that the SSL options shown are for the connection between the Gateway and your backend server. Configuring a custom truststore and keystore here will have no impact on client connections to the Gateway. mTLS between clients and the Gateway are [configured at the Gateway level](../../configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md), not the API level.
+To clarify, the SSL options shown here are for the connection between the Gateway and your backend server. Configuring a custom truststore and keystore will have no impact on client connections to the Gateway. mTLS between clients and the Gateway are [configured at the Gateway level](../../configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md), not the API level.
 {% endhint %}
 
 #### Set your Target URL
 
-For this guide, you are using `https://api.gravitee.io/echo` as your Target URL, and therefore, your backend service. This is a very simple public API server that, as the name suggests, echoes back some basic information about your API request like the headers and the size of the request body. Feel free to test out the endpoint directly in your terminal or your browser.
+For this guide, you are using `https://api.gravitee.io/echo` as your Target URL, and therefore, your backend service. This is a very simple public API server that, as the name suggests, echoes back some basic information about your API request, like the headers and the size of the request body. Feel free to test out the endpoint directly in your terminal or your browser.
 
 <figure><img src="../../../.gitbook/assets/traditional proxy_finish config.png" alt=""><figcaption><p>Finish endpoints configuration</p></figcaption></figure>
 
@@ -101,25 +101,26 @@ For this guide, you are using `https://api.gravitee.io/echo` as your Target URL,
 
 ## Security
 
-The next step is to configure your API security with plans. In APIM, a plan provides a service and access layer on top of your APIs specifying access limits, subscription validation modes, and other configurations to tailor it to a specific subset of API consumers. All APIs require one or more plans.
+The next step is to configure your API security via plans. In APIM, a plan provides a service and access layer on top of an API to specify access limits, subscription validation modes, and other configurations to tailor your API to a specific subset of API consumers. All APIs require one or more plans.
 
-We will be focusing on plans in the next part of the Quickstart Guide. So for now, leave the default keyless plan.
+We will be focusing on plans in the next part of the Quickstart Guide. For now, leave the default keyless plan.
 
 <figure><img src="../../../.gitbook/assets/traditional proxy_security.png" alt=""><figcaption><p>Gateway API security</p></figcaption></figure>
 
 > * [x] Leave defaults and select **Validate my plans** to continue to the final step
 
 {% hint style="danger" %}
-By default, a keyless plan provides unrestricted access to your backend services. If you’re deploying an API to the Gateway that proxies sensitive information, ensure it does not include a keyless plan.\
-\
-For production Gateways, keyless plans can be disabled entirely.
+By default, a keyless plan provides unrestricted access to your backend services.&#x20;
+
+* If you’re deploying an API to the Gateway that proxies sensitive information, ensure it does not include a keyless plan.
+* For production Gateways, keyless plans can be disabled entirely.
 {% endhint %}
 
 ## Summary
 
-The final step to creating an API is to review and then save your configuration. The API creation wizard presents you with two options:
+The final step in creating an API is to review and then save your configuration. The API creation wizard presents you with two options:
 
-* **Save API:** This option will save your API but it will not be available on the Gateway. This option is useful if you'd like to complete some more advanced configuration (e.g. adding policies) before starting the API on the Gateway.&#x20;
+* **Save API:** This option will save your API, but it will not be available on the Gateway. This is useful if you'd like to complete some more advanced configuration (e.g., adding policies) before starting the API.&#x20;
 * **Save & Deploy API:** This option will save your API and immediately start it on the Gateway.
 
 <figure><img src="../../../.gitbook/assets/traditional proxy_summary.png" alt=""><figcaption><p>Gateway API summary page</p></figcaption></figure>
@@ -128,43 +129,43 @@ The final step to creating an API is to review and then save your configuration.
 
 ## Manage your API
 
-You will be greeted with a screen confirming the creation of your new API with several shortcuts to help you start managing your API.
+You will be greeted with a screen that confirms the creation of your new API and includes several shortcuts to help you start managing it.
 
 <figure><img src="../../../.gitbook/assets/traditional proxy_confirmation.png" alt=""><figcaption><p>API creation confirmation</p></figcaption></figure>
 
 > * [x] Select **Open my API in API Management** to see how to manage your API
 
-This will take you straight to the **General Info** page that contains high-level metadata about your API as well as important actions for managing your API in the **Danger Zone**.
+This will take you straight to the **General Info** page that contains high-level metadata about your API, as well as important API management actions in the **Danger Zone**.
 
 <details>
 
 <summary>Danger Zone Deep Dive</summary>
 
-The **Danger Zone** should be self-descriptive. Be careful with these actions in production.
+The **Danger Zone** should be self-descriptive. Use these actions with caution in production.
 
-Each of these actions alters the state of your API. Below is a quick rundown of the different actions. Some of these may not make sense until you complete the entire Quickstart guide so feel free to come back to this later.
+Below is a short summary of the different actions, each of which alters the state of your API. Some of these may not make sense until you complete the entire Quickstart Guide, so you may want to reference this later.
 
-* **Stop the API/Start the API:** This action behaves like a toggle, stopping an active API or starting an inactive API. When stopped, all requests to API will result in the client receiving an HTTP `404 Not Found` response status code.
+* **Stop the API/Start the API:** This action behaves like a toggle, stopping an active API or starting an inactive API. When stopped, all requests to the API will result in the client receiving an HTTP `404 Not Found` response status code.
 * **Publish the API/Unpublish the API:** This action behaves like a toggle, publishing an unpublished API or unpublishing a published API. Publishing makes the API visible to members in the Developer Portal (also commonly referred to as an API catalog).
-* **Make Public/Make Private:** This action behaves like a toggle but only impacts published APIs. By default, published APIs can only be seen in the Developer Portal by members of that API. Making a published API public allows anybody with access to the Developer Portal to see the API.
+* **Make Public/Make Private:** This action behaves like a toggle, but only impacts published APIs. By default, published APIs can only be seen in the Developer Portal by members of that API. Making a published API public allows anybody with access to the Developer Portal to see the API.
 * **Deprecate:** This action permanently blocks any new subscription requests. However, active subscriptions will continue to function unless the API is stopped or deleted.
 * **Delete:** This action permanently deletes an API. To delete an API, it must be stopped and all plans must be deleted.
 
 </details>
 
-From this page, you can manage every aspect of your Gateway API by selecting different tabs on the inner sidebar. We'll be diving into some of these options later in the Quickstart guide.
+From this page, you can manage every aspect of your Gateway API by selecting different tabs from the inner sidebar. We'll be diving into some of these options later in the Quickstart Guide.
 
 <figure><img src="../../../.gitbook/assets/traditional proxy_general.png" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
 
 ## Test your API
 
-Your first API is now started on the Gateway. And since we are using a keyless plan, you can immediately test it by opening your terminal and sending the request below after modifying the relevant portions:
+Your first API is now started on the Gateway. Since we are using a keyless plan, you can immediately test it by opening your terminal and sending the request below, after modifying the relevant portions:
 
-* `your-gateway-server` should be replaced with the fully qualified domain name of your Gateway's server. Remember, your Gateway will be on a different domain than the Console UI. For example, the default local docker deployment has the Console UI on `localhost:8084` and the Gateway on `localhost:8082`.
+* `your-gateway-server` should be replaced with the fully qualified domain name of your Gateway's server. Remember, your Gateway will be on a different domain than the Console UI. For example, the default local Docker deployment has the Console UI on `localhost:8084` and the Gateway on `localhost:8082`.
 * `your-context-path` should be replaced by the context-path of the Gateway API you just deployed. You can always find the context-path under **Entrypoints**.
 
 {% hint style="warning" %}
-Ensure you use the proper protocol! For example, the default local docker installation of APIM would use `http` instead of `https` as SSL must be manually enabled.&#x20;
+Ensure you use the proper protocol! For example, the default local Docker installation of APIM would use `http` instead of `https`, as SSL must be manually enabled.&#x20;
 {% endhint %}
 
 {% code overflow="wrap" %}
@@ -173,7 +174,7 @@ curl -X GET -i "https://your-gateway-server/your-context-path" -d 'APIM Quicksta
 ```
 {% endcode %}
 
-You should receive the HTTP **`200 OK`** success status response code along with your headers echoed back and a `"bodySize":33` in the response body.
+You should receive the HTTP `200 OK` success status response code, along with your headers echoed back and a `"bodySize":33` in the response body.
 
 {% hint style="success" %}
 Congrats! You have successfully deployed your first API to the Gateway and sent your first request!
@@ -181,6 +182,6 @@ Congrats! You have successfully deployed your first API to the Gateway and sent 
 
 ## Next Steps
 
-You should now have a basic understanding of Gravitee APIM's most fundamental concept: Gateway APIs. The Quickstart guide will now build on that knowledge by diving into the real power of APIM: Plans and Policies.
+You should now have a basic understanding of Gravitee APIM's most fundamental concept: Gateway APIs. The Quickstart Guide will build on that knowledge by diving into the real power of APIM: Plans and Policies.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td><strong>Plans and Policies 101</strong></td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
