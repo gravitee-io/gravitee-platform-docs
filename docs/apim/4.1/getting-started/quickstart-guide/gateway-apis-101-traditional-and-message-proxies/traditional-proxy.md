@@ -91,7 +91,7 @@ The majority of the remaining configuration options are standard HTTP configurat
 To clarify, the SSL options shown here are for the connection between the Gateway and your backend server. Configuring a custom truststore and keystore will have no impact on client connections to the Gateway. mTLS between clients and the Gateway are [configured at the Gateway level](../../configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md), not the API level.
 {% endhint %}
 
-#### Set your Target URL
+#### Set your target URL
 
 For this guide, you are using `https://api.gravitee.io/echo` as your Target URL, and therefore, your backend service. This is a very simple public API server that, as the name suggests, echoes back some basic information about your API request, like the headers and the size of the request body. Feel free to test out the endpoint directly in your terminal or your browser.
 
@@ -139,7 +139,7 @@ This will take you straight to the **General Info** page that contains high-leve
 
 <details>
 
-<summary>Danger Zone Deep Dive</summary>
+<summary>Danger Zone deep dive</summary>
 
 The **Danger Zone** should be self-descriptive. Use these actions with caution in production.
 
