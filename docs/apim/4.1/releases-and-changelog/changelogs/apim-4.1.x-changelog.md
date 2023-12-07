@@ -5,15 +5,16 @@ description: >-
 ---
 
 # APIM 4.1.x
- 
+
 ## Gravitee API Management 4.1.5 - December 7, 2023
+
 <details>
 
-<summary>BugFixes</summary>
+<summary>Bug fixes</summary>
 
 **Gateway**
 
-* EL - request's local address is evaluated in place of remote address [#9408](https://github.com/gravitee-io/issues/issues/9408)
+* EL: Request's local address is evaluated in place of remote address [#9408](https://github.com/gravitee-io/issues/issues/9408)
 
 **Management API**
 
@@ -21,9 +22,9 @@ description: >-
 
 **Console**
 
-* Deploy banner not displayed when updating details of a Plan [#9380](https://github.com/gravitee-io/issues/issues/9380)
+* Deploy banner not displayed when updating details of a plan [#9380](https://github.com/gravitee-io/issues/issues/9380)
 * Error in Swagger documentation both in Portal and Console [#9391](https://github.com/gravitee-io/issues/issues/9391)
-* Bad management of required in open API File [#9414](https://github.com/gravitee-io/issues/issues/9414)
+* Bad management of required file in OpenAPI [#9414](https://github.com/gravitee-io/issues/issues/9414)
 
 **Portal**
 
@@ -31,8 +32,8 @@ description: >-
 
 **Helm Charts**
 
-* Alert Engine - system mail notification [#9402](https://github.com/gravitee-io/issues/issues/9402)
-* license deleted after helm upgrade [#9411](https://github.com/gravitee-io/issues/issues/9411)
+* Alert Engine: System mail notification [#9402](https://github.com/gravitee-io/issues/issues/9402)
+* License deleted after Helm upgrade [#9411](https://github.com/gravitee-io/issues/issues/9411)
 
 **Other**
 
@@ -46,15 +47,13 @@ description: >-
 
 **Management API**
 
-* Add a resource in management API V1 to fetch API subscribers with pagination info [#9410](https://github.com/gravitee-io/issues/issues/9410)
+* Add a resource in management API v1 to fetch API subscribers with pagination info [#9410](https://github.com/gravitee-io/issues/issues/9410)
 
 **Portal**
 
 * Update chore dependencies of Gravitee Portal [#9418](https://github.com/gravitee-io/issues/issues/9418)
 
 </details>
-
-
 
 ## Gravitee API Management 4.1.4 - November 24, 2023
 
