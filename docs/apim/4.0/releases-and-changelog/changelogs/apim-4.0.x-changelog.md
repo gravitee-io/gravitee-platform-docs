@@ -5,15 +5,16 @@ description: >-
 ---
 
 # APIM 4.0.x
- 
+
 ## Gravitee API Management 4.0.14 - December 7, 2023
+
 <details>
 
 <summary>BugFixes</summary>
 
 **Gateway**
 
-* EL - request's local address is evaluated in place of remote address [#9408](https://github.com/gravitee-io/issues/issues/9408)
+* EL: Request's local address is evaluated in place of remote address [#9408](https://github.com/gravitee-io/issues/issues/9408)
 
 **Management API**
 
@@ -21,9 +22,9 @@ description: >-
 
 **Console**
 
-* Deploy banner not displayed when updating details of a Plan [#9380](https://github.com/gravitee-io/issues/issues/9380)
+* Deploy banner not displayed when updating details of a plan [#9380](https://github.com/gravitee-io/issues/issues/9380)
 * Error in Swagger documentation both in Portal and Console [#9391](https://github.com/gravitee-io/issues/issues/9391)
-* Bad management of required in open API File [#9414](https://github.com/gravitee-io/issues/issues/9414)
+* Bad management of required OpenAPI file [#9414](https://github.com/gravitee-io/issues/issues/9414)
 
 **Portal**
 
@@ -31,8 +32,8 @@ description: >-
 
 **Helm Charts**
 
-* Alert Engine - system mail notification [#9402](https://github.com/gravitee-io/issues/issues/9402)
-* license deleted after helm upgrade [#9411](https://github.com/gravitee-io/issues/issues/9411)
+* Alert Engine: System mail notification [#9402](https://github.com/gravitee-io/issues/issues/9402)
+* License deleted after Helm upgrade [#9411](https://github.com/gravitee-io/issues/issues/9411)
 
 **Other**
 
@@ -53,8 +54,6 @@ description: >-
 * Update chore dependencies of Gravitee Portal [#9418](https://github.com/gravitee-io/issues/issues/9418)
 
 </details>
-
-
 
 ## Gravitee API Management 4.0.13 - November 24, 2023
 
