@@ -10,7 +10,7 @@ description: >-
 
 <details>
 
-<summary>BugFixes</summary>
+<summary>Bug fixes</summary>
 
 **Gateway**
 
@@ -24,7 +24,7 @@ description: >-
 
 * Deploy banner not displayed when updating details of a plan [#9380](https://github.com/gravitee-io/issues/issues/9380)
 * Error in Swagger documentation both in Portal and Console [#9391](https://github.com/gravitee-io/issues/issues/9391)
-* Bad management of required OpenAPI file [#9414](https://github.com/gravitee-io/issues/issues/9414)
+* Bad management of required file in OpenAPI [#9414](https://github.com/gravitee-io/issues/issues/9414)
 
 **Portal**
 
@@ -47,7 +47,7 @@ description: >-
 
 **Management API**
 
-* Add a resource in management API V1 to fetch API subscribers with pagination info [#9410](https://github.com/gravitee-io/issues/issues/9410)
+* Add a resource in management API v1 to fetch API subscribers with pagination info [#9410](https://github.com/gravitee-io/issues/issues/9410)
 
 **Portal**
 
