@@ -5,23 +5,26 @@ description: Add layers of security and functionality to your backend resources
 # Plans and Policies 101
 
 {% hint style="warning" %}
-This is the second section of the Quickstart Guide. By this point, you should already have [created a Gateway API](broken-reference). The relevant steps will be provided for both traditional proxy and message proxy Gateway APIs.
+This is the second section of the Quickstart Guide.&#x20;
+
+* By this point, you should already have [created a Gateway API](broken-reference).&#x20;
+* Steps will be provided for both traditional proxy and message proxy Gateway APIs.
 {% endhint %}
 
 ## Overview
 
 The next two core Gravitee API Management (APIM) concepts we will focus on are plans and policies:
 
-* **Plans:** an access layer around APIs that provides API publishers with a method to secure, monitor, and transparently communicate details around access for different subsets of API consumers.
-* **Policies:** customizable rules or logic the Gateway executes during an API transaction. Policies generally fall into the categories of security, transformation, restrictions, performance, routing, or monitoring & testing.
+* **Plan:** Provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor your API to a specific subset of API consumers.
+* **Policies:** Customizable rules or logic the Gateway executes during an API transaction. Policies generally fall into the categories of security, transformation, restrictions, performance, routing, or monitoring & testing.
 
-Plans and policies are managed by the API publisher, the owner of the backend resources, to add different layers of security and functionality to their backend resources.
+Plans and policies are managed by the API publisher to add different layers of security and functionality to the backend resources they own.
 
 <figure><img src="../../.gitbook/assets/plans drawing.png" alt=""><figcaption><p>Gateway plans and policies</p></figcaption></figure>
 
 ### Plans
 
-There are many possible types of API access scenarios, which can be difficult to encode into your backend services. Plans are a powerful way to decouple the business logic from the access control of your backend services.&#x20;
+There are many possible API access scenarios, any of which can be difficult to encode into your backend services. Plans are a powerful way to decouple the business logic from the access control of your backend services.&#x20;
 
 In APIM, all APIs require at least one plan before they can be deployed on the Gateway. The most important part of plan configuration is selecting the security type. APIM supports the following five security types:
 
@@ -37,23 +40,23 @@ APIM intelligently routes API consumers to plans [based on specific criteria](..
 
 <summary>Applications and subscriptions</summary>
 
-Plans are an access layer around APIs. An _application_ allows an API consumer to register and agree to this plan. If the registration is approved by the API publisher, the result is a successful contract or _subscription_.
+Plans are an access layer around APIs. An _application_ allows an API consumer to register and agree to this plan. If the registration is approved by the API publisher, the result is a successful contract, or _subscription_.
 
 To access your APIs, consumers must register an application and submit a subscription request to a published API plan. Applications act on behalf of the user to request tokens, provide user identity information, and retrieve protected resources from remote services and APIs.
 
-API publishers can modify a subscription at any time which includes transferring API consumers to a different plan, pausing the subscription, setting an expiration date, or permanently closing a subscription.
+API publishers can modify a subscription at any time, which includes transferring API consumers to a different plan, pausing the subscription, setting an expiration date, or permanently closing a subscription.
 
 #### **Keyless plan subscriptions**
 
-APIs with keyless plans do not require the API consumer to create an application or submit a subscription request as no authorization is required with this plan. Deployed APIs with a keyless plan will be publicly available on the Gateway's network.
+Because keyless plans do not require authorization, APIs with keyless plans do not require the API consumer to create an application or submit a subscription request. Deployed APIs with a keyless plan will be publicly available on the Gateway's network.
 
 </details>
 
 ### Policies
 
-A policy modifies the behavior of the request or response handled by APIM Gateway. Policies can be considered like a proxy controller, guaranteeing that a given business rule is fulfilled during request/response processing.
+A policy modifies the behavior of the request or response handled by APIM Gateway. Policies can be considered a proxy controller, guaranteeing that a given business rule is fulfilled during request/response processing.
 
-The request and response of an API transaction are broken up into _phases_. Policies can applied to these phases in policy chains of arbitrary length.
+The request and response of an API transaction are broken up into _phases_. Policies can be applied to these phases in policy chains of arbitrary length.
 
 <details>
 
@@ -61,14 +64,14 @@ The request and response of an API transaction are broken up into _phases_. Poli
 
 Gateway APIs have the following phases:
 
-* **Request:** This phase is executed before invoking the backend services for both traditional and message proxy APIs. Policies can act on the headers and the content for traditional proxy APIs.
-* **Publish:** This phase occurs after the request phase and allows policies to act on each incoming message before being sent to the backend service. This phase only applies to message proxy APIs.
-* **Response:** This phase is executed after invoking the backend services for both traditional proxy and message proxy APIs. Policies can act on the headers and the content for traditional proxy APIs.
-* **Subscribe:** This phase is executed after the response phase and allows policies to act on each outgoing message before being sent to the client application. This phase only applies to message proxy APIs.
+* **Request:** For both traditional and message proxy APIs, this phase is executed before invoking the backend service. Policies can act on the headers and content of traditional proxy APIs.
+* **Publish:** This phase occurs after the request phase and allows policies to act on each incoming message before it is sent to the backend service. This phase only applies to message proxy APIs.
+* **Response:** For both traditional proxy and message proxy APIs, this phase is executed after invoking the backend service. Policies can act on the headers and content of traditional proxy APIs.
+* **Subscribe:** This phase is executed after the response phase and allows policies to act on each outgoing message before it is sent to the client application. This phase only applies to message proxy APIs.
 
 </details>
 
-Policies are scoped to different API consumers through _flows_. Flows are essentially a method to control where, and under what conditions, a group of policies act on an API transaction.&#x20;
+Policies are scoped to different API consumers through _flows_. Flows are a method to control where, and under what conditions, a group of policies act on an API transaction.&#x20;
 
 ### Example
 
