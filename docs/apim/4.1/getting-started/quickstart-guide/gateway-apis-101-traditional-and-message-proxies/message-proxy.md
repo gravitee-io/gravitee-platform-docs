@@ -87,7 +87,7 @@ The configuration is highly specific to the endpoint you select. For our Mock en
 
 ## Security
 
-The next step is to configure your API security with plans. In APIM, a plan provides a service and access layer on top of your APIs that specifies access limits, subscription validation modes, and other configurations to tailor your API to a specific subset of API consumers. All APIs require one or more plans.
+The next step is to configure your API security with plans. In APIM, a plan provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor your API to a specific subset of API consumers. All APIs require one or more plans.
 
 We will be focusing on plans in the next part of the Quickstart Guide. For now, we will use the default keyless plan.
 
