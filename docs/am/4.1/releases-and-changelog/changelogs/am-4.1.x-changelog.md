@@ -8,27 +8,22 @@ description: >-
 
 ## Gravitee Access Management 4.1.8 - December 11, 2023
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Original Parameters lost during redirect using SAML Handler https://github.com/gravitee-io/issues/issues/9393[#9393]
-* Avoid to log GeoIP error stackstrace  https://github.com/gravitee-io/issues/issues/9401[#9401]
-
-
-
-
+* Original Parameters lost during redirect using SAML Handler [#9393](https://github.com/gravitee-io/issues/issues/9393)
+* Avoid logging GeoIP error stackstrace [#9401](https://github.com/gravitee-io/issues/issues/9401)
 
 **Other**
 
-* Invalid value in Issuer for Response https://github.com/gravitee-io/issues/issues/9409[#9409]
-* MessageDigest Encoder is not ThreadSafe https://github.com/gravitee-io/issues/issues/9413[#9413]
-* Configuration files are beeing overwritten during yum update https://github.com/gravitee-io/issues/issues/9368[#9368]
+* Invalid value in Issuer for Response [#9409](https://github.com/gravitee-io/issues/issues/9409)
+* MessageDigest Encoder is not ThreadSafe [#9413](https://github.com/gravitee-io/issues/issues/9413)
+* Configuration files are being overwritten during YUM update [#9368](https://github.com/gravitee-io/issues/issues/9368)
 
 </details>
-
 
 ## Gravitee Access Management 4.1.7 - November 22, 2023
 
