@@ -75,27 +75,25 @@ Policies are scoped to different API consumers through _flows_. Flows are a meth
 
 ### Example
 
-Let's say you have a backend API server architected around flight data. The data itself is not sensitive, and you want to allow anyone to easily read the data. However, the data itself is supplied by verified airlines; therefore, you want to limit data modifications to specific API consumers that are explicitly granted permission.&#x20;
+Let's say you have a backend API server architected around flight data. This data is not sensitive and you want to allow anyone to easily access it. However, because the data is supplied by verified airlines, you want to limit data modifications to specific API consumers who are explicitly granted permission.&#x20;
 
-APIM makes this easy and does not require any modifications to the backend API server.&#x20;
+This is easily achieved with APIM and does not require any changes to the backend API server.&#x20;
 
-In APIM, you could create two plans: a keyless plan and a JWT plan. The keyless plan does not require API consumers to create an application or submit a subscription request. The keyless plan allows API consumers on the Gateway's network to immediately begin sending requests to this API through the available entrypoints.
+First, you could create two plans in APIM: A keyless plan and a JWT plan. The keyless plan does not require API consumers to create an application or submit a subscription request and allows API consumers on the Gateway's network to immediately begin sending requests through the available entrypoints.
 
-However, you also configure the keyless plan with a flow containing a resource filtering policy applied to the request phase. This policy is configured to only grant read access to the backend API. All other types of API requests (e.g. POST, PUT, DELETE, etc.) will be denied.
+However, you would also configure the keyless plan with a flow containing a resource filtering policy applied to the request phase. This policy would be configured to grant read access only to the backend API. All other types of API requests (e.g., POST, PUT, DELETE, etc.) would be denied.
 
-The flow with the resource filtering policy does not apply to the JWT plan. Therefore, API consumers subscribed to the JWT plan can modify data associated with their airline. But to be granted access, users must first create an application and submit a subscription request that must be approved by you, the API publisher.&#x20;
+The flow with the resource filtering policy does not apply to the JWT plan and API consumers subscribed to it could modify data associated with their airline. However, to be granted access to the JWT plan, users need to first create an application and submit a subscription request that must be approved by you, the API publisher.&#x20;
 
 ***
 
 ## Add a policy
 
-Let's see how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart guide](gateway-apis-101-traditional-and-message-proxies/).
+Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](gateway-apis-101-traditional-and-message-proxies/).
 
 ### Access API
 
-First, we need to open the API in the APIM Console. You may already have the API open from the previous part of the Quickstart guide.
-
-If not, simply head back over to **APIs** home screen and select the API you created.
+First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, simply head back over to the **APIs** homescreen and select the API you created.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 8.25.21 PM.png" alt=""><figcaption><p>APIs homescreen</p></figcaption></figure>
 
@@ -104,67 +102,69 @@ If not, simply head back over to **APIs** home screen and select the API you cre
 
 ### Policy Studio
 
-Once you're back to your API's **General Info** page, we need to go to the **Policy Studio**.&#x20;
+Once you're back to your API's **General Info** page, go to the **Policy Studio**.&#x20;
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 8.55.51 PM.png" alt=""><figcaption><p>API General Info page</p></figcaption></figure>
 
-> * [x] Select **Policy Studio** in the inner sidebar
+> * [x] Select **Policy Studio** from the inner sidebar
 
 #### Creating a flow
 
-The Policy Studio is a powerful interface for visually designing flows and applying policies to your APIs. Remember, flows are a way to group policies and set conditions that determine what API requests trigger the flow.
+The Policy Studio is a powerful interface for visually designing flows and applying policies to APIs. Remember, flows are a way to group policies and set conditions that determine which API requests trigger the flow.
 
-The first way to condition a flow is by plan. Every plan that is added to an API can have its own set of flows. You should see your **Default Keyless (UNSECURED)** plan on the left side of the Policy Studio.&#x20;
+One way to condition a flow is by plan. Every plan that is added to an API can have its own set of flows.&#x20;
 
-Additionally, you should see **Common flows**. Let's add a flow here to ensure our policy applies to all consumers of our API, regardless of the plan they are subscribed to.
+You should see your **Default Keyless (UNSECURED)** plan on the left side of the Policy Studio. Additionally, you should see **Common flows**. Let's add a flow to **Common flows** to ensure our policy applies to all consumers of our API, regardless of the plan they are subscribed to.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.15.20 PM.png" alt=""><figcaption><p>Adding a flow under Common flows</p></figcaption></figure>
 
-> * [x] Select the **+ icon** to the right of Common flows
+> * [x] Select the **+ icon** to the right of **Common flows**
 > * [x] Provide a name for the flow and select **Create**
 
 <details>
 
 <summary>Flow conditions</summary>
 
-We are purposefully keeping this flow very simple. However, the conditions that trigger a flow can be fine-tuned far beyond just assigning the flow to a plan.&#x20;
+We are purposefully keeping this flow very simple. However, the conditions that trigger a flow can be fine-tuned beyond assigning the flow to a plan:&#x20;
 
-* **Operator and path:** Use this condition to trigger a flow based on the path of the API request. This condition is evaluated for every request and the flow will only trigger if this condition evaluates to `true`
-* **Methods:** Select the HTTP methods this flow will apply to
-* **Expression Language Condition:** Use [Gravitee's Expression Language (EL)](../../guides/gravitee-expression-language.md) to provide custom conditions. This condition is evaluated for every request and the flow will only trigger if this condition evaluates to `true`
+* **Operator and path:** Use this to trigger a flow based on the path of the API request. The condition is evaluated for every request and the flow is only triggered if it evaluates to `true`.
+* **Methods:** Select the HTTP methods this flow applies to.
+* **Expression Language Condition:** Use [Gravitee's Expression Language (EL)](../../guides/gravitee-expression-language.md) to provide a custom condition. The condition is evaluated for every request and the flow is only triggered if it evaluates to `true`.
 
 </details>
 
 #### Adding a policy
 
-Creating the flow will open up the flow editor. This screen will look different based on whether you are working with a traditional or message proxy API. Follow the instructions that match your API's proxy type:
+Creating a flow opens up the flow editor. This screen will look different based on whether you are working with a traditional or message proxy API. Follow the instructions that match your API's proxy type:
 
-* **Traditional proxy:** These APIs only have two phases available, request and response. We will be adding the policy to the response phase.
+* **Traditional proxy:** The only phases available to traditional proxy APIs are request and response. We will be adding a policy to the response phase.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.28.53 PM.png" alt=""><figcaption><p>Add policy to the response phase of traditional proxy API</p></figcaption></figure>
 
 > * [x] Select the **+ icon** in the **Response phase**
 
-* **Message proxy:** These APIs have four phases available, request, response, publish, and subscribe. The publish and subscribe phase allows the policy to be applied on the message level. We will be adding the policy to the subscribe phase.
+* **Message proxy:** The phases available to message proxy APIs are request, response, publish, and subscribe. The publish and subscribe phases allow the policy to be applied at the message level. We will be adding the policy to the subscribe phase.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.29.28 PM (1).png" alt=""><figcaption><p>Add policy to the subscribe phase of a message proxy API</p></figcaption></figure>
 
 > * [x] Select the **Event messages** tab in the flow editor
 > * [x] Select the **+ icon** in the **Subscribe phase**
 
-The next steps will look the same for both traditional and message proxy APIs.
+{% hint style="info" %}
+The next steps are the same for both traditional and message proxy APIs.
+{% endhint %}
 
 The previous actions will open up the policy selector. We are going to add an Assign Content policy that allows us to modify the content of the payload before it reaches the API consumer.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.35.55 PM.png" alt=""><figcaption><p>Adding an Assign Content policy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.35.55 PM.png" alt=""><figcaption><p>Add an Assign Content policy</p></figcaption></figure>
 
 > * [x] Click Select under the **Assign content** policy
 
-Every policy allows you to provide a **Description** and a **Trigger condition**. Trigger conditions for policies are just like trigger conditions for flows except these allow you to set independent conditions for each policy.&#x20;
+Every policy allows you to provide a **Description** and a **Trigger condition**. Trigger conditions for policies are just like trigger conditions for flows, except these allow you to set independent conditions for each policy.&#x20;
 
-Additionally, every policy has configuration settings specific to that policy. For the Assign Content policy, we can override the payload of the response or individual message by supplying a string in the **Body content** input box.
+Additionally, every policy has configuration settings specific to it. For the Assign Content policy, we can override the payload of the response or individual message by supplying a string in the **Body content** input box.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.42.39 PM.png" alt=""><figcaption><p>Configuring the Assign Content policy</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.42.39 PM.png" alt=""><figcaption><p>Configure the Assign Content policy</p></figcaption></figure>
 
 > * [x] Type a string in the **Body content** input box
 > * [x] Select **Add policy** to add it the flow
@@ -174,20 +174,20 @@ You should now see the Assign Content policy added to the correct phase of the f
 
 #### Redeploy an API
 
-After saving, you'll notice a banner appearing at the top of the Console that says **This API is out of sync**. This means the changes you have made in the Console are saved but have not yet been propagated to the Gateway.&#x20;
+After saving, you'll notice a banner appears at the top of the Console that says **This API is out of sync**. This means the changes you made in the Console are saved but have not yet been propagated to the Gateway.&#x20;
 
 To ensure these changes are synced to the Gateway, the API must be redeployed.&#x20;
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.50.29 PM.png" alt=""><figcaption><p>Redeploying an API</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.50.29 PM.png" alt=""><figcaption><p>Redeploy an API</p></figcaption></figure>
 
 > * [x] Select **Deploy API** in the top right
-> * [x] Select **Deploy** in the modal that pop-ups on the screen
+> * [x] Select **Deploy** in the modal that pops up on the screen
 
-This is an essential concept to understand. Deploying an API is a sync mechanism between the Console and Gateway. Changes in the Console must be synced to the Gateway for them to have any impact on the API consumers actually sending requests to the Gateway.
+This is an essential concept to understand. API deployment is a syncing mechanism between the Console and Gateway. Changes in the Console must be synced to the Gateway for them to have any impact on the API consumers who send requests to the Gateway.
 
 ### Test your policy
 
-Try sending the same request from the first part of the Quickstart guide.
+Try sending the same request from the first part of the Quickstart Guide.
 
 {% code overflow="wrap" %}
 ```sh
@@ -201,15 +201,15 @@ Regardless of whether it's a traditional or message proxy API, the payload of th
 
 ## Add a plan
 
-Now let's see how we can manage the plans for this same API.
+Now let's see how we can manage the plans for this API.
 
 ### Manage your API's plans
 
-From the Policy Studio, we need to go to the **Plans** page.&#x20;
+From the Policy Studio, go to the **Plans** page.&#x20;
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.53.19 PM.png" alt=""><figcaption><p>Policy Studio</p></figcaption></figure>
 
-> * [x] Select **Plans** in the inner sidebar
+> * [x] Select **Plans** from the inner sidebar
 
 From here, we can manage all the plans and subscriptions for this API. Currently, the only plan you should see is the **Default Keylesss (UNSECURED)** plan that was added by default when creating the API.
 
@@ -221,62 +221,62 @@ This plan is currently in the published state. Plans can be in one of four state
 
 <summary>Plan stages explained</summary>
 
-**Staging:** This is the first stage of a plan. View it as a draft mode. You can configure your plan but it won’t be accessible to users.
+**Staging:** This is the first stage of a plan, when the plan is in draft mode. You can configure your plan, but it won’t be accessible to users.
 
-**Published:** Once your plan is ready, you can publish it to let API consumers view and subscribe on the APIM Portal and consume the API through it. A published plan can still be edited.
+**Published:** Once your plan is ready, you can publish it to let API consumers view and subscribe to it on the APIM Portal, then consume the API through it. A published plan can still be edited.
 
-**Deprecated (optional state):** You can deprecate a plan so it won’t be available on the APIM portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain so it doesn’t impact your existing API consumers.
+**Deprecated (optional state):** You can deprecate a plan so it won’t be available on the APIM Portal and API consumers won’t be able to subscribe to it. Existing subscriptions remain, so deprecation doesn’t impact your existing API consumers.
 
-**Closed:** Once a plan is closed, all associated subscriptions are closed too. This can not be undone. API consumers subscribed to this plan won’t be able to use your API.
+**Closed:** Once a plan is closed, all associated subscriptions are closed. This cannot be undone. API consumers subscribed to the plan won’t be able to use your API.
 
 </details>
 
-Let's go ahead and add an API key plan for some security:
+Let's go ahead and add API security with an API key plan:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 9.04.47 PM.png" alt=""><figcaption><p>API Plans page</p></figcaption></figure>
 
 > * [x] Select **+ Add new plan** in the top right
-> * [x] Select **API Key** in the dropdown
+> * [x] Select **API Key** from the drop-down menu
 
-This will open the **General** page of the plan creation wizard. The only required configuration is providing the plan a name.
+This opens the **General** page of the plan creation wizard. The only required configuration is to provide the plan with a name.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 9.07.46 PM.png" alt=""><figcaption><p>General page of plan creation wizard</p></figcaption></figure>
 
 > * [x] Provide a **Name** for the plan
-> * [x] Scroll down to the bottom and select **Next**
+> * [x] Scroll down to the bottom of the page and click **Next**
 
 The next step is to configure the security settings specific to the plan type you selected. For our API key plan, we will just keep the defaults.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 9.09.54 PM.png" alt=""><figcaption><p>Security configuration page of plan creation wizard</p></figcaption></figure>
 
-> * [x] Leave the defaults and select **Next**
+> * [x] Leave the defaults and click **Next**
 
-Finally, if desired, you can add some restriction policies directly to the plan as part of the creation process.
+Finally, you have the option to add restriction policies directly to the plan as part of the creation process.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 9.10.35 PM.png" alt=""><figcaption><p>Restrictions page of the plan creation wizard</p></figcaption></figure>
 
-> * [x] Leave the defaults and select **Create**
+> * [x] Leave the defaults and click **Create**
 
 This will create the plan in the **Staging** state. To make it available to API consumers, we need to publish it.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 9.14.55 PM.png" alt=""><figcaption><p>Publish the new API key plan</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 9.14.55 PM.png" alt=""><figcaption><p>Publish the API key plan</p></figcaption></figure>
 
-> * [x] Select the **publish icon** to the far right of plan
-> * [x] Select **Publish** in the modal that pop-ups on the screen
+> * [x] Select the **publish icon** to the far right of the plan
+> * [x] Select **Publish** in the modal that pops up on the screen
 
-This will change the API key plan from a staging to published state.&#x20;
+This will change the API key plan's state from staging to published.&#x20;
 
-To ensure our new API key plan can't be bypassed, we want to go ahead and close the keyless plan and then sync all the changes we've made to the Gateway.
+To ensure our new API key plan can't be bypassed, we need to close the keyless plan and then sync all the changes we've made to the Gateway.
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 9.24.55 PM.png" alt=""><figcaption><p>Closing the keyless plan </p></figcaption></figure>
 
 > * [x] Select the **delete icon** to the far right of the keyless plan
-> * [x] Confirm the delete by typing in the name of the plan and then selecting **Yes, close this plan**
-> * [x] Sync these changes to the Gateway by selecting **Deploy API** in the banner&#x20;
+> * [x] Confirm the delete by typing in the name of the plan and then clicking **Yes, close this plan**
+> * [x] Sync these changes to the Gateway by clicking **Deploy API** in the banner&#x20;
 
 ### Test the plan
 
-One more time, try sending the same request from the first part of the Quickstart guide.
+One more time, try sending the same request from the first part of the Quickstart Guide.
 
 {% code overflow="wrap" %}
 ```sh
@@ -288,12 +288,12 @@ curl -X GET -i "https://your-gateway-server/your-context-path"
 The request will be denied with an HTTP **`401 Unauthorized`** error response status code.&#x20;
 {% endhint %}
 
-Although an error response, this is a success as it confirms the keyless plan was removed and all requests are now routed to the API key plan. We will need to subscribe and pass the proper authorization token with each request to continue to use the API.
+The error response confirms the keyless plan was removed and all requests are now routed to the API key plan. We will need to subscribe to the API key plan and pass the proper authorization token with each request to continue to use the API.
 
 ## Next steps
 
-You should now be starting to grasp the power and the versatility of the Gravitee APIM platform that allows it to address a huge diversity of use cases.&#x20;
+You should now be starting to grasp the power, versatility, and scope of the Gravitee APIM platform.&#x20;
 
-For the final part of the Quickstart guide, we will be diving into the Developer Portal to show how API publishers can expose and catalog their APIs, and how API consumers can create applications and subscribe to APIs in that catalog.
+For the final part of the Quickstart Guide, we will be diving into the Developer Portal to show how API publishers can expose and catalog their APIs, and how API consumers can create applications and subscribe to APIs in a catalog.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Developer Portal 101</td><td></td><td><a href="developer-portal-101.md">developer-portal-101.md</a></td></tr></tbody></table>
