@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.6 - December 11, 2023
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* Excessive number of ExpiredJWTException errors in Gravitee logs https://github.com/gravitee-io/issues/issues/9261[#9261]
+* Original Parameters lost during redirect using SAML Handler https://github.com/gravitee-io/issues/issues/9393[#9393]
+* Avoid to log GeoIP error stackstrace  https://github.com/gravitee-io/issues/issues/9401[#9401]
+
+
+**Other**
+
+* Invalid value in Issuer for Response https://github.com/gravitee-io/issues/issues/9409[#9409]
+* MessageDigest Encoder is not ThreadSafe https://github.com/gravitee-io/issues/issues/9413[#9413]
+* Configuration files are beeing overwritten during yum update https://github.com/gravitee-io/issues/issues/9368[#9368]
+</details>
+
+
 ## Gravitee Access Management 4.0.5 - November 10, 2023
 
 <details>
