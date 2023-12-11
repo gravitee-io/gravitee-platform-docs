@@ -88,7 +88,7 @@ The **Applications** page is comprised of the following resources for active and
 As of Gravitee 4.0, the Audit Trail is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
 * [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/)
-* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
@@ -151,7 +151,7 @@ Gravitee allows you to configure alerts and notifications through API Management
 
 ### Alert Engine and API Monitoring
 
-In addition to Gravitee API Management and all of its features to measure, track, log, audit, etc. API consumption and performance, Gravitee also offers an enterprise-grade API Monitoring and Alerting solution called Gravitee Alert Engine (AE). To learn more about Gravitee AE, please refer to the [Gravitee AE documentation](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/WAKqxjzYogMr1tk18evT/).
+In addition to Gravitee API Management and all of its features to measure, track, log, audit, etc. API consumption and performance, Gravitee also offers an enterprise-grade API Monitoring and Alerting solution called Gravitee Alert Engine (AE). To learn more about Gravitee AE, please refer to the [Gravitee AE documentation](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/WAKqxjzYogMr1tk18evT/).
 
 ### Making APIs more performant and reliable
 
