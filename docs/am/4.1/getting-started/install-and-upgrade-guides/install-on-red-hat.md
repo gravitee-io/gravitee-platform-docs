@@ -61,8 +61,8 @@ Before you install the AM stack, you must complete the following configuration.
 To install Nginx, run the following commands:
 
 ```sh
-$ sudo yum install epel-release
-$ sudo yum install nginx
+sudo yum install epel-release
+sudo yum install nginx
 ```
 
 ### Install the AM package (no dependencies)
@@ -82,20 +82,20 @@ Before you install the AM package, you may need to add third-party repositories.
 **MongoDB**
 
 {% hint style="info" %}
-For guidance on installing and configuring MongoDB, see the [MongoDB installation documentation](https://www.mongodb.com/docs/v4.4/tutorial/install-mongodb-on-red-hat/).
+For guidance on installing and configuring MongoDB, see the [MongoDB installation documentation](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/).
 {% endhint %}
 
 {% code overflow="wrap" %}
 ```sh
-$ echo "[mongodb-org-4.4]
+echo "[mongodb-org-7.0]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/7.0/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc" | sudo tee /etc/yum.repos.d/mongodb-org-4.4.repo > /dev/null
+gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc" | sudo tee /etc/yum.repos.d/mongodb-org-7.0.repo > /dev/null
 
-$ sudo yum install -y mongodb-org
-$ sudo systemctl start mongod
+sudo yum install -y mongodb-org
+sudo systemctl start mongod
 ```
 {% endcode %}
 
@@ -112,9 +112,9 @@ curl -L https://raw.githubusercontent.com/gravitee-io/scripts/master/am/4.x/inst
 To start up the AM components, run the following commands:
 
 ```sh
-$ sudo systemctl daemon-reload
-$ sudo systemctl start graviteeio-am-3x-gateway graviteeio-am-4x-management-api
-$ sudo systemctl restart nginx
+sudo systemctl daemon-reload
+sudo systemctl start graviteeio-am-4x-gateway graviteeio-am-4x-management-api
+sudo systemctl restart nginx
 ```
 
 ### Check the AM components are running
@@ -126,6 +126,25 @@ When all components are started, you can do a quick test to see if everything is
 | AM Gateway | [http://localhost:8092](http://localhost:8092/) |
 | AM API     | [http://localhost:8093](http://localhost:8093/) |
 | AM Console | [http://localhost:8094](http://localhost:8094/) |
+
+
+### Upgrade AM
+
+In order to upgrade your AM installation, you will have to proceed the package upgrade and then restart am:
+
+{% hint style="info" %}
+Since maintained version 4.1.8 and above the rpm upgrade of AM component is easier. Now you can simply upgrade and restart AM.
+{% endhint %}
+{% hint style="warning" %}
+Always take a look on the changelog to follow potential breaking change.
+{% endhint %}
+
+```sh
+sudo yum upgrade -y graviteeio-am-4x
+sudo systemctl daemon-reload
+sudo systemctl restart graviteeio-am-4x-gateway graviteeio-am-4x-management-api nginx
+```
+
 
 ## Install AM Gateway
 
@@ -141,15 +160,15 @@ These steps assume that you are using the default settings.
 
 To configure AM Gateway to start automatically when the system boots up, run the following commands:
 
-<pre class="language-sh"><code class="lang-sh"><strong>$ sudo systemctl daemon-reload
-</strong>$ sudo systemctl enable graviteeio-am-gateway
+<pre class="language-sh"><code class="lang-sh"><strong>sudo systemctl daemon-reload
+</strong>sudo systemctl enable graviteeio-am-gateway
 </code></pre>
 
 To start and stop AM Gateway, run the following commands:
 
 ```sh
-$ sudo systemctl start graviteeio-am-gateway
-$ sudo systemctl stop graviteeio-am-gateway
+sudo systemctl start graviteeio-am-gateway
+sudo systemctl stop graviteeio-am-gateway
 ```
 
 {% hint style="info" %}
@@ -178,6 +197,16 @@ To list journal entries for the AM Gateway service starting from a given time, r
 sudo journalctl --unit graviteeio-am-gateway --since  "2020-01-30 12:13:14"
 ```
 
+### Upgrade AM Gateway
+
+Since maintained version 4.1.8 and above, to upgrade an AM component you can simply do a yum upgrade and restart AM:
+
+```sh
+sudo yum upgrade -y graviteeio-am-gateway-4x
+sudo systemctl restart graviteeio-am-gateway
+```
+
+
 ## Install AM API
 
 AM API is required to run AM Console. You must install AM API first before you can use AM Console.
@@ -195,15 +224,15 @@ These steps assume that you are using the default settings.
 To configure AM API to start automatically when the system boots up, run the following commands:
 
 ```sh
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable graviteeio-am-management-api
+sudo systemctl daemon-reload
+sudo systemctl enable graviteeio-am-management-api
 ```
 
 To start and stop AM API, run the following commands:
 
 ```sh
-$ sudo systemctl start graviteeio-am-management-api
-$ sudo systemctl stop graviteeio-am-management-api
+sudo systemctl start graviteeio-am-management-api
+sudo systemctl stop graviteeio-am-management-api
 ```
 
 {% hint style="info" %}
@@ -232,6 +261,17 @@ To list journal entries for the AM API service starting from a given time, run t
 sudo journalctl --unit graviteeio-am-management-api --since  "2020-01-30 12:13:14"
 ```
 
+### Upgrade AM API
+
+Since maintained version 4.1.8 and above, to upgrade an AM component you can simply do a yum upgrade and restart AM:
+
+```sh
+sudo yum upgrade -y graviteeio-am-management-api-4x
+sudo systemctl restart graviteeio-am-management-api
+```
+
+
+
 ## Install AM Console
 
 Before you install AM Console, you must ensure AM API is installed and running.
@@ -245,8 +285,8 @@ Before you install the AM stack, you must complete the following configuration.
 To install Nginx, run the following commands:
 
 ```sh
-$ sudo yum install epel-release
-$ sudo yum install nginx
+sudo yum install epel-release
+sudo yum install nginx
 ```
 
 ### Install the AM Console package
@@ -262,15 +302,15 @@ sudo yum install -y graviteeio-am-management-ui-4x
 To configure AM Console to start automatically when the system boots up, run the following commands:
 
 ```sh
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable nginx
+sudo systemctl daemon-reload
+sudo systemctl enable nginx
 ```
 
 To start and stop Nginx, run the following commands:
 
 ```sh
-$ sudo systemctl start nginx
-$ sudo systemctl stop nginx
+sudo systemctl start nginx
+sudo systemctl stop nginx
 ```
 
 ### View the logs
@@ -293,4 +333,14 @@ To list journal entries for the Nginx service starting from a given time:
 
 ```sh
 sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
+```
+
+### Upgrade AM Console
+
+Since maintained version 4.1.8 and above, to upgrade an AM component you can simply do a yum upgrade and restart AM:
+
+```sh
+sudo yum upgrade -y graviteeio-am-management-ui-4x
+sudo systemctl daemon-reload
+sudo systemctl restart nginx
 ```
