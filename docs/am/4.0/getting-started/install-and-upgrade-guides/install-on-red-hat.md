@@ -10,7 +10,7 @@ RPM installation is not supported on distributions with old versions of RPM, suc
 
 ## Prerequisites
 
-First, you must configure the package management system (yum).
+First, you must configure the package management system (`yum`).
 
 1.  Create a file called `graviteeio.repo` in location `/etc/yum.repos.d/` so that you can install AM directly using `yum`:
 
@@ -127,16 +127,16 @@ When all components are started, you can do a quick test to see if everything is
 | AM API     | [http://localhost:8093](http://localhost:8093/) |
 | AM Console | [http://localhost:8094](http://localhost:8094/) |
 
-
 ### Upgrade AM
 
-In order to upgrade your AM installation, you will have to proceed the package upgrade and then restart am:
+To upgrade your AM installation, perform the package upgrade, then restart AM:
 
 {% hint style="info" %}
-Since maintained version 4.0.6 and above the rpm upgrade of AM component is easier. Now you can simply upgrade and restart AM.
+For version 4.0.6 and above, you can upgrade and restart AM to perform an `rpm` upgrade of AM components.
 {% endhint %}
+
 {% hint style="warning" %}
-Always take a look on the changelog to follow potential breaking change.
+Refer to the [changelog](../../releases-and-changelog/changelogs/am-4.0.x-changelog.md) to follow potential breaking change.
 {% endhint %}
 
 ```sh
@@ -144,7 +144,6 @@ sudo yum upgrade -y graviteeio-am-4x
 sudo systemctl daemon-reload
 sudo systemctl restart graviteeio-am-4x-gateway graviteeio-am-4x-management-api nginx
 ```
-
 
 ## Install AM Gateway
 
@@ -199,13 +198,12 @@ sudo journalctl --unit graviteeio-am-gateway --since  "2020-01-30 12:13:14"
 
 ### Upgrade AM Gateway
 
-Since maintained version 4.0.6 and above, to upgrade an AM component you can simply do a yum upgrade and restart AM:
+For version 4.0.6 and above, to upgrade an AM component, you can perform a `yum` upgrade and restart AM:
 
 ```sh
 sudo yum upgrade -y graviteeio-am-gateway-4x
 sudo systemctl restart graviteeio-am-gateway
 ```
-
 
 ## Install AM API
 
@@ -263,14 +261,12 @@ sudo journalctl --unit graviteeio-am-management-api --since  "2020-01-30 12:13:1
 
 ### Upgrade AM API
 
-Since maintained version 4.0.6 and above, to upgrade an AM component you can simply do a yum upgrade and restart AM:
+For version 4.0.6 and above, to upgrade an AM component, you can perform a `yum` upgrade and restart AM:
 
 ```sh
 sudo yum upgrade -y graviteeio-am-management-api-4x
 sudo systemctl restart graviteeio-am-management-api
 ```
-
-
 
 ## Install AM Console
 
@@ -337,7 +333,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 
 ### Upgrade AM Console
 
-Since maintained version 4.0.6 and above, to upgrade an AM component you can simply do a yum upgrade and restart AM:
+For version 4.0.6 and above, to upgrade an AM component, you can perform a `yum` upgrade and restart AM:
 
 ```sh
 sudo yum upgrade -y graviteeio-am-management-ui-4x
