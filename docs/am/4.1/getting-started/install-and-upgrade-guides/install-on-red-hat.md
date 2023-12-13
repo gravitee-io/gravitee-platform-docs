@@ -25,7 +25,7 @@ First, you must configure the package management system (`yum`).
     sslcacert=/etc/pki/tls/certs/ca-bundle.crt
     metadata_expire=300
     ```
-2.  Enable GPG signature handling, which is required by some of our RPM packages:
+2.  Enable GPG signature handling, which is required by some of our `rpm` packages:
 
     ```sh
     sudo yum install pygpgme yum-utils
