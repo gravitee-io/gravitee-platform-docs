@@ -5,7 +5,7 @@
 This section explains how to install Gravitee Access Management (AM) on Red Hat Enterprise Linux, CentOS Linux or Oracle Linux using the `yum` package manager.
 
 {% hint style="info" %}
-RPM installation is not supported on distributions with old versions of RPM, such as SLES 11 and CentOS 5. If you are running one of these versions, you need to [Install Access Management with `.zip` ](install-with-.zip.md)instead.
+`rpm` installation is not supported on distributions with old versions of `rpm`, such as SLES 11 and CentOS 5. If you are running one of these versions, you need to [Install Access Management with `.zip` ](install-with-.zip.md)instead.
 {% endhint %}
 
 ## Prerequisites
@@ -25,7 +25,7 @@ First, you must configure the package management system (`yum`).
     sslcacert=/etc/pki/tls/certs/ca-bundle.crt
     metadata_expire=300
     ```
-2.  Enable GPG signature handling, which is required by some of our RPM packages:
+2.  Enable GPG signature handling, which is required by some of our `rpm` packages:
 
     ```sh
     sudo yum install pygpgme yum-utils
