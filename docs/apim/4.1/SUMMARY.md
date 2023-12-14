@@ -132,7 +132,7 @@
   * [Configure and Use API Logging](guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md)
 * [Gravitee Expression Language](guides/gravitee-expression-language.md)
 * [Gravitee Kubernetes Operator](guides/gravitee-kubernetes-operator/README.md)
-  * [Architecture Overview](https://documentation.gravitee.io/apim/getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator#architecture-overview)
+  * [Architecture Overview](getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md#architecture-overview)
   * [Quick Start](guides/gravitee-kubernetes-operator/quick-start.md)
   * [Test GKO After Deployment](guides/gravitee-kubernetes-operator/test-gko-after-deployment.md)
   * [Monitoring GKO](guides/gravitee-kubernetes-operator/monitoring-gko.md)
