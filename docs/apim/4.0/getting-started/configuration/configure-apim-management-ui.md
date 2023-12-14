@@ -314,28 +314,6 @@ You must provide the complete JSON body shown below to update the configuration.
 }
 ```
 
-### Logo and loader
-
-You can change the logo and the loader by updating the following values in `constants.json`:
-
-* `theme.name` to your custom name
-* `theme.logo` to `themes/assets/your_logo.png`
-* `theme.loader` to `assets/your_loader.gif`
-
-These parameters can be modified in the APIM Console be accessing your **Organization Settings,** selecting **Settings,** and then scrolling down to the **Theme** section.
-
-<figure><img src="../../.gitbook/assets/2023-06-28_10-53-03 (1).gif" alt=""><figcaption></figcaption></figure>
-
-### Theme
-
-You can customize the theme of APIM Console by modifying `default-theme.json` or `light-theme.json`.
-
-The `default-theme.json` file is as follows:
-
-```
-Unresolved directive in installation-guide-management-ui-configuration.adoc - include::https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-console-webui/themes/default-theme.json[]
-```
-
 ### Dashboard
 
 Gravitee comes with two Dashboards, each being configurable:
