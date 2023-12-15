@@ -49,7 +49,7 @@ The sections below introduce:
 * [API deployments in Kubernetes](install-gravitee-kubernetes-operator.md#api-deployment-in-a-kubernetes-cluster)
 
 {% hint style="warning" %}
-The following sections apply to version GKO 1.x.x-beta.x. In May of 2024, GKO 1.x.x will be released and both GKO 0.x and GKO 1.x.x-beta.x will be deprecated.
+The following sections apply to GKO version 1.x.x. GKO 0.x.x will be deprecated in 2024.
 {% endhint %}
 
 ## Architecture overview
@@ -70,13 +70,13 @@ An overview of this architecture is described by the diagram below.
 {% endtab %}
 
 {% tab title="Namespaced Mode" %}
-The Kubernetes Operator can be set up to listen to a single namespace. This allows to deploy one operator per namespace of a Kubernetes cluster, each listening to custom resources created in this namespace only.
+The Gravitee Kubernetes Operator can be set up to listen to a single namespace in a Kubernetes cluster. One operator is deployed per namespace, and each listens to the custom resources created in its namespace only.
 
-To achieve this architecture, the `manager.scope.cluster` value must be set to `false` during the helm install. As role names are computed from the service account name, it's important to notice that each install must set a dedicated service account name for each operator using the `serviceAccount.name` helm value.
+To achieve this architecture, the `manager.scope.cluster` value must be set to `false` during the Helm install. Role names are computed from the service account name, so each install must set a dedicated service account name for each operator using the `serviceAccount.name` Helm value.
 
-To handle conversion between resource versions, at least one operator must act as a webhook in your cluster (please refer to the Kubernetes Documentation section about [version conversion](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/) for more information) Which means that one of the operator must be installed with the `manager.webhook.enabled` property set to `true` (which is the default). When keeping the default on each installed, the last operator installed in the cluster will be the one acting as the conversion webhook.
+To handle [conversion between resource versions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/), at least one operator in the cluster must act as a Webhook, meaning it must be installed with the `manager.webhook.enabled` property set to `true` (the default). When all operators use this default setting, the last operator installed in the cluster acts as the conversion Webhook.
 
-<img src="../../../.gitbook/assets/file.excalidraw (20).svg" alt="Multiple Operators each listening to its own namespace" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (20).svg" alt="Multiple operators, each listening to its own namespace" class="gitbook-drawing">
 {% endtab %}
 
 {% tab title="Multi-Cluster Mode" %}
