@@ -137,3 +137,15 @@ The following executes a simple deletion of the API definition:
 ```sh
 kubectl -n apim-example delete apidefinitions.gravitee.io basic-api-example
 ```
+
+## Multi-environment deployment architecture
+
+In a multi-environment deployment, a single GKO is deployed that can publish APIs to different environments (logical or physical). This is managed directly from the [ApiDefinition custom resource](apidefinition-crd.md), which refers to a [ManagementContext custom resource](managementcontext-resource.md).
+
+{% hint style="info" %}
+Different APIs are published on each of the environments because although APIs use the `ManagementContext` CRD, which can reference any Management API, an `ApiDefinition` CRD can only have one Management Context.
+{% endhint %}
+
+The following diagram illustrates the multi-environment deployment architectural approach:
+
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-3-multi-env.png" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>

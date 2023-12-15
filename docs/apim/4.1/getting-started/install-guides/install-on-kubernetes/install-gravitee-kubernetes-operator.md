@@ -42,49 +42,68 @@ An API deployed with Gravitee in a Kubernetes cluster can be described as an API
 
 </details>
 
-The sections below introduce the following:
+The sections below introduce:
 
 * [Architecture overview and possible deployments](install-gravitee-kubernetes-operator.md#architecture-overview)
 * [Installation steps](install-gravitee-kubernetes-operator.md#installation)
 * [API deployments in Kubernetes](install-gravitee-kubernetes-operator.md#api-deployment-in-a-kubernetes-cluster)
 
-## Architecture overview
-
-The current functionality of the Gravitee Kubernetes Operator supports three main deployment scenarios, as described below.
-
-{% tabs %}
-{% tab title="Standard" %}
-In a standard deployment, the Management API and the API Gateway are deployed in the same Kubernetes cluster.
-
-With this workflow, the GKO listens for CRDs. For each custom resource, an API is pushed to the Management API using the import endpoint and the API Gateway deploys the APIs accordingly.
-
-The following diagram illustrates the standard deployment architectural approach:
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-1-standard.png" alt=""><figcaption><p>Standard deployment architecture</p></figcaption></figure>
-{% endtab %}
-
-{% tab title="Multiple clusters" %}
-A deployment on multiple clusters assumes the following:
-
-1. The user manages multiple Kubernetes clusters using a different set of APIs for each cluster
-2. All APIs are managed using a single API Console
-3. GKO is installed on all required clusters
-
-The following diagram illustrates the multi-cluster deployment architectural approach:
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-2-multi-cluster.png" alt=""><figcaption><p>Multi-cluster deployment architecture</p></figcaption></figure>
-{% endtab %}
-
-{% tab title="Multiple environments" %}
-In a multi-environment deployment, a single GKO is deployed that can publish APIs to different environments (logical or physical). This is managed directly from the [ApiDefinition custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd.md), which refers to a [ManagementContext custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource.md).
-
-{% hint style="info" %}
-Different APIs are published on each of the environments because although APIs use the `ManagementContext` CRD, which can reference any Management API, an `ApiDefinition` CRD can only have one Management Context.
+{% hint style="warning" %}
+The following sections apply to version GKO 1.x.x-beta.x. In May of 2024, GKO 1.x.x will be released and both GKO 0.x and GKO 1.x.x-beta.x will be deprecated.
 {% endhint %}
 
-The following diagram illustrates the multi-environment deployment architectural approach:
+## Architecture overview
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-3-multi-env.png" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>
+The current functionality of the Gravitee Kubernetes Operator supports two main deployment scenarios, as described below.
+
+{% tabs %}
+{% tab title="Cluster Mode" %}
+By default, the Gravitee Kubernetes Operator is set up to listen to the custom resources it owns at the cluster level.
+
+In this mode, a single operator must be installed in the cluster to handle resources, regardless of the namespaces they have been created in. For each resource created in a specific namespace, the operator creates a ConfigMap in the same namespace that contains an API definition to be synced with an APIM Gateway.
+
+By default, an APIM Gateway installed using the Helm Chart includes a limited set of permissions, and the Gateway is only able to access ConfigMaps created in its own namespace. However, giving a Gateway the cluster role allows it to access ConfigMaps created by the operator at the cluster level.
+
+An overview of this architecture is described by the diagram below.
+
+<figure><img src="../../../.gitbook/assets/GKO default cluster mode architecture.png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="Namespaced Mode" %}
+The Kubernetes Operator can be set up to listen to a single namespace. This allows to deploy one operator per namespace of a Kubernetes cluster, each listening to custom resources created in this namespace only.
+
+To achieve this architecture, the `manager.scope.cluster` value must be set to `false` during the helm install. As role names are computed from the service account name, it's important to notice that each install must set a dedicated service account name for each operator using the `serviceAccount.name` helm value.
+
+To handle conversion between resource versions, at least one operator must act as a webhook in your cluster (please refer to the Kubernetes Documentation section about [version conversion](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/) for more information) Which means that one of the operator must be installed with the `manager.webhook.enabled` property set to `true` (which is the default). When keeping the default on each installed, the last operator installed in the cluster will be the one acting as the conversion webhook.
+
+<img src="../../../.gitbook/assets/file.excalidraw (20).svg" alt="Multiple Operators each listening to its own namespace" class="gitbook-drawing">
+{% endtab %}
+
+{% tab title="Multi-Cluster Mode" %}
+In a multi-cluster architecture, you can set up Gateways on different Kubernetes clusters or virtual machines, then use an operator to generate an API definition that is accessible from each of these Gateways. This means that:
+
+* An APIM instance is required to act as a source of truth for the Gateways
+* The operator will obtain the API definition from APIM instead of creating one in a ConfigMap
+* The API definition requires a Management Context
+* The `definitionContext` of the API must be set to sync from APIM
+
+The following snippet contains the relevant specification properties for the API definition of a multi-cluster architecture:
+
+```yaml
+apiVersion: gravitee.io/v1beta1
+kind: ApiDefinition
+metadata:
+  name: multi-cluster-api
+spec:
+  contextRef:
+    name: apim-ctx
+    namespace: gravitee
+  definitionContext:
+    syncFrom: MANAGEMENT
+  # [...]
+```
+
+<figure><img src="../../../.gitbook/assets/GKO multi-cluster architecture (2).png" alt=""><figcaption><p>Multi-cluster architecture overview</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -142,7 +161,7 @@ By default, the Kubernetes synchronizer is configured to watch for API definitio
     **Cluster scope**
 
     * If you are installing the operator with the cluster scope enabled (the default), it is recommended to install one instance of the operator per cluster.&#x20;
-    * If you are installing the operator with the cluster scope disabled, you can install multiple instances of the operator in the same cluster, with each one watching a different namespace.
+    * Multiple instances of the operator with the cluster scope disabled can be installed in the same cluster, with each one watching a different namespace. One operator must be given the cluster role and the ability to perform the Webhook conversion between v1alpha1 and v1beta1 CRD references.
     {% endhint %}
 
 ## Upgrading the Operator
@@ -162,18 +181,12 @@ The Gravitee Kubernetes Operator Helm Chart supports configuration of the follow
 * [RBAC Proxy](install-gravitee-kubernetes-operator.md#rbac-proxy)
 * [Controller Manager](install-gravitee-kubernetes-operator.md#controller-manager)
 * [Ingress](install-gravitee-kubernetes-operator.md#ingress)
-* [HTTP Client](install-gravitee-kubernetes-operator.md#http-client)
 
 {% tabs %}
 {% tab title="RBAC" %}
 Required RBAC resources are created by default for all components involved in the release.
 
-| Name                    | Description                                                                   | Value                    |
-| ----------------------- | ----------------------------------------------------------------------------- | ------------------------ |
-| `serviceAccount.create` | Specifies if a service account should be created for the manager pod.         | `true`                   |
-| `serviceAccount.name`   | Specifies the service account name to use.                                    | `gko-controller-manager` |
-| `rbac.create`           | Specifies if RBAC resources should be created.                                | `true`                   |
-| `rbac.skipClusterRoles` | Specifies if cluster roles should be created when RBAC resources are created. | `false`                  |
+<table><thead><tr><th>Name</th><th width="233">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>serviceAccount.create</code></td><td>Specifies if a service account should be created for the manager pod.</td><td><code>true</code></td></tr><tr><td><code>serviceAccount.name</code></td><td><a data-footnote-ref href="#user-content-fn-1">Specifies the service account name to use. </a>If the operator is deployed in multiple namespaces by setting <code>scope.cluster</code> to <code>false</code>, a different service account name must be used for each installation.</td><td><code>gko-controller-manager</code></td></tr><tr><td><code>rbac.create</code></td><td>Specifies if RBAC resources should be created.</td><td><code>true</code></td></tr><tr><td><code>rbac.skipClusterRoles</code></td><td>Specifies if cluster roles should be created when RBAC resources are created.</td><td><code>false</code></td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="RBAC Proxy" %}
@@ -188,18 +201,44 @@ If this is disabled, the Prometheus metrics endpoint will be exposed with no acc
 | `rbacProxy.enabled`          | Specifies if the `kube-rbac-proxy` sidecar should be enabled. | `true`                           |
 | `rbacProxy.image.repository` | Specifies the Docker registry and image name to use.          | `quay.io/brancz/kube-rbac-proxy` |
 | `rbacProxy.image.tag`        | Specifies the Docker image tag to use.                        | `v0.14.3`                        |
+| `rbacProxy.image.pullPolicy` | Specifies the pull policy to apply to the RBAC proxy image.   | `Always`                         |
 {% endtab %}
 
 {% tab title="Controller Manager" %}
-Use these parameters to configure the deployment itself and the ways in which the operator will interact with APIM and custom resources in your cluster.
+Use these parameters to configure the deployment and the ways in which the operator will interact with APIM and custom resources in your cluster.
 
-<table><thead><tr><th>Name</th><th width="206">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>manager.image.repository</code></td><td>Specifies the Docker registry and image name to use.</td><td><code>graviteeio/kubernetes-operator</code></td></tr><tr><td><code>manager.image.tag</code></td><td>Specifies the Docker image tag to use.</td><td><code>latest</code></td></tr><tr><td><code>manager.logs.json</code></td><td>Whether to output manager logs in JSON format.</td><td><code>true</code></td></tr><tr><td><code>manager.configMap.name</code></td><td>The name of the ConfigMap used to set the manager config.</td><td><code>gko-config</code></td></tr><tr><td><code>manager.scope.cluster</code></td><td>Use false to listen only in the release namespace.</td><td><code>true</code></td></tr><tr><td><code>manager.applyCRDs</code></td><td><strong>This property is deprecated and will be removed in a future release.</strong><br>If true, the manager will patch custom resource definitions on startup.</td><td><code>true</code></td></tr><tr><td><code>manager.metrics.enabled</code></td><td>If true, a metrics server will be created so that metrics can be scraped using Prometheus.</td><td><code>true</code></td></tr><tr><td><code>manager.httpClient.insecureSkipCertVerify</code></td><td>If true, the manager HTTP client will not verify the certificate used by the Management API.</td><td><code>false</code></td></tr></tbody></table>
+| Name                                        | Description                                                                                               | Value                            |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| `manager.image.repository`                  | Specifies the Docker registry and image name to use.                                                      | `graviteeio/kubernetes-operator` |
+| `manager.image.tag`                         | Specifies the Docker image tag to use.                                                                    | `latest`                         |
+| `manager.image.pullPolicy`                  | Specifies the pull policy to apply to the controller manager image.                                       | `Always`                         |
+| `manager.log.format`                        | Specifies log output format. Can be either JSON or console.                                               | `json`                           |
+| `manager.log.level`                         | Specifies log level. Can be either debug, info, warn, or error.                                           | `info`                           |
+| `manager.log.timestamp.field`               | Specifies the name of the field to use for the timestamp.                                                 | `timestamp`                      |
+| `manager.log.timestamp.format`              | Specifies the format to use for the timestamp. Can be iso-8601, epoch-second, epoch-millis or epoch-nano. | `epoch-second`                   |
+| `manager.configMap.name`                    | The name of the ConfigMap used to set the manager config from these values.                               | `gko-config`                     |
+| `manager.resources.limits.cpu`              | The CPU resource limits for the GKO Manager container.                                                    | `500m`                           |
+| `manager.resources.limits.memory`           | The memory resources limits for the GKO Manager container.                                                | `128Mi`                          |
+| `manager.resources.requests.cpu`            | The requested CPU for the GKO Manager container.                                                          | `5m`                             |
+| `manager.resources.requests.memory`         | The requested memory for the GKO Manager container.                                                       | `64Mi`                           |
+| `manager.scope.cluster`                     | Use `false` to listen only in the release namespace.                                                      | `true`                           |
+| `manager.metrics.enabled`                   | If true, a metrics server will be created so that metrics can be scraped using Prometheus.                | `true`                           |
+| `manager.metrics.port`                      | Which port the metric server will bind to.                                                                | `8080`                           |
+| `manager.probe.port`                        | The port the readiness and liveness probes will listen to.                                                | `8081`                           |
+| `manager.httpClient.insecureSkipCertVerify` | If true, the manager HTTP client will not verify the certificate used by the Management API.              | `false`                          |
+| `manager.httpClient.timeoutSeconds`         | The timeout (in seconds) used when issuing requests to the Management API.                                | `10`                             |
+| `manager.webhook.enabled`                   | If true, the manager will register a Webhook server operating on custom resources.                        | `true`                           |
+| `manager.webhook.service.name`              | The service used to expose the Webhook server.                                                            | `gko-webhook`                    |
+| `manager.webhook.service.port`              | The port the Webhook server will listen to.                                                               | `9443`                           |
+| `manager.webhook.cert.create`               | If true, a secret will be created to store the Webhook server certificate.                                | `true`                           |
+| `manager.webhook.cert.name`                 | The name of the cert-manager certificate used by the Webhook server.                                      | `gko-webhook-cert`               |
+| `manager.webhook.cert.secret.name`          | The name of the secret storing the Webhook server certificate.                                            | `gko-webhook-cert`               |
 {% endtab %}
 
 {% tab title="Ingress" %}
 Use the following parameters to configure the behavior of the ingress controller.
 
-When storing templates in ConfigMaps, the ConfigMap should contain a `content` key and a `contentType` key, e.g.:
+When storing templates in ConfigMaps, the ConfigMap should contain a `content` key and a `contentType` key, for example:
 
 ```yaml
 content: '{ "message": "Not Found" }'
@@ -207,14 +246,6 @@ contentType: application/json
 ```
 
 <table><thead><tr><th width="229">Name</th><th width="271">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>ingress.templates.404.name</code></td><td>Name of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr><tr><td><code>ingress.templates.404.namespace</code></td><td>Namespace of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr></tbody></table>
-{% endtab %}
-
-{% tab title="HTTP Client" %}
-{% hint style="warning" %}
-This section is deprecated and will be removed in version 1.0.0. The `httpClient` property should now be set with the Controller Manager.
-{% endhint %}
-
-<table><thead><tr><th width="241">Name</th><th width="200.66666666666666">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>httpClient.insecureSkipCertVerify</code></td><td>If true, the manager HTTP client will not verify the certificate used by the Management API.</td><td><code>false</code></td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 
@@ -224,3 +255,5 @@ Visit our [GKO guide](../../../guides/gravitee-kubernetes-operator/) to:
 
 * Learn how to use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway
 * Manage custom resource definitions (CRDs)
+
+[^1]: I forgot to add a precision here. Something like: "If you are deploying the operator in several namespaces ny setting \`scope.cluster\` to \`false\`, a different service account name \*must\* be used on each installation.
