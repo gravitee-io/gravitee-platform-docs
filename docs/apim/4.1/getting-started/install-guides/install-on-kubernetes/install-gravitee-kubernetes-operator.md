@@ -1,7 +1,7 @@
 ---
 description: >-
   This article covers how to install and configure the GKO with Gravitee's
-  official Helm chart
+  official Helm Chart
 ---
 
 # Gravitee Kubernetes Operator Helm Install and Configuration
