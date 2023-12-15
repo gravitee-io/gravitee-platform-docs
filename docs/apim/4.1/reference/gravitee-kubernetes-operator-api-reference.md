@@ -24,3 +24,5 @@ The [GKO 1.x.x CRD reference](https://github.com/gravitee-io/gravitee-kubernetes
 Due to a missing endpoint, the `ManagementContext`, and therefore `Application`, resources are not supported, and `ApiDefinition` cannot be imported into APIM.&#x20;
 
 Planned enhancements will promote `ManagementContext` and `Application` to GKO 1.x.x and enable support for importing `ApiDefintion`.
+
+Refer to the [GKO 1.x.x changelog](https://github.com/gravitee-io/gravitee-kubernetes-operator/releases/tag/1.0.0-beta.1) to track breaking changes.

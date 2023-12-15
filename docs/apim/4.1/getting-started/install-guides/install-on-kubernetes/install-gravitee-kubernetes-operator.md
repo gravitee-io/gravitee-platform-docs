@@ -49,7 +49,7 @@ The sections below introduce:
 * [API deployments in Kubernetes](install-gravitee-kubernetes-operator.md#api-deployment-in-a-kubernetes-cluster)
 
 {% hint style="warning" %}
-The following sections apply to GKO version 1.x.x. GKO 0.x.x will be deprecated in 2024.
+The following sections apply to GKO version 1.x.x. GKO 0.x.x will be deprecated in 2024. Refer to the [GKO 1.x.x changelog](https://github.com/gravitee-io/gravitee-kubernetes-operator/releases/tag/1.0.0-beta.1) to track breaking changes.
 {% endhint %}
 
 ## Architecture overview
