@@ -151,7 +151,6 @@
 * [Developer Contributions](guides/developer-contributions/README.md)
   * [Custom Plugins](guides/developer-contributions/dev-guide-plugins.md)
   * [Custom Policies](guides/developer-contributions/dev-guide-policies.md)
-  * [Gravitee Kubernetes Operator Development Environment](guides/developer-contributions/gravitee-kubernetes-operator-development-environment.md)
 
 ## Reference
 

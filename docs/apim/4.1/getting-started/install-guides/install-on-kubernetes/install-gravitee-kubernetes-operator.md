@@ -66,7 +66,7 @@ By default, an APIM Gateway installed using the Helm Chart includes a limited se
 
 An overview of this architecture is described by the diagram below.
 
-<figure><img src="../../../.gitbook/assets/GKO default cluster mode architecture.png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
+<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="Default Cluster Mode architecture" class="gitbook-drawing">
 {% endtab %}
 
 {% tab title="Namespaced Mode" %}
@@ -87,7 +87,7 @@ In a multi-cluster architecture, you can set up Gateways on different Kubernetes
 * The API definition requires a Management Context
 * The `definitionContext` of the API must be set to sync from APIM
 
-The following snippet contains the relevant specification properties for the API definition of a multi-cluster architecture:
+The following snippet contains the relevant specification properties for the API definition in a multi-cluster architecture:
 
 ```yaml
 apiVersion: gravitee.io/v1beta1
@@ -103,7 +103,7 @@ spec:
   # [...]
 ```
 
-<figure><img src="../../../.gitbook/assets/GKO multi-cluster architecture (2).png" alt=""><figcaption><p>Multi-cluster architecture overview</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/GKO multi-cluster mode.png" alt=""><figcaption><p>Multi-cluster architecture overview</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 

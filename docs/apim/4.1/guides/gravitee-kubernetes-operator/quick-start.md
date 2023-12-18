@@ -5,7 +5,7 @@
 This quick start guide is the fastest way to start working with the Gravitee Kubernetes Operator (GKO). You can deploy the GKO on an existing APIM-ready cluster that is either remote (cloud-based) or local (only recommended for testing purposes).
 
 {% hint style="warning" %}
-There are [additional steps to perform](../developer-contributions/gravitee-kubernetes-operator-development-environment.md) if you do not have a suitable existing cluster, and you will need to set up a new local cluster prior to deployment.
+There are [additional steps to perform](broken-reference) if you do not have a suitable existing cluster, and you will need to set up a new local cluster prior to deployment.
 {% endhint %}
 
 ## Deploy the GKO
