@@ -353,6 +353,73 @@ management:
 ```
 {% endcode %}
 
+### Configure the client secret hash
+
+As of AM 4.2.0, the client secret can be hashed when stored into the database. Five hash algorithms are supported:
+
+* None (default)
+* SHA-256
+* SHA-512
+* BCrypt
+* PBKDF2
+
+To specify which hash algorithm is in used, update the `applications` section of `gravitee.yml`:&#x20;
+
+```yaml
+applications:
+  secret:
+    # Algorithms used to hash the client secret.
+    # Can be one of :
+    # "PBKDF2", "BCrypt", "SHA-512", "SHA-256", "None"
+    algorithm: None
+    #properties:
+    #  rounds: 4
+```
+
+BCrypt and PBKDF2 support additional properties to adapt the strength of the algorithm.
+
+{% hint style="warning" %}
+BCrypt and PBKDF2 are designed to be slow to prevent brute force attacks. The AM default properties are based on the OWASP recommendation. If you plan to use one on these algorithms, we strongly recommend that you evaluate the performance impact of the default settings on your environment, then adapt the property values as needed.
+{% endhint %}
+
+#### BCrypt properties
+
+The BCrypt algorithm accepts a number of `rounds`. The default value is 10, as recommended by OWASP.
+
+```yaml
+applications:
+  secret:
+    # Algorithms used to hash the client secret.
+    # Can be one of :
+    # "PBKDF2", "BCrypt", "SHA-512", "SHA-256", "None"
+    algorithm: BCrypt
+    properties:
+      rounds: 8
+```
+
+#### PBKDF2 properties
+
+The PBKDF2 algorithm accepts three properties:
+
+* **rounds**: The number of iterations (default: 600000)
+* **salt**: The length in bits of the salt value (default: 16)
+* **algorithm**: PBKDF2 with the specified pseudo-random function (default: PBKDF2WithHmacSHA256**)**
+
+The default values are those recommended by OWASP.
+
+```yaml
+applications:
+  secret:
+    # Algorithms used to hash the client secret.
+    # Can be one of :
+    # "PBKDF2", "BCrypt", "SHA-512", "SHA-256", "None"
+    algorithm: PBKDF2
+    properties:
+      rounds: 300000
+      salt: 16
+      algorithm: PBKDF2WithHmacSHA256
+```
+
 ### Configure notifications on certificates expiry
 
 New in version 3.17
