@@ -40,10 +40,10 @@ The look and feel of the MFA forms can be overridden. See [custom pages](../bran
 
 With SMS verification, you can receive a verification code on your mobile phone to be used as the second factor to validate a user’s account.
 
-{% hint style="info" %}
-SMS MFA requires a compatible [resource](../resources/).
+SMS MFA requires a compatible [resource](../resources/). Some providers allow you to define the duration of the code sent by SMS. If possible, we advise setting a duration of 2 minutes.
 
-Some providers allow you to define the duration of the code sent by SMS. If possible we advise you to set a duration of 2 minutes.
+{% hint style="info" %}
+Gravitee 4.2 supports a new SMS resource provider based on the SFR vendor. Administrators can set up their SFR credentials to link Gravitee AM to SFR SMS service and activate the MFA SMS factor for selected applications.
 {% endhint %}
 
 If you enable an SMS type factor for your application, next time your users log in they will see the following screens:

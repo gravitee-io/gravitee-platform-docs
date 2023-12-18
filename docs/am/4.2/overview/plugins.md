@@ -8,13 +8,14 @@ Plugins are additional components that can be _plugged into_ AM Gateway or AM Ma
 
 The table below lists the different types of plugins you can use with AM, with the component(s) they can be plugged into and some examples. For more details of what each plugin type does, see the sections below.
 
-| Type                                                | Components               | Examples                   |
-| --------------------------------------------------- | ------------------------ | -------------------------- |
-| [Identity Providers](plugins.md#identity-providers) | Management API/ Gateway  | LDAP, Database, Social, …​ |
-| [Policies](plugins.md#policies)                     | Management API / Gateway | Callout                    |
-| [Reporters](plugins.md#reporters)                   | Management API / Gateway | MongoDB                    |
-| [Repositories](plugins.md#repositories)             | Management API / Gateway | MongoDB                    |
-| [Alerts](plugins.md#alerts)                         | Management API / Gateway | Vertx                      |
+| Type                                                | Components                            | Examples                   |
+| --------------------------------------------------- | ------------------------------------- | -------------------------- |
+| [Identity Providers](plugins.md#identity-providers) | Management API/ Gateway               | LDAP, Database, Social, …​ |
+| [Policies](plugins.md#policies)                     | Management API / Gateway              | Callout                    |
+| [Reporters](plugins.md#reporters)                   | Management API / Gateway              | MongoDB                    |
+| [Repositories](plugins.md#repositories)             | Management API / Gateway              | MongoDB                    |
+| [Alerts](plugins.md#alerts)                         | Management API / Gateway              | Vertx                      |
+| [Secret Providers](plugins.md#secret-providers)     | <p>APIM API<br>APIM Gateway<br>AM</p> | Kubernetes, HC Vault       |
 
 ### Identity providers
 
@@ -56,4 +57,8 @@ Out-of-the-box repositories are :
 
 ### Alerts
 
-An **alert** allows AM to send triggers or events to the Alert Engine which can be processed to send a notification using the configured plugin notifier. Configuring the notifier is the responsibility of the trigger.\\
+An **alert** allows AM to send triggers or events to the Alert Engine which can be processed to send a notification using the configured plugin notifier. Configuring the notifier is the responsibility of the trigger.
+
+### Secret providers
+
+A **secret provider** resolves secrets to avoid exposing plain text passwords and secrets keys in the `gravitee.yml` file. For example, users can store their MongoDB password in a secret manager like HashiCorp Vault and then resolve it when the platform starts.&#x20;
