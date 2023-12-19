@@ -1,66 +1,138 @@
 ---
 description: >-
-  This article explains how to view logs within the Management Console and
-  expose metrics to Prometheus
+  This article describes logging at the API level and how to expose metrics to
+  Prometheus
 ---
 
 # Logging
 
-## Management Console logging
+## API-level logging
 
-The following sections describe the logging capabilities of the Console for v4 message APIs.
-
-{% hint style="info" %}
-Runtime logs are not yet available for v4 proxy APIs.&#x20;
-{% endhint %}
+The following sections describe the logging capabilities for v4 APIs.
 
 ### View record of logs
 
-Comprehensive connection logs allow you to analyze the usage of your v4 message APIs. To view the runtime logs associated with calls to your API:
+Comprehensive connection logs allow you to analyze the usage of your v4 message APIs or v4 proxy APIs. To view the runtime logs associated with calls to your API:
 
 1. Open your API Management Console
 2. Go to **APIs** in the left sidebar
 3. Select your API
-4. Click on **Runtime Logs** in the inner left sidebar
+4. Click on **Analytics and logs** in the inner left sidebar
 
-Logs will be displayed under the Runtime Logs tab in reverse chronological order:
+Logs are displayed under the **Connections** tab in reverse chronological order:&#x20;
 
-<figure><img src="../../../.gitbook/assets/runtime logs chron order.png" alt=""><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/runtime logs_list message.png" alt=""><figcaption><p>Sample v4 message API runtime log entries</p></figcaption></figure>
 
-The record of logs will be paginated, with no limit to the number of pages. If logging is disabled, existing logs will still be displayed, but a banner will indicate that the record is not current:
+The filters above the list of logs allow you to filter records by timeframe, HTTP method, or plan. The **More** button offers additional filtering options.
 
-<figure><img src="../../../.gitbook/assets/runtime logs not current.png" alt=""><figcaption><p>History of existing runtime logs</p></figcaption></figure>
+If logging is disabled, existing logs are still displayed, but a banner indicates that the record is not current.
 
 ### Modify logging information
 
+Logging information can be modified by configuring the options under the **Settings** tab. To view and modify the logging options:
+
+1. Open your API Management Console
+2. Go to **APIs** in the left sidebar
+3. Select your API
+4. Click on **Analytics and logs** in the inner left sidebar
+5. Click on the **Settings** tab
+
+{% tabs %}
+{% tab title="v4 message APIs" %}
 {% hint style="info" %}
-Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance.
+Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance. Sampling is used to avoid excessive resource consumption and is only relevant to v4 message APIs.&#x20;
 {% endhint %}
 
-To record additional data, modify the **Runtime Logs** settings under the **Settings** tab:
-
-<figure><img src="../../../.gitbook/assets/runtime logs settings.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
-
-The **Settings** page allows you to define the following:
+To configure which information is recorded, select from the following options:
 
 * **Logging mode:** Select from **Entrypoint** and **Endpoint** to customize which modes are logged.
 * **Logging phase:** Select from **Request** and **Response** to customize which phases are logged.
 * **Content data:** Select from **Message content**, **Message headers**, **Message metadata** and **Headers** to customize which data is logged.
 * **Message sampling:** Select an option to customize the sampling configuration.
   * **Probabilistic:** Messages are sampled based on a specified probability value between 0.01 and 0.5.
-  * **Count:** One message is sampled for every number specified, where the specified value must be greater than 10.
+  * **Count:** One message is sampled for every number specified, where the specified value must be greater than 1.
   * **Temporal:** Messages are sampled based on a specified time duration value that conforms to ISO-8601 format.
 * **Display conditions:** You have the ability to filter the message data based on **Request phase condition** and **Message condition**. Each of these fields supports the use of [Gravitee Expression Language](../../../guides/gravitee-expression-language.md).
 
+<figure><img src="../../../.gitbook/assets/runtime logs_settings message.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
+
+#### Configure sampling methods with `gravitee.yml`
+
+{% hint style="info" %}
+If a setting is configured in `gravitee.yml`, the corresponding field is disabled in the Management Console.
+{% endhint %}
+
+Sampling methods for v4 message APIs can also be configured in the `gravitee.yml` file. The `messageSampling` configuration option determines, for each sampling method, whether it can be used, its default value, and its max value:
+
+* **Probabilistic:** Must be a `double` representing a percentage (min value 0.01, max value 0.5)
+* **Count:** Must be an `integer` (min value 1)
+* **Temporal:** Must be a `string` in ISO 8601 format
+
+{% code title="gravitee.yaml" %}
+````yaml
+```
+logging:
+  messageSampling:
+    probabilistic:
+      default: 0.01
+      limit: 0.5
+    count:
+      default: 100
+      limit: 10000
+    temporal:
+      default: PT1S
+      limit: PT1S 
+```
+````
+{% endcode %}
+{% endtab %}
+
+{% tab title="v4 proxy APIs" %}
+{% hint style="info" %}
+Select logging options judiciously to optimize the value of recorded data against the potential for impact to API performance.
+{% endhint %}
+
+To configure which information is recorded, select from the following options:
+
+* **Logging mode:** Select from **Entrypoint** and **Endpoint** to customize which modes are logged.
+* **Logging phase:** Select from **Request** and **Response** to customize which phases are logged.
+* **Content data:** Select from **Headers** and **Payload** to customize which data is logged.
+* **Display conditions:** You have the ability to filter data based on **Request phase condition**. This field supports the use of [Gravitee Expression Language](../../../guides/gravitee-expression-language.md).
+
+<figure><img src="../../../.gitbook/assets/proxy api settings.png" alt=""><figcaption><p>Runtime logs settings</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
 ### View messages
 
-To view the details of any entry in the list of runtime logs, click on **View messages**:
+To view the details of any entry in the list of runtime logs:
 
-<figure><img src="../../../.gitbook/assets/runtime logs view messages.png" alt=""><figcaption><p>View messages for log details</p></figcaption></figure>
+1. Open your API Management Console
+2. Go to **APIs** in the left sidebar
+3. Select your API
+4. Click on **Analytics and logs** in the inner left sidebar
+5. Click on the **Connections** tab
+6. Click on **View details** for a particular entry
 
-The messages captured by the runtime log will be grouped by correlation ID and listed in reverse chronological order. They will also be paginated, with a button at the bottom of the page to load additional messages.
+{% tabs %}
+{% tab title="v4 message APIs" %}
+Under the **Connection Logs** tab, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**:
 
-Each message record will include placeholder tabs for raw content, header and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
+<figure><img src="../../../.gitbook/assets/connection details.png" alt=""><figcaption><p>View Connection Logs details</p></figcaption></figure>
+
+Under the **Messages** header, entrypoint and endpoint message details are grouped by date code:
+
+<figure><img src="../../../.gitbook/assets/message details.png" alt=""><figcaption><p>View Messages details</p></figcaption></figure>
+
+Each message record includes placeholder tabs for raw content, headers, and metadata. If the corresponding data was recorded, it will appear under the tab. If no data was recorded, the field will be empty.
+{% endtab %}
+
+{% tab title="v4 proxy APIs" %}
+Under **Details**, logs for the entry are grouped by **Entrypoint Request**, **Endpoint Request**, **Entrypoint Response**, and **Endpoint Response**, with **Headers** and **Payload** as the content:&#x20;
+
+<figure><img src="../../../.gitbook/assets/proxy logs.png" alt=""><figcaption><p>View log details</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 ## Expose metrics to Prometheus
 

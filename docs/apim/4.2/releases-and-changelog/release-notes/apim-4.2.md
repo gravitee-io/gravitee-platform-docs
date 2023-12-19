@@ -113,6 +113,8 @@ For more information, see [RabbitMQ in Endpoint Configuration](../../guides/api-
 
 ### Kafka
 
+#### Topics
+
 In addition to explicitly specifying a list of consumed Kafka topics that can be set in the API, the user can now set a wildcard for the consumed topics on the Kafka endpoint. The Kafka consumer automatically detects, adds, and removes topics that match the provided pattern.&#x20;
 
 When creating or configuring a v4 message API with a Kafka endpoint, the user can select either **Specify List of Topics** or **Specify Topic Expression**, then enter the information appropriate to the selection:
@@ -121,6 +123,16 @@ When creating or configuring a v4 message API with a Kafka endpoint, the user ca
 * **Specify Topic Expression:** A single Java regular expression.  to consume only messages from Kafka topics that match the expression.
 
 For more information, see [Kafka in Endpoint Configuration](../../guides/api-configuration/v4-api-configuration/endpoint-configuration.md#kafka).
+
+#### SASL OAUTHBEARER
+
+To facilitate support for SASL OAUTHBEARER, the Kafka endpoint plugin includes a [login callback handler for token retrieval](https://docs.confluent.io/platform/current/kafka/authentication\_sasl/authentication\_sasl\_oauth.html#login-callback-handler-for-token-retrieval). This handler is configured using the following JAAS configuration:
+
+```
+"org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required access_token=\"<ACCESS_TOKEN>\";"
+```
+
+For more information, see [this page](https://github.com/gravitee-io/gravitee-endpoint-kafka).
 
 ## Policy enhancements
 
@@ -131,3 +143,7 @@ A user can now assign custom metrics at the message level. A condition can be de
 ### Groovy
 
 The `groovy` policy has been enhanced to support message-level definitions. This implementation of custom Groovy scripts is designed for nonstandard or specific use cases that are not sufficiently addressed by other Gravitee policies. The `groovy` policy can be applied to an API to override message content via the `message.content` property. See [this page](../../reference/policy-reference/groovy.md) for more information.
+
+## Datadog
+
+(Enterprise-only) Datadog reporter support now extends to v4 APIs. v4 API metrics and monitoring data can be exported to a Datadog instance to ensure a comprehensive observability strategy. To learn more about reporters, check out [this section](../../getting-started/configuration/configure-reporters/).

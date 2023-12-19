@@ -1,4 +1,4 @@
-# Configure Reporters
+# Reporters
 
 ## Overview
 
@@ -20,7 +20,7 @@ The following event types are supported:
 
 The following reporters are currently compatible with APIM:
 
-<table><thead><tr><th width="151">Type</th><th data-type="checkbox">Bundled in Distribution</th><th data-type="checkbox">Default</th><th data-type="checkbox">Enterprise only</th><th data-type="checkbox">v4 support</th></tr></thead><tbody><tr><td><a href="./#elasticsearch-reporter">Elasticsearch</a></td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td><a href="./#file-reporter">File</a></td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td><a href="./#tcp-reporter">TCP</a></td><td>true</td><td>false</td><td>true</td><td>false</td></tr><tr><td><a href="./#datadog-reporter">Datadog</a></td><td>false</td><td>false</td><td>true</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="151">Type</th><th data-type="checkbox">Bundled in Distribution</th><th data-type="checkbox">Default</th><th data-type="checkbox">Enterprise only</th><th data-type="checkbox">v4 support</th></tr></thead><tbody><tr><td><a href="./#elasticsearch-reporter">Elasticsearch</a></td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td><a href="./#file-reporter">File</a></td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td><a href="./#tcp-reporter">TCP</a></td><td>true</td><td>false</td><td>true</td><td>false</td></tr><tr><td><a href="./#datadog-reporter">Datadog</a></td><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
 
 As of Gravitee 4.0, the TCP and Datadog reporters are Enterprise Edition capabilities that do not support [v4 APIs](../../../overview/gravitee-api-definitions-and-execution-engines/).
 
