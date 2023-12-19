@@ -2,11 +2,7 @@
 
 ## Overview
 
-This quick start guide is the fastest way to start working with the Gravitee Kubernetes Operator (GKO). You can deploy the GKO on an existing APIM-ready cluster that is either remote (cloud-based) or local (only recommended for testing purposes).
-
-{% hint style="warning" %}
-There are [additional steps to perform](broken-reference) if you do not have a suitable existing cluster, and you will need to set up a new local cluster prior to deployment.
-{% endhint %}
+This quick start guide is the fastest way to start working with the Gravitee Kubernetes Operator (GKO).
 
 ## Deploy the GKO
 
@@ -100,3 +96,10 @@ The entrypoint used in the Gateway URL may differ depending on your deployment. 
 {% hint style="info" %}
 For full details on trying out the GKO functionality after deployment, see [Call the API through the APIM Gateway](test-gko-after-deployment.md#step-3-call-the-api-through-the-apim-gateway).
 {% endhint %}
+
+## Next steps
+
+Visit our [GKO guide](./) to:
+
+* Learn how to use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway
+* Manage custom resource definitions (CRDs)
