@@ -44,7 +44,7 @@ The Documentation feature includes **Actions** associated with each folder or pa
 
 When published, documentation is accessible via the Developer Portal.
 
-<figure><img src="../../.gitbook/assets/docs_dev portal docs.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/docs_dev portal docs (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Logging
 

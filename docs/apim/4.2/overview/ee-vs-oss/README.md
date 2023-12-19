@@ -23,7 +23,7 @@ The Gravitee APIM Enterprise Edition is available as three different packages, e
 ### Enterprise features
 
 {% hint style="warning" %}
-The features below are included in the default enterprise API Management distribution and do not require additional enterprise plugins
+The features below are included in the default enterprise API Management distribution and do not require additional enterprise plugins.
 {% endhint %}
 
 * **Enterprise OpenID Connect SSO:** Use OpenId Connect SSO with your API Management platform.
@@ -87,6 +87,12 @@ The Event-native pack includes capabilities that enable using Gravitee to expose
 * [**Avro <> JSON policy**](../../reference/policy-reference/avro-json.md): Transform information in Avro format into JSON format
 * **Gateway message reactor plugin**: Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
 * [**Confluent Schema Registry resource**](../../guides/api-configuration/resources.md#confluent-schema-registry): Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+
+### Secret Manager pack
+
+The Secret Manager pack includes generic, configurable, and autonomous clients that manage connections, retries, and credentials renewal when connecting to Secret Managers:
+
+* **HashiCorp Vault**: Use the Key/Value engine of HC Vault to to avoid exposing plain text passwords and secrets keys.
 
 ## Advanced API monitoring
 
