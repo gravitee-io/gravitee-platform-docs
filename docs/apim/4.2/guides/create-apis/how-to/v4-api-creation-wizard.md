@@ -8,7 +8,7 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 ## Introduction
 
-The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. The API creation wizard is comprised of several steps, each of which requires you to define certain sets of information:
+The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. The API creation wizard comprises several steps, each of which requires you to define certain sets of information:
 
 * [API details](v4-api-creation-wizard.md#step-1-api-details)
 * [Entrypoints](v4-api-creation-wizard.md#step-2-entrypoints)
@@ -27,9 +27,9 @@ The API details step is where you can define a name, version number, and descrip
 
 ### Choose your backend exposure method
 
-The first part of the Entrypoints step is to choose how you want to expose your backend. As of today, Gravitee offers two options:
+The first part of the Entrypoints step is to choose how you want to expose your backend:
 
-* **Proxy upstream protocol:** Use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL. You will not be able to enforce policies at the message level.
+* **Proxy upstream protocol:** Use this method if you want to use Gravitee to proxy backend REST APIs, SOAP APIs, WebSocket Server, gRPC, or GraphQL over HTTP. You will not be able to enforce policies at the message level.
 * **Introspect messages from event-driven backend:** Use this method if you want to expose backend event brokers, such as Kafka and MQTT.
 
 {% hint style="info" %}
@@ -40,11 +40,11 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 **Message API:** An API created using **Introspect messages from event-driven backend**&#x20;
 {% endhint %}
 
-What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation](../#backend-exposure-methods).
+What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports,  refer to [this documentation](../#backend-exposure-methods).
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.39.02 AM.png" alt=""><figcaption><p>v4 API creation wizard: select how you want your backend service exposed</p></figcaption></figure>
 
-After you choose your method of exposure, select **Select my API architecture,** and you'll be taken to the entrypoint selection screen. Please read the following content to learn more about entrypoint selection and configuration, based on your selected exposure method.
+After you choose your method of exposure, click **Select my API architecture** to view the entrypoint selection screen. The entrypoint selection and configuration for each exposure method are discussed below.
 
 ### HTTP proxy entrypoints
 
@@ -52,7 +52,7 @@ If you chose **Proxy upstream protocol**, your entrypoint will be an HTTP proxy.
 
 <details>
 
-<summary>Configure HTTP proxy entrypoints</summary>
+<summary>Configure HTTP proxy entrypoint</summary>
 
 * **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
 * **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
@@ -64,7 +64,7 @@ If you chose **Proxy upstream protocol**, your entrypoint will be an HTTP proxy.
 {% hint style="warning" %}
 **Enterprise only**
 
-As of Gravitee 4.1, the ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages:
+The ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
@@ -73,15 +73,15 @@ As of Gravitee 4.1, the ability to create APIs with message API entrypoints is a
 
 If you chose **Introspect messages from Event-driven backend**, you are presented with a much different set of entrypoint options:
 
-* **HTTP GET:** Allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP GET request.
-* **HTTP POST:** Allows you to front a chosen backend or data source with a Gateway REST API with support for the HTTP POST request.
-* **Server-sent Events:** Allows you to front a chosen backend or data source with a Gateway SSE API for unidirectional communication between server and client.
-* **Webhook**: Allows you to front a chosen backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
-* **WebSocket**: Allows you to front a chosen backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
+* **HTTP GET:** Front a backend or data source with a Gateway REST API that supports the HTTP GET request.
+* **HTTP POST:** Front a backend or data source with a Gateway REST API that supports the HTTP POST request.
+* **Server-sent Events:** Front a backend or data source with a Gateway SSE API for unidirectional communication between server and client.
+* **Webhook**: Front a backend or data source with a Gateway Webhook API. This allows consumers to subscribe to the Gravitee Gateway via Webhook and then retrieve streamed data in real-time from a backend data source, via the Gateway, over the consumer's Webhook callback URL.
+* **WebSocket**: Front a backend or data source with a Gateway WebSocket API. This allows a consumer to retrieve and send streamed events and messages in real-time.
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-08 at 8.44.08 AM.png" alt=""><figcaption><p>v4 API creation wizard: event-driven backend entrypoints</p></figcaption></figure>
 
-Once you select your entrypoints from the entrypoints page, additional configuration is required. The following sections outline the necessary configuration per entrypoint.
+Once you select your entrypoint(s), additional configuration is required. The following sections outline the necessary configuration per entrypoint.
 
 <details>
 
@@ -221,7 +221,9 @@ If you chose **HTTP POST** as an entrypoint, you will be brought to a page where
 
 * **Context path:** The URL of your API. For example, if your URL is `[https://apim-master-gateway.team-apim.gravitee.dev/myAPI]`, then `[/myAPI]` is the context path.
 * **Virtual hosts:** Enabling virtual hosts requires you to define your **virtual host** and optionally enable **override access**.
-* **HTTP POST permissions:** Allow or disallow add request Headers to the generated message by toggling **Allow add request Headers to the generated message** ON or OFF.
+* **HTTP POST permissions:**
+  * **Allow add request Headers to the generated message:** Toggle ON to add each header from incoming request to the generated message headers.
+  * **Produce Empty Message Flow When Called:** Toggle ON to initiate an empty message flow and give policies full access to the context (i.e., to construct messages with metadata, headers, etc.) whenever the POST request is made to the entrypoint.
 * **Quality of service:** Use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../../api-configuration/v4-api-configuration/quality-of-service.md).
 
 </details>
@@ -293,7 +295,7 @@ If you chose the HTTP proxy option, your endpoint will be an HTTP proxy.&#x20;
 
 </details>
 
-The endpoint configuration will determine the endpoint group’s default configuration, and the endpoint will inherit the configuration of the group by default.
+The endpoint configuration will determine the endpoint group’s default configuration and the endpoint will inherit the configuration of the group by default.
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
@@ -304,7 +306,7 @@ By default, the endpoint group will be named **Default \<endpoint type> group** 
 {% hint style="warning" %}
 **Enterprise only**
 
-As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages:
+The ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
@@ -319,7 +321,7 @@ If you chose **Introspect messages from event-driven backend** as your exposure 
 * RabbitMQ
 * Solace
 
-Depending on which endpoint you choose, you will need to further define certain sets of endpoint configurations. Please see the expandable sections below to learn more about the endpoint configuration of each available endpoint.
+Depending on which endpoint you choose, you will need to further define certain sets of endpoint configurations. See the expandable sections below to learn more about the configuration of each available endpoint.
 
 <details>
 
@@ -340,23 +342,23 @@ The Endpoint Mock endpoint allows you to mock a backend service to emulate the b
 The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x, via an MQTT client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
 * How the Gateway will interact the broker by instructing the Gravitee Gateway's MQTT client to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
-  * **Use Producer:** tells the Gateway MQTT client to be prepared to produce messages and send them to the MQTT broker that you define as your endpoint.
-  * **Use Consumer:** tells the Gateway MQTT client to be prepared to consume messages from the MQTT broker that you define as your endpoint.
-  * **Use Producer and Consumer**: tell the Gateway MQTT client to both **Use Producer** and **Use Consumer**.
-* **Server host:** define the serverHost for the MQTT broker that you are using as your endpoint.
-* **Server port:** define the serverPort for the MQTT broker that you are using as your endpoint.
-* **Reconnect attempts:** specify an integer number of reconnect attemps that the Gateway will initiate if the Gateway MQTT client disconnects from the MQTT broker. The maximum is 10.
-* **Session expiry interval:** defines the period of time that the broker stores the session information of that particular MQTT client. When the session expiry interval is set to **0** or the CONNECT packet does not contain an expiry value, the session information is immediately removed from the broker when the client network connection closes.
-* **Clean start:** toggle **Clean start** ON or OFF to enable or disable the **cleanStart** tag. This tag causes the MQTT broker to discard any previous session data and the Gateway MQTT client to connect with a fresh session.
-* **Initial security settings:** you will define more Gravitee Gateway-specific security settings later on, but this is where you define your MQTT-specific authentication flow. Gravitee supports username and password using TLS. You will need to define:
+  * **Use Producer:** Tells the Gateway MQTT client to be prepared to produce messages and send them to the MQTT broker that you define as your endpoint.
+  * **Use Consumer:** Tells the Gateway MQTT client to be prepared to consume messages from the MQTT broker that you define as your endpoint.
+  * **Use Producer and Consumer**: Tells the Gateway MQTT client to both **Use Producer** and **Use Consumer**.
+* **Server host:** Define the serverHost for the MQTT broker that you are using as your endpoint.
+* **Server port:** Define the serverPort for the MQTT broker that you are using as your endpoint.
+* **Reconnect attempts:** Specify an integer number of reconnect attemps that the Gateway will initiate if the Gateway MQTT client disconnects from the MQTT broker. The maximum is 10.
+* **Session expiry interval:** Defines the period of time that the broker stores the session information of that particular MQTT client. When the session expiry interval is set to **0** or the CONNECT packet does not contain an expiry value, the session information is immediately removed from the broker when the client network connection closes.
+* **Clean start:** Toggle **Clean start** ON or OFF to enable or disable the **cleanStart** tag. This tag causes the MQTT broker to discard any previous session data and the Gateway MQTT client to connect with a fresh session.
+* **Initial security settings:** You will define more Gravitee Gateway-specific security settings later on, but this is where you define your MQTT-specific authentication flow. Gravitee supports username and password using TLS. You will need to define:
   * Username
   * Password
-* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for producing messages to your backend MQTT topic/broker. You will need to specify:
-  * **Topic:** the UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).
-  * **Retain settings:** whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
-  * **Message expiry interval:** defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the "retained=true" option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
-  * **Response topic:** represents the topics on which the responses from the message receivers are expected.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume messages.
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway MQTT client will rely on for producing messages to your backend MQTT topic/broker. You will need to specify:
+  * **Topic:** The UTF-8 string that the broker uses to filter messages for each connected client. The topic consists of one or more topic levels. Each topic level is separated by a forward slash (topic level separator).
+  * **Retain settings:** Whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
+  * **Message expiry interval:** Defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the "retained=true" option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
+  * **Response topic:** Represents the topics on which the responses from the message receivers are expected.
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway MQTT client will rely on for consuming messages from your backend MQTT topic/broker. You must define the **Topic** from which the Gateway MQTT client will consume messages.
 
 </details>
 
@@ -367,17 +369,17 @@ The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection 
 The **Kafka** endpoint allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
 * How the Gateway will interact the broker by instructing the Gravitee Gateway's Kafka client to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
-  * **Use Producer:** tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint
-  * **Use Consumer:** tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint
-  * **Use Producer and Consumer:** tell the Gateway Kafka client to both **Use Producer** and **Use Consumer**
-* **Bootstrap servers:** define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. The client will make use of all servers irrespective of which servers the list designates for bootstrapping - this list only pertains to the initial hosts used to discover the full set of servers.
-* **Initial security settings:** you will define more Gravitee Gateway-specific security settings later on, but this is where you define your Kafka-specific authentication flow. Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL as protocols. Depending on which you choose, you will need to define:
-  * **PLAINTEXT:** no further security config necessary.
+  * **Use Producer:** Tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint
+  * **Use Consumer:** Tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint
+  * **Use Producer and Consumer:** Tells the Gateway Kafka client to both **Use Producer** and **Use Consumer**
+* **Bootstrap servers:** Define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. The client will make use of all servers irrespective of which servers the list designates for bootstrapping - this list only pertains to the initial hosts used to discover the full set of servers.
+* **Initial security settings:** You will define more Gravitee Gateway-specific security settings later on, but this is where you define your Kafka-specific authentication flow. Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL as protocols. Depending on which you choose, you will need to define:
+  * **PLAINTEXT:** No further security config necessary.
   * **SASL**
-    * **SASL mechanism:** used for client connections. This will be GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512.
-    * **SASL JAAS Config:** the JAAS login context parameters for SASL connections in the format used by JAAS configuration files.
+    * **SASL mechanism:** Used for client connections. This will be GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512.
+    * **SASL JAAS Config:** The JAAS login context parameters for SASL connections in the format used by JAAS configuration files.
   * **SSL**
-    * **Truststore:** depending on your truststore type, you will need to define:
+    * **Truststore:** Depending on your truststore type, you will need to define:
       * **PEM with location**
         * Define the **location of your truststore file**.
       * **PEM with certificates**
@@ -413,16 +415,25 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
       * **PKCS12 with Key**
         * Define the **SSL keystore private key** by defining the **Key** and the **Key password**.
         * Define the **SSL keystore password** for the keystore file.
-* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
-  * **Topic:** the topic that the broker uses to filter messages for each connected client.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
-  * **Topic:** the topic(s) from which your Gravitee Gateway client will consume messages.
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
+  * **Topics:** The topic that the broker uses to filter messages for each connected client.
+  * **Compression type:** Choose the compression type for all data generated by the producer:
+    * **none**
+    * **gzip**
+    * **snappy**
+    * **lz4**
+    * **zstd**
+    * **Anything else:** Throw an exception to the consumer.
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
   * **Encode message Id:** Toggle this ON or OFF to encode message IDs in base64.
   * **Auto offset reset:** Use the **Auto offset reset** drop-down menu to configure what happens when there is no initial offset in Kafka, or if the current offset no longer exists on the server:
-    * **Earliest:** automatically reset the offset to the earliest offset.
-    * **Latest:** automatically reset the offset to the latest offset.
-    * **None:** throw an exception to the consumer if no previous offset is found for the consumer's group.
-    * **Anything else:** throw an exception to the consumer.
+    * **Earliest:** Automatically reset the offset to the earliest offset.
+    * **Latest:** Automatically reset the offset to the latest offset.
+    * **None:** Throw an exception to the consumer if no previous offset is found for the consumer's group.
+    * **Anything else:** Throw an exception to the consumer.
+  * Choose **Specify List of Topics** or **Specify Topic Expression**:
+    * **Specify List of Topics:** The topic(s) from which your Gravitee Gateway client will consume messages.
+    * **Specify Topic Expression:** A single Java regular expression to consume only messages from Kafka topics that match the expression.
 
 **Recovering Kafka messages**
 
@@ -446,7 +457,7 @@ As an example using SSE as an entrypoint, first define the QoS for the entrypoin
 
 The offset information provided during the Gateway connection must be encoded in base64. It can be passed in plain text by setting the `encodeMessageId` to **false** in the consumer configuration of the Kafka plugin.
 
-The offset information has to respect the convention `<topicName>@<partition-id>#<offset>`
+The offset information has to respect the convention `<topicName>@<partition-id>#<offset>`.
 
 If the Kafka endpoint manages multiple topics or partitions, you can define multiple offsets using the following convention with a semicolon as the separator:
 
@@ -466,7 +477,7 @@ curl http://localhost:8082/demo/sse/kafka-advanced/plaintext \n
     -H"Last-Event-ID: ${LAST_ID}" 
 ```
 
-For the HTTP-GET entrypoint, the offset must be provided using the `cursor` query parameter `curl http://localhost:8082/messages/get?cursor=${LAST_ID}`
+For the HTTP-GET entrypoint, the offset must be provided using the `cursor` query parameter `curl http://localhost:8082/messages/get?cursor=${LAST_ID}`.
 
 </details>
 
@@ -497,23 +508,25 @@ Choosing the **Solace** endpoint enables the Gravitee Gateway to create an API t
 
 The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ resource, as long as that RabbitMQ resource communicates over AMQP 0-9-1 protocol. If you choose this endpoint, you will need to configure the following:
 
-* **Server host:** define the host of your RabbitMQ resource
-* **Server port**: define the port that RabbitMQ is using
+* **Server host:** Define the host of your RabbitMQ resource
+* **Server port:** Define the port that RabbitMQ is using
+* **Virtual host:** Define the virtual host to use
 * How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
-  * **Use Producer:** tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
-  * **Use Consumer:** tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
-  * **Use Producer and Consumer:** tell the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
-* **Authentication:** define the **userna**me and **password** for RabbitMQ authentication
-* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
+  * **Use Producer:** Tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
+  * **Use Consumer:** Tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
+  * **Use Producer and Consumer:** Tells the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
+* **Authentication:** Define the **username** and **password** for RabbitMQ authentication
+* **SSL Options:**
+  * **Verify Host:** Enable host name verification
+  * **Truststore:** Select from **None**, **PEM with path**, **PEM with content**, **JKS with path**, **JKS with content**, **PKCS12 with path**, or **PKCS12 with content** and supply the required content/path and password
+  * **KeyStore:** Select from **None**, **PEM with path**, **PEM with content**, **JKS with path**, **JKS with content**, **PKCS12 with path**, or **PKCS12 with content** and supply the required content/path and password
+* **Producer** settings (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
-  * Enable or disable **Durable**
-  * Enable or disable **Auto Delete**
+  * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart
+  * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** exchange is deleted when last queue is unbound from it
   * **Routing Key**
-
-<!---->
-
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
+* **Consumer** settings (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
   * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart
@@ -522,7 +535,7 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
 
 </details>
 
-The endpoint configuration will determine the endpoint group’s default configuration, and the endpoint will inherit the configuration of the group by default.
+The endpoint configuration will determine the endpoint group’s default configuration and the endpoint will inherit the configuration of the group by default.
 
 By default, the endpoint group will be named **Default \<endpoint type> group** and the endpoint will be named **Default \<endpoint type>** as shown below:
 
@@ -532,23 +545,29 @@ By default, the endpoint group will be named **Default \<endpoint type> group** 
 
 Next in the API creation wizard is the Security step, where you will configure:
 
-* **Plan information**: define a plan that provides the API producer with a method to secure, monitor, and transparently communicate details around access.
-* **Configuration**: define authorization resources, such as Gravitee AM or another OAuth2 resource.
-* **Limitations**: define access limitations, such as rate limiting and quotas.
+* **Plan information**: Define a plan that provides the API producer with a method to secure, monitor, and transparently communicate details around access.
+* **Configuration**: Define authorization resources, such as Gravitee AM or another OAuth2 resource.
+* **Limitations**: Define access limitations, such as rate limiting and quotas.
 
 ### Plan information
 
-A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate details around access. If you want to learn more about how plans function in Gravitee, please refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md). You will be able to choose between several different plan types:
+A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate the details of access.&#x20;
+
+{% hint style="info" %}
+To learn more about how plans function in Gravitee, refer to the [plans documentation](../../api-exposure-plans-applications-and-subscriptions/plans.md).&#x20;
+{% endhint %}
+
+You will be able to choose between several different plan types:
 
 * **OAuth2**: A standard designed to allow a website or application to access resources hosted by other web apps on behalf of a user.
-* **JWT**: An open standard that defines a compact and URL-safe way to securely transmit information as a JSON object between parties.
-* **API Key:** A plan where the API Gateway will reject calls from consumers that aren't able to pass the right API key in their request.
-* **Keyless**: Aplan that results in no added security via plan configuration. This is considered an "Open" plan.
+* **JWT**: An open standard that defines a compact and URL-safe way to securely transmit information, in the form of a JSON object, between parties.
+* **API Key:** A plan where the API Gateway rejects calls from consumers that do not pass the correct API key in a request.
+* **Keyless**: A plan that, when configured, does not add security. This is considered an "Open" plan.
 * **Push plan**: A plan that provides an access layer for the Gateway pushing data to consumers. This is used for subscribers.
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-01 at 12.14.02 PM.png" alt=""><figcaption><p>API creation wizard: different Security plan types</p></figcaption></figure>
 
-Depending on which plan you select, the configuration will differ. Please see the expandable sections below to learn more about how to configure each of the different plans.
+Configuration differs by plan. See the expandable sections below to learn more about how to configure each of the different plans.
 
 <details>
 
@@ -605,7 +624,7 @@ If you chose **JWT**, you will need to specify general details, the authenticati
 
 Once you're done with your general details, select Next to define your JWT authentication configuration. This will require you to:
 
-* Choose a **Signature** to define how your JWT token must be signed. The algorithm options are:
+* Choose a **Signature** to define how your JWT token must be signed. The options are:
   * RSA\_RS256
   * RSA\_RS384
   * RSA\_RS512
@@ -613,15 +632,12 @@ Once you're done with your general details, select Next to define your JWT authe
   * HMAC\_HS384
   * HMAC\_HS384
 * Define your **JWKS resolver**. This defines how your JSON Web Key Set is retrieved.
-* Define your Resolver parameter **(secrets must be base-64 encoded)**.
+* Define your Resolver parameter.
 * Choose whether to use a system proxy.
 * Choose whether to enable extra JWT claims.
 * Choose whether to propagate Authorization headers.
 * Define the User claim where users can be extracted.
-* Define the Client ID claim where the client can be extracted.
-* Choose whether to ignore missing CNF.
-* Choose whether to enable certificate bound thumbprint validation.
-* Choose whether to extract client certificate from headers and add the header name.
+* Define the Client Id claim where the client can be extracted.
 * Define additional selection rules using the Gravitee Expression Language.
 
 Select Next to define any restrictions associated with this plan. Your options include:
@@ -696,12 +712,12 @@ Select Next to be taken to the **Restriction** page to define any additional res
 
 ## Step 5: Documentation
 
-The Documentation step is not currently supported for v4 APIs. This will be added in a future release.
+The Documentation step is supported for v4 APIs. See [this page](broken-reference) to learn how to create documentation for a v4 API.
 
 ## Step 6: Summary
 
 The final step is to review and then create or deploy your API. Creating your API will create the API as a Gravitee artifact, but not deploy it to the Gateway. If you choose Deploy, the API will be created and deployed to the Gravitee Gateway.
 
 {% hint style="success" %}
-Once you create or deploy your API, you are done with the API creation process! At this point, we recommend learning how to further configure your API, and how to design and enforce policies that make your API more secure, reliable, efficient, etc.
+Once you create or deploy your API, you are done with the API creation process! We recommend learning how to further [configure](../../api-configuration/) your API, and how to design and enforce [policies](../../policy-design/) to make your API more secure, reliable, efficient, etc.
 {% endhint %}

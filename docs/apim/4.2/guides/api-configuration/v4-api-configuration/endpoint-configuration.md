@@ -8,14 +8,14 @@ description: >-
 
 ## Introduction
 
-In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API. After you've created your Gateway API and selected your endpoint(s), you can configure them on the **API** page of the API Management Console.
+In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API. After you've created your Gateway API and selected your endpoint(s), you can configure them in the API Management Console.
 
 ## Configure v4 message API endpoints
 
 {% hint style="warning" %}
 **Enterprise-only**
 
-As of Gravitee 4.1, the ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
+The ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise Edition and what's included in various enterprise packages:
 
 * [Refer to the EE vs OSS documentation](../../../overview/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
@@ -30,73 +30,86 @@ v4 message APIs currently support the following endpoints:
 * **Solace**: Enables the Gravitee API Gateway to establish a persistent connection with Solace as a backend resource or target.
 * **Mock**: Enables the Gateway to simulate responses from a server for testing API implementations.
 
-To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.**&#x20;
+To access endpoint configuration:
 
-Endpoint configuration may differ depending on which endpoint(s) your API utilizes. The configuration details of each specific endpoint are discussed below.
+1. Select **APIs** from the left nav
+2. Select your API&#x20;
+3. Select **Backend services** from the Endpoints section of the inner left nav
+
+Configuration differs by endpoint. Refer to the following sections for specific configuration details.
 
 <details>
 
 <summary>Kafka</summary>
 
-The **Kafka** endpoint allows the Gateway to open up a persistent connection to and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
+The **Kafka** endpoint allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure:
 
-* How the Gateway will interact with the broker. This is done by instructing the Gravitee Gateway's Kafka client to act as a producer, a consumer, or both a producer and consumer via the drop-down menu:
-  * **Use Producer:** Tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint.
-  * **Use Consumer:** Tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint.
-  * **Use Producer and Consumer:** Tells the Gateway Kafka client to both **Use Producer** and **Use Consumer**.
-* **Bootstrap servers:** Define the comma-separated list of host/port pairs used to establish the initial connection to the Kafka cluster. The list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all backend servers irrespective of which servers the list designates for bootstrapping.&#x20;
-*   **Initial security settings:** Define your Kafka-specific authentication flow (you will define additional Gravitee Gateway-specific security settings later). Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL protocols. Depending on which you choose, you will need to define:
-
-    **PLAINTEXT:** No further security configuration is necessary.
-
-    **SASL**
-
-    * **SASL mechanism:** Choose GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512 for client connections.
-    * **SASL JAAS Config:** The JAAS login context parameters for SASL connections in JAAS configuration file format.
-
-    **SSL truststore:** Depending on your truststore type, you will need to define:
-
-    * **PEM with location:** The location of your truststore file.
-    * **PEM with certificates:** The trusted certificates, in the format specified by `ssl.truststore.type`.
-    * **JKS with location:** The truststore file's location and SSL truststore password.
-    * **JKS with certificates**
-      * The trusted certificates, in the format specified by `ssl.truststore.type`.
-      * The truststore file's SSL truststore password.
-    * **PKCS12 with location:** The truststore file's location and SSL truststore password.
-    * **PKCS12 with certificates**
-      * The trusted certificates, in the format specified by `ssl.truststore.type`.
-      * The truststore file's SSL truststore password.
-
-    **SSL keystore:** Depending on your keystore type, you will need to define:
-
-    * **PEM with location**
-      * The SSL keystore certificate chain.
-      * The location of the keystore file.
-    * **PEM with Key**
-      * The SSL keystore certificate chain.
-      * The SSL keystore private key via defining the Key and the Key password.
-    * **JKS with location**
-      * The location of the keystore file.
-      * The SSL keystore password for the keystore file.
-    * **JKS with Key**
-      * The SSL keystore private key via defining the Key and the Key password.
-      * The SSL keystore password for the keystore file.
-    * **PKCS12 with location**
-      * The location of your keystore file.
-      * The SSL keystore password for the keystore file.
-    * **PKCS12 with Key**
-      * The SSL keystore private key via defining the Key and the Key password.
-      * The SSL keystore password for the keystore file.
-* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to produce messages to your backend Kafka topic/broker:
-  * **Topic:** The topic that the broker uses to filter messages for each connected client.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to consume messages from your backend Kafka topic/broker:
-  * **Topic:** The topic(s) from which your Gravitee Gateway client will consume messages.
+* How the Gateway will interact the broker by instructing the Gravitee Gateway's Kafka client to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
+  * **Use Producer:** Tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint
+  * **Use Consumer:** Tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint
+  * **Use Producer and Consumer:** Tells the Gateway Kafka client to both **Use Producer** and **Use Consumer**
+* **Bootstrap servers:** Define the comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. The client will make use of all servers irrespective of which servers the list designates for bootstrapping - this list only pertains to the initial hosts used to discover the full set of servers.
+* **Initial security settings:** You will define more Gravitee Gateway-specific security settings later on, but this is where you define your Kafka-specific authentication flow. Gravitee supports PLAINTEXT, SASL\_PLAINTEXT, SASL\_SSL, and SSL as protocols. Depending on which you choose, you will need to define:
+  * **PLAINTEXT:** No further security config necessary.
+  * **SASL**
+    * **SASL mechanism:** Used for client connections. This will be GSSAPI, OAUTHBEARER, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512.
+    * **SASL JAAS Config:** The JAAS login context parameters for SASL connections in the format used by JAAS configuration files.
+  * **SSL**
+    * **Truststore:** Depending on your truststore type, you will need to define:
+      * **PEM with location**
+        * Define the **location of your truststore file**.
+      * **PEM with certificates**
+        * Define the trusted certificates in the format specified by 'ssl.truststore.type'.
+      * **JKS with location**
+        * Define the **location of your truststore file**.
+        * Define the **SSL truststore password** for the truststore file.
+      * **JKS with certificates**
+        * Define the trusted certificates in the format specified by 'ssl.truststore.type'.
+        * Define the **SSL truststore password** for the truststore file.
+      * **PKCS12 with location**
+        * Define the **location of your truststore file**.
+        * Define the **SSL truststore password** for the truststore file.
+      * **PKCS12 with certificates**
+        * Define the **trusted certificates** in the format specified by 'ssl.truststore.type'.
+        * Define the **SSL truststore password** for the truststore file.
+    * **Keystore:**
+      * **PEM with location**
+        * Define the **SSL keystore certificate chain**.
+        * Define the location of your keystore file.
+      * **PEM with Key**
+        * Define the **SSL keystore certificate chain**.
+        * Define the **SSL keystore private key** by defining the **Key** and the **Key password**.
+      * **JKS with location**
+        * Define the **location of your keystore file**.
+        * Define the **SSL keystore password** for the keystore file.
+      * **JKS with Key**
+        * Define the **SSL keystore private key** by defining the **Key** and the **Key password**.
+        * Define the **SSL keystore password** for the keystore file.
+      * **PKCS12 with location**
+        * Define the **location of your keystore file**.
+        * Define the **SSL keystore password** for the keystore file.
+      * **PKCS12 with Key**
+        * Define the **SSL keystore private key** by defining the **Key** and the **Key password**.
+        * Define the **SSL keystore password** for the keystore file.
+* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
+  * **Topics:** The topic that the broker uses to filter messages for each connected client.
+  * **Compression type:** Choose the compression type for all data generated by the producer:
+    * **none**
+    * **gzip**
+    * **snappy**
+    * **lz4**
+    * **zstd**
+    * **Anything else:** Throw an exception to the consumer.
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
   * **Encode message Id:** Toggle this ON or OFF to encode message IDs in base64.
   * **Auto offset reset:** Use the **Auto offset reset** drop-down menu to configure what happens when there is no initial offset in Kafka, or if the current offset no longer exists on the server:
     * **Earliest:** Automatically reset the offset to the earliest offset.
     * **Latest:** Automatically reset the offset to the latest offset.
     * **None:** Throw an exception to the consumer if no previous offset is found for the consumer's group.
     * **Anything else:** Throw an exception to the consumer.
+  * Choose **Specify List of Topics** or **Specify Topic Expression**:
+    * **Specify List of Topics:** The topic(s) from which your Gravitee Gateway client will consume messages.
+    * **Specify Topic Expression:** A single Java regular expression to consume only messages from Kafka topics that match the expression.
 
 </details>
 
@@ -152,26 +165,31 @@ Choosing the **Solace** endpoint enables the Gravitee Gateway to create an API t
 
 <summary>RabbitMQ</summary>
 
-The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection to and/or call a backend RabbitMQ resource, as long as that RabbitMQ resource communicates over the AMQP 0-9-1 protocol. If you chose this endpoint, you will need to configure the following:
+The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ resource, as long as that RabbitMQ resource communicates over AMQP 0-9-1 protocol. If you choose this endpoint, you will need to configure the following:
 
 * **Server host:** Define the host of your RabbitMQ resource.
-* **Server port**: Define the port that RabbitMQ is using.
-* How the Gateway will interact with RabbitMQ. This is done by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer via the drop-down menu:
-  * **Use Producer:** Tells the Gateway Gateway to be prepared to produce messages and send them to the RabbitMQ that you define as your endpoint.
-  * **Use Consumer:** Tells the Gateway to be prepared to consume messages from the RabbitMQ that you define as your endpoint.
+* **Server port:** Define the port that RabbitMQ is using.
+* **Virtual host:** Define the virtual host to use.
+* How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer:
+  * **Use Producer:** Tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint.
+  * **Use Consumer:** Tells the Gateway to be prepared to consume messages from RabbitMQ that you define as your endpoint.
   * **Use Producer and Consumer:** Tells the Gateway to be able to use both **Use Producer** and **Use Consumer** settings.
-* **Authentication:** Define the username and password for RabbitMQ authentication.
-* **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to produce messages to your backend Kafka topic/broker:
+* **Authentication:** Define the **username** and **password** for RabbitMQ authentication.
+* **SSL Options:**
+  * **Verify Host:** Enable host name verification.
+  * **Truststore:** Select from **None**, **PEM with path**, **PEM with content**, **JKS with path**, **JKS with content**, **PKCS12 with path**, or **PKCS12 with content** and supply the required content/path and password.
+  * **KeyStore:** Select from **None**, **PEM with path**, **PEM with content**, **JKS with path**, **JKS with content**, **PKCS12 with path**, or **PKCS12 with content** and supply the required content/path and password.
+* **Producer** settings (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
-  * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges): Durable exchanges survive broker restart.
-  * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges): When enabled, the exchange is deleted when the last queue is unbound from it.
+  * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart.
+  * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Deletes the exchange when last queue is unbound from it.
   * **Routing Key**
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on to consume messages from your backend Kafka topic/broker:
+* **Consumer** settings (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
-  * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges): Durable exchanges survive broker restart.
-  * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges): When enabled, the exchange is deleted when the last queue is unbound from it.
+  * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart.
+  * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Deletes the exchange when last queue is unbound from it.
   * **Routing Key**
 
 </details>
@@ -190,11 +208,11 @@ The **Mock** endpoint allows you to mock a backend service to emulate the behavi
 
 ## Configure v4 proxy API endpoints
 
-To access endpoint configuration, go to the **API** page in the Management Console and select your API. Then, under **Endpoints**, select **Backend services.** Next, configure your HTTP proxy endpoint:
+To configure v4 proxy API endpoints, select your API, then select **Backend services** from the Endpoints category in the left-hand nav.
 
 <details>
 
-<summary>HTTP proxy</summary>
+<summary>HTTP Proxy</summary>
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
 

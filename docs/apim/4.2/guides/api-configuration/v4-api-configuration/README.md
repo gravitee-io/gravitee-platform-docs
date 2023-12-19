@@ -10,20 +10,24 @@ description: This section covers concepts and how-to's for configuring v4 APIs i
 This section covers v4 API configuration. If you want to learn how to configure v2 APIs, please refer to the [v2 API configuration section](../v2-api-configuration/).
 {% endhint %}
 
+{% hint style="warning" %}
+In Gravitee 4.2, the API Management Console cannot be used to configure a TCP proxy API. To configure TCP proxy APIs, you must use the Management API and curl commands.
+{% endhint %}
+
 ## Introduction
 
-Gravitee offers several levels of configuration for v4 APIs using the Gravitee APIM Console. In this section, we'll cover:
+Gravitee offers various configuration for v4 APIs via the Gravitee APIM Console. This article discusses:
 
 * Portal configuration
-  * **General settings**: define the general settings for your API, such as name, description, and deployment status
-  * **Plans configuration**: define plans and basic access control mechanisms
+  * **General settings**: Define the general settings for your API, such as name, description, and deployment status.
+  * **Plan configuration**: Define plans and basic access control mechanisms.
 * Entrypoints
-  * **General entrypoint configuration**: configure how consumers access the Gateway through your Gateway API
+  * **General entrypoint configuration**: Configure how consumers access the Gateway through your Gateway API.
 * Endpoints
-  * **Backend service configuration**: configure the backend target or resource that your Gateway API will call/subscribe to
+  * **Backend service configuration**: Configure the backend target or resource that your Gateway API will call / subscribe to.
 
 {% hint style="info" %}
 **Quality of Service**
 
-You can also configure Quality of Service levels and settings for certain v4 APIs. However, this is NOT yet supported in Gravitee APIM Console as of Gravotee APIM 4.0. However, given the importance of QoS, we have still [included an article that walks through how to understand and configure QoS for v4 APIs using the API definition](quality-of-service.md).
+Gravitee APIM Console does not yet support Quality of Service configuration. [This article](quality-of-service.md) addresses QoS configuration for v4 APIs using the API definition.
 {% endhint %}

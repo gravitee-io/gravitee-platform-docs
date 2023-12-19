@@ -1,18 +1,20 @@
 ---
 description: >-
   This page introduces the various API configuration options covered in this
-  section.
+  section
 ---
 
 # API Configuration
 
 ## Introduction
 
-After you've created your APIs, you can then further configure them using both the Gravitee API defintion and the Gravitee APIM console. This section focuses on how to configure APIs using the APIM Console.
+{% hint style="warning" %}
+In Gravitee 4.2, the API Management Console cannot be used to configure a TCP proxy API. To configure TCP proxy APIs, you must use the Management API and curl commands.
+{% endhint %}
 
-Please note that, as of Gravitee APIM 4.0, API configuration slightly differs for v2 and v4 APIs. We have split this section into two main components to mirror this difference:
+After you've created your APIs, you can further configure them using both the Gravitee API definition and the Gravitee APIM Console. This section focuses on how to configure APIs using the APIM Console.
 
-* v4 API configuration guides
-* v2 API configuration guides
+API configuration differs slightly for v2 and v4 APIs. We have split this section into two main components to mirror this difference:
 
-Please refer to the relevant API configuration guides section based on the kinds of APIs you have created and need to configure using Gravitee.
+* [v4 API configuration](v4-api-configuration/)
+* [v2 API configuration](v2-api-configuration/)
