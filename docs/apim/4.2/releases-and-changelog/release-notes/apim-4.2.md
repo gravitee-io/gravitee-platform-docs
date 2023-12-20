@@ -86,7 +86,7 @@ Refer to the [GKO 1.x.x changelog](https://github.com/gravitee-io/gravitee-kuber
 
 The HTTP POST entrypoint now supports initiating an empty message flow that gives policies full access to the context (i.e., to construct messages with metadata, headers, etc.) whenever the POST request is made to the entrypoint.&#x20;
 
-For more information, see [HTTP POST in Entrypoint Configuration](../../guides/api-configuration/v4-api-configuration/entrypoint-configuration.md#http-post).
+For more information, see [HTTP POST in Entrypoint Configuration](../../guides/api-configuration/v4-api-configuration/entrypoint-configuration/#http-post).
 
 ## Endpoints
 
