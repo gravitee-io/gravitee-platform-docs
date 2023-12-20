@@ -18,7 +18,7 @@ Gravitee uses the term multi-tenancy to describe a configuration in which:&#x20;
 
 * A single APIM installation supports multiple Organizations and Environments created through Cockpit. Each tenant can be either an Organization or an Environment.
 * Features and data are isolated between tenants.
-* Dedicated URLs to access APIM components and APIs deployed on Gravitee Gatways. These URLs are labeled as Access Points and APIs are restricted to only be published on these defined entrypoints.
+* Dedicated URLs, or Access Points, are used to access APIM components and APIs deployed on Gravitee Gateways. APIs may only be published on these defined entrypoints.
 
 {% hint style="info" %}
 The way in which data and features are isolated between the logical hierarchical structures of APIM enables the existence of a multi-tenant Developer Portal.
@@ -26,8 +26,8 @@ The way in which data and features are isolated between the logical hierarchical
 
 APIM 4.2 implements changes to how Organizations and Environments are managed, in addition to the configuration that is propagated from Gravitee Cockpit. The following sections cover:
 
-* How to configure a `multi-tenant` installation with Gravitee 4.2, including Access Points
-* For information on how to run a `standalone` (not multi-tenant) installation with APIM 4.2 and newer, please refer to [4.2 Upgrade Guide](installation-guide-migration.md).
+* How to configure a `multi-tenant` installation with Gravitee 4.2, including Access Points.
+* For information on how to run a `standalone` (not multi-tenant) installation with APIM 4.2 and newer, refer to the [4.2 Upgrade Guide](installation-guide-migration.md#updating-cockpit-connection).
 
 ## How to set up multi-tenancy
 
@@ -43,14 +43,14 @@ Multi-tenancy is an enterprise feature. In order to use it, you need to:&#x20;
 Follow the steps below to implement best practices for APIM multi-tenancy.
 
 {% hint style="warning" %}
-Once a multi-tenant APIM is connected to Cockpit, it is not possible to disable multi-tenancy mode in APIM. Please try with a Sandbox or similar installation at first.
+Once a multi-tenant APIM is connected to Cockpit, it is not possible to disable multi-tenancy mode in APIM. We recommend first trying multi-tenancy in a Sandbox or similar installation.
 {% endhint %}
 
 1. [Install APIM](./) on your preferred infrastructure and deployment type
 2. Explicitly set APIM to multi-tenant mode by commenting out the multi-tenant section in the configuration. Optionally, you can specify the configuration of Access Points, which comprises the URLs that APIM components will be addressed on.&#x20;
 
 {% hint style="info" %}
-Cockpit is able to interpret a variabilized Access Point structure based on Account, Organization and Environment Human Readable IDs. Cockpit will interpret non-variabilized instructions literally, which may result in multiple Environment components receiving the same Access Point configuration.
+Cockpit is able to interpret a variabilized Access Point structure based on Account, Organization, and Environment Human Readable IDs. Cockpit will interpret non-variabilized instructions literally, which may result in multiple Environment components receiving the same Access Point configuration.
 {% endhint %}
 
 ```yaml
@@ -82,11 +82,9 @@ installation:
 3. Sign in to your enterprise version of Gravitee Cockpit and
    * Create one Organization
    * Create one Environment
-4.  Link your APIM installation to the Environment you created by following [these instructions](https://documentation.gravitee.io/gravitee-cloud/guides/register-installations). Your APIM installation will be recognized by Cockpit as multi-tenant and send templated Access Points to the connected Environment. Your installation will be identified as `MULTI-TENANT`.\
-    \
+4.  Link your APIM installation to the Environment you created by following [these instructions](https://documentation.gravitee.io/gravitee-cloud/guides/register-installations). Your APIM installation will be identified as `MULTI-TENANT`, recognized by Cockpit as multi-tenant, and send templated Access Points to the connected Environment.
 
-
-    <figure><img src="../../.gitbook/assets/image (59).png" alt=""><figcaption><p>Installation details in Cockpit showing the installaiton as multi-tenant.</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (59).png" alt=""><figcaption><p>Installation details in Cockpit showing the installation as multi-tenant</p></figcaption></figure>
 5. Add a new Environment within the same Organization and connect it to the multi-tenant APIM installation
 
 {% hint style="success" %}
@@ -100,11 +98,11 @@ The Access Points feature allows different tenants to use dedicated URLs to acce
 * As Access Points rely on proper mapping, e.g., through a load balancer, you may need to edit your `etc/hosts` file prior to testing locally.
 * When enabled, Access Point URLs will be used declaratively whenever possible.&#x20;
   * For example, when an API is created, its entrypoint will be set to virtual host mode and the host option will be limited to what the Access Points define. This allows users sharing an installation to have APIs with the same path deployed on the same set of logical Gateways.
-* Once a multi-tenant APIM installation is connected to Cockpit, custom Access Points can be defined at both the Organization and Environment levels using Cockpit. These values will override the values that were originally sent from APIM installation. See images below.
+* Once a multi-tenant APIM installation is connected to Cockpit, custom Access Points can be defined at both the Organization and Environment levels using Cockpit. These values will override the values originally sent from the APIM installation, as shown below.
 
-<figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption><p>Access Points configuration for Organization related APIM nodes. Found on Organization settings in Cockpit.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cockpit</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Access Points configuration for Environment related APIM nodes. Found on Environment settings in Cockpit.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cockpit</p></figcaption></figure>
 
 ### Using custom Access Points
 
@@ -121,7 +119,7 @@ As of APIM 4.2, multi-tenancy is subject to the following limitations:
 * You cannot connect a multi-tenant-enabled APIM installation to Cockpit if you do not have an enterprise-enabled Cockpit account. Trying to do so will generate errors.
 
 {% hint style="info" %}
-If you are an existing Gravitee Enterprise customer and have issues with setting up multi-tenancy mode, reach out to your Customer Success Manager to make sure your Cockpit Account has all enterprise features enabled.
+If you are an existing Gravitee Enterprise customer and encounter issues setting up multi-tenancy mode, reach out to your Customer Success Manager to make sure your Cockpit Account has all enterprise features enabled.
 {% endhint %}
 
 ## Example: A typical multi-tenant setup
