@@ -163,11 +163,11 @@ eventsCollection.find({"type": "PUBLISH_API"}).forEach((event) => {
 
 ## Updating Cockpit connection
 
-With APIM 4.2 we bring improved management of multi-tenancy mode. Meaning you have one APIM installation tending to multiple tenants on either Organization on Environments level.\
+APIM 4.2 brings improved management of multi-tenancy mode, where one APIM installation now tends to multiple tenants on either the Organization on Environment level.\
 \
-Multi-tenancy support in Gravitee 4.2 necessitated changes to both APIM and Cockpit. However, customer deployments may continue to function as `standalone` APIM installations, which is recognized as the APIM 4.1 behaviour of APIM together with Cockpit.\
+Multi-tenancy support in Gravitee 4.2 necessitated changes to both APIM and Cockpit, but customer deployments may continue to function as `standalone` APIM installations. A `standalone` installation behaves the same as APIM 4.1 connected to Cockpit.\
 \
-As part of this, if you have APIM connected to Cockpit, you need to make changes to the gravitee.yml of Management API.\
+APIM installations connected to Cockpit require changes to the Management API's `gravitee.yml` file.\
 
 
 ### APIM 4.2 with Cockpit connected
@@ -231,4 +231,3 @@ installation:
         - envId: environment#2
           url: http:/localhost:4101
 ```
-
