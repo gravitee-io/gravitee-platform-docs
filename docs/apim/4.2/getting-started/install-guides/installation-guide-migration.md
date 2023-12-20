@@ -160,3 +160,75 @@ eventsCollection.find({"type": "PUBLISH_API"}).forEach((event) => {
        eventsCollection.replaceOne({ _id: event._id }, event);
 });
 ```
+
+## Updating Cockpit connection
+
+With APIM 4.2 we bring improved management of multi-tenancy mode. Meaning you have one APIM installation tending to multiple tenants on either Organization on Environments level.\
+\
+Multi-tenancy support in Gravitee 4.2 necessitated changes to both APIM and Cockpit. However, customer deployments may continue to function as `standalone` APIM installations, which is recognized as the APIM 4.1 behaviour of APIM together with Cockpit.\
+\
+As part of this, if you have APIM connected to Cockpit, you need to make changes to the gravitee.yml of Management API.\
+
+
+### APIM 4.2 with Cockpit connected
+
+{% hint style="warning" %}
+The user must edit the Management API's `gravitee.yaml`.
+{% endhint %}
+
+If an APIM installation connected to Cockpit is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
+
+```yaml
+installation:
+  type: standalone # Could be either standalone, multi-tenant; Default is standalone.
+  # Specify the URL of Management API of this instance, mandatory if you want to connect it to Cockpit
+  api:
+    proxyPath:
+      management: ${http.api.management.entrypoint} # By default /management
+      portal: ${http.api.portal.entrypoint}  # By default /portal
+  standalone:
+    api:
+    # Specify the URLs of Management API, mandatory if you want to connect it to Cockpit with a standalone installation
+      url: http://localhost:8083
+    # Specify the URL of Console UI of this instance, mandatory if you want to connect it to Cockpit with a standalone installation
+    console:
+      url: http://localhost:3000
+    portal:
+      url: http://localhost:4100
+```
+
+### APIM 4.2 and multiple Consoles/Portals in a connected Cockpit
+
+{% hint style="warning" %}
+The user must edit the Management API's `gravitee.yaml`.
+{% endhint %}
+
+If an APIM installation with multiple Consoles and/or Portals set up in a connected Cockpit is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
+
+```yaml
+installation:
+  type: standalone # Could be either standalone, multi-tenant; Default is standalone.
+  # Specify the URL of Management API of this instance, mandatory if you want to connect it to Cockpit
+  api:
+    proxyPath:
+      management: ${http.api.management.entrypoint} # By default /management
+      portal: ${http.api.portal.entrypoint}  # By default /portal
+  standalone:
+    api:
+    # Specify the URLs of Management API, mandatory if you want to connect it to Cockpit with a standalone installation
+      url: http://localhost:8083
+    # Specify the URL of Console UI of this instance, mandatory if you want to connect it to Cockpit with a standalone installation
+    console:
+      urls:
+        - orgId: DEFAULT
+          url: http://localhost:3000
+        - orgId: organization#2
+          url: http:/localhost:3001
+    portal:
+      urls:
+        - envId: DEFAULT
+          url: http://localhost:4100
+        - envId: environment#2
+          url: http:/localhost:4101
+```
+
