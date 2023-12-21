@@ -5,6 +5,51 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.15 - December 21, 2023
+<details>
+
+<summary>BugFixes</summary>
+
+**Gateway**
+
+* Health-check service never stopped when using Service Discovery [#9437](https://github.com/gravitee-io/issues/issues/9437)
+
+**Management API**
+
+* API Does Not Deploy if a Common Flow Exists with Multiple Entrypoints Selected [#9415](https://github.com/gravitee-io/issues/issues/9415)
+* Can not delete api with too many events [#9439](https://github.com/gravitee-io/issues/issues/9439)
+
+**Console**
+
+* Inconsistency on "Inheritance" flag for endpoints/groups between frontend and backend [#9407](https://github.com/gravitee-io/issues/issues/9407)
+* Flow Name Display Does Not Match Gateway Behavior [#9416](https://github.com/gravitee-io/issues/issues/9416)
+* Log view too wide [#9429](https://github.com/gravitee-io/issues/issues/9429)
+
+**Portal**
+
+* Tickets Inaccessible When an API with Open Tickets Is Deleted [#9422](https://github.com/gravitee-io/issues/issues/9422)
+* Cannot Scroll in Markdown Documentation in Portal [#9424](https://github.com/gravitee-io/issues/issues/9424)
+* Synchronization inconsistency on ALL APIs page on portal [#9432](https://github.com/gravitee-io/issues/issues/9432)
+* Sign up doesn't work anymore [#9440](https://github.com/gravitee-io/issues/issues/9440)
+
+**Other**
+
+* Make some non-migrated policies available on REQUEST phase for message APIs [#9430](https://github.com/gravitee-io/issues/issues/9430)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* [JDBC] Improve Flows loading [#9436](https://github.com/gravitee-io/issues/issues/9436)
+
+</details>
+
+
 
 ## Gravitee API Management 4.0.14 - December 7, 2023
 
