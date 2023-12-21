@@ -2,38 +2,34 @@
 
 ## Introduction
 
-Account Token lets you generate secure, long living tokens that can be used to interact with your Cockpit Account using the Management API.
+Account Token allows you to generate secure, long-living tokens that can be used to interact with your Cockpit Account via the Management API.
 
-Use cases for this can be to automate the creation of Organizations, Environments and link them to your installations.
+A sample use case would be to automate the creation of Organizations and Environments and then link them to your installations.
 
 ## How it works
 
-Account tokens management is available through Account Settings, only available to Account Administrators.
+Account Token management is available through Account Settings to Account Administrators only.
 
-You can have a total of 10 account tokens active at the same time. \
-\
-It is important to know that account tokens permissions are directly derived from the user who created the token. So if an an ACCOUNT\_PRIMARY\_OWNER creates an account token, the token will inherit the same permissions on the account as this used has.
+Account Token permissions are directly derived from the user who created the token. For example, if an an ACCOUNT\_PRIMARY\_OWNER creates an Account Token, the token will inherit the account permissions of this user.
+
+A total of 10 Account Tokens can be active simultaneously.&#x20;
 
 ## How to create a token
 
-Follow the steps below to create and manage Account Tokens, such as deletion.
+Follow the steps below to create and manage Account Tokens:
 
-1. Go to Settings > Account tokens.
+1.  Go to **Settings > Account Tokens**.&#x20;
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/account token_settings.png" alt=""><figcaption></figcaption></figure>
+2.  Click **Generate token**, give your Account Token a meaningful name, then click **Generate**.&#x20;
 
-2. Click on **Generate token**, give your Account Token a meaningful name, and then click on **Generate**.
+    <figure><img src="../.gitbook/assets/account token_generate.png" alt=""><figcaption></figcaption></figure>
+3.  The next dialogue box will show your Account Token and a CURL example of how to use it. Make sure to copy your Account Token, as this will not be possible once you close the dialogue box.&#x20;
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/account token_copy.png" alt=""><figcaption></figcaption></figure>
+4.  Your Account Token will now be listed in the table.&#x20;
 
-3. In the next dialogue box you will see your Account token complemented with a CURL example of how to use it. Make sure you copy your Account token as it will not be possible to copy it once you close the the dialogue box. Click on **Close** once you feel ready.
+    <figure><img src="../.gitbook/assets/account token_listed.png" alt=""><figcaption></figcaption></figure>
+5.  To delete a token, click the **trash icon** on the right of the Account Token entry, enter its name in the **Confirm** field, and, after verifying the token has no dependencies, click **I understand the consequences, revoke this token**.&#x20;
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
-
-4. You can now see your Account Token listed in the table. If you want to delete a token, click on the **bin icon** next to the Account Token you wish to delete.
-
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
-
-5. Enter the name in the Confirm input field, make sure you have no dependencies of this token, and finally click on **I understand the consequences, revoke this token**.
-
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/account token_delete.png" alt=""><figcaption></figcaption></figure>
