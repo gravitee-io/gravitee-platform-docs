@@ -14,6 +14,7 @@
 * [Monitor and check health of installations](guides/monitor-and-check-health-of-installations.md)
 * [Set up your Gravitee Cockpit Hierarchy](guides/set-up-your-gravitee-cloud-hierarchy.md)
 * [Configure Single Sign On](guides/configure-sso.md)
+* [Account Token](guides/account-token.md)
 
 ## Community and Support
 
