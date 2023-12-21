@@ -34,7 +34,7 @@ To get started, edit the _docker-compose.yml_ used to install Gravitee and decla
 
 ```
 consul-server:
-    image: hashicorp/consul:1.11.4
+    image: hashicorp/consul:1.15.4
     container_name: consul-server
     restart: always
     volumes:
@@ -96,49 +96,48 @@ Meta attributes must be provided as part of the definition of your service:
 
 Below is a cURL command example to register a service in Consul with extra attributes supported by Gravitee.io:
 
-```
+```shell
 curl -X PUT -d '{ "ID": "whattimeisit_1", "Name": "whattimeisit", "Address": "api.gravitee.io", "Meta": {"gravitee_path":"/whattimeisit", "gravitee_ssl":"true" }, "Port": 443}' http://localhost:8500/v1/agent/service/register
 ```
 
-Check the Consul web UI and you should see the new service named `whattimeisit`:
+Check the Consul web UI, and you should see the new service named `whattimeisit`:
 
 <figure><img src="../../../.gitbook/assets/service-discovery-consul-services.png" alt=""><figcaption></figcaption></figure>
 
 You can also verify that your service is successfully registered in Consul by interacting with Consul Agent API. To do so, se the following cURL command:
 
-```
-curl "http://localhost:8500/v1/agent/service/whattimeisit"
+```shell
+curl "http://localhost:8500/v1/agent/services"
 ```
 
 You should get the following response:
 
-```
+```json
 {
-   "ID":"whattimeisit",
-   "Service":"whattimeisit",
-   "Tags":[
-
-   ],
-   "Meta":{
-      "gravitee_path":"/whattimeisit",
-      "gravitee_ssl":"true"
-   },
-   "Port":443,
-   "Address":"api.gravitee.io",
-   "Weights":{
-      "Passing":1,
-      "Warning":1
-   },
-   "EnableTagOverride":false,
-   "ContentHash":"d43a25497735099",
-   "Datacenter":"dc1"
+  "whattimeisit_1": {
+    "ID": "whattimeisit_1",
+    "Service": "whattimeisit",
+    "Tags": [],
+    "Meta": {
+      "gravitee_path": "/whattimeisit",
+      "gravitee_ssl": "true"
+    },
+    "Port": 443,
+    "Address": "api.gravitee.io",
+    "Weights": {
+      "Passing": 1,
+      "Warning": 1
+    },
+    "EnableTagOverride": false,
+    "Datacenter": "dc1"
+  }
 }
 ```
 
 To test that incoming requests on the APIM Gateway are dynamically routed to different service instances, let’s register another instance for service `whattimeisit` that serves another content with `gravitee_path` set to `/echo`:
 
 {% code overflow="wrap" %}
-```
+```shell
 curl -X PUT -d '{ "ID": "whattimeisit_2", "Name": "whattimeisit", "Address": "api.gravitee.io", "Meta": {"gravitee_path":"/echo", "gravitee_ssl":"true" }, "Port": 443}' http://localhost:8500/v1/agent/service/register
 ```
 {% endcode %}
@@ -157,7 +156,7 @@ The service discovery feature is enabled at the EndpointGroup level of an API de
                 "enabled": true,
                 "type": "consul-service-discovery",
                 "configuration": {
-                    "url": "http://localhost:8500",
+                    "url": "http://consul-server:8500",
                     "service": "whattimeisit"
                 }
             }
@@ -245,8 +244,8 @@ You can now try to call your API to ensure incoming API requests are routed to t
 
 You can also deregister your service instance from Consul by referring to their ID and calling your API again to observe how APIM dynamically routes the traffic based on Consul’s Service Catalog.
 
-```
-curl -X PUT -v "http://localhost:8500/v1/agent/service/deregister/whattimeisit"
+```shell
+curl -X PUT -v "http://localhost:8500/v1/agent/service/deregister/whattimeisit_1"
 ```
 
 {% hint style="success" %}
