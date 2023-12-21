@@ -6,6 +6,7 @@ AM API exposes a complete Restful API accessible to anyone wanting to script som
 
 You can access the online API reference or the OpenAPI specification:
 
+* 4.0 — [online reference](https://docs.gravitee.io/am/current/management-api/4.0/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/4.0/swagger.json)
 * 3.21 — [online reference](https://docs.gravitee.io/am/current/management-api/3.21/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.21/swagger.json)
 * 3.20 — [online reference](https://docs.gravitee.io/am/current/management-api/3.20/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.20/swagger.json)
 * 3.19 — [online reference](https://docs.gravitee.io/am/current/management-api/3.19/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.19/swagger.json)
