@@ -137,7 +137,6 @@
   * [Installation](guides/gravitee-kubernetes-operator/installation/README.md)
     * [Helm](guides/gravitee-kubernetes-operator/installation/helm.md)
   * [Test GKO After Deployment](guides/gravitee-kubernetes-operator/test-gko-after-deployment.md)
-  * [Monitoring GKO](guides/gravitee-kubernetes-operator/monitoring-gko.md)
   * [Gravitee as an Ingress Controller](guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md)
   * [Custom Resource Definitions](guides/gravitee-kubernetes-operator/custom-resource-definitions/README.md)
     * [ManagementContext](guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource.md)
