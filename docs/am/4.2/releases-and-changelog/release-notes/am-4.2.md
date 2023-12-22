@@ -19,7 +19,7 @@ Two `secret-provider` plugins are available for Gravitee Gateway, Management API
 * `kubernetes`: A Community Edition plugin that fetches secret and TLS pairs from Kubernetes.io
 * `vault`: An Enterprise Edition plugin that uses the Key/Value engine of HashiCorp Vault
 
-For more information, refer to [Configure Secret Managers](broken-reference).
+For more information, refer to [this page](../../getting-started/configuration/secret-providers.md).
 
 ## SMS factor
 
