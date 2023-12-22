@@ -12,7 +12,7 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 ## Introduction
 
-Gravitee 4.2 was released on December 21st, 2023, and introduced secret provider plugins, API documentation, enhanced API-level logging capabilities, multi-tenancy, TCP proxy APIs, GKO support for v4 APIs, entrypoint/endpoint enhancements, and policy improvements. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.x](broken-reference).
+Gravitee 4.2 was released on December 21st, 2023, and introduced secret provider plugins, API documentation, enhanced API-level logging capabilities, multi-tenancy, TCP proxy APIs, GKO support for v4 APIs, entrypoint/endpoint enhancements, and policy improvements. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.2](../changelogs/apim-4.2.x.md).
 
 ## Secret providers
 
@@ -27,11 +27,11 @@ Two `secret-provider` plugins are available for Gravitee Gateway, Management API
 * `kubernetes`: A Community Edition plugin that fetches secret and TLS pairs from Kubernetes.io
 * `vault`: An Enterprise Edition plugin that uses the Key/Value engine of HashiCorp Vault
 
-For more information, refer to [Secret Providers](broken-reference).
+For more information, refer to [Secret Providers](../../getting-started/configuration/secret-providers.md).
 
 ## API Documentation
 
-The Management Console now includes the [API Documentation](broken-reference) capability to introduce consumers to an API and provide instructions for how to use it.&#x20;
+The Management Console now includes the [API Documentation](../../guides/api-configuration/v4-api-configuration/documentation.md) capability to introduce consumers to an API and provide instructions for how to use it.&#x20;
 
 Folders can be added to organize the documentation structure, and pages of Markdown content can be created in any directory. You can choose the visibility of each folder and page:
 
@@ -56,7 +56,7 @@ By configuring the API logging methods, a Gravitee administrator can restrict th
 
 ## Multi-tenancy
 
-Gravitee 4.2 upgrades to APIM and Cockpit implement support for [multi-tenancy](broken-reference). In Gravitee, a multi-tenant configuration is defined as a single APIM installation connected to multiple Cockpit Organizations and Environments, where features and data are isolated between tenants and dedicated URLs are used to access the APIM components and APIs deployed on Gravitee Gateways.&#x20;
+Gravitee 4.2 upgrades to APIM and Cockpit implement support for [multi-tenancy](../../getting-started/install-guides/multi-tenancy.md). In Gravitee, a multi-tenant configuration is defined as a single APIM installation connected to multiple Cockpit Organizations and Environments, where features and data are isolated between tenants and dedicated URLs are used to access the APIM components and APIs deployed on Gravitee Gateways.&#x20;
 
 <figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/mNhfcqTUgEOXngJNcAcdIf1o.png" alt=""><figcaption><p>Typical multitenant setup</p></figcaption></figure>
 
@@ -68,7 +68,7 @@ Although multi-tenancy support necessitated changes to both APIM and Cockpit, cu
 
 Gravitee now supports TCP proxy APIs to provide the lowest latency access to raw backend data. Gravitee can proxy messages from any REST endpoint or event system with an available IP address that accepts TCP socket clients. This enables the Gateway to transmit formats not commonly available to the standard API consumer (video streams, HL7, IoT protocols, etc.) as TCP packets. Gravitee does not perform protocol mediation, and the client is responsible for decoding and serializing data into the desired format.
 
-To learn more about TCP proxy support and how to create TCP proxy APIs, refer to [this page](broken-reference).
+To learn more about TCP proxy support and how to create TCP proxy APIs, refer to [this page](../../guides/create-apis/tcp-proxy-apis.md).
 
 ## GKO
 
