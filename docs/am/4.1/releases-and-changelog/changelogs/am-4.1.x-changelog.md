@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.9 - December 22, 2023
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* Session expired problem - X-XRF-TOKEN https://github.com/gravitee-io/issues/issues/9398[#9398]
+* 500 response received on creating user with /scim endpoint with duplicate externalId https://github.com/gravitee-io/issues/issues/9421[#9421]
+* Exclude null value from SCIM UserMapper https://github.com/gravitee-io/issues/issues/9427[#9427]
+
+**Management API**
+
+* Unable to list users  https://github.com/gravitee-io/issues/issues/9125[#9125]
+
+
+
+**Other**
+
+* Connection leak into JdbcIdentityProvider https://github.com/gravitee-io/issues/issues/9426[#9426]
+</details>
+
+
 ## Gravitee Access Management 4.1.8 - December 11, 2023
 
 <details>
