@@ -80,7 +80,7 @@ Define the following:
 {% endtab %}
 
 {% tab title="Consumer" %}
-Define the **Topic** from which the Gateway MQTT client will consume messages.
+Define the **Topic** from which the Gateway MQTT client will consume messages. **Topic** refers to an UTF-8 string that the broker uses to filter messages for each connected client and consists of one or more topic levels.
 {% endtab %}
 {% endtabs %}
 

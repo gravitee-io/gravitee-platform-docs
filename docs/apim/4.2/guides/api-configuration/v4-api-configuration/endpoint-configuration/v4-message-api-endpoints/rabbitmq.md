@@ -6,32 +6,83 @@ This article details the [configuration](rabbitmq.md#configuration) and [impleme
 
 ## Configuration
 
-The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ resource, as long as that RabbitMQ resource communicates over AMQP 0-9-1 protocol. If you choose this endpoint, you will need to configure the following:
+The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection and/or call a backend RabbitMQ resource, as long as that RabbitMQ resource communicates over AMQP 0-9-1 protocol. If you choose this endpoint, you will need to configure the settings in the following sections.
 
-* **Server host:** Define the host of your RabbitMQ resource.
-* **Server port:** Define the port that RabbitMQ is using.
-* **Virtual host:** Define the virtual host to use.
-* How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer:
-  * **Use Producer:** Tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint.
-  * **Use Consumer:** Tells the Gateway to be prepared to consume messages from RabbitMQ that you define as your endpoint.
-  * **Use Producer and Consumer:** Tells the Gateway to be able to use both **Use Producer** and **Use Consumer** settings.
-* **Authentication:** Define the **username** and **password** for RabbitMQ authentication.
-* **SSL Options:**
-  * **Verify Host:** Enable host name verification.
-  * **Truststore:** Select from **None**, **PEM with path**, **PEM with content**, **JKS with path**, **JKS with content**, **PKCS12 with path**, or **PKCS12 with content** and supply the required content/path and password.
-  * **KeyStore:** Select from **None**, **PEM with path**, **PEM with content**, **JKS with path**, **JKS with content**, **PKCS12 with path**, or **PKCS12 with content** and supply the required content/path and password.
-* **Producer** settings (if you chose **Use Producer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
-  * **Exchange name**
-  * **Exchange type**
-  * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart.
-  * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Deletes the exchange when last queue is unbound from it.
-  * **Routing Key**
-* **Consumer** settings (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
-  * **Exchange name**
-  * **Exchange type**
-  * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart.
-  * Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Deletes the exchange when last queue is unbound from it.
-  * **Routing Key**
+### 1. Initial settings
+
+1. **Server host:** Define the host of your RabbitMQ resource.
+2. **Server port:** Define the port that RabbitMQ is using.
+3. **Virtual host:** Define the virtual host to use.
+
+### 2. Role
+
+You can tell the Gravitee Gateway's RabbitMQ client to act as a producer, a consumer, or both a producer and consumer. Choose **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
+
+* **Use Producer:** Tells the Gateway RabbitMQ client to be prepared to produce messages and send them to the RabbitMQ broker that you define as your endpoint
+* **Use Consumer:** Tells the Gateway RabbitMQ client to be prepared to consume messages from the RabbitMQ broker that you define as your endpoint
+* **Use Producer and Consumer:** Tells the Gateway RabbitMQ client to both **Use Producer** and **Use Consumer**
+
+### 3. Initial security settings
+
+You will define more Gravitee Gateway-specific security settings later on, but this is where you define your RabbitMQ-specific authentication flow. Gravitee supports **Authentication with SSL**.
+
+{% tabs %}
+{% tab title="Authentication" %}
+Gravitee uses TLS to support the **Username** and **Password** you define.
+{% endtab %}
+
+{% tab title="SSL" %}
+**Hostname verifier:** Toggle to enable or disable hostname verification.
+
+Define whichever of the following are relevant to your configuration.
+
+**Truststore**
+
+* **PEM with location:** Define the **location of your truststore file**.
+* **PEM with certificates:** Define the trusted certificates in the format specified by 'ssl.truststore.type'.
+* **JKS with location:** Define the **location of your truststore file** and the **SSL truststore password** for the truststore file.
+* **JKS with certificates:** Define the trusted certificates in the format specified by 'ssl.truststore.type' and the **SSL truststore password** for the truststore file.
+* **PKCS12 with location:** Define the **location of your truststore file** and the **SSL truststore password** for the truststore file.
+* **PKCS12 with certificates:** Define the **trusted certificates** in the format specified by 'ssl.truststore.type' and the **SSL truststore password** for the truststore file.
+
+**Keystore**
+
+* **PEM with location:** Define the **SSL keystore certificate chain** and the location of your keystore file.
+* **PEM with Key:** Define the **SSL keystore certificate chain** and the **SSL keystore private key** by defining the **Key** and the **Key password**.
+* **JKS with location:** Define the **location of your keystore file** and the **SSL keystore password** for the keystore file.
+* **JKS with Key:** Define the **SSL keystore private key** by defining the **Key** and the **Key password** and the **SSL keystore password** for the keystore file.
+* **PKCS12 with location:** Define the **location of your keystore file** and the **SSL keystore password** for the keystore file.
+* **PKCS12 with Key:** Define the **SSL keystore private key** by defining the **Key** and the **Key password** and the **SSL keystore password** for the keystore file.
+{% endtab %}
+{% endtabs %}
+
+### 4. Role settings
+
+If you chose **Use Producer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for producing messages to your backend RabbitMQ topic/broker.&#x20;
+
+If you chose **Use Consumer** or **Use Producer and Consumer**, you must define the settings that the Gravitee Gateway RabbitMQ client will rely on for consuming messages from your backend RabbitMQ topic/broker.&#x20;
+
+{% tabs %}
+{% tab title="Producer" %}
+Define the following:
+
+1. **Exchange name**
+2. **Exchange type**
+3. Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart.
+4. Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Deletes the exchange when last queue is unbound from it.
+5. **Routing Key**
+{% endtab %}
+
+{% tab title="Second Tab" %}
+Define the following:
+
+1. **Exchange name**
+2. **Exchange type**
+3. Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart.
+4. Enable or disable [**Auto Delete**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Deletes the exchange when last queue is unbound from it.
+5. **Routing Key**
+{% endtab %}
+{% endtabs %}
 
 ## Implementation
 
