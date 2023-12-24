@@ -1,5 +1,9 @@
 # MQTT5
 
+## Overview
+
+This page discusses the [configuration](mqtt5.md#configuration) and [implementation](mqtt5.md#implementation) of the **MQTT5** endpoint
+
 ## Configuration
 
 The **MQTT5** endpoint allows the Gateway to open up a persistent connection to and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x via an MQTT client set up by the Gravitee Gateway. If you chose this endpoint, you will need to configure the settings in the following sections.
@@ -98,6 +102,32 @@ The default value is 86,400 seconds. If the value in the configuration is less t
 
 ### Subscribe
 
+On each incoming request, the [common client](mqtt5.md#common-to-subscribe-and-publish) is used to subscribe to a shared topic. The MQTT endpoint retrieves information from the request to configure the subscription. Subscription relies on **Shared subscription**, **Topic**, and **QoS**.
 
+{% tabs %}
+{% tab title="Shared subscription" %}
+A shared subscription is created from the incoming request per the format `$share/<clientIdentifier>/<topic>`. This allows multiple clients using the same subscription to consume the same topic in parallel. In order to distinguish all clients using the same subscription, the client identifier must be overridden.
+{% endtab %}
+
+{% tab title="Topic" %}
+The topic is retrieved from the API configuration and can be overridden with the attribute `gravitee.attribute.mqtt5.topic`**.**
+{% endtab %}
+
+{% tab title="QoS" %}
+When the entrypoint supports manual ack, the strategy will use it. Otherwise, it will use auto-ack.
+{% endtab %}
+{% endtabs %}
 
 ### Publish
+
+On each incoming request, the [common client](mqtt5.md#common-to-subscribe-and-publish) is used to publish messages on a topic. This publication is done with MQTT At-Least-Once QoS, without expiration. Publication relies on **Topic** and **Message Expiry Interval**.
+
+{% tabs %}
+{% tab title="Topic" %}
+The topic is retrieved from the API configuration and can be overridden, either on the request or the message, with the attribute `gravitee.attribute.mqtt5.topic`.
+{% endtab %}
+
+{% tab title="Message Expiry Interval" %}
+By default, there is no expiry. The value can be configured in the API definition.
+{% endtab %}
+{% endtabs %}

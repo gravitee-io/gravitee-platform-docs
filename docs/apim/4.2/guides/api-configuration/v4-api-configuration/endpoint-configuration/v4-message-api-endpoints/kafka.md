@@ -1,8 +1,8 @@
----
-description: This page discusses the configuration and implementation of the Kafka endpoint
----
-
 # Kafka
+
+## Overview
+
+This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the **Kafka** endpoint
 
 ## Configuration
 
