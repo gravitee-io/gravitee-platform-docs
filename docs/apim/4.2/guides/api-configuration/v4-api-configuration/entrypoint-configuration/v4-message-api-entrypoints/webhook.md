@@ -10,20 +10,19 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 ### **HTTP Options**
 
-* **Connect timeout:** The maximum time, in milliseconds, to connect to the Webhook. Either enter a numeric value or use the arrows to the right of the text field.
-* **Read timeout:** The maximum time, in milliseconds, allotted for the Webhook to complete the request (including response). Either enter a numeric value or use the arrows to the right of the text field.
-* **Idle timeout:** The maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources. Either enter a numeric value or use the arrows to the right of the text field.
+1. **Connect timeout:** The maximum time, in milliseconds, to connect to the Webhook. Either enter a numeric value or use the arrows to the right of the text field.
+2. **Read timeout:** The maximum time, in milliseconds, allotted for the Webhook to complete the request (including response). Either enter a numeric value or use the arrows to the right of the text field.
+3. **Idle timeout:** The maximum time, in milliseconds, a connection will stay in the pool without being used. Once this time has elapsed, the unused connection will be closed, freeing the associated resources. Either enter a numeric value or use the arrows to the right of the text field.
 
 ### **Proxy Options**
 
-Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**.
+Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**. If you chose **Use proxy for client connections**, define the following settings.
 
-* If you chose **Use proxy for client connections**, define the following:
-  * **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
-  * **Proxy host:** Enter your proxy host in the text field.
-  * **Proxy port:** Enter your proxy port in the text field.
-  * (Optional) **Proxy username:** Enter your proxy username in the text field.
-  * (Optional) **Proxy password:** Enter your proxy password in the text field.
+1. **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
+2. **Proxy host:** Enter your proxy host in the text field.
+3. **Proxy port:** Enter your proxy port in the text field.
+4. (Optional) **Proxy username:** Enter your proxy username in the text field.
+5. (Optional) **Proxy password:** Enter your proxy password in the text field.
 
 ### **Quality of service**
 
@@ -31,9 +30,7 @@ Use the drop-down menu to choose between the available options. QoS compatibilit
 
 ### **Dead Letter Queue**
 
-Toggle **Dead Letter Queue** ON to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy:
-
-* Use the drop-down menu to select a pre-existing and supported endpoint or endpoint group to use for the DLQ.
+Toggle **Dead Letter Queue** ON to define an external storage where each unsuccessfully pushed message will be stored and configure a replay strategy. Use the drop-down menu to select a pre-existing and supported endpoint or endpoint group to use for the DLQ.
 
 ## **DLQ Configuration using the API definition**
 

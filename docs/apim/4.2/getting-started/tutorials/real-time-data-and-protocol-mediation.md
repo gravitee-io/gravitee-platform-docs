@@ -328,7 +328,7 @@ This section is only recommended for users already familiar with Kafka.&#x20;
 
 The data shown in the analytics graphs is data that has been consumed from a Kafka broker. This can result in some confusing behavior if you're unfamiliar with how Gravitee APIM handles client identifiers and consumer groups.
 
-As detailed [here](../../guides/api-configuration/v4-api-configuration/endpoint-implementation.md), APIM follows specific rules for determining a consumer's client identifier which Kafka uses to compute the consumer group. In summary:
+As detailed [here](broken-reference), APIM follows specific rules for determining a consumer's client identifier which Kafka uses to compute the consumer group. In summary:
 
 > By default, every subscription creates a new client identifier, and therefore, a new consumer group. If there is no subscription required (i.e., a Keyless Plan), then the client's IP address is used to create or find the client identifier.
 
