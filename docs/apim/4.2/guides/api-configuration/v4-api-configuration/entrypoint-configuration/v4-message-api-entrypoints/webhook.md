@@ -16,7 +16,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 ### **Proxy Options**
 
-Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**. If you chose **Use proxy for client connections**, define the following settings.
+Use the drop-down menu to select a proxy option: **No proxy**, **Use proxy configured at system level**, or **Use proxy for client connections**. If you chose **Use proxy for client connections**, define the following settings:
 
 1. **Proxy type:** Choose between **HTTP**, **SOCKS4** and **SOCKS5**. A [**SOCKS proxy**](https://hailbytes.com/how-to-use-socks4-and-socks5-proxy-servers-for-anonymous-web-browsing/) is a type of proxy server that uses the SOCKS protocol to tunnel traffic through an intermediary server.
 2. **Proxy host:** Enter your proxy host in the text field.
