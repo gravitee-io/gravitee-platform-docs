@@ -6,7 +6,7 @@ description: This article describes how to configure logging at the API Gateway 
 
 ## Introduction
 
-Gravitee allows you to capture logs at both the API and Gateway levels. This article describes how to configure logging at the API Gateway level.
+Gravitee allows you to capture logs at both the API and Gateway levels. This article describes how to configure logging at the Gateway level.
 
 {% hint style="info" %}
 **API logging**
