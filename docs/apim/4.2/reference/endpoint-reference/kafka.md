@@ -10,7 +10,7 @@ description: This page contains the technical details of the Kafka endpoint plug
 
 ## Overview
 
-Use this endpoint to publish and/or subscribe to events in Kafka via web-friendly protocols such as HTTP or WebSocket. The reactive Gateway mediates the protocol between the client and the backend.
+Use this endpoint to publish and/or subscribe to events in Kafka via web-friendly protocols such as HTTP or WebSocket. The reactive Gateway mediates the protocol between the client and the backend. Refer to the following sections for additional details.
 
 * [Quality of Service](kafka.md#user-content-quality-of-service)
 * [Compatibility matrix](kafka.md#user-content-compatibility-matrix)
@@ -39,7 +39,7 @@ Use this endpoint to publish and/or subscribe to events in Kafka via web-friendl
 
 ## Endpoint identifier <a href="#user-content-endpoint-identifier" id="user-content-endpoint-identifier"></a>
 
-To use this endpoint, declare the following `kafka` identifier while configuring your API endpoints.
+To use this plugin, declare the following `kafka` identifier while configuring your API endpoints.
 
 ## Endpoint configuration <a href="#user-content-endpoint-configuration" id="user-content-endpoint-configuration"></a>
 

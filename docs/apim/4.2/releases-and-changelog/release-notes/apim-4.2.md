@@ -48,7 +48,7 @@ When published, documentation is accessible via the Developer Portal.
 
 ## Logging
 
-[API-level logging](../../getting-started/configuration/configure-apim-management-api/logging.md) is now supported for both v4 proxy APIs and v4 message APIs. Logging options can be configured in the Management Console and include the ability to record data based on content and whether information is associated with an entrypoint, endpoint, request, and/or response.&#x20;
+[API-level logging](broken-reference) is now supported for both v4 proxy APIs and v4 message APIs. Logging options can be configured in the Management Console and include the ability to record data based on content and whether information is associated with an entrypoint, endpoint, request, and/or response.&#x20;
 
 Message-level logging also offers message sampling, which can be configured either in the Console or via `gravitee.yaml`. The `gravitee.yaml` file's `messageSampling` configuration option determines, for each message sampling method, whether it can be used, its default value, and its max value.&#x20;
 
@@ -72,11 +72,7 @@ To learn more about TCP proxy support and how to create TCP proxy APIs, refer to
 
 ## GKO
 
-The [GKO 1.x.x CRD reference](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/beta/docs/api/reference.md) is a newer version of the GKO 0.x.x CRD reference that is compatible with both the legacy and reactive execution engines to support both v2 and v4 APIs. It also supports the `ApiDefinition` and `ApiResource` resources and the Gravitee Ingress.&#x20;
-
-Due to a missing endpoint, the `ManagementContext`, and therefore `Application`, resources are not supported, and `ApiDefinition` cannot be imported into APIM.&#x20;
-
-Planned enhancements will promote `ManagementContext` and `Application` to GKO 1.x.x and enable support for importing `ApiDefintion`.
+The [GKO 1.x.x CRD reference](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/beta/docs/api/reference.md) is a newer version of the GKO 0.x.x CRD reference that is compatible with both the legacy and reactive execution engines to support both v2 and v4 APIs. It also supports the `ApiDefinition`, `ApiResource`, `Application`, and `ManagementContext` resources, as well as the Gravitee Ingress.
 
 Refer to the [GKO 1.x.x changelog](https://github.com/gravitee-io/gravitee-kubernetes-operator/releases/tag/1.0.0-beta.1) to track breaking changes.
 

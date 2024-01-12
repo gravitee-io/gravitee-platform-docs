@@ -14,7 +14,7 @@ A message proxy is functionality enabled exclusively by Gravitee API Management'
 
 With APIM, protocol mediation is extremely simple. The complexity of producing to and consuming from the message broker is handled internally by the Gateway.&#x20;
 
-<img src="../../../.gitbook/assets/file.excalidraw (6).svg" alt="Message proxy example" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (7).svg" alt="Message proxy example" class="gitbook-drawing">
 
 Let's continue with the API creation wizard to see how easily a message proxy can be created.
 
@@ -30,7 +30,7 @@ The next step is configuring how the Gateway will communicate with clients and b
 * **Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer communicates with the Gateway. In other words, the Gateway entrypoint dictates how the backend message broker is exposed externally through the Gateway.&#x20;
 * **Gateway endpoint:** Defines the protocol and configuration settings by which the Gateway API will fetch data/functionality from, or post data to, the backend message broker.
 
-<img src="../../../.gitbook/assets/file.excalidraw (5).svg" alt="Gateway entypoints and endpoints" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (6).svg" alt="Gateway entypoints and endpoints" class="gitbook-drawing">
 
 ### Entrypoints&#x20;
 

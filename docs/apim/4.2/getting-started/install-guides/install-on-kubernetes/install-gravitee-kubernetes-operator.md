@@ -65,7 +65,7 @@ To achieve this architecture, the `manager.scope.cluster` value must be set to `
 
 To handle [conversion between resource versions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/), at least one operator in the cluster must act as a Webhook, meaning it must be installed with the `manager.webhook.enabled` property set to `true` (the default). When all operators use this default setting, the last operator installed in the cluster acts as the conversion Webhook.
 
-<img src="../../../.gitbook/assets/file.excalidraw (11).svg" alt="Multiple operators, each listening to its own namespace" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (12).svg" alt="Multiple operators, each listening to its own namespace" class="gitbook-drawing">
 {% endtab %}
 
 {% tab title="Multi-Cluster Mode" %}

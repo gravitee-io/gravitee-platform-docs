@@ -4,97 +4,74 @@ description: This page contains the technical details of the MQTT5 endpoint plug
 
 # MQTT5
 
-This is an Enterprise feature
+{% hint style="warning" %}
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/ee-vs-oss/)**.**
+{% endhint %}
 
-### Description <a href="#user-content-description" id="user-content-description"></a>
+## Overview
 
-This is a MQTT 5.x endpoint which allow subscribing or publishing messages to a MQTT 5.x broker such as HiveMQ or Mosquitto.
+Use this endpoint to publish and/or subscribe messages to a MQTT 5.x broker such as HiveMQ or Mosquito. Refer to the following sections for additional details.
 
-### Compatibility matrix <a href="#user-content-compatibility-matrix" id="user-content-compatibility-matrix"></a>
+* [Compatibility matrix](mqtt5.md#user-content-compatibility-matrix)
+* [Endpoint identifier](mqtt5.md#user-content-endpoint-identifier)
+* [Endpoint configuration](mqtt5.md#user-content-endpoint-configuration)
+* [Supplemental information](mqtt5.md#user-content-a-word-on)
+
+## Compatibility matrix <a href="#user-content-compatibility-matrix" id="user-content-compatibility-matrix"></a>
 
 | Plugin version | APIM version    |
 | -------------- | --------------- |
-| 1.x and upper  | 4.0.x to latest |
+| 1.x and up     | 4.0.x to latest |
 
-### Endpoint identifier <a href="#user-content-endpoint-identifier" id="user-content-endpoint-identifier"></a>
+## Endpoint identifier <a href="#user-content-endpoint-identifier" id="user-content-endpoint-identifier"></a>
 
-In order to use this plugin, you only have to declare the following identifier `mqtt5` while configuring your API endpoints.
+To use this plugin, declare the following `mqtt5` identifier while configuring your API endpoints.
 
-### Endpoint configuration <a href="#user-content-endpoint-configuration" id="user-content-endpoint-configuration"></a>
+## Endpoint configuration <a href="#user-content-endpoint-configuration" id="user-content-endpoint-configuration"></a>
 
-#### General configuration <a href="#user-content-general-configuration" id="user-content-general-configuration"></a>
+### General configuration <a href="#user-content-general-configuration" id="user-content-general-configuration"></a>
 
-**Endpoint level configuration**
+#### **Endpoint-level configuration**
 
-| Attributes | Default | Mandatory | Description                         |
-| ---------- | ------- | --------- | ----------------------------------- |
-| serverHost | N/A     | Yes       | Define the host of the MQTT broker. |
-| serverPort | N/A     | Yes       | Define the port of the MQTT broker. |
+<table><thead><tr><th width="133">Attributes</th><th width="89">Default</th><th width="118">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>serverHost</td><td>N/A</td><td>Yes</td><td>Define the host of the MQTT broker.</td></tr><tr><td>serverPort</td><td>N/A</td><td>Yes</td><td>Define the port of the MQTT broker.</td></tr></tbody></table>
 
-#### Shared Configuration <a href="#user-content-shared-configuration" id="user-content-shared-configuration"></a>
+### Shared Configuration <a href="#user-content-shared-configuration" id="user-content-shared-configuration"></a>
 
-| Attributes            | Default     | Mandatory | Description                                                                                   |
-| --------------------- | ----------- | --------- | --------------------------------------------------------------------------------------------- |
-| sessionExpiryInterval | 86400 (24h) | No        | The expiry interval in seconds of the persistent session. Default is 24h, -1 means no expiry. |
+<table><thead><tr><th width="208">Attributes</th><th width="131">Default</th><th width="116">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>sessionExpiryInterval</td><td>86400 (24h)</td><td>No</td><td>The expiry interval, in seconds, of the persistent session. Default is 24h, -1 means no expiry.</td></tr></tbody></table>
 
-**Security**
+#### **Security**
 
-Security options are available under _security_ attribute configuration.
+Security options are available under the `security` attribute configuration.
 
-**Authentication**
+#### **Authentication**
 
-Available under `security.auth` :
+Available under `security.auth`:
 
-| Attributes | Default | Mandatory | Description                                 |
-| ---------- | ------- | --------- | ------------------------------------------- |
-| username   | N/A     | No        | The username to use for the authentication. |
-| password   | N/A     | No        | The password to use for the authentication. |
+<table><thead><tr><th width="129">Attributes</th><th width="88">Default</th><th width="115">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>username</td><td>N/A</td><td>No</td><td>The username to use for the authentication.</td></tr><tr><td>password</td><td>N/A</td><td>No</td><td>The password to use for the authentication.</td></tr></tbody></table>
 
-**SSL**
+#### **SSL**
 
-Available under `security.ssl` :
+Available under `security.ssl`:
 
-| Attributes           | Default | Mandatory | Description                                                 |
-| -------------------- | ------- | --------- | ----------------------------------------------------------- |
-| trustore.type        | N/A     | Yes       | Truststore type could be either PKCS12, JKS or PEM.         |
-| trustore.path        | N/A     | No        | The path from which the truststore is loaded.               |
-| trustore.content     | N/A     | No        | The content in base64 from which the keystore is loaded.    |
-| trustore.password    | N/A     | No        | The password used to load the truststore.                   |
-| keystore.type        | N/A     | No        | Keystore type could be either PKCS12, JKS or PEM.           |
-| keystore.path        | N/A     | No        | The path from which the keystore is loaded.                 |
-| keystore.content     | N/A     | No        | The content in base64 from which the keystore is loaded.    |
-| keystore.password    | N/A     | No        | The password used to load the keystore.                     |
-| keystore.certPath    | N/A     | No        | The path from which the certificate is loaded.              |
-| keystore.certContent | N/A     | No        | The content in base64 from which the certificate is loaded. |
-| keystore.keyPath     | N/A     | No        | The path from which the key is loaded.                      |
-| keystore.keyContent  | N/A     | No        | The content in base64 from which the key is loaded.         |
-| keystore.keyPassword | N/A     | No        | The password used to read the key.                          |
+<table><thead><tr><th width="212">Attributes</th><th width="90">Default</th><th width="116">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>trustore.type</td><td>N/A</td><td>Yes</td><td>Truststore type can be PKCS12, JKS, or PEM.</td></tr><tr><td>trustore.path</td><td>N/A</td><td>No</td><td>The path from which the truststore is loaded.</td></tr><tr><td>trustore.content</td><td>N/A</td><td>No</td><td>The content in base64 from which the keystore is loaded.</td></tr><tr><td>trustore.password</td><td>N/A</td><td>No</td><td>The password used to load the truststore.</td></tr><tr><td>keystore.type</td><td>N/A</td><td>No</td><td>Keystore type can be PKCS12, JKS, or PEM.</td></tr><tr><td>keystore.path</td><td>N/A</td><td>No</td><td>The path from which the keystore is loaded.</td></tr><tr><td>keystore.content</td><td>N/A</td><td>No</td><td>The content in base64 from which the keystore is loaded.</td></tr><tr><td>keystore.password</td><td>N/A</td><td>No</td><td>The password used to load the keystore.</td></tr><tr><td>keystore.certPath</td><td>N/A</td><td>No</td><td>The path from which the certificate is loaded.</td></tr><tr><td>keystore.certContent</td><td>N/A</td><td>No</td><td>The content in base64 from which the certificate is loaded.</td></tr><tr><td>keystore.keyPath</td><td>N/A</td><td>No</td><td>The path from which the key is loaded.</td></tr><tr><td>keystore.keyContent</td><td>N/A</td><td>No</td><td>The content in base64 from which the key is loaded.</td></tr><tr><td>keystore.keyPassword</td><td>N/A</td><td>No</td><td>The password used to read the key.</td></tr></tbody></table>
 
-**Consumer configuration**
+#### **Consumer configuration**
 
-| Attributes | Default | Mandatory | Description                                                                                  |
-| ---------- | ------- | --------- | -------------------------------------------------------------------------------------------- |
-| enabled    | false   | No        | Allow enabling or disabling the consumer capability.                                         |
-| topic      | N/A     | Yes       | Refers to an UTF-8 string that the broker uses to filter messages for each connected client. |
+<table><thead><tr><th width="127">Attributes</th><th width="87">Default</th><th width="117">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>enabled</td><td>false</td><td>No</td><td>Allow enabling or disabling of the consumer capability.</td></tr><tr><td>topic</td><td>N/A</td><td>Yes</td><td>Refers to a UTF-8 string that the broker uses to filter messages for each connected client.</td></tr></tbody></table>
 
-| Important | Behind the scene, gravitee will manage shared subscription in order to allow parallel requests to consume messages. It is important to notice that Mqtt5 does not allow last retained message delivery with shared subscriptions. |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+{% hint style="warning" %}
+Gravitee's management of shared subscriptions allows parallel requests to consume messages. MQTT5 does not allow last-retained message delivery for shared subscriptions.
+{% endhint %}
 
-**Producer configuration**
+#### **Producer configuration**
 
-| Attributes            | Default | Mandatory | Description                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------------------- | ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| enabled               | false   | No        | Allow enabling or disabling the producer capability.                                                                                                                                                                                                                                                                                                                                                   |
-| topic                 | N/A     | Yes       | Refers to an UTF-8 string that the broker uses to filter messages for each connected client.                                                                                                                                                                                                                                                                                                           |
-| retained              | false   | No        | Define if the retain flag must be set to every publish messages.                                                                                                                                                                                                                                                                                                                                       |
-| responseTopic         | N/A     | No        | The response topic represents the topics on which the responses from the receivers of the message are expected.                                                                                                                                                                                                                                                                                        |
-| messageExpiryInterval | -1      | No        | This interval defines the period of time that the broker stores the publish message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the retained=true option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic. |
+<table><thead><tr><th width="219">Attributes</th><th width="93">Default</th><th width="121">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>enabled</td><td>false</td><td>No</td><td>Allow enabling or disabling of the producer capability.</td></tr><tr><td>topic</td><td>N/A</td><td>Yes</td><td>Refers to a UTF-8 string that the broker uses to filter messages for each connected client.</td></tr><tr><td>retained</td><td>false</td><td>No</td><td>Define if the retain flag must be set to publish every message.</td></tr><tr><td>responseTopic</td><td>N/A</td><td>No</td><td>The response topic represents the topic(s) on which the responses from the receivers of the message are expected.</td></tr><tr><td>messageExpiryInterval</td><td>-1</td><td>No</td><td>This interval defines the period of time that the broker stores the publish message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the <code>retained=true</code> option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.</td></tr></tbody></table>
 
-#### Examples <a href="#user-content-examples" id="user-content-examples"></a>
+### Examples <a href="#user-content-examples" id="user-content-examples"></a>
 
-Bellow you will find a full mqtt endpoint configuration example:
+The example below shows a full MQTT endpoint configuration:
 
-```
+```json
 {
                     "name": "default",
                     "type": "mqtt5",
@@ -131,19 +108,19 @@ Bellow you will find a full mqtt endpoint configuration example:
                 }
 ```
 
-### A word on <a href="#user-content-a-word-on" id="user-content-a-word-on"></a>
+## Supplemental information <a href="#user-content-a-word-on" id="user-content-a-word-on"></a>
 
-#### Mqtt5 vs Gravitee <a href="#user-content-mqtt5-vs-gravitee" id="user-content-mqtt5-vs-gravitee"></a>
+### MQTT5 vs Gravitee <a href="#user-content-mqtt5-vs-gravitee" id="user-content-mqtt5-vs-gravitee"></a>
 
-Gravitee gateway acts as a protocol mediator and comes with an abstraction to provide the same experience for the api consumer whatever the backend technology used (mqtt5, kafka, …​).
+The Gateway acts as a protocol mediator and includes an abstraction layer to provide the API consumer with the same experience for every supported backend technology (MQTT, Kafka, etc.).
 
-Mqtt5 shared subscriptions are used internally to ensure multiple concurrent requests can be handled by the gateway. This comes with the following limitations:
+Gravitee implements MQTT5 shared subscriptions to ensure that the Gateway can handle multiple concurrent requests. This is subject to the following limitations:
 
 * Latest retain message is not transmitted when subscribing because it is not supported when using shared subscriptions
 * NoLocal Mqtt feature is not supported by shared subscriptions.
 * Some Mqtt5 server implementation such as HiveMq are able to deliver messages received when a client was disconnected. Others such as Mosquitto aren’t.
 
-#### Http polling <a href="#user-content-http-polling" id="user-content-http-polling"></a>
+### HTTP polling <a href="#user-content-http-polling" id="user-content-http-polling"></a>
 
 You can use gravitee http-get entrypoint connector to allow api consumers doing http polling. To avoid loosing messages that could have been sent between 2 http polls, Mqtt5 connector uses shared subscription.
 
