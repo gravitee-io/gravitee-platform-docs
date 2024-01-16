@@ -6,7 +6,7 @@ description: This article walks through the basics of alerts and how to set up c
 
 ## Introduction
 
-Gravitee Alert Engine works by sending alerts to defined systems per a set of given conditions. This article walks through how alerts are strcutured and how to define conditions to control alerting.
+Gravitee Alert Engine works by sending alerts to defined systems per a set of given conditions. This article walks through how alerts are structured and how to define conditions to control alerting.
 
 ## The anatomy of an alert
 

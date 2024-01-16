@@ -6,7 +6,7 @@ description: >-
 
 # Configuration
 
-This section will walk through how to confiure:
+This section will walk through how to configure:
 
 * Alert Engine via:
   * environment variables

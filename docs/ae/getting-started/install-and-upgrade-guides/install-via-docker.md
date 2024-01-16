@@ -4,7 +4,7 @@ description: This article covers how to install Alert Engine via Docker
 
 # Install via Docker
 
-## Introduction and prerequisiutes
+## Introduction and prerequisites
 
 This section explains how to run AE images in Docker. These procedures are intended for users who are already familiar with Docker.
 
