@@ -183,16 +183,16 @@ installation:
   type: standalone # Could be either standalone, multi-tenant; Default is standalone.
   # Specify the URL of Management API of this instance, mandatory if you want to connect it to Cockpit
   api:
+    # Specify the URLs of Management API, mandatory if you want to connect it to Cockpit with a standalone installation
+    url: http://localhost:8083
     proxyPath:
       management: ${http.api.management.entrypoint} # By default /management
       portal: ${http.api.portal.entrypoint}  # By default /portal
   standalone:
-    api:
-    # Specify the URLs of Management API, mandatory if you want to connect it to Cockpit with a standalone installation
-      url: http://localhost:8083
     # Specify the URL of Console UI of this instance, mandatory if you want to connect it to Cockpit with a standalone installation
     console:
       url: http://localhost:3000
+    # Specify the URL of Portal UI of this instance
     portal:
       url: http://localhost:4100
 ```
