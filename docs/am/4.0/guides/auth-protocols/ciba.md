@@ -90,7 +90,7 @@ This page introduces AM plugins that will allow you to manage these device notif
 
 ### External HTTP Service
 
-The **External HTTP Service** plugin brings you the freedom of implementing the notification mechanism in the way you want to by delegating this responsibiltiy to an external HTTP service.
+The **External HTTP Service** plugin brings you the freedom of implementing the notification mechanism in the way you want to by delegating this responsibility to an external HTTP service.
 
 This service must follow the requirements hereafter :
 

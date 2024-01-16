@@ -2,7 +2,7 @@
 
 ## Overview
 
-Since the dawn of centralized IAM, modern apps have moved away from logins directly in the app, so it is critically important to offer a consistent user experience when redirecting users to the login scenarios in AM. Users should feel confindent and secure and an inconsistent or unclear user experience might affect your organization’s customer retention and reputation
+Since the dawn of centralized IAM, modern apps have moved away from logins directly in the app, so it is critically important to offer a consistent user experience when redirecting users to the login scenarios in AM. Users should feel confident and secure and an inconsistent or unclear user experience might affect your organization’s customer retention and reputation
 
 AM enables you to customize the look and feel of the end-user forms displayed in the various flows - such as login, password reset, and user registration. AM also allows you to customize the look and feel of emails that are sent out to end users, giving you full flexibility to apply the relevant graphical user experience.
 
