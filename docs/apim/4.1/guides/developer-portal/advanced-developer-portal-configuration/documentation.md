@@ -111,7 +111,9 @@ You can rate and put a comment for this API <a href='/#!/apis/${api.id}/ratings'
 
 ## Contact
 
+<#if api.metadata['email-support']??>
 The support contact is <a href="mailto:${api.metadata['email-support']}">${api.metadata['email-support']}</a>.
+</#if>
 
 The API owner is <#if api.primaryOwner.email??><a href="mailto:${api.primaryOwner.email}">${api.primaryOwner.displayName}</a><#else>${api.primaryOwner.displayName}</#if>.
 ```
