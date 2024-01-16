@@ -146,7 +146,7 @@ The MQTT5 endpoint can be used with any entrypoint that supports messages. For e
 
 ### Recommendations <a href="#user-content-recommendations" id="user-content-recommendations"></a>
 
-Below ar recommendations to increase stability when consuming messages with HTTP GET and MQTT5:
+Below are recommendations to increase stability when consuming messages with HTTP GET and MQTT5:
 
 * Configure a `sessionExpiryInterval` to retain messages for sufficient intervals between HTTP polls.
 * Ensure that messages to consume are published with a proper `messageExpiryInterval` and `qos`. A `messageExpiryInterval` set to 0 or a `qos` set to `AT_MOST_ONCE` may expire the message before the consumer can perform another HTTP poll to consume it.
