@@ -4,67 +4,65 @@ description: This page contains the technical details of the Solace endpoint plu
 
 # Solace
 
-This is an Enterprise feature
+{% hint style="warning" %}
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/ee-vs-oss/)**.**
+{% endhint %}
 
-### Description <a href="#user-content-description" id="user-content-description"></a>
+## Overview
 
-This is a Solace endpoint which allow subscribing or publishing messages to a Solace broker. Note that only SMF protocol is supported.
+Use this endpoint to publish and/or subscribe messages to a Solace broker.&#x20;
 
-### Compatibility matrix <a href="#user-content-compatibility-matrix" id="user-content-compatibility-matrix"></a>
+{% hint style="info" %}
+Only SMF protocol is supported.
+{% endhint %}
+
+* [Compatibility matrix](solace.md#user-content-compatibility-matrix)
+* [Endpoint identifier](solace.md#user-content-endpoint-identifier)
+* [Endpoint configuration](solace.md#user-content-endpoint-configuration)
+
+## Compatibility matrix <a href="#user-content-compatibility-matrix" id="user-content-compatibility-matrix"></a>
 
 | Plugin version | APIM version  |
 | -------------- | ------------- |
-| 1.x and upper  | 4.x or higher |
+| 1.x and up     | 4.x or higher |
 
-### Endpoint identifier <a href="#user-content-endpoint-identifier" id="user-content-endpoint-identifier"></a>
+## Endpoint identifier <a href="#user-content-endpoint-identifier" id="user-content-endpoint-identifier"></a>
 
-In order to use this plugin, you only have to declare the following identifier `solace` while configuring your API endpoints.
+To use this plugin, declare the following `solace` identifier while configuring your API endpoints.
 
-### Endpoint configuration <a href="#user-content-endpoint-configuration" id="user-content-endpoint-configuration"></a>
+## Endpoint configuration <a href="#user-content-endpoint-configuration" id="user-content-endpoint-configuration"></a>
 
-#### General configuration <a href="#user-content-general-configuration" id="user-content-general-configuration"></a>
+### General configuration <a href="#user-content-general-configuration" id="user-content-general-configuration"></a>
 
-**Endpoint level configuration**
+#### **Endpoint-level configuration**
 
-| Attributes | Default | Mandatory | Description                                                                                    |
-| ---------- | ------- | --------- | ---------------------------------------------------------------------------------------------- |
-| url        | N/A     | Yes       | Define the url of Solace Broker Should start either by `tcp://` or `tcps://` for SMF protocol. |
-| vpnName    | N/A     | Yes       | Virtual Event Broker to target.                                                                |
+<table><thead><tr><th width="129">Attributes</th><th width="93">Default</th><th width="121">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>url</td><td>N/A</td><td>Yes</td><td>Define the URL of the Solace broker. Should begin with either <code>tcp://</code> or <code>tcps://</code> for SMF protocol.</td></tr><tr><td>vpnName</td><td>N/A</td><td>Yes</td><td>Virtual event broker to target</td></tr></tbody></table>
 
-#### Shared Configuration <a href="#user-content-shared-configuration" id="user-content-shared-configuration"></a>
+### Shared Configuration <a href="#user-content-shared-configuration" id="user-content-shared-configuration"></a>
 
-**Security**
+#### **Security**
 
 Security options are available under _security_ attribute.
 
-**Authentication**
+#### **Authentication**
 
-Available under `security.auth` :
+Available under `security.auth`:
 
-| Attributes | Default | Mandatory | Description                                 |
-| ---------- | ------- | --------- | ------------------------------------------- |
-| username   | N/A     | No        | The username to use for the authentication. |
-| password   | N/A     | No        | The password to use for the authentication. |
+<table><thead><tr><th width="132">Attributes</th><th width="98">Default</th><th width="123">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>username</td><td>N/A</td><td>No</td><td>The username to use for the authentication</td></tr><tr><td>password</td><td>N/A</td><td>No</td><td>The password to use for the authentication</td></tr></tbody></table>
 
-**Consumer configuration**
+#### **Consumer configuration**
 
-| Attributes | Default | Mandatory | Description                                          |
-| ---------- | ------- | --------- | ---------------------------------------------------- |
-| enabled    | false   | No        | Allow enabling or disabling the consumer capability. |
-| topics     | N/A     | Yes       | Refers to a list of UTF-8 string to subscribe to.    |
+<table><thead><tr><th width="131">Attributes</th><th width="90">Default</th><th width="116">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>enabled</td><td>false</td><td>No</td><td>Enable or disable the consumer capability</td></tr><tr><td>topics</td><td>N/A</td><td>Yes</td><td>Refers to a list of UTF-8 strings to subscribe to</td></tr></tbody></table>
 
-**Producer configuration**
+#### **Producer configuration**
 
-| Attributes | Default | Mandatory | Description                                                         |
-| ---------- | ------- | --------- | ------------------------------------------------------------------- |
-| enabled    | false   | No        | Allow enabling or disabling the producer capability.                |
-| topics     | N/A     | Yes       | Refers to a list of UTF-8 string used to publish incoming messages. |
+<table><thead><tr><th width="131">Attributes</th><th width="95">Default</th><th width="118">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>enabled</td><td>false</td><td>No</td><td>Enable or disable the producer capability</td></tr><tr><td>topics</td><td>N/A</td><td>Yes</td><td>Refers to a list of UTF-8 strings used to publish incoming messages</td></tr></tbody></table>
 
-#### Examples <a href="#user-content-examples" id="user-content-examples"></a>
+### Examples <a href="#user-content-examples" id="user-content-examples"></a>
 
-Bellow you will find a full Solace endpoint configuration example:
+The example below shows a full Solace endpoint configuration:
 
-```
+```json
 {
     "name": "default",
     "type": "solace",
