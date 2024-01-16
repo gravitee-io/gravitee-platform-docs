@@ -21,14 +21,18 @@ Let's continue with the API creation wizard to see how easily a traditional prox
 
 The next step is configuring how the Gateway will communicate with clients and backend servers. This is done through Gateway entrypoints and endpoints:
 
-* **Gateway entrypoint:** Defines the protocol and configuration settings by which the API consumer communicates with the Gateway. In other words, the Gateway entrypoint dictates how the backend API is exposed externally through the Gateway.&#x20;
+* **Gateway entrypoint:** Provides the means for the API consumer to interact with the Gateway API.
 * **Gateway endpoint:** Defines the protocol and configuration settings by which the Gateway API will fetch data/functionality from, or post data to, the backend API server.
 
 <img src="../../../.gitbook/assets/file.excalidraw (2).svg" alt="Gateway entrypoints and endpoints" class="gitbook-drawing">
 
 ### Entrypoints&#x20;
 
-For traditional proxies, the Gateway entrypoint will use the same protocol as your API server. This keeps entrypoint configuration very simple, as the only requirement is one or more context-paths. A context-path is the unique route of the Gateway API.
+To determine how to route requests from API consumers, the Gateway relies on context-paths. A Gateway API can have one or more context-paths, but they must be unique between all APIs deployed to the same Gateway.
+
+{% hint style="info" %}
+For traditional proxies, the Gateway entrypoint will automatically use the same protocol as your API server.&#x20;
+{% endhint %}
 
 There are two important items to note about the context-path:
 
@@ -62,10 +66,6 @@ GET https://backend-api-server/orders
 
 In addition to the standard HTTP configuration options, traditional proxies include several key Gateway endpoint settings. These are discussed in detail below.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-11-10 at 12.21.16 PM.png" alt=""><figcaption><p>Endpoint configuration</p></figcaption></figure>
-
-> * [x] Input `https://api.gravitee.io/echo` as your **Target url**
-
 #### Target URL
 
 The first and most important option is the **Target url**. This is the root-level URL of your backend API server. Continuing our previous [entrypoint example](traditional-proxy.md#example), the target URL would be `https://backend-api-server/`. By default, all resources under this URL would be accessible through the Gateway.&#x20;
@@ -81,6 +81,12 @@ Let's imagine your backend API server, `https://backend-api-server/`, has two re
 
 </details>
 
+For this guide, you are using `https://api.gravitee.io/echo` as your Target URL, and therefore, your backend service. This is a very simple public API server that, as the name suggests, echoes back some basic information about your API request, like the headers and the size of the request body. Feel free to test out the endpoint directly in your terminal or your browser.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2023-11-10 at 12.21.16 PM.png" alt=""><figcaption><p>Endpoint configuration</p></figcaption></figure>
+
+> * [x] Input `https://api.gravitee.io/echo` as your **Target url**
+
 #### Additional endpoint options
 
 The majority of the remaining configuration options are standard HTTP configuration options that you would generally pass as HTTP request headers to manage connection timeouts, pipelining, redirects, etc. We will leave the default value for each of these settings.
@@ -90,10 +96,6 @@ The majority of the remaining configuration options are standard HTTP configurat
 
 To clarify, the SSL options shown here are for the connection between the Gateway and your backend server. Configuring a custom truststore and keystore will have no impact on client connections to the Gateway. mTLS between clients and the Gateway are [configured at the Gateway level](../../configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md), not the API level.
 {% endhint %}
-
-#### Set your target URL
-
-For this guide, you are using `https://api.gravitee.io/echo` as your Target URL, and therefore, your backend service. This is a very simple public API server that, as the name suggests, echoes back some basic information about your API request, like the headers and the size of the request body. Feel free to test out the endpoint directly in your terminal or your browser.
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-11-13 at 6.20.00 PM.png" alt=""><figcaption><p>Finish endpoints configuration</p></figcaption></figure>
 

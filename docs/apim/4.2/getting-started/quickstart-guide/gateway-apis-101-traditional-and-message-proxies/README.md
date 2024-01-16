@@ -67,7 +67,7 @@ If you notice APIs you did not create, this is because the free trial includes s
 > * [x] Select **APIs** in the sidebar of the Console UI
 > * [x] Next, select **+ Add API** in the top right to create a new API
 
-You will be greeted with several options to create an API. We will be creating a v4 API with the creation wizard.&#x20;
+You will be greeted with several options to create an API. We will be creating a v4 API from scratch with the help of the creation wizard.&#x20;
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2023-11-09 at 5.47.49 PM.png" alt=""><figcaption><p>Options to create a new Gateway API</p></figcaption></figure>
 

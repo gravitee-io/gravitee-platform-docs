@@ -15,7 +15,7 @@ This is the second section of the Quickstart Guide.&#x20;
 
 The next two core Gravitee API Management (APIM) concepts we will focus on are plans and policies:
 
-* **Plan:** Provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor your API to a specific subset of API consumers.
+* **Plan:** Provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor your API to a specific subset of API consumers. An API consumer always accesses an API by subscribing to one of the available plans.
 * **Policies:** Customizable rules or logic the Gateway executes during an API transaction. Policies generally fall into the categories of security, transformation, restrictions, performance, routing, or monitoring & testing.
 
 Plans and policies are managed by the API publisher to add different layers of security and functionality to the backend resources they own.

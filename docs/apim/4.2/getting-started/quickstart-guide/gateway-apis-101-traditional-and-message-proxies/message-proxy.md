@@ -34,7 +34,7 @@ The next step is configuring how the Gateway will communicate with clients and b
 
 ### Entrypoints&#x20;
 
-Unlike traditional proxies, messag proxies perform protocol mediation between the Gateway entrypoints and endpoints.&#x20;
+Unlike traditional proxies, message proxies perform protocol mediation between the Gateway entrypoints and endpoints.&#x20;
 
 This allows you to expose your message brokers using one or more web-friendly protocols, based on your requirements and those of your API consumers.  Each protocol you select has its own set of configuration options.
 
@@ -48,7 +48,7 @@ This allows you to expose your message brokers using one or more web-friendly pr
 
 You will be able to configure each entrypoint protocol you select, but regardless of your protocol selection, you must provide one or more context-paths.&#x20;
 
-A context-path is the unique route of the Gateway API. The context-path does not include the fully qualified domain name of the Gateway.&#x20;
+Context-paths are how the Gateway determines where to route requests from API consumers to the proper Gateway API. A Gateway API can have one or more context-paths, but they must be unique between all APIs deployed to the same Gateway. The context-path does not include the fully qualified domain name of the Gateway.&#x20;
 
 <details>
 
