@@ -116,39 +116,37 @@ The Gateway acts as a protocol mediator and includes an abstraction layer to pro
 
 Gravitee implements MQTT5 shared subscriptions to ensure that the Gateway can handle multiple concurrent requests. This is subject to the following limitations:
 
-* Latest retain message is not transmitted when subscribing because it is not supported when using shared subscriptions
-* NoLocal Mqtt feature is not supported by shared subscriptions.
-* Some Mqtt5 server implementation such as HiveMq are able to deliver messages received when a client was disconnected. Others such as Mosquitto aren’t.
+* Latest retain message is not supported by shared subscriptions and so not transmitted when subscribing
+* The NoLocal MQTT5 feature is not supported by shared subscriptions
+* Some MQTT5 server implementations such as HiveMQ are able to deliver messages that were received when a client was disconnected. Others, such as Mosquitto, are not.
 
 ### HTTP polling <a href="#user-content-http-polling" id="user-content-http-polling"></a>
 
-You can use gravitee http-get entrypoint connector to allow api consumers doing http polling. To avoid loosing messages that could have been sent between 2 http polls, Mqtt5 connector uses shared subscription.
+The Gravitee HTTP GET entrypoint connector allows HTTP polling by API consumers. The MQTT5 connector uses shared subscriptions to avoid losing messages sent between 2 HTTP polls. In this case, the first HTTP poll creates the shared subscription that enables the subsequent HTTP poll to consume the pending messages.
 
-The first http poll will create the shared subscription allowing subsequent http pool to consume the pending messages.
+MQTT5 isn’t designed to support persisting pending messages for long periods. Consumers performing HTTP polling with long disconnection periods may lose messages.
 
-Mqtt5 isn’t made for persisting pending messages for a long period. Consumers that making http polling with long disconnection period may loose some messages.
+If concurrent HTTP poll requests originate from the same consumer application, the messages will be spread across the HTTP poll.
 
-In case of concurrent http poll requests coming from the same consumer application, the messages will be spread between the http poll.
+HTTP GET does not offer particular QoS, and it is not possible to consume messages from a particular point in time. Message consumption is entirely dependent on MQTT5 server capabilities, and message loss or duplication may occur.
 
-Http get does not offer particular QoS, and it is not possible to consume messages from a particular point in time. Messages consumption is entirely depending on Mqtt5 server capabilities. Message loss or duplicates may happen.
+### Server-sent events <a href="#user-content-server-side-event" id="user-content-server-side-event"></a>
 
-#### Server Side Event <a href="#user-content-server-side-event" id="user-content-server-side-event"></a>
+It is possible to stream the messages from a MQTT5 topic in real time using the SSE entrypoint. A consumer can run several SSE calls to distribute the workload across multiple instances. All the messages will be shared between instances.
 
-It is possible to stream the messages from a Mqtt5 topic in real time using SSE entrypoint. A consumer can run several sse calls in order to share the workload across multiple instances. All the messages will be shared between the instances.
+SSE does not offer particular QoS and, in case of network failure or issues on the client side, messages may be acknowledged but never received.
 
-Sse does not offer particular QoS and, in case of network failure or issue on the client side, that some messages may be acknowledged but never received.
+### Webhook <a href="#user-content-webhook" id="user-content-webhook"></a>
 
-#### Webhook <a href="#user-content-webhook" id="user-content-webhook"></a>
+Webhook is the only entrypoint offering the `AT-MOST-ONCE` or `AT-LEAST-ONCE` QoS capability. Webhook subscriptions run in the background on the Gateway and make a call to an external HTTP URL for each message consumed. The message is acknowledged only if the call is successful (e.g., 2xx response from the remote service).
 
-Webhook is the only entrypoint offering the `AT-MOST-ONCE` or `AT-LEAST-ONCE` qos capability. Webhook subscription are running in background on the gateway and basically make a call to an external http url for each message consume. The message is acknowledged only in case of success call (eg: 2xx response from the remote service).
+### Other entrypoints <a href="#user-content-other-entrypoints" id="user-content-other-entrypoints"></a>
 
-#### Other entrypoints <a href="#user-content-other-entrypoints" id="user-content-other-entrypoints"></a>
+The MQTT5 endpoint can be used with any entrypoint that supports messages. For example, it is possible to publish or consume messages using the WebSocket entrypoint or publish messages with the HTTP POST entrypoint.
 
-Mqtt5 endpoint can be used with any type of entrypoint as long as it supports messages. It is for example possible to publish or consume messages using WebSocket entrypoint or simply publish messages with Http post entrypoint.
+### Recommendations <a href="#user-content-recommendations" id="user-content-recommendations"></a>
 
-#### Recommendations <a href="#user-content-recommendations" id="user-content-recommendations"></a>
+Below ar recommendations to increase stability when consuming messages with HTTP GET and MQTT5:
 
-Here are some recommendations to increase stability when consuming messages with http get and mqtt5:
-
-* Configure a `sessionExpiryInterval` to keep messages long time enough between http polls.
-* Ensure that messages to consume are published with a proper `messageExpiryInterval` and `qos`. Having a `messageExpiryInterval` set to 0 or a `qos` set to `AT_MOST_ONCE` may expire the message before the consumer has a chance to make another http poll to consume it.
+* Configure a `sessionExpiryInterval` to retain messages for sufficient intervals between HTTP polls.
+* Ensure that messages to consume are published with a proper `messageExpiryInterval` and `qos`. A `messageExpiryInterval` set to 0 or a `qos` set to `AT_MOST_ONCE` may expire the message before the consumer can perform another HTTP poll to consume it.
