@@ -137,18 +137,30 @@ We are purposefully keeping this flow very simple. However, the conditions that 
 
 Creating a flow opens up the flow editor. This screen will look different based on whether you are working with a traditional or message proxy API. Follow the instructions that match your API's proxy type:
 
-* **Traditional proxy:** The only phases available to traditional proxy APIs are request and response. We will be adding a policy to the response phase.
+<details>
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.28.53 PM.png" alt=""><figcaption><p>Add policy to the response phase of traditional proxy API</p></figcaption></figure>
+<summary><strong>Traditional proxy</strong></summary>
 
-> * [x] Select the **+ icon** in the **Response phase**
+The only phases available to traditional proxy APIs are request and response. We will be adding a policy to the response phase.
 
-* **Message proxy:** The phases available to message proxy APIs are request, response, publish, and subscribe. The publish and subscribe phases allow the policy to be applied at the message level. We will be adding the policy to the subscribe phase.
+<img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.28.53 PM.png" alt="Add policy to the response phase of traditional proxy API" data-size="original">
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.29.28 PM (1).png" alt=""><figcaption><p>Add policy to the subscribe phase of a message proxy API</p></figcaption></figure>
+* [x] Select the **+ icon** in the **Response phase**
 
-> * [x] Select the **Event messages** tab in the flow editor
-> * [x] Select the **+ icon** in the **Subscribe phase**
+</details>
+
+<details>
+
+<summary><strong>Message Proxy</strong></summary>
+
+The phases available to message proxy APIs are request, response, publish, and subscribe. The publish and subscribe phases allow the policy to be applied at the message level. We will be adding the policy to the subscribe phase.
+
+<img src="../../.gitbook/assets/Screenshot 2023-11-19 at 10.29.28 PM (1).png" alt="Add policy to the subscribe phase of a message proxy API" data-size="original">
+
+* [x] Select the **Event messages** tab in the flow editor
+* [x] Select the **+ icon** in the **Subscribe phase**
+
+</details>
 
 {% hint style="info" %}
 The next steps are the same for both traditional and message proxy APIs.
@@ -191,7 +203,7 @@ Try sending the same request from the first part of the Quickstart Guide.
 
 {% code overflow="wrap" %}
 ```sh
-curl -X GET -i "https://your-gateway-server/your-context-path"
+curl -X GET -i "https://<your-gateway-server>/<your-context-path>"
 ```
 {% endcode %}
 
@@ -280,7 +292,7 @@ One more time, try sending the same request from the first part of the Quickstar
 
 {% code overflow="wrap" %}
 ```sh
-curl -X GET -i "https://your-gateway-server/your-context-path"
+curl -X GET -i "https://<your-gateway-server>/<your-context-path>"
 ```
 {% endcode %}
 

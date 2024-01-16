@@ -185,7 +185,7 @@ For the final time, let's send the same request but with one small modification.
 
 {% code overflow="wrap" %}
 ```sh
-curl -X GET -i "https://your-gateway-server/your-context-path" -H "X-Gravitee-API-Key: your-key-here"
+curl -X GET -i "https://<your-gateway-server>/<your-context-path>" -H "X-Gravitee-API-Key: <your-key-here>"
 ```
 {% endcode %}
 

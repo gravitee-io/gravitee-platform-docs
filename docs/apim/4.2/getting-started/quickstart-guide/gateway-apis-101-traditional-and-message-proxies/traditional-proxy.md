@@ -163,8 +163,10 @@ From this page, you can manage every aspect of your Gateway API by selecting dif
 
 Your first API is now started on the Gateway. Since we are using a keyless plan, you can immediately test it by opening your terminal and sending the request below, after modifying the relevant portions:
 
-* `your-gateway-server` should be replaced with the fully qualified domain name of your Gateway's server. Remember, your Gateway will be on a different domain than the Console UI. For example, the default local Docker deployment has the Console UI on `localhost:8084` and the Gateway on `localhost:8082`.
-* `your-context-path` should be replaced by the context-path of the Gateway API you just deployed. You can always find the context-path under **Entrypoints**.
+* `<your-gateway-server>` should be replaced with the fully qualified domain name of your Gateway's server. Remember, your Gateway will be on a different domain than the Console UI.&#x20;
+  * For an enterprise trial, the Console URL in your browser's address bar typically looks something like `https://trial.apim.<your-account-id-here>.gravitee.xyz/console`. The Gateway server is just `trial.apim.<your-account-id-here>.gravitee.xyz`.
+  * For the default local Docker deployment,  the Console UI is available at `localhost:8084` and the Gateway server is `localhost:8082`.
+* `<your-context-path>` should be replaced by the context-path of the Gateway API you just deployed. You can always find the context-path under **Entrypoints**.
 
 {% hint style="warning" %}
 Ensure you use the proper protocol! For example, the default local Docker installation of APIM would use `http` instead of `https`, as SSL must be manually enabled.&#x20;
@@ -172,7 +174,7 @@ Ensure you use the proper protocol! For example, the default local Docker instal
 
 {% code overflow="wrap" %}
 ```sh
-curl -X GET -i "https://your-gateway-server/your-context-path" -d 'APIM Quickstart Guide=Hello World'
+curl -X GET -i "https://<your-gateway-server>/<your-context-path>" -d 'APIM Quickstart Guide=Hello World'
 ```
 {% endcode %}
 
