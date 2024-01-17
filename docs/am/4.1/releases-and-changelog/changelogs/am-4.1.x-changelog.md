@@ -8,24 +8,20 @@ description: >-
 
 ## Gravitee Access Management 4.1.10 - January 17, 2024
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Avoid BodyHandler processing for GET request https://github.com/gravitee-io/issues/issues/9352[#9352]
-* WebAuthnCredentialId is null into the EL context https://github.com/gravitee-io/issues/issues/9455[#9455]
-
-
-
-
+* Avoid BodyHandler processing for GET request [#9352](https://github.com/gravitee-io/issues/issues/9352)
+* WebAuthnCredentialId is null into the EL context [#9455](https://github.com/gravitee-io/issues/issues/9455)
 
 **Other**
 
-* AEConnector not initialized properly since AM 4.1 https://github.com/gravitee-io/issues/issues/9454[#9454]
-</details>
+* AEConnector not initialized properly since AM 4.1 [#9454](https://github.com/gravitee-io/issues/issues/9454)
 
+</details>
 
 ## Gravitee Access Management 4.1.9 - December 22, 2023
 
