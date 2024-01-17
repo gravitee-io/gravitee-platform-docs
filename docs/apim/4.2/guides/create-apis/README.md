@@ -89,7 +89,6 @@ It's important to know that v4 APIs currently do not support:
 
 * Documentation upload during the API creation process
 * Gravitee Debug mode
-* Analytics or logs in the API Management Console
 * Auditing functionality
 * Messages and notifications
 {% endhint %}
