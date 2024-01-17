@@ -21,7 +21,6 @@ Choose from the guides below to learn how to use CRDs and synchronize your API C
 
 The Gravitee Kubernetes Operator is not yet at full feature-parity with  Gravitee Management API and Gravitee APIM Console. The GKO cannot:
 
-* Support the v4 API definition
 * Configure a plan to be used across multiple APIs. Currently, you can only configure plans on a per-API basis using the `ApiDefinition` CRD.
 * Configure flows/policies to be used across multiple APIs. Currently, you can only configure flows/policies on a per-API basis using the `ApiDefinition` CRD.
 * Configure component resources
