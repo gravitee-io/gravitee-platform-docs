@@ -35,3 +35,7 @@ Next, depending on which entrypoint(s) your API utilizes, specific entrypoint co
 You can also add an entrypoint to your API by clicking **Add an entrypoint.** From here, you must configure the entrypoint using the details specific to that entrypoint (see expandable sections above).
 
 When you are done configuring your entrypoints, make sure to select **Save changes.**
+
+{% hint style="info" %}
+For more detailed information on Gravitee entrypoints, see the [Entrypoint Reference](../../../../../reference/entrypoint-reference.md) documentation.
+{% endhint %}

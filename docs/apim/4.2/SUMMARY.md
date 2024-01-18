@@ -232,6 +232,7 @@
   * [MQTT5](reference/endpoint-reference/mqtt5.md)
   * [Solace](reference/endpoint-reference/solace.md)
   * [RabbitMQ](reference/endpoint-reference/rabbitmq.md)
+* [Entrypoint Reference](reference/entrypoint-reference.md)
 
 ## Releases & Changelog
 
