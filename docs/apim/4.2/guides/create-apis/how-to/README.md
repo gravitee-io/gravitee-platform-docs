@@ -27,11 +27,9 @@ There are two versions of the API creation wizard:
 {% hint style="info" %}
 **Current v4 API limitations**
 
-It's important to note that v4 APIs do not support:
+v4 APIs do not support:
 
-* Documentation upload during the API creation process
 * Gravitee Debug mode
-* Analytics or logs in the API Management Console
 * Auditing functionality
 * Messages and notifications
 {% endhint %}

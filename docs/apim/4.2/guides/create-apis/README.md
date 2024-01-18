@@ -85,9 +85,8 @@ Gravitee's v4 API definition offers support for a variety of API styles, event b
 {% hint style="warning" %}
 **Current v4 API limitations**
 
-It's important to know that v4 APIs currently do not support:
+v4 APIs currently do not support:
 
-* Documentation upload during the API creation process
 * Gravitee Debug mode
 * Auditing functionality
 * Messages and notifications
