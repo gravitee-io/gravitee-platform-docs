@@ -5,27 +5,28 @@ description: >-
 ---
 
 # APIM 4.1.x
- 
+
 ## Gravitee API Management 4.1.7 - January 19, 2024
+
 <details>
 
-<summary>BugFixes</summary>
+<summary>Bug fixes</summary>
 
 **Gateway**
 
-* Sometime path-mapping is not working [#9450](https://github.com/gravitee-io/issues/issues/9450)
+* Sometimes path-mapping is not working [#9450](https://github.com/gravitee-io/issues/issues/9450)
 * Management API does not encode a value in the URL used in a pipe [#9461](https://github.com/gravitee-io/issues/issues/9461)
 * gRPC backend received unexpected headers [#9463](https://github.com/gravitee-io/issues/issues/9463)
 
 **Management API**
 
-* Unable to switch to grpc endpoint type from the Console UI [#9456](https://github.com/gravitee-io/issues/issues/9456)
+* Unable to switch to gRPC endpoint type from the Console UI [#9456](https://github.com/gravitee-io/issues/issues/9456)
 * Updating an API reset the gRPC type of the endpoint [#9464](https://github.com/gravitee-io/issues/issues/9464)
-* Can't create 2 virtualhosts having the same path but different host  [#9466](https://github.com/gravitee-io/issues/issues/9466)
+* Can't create 2 virtualhosts having the same path but different host [#9466](https://github.com/gravitee-io/issues/issues/9466)
 
 **Console**
 
-* Can't create 2 virtualhosts having the same path but different host  [#9466](https://github.com/gravitee-io/issues/issues/9466)
+* Can't create 2 virtualhosts having the same path but different host [#9466](https://github.com/gravitee-io/issues/issues/9466)
 * Navigation in a multi-environments console is messed up [#9467](https://github.com/gravitee-io/issues/issues/9467)
 
 **Portal**
@@ -34,7 +35,7 @@ description: >-
 
 **Helm Charts**
 
-* Backward incompatibility during helm upgrade with old values.yml [#9446](https://github.com/gravitee-io/issues/issues/9446)
+* Backward incompatibility during Helm upgrade with old `values.yml` [#9446](https://github.com/gravitee-io/issues/issues/9446)
 
 </details>
 
@@ -47,8 +48,6 @@ description: >-
 * Access request host property in Expression Language [#9453](https://github.com/gravitee-io/issues/issues/9453)
 
 </details>
-
-
 
 ## Gravitee API Management 4.1.6 - December 21, 2023
 
