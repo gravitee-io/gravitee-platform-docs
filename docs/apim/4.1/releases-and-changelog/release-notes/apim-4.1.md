@@ -64,6 +64,6 @@ The Management Console now allows you to view comprehensive connection logs to a
 
 <figure><img src="../../.gitbook/assets/runtime logs chron order.png" alt=""><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
 
-Runtime log settings can be modified to customize and extend the data capture. You can also drill into a log entry to view detailed message content. For more information on logging, refer to [this section](../../getting-started/configuration/configure-apim-management-api/logging.md#management-console-logging).
+Runtime log settings can be modified to customize and extend the data capture. You can also drill into a log entry to view detailed message content. For more information on logging, refer to [this section](broken-reference).
 
 <figure><img src="../../.gitbook/assets/runtime logs view messages.png" alt=""><figcaption><p>View messages for log details</p></figcaption></figure>
