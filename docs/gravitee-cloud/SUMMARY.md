@@ -18,7 +18,7 @@
 
 ## reference
 
-* [Cockpit API Reference](reference/register-installations.md)
+* [Cockpit API Reference](reference/cockpit-api-reference.md)
 
 ## Community and Support
 
