@@ -12,7 +12,7 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 ## Introduction
 
-Gravitee 4.2 was released on December 21st, 2023, and introduced secret provider plugins, API documentation, enhanced API-level logging capabilities, multi-tenancy, TCP proxy APIs, GKO support for v4 APIs, entrypoint/endpoint enhancements, and policy improvements. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.2](../changelogs/apim-4.2.x.md).
+Gravitee 4.2 was released on December 21st, 2023, and introduced secret provider plugins, API documentation, enhanced API-level logging capabilities, multi-tenancy, TCP proxy APIs, GKO support for v4 APIs, entrypoint/endpoint enhancements, and policy improvements. For a pared-down version of what was released, please see the [changelog for Gravitee APIM 4.2](../changelogs/apim-4.2.x-changelog.md).
 
 ## Secret providers
 
