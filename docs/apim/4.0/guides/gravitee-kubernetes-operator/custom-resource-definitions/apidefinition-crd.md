@@ -2,7 +2,7 @@
 
 ## How to use the API Definition (`ApiDefinition`) custom resource
 
-The `APIDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API definition in JSON format.
+The `ApiDefinition` custom resource represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API definition in JSON format.
 
 The example below shows a simple `ApiDefinition` custom resource definition:
 
@@ -23,6 +23,76 @@ spec:
           - name: "Default"
             target: "https://api.gravitee.io/echo"
 ```
+
+### API deployment in a Kubernetes Cluster
+
+You can deploy an API on Gravitee Gateways deployed in different Kubernetes clusters. The Management API will be deployed in the same cluster as the GKO. The following reference diagram is the basis for both the single and multi-Gateway deployment options discussed below.
+
+<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>Gateways in different Kubernetes Clusters</p></figcaption></figure>
+
+{% tabs %}
+{% tab title="Single Gateway" %}
+To deploy an API on a single Gateway, apply the following configuration on the Gateway 1 cluster:
+
+```yaml
+apiVersion: gravitee.io/v1alpha1
+kind: ApiDefinition
+metadata:
+  name: local-api-example
+spec:
+  name: "GKO Basic"
+  version: "1.1"
+  description: "Basic api managed by Gravitee Kubernetes Operator"
+  proxy:
+    virtual_hosts:
+      - path: "/k8s-basic"
+    groups:
+      - endpoints:
+          - name: "Default"
+            target: "https://api.gravitee.io/echo"
+  local: true
+```
+
+The `local` field is optional and is set to `true` by default to indicate that the API will be deployed only in the cluster where the custom resource is applied. Run the following command to verify that the API ConfigMap has been created in the Gateway 1 cluster:
+
+```sh
+kubectl get cm -n gateway-1-cluster
+```
+
+```
+NAMESPACE            NAME                DATA    AGE
+gateway-1-namespace  local-api-example   1       1m
+```
+{% endtab %}
+
+{% tab title="Multiple clusters" %}
+To deploy an API on multiple Gateways, use a custom resource that can be applied to any cluster. As long as the Management API is available, the `ApiDefinition` refers to a `ManagementContext` and the `local` field is set to `false`.
+
+```yaml
+apiVersion: gravitee.io/v1alpha1
+kind: ApiDefinition
+metadata:
+  name: global-api-example
+spec:
+  name: "GKO Basic"
+  version: "1.1"
+  description: "Basic api managed by Gravitee Kubernetes Operator"
+  contextRef:
+    name: apim-example-context
+    namespace: apim-example
+  proxy:
+    virtual_hosts:
+      - path: "/k8s-basic"
+    groups:
+      - endpoints:
+          - name: "Default"
+            target: "https://api.gravitee.io/echo"
+  local: false
+```
+
+With the above configuration, there should be no `ConfigMap` linked to the `ApiDefinition` in the cluster where the custom resource has been applied because the `ApiDefinition` was deployed using the Management API and the `ApiDefinition` is not local to the cluster.
+{% endtab %}
+{% endtabs %}
 
 ## The `ApiDefinition` lifecycle
 

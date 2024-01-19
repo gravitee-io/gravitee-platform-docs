@@ -2,15 +2,11 @@
 
 ## Overview
 
-This quick start guide is the fastest way to start working with the Gravitee Kubernetes Operator (GKO). You can deploy the GKO on an existing APIM-ready cluster that is either remote (cloud-based) or local (only recommended for testing purposes).
-
-{% hint style="warning" %}
-There are [additional steps to perform](../developer-contributions/gravitee-kubernetes-operator-development-environment.md) if you do not have a suitable existing cluster, and you will need to set up a new local cluster prior to deployment.
-{% endhint %}
+This quick start guide is the fastest way to start working with the Gravitee Kubernetes Operator (GKO).
 
 ## Deploy the GKO
 
-For full details on deployment, see the [GKO Deployment Guide](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
+For full details on deployment, see the [GKO Install Guide](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
 
 ### Prerequisites
 
@@ -24,19 +20,14 @@ Before deploying the GKO, you should have:
 
 The GKO deployment process is the same for both remote and local Kubernetes clusters.
 
-To deploy the GKO on the cluster of your current Kubernetes context, run the following command (working directory is irrelevant):
+To deploy the GKO on the cluster of your current Kubernetes context, run the following commands:
 
 {% code overflow="wrap" %}
 ```sh
-kubectl apply -f https://github.com/gravitee-io/gravitee-kubernetes-operator/releases/latest/download/bundle.yml
+$ helm repo add graviteeio https://helm.gravitee.io
+$ helm install graviteeio-gko graviteeio/gko
 ```
 {% endcode %}
-
-As an optional but recommended next step, check if the Gravitee CRDs are available on your cluster:
-
-```sh
-kubectl get crd
-```
 
 ## Testing the deployed GKO
 
@@ -105,3 +96,10 @@ The entrypoint used in the Gateway URL may differ depending on your deployment. 
 {% hint style="info" %}
 For full details on trying out the GKO functionality after deployment, see [Call the API through the APIM Gateway](test-gko-after-deployment.md#step-3-call-the-api-through-the-apim-gateway).
 {% endhint %}
+
+## Next steps
+
+Visit our [GKO guide](./) to:
+
+* Learn how to use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway
+* Manage custom resource definitions (CRDs)

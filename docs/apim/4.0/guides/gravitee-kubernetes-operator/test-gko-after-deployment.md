@@ -12,9 +12,9 @@ This section describes how to test Gravitee Kubernetes Operator (GKO) functional
 
 * Ensure that the GKO has been successfully [deployed](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md) on your Kubernetes cluster.
 * Ensure that `services.sync.kubernetes` is set to `true`. This property is disabled by default, but must be enabled for the Gateway to communicate with a Kubernetes Operator. How the Gateway is deployed determines how the property is configured:
-  * If your Gateway is deployed using a Helm chart, you can enable the Kubernetes Operator option [through helm values](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md#gravitee-gateway).
+  * If your Gateway is deployed using a Helm Chart, you can enable the Kubernetes Operator option [through helm values](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md#gravitee-gateway).
   * For [other deployment strategies](../../getting-started/install-guides/) (e.g., deployment using a VM), you can update the configuration:
-    * &#x20;By setting an environment variable: `GRAVITEE_SERVICES_SYNC_KUBERNETES_ENABLED=true`
+    * By setting an environment variable: `GRAVITEE_SERVICES_SYNC_KUBERNETES_ENABLED=true`
     * Directly in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file:
 
 {% code title="gravitee.yml" %}
@@ -110,4 +110,4 @@ To test the API, you can call it through the APIM Gateway with the following com
 curl -i http://<YOUR_GATEWAY_URL>/gateway/k8s-basic-with-ctx
 ```
 
-If you are using a local cluster created through the local cluster installation process, the Gateway URL is likely `http://localhost:9000/gateway/k8s-basic-with-ctx`. However, the entrypoint used for the Gateway URL may differ depending on your deployment.&#x20;
+If you are using a local cluster created through the local cluster installation process, the Gateway URL is likely `http://localhost:9000/gateway/k8s-basic-with-ctx`. However, the entrypoint used for the Gateway URL may differ depending on your deployment.
