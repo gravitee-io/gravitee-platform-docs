@@ -6,6 +6,19 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.8 - January 19, 2024
+
+<details>
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Avoid BodyHandler processing for GET request [#9352](https://github.com/gravitee-io/issues/issues/9352)
+* WebAuthnCredentialId is null into the EL context [#9455](https://github.com/gravitee-io/issues/issues/9455)
+
+</details>
+
+
 ## Gravitee Access Management 4.0.7 - December 22, 2023
 
 <details>
