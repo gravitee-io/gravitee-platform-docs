@@ -1,10 +1,21 @@
-# Gravitee Kubernetes Operator Deployment
+---
+description: >-
+  In order to meet your architecture requirements, various deployment strategies
+  can be applied when installing the GKO. This section examines these different
+  models and their required configurations.
+---
+
+# Architecture Overview
 
 ## Overview
 
-A [Kubernetes operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) is an application-specific controller that extends the functionality of the Kubernetes API to create, configure, deploy, and manage application instances using `kubectl` tooling.
+{% hint style="warning" %}
+The following sections apply to GKO version 1.x.x. GKO 0.x.x will be deprecated in 2024. Refer to the [GKO 1.x.x changelog](https://github.com/gravitee-io/gravitee-kubernetes-operator/releases/tag/1.0.0-beta.1) to track breaking changes.
+{% endhint %}
 
-### Context for introducing an operator
+<details>
+
+<summary>Context for introducing an operator</summary>
 
 Gravitee is able to deploy the following components:
 
@@ -24,167 +35,67 @@ Historically, Gravitee customers have deployed APIs using the following:
 
 While the REST API method is compatible with IaC, customer feedback favors a Kubernetes-native deployment of APIs, the Gravitee APIM Gateway and the Console via [Custom Resource Definitions (CRDs)](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/). The introduction of the Gravitee Kubernetes Operator (GKO) makes this possible.
 
-### How it works
+</details>
 
-An API deployed in a Kubernetes cluster can be described as an API extension of Kubernetes using CRDs. This approach relies on the Management Console or the Management API to use the GKO and the Kubernetes API to deploy the API to your API Gateway.
-
-## Architecture overview
+## Deployment strategies
 
 The current functionality of the Gravitee Kubernetes Operator supports three main deployment scenarios, as described below.
 
-### Standard deployment
-
-In a standard deployment, the Management API and the API Gateway are deployed in the same Kubernetes cluster.
-
-With this workflow, the GKO listens for CRDs. For each custom resource, an API is pushed to the Management API using the import endpoint and the API Gateway deploys the APIs accordingly.
-
-The following diagram illustrates the standard deployment architectural approach:
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-1-standard.png" alt=""><figcaption><p>Standard deployment architecture</p></figcaption></figure>
-
-### Deployment on multiple clusters
-
-This scenario assumes the following:
-
-1. The user manages multiple Kubernetes clusters using a different set of APIs for each cluster
-2. All APIs are managed using a single API Console
-3. GKO is installed on all required clusters
-
-The following diagram illustrates the multi-cluster deployment architectural approach:
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-2-multi-cluster.png" alt=""><figcaption><p>Multi-cluster deployment architecture</p></figcaption></figure>
-
-### Deployment on multiple environments
-
-In this scenario, a single GKO is deployed that can publish APIs to different environments (logical or physical). This is managed directly from the [ApiDefinition custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd.md), which refers to a [ManagementContext custom resource](../../../guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource.md).
-
 {% hint style="info" %}
-Different APIs are published on each of the environments because although APIs use the `ManagementContext` CRD, which can reference any Management API, an `ApiDefinition` CRD can only have one Management Context.
+While an APIM instance is only required to handle multi-cluster API deployments, all of the architectures described below support using an APIM instance to sync resources deployed through the operator with the Console.
 {% endhint %}
 
-The following diagram illustrates the multi-environment deployment architectural approach:
+{% tabs %}
+{% tab title="Cluster Mode" %}
+By default, the Gravitee Kubernetes Operator is set up to listen to the custom resources it owns at the cluster level.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-3-multi-env.png" alt=""><figcaption><p>Multi-environment deployment architecture</p></figcaption></figure>
+In this mode, a single operator must be installed in the cluster to handle resources, regardless of the namespaces they have been created in. For each resource created in a specific namespace, the operator creates a ConfigMap in the same namespace that contains an API definition to be synced with an APIM Gateway.
 
-## Installation
+By default, an APIM Gateway installed using the Helm Chart includes a limited set of permissions, and the Gateway is only able to access ConfigMaps created in its own namespace. However, giving a Gateway the cluster role allows it to access ConfigMaps created by the operator at the cluster level.
 
-The steps to install the GKO on an existing Kubernetes cluster are described below.
+An overview of this architecture is described by the diagram below.
 
-{% hint style="info" %}
-If your architecture requires the management of multiple Kubernetes clusters, each with a different set of APIs, you should deploy the GKO separately on each cluster. Follow the deployment process for each cluster deployment.
-{% endhint %}
+<img src="../../../.gitbook/assets/file.excalidraw (9).svg" alt="Default Cluster Mode architecture" class="gitbook-drawing">
+{% endtab %}
 
-### Prerequisites
+{% tab title="Namespaced Mode" %}
+The Gravitee Kubernetes Operator can be set up to listen to a single namespace in a Kubernetes cluster. One operator is deployed per namespace, and each listens to the custom resources created in its namespace only.
 
-* [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) and [Helm v3](https://helm.sh/docs/intro/install/), installed and running locally.
-* An APIM instance running on your cluster, installed per our [installation guide](./).
-* Set `gateway.services.sync.kubernetes.enabled=true` in your APIM configuration to enable the Gateway to synchronize with the operator resources.
+To achieve this architecture, the `manager.scope.cluster` value must be set to `false` during the Helm install. Role names are computed from the service account name, so each install must set a dedicated service account name for each operator using the `serviceAccount.name` Helm value.
 
-{% hint style="info" %}
-**Namespaces**
+To handle [conversion between resource versions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definition-versioning/), at least one operator in the cluster must act as a Webhook, meaning it must be installed with the `manager.webhook.enabled` property set to `true` (the default). When all operators use this default setting, the last operator installed in the cluster acts as the conversion Webhook.
 
-By default, the Kubernetes synchronizer is configured to watch for API definitions in the API Gateway namespace. To watch all namespaces, set`gateway.services.sync.kubernetes.namespaces=all` in the Gateway configuration. Alternatively, you can provide a specific list of namespaces to watch. This requires that the Gateway service account has the `list` permissions for ConfigMaps at the cluster level or that the`gateway.services.sync.kubernetes.namespaces` property defines the list of namespaces.&#x20;
-{% endhint %}
+An overview of this architecture is described by the diagram below.
 
-### Install using Helm
+<img src="../../../.gitbook/assets/file.excalidraw (10).svg" alt="Multiple operators, each listening to its own namespace" class="gitbook-drawing">
+{% endtab %}
 
-1. Add the Gravitee Helm charts repo:
+{% tab title="Multi-Cluster Mode" %}
+In a multi-cluster architecture, you can set up Gateways on different Kubernetes clusters or virtual machines, then use an operator to generate an API definition that is accessible from each of these Gateways. This means that:
 
-```sh
-helm repo add graviteeio https://helm.gravitee.io
-```
+* An APIM instance is required to act as a source of truth for the Gateways
+* The operator will obtain the API definition from APIM instead of creating one in a ConfigMap
+* The API definition requires a Management Context
+* The `definitionContext` of the API must be set to sync from APIM
 
-2. Install the chart with the release name `graviteeio-gko`:
-
-```sh
-helm install graviteeio-gko graviteeio/gko
-```
-
-3. **(Optional)** By default, the operator listens to resources created anywhere in the cluster. To restrict the operator to the release namespace, set `manager.scope.cluster``=false`:
-
-{% code overflow="wrap" %}
-```sh
-helm install --set manager.scope.cluster=false -n ${RELEASE_NAMESPACE} graviteeio-gko graviteeio/gko
-```
-{% endcode %}
-
-{% hint style="info" %}
-**Cluster scope**
-
-If you are installing the operator with the cluster scope enabled (the default), it is recommended to install one instance of the operator per cluster. If you are installing the operator with the cluster scope disabled, you can install multiple instances of the operator in the same cluster, with each one watching a different namespace.
-{% endhint %}
-
-## API deployment in a Kubernetes Cluster
-
-You can deploy an API on Gravitee Gateways deployed in different Kubernetes clusters. The Management API will be deployed in the same cluster as the GKO.
-
-<figure><img src="../../../.gitbook/assets/image (45).png" alt=""><figcaption><p>Gateways in different Kubernetes Clusters</p></figcaption></figure>
-
-### Deploy on a single Gateway
-
-To deploy an API on a single Gateway, apply the following configuration on the Gateway 1 cluster:
+The following snippet contains the relevant specification properties for the API definition in a multi-cluster architecture:
 
 ```yaml
-apiVersion: gravitee.io/v1alpha1
+apiVersion: gravitee.io/v1beta1
 kind: ApiDefinition
 metadata:
-  name: local-api-example
+  name: multi-cluster-api
 spec:
-  name: "GKO Basic"
-  version: "1.1"
-  description: "Basic api managed by Gravitee Kubernetes Operator"
-  proxy:
-    virtual_hosts:
-      - path: "/k8s-basic"
-    groups:
-      - endpoints:
-          - name: "Default"
-            target: "https://api.gravitee.io/echo"
-  local: true
-```
-
-The `local` field is optional and is set to `true` by default to indicate that the API will be deployed only in the cluster where the custom resource is applied. Run the following command to verify that the API ConfigMap has been created in the Gateway 1 cluster:
-
-```sh
-kubectl get cm -n gateway-1-cluster
-```
-
-```
-NAMESPACE            NAME                DATA    AGE
-gateway-1-namespace  local-api-example   1       1m
-```
-
-### Deploy on multiple clusters
-
-To deploy an API on multiple Gateways, use a custom resource that can be applied to any cluster. As long as the Management API is available, the `ApiDefinition` refers to a `ManagementContext` and the `local` field is set to `false`.
-
-```yaml
-apiVersion: gravitee.io/v1alpha1
-kind: ApiDefinition
-metadata:
-  name: global-api-example
-spec:
-  name: "GKO Basic"
-  version: "1.1"
-  description: "Basic api managed by Gravitee Kubernetes Operator"
   contextRef:
-    name: apim-example-context
-    namespace: apim-example
-  proxy:
-    virtual_hosts:
-      - path: "/k8s-basic"
-    groups:
-      - endpoints:
-          - name: "Default"
-            target: "https://api.gravitee.io/echo"
-  local: false
+    name: apim-ctx
+    namespace: gravitee
+  definitionContext:
+    syncFrom: MANAGEMENT
+  # [...]
 ```
 
-With the above configuration, there should be no `ConfigMap` linked to the `ApiDefinition` in the cluster where the custom resource has been applied because the `ApiDefinition` was deployed using the Management API and the `ApiDefinition` is not local to the cluster.
+An overview of this architecture is described by the diagram below.
 
-## Next steps
-
-Visit our [GKO guide](../../../guides/gravitee-kubernetes-operator/) to:
-
-* Learn how to use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway
-* Manage custom resource definitions (CRDs)
+<img src="../../../.gitbook/assets/file.excalidraw (11).svg" alt="One operator, multiple clusters/regions" class="gitbook-drawing">
+{% endtab %}
+{% endtabs %}
