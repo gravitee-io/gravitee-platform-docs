@@ -16,6 +16,10 @@
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
 
+## reference
+
+* [Cockpit API Reference](reference/register-installations.md)
+
 ## Community and Support
 
 * [Enterprise Support](community-and-support/enterprise-support.md)
