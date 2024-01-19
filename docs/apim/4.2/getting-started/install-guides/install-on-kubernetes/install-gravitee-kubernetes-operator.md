@@ -55,7 +55,7 @@ By default, an APIM Gateway installed using the Helm Chart includes a limited se
 
 An overview of this architecture is described by the diagram below.
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="Default Cluster Mode architecture" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="Default Cluster Mode architecture" class="gitbook-drawing">
 {% endtab %}
 
 {% tab title="Namespaced Mode" %}
@@ -92,6 +92,8 @@ spec:
   # [...]
 ```
 
-<figure><img src="../../../.gitbook/assets/GKO multi-cluster mode.png" alt=""><figcaption><p>Multi-cluster architecture overview</p></figcaption></figure>
+An overview of this architecture is described by the diagram below.
+
+<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="One operator, multiple clusters/regions" class="gitbook-drawing">
 {% endtab %}
 {% endtabs %}

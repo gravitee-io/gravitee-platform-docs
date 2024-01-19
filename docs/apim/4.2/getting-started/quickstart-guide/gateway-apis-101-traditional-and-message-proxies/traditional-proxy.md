@@ -8,7 +8,7 @@ description: Use Gravitee to proxy your backend API servers
 
 A traditional proxy is the classic API Gateway use case. The Gateway will connect with the client and the backend service using the same protocol.
 
-<img src="../../../.gitbook/assets/file.excalidraw (1).svg" alt="Traditional proxy example" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (1) (1).svg" alt="Traditional proxy example" class="gitbook-drawing">
 
 Let's continue with the API creation wizard to see how easily a traditional proxy can be created with Gravitee.
 
