@@ -10,19 +10,20 @@ description: This page contains the technical details of the SSE entrypoint plug
 
 ## Overview
 
-This _Advanced_ version aims to add _Entreprise features_ to the SSE endpoint in OSS version such as:
+This Advanced version of the SSE plugin adds Enterprise features to the OSS version of the SSE endpoint. Refer to the following sections for additional details.
 
-#### Quality Of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
+* [Quality of Service](server-sent-events.md#user-content-quality-of-service)
+* [Compatibility matrix](server-sent-events.md#compatibility-matrix)
+* [Entrypoint identifier](server-sent-events.md#user-content-plugin-identifier)
+* [Entrypoint configuration](server-sent-events.md#user-content-configuration)
 
-Better Quality Of Service are becoming available with this _Advanced_ version.
+## Quality of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
 
-| QoS           | Delivery    | Description                            |
-| ------------- | ----------- | -------------------------------------- |
-| None          | Unwarranted | Already supported by OSS               |
-| Balanced      | 0, 1 or n   | Already supported by OSS               |
-| At-Best       | 0, 1 or n   | Support `Last-Event-ID` to improve QoS |
-| At-Most-Once  | 0 or 1      | Support `Last-Event-ID` to improve QoS |
-| At-Least-Once | 1 or n      | Support `Last-Event-ID` to improve QoS |
+The Advanced version of the SSE plugin offers improved QoS.
+
+<table><thead><tr><th width="172.99999999999997">QoS</th><th width="132">Delivery</th><th>Description</th></tr></thead><tbody><tr><td>None</td><td>Unwarranted</td><td>Already supported by OSS</td></tr><tr><td>Balanced</td><td>0, 1 or n</td><td>Already supported by OSS</td></tr><tr><td>At-Best</td><td>0, 1 or n</td><td>Support <code>Last-Event-ID</code> to improve QoS</td></tr><tr><td>At-Most-Once</td><td>0 or 1</td><td>Support <code>Last-Event-ID</code> to improve QoS</td></tr><tr><td>At-Least-Once</td><td>1 or n</td><td>Support <code>Last-Event-ID</code> to improve QoS</td></tr></tbody></table>
+
+## Compatibility matrix
 
 | Plugin version | APIM version |
 | -------------- | ------------ |
@@ -30,15 +31,16 @@ Better Quality Of Service are becoming available with this _Advanced_ version.
 | 2.x            | 3.20.x       |
 | 3.x            | 3.21.x       |
 
-#### Plugin identifier <a href="#user-content-plugin-identifier" id="user-content-plugin-identifier"></a>
+## Entrypoint identifier <a href="#user-content-plugin-identifier" id="user-content-plugin-identifier"></a>
 
-To use this Advanced version of the plugin, declare the following `sse-advanced` identifier while configuring your API entrypoints.
+To use this Advanced version of the plugin, either:
 
-Alternatively, you could update your existing API, thanks to compatibility of the Advanced and OSS configurations.
+* Declare the following `sse-advanced` identifier while configuring your API entrypoints
+* Simply update your existing API, due to the compatibility of the Advanced and OSS configurations
 
-#### Configuration <a href="#user-content-configuration" id="user-content-configuration"></a>
+## Entrypoint configuration <a href="#user-content-configuration" id="user-content-configuration"></a>
 
-When creating a new API, you can configure the plugin with the following parameters:
+When creating a new API, configure this plugin with the following parameters:
 
 ```json
 {
@@ -59,8 +61,8 @@ When creating a new API, you can configure the plugin with the following paramet
                 {
                     "type": "sse-advanced",
                     "configuration": {
-                        "metadataAsComment": false,
-                        "headersAsComment": false
+                        "metadataAsComment": false, # Allow sending messages metadata to client as SSE comments. Each metadata will be sent as an extra line following ':key=value' format
+                        "headersAsComment": false # Allow sending messages headers to client as SSE comments. Each header will be sent as an extra line following ':key=value' format
                     }
                 }
             ]
@@ -69,6 +71,3 @@ When creating a new API, you can configure the plugin with the following paramet
     ...
 }
 ```
-
-| Note | <p><strong>metadataAsComment</strong>: Allow sending messages metadata to client as SSE comments. Each metadata will be sent as extra line following ':key=value' format</p><p><strong>headersAsComment</strong>: Allow sending messages headers to client as SSE comments. Each header will be sent as extra line following ':key=value' format</p> |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
