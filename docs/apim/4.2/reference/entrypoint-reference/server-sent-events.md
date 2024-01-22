@@ -10,7 +10,7 @@ description: This page contains the technical details of the SSE entrypoint plug
 
 ## Overview
 
-This Advanced version of the SSE plugin adds Enterprise features to the OSS version of the SSE endpoint. Refer to the following sections for additional details.
+This Advanced version of the SSE plugin adds enterprise features to the OSS version of the SSE entrypoint. Refer to the following sections for additional details.
 
 * [Quality of Service](server-sent-events.md#user-content-quality-of-service)
 * [Compatibility matrix](server-sent-events.md#compatibility-matrix)

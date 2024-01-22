@@ -4,41 +4,66 @@ description: This page contains the technical details of the Webhook entrypoint 
 
 # Webhook
 
-Enterprise feature
+{% hint style="warning" %}
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/ee-vs-oss/)**.**
+{% endhint %}
 
-### Description <a href="#user-content-description" id="user-content-description"></a>
+## Overview
+
+This Advanced version of the Webhook plugin adds enterprise features to the OSS version of the Webhook entrypoint, including Dead Letter Queue and secured callback. Refer to the following sections for additional details.
+
+* [Quality of Service](webhook.md#user-content-quality-of-service)
+* [Compatibility matrix](webhook.md#compatibility-matrix)
+* [Entrypoint identifier](webhook.md#user-content-plugin-identifier)
+* [Entrypoint configuration](webhook.md#user-content-configuration)
+
+## Quality of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
+
+The Advanced version of the Webhook plugin offers improved QoS.
+
+<table><thead><tr><th width="169.99999999999997">QoS</th><th width="138">Delivery</th><th>Description</th></tr></thead><tbody><tr><td>None</td><td>Unwarranted</td><td>Performance matters over delivery guarantee</td></tr><tr><td>Auto</td><td>0 or n</td><td>Performance matters over delivery guarantee</td></tr><tr><td>At-Most-Once</td><td>0 or 1</td><td>Delivery guarantee matters over performance</td></tr><tr><td>At-Least-Once</td><td>1 or n</td><td>Delivery guarantee matters over performance</td></tr></tbody></table>
+
+## Compatibility matrix <a href="#user-content-description" id="user-content-description"></a>
 
 | Plugin version | APIM version |
 | -------------- | ------------ |
 | 1.x            | 3.21.x       |
 
-This _Advanced_ version aims to add _Enterprise features_ to the Webhook endpoint in OSS version such as:
+## Entrypoint identifier <a href="#user-content-plugin-identifier" id="user-content-plugin-identifier"></a>
 
-* dead letter queue
-* secured callback
+To use this Advanced version of the plugin, either:
 
-#### Plugin identifier <a href="#user-content-plugin-identifier" id="user-content-plugin-identifier"></a>
+* Declare the following `webhook-advanced` identifier while configuring your API entrypoints
+* Simply update your existing API, due to the compatibility of the Advanced and OSS configurations
 
-In order to use this _Advanced_ version, you only have to declare the following identifier `webhook-advanced` while configuring your API entrypoints. You could also update existing API, thanks to compatibility of the _Advanced_ version configuration with the _OSS_ version
+## Entrypoint configuration <a href="#user-content-configuration" id="user-content-configuration"></a>
 
-#### Quality Of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
+When creating the Webhook subscription, the following configuration is provided:
 
-| QoS           | Delivery    | Description                                 |
-| ------------- | ----------- | ------------------------------------------- |
-| None          | Unwarranted | Performance matters over delivery guarantee |
-| Auto          | 0 or n      | Performance matters over delivery guarantee |
-| At-Most-Once  | 0 or 1      | Delivery guarantee matters over performance |
-| At-Least-Once | 1 or n      | Delivery guarantee matters over performance |
-
-#### Dead Letter Queue (DLQ) <a href="#user-content-dead-letter-queue-dlq" id="user-content-dead-letter-queue-dlq"></a>
-
-Dead letter is the ability to push undelivered messages to an external storage. When configuring DLQ with webhook, you can basically redirect all messages rejected by the webhook to another location such as a kafka topic.
-
-By default, without DLQ, any error returned by the webhook will stop the consumption of the messages.
-
-Enabling DLQ requires to declare another endpoint that will be used to configure the `dlq` section of the webhook entrypoint definition:
-
+```json
+{
+    "configuration": {
+        "entrypointId": "webhook-advanced",
+        "callbackUrl": "https://example.com"
+    }
+}
 ```
+
+### HTTP options <a href="#user-content-http-options" id="user-content-http-options"></a>
+
+The underlying HTTP client that performs the calls to the Webhook URL can be tuned via the following parameters.
+
+<table><thead><tr><th width="173">Attributes</th><th width="94">Default</th><th width="121">Mandatory</th><th>Description</th></tr></thead><tbody><tr><td>connectTimeout</td><td>3000</td><td>Yes</td><td>Maximum time to connect to the backend in milliseconds.</td></tr><tr><td>readTimeout</td><td>10000</td><td>Yes</td><td>Maximum time given to the backend to complete the request (including response) in milliseconds.</td></tr><tr><td>idleTimeout</td><td>60000</td><td>Yes</td><td>Maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, freeing the associated resources.</td></tr><tr><td>maxConcurrentConnections</td><td>5</td><td>Yes</td><td>Maximum pool size for connections. This represents the maximum number of concurrent requests. Max value is 20. Value is automatically set to 1 when using QoS AT_LEAST_ONCE or AT_MOST_ONCE to ensure message delivery.</td></tr></tbody></table>
+
+### Dead Letter Queue <a href="#user-content-secured-callbacks" id="user-content-secured-callbacks"></a>
+
+Dead Letter Queue (DLQ) is the ability to push undelivered messages to an external storage. When configuring DLQ with Webhook, you can redirect all messages rejected by the Webhook to another location, such as a Kafka topic.
+
+By default, without DLQ, any error returned by the Webhook will stop message consumption.&#x20;
+
+Enabling DLQ requires declaring another endpoint that will be used to configure the `dlq` section of the Webhook entrypoint definition:
+
+```json
 {
     "type": "webhook-advanced",
     "dlq": {
@@ -48,48 +73,20 @@ Enabling DLQ requires to declare another endpoint that will be used to configure
 }
 ```
 
-The endpoint used for the dead letter queue:
+The endpoint used for the DLQ:
 
 * Must support `PUBLISH` mode
-* Should be based on a broker capable to persist messages. Kafka is a good choice.
+* Should be based on a broker capable of persisting messages, e.g., Kafka
 
-Once configured and deployed, any message rejected with a 4xx error response by the webhook will be automatically sent to the dlq endpoint and the consumption of messages will continue.
+Once configured and deployed, any message rejected by the Webhook with a 4xx error response will be automatically sent to the DLQ endpoint and message consumption will resume.
 
-### Configuration <a href="#user-content-configuration" id="user-content-configuration"></a>
+### Secured callbacks <a href="#user-content-secured-callbacks" id="user-content-secured-callbacks"></a>
 
-The configuration is provided when creating the subscription.
+Security information can be provided when creating the subscription. Examples of the currently supported authentication protocols are shown below.
 
-```
-{
-    "configuration": {
-        "entrypointId": "webhook-advanced",
-        "callbackUrl": "https://example.com"
-    }
-}
-```
-
-#### Http options <a href="#user-content-http-options" id="user-content-http-options"></a>
-
-It is possible to tune the underlying http client used to perform the calls to the webhook url.
-
-| Attributes               | Default | Mandatory | Description                                                                                                                                                                                                                                               |
-| ------------------------ | ------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| connectTimeout           | 3000    | Yes       | Maximum time to connect to the backend in milliseconds.                                                                                                                                                                                                   |
-| readTimeout              | 10000   | Yes       | Maximum time given to the backend to complete the request (including response) in milliseconds.                                                                                                                                                           |
-| idleTimeout              | 60000   | Yes       | Maximum time a connection will stay in the pool without being used in milliseconds. Once the timeout has elapsed, the unused connection will be closed, allowing to free the eventual associated resources.                                               |
-| maxConcurrentConnections | 5       | Yes       | Maximum pool size for connections. It basically represents the maximum number of concurrent requests at a time. Max value is 20. Currency is automatically set to 1 when using qos AT\_LEAST\_ONCE or AT\_MOST\_ONCE in order to ensure message delivery. |
-
-#### Secured callbacks <a href="#user-content-secured-callbacks" id="user-content-secured-callbacks"></a>
-
-Security information can be provided when creating the subscription. Currently, we support:
-
-* Basic
-* Token (JWT)
-* OAuth2
-
-**Basic authentication example**
-
-```
+{% tabs %}
+{% tab title="Basic" %}
+```json
 {
     "configuration": {
         "entrypointId": "webhook-advanced",
@@ -104,10 +101,10 @@ Security information can be provided when creating the subscription. Currently, 
     }
 }
 ```
+{% endtab %}
 
-**Token JWT authentication example**
-
-```
+{% tab title="Token JWT" %}
+```json
 {
     "configuration": {
         "entrypointId": "webhook-advanced",
@@ -121,10 +118,10 @@ Security information can be provided when creating the subscription. Currently, 
     }
 }
 ```
+{% endtab %}
 
-**OAuth2 authentication example**
-
-```
+{% tab title="OAuth2" %}
+```json
 {
     "configuration": {
         "entrypointId": "webhook-advanced",
@@ -141,3 +138,5 @@ Security information can be provided when creating the subscription. Currently, 
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
