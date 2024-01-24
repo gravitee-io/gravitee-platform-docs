@@ -100,7 +100,7 @@ EL provides a variety of built-in functions to manipulate and transform data in 
 
 * String functions: `length(), substring(), replace()`
 * `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).&#x20;
-* `#xpath`: To evaluate an `xpath` on some provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) in the SpEL documentation.
+* `#xpath`: To evaluate an `xpath` on some provided object. For more information regarding XML and XPath, see the SpEL documentation.
 
 #### **`jsonPath` example**
 
@@ -156,7 +156,7 @@ When accessing an encrypted custom property, Gravitee's Gateway will automatical
 {% endtab %}
 
 {% tab title="Dictionaries" %}
-[Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary ID as well as the dictionary property name. Dictionary properties are simply key-value pairs that can be accessed from the `{#dictionaries}` root-level object property.
+Dictionaries work similarly to custom properties, but you need to specify the dictionary ID as well as the dictionary property name. Dictionary properties are simply key-value pairs that can be accessed from the `{#dictionaries}` root-level object property.
 
 #### Example
 
