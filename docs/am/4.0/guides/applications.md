@@ -145,9 +145,9 @@ curl -X POST \
 
 #### Register new RP (client)
 
-Once you obtain the access token, you can call AM Gateway through the registration endpoint. You can specify many client properties, such as `client_name`, but only the `redirect_uris` property is mandatory. See the [Openid Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1\_0.html) specification for more details.
+Once you obtain the access token, you can call AM Gateway through the registration endpoint. You can specify many client properties, such as `client_name`, but only the `redirect_uris` property is mandatory. See the [OpenID Connect Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1\_0.html) specification for more details.
 
-The endpoint used to register an application is available in the openid discovery endpoint (e.g., `http(s)://your-am-gateway-host/your-domain/oidc/.well-known/openid-configuration`) under the `registration_endpoint` property.
+The endpoint used to register an application is available in the OpenID discovery endpoint (e.g., `http(s)://your-am-gateway-host/your-domain/oidc/.well-known/openid-configuration`) under the `registration_endpoint` property.
 
 The response will contain some additional fields, including the `client_id` and `client_secret` information.
 
@@ -281,7 +281,7 @@ curl -X PATCH \
 To renew the `client_secret`, you need to concatenate `client_id` and `/renew_secret` to the registration endpoint and use the POST HTTP verb.
 
 {% hint style="info" %}
-The `renew_secret` endpoint can also be retrieved through the openid discovery endpoint `registration_renew_secret_endpoint` property. You will then need to replace the `client_id` with your own.\
+The `renew_secret` endpoint can also be retrieved through the OpenID discovery endpoint `registration_renew_secret_endpoint` property. You will then need to replace the `client_id` with your own.\
 The `renew_secret` endpoint does not need a body.
 {% endhint %}
 
@@ -413,7 +413,7 @@ Once a client is set up as a template, it can no longer be used for authenticati
 
 #### Register call with template example
 
-You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the openid discovery endpoint.
+You need to retrieve the `software_id` of the template, which is available under the `registration_templates_endpoint` provided by the OpenID discovery endpoint.
 
 ```sh
 # Register a new Relying Party (client)
