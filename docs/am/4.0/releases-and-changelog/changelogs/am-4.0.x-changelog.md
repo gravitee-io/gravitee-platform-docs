@@ -6,6 +6,18 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.9 - January 24, 2024
+
+<details>
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Passwordless not working for iOS v17.2.1 [#9470](https://github.com/gravitee-io/issues/issues/9470)
+
+</details>
+
+
 ## Gravitee Access Management 4.0.8 - January 19, 2024
 
 <details>
