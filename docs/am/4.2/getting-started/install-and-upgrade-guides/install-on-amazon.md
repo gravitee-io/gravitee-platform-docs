@@ -112,11 +112,11 @@ $ sudo systemctl restart nginx
 
 When all components are started, you can do a quick test to see if everything is ok by checking these URLs:
 
-| Component  | URL                                             |
-| ---------- | ----------------------------------------------- |
-| AM Gateway | [http://localhost:8092](http://localhost:8092/) |
-| AM API     | [http://localhost:8093](http://localhost:8093/) |
-| AM Console | [http://localhost:8094](http://localhost:8094/) |
+| Component  | URL                   |
+| ---------- | --------------------- |
+| AM Gateway | http://localhost:8092 |
+| AM API     | http://localhost:8093 |
+| AM Console | http://localhost:8094 |
 
 ## Install AM Gateway
 
