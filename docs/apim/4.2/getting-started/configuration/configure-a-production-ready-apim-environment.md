@@ -4,7 +4,7 @@ description: >-
   of your production environment
 ---
 
-# Configure a Production-ready APIM Environment
+# Production-ready APIM Environment
 
 ## Overview
 
@@ -359,7 +359,7 @@ We strongly recommend **NEVER** disabling CSRF protection unless you are absolut
 
 #### Configure CORS
 
-CORS is one of the most important things to set up to protect your users and your system against malicious attackers. It allows the user's browser to enable native protection preventing unauthorized websites to perform a JavaScript HTTP call to the Console or REST API. Basically, when well-configured, you only allow your own Console website (e.g., [https://gio-console.mycompany.com)](https://gio-console.my-comany.com\)) and Dev Portal website (e.g., [https://gio-portal.mycompany.com)](https://gio-portal.mycompany.com\)) to make calls from a browser to their respective APIs.
+CORS is one of the most important things to set up to protect your users and your system against malicious attackers. It allows the user's browser to enable native protection preventing unauthorized websites to perform a JavaScript HTTP call to the Console or REST API. Basically, when well-configured, you only allow your own Console website (e.g., `https://gio-console.mycompany.com`) and Dev Portal website (e.g., `https://gio-portal.mycompany.com`) to make calls from a browser to their respective APIs.
 
 Make sure CORS is well-configured for both the Console AND the Portal APIs:
 
