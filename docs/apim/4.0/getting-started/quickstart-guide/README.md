@@ -71,11 +71,11 @@ With access to the APIM Console, you'll be ready to dive straight into the Quick
 
 How you access the APIM Console in a self-managed installation depends on your installation method and covered in that method's installation guide. The example provided below is for a Docker installation, but is similar to any self-managed installation.
 
-For the default local Docker installation, navigate to [`http://localhost:8084`](http://localhost:8084/) in your browser, and you will be greeted with the following screen:
+For the default local Docker installation, navigate to `http://localhost:8084` in your browser, and you will be greeted with the following screen:
 
 <figure><img src="../../.gitbook/assets/apim_login.png" alt=""><figcaption><p>APIM Console login screen</p></figcaption></figure>
 
-> * [x] Navigate to [`http://localhost:8084`](http://localhost:8084/) in your browser
+> * [x] Navigate to `http://localhost:8084` in your browser
 
 For a new installation, the default login is `admin` for both **Username** and **Password**. Logging in will take you to your APIM Console homescreen which should look similar to this:
 
