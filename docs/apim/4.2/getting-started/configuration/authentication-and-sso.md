@@ -623,7 +623,7 @@ security:
 Once you're done creating your Keycloak client, you can configure your settings in Gravitee. You can do this either via the Gravitee APIM UI or the `gravitee.yaml` file. Either way, the configuration is stored in the database. This means that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file). Please see the tabs below to see how to configure Keycloak authentication via the APIM UI and the `gravitee.yaml` file.
 
 {% tabs %}
-{% tab title="First Tab" %}
+{% tab title="gravitee.yaml" %}
 To configure Keycloak as an OpenID Connect authentication provider using the `gravitee.yaml` configuration file, you'll need to update to the file with your Keycloak client information as shown below:
 
 {% code overflow="wrap" lineNumbers="true" %}
