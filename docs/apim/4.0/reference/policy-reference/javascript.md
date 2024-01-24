@@ -135,7 +135,7 @@ Some variables are automatically bound to the JavaScript script to allow users t
 
 <table><thead><tr><th width="172.5">Name</th><th>Description</th></tr></thead><tbody><tr><td><code>request</code></td><td>Inbound HTTP request</td></tr><tr><td><code>response</code></td><td>Outbound HTTP response</td></tr><tr><td><code>context</code></td><td><code>PolicyContext</code> used to access external components such as services and resources</td></tr><tr><td><code>result</code></td><td>JavaScript script result</td></tr></tbody></table>
 
-Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error`, but you can override this behavior with the following properties:&#x20;
+Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error`, but you can override this behavior with the following properties:
 
 * `code`: An HTTP status code
 * `error`: The error message
@@ -143,7 +143,7 @@ Request or response processing can be interrupted by setting the result state to
 
 ### onRequestContent / onResponseContent <a href="#user-content-onrequestcontent-onresponsecontent" id="user-content-onrequestcontent-onresponsecontent"></a>
 
-In the `onRequestContent` phase you have access to the `content` object, also known as the [request body](https://dzone.com/articles/rest-api-path-vs-request-body-parameters). You can modify this object.&#x20;
+In the `onRequestContent` phase you have access to the `content` object, also known as the request body. You can modify this object.
 
 In the `onResponseContent` phase you have access to the `content` object, also known as the response message. You can modify this object.
 
@@ -204,9 +204,9 @@ In the `onResponse` phase, you have access to the `request`, the `response` and 
 {% endtab %}
 
 {% tab title="Metrics" %}
-It is highly advisable to use the Metrics Reporter in order to manage the metrics. However, the `request` object does contain a `metrics` object.&#x20;
+It is highly advisable to use the Metrics Reporter in order to manage the metrics. However, the `request` object does contain a `metrics` object.
 
-Note that the  `metrics` object changes in the different processing phases. Some properties may not make sense in certain phases.
+Note that the `metrics` object changes in the different processing phases. Some properties may not make sense in certain phases.
 
 <table><thead><tr><th width="137">Object</th><th width="235">Property</th><th width="91">Type</th><th>Description</th></tr></thead><tbody><tr><td>metrics</td><td>api</td><td>String</td><td>ID of the API</td></tr><tr><td>metrics</td><td>apiResponseTimeMs</td><td>long</td><td>Response time spend to call the backend upstream</td></tr><tr><td>metrics</td><td>application</td><td>String</td><td>ID of the consuming application</td></tr><tr><td>metrics</td><td>endpoint</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>errorKey</td><td>String</td><td>Key of the error if the policy chain is failing</td></tr><tr><td>metrics</td><td>host</td><td>String</td><td>Host header value</td></tr><tr><td>metrics</td><td>httpMethod</td><td>enum</td><td>-</td></tr><tr><td>metrics</td><td>localAddress</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>log</td><td>object</td><td>-</td></tr><tr><td>metrics</td><td>mappedPath</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>message</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>path</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>plan</td><td>String</td><td>ID of the plan</td></tr><tr><td>metrics</td><td>proxyLatencyMs</td><td>long</td><td>Latency of the gateway to apply policies</td></tr><tr><td>metrics</td><td>proxyResponseTimeMs</td><td>long</td><td>Global response time to process and respond to the consumer</td></tr><tr><td>metrics</td><td>remoteAddress</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>requestContentLength</td><td>long</td><td>-</td></tr><tr><td>metrics</td><td>requestId</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>responseContentLength</td><td>long</td><td>-</td></tr><tr><td>metrics</td><td>securityToken</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>securityType</td><td>enum</td><td>-</td></tr><tr><td>metrics</td><td>status</td><td>int</td><td>-</td></tr><tr><td>metrics</td><td>subscription</td><td>String</td><td>ID of the subscription</td></tr><tr><td>metrics</td><td>tenant</td><td>String</td><td>gateway tenant value</td></tr><tr><td>metrics</td><td>transactionId</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>uri</td><td>String</td><td>-</td></tr><tr><td>metrics</td><td>user</td><td>String</td><td>End-user doing the call (in case of OAuth2 / JWT / Basic Auth)</td></tr><tr><td>metrics</td><td>userAgent</td><td>String</td><td>Value of the user-agent header</td></tr><tr><td>metrics</td><td>zone</td><td>String</td><td>Gateway zone</td></tr></tbody></table>
 {% endtab %}
