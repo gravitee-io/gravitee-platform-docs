@@ -584,7 +584,7 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 2.  Set a special gravitee-client-groups [Scope](https://oauth.net/2/scope/) that will contain users' roles.
 
     ![Keycloak console - Create scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-01-client\_scopes-roles\_add\_client\_scope.png)
-3.  In the new client scope, set a mapper with Claim name "groups":
+3.  In the new client scope, set a mapper with Claim name "groups".
 
     ![Keycloak console - Add mapper to scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-02-client\_scopes-mapper.png)
 4. In your realm, go to the `Client` page, and select your Client.
