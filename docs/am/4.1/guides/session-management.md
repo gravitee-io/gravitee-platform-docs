@@ -2,7 +2,7 @@
 
 ## Overview
 
-When a user is signing in, AM stores the fact that the user is authenticated for a certain period of time in what we call a **HTTP Session**.
+When a user is signing in, AM stores the fact that the user is authenticated for a certain period of time in what we call an **HTTP Session**.
 
 This mechanism avoids the need for the user to re-authenticate every time they want to perform some actions. The same principle applies to your application or when you use an external identity provider such as Facebook, Twitter, etc.
 
