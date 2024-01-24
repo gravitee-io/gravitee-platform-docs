@@ -42,7 +42,7 @@ AM and identity provider sessions: Refer to the logout section below to learn ho
 
 ### Invalidate session
 
-Authenticated users who want to invalidate their session can call the following URL: [`https://AM_GATEWAY_HOST/{domain}/logout`](https://am\_gateway\_host/%7Bdomain%7D/logout).
+Authenticated users who want to invalidate their session can call the following URL: `https://AM_GATEWAY_HOST/{domain}/logout`.
 
 {% hint style="info" %}
 By default, access tokens and refresh tokens are not revoked. You can add the `invalidate_tokens=true` query parameter to the request to invalidate current user tokens.
