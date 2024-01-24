@@ -281,7 +281,7 @@ curl -X PATCH \
 To renew the `client_secret`, you need to concatenate `client_id` and `/renew_secret` to the registration endpoint and use the POST HTTP verb.
 
 {% hint style="info" %}
-The `renew_secret` endpoint can also be retrieved through the OpenID discovery endpoint`registration_renew_secret_endpoint` property. You will then need to replace the `client_id` with your own.\
+The `renew_secret` endpoint can also be retrieved through the OpenID discovery endpoint `registration_renew_secret_endpoint` property. You will then need to replace the `client_id` with your own.\
 The `renew_secret` endpoint does not need a body.
 {% endhint %}
 
