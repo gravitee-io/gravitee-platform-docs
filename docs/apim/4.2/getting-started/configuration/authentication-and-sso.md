@@ -5,7 +5,7 @@ description: >-
   Github, Azure AD, and Keycloak
 ---
 
-# Configure Authentication
+# Authentication
 
 ## Introduction
 
@@ -13,7 +13,7 @@ Gravitee API Management (APIM) natively support several types of authentication 
 
 * Authentication providers (such as in-memory, LDAP and databases)
 * Social providers (such as GitHub and Google)
-* A custom OAuth2 / OpenID authorization server
+* A custom OAuth2/OpenID authorization server
 
 In this article, we will walk through how to configure each by using the `gravitee.yaml` file and the Gravitee API Management Console.
 
@@ -142,7 +142,7 @@ security:
 
 ## Gravitee Access Management Authentication
 
-In addition to API Management, Gravitee offers a fully-fledged Access Management product. While Gravitee works seamlessly with other IAM and IdP providers, many teams prefer to use a single vednor for their APIM and AM needs. This section walk through how to use Gravitee Access Management as a preferred authentication method for your Gravitee platform users.
+In addition to API Management, Gravitee offers a fully-fledged Access Management product. While Gravitee works seamlessly with other IAM and IdP providers, many teams prefer to use a single vednor for their APIM and AM needs. This section walks through how to use Gravitee Access Management as a preferred authentication method for your Gravitee platform users.
 
 {% hint style="info" %}
 **Necessary prerequisites**
@@ -192,8 +192,6 @@ security:
             - "ENVIRONMENT:DEFAULT:API_CONSUMER"          #applied to the DEFAULT environment
             - "ENVIRONMENT:<ENVIRONMENT_ID>:API_CONSUMER" #applied to environment whose id is <ENVIRONMENT_ID>
 ```
-
-\\
 {% endtab %}
 
 {% tab title="Use the Gravitee API Management Console" %}
@@ -260,12 +258,12 @@ A GitHub OAuth application is a type of OAuth 2.0 application that allows users 
 
 Before you can set up GitHub as an authentication provider for Gravitee APIM, you'll need to create a GitHub OAuth application that you can link to Gravitee APIM. To do so, follow these steps:
 
-1. Go to [https://github.com/settings/developers](https://github.com/settings/developers.) and log-in to your GitHub account.
-2. Select **OAuth Apps**.
-3.  Select **Register an application.** \\
+1. Log in to your GitHub account, go to **Settings**, then **Developer Settings**
+2. Select **OAuth Apps**
+3.  Select **Register an application**
 
     <figure><img src="../../.gitbook/assets/github_register_new_app (1).png" alt=""><figcaption><p>Register an application in GitHub</p></figcaption></figure>
-4.  Enter in your Gravitee details in the **Register a new OAuth application** section. Please note that the Authorization callback URL must match the domain hosting Gravitee APIM. When you're done, select **Register application.**\\
+4.  Enter in your Gravitee details in the **Register a new OAuth application** section. Please note that the Authorization callback URL must match the domain hosting Gravitee APIM. When you're done, select **Register application.**
 
     <figure><img src="../../.gitbook/assets/github_fill_app_form.png" alt=""><figcaption><p>Register Gravitee details in GitHub</p></figcaption></figure>
 
@@ -273,8 +271,8 @@ Before you can set up GitHub as an authentication provider for Gravitee APIM, yo
 
 After you've registered Gravitee, you'll need to retrieve the GitHub OAUth2 credentials that you'll need to give to Gravitee APIM. To do so, follow these steps:
 
-1. In your GitHub settings, select **OAuth Apps**.
-2. Find your Gravitee OAuth app.
+1. In your GitHub settings, select **OAuth Apps**
+2. Find your Gravitee OAuth app
 
 From here, you should be able to see your Client ID and Client secret.
 
@@ -347,18 +345,18 @@ Gravitee supports GitHub authentication. In this section, we will cover:
 
 In order to connect Google and Gravitee APIM, you'll need to create a Google OAuth client ID. To do so, follow these steps:
 
-1.  First, create a Google project with access to the Google+ API. [Do this here](https://console.developers.google.com/).\\
+1.  First, create a Google project with access to the Google+ API. [Do this here](https://console.developers.google.com/).
 
     <figure><img src="../../.gitbook/assets/google_enable_google+_api.png" alt=""><figcaption><p>Create a Google project with access to the Google + API</p></figcaption></figure>
 2. Now, it's time to create a client. Access [https://console.developers.google.com/](https://console.developers.google.com/), and access your project **Credentials.** Select **Create.**
-3.  Select OAuth client ID from the **Create credentials** drop-down.\\
+3.  Select OAuth client ID from the **Create credentials** drop-down.
 
     <figure><img src="../../.gitbook/assets/google_create_client.png" alt=""><figcaption><p>Create your OAuth client ID</p></figcaption></figure>
-4.  Enter in your client details. These will be your Gravitee APIM details. The **Authorized redirect URIs** value _must match_ the domain hosting your Gravitee APIM Portal.\\
+4.  Enter in your client details. These will be your Gravitee APIM details. The **Authorized redirect URIs** value _must match_ the domain hosting your Gravitee APIM Portal.
 
     <figure><img src="../../.gitbook/assets/google_fill_client_form_gravitee_details.png" alt=""><figcaption><p>Enter in your Gravitee details when creating a Client ID</p></figcaption></figure>
 5. Select **Create**.
-6.  Retrieve the new **Client ID** and **Client secret**. \\
+6.  Retrieve the new **Client ID** and **Client secret**.&#x20;
 
     <figure><img src="../../.gitbook/assets/google_client_credentials.png" alt=""><figcaption><p>Google Client ID and Client secret.</p></figcaption></figure>
 
@@ -530,14 +528,14 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 
 When using custom a Public Key Infrastructure (PKI) for your OAuth2 authentication provider, you may have to specify the certificate authority chain of your provider in APIM. To do this, you can either:
 
-*   Export an environment variable for your current session. For example:\\
+*   Export an environment variable for your current session. For example:
 
     ```
     export JAVA_OPTS="
       -Djavax.net.ssl.trustStore=/opt/graviteeio-management-api/security/truststore.jks
       -Djavax.net.ssl.trustStorePassword=<MYPWD>"
     ```
-* Add an environment variable to your Docker compose file to ensure that this configuration persists across settings. For example:\\
+* Add an environment variable to your Docker compose file to ensure that this configuration persists across settings. For example:
 
 {% code overflow="wrap" lineNumbers="true" %}
 ````
@@ -570,13 +568,13 @@ To better illustrate how the OpenID Connect configuration works (and to assist u
 
 Before you can connect to the Gravitee portal using Keycloak, you need to create a new client. To do so, follow these steps:
 
-1.  Log-in to Keycloak and create a new client.\\
+1.  Log-in to Keycloak and create a new client.
 
     <figure><img src="../../.gitbook/assets/keycloak_create_client.png" alt=""><figcaption><p>Add a Gravitee client in Keycloak</p></figcaption></figure>
-2.  Enter in your client details for Gravitee. The `Valid Redirect URIs` value must exactly match the domain which is hosting APIM Portal.\\
+2.  Enter in your client details for Gravitee. The `Valid Redirect URIs` value must exactly match the domain which is hosting APIM Portal.
 
     <figure><img src="../../.gitbook/assets/keycloak_configure_client.png" alt=""><figcaption><p>Enter Gravitee client details in Keycloak</p></figcaption></figure>
-3.  Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee. \\
+3.  Once you're done and create the client, retrieve the client credentials that you will need to give to Gravitee.&#x20;
 
     <figure><img src="../../.gitbook/assets/keycloak_client_credentials.png" alt=""><figcaption><p>Keycloak client credentials that will need to be given to Gravitee</p></figcaption></figure>
 
@@ -586,7 +584,7 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 2.  Set a special gravitee-client-groups [Scope](https://oauth.net/2/scope/) that will contain users' roles.
 
     ![Keycloak console - Create scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-01-client\_scopes-roles\_add\_client\_scope.png)
-3.  In the new client scope, set a mapper with Claim name "groups".
+3.  In the new client scope, set a mapper with Claim name "groups":
 
     ![Keycloak console - Add mapper to scope](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-02-client\_scopes-mapper.png)
 4. In your realm, go to the `Client` page, and select your Client.
@@ -666,8 +664,6 @@ security:
             - "ENVIRONMENT:<ENVIRONMENT_ID>:API_CONSUMER" #applied to environment whose id is <ENVIRONMENT_ID>
 ```
 {% endcode %}
-
-\\
 {% endtab %}
 
 {% tab title="APIM UI" %}
@@ -708,11 +704,9 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 
 ### Test your Keycloak autentication
 
-You can easily test your Keycloak configuration by logging out of the Management Console, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Keycloak** option.
+You can easily test your Keycloak configuration by logging out of the Management Console, clearing your cookies, and then logging back in. Once on the login screen, you should see a **Sign in with Keycloak** option.
 
 Then, enter in your Keycloak credentials. After this, you should be successfully logged in.
-
-###
 
 1. This example uses bcrypt to hash passwords.
 2. Define the password.
