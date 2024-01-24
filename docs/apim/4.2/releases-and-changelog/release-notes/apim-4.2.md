@@ -128,8 +128,6 @@ To facilitate support for SASL OAUTHBEARER, the Kafka endpoint plugin includes a
 "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required access_token=\"<ACCESS_TOKEN>\";"
 ```
 
-For more information, see [this page](https://github.com/gravitee-io/gravitee-endpoint-kafka).
-
 ## Policy enhancements
 
 ### Assign Metrics
