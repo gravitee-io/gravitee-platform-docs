@@ -10,8 +10,8 @@ The `dynamic-routing` policy is used to dispatch inbound calls to different targ
 
 Another typical use case is defining routing similar to the following:
 
-* Requests from [`http://gateway/apis/store/12/info`](http://gateway/apis/store/12/info) are redirected to [`http://backend_store12/info`](http://backend\_store12/info)
-* Requests from [`http://gateway/apis/store/45/info`](http://gateway/apis/store/45/info) are redirected to [`http://backend_store45/info`](http://backend\_store45/info)
+* Requests from `http://gateway/apis/store/12/info` are redirected to `http://backend_store12/info`
+* Requests from `http://gateway/apis/store/45/info` are redirected to `http://backend_store45/info`
 
 Functional and implementation information for the `dynamic-routing` policy is organized into the following sections:
 
@@ -59,7 +59,7 @@ You can also select endpoints configured for your API by name using Gravitee Exp
 
 ## Configuration
 
-You can configure multiple rules and their respective redirections relative to the initial request path. When you define rules, it is important to remember that the API `context-path` must not be part of the rule’s path.&#x20;
+You can configure multiple rules and their respective redirections relative to the initial request path. When you define rules, it is important to remember that the API `context-path` must not be part of the rule’s path.
 
 For example, if your `context-path` is `/myapi` and your call is `/myapi/123`, if you want to select `123`, the regular expression is `/(.*)` (don’t forget the `/`).
 
