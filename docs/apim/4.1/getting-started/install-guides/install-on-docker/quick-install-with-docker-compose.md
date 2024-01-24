@@ -44,12 +44,12 @@ Where `/gravitee/license.key` is the full path to the license key. This ensures 
 docker compose -f docker-compose-apim.yml up -d
 ```
 
-5. In your browser, go to [`http://localhost:8084`](http://localhost:8084/) to open the Console, and go to [`http://localhost:8085`](http://localhost:8085/) to open the Developer Portal. You can log in to both with the username `admin` and password `admin`.
+5. In your browser, go to `http://localhost:8084` to open the Console, and go to `http://localhost:8085` to open the Developer Portal. You can log in to both with the username `admin` and password `admin`.
 
 {% hint style="info" %}
 **Container initialization**
 
-APIM can take up to a minute to fully initialize with Docker. If you get an error when going to [`http://localhost:8084`](http://localhost:8084/) or [`http://localhost:8085`](http://localhost:8085/), wait a few minutes and try again.
+APIM can take up to a minute to fully initialize with Docker. If you get an error when going to `http://localhost:8084` or `http://localhost:8085`, wait a few minutes and try again.
 {% endhint %}
 
 {% hint style="success" %}
