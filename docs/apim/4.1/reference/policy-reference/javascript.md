@@ -143,7 +143,7 @@ Request or response processing can be interrupted by setting the result state to
 
 ### onRequestContent / onResponseContent <a href="#user-content-onrequestcontent-onresponsecontent" id="user-content-onrequestcontent-onresponsecontent"></a>
 
-In the `onRequestContent` phase you have access to the `content` object, also known as the [request body](https://dzone.com/articles/rest-api-path-vs-request-body-parameters). You can modify this object.&#x20;
+In the `onRequestContent` phase you have access to the `content` object, also known as the request body. You can modify this object.&#x20;
 
 In the `onResponseContent` phase you have access to the `content` object, also known as the response message. You can modify this object.
 
