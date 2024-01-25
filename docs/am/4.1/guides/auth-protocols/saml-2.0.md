@@ -65,12 +65,12 @@ If you choose to not use a certificate, the SAML Response assertion will not be 
 
 To connect your applications to the AM SAML 2.0 IdP, you need at least the following information:
 
-* **SingleSignOnService**, the SAML IdP Sign In URL : [https://AM\_GATEWAY/{domain}/saml2/idp/SSO](https://am\_gateway/%7Bdomain%7D/saml2/idp/SSO)
-* **SingleLogoutService**, the SAML IdP Sign Out URL : [https://AM\_GATEWAY/{domain}/saml2/idp/logout](https://am\_gateway/%7Bdomain%7D/saml2/idp/logout)
+* **SingleSignOnService**, the SAML IdP Sign In URL : `https://AM_GATEWAY/{domain}/saml2/idp/SSO`
+* **SingleLogoutService**, the SAML IdP Sign Out URL : `https://AM_GATEWAY/{domain}/saml2/idp/logout`
 * **Signing certificate**, the public signing certificate (encoded in PEM)
 
 {% hint style="info" %}
-SAML IdP metadata information can be found here: [https://AM\_GATEWAY/{domain}/saml2/idp/metadata](https://am\_gateway/%7Bdomain%7D/saml2/idp/metadata)
+SAML IdP metadata information can be found here: `https://AM_GATEWAY/{domain}/saml2/idp/metadata`
 {% endhint %}
 
 You can test your SAML 2.0 connection using a web application created in AM.
