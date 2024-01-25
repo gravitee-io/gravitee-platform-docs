@@ -23,8 +23,6 @@ You can retrieve an ID Token by requesting an access token with a specific `open
 3. Click the application, then click the **Settings** tab.
 4.  Click **OAuth 2.0 / OIDC**.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-applications-oauth2.png" alt=""><figcaption><p>Application grant flows</p></figcaption></figure>
 5. In the **Scopes** section, select **openid** from the **Scope** drop-down menu and click **+ADD**.
 6. Scroll to the bottom of the page and click **SAVE**.
@@ -79,20 +77,18 @@ An ID Token can be decoded and verified using a 3rd-party JWT library that you c
 
 ID Tokens must contain at least the following [required claims](http://openid.net/specs/openid-connect-core-1\_0.html#IDToken):
 
-| Claim |                                                                                                                    |
-| ----- | ------------------------------------------------------------------------------------------------------------------ |
-| iss   | Issuer Identifier, must be the `oidc.iss` configuration value (default [http://gravitee.am](http://gravitee.am/)). |
-| sub   | Subject Identifier represented by the unique user’s `username`.                                                    |
-| aud   | Audience(s) that this ID Token is intended for. It MUST contain your OAuth 2.0 `client_id`.                        |
-| exp   | Expiration time on or after which the ID Token MUST NOT be accepted for processing.                                |
-| iat   | Time at which the JWT was issued.                                                                                  |
+| Claim |                                                                                               |
+| ----- | --------------------------------------------------------------------------------------------- |
+| iss   | Issuer Identifier, must be the `oidc.iss` configuration value (default `http://gravitee.am`). |
+| sub   | Subject Identifier represented by the unique user’s `username`.                               |
+| aud   | Audience(s) that this ID Token is intended for. It MUST contain your OAuth 2.0 `client_id`.   |
+| exp   | Expiration time on or after which the ID Token MUST NOT be accepted for processing.           |
+| iat   | Time at which the JWT was issued.                                                             |
 
 Finally, you need to have the ID Token signed by AM.
 
 1. In AM Console, click **Settings**.
 2.  In the **Security** section, click **Certificates**.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-applications-certificates.png" alt=""><figcaption><p>AM Certificates</p></figcaption></figure>
 3. Retrieve your public key by clicking the key icon.
@@ -138,8 +134,6 @@ The identity provider serves default claims such as the user’s `username`, `gi
 1. In AM Console, click **Settings > Providers**.
 2. Select your identity provider settings, then click the **User mappers** tab.
 3.  Map new custom claims with user attributes contained in your user data store.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-profile-user-mappers.png" alt=""><figcaption><p>Add new user information</p></figcaption></figure>
 4. Custom user attributes will be available in the UserInfo Endpoint response.
