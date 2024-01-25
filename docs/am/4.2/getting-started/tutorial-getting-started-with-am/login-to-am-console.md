@@ -5,7 +5,7 @@
 You access AM Console using the `GRAVITEEIO-AM-UI-HOST` URL created during installation.
 
 {% hint style="info" %}
-If you are running AM with [Docker Compose](../install-and-upgrade-guides/run-in-docker/docker-compose-install.md), the `GRAVITEEIO-AM-UI-HOST` URL is [`https://localhost/am/ui`](https://localhost/am/ui).
+If you are running AM with [Docker Compose](../install-and-upgrade-guides/run-in-docker/docker-compose-install.md), the `GRAVITEEIO-AM-UI-HOST` URL is `https://localhost/am/ui`.
 {% endhint %}
 
 During the AM installation process, a default administrator account is created. You can use this account to perform all the management tasks provided by AM, such as creating applications and identity providers, registering users, and configuring security.
