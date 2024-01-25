@@ -5,7 +5,7 @@
 You access AM Console using the `GRAVITEEIO-AM-UI-HOST` URL created during installation.
 
 {% hint style="info" %}
-If you are running AM with [Docker Compose](../install-and-upgrade-guides/run-in-docker/docker-compose-install.md), the `GRAVITEEIO-AM-UI-HOST` URL is [`https://localhost/am/ui`](https://localhost/am/ui).
+If you are running AM with [Docker Compose](../install-and-upgrade-guides/run-in-docker/docker-compose-install.md), the `GRAVITEEIO-AM-UI-HOST` URL is `https://localhost/am/ui`.
 {% endhint %}
 
 During the AM installation process, a default administrator account is created. You can use this account to perform all the management tasks provided by AM, such as creating applications and identity providers, registering users, and configuring security.
@@ -15,8 +15,6 @@ By default, the login details for the AM Console administrator account are `admi
 To log in:
 
 1.  Open AM Console.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-login-page.png" alt=""><figcaption><p>AM Console login</p></figcaption></figure>
 2. Log in with the administrator credentials. You are redirected to the AM Console dashboard for your default security domain.
@@ -70,7 +68,7 @@ To access the security domains, open the user menu from the top bar and click **
 
 The security domains overview displays all the domains available for the current environment. To access one specific security domain, click on its name.
 
-<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-list-domains.png" alt=""><figcaption><p> Security Domains overview</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-list-domains.png" alt=""><figcaption><p>Security Domains overview</p></figcaption></figure>
 
 ### Environments
 
