@@ -81,7 +81,7 @@ Modern web browsers are applications that communicate over the HTTP/HTTPS protoc
 
 The graphic below clarifies the structure and individual components of a web address, which concatenate to form the broader uniform resource locator (URL), uniform resource identifier (URI), and uniform resource name (URN).
 
-<figure><img src="../../.gitbook/assets/uri_diagram1.png" alt=""><figcaption><p><a href="https://hanseul-lee.github.io/2020/12/24/20-12-24-URL/">URI vs URL vs URN</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/uri_diagram1.png" alt=""><figcaption><p>URI vs URL vs URN</p></figcaption></figure>
 
 A communication link between two applications requires that each endpoint is defined by a network socket, which is a combination of transport layer protocol, domain (which resolves to an IP address), and port number that uniquely and completely resolves the web address of a client request to a web server.
 
@@ -194,7 +194,7 @@ console.log(typeof deserializedData);
 // 'object'
 ```
 
-The serialized JSON object looks similar to the original Javascript object because the JSON format is based on Javascript’s object literal notation. However, the data did change as the object keys were converted into strings and the object itself was converted into a primitive string where all of the original object's data exists in a self-contained chunk.&#x20;
+The serialized JSON object looks similar to the original Javascript object because the JSON format is based on Javascript’s object literal notation. However, the data did change as the object keys were converted into strings and the object itself was converted into a primitive string where all of the original object's data exists in a self-contained chunk.
 
 The following code uses local APIs built into the JavaScript and Python programming languages to serialize the object to JSON, save it to local storage, read from storage, and deserialize the JSON string into a Python dictionary.
 
