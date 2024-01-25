@@ -46,12 +46,7 @@ sudo systemctl restart nginx
 
 When all components are started, you can run a quick test by checking these URLs:
 
-| Component       | URL                                                                              |
-| --------------- | -------------------------------------------------------------------------------- |
-| APIM Gateway    | http://localhost:8082/                                                           |
-| APIM API        | http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/apis |
-| APIM Management | http://localhost:8084/                                                           |
-| APIM Portal     | http://localhost:8085/                                                           |
+<table><thead><tr><th width="208">Component</th><th>URL</th></tr></thead><tbody><tr><td>APIM Gateway</td><td>http://localhost:8082/</td></tr><tr><td>APIM API</td><td>http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/apis</td></tr><tr><td>APIM Management</td><td>http://localhost:8084/</td></tr><tr><td>APIM Portal</td><td>http://localhost:8085/</td></tr></tbody></table>
 
 {% hint style="success" %}
 Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
