@@ -77,9 +77,9 @@ Here's an example of a payload for a client following the FAPI 1.0.
 
 ### Client Registration: OpenBanking Brasil
 
-If your domain is configured for the [Open Banking Brasil Financial-grade API Security Profile](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1\_ID2.html), the payload will also contain a `software_statement` and the request objects have to be encrypted using RSA-OAEP with A256GCM.
+If your domain is configured for the Open Banking Brasil Financial-grade API Security Profile, the payload will also contain a `software_statement` and the request objects have to be encrypted using RSA-OAEP with A256GCM.
 
-With the [Open Banking Brasil Financial-grade API Security Profile](https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1\_ID2.html), some scopes may receive a parameter. To create a **parameterized** scope:
+With the Open Banking Brasil Financial-grade API Security Profile, some scopes may receive a parameter. To create a **parameterized** scope:
 
 * Go to **settings > scopes**
 * Click <<+>> to create a new scope
