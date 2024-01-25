@@ -4,7 +4,7 @@
 
 This guide explains how to deploy Gravitee Access Management (AM) on Kubernetes using Helm. It is assumed that you are already familiar with Kubernetes terms.
 
-## AM Helm chart
+## AM Helm Chart
 
 The Helm chart supports versions 2.10.x and higher.
 
@@ -61,14 +61,14 @@ helm package .
 
 ### License
 
-For Enterprise plugin, and only for them, you have to include a [license](https://docs.gravitee.io/ee/ee\_license.html) in AM. You can define it by:
+An enterprise plugin requires a license in AM. You can define it by:
 
-* fill the `license.key` field in the `values.yml` file.
-* add helm arg: `--set license.key=<license.key in base64>`
+* Fill the `license.key` field in the `values.yml` file
+* Add Helm arg: `--set license.key=<license.key in base64>`
 
 To get the license.key value, encode your file `license.key` in `base64`:
 
-* linux: `base64 -w 0 license.key`
+* Linux: `base64 -w 0 license.key`
 * macOS: `base64 license.key`
 
 Example:
