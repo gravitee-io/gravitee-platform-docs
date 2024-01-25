@@ -163,12 +163,12 @@ $ docker run --publish 8085:8080 \
 
 Note that the Developer Portal is on the `frontend` network, and it uses `/gravitee/apim-portal-ui` for persistent storage.
 
-10. In your browser, go to [`http://localhost:8084`](http://localhost:8084/) to open the APIM Console, and go to [`http://localhost:8085`](http://localhost:8085/) to open the APIM Developer Portal. You can log in to both with the username `admin` and password `admin`.
+10. In your browser, go to `http://localhost:8084` to open the APIM Console, and go to `http://localhost:8085` to open the APIM Developer Portal. You can log in to both with the username `admin` and password `admin`.
 
 {% hint style="info" %}
 **Container initialization**
 
-APIM can take up to a minute to fully initialize with Docker. If you get an error when going to [`http://localhost:8084`](http://localhost:8084/) or [`http://localhost:8085`](http://localhost:8085/), wait a few minutes and try again.
+APIM can take up to a minute to fully initialize with Docker. If you get an error when going to `http://localhost:8084` or `http://localhost:8085`, wait a few minutes and try again.
 {% endhint %}
 
 You can adapt the above instructions to suit your architecture if you need to.
