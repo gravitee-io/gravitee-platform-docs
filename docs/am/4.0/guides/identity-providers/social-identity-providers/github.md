@@ -17,8 +17,8 @@ To connect your application to GitHub, you will:
 
 1. [Register a new OAuth application](https://github.com/settings/applications/new) from **GitHub Developer Settings: OAuth Apps**.
 2. Give your application a name.
-3. For **Homepage URL** enter [`https://AM_HOST/SECURITY_DOMAIN`](https://am\_host/SECURITY\_DOMAIN).
-4. For **Authorization callback URL** enter [`https://AM_HOST/SECURITY_DOMAIN/login/callback`](https://am\_host/SECURITY\_DOMAIN/login/callback)
+3. For **Homepage URL** enter `https://AM_HOST/SECURITY_DOMAIN`.
+4. For **Authorization callback URL** enter `https://AM_HOST/SECURITY_DOMAIN/login/callback`.
 
 {% hint style="info" %}
 The `Authorization callback URL` is a temporary value that will be updated when you [set up the connection.](github.md#set-up-the-connection)
@@ -45,8 +45,6 @@ Ensure you have the GitHub application generated Client ID and Client Secret to 
 6. Enter your GitHub application Client ID and Client Secret.
 7.  Click **Create**.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-github.png" alt=""><figcaption><p>Create Github IdP</p></figcaption></figure>
 
 {% hint style="info" %}
@@ -63,8 +61,6 @@ On the right side of the screen, under **1. Configure the Redirect URI** copy th
 You can test your GitHub connection using a web application created in AM.
 
 1.  In AM Console, click **Applications** and select your social identity provider.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-social-idp-list.png" alt=""><figcaption><p>Select Github IdP</p></figcaption></figure>
 2.  Call the Login Page (i.e the `/oauth/authorize` endpoint). If the connection is working you will see a **Sign in with …​** button.
