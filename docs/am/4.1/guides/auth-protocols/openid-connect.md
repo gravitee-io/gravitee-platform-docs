@@ -38,7 +38,7 @@ The authorization code flow returns an authorization code to the client, which c
 The OAuth standard now discourages the use of an implicit grant to request access tokens from Javascript applications. You should consider using the Authorization code flow with a PKCE extension for all your applications.
 {% endhint %}
 
-When using the implicit flow, all tokens are returned from the [authorization endpoint](../../../guides/auth-protocols/oauth-2.0#authorization-endpoint). The token endpoint is not used.
+When using the implicit flow, all tokens are returned from the [authorization endpoint](https://github.com/gravitee-io/gravitee-platform-docs/tree/main/docs/am/4.1/guides/auth-protocols/oauth-2.0). The token endpoint is not used.
 
 The implicit flow is mainly used by clients implemented in a browser using a scripting language. The access token and ID token are returned directly to the client, which may expose them to the end user and applications that have access to the end user’s User Agent. The authorization server does not perform client authentication.
 
@@ -46,9 +46,9 @@ The implicit flow is mainly used by clients implemented in a browser using a scr
 
 ### Hybrid flow
 
-When using the Hybrid flow, some tokens are returned from the [authorization endpoint](../../../guides/auth-protocols/oauth-2.0#authorization-endpoint) and others are returned from the [token endpoint](../../../guides/auth-protocols/oauth-2.0#token-endpoint). Hybrid is used by clients who want tokens separately from front channel and back channel.
+When using the Hybrid flow, some tokens are returned from the authorization endpoint and others are returned from the token endpoint. Hybrid is used by clients who want tokens separately from front channel and back channel.
 
-* Hybrid flow URL: [`https://am-gateway/{domain}/oauth/authorize?response_type=code+id_token|code+token|code+id_token+token&client_id=web-app&redirect_uri=https://web-app/callback&scope=openid`](https://am-gateway/%7Bdomain%7D/oauth/authorize?response\_type=code+id\_token|code+token|code+id\_token+token\&client\_id=web-app\&redirect\_uri=https://web-app/callback\&scope=openid)
+* Hybrid flow URL: `https://am-gateway/{domain}/oauth/authorize?response_type=code+id_token|code+token|code+id_token+token&client_id=web-app&redirect_uri=https://web-app/callback&scope=openid`
 
 ## ID token
 
