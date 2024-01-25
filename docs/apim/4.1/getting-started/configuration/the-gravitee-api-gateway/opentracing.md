@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Using OpenTracing allows Gravitee to trace every request that comes through the Gravitee API Management (APIM) Gateway, creating a deep level of insight into API policies and making debugging a cinch. Without OpenTracing, you’ll only receive limited details, which makes monitoring and troubleshooting both complicated and time-consuming.
+Using OpenTracing allows Gravitee to trace every request that comes through the Gravitee API Management (APIM) Gateway, creating a deep level of insight into API policies and simplifying debugging. Without OpenTracing, you’ll only receive limited details, which makes monitoring and troubleshooting both complicated and time-consuming.
 
 So, if you’re looking for a way to simplify debugging, improve monitoring, and enhance visibility into requests across multiple services, Gravitee’s OpenTracing solution with Jaeger as a tracer has you covered.
 
