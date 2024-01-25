@@ -6,7 +6,7 @@ This guide explains how to deploy Gravitee Access Management (AM) on Kubernetes 
 
 ## AM Helm Chart
 
-The Helm chart supports versions 2.10.x and higher.
+The Helm Chart supports versions 2.10.x and higher.
 
 ### Components
 
@@ -19,7 +19,7 @@ This chart will deploy the following:
 
 ### Add the Helm Chart repo
 
-Add the Gravitee Helm Charts repo using the command below:
+Add the Gravitee Helm Chart repo using the command below:
 
 ```sh
 helm repo add graviteeio https://helm.gravitee.io
