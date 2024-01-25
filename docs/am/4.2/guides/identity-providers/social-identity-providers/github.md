@@ -17,8 +17,8 @@ To connect your application to GitHub, you will:
 
 1. [Register a new OAuth application](https://github.com/settings/applications/new) from **GitHub Developer Settings: OAuth Apps**.
 2. Give your application a name.
-3. For **Homepage URL** enter [`https://AM_HOST/SECURITY_DOMAIN`](https://am\_host/SECURITY\_DOMAIN).
-4. For **Authorization callback URL** enter [`https://AM_HOST/SECURITY_DOMAIN/login/callback`](https://am\_host/SECURITY\_DOMAIN/login/callback)
+3. For **Homepage URL** enter `https://AM_HOST/SECURITY_DOMAIN`.
+4. For **Authorization callback URL** enter `https://AM_HOST/SECURITY_DOMAIN/login/callback`.
 
 {% hint style="info" %}
 The `Authorization callback URL` is a temporary value that will be updated when you [set up the connection.](github.md#set-up-the-connection)
