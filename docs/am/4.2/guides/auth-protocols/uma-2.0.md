@@ -331,7 +331,7 @@ https://am-gateway/{domain}/uma/protection/permission
 {% endcode %}
 
 {% hint style="info" %}
-The PAT Bearer Token which is used via the Authorization HTTP header must be obtained by the resource server via the [OAuth 2.0 client credentials flow.](../../../guides/auth-protocols/oauth-2.0#client-credentials)
+The PAT Bearer Token which is used via the Authorization HTTP header must be obtained by the resource server via the [OAuth 2.0 client credentials flow](https://github.com/gravitee-io/gravitee-platform-docs/tree/main/docs/am/4.2/guides/auth-protocols/oauth-2.0).
 
 The `ticket` property in the response is the permission ticket, which will be used to obtain the Requesting Party Token.
 {% endhint %}
