@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Using OpenTracing allows Gravitee to trace every request that comes through the Gravitee API Management (APIM) Gateway, creating a deep level of insight into API policies and making debugging a cinch. Without OpenTracing, you’ll only receive limited details, which makes monitoring and troubleshooting both complicated and time-consuming.
+Using OpenTracing allows Gravitee to trace every request that comes through the Gravitee API Management (APIM) Gateway, creating a deep level of insight into API policies and simplifying debugging. Without OpenTracing, you’ll only receive limited details, which makes monitoring and troubleshooting both complicated and time-consuming.
 
 So, if you’re looking for a way to simplify debugging, improve monitoring, and enhance visibility into requests across multiple services, Gravitee’s OpenTracing solution with Jaeger as a tracer has you covered.
 
@@ -47,7 +47,7 @@ This is the Docker run command for installing Jaeger. It is direct from [Jaegert
 {% hint style="info" %}
 **Pro-tip**
 
-Running this Docker command will also provide access to the JaegerUI, which can be reached using its default port: [**http://localhost:16686**](http://localhost:16686/).
+Running this Docker command will also provide access to the JaegerUI, which can be reached using its default port: `http://localhost:16686`.
 {% endhint %}
 
 You can confirm Jaeger has been enabled and is running by checking Docker.
@@ -58,7 +58,7 @@ Now, it's time to test OpenTracing. Follow these steps:
 
 1. Now that you have OpenTracing enabled, run your API Gateway and APIM.
 2. Open Gravitee APIM, and choose an API that already has a policy assigned to it (or create a test API and add any policies you like for this test). Now, call your API.
-3. To see your calls, open the helpful, user-friendly JaegerUI by visiting [http://localhost:16686](http://localhost:16686/) (note that JaegerUI was automatically installed earlier in the process). Select **Search** and find the API you called.
+3. To see your calls, open the helpful, user-friendly JaegerUI by visiting `http://localhost:16686` (note that JaegerUI was automatically installed earlier in the process). Select **Search** and find the API you called.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/configuration/tracing-info-general.png" alt=""><figcaption><p>See API calls in JaegerUI</p></figcaption></figure>
 
@@ -80,7 +80,7 @@ gravitee_services_tracing_jaeger_port: 14250
 
 You can also enable OpenTracing using Jaeger as a tracer with this Docker Compose. [Click here](https://github.com/gravitee-io/gravitee-api-management/tree/master/docker/quick-setup/opentracing-jaeger) to access the `docker-compose.yml`.
 
-With this option enabled, you can continue to call your APIs through your Gateway with the usual host: [`http://localhost:8082/myapi`](http://localhost:8082/myapi).
+With this option enabled, you can continue to call your APIs through your Gateway with the usual host: `http://localhost:8082/myapi`.
 
 #### 1. How To Run OpenTracing With Jaeger
 
