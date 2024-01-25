@@ -190,7 +190,7 @@ The requesting party needs to use the same identity provider as the provider to 
 
 The resource owner must acquire a PAT to register a resource and create authorization grant rules. To obtain the PAT the resource owner must log in to the application using any [OAuth 2.0 flow](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#authorization\_grant).
 
-In this example, we are using the [Resource owner password flow](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#resource\_owner\_password\_credentials):
+In this example, we are using the [Resource owner password flow](oauth-2.0/#flow):
 
 {% code overflow="wrap" %}
 ```sh
@@ -340,7 +340,7 @@ The `ticket` property in the response is the permission ticket, which will be us
 
 In order to get an RPT, the requesting party must be authenticated, so the first step is to log in to the requesting party.
 
-In this example, we are using the [Resource owner password flow:](../../../guides/auth-protocols/oauth-2.0#resource-owner-password-credentials)
+In this example, we are using the Resource owner password flow:
 
 {% code overflow="wrap" %}
 ```sh
