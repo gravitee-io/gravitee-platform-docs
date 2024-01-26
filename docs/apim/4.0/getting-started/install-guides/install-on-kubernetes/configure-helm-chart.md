@@ -774,7 +774,7 @@ By setting `runAsUser` to `null`, OpenShift is forced to define the correct valu
 
 ## Licences
 
-Enterprise plugins require a [license](https://docs.gravitee.io/ee/ee\_license.html) in APIM. To define a license, enter the `license.key` value in the `values.yml` file and add the Helm argument `--set license.key=<license.key in base64>`.
+Enterprise plugins require a license in APIM. To define a license, enter the `license.key` value in the `values.yml` file and add the Helm argument `--set license.key=<license.key in base64>`.
 
 {% hint style="info" %}
 The `license.key` value you enter must be encoded in `base64`:
