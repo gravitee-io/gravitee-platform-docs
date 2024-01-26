@@ -413,7 +413,7 @@ The RPT Bearer Token is used via the Authorization HTTP header.
 
 The Bank API must check the incoming token to determine the active state of the access token and decide whether to accept or deny the request.
 
-You can use the [Introspection endpoint](../../../guides/auth-protocols/oauth-2.0#introspection-endpoint) to inspect the properties of the RPT.
+You can use the [Introspection endpoint](https://github.com/gravitee-io/gravitee-platform-docs/tree/main/docs/am/4.2/guides/auth-protocols/oauth-2.0) to inspect the properties of the RPT.
 
 ```sh
 POST https://am-gateway/{domain}/oauth/introspect HTTP/1.1
