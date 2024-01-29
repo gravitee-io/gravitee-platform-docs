@@ -6,7 +6,7 @@ description: Gravitee's core products
 
 ## Introduction
 
-Gravitee offers both a free Community Edition and paid Enterprise Edition of our platform. The versions impact which product(s) and features that you will have access to. Please see the table below that explains the differences as it pertains to products.&#x20;
+Gravitee offers both a free Community Edition and paid Enterprise Edition of our platform. The versions impact which product(s) and features that you will have access to. Please see the table below that explains the differences as it pertains to products.
 
 We have also included product specific differences between EE and CE. For some (such as APIM), we just link to the APIM-specific page, as there is a lot of content around the many different benefits and features that the enterprise packaging offers.
 
@@ -18,7 +18,7 @@ At the bottom of this page, we also outline the enterprise hosting, deployment, 
 | ---------------------------------------- | ---------------------------------------- |
 | Open source version of API Management    | Enterprise version of API Management     |
 | Open source version of Access Management | Enterprise version of Access Management  |
-| Limited version of Gravitee Cockpit        | Enterprise version of Gravitee Cockpit     |
+| Limited version of Gravitee Cockpit      | Enterprise version of Gravitee Cockpit   |
 | Limited version of API Designer          | Enterprise version of API Designer       |
 | Self-hosted deployments only             | Support for self-hosted deployments      |
 |                                          | Support for Gravitee-managed deployments |
@@ -34,7 +34,7 @@ At the bottom of this page, we also outline the enterprise hosting, deployment, 
 
 ## Enterprise version of Gravitee Cockpit
 
-Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee Cockpit.](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.&#x20;
+Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee Cockpit.](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.
 
 ## Enterprise version of API Designer
 
@@ -44,11 +44,11 @@ The enterprise version of API Designer enables you to create, export, and push u
 
 An investment in Gravitee EE is an investment in deployment flexibility, and, optionally, the ability to offload costs associated with maintaining self-hosted API Management installations. Gravitee Enterprise supports:
 
-* **Self-hosted deployments**: install and host APIM within your own private cloud/environment
-* **Gravitee-managed deployments**: Gravitee hosts and manages all APIM components within its own cloud environments
-* **Hybrid deployment**: Gravitee hosts and manages some APIM components in its own cloud environment while you manage some components in your own private cloud/environment
+* **Self-hosted deployments:** install and host APIM within your own private cloud/environment
+* **Gravitee-managed deployments:** Gravitee hosts and manages all APIM components within its own cloud environments
+* **Hybrid deployment:** Gravitee hosts and manages some APIM components in its own cloud environment while you manage some components in your own private cloud/environment
 
-For more information on each, please refer to our [APIM Architecture documentation](broken-reference).
+For more information on each, please refer to our [APIM Architecture documentation](https://documentation.gravitee.io/apim/overview/apim-architecture).
 
 ## Enterprise support packages
 
