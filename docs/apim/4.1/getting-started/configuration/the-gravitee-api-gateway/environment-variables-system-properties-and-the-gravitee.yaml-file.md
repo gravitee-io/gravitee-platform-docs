@@ -268,7 +268,7 @@ The property `removePlugins` has been removed from the Helm chart as it is no lo
 
 ## Configure the Management repository
 
-The Management repository is used to store global configurations such as APIs, applications and API keys. The default configuration uses MongoDB (single server). For more information about MongoDB configuration, [refer to this documentation](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html). You can configure the Management repository using the `gravitee.yaml` file:
+The Management repository is used to store global configurations such as APIs, applications and API keys. The default configuration uses MongoDB (single server). You can configure the Management repository using the `gravitee.yaml` file:
 
 {% code overflow="wrap" %}
 ```yaml
