@@ -125,8 +125,8 @@ services:
 
 To learn more about internal APIs, see:
 
-* [Configure the APIM Management API internal API](../../../getting-started/configuration/configure-apim-management-api/internal-api.md)
-* [Configure the APIM Gateway internal API](../../../getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md)
+* [Configure the APIM Management API internal API](configure-apim-management-api/internal-api-1.md)
+* [Configure the APIM Gateway internal API](the-gravitee-api-gateway/gateway-internal-api.md)
 
 ### Deployment
 
