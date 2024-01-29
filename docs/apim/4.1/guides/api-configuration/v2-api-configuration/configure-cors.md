@@ -56,11 +56,11 @@ Select **Save**. You've now configured your Entrypoints.
 
 ### Configure CORS
 
-CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API. If you want to know more about CORS at the conceptual level, refer to the CORS "Concepts" article. If you want to learn more about CORS at a conceptual level, we recommend referring to the [CORS section](../../../../guides/api-configuration/v2-api-configuration/broken-reference/) of the "Concepts" article for this section.
+CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API.
 
 To configure CORS for an API, follow these steps:
 
-Log into your Gravitee API Management Console. Select the **APIs** menu. Find the API for which you want to configure CORS.
+Log in to your Gravitee API Management Console. Select the **APIs** menu. Find the API for which you want to configure CORS.
 
 ![](https://dubble-prod-01.s3.amazonaws.com/assets/6121e44d-f50d-411b-8194-4ae9a611d2f8.png?0)
 
