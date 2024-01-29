@@ -41,7 +41,7 @@ You'll be brought the **Settings** page, where you can define:
 CORS can also be configured at the API level. To configure CORS at the API level, refer to the [CORS documentation within the API Configuration section](../api-configuration/v2-api-configuration/configure-cors.md#configure-cors).
 {% endhint %}
 
-* **SMTP settings**: defines organization-wide emailing settings, which will impact how platform users are notified via email for organization-wide events. To learn more about notifications, refer to the [Configure Notifications](../../../guides/administration/broken-reference/) documentation. Within this section, you will define:
+* **SMTP settings**: defines organization-wide emailing settings, which will impact how platform users are notified via email for organization-wide events. To learn more about notifications, refer to the [Notifications](../../getting-started/configuration/configure-alerts-and-notifications.md) documentation. Within this section, you will define:
   * Whether or not you will enable emailing
   * Host
   * Port
