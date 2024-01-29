@@ -12,7 +12,7 @@ This page focuses on the installation of the Self-Hosted Data-Plane, which is pa
 
 ### SaaS Control-Plane components <a href="#saas-components" id="saas-components"></a>
 
-<table><thead><tr><th width="228" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Console<br>(for API producers)</td><td>This web UI gives easy access to some key APIM Management API services. <a href="../../#api-publisher">API publishers</a> can use it to publish APIs.<br>Administrators can also configure global platform settings and specific portal settings.</td></tr><tr><td align="center">APIM Management API</td><td>This RESTful API exposes services to manage and configure the APIM Console and APIM Developer Portal web UIs.<br>All exposed services are restricted by authentication and authorization rules. For more information, see the<a href="../../reference/management-api-reference.md"> Management API Reference</a> section.</td></tr><tr><td align="center"><a href="../../guides/developer-portal/">APIM Developer Portal</a><br>(for API consumers)</td><td>This web UI gives easy access to some key APIM API services. It allows <a href="../../#api-consumer">API Consumers</a> to <a href="../../guides/api-exposure-plans-applications-and-subscriptions/#applications">manage their applications</a> and search for, view, try out, and subscribe to a published API.</td></tr><tr><td align="center">APIM SaaS API Gateways</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="../../../getting-started/hybrid-deployment/broken-reference/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Bridge Gateways</td><td>A <em>bridge</em> API Gateway exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, etc.)</td></tr><tr><td align="center">Config Database</td><td>All the API Management platform management data, such as API definitions, users, applications, and plans.</td></tr><tr><td align="center">S3 Bucket + Analytics Database</td><td>Analytics and logs data.</td></tr><tr><td align="center">Gravitee Cockpit</td><td>Gravitee Cockpit is a centralized, multi-environments / organizations tool for managing all your Gravitee API Management and Access Management installations in a single place.</td></tr><tr><td align="center">[Optional]<br>API Designer</td><td>Drag-and-Drop graphical (MindMap) API designer to quickly and intuitively design your APIs (Swagger / OAS) and deploy mocked APIs for quick testing.</td></tr><tr><td align="center">[Optional]<br>Alert Engine</td><td>Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and using Webhooks.<br>AE does not require any external components or a database as it does not store anything. It receives events and sends notifications under the conditions which have been pre-configured upstream with triggers.</td></tr></tbody></table>
+<table><thead><tr><th width="228" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Console<br>(for API producers)</td><td>This web UI gives easy access to some key APIM Management API services. <a href="../../#api-publisher">API publishers</a> can use it to publish APIs.<br>Administrators can also configure global platform settings and specific portal settings.</td></tr><tr><td align="center">APIM Management API</td><td>This RESTful API exposes services to manage and configure the APIM Console and APIM Developer Portal web UIs.<br>All exposed services are restricted by authentication and authorization rules. For more information, see the<a href="../../reference/management-api-reference.md"> Management API Reference</a> section.</td></tr><tr><td align="center"><a href="../../guides/developer-portal/">APIM Developer Portal</a><br>(for API consumers)</td><td>This web UI gives easy access to some key APIM API services. It allows <a href="../../#api-consumer">API Consumers</a> to <a href="../../guides/api-exposure-plans-applications-and-subscriptions/#applications">manage their applications</a> and search for, view, try out, and subscribe to a published API.</td></tr><tr><td align="center">APIM SaaS API Gateways</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="../../guides/policy-design/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Bridge Gateways</td><td>A <em>bridge</em> API Gateway exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, etc.)</td></tr><tr><td align="center">Config Database</td><td>All the API Management platform management data, such as API definitions, users, applications, and plans.</td></tr><tr><td align="center">S3 Bucket + Analytics Database</td><td>Analytics and logs data.</td></tr><tr><td align="center">Gravitee Cockpit</td><td>Gravitee Cockpit is a centralized, multi-environments / organizations tool for managing all your Gravitee API Management and Access Management installations in a single place.</td></tr><tr><td align="center">[Optional]<br>API Designer</td><td>Drag-and-Drop graphical (MindMap) API designer to quickly and intuitively design your APIs (Swagger / OAS) and deploy mocked APIs for quick testing.</td></tr><tr><td align="center">[Optional]<br>Alert Engine</td><td>Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and using Webhooks.<br>AE does not require any external components or a database as it does not store anything. It receives events and sends notifications under the conditions which have been pre-configured upstream with triggers.</td></tr></tbody></table>
 
 ### Self-Hosted Data-Plane components[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#on-prem-private-cloud-components) <a href="#on-prem-private-cloud-components" id="on-prem-private-cloud-components"></a>
 
@@ -716,7 +716,6 @@ output {
 * [Configuring Logstash](https://www.elastic.co/guide/en/logstash/current/configuration.html)
 {% endhint %}
 
-
 ## Fluentd <a href="#fluentd" id="fluentd"></a>
 
 ### Installation
@@ -725,13 +724,12 @@ output {
 {% tab title="Kubernetes (Helm)" %}
 * [Official Helm charts](https://artifacthub.io/packages/helm/fluent/fluentd)
 * [Bitnami Helm charts](https://bitnami.com/stack/fluentd/helm)
-  {% endtab %}
+{% endtab %}
 
 {% tab title="Docker" %}
-
 You have to build your own docker image:
 
-{% code title="Dockerfile" lineNumbers="false" %}
+{% code title="Dockerfile" lineNumbers="true" %}
 ```
 FROM fluent/fluentd:v1.16.2-1.0
 USER root
@@ -806,4 +804,4 @@ services:
 **Additional assets**
 
 * [Configuring Fluentd](https://docs.fluentd.org/)
-  {% endhint %}
+{% endhint %}
