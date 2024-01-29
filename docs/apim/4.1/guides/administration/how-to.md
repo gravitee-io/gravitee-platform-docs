@@ -15,7 +15,7 @@ Gravitee offers simple methods for managing Organizations and Environments. In t
 
 ### Defining general Organization settings
 
-{% @arcade/embed flowId="sAy3l769Swk9epGVWCED" url="https://app.arcade.software/share/sAy3l769Swk9epGVWCED" %}
+{% @arcade/embed flowid="sAy3l769Swk9epGVWCED" url="https://app.arcade.software/share/sAy3l769Swk9epGVWCED" %}
 
 To access your Organization settings, log-in to your Gravitee API Management Console and select **Organization** from the left-hand nav. From here, you can edit all of your Organization settings. To define general organization settings, select **Settings** under **Console.**
 
@@ -41,7 +41,7 @@ You'll be brought the **Settings** page, where you can define:
 CORS can also be configured at the API level. To configure CORS at the API level, refer to the [CORS documentation within the API Configuration section](../api-configuration/v2-api-configuration/configure-cors.md#configure-cors).
 {% endhint %}
 
-* **SMTP settings**: defines organization-wide emailing settings, which will impact how platform users are notified via email for organization-wide events. To learn more about notifications, refer to the [Configure Notifications](../../../guides/administration/broken-reference/) documentation. Within this section, you will define:
+* **SMTP settings**: defines organization-wide emailing settings, which will impact how platform users are notified via email for organization-wide events. To learn more about notifications, refer to the [Configure Notifications](../../getting-started/configuration/configure-alerts-and-notifications.md) documentation. Within this section, you will define:
   * Whether or not you will enable emailing
   * Host
   * Port
