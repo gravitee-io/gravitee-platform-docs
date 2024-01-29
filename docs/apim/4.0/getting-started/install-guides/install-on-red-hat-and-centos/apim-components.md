@@ -230,7 +230,7 @@ sudo systemctl restart nginx
 Before you install the Developer Portal, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
-2. Install and run the [management API](../../../../getting-started/install-guides/install-on-red-hat-and-centos/apim-components/broken-reference/).
+2. [Install and run the Management API.](apim-components.md#install-management-api)
 3. Install Nginx by running the following commands:
 
 ```sh
