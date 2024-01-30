@@ -6,6 +6,22 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.12 - January 30, 2024
+
+
+
+<details>
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Apply timeout on blockingGet in ManagementAPI filters [#9476](https://github.com/gravitee-io/issues/issues/9476)
+* Authentication flow rejected due to redirect_uri when PAR is used [#9478](https://github.com/gravitee-io/issues/issues/9478)
+* MFA challenge should be prompted before registering a passwordless device [#9479](https://github.com/gravitee-io/issues/issues/9479)
+
+</details>
+
+
 ## Gravitee Access Management 4.1.10 - January 17, 2024
 
 <details>
