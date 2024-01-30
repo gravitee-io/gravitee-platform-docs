@@ -182,7 +182,7 @@ Or at the environment level in the **Settings > Settings** section of the APIM C
 
 ## Configure the Management repository
 
-The Management repository is used to store global configurations such as APIs, applications, and API keys. The default configuration uses MongoDB (single server). You can find more information about the MongoDB configuration [here](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html).
+The Management repository is used to store global configurations such as APIs, applications, and API keys. The default configuration uses MongoDB (single server).
 
 ```yaml
 management:
