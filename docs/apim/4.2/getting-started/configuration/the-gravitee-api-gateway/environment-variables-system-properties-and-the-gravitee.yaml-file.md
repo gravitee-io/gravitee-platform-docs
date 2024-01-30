@@ -384,7 +384,7 @@ Redis Sentinel and Redis SSL configuration options are presented [here](../confi
 
 ## Configure reporters
 
-You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property '`enabled: false`'
+You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property `enabled: false`:
 
 ```yaml
 reporters:
