@@ -9,11 +9,7 @@ description: >-
 ## Gravitee Access Management 4.1.11 - January 30, 2024
 
 <details>
-<summary>What's new !</summary>
 
-</details>
-
-<details>
 <summary>Bug fixes</summary>
 
 **Gateway**
@@ -22,7 +18,6 @@ description: >-
 * Flow - Add WebAuthn credential register flow (improvement)
 
 </details>
-
 
 ## Gravitee Access Management 4.1.10 - January 17, 2024
 
