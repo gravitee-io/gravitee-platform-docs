@@ -6,6 +6,24 @@ description: >-
 
 # AM 4.2.x
 
+## Gravitee Access Management 4.2.2 - January 30, 2024
+
+<details>
+<summary>What's new !</summary>
+
+</details>
+
+<details>
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Passwordless not working for iOS v17.2.1 [#9470](https://github.com/gravitee-io/issues/issues/9470)
+* Flow - Add WebAuthn credential register flow (improvement)
+
+</details>
+
+
 ## Gravitee Access Management 4.2.1 - January 17, 2024
 
 <details>
