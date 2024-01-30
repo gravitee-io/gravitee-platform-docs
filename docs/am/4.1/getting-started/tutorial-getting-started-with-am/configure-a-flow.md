@@ -151,7 +151,7 @@ Notice the `<p th:text="'Hi ' + ${#ctx.getVariable('X-Custom-Variable')} + ' !'"
 {% endhint %}
 
 4. Click **SAVE**.
-5. Initiate the login flow by calling the OpenID Connect Authorization Code or Implicit Flow [https://AM\_GW\_HOST:8092/your-domain/oauth/authorize?client\_id=your-client\&response\_type=token\&redirect\_uri=http://localhost:4001/login/callback\&scope=openid\&state=1234](https://am\_gw\_host:8092/your-domain/oauth/authorize?client\_id=your-client\&response\_type=token\&redirect\_uri=http://localhost:4001/login/callback\&scope=openid\&state=1234)
+5. Initiate the login flow by calling the OpenID Connect Authorization Code or Implicit Flow `https://AM_GW_HOST:8092/your-domain/oauth/authorize?client_id=your-client&response_type=token&redirect_uri=http://localhost:4001/login/callback&scope=openid&state=1234`
 6.  After login you will be redirected to the consent page with your custom code.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-quickstart-policies-consent-page.png" alt=""><figcaption><p>Custom consent page</p></figcaption></figure>
