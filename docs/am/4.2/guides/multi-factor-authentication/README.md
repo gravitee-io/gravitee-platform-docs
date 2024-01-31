@@ -7,11 +7,11 @@ Multi-factor authentication (MFA) provides a way to add additional steps during 
 It is split into 2 sections:
 
 * **Enroll:** The end user inputs one or several **factors** that will allow them to secure their access.
-* C**hallenge:** Once the enrollment step is done, the user challenges their configured factor in order to access their account.
+* **Challenge:** Once the enrollment step is done, the user challenges their configured factor in order to access their account.
 
 ## Enroll
 
-Here is what the flow of the Multi-Factor authentication Enroll step looks like.
+Here is what the flow of the Multi-factor Authentication Enroll step looks like.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-enroll-flow.png" alt=""><figcaption><p>MFA enroll step</p></figcaption></figure>
 
