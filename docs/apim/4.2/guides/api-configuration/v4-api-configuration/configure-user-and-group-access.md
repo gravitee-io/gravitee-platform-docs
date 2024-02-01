@@ -2,7 +2,7 @@
 description: This article walks through how to configure user and group access to your APIs
 ---
 
-# Configure User and Group Access
+# User and Group Access
 
 {% @arcade/embed flowId="cFPsuQlW9Jd8KOvrvnLM" url="https://app.arcade.software/share/cFPsuQlW9Jd8KOvrvnLM" %}
 
@@ -30,4 +30,4 @@ To give groups access to your API, select the **Groups** tab, and select the des
 
 If you are the owner of the API, you can transfer ownership of the API to another member, user, or group. To do this, select the **Transfer ownership** tab, then select either **API member**, **Other user**, or **Group.** Next, select the stakeholder to which you want to transfer API ownership and assign that stakeholder a role.
 
-<figure><img src="../../../.gitbook/assets/transfer ownership.png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
+<figure><img src="../../../../4.1/.gitbook/assets/transfer ownership.png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>

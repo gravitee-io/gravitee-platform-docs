@@ -115,7 +115,7 @@
         * [Mock](guides/api-configuration/v4-api-configuration/endpoint-configuration/v4-message-api-endpoints/mock.md)
     * [Quality of Service](guides/api-configuration/v4-api-configuration/quality-of-service.md)
     * [General Info Settings](guides/api-configuration/v4-api-configuration/api-general-settings.md)
-    * [Configure User and Group Access](guides/api-configuration/v4-api-configuration/configure-user-and-group-access.md)
+    * [User and Group Access](guides/api-configuration/v4-api-configuration/configure-user-and-group-access.md)
     * [Documentation](guides/api-configuration/v4-api-configuration/documentation.md)
   * [v2 API Configuration](guides/api-configuration/v2-api-configuration/README.md)
     * [Documentation](guides/api-configuration/v2-api-configuration/documentation.md)
