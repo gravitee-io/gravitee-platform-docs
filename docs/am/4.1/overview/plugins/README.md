@@ -8,13 +8,13 @@ Plugins are additional components that can be _plugged into_ AM Gateway or AM Ma
 
 The table below lists the different types of plugins you can use with AM, with the component(s) they can be plugged into and some examples. For more details of what each plugin type does, see the sections below.
 
-| Type                                                | Components               | Examples                   |
-| --------------------------------------------------- | ------------------------ | -------------------------- |
-| [Identity Providers](plugins.md#identity-providers) | Management API/ Gateway  | LDAP, Database, Social, …​ |
-| [Policies](plugins.md#policies)                     | Management API / Gateway | Callout                    |
-| [Reporters](plugins.md#reporters)                   | Management API / Gateway | MongoDB                    |
-| [Repositories](plugins.md#repositories)             | Management API / Gateway | MongoDB                    |
-| [Alerts](plugins.md#alerts)                         | Management API / Gateway | Vertx                      |
+| Type                                        | Components               | Examples                   |
+| ------------------------------------------- | ------------------------ | -------------------------- |
+| [Identity Providers](./#identity-providers) | Management API/ Gateway  | LDAP, Database, Social, …​ |
+| [Policies](./#policies)                     | Management API / Gateway | Callout                    |
+| [Reporters](./#reporters)                   | Management API / Gateway | MongoDB                    |
+| [Repositories](./#repositories)             | Management API / Gateway | MongoDB                    |
+| [Alerts](./#alerts)                         | Management API / Gateway | Vertx                      |
 
 ### Identity providers
 

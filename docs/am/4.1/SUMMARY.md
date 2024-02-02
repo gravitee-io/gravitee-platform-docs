@@ -4,7 +4,8 @@
 
 * [Introduction to Gravitee Access Management (AM)](README.md)
 * [AM Architecture](overview/am-architecture.md)
-* [Plugins](overview/plugins.md)
+* [Plugins](overview/plugins/README.md)
+  * [Compatibility Matrices](overview/plugins/compatibility-matrices.md)
 * [Gravitee AM Enterprise Edition](overview/open-source-vs-enterprise-am/README.md)
   * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
 

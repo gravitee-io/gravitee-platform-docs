@@ -6,7 +6,7 @@
 Account Linking is a Gravitee Enterprise Edition feature that is available in the default EE distribution. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Refer to the EE vs OSS documentation](../../overview/open-source-vs-enterprise-am/)
-* [Book a demo](http://127.0.0.1:5000/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
+* [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
 
