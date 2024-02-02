@@ -5,6 +5,31 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.17 - February 2, 2024
+<details>
+
+<summary>BugFixes</summary>
+
+**Gateway**
+
+* Unable to populate attributes using the Assign Attributes Policy due to enabled V4 Engine [#9420](https://github.com/gravitee-io/issues/issues/9420)
+* Conditional logging [#9486](https://github.com/gravitee-io/issues/issues/9486)
+* Timeout when connecting to websocket api using header Connection:Upgrade,Keep-Alive [#9487](https://github.com/gravitee-io/issues/issues/9487)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Add API id in health check logs [#9493](https://github.com/gravitee-io/issues/issues/9493)
+
+</details>
+
+
 
 ## Gravitee API Management 4.0.16 - January 19, 2024
 
