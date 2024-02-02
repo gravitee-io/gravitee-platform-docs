@@ -2,13 +2,57 @@
 
 ## Overview
 
-This page lists the available AM plugins and provides compatibility matrices with the core product version
+This page lists the available AM plugins and provides compatibility matrices with the core product version.
 
 ## Plugins
 
-### gravitee-am-gateway-handler-saml2-idp
+### Factors
 
-Repository: [https://github.com/gravitee-io/gravitee-am-gateway-handler-saml2-idp](https://github.com/gravitee-io/gravitee-am-gateway-handler-saml2-idp)
+#### [gravitee-am-factor-call](https://download.gravitee.io/#graviteeio-ee/am/plugins/factors/gravitee-am-factor-call/)
+
+| Plugin Version | AM Version |
+| -------------- | ---------- |
+| 1.x+           | 4.0+       |
+
+#### [gravitee-am-factor-fido2](https://download.gravitee.io/#graviteeio-ee/am/plugins/factors/gravitee-am-factor-fido2/)
+
+| Plugin Version | AM Version |
+| -------------- | ---------- |
+| 1.x+           | 3.18+      |
+| 2.x+           | 3.21+      |
+| 3.x+           | 4.0+       |
+
+#### [gravitee-am-factor-http](https://download.gravitee.io/#graviteeio-ee/am/plugins/factors/gravitee-am-factor-http/)
+
+| Plugin Version | AM Version |
+| -------------- | ---------- |
+| 1.x            | 3.20       |
+| 2.x            | 3.21       |
+| 3.x            | 4.0+       |
+
+#### [gravitee-am-factor-otp-sender](https://download.gravitee.io/#graviteeio-ee/am/plugins/factors/gravitee-am-factor-otp-sender/)
+
+| Plugin Version | AM Version |
+| -------------- | ---------- |
+| 1.x+           | 3.18+      |
+| 2.x+           | 3.21+      |
+| 3.x+           | 4.0+       |
+
+#### [gravitee-am-factor-recoverycode](https://download.gravitee.io/#graviteeio-ee/am/plugins/factors/gravitee-am-factor-recovery-code/)
+
+| Plugin Version | AM Version |
+| -------------- | ---------- |
+| 1.x+           | 4.0+       |
+
+#### [gravitee-am-factor-sms](https://download.gravitee.io/#graviteeio-ee/am/plugins/factors/gravitee-am-factor-sms/)
+
+| Plugin Version | AM Version |
+| -------------- | ---------- |
+| 1.x+           | 4.0+       |
+
+### Gateway
+
+#### [gravitee-am-gateway-handler-saml2-idp](https://download.gravitee.io/#graviteeio-ee/am/plugins/gateway/handlers/gravitee-am-gateway-handler-saml2-idp/)
 
 | Plugin Version | AM version |
 | -------------- | ---------- |
@@ -18,37 +62,21 @@ Repository: [https://github.com/gravitee-io/gravitee-am-gateway-handler-saml2-id
 | 2.0.2+         | 3.21.12+   |
 | 3.0.x          | 4.0.x+     |
 
-### gravitee-am-identity-provider-ldap
+### IdPs
 
-Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-ldap](https://github.com/gravitee-io/gravitee-am-identityprovider-ldap)
+#### [gravitee-am-identity-provider-ldap](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-ldap/)
 
 | Plugin version | AM version |
 | -------------- | ---------- |
 | 1.x            | 4.0 +      |
 
-### gravitee-am-factor-http
-
-Repository : [https://github.com/gravitee-io/gravitee-am-factor-http](https://github.com/gravitee-io/gravitee-am-factor-http)
+#### [gravitee-am-identityprovider-azure-ad](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-azure-ad/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
-| 1.x            | 3.20       |
-| 2.x            | 3.21       |
-| 3.x            | 4.0+       |
+| 1.x+           | 4.0+       |
 
-### gravitee-am-identityprovider-http-flow
-
-Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-http-flow](https://github.com/gravitee-io/gravitee-am-identityprovider-http-flow)
-
-| Plugin Version | AM Version |
-| -------------- | ---------- |
-| 1.x+           | 3.10+      |
-| 2.x+           | 3.21+      |
-| 3.x+           | 4.0+       |
-
-### gravitee-am-identityprovider-cas
-
-Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-cas](https://github.com/gravitee-io/gravitee-am-identityprovider-cas)
+#### [gravitee-am-identityprovider-cas](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-cas/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
@@ -56,17 +84,13 @@ Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-cas](ht
 | 2.x+           | 3.21+      |
 | 3.x+           | 4.0+       |
 
-### gravitee-am-identityprovider-franceconnect
-
-Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-franceconnect](https://github.com/gravitee-io/gravitee-am-identityprovider-franceconnect)
+#### [gravitee-am-identityprovider-franceconnect](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-franceconnect/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
 | 1.x+           | 4.0+       |
 
-### gravitee-am-resource-http-factor
-
-Repository: [https://github.com/gravitee-io/gravitee-am-resource-http-factor](https://github.com/gravitee-io/gravitee-am-resource-http-factor)
+#### [gravitee-am-identityprovider-http-flow](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-http-flow/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
@@ -74,19 +98,7 @@ Repository: [https://github.com/gravitee-io/gravitee-am-resource-http-factor](ht
 | 2.x+           | 3.21+      |
 | 3.x+           | 4.0+       |
 
-### gravitee-am-resource-http-factor
-
-Repository: [https://github.com/gravitee-io/gravitee-am-resource-http-factor](https://github.com/gravitee-io/gravitee-am-resource-http-factor)
-
-| Plugin Version | AM Version |
-| -------------- | ---------- |
-| 1.x+           | 3.10+      |
-| 2.x+           | 3.21+      |
-| 3.x+           | 4.0+       |
-
-### gravitee-am-identityprovider-kerberos
-
-Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-kerberos](https://github.com/gravitee-io/gravitee-am-identityprovider-kerberos)
+#### [gravitee-am-identityprovider-kerberos](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-kerberos/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
@@ -94,29 +106,7 @@ Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-kerbero
 | 2.x+           | 3.21+      |
 | 3.x+           | 4.0+       |
 
-### gravitee-am-factor-fido2
-
-Repository: [https://github.com/gravitee-io/gravitee-am-factor-fido2](https://github.com/gravitee-io/gravitee-am-factor-fido2)
-
-| Plugin Version | AM Version |
-| -------------- | ---------- |
-| 1.x+           | 3.18+      |
-| 2.x+           | 3.21+      |
-| 3.x+           | 4.0+       |
-
-### gravitee-am-factor-otp-sender
-
-Repository: [https://github.com/gravitee-io/gravitee-am-factor-otp-sender](https://github.com/gravitee-io/gravitee-am-factor-otp-sender)
-
-| Plugin Version | AM Version |
-| -------------- | ---------- |
-| 1.x+           | 3.18+      |
-| 2.x+           | 3.21+      |
-| 3.x+           | 4.0+       |
-
-### gravitee-am-identityprovider-saml
-
-Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-saml](https://github.com/gravitee-io/gravitee-am-identityprovider-saml)
+#### [gravitee-am-identityprovider-saml](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-saml2-generic/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
@@ -124,49 +114,25 @@ Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-saml](h
 | 2.x+           | 3.21+      |
 | 3.x+           | 4.0+       |
 
-### gravitee-am-resource-sfr
+### Policies
 
-Repository: [https://github.com/gravitee-io/gravitee-am-resource-sfr](https://github.com/gravitee-io/gravitee-am-resource-sfr)
-
-| Plugin Version | AM Version |
-| -------------- | ---------- |
-| 1.x+           | 4.0+       |
-
-### gravitee-am-identityprovider-azure-ad
-
-Repository: [https://github.com/gravitee-io/gravitee-am-identityprovider-azure-ad](https://github.com/gravitee-io/gravitee-am-identityprovider-azure-ad)
+#### [gravitee-am-policy-mfa-challenge](https://download.gravitee.io/#graviteeio-ee/am/plugins/policies/gravitee-am-policy-mfa-challenge/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
 | 1.x+           | 4.0+       |
 
-### gravitee-am-policy-mfa-challenge
+### Resources
 
-Repository:[https://github.com/gravitee-io/gravitee-am-policy-mfa-challenge](https://github.com/gravitee-io/gravitee-am-policy-mfa-challenge)
-
-| Plugin Version | AM Version |
-| -------------- | ---------- |
-| 1.x+           | 4.0+       |
-
-### gravitee-am-factor-sms
-
-Repository: [https://github.com/gravitee-io/gravitee-am-factor-sms](https://github.com/gravitee-io/gravitee-am-factor-sms)
+#### [gravitee-am-resource-http-factor](https://download.gravitee.io/#graviteeio-ee/am/plugins/resources/gravitee-am-resource-http-factor/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
-| 1.x+           | 4.0+       |
+| 1.x+           | 3.10+      |
+| 2.x+           | 3.21+      |
+| 3.x+           | 4.0+       |
 
-### gravitee-am-factor-call
-
-Repository: [https://github.com/gravitee-io/gravitee-am-factor-call](https://github.com/gravitee-io/gravitee-am-factor-call)
-
-| Plugin Version | AM Version |
-| -------------- | ---------- |
-| 1.x+           | 4.0+       |
-
-### gravitee-am-factor-recoverycode
-
-Repository: [https://github.com/gravitee-io/gravitee-am-factor-recovery-code](https://github.com/gravitee-io/gravitee-am-factor-recovery-code)
+#### [gravitee-am-resource-sfr](https://download.gravitee.io/#graviteeio-ee/am/plugins/resources/gravitee-am-resource-sfr/)
 
 | Plugin Version | AM Version |
 | -------------- | ---------- |
