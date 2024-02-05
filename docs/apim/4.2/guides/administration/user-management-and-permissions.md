@@ -10,10 +10,9 @@ description: >-
 
 In this article, we will walk through how to set up:
 
-* Roles
-* Permissions
-* Users
-* User groups
+* [Roles](user-management-and-permissions.md#roles)
+* [Permissions](user-management-and-permissions.md#permissions)
+* [Users and user groups](user-management-and-permissions.md#users-and-user-groups)
 
 {% hint style="info" %}
 **By default**
@@ -38,76 +37,59 @@ Gravitee comes with some pre-built default roles, but there is no limit to the n
     * Application
 * Defines what you can do with the APIM UI components and the APIM Management API
 
-To set up roles, log-in to the Gravitee API Management Console, and select Organization in the left-hand nav. In your Organization settings, select **Roles** from the **User Management** section. You'll be brought to the **Roles** page. Here, you can add, see members within, and delete roles at the Organization, Environment, API, and Application Scopes. Depending on which Scope a role is created at, that role will have a different set of permissions. Please see the following tables that describe the permissions per scope:
+To set up roles, log-in to the Gravitee API Management Console, and select Organization in the left-hand nav. In your Organization settings, select **Roles** from the **User Management** section. You'll be brought to the **Roles** page. Here, you can add, see members within, and delete roles at the Organization, Environment, API, and Application Scopes. Depending on which Scope a role is created at, that role will have a different set of permissions.&#x20;
 
-#### Organization permissions
+### Permissions
 
-<table><thead><tr><th width="180">Name</th><th>Description</th></tr></thead><tbody><tr><td>USER</td><td>Manages users.</td></tr><tr><td>ENVIRONMENT</td><td>Manages environments.</td></tr><tr><td>ROLE</td><td>Manages roles.</td></tr><tr><td>TAG</td><td>Manages sharding tags.</td></tr><tr><td>TENANT</td><td>Manages tenants.</td></tr><tr><td>ENTRYPOINT</td><td>Manages environment entrypoint configuration.</td></tr></tbody></table>
+The following tables describe permissions per scope.
 
-#### Environment permissions
+{% tabs %}
+{% tab title="Organization" %}
+<table><thead><tr><th width="180">Name</th><th>Description</th></tr></thead><tbody><tr><td>ENTRYPOINT</td><td>Manages environment entrypoint configuration</td></tr><tr><td>ENVIRONMENT</td><td>Manages environments</td></tr><tr><td>ROLE</td><td>Manages roles</td></tr><tr><td>TAG</td><td>Manages sharding tags</td></tr><tr><td>TENANT</td><td>Manages tenants</td></tr><tr><td>USER</td><td>Manages users</td></tr></tbody></table>
+{% endtab %}
 
-| Name                           | Description                                                                                                                                                                                                                    |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| INSTANCE                       | Access to API Gateway instance information. Only `READ` permission is used.                                                                                                                                                    |
-| GROUP                          | Manages user groups.                                                                                                                                                                                                           |
-| TAG                            | Manages sharding tags. **Deprecated, will be removed on 3.10.0**                                                                                                                                                               |
-| TENANT                         | Manages tenants. **Deprecated, will be removed on 3.10.0**                                                                                                                                                                     |
-| API                            | Manages APIs in general. This means that the `CREATE` action is used to establish if the user is allowed to create an API or not, and the `READ` permission to allow the user to request the policies list and resources list. |
-| APPLICATION                    | Manages applications in general. `CREATE` allows the user to create an application, `READ` allows the user to list applications.                                                                                               |
-| PLATFORM                       | Gets APIM monitoring metrics. Only `READ` permission is used.                                                                                                                                                                  |
-| AUDIT                          | Gets APIM audit. Only `READ` permission is used.                                                                                                                                                                               |
-| NOTIFICATION                   | Manages global notifications.                                                                                                                                                                                                  |
-| MESSAGE                        | Manages messaging.                                                                                                                                                                                                             |
-| DICTIONARY                     | Manages environment dictionaries.                                                                                                                                                                                              |
-| ALERT                          | Manages environment alerting.                                                                                                                                                                                                  |
-| ENTRYPOINT                     | Manages environment entrypoint configuration. **Deprecated, will be removed on 3.10.0**                                                                                                                                        |
-| SETTINGS                       | Manages environment settings.                                                                                                                                                                                                  |
-| DASHBOARD                      | Manages environment dashboards.                                                                                                                                                                                                |
-| QUALITY\_RULE                  | Manages environment quality rules.                                                                                                                                                                                             |
-| METADATA                       | Manages APIM metadata.                                                                                                                                                                                                         |
-| DOCUMENTATION                  | ManageS APIM Portal documentation.                                                                                                                                                                                             |
-| CATEGORY                       | Manages categories.                                                                                                                                                                                                            |
-| TOP\_APIS                      | Manages top apis.                                                                                                                                                                                                              |
-| API\_HEADERS                   | Manages environment API headers.                                                                                                                                                                                               |
-| IDENTITY\_PROVIDER             | Manages Identity Providers for authentication.                                                                                                                                                                                 |
-| CLIENT\_REGISTRATION\_PROVIDER | Manages environment client registration configuration.                                                                                                                                                                         |
-| THEME                          | Manages APIM Portal themes.                                                                                                                                                                                                    |
+{% tab title="Environment" %}
+<table><thead><tr><th width="324">Name</th><th>Description</th></tr></thead><tbody><tr><td>ALERT</td><td>Manages environment alerting</td></tr><tr><td>API</td><td>Manages APIs in general. This means that the <code>CREATE</code> action is used to establish if the user is allowed to create an API or not, and the <code>READ</code> permission to allow the user to request the policies list and resources list.</td></tr><tr><td>API_HEADERS</td><td>Manages environment API headers</td></tr><tr><td>APPLICATION</td><td>Manages applications in general. <code>CREATE</code> allows the user to create an application, <code>READ</code> allows the user to list applications.</td></tr><tr><td>AUDIT</td><td>Gets APIM audit. Only <code>READ</code> permission is used.</td></tr><tr><td>CATEGORY</td><td>Manages categories</td></tr><tr><td>CLIENT_REGISTRATION_PROVIDER</td><td>Manages environment client registration configuration</td></tr><tr><td>DASHBOARD</td><td>Manages environment dashboards</td></tr><tr><td>DICTIONARY</td><td>Manages environment dictionaries</td></tr><tr><td>DOCUMENTATION</td><td>Manages APIM Dev Portal documentation</td></tr><tr><td>GROUP</td><td>Manages user groups</td></tr><tr><td>IDENTITY_PROVIDER</td><td>Manages Identity Providers for authentication</td></tr><tr><td>INSTANCE</td><td>Access to API Gateway instance information. Only <code>READ</code> permission is used.</td></tr><tr><td>MESSAGE</td><td>Manages messaging</td></tr><tr><td>METADATA</td><td>Manages APIM metadata</td></tr><tr><td>NOTIFICATION</td><td>Manages global notifications</td></tr><tr><td>PLATFORM</td><td>Gets APIM monitoring metrics. Only <code>READ</code> permission is used.</td></tr><tr><td>QUALITY_RULE</td><td>Manages environment quality rules</td></tr><tr><td>SETTINGS</td><td>Manages environment settings</td></tr><tr><td>THEME</td><td>Manages APIM Portal themes</td></tr><tr><td>TOP_APIS</td><td>Manages top APIs</td></tr></tbody></table>
+{% endtab %}
 
-#### API permissions
-
+{% tab title="API" %}
 | Name                | Description                                                                                                                                 |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| DEFINITION          | Manages the API definition.                                                                                                                 |
-| PLAN                | Manages API plans.                                                                                                                          |
-| SUBSCRIPTION        | Manages API subscriptions.                                                                                                                  |
-| MEMBER              | Manages API members.                                                                                                                        |
-| METADATA            | Manages API metadata.                                                                                                                       |
+| ALERT               | Manages API alerting                                                                                                                        |
 | ANALYTICS           | Manages API analytics. Only `READ` permission is used.                                                                                      |
-| EVENT               | Manages API events. Only `READ` permission is used.                                                                                         |
-| HEALTH              | Manages API health checks.                                                                                                                  |
-| LOG                 | Manages API logs. Only `READ` permission is used.                                                                                           |
-| DOCUMENTATION       | Manages API documentation.                                                                                                                  |
-| GATEWAY\_DEFINITION | A specific permission used to update the context-path (`UPDATE`) and to give access to sensitive data (`READ`) such as endpoints and paths. |
-| RATING              | Manages API rating.                                                                                                                         |
-| RATING\_ANSWERS     | Manages API rating answers.                                                                                                                 |
 | AUDIT               | Manages API audits. Only `READ` permission is used.                                                                                         |
-| DISCOVERY           | Manages service discovery.                                                                                                                  |
-| NOTIFICATION        | Manages API notifications.                                                                                                                  |
-| MESSAGE             | Manages messaging.                                                                                                                          |
-| ALERT               | Manages API alerting.                                                                                                                       |
-| RESPONSE\_TEMPLATES | Manages API response templates.                                                                                                             |
-| REVIEWS             | Manages API reviews.                                                                                                                        |
-| QUALITY\_RULE       | Manages API quality rules.                                                                                                                  |
+| DEFINITION          | Manages the API definition                                                                                                                  |
+| DISCOVERY           | Manages service discovery                                                                                                                   |
+| DOCUMENTATION       | Manages API documentation                                                                                                                   |
+| EVENT               | Manages API events. Only `READ` permission is used.                                                                                         |
+| GATEWAY\_DEFINITION | A specific permission used to update the context-path (`UPDATE`) and to give access to sensitive data (`READ`) such as endpoints and paths. |
+| HEALTH              | Manages API health checks                                                                                                                   |
+| LOG                 | Manages API logs. Only `READ` permission is used.                                                                                           |
+| MEMBER              | Manages API members                                                                                                                         |
+| METADATA            | Manages API metadata                                                                                                                        |
+| MESSAGE             | Manages messaging                                                                                                                           |
+| NOTIFICATION        | Manages API notifications                                                                                                                   |
+| PLAN                | Manages API plans                                                                                                                           |
+| QUALITY\_RULE       | Manages API quality rules                                                                                                                   |
+| RATING              | Manages API rating                                                                                                                          |
+| RATING\_ANSWERS     | Manages API rating answers                                                                                                                  |
+| RESPONSE\_TEMPLATES | Manages API response templates                                                                                                              |
+| REVIEWS             | Manages API reviews                                                                                                                         |
+| SUBSCRIPTION        | Manages API subscriptions                                                                                                                   |
+{% endtab %}
 
+{% tab title="Application" %}
 | Name         | Description                                                    |
 | ------------ | -------------------------------------------------------------- |
-| DEFINITION   | Manages the application definition.                            |
-| MEMBER       | Manages application members.                                   |
+| ALERT        | Manages application alerting                                   |
 | ANALYTICS    | Manages application analytics. Only `READ` permission is used. |
+| DEFINITION   | Manages the application definition                             |
 | LOG          | Manages application logs. Only `READ` permission is used.      |
-| SUBSCRIPTION | Manages application subscriptions.                             |
-| NOTIFICATION | Manages application notifications.                             |
-| ALERT        | Manages application alerting.                                  |
+| MEMBER       | Manages application members                                    |
+| NOTIFICATION | Manages application notifications                              |
+| SUBSCRIPTION | Manages application subscriptions                              |
+{% endtab %}
+{% endtabs %}
 
 {% hint style="warning" %}
 **Enterprise only**
