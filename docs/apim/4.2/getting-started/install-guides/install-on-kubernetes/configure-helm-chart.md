@@ -103,7 +103,12 @@ By default, the Helm Chart creates a ServiceAccount that enables Gravitee API Ma
 
 Application settings must be defined as follows:
 
-* Secret settings: `kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>`
+* Secret settings: `secrets://kubernetes/mysecret:key?namespace=ns`, with the kube plugin enabled via `secrets.kubernetes.enabled=true`
+
+{% hint style="warning" %}
+The above syntax only applies to Gravitee versions 4.2 and later
+{% endhint %}
+
 * ConfigMap settings: `kubernetes://<namespace>/configmaps/<my-configmap-name>/<my-configmap-key>`
 
 For example, the MongoDB URI initialized from the `mongo` Secret deployed in the `default` namespace is defined as:
