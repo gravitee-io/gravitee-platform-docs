@@ -87,8 +87,13 @@ The following tables list the configurable parameters of the Gravitee chart and 
 
 You can rely on Kubernetes _ConfigMaps_ and _Secrets_ to initialize Gravitee settings since AM 3.15.0. To use this feature, you have to create the ServiceAccount that allows AM to connect to the Kubernetes API (the helm chart should do it by default) and then you simply have to define your application settings like this:
 
-* for a Secret : `kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>`
-* for a ConfigMap : `kubernetes://<namespace>/configmaps/<my-configmap-name>/<my-configmap-key>`
+* Secret settings: `secrets://kubernetes/mysecret:key?namespace=ns`, with the kube plugin enabled via `secrets.kubernetes.enabled=true`
+
+{% hint style="warning" %}
+The above syntax only applies to Gravitee versions 4.2 and later
+{% endhint %}
+
+* ConfigMap settings: `kubernetes://<namespace>/configmaps/<my-configmap-name>/<my-configmap-key>`
 
 Here is an example for the mongodb uri initialized from the `mongo` secret deployed in the `default` namespace:
 
