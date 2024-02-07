@@ -1,4 +1,4 @@
-# Configure AM Gateway
+# AM Gateway
 
 ## Overview
 
@@ -268,9 +268,7 @@ plugins:
 
 ### Configure the Management repository
 
-Management repository is used to store global configurations such as security domains, clients, tokens, users, etc. ​This is the default configuration using MongoDB (single server). For more information about MongoDB configuration, please have a look to:
-
-[https://api.mongodb.com/java/3.0/?com/mongodb/MongoClientOptions.html](https://api.mongodb.com/java/3.0/?com/mongodb/MongoClientOptions.html)
+Management repository is used to store global configurations such as security domains, clients, tokens, users, etc. ​This is the default configuration using MongoDB (single server).
 
 {% code title="gravitee.yml" %}
 ```yaml
