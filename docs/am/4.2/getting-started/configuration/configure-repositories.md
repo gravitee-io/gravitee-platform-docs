@@ -1,4 +1,4 @@
-# Configure Repositories
+# Repositories
 
 ## Overview
 
@@ -92,6 +92,16 @@ management:
 #      type:                      # Type of the truststore, supports jks, pem, pkcs12 (when sslEnabled is true, default null)
 #      password:                  # Truststore password (when sslEnabled is true, default null)
 ```
+
+{% hint style="info" %}
+**Support for databases with MongoDB compatibility**\
+Some databases are almost fully compatible with MongoDB, like:
+
+* DocumentDB (AWS)
+* Azure Cosmos DB for MongoDB (Azure)
+
+However, some features might not be supported or act differently in terms of behavior or performance. That's why **they are not considered as officially supported databases**, making **MongoDB the only officially supported database** for now.
+{% endhint %}
 
 ## JDBC
 
