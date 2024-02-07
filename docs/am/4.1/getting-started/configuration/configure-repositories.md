@@ -93,6 +93,16 @@ management:
 #      password:                  # Truststore password (when sslEnabled is true, default null)
 ```
 
+{% hint style="info" %}
+**Support for databases with MongoDB compatibility**\
+Some databases are almost fully compatible with MongoDB, such as:
+
+* DocumentDB (AWS)
+* Azure Cosmos DB for MongoDB (Azure)
+
+However, some features may not be supported, or may exhibit unexpected behavior or performance. Consequently, **MongoDB is currently the only officially supported database**.
+{% endhint %}
+
 ## JDBC
 
 You can deploy this repository plugin in AM to use the most common databases, including:
