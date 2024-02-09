@@ -24,11 +24,11 @@ Functional and implementation information for the `keyless` policy is organized 
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
+This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API example" %}
+{% tab title="HTTP proxy API example" %}
 Sample policy configuration:
 
 <pre class="language-json"><code class="lang-json">{

@@ -19,11 +19,11 @@ Functional and implementation information for the `json-xml` policy is organized
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 message APIs.
+This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. It cannot be applied to v4 TCP proxy APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API example" %}
+{% tab title="HTTP proxy API example" %}
 For proxy APIs, the `json-xml` policy is most commonly used for transforming JSON data before returning it to the client in the `response` phase.
 
 For example, the Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted as below:

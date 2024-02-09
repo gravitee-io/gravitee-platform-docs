@@ -29,7 +29,7 @@ This policy can be applied to v2 APIs. It cannot be applied to v4 proxy APIs or 
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API example" %}
+{% tab title="v2 API example" %}
 Sample policy configuration:
 
 ```json

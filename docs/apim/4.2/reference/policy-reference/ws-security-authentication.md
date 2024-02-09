@@ -33,11 +33,11 @@ Functional and implementation information for the `wssecurity-authentication` po
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
+This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API example" %}
+{% tab title="HTTP proxy API example" %}
 In the example below, the policy will extract **foo** & **bar** from the payload.
 
 {% code title="Default response" %}
@@ -87,7 +87,7 @@ The phases checked below are supported by the `wssecurity-authentication` policy
 
 The `wssecurity-authentication` policy can be configured with the following options:
 
-<table data-full-width="false"><thead><tr><th width="234">Property</th><th width="104" data-type="checkbox">Required</th><th width="313">Description</th><th width="111" data-type="select">Type</th><th width="247">Options</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>false</td><td>List the authentication providers</td><td></td><td>N/a</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="234">Property</th><th width="104" data-type="checkbox">Required</th><th width="313">Description</th><th width="111">Type<select><option value="5f4171f5365a4e328c37990512178470" label="list of strings" color="blue"></option></select></th><th width="247">Options</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>false</td><td>List the authentication providers</td><td><span data-option="5f4171f5365a4e328c37990512178470">list of strings</span></td><td>N/a</td></tr></tbody></table>
 
 ## Compatibility matrix
 

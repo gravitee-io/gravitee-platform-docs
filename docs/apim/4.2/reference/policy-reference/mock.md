@@ -28,11 +28,11 @@ Functional and implementation information for the `mock` policy is organized int
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
+This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API example" %}
+{% tab title="HTTP proxy API example" %}
 Note that you don’t need to provide the `Content-Type` header, since the `mock` policy can automatically detect the content type.
 
 **Body content example (XML)**

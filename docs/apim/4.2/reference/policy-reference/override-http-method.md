@@ -25,11 +25,11 @@ Functional and implementation information for the `override-http-method` policy 
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
+This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API example" %}
+{% tab title="HTTP proxy API example" %}
 The Gravitee echo API returns a JSON response when a `GET` request is sent to [https://api.gravitee.io/echo](https://api.gravitee.io/echo). The response is formatted as follows:
 
 {% code title="Default response" %}
@@ -79,7 +79,7 @@ The phases checked below are supported by the `override-http-method` policy:
 
 The `override-http-method` policy can be configured with the following options:
 
-<table data-full-width="false"><thead><tr><th width="121">Property</th><th width="100" data-type="checkbox">Required</th><th width="156">Description</th><th width="94" data-type="select">Type</th><th width="149">Options</th></tr></thead><tbody><tr><td>method</td><td>true</td><td>HTTP method used regardless of method called</td><td></td><td>GET<br>POST<br>PUT<br>DELETE<br>PATCH<br>HEAD<br>CONNECT<br>OPTIONS<br>TRACE</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="121">Property</th><th width="100" data-type="checkbox">Required</th><th width="156">Description</th><th width="94">Type<select></select></th><th width="149">Options</th></tr></thead><tbody><tr><td>method</td><td>true</td><td>HTTP method used regardless of method called</td><td></td><td>GET<br>POST<br>PUT<br>DELETE<br>PATCH<br>HEAD<br>CONNECT<br>OPTIONS<br>TRACE</td></tr></tbody></table>
 
 ## Compatibility matrix
 

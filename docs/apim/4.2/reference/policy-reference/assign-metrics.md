@@ -23,11 +23,11 @@ Functional and implementation information for the `assign-metrics` policy is org
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to all Gravitee APIs: v2 APIs, v4 proxy APIs, and v4 message APIs.
+This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. It cannot be applied to v4 TCP proxy APIs.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Proxy API example" %}
+{% tab title="HTTP proxy API example" %}
 To display your request distribution based on a particular HTTP header in your dashboards, create the custom metric shown below:
 
 ```json
