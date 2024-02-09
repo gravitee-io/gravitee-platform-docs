@@ -8,26 +8,24 @@ description: >-
 
 ## Gravitee Access Management 4.2.3 - February 8, 2024
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
 
 **Gateway**
 
-* Invalid form parameter when ResponseMode is set to form_post [#9179](https://github.com/gravitee-io/issues/issues/9179)
+* Invalid form parameter when ResponseMode is set to form\_post [#9179](https://github.com/gravitee-io/issues/issues/9179)
 * SCIM search operator PR doesn't work as expected [#9265](https://github.com/gravitee-io/issues/issues/9265)
-* Authentication flow rejected due to redirect_uri when PAR is used [#9478](https://github.com/gravitee-io/issues/issues/9478)
+* Authentication flow rejected due to redirect\_uri when PAR is used [#9478](https://github.com/gravitee-io/issues/issues/9478)
 * MFA challenge should be prompted before registering a passwordless device [#9479](https://github.com/gravitee-io/issues/issues/9479)
 * Remember Device Not Functioning with Conditional MFA [#9484](https://github.com/gravitee-io/issues/issues/9484)
-* WebAuthn : "Force authenticator integrity" - LastCheckedAt systematically updated at each webauthn login [#9327](https://github.com/gravitee-io/issues/issues/9327)
+* WebAuthn: "Force authenticator integrity" - LastCheckedAt systematically updated at each webauthn login [#9327](https://github.com/gravitee-io/issues/issues/9327)
 
 **Management API**
 
 * Apply timeout on blockingGet in ManagementAPI filters [#9476](https://github.com/gravitee-io/issues/issues/9476)
 
 </details>
-
 
 ## Gravitee Access Management 4.2.2 - January 30, 2024
 
