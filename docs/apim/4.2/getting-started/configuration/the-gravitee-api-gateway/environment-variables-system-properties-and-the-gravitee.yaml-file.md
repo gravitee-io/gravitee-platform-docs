@@ -469,8 +469,8 @@ environments: dev,integration
 
 By default, the APIM Gateway will generate an id for each request and set it in the following headers:
 
-* `X-Gravitee-Transaction-Id` for the transaction id
-* `X-Gravitee-Request-Id` for the request id
+* `X-Gravitee-Transaction-Id`: This header represents the identifier for the entire transaction, which typically encompasses multiple calls or requests. It allows the tracking of a series of related requests and responses that are part of a larger transaction.
+* `X-Gravitee-Request-Id`: This header represents the identifier for a single call or request within the transaction. Every individual request receives a unique identifier, which allows each request to be tracked separately.
 
 Both of these headers can be customized. You can provide your own header names:
 
