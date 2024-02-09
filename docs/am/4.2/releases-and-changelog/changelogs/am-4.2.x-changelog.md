@@ -20,6 +20,7 @@ description: >-
 * Authentication flow rejected due to redirect_uri when PAR is used [#9478](https://github.com/gravitee-io/issues/issues/9478)
 * MFA challenge should be prompted before registering a passwordless device [#9479](https://github.com/gravitee-io/issues/issues/9479)
 * Remember Device Not Functioning with Conditional MFA [#9484](https://github.com/gravitee-io/issues/issues/9484)
+* WebAuthn : "Force authenticator integrity" - LastCheckedAt systematically updated at each webauthn login [#9327](https://github.com/gravitee-io/issues/issues/9327)
 
 **Management API**
 
