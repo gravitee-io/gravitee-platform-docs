@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.13 - February 9, 2024
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* Invalid form parameter when ResponseMode is set to form_post  https://github.com/gravitee-io/issues/issues/9179[#9179]
+* SCIM search operator PR doesn't work as expected https://github.com/gravitee-io/issues/issues/9265[#9265]
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.1.12 - January 30, 2024
 
 <details>
