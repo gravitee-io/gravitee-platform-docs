@@ -179,6 +179,7 @@
   * [Assign Content](reference/policy-reference/assign-content.md)
   * [Assign Metrics](reference/policy-reference/assign-metrics.md)
   * [AVRO to JSON](reference/policy-reference/avro-json.md)
+  * [AVRO to Protobuf Transformation](reference/policy-reference/avro-to-protobuf-transformation.md)
   * [AWS Lambda](reference/policy-reference/aws-lambda.md)
   * [Basic Authentication](reference/policy-reference/basic-authentication.md)
   * [Cache](reference/policy-reference/cache.md)
