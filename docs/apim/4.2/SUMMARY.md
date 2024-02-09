@@ -211,6 +211,7 @@
     * [Gravitee.io AM Authorization Server](reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md)
   * [OpenID Connect UserInfo](reference/policy-reference/openid-connect-userinfo.md)
   * [Override HTTP Method](reference/policy-reference/override-http-method.md)
+  * [Protobuf to JSON Transformation](reference/policy-reference/protobuf-to-json-transformation.md)
   * [Rate Limit](reference/policy-reference/rate-limit.md)
   * [Regex Threat Protection](reference/policy-reference/regex-threat-protection.md)
   * [Request Content Limit](reference/policy-reference/request-content-limit.md)

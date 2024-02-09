@@ -12,19 +12,19 @@ description: >-
 
 ## Overview
 
-You can use the `avro-protobuf` policy to apply a transformation (or mapping) on the request and/or response and/or message content of a transaction.
+You can use the `avro-protobuf` policy to apply a transformation (or mapping) on the request and/or response and/or message content.
 
 This policy uses the [Avro](https://avro.apache.org/docs/1.11.1/) library.
 
 To serialize data in Avro, you need a [schema](https://avro.apache.org/docs/1.11.1/#schemas). There are two ways to provide a schema:
 
 * Inline in the policy configuration
-* With a Schema Registry
+* With a schema registry
 
-To serialize data in Protobuf, you need a [schema](https://avro-protobuf.dev/overview/). There are two ways to provide a schema:
+To serialize data in Protobuf, you need a [schema](https://protobuf.dev/overview/). There are two ways to provide a schema:
 
-* Inlined in the policy configuration
-* With a Schema Registry
+* Inline in the policy configuration
+* With a schema registry
 
 Functional and implementation information for the `avro-protobuf` policy is organized into the following sections:
 
@@ -99,10 +99,10 @@ Currently, we only provide a resource to interact with Confluent Schema Registry
 }
 ```
 
-Currently, we only support [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format). The `avro-protobuf` policy will extract the schema ID from the binary and will use it to fetch the schema in the registry.
+Currently, we only support [Confluent serialization format](https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#wire-format). The `avro-protobuf` policy will extract the schema ID from the binary and use it to fetch the schema in the registry.
 
 {% hint style="warning" %}
-The use of a schema registry is only available to transform message on the `onMessageResponse` phase.
+The use of a schema registry is only available to transform messages on the `onMessageResponse` phase.
 {% endhint %}
 
 ### Serialization format <a href="#user-content-serialization-format" id="user-content-serialization-format"></a>
