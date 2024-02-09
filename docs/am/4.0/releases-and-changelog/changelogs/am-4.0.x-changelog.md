@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.10 - February 9, 2024
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* Invalid form parameter when ResponseMode is set to form_post  https://github.com/gravitee-io/issues/issues/9179[#9179]
+* SCIM search operator PR doesn't work as expected https://github.com/gravitee-io/issues/issues/9265[#9265]
+* Authentication flow rejected due to redirect_uri when PAR is used https://github.com/gravitee-io/issues/issues/9478[#9478]
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.0.9 - January 24, 2024
 
 <details>
