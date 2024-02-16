@@ -5,17 +5,18 @@ description: >-
 ---
 
 # APIM 4.0.x
- 
+
 ## Gravitee API Management 4.0.18 - February 16, 2024
+
 <details>
 
-<summary>BugFixes</summary>
+<summary>Bug fixes</summary>
 
 **Management API**
 
-* Exclude groups on plan are not displayed after being imported or promoted to a new environment [#9116](https://github.com/gravitee-io/issues/issues/9116)
-* Private API on the portal are wrongly displayed [#9513](https://github.com/gravitee-io/issues/issues/9513)
-* Modifying api definition causes loss of endpoint configuration [#9520](https://github.com/gravitee-io/issues/issues/9520)
+* Excluded groups on plan are not displayed after being imported or promoted to a new environment [#9116](https://github.com/gravitee-io/issues/issues/9116)
+* Private APIs on the Portal are wrongly displayed [#9513](https://github.com/gravitee-io/issues/issues/9513)
+* Modifying API definition causes loss of endpoint configuration [#9520](https://github.com/gravitee-io/issues/issues/9520)
 
 **Console**
 
@@ -23,8 +24,8 @@ description: >-
 
 **Portal**
 
-* Documentation gets encoded after deploy [#9490](https://github.com/gravitee-io/issues/issues/9490)
-* Customization problems of the developers portal [#9495](https://github.com/gravitee-io/issues/issues/9495)
+* Documentation gets encoded after deployment [#9490](https://github.com/gravitee-io/issues/issues/9490)
+* Customization problems in the Developer Portal [#9495](https://github.com/gravitee-io/issues/issues/9495)
 * Subscriptions Not Visible in Portal If There Is a Push Plan [#9511](https://github.com/gravitee-io/issues/issues/9511)
 
 **Other**
@@ -32,8 +33,6 @@ description: >-
 * "Propagate client Accept-Encoding header" option missing in V4 [#9475](https://github.com/gravitee-io/issues/issues/9475)
 
 </details>
-
-
 
 ## Gravitee API Management 4.0.17 - February 2, 2024
 
