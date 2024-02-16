@@ -26,6 +26,7 @@ The following sections define the scope and usage of EL:
 * [Mixin](gravitee-expression-language.md#mixin)
 * [Policies](gravitee-expression-language.md#policies)
 * [Conditions](gravitee-expression-language.md#conditions)
+* [Whitelisting](gravitee-expression-language.md#whitelisting)
 * [Debugging](gravitee-expression-language.md#debugging)
 
 ## Basic usage
@@ -330,6 +331,93 @@ You can use the EL to set a condition of execution (see 'conditional policies an
 
 You can use the `equals()` method instead of `==`. When you use `.equals()`, it is recommended to put the string first to prevent an error. For example, if `#request.headers['my-header']` is `null` , then `'my-value'.equals(#request.headers['my-header'])`will prevent an error.
 {% endhint %}
+
+## Whitelisting
+
+### Allowed classes and methods
+
+Gravitee Expression Language includes a list of [whitelisted classes and methods](https://github.com/gravitee-io/gravitee-expression-language/blob/master/src/main/resources/whitelist).
+
+The list `Allows by class` exposes a class and all of its public members for use. For example, EL can use the number PI: `{T(java.lang.Math).PI}`.
+
+The list `Allows by method signatures` is more precise. You can expose only particular methods to be used on a class and hide the others. This applies to `java.lang.System`, which is exposed only with `currentTimeMillis()` and `nanoTime()` methods, e.g., `{T(java.lang.System).currentTimeMillis()}`.
+
+Finally, this whitelist contains an empty list for `Allows by constructor signatures`. This has exactly the same syntax, but for a constructor.
+
+### Syntax
+
+The syntax for whitelist classes, methods, and constructors is described below.
+
+{% tabs %}
+{% tab title="Classes" %}
+Syntax: `class package.ClassName`
+
+Example: `class java.lang.Double`
+{% endtab %}
+
+{% tab title="Methods" %}
+If the method has no parameters:
+
+<table><thead><tr><th width="405">Syntax</th><th>Example</th></tr></thead><tbody><tr><td><code>method package.ClassNameOfReturnType methodName</code></td><td><code>method java.lang.System currentTimeMillis</code></td></tr></tbody></table>
+
+If the method has parameters:
+
+<table><thead><tr><th width="407">Syntax</th><th>Example</th></tr></thead><tbody><tr><td><code>method package.ClassNameOfReturnType methodName package.ClassNameOfParameterType_1 package.ClassNameOfParameterType_2 ...</code></td><td><code>method java.net.URLDecoder decode java.lang.String java.lang.String</code></td></tr></tbody></table>
+{% endtab %}
+
+{% tab title="Constructors" %}
+If the constructor has no parameters:
+
+<table><thead><tr><th width="378">Syntax</th><th>Example</th></tr></thead><tbody><tr><td><code>new package.ClassNameOfReturnType</code></td><td><code>new java.lang.String</code></td></tr></tbody></table>
+
+If the constructor has parameters:
+
+<table><thead><tr><th width="378">Syntax</th><th>Example</th></tr></thead><tbody><tr><td><code>new package.ClassNameOfReturnType package.ClassNameOfParameterType_1 package.ClassNameOfParameterType_2 ...</code></td><td><code>new java.lang.String java.lang.String</code> (instantiate a new String from a string)</td></tr></tbody></table>
+
+aa
+{% endtab %}
+{% endtabs %}
+
+### Whitelist modifications
+
+The whitelist file is built within the package and cannot be modified directly. Modifications to the whitelist must be passed to the Gateway via the `gravitee.yml` file or environment variables.
+
+{% tabs %}
+{% tab title="gravitee.yml" %}
+The [gravitee.yml](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L562) file contains the EL block shown below. Uncomment and add to is as needed:
+
+```yaml
+#el:
+  # Allows to define which methods or classes are accessible to the Expression Language engine (/!\ caution, changing default whitelist may expose you to security issues).
+  # A complete list of default whitelist methods can be found here (https://raw.githubusercontent.com/gravitee-io/gravitee-expression-language/master/src/main/resources/whitelist).
+#  whitelist:
+    # Allows to define if the specified list of method or classes should be append to the default one or should replace it.
+    # We recommend you to always choose 'append' unless you absolutely know what you are doing.
+#    mode: append
+    # Define the list of classes or methods to append (or set) to made accessible to the Expression Language.
+    # start with 'method' to allow a specific method (complete signature).
+    # start with 'class' to allow a complete class. All methods of the class will then be accessible.
+#    list:
+      # Ex: allow access to DateTimeFormatter.ofLocalizedDate(FormatStyle) method
+      # - method java.time.format.DateTimeFormatter ofLocalizedDate java.time.format.FormatStyle
+      # Ex: allow access to all methods of DateTimeFormatter class
+      # - class java.time.format.DateTimeFormatter
+```
+{% endtab %}
+
+{% tab title="Environment variables" %}
+The content of `gravitee.yml` is compatible with environment variables. To configure the whitelist, pass environment variables formatted as follows:
+
+```bash
+gravitee.el.whitelist.list[0]=class java.util.Class1
+gravitee.el.whitelist.list[1]=class java.util.Class1$SubClass
+```
+
+{% hint style="info" %}
+An array selector (\[0] and \[1]) is used to differentiate the two lines. The `gravitee.yml` file contains an array of values.
+{% endhint %}
+{% endtab %}
+{% endtabs %}
 
 ## Debugging
 
