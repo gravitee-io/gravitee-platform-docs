@@ -8,28 +8,26 @@ description: >-
 
 ## Gravitee Access Management 4.2.4 - February 19, 2024
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Unable to finalize SAML authentication using HTTP-POST binding https://github.com/gravitee-io/issues/issues/9485[#9485]
-* Security Domain may not be loaded on gateway startup https://github.com/gravitee-io/issues/issues/9496[#9496]
-* Custom email not being sent when resending account registered verification email https://github.com/gravitee-io/issues/issues/9500[#9500]
-* Do not log stack trace when user has to provide password after webauthn authentication https://github.com/gravitee-io/issues/issues/9503[#9503]
-
-
+* Unable to finalize SAML authentication using HTTP-POST binding [#9485](https://github.com/gravitee-io/issues/issues/9485)
+* Security Domain may not be loaded on Gateway startup [#9496](https://github.com/gravitee-io/issues/issues/9496)
+* Custom email not being sent when resending account registered verification email [#9500](https://github.com/gravitee-io/issues/issues/9500)
+* Do not log stack trace when user has to provide password after webauthn authentication [#9503](https://github.com/gravitee-io/issues/issues/9503)
 
 **Console**
 
-* Missing read password policy role https://github.com/gravitee-io/issues/issues/8924[#8924]
+* Missing read password policy role [#8924](https://github.com/gravitee-io/issues/issues/8924)
 
 **Other**
 
-* SAML 2.0 Identity Provider requires AM dependency update https://github.com/gravitee-io/issues/issues/9515[#9515]
-</details>
+* SAML 2.0 Identity Provider requires AM dependency update [#9515](https://github.com/gravitee-io/issues/issues/9515)
 
+</details>
 
 ## Gravitee Access Management 4.2.3 - February 8, 2024
 
