@@ -6,6 +6,31 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.14 - February 19, 2024
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* Unable to finalize SAML authentication using HTTP-POST binding https://github.com/gravitee-io/issues/issues/9485[#9485]
+* Security Domain may not be loaded on gateway startup https://github.com/gravitee-io/issues/issues/9496[#9496]
+* Custom email not being sent when resending account registered verification email https://github.com/gravitee-io/issues/issues/9500[#9500]
+
+
+
+**Console**
+
+* Missing read password policy role https://github.com/gravitee-io/issues/issues/8924[#8924]
+
+**Other**
+
+* Do not log stack trace when user has to provide password after webauthn authentication https://github.com/gravitee-io/issues/issues/9503[#9503]
+* SAML 2.0 Identity Provider requires AM dependency update https://github.com/gravitee-io/issues/issues/9515[#9515]
+</details>
+
+
 ## Gravitee Access Management 4.1.13 - February 9, 2024
 
 <details>
