@@ -79,7 +79,7 @@ The phases checked below are supported by the `override-http-method` policy:
 
 The `override-http-method` policy can be configured with the following options:
 
-<table data-full-width="false"><thead><tr><th width="121">Property</th><th width="100" data-type="checkbox">Required</th><th width="156">Description</th><th width="94" data-type="select">Type</th><th width="149">Options</th></tr></thead><tbody><tr><td>method</td><td>true</td><td>HTTP method used regardless of method called</td><td></td><td>GET<br>POST<br>PUT<br>DELETE<br>PATCH<br>HEAD<br>CONNECT<br>OPTIONS<br>TRACE</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="121">Property</th><th width="100" data-type="checkbox">Required</th><th width="156">Description</th><th width="94">Type<select></select></th><th width="149">Options</th></tr></thead><tbody><tr><td>method</td><td>true</td><td>HTTP method used regardless of method called</td><td></td><td>GET<br>POST<br>PUT<br>DELETE<br>PATCH<br>HEAD<br>CONNECT<br>OPTIONS<br>TRACE</td></tr></tbody></table>
 
 ## Compatibility matrix
 
