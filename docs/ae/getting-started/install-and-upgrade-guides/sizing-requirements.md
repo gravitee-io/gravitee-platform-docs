@@ -32,7 +32,7 @@ Dampenings are a good way to reduce the frequency of your notifications. See the
 
 ### **Time-based conditions**
 
-[Aggregation](https://docs.gravitee.io/ae/userguide\_conditions.html#aggregation) and [Rate](https://docs.gravitee.io/ae/userguide\_conditions.html#rate) condition rely on `duration` and `timeUnit`, so they can be evaluated in a given period of time.
+[Aggregation](../../guides/alerts-and-conditions.md#aggregation) and [Rate](../../guides/alerts-and-conditions.md#rate) conditions rely on `duration` and `timeUnit`, so they can be evaluated in a given period of time.
 
 ### Redundancy
 
