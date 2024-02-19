@@ -89,7 +89,8 @@
 
 * [Prologue](guides/prologue.md)
 * [Create APIs](guides/create-apis/README.md)
-  * [Import APIs](guides/create-apis/import-apis.md)
+  * [Import APIs](guides/create-apis/import-apis/README.md)
+    * [Vendor Extensions](guides/create-apis/import-apis/vendor-extensions.md)
   * [The API Creation Wizard](guides/create-apis/how-to/README.md)
     * [v4 API creation wizard](guides/create-apis/how-to/v4-api-creation-wizard.md)
     * [v2 API creation wizard](guides/create-apis/how-to/v2-api-creation-wizard.md)

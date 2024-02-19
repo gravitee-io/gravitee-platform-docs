@@ -35,68 +35,6 @@ You'll be presented with the following options:
     * **REST to SOAP transformer**
     * **Validate Request policy**
     * **XML Validation policy**
-
-{% hint style="info" %}
-**Vendor extensions**
-
-You can use a vendor extension to add more information to OpenAPI specifications about your API. To do this, you need to add the `x-graviteeio-definition` field at the root of the specification. The value of this field is an `object` that follows this [JSON Schem](https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-rest-api/gravitee-apim-rest-api-service/src/main/resources/schema/xGraviteeIODefinition.json)a:
-
-Please keep the following in mind:
-
-* Categories must contain either a key or an ID.
-* Only existing categories are imported.
-* Import will fail if virtualHosts are already in use by other APIs.
-* If set, virtualHosts will override contextPath.
-* Groups must contain group names. Only existing groups are imported.
-* metadata.format is case-sensitive. Possible values are:
-  * STRING
-  * NUMERIC
-  * BOOLEAN
-  * DATE
-  * MAIL
-  * URL
-* Picture only accepts Data-URI format. Please see the example below:
-
-```
-openapi: "3.0.0"
-info:
-  version: 1.2.3
-  title: Gravitee Echo API
-  license:
-    name: MIT
-servers:
-  - url: https://demo.gravitee.io/gateway/echo
-x-graviteeio-definition:
-  categories:
-    - supplier
-    - product
-  virtualHosts:
-    - host: api.gravitee.io
-      path: /echo
-      overrideEntrypoint: true
-  groups:
-    - myGroupName
-  labels:
-    - echo
-    - api
-  metadata:
-    - name: relatedLink
-      value: http://external.link
-      format: URL
-  picture: data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
-  properties:
-    - key: customHttpHeader
-      value: X-MYCOMPANY-ID
-  tags:
-    - DMZ
-    - partner
-    - internal
-  visibility: PRIVATE
-paths:
-...
-```
-{% endhint %}
-
 * **API definition:** If you choose this option, you'll need to include a URL that links to your API definition.
 * **WSDL:** If you choose this option, you'll need to provide a WSDL descriptor URL. Like the Swagger/OpenAPI option, you'll be able to configure the following prior to import:
   * Create documentation: This will overwrite documentation if there is only one existing, or create it if it does not exist yet.
@@ -111,5 +49,5 @@ paths:
 {% hint style="success" %}
 **Success!**
 
-Once you've imported your API, it will be created as a private API, and you will be brought to that APIs menu and details page. From here, you can further [configure your API](../api-configuration/), [design policies for that API](../policy-design/), [expose that API](../api-exposure-plans-applications-and-subscriptions/), etc.
+Once you've imported your API, it will be created as a private API, and you will be brought to that APIs menu and details page. From here, you can further [configure your API](../../api-configuration/), [design policies for that API](../../policy-design/), [expose that API](../../api-exposure-plans-applications-and-subscriptions/), etc.
 {% endhint %}
