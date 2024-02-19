@@ -28,7 +28,7 @@ Ingesting and processing events requires computational resources, so you should 
 
 ### **Dampenings**
 
-Dampenings are a good way to reduce the frequency of your notifications. See the [Dampening](https://docs.gravitee.io/ae/userguide\_dampening.html) page for more information about various dampening strategies you can use.
+Dampenings are a good way to reduce the frequency of your notifications. See the [Dampening](../../guides/dampening.md) page for more information about various dampening strategies you can use.
 
 ### **Time-based conditions**
 
@@ -55,4 +55,4 @@ This provides for better performance for data serialization.
 
 ## More compute, more power
 
-If you need more processing power to ingest events or to execute rules, increase the number of (v)CPUs. Increasing the memory size can be useful if you are dealing with large data or as a buffer when the computational power is under load.\
+If you need more processing power to ingest events or to execute rules, increase the number of (v)CPUs. Increasing the memory size can be useful if you are dealing with large data or as a buffer when the computational power is under load.\\
