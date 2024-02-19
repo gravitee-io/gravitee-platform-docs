@@ -148,5 +148,3 @@ For the `api`, you can access the following data:
 | `labels`                   | API labels                     | ${api.labels}                      |
 | `views`                    | API views                      | ${api.views}                       |
 | `metadata`                 | API metadata                   | ${api.metadata\['metadata\_name']} |
-
-\\
