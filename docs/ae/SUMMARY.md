@@ -36,7 +36,7 @@
 
 ## Reference
 
-* [API reference](https://docs.gravitee.io/ae/spec/2.0/index.html)
+* [API reference](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/ae/spec/2.0/alert-engine-spec.yml)
 
 ## Changelog
 

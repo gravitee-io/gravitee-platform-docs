@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The changelog is the best place for in-depth overviews of what's new in Gravitee major and minor releases.&#x20;
+The changelog is the best place for in-depth overviews of what's new in Gravitee major and minor releases.
 
 ## Alert Engine changelog
 
@@ -11,7 +11,6 @@ The changelog is the best place for in-depth overviews of what's new in Gravitee
 _**General**_
 
 * fix: webhook notifier 1.1.2
-
 
 ### 2.1.4 (2023-07-06)
 
@@ -54,7 +53,7 @@ _**General**_
 
 * Refactor core engine to replace Drools over RXjava3. Consequently, we have better performance.
   * Now, the hazelcast backup and synchronization of dampening and bucket are asynchronous. A schedule time is configurable in `gravitee.yml` by default to 30sec.
-* A new HTTP endpoint is available to register triggers along with its [OpenAPI specification](https://docs.gravitee.io/ae/spec/2.0/index.html).
+* A new HTTP endpoint is available to register triggers along with its [OpenAPI specification](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/ae/spec/2.0/alert-engine-spec.yml).
 * Update some dependencies.
 
 _**Migration**_
@@ -529,4 +528,3 @@ _**General**_
 
 * Allows to use event on freemarker templates
 * Support for multiple alert-engine
-
