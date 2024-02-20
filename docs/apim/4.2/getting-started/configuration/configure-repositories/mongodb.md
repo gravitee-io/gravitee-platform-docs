@@ -6,7 +6,7 @@ description: This article explains how to configure a MongoDB repository
 
 ## Overview
 
-The MongoDB plugin is part of the default distribution of APIM.
+The MongoDB plugin is part of the default APIM distribution.
 
 ## Supported databases
 
@@ -17,12 +17,12 @@ The MongoDB plugin is part of the default distribution of APIM.
 {% hint style="info" %}
 **Support for databases with MongoDB compatibility**
 
-Some databases are almost fully compatible with MongoDB, like:
+Some databases are almost fully compatible with MongoDB, e.g.:
 
 * DocumentDB (AWS)
 * Azure Cosmos DB for MongoDB (Azure)
 
-However, some features might not be supported or act differently in terms of behavior or performance. That's why **they are not considered as officially supported databases**, making **MongoDB the only officially supported database** for now.
+However, some features may not be supported, or may behave or perform differently. Consequently, MongoDB is currently the only officially supported database.
 {% endhint %}
 
 ## Configuration
