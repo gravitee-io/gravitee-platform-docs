@@ -122,7 +122,7 @@ If you chose **Webhook** as an entrypoint, you will be brought to a page where y
 
 **DLQ Configuration**
 
-As of Gravtiee APIM 4.0, you can only configure DLQs and secure callbacks for your Webhook via the API definition.&#x20;
+To configure DLQs and secure callbacks for your Webhook via the API definition:&#x20;
 
 **1. Set up DLQ**
 
