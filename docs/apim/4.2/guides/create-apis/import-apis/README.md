@@ -30,11 +30,11 @@ You'll be presented with the following options:
   * Create documentation: This will overwrite documentation if there is only one existing, or create it if it does not exist yet.
   * Create the path mapping for analytics: This will overwrite all the path-mappings.
   * Create policies on paths: This will overwrite all the policies. Policies that you can create upon import include:
-    * **JSON Validation policy**
-    * **Mock policy**
-    * **REST to SOAP transformer**
-    * **Validate Request policy**
-    * **XML Validation policy**
+    * **JSON Validation**
+    * **Mock**
+    * **Request Validation**
+    * **REST to SOAP**
+    * **XML Validation**
 * **API definition:** If you choose this option, you'll need to include a URL that links to your API definition.
 * **WSDL:** If you choose this option, you'll need to provide a WSDL descriptor URL. Like the Swagger/OpenAPI option, you'll be able to configure the following prior to import:
   * Create documentation: This will overwrite documentation if there is only one existing, or create it if it does not exist yet.
