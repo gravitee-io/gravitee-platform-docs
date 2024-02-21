@@ -6,8 +6,8 @@ AM uses repositories to store different types of data (known as _scopes_).
 
 You configure repositories in the `gravitee.yml` configuration file. The configuration can be different for each scope. AM supports the following repositories:
 
-* [MongoDB repositories](https://docs.gravitee.io/am/current/am\_installguide\_repositories\_mongodb.html)
-* [JDBC repositories](https://docs.gravitee.io/am/current/am\_installguide\_repositories\_jdbc.html)
+* [MongoDB](configure-repositories.md#mongodb)
+* [JDBC](configure-repositories.md#jdbc)
 
 For information on how to install and configure the repositories, see the relevant configuration section.
 
