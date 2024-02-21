@@ -1,4 +1,4 @@
-# Configure Monitoring
+# Monitoring
 
 ## Overview
 
@@ -18,7 +18,7 @@ For more elaborate overviews of Prometheus and how to install it please visit th
 
 ### Enable the metrics service
 
-You can enable the metrics service in the `gravitee.yml` configuration file. Prometheus support is activated and exposed using the internal API of the [Gateway](https://docs.gravitee.io/am/current/am\_installguide\_gateway\_technical\_api.html) and [Management](https://docs.gravitee.io/am/current/am\_installguide\_management\_api\_technical\_api.html) components.
+You can enable the metrics service in the `gravitee.yml` configuration file. Prometheus support is activated and exposed using the internal API of the [Gateway](configure-am-gateway/internal-api.md) and [Management](configure-am-api/internal-api.md) components.
 
 ```yaml
 services:
