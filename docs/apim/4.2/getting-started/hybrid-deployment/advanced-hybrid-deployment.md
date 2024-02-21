@@ -29,18 +29,18 @@ The following table lists the Data-Plane (Gateway) versions supported by each Co
 | Control-Plane version | Supported Data-Plane versions |
 | --------------------- | ----------------------------- |
 | 3.20.x                | 3.20.x                        |
-| 4.0.x                 | Up to 4.0.x                   |
-| 4.1.x                 | Up to 4.1.x                   |
-| 4.2.x                 | Up to 4.2.x                   |
+| 4.0.x                 | 3.20.x to 4.0.x               |
+| 4.1.x                 | 3.20.x to 4.1.x               |
+| 4.2.x                 | 3.20.x to 4.2.x               |
 
 The following table lists the Control-Plane (Bridge) versions supported by each Data-Plane (Gateway) version.
 
 | Data-Plane version | Supported Control-Plane versions |
 | ------------------ | -------------------------------- |
-| 3.20.x             | 3.20.x                           |
-| 4.0.x              | Up to 4.0.x                      |
-| 4.1.x              | Up to 4.1.x                      |
-| 4.2.x              | Up to 4.2.x                      |
+| 3.20.x             | 3.20.x to 4.2.x                  |
+| 4.0.x              | 4.0.x to 4.2.x                   |
+| 4.1.x              | 4.1.x to 4.2.x                   |
+| 4.2.x              | 4.2.x                            |
 
 ## Self-Hosted Hybrid Gateway installation <a href="#installation" id="installation"></a>
 
