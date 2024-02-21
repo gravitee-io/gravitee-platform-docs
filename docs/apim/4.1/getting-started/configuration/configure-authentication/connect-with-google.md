@@ -1,17 +1,5 @@
 # Connect with Google
 
-* [Overview](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#overview)
-* [Create a Google OAuth client](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#create\_a\_google\_oauth\_client)
-  * [Check access to the Google+ API](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#check\_access\_to\_the\_google\_api)
-  * [Create a new client](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#create\_a\_new\_client)
-  * [Retrieve client credentials](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#gravitee-installation-authentication-google-credentials)
-* [Configure APIM](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#configure\_apim)
-  * [Configure with `gravitee.yml` or APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#configure\_with\_gravitee\_yml\_or\_apim\_console)
-    * [APIM Console configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#apim\_console\_configuration)
-    * [`gravitee.yml` file configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#gravitee\_yml\_file\_configuration)
-* [Test the connection](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#test\_the\_connection)
-  * [Log in to APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_google.html#log\_in\_to\_apim\_portal)
-
 ### Overview
 
 This page explains how to configure an APIM connection with a Google account.

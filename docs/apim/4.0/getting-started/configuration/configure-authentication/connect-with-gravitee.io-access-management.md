@@ -1,16 +1,5 @@
 # Connect with Gravitee Access Management
 
-* [Overview](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#overview)
-* [Create a new client in Access Management](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#create\_a\_new\_client\_in\_access\_management)
-  * [Retrieve client credentials](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#retrieve\_client\_credentials)
-* [Configure APIM](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#configure\_apim)
-  * [Configure with `gravitee.yml` or APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#configure\_with\_gravitee\_yml\_or\_apim\_console)
-    * [APIM Console configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#apim\_console\_configuration)
-    * [`gravitee.yml` file configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#gravitee\_yml\_file\_configuration)
-* [Test the configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#test\_the\_configuration)
-  * [Create a user in AM](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#create\_a\_user\_in\_am)
-  * [Log in to APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_graviteeam.html#log\_in\_to\_apim\_portal)
-
 ### Overview
 
 This page explains how to configure APIM authentication using the [Gravitee.io Access Management](https://www.gravitee.io/products/access-management) product.
