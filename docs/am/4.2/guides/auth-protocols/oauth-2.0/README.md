@@ -6,7 +6,7 @@
 
 OAuth 2.0 specifies standard endpoints to interact with the resource owner (or the client when acting on its own behalf) to grant, introspect and revoke tokens used to access protected resources.
 
-You can see which OAuth 2.0 protocol endpoints are exposed by AM in the [online API reference.](https://docs.gravitee.io/am/current/oauth2/index.html)
+You can see which OAuth 2.0 protocol endpoints are exposed by AM in [this file](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/oauth2/swagger.yml).
 
 ## Roles
 
@@ -34,10 +34,10 @@ An authorization grant is a flow used by the client to obtain an access token.
 
 The specification defines four grant types:
 
-* [Authorization code](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#authorization\_code)
-* [Implicit](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#implicit)
-* [Resource owner password credentials](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#resource\_owner\_password\_credentials)
-* [Client credentials](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#client\_credentials)
+* [Authorization code](./#authorization-code)
+* [Implicit](./#implicit)
+* [Resource owner password credentials](./#resource-owner-password-credentials)
+* [Client credentials](./#client-credentials)
 
 {% hint style="info" %}
 OAuth 2.0 also supports the use of [refresh tokens](./#refresh-token) to obtain new access tokens.
