@@ -75,7 +75,7 @@ You can configure this provider both in APIM Console and in the `gravitee.yml` c
 
     ![Gravitee.io - New OIDC IDP](https://docs.gravitee.io/images/apim/3.x/management-api-configuration-idp/new-oidc.png)
 5. Click **CREATE**.
-6. Activate the provider for Portal or Console login, as described in [Activating providers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication.html#activating-providers).
+6. Activate the provider for Portal or Console login.
 
 **`gravitee.yml` file configuration**
 

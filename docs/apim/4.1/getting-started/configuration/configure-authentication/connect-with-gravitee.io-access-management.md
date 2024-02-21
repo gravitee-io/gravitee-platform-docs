@@ -11,8 +11,6 @@ This page explains how to configure APIM authentication using the [Gravitee.io A
 
 Before you can connect to APIM using Access Management (AM), you need to create a new client.
 
-See [Set up your first application](https://docs.gravitee.io/am/current/am\_quickstart\_app\_setup.html) in the AM documentation for guidance on setting up your first security domain and client application.
-
 |   | The `Valid Redirect URIs` value must exactly match the domain hosting APIM Portal. |
 | - | ---------------------------------------------------------------------------------- |
 
@@ -40,7 +38,7 @@ You can configure this provider both in APIM Console and in the `gravitee.yml` c
 
     ![Gravitee.io - New Gravitee AM IDP](https://docs.gravitee.io/images/apim/3.x/management-api-configuration-idp/new-am.png)
 5. Click **CREATE**.
-6. Activate the provider for Portal or Console login, as described in [Activating providers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication.html#activating-providers).
+6. Activate the provider for Portal or Console login.
 
 **`gravitee.yml` file configuration**
 
@@ -82,8 +80,6 @@ security:
 ### Test the configuration
 
 #### Create a user in AM
-
-See [Set up your first application](https://docs.gravitee.io/am/current/am\_quickstart\_app\_setup.html) for guidance on setting up your new AM user.
 
 |   | APIM requires an `email` profile to enable portal authentication. If you create an Inline identity provider in AM, you need to specify an email address in the **Username** field. |
 | - | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
