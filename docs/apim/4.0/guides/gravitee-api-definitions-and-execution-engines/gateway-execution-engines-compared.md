@@ -12,7 +12,7 @@ The v4 execution engine works with Gravitee's v4 API definition. This adds featu
 
 The new engine provides the following capabilities:
 
-* The ability to execute policies in the exact order in which they have been placed in Design Studio (see [Create and configure an API flow](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_design\_studio\_create.html#create\_and\_configure\_an\_api\_flow) and [Configure plan flows and policies](https://docs.gravitee.io/apim/3.x/apim\_publisherguide\_plan\_policies.html)). This addresses some issues experienced by users related to the order in which policies are executed by the V3 engine where policies interacting with the Head part of the request are always executed first, even when placed in a different order in the Design Studio during the design phase. With the new execution engine, it is possible to apply logic on a head policy based on the payload of the request - for example, to apply dynamic routing based on the request payload.
+* The ability to execute policies in the exact order in which they have been placed in Design Studio (see **Create and configure an API flow** and **Configure plan flows and policies**). This addresses some issues experienced by users related to the order in which policies are executed by the V3 engine where policies interacting with the Head part of the request are always executed first, even when placed in a different order in the Design Studio during the design phase. With the new execution engine, it is possible to apply logic on a head policy based on the payload of the request - for example, to apply dynamic routing based on the request payload.
 * Proper isolation between platform-level policies and API-level policies during policy execution. This ensures that platform-level policies are always executed prior to any API-level policies during the request stage, and after any API-level policies during the response stage.
 * Removal of the need to define a scope for policies (`onRequest`, `onRequestContent`, `onResponse`, `onResponseContent`).
 * The introduction of new API types to better differentiate REST APIs from Async APIs (Websocket, SSE, Webhook), as a foundation to fully support the execution of Async APIs.
@@ -25,7 +25,7 @@ To enable the new V4 policy execution engine, create a new environment variable 
 
 To disable the new engine and revert to using the V3 engine mode, set this environment variable to `false`.
 
-See [Environment variables](https://docs.gravitee.io/apim/3.x/apim\_installguide\_rest\_apis\_configuration.html#environment\_variables) on the Management API and [Environment variables](https://docs.gravitee.io/apim/3.x/apim\_installguide\_gateway\_configuration.html#environment\_variables) on the API Gateway for more detail about setting environment variables.
+See **Environment variables** on the Management API and **Environment variables** on the API Gateway for more detail about setting environment variables.
 
 ### Policy execution phases/scopes and execution order
 
@@ -117,7 +117,7 @@ The example below shows the new behavior:
 
 In V4 mode, conditions evaluated as errors skip the policy or flow execution instead of returning a 500 error.
 
-As a result, the number of `500` errors should decrease after [activating](https://docs.gravitee.io/apim/3.x/event\_native\_apim\_new\_policy\_execution\_engine\_activation.html) the new V4 policy execution engine mode.
+As a result, the number of `500` errors should decrease after activating the new V4 policy execution engine mode.
 
 ### Connection: close
 
