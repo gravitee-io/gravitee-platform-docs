@@ -3,7 +3,7 @@
 This section describes how to install an APIM hybrid deployment using Kubernetes Helm charts.
 
 {% hint style="info" %}
-We assume familiarity with Google Cloud Platform (GCP), Kubernetes (K8s), and Helm. We also recommend you read the [Introduction to APIM hybrid deployment](https://docs.gravitee.io/apim/3.x/apim\_installguide\_hybrid\_deployment.html) first.
+We assume familiarity with Google Cloud Platform (GCP), Kubernetes (K8s), and Helm. We also recommend that you read the [Introduction to APIM hybrid deployment](./) first.
 {% endhint %}
 
 ## Target architecture
