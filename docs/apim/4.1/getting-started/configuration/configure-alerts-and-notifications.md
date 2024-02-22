@@ -81,7 +81,7 @@ In the Developer Portal, notifications are displayed in a page accessible from t
 
 </div>
 
-The templates of Portal notifications can be customized in **Settings**. For more information, see [Templates](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_notifications.html#templates).
+The templates of Portal notifications can be customized in **Settings**. For more information, see [Templates](configure-alerts-and-notifications.md#templates).
 {% endtab %}
 
 {% tab title="Email" %}
