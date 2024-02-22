@@ -92,7 +92,7 @@ The example below shows the new behavior:
 
 In V4 mode, conditions evaluated as errors skip the policy or flow execution instead of returning a 500 error.
 
-As a result, the number of `500` errors should decrease after [activating](https://docs.gravitee.io/apim/3.x/event\_native\_apim\_new\_policy\_execution\_engine\_activation.html) the new V4 policy execution engine mode.
+As a result, the number of `500` errors should decrease after activating the new V4 policy execution engine mode.
 
 ### Connection: close
 
