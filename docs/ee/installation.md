@@ -29,10 +29,10 @@ AE is not part of the Community Edition - it is an Enterprise feature and requir
     To perform a new EE installation:
 
     1. Download the full bundles of the desired products (APIM, AM, AE) from [the Gravitee platform downloads page](https://www.gravitee.io/downloads).
-    2. Install the relevant product bundles by following the [APIM](https://docs.gravitee.io/apim/3.x/apim_installguide.html) and [AM](https://docs.gravitee.io/am/current/am_installguide_introduction.html) installation guides respectively.
+    2. Install the relevant product bundles by following the respective installation guides.
     3. Download/install the [desired EE modules](/ee/ee_overview.html#ee_components).
-    3.1. To install AE, consult the Alert Engine section on the [Gravitee downloads web page](https://www.gravitee.io/downloads) and/or follow [AE](https://docs.gravitee.io/ae/installguide_introduction.html) installation guide.
-    3.2. EE plugins are installed from their respective repositories in GitHub. Gravitee's EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the [Data Logging Masking Policy](https://docs.gravitee.io/apim/3.x/apim_policies_data_logging_masking.html) repository is at [https://github.com/gravitee-io/gravitee-policy-data-logging-masking](https://github.com/gravitee-io/gravitee-policy-data-logging-masking). To request access to private EE plugin repositories, email [contact@graviteesource.com](contact@graviteesource.com) in case you have not been granted such access already as part of your EE license request process.
+    3.1. To install AE, consult the Alert Engine section on the [Gravitee downloads web page](https://www.gravitee.io/downloads) and/or follow the installation guide.
+    3.2. EE plugins are installed from their respective repositories in GitHub. Gravitee's EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking Policy repository is at [https://github.com/gravitee-io/gravitee-policy-data-logging-masking](https://github.com/gravitee-io/gravitee-policy-data-logging-masking). To request access to private EE plugin repositories, email [contact@graviteesource.com](contact@graviteesource.com) in case you have not been granted such access already as part of your EE license request process.
     4. [Request](/ee/ee_licensing.html#ask-license) an EE license.
     5. [Apply the EE license](/ee/ee_licensing.html#apply_the_license) to the relevant existing product instances.
     6. Restart.
@@ -61,7 +61,7 @@ After version 3.15.0, Gravitee Cockpit became a SaaS product, meaning that you d
 When used for free, Gravitee Cockpit has a limitation of up to two environments per user. However, you can [upgrade](https://www.gravitee.io/contact-us) to a [paid Enterprise Edition plan](https://www.gravitee.io/pricing) to unlock more environments and use Gravitee Cockpit as an Enterprise-grade tool for production.
 
 !!! info "Older, self-hosted Gravitee Cockpit versions"
-    While this is not recommended, you can still install an older version of Gravitee Cockpit (3.15.0 and below) as a self-hosted instance - see the legacy [Gravitee Cockpit installation guide](https://docs.gravitee.io/cockpit/3.x/cockpit_installguide_introduction.html) for details.
+    While this is not recommended, you can still install an older version of Gravitee Cockpit (3.15.0 and below) as a self-hosted instance - see the legacy Gravitee Cockpit installation guide for details.
 
 ## API Designer
 
