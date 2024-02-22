@@ -52,18 +52,19 @@ You can provide the schema to use directly in the configuration of the `protobuf
         "conversion": "protobuf-to-json",
         "json": {
             "includingDefaultValueFields": false,
-            "omittingInsignificantWhitespace": false,
             "preservingProtoFieldNames": false,
-            "sortingMapKeys": false
-        },
-        "protobufIn": {
-            "schemaLocation": "schema-registry",
-            "schemaRegistryIn": {
-                "resourceName": "resource-name",
-                "serializationFormat": "confluent"
-            }
+            "sortingMapKeys": false,
+            "omittingInsignificantWhitespace": false
+    },
+    "protobufIn": {
+        "schemaLocation": "inline",
+        "inlineIn": {
+            "normalizeSchema": false,
+            "serializationFormat": "confluent",
+            "schemaDefinition": "syntax = \"proto2\";\npackage test;\n\nmessage Payment {\n  required string id = 1;\n  required double amount = 2;\n}"
         }
     }
+  }
 }
 ```
 
