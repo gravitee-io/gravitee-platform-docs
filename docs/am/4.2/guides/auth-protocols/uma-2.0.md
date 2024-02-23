@@ -19,7 +19,7 @@ For example, bank customer (resource owner) Alice with a bank account service (r
 AM exposes an endpoint for discovering information about the UMA provider configuration.
 
 * Discovery endpoint URL: `https://am-gateway/{domain}/uma/.well-known/uma2-configuration`
-* UMA 2.0 protocol endpoints exposed by [AM API](https://docs.gravitee.io/am/current/uma2/index.html)
+* UMA 2.0 protocol endpoints exposed by [AM API](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/uma2/swagger.yml)
 
 ## Roles
 
@@ -188,7 +188,7 @@ The requesting party needs to use the same identity provider as the provider to 
 
 #### **Get a Protection API Token (PAT)**
 
-The resource owner must acquire a PAT to register a resource and create authorization grant rules. To obtain the PAT the resource owner must log in to the application using any [OAuth 2.0 flow](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#authorization\_grant).
+The resource owner must acquire a PAT to register a resource and create authorization grant rules. To obtain the PAT the resource owner must log in to the application using any [OAuth 2.0 flow](oauth-2.0/#flow).
 
 In this example, we are using the [Resource owner password flow](oauth-2.0/#flow):
 
