@@ -259,7 +259,7 @@ user:
 
 ### Configure the Plugins repository
 
-Gravitee AM Gateway [plugins](https://docs.gravitee.io/am/current/am\_installguide\_gateway\_configuration.html#gravitee-plugins) directory configuration.
+Gravitee AM Gateway plugins directory configuration.
 
 ```yaml
 plugins:
