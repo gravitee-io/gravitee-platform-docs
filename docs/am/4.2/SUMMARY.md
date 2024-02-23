@@ -33,7 +33,7 @@
   * [Monitoring](getting-started/configuration/configure-monitoring.md)
   * [Secret Providers](getting-started/configuration/secret-providers.md)
 * [Tutorial: Getting Started with AM](getting-started/tutorial-getting-started-with-am/README.md)
-  * [Login to AM Console](getting-started/tutorial-getting-started-with-am/login-to-am-console.md)
+  * [Log in to AM Console](getting-started/tutorial-getting-started-with-am/login-to-am-console.md)
   * [Set Up Your First Application](getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md)
   * [Get User Profile Information](getting-started/tutorial-getting-started-with-am/get-user-profile-information.md)
   * [Secure Your APIs](getting-started/tutorial-getting-started-with-am/secure-your-apis/README.md)
