@@ -34,7 +34,7 @@ $ helm install graviteeio-gko graviteeio/gko
 After GKO deployment, you can test GKO functionality by creating CRDs and sending API calls from the API Gateway.
 
 {% hint style="info" %}
-To ensure that the Gateway works with the GKO, enable (set to `true`) the `services.sync.kubernetes` property in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file. For more information, see [How to try out the GKO after deployment](https://docs.gravitee.io/apim/3.x/apim\_kubernetes\_operator\_user\_guide\_play.html#prerequisites).
+To ensure that the Gateway works with the GKO, enable (set to `true`) the `services.sync.kubernetes` property in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file. For more information, see [Test GKO After Deployment](test-gko-after-deployment.md).
 {% endhint %}
 
 The process involves the following stages:
