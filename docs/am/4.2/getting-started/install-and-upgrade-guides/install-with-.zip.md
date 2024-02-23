@@ -21,7 +21,7 @@ You can download the latest OpenJDK from the [OpenJDK download site](https://jdk
 Default AM distribution requires **MongoDB** to store data. You can download MongoDB from the [MongoDB download site](https://www.mongodb.org/downloads#production).
 
 {% hint style="info" %}
-SQL database such as PostgreSQL, MySQL, MariaDB, Microsoft SQL Server can also be used to run your AM distribution. Please refer to this [documentation](https://docs.gravitee.io/am/current/am\_installguide\_management\_ui\_install\_zip.html) to switch from MongoDB to your preferred SQL RDBMS database.
+SQL database such as PostgreSQL, MySQL, MariaDB, Microsoft SQL Server can also be used to run your AM distribution.
 {% endhint %}
 
 ### HTTP Server
@@ -188,7 +188,7 @@ The following files and folders are in the `$GRAVITEE_HOME` directory, created w
 | logs    | AM API log files                              |
 | plugins | AM API plugins                                |
 
-## AM Console
+## Install AM Console
 
 ### Download and extract the .zip archive
 
