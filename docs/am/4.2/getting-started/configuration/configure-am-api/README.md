@@ -285,7 +285,7 @@ user:
 
 ### Configure the Plugins repository
 
-Gravitee.io Gateway [plugins](https://docs.gravitee.io/am/current/am\_installguide\_management\_api\_configuration.html#gravitee-plugins) directory configuration.
+Gravitee.io Gateway plugins directory configuration.
 
 ```yaml
 plugins:
