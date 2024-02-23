@@ -23,7 +23,7 @@ There are two requirements to allow API consumers to create applications:
 
 <figure><img src="../../.gitbook/assets/client_registration_settings.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
 
-2. API consumers must have a [user account](https://docs.gravitee.io/apim/3.x/apim\_consumerguide\_create\_account.html) to register an application and subscribe to an API which you can learn how to enable in Administration.
+2. API consumers must have a user account to register an application and subscribe to an API which you can learn how to enable in Administration.
 
 ## Simple application configuration
 
