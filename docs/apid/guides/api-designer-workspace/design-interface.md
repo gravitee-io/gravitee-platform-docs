@@ -1,4 +1,4 @@
-# Design interface
+# Design Interface
 
 ## Overview
 
@@ -24,15 +24,15 @@ There are three design phases: **define**, **expose** and **refine**. First, bro
 
 ## Define <a href="#define" id="define"></a>
 
-The key part of a resource definition is the name. The name will appear in the request path.&#x20;
+The key part of a resource definition is the name. The name will appear in the request path.
 
-The datatype of an attribute definition matters most. It can be an integer, number, string, boolean, or a list of one of these.&#x20;
+The datatype of an attribute definition matters most. It can be an integer, number, string, boolean, or a list of one of these.
 
 Both resources and attributes can be exposed in the API’s documentation.
 
 ## Expose <a href="#expose" id="expose"></a>
 
-The [operations](https://docs.gravitee.io/cockpit/3.x/cockpit\_userguide\_apid\_design.html#operations) are allowed on a resource can be specified. You can also specify whether or not the resource is searchable with query parameters.
+The [operations](design-interface.md#operations) allowed on a resource can be specified. You can also specify whether or not the resource is searchable with query parameters.
 
 You can determine the visibility of an attribute in requests and responses. You can also add it as a filter for and/or result of searches. An attribute can only be added if the parent resource or attribute is added.
 
