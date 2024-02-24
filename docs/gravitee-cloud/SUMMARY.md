@@ -6,7 +6,7 @@
 
 ## Getting started
 
-* [Access and set up](getting-started/access-and-set-up.md)
+* [Access and setup](getting-started/access-and-set-up.md)
 
 ## Guides
 
