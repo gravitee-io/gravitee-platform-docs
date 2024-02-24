@@ -8,7 +8,7 @@ While OAuth 2.0 is more about accessing resources with opaque tokens, OpenID Con
 
 OpenID Connect provides endpoints and some tools, such as [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519), to authenticate and retrieve end-user information.
 
-See the [AM API reference](https://docs.gravitee.io/am/current/oidc/index.html) for OpenID Connect endpoints exposed by AM:
+See the [AM API reference](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/2.x/oidc/swagger.yml) for OpenID Connect endpoints exposed by AM.
 
 ## Protocol
 
