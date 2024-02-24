@@ -37,7 +37,7 @@ It is straightforward to update the brand logo and the theme color. All changes 
 Logo, favicon, and theme color are applied for all the default pages provided by AM. If you want to customize a specific page, you must select your page and switch to the HTML mode to enable and publish custom HTML templates - for example, if third-party logo URLs have been used for logo and favicon and a theme color has been selected to preview the login page.
 
 {% hint style="info" %}
-The content Security Policy (CSP) will prevent third-party URL access unless it has been set as permitted. For more information on how to allow cross-domain URL access, please see [Mitigate XSS CSF in AM environment](https://docs.gravitee.io/am/current/am\_installguide\_how\_to\_configuration.html#step\_7\_mitigate\_cross\_site\_scripting\_xss\_and\_cross\_site\_framing) and [Mitigate XSS CSF in Helm](https://docs.gravitee.io/am/current/am\_installguide\_helm\_prod\_deployment.html).
+The content Security Policy (CSP) will prevent third-party URL access unless it has been set as permitted. For more information on how to allow cross-domain URL access, please see [Mitigate XSS CSF in AM environment](../../getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md#step-7-mitigate-cross-site-scripting-xss-and-cross-site-framing) and [Mitigate XSS CSF in Helm](../../getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md#production-ready-configuration).
 {% endhint %}
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-branding-theme-builder-custom-preview.png" alt=""><figcaption><p>Custom logo</p></figcaption></figure>
@@ -135,8 +135,6 @@ You can customize pages for an entire security domain or for an individual appli
 3. In the **Forms** section, click the edit icon ![edit icon](https://docs.gravitee.io/images/icons/edit-icon.png) of the page template.
 4.  Update the HTML as required. You can preview the result in the **Preview** tab.
 
-
-
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-forms.png" alt=""><figcaption><p>Page template</p></figcaption></figure>
 
 {% hint style="info" %}
@@ -228,8 +226,6 @@ You can customize email templates for an entire security domain or for an indivi
    * for an application, click **Applications** and select your application, then click the **Design** tab
 3. In the **Emails** section, click the edit icon ![edit icon](https://docs.gravitee.io/images/icons/edit-icon.png) of the email template.
 4.  Update the HTML as required. You can preview the result in the **Preview** tab.
-
-
 
     <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-um-emails.png" alt=""><figcaption><p>Email template</p></figcaption></figure>
 
