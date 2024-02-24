@@ -18,7 +18,7 @@ An ID Token is a signed [JSON Web Token (JWT)](https://tools.ietf.org/html/draft
 
 You can retrieve an ID Token by requesting an access token with a specific `openid` scope.
 
-1. [Log in to AM Console](https://docs.gravitee.io/am/current/am\_userguide\_authentication.html).
+1. [Log in to AM Console](login-to-am-console.md).
 2. Click **Applications**.
 3. Click the application, then click the **Settings** tab.
 4.  Click **OAuth 2.0 / OIDC**.
