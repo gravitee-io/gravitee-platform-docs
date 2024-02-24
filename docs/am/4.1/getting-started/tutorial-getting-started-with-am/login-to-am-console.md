@@ -1,4 +1,4 @@
-# Login to AM Console
+# Log in to AM Console
 
 ## How to access AM Console
 
@@ -81,7 +81,7 @@ To access the organization settings, click on **Organization Settings** in the b
 Here you can configure several aspects of your organization such as :
 
 * AM Console access: How to log in to the console.
-* [Administrative roles](https://docs.gravitee.io/am/current/am\_adminguide\_roles\_and\_permissions.html): Register new administrative users and manage their roles.
+* [Administrative roles](../../guides/administration.md#roles-and-permissions-overview): Register new administrative users and manage their roles.
 * Deployment configuration: Set up entrypoints and sharding tags for your AM gateway.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-organization-settings.png" alt=""><figcaption><p>Organization Settings</p></figcaption></figure>
