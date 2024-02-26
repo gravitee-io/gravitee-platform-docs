@@ -8,15 +8,18 @@
 ## Gravitee Essentials
 
 * [Overview](gravitee-essentials/overview.md)
+* [Gravitee Core Concepts](gravitee-essentials/gravitee-core-concepts.md)
 * [Gravitee Offerings: CE vs EE](gravitee-essentials/gravitee-offerings-ce-vs-ee/README.md)
   * [Enterprise Edition Installation](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-installation.md)
   * [Enterprise Edition Licensing](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md)
-* [API Fundamentals](gravitee-essentials/api-fundamentals/README.md)
-  * [API Basics](gravitee-essentials/api-fundamentals/api-basics.md)
-  * [Web APIs](gravitee-essentials/api-fundamentals/web-apis.md)
-  * [Categorizing Web APIs](gravitee-essentials/api-fundamentals/categorizing-web-apis.md)
-* [Gravitee Core Concepts](gravitee-essentials/gravitee-core-concepts.md)
-* [Gravitee Glossary](gravitee-essentials/glossary.md)
+
+## Starter Guides
+
+* [API Fundamentals](starter-guides/api-fundamentals/README.md)
+  * [API Basics](starter-guides/api-fundamentals/api-basics.md)
+  * [Web APIs](starter-guides/api-fundamentals/web-apis.md)
+  * [Categorizing Web APIs](starter-guides/api-fundamentals/categorizing-web-apis.md)
+* [Gravitee Glossary](starter-guides/glossary.md)
 
 ## Community
 
