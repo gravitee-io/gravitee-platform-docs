@@ -4,7 +4,7 @@
 
 * [Introduction](README.md)
 * [Core Concepts](gravitee-platform/gravitee-core-concepts.md)
-* [Distribution Types](gravitee-platform/gravitee-offerings-ce-vs-ee/README.md)
+* [Distribution Options](gravitee-platform/gravitee-offerings-ce-vs-ee/README.md)
   * [Enterprise Edition Installation](gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-installation.md)
   * [Enterprise Edition Licensing](gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md)
 * [Release Types](gravitee-platform/release-types-and-support-model.md)
