@@ -2,11 +2,11 @@
 description: This page provides high-level overview of the Gravitee ecosystem
 ---
 
-# Gravitee Core Concepts
+# Core Concepts
+
+## Overview
 
 The API lifecycle includes API design, development, testing, deployment, troubleshooting, monitoring, and security. The ever increasing quantity and complexity of APIs has driven the development of comprehensive API management solutions, of which Gravitee is best-in-class.
-
-## Overview <a href="#overview-2" id="overview-2"></a>
 
 Gravitee offers an API lifecycle toolset that extends beyond conventional API strategy and implementation. One of Gravitee’s core differentiators is that it's an event-native API solution. This means Gravitee is built on an event-driven architecture implemented with reactive programming to manage asynchronous, event-driven APIs while still fully supporting synchronous request/response style APIs in a centralized control plane. Gravitee even supports mediating between synchronous and asynchronous protocols.
 

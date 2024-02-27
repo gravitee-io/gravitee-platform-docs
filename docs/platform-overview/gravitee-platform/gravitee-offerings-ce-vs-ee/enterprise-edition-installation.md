@@ -42,7 +42,7 @@ We have removed the option to install EE bundles and EE licenses using Docker as
 ### Migrating from an existing CE installation
 
 {% hint style="warning" %}
-Before you proceed, please ensure that you are running a [long-term support (LTS) version](../../release-types-and-support-model.md) of the respective product(s).
+Before you proceed, please ensure that you are running a [long-term support (LTS) version](../release-types-and-support-model.md) of the respective product(s).
 {% endhint %}
 
 To migrate from an existing Community Edition (CE) installation to EE:

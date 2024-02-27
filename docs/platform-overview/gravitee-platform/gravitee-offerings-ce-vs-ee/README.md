@@ -2,7 +2,7 @@
 description: Gravitee's core products
 ---
 
-# Gravitee Offerings: CE vs EE
+# Distribution Types
 
 ## Introduction
 
@@ -12,7 +12,9 @@ We have also included product specific differences between EE and CE. For some (
 
 At the bottom of this page, we also outline the enterprise hosting, deployment, and support options. If you are interested in learning more about the Gravitee enterprise platform, [please feel free to book a demo.](https://www.gravitee.io/demo)
 
-## Gravitee Community Edition (CE) vs the Enterprise Edition (EE) platform
+## Quick comparison
+
+Refer to the table below for a quick comparison of Gravitee Community Edition (CE) vs Gravitee Enterprise Edition (EE):
 
 | CE                                       | EE                                       |
 | ---------------------------------------- | ---------------------------------------- |

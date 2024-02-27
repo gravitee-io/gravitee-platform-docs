@@ -1,25 +1,23 @@
 # Table of contents
 
+## Gravitee Platform
+
 * [Introduction](README.md)
-* [Release Types](release-types-and-support-model.md)
-* [Support Model](support-model/README.md)
-  * [Support for v1 APIs](support-model/support-for-v1-apis.md)
+* [Core Concepts](gravitee-platform/gravitee-core-concepts.md)
+* [Distribution Types](gravitee-platform/gravitee-offerings-ce-vs-ee/README.md)
+  * [Enterprise Edition Installation](gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-installation.md)
+  * [Enterprise Edition Licensing](gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md)
+* [Release Types](gravitee-platform/release-types-and-support-model.md)
+* [Support Model](gravitee-platform/support-model/README.md)
+  * [Support for v1 APIs](gravitee-platform/support-model/support-for-v1-apis.md)
 
-## Gravitee Essentials
+## Before you begin
 
-* [Overview](gravitee-essentials/overview.md)
-* [Gravitee Core Concepts](gravitee-essentials/gravitee-core-concepts.md)
-* [Gravitee Offerings: CE vs EE](gravitee-essentials/gravitee-offerings-ce-vs-ee/README.md)
-  * [Enterprise Edition Installation](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-installation.md)
-  * [Enterprise Edition Licensing](gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md)
-
-## Starter Guides
-
-* [API Fundamentals](starter-guides/api-fundamentals/README.md)
-  * [API Basics](starter-guides/api-fundamentals/api-basics.md)
-  * [Web APIs](starter-guides/api-fundamentals/web-apis.md)
-  * [Categorizing Web APIs](starter-guides/api-fundamentals/categorizing-web-apis.md)
-* [Gravitee Glossary](starter-guides/glossary.md)
+* [API Fundamentals](before-you-begin/api-fundamentals/README.md)
+  * [API Basics](before-you-begin/api-fundamentals/api-basics.md)
+  * [Web APIs](before-you-begin/api-fundamentals/web-apis.md)
+  * [Categorizing Web APIs](before-you-begin/api-fundamentals/categorizing-web-apis.md)
+* [Gravitee Glossary](before-you-begin/glossary.md)
 
 ## Community
 
