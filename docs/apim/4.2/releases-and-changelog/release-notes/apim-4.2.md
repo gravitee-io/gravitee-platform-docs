@@ -27,11 +27,11 @@ Two `secret-provider` plugins are available for Gravitee Gateway, Management API
 * `kubernetes`: A Community Edition plugin that fetches secret and TLS pairs from Kubernetes.io
 * `vault`: An Enterprise Edition plugin that uses the Key/Value engine of HashiCorp Vault
 
-For more information, refer to [Secret Providers](../../getting-started/configuration/secret-providers.md).
+For more information, refer to [Secret Providers](../../plugins-and-integrations/plugins/secret-providers.md).
 
 ## API Documentation
 
-The Management Console now includes the [API Documentation](../../guides/api-configuration/v4-api-configuration/documentation.md) capability to introduce consumers to an API and provide instructions for how to use it.&#x20;
+The Management Console now includes the [API Documentation](broken-reference) capability to introduce consumers to an API and provide instructions for how to use it.&#x20;
 
 Folders can be added to organize the documentation structure, and pages of Markdown content can be created in any directory. You can choose the visibility of each folder and page:
 
@@ -68,7 +68,7 @@ Although multi-tenancy support necessitated changes to both APIM and Cockpit, cu
 
 Gravitee now supports TCP proxy APIs to provide the lowest latency access to raw backend data. Gravitee can proxy messages from any REST endpoint or event system with an available IP address that accepts TCP socket clients. This enables the Gateway to transmit formats not commonly available to the standard API consumer (video streams, HL7, IoT protocols, etc.) as TCP packets. Gravitee does not perform protocol mediation, and the client is responsible for decoding and serializing data into the desired format.
 
-To learn more about TCP proxy support and how to create TCP proxy APIs, refer to [this page](../../guides/create-apis/tcp-proxy-apis.md).
+To learn more about TCP proxy support and how to create TCP proxy APIs, refer to [this page](broken-reference).
 
 ## GKO
 
@@ -82,7 +82,7 @@ Refer to the [GKO 1.x.x changelog](https://github.com/gravitee-io/gravitee-kuber
 
 The HTTP POST entrypoint now supports initiating an empty message flow that gives policies full access to the context (i.e., to construct messages with metadata, headers, etc.) whenever the POST request is made to the entrypoint.&#x20;
 
-For more information, see [HTTP POST in Entrypoint Configuration](../../guides/api-configuration/v4-api-configuration/entrypoint-configuration/#http-post).
+For more information, see [HTTP POST in Entrypoint Configuration](broken-reference).
 
 ## Endpoints
 
@@ -105,7 +105,7 @@ In addition, a RabbitMQ endpoint can now be configured using TLS/mTLS to securel
 * PEM certificate and key file
 * PEM certificate and key content
 
-For more information, see [RabbitMQ in Endpoint Configuration](../../guides/api-configuration/v4-api-configuration/endpoint-configuration/#rabbitmq).
+For more information, see [RabbitMQ in Endpoint Configuration](broken-reference).
 
 ### Kafka
 
@@ -118,7 +118,7 @@ When creating or configuring a v4 message API with a Kafka endpoint, the user ca
 * **Specify List of Topics:** The topic(s) from which your Gravitee Gateway client will consume messages.
 * **Specify Topic Expression:** A single Java regular expression.  to consume only messages from Kafka topics that match the expression.
 
-For more information, see [Kafka in Endpoint Configuration](../../guides/api-configuration/v4-api-configuration/endpoint-configuration/#kafka).
+For more information, see [Kafka in Endpoint Configuration](broken-reference).
 
 #### SASL OAUTHBEARER
 
@@ -132,12 +132,12 @@ To facilitate support for SASL OAUTHBEARER, the Kafka endpoint plugin includes a
 
 ### Assign Metrics
 
-A user can now assign custom metrics at the message level. A condition can be defined on the metric added to an API that evaluates and becomes part of the metrics, which can then be obtained via the Management API. See [this page](../../reference/policy-reference/assign-metrics.md) for more information.
+A user can now assign custom metrics at the message level. A condition can be defined on the metric added to an API that evaluates and becomes part of the metrics, which can then be obtained via the Management API. See [this page](broken-reference) for more information.
 
 ### Groovy
 
-The `groovy` policy has been enhanced to support message-level definitions. This implementation of custom Groovy scripts is designed for nonstandard or specific use cases that are not sufficiently addressed by other Gravitee policies. The `groovy` policy can be applied to an API to override message content via the `message.content` property. See [this page](../../reference/policy-reference/groovy.md) for more information.
+The `groovy` policy has been enhanced to support message-level definitions. This implementation of custom Groovy scripts is designed for nonstandard or specific use cases that are not sufficiently addressed by other Gravitee policies. The `groovy` policy can be applied to an API to override message content via the `message.content` property. See [this page](broken-reference) for more information.
 
 ## Datadog
 
-(Enterprise-only) Datadog reporter support now extends to v4 APIs. v4 API metrics and monitoring data can be exported to a Datadog instance to ensure a comprehensive observability strategy. To learn more about reporters, check out [this section](../../getting-started/configuration/configure-reporters/).
+(Enterprise-only) Datadog reporter support now extends to v4 APIs. v4 API metrics and monitoring data can be exported to a Datadog instance to ensure a comprehensive observability strategy. To learn more about reporters, check out [this section](../../plugins-and-integrations/plugins/configure-reporters/).

@@ -192,7 +192,7 @@ curl -X GET -i "https://<your-gateway-server>/<your-context-path>" -H "X-Gravite
 {% hint style="success" %}
 You should receive a **`200 OK`** success status response code, along with the custom payload you configured in the previous section using the Assign Content policy.
 
-Congrats! You have successfully completed the Quickstart Guide! Head on over to our [What's Next](whats-next.md) section if you're looking for suggestions for learning about more advanced Gravitee topics.&#x20;
+Congrats! You have successfully completed the Quickstart Guide! Head on over to our [What's Next](whats-next/) section if you're looking for suggestions for learning about more advanced Gravitee topics.&#x20;
 {% endhint %}
 
 [^1]: Full-context meaning it searches through the definition and metadata of all published APIs that you have access to

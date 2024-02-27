@@ -1,4 +1,4 @@
-# Introduction to Gravitee API Management (APIM)
+# Overview
 
 {% hint style="warning" %}
 **Gravitee APIM 4.2 Documentation**
@@ -71,4 +71,4 @@ APIM frequently uses Ant notation for path matching:
 
 Ready to use Gravitee API Management? Select from the options below to learn more about APIM and get it up and running.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Architecture</td><td></td><td><a href="overview/apim-architecture.md">apim-architecture.md</a></td></tr><tr><td></td><td>Plugins</td><td></td><td><a href="overview/plugins.md">plugins.md</a></td></tr><tr><td></td><td>Integrations</td><td></td><td><a href="overview/integrations.md">integrations.md</a></td></tr><tr><td></td><td>Open Source vs Enterprise Edition</td><td></td><td><a href="overview/ee-vs-oss/">ee-vs-oss</a></td></tr><tr><td></td><td>Install &#x26; Upgrade Guides</td><td></td><td><a href="getting-started/install-guides/">install-guides</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Architecture</td><td></td><td><a href="gravitee-api-management-apim/apim-architecture.md">apim-architecture.md</a></td></tr><tr><td></td><td>Plugins</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td></td><td>Integrations</td><td></td><td><a href="plugins-and-integrations/integrations/">integrations</a></td></tr><tr><td></td><td>Open Source vs Enterprise Edition</td><td></td><td><a href="gravitee-api-management-apim/ee-vs-oss/">ee-vs-oss</a></td></tr><tr><td></td><td>Install &#x26; Upgrade Guides</td><td></td><td><a href="getting-started/install-guides/">install-guides</a></td></tr></tbody></table>

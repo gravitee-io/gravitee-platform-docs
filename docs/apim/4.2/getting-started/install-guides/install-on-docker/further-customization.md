@@ -8,7 +8,7 @@ APIM Docker images contain the default plugins. To add an additional plugin, cop
 
 You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
 
-For more information, about plugin deployment, see [Deployment](../../../overview/plugins.md#deployment).
+For more information, about plugin deployment, see [Deployment](broken-reference).
 
 {% hint style="warning" %}
 Some plugins need to be installed on both the API Gateway and the Management API. Please verify the specific plugin’s documentation for the details.
@@ -54,10 +54,10 @@ To use JDBC as the datastore for management, you have to have the correct JDBC d
 
 ### Download the driver
 
-1. Download the correct driver for your database from [Supported databases.](../../configuration/configure-repositories/#supported-databases)
+1. Download the correct driver for your database from [Supported databases.](../../../plugins-and-integrations/plugins/configure-repositories/#supported-databases)
 2. Place it in the `plugins-ext` folder. If you used the file structure described in the [custom install section](custom-install-with-docker-compose.md), the `plugin-ext` folder is `/gravitee/apim-gateway/plugins` for the API Gateway and `/gravitee/apim-management-api/plugins` for the Management API.
 
-For more information on the JDBC plugin and drivers, see [JDBC](../../configuration/configure-repositories/#jdbc).
+For more information on the JDBC plugin and drivers, see [JDBC](../../../plugins-and-integrations/plugins/configure-repositories/#jdbc).
 
 ### Using with `docker compose`
 
