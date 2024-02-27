@@ -58,7 +58,7 @@ Define the following:
 * **Channel:** Define the path to use in conjunction with the **Operator** to determine if this flow should be applied.
 * **Entrypoints:** Select the entrypoint(s) for which you want the flow to be executed. If none are selected, the flow will be executed for all possible entrypoints, assuming required conditions are met. Available entrypoints are **HTTP GET**, **HTTP POST**, **Websocket**, **Server-Sent Events**, and **Webhook**.
 * **Entrypoints supported operations:** Select **Publish** and/or **Subscribe** as the operation(s) supported by the entrypoint(s). If none are selected, both will be supported.
-* **Condition:** Define specific conditions that will trigger flow execution using [Gravitee's Expression Language (EL)](../../gravitee-api-management-apim/gravitee-expression-language.md).
+* **Condition:** Define specific conditions that will trigger flow execution using [Gravitee's Expression Language (EL)](../../gravitee-api-management/gravitee-expression-language.md).
 
 Once you've clicked **Create** to add a flow, be sure to also click **Save** in the upper right of the Policy Studio.
 

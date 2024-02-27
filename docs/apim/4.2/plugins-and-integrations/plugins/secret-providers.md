@@ -28,7 +28,7 @@ Secret providers are generic, configurable, and autonomous clients that manage c
 {% hint style="warning" %}
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../gravitee-api-management-apim/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../gravitee-api-management/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}

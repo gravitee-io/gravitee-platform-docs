@@ -18,7 +18,7 @@ Upgrading to APIM 4.2 is deployment-specific. The 4.0 breaking changes cited bel
 
 ## EE plugins
 
-* Starting with APIM 4.0, particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../gravitee-api-management-apim/ee-vs-oss/) for additional information.
+* Starting with APIM 4.0, particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../gravitee-api-management/ee-vs-oss/) for additional information.
 
 ## Running APIM
 

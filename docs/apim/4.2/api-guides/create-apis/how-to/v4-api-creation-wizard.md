@@ -66,7 +66,7 @@ If you chose **Proxy upstream protocol**, your entrypoint will be an HTTP proxy.
 
 The ability to create APIs with message API entrypoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../gravitee-api-management-apim/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../../gravitee-api-management/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -232,7 +232,7 @@ By default, the endpoint group will be named **Default \<endpoint type> group** 
 
 The ability to create APIs with message API endpoints is an Enterprise Edition capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../../gravitee-api-management-apim/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../../gravitee-api-management/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}

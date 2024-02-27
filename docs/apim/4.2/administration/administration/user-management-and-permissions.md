@@ -96,7 +96,7 @@ The following tables describe permissions per scope.
 
 As of Gravitee 4.0, Custom Roles is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../gravitee-api-management-apim/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../gravitee-api-management/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -153,6 +153,8 @@ Once you're done, you'll see the "**Writer**" role in the **API** Scope section.
 ### Users and user groups
 
 In Gravitee, users are simply profiles for individuals that use the platform. User groups are groupings of users that share the same role(s) for the **API** and/or **Application** Scope(s).
+
+In Gravitee, a **User** is just a user of the Gravitee platform. You can create **User groups,** which are defined by a set of permissions and roles as they pertain to configuring and managing Organizations, Environments, APIs, and Applications in Gravitee. These four levels are referred to as **Scopes.**
 
 #### Create and manage users
 

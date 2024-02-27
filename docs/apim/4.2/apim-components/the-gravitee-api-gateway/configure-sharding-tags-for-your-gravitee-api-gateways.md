@@ -11,7 +11,7 @@ description: >-
 
 As of Gravitee 4.0, the sharding tags feature is an Enterprise Edition capability. To learn more about Gravitee EE and what's included in various enterprise packages:
 
-* [Refer to the EE vs OSS documentation](../../gravitee-api-management-apim/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../gravitee-api-management/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -19,7 +19,7 @@ As of Gravitee 4.0, the sharding tags feature is an Enterprise Edition capabilit
 {% hint style="info" %}
 **v4 API limitations**
 
-As of Gravitee 4.0, you cannot implement sharding tags for v4 APIs using the APIM Console. This can only be done via the [Management API](../../reference/management-api-reference.md).&#x20;
+As of Gravitee 4.0, you cannot implement sharding tags for v4 APIs using the APIM Console. This can only be done via the [Management API](../configure-apim-management-api/management-api-reference.md).&#x20;
 {% endhint %}
 
 ## Introduction

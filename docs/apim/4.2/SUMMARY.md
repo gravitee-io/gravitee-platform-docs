@@ -1,23 +1,23 @@
 # Table of contents
 
-## Gravitee API Management (APIM)
+## Gravitee API Management
 
 * [Overview](README.md)
-* [Enterprise Edition](gravitee-api-management-apim/ee-vs-oss/README.md)
+* [Enterprise Edition](gravitee-api-management/ee-vs-oss/README.md)
   * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
-* [Architecture](gravitee-api-management-apim/apim-architecture.md)
-* [Execution Engines](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/README.md)
-  * [Reactive Execution Engine](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md)
-  * [Compare Policy Execution](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/policy-execution.md)
-  * [Compare Logging](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/logging.md)
-  * [Compare Expression Language](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/expression-language.md)
-  * [Compare Bad Request](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/connection-close.md)
-  * [Compare Flow](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/flow/README.md)
-    * [Message Flow Control](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/flow/message-flow-control.md)
-  * [Compare Access-Control-Allowed-Origin](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/access-control-allowed-origin.md)
-  * [Compare Timeout Management](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/timeout-management.md)
-  * [Compare Plan Selection](gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/plan-selection.md)
-* [Gravitee Expression Language](gravitee-api-management-apim/gravitee-expression-language.md)
+* [Architecture](gravitee-api-management/apim-architecture.md)
+* [Execution Engines](gravitee-api-management/gravitee-api-definitions-and-execution-engines/README.md)
+  * [Reactive Execution Engine](gravitee-api-management/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md)
+  * [Compare Policy Execution](gravitee-api-management/gravitee-api-definitions-and-execution-engines/policy-execution.md)
+  * [Compare Logging](gravitee-api-management/gravitee-api-definitions-and-execution-engines/logging.md)
+  * [Compare Expression Language](gravitee-api-management/gravitee-api-definitions-and-execution-engines/expression-language.md)
+  * [Compare Bad Request](gravitee-api-management/gravitee-api-definitions-and-execution-engines/connection-close.md)
+  * [Compare Flow](gravitee-api-management/gravitee-api-definitions-and-execution-engines/flow/README.md)
+    * [Message Flow Control](gravitee-api-management/gravitee-api-definitions-and-execution-engines/flow/message-flow-control.md)
+  * [Compare Access-Control-Allowed-Origin](gravitee-api-management/gravitee-api-definitions-and-execution-engines/access-control-allowed-origin.md)
+  * [Compare Timeout Management](gravitee-api-management/gravitee-api-definitions-and-execution-engines/timeout-management.md)
+  * [Compare Plan Selection](gravitee-api-management/gravitee-api-definitions-and-execution-engines/plan-selection.md)
+* [Gravitee Expression Language](gravitee-api-management/gravitee-expression-language.md)
 
 ## Plugins & Integrations
 
@@ -73,12 +73,13 @@
 * [Hybrid Deployment](getting-started/hybrid-deployment/README.md)
   * [Hybrid Deployment on Kubernetes](getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md)
   * [Advanced Hybrid Deployment](getting-started/hybrid-deployment/advanced-hybrid-deployment.md)
+* [Production Environment](getting-started/configure-a-production-ready-apim-environment.md)
 * [Configuration Overview](getting-started/configuration-overview.md)
 
 ## Gravitee Kubernetes Operator
 
-* [Quickstart Guide](gravitee-kubernetes-operator/quick-start.md)
 * [Architecture Overview](getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md)
+* [Quickstart Guide](gravitee-kubernetes-operator/quick-start.md)
 * [Helm Installation](gravitee-kubernetes-operator/helm.md)
 * [Test GKO After Deployment](gravitee-kubernetes-operator/test-gko-after-deployment.md)
 * [Gravitee as an Ingress Controller](gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md)
@@ -91,35 +92,30 @@
   * [Deploy Operator Resources with Helm](gravitee-kubernetes-operator/custom-resource-definitions/deploy-operator-resources-with-helm.md)
 * [GKO API Reference](gravitee-kubernetes-operator/gravitee-kubernetes-operator-api-reference.md)
 
-## Configuration
+## APIM Components
 
-* [APIM Gateway](configuration/the-gravitee-api-gateway/README.md)
-  * [General Configuration](configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
-  * [Internal API](configuration/the-gravitee-api-gateway/gateway-internal-api.md)
-  * [OpenTracing](configuration/the-gravitee-api-gateway/opentracing.md)
-  * [Logging](configuration/the-gravitee-api-gateway/logging.md)
-  * [Sharding tags](configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md)
-  * [Tenants](configuration/the-gravitee-api-gateway/tenants.md)
-  * [Dictionaries](configuration/the-gravitee-api-gateway/configure-dictionaries.md)
-* [APIM Management API](configuration/configure-apim-management-api/README.md)
-  * [General Configuration](configuration/configure-apim-management-api/internal-api.md)
-  * [User and Management Configuration](configuration/configure-apim-management-api/user-and-management-configuration.md)
-  * [Internal API](configuration/configure-apim-management-api/internal-api-1.md)
-  * [Security](configuration/configure-apim-management-api/security.md)
-* [APIM Console](configuration/configure-apim-management-ui.md)
-* [Production-ready APIM Environment](configuration/configure-a-production-ready-apim-environment.md)
-
-## Developer Portal
-
-* [Configuration](developer-portal/advanced-developer-portal-configuration/README.md)
-  * [General Settings](developer-portal/advanced-developer-portal-configuration/general-settings.md)
-  * [User Management](developer-portal/advanced-developer-portal-configuration/user-management.md)
-  * [Layout and Theme Customization](developer-portal/advanced-developer-portal-configuration/layout-and-theme-customization.md)
-  * [Documentation](developer-portal/advanced-developer-portal-configuration/documentation.md)
-* [Tools and Features](developer-portal/tools-and-features/README.md)
-  * [Webhook Subscription Management](developer-portal/tools-and-features/webhook-subscription-management.md)
-  * [Applications](developer-portal/tools-and-features/applications.md)
-  * [Documentation](developer-portal/tools-and-features/documentation.md)
+* [APIM Gateway](apim-components/the-gravitee-api-gateway/README.md)
+  * [General Configuration](apim-components/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
+  * [Internal API](apim-components/the-gravitee-api-gateway/gateway-internal-api.md)
+  * [OpenTracing](apim-components/the-gravitee-api-gateway/opentracing.md)
+  * [Logging](apim-components/the-gravitee-api-gateway/logging.md)
+  * [Sharding tags](apim-components/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md)
+  * [Tenants](apim-components/the-gravitee-api-gateway/tenants.md)
+  * [Dictionaries](apim-components/the-gravitee-api-gateway/configure-dictionaries.md)
+* [Management API](apim-components/configure-apim-management-api/README.md)
+  * [General Configuration](apim-components/configure-apim-management-api/internal-api.md)
+  * [User and Management Configuration](apim-components/configure-apim-management-api/user-and-management-configuration.md)
+  * [Internal API](apim-components/configure-apim-management-api/internal-api-1.md)
+  * [Security](apim-components/configure-apim-management-api/security.md)
+  * [Management API Reference](apim-components/configure-apim-management-api/management-api-reference.md)
+* [Management Console](apim-components/configure-apim-management-ui.md)
+* [Developer Portal](apim-components/advanced-developer-portal-configuration/README.md)
+  * [General Settings](apim-components/advanced-developer-portal-configuration/general-settings.md)
+  * [User Management](apim-components/advanced-developer-portal-configuration/user-management.md)
+  * [Layout and Theme Customization](apim-components/advanced-developer-portal-configuration/layout-and-theme-customization.md)
+  * [Applications](apim-components/advanced-developer-portal-configuration/applications.md)
+  * [Webhook Subscription Management](apim-components/advanced-developer-portal-configuration/webhook-subscription-management.md)
+  * [Documentation](apim-components/advanced-developer-portal-configuration/documentation.md)
 
 ## API Guides
 
@@ -236,8 +232,8 @@
 
 ## Administration
 
-* [Administration](administration/administration/README.md)
-  * [Administering organizations and environments](administration/administration/how-to.md)
+* [Overview](administration/administration/README.md)
+  * [Organizations and Environments](administration/administration/how-to.md)
   * [User Management and Permissions](administration/administration/user-management-and-permissions.md)
   * [Support](administration/administration/support.md)
 
@@ -246,10 +242,6 @@
 * [Developer Contributions](dev-guides/developer-contributions/README.md)
   * [Custom Plugins](dev-guides/developer-contributions/dev-guide-plugins.md)
   * [Custom Policies](dev-guides/developer-contributions/dev-guide-policies.md)
-
-## Reference
-
-* [Management API Reference](reference/management-api-reference.md)
 
 ## Releases & Changelog
 

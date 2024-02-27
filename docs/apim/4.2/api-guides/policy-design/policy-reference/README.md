@@ -10,7 +10,7 @@ Gravitee policies fall into several functional categories: security, transformat
 
 ## Installation and deployment
 
-Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition](../../../gravitee-api-management-apim/ee-vs-oss/) policy plugins are available for download [here](https://download.gravitee.io/).
+Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition](../../../gravitee-api-management/ee-vs-oss/) policy plugins are available for download [here](https://download.gravitee.io/).
 
 EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking Policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`. If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com).
 
@@ -34,11 +34,11 @@ To deploy the plugin, follow these steps:
 
 Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](broken-reference) in the Management Console or interacting directly with the Management API.
 
-When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../../../reference/management-api-reference.md)
+When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../../../apim-components/configure-apim-management-api/management-api-reference.md)
 
 ## Phases
 
-Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../../gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases. Refer to an individual policy's documentation for phase support information.
+Policies can be applied to the request or the response of a Gateway API transaction. The request and response are broken up into phases that depend on the [Gateway API version](../../../gravitee-api-management/gravitee-api-definitions-and-execution-engines/). Each policy is compatible with a subset of the available phases. Refer to an individual policy's documentation for phase support information.
 
 {% tabs %}
 {% tab title="v4 API definition" %}
@@ -68,4 +68,4 @@ The [changelog for each version of APIM](../../../releases-and-changelog/changel
 
 For details of how policies are defined and used in APIM, see also:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>API Exposure: Plans, Applications, &#x26; Subscriptions</strong></td><td></td><td>Learn how to configure policies for API plans in APIM Console</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Gravitee Expression Language</strong></td><td></td><td>Learn more about using the Gravitee Expression Language with policies</td><td><a href="../../../gravitee-api-management-apim/gravitee-expression-language.md">gravitee-expression-language.md</a></td></tr><tr><td><strong>Developer Contributions</strong></td><td></td><td>Learn how to create custom policies and deploy plugins (of which policies are one type)</td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>API Exposure: Plans, Applications, &#x26; Subscriptions</strong></td><td></td><td>Learn how to configure policies for API plans in APIM Console</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Gravitee Expression Language</strong></td><td></td><td>Learn more about using the Gravitee Expression Language with policies</td><td><a href="../../../gravitee-api-management/gravitee-expression-language.md">gravitee-expression-language.md</a></td></tr><tr><td><strong>Developer Contributions</strong></td><td></td><td>Learn how to create custom policies and deploy plugins (of which policies are one type)</td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>

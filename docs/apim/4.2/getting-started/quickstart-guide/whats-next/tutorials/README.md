@@ -14,7 +14,7 @@ For more detailed exposure to each of APIM's core concepts and features, visit o
 
 ## Prerequisites
 
-These tutorials demonstrate some [enterprise-only features](../../../../gravitee-api-management-apim/ee-vs-oss/) and are designed to work seamlessly with Gravitee's enterprise trial.&#x20;
+These tutorials demonstrate some [enterprise-only features](../../../../gravitee-api-management/ee-vs-oss/) and are designed to work seamlessly with Gravitee's enterprise trial.&#x20;
 
 To begin, [sign up for an enterprise trial of Gravitee API Management](../../../free-trial.md). Your first environment will be set up in just a few minutes and is preconfigured with APIs to help demonstrate the value of both traditional and event-native API Management.
 

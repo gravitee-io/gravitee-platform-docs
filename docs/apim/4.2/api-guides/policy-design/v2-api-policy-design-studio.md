@@ -28,7 +28,7 @@ The v2 Policy Studio is broken into the following sections:
 
 Flows can be added to existing v2 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** details page. Select **Design** in the left-hand nav.
 
-You're now in the **Design** section of the Policy Studio. Here, you can create flows by adding policies to the request and/or response phases and target them by path, HTTP method(s), or via [Gravitee's Expression Language](../../gravitee-api-management-apim/gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of an API. Flows can also be associated with specific plans or exist at the API-level as shown below:
+You're now in the **Design** section of the Policy Studio. Here, you can create flows by adding policies to the request and/or response phases and target them by path, HTTP method(s), or via [Gravitee's Expression Language](../../gravitee-api-management/gravitee-expression-language.md). You can create multiple flows, each with different policies and applied to different parts of an API. Flows can also be associated with specific plans or exist at the API-level as shown below:
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-09 at 2.10.06 PM.png" alt=""><figcaption><p>v2 Policy Studio example</p></figcaption></figure>
 
@@ -204,7 +204,7 @@ Global resources are globally available to all flows associated with the Gateway
 
 As of Gravitee 4.0, Debug mode is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../gravitee-api-management-apim/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../gravitee-api-management/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}

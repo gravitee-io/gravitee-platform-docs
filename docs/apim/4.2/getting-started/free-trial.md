@@ -6,7 +6,7 @@ description: Try Gravitee's enterprise features with Gravitee Cockpit
 
 ## Overview
 
-The easiest way to get started with Gravitee API Management (APIM) is through the free enterprise trial. The trial includes access to [Gravitee Enterprise Edition (EE) features](../gravitee-api-management-apim/ee-vs-oss/) like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, message broker endpoints, and advanced protocol mediation options.
+The easiest way to get started with Gravitee API Management (APIM) is through the free enterprise trial. The trial includes access to [Gravitee Enterprise Edition (EE) features](../gravitee-api-management/ee-vs-oss/) like Alert Engine, a no-code API Designer with unlimited data models, monetization capabilities, message broker endpoints, and advanced protocol mediation options.
 
 During the free trial period, you will have access to all of the features and capabilities of Gravitee Enterprise Edition, including advanced analytics, customizable dashboards, and integration with third-party systems. After the free trial period has ended, you can choose to upgrade to the Enterprise edition or continue using the open-source version of Gravitee.
 

@@ -22,12 +22,12 @@ The following reporters are currently compatible with APIM:
 
 <table><thead><tr><th width="151">Type</th><th data-type="checkbox">Bundled in Distribution</th><th data-type="checkbox">Default</th><th data-type="checkbox">Enterprise only</th><th data-type="checkbox">v4 support</th></tr></thead><tbody><tr><td><a href="./#elasticsearch-reporter">Elasticsearch</a></td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td><a href="./#file-reporter">File</a></td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td><a href="./#tcp-reporter">TCP</a></td><td>true</td><td>false</td><td>true</td><td>false</td></tr><tr><td><a href="./#datadog-reporter">Datadog</a></td><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
 
-As of Gravitee 4.0, the TCP and Datadog reporters are Enterprise Edition capabilities that do not support [v4 APIs](../../../gravitee-api-management-apim/gravitee-api-definitions-and-execution-engines/).
+As of Gravitee 4.0, the TCP and Datadog reporters are Enterprise Edition capabilities that do not support [v4 APIs](../../../gravitee-api-management/gravitee-api-definitions-and-execution-engines/).
 
 {% hint style="warning" %}
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../../gravitee-api-management-apim/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../../gravitee-api-management/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}

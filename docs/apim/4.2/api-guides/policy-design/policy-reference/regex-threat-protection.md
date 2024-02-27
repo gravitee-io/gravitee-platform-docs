@@ -5,7 +5,7 @@ description: This page provides the technical details of the Regex Threat Protec
 # Regex Threat Protection
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../../gravitee-api-management-apim/ee-vs-oss/)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../../gravitee-api-management/ee-vs-oss/)**.**
 {% endhint %}
 
 ## Overview

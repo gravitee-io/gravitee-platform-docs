@@ -7,7 +7,7 @@ description: >-
 # AVRO to Protobuf Transformation
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../../gravitee-api-management-apim/ee-vs-oss/)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../../gravitee-api-management/ee-vs-oss/)**.**
 {% endhint %}
 
 ## Overview
