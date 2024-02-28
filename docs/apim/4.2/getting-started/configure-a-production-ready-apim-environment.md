@@ -51,7 +51,7 @@ The rest of this article primarily focuses on how to implement the items in this
 
 ### Internal APIs
 
-APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components (more information [here](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api-1)).
+APIM API and APIM Gateway include internal APIs that are enabled by default. These internal APIs permit the retrieval of monitoring and technical information pertaining to Gravitee components.
 
 #### Disabling internal APIs
 
@@ -158,9 +158,7 @@ http:
       enabled: true
 ```
 
-The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.&#x20;
-
-Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#configure-the-management-and-portal-apis) for more information about Console and Portal APIs.
+The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.
 
 #### Enable HTTPS
 
@@ -178,8 +176,6 @@ jetty:
       password: <keystore_secret>
 ```
 
-You can find additional details regarding HTTPS support for the REST APIs in the[ Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#enable-https-support).
-
 ### Authentication
 
 #### Identity provider
@@ -193,7 +189,7 @@ You can find additional details regarding HTTPS support for the REST APIs in the
 
 Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#ldap-authentication).
 
-It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication) for an example of role or group mapping.
+It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](../plugins-and-integrations/integrations/authentication-and-sso.md) for an example of role or group mapping.
 
 #### Developer Portal authentication
 
@@ -206,7 +202,7 @@ portal:
       enabled: true
 ```
 
-The Developer Portal configuration can be fine-tuned to satisfy your needs. Additional details are in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/developer-portal/advanced-developer-portal-configuration).
+The [Developer Portal](../apim-components/advanced-developer-portal-configuration/) configuration can be fine-tuned to satisfy your needs.&#x20;
 
 #### Default users
 
