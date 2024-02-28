@@ -70,12 +70,6 @@ Gravitee now supports TCP proxy APIs to provide the lowest latency access to raw
 
 To learn more about TCP proxy support and how to create TCP proxy APIs, refer to [this page](../../guides/create-apis/tcp-proxy-apis.md).
 
-## GKO
-
-The [GKO 1.x.x CRD reference](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/beta/docs/api/reference.md) is a newer version of the GKO 0.x.x CRD reference that is compatible with both the legacy and reactive execution engines to support both v2 and v4 APIs. It also supports the `ApiDefinition`, `ApiResource`, `Application`, and `ManagementContext` resources, as well as the Gravitee Ingress.
-
-Refer to the [GKO 1.x.x changelog](https://github.com/gravitee-io/gravitee-kubernetes-operator/releases/tag/1.0.0-beta.1) to track breaking changes.
-
 ## Entrypoints
 
 ### HTTP POST
