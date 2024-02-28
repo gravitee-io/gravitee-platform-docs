@@ -312,8 +312,6 @@ You can configure various user options:
 * `user.anonymize-on-delete:enabled`: When a user is deleted, their access is revoked. The user data remains in the database for audit purposes. Depending on your privacy policy, you should enable this feature to anonymize the user's first name, last name, and email when they are deleted.
 * `user.password.policy.pattern`: By default, Gravitee includes a strong password policy taken from OWASP recommendations. We highly recommend not decreasing the complexity of the password policy if you allow user registration.
 
-You can find other information related to user management in the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/user-and-management-configuration).
-
 ### Brute-force protection
 
 #### ReCaptcha
@@ -370,7 +368,7 @@ http:
         allow-origin: 'https://gio-portal.mycompany.com'
 ```
 
-`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting. Refer to** the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#cors-configuration) for other useful information related to CORS.
+`allow-origin: '*'` should be considered a security risk because it permits all cross-origin requests. **We highly recommend fine-tuning the allow-origin setting.**
 
 ### Other configuration settings
 
@@ -514,22 +512,16 @@ Some good practices to establish:
 * Assign permissions to a group instead of each user individually.
 * Automatically associate a group with each new API or application to facilitate permission management.
 
-You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
-
 #### API review & quality
 
 You can **enable API review and quality** to avoid public exposure to the Developer Portal that is unexpected and lacks strong security requirements, or if you want a member of a Quality team to review API designs prior to deploying the API and making it accessible to API consumers. This can seamlessly establish a robust API strategy.
-
-You can find more information about API review and quality in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature).
 
 #### API design
 
 There is no "rule of thumb" when it comes to designing and exposing your APIs, as this always depends on the business requirements. However, consider the following to avoid mistakes and open unexpected security breaches:
 
-* Enable and configure CORS at the API level. This ensures the best level of security when APIs are consumed by browser-based applications. See [details here](https://documentation.gravitee.io/apim/guides/api-configuration/v2-api-configuration/configure-cors#configure-cors).
+* Enable and configure CORS at the API level. This ensures the best level of security when APIs are consumed by browser-based applications.
 * Avoid exposing an API without security (i.e., using a keyless plan) when possible. Always prefer stronger security solutions such as JWT or OAuth2.
 * Disable auto-validation of API subscriptions. Instead, manually validate each subscription to ensure that you are familiar with your API consumers.
 * Require the API consumer to enter a comment when subscribing to an API. This is a simple way to understand the motivation for a subscription and helps detect malicious attempts to access an API.
 * Regularly review subscriptions and revoke those that are no longer used.
-
-More information on how to manage API subscriptions is detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
