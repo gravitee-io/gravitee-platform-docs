@@ -32,7 +32,7 @@ Before getting started, you'll need:
 2. Gravitee APIM 4.0 or later up and running
 
 {% hint style="info" %}
-If you are new to both web APIs and message brokers, we recommend taking a look at the [API Fundamentals guide](https://documentation.gravitee.io/platform-overview/before-you-begin/api-fundamentals) before continuing.
+If you are new to both web APIs and message brokers, we recommend taking a look at the [Gravitee Essentials guide](https://documentation.gravitee.io/platform-overview/gravitee-essentials/overview) before continuing.
 {% endhint %}
 
 The easiest way to start using Gravitee is to register for a [free enterprise trial](../install-guides/free-trial.md).
