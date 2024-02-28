@@ -21,6 +21,7 @@
 
 ## APIM Components
 
+* [Configuration Overview](apim-components/configuration-overview.md)
 * [APIM Gateway](apim-components/the-gravitee-api-gateway/README.md)
   * [General Configuration](apim-components/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
   * [Internal API](apim-components/the-gravitee-api-gateway/gateway-internal-api.md)
@@ -99,7 +100,6 @@
   * [Hybrid Deployment on Kubernetes](getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md)
   * [Advanced Hybrid Deployment](getting-started/hybrid-deployment/advanced-hybrid-deployment.md)
 * [Production Environment](getting-started/configure-a-production-ready-apim-environment.md)
-* [Configuration Overview](getting-started/configuration-overview.md)
 
 ## Gravitee Kubernetes Operator
 
