@@ -90,7 +90,7 @@ This step is where you decide between the [traditional proxy and message proxy](
 * **Message proxy**: Select **Introspect Messages From Event-Driven Backend** to configure the Gateway API to proxy event/message brokers
 
 {% hint style="warning" %}
-Message proxies require an enterprise license. If you don't have one, you can always [start a free trial](../../free-trial.md) or [schedule a demo](https://www.gravitee.io/demo).
+Message proxies require an enterprise license. If you don't have one, you can always [start a free trial](../../install-guides/free-trial.md) or [schedule a demo](https://www.gravitee.io/demo).
 {% endhint %}
 
 In the Console UI, choose which type of proxy you'd like to create based on the backend resource you're most interested in exposing. If you don't have a preference, we recommend trying a traditional proxy first, as it is easier to conceptualize.

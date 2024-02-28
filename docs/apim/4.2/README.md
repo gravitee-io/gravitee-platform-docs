@@ -1,4 +1,4 @@
-# Overview
+# Introduction to Gravitee API Management (APIM)
 
 {% hint style="warning" %}
 **Gravitee APIM 4.2 Documentation**
@@ -41,7 +41,7 @@ APIM is composed of four main components, all of which are incredibly lightweigh
 
 **APIM Gateway:** The core component of the APIM platform, it is essentially a sophisticated proxy. Unlike a traditional HTTP proxy, APIM Gateway can apply policies (i.e., rules) to both HTTP requests and responses to enhance processing by adding transformations, security, and many other exciting features.
 
-**APIM Management API:** A RESTful API that exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](apim-components/configure-apim-management-api/management-api-reference.md) section.
+**APIM Management API:** A RESTful API that exposes services to manage and configure the APIM Console and APIM Portal web UIs. All exposed services are restricted by authentication and authorization rules. For more information, see the [API Reference](reference/management-api-reference.md) section.
 
 **APIM Console:** A web UI providing easy access to key APIM API services. It allows API publishers to publish APIs and administrators to configure both global platform settings and specific portal settings.
 
@@ -59,10 +59,16 @@ The following concepts are fundamental to APIM:
 
 **Application:** An intermediary between a consumer and an API. Through applications, consumers are grouped together and the application as a whole subscribes to the API.
 
-{% hint style="info" %}
+### Ant notation
+
 APIM frequently uses Ant notation for path matching:
 
 * `?` matches one character
 * `\*` matches zero or more characters
 * `**` matches zero or more directories in a path
-{% endhint %}
+
+## First steps
+
+Ready to use Gravitee API Management? Select from the options below to learn more about APIM and get it up and running.
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Architecture</td><td></td><td><a href="overview/apim-architecture.md">apim-architecture.md</a></td></tr><tr><td></td><td>Plugins</td><td></td><td><a href="overview/plugins.md">plugins.md</a></td></tr><tr><td></td><td>Integrations</td><td></td><td><a href="overview/integrations.md">integrations.md</a></td></tr><tr><td></td><td>Open Source vs Enterprise Edition</td><td></td><td><a href="overview/ee-vs-oss/">ee-vs-oss</a></td></tr><tr><td></td><td>Install &#x26; Upgrade Guides</td><td></td><td><a href="getting-started/install-guides/">install-guides</a></td></tr></tbody></table>
