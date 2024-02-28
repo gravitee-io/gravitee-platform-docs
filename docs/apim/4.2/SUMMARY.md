@@ -19,6 +19,31 @@
   * [Compare Plan Selection](gravitee-api-management/gravitee-api-definitions-and-execution-engines/plan-selection.md)
 * [Gravitee Expression Language](gravitee-api-management/gravitee-expression-language.md)
 
+## APIM Components
+
+* [APIM Gateway](apim-components/the-gravitee-api-gateway/README.md)
+  * [General Configuration](apim-components/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
+  * [Internal API](apim-components/the-gravitee-api-gateway/gateway-internal-api.md)
+  * [OpenTracing](apim-components/the-gravitee-api-gateway/opentracing.md)
+  * [Logging](apim-components/the-gravitee-api-gateway/logging.md)
+  * [Sharding tags](apim-components/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md)
+  * [Tenants](apim-components/the-gravitee-api-gateway/tenants.md)
+  * [Dictionaries](apim-components/the-gravitee-api-gateway/configure-dictionaries.md)
+* [Management API](apim-components/configure-apim-management-api/README.md)
+  * [General Configuration](apim-components/configure-apim-management-api/internal-api.md)
+  * [User and Management Configuration](apim-components/configure-apim-management-api/user-and-management-configuration.md)
+  * [Internal API](apim-components/configure-apim-management-api/internal-api-1.md)
+  * [Security](apim-components/configure-apim-management-api/security.md)
+  * [Management API Reference](apim-components/configure-apim-management-api/management-api-reference.md)
+* [Management Console](apim-components/configure-apim-management-ui.md)
+* [Developer Portal](apim-components/advanced-developer-portal-configuration/README.md)
+  * [General Settings](apim-components/advanced-developer-portal-configuration/general-settings.md)
+  * [User Management](apim-components/advanced-developer-portal-configuration/user-management.md)
+  * [Layout and Theme Customization](apim-components/advanced-developer-portal-configuration/layout-and-theme-customization.md)
+  * [Applications](apim-components/advanced-developer-portal-configuration/applications.md)
+  * [Webhook Subscription Management](apim-components/advanced-developer-portal-configuration/webhook-subscription-management.md)
+  * [Documentation](apim-components/advanced-developer-portal-configuration/documentation.md)
+
 ## Plugins & Integrations
 
 * [Plugins](plugins-and-integrations/plugins/README.md)
@@ -91,31 +116,6 @@
   * [Sync CRDs with API Management API](gravitee-kubernetes-operator/custom-resource-definitions/sync-crds-with-apim-management-api.md)
   * [Deploy Operator Resources with Helm](gravitee-kubernetes-operator/custom-resource-definitions/deploy-operator-resources-with-helm.md)
 * [GKO API Reference](gravitee-kubernetes-operator/gravitee-kubernetes-operator-api-reference.md)
-
-## APIM Components
-
-* [APIM Gateway](apim-components/the-gravitee-api-gateway/README.md)
-  * [General Configuration](apim-components/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md)
-  * [Internal API](apim-components/the-gravitee-api-gateway/gateway-internal-api.md)
-  * [OpenTracing](apim-components/the-gravitee-api-gateway/opentracing.md)
-  * [Logging](apim-components/the-gravitee-api-gateway/logging.md)
-  * [Sharding tags](apim-components/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md)
-  * [Tenants](apim-components/the-gravitee-api-gateway/tenants.md)
-  * [Dictionaries](apim-components/the-gravitee-api-gateway/configure-dictionaries.md)
-* [Management API](apim-components/configure-apim-management-api/README.md)
-  * [General Configuration](apim-components/configure-apim-management-api/internal-api.md)
-  * [User and Management Configuration](apim-components/configure-apim-management-api/user-and-management-configuration.md)
-  * [Internal API](apim-components/configure-apim-management-api/internal-api-1.md)
-  * [Security](apim-components/configure-apim-management-api/security.md)
-  * [Management API Reference](apim-components/configure-apim-management-api/management-api-reference.md)
-* [Management Console](apim-components/configure-apim-management-ui.md)
-* [Developer Portal](apim-components/advanced-developer-portal-configuration/README.md)
-  * [General Settings](apim-components/advanced-developer-portal-configuration/general-settings.md)
-  * [User Management](apim-components/advanced-developer-portal-configuration/user-management.md)
-  * [Layout and Theme Customization](apim-components/advanced-developer-portal-configuration/layout-and-theme-customization.md)
-  * [Applications](apim-components/advanced-developer-portal-configuration/applications.md)
-  * [Webhook Subscription Management](apim-components/advanced-developer-portal-configuration/webhook-subscription-management.md)
-  * [Documentation](apim-components/advanced-developer-portal-configuration/documentation.md)
 
 ## API Guides
 
@@ -232,10 +232,9 @@
 
 ## Administration
 
-* [Overview](administration/administration/README.md)
-  * [Organizations and Environments](administration/administration/how-to.md)
-  * [User Management and Permissions](administration/administration/user-management-and-permissions.md)
-  * [Support](administration/administration/support.md)
+* [Organizations and Environments](administration/how-to.md)
+* [User Management and Permissions](administration/user-management-and-permissions.md)
+* [Support](administration/support.md)
 
 ## Dev Guides
 

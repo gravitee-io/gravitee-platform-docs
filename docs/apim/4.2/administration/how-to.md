@@ -2,18 +2,43 @@
 description: This article walks through how to administer Organizations and Environments
 ---
 
-# Administering organizations and environments
+# Organizations and Environments
 
-### Introduction
+## Introduction
 
-Gravitee offers simple methods for managing Organizations and Environments. In this article, we will cover:
+### Organizations
 
-* Defining general Organization settings
-* Configuring Authentication settings (Identity Providers) for accessing the Gravitee API Management platform
-* Setting up notification templates
-* Connecting Gravitee API Management to Gravitee Cockpit for advanced Environment Management
+In Gravitee, **Organizations** reflect a logical part of your company in a way that makes the most for your setup. For example, an organization could be a region or business unit.
 
-### Defining general Organization settings
+In the context of an APIM installation, it is the level at which shared configurations for environments are managed, such as:
+
+* Users
+* Roles
+* Identity providers
+* Notification templates
+
+Gravitee Organizations can include multiple environments.
+
+#### Managing platform access
+
+As a part of Organization administration, Gravitee offers multiple manners of managing and controlling access to the Gravitee platform. This is done by configuring Identity providers and login/registration settings.
+
+{% hint style="info" %}
+**This is different from Gravitee Access Management**
+
+This should _not_ be confused with Gravitee Access Management, which is a fully-featured Identity and Access Management solution that is used for controlling access to applications and APIs. To learn more about the Access Management product, please refer to the [Gravitee Access Management documentation](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/hbYbONLnkQLHGL1EpwKa/).
+{% endhint %}
+
+### Environments
+
+In Gravitee, **Environments** are flexible and act as the workspace in which users can manage their APIs, applications, and subscriptions. An environment handles its own categories, groups, documentation pages, and quality rules.
+
+Examples of environments:
+
+* Technical environments such as DEV / TEST / PRODUCTION
+* Functional environments such as PRIVATE APIS / PUBLIC APIS / PARTNERSHIP
+
+## Defining general Organization settings
 
 {% @arcade/embed flowid="sAy3l769Swk9epGVWCED" url="https://app.arcade.software/share/sAy3l769Swk9epGVWCED" %}
 

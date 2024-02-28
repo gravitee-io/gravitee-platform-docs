@@ -54,10 +54,10 @@ To use JDBC as the datastore for management, you have to have the correct JDBC d
 
 ### Download the driver
 
-1. Download the correct driver for your database from [Supported databases.](../../../plugins-and-integrations/plugins/configure-repositories/#supported-databases)
+1. Download the correct driver for your database from [Supported databases.](broken-reference)
 2. Place it in the `plugins-ext` folder. If you used the file structure described in the [custom install section](custom-install-with-docker-compose.md), the `plugin-ext` folder is `/gravitee/apim-gateway/plugins` for the API Gateway and `/gravitee/apim-management-api/plugins` for the Management API.
 
-For more information on the JDBC plugin and drivers, see [JDBC](../../../plugins-and-integrations/plugins/configure-repositories/#jdbc).
+For more information on the JDBC plugin and drivers, see [JDBC](broken-reference).
 
 ### Using with `docker compose`
 

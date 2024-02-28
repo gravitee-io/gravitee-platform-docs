@@ -6,7 +6,7 @@ description: >-
 
 # User Management and Permissions
 
-### Introduction
+## Introduction
 
 In this article, we will walk through how to set up:
 
@@ -20,7 +20,7 @@ In this article, we will walk through how to set up:
 By default, **System Admins** (a role created by Gravitee) are the only roles that can create and edit more roles. However, you can create your own custom roles with these permissions.
 {% endhint %}
 
-### Roles
+## Roles
 
 {% @arcade/embed flowId="KyYnhU8h2uPwM46fbMdk" url="https://app.arcade.software/share/KyYnhU8h2uPwM46fbMdk" %}
 
@@ -39,7 +39,7 @@ Gravitee comes with some pre-built default roles, but there is no limit to the n
 
 To set up roles, log-in to the Gravitee API Management Console, and select Organization in the left-hand nav. In your Organization settings, select **Roles** from the **User Management** section. You'll be brought to the **Roles** page. Here, you can add, see members within, and delete roles at the Organization, Environment, API, and Application Scopes. Depending on which Scope a role is created at, that role will have a different set of permissions.&#x20;
 
-### Permissions
+## Permissions
 
 The following tables describe permissions per scope.
 
@@ -96,7 +96,7 @@ The following tables describe permissions per scope.
 
 As of Gravitee 4.0, Custom Roles is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../gravitee-api-management/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../gravitee-api-management/ee-vs-oss/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -133,7 +133,7 @@ To create a custom "Writer" role, follow these steps:
 3. Select **Roles** under **User Management**
 4.  At the **API** scope, select **+ Add a role**\\
 
-    <figure><img src="../../.gitbook/assets/Add an API scope role.gif" alt=""><figcaption><p>Create an API scope role</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/Add an API scope role.gif" alt=""><figcaption><p>Create an API scope role</p></figcaption></figure>
 5. Enter in "**Writer**" in the **Role name** text field
 6. Give the role a description, such as **"These users can create, update, read, and delete API documentation."**
 7. (Optional) If you want this to be the default role for new users, toggle **Default role** ON or OFF.
@@ -142,7 +142,7 @@ To create a custom "Writer" role, follow these steps:
    **`CRUD`** permissions on **`DOCUMENTATION`**: this allows the user to write new API documentation
 9.  Once you are done, select **Create.** \\
 
-    <figure><img src="../../.gitbook/assets/Writer role.gif" alt=""><figcaption><p>Define the "Writer" role permissions</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/Writer role.gif" alt=""><figcaption><p>Define the "Writer" role permissions</p></figcaption></figure>
 
 {% hint style="success" %}
 **Success!**
@@ -150,13 +150,13 @@ To create a custom "Writer" role, follow these steps:
 Once you're done, you'll see the "**Writer**" role in the **API** Scope section.
 {% endhint %}
 
-### Users and user groups
+## Users and user groups
 
-In Gravitee, users are simply profiles for individuals that use the platform. User groups are groupings of users that share the same role(s) for the **API** and/or **Application** Scope(s).
+In Gravitee, **users** are simply profiles for individuals who use the platform. User groups are groupings of users that share the same role(s) for the **API** and/or **Application** Scope(s).&#x20;
 
-In Gravitee, a **User** is just a user of the Gravitee platform. You can create **User groups,** which are defined by a set of permissions and roles as they pertain to configuring and managing Organizations, Environments, APIs, and Applications in Gravitee. These four levels are referred to as **Scopes.**
+You can create **user groups,** which are defined by a set of permissions and roles as they pertain to configuring and managing Organizations, Environments, APIs, and Applications in Gravitee. These four levels are referred to as **Scopes.**
 
-#### Create and manage users
+### Create and manage users
 
 There are two main ways for users to be created:
 
@@ -180,20 +180,20 @@ To create a user via the System administrator flow, follow these steps:
 
 To delete a user from your Organization, select the **Delete user** icon from the table on the **Users** page.
 
-<figure><img src="../../.gitbook/assets/Delete a user.png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Delete a user.png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
 
-#### Create and manage User groups
+### Create and manage user groups
 
-To create and manage User groups, follow these steps:
+To create and manage user groups, follow these steps:
 
-1. Log-in to the API Management Console, and select **Settings** from the left-hand nav.
+1. Log in to the API Management Console, and select **Settings** from the left-hand nav.
 2. Under **User Management,** select **Groups**.
-3. You'll be brought to a list of User groups. Here, you can create, edit, and delete User groups. To:
+3. You'll be brought to a list of User groups. Here, you can create, edit, and delete user groups. To:
    * Create groups: select the + icon at the bottom right corner of the page
    * Edit groups: select the hyperlinked group name
    * Delete groups: select the Delete icon.
-4. If you are creating or editing a User group, you will need to dedfine:
-   * General info: this is just the name of the User group
+4. If you are creating or editing a user group, you will need to dedfine:
+   * General info: this is just the name of the user group
    * Roles and members: define the maximum amount of members and choose whether or not to allow:
      * Invitations via user search
      * Email invitations
@@ -203,14 +203,14 @@ To create and manage User groups, follow these steps:
    * Associations: choose whether or not to associate this group to every new API and/or application
 5. Under **Actions,** select **Create.**
 
-Once a User group is created, you will be able to:
+Once a user group is created, you will be able to:
 
 * Define a default API role by selecting the role from the **Default API Role** drop-down
 * Define default application roles by selecting the role from the **Default Application Role** drop-down
-* Choose to associate the User group with existing APIs or Applications by selecting **Associate to existing APIs** and/or **Associate to existing applications**
+* Choose to associate the user group with existing APIs or Applications by selecting **Associate to existing APIs** and/or **Associate to existing applications**
 * View all members, associated APIs, and associated applications in the **Dependents** section
 
-If you are making a change to your User group, you can either:
+If you are making a change to your user group, you can either:
 
 * Reset the User group settings by selecting **Reset** under **Actions**
 * Update the User group to save new settings by selecting **Update** under **Actions**

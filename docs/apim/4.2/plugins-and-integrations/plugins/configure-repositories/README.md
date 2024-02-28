@@ -2,7 +2,7 @@
 description: This article introduces how to configure various repositories
 ---
 
-# Configure Repositories
+# Repositories
 
 ## Introduction
 
@@ -20,4 +20,4 @@ Please choose from the options below to learn how to configure these repositorie
 Using JDBC as a rate limit repository is not recommended because concurrent threads do not share a counter. This can result in inaccuracies in limit calculations.
 {% endhint %}
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Elasticsearch</td><td></td><td><a href="elasticsearch.md">elasticsearch.md</a></td></tr><tr><td></td><td>MongoDB</td><td></td><td><a href="mongodb.md">mongodb.md</a></td></tr><tr><td></td><td>JDBC</td><td></td><td><a href="jdbc.md">jdbc.md</a></td></tr><tr><td></td><td>Redis</td><td></td><td><a href="redis.md">redis.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Elasticsearch</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td></td><td>MongoDB</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td></td><td>JDBC</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td></td><td>Redis</td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>

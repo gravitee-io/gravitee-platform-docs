@@ -23,7 +23,7 @@ Download the latest OpenJDK [here](https://jdk.java.net/archive/).
 
 ### MongoDB and Elasticsearch
 
-The default APIM Gateway distribution requires [MongoDB](../../plugins-and-integrations/plugins/configure-repositories/mongodb.md) to poll the environment configuration and [Elasticsearch](../../plugins-and-integrations/plugins/configure-repositories/elasticsearch.md) for reporting and analytics. See the vendor documentation for supported versions.
+The default APIM Gateway distribution requires [MongoDB](broken-reference) to poll the environment configuration and [Elasticsearch](broken-reference) for reporting and analytics. See the vendor documentation for supported versions.
 
 {% hint style="info" %}
 Download [MongoDB](https://www.mongodb.com/try#production) and [Elasticsearch](https://www.elastic.co/downloads/elasticsearch).

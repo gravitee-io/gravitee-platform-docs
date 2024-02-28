@@ -64,8 +64,8 @@ The Legacy upgrade pack comprises the following plugins and capabilities that en
 
 The Observability pack includes capabilities to better implement enterprise-grade API monitoring and observability:
 
-* [**Datadog reporter**](../../plugins-and-integrations/plugins/configure-reporters/#datadog-reporter): Push API metrics to your Datadog instance and dashboards.
-* [**TCP reporter**](../../plugins-and-integrations/plugins/configure-reporters/#tcp-reporter): Report Gateway events to a TCP listening server.
+* [**Datadog reporter**](broken-reference): Push API metrics to your Datadog instance and dashboards.
+* [**TCP reporter**](broken-reference): Report Gateway events to a TCP listening server.
 
 ### Event-native pack
 
@@ -86,7 +86,7 @@ The Event-native pack includes capabilities that enable using Gravitee to expose
 * [**Message filtering policy**:](broken-reference) Filter messages streamed to clients/subscribers based on certain API publisher and/or client criteria.
 * [**Avro <> JSON policy**](broken-reference): Transform information in Avro format into JSON format
 * **Gateway message reactor plugin**: Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* [**Confluent Schema Registry resource**](../../plugins-and-integrations/plugins/resources.md#confluent-schema-registry): Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](broken-reference): Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 ### Secret Manager pack
 

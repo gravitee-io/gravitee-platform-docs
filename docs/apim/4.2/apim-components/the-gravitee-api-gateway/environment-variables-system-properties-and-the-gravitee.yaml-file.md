@@ -353,7 +353,7 @@ ratelimit:
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../../plugins-and-integrations/plugins/configure-repositories/#use-a-custom-prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](broken-reference).
 
 ### **Store counters in JDBC**
 
@@ -367,7 +367,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../../plugins-and-integrations/plugins/configure-repositories/#use-a-custom-prefix-1).
+If you want to use a custom prefix, you need to follow the following [instructions](broken-reference).
 
 ### Store counters in Redis Standalone
 
@@ -380,7 +380,7 @@ ratelimit:
     password: 'mysecretpassword'
 ```
 
-Redis Sentinel and Redis SSL configuration options are presented [here](../../plugins-and-integrations/plugins/configure-repositories/#redis).
+Redis Sentinel and Redis SSL configuration options are presented [here](broken-reference).
 
 ## Configure reporters
 

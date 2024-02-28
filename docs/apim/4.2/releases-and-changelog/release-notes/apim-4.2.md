@@ -27,7 +27,7 @@ Two `secret-provider` plugins are available for Gravitee Gateway, Management API
 * `kubernetes`: A Community Edition plugin that fetches secret and TLS pairs from Kubernetes.io
 * `vault`: An Enterprise Edition plugin that uses the Key/Value engine of HashiCorp Vault
 
-For more information, refer to [Secret Providers](../../plugins-and-integrations/plugins/secret-providers.md).
+For more information, refer to [Secret Providers](broken-reference).
 
 ## API Documentation
 
@@ -140,4 +140,4 @@ The `groovy` policy has been enhanced to support message-level definitions. This
 
 ## Datadog
 
-(Enterprise-only) Datadog reporter support now extends to v4 APIs. v4 API metrics and monitoring data can be exported to a Datadog instance to ensure a comprehensive observability strategy. To learn more about reporters, check out [this section](../../plugins-and-integrations/plugins/configure-reporters/).
+(Enterprise-only) Datadog reporter support now extends to v4 APIs. v4 API metrics and monitoring data can be exported to a Datadog instance to ensure a comprehensive observability strategy. To learn more about reporters, check out [this section](broken-reference).

@@ -57,15 +57,15 @@ More information can be found in the [Hazelcast documentation](https://docs.haze
 
 ## Cache resource management
 
-API publishers can [create Cache resources](../plugins/resources.md#how-to-create-a-resource) to:
+API publishers can [create Cache resources](broken-reference) to:
 
 * Cache upstream of a response with the [Cache policy](broken-reference)
 * Cache access tokens with the [OAuth2 policy](broken-reference)
 
-The default distribution includes the [Cache resource](../plugins/resources.md#cache) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
+The default distribution includes the [Cache resource](broken-reference) plugin, which stores content in-memory and is locally managed on each Gateway node of the installation.
 
 Configuration of Cache resources cannot be managed using the `hazelcast.xml` file. The configuration is directly defined on the Cache resource.
 
 ## Persistent cache
 
-APIM also supports the Gravitee [Redis Cache resource](../plugins/resources.md#cache-redis) plugin based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](broken-reference).
+APIM also supports the Gravitee [Redis Cache resource](broken-reference) plugin based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](broken-reference).

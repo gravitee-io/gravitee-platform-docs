@@ -38,7 +38,7 @@ Elasticsearch is the default reporter, but this section will show you how to con
 
 ### Elasticsearch reporter
 
-Configuration details for the Elasticsearch reporter are available in the [Elasticsearch Repository](../configure-repositories/#elasticsearch) documentation.
+Configuration details for the Elasticsearch reporter are available in the [Elasticsearch Repository](broken-reference) documentation.
 
 ### File reporter
 

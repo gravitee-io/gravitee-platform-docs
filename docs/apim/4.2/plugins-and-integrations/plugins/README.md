@@ -16,7 +16,7 @@ The table below lists the different types of plugins you can use with APIM, the 
 | Fetchers                                    | APIM API                              | HTTP, GIT                                   |
 | [Policies](./#policies)                     | <p>APIM API<br>APIM Gateway</p>       | API Key, Rate-limiting, Cache               |
 | [Reporters](./#reporters)                   | APIM Gateway                          | Elasticsearch, Accesslog                    |
-| [Repositories](configure-repositories/)     | <p>APIM API<br>APIM Gateway</p>       | MongoDB, Redis, Elasticsearch               |
+| [Repositories](broken-reference)            | <p>APIM API<br>APIM Gateway</p>       | MongoDB, Redis, Elasticsearch               |
 | [Resources](./#resources)                   | <p>APIM API<br>APIM Gateway</p>       | Oauth2, Cache, LDAP                         |
 | Services                                    | <p>APIM API<br>APIM Gateway</p>       | Sync, local-registry, health-check, monitor |
 | [Notifiers](./#notifiers)                   | Alert Engine                          | Email, Slack, Webhook                       |
@@ -66,7 +66,7 @@ As with all plugins, you can create, use and deploy custom reporters as describe
 
 ### Repositories
 
-A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](configure-repositories/) section of the Configuration Guide.
+A **repository** is a pluggable storage component for API configuration, policy configuration, analytics and so on. You can find more information in the [Repositories](broken-reference) section of the Configuration Guide.
 
 ### Resources
 
@@ -76,7 +76,7 @@ A **resource** can be added to an API for its whole lifecycle. APIM comes with t
 * OAuth2 - Gravitee Access Management
 * OAuth2 - Generic Authorization Server
 
-You can find more information in the [Resources](resources.md) section of the documentation.
+You can find more information in the [Resources](broken-reference) section of the documentation.
 
 ### Notifiers
 
