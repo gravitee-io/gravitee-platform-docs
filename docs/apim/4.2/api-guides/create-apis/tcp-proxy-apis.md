@@ -10,6 +10,9 @@ TCP proxy only supports the exposure and consumption of packets, with no other p
 
 ## Limitations
 
-Gravitee 4.2 does not include UI support for TCP proxy APIs. To create and manage TCP proxy APIs, refer to the [Management API documentation](https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/4.0.0/gravitee-apim-rest-api/gravitee-apim-rest-api-management-v2/gravitee-apim-rest-api-management-v2-rest/src/main/resources/openapi/management-openapi-v2.yaml).
+The following limitations currently apply to TCP proxy API support:
+
+* Gravitee 4.2 does not include UI support for TCP proxy APIs. To create and manage TCP proxy APIs, refer to the [Management API documentation](https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/4.0.0/gravitee-apim-rest-api/gravitee-apim-rest-api-management-v2/gravitee-apim-rest-api-management-v2-rest/src/main/resources/openapi/management-openapi-v2.yaml).
+* Existing Gravitee Helm Charts do not support the creation of a TCP server on the Gateway. User customization of the Helm Charts is required for TCP proxy APIs.
 
 Future releases will add TCP proxy support to the Management Console to offer mTLS plans, rate limiting, IP filtering, and API consumption analytics. Plans will enable TCP proxy monetization via different throughputs associated with subscription tiers that can be managed in the Developer Portal.
