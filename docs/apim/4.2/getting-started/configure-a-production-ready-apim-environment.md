@@ -182,12 +182,12 @@ jetty:
 
 **We highly recommend using your own corporate identity provider** (must be OAuth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:
 
-* [Gravitee Access Management](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication)
-* [GitHub](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#github-authentication)
-* [Google](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#google-authentication)
-* [Any compliant OAuth/OIDC server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#openid-connect-authentication)
+* [Gravitee Access Management](../plugins-and-integrations/integrations/authentication-and-sso.md#gravitee-access-management-authentication)
+* [GitHub](../plugins-and-integrations/integrations/authentication-and-sso.md#github-authentication)
+* [Google](../plugins-and-integrations/integrations/authentication-and-sso.md#google-authentication)
+* [Any compliant OAuth/OIDC server](../plugins-and-integrations/integrations/authentication-and-sso.md#openid-connect-authentication)
 
-Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#ldap-authentication).
+Alternatively, you can rely on your [LDAP server](../plugins-and-integrations/integrations/authentication-and-sso.md#ldap-authentication).
 
 It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](../plugins-and-integrations/integrations/authentication-and-sso.md) for an example of role or group mapping.
 
@@ -387,8 +387,6 @@ api:
     encryption:
          secret: <32 byte length secret>
 ```
-
-You can find additional details about property encryption in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/policy-design/v2-api-policy-design-studio#encryption).
 
 #### Documentation sanitizer
 
