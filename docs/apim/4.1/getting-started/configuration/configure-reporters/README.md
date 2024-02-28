@@ -167,6 +167,14 @@ reporters:
     #  s1.company.com:9092,
     #  s2.company.com:9092,
     #  s3.company.com:9092
+    #log: # (Following mapping section is also available for other types: node, health-check, log)
+    #  exclude: # Can be a wildcard (ie '*') to exclude all fields (supports json path)
+    #    - clientRequest
+    #    - clientResponse
+    #    - proxyRequest
+    #request: # (Following mapping section is also available for other types: node, health-check, log)
+    #  exclude: # Can be a wildcard (ie '*') to exclude all fields (supports json path)
+    #    - apiResponseTimeMs
 ```
 {% endtab %}
 {% endtabs %}
