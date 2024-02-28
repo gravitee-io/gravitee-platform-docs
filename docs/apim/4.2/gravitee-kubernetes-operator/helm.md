@@ -1,8 +1,12 @@
-# Helm
+# Helm Installation
 
 ## Overview
 
 Helm is the preferred method for installing the operator.
+
+{% hint style="warning" %}
+Existing Gravitee Helm Charts do not support the creation of a TCP server on the Gateway. User customization of the Helm Charts is required for TCP proxy APIs.
+{% endhint %}
 
 ## Installation
 
