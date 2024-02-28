@@ -4,7 +4,7 @@ description: >-
   of your production environment
 ---
 
-# Production-ready APIM Environment
+# Production Environment
 
 ## Overview
 
@@ -125,8 +125,8 @@ services:
 
 To learn more about internal APIs, see:
 
-* [Configure the APIM Management API internal API](broken-reference)
-* [Configure the APIM Gateway internal API](broken-reference)
+* [Configure the APIM Management API internal API](../apim-components/configure-apim-management-api/internal-api-1.md)
+* [Configure the APIM Gateway internal API](../apim-components/the-gravitee-api-gateway/gateway-internal-api.md)
 
 ### Deployment
 
