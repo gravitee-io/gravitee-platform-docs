@@ -8,23 +8,17 @@ description: >-
 
 ## Gravitee Access Management 4.1.15 - February 29, 2024
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Passwordless authentication doesn't take the IDP status into account https://github.com/gravitee-io/issues/issues/9494[#9494]
-* State parameter encoded twice with response_mode set to form_post https://github.com/gravitee-io/issues/issues/9528[#9528]
-* Passwordless registration appearing for users who have already authenticated with step up https://github.com/gravitee-io/issues/issues/9568[#9568]
-
-
-
-
-
+* Passwordless authentication doesn't take the IDP status into account [#9494](https://github.com/gravitee-io/issues/issues/9494)
+* State parameter encoded twice with response\_mode set to form\_post [#9528](https://github.com/gravitee-io/issues/issues/9528)
+* Passwordless registration appearing for users who have already authenticated with step up [#9568](https://github.com/gravitee-io/issues/issues/9568)
 
 </details>
-
 
 ## Gravitee Access Management 4.1.14 - February 19, 2024
 
