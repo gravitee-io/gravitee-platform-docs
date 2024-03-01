@@ -6,7 +6,7 @@ description: >-
 
 # APIM 4.1.x
 
-Gravitee API Management 4.1.10 - March 1, 2024
+## Gravitee API Management 4.1.10 - March 1, 2024
 
 <details>
 
