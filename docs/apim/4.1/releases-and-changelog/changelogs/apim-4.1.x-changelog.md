@@ -5,6 +5,39 @@ description: >-
 ---
 
 # APIM 4.1.x
+ 
+## Gravitee API Management 4.1.10 - March 1, 2024
+<details>
+
+<summary>BugFixes</summary>
+
+**Gateway**
+
+* Override HTTP Method [#9526](https://github.com/gravitee-io/issues/issues/9526)
+
+**Management API**
+
+* Shared API Key Does Not Always Bind to Subscriptions When Concurrent Requests Are Made [#9502](https://github.com/gravitee-io/issues/issues/9502)
+* NullPointer Exception when importing an API with group as PO and members [#9507](https://github.com/gravitee-io/issues/issues/9507)
+* APIM - creating application with "@" in name automatically converts it to "&#64;" [#9514](https://github.com/gravitee-io/issues/issues/9514)
+* API description required with POST /apis/ on mAPI v2 [#9527](https://github.com/gravitee-io/issues/issues/9527)
+* Importing an API with a group as PO but no PO user in this group should not be possible [#9587](https://github.com/gravitee-io/issues/issues/9587)
+
+**Console**
+
+* No more possible to compare published and to deploy status  [#9491](https://github.com/gravitee-io/issues/issues/9491)
+* Re: Error when clicking on top failed api in platform dashbaord [#9498](https://github.com/gravitee-io/issues/issues/9498)
+* Remove last user in group shows error [#9517](https://github.com/gravitee-io/issues/issues/9517)
+* [endpoints] updating name or deleting group used as DLQ prevent from updating api [#9535](https://github.com/gravitee-io/issues/issues/9535)
+* [endpoints] creating a endpoint group should display endpoint configuration [#9582](https://github.com/gravitee-io/issues/issues/9582)
+
+**Portal**
+
+* Documentation menu hidden [#9590](https://github.com/gravitee-io/issues/issues/9590)
+
+</details>
+
+
 
 ## Gravitee API Management 4.1.9 - February 16, 2024
 
