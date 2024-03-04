@@ -22,8 +22,6 @@ The v2 Policy Studio is broken into the following sections:
 * **Resources:** Configure global resources to support your Gateway API's flows
 * **Debug:** Test and troubleshoot your Gateway APIs
 
-{% @arcade/embed flowId="kApsIRtoWrfIFRzd7DQj" url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" %}
-
 ## Design
 
 Flows can be added to existing v2 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** details page. Select **Design** in the left-hand nav.

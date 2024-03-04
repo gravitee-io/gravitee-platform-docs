@@ -6,8 +6,6 @@ description: Learn how to import APIs onto your Gravitee Gateway
 
 ## Introduction
 
-{% @arcade/embed flowId="h1mdR0FKFbW9OS2CB0mQ" url="https://app.arcade.software/share/h1mdR0FKFbW9OS2CB0mQ" %}
-
 Gravitee supports importing APIs as:
 
 * Files (YML, YAML, JSON, WSDL, XML)

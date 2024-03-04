@@ -4,8 +4,6 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 # v4 API creation wizard
 
-{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
-
 ## Introduction
 
 The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. The API creation wizard comprises several steps, each of which requires you to define certain sets of information:

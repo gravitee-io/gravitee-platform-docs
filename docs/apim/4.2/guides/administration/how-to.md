@@ -15,8 +15,6 @@ Gravitee offers simple methods for managing Organizations and Environments. In t
 
 ### Defining general Organization settings
 
-{% @arcade/embed flowid="sAy3l769Swk9epGVWCED" url="https://app.arcade.software/share/sAy3l769Swk9epGVWCED" %}
-
 To access your Organization settings, log-in to your Gravitee API Management Console and select **Organization** from the left-hand nav. From here, you can edit all of your Organization settings. To define general organization settings, select **Settings** under **Console.**
 
 You'll be brought the **Settings** page, where you can define:

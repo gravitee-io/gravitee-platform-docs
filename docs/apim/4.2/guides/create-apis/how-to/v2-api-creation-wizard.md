@@ -6,8 +6,6 @@ description: >-
 
 # v2 API creation wizard
 
-{% @arcade/embed flowId="kApsIRtoWrfIFRzd7DQj" url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" %}
-
 ## Introduction
 
 In Gravitee, your API definition is a JSON representation of your Gateway API. API definition v2 supports HTTP-based APIs and the legacy version of the Policy Studio. This article walks through how to create APIs in Gravitee using the v2 API creation wizard.
