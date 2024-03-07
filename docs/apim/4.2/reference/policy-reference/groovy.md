@@ -167,7 +167,7 @@ result.contentType = 'application/json'
 You can also transform request or response body content by applying a Groovy script on the `OnRequestContent` phase or the `OnResponseContent` phase.
 
 {% hint style="info" %}
-If you are using the [reactive](../../overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md) engine, a single script is defined. To override the content of the request or response, `overrideContent`must be enabled in your configuration.
+If you are using the [reactive](broken-reference) engine, a single script is defined. To override the content of the request or response, `overrideContent`must be enabled in your configuration.
 {% endhint %}
 {% endtab %}
 
@@ -178,7 +178,7 @@ This policy allows you to override the content of a message. Message content can
 
 ### Impact of execution engine
 
-The number of scripts used for the `groovy` policy and their execution depend on which [execution engine](../../overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md) is running.
+The number of scripts used for the `groovy` policy and their execution depend on which [execution engine](broken-reference) is running.
 
 {% tabs %}
 {% tab title="Legacy engine" %}

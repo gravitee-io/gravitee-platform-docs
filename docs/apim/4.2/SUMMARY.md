@@ -10,15 +10,7 @@
   * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
 * [Gravitee API Definitions and Execution Engines](overview/gravitee-api-definitions-and-execution-engines/README.md)
   * [Reactive execution engine](overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md)
-  * [Policy execution](overview/gravitee-api-definitions-and-execution-engines/policy-execution.md)
-  * [Logging](overview/gravitee-api-definitions-and-execution-engines/logging.md)
-  * [Expression Language](overview/gravitee-api-definitions-and-execution-engines/expression-language.md)
-  * [Connection: close](overview/gravitee-api-definitions-and-execution-engines/connection-close.md)
-  * [Flow](overview/gravitee-api-definitions-and-execution-engines/flow/README.md)
-    * [Message Flow Control](overview/gravitee-api-definitions-and-execution-engines/flow/message-flow-control.md)
-  * [Access-Control-Allowed-Origin](overview/gravitee-api-definitions-and-execution-engines/access-control-allowed-origin.md)
-  * [Timeout management](overview/gravitee-api-definitions-and-execution-engines/timeout-management.md)
-  * [Plan selection](overview/gravitee-api-definitions-and-execution-engines/plan-selection.md)
+  * [Message Flow Control](overview/gravitee-api-definitions-and-execution-engines/message-flow-control.md)
 
 ## Getting Started
 
