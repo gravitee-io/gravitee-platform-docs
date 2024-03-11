@@ -17,8 +17,6 @@ Gravitee API Management (APIM) natively support several types of authentication 
 
 In this article, we will walk through how to configure each by using the `gravitee.yaml` file and the Gravitee API Management Console.
 
-{% @arcade/embed flowid="iVIQA53PE3vtm6hoNo7b" url="https://app.arcade.software/share/iVIQA53PE3vtm6hoNo7b" %}
-
 ## Configure in-memory users
 
 This example shows a basic in-memory implementation, providing a simple and convenient way to declare advanced users of APIM, such as administrator users. To do this, you could configure the `gravitee.yaml` file as such:
@@ -142,7 +140,7 @@ security:
 
 ## Gravitee Access Management Authentication
 
-In addition to API Management, Gravitee offers a fully-fledged Access Management product. While Gravitee works seamlessly with other IAM and IdP providers, many teams prefer to use a single vednor for their APIM and AM needs. This section walks through how to use Gravitee Access Management as a preferred authentication method for your Gravitee platform users.
+In addition to API Management, Gravitee offers a fully-fledged Access Management product. While Gravitee works seamlessly with other IAM and IdP providers, many teams prefer to use a single vendor for their APIM and AM needs. This section walks through how to use Gravitee Access Management as a preferred authentication method for your Gravitee platform users.
 
 {% hint style="info" %}
 **Necessary prerequisites**
