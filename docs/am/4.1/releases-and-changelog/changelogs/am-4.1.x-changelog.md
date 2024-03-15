@@ -8,22 +8,16 @@ description: >-
 
 ## Gravitee Access Management 4.1.16 - March 15, 2024
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Redirect executed with jwt-bearer grant_type https://github.com/gravitee-io/issues/issues/9505[#9505]
-* Invalid Phone Number  https://github.com/gravitee-io/issues/issues/9519[#9519]
-
-
-
-
-
+* Redirect executed with jwt-bearer grant\_type [#9505](https://github.com/gravitee-io/issues/issues/9505)
+* Invalid Phone Number [#9519](https://github.com/gravitee-io/issues/issues/9519)
 
 </details>
-
 
 ## Gravitee Access Management 4.1.15 - February 29, 2024
 
