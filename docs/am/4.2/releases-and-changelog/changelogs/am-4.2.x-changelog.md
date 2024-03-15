@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.2.x
 
+## Gravitee Access Management 4.2.6 - March 15, 2024
+
+
+
+<details>
+<summary>Bug fixes</summary>
+**Gateway**
+
+* Redirect executed with jwt-bearer grant_type https://github.com/gravitee-io/issues/issues/9505[#9505]
+* Invalid Phone Number  https://github.com/gravitee-io/issues/issues/9519[#9519]
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.2.5 - February 29, 2024
 
 <details>
