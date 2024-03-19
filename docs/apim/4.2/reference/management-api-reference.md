@@ -1,8 +1,8 @@
 ---
 description: >-
   The Management API component manages the configuration of the entire
-  Gravitee.io APIM solution. It empowers organizations to effectively manage and
-  automate APIs.
+  Gravitee.io APIM solution. It empowers orgs to manage APIs effectively,
+  automate processes, and enhance developer experiences.
 ---
 
 # Management API Reference
