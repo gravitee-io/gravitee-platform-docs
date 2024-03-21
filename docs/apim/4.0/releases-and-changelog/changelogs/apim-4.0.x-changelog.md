@@ -5,15 +5,16 @@ description: >-
 ---
 
 # APIM 4.0.x
- 
+
 ## Gravitee API Management 4.0.20 - March 21, 2024
+
 <details>
 
-<summary>BugFixes</summary>
+<summary>Bug fixes</summary>
 
 **Gateway**
 
-* Improve HealthCheck service for V2 APIs [#9543](https://github.com/gravitee-io/issues/issues/9543)
+* Improve HealthCheck service for v2 APIs [#9543](https://github.com/gravitee-io/issues/issues/9543)
 
 **Management API**
 
@@ -21,11 +22,11 @@ description: >-
 
 **Console**
 
-* [shared api key] api key mode not displayed on application screen [#9612](https://github.com/gravitee-io/issues/issues/9612)
+* \[shared API key] API key mode not displayed on application screen [#9612](https://github.com/gravitee-io/issues/issues/9612)
 
 **Other**
 
-* API v4 proxy - problem with  client SSL certificate
+* API v4 proxy - problem with client SSL certificate
 
 </details>
 
@@ -35,11 +36,9 @@ description: >-
 
 **Portal**
 
-* Do not allow user to change his email though the portal [#9617](https://github.com/gravitee-io/issues/issues/9617)
+* Do not allow user to change their email through the Portal [#9617](https://github.com/gravitee-io/issues/issues/9617)
 
 </details>
-
-
 
 ## Gravitee API Management 4.0.19 - March 1, 2024
 
