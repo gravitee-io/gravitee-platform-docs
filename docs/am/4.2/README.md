@@ -1,15 +1,15 @@
 # Introduction to Gravitee Access Management (AM)
 
-Gravitee Access Management (AM) is a flexible, lightweight and easy-to-use open-source Identity and Access Management (IAM) solution. It offers a centralized authentication and authorization service to deliver secure access for authorized users to your applications and APIs from any device.
+Gravitee Access Management (AM) is a flexible, lightweight, and easy-to-use open source Identity and Access Management (IAM) solution. It offers a centralized authentication and authorization service to deliver secure access to your applications and APIs from any device.
 
-With its intuitive, centralized design and easy integration with our API Management product, Access Management is the natural Identity and Access Management platform choice for our customers.
+With its intuitive, centralized design and presumed integration with our API Management product, Access Management is the natural Identity and Access Management platform choice for our customers.
 
 ## Use cases
 
 Here are some common AM use cases:
 
 * You’ve built a new application and you want to add user authentication and authorization
-* You’ve built a new frontend, mobile or web application and you want it to securely access your APIs
+* You want your new frontend, mobile, or web application to securely access your APIs
 * You’re using Gravitee API Management to manage your APIs and you want to implement a seamless authorization flow
 * You want the flexibility of logging in users either with a username and password or with their social media accounts
 * You have a group of applications for which you want to implement single sign-on
@@ -35,7 +35,7 @@ These RESTful APIs expose services to:
 
 * Manage and configure the AM platform
 * Manage users and user sessions
-* Manage the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0 and SCIM 2.0 protocols
+* Manage the authorization flow for OAuth 2.0, OpenID Connect, UMA 2.0, and SCIM 2.0 protocols
 
 All exposed services are restricted by authentication and authorization rules. You can find more information in the [Auth Protocols](guides/auth-protocols/) section.
 
@@ -49,7 +49,7 @@ The concepts below are central to using AM.
 
 ### Organization
 
-An organization is internal data space AM provisions for you, to hold all the resources to handle user authentication.
+An organization is internal data space that is provisioned by AM to hold all the resources to handle user authentication.
 
 {% hint style="info" %}
 The Community Edition version of AM comes with a single default organization
@@ -60,14 +60,14 @@ The Community Edition version of AM comes with a single default organization
 An environment is a logical workspace in which administrative users can manage security domains.
 
 {% hint style="info" %}
-The Community Edition version of AM comes with a single default environment.
+The Community Edition version of AM comes with a single default environment
 {% endhint %}
 
 ### Security domain
 
 A security domain:
 
-* Gives you access to all the AM resources, such as applications, users and identity providers
+* Gives you access to all the AM resources, such as applications, users, and identity providers
 * Exposes authentication and authorization URLs
 * Gathers analytics and reporting
 
@@ -81,7 +81,7 @@ An application:
   * Native App (iOS, Android)
   * Backend App (Job, CLI)
 * Applications use AM to sign in and make requests to the Gateway Authorization Server
-* Applications can be used by end users (B2C) or autonomous (B2B)
+* Applications can be used by end users (B2C) or autonomously (B2B)
 
 ### Identity provider
 
@@ -122,14 +122,14 @@ For further information about OAuth2, view the [RFC page](https://tools.ietf.org
 
 ### OpenID Connect
 
-OpenID Connect is an identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end user by using an Authorization Server to authenticate and obtain basic profile information about the end user.
+OpenID Connect is an identity layer on top of the OAuth 2.0 protocol. It enables clients to verify the identity of the end user via an Authorization Server to authenticate and obtain basic profile information about the end user.
 
 For further information about OpenID Connect, view the [OpenID Connect specifications^](http://openid.net/specs/openid-connect-core-1\_0.html).
 
 ### SAML 2.0
 
-The Security Assertion Markup Language (SAML) protocol is an open-standard, XML-based framework for authentication and authorization of users.
+The Security Assertion Markup Language (SAML) protocol is an open-standard, XML-based framework for the authentication and authorization of users.
 
-Gravitee AM can act as both SAML IdP for applications as well as federate with SAML based Identity Providers for protocol mediation.
+Gravitee AM can act as SAML IdP for applications as well as federate with SAML-based Identity Providers for protocol mediation.
 
 For further information about SAML 2.0, view the [SAML Tech Overview 2.0](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html).
