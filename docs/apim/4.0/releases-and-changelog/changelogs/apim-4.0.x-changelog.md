@@ -5,6 +5,41 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.20 - March 21, 2024
+<details>
+
+<summary>BugFixes</summary>
+
+**Gateway**
+
+* Improve HealthCheck service for V2 APIs [#9543](https://github.com/gravitee-io/issues/issues/9543)
+
+**Management API**
+
+* Condition field in JDBC dbs is too short [#9595](https://github.com/gravitee-io/issues/issues/9595)
+
+**Console**
+
+* [shared api key] api key mode not displayed on application screen [#9612](https://github.com/gravitee-io/issues/issues/9612)
+
+**Other**
+
+* API v4 proxy - problem with  client SSL certificate
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Portal**
+
+* Do not allow user to change his email though the portal [#9617](https://github.com/gravitee-io/issues/issues/9617)
+
+</details>
+
+
 
 ## Gravitee API Management 4.0.19 - March 1, 2024
 
