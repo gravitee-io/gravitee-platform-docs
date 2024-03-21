@@ -35,9 +35,9 @@ Before getting started, you'll need:
 If you are new to both web APIs and message brokers, we recommend taking a look at the [Gravitee Essentials guide](https://documentation.gravitee.io/platform-overview/gravitee-essentials/overview) before continuing.
 {% endhint %}
 
-The easiest way to start using Gravitee is to register for a [free enterprise trial](../install-guides/free-trial.md). This is Gravitee's SaaS offering and grants you full access to APIM's enterprise features.
+The easiest way to start using Gravitee is to register for a [free enterprise trial](../install-and-upgrade-guides/enterprise-trial.md). This is Gravitee's SaaS offering and grants you full access to APIM's enterprise features.
 
-If you prefer and/or are required to manage your own installations, check out our [APIM install guides](../install-guides/) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-guides/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
+If you prefer and/or are required to manage your own installations, check out our [APIM install guides](../install-and-upgrade-guides/) for install options to run APIM locally or in your own cloud infrastructure. If you don't have a strong preference, [Quick Install with Docker Compose](../install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md) is the fastest self-managed installation for most users.
 
 {% hint style="warning" %}
 If you are mostly interested in managing message/event brokers, we highly recommend signing up for the free trial, as an enterprise license is required for all message broker functionality.

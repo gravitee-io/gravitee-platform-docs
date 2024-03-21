@@ -7,7 +7,7 @@ description: >-
 # WS Security Authentication
 
 {% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/ee-vs-oss/)**.**
+**This feature requires** [**Gravitee's Enterprise Edition**](../../overview/gravitee-apim-enterprise-edition/)**.**
 {% endhint %}
 
 ## Overview

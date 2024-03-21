@@ -17,7 +17,7 @@ Future efforts and innovation will focus on the v4 API definition, which enables
 
 The following sections discuss key concepts of v4 and v2 APIs. For step-by-step instructions to create APIs, see:
 
-* [API creation wizard](how-to/): How to use the API creation wizard in the UI
+* [API creation wizard](the-api-creation-wizard/): How to use the API creation wizard in the UI
 * [Import APIs](import-apis/): How to import APIs in Gravitee
 
 ## v4 API creation concepts

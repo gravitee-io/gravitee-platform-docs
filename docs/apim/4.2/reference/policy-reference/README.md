@@ -10,7 +10,7 @@ Gravitee policies fall into several functional categories: security, transformat
 
 ## Installation and deployment
 
-Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition](../../overview/ee-vs-oss/) policy plugins are available for download [here](https://download.gravitee.io/).
+Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/) policy plugins are available for download [here](https://download.gravitee.io/).
 
 EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking Policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`. If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com).
 
@@ -25,14 +25,14 @@ Please check the policy documentation to ensure the policy version you select is
 To deploy the plugin, follow these steps:
 
 1. Download the plugin archive (a `.zip` file) from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
-2. Add the file into the Gateway and Management API `plugins` folders. The default location is ${GRAVITEE\_HOME/plugins} but this can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md#configure-the-plugins-repository) For most installations, the Gateway and Management API `plugins` folders are at `/gravitee/apim-gateway/plugins` and `/gravitee/apim-management-api/plugins`, respectively.
+2. Add the file into the Gateway and Management API `plugins` folders. The default location is ${GRAVITEE\_HOME/plugins} but this can be modified in [the `gravitee.yaml` file.](../../getting-started/configuration/apim-gateway/general-configuration.md#configure-the-plugins-repository) For most installations, the Gateway and Management API `plugins` folders are at `/gravitee/apim-gateway/plugins` and `/gravitee/apim-management-api/plugins`, respectively.
 3. Restart your APIM nodes.
 
 </details>
 
 ## Configuration
 
-Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-design/) in the Management Console or interacting directly with the Management API.
+Policies can be added to flows that are assigned to an API or to a plan. Gravitee supports configuring policies [through the Policy Studio](../../guides/policy-studio/) in the Management Console or interacting directly with the Management API.
 
 When using the Management API, policies are added as flows either directly to an API or to a plan. To learn more about the structure of the Management API, check out the [reference documentation here.](../management-api-reference.md)
 
@@ -62,7 +62,7 @@ v2 APIs have the following phases:
 
 ## Compatibility matrices
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelogs/) provides a list of policies included in the default distribution. The documentation for each policy includes the compatibility matrix for APIM and that particular policy.
+The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The documentation for each policy includes the compatibility matrix for APIM and that particular policy.
 
 ## Related learning
 

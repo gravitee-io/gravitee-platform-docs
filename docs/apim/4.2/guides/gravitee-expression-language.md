@@ -11,7 +11,7 @@ EL is a powerful tool that can be used by API publishers to dynamically configur
 
 Both custom properties and attributes are object properties, but the terms "custom property" and "attribute" have special meanings in the Gravitee ecosystem:
 
-* **Custom Properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](policy-design/v4-api-policy-design-studio.md#api-properties).
+* **Custom Properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](policy-studio/v4-api-policy-studio.md#api-properties).
 * **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the `assign-attributes` policy. Attributes are used to attach additional information to a request or message via a variable that is dropped after the API transaction is completed.
 {% endhint %}
 
@@ -84,7 +84,7 @@ The `attributes` object property contains attributes that are automatically crea
 * `{#context.attributes}`: Contains attributes associated with v2 APIs or v4 Proxy APIs. A v4 Proxy API is created using the **Proxy upstream protocol** method.
 * `{#message.attributes}`: Contains attributes associated with v4 Message APIs. These APIs are created using the **Introspect messages from event-driven backend** method.
 
-See the [v4 API creation wizard](create-apis/how-to/v4-api-creation-wizard.md) for more details.
+See the [v4 API creation wizard](create-apis/the-api-creation-wizard/v4-api-creation-wizard.md) for more details.
 {% endtab %}
 
 {% tab title="Operators" %}
@@ -142,7 +142,7 @@ Using EL, you can access information about an API transaction through several ro
 
 {% tabs %}
 {% tab title="Custom properties" %}
-As an API publisher, you can define [custom properties ](policy-design/v4-api-policy-design-studio.md#api-properties)for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#api.properties}` root-level object property.
+As an API publisher, you can define [custom properties ](policy-studio/v4-api-policy-studio.md#api-properties)for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#api.properties}` root-level object property.
 
 #### Examples
 

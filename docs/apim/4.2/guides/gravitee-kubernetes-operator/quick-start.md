@@ -6,7 +6,7 @@ This quick start guide is the fastest way to start working with the Gravitee Kub
 
 ## Deploy the GKO
 
-For full details on deployment, see the [GKO Install Guide](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
+For full details on deployment, see the [GKO Install Guide](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview.md).
 
 ### Prerequisites
 
@@ -45,7 +45,7 @@ The process involves the following stages:
 
 ### Create a `ManagementContext` custom resource
 
-The [`ManagementContext` custom resource](custom-resource-definitions/managementcontext-resource.md) represents the configuration for a Management API.
+The [`ManagementContext` custom resource](custom-resource-definitions/managementcontext.md) represents the configuration for a Management API.
 
 To create a `ManagementContext` custom resource requires a YAML file with the correct Management Context configuration. The following sample Gravitee YAML file can be used directly or as a template:
 
@@ -65,7 +65,7 @@ For full details on creating a `ManagementContext` custom resource, see [Create 
 
 ### Create an `ApiDefinition` custom resource
 
-The [`ApiDefinition` custom resource](custom-resource-definitions/apidefinition-crd.md) represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API definition in JSON format.
+The [`ApiDefinition` custom resource](custom-resource-definitions/apidefinition.md) represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API definition in JSON format.
 
 To create an `ApiDefinition` custom resource requires a YAML file with the desired API Definition configuration. The following sample Gravitee YAML file can be used directly or as a template:
 

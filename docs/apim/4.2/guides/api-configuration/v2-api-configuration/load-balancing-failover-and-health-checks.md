@@ -73,7 +73,7 @@ Please refer to the [load-balancing concepts section](load-balancing-failover-an
 
 </div>
 
-10\. Optional: If you want to enable Service Discovery, select the **Service discovery** tab. Service discovery will enable external endpoints to be dynamically added or removed to or from the group. For more information on Service Discovery, please refer to our documentation on [Gravitee Service discovery](configure-service-discovery.md).
+10\. Optional: If you want to enable Service Discovery, select the **Service discovery** tab. Service discovery will enable external endpoints to be dynamically added or removed to or from the group. For more information on Service Discovery, please refer to our documentation on [Gravitee Service discovery](service-discovery.md).
 
 ![](https://colony-recorder.s3.amazonaws.com/files/2023-03-07/cf7799b5-28eb-4dff-9895-1e7a6f481edb/stack\_animation.webp)
 

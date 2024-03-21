@@ -96,7 +96,7 @@ The following tables describe permissions per scope.
 
 As of Gravitee 4.0, Custom Roles is an Enterprise Edition capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
-* [Refer to the EE vs OSS documentation](../../overview/ee-vs-oss/)
+* [Refer to the EE vs OSS documentation](../../overview/gravitee-apim-enterprise-edition/)
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
 {% endhint %}
@@ -167,7 +167,7 @@ To create a user via the System administrator flow, follow these steps:
 2. Select **Users** under **User Management.**
 3. Select **+ Add user** from the top left corner of the **Users** page.\\
 4. From here, you will define the user profile for this user. To define the user profile:
-   * Define the IdP for the user by using the IdP name that you configured as a part of your [IdP configuration](how-to.md#defining-organization-authentication-and-access-settings).
+   * Define the IdP for the user by using the IdP name that you configured as a part of your [IdP configuration](administering-organizations-and-environments.md#defining-organization-authentication-and-access-settings).
    * Define the user's info:
      * First name
      * Last name

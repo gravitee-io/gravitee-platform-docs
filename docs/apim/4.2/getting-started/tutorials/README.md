@@ -14,9 +14,9 @@ For more detailed exposure to each of APIM's core concepts and features, visit o
 
 ## Prerequisites
 
-These tutorials demonstrate some [enterprise-only features](../../overview/ee-vs-oss/) and are designed to work seamlessly with Gravitee's enterprise trial.&#x20;
+These tutorials demonstrate some [enterprise-only features](../../overview/gravitee-apim-enterprise-edition/) and are designed to work seamlessly with Gravitee's enterprise trial.&#x20;
 
-To begin, [sign up for an enterprise trial of Gravitee API Management](../install-guides/free-trial.md). Your first environment will be set up in just a few minutes and is preconfigured with APIs to help demonstrate the value of both traditional and event-native API Management.
+To begin, [sign up for an enterprise trial of Gravitee API Management](../install-and-upgrade-guides/enterprise-trial.md). Your first environment will be set up in just a few minutes and is preconfigured with APIs to help demonstrate the value of both traditional and event-native API Management.
 
 Once you're set-up, you can return here to experience the power of Gravitee API Management alongside our sample application.&#x20;
 
@@ -28,4 +28,4 @@ If you haven't already, we highly recommend completing [Gravitee's Quickstart gu
 
 The available use cases can be completed in any order:
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><h3><strong>Security and Protocol Mediation</strong></h3></td><td><strong>Beginner use case</strong> <br><br>This tutorial showcases Gravitee's event-native API management capabilities that can manage, secure, and mediate between both asynchronous and synchronous protocols.<br><br><strong>Gateway API Type:</strong> Message<br><strong>Entrypoint:</strong> HTTP POST, WebSocket<br><strong>Endpoint:</strong> Kafka<br><strong>Plan Security:</strong> API Key<br><strong>Policies:</strong> Latency</td><td></td><td><a href="real-time-data-and-protocol-mediation.md">real-time-data-and-protocol-mediation.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><h3><strong>Security and Protocol Mediation</strong></h3></td><td><strong>Beginner use case</strong> <br><br>This tutorial showcases Gravitee's event-native API management capabilities that can manage, secure, and mediate between both asynchronous and synchronous protocols.<br><br><strong>Gateway API Type:</strong> Message<br><strong>Entrypoint:</strong> HTTP POST, WebSocket<br><strong>Endpoint:</strong> Kafka<br><strong>Plan Security:</strong> API Key<br><strong>Policies:</strong> Latency</td><td></td><td><a href="beginner-security-and-protocol-mediation.md">beginner-security-and-protocol-mediation.md</a></td></tr></tbody></table>

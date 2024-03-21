@@ -17,7 +17,7 @@ APIs with keyless plans do not require the API consumer to create an application
 After creating an application, API consumers can subscribe to APIs (with published plans) either in the Management Console or the Developer Portal. We will work through the Management Console as we have a separate guide dedicated to the Developer Portal.
 
 {% hint style="info" %}
-You can also subscribe to APIs during the [application creation process.](plans-1.md#create-an-application)
+You can also subscribe to APIs during the [application creation process.](applications.md#create-an-application)
 {% endhint %}
 
 {% @arcade/embed flowId="GOpV3Hu4ggkF5On3jCy9" url="https://app.arcade.software/share/GOpV3Hu4ggkF5On3jCy9" %}
