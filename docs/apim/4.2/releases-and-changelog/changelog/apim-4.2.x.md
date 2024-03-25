@@ -29,7 +29,7 @@ description: >-
 **Other**
 
 * API v4 proxy - problem with client SSL certificate [#9562](https://github.com/gravitee-io/issues/issues/9562)
-* Flow Id is lost when Updating API with UI, causing it to regenerate new flow [#9597](https://github.com/gravitee-io/issues/issues/9597)
+* Flow Id is lost when updating API with UI, causing it to regenerate new flow [#9597](https://github.com/gravitee-io/issues/issues/9597)
 
 </details>
 
