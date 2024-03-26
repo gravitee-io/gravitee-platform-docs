@@ -28,10 +28,7 @@ An entity that authenticates users and provides to service providers (SP) an aut
 Currently, AM supports the following SAML bindings :
 
 * HTTP-Redirect
-
-{% hint style="info" %}
-HTTP-POST binding is planned for a future version of the SAML 2.0 IdP protocol plugin.
-{% endhint %}
+* HTTP-POST
 
 and the following options :
 
