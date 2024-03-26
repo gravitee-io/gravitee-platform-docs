@@ -29,10 +29,6 @@ Currently, AM supports the following SAML bindings :
 
 * HTTP-Redirect
 
-{% hint style="info" %}
-HTTP-POST binding is planned for a future version of the SAML 2.0 IdP protocol plugin.
-{% endhint %}
-
 and the following options :
 
 * Web Browser SSO Profile
