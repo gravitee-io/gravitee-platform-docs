@@ -15,7 +15,6 @@
 ## Getting Started
 
 * [Install & Upgrade Guides](getting-started/install-and-upgrade-guides/README.md)
-  * [Enterprise Trial](getting-started/install-and-upgrade-guides/enterprise-trial.md)
   * [Install on Docker](getting-started/install-and-upgrade-guides/install-on-docker/README.md)
     * [Quick Install with Docker Compose](getting-started/install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose.md)
     * [Custom Install with Docker Compose](getting-started/install-and-upgrade-guides/install-on-docker/custom-install-with-docker-compose.md)
@@ -43,8 +42,6 @@
   * [Plans and Policies 101](getting-started/quickstart-guide/plans-and-policies-101.md)
   * [Developer Portal 101](getting-started/quickstart-guide/developer-portal-101.md)
   * [What's Next](getting-started/quickstart-guide/whats-next.md)
-* [Tutorials](getting-started/tutorials/README.md)
-  * [Beginner: Security and Protocol Mediation](getting-started/tutorials/beginner-security-and-protocol-mediation.md)
 * [Configuration](getting-started/configuration/README.md)
   * [APIM Gateway](getting-started/configuration/apim-gateway/README.md)
     * [General Configuration](getting-started/configuration/apim-gateway/general-configuration.md)

@@ -5,7 +5,7 @@ description: Use Gravitee to proxy your message and event brokers
 # Message Proxy
 
 {% hint style="danger" %}
-Message proxies require an enterprise license. If you don't have one, you can [start a free trial](../../install-and-upgrade-guides/enterprise-trial.md) or [schedule a demo](https://www.gravitee.io/demo).
+Message proxies require an enterprise license. If you don't have one, you can [schedule a demo](https://www.gravitee.io/demo).
 {% endhint %}
 
 ## Overview&#x20;
