@@ -57,11 +57,7 @@ The endpoint used for the dead letter queue:
 
 Once configured and deployed, any message rejected with a 4xx error response by the Webhook will be automatically sent to the DLQ endpoint and the consumption of messages will continue.
 
-### **2. Combine DLQ with the retry policy**
-
-If you set up a DLQ, you can utilize the Gravitee Retry policy in order to "retry" delivery of undelivered messages from the DLQ. For more information on the Retry policy, please refer to the Retry policy reference.
-
-### **3. Set up secure callbacks**
+### **2. Set up secure callbacks**
 
 Callbacks can be secured using basic authentication, JWT, and OAuth2.
 
