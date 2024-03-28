@@ -4,7 +4,7 @@ Here is a simple example of APIM components configuration with docker-compose.
 
 ## APIM configuration
 
-For this example, we use a `docker-compose.yml` file to configure each APIM component
+For this example, we use a `docker-compose.yml` file to configure each APIM component:
 
 ```yaml
 version: '3.5'
@@ -122,14 +122,14 @@ services:
 
 ## NGINX
 
-Add the location for each gravitee components, define :
+Add the location for each Gravitee component and define:
 
-1. Managment API under Console UI
+1. Management API under Console UI
 2. Portal API under Portal UI
 
 Don’t forget to add the `sub_filter` directives according to the locations.
 
-```
+```nginx
 http {
         include /etc/nginx/mime.types;
 
@@ -194,7 +194,7 @@ http {
 
 ### Nginx container
 
-Add Nginx container to `docker-compose.yml`
+Add Nginx container to `docker-compose.yml`:
 
 ```yaml
   nginx:
@@ -212,7 +212,7 @@ Add Nginx container to `docker-compose.yml`
       - frontend
 ```
 
-After restart, you can access your components through nginx at the following addresses
+After restart, you can access your components through Nginx at the following addresses:
 
 | Component      | URL                          |
 | -------------- | ---------------------------- |
