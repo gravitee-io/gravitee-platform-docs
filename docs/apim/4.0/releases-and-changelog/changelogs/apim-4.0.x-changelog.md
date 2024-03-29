@@ -5,6 +5,37 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.21 - March 29, 2024
+<details>
+
+<summary>BugFixes</summary>
+
+**Management API**
+
+* Update import remove all members when a group is defined as a PO [#9596](https://github.com/gravitee-io/issues/issues/9596)
+* Gravitee 4.2 OpenAPI issues [#9632](https://github.com/gravitee-io/issues/issues/9632)
+
+**Other**
+
+* [gravitee-policy-ipfiltering] DNS Lookup fails with some DNS server [#9592](https://github.com/gravitee-io/issues/issues/9592)
+* [gravitee-resource-auth-provider-http] Timeout when authentication condition is failing [#9611](https://github.com/gravitee-io/issues/issues/9611)
+* Liquibase changelog 4.0.20-dashboards adding NOT NULL column without default value [#9626](https://github.com/gravitee-io/issues/issues/9626)
+* APIM DashboardTypeUpgrader raises an error when used with DocumentDB [#9631](https://github.com/gravitee-io/issues/issues/9631)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Allow to configure KeepAliveTimeout for HTTP Endpoint [#9541](https://github.com/gravitee-io/issues/issues/9541)
+
+</details>
+
+
 
 ## Gravitee API Management 4.0.20 - March 21, 2024
 
