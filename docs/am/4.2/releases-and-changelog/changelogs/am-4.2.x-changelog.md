@@ -8,30 +8,28 @@ description: >-
 
 ## Gravitee Access Management 4.2.7 - March 29, 2024
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Login - MFA challenge should be prompted when prompt=login is used https://github.com/gravitee-io/issues/issues/9497[#9497]
-* Revert: Passwordless authentication doesn't take the IDP status into account (#9494) https://github.com/gravitee-io/issues/issues/9615[#9615]
-* User unable to authenticate when linked to different identities https://github.com/gravitee-io/issues/issues/9616[#9616]
-* Addition of WebAuthn Credentials info into the context https://github.com/gravitee-io/issues/issues/9620[#9620]
-
-
+* Login - MFA challenge should be prompted when prompt=login is used [#9497](https://github.com/gravitee-io/issues/issues/9497)
+* Revert: Passwordless authentication doesn't take the IDP status into account (#9494) [#9615](https://github.com/gravitee-io/issues/issues/9615)
+* User unable to authenticate when linked to different identities [#9616](https://github.com/gravitee-io/issues/issues/9616)
+* Addition of WebAuthn Credentials info into the context [#9620](https://github.com/gravitee-io/issues/issues/9620)
 
 **Console**
 
-* No space between source ip and user agent in audit logs https://github.com/gravitee-io/issues/issues/9458[#9458]
-* User-agent showing 'undefined' in audit logs https://github.com/gravitee-io/issues/issues/9459[#9459]
-* Fetch user group doesn't persist https://github.com/gravitee-io/issues/issues/9609[#9609]
+* No space between source IP and user agent in audit logs [#9458](https://github.com/gravitee-io/issues/issues/9458)
+* User agent showing 'undefined' in audit logs [#9459](https://github.com/gravitee-io/issues/issues/9459)
+* Fetch user group doesn't persist [#9609](https://github.com/gravitee-io/issues/issues/9609)
 
 **Other**
 
-* Linked accounts are not listed in the UI when using SQL database https://github.com/gravitee-io/issues/issues/9610[#9610]
-</details>
+* Linked accounts are not listed in the UI when using SQL database [#9610](https://github.com/gravitee-io/issues/issues/9610)
 
+</details>
 
 ## Gravitee Access Management 4.2.6 - March 15, 2024
 
