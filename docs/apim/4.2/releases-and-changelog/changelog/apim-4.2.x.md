@@ -5,11 +5,12 @@ description: >-
 ---
 
 # APIM 4.2.x
- 
+
 ## Gravitee API Management 4.2.6 - March 29, 2024
+
 <details>
 
-<summary>BugFixes</summary>
+<summary>Bug fixes</summary>
 
 **Management API**
 
@@ -18,8 +19,8 @@ description: >-
 
 **Other**
 
-* [gravitee-policy-ipfiltering] DNS Lookup fails with some DNS server [#9592](https://github.com/gravitee-io/issues/issues/9592)
-* [gravitee-resource-auth-provider-http] Timeout when authentication condition is failing [#9611](https://github.com/gravitee-io/issues/issues/9611)
+* \[gravitee-policy-ipfiltering] DNS Lookup fails with some DNS servers [#9592](https://github.com/gravitee-io/issues/issues/9592)
+* \[gravitee-resource-auth-provider-http] Timeout when authentication condition is failing [#9611](https://github.com/gravitee-io/issues/issues/9611)
 * Liquibase changelog 4.0.20-dashboards adding NOT NULL column without default value [#9626](https://github.com/gravitee-io/issues/issues/9626)
 * APIM DashboardTypeUpgrader raises an error when used with DocumentDB [#9631](https://github.com/gravitee-io/issues/issues/9631)
 
@@ -31,11 +32,9 @@ description: >-
 
 **Management API**
 
-* Allow to configure KeepAliveTimeout for HTTP Endpoint [#9541](https://github.com/gravitee-io/issues/issues/9541)
+* Allow to configure KeepAliveTimeout for HTTP endpoint [#9541](https://github.com/gravitee-io/issues/issues/9541)
 
 </details>
-
-
 
 ## Gravitee API Management 4.2.5 - March 22, 2024
 
