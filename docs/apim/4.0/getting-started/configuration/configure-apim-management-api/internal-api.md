@@ -1,331 +1,178 @@
----
-description: >-
-  Configure the Gravitee APIM Management API with environment variables, system
-  properties, and the gravitee.yaml file
----
+# Internal API
 
-# General Configuration
+## Overview
 
-## Introduction
+The Gravitee API Management (APIM) Management API component comes with its own internal API, for monitoring and retrieving technical information about the component.
 
-This guide will walk through how to configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../#configuring-apim-components), you can override these settings by using system properties or environment variables
+### Configuration
 
-## The `gravitee.yaml` file
-
-The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
-
-{% hint style="info" %}
-**Format sensitive**
-
-YAML (`yml`) format is sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
-{% endhint %}
-
-With the `gravitee.yaml` file, you can configure the following:
-
-* Configure HTTP Server
-  * Enable HTTPS support
-* Configure the Management and Portal APIs
-* CORS configuration
-  * Configure in APIM Console
-* Configure the Plugins repository
-* Configure the Management repository
-* Configure the Analytics repository
-* SMTP configuration
-  * Configure in APIM Console
-  * Configure the Gmail SMTP server
-* Default `gravitee.yaml` configuration file
-
-## Configure HTTP server
-
-You configure the HTTP Server configuration in the following section of the `gravitee.yml` file:
+You need to enable the API as a service in the `gravitee.yml` file and update any other required configuration.
 
 ```yaml
-jetty:
-  port: 8083
-  idleTimeout: 30000
-  acceptors: -1
-  selectors: -1
-  pool:
-    minThreads: 10
-    maxThreads: 200
-    idleTimeout: 60000
-    queueSize: 6000
-  jmx: false
-  statistics: false
-  accesslog:
-    enabled: true
-    path: ${gravitee.home}/logs/gravitee_accesslog_yyyy_mm_dd.log
+services:
+  core:
+    http:
+      enabled: true
+      port: 18083
+      host: localhost
+      authentication:
+        type: basic
+        users:
+          admin: adminadmin
 ```
 
-### Enable HTTPS support
+`enabled`**:** (default `true`) Whether the service is enabled.
 
-First, you need to provide a keystore. If you do not have one, you can generate it:
+`port`**:** (default `18083`) The port the service listens on. You must ensure you use a port that is not already in use by another APIM component.
 
-```
-keytool -genkey \
-  -alias test \
-  -keyalg RSA \
-  -keystore server-keystore.jks \
-  -keysize 2048 \
-  -validity 360 \
-  -dname CN=localhost \
-  -keypass secret \
-  -storepass secret
-```
+`host`**:** (default `localhost`) The host.
 
-You then need to enable secure mode in `gravitee.yml`:
+`authentication.type`**:** (default `basic`) Authentication type for requests: `none` if no authentication is required.
 
-```yaml
-jetty:
-  ...
-  secured: true
-  ssl:
-    keystore:
-      path: ${gravitee.home}/security/keystore.jks
-      password: secret
-    truststore:
-      path: ${gravitee.home}/security/truststore.jks
-      password: secret
-```
+`authentication.users`**:** A list of `user: password` combinations. Only required if authentication type is `basic`.
 
-{% hint style="info" %}
-Truststore and Keystore settings defined within the `jetty` section are only used to secure access to APIM API. These are not used by HTTP client calls for any other purpose (such as Fetch and DCR).
-{% endhint %}
-
-## Configure the Management and Portal APIs
-
-You can configure APIM API to start only the Management or Portal API. You can also change the API endpoints from their default values of `/management` and `/portal`.
-
-```yaml
-http:
-  api:
-    # Configure the listening path for the API. Default to /
-#    entrypoint: /
-    # Configure Management API.
-#    management:
-#      enabled: true
-#      entrypoint: ${http.api.entrypoint}management
-#      cors: ...
-    # Configure Portal API.
-#    portal:
-#      enabled: true
-#      entrypoint: ${http.api.entrypoint}portal
-#      cors: ...
-```
-
-## CORS configuration
-
-CORS (Cross-Origin Resource Sharing) is a mechanism that allows resources on a web page to be requested from another domain.
-
-For more information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors).
-
-CORS can be applied at three different levels:&#x20;
-
-1. [API](../../../guides/api-configuration/v2-api-configuration/configure-cors.md#configure-cors)
-2. Environment
-3. Organization
-
-where the more specific levels override the broader levels: API > Environment > Organization.
-
-You can configure CORS at the organization level using `gravitee.yml`, environment variables or directly in APIM Console. Here's an example of configuring CORS using the `gravitee.yml` file:
-
-{% code title="gravitee.yaml" %}
-```yaml
-http:
-  api:
-    # Configure the listening path for the API. Default to /
-#    entrypoint: /
-    # Configure Management API.
-#    management:
-#      enabled: true
-#      entrypoint: ${http.api.entrypoint}management
-#      cors:
-    # Allows to configure the header Access-Control-Allow-Origin (default value: *)
-    # '*' is a valid value but is considered as a security risk as it will be opened to cross origin requests from anywhere.
-#       allow-origin: http://developer.mycompany.com
-    # Allows to define how long the result of the preflight request should be cached for (default value; 1728000 [20 days])
-#       max-age: 864000
-    # Which methods to allow (default value: OPTIONS, GET, POST, PUT, DELETE)
-#      allow-methods: 'OPTIONS, GET, POST, PUT, DELETE'
-    # Which headers to allow (default values: Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With, If-Match, X-Xsrf-Token)
-#      allow-headers: 'X-Requested-With'
-  # Configure Portal API.
-#    portal:
-#      enabled: true
-#      entrypoint: ${http.api.entrypoint}portal
-#      cors:
-    # Allows to configure the header Access-Control-Allow-Origin (default value: *)
-    # '*' is a valid value but is considered as a security risk as it will be opened to cross origin requests from anywhere.
-#       allow-origin: http://developer.mycompany.com
-    # Allows to define how long the result of the preflight request should be cached for (default value; 1728000 [20 days])
-#       max-age: 864000
-    # Which methods to allow (default value: OPTIONS, GET, POST, PUT, DELETE)
-#      allow-methods: 'OPTIONS, GET, POST, PUT, DELETE'
-    # Which headers to allow (default values: Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With, If-Match, X-Xsrf-Token)
-#      allow-headers: 'X-Requested-With'
-```
-{% endcode %}
-
-### Configure in APIM Console
-
-{% hint style="info" %}
-If you change the CORS settings using the `gravitee.yml` or environment variables, then the CORS settings will be greyed out in the APIM console.
-{% endhint %}
-
-You can also configure CORS at the organization level in the **Organization > Settings** section of the APIM Console:
-
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-06-30 at 2.35.47 PM.png" alt=""><figcaption><p>Organization CORS settings</p></figcaption></figure>
-
-Or at the environment level in the **Settings > Settings** section of the APIM Console:
-
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-20 at 3.20.53 PM.png" alt=""><figcaption><p>Environment CORS settings</p></figcaption></figure>
-
-## Configure the Management repository
-
-The Management repository is used to store global configurations such as APIs, applications, and API keys. The default configuration uses MongoDB (single server).
-
-```yaml
-management:
-  type: mongodb
-  mongodb:
-    dbname: ${ds.mongodb.dbname}
-    host: ${ds.mongodb.host}
-    port: ${ds.mongodb.port}
-#    username:
-#    password:
-#    connectionsPerHost: 0
-#    connectTimeout: 500
-#    maxWaitTime: 120000
-#    socketTimeout: 500
-#    socketKeepAlive: false
-#    maxConnectionLifeTime: 0
-#    maxConnectionIdleTime: 0
-#    serverSelectionTimeout: 0
-#    description: gravitee.io
-#    heartbeatFrequency: 10000
-#    minHeartbeatFrequency: 500
-#    heartbeatConnectTimeout: 1000
-#    heartbeatSocketTimeout: 20000
-#    localThreshold: 15
-#    minConnectionsPerHost: 0
-#    threadsAllowedToBlockForConnectionMultiplier: 5
-#    cursorFinalizerEnabled: true
-## SSL settings (Available in APIM 3.10.14+, 3.15.8+, 3.16.4+, 3.17.2+, 3.18+)
-#    sslEnabled:
-#    keystore:
-#      path:
-#      type:
-#      password:
-#      keyPassword:
-#    truststore:
-#      path:
-#      type:
-#      password:
-## Deprecated SSL settings that will be removed in 3.19.0
-#    sslEnabled:
-#    keystore:
-#    keystorePassword:
-#    keyPassword:
-
-# Management repository: single MongoDB using URI
-# For more information about MongoDB configuration using URI, please have a look to:
-# - http://api.mongodb.org/java/current/com/mongodb/MongoClientURI.html
-#management:
-#  type: mongodb
-#  mongodb:
-#    uri: mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]
-
-# Management repository: clustered MongoDB
-#management:
-#  type: mongodb
-#  mongodb:
-#    servers:
-#      - host: mongo1
-#        port: 27017
-#      - host: mongo2
-#        port: 27017
-#    dbname: ${ds.mongodb.dbname}
-#    connectTimeout: 500
-#    socketTimeout: 250
-```
-
-## Configure the Analytics repository
-
-The Analytics repository stores all reporting, metrics, and health-checks for all APIM Gateway instances. The default configuration uses [Elasticsearch](https://www.elastic.co/products/elasticsearch).
-
-```yaml
-  type: elasticsearch
-  elasticsearch:
-    endpoints:
-      - http://localhost:9200
-#    index: gravitee
-#    security:
-#       username:
-#       password:
-```
-
-## SMTP configuration
-
-This section shows the SMTP configuration used for sending email.
-
-You can configure SMTP using `gravitee.yml`, environment variables or directly in APIM Console. If SMTP is configured with `gravitee.yml` or environment variables, then that configuration will be used, even if settings exist in the database.
-
-SMTP can be applied at two different levels:&#x20;
-
-1. Environment
-2. Organization
-
-where the more specific level overrides the broader level:  Environment > Organization.
-
-Here's an example of configuring SMTP using the `gravitee.yml` file:
-
-```yaml
-email:
-  host: smtp.my.domain
-  port: 465
-  from: noreply@my.domain
-  subject: "[Gravitee.io] %s"
-  username: user@my.domain
-  password: password
-```
-
-### Configure in APIM Console
-
-{% hint style="info" %}
-If you change the SMTP settings using the `gravitee.yml` or environment variables, then the SMTP settings will be greyed out in the APIM console.
-{% endhint %}
-
-You can also configure SMTP at the organization level in the **Organization > Settings** section of the APIM Console:
-
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-20 at 3.27.18 PM.png" alt=""><figcaption><p>Organization SMTP settings</p></figcaption></figure>
-
-Or at the environment level in the **Settings > Settings** section of the APIM Console:
-
-<figure><img src="../../../.gitbook/assets/Screenshot 2023-07-20 at 3.30.01 PM.png" alt=""><figcaption><p>Environment SMTP settings</p></figcaption></figure>
-
-### Configure the Gmail SMTP server
-
-If required, you can configure the GMAIL SMTP server in `gravitee.yml` as follows:
-
-```yaml
-email:
-  enabled: true
-  host: smtp.gmail.com
-  port: 587
-  from: user@gmail.com
-  subject: "[Gravitee.io] %s"
-  username: user@gmail.com
-  password: xxxxxxxx
-  properties:
-    auth: true
-    starttls.enable: true
-    ssl.trust: smtp.gmail.com
-```
-
-If you are using 2-Factor Authentication (which is recommended), you need to [generate an application password](https://security.google.com/settings/security/apppasswords).
-
-## Default `gravitee.yaml` config file
-
-The following is a reference of the default configuration of APIM Management API in your `gravitee.yml` file:
-
-\{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-rest-api/gravitee-apim-rest-api-standalone/gravitee-apim-rest-api-standalone-distribution/src/main/resources/config/gravitee.yml" %\}
+#### Endpoints
+<table data-full-width="true">
+  <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <pre data-overflow="wrap"><code>GET /_node</code></pre>
+      </td>
+      <td>
+        Gets generic node information
+      </td>
+      <td>
+        <pre data-overflow="wrap"><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "id" : "10606a6a-fe49-4144-a06a-6afe494144c9",
+  "name" : "Gravitee.io - Rest APIs",
+  "metadata" : {
+    "node.id" : "10606a6a-fe49-4144-a06a-6afe494144c9",
+    "environments" : [ ],
+    "installation" : "257ee127-a802-4387-bee1-27a802138712",
+    "organizations" : [ ],
+    "node.hostname" : "my-host"
+  },
+  "version" : {
+    "BUILD_ID" : "547086",
+    "BUILD_NUMBER" : "547086",
+    "MAJOR_VERSION" : "4.0.15",
+    "REVISION" : "f9ed32f42fd701a44844131ac959790abe10e08a"
+  }</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <pre data-overflow="wrap"><code>GET /_node/health?probes=#probe1,#probe2</code></pre>
+      </td>
+      <td>
+        <p>Gets the health status of the component. Probes can be filtered using the optional <code>probes</code> query
+          param. The parameter can handle a list of probes, separated by commas (<code>,</code>). If no query param, you
+          get the health of default probes. If the return status is 200 then everything is ok, if 500, there is at least one
+          error. This endpoint can be used by a load balancer, to determine if a component instance is not in the pool,
+          for example. Some probes are not displayed by default. You have to explicitly use the query param to retrieve them.</p>
+        <p>Available probes are:</p>
+        <ul>
+            <li><code>management-repository</code>: checks the connection with the database (Mongo, JDBC, ...) [Default]</li>
+            <li><code>gravitee-apis</code>: checks if the Management API and Portal API are reachable [Default]</li>
+            <li><code>repository-analytics</code>: checks the connection with the analytics database (ElasticSearch or OpenSearch) [Default]</li>
+            <li><code>cpu</code></li>
+            <li><code>memory</code></li>
+        </ul>
+        <p>CPU and memory probes are considered healthy if there are under a configurable threshold (default is 80%). To
+          configure it, add in your <code>gravitee.yml</code>:</p>
+        <p>
+<pre data-overflow="wrap"><code>services:
+  health:
+    threshold:
+      cpu: 80
+      memory: 80</code></pre>
+        </p>
+      </td>
+      <td>
+        <p>Response to <code>GET /_node/health</code></p>
+        <pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "management-repository": {
+    "healthy": true
+  },
+  "gravitee-apis": {
+    "healthy": true
+  },
+  "repository-analytics": {
+    "healthy": true
+  }
+}</code></pre>
+        <p>Response to <code>GET /_node/health?probes=cpu,memory,management-repository</code></p>
+        <pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "cpu": {
+    "healthy": true
+  },
+  "memory": {
+    "healthy": true
+  },
+  "management-repository": {
+    "healthy": true
+  }
+}</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <pre data-overflow="wrap"><code>GET /_node/configuration</code></pre>
+      </td>
+      <td>Gets the node configuration from the <code>gravitee.yml</code> file and/or environment variables.</td>
+      <td>
+        <pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+"analytics.elasticsearch.endpoints[0]": "http://${ds.elastic.host}:${ds.elastic.port}",
+"analytics.type": "elasticsearch",
+"ds.elastic.host": "localhost",
+"ds.elastic.port": 9200,
+...
+}</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <pre class="language-sh" data-overflow="wrap"><code class="lang-sh">GET /_node/monitor</code></pre>
+      </td>
+      <td>Gets monitoring information from the JVM and the server.</td>
+      <td>
+        <pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "jvm": {
+    "gc": {
+      "collectors": [{
+        "collectionCount": 7,
+        "collectionTime": 98,
+        "name": "young"
+      },
+      {
+        "collectionCount": 3,
+        "collectionTime": 189,
+        "name": "old"
+      }]
+    },
+    "mem": {
+      ...
+    }
+  }
+}</code></pre>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -12,12 +12,12 @@ This guide will walk you through how to install APIM on a Kubernetes cluster usi
 
 Additionally, the Helm chart supports a variety of configuration types and database options. Gravitee Helm Chart parameters, default values, and other configuration details are summarized in the following sections:
 
-* [Application settings](configure-helm-chart.md#application-settings)
-* [Configuration types](configure-helm-chart.md#configuration-types)
-* [Database options](configure-helm-chart.md#database-options)
-* [Gravitee parameters](configure-helm-chart.md#gravitee-parameters)
-* [OpenShift](configure-helm-chart.md#openshift)
-* [Licenses](configure-helm-chart.md#licences)
+* [Application settings](apim-helm-install-and-configuration.md#application-settings)
+* [Configuration types](apim-helm-install-and-configuration.md#configuration-types)
+* [Database options](apim-helm-install-and-configuration.md#database-options)
+* [Gravitee parameters](apim-helm-install-and-configuration.md#gravitee-parameters)
+* [OpenShift](apim-helm-install-and-configuration.md#openshift)
+* [Licenses](apim-helm-install-and-configuration.md#licences)
 
 ## Installation
 
@@ -75,7 +75,7 @@ Alternatively, provide a YAML file that specifies the values for the parameters 
 helm install my-release -f values.yaml gravitee
 ```
 
-By default, APIM uses the values in the `values.yml` config file during installation. These can be modified via the parameters in the [configuration](configure-helm-chart.md) tables.
+By default, APIM uses the values in the `values.yml` config file during installation. These can be modified via the parameters in the [configuration](apim-helm-install-and-configuration.md) tables.
 {% endhint %}
 
 3. **(Optional)** Alternatively, you can package this chart directory into a chart archive:

@@ -8,12 +8,12 @@ Gravitee's [Installation & Upgrade Guides](../) provide information on how to in
 
 This section describes how to install the individual components from the Gravitee API Management (APIM) stack.
 
-* [Install APIM Gateway](apim-components.md#install-apim-gateway)
-* [Install APIM API](apim-components.md#install-management-api)
-* [Install APIM Console](apim-components.md#install-management-console)
-* [Install APIM Portal](apim-components.md#install-developer-portal)
+* [Install APIM Gateway](apim-components-installation.md#install-apim-gateway)
+* [Install APIM API](apim-components-installation.md#install-management-api)
+* [Install APIM Console](apim-components-installation.md#install-management-console)
+* [Install APIM Portal](apim-components-installation.md#install-developer-portal)
 
-Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](install-the-full-apim-stack.md) page.
+Alternatively, you can install the full APIM stack and dependencies as detailed on the [Install the Full APIM Stack](apim-full-stack-installation.md) page.
 
 ## Install APIM Gateway
 
@@ -156,7 +156,7 @@ sudo systemctl restart graviteeio-apim-rest-api
 Before you install the Management Console, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
-2. [Install and run the Management API.](apim-components.md#install-management-api)
+2. [Install and run the Management API.](apim-components-installation.md#install-management-api)
 3. Install Nginx by running the following commands:
 
 ```sh
@@ -230,7 +230,7 @@ sudo systemctl restart nginx
 Before you install the Developer Portal, you must complete the following configuration.
 
 1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](./#configure-the-package-management-system-yum)
-2. [Install and run the Management API.](apim-components.md#install-management-api)
+2. [Install and run the Management API.](apim-components-installation.md#install-management-api)
 3. Install Nginx by running the following commands:
 
 ```sh

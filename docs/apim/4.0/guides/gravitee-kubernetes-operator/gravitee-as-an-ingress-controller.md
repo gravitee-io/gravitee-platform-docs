@@ -30,7 +30,7 @@ The APIM components used to gather analytics and review our configuration will b
 
 ### Configure your deployment
 
-Next, use the [Gravitee Helm Chart](../../getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md) to install the Gateway that will act as an Ingress runtime on your Kubernetes cluster. Below is the minimum set of properties that your Helm values should contain:
+Next, use the [Gravitee Helm Chart](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md) to install the Gateway that will act as an Ingress runtime on your Kubernetes cluster. Below is the minimum set of properties that your Helm values should contain:
 
 {% code title="values.yml" %}
 ```yaml
@@ -68,7 +68,7 @@ helm upgrade --install gravitee-ingress \
 
 ### Deploy the Gravitee Kubernetes Operator
 
-The Gravitee Kubernetes Operator that will act as our Ingress controller can also be installed using the Gravitee Helm Chart. You can find the operator Helm Chart documentation [here](../../getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md).
+The Gravitee Kubernetes Operator that will act as our Ingress controller can also be installed using the Gravitee Helm Chart. You can find the operator Helm Chart documentation [here](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview.md).
 
 ```sh
 helm upgrade --install gravitee-gko \

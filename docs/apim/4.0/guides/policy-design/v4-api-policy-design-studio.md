@@ -149,7 +149,7 @@ After the first call, the resultant property is added to the list of global prop
 {% hint style="info" %}
 **Dictionaries vs API properties**
 
-The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See [Dictionaries](../../getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md) for more information.
+The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See [Dictionaries](../../getting-started/configuration/configure-apim-gateway/dictionaries.md) for more information.
 {% endhint %}
 
 ## Resources

@@ -34,7 +34,7 @@ Don't forget to add the Gravitee.io License file.
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-* Follow the APIM installation instructions in the [Install on Kubernetes](../install-guides/install-on-kubernetes/) guide.
+* Follow the APIM installation instructions in the [Install on Kubernetes](../install-and-upgrade-guides/install-on-kubernetes/) guide.
 * Install **only the Gateway** and disable the other components in your `values.yaml` configuration file.
 
 {% hint style="info" %}
@@ -46,7 +46,7 @@ Don't forget to add the Gravitee.io License file.
 {% endtab %}
 
 {% tab title="Docker" %}
-Follow the APIM installation instructions in the [Install on Docker](../install-guides/install-on-docker/) guide.
+Follow the APIM installation instructions in the [Install on Docker](../install-and-upgrade-guides/install-on-docker/) guide.
 
 {% hint style="info" %}
 **Download and mount the required plugins for the Gravitee.io Gateway:**
@@ -57,7 +57,7 @@ Follow the APIM installation instructions in the [Install on Docker](../install-
 {% endtab %}
 
 {% tab title="VM" %}
-Follow the APIM installation instructions in the [Install with `.ZIP`](../install-guides/install-with-.zip.md) guide.
+Follow the APIM installation instructions in the [Install with `.ZIP`](../install-and-upgrade-guides/install-with-.zip.md) guide.
 
 {% hint style="info" %}
 **Download and mount the required plugins for the Gravitee.io Gateway:**

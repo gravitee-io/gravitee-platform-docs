@@ -448,7 +448,7 @@ In this example, we are configuring deployment only for APIs tagged as `product`
 tags: 'product,store,!international'
 ```
 
-For more in-depth information on how to configure sharding tags, please refer to the [Sharding Tags documentation.](configure-sharding-tags-for-your-gravitee-api-gateways.md)
+For more in-depth information on how to configure sharding tags, please refer to the [Sharding Tags documentation.](sharding-tags.md)
 
 ## Configure organizations and environments
 

@@ -46,12 +46,12 @@ sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
 
 You can choose to install the full APIM stack or install the components one by one:
 
-* [Install the full APIM stack](install-the-full-apim-stack.md) (includes all components below)
+* [Install the full APIM stack](apim-full-stack-installation.md) (includes all components below)
 * Install APIM Components
-  * [Install APIM Gateway](apim-components.md#install-apim-gateway)
-  * [Install APIM Management API](apim-components.md#install-management-api)
-  * [Install APIM Console](apim-components.md#install-management-console)
-  * [Install APIM Developer Portal](apim-components.md#install-developer-portal)
+  * [Install APIM Gateway](apim-components-installation.md#install-apim-gateway)
+  * [Install APIM Management API](apim-components-installation.md#install-management-api)
+  * [Install APIM Console](apim-components-installation.md#install-management-console)
+  * [Install APIM Developer Portal](apim-components-installation.md#install-developer-portal)
 
 ## Enterprise Edition licensing
 
