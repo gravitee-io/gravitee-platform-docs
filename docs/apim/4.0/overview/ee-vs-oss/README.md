@@ -27,11 +27,11 @@ The features below are included in the default enterprise API Management distrib
 {% endhint %}
 
 * **Enterprise OpenID Connect SSO:** Use OpenId Connect SSO with your API Management platform.
-* [**Debug Mode**](../../guides/policy-design/v2-api-policy-design-studio.md#debug-mode)**:** Easily test and debug your policy execution and enforcement.
+* [**Debug Mode**](../../guides/policy-studio/v2-api-policy-studio.md#debug-mode)**:** Easily test and debug your policy execution and enforcement.
 * [**Audit trail**](../../guides/api-measurement-tracking-and-analytics/#the-audit-trail)**:** Audit the consumption and activity of your Gravitee APIs per event and type to monitor the behavior of your APIs and platform over time.
 * [**DCR Registration**](../../guides/api-exposure-plans-applications-and-subscriptions/plans-1.md#dynamic-client-registration-provider): Dynamic client registration (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint.
 * [**Custom Roles**](../../guides/administration/user-management-and-permissions.md#roles)**:** Create custom user roles to fit your needs. A role is a functional group of permissions and can be defined at the organization, environment, API, and/or application levels.
-* [**Sharding Tags**](../../getting-started/configuration/configure-apim-gateway/sharding-tags.md)**:** Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
+* [**Sharding Tags**](../../getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways.md)**:** Specify which "shard" of the Gateway an API should be deployed to. By tagging Gateways with specific keywords, you can select the tag in the API's Deployments proxy settings to determine the Gateway where the API will be deployed.
 * [**Bridge Gateway**](../../getting-started/hybrid-deployment/#bridge-gateways)**:** By default, an API Gateway must connect to a repository (mongoDB, Postgres) to retrieve the list of APIs to deploy, plans, API keys, and subscriptions. In the case of complex environments (network zones, different data centers, etc.), many teams prefer to avoid opening a connection between the database and something outside its network. The solution is to deploy a Bridge Gateway, which is a proxy for the repository (API GW > Bridge > Database). The sync will be done over HTTP instead of the database protocol.
 
 ## Enterprise plugins
@@ -71,13 +71,13 @@ The Observability pack includes capabilities to better implement enterprise-grad
 
 The Event-native pack includes capabilities that enable using Gravitee to expose, secure, and govern asynchronous APIs and event brokers:
 
-* [**v4 message API entrypoints**](../../guides/create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) enable consumers to access the Gateway and/or consume various message-based backend resources via
+* [**v4 message API entrypoints**](../../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#step-2-entrypoints) enable consumers to access the Gateway and/or consume various message-based backend resources via
   * **HTTP GET**
   * **HTTP POST**
   * **WebSocket**
   * **Webhooks**
   * **Server-Sent Events (SSE)**
-* [**v4 message API endpoints**](../../guides/create-apis/how-to/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints):
+* [**v4 message API endpoints**](../../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#introspect-messages-from-event-driven-backend-endpoints):
   * **Kafka/Confluent**: Allow the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway.
   * **MQTT**: Allow the Gateway to open up a persistent connection and/or call a backend MQTT broker, as long as that broker is running on MQTT 5.x, via an MQTT client set up by the Gravitee Gateway.
   * **RabbitMQ**: Allow the Gateway to open up a persistent connection and/or call a backend RabbitMQ broker, as long as that broker is running on AMQP 0-9-1.

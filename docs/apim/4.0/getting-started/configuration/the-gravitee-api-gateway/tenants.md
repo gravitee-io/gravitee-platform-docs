@@ -25,7 +25,7 @@ Endpoint deployment is impacted by how tags are applied to API endpoints and Gat
 
 ## Configuring Tenants <a href="#id-9c4f" id="id-9c4f"></a>
 
-To explain tenant usage and behavior, we will build off of our example use case for [sharding tags](sharding-tags.md#configure-sharding-tags-for-your-gravitee-api-gateways). A single API can be deployed to many different Gateways and endpoints, but by using sharding tags you can specify the target Gateway(s), and by using tenants you can specify the target endpoint(s).
+To explain tenant usage and behavior, we will build off of our example use case for [sharding tags](configure-sharding-tags-for-your-gravitee-api-gateways.md#configure-sharding-tags-for-your-gravitee-api-gateways). A single API can be deployed to many different Gateways and endpoints, but by using sharding tags you can specify the target Gateway(s), and by using tenants you can specify the target endpoint(s).
 
 Similar to sharding tags, tenant configuration is a two-step process. You must “tag” a Gateway to identify in which region it has been deployed. To demonstrate, we will add the following configuration to each Gateway’s `gravitee.yaml` file, which tags all USA-deployed Gateways with “usa" and all EU-deployed Gateways with "eu":
 

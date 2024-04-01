@@ -13,4 +13,4 @@ As of Gravitee APIM 4.0, there are two Policy Studio options:
 
 Please refer to the proper Policy Studio documentation, based on your API type.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>v2 API Policy Studio</td><td></td><td><a href="v2-api-policy-design-studio.md">v2-api-policy-design-studio.md</a></td></tr><tr><td></td><td>v4 API Policy Studio</td><td></td><td><a href="v4-api-policy-design-studio.md">v4-api-policy-design-studio.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>v2 API Policy Studio</td><td></td><td><a href="v2-api-policy-studio.md">v2-api-policy-studio.md</a></td></tr><tr><td></td><td>v4 API Policy Studio</td><td></td><td><a href="v4-api-policy-studio.md">v4-api-policy-studio.md</a></td></tr></tbody></table>

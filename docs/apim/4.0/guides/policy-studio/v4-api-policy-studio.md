@@ -149,7 +149,7 @@ After the first call, the resultant property is added to the list of global prop
 {% hint style="info" %}
 **Dictionaries vs API properties**
 
-The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See [Dictionaries](../../getting-started/configuration/configure-apim-gateway/dictionaries.md) for more information.
+The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See [Dictionaries](../../getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md) for more information.
 {% endhint %}
 
 ## Resources
@@ -176,7 +176,7 @@ Global resources are globally available to all flows associated with the Gateway
 ### Example 1: Dynamic routing
 
 {% hint style="info" %}
-This example applies to v4 APIs using the [**Proxy Upstream Protocol**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
+This example applies to v4 APIs using the [**Proxy Upstream Protocol**](../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
 {% endhint %}
 
 In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
@@ -194,12 +194,12 @@ If the ID in the request header matches the key of one of the properties, it is 
 ### Example 2: Monetization via latency
 
 {% hint style="info" %}
-This example applies to v4 APIs using the [**Introspect Messages from Event-Driven Backend**](../create-apis/how-to/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
+This example applies to v4 APIs using the [**Introspect Messages from Event-Driven Backend**](../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
 {% endhint %}
 
 In this example, our Gateway API sends an alert whenever inventory is added to our online store that sells limited edition designer merchandise at discount prices. Casual shoppers pay a certain amount to learn about item availability in slightly less than real-time, while our best customers pay more to access this data in true real-time.
 
-To monetize data delivery, we can use the Keyless and API Key plans introduced [above](v4-api-policy-design-studio.md#design). First, we add a "sample Keyless flow" to our Keyless plan.
+To monetize data delivery, we can use the Keyless and API Key plans introduced [above](v4-api-policy-studio.md#design). First, we add a "sample Keyless flow" to our Keyless plan.
 
 <figure><img src="../../.gitbook/assets/sample keyless flow.png" alt=""><figcaption></figcaption></figure>
 

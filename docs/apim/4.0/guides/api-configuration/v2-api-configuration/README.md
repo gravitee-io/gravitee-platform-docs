@@ -23,10 +23,10 @@ Gravitee offers two main kinds of API configuration options for v2 APIs, each wi
 Keep reading to learn more about general concepts related to each. If you want to learn how to configure each, please refer to the relevant how-to guides:
 
 * [API documentation](documentation.md)
-* [API General Settings](../v4-api-configuration/api-general-settings.md)
+* [API General Settings](../v4-api-configuration/general-info-settings.md)
 * [Load-balancing, failover, and health checks](load-balancing-failover-and-health-checks.md)
 * [Configure service discovery](configure-service-discovery.md)
-* [Configure general proxy settings](configure-cors.md)
+* [Configure general proxy settings](configure-general-proxy-settings.md)
 * [Configure user and group access](configure-user-and-group-access.md)
 
 ## API Proxy configuration overview
@@ -153,4 +153,4 @@ In the diagram below we have an example of a typical deployment an organization 
 
 <figure><img src="../../../.gitbook/assets/Example architecture.png" alt=""><figcaption><p>Example architecture diagram to illustrate value of sharding tags.</p></figcaption></figure>
 
-If using sharding tags, you could tag these Gateways with specific keywords. Once the Gateways are tagged, you can [select that tag in an APIs Deployments proxy settings](configure-cors.md#configure-deployments). Whatever tag you select for that API will end up being the Gateway where that API is deployed.
+If using sharding tags, you could tag these Gateways with specific keywords. Once the Gateways are tagged, you can [select that tag in an APIs Deployments proxy settings](configure-general-proxy-settings.md#configure-deployments). Whatever tag you select for that API will end up being the Gateway where that API is deployed.

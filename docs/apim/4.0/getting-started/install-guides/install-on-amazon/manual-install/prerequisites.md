@@ -228,4 +228,4 @@ You should see that there’s a process listening on that port.
 
 ## Next steps
 
-You have completed all the prerequisites. The next step is to either [install the individual APIM components](apim-components-installation.md) or [install the full APIM stack](apim-full-stack-installation.md).
+You have completed all the prerequisites. The next step is to either [install the individual APIM components](apim-components-installation.md) or [install the full APIM stack](gravitee-components.md).

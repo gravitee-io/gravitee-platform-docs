@@ -22,7 +22,7 @@ The new v4 API creation wizard enables you to use the Gravitee API Management Co
 
 The v4 API definition allows organizations to use Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. With the new creation wizard, you can use the Gravitee API Management Console to create APIs that expose Kafka, MQTT, RabbitMQ (if using AMQP 0-9-1 protocol), Solace, and Mock (simulated for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs.
 
-For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation.](../../guides/create-apis/how-to/v4-api-creation-wizard.md)
+For more information on how to use the new v4 API Creation wizard, please refer to the [v4 API Creation Wizard documentation.](../../guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
 
 ## The new v4 Policy Studio
 
@@ -30,7 +30,7 @@ We've released a brand new Policy Studio that enables you to design policy flows
 
 Policies designed using the new v4 API Policy Studio can be designed and enforced at the request, response, publish, and/or subscribe phases. They can also be enforced at the message level for use cases where message-based APIs and communication are employed.&#x20;
 
-For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../guides/policy-design/v4-api-policy-design-studio.md).
+For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../guides/policy-studio/v4-api-policy-studio.md).
 
 ### Existing v2 API Gravitee policies that now support v4 message APIs
 

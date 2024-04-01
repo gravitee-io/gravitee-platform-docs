@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-Gravitee allows you to set up alerts and notifications based on events recognized by the Gateway. You can [set up notifications](configure-notifications.md#configure-notifications-for-your-apis) that appear in the Gravitee API Management Console or that are sent to Gravitee users via email. You can also [create custom alerts](configure-notifications.md#configure-alerts) based on user-defined rules and conditions. Keep reading to learn how to configure alerts and notifications.
+Gravitee allows you to set up alerts and notifications based on events recognized by the Gateway. You can [set up notifications](configure-alerts-and-notifications.md#configure-notifications-for-your-apis) that appear in the Gravitee API Management Console or that are sent to Gravitee users via email. You can also [create custom alerts](configure-alerts-and-notifications.md#configure-alerts) based on user-defined rules and conditions. Keep reading to learn how to configure alerts and notifications.
 
 ## Configure notifications for your APIs
 
@@ -81,7 +81,7 @@ In the Developer Portal, notifications are displayed in a page accessible from t
 
 </div>
 
-The templates of Portal notifications can be customized in **Settings**. For more information, see [Templates](configure-notifications.md#templates).
+The templates of Portal notifications can be customized in **Settings**. For more information, see [Templates](configure-alerts-and-notifications.md#templates).
 {% endtab %}
 
 {% tab title="Email" %}
@@ -97,7 +97,7 @@ A default email notifier is created for every API. All notifications are presele
 
 <figure><img src="../../.gitbook/assets/Configure notifications.gif" alt=""><figcaption></figcaption></figure>
 
-The [templates](configure-notifications.md#templates) of email notifications can be customized in **Settings.**
+The [templates](configure-alerts-and-notifications.md#templates) of email notifications can be customized in **Settings.**
 {% endtab %}
 
 {% tab title="Webhook" %}

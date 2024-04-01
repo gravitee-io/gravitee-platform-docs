@@ -17,7 +17,7 @@ We plan to focus our future efforts and innovation on the v4 API definition, as 
 
 Keep reading this article to learn more about these different concepts. If you want to see step-by-step API creation documentation, please skip ahead to:
 
-* [The API creation wizard documentation:](how-to/) covers how to use the API creation wizard in the UI
+* [The API creation wizard documentation:](the-api-creation-wizard/) covers how to use the API creation wizard in the UI
 * [The Import APIs documentation](import-apis/): covers how to import APIs in Gravitee
 
 ## v4 API creation concepts

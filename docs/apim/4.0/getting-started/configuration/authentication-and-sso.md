@@ -288,7 +288,7 @@ If you configure the provider in the configuration file and then change the valu
 
 {% tabs %}
 {% tab title="gravitee.yaml file" %}
-Confoguring GitHub authentication via the `gravitee.yaml` file is easy. Simply update the following section of the `gravitee.yaml` file with your GitHub OAuth2 app credentials that [you retrieved above](configure-authentication.md#retrieve-your-oauth2-credentials).
+Confoguring GitHub authentication via the `gravitee.yaml` file is easy. Simply update the following section of the `gravitee.yaml` file with your GitHub OAuth2 app credentials that [you retrieved above](authentication-and-sso.md#retrieve-your-oauth2-credentials).
 
 ```
 security:
@@ -418,7 +418,7 @@ Select this, and choose your Google account that you want to use for authenticat
 OpenID Connect is an authentication protocol built on top of the OAuth 2.0 framework that provides identity verification capabilities for web and mobile applications. It enables users to authenticate with an identity provider and obtain an identity token, which can be used to access protected resources on a web application.
 
 \
-Gravitee offers support for OpenID Connect authentication. In this section, we will walk through general OpenID Connect authentication set up. To see a more in-depth example, we've also included a section that covers how to [set up Keycloak as your OpenId Connect authentication method.](configure-authentication.md#example-openid-connect-authentication-keycloak)
+Gravitee offers support for OpenID Connect authentication. In this section, we will walk through general OpenID Connect authentication set up. To see a more in-depth example, we've also included a section that covers how to [set up Keycloak as your OpenId Connect authentication method.](authentication-and-sso.md#example-openid-connect-authentication-keycloak)
 
 Before you can configure your OpenID Connect IdP in Gravitee, you will need to:
 
@@ -445,7 +445,7 @@ Once you've done the above, you can use either the `gavitee.yaml` file or the AP
 
 {% tabs %}
 {% tab title="gravitee.yaml file" %}
-To configure an OpenID Connect authentication provider using the `gravitee.yaml` configuration file, you'll need to update to the file with your client information. You'll need to enter in this information where we have **(enter in client information)** called out in the code block. Depending on your client, this information will be different. To see a real-life example, check out the [Configure Keycloak authentication](configure-authentication.md#example-keycloak-authentication) section below.
+To configure an OpenID Connect authentication provider using the `gravitee.yaml` configuration file, you'll need to update to the file with your client information. You'll need to enter in this information where we have **(enter in client information)** called out in the code block. Depending on your client, this information will be different. To see a real-life example, check out the [Configure Keycloak authentication](authentication-and-sso.md#example-keycloak-authentication) section below.
 
 {% code overflow="wrap" lineNumbers="true" %}
 ```

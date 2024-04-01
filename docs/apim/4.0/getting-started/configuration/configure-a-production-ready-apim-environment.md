@@ -15,7 +15,7 @@ This guide highlights the APIM settings that require special attention while you
 {% hint style="warning" %}
 **Configuring APIM**
 
-APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](configure-apim-gateway/) gives a good overview of this topic.
+APIM includes many other configuration options and every environment is unique. However you configure new settings (via the `gravitee.yml` file, APIM Console, or environment and system variables) it is important to understand that one configuration type can override another. [Configure APIM Gateway](the-gravitee-api-gateway/) gives a good overview of this topic.
 {% endhint %}
 
 ## Security checklist
@@ -125,8 +125,8 @@ services:
 
 To learn more about internal APIs, see:
 
-* [Configure the APIM Management API internal API](configure-apim-management-api/internal-api.md)
-* [Configure the APIM Gateway internal API](configure-apim-gateway/internal-api.md)
+* [Configure the APIM Management API internal API](configure-apim-management-api/internal-api-1.md)
+* [Configure the APIM Gateway internal API](the-gravitee-api-gateway/gateway-internal-api.md)
 
 ### Deployment
 
@@ -182,14 +182,14 @@ jetty:
 
 **We highly recommend using your own corporate identity provider** (must be OAuth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:
 
-* [Gravitee Access Management](configure-authentication.md#gravitee-access-management-authentication)
-* [GitHub](configure-authentication.md#github-authentication)
-* [Google](configure-authentication.md#google-authentication)
-* [Any compliant OAuth/OIDC server](configure-authentication.md#openid-connect-authentication)
+* [Gravitee Access Management](authentication-and-sso.md#gravitee-access-management-authentication)
+* [GitHub](authentication-and-sso.md#github-authentication)
+* [Google](authentication-and-sso.md#google-authentication)
+* [Any compliant OAuth/OIDC server](authentication-and-sso.md#openid-connect-authentication)
 
-Alternatively, you can rely on your [LDAP server](configure-authentication.md#ldap-authentication).
+Alternatively, you can rely on your [LDAP server](authentication-and-sso.md#ldap-authentication).
 
-It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](configure-authentication.md) for an example of role or group mapping.
+It is preferable to rely on an external identity provider to handle security so you can easily comply with your internal company security policy. You can configure role mapping to automatically assign a role to a given user matching particular criteria. Refer to the [Gravitee documentation](authentication-and-sso.md) for an example of role or group mapping.
 
 #### Developer Portal authentication
 

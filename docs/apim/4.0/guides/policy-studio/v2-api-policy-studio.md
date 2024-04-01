@@ -9,7 +9,7 @@ description: >-
 {% hint style="warning" %}
 **Legacy version**
 
-The v2 Policy Studio can only be used to design flows for APIs using the v2 API definition. The v2 Policy Studio does not support applying policies at the message level or for pub/sub use cases. If you want to design and enforce policy flows at the message level or for pub/sub use cases, please refer to the [v4 Policy Studio](v4-api-policy-design-studio.md) documentation.
+The v2 Policy Studio can only be used to design flows for APIs using the v2 API definition. The v2 Policy Studio does not support applying policies at the message level or for pub/sub use cases. If you want to design and enforce policy flows at the message level or for pub/sub use cases, please refer to the [v4 Policy Studio](v4-api-policy-studio.md) documentation.
 {% endhint %}
 
 ## Introduction
@@ -86,7 +86,7 @@ At this point, the Rate Limit policy has been applied at five requests per secon
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **default** and **best match**. If you keep the flow mode as default, execution of each flow is determined independently based on the **Operator path** defined in the flow itself (see [documentation above](v2-api-policy-design-studio.md#create-a-flow-and-add-policies)). Default mode allows for the execution of multiple flows.
+Gravitee offers two flow modes: **default** and **best match**. If you keep the flow mode as default, execution of each flow is determined independently based on the **Operator path** defined in the flow itself (see [documentation above](v2-api-policy-studio.md#create-a-flow-and-add-policies)). Default mode allows for the execution of multiple flows.
 
 However, if you select best match, the Gateway will choose a single flow with the closest match to the path of the API request. A plain text part of the path will take precedence over a path parameter, which means, reading from left to right, each part of the path is compared and the best matching is kept. Strict equality between part of the request path and the flow path prevails over a path parameter.
 
