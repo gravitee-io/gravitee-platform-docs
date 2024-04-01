@@ -4,7 +4,8 @@
 
 * [Introduction to Gravitee Access Management (AM)](README.md)
 * [AM Architecture](overview/am-architecture.md)
-* [Plugins](overview/plugins.md)
+* [Plugins](overview/plugins/README.md)
+  * [Compatibility Matrices](overview/plugins/compatibility-matrices.md)
 * [Gravitee AM Enterprise Edition](overview/open-source-vs-enterprise-am/README.md)
   * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
 
@@ -31,7 +32,7 @@
   * [Configure Reporters](getting-started/configuration/configure-reporters.md)
   * [Configure Monitoring](getting-started/configuration/configure-monitoring.md)
 * [Tutorial: Getting Started with AM](getting-started/tutorial-getting-started-with-am/README.md)
-  * [Login to AM Console](getting-started/tutorial-getting-started-with-am/login-to-am-console.md)
+  * [Log in to AM Console](getting-started/tutorial-getting-started-with-am/login-to-am-console.md)
   * [Set Up Your First Application](getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md)
   * [Get User Profile Information](getting-started/tutorial-getting-started-with-am/get-user-profile-information.md)
   * [Secure Your APIs](getting-started/tutorial-getting-started-with-am/secure-your-apis/README.md)

@@ -31,4 +31,4 @@ The GKO can also be installed with Helm and allows you to manage your APIs in a 
 
 The GKO Helm chart is currently installed as a separate component from the standard APIM cluster.
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Helm Install and Configuration</td><td></td><td><a href="configure-helm-chart.md">configure-helm-chart.md</a></td></tr><tr><td></td><td>GKO Helm Install and Configuration</td><td></td><td><a href="install-gravitee-kubernetes-operator.md">install-gravitee-kubernetes-operator.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Helm Install and Configuration</td><td></td><td><a href="configure-helm-chart.md">configure-helm-chart.md</a></td></tr><tr><td></td><td>Architecture Overview</td><td></td><td><a href="install-gravitee-kubernetes-operator.md">install-gravitee-kubernetes-operator.md</a></td></tr></tbody></table>

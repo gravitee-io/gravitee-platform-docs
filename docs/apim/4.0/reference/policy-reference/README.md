@@ -12,7 +12,7 @@ Gravitee policies fall into several functional categories: security, transformat
 
 Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition](../../overview/ee-vs-oss/) policy plugins are available for download [here](https://download.gravitee.io/).
 
-EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking Policy repository is at [https://github.com/gravitee-io/gravitee-policy-data-logging-masking](https://github.com/gravitee-io/gravitee-policy-data-logging-masking). If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com).
+EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking Policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`. If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com).
 
 If you would like to use a different version of the policy or add a custom policy, you can follow the deployment instructions below.
 

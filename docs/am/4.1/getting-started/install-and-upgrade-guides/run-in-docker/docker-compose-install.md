@@ -68,11 +68,11 @@ You can find below a docker-compose configuration snippet that mounts two volume
 
 When all components are started, you can run a quick test by checking these URLs:
 
-| Image                                                                                  | URL                                                              |
-| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| [graviteeio/am-gateway](https://hub.docker.com/r/graviteeio/am-gateway/)               | [http://localhost/am/](http://localhost/am/)                     |
-| [graviteeio/am-management-api](https://hub.docker.com/r/graviteeio/am-management-api/) | [http://localhost/am/management](http://localhost/am/management) |
-| [graviteeio/am-management-ui](https://hub.docker.com/r/graviteeio/am-webui/)           | [http://localhost/am/ui/](http://localhost/am/ui/)               |
+| Image                                                                                  | URL                            |
+| -------------------------------------------------------------------------------------- | ------------------------------ |
+| [graviteeio/am-gateway](https://hub.docker.com/r/graviteeio/am-gateway/)               | http://localhost/am/           |
+| [graviteeio/am-management-api](https://hub.docker.com/r/graviteeio/am-management-api/) | http://localhost/am/management |
+| [graviteeio/am-management-ui](https://hub.docker.com/r/graviteeio/am-webui/)           | http://localhost/am/ui/        |
 
 ## Run AM with a different version or port
 

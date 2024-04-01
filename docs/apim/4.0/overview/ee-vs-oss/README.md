@@ -38,7 +38,7 @@ The features below are included in the default enterprise API Management distrib
 
 The following packs consist of Gravitee Enterprise Edition plugins. These are not included in the default distribution and must be manually downloaded [here](https://download.gravitee.io/).&#x20;
 
-EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking policy repository is at [https://github.com/gravitee-io/gravitee-policy-data-logging-masking](https://github.com/gravitee-io/gravitee-policy-data-logging-masking).&#x20;
+EE plugins are installed from their respective repositories in GitHub. Gravitee’s EE plugin repositories are private and their names are prefixed as `gravitee-io/gravitee-policy-<plugin-name>`. For example, the Data Logging Masking policy repository is at `https://github.com/gravitee-io/gravitee-policy-data-logging-masking`.&#x20;
 
 If you have not been granted access to private EE plugin repositories as part of your EE license request process, email [contact@graviteesource.com](mailto:contact@graviteesource.com).
 
@@ -58,7 +58,7 @@ The Enterprise policy pack includes policies that are typically necessary for en
 The Legacy upgrade pack comprises the following plugins and capabilities that enable organizations to better migrate from and/or service legacy systems:
 
 * [**XSLT policy plugin**](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ZOkrVhrgwaygGUoFNHRF/\~/changes/1120/reference/policy-reference/template-policy-rework-structure-35): Use the XSLT policy to apply an XSL transformation to an incoming XML request body, or to the response body if your backend is exposing XML content.
-* [**WebSocket security authentication**](../../reference/policy-reference/ws-security-authentication.md): Enables the client to send a SOAP envelope with WSS details, where the policy will validate and check the credentials (currently supports username and password).
+* [**WebService security authentication**](../../reference/policy-reference/ws-security-authentication.md): Enables the client to send a SOAP envelope with WSS details, where the policy will validate and check the credentials (currently supports username and password).
 
 ### Observability pack
 

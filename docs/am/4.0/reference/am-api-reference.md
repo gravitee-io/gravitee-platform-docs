@@ -4,30 +4,9 @@
 
 AM API exposes a complete Restful API accessible to anyone wanting to script some part of the administration.
 
-You can access the online API reference or the OpenAPI specification:
+You can access the OpenAPI specification:
 
-* 3.21 — [online reference](https://docs.gravitee.io/am/current/management-api/3.21/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.21/swagger.json)
-* 3.20 — [online reference](https://docs.gravitee.io/am/current/management-api/3.20/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.20/swagger.json)
-* 3.19 — [online reference](https://docs.gravitee.io/am/current/management-api/3.19/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.19/swagger.json)
-* 3.18 — [online reference](https://docs.gravitee.io/am/current/management-api/3.18/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.18/swagger.json)
-* 3.17 — [online reference](https://docs.gravitee.io/am/current/management-api/3.17/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.17/swagger.json)
-* 3.16 — [online reference](https://docs.gravitee.io/am/current/management-api/3.16/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.16/swagger.json)
-* 3.15 — [online reference](https://docs.gravitee.io/am/current/management-api/3.15/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.15/swagger.json)
-* 3.14 — [online reference](https://docs.gravitee.io/am/current/management-api/3.14/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.14/swagger.json)
-* 3.13 — [online reference](https://docs.gravitee.io/am/current/management-api/3.13/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.13/swagger.json)
-* 3.12 — [online reference](https://docs.gravitee.io/am/current/management-api/3.12/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.12/swagger.json)
-* 3.11 — [online reference](https://docs.gravitee.io/am/current/management-api/3.11/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.11/swagger.json)
-* 3.10 — [online reference](https://docs.gravitee.io/am/current/management-api/3.10/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.10/swagger.json)
-* 3.9 — [online reference](https://docs.gravitee.io/am/current/management-api/3.9/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.9/swagger.json)
-* 3.8 — [online reference](https://docs.gravitee.io/am/current/management-api/3.8/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.8/swagger.json)
-* 3.7 — [online reference](https://docs.gravitee.io/am/current/management-api/3.7/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.7/swagger.json)
-* 3.6 — [online reference](https://docs.gravitee.io/am/current/management-api/3.6/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.6/swagger.json)
-* 3.5 — [online reference](https://docs.gravitee.io/am/current/management-api/3.5/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.5/swagger.json)
-* 3.4 — [online reference](https://docs.gravitee.io/am/current/management-api/3.4/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.4/swagger.json)
-* 3.3 — [online reference](https://docs.gravitee.io/am/current/management-api/3.3/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.3/swagger.json)
-* 3.2 — [online reference](https://docs.gravitee.io/am/current/management-api/3.2/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.2/swagger.json)
-* 3.1 — [online reference](https://docs.gravitee.io/am/current/management-api/3.1/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.1/swagger.json)
-* 3.0 — [online reference](https://docs.gravitee.io/am/current/management-api/3.0/index.html) - [OpenAPI spec](https://docs.gravitee.io/am/current/management-api/3.0/swagger.json)
+* 4.0 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/management-api/4.0/swagger.json)
 
 ## Authorization
 
@@ -87,4 +66,4 @@ POST http(s)://AM_MANAGEMENT_API/management/auth/login
 ```
 {% endcode %}
 
-* `redirect_uri`: redirection endpoint after authentication success\
+* `redirect_uri`: redirection endpoint after authentication success\\

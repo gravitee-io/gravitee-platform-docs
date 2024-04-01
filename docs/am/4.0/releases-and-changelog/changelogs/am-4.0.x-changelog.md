@@ -6,6 +6,134 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.14 - March 28, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Login - MFA challenge should be prompted when prompt=login is used [#9497](https://github.com/gravitee-io/issues/issues/9497)
+* Revert: Passwordless authentication doesn't take the IDP status into account (#9494) [#9615](https://github.com/gravitee-io/issues/issues/9615)
+* Addition of WebAuthn Credentials info into the context [#9620](https://github.com/gravitee-io/issues/issues/9620)
+
+**Console**
+
+* No space between source IP and user agent in audit logs [#9458](https://github.com/gravitee-io/issues/issues/9458)
+* User agent showing 'undefined' in audit logs [#9459](https://github.com/gravitee-io/issues/issues/9459)
+* Fetch user group doesn't persist [#9609](https://github.com/gravitee-io/issues/issues/9609)
+
+</details>
+
+## Gravitee Access Management 4.0.13 - March 15, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Redirect executed with jwt-bearer grant\_type [#9505](https://github.com/gravitee-io/issues/issues/9505)
+* Invalid Phone Number [#9519](https://github.com/gravitee-io/issues/issues/9519)
+
+</details>
+
+## Gravitee Access Management 4.0.12 - February 29, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Passwordless authentication doesn't take the IDP status into account [#9494](https://github.com/gravitee-io/issues/issues/9494)
+* State parameter encoded twice with response\_mode set to form\_post [#9528](https://github.com/gravitee-io/issues/issues/9528)
+* Passwordless registration appearing for users who have already authenticated with step up [#9568](https://github.com/gravitee-io/issues/issues/9568)
+
+</details>
+
+## Gravitee Access Management 4.0.11 - February 19, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Unable to finalize SAML authentication using HTTP-POST binding [#9485](https://github.com/gravitee-io/issues/issues/9485)
+* Security Domain may not be loaded on Gateway startup [#9496](https://github.com/gravitee-io/issues/issues/9496)
+* Custom email not being sent when resending account registered verification email [#9500](https://github.com/gravitee-io/issues/issues/9500)
+* Do not log stack trace when user has to provide password after webauthn authentication [#9503](https://github.com/gravitee-io/issues/issues/9503)
+
+**Console**
+
+* Missing read password policy role [#8924](https://github.com/gravitee-io/issues/issues/8924)
+
+**Other**
+
+* SAML 2.0 Identity Provider requires AM dependency update [#9515](https://github.com/gravitee-io/issues/issues/9515)
+
+</details>
+
+## Gravitee Access Management 4.0.10 - February 9, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Invalid form parameter when ResponseMode is set to form\_post [#9179](https://github.com/gravitee-io/issues/issues/9179)
+* SCIM search operator PR doesn't work as expected [#9265](https://github.com/gravitee-io/issues/issues/9265)
+* Authentication flow rejected due to redirect\_uri when PAR is used [#9478](https://github.com/gravitee-io/issues/issues/9478)
+* WebAuthn: "Force authenticator integrity" - LastCheckedAt systematically updated at each webauthn login [#9327](https://github.com/gravitee-io/issues/issues/9327)
+
+</details>
+
+## Gravitee Access Management 4.0.9 - January 24, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Passwordless not working for iOS v17.2.1 [#9470](https://github.com/gravitee-io/issues/issues/9470)
+
+</details>
+
+## Gravitee Access Management 4.0.8 - January 19, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Avoid BodyHandler processing for GET request [#9352](https://github.com/gravitee-io/issues/issues/9352)
+* WebAuthnCredentialId is null into the EL context [#9455](https://github.com/gravitee-io/issues/issues/9455)
+
+</details>
+
+## Gravitee Access Management 4.0.7 - December 22, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Session expired problem - X-XRF-TOKEN [#9398](https://github.com/gravitee-io/issues/issues/9398)
+* 500 response received on creating user with /scim endpoint with duplicate externalId [#9421](https://github.com/gravitee-io/issues/issues/9421)
+* Exclude null value from SCIM UserMapper [#9427](https://github.com/gravitee-io/issues/issues/9427)
+
+**Management API**
+
+* Unable to list users [#9125](https://github.com/gravitee-io/issues/issues/9125)
+
+</details>
+
 ## Gravitee Access Management 4.0.6 - December 11, 2023
 
 <details>

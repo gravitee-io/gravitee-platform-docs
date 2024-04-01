@@ -6,8 +6,8 @@ AM uses repositories to store different types of data (known as _scopes_).
 
 You configure repositories in the `gravitee.yml` configuration file. The configuration can be different for each scope. AM supports the following repositories:
 
-* [MongoDB repositories](https://docs.gravitee.io/am/current/am\_installguide\_repositories\_mongodb.html)
-* [JDBC repositories](https://docs.gravitee.io/am/current/am\_installguide\_repositories\_jdbc.html)
+* [MongoDB](configure-repositories.md#mongodb)
+* [JDBC](configure-repositories.md#jdbc)
 
 For information on how to install and configure the repositories, see the relevant configuration section.
 
@@ -92,6 +92,16 @@ management:
 #      type:                      # Type of the truststore, supports jks, pem, pkcs12 (when sslEnabled is true, default null)
 #      password:                  # Truststore password (when sslEnabled is true, default null)
 ```
+
+{% hint style="info" %}
+**Support for databases with MongoDB compatibility**\
+Some databases are almost fully compatible with MongoDB, such as:
+
+* DocumentDB (AWS)
+* Azure Cosmos DB for MongoDB (Azure)
+
+However, some features may not be supported, or may exhibit unexpected behavior or performance. Consequently, **MongoDB is currently the only officially supported database**.
+{% endhint %}
 
 ## JDBC
 

@@ -4,7 +4,7 @@ description: This article covers how to install Alert Engine via Docker
 
 # Install via Docker
 
-## Introduction and prerequisiutes
+## Introduction and prerequisites
 
 This section explains how to run AE images in Docker. These procedures are intended for users who are already familiar with Docker.
 
@@ -36,7 +36,7 @@ $ docker run  \
 
 ### **Configure the container**
 
-If you want to override the default configuration and any properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see [Configuration](https://docs.gravitee.io/ae/installguide\_configuration.html#environment\_variables).
+If you want to override the default configuration and any properties included in the `gravitee.yml` file, you need to use environment variables. For more information, see the [Configuration](../configuration/) section.
 
 The following example changes the Hazelcast configuration file:
 
@@ -50,4 +50,4 @@ $ docker run  \
         graviteeio/ae-engine:2.1.2
 ```
 
-\
+\\

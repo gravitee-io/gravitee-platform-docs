@@ -23,7 +23,7 @@ There are two requirements to allow API consumers to create applications:
 
 <figure><img src="../../.gitbook/assets/client_registration_settings.png" alt=""><figcaption><p>Client Registration settings</p></figcaption></figure>
 
-2. API consumers must have a [user account](https://docs.gravitee.io/apim/3.x/apim\_consumerguide\_create\_account.html) to register an application and subscribe to an API which you can learn how to enable in Administration.
+2. API consumers must have a user account to register an application and subscribe to an API which you can learn how to enable in Administration.
 
 ## Simple application configuration
 
@@ -225,7 +225,7 @@ With all the preparation work complete, API consumers can now create an applicat
 {% hint style="info" %}
 **Default application**
 
-In order to allow new users to quickly move forward with API consumption, the default settings are every new user (not including admins) automatically has a default application created. This can be easily disabled in the `gravitee.yml` file with the following configuration below. You can learn more about system configurations in Gravitee [here](../../../guides/api-exposure-plans-applications-and-subscriptions/broken-reference/).
+To help new users quickly move forward with API consumption, a default application is automatically created for every new user (not including admins). This can be easily disabled in the `gravitee.yml` file using the configuration below.
 {% endhint %}
 
 {% code title="gravitee.yml" overflow="wrap" %}

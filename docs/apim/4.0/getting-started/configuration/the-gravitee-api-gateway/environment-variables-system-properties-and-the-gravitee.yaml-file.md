@@ -268,7 +268,7 @@ The property `removePlugins` has been removed from the Helm chart as it is no lo
 
 ## Configure the Management repository
 
-The Management repository is used to store global configurations such as APIs, applications and API keys. The default configuration uses MongoDB (single server). For more information about MongoDB configuration, [refer to this documentation](http://api.mongodb.org/java/current/com/mongodb/MongoClientOptions.html). You can configure the Management repository using the `gravitee.yaml` file:
+The Management repository is used to store global configurations such as APIs, applications and API keys. The default configuration uses MongoDB (single server). You can configure the Management repository using the `gravitee.yaml` file:
 
 {% code overflow="wrap" %}
 ```yaml
@@ -384,7 +384,7 @@ Redis Sentinel and Redis SSL configuration options are presented [here](../confi
 
 ## Configure reporters
 
-You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property '`enabled: false`'
+You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property `enabled: false`:
 
 ```yaml
 reporters:
@@ -469,8 +469,8 @@ environments: dev,integration
 
 By default, the APIM Gateway will generate an id for each request and set it in the following headers:
 
-* `X-Gravitee-Transaction-Id` for the transaction id
-* `X-Gravitee-Request-Id` for the request id
+* `X-Gravitee-Transaction-Id`: This header represents the identifier for the entire transaction, which typically encompasses multiple calls or requests. It allows the tracking of a series of related requests and responses that are part of a larger transaction.
+* `X-Gravitee-Request-Id`: This header represents the identifier for a single call or request within the transaction. Every individual request receives a unique identifier, which allows each request to be tracked separately.
 
 Both of these headers can be customized. You can provide your own header names:
 

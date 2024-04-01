@@ -198,12 +198,12 @@ If you are installing the Enterprise Edition, you need to add the license key. I
 docker compose -f docker-compose-apim.yml up -d
 ```
 
-2. In your browser, go to [`http://localhost:8084`](http://localhost:8084/) to open the Console, and go to [`http://localhost:8085`](http://localhost:8085/) to open the Developer Portal. You can log in to both with the username `admin` and password `admin`.
+2. In your browser, go to `http://localhost:8084` to open the Console, and go to `http://localhost:8085` to open the Developer Portal. You can log in to both with the username `admin` and password `admin`.
 
 {% hint style="info" %}
 **Container initialization**
 
-APIM can take up to a minute to fully initialize with Docker. If you get an error when going to [`http://localhost:8084`](http://localhost:8084/) or [`http://localhost:8085`](http://localhost:8085/), wait a few minutes and try again.
+APIM can take up to a minute to fully initialize with Docker. If you get an error when going to `http://localhost:8084` or `http://localhost:8085`, wait a few minutes and try again.
 {% endhint %}
 
 You can adapt the above instructions to suit your architecture if you need to.

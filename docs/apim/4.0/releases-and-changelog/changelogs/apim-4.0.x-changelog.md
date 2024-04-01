@@ -6,6 +6,239 @@ description: >-
 
 # APIM 4.0.x
 
+## Gravitee API Management 4.0.21 - March 29, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Management API**
+
+* Update import remove all members when a group is defined as a PO [#9596](https://github.com/gravitee-io/issues/issues/9596)
+* Gravitee 4.2 OpenAPI issues [#9632](https://github.com/gravitee-io/issues/issues/9632)
+
+**Other**
+
+* \[gravitee-policy-ipfiltering] DNS Lookup fails with some DNS servers [#9592](https://github.com/gravitee-io/issues/issues/9592)
+* \[gravitee-resource-auth-provider-http] Timeout when authentication condition is failing [#9611](https://github.com/gravitee-io/issues/issues/9611)
+* Liquibase changelog 4.0.20-dashboards adding NOT NULL column without default value [#9626](https://github.com/gravitee-io/issues/issues/9626)
+* APIM DashboardTypeUpgrader raises an error when used with DocumentDB [#9631](https://github.com/gravitee-io/issues/issues/9631)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Allow to configure KeepAliveTimeout for HTTP endpoint [#9541](https://github.com/gravitee-io/issues/issues/9541)
+
+</details>
+
+## Gravitee API Management 4.0.20 - March 21, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Improve HealthCheck service for v2 APIs [#9543](https://github.com/gravitee-io/issues/issues/9543)
+
+**Management API**
+
+* Condition field in JDBC dbs is too short [#9595](https://github.com/gravitee-io/issues/issues/9595)
+
+**Console**
+
+* \[shared API key] API key mode not displayed on application screen [#9612](https://github.com/gravitee-io/issues/issues/9612)
+
+**Other**
+
+* API v4 proxy - problem with client SSL certificate
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Portal**
+
+* Do not allow user to change their email through the Portal [#9617](https://github.com/gravitee-io/issues/issues/9617)
+
+</details>
+
+## Gravitee API Management 4.0.19 - March 1, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Override HTTP Method [#9526](https://github.com/gravitee-io/issues/issues/9526)
+
+**Management API**
+
+* Shared API Key Does Not Always Bind to Subscriptions When Concurrent Requests Are Made [#9502](https://github.com/gravitee-io/issues/issues/9502)
+* NullPointer Exception when importing an API with group as PO and members [#9507](https://github.com/gravitee-io/issues/issues/9507)
+* APIM: Creating application with "@" in name automatically converts it to "@" [#9514](https://github.com/gravitee-io/issues/issues/9514)
+* API description required with POST /apis/ on mAPI v2 [#9527](https://github.com/gravitee-io/issues/issues/9527)
+* Importing an API with a group as PO but no PO user in this group should not be possible [#9587](https://github.com/gravitee-io/issues/issues/9587)
+
+**Console**
+
+* No longer possible to compare "published" and "to deploy" status [#9491](https://github.com/gravitee-io/issues/issues/9491)
+* Re: Error when clicking on top failed API in platform dashbaord [#9498](https://github.com/gravitee-io/issues/issues/9498)
+* Remove last user in group shows error [#9517](https://github.com/gravitee-io/issues/issues/9517)
+
+**Portal**
+
+* Documentation menu hidden [#9590](https://github.com/gravitee-io/issues/issues/9590)
+
+</details>
+
+## Gravitee API Management 4.0.18 - February 16, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Management API**
+
+* Excluded groups on plan are not displayed after being imported or promoted to a new environment [#9116](https://github.com/gravitee-io/issues/issues/9116)
+* Private APIs on the Portal are wrongly displayed [#9513](https://github.com/gravitee-io/issues/issues/9513)
+* Modifying API definition causes loss of endpoint configuration [#9520](https://github.com/gravitee-io/issues/issues/9520)
+
+**Console**
+
+* When validating a JWT subscription, I'm asked to customize an APIkey [#9489](https://github.com/gravitee-io/issues/issues/9489)
+
+**Portal**
+
+* Documentation gets encoded after deployment [#9490](https://github.com/gravitee-io/issues/issues/9490)
+* Customization problems in the Developer Portal [#9495](https://github.com/gravitee-io/issues/issues/9495)
+* Subscriptions Not Visible in Portal If There Is a Push Plan [#9511](https://github.com/gravitee-io/issues/issues/9511)
+
+**Other**
+
+* "Propagate client Accept-Encoding header" option missing in V4 [#9475](https://github.com/gravitee-io/issues/issues/9475)
+
+</details>
+
+## Gravitee API Management 4.0.17 - February 2, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Unable to populate attributes using the Assign Attributes policy due to enabled v4 Engine [#9420](https://github.com/gravitee-io/issues/issues/9420)
+* Conditional logging [#9486](https://github.com/gravitee-io/issues/issues/9486)
+* Timeout when connecting to WebSocket API using header Connection:Upgrade,Keep-Alive [#9487](https://github.com/gravitee-io/issues/issues/9487)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Add API ID in healthcheck logs [#9493](https://github.com/gravitee-io/issues/issues/9493)
+
+</details>
+
+## Gravitee API Management 4.0.16 - January 19, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Sometimes path-mapping is not working [#9450](https://github.com/gravitee-io/issues/issues/9450)
+* Management API does not encode a value in the URL used in a pipe [#9461](https://github.com/gravitee-io/issues/issues/9461)
+* gRPC backend received unexpected headers [#9463](https://github.com/gravitee-io/issues/issues/9463)
+
+**Management API**
+
+* Unable to switch to gRPC endpoint type from the Console UI [#9456](https://github.com/gravitee-io/issues/issues/9456)
+* Updating an API reset the gRPC type of the endpoint [#9464](https://github.com/gravitee-io/issues/issues/9464)
+* Can't create 2 virtualhosts having the same path but different host [#9466](https://github.com/gravitee-io/issues/issues/9466)
+
+**Console**
+
+* Can't create 2 virtualhosts having the same path but different host [#9466](https://github.com/gravitee-io/issues/issues/9466)
+* Navigation in a multi-environments console is messed up [#9467](https://github.com/gravitee-io/issues/issues/9467)
+
+**Portal**
+
+* Docs not loaded instantly [#9452](https://github.com/gravitee-io/issues/issues/9452)
+
+**Helm Charts**
+
+* Backward incompatibility during Helm upgrade with old `values.yml` [#9446](https://github.com/gravitee-io/issues/issues/9446)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Access request host property in Expression Language [#9453](https://github.com/gravitee-io/issues/issues/9453)
+
+</details>
+
+## Gravitee API Management 4.0.15 - December 21, 2023
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Healthcheck service never stopped when using Service Discovery [#9437](https://github.com/gravitee-io/issues/issues/9437)
+
+**Management API**
+
+* API Does Not Deploy if a Common Flow Exists with Multiple Entrypoints Selected [#9415](https://github.com/gravitee-io/issues/issues/9415)
+* Cannot delete API with too many events [#9439](https://github.com/gravitee-io/issues/issues/9439)
+
+**Console**
+
+* Inconsistency on "Inheritance" flag for endpoints/groups between frontend and backend [#9407](https://github.com/gravitee-io/issues/issues/9407)
+* Flow Name Display Does Not Match Gateway Behavior [#9416](https://github.com/gravitee-io/issues/issues/9416)
+* Log view too wide [#9429](https://github.com/gravitee-io/issues/issues/9429)
+
+**Portal**
+
+* Tickets Inaccessible When an API with Open Tickets Is Deleted [#9422](https://github.com/gravitee-io/issues/issues/9422)
+* Cannot Scroll in Markdown Documentation in Portal [#9424](https://github.com/gravitee-io/issues/issues/9424)
+* Synchronization inconsistency on ALL APIs page on Portal [#9432](https://github.com/gravitee-io/issues/issues/9432)
+* Sign up doesn't work anymore [#9440](https://github.com/gravitee-io/issues/issues/9440)
+
+**Other**
+
+* Make some non-migrated policies available on REQUEST phase for message APIs [#9430](https://github.com/gravitee-io/issues/issues/9430)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* \[JDBC] Improve Flows loading [#9436](https://github.com/gravitee-io/issues/issues/9436)
+
+</details>
+
 ## Gravitee API Management 4.0.14 - December 7, 2023
 
 <details>

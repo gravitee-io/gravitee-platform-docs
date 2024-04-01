@@ -20,7 +20,7 @@ The following event types are supported:
 
 The following reporters are currently compatible with APIM:
 
-<table><thead><tr><th width="151">Type</th><th data-type="checkbox">Bundled in Distribution</th><th data-type="checkbox">Default</th><th data-type="checkbox">Enterprise only</th><th data-type="checkbox">v4 support</th></tr></thead><tbody><tr><td><a href="./#elasticsearch-reporter">Elasticsearch</a></td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td><a href="./#file-reporter">File</a></td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td><a href="./#tcp-reporter">TCP</a></td><td>true</td><td>false</td><td>true</td><td>false</td></tr><tr><td><a href="./#datadog-reporter">Datadog</a></td><td>false</td><td>false</td><td>true</td><td>false</td></tr></tbody></table>
+<table><thead><tr><th width="151">Type</th><th data-type="checkbox">Bundled in Distribution</th><th data-type="checkbox">Default</th><th data-type="checkbox">Enterprise only</th><th data-type="checkbox">v4 support</th></tr></thead><tbody><tr><td><a href="./#elasticsearch-reporter">Elasticsearch</a></td><td>true</td><td>true</td><td>false</td><td>true</td></tr><tr><td><a href="./#file-reporter">File</a></td><td>true</td><td>false</td><td>false</td><td>true</td></tr><tr><td><a href="./#tcp-reporter">TCP</a></td><td>true</td><td>false</td><td>true</td><td>false</td></tr><tr><td><a href="./#datadog-reporter">Datadog</a></td><td>false</td><td>false</td><td>true</td><td>true</td></tr></tbody></table>
 
 As of Gravitee 4.0, the TCP and Datadog reporters are Enterprise Edition capabilities that do not support [v4 APIs](../../../overview/gravitee-api-definitions-and-execution-engines/).
 
@@ -86,7 +86,25 @@ reporters:
 {% tab title="Configuration parameters" %}
 The file reporter has the following configuration parameters:
 
-<table><thead><tr><th width="220">Parameter name</th><th>Description</th><th>Default value</th></tr></thead><tbody><tr><td><code>enabled</code></td><td>This setting determines whether the TCP reporter should be started or not. The default value is <code>false</code>.</td><td>false</td></tr><tr><td><code>output</code></td><td>Format of the data written to the TCP socket - json, message_pack, elasticsearch, csv.</td><td>json</td></tr><tr><td><code>host</code></td><td>The TCP host where the event should be published. This can be a valid host name or an IP address.</td><td>localhost</td></tr><tr><td><code>port</code></td><td>The TCP port used to connect to the host.</td><td>8123</td></tr><tr><td><code>connectTimeout</code></td><td>Maximum time allowed to establish the TCP connection in milliseconds.</td><td>10000</td></tr><tr><td><code>reconnectAttempts</code></td><td>This setting determines how many times the socket should try to establish a connection in case of failure.</td><td>10</td></tr><tr><td><code>reconnectInterval</code></td><td>Time (in milliseconds) between socket connection attempts.</td><td>500</td></tr><tr><td><code>retryTimeout</code></td><td>If the max reconnect attempts have been reached, this setting determines how long (in milliseconds) the reporter should wait before trying to connect again.</td><td>5000</td></tr></tbody></table>
+| Parameter name            | Description                                                                                                                                                           | Default value |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `enabled`                 | This setting determines whether the TCP reporter should be started or not. The default value is `false`.                                                              | false         |
+| `output`                  | Format of the data written to the TCP socket - json, message\_pack, elasticsearch, csv.                                                                               | json          |
+| `host`                    | The TCP host where the event should be published. This can be a valid host name or an IP address.                                                                     | localhost     |
+| `port`                    | The TCP port used to connect to the host.                                                                                                                             | 8123          |
+| `connectTimeout`          | Maximum time allowed to establish the TCP connection in milliseconds.                                                                                                 | 10000         |
+| `reconnectAttempts`       | This setting determines how many times the socket should try to establish a connection in case of failure.                                                            | 10            |
+| `reconnectInterval`       | Time (in milliseconds) between socket connection attempts.                                                                                                            | 500           |
+| `retryTimeout`            | If the max reconnect attempts have been reached, this setting determines how long (in milliseconds) the reporter should wait before trying to connect again.          | 5000          |
+| `tls.enabled`             | Enable TLS                                                                                                                                                            | false         |
+| `tls.verifyClient`        | If true, client certificate will be sent for mutual TLS negotiation. When enabling this, providing a key-store is required so that mutual TLS negociation can happen. | false         |
+| `tls.keystore.type`       | The type of key-store to use (either PEM, JKS or PFX)                                                                                                                 | null          |
+| `tls.keystore.password`   | The password to use for the key-store (only for JKS and PFX types)                                                                                                    | null          |
+| `tls.keystore.certs`      | The list of certificates used, when type is PEM                                                                                                                       | null          |
+| `tls.keystore.keys`       | The list of keys used, when type is PEM                                                                                                                               | null          |
+| `tls.truststore.type`     | The type of trust-store to use (either PEM, JKS or PFX)                                                                                                               | null          |
+| `tls.truststore.password` | The password to use for the trust-store (only for JKS and PFX types)                                                                                                  | null          |
+| `tls.keystore.certs`      | The list of certificates to trust, when type is PEM                                                                                                                   | null          |
 {% endtab %}
 
 {% tab title="Example" %}
@@ -113,6 +131,19 @@ reporters:
       exclude: *
     healthcheck:
       exclude: *
+    tls:
+      enabled: true
+      verifyClient: true
+      keystore: 
+        type: pem
+        keys:
+        - client.key
+        certs:
+        - client.crt
+      truststore:
+        type: pem 
+        certs:
+        - logstash.crt
 ```
 {% endtab %}
 {% endtabs %}
@@ -136,7 +167,7 @@ In the following table, you can see how different data from Gravitee has been tr
 {% tab title="Configuration parameters" %}
 The Datadog reporter has the following configuration parameters:
 
-<table><thead><tr><th width="192">Parameter name</th><th width="278">Description</th><th>Default value</th></tr></thead><tbody><tr><td><code>enabled</code></td><td>This setting determines whether the Datadog reporter should be started or not. The default value is <code>false</code>.</td><td>false</td></tr><tr><td><code>site</code></td><td>If you don’t use the default website of Datadog, for example if the data center is in the EU, then you need to set this variable.</td><td>null</td></tr><tr><td><code>host</code></td><td>The TCP host where the event should be published. This can be a valid host name or an IP address.</td><td>localhost</td></tr><tr><td><code>authentication</code></td><td>In order to send data to Datadog, you need to provide your Authentication details and all supported Datadog Authentication mechanisms can be used in here as well. You need to choose only one Authentication type and remove the rest.</td><td>N/A</td></tr></tbody></table>
+<table><thead><tr><th width="192">Parameter name</th><th width="278">Description</th><th>Default value</th></tr></thead><tbody><tr><td><code>enabled</code></td><td>This setting determines whether the Datadog reporter should be started or not. The default value is <code>false</code>.</td><td>false</td></tr><tr><td><code>site</code></td><td>If you don’t use the default website of Datadog, for example if the data center is in the EU, then you need to set this variable.</td><td>null</td></tr><tr><td><code>authentication</code></td><td>In order to send data to Datadog, you need to provide your Authentication details and all supported Datadog Authentication mechanisms can be used in here as well. You need to choose only one Authentication type and remove the rest.</td><td>N/A</td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="Example" %}
@@ -158,4 +189,3 @@ reporters:
 ```
 {% endtab %}
 {% endtabs %}
-

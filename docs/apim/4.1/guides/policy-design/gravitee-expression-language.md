@@ -139,7 +139,7 @@ When accessing an encrypted custom property, Gravitee's Gateway will automatical
 {% endtab %}
 
 {% tab title="Dictionaries" %}
-[Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary ID as well as the dictionary property name. Dictionary properties are simply key-value pairs that can be accessed from the `{#dictionaries}` root-level object property.
+Dictionaries work similarly to custom properties, but you need to specify the dictionary ID as well as the dictionary property name. Dictionary properties are simply key-value pairs that can be accessed from the `{#dictionaries}` root-level object property.
 
 #### Example
 

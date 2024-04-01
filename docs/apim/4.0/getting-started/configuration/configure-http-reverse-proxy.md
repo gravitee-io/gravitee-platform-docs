@@ -214,10 +214,10 @@ Add Nginx container to `docker-compose.yml`
 
 After restart, you can access your components through nginx at the following addresses
 
-| Component      | URL                                                          |
-| -------------- | ------------------------------------------------------------ |
-| Gateway        | [http://localhost/gateway/](http://localhost/gateway/)       |
-| Management API | [http://localhost/management/](http://localhost/management/) |
-| Portal API     | [http://localhost/portal/](http://localhost/portal/)         |
-| Console UI     | [http://localhost/console/](http://localhost/console/)       |
-| Portal UI      | [http://localhost/](http://localhost/)                       |
+| Component      | URL                          |
+| -------------- | ---------------------------- |
+| Gateway        | http://localhost/gateway/    |
+| Management API | http://localhost/management/ |
+| Portal API     | http://localhost/portal/     |
+| Console UI     | http://localhost/console/    |
+| Portal UI      | http://localhost/            |

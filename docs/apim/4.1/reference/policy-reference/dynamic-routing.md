@@ -10,8 +10,8 @@ The `dynamic-routing` policy is used to dispatch inbound calls to different targ
 
 Another typical use case is defining routing similar to the following:
 
-* Requests from [`http://gateway/apis/store/12/info`](http://gateway/apis/store/12/info) are redirected to [`http://backend_store12/info`](http://backend\_store12/info)
-* Requests from [`http://gateway/apis/store/45/info`](http://gateway/apis/store/45/info) are redirected to [`http://backend_store45/info`](http://backend\_store45/info)
+* Requests from `http://gateway/apis/store/12/info` are redirected to `http://backend_store12/info`
+* Requests from `http://gateway/apis/store/45/info` are redirected to `http://backend_store45/info`
 
 Functional and implementation information for the `dynamic-routing` policy is organized into the following sections:
 

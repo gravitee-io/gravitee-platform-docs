@@ -54,7 +54,7 @@ You can manage user and group access to individual APIs via the Management Conso
 
 ## Importing and duplicating v4 APIs
 
-You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis.md).
+You can now create a v4 API by uploading a JSON file containing an existing Gravitee v4 API definition. For the details of this feature, refer to the [documentation](../../guides/create-apis/import-apis/).
 
 A v4 API can now also be duplicated. Refer to [this page](../../guides/api-configuration/v4-api-configuration/api-general-settings.md) for more details.
 
@@ -64,6 +64,6 @@ The Management Console now allows you to view comprehensive connection logs to a
 
 <figure><img src="../../.gitbook/assets/runtime logs chron order.png" alt=""><figcaption><p>History of up-to-date runtime logs</p></figcaption></figure>
 
-Runtime log settings can be modified to customize and extend the data capture. You can also drill into a log entry to view detailed message content. For more information on logging, refer to [this section](../../getting-started/configuration/configure-apim-management-api/logging.md#management-console-logging).
+Runtime log settings can be modified to customize and extend the data capture. You can also drill into a log entry to view detailed message content. For more information on logging, refer to [this section](broken-reference).
 
 <figure><img src="../../.gitbook/assets/runtime logs view messages.png" alt=""><figcaption><p>View messages for log details</p></figcaption></figure>

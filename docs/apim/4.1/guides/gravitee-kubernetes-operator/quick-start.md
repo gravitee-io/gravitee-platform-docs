@@ -2,11 +2,7 @@
 
 ## Overview
 
-This quick start guide is the fastest way to start working with the Gravitee Kubernetes Operator (GKO). You can deploy the GKO on an existing APIM-ready cluster that is either remote (cloud-based) or local (only recommended for testing purposes).
-
-{% hint style="warning" %}
-There are [additional steps to perform](../developer-contributions/gravitee-kubernetes-operator-development-environment.md) if you do not have a suitable existing cluster, and you will need to set up a new local cluster prior to deployment.
-{% endhint %}
+This quick start guide is the fastest way to start working with the Gravitee Kubernetes Operator (GKO).
 
 ## Deploy the GKO
 
@@ -38,7 +34,7 @@ $ helm install graviteeio-gko graviteeio/gko
 After GKO deployment, you can test GKO functionality by creating CRDs and sending API calls from the API Gateway.
 
 {% hint style="info" %}
-To ensure that the Gateway works with the GKO, enable (set to `true`) the `services.sync.kubernetes` property in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file. For more information, see [How to try out the GKO after deployment](https://docs.gravitee.io/apim/3.x/apim\_kubernetes\_operator\_user\_guide\_play.html#prerequisites).
+To ensure that the Gateway works with the GKO, enable (set to `true`) the `services.sync.kubernetes` property in the [`gravitee.yml`](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-gateway/gravitee-apim-gateway-standalone/gravitee-apim-gateway-standalone-distribution/src/main/resources/config/gravitee.yml#L264) file. For more information, see [Test GKO After Deployment](test-gko-after-deployment.md).
 {% endhint %}
 
 The process involves the following stages:
@@ -100,3 +96,10 @@ The entrypoint used in the Gateway URL may differ depending on your deployment. 
 {% hint style="info" %}
 For full details on trying out the GKO functionality after deployment, see [Call the API through the APIM Gateway](test-gko-after-deployment.md#step-3-call-the-api-through-the-apim-gateway).
 {% endhint %}
+
+## Next steps
+
+Visit our [GKO guide](./) to:
+
+* Learn how to use the GKO to define, deploy, and publish APIs to your API Portal and API Gateway
+* Manage custom resource definitions (CRDs)

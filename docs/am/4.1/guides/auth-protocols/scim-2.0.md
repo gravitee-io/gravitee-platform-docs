@@ -4,7 +4,7 @@
 
 Since it is a standard, SCIM ensures interoperability and user data consistency that can be communicated across similar applications. SCIM enables to automate the provisioning/de-provisioning process and manage users and groups.
 
-SCIM protocol endpoints are exposed by the [AM API](https://docs.gravitee.io/am/current/scim/index.html).
+SCIM protocol endpoints are exposed by the [AM API](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/scim/swagger.yml).
 
 ## Protocol
 

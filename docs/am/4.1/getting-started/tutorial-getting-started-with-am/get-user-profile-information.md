@@ -18,7 +18,7 @@ An ID Token is a signed [JSON Web Token (JWT)](https://tools.ietf.org/html/draft
 
 You can retrieve an ID Token by requesting an access token with a specific `openid` scope.
 
-1. [Log in to AM Console](https://docs.gravitee.io/am/current/am\_userguide\_authentication.html).
+1. [Log in to AM Console](login-to-am-console.md).
 2. Click **Applications**.
 3. Click the application, then click the **Settings** tab.
 4.  Click **OAuth 2.0 / OIDC**.
@@ -77,13 +77,13 @@ An ID Token can be decoded and verified using a 3rd-party JWT library that you c
 
 ID Tokens must contain at least the following [required claims](http://openid.net/specs/openid-connect-core-1\_0.html#IDToken):
 
-| Claim |                                                                                                                    |
-| ----- | ------------------------------------------------------------------------------------------------------------------ |
-| iss   | Issuer Identifier, must be the `oidc.iss` configuration value (default [http://gravitee.am](http://gravitee.am/)). |
-| sub   | Subject Identifier represented by the unique user’s `username`.                                                    |
-| aud   | Audience(s) that this ID Token is intended for. It MUST contain your OAuth 2.0 `client_id`.                        |
-| exp   | Expiration time on or after which the ID Token MUST NOT be accepted for processing.                                |
-| iat   | Time at which the JWT was issued.                                                                                  |
+| Claim |                                                                                               |
+| ----- | --------------------------------------------------------------------------------------------- |
+| iss   | Issuer Identifier, must be the `oidc.iss` configuration value (default `http://gravitee.am`). |
+| sub   | Subject Identifier represented by the unique user’s `username`.                               |
+| aud   | Audience(s) that this ID Token is intended for. It MUST contain your OAuth 2.0 `client_id`.   |
+| exp   | Expiration time on or after which the ID Token MUST NOT be accepted for processing.           |
+| iat   | Time at which the JWT was issued.                                                             |
 
 Finally, you need to have the ID Token signed by AM.
 

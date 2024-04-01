@@ -1,16 +1,5 @@
 # Connect with GitHub
 
-* [Overview](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#overview)
-* [Create a GitHub OAuth application](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#create\_a\_github\_oauth\_application)
-  * [Create a new GitHub application](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#create\_a\_new\_github\_application)
-  * [Retrieve the OAuth2 credentials](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#gravitee-installation-authentication-github-credentials)
-* [Configure APIM](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#configure\_apim)
-  * [Configure with `gravitee.yml` or APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#configure\_with\_gravitee\_yml\_or\_apim\_console)
-    * [APIM Console configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#apim\_console\_configuration)
-    * [`gravitee.yml` file configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#gravitee\_yml\_file\_configuration)
-* [Test the connection](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#test\_the\_connection)
-  * [Log in to APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_github.html#log\_in\_to\_apim\_portal)
-
 ### Overview
 
 This page explains how to configure an APIM Portal connection with a [GitHub](https://github.com/) account.
@@ -61,7 +50,7 @@ You can configure this provider both in APIM Console and in the `gravitee.yml` c
 
     ![Gravitee.io - New Github IDP](https://docs.gravitee.io/images/apim/3.x/management-api-configuration-idp/new-github.png)
 5. Click **CREATE**.
-6. Activate the provider for Portal or Console login, as described in [Activating providers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication.html#activating-providers).
+6. Activate the provider for Portal or Console login.
 
 **`gravitee.yml` file configuration**
 

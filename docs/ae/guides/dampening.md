@@ -23,5 +23,3 @@ This mode is used to represent "X true evaluations in T time".
 #### Strict time
 
 This mode is used to represent "Only true evaluations in T time".
-
-\

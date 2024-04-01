@@ -2,7 +2,7 @@
 
 ## Overview
 
-When a user is signing in, AM stores the fact that the user is authenticated for a certain period of time in what we call a **HTTP Session**.
+When a user is signing in, AM stores the fact that the user is authenticated for a certain period of time in what we call an **HTTP Session**.
 
 This mechanism avoids the need for the user to re-authenticate every time he wants to perform some actions. The same principle applies to your application or when you use an external identity provider such as Facebook, Twitter, etc.
 
@@ -33,7 +33,7 @@ For the AM and identity provider sessions, you can read the logout section below
 
 ### Invalidate session
 
-Authenticated users who want to invalidate their session can call the following URL: [`https://AM_GATEWAY_HOST/{domain}/logout`](https://am\_gateway\_host/%7Bdomain%7D/logout)
+Authenticated users who want to invalidate their session can call the following URL: `https://AM_GATEWAY_HOST/{domain}/logout`.
 
 {% hint style="info" %}
 By default, access tokens and refresh tokens are not revoked. You can add the `invalidate_tokens=true` query parameter to the request to invalidate current user tokens.

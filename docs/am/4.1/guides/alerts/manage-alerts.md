@@ -6,7 +6,7 @@ AM comes with some pre-defined alerts to notify you of suspicious end-user activ
 
 To manage alerts:
 
-1. [Log in to AM Console](https://docs.gravitee.io/am/current/am\_userguide\_authentication.html).
+1. [Log in to AM Console](../../getting-started/tutorial-getting-started-with-am/login-to-am-console.md).
 2. Click **Settings > Alerts**.
 3. Switch on **Enable Alerts**.
 4. Enable the alerts you are interested in.
@@ -24,8 +24,9 @@ The following table lists the available alert types.
 | Slow user signin            | slow\_user\_signin             | (not implemented) Alert when the user sign-in phase is unusually slow.            |
 | Too many user registrations | too\_many\_user\_registrations | (not implemented) Alert when the number of user registrations is abnormally high. |
 
-|   | For each alert type, you can select the [notification channels](https://docs.gravitee.io/am/current/am\_userguide\_alerts\_notifications.html) you want to use to send the events. |
-| - | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+{% hint style="info" %}
+For each alert type, you can select the [notification channels](notification-channels.md) you want to use to send the events.
+{% endhint %}
 
 ## Configure alerts
 

@@ -112,7 +112,7 @@ This page lists the properties available in all alerts triggered by an `ENDPOINT
 
 ### Properties
 
-The notification properties are values which have been sent or computed while processing the event by AE. These are just the basic properties, you can’t use them to retrieve more information about a particular object like the `api` or the `application` (to achieve this, see the [data](https://docs.gravitee.io/ae/apim\_notification\_endpoint\_healthcheck.html#data) section).
+The notification properties are values which have been sent or computed while processing the event by AE. These are just the basic properties, you can’t use them to retrieve more information about a particular object like the `api` or the `application` (to achieve this, see the [data](configure-notifications.md#data-1) section).
 
 | Key                | Description                                                                                                  | Syntax                                                    |
 | ------------------ | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
@@ -148,5 +148,3 @@ For the `api`, you can access the following data:
 | `labels`                   | API labels                     | ${api.labels}                      |
 | `views`                    | API views                      | ${api.views}                       |
 | `metadata`                 | API metadata                   | ${api.metadata\['metadata\_name']} |
-
-\

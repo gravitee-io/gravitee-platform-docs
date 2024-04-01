@@ -153,7 +153,7 @@ spec:
 
 ## `ApiResource`
 
-You can use the GKO to create reusable [API resources](https://docs.gravitee.io/apim/3.x/apim\_resources\_overview.html) by applying the `ApiResource` custom resource definition.
+You can use the GKO to create reusable [API resources](../../api-configuration/resources.md) by applying the `ApiResource` custom resource definition.
 
 The `ApiResource` custom resource allows you to define resources (cache, authentication providers, etc.) a single time and maintain them in a single place, then reuse these resources in multiple APIs. Any additional updates to the resource will be automatically propagated to all APIs that reference that resource.
 
@@ -273,4 +273,4 @@ The potential dependency of an `ApiDefinition` resource on a `ManagementContext`
 
 ## CRD samples
 
-Check out sample CRDs in the [GKO GitHub repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/config/samples/apim).
+Check out sample CRDs in the [GKO GitHub repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/alpha/config/crd/bases).

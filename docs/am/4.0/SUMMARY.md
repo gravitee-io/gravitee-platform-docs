@@ -4,7 +4,8 @@
 
 * [Introduction to Gravitee Access Management (AM)](README.md)
 * [AM Architecture](overview/am-architecture.md)
-* [Plugins](overview/plugins.md)
+* [Plugins](overview/plugins/README.md)
+  * [Compatibility Matrices](overview/plugins/compatibility-matrices.md)
 * [Gravitee AM Enterprise Edition](overview/open-source-vs-enterprise-am/README.md)
   * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
 
@@ -31,7 +32,7 @@
   * [Configure Reporters](getting-started/configuration/configure-reporters.md)
   * [Configure Monitoring](getting-started/configuration/configure-monitoring.md)
 * [Tutorial: Getting Started with AM](getting-started/tutorial-getting-started-with-am/README.md)
-  * [Login to AM Console](getting-started/tutorial-getting-started-with-am/login-to-am-console.md)
+  * [Log in to AM Console](getting-started/tutorial-getting-started-with-am/login-to-am-console.md)
   * [Set Up Your First Application](getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md)
   * [Get User Profile Information](getting-started/tutorial-getting-started-with-am/get-user-profile-information.md)
   * [Secure Your APIs](getting-started/tutorial-getting-started-with-am/secure-your-apis/README.md)
@@ -133,10 +134,10 @@
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
   * [AM 4.0](releases-and-changelog/release-notes/am-4.0.md)
-  * [AM 4.1](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.1)
+  * [AM 4.1](https://documentation.gravitee.io/am/v/4.1-1/releases-and-changelog/release-notes/am-4.1)
 * [Changelog](releases-and-changelog/changelogs/README.md)
   * [AM 4.0.x](releases-and-changelog/changelogs/am-4.0.x-changelog.md)
-  * [AM 4.1.x](https://documentation.gravitee.io/am/releases-and-changelog/changelogs/am-4.0.x-changelog)
+  * [AM 4.1.x](https://documentation.gravitee.io/am/v/4.1-1/releases-and-changelog/changelogs/am-4.1.x-changelog)
 
 ## Community & Support
 

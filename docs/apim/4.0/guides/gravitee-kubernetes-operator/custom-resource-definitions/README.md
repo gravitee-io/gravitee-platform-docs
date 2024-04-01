@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Gravitee Kubernetes Operator provides several custom resource definitions (CRDs):&#x20;
+The Gravitee Kubernetes Operator provides several custom resource definitions (CRDs):
 
 * [`ManagementContext`](./#managementcontext)
 * [`ApiDefinition`](./#apidefinition)
@@ -153,7 +153,7 @@ spec:
 
 ## `ApiResource`
 
-You can use the GKO to create reusable [API resources](https://docs.gravitee.io/apim/3.x/apim\_resources\_overview.html) by applying the `ApiResource` custom resource definition.&#x20;
+You can use the GKO to create reusable [API resources](../../api-configuration/resources.md) by applying the `ApiResource` custom resource definition.
 
 The `ApiResource` custom resource allows you to define resources (cache, authentication providers, etc.) a single time and maintain them in a single place, then reuse these resources in multiple APIs. Any additional updates to the resource will be automatically propagated to all APIs that reference that resource.
 
@@ -219,7 +219,7 @@ The `Application` custom resource represents the configuration for an applicatio
 The following workflow is applied when a new `Application` resource is added to the cluster:
 
 1. The GKO listens for `Application` resources.
-2. The GKO resolves any references to external sources such as configmaps or secrets.
+2. The GKO resolves any references to external sources such as ConfigMaps or Secrets.
 3. The GKO performs required changes, such as adding default settings.
 4. The GKO converts the data to JSON format.
 5. The GKO compares the definition to the existing definition. If something has changed, the GKO pushes the definition to the Management API (if a `ManagementContext` resource is provided).
@@ -273,4 +273,4 @@ The potential dependency of an `ApiDefinition` resource on a `ManagementContext`
 
 ## CRD samples
 
-Check out sample CRDs in the [GKO GitHub repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/config/samples/apim).
+Check out sample CRDs in the [GKO GitHub repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/alpha/config/crd/bases).

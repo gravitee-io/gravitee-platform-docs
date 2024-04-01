@@ -6,7 +6,7 @@
 
 OAuth 2.0 specifies standard endpoints to interact with the resource owner (or the client when acting on its own behalf) to grant, introspect and revoke tokens used to access protected resources.
 
-You can see which OAuth 2.0 protocol endpoints are exposed by AM in the [online API reference.](https://docs.gravitee.io/am/current/oauth2/index.html)
+You can see which OAuth 2.0 protocol endpoints are exposed by AM in [this file](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/oauth2/swagger.yml).
 
 ## Roles
 
@@ -34,10 +34,10 @@ An authorization grant is a flow used by the client to obtain an access token.
 
 The specification defines four grant types:
 
-* [Authorization code](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#authorization\_code)
-* [Implicit](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#implicit)
-* [Resource owner password credentials](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#resource\_owner\_password\_credentials)
-* [Client credentials](https://docs.gravitee.io/am/current/am\_devguide\_protocols\_oauth2\_overview.html#client\_credentials)
+* [Authorization code](./#authorization-code)
+* [Implicit](./#implicit)
+* [Resource owner password credentials](./#resource-owner-password-credentials)
+* [Client credentials](./#client-credentials)
 
 {% hint style="info" %}
 OAuth 2.0 also supports the use of [refresh tokens](./#refresh-token) to obtain new access tokens.
@@ -218,11 +218,11 @@ Content-Type: application/json;charset=UTF-8
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 {
-    "access_token": "b02063f8-2698-4141-a063-f82698e1419c",
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5...",
     "token_type": "bearer",
     "expires_in": 7199,
     "scope": "read",
-    "refresh_token": "4f85e0ad-b5df-4717-85e0-adb5dfc7174d"
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5..."
 }
 ```
 
@@ -230,7 +230,7 @@ Pragma: no-cache
 
 ```bash
 GET  https://api.company.com/users/@me
-Authorization: Bearer b02063f8-2698-4141-a063-f82698e1419c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5...
 ```
 
 6\. The Users API must check the incoming token to determine the active state of the access token and decide whether to accept or deny the request.
@@ -240,7 +240,7 @@ POST https://am-gateway/{domain}/oauth/introspect HTTP/1.1
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-token=b02063f8-2698-4141-a063-f82698e1419c
+token=eyJhbGciOiJIUzI1NiIsInR5...
 
 Introspection request
 
@@ -284,7 +284,7 @@ POST https://am-gateway/{domain}/oauth/revoke HTTP/1.1
 Host: server.example.com
 Content-Type: application/x-www-form-urlencoded
 Authorization: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
-token=b02063f8-2698-4141-a063-f82698e1419c
+token=eyJhbGciOiJIUzI1NiIsInR5...
 
 Revocation request
 

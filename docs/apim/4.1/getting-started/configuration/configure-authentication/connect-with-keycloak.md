@@ -1,24 +1,5 @@
 # Connect with Keycloak
 
-* [Overview](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#overview)
-* [Create a Keycloak client](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#create\_a\_keycloak\_client)
-  * [Create a new client](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#create\_a\_new\_client)
-  * [Retrieve client credentials](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#retrieve\_client\_credentials)
-* [Configure APIM](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#configure\_apim)
-  * [SSL support](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#ssl\_support)
-  * [Configure with `gravitee.yml` or APIM Console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#configure\_with\_gravitee\_yml\_or\_apim\_console)
-    * [APIM Console configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#apim\_console\_configuration)
-    * [`gravitee.yml` file configuration](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#gravitee\_yml\_file\_configuration)
-* [Test the connection](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#test\_the\_connection)
-  * [Create a new user in Keycloak](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#create\_a\_new\_user\_in\_keycloak)
-  * [Log in to APIM Portal](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#log\_in\_to\_apim\_portal)
-* [Managing roles with keycloak](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#managing\_roles\_with\_keycloak)
-  * [Gravitee roles console](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#gravitee\_roles\_console)
-  * [Create and configure Keycloak Client scope](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#create\_and\_configure\_keycloak\_client\_scope)
-  * [Create Keycloak Client roles](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#create\_keycloak\_client\_roles)
-  * [Configure Keycloack users with appropiate roles](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#configure\_keycloack\_users\_with\_appropiate\_roles)
-  * [Configure Gravitee role mappings](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication\_keycloak.html#configure\_gravitee\_role\_mappings)
-
 ### Overview
 
 This page explains how to configure APIM to allow users to connect using [Keycloak](https://www.keycloak.org/).
@@ -94,7 +75,7 @@ You can configure this provider both in APIM Console and in the `gravitee.yml` c
 
     ![Gravitee.io - New OIDC IDP](https://docs.gravitee.io/images/apim/3.x/management-api-configuration-idp/new-oidc.png)
 5. Click **CREATE**.
-6. Activate the provider for Portal or Console login, as described in [Activating providers](https://docs.gravitee.io/apim/3.x/apim\_installguide\_authentication.html#activating-providers).
+6. Activate the provider for Portal or Console login.
 
 **`gravitee.yml` file configuration**
 

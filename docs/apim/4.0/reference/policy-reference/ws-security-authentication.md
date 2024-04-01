@@ -87,7 +87,7 @@ The phases checked below are supported by the `wssecurity-authentication` policy
 
 The `wssecurity-authentication` policy can be configured with the following options:
 
-<table data-full-width="false"><thead><tr><th width="234">Property</th><th width="104" data-type="checkbox">Required</th><th width="313">Description</th><th width="111" data-type="select">Type</th><th width="247">Options</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>false</td><td>List the authentication providers</td><td></td><td>N/a</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="234">Property</th><th width="104" data-type="checkbox">Required</th><th width="313">Description</th><th width="111">Type<select></select></th><th width="247">Options</th></tr></thead><tbody><tr><td>authenticationProviders</td><td>false</td><td>List the authentication providers</td><td></td><td>N/a</td></tr></tbody></table>
 
 ## Compatibility matrix
 
