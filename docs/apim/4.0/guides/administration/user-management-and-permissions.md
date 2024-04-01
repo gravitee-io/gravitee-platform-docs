@@ -185,7 +185,7 @@ To create a user via the System administrator flow, follow these steps:
 2. Select **Users** under **User Management.**
 3. Select **+ Add user** from the top left corner of the **Users** page.\\
 4. From here, you will define the user profile for this user. To define the user profile:
-   * Define the IdP for the user by using the IdP name that you configured as a part of your [IdP configuration](how-to.md#defining-organization-authentication-and-access-settings).
+   * Define the IdP for the user by using the IdP name that you configured as a part of your [IdP configuration](administering-organizations-and-environments.md#defining-organization-authentication-and-access-settings).
    * Define the user's info:
      * First name
      * Last name

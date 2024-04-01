@@ -5,7 +5,7 @@
 Plugins are additional components that can be _plugged into_ Gravitee API Management (APIM) Gateway or APIM Management API. They can customize the component’s behavior to exactly fit your needs and technical constraints.
 
 {% hint style="info" %}
-For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](../guides/developer-contributions/dev-guide-plugins.md).
+For more technical information about plugins, including details of their directory structure and how to create your own, see the [Custom Plugins Guide](../guides/developer-contributions/custom-plugins.md).
 {% endhint %}
 
 ## Types of Plugins
@@ -46,7 +46,7 @@ Examples of a policy are:
 * Applying header or query parameter transformations
 * Applying rate limiting or quotas to avoid API flooding
 
-Want to know how to create, use, and deploy a custom policy? Check out the [Custom Policies Developer Guide](../guides/developer-contributions/dev-guide-policies.md).
+Want to know how to create, use, and deploy a custom policy? Check out the [Custom Policies Developer Guide](../guides/developer-contributions/custom-policies.md).
 
 ### Reporters
 
@@ -63,7 +63,7 @@ _Out-of-the-box_ reporters are :
 * File Reporter
 * TCP reporter
 
-As with all plugins, you can create, use and deploy custom reporters as described in the [Custom Plugins Developer Guide](../guides/developer-contributions/dev-guide-plugins.md).
+As with all plugins, you can create, use and deploy custom reporters as described in the [Custom Plugins Developer Guide](../guides/developer-contributions/custom-plugins.md).
 
 ### Repositories
 

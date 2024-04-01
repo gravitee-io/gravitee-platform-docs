@@ -77,7 +77,7 @@ As of Gravitee 4.0, Dynamic Client Registration is an Enterprise Edition capabil
 
 [Dynamic client registration](https://www.rfc-editor.org/rfc/rfc7591) (DCR) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee's Developer Portal or Management Console. This outsources the issuer and management of application credentials to a third party, allowing for additional configuration options and compatibility with various OIDC features provided by the identity provider.
 
-Once dynamic client registration has been [enabled in the **Client Registration** settings,](plans-1.md#prerequisites) you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.
+Once dynamic client registration has been [enabled in the **Client Registration** settings,](applications.md#prerequisites) you need to add a **Provider** at the bottom of the **Client Registration** page. We will be using Gravitee Access Management (AM) for our provider, but you are free to use any authentication server supporting OIDC.
 
 <figure><img src="../../.gitbook/assets/add_dcr_provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
 
@@ -89,7 +89,7 @@ The **General** section allows you to set a **Name** and **Description** for you
 
 The **Configuration** section first requires you to set an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata. The metadata is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)
 
-Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or direct provisioning of an **Initial Access Token.** Both of these options are detailed further in the [following section](plans-1.md#dcr-initial-access-token-flows).
+Once the endpoint is set, the configuration options branch in two directions based on the **Initial Access Token Provider: Client Credentials** or direct provisioning of an **Initial Access Token.** Both of these options are detailed further in the [following section](applications.md#dcr-initial-access-token-flows).
 
 One additional configuration setting that is common to both initial access token flows is **Renew client\_secret (outside DCR specification).** If enabled, this allows registered clients to call the relevant endpoint with their `client_id` to renew the `client_secret` issued by the authorization server.
 
@@ -103,7 +103,7 @@ For OAuth 2.0 plans, these credentials will be used whenever a resource owner au
 
 <figure><img src="../../.gitbook/assets/client_credentials_token_provider.png" alt=""><figcaption><p>Client credentials token provider</p></figcaption></figure>
 
-Client credential is an authorization grant flow detailed further in the [next section](plans-1.md#client-credentials-1) and is the first of the two options for retrieving an initial access token.
+Client credential is an authorization grant flow detailed further in the [next section](applications.md#client-credentials-1) and is the first of the two options for retrieving an initial access token.
 
 Using the client credentials flow allows you to set up your authorization server, obtain its associated **Client ID** and **Client Secret,** and add them to the provider's configuration settings. When you select **Create** at the bottom of the page, a request with the client credentials will immediately be sent to the authorization server's token endpoint for an initial access token. Therefore, when future API consumers register an advanced application, they will utilize this initial access token to access the protected client registration endpoint.
 
@@ -126,11 +126,11 @@ Each advanced application type has a subset of allowable authorization grant typ
 
 APIM supports five authorization grant flows out of the box:
 
-* [Authorization code](plans-1.md#authorization-code)
-* [Implicit](plans-1.md#implicit)
-* [Resource owner password](plans-1.md#resource-owner-password-credentials)
-* [Client credentials](plans-1.md#client-credentials-1)
-* [Refresh token](plans-1.md#refresh-token)
+* [Authorization code](applications.md#authorization-code)
+* [Implicit](applications.md#implicit)
+* [Resource owner password](applications.md#resource-owner-password-credentials)
+* [Client credentials](applications.md#client-credentials-1)
+* [Refresh token](applications.md#refresh-token)
 
 #### Authorization code
 
@@ -220,7 +220,7 @@ A refresh token is used to get a new access token, prompting the client applicat
 
 With all the preparation work complete, API consumers can now create an application through either the Management Console or the Developer Portal. We will work through the Management Console as we have a separate guide dedicated to the Developer Portal.
 
-{% @arcade/embed flowId="K4c4gw3qU4Mrmsm74Q0E" url="https://app.arcade.software/share/K4c4gw3qU4Mrmsm74Q0E" %}
+{% @arcade/embed flowid="K4c4gw3qU4Mrmsm74Q0E" url="https://app.arcade.software/share/K4c4gw3qU4Mrmsm74Q0E" %}
 
 {% hint style="info" %}
 **Default application**
@@ -253,7 +253,7 @@ By default, APIM includes three membership roles:
 Only users with the required permissions can manage application members. For more details, see the [User Management and Permissions](../administration/user-management-and-permissions.md) section of the Administration Guide.
 {% endhint %}
 
-{% @arcade/embed flowId="zb22huL5KmUF9Nky2hZ7" url="https://app.arcade.software/share/zb22huL5KmUF9Nky2hZ7" %}
+{% @arcade/embed flowid="zb22huL5KmUF9Nky2hZ7" url="https://app.arcade.software/share/zb22huL5KmUF9Nky2hZ7" %}
 
 ### Delete and restore applications
 
