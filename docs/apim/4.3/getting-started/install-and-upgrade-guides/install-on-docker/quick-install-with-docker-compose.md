@@ -2,54 +2,52 @@
 
 ## Overview
 
-This page describes how to install and run Gravitee API Management (APIM) Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker compose` command. If you need granular control over where persistence data is stored, or if you need to add plugins, use the [Custom Install with Docker Compose ](custom-install-with-docker-compose.md)or [Docker Images Install.](docker-images-install.md)
+This page describes how to install and run Gravitee API Management (APIM) Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker compose` command.
 
 {% hint style="warning" %}
-This installation method does not allow for custom plugins. If you plan on adding custom plugins, check out the [Custom Install with Docker Compose](custom-install-with-docker-compose.md).
+This installation method does not allow for custom plugins. To add custom plugins, see [Custom Install with Docker Compose](custom-install-with-docker-compose.md).
 {% endhint %}
 
 ## Prerequisites
 
-Docker must be installed and running. For more information about installing Docker, see the [Docker website](https://www.docker.com/).
+* Docker is installed and running
+* The Enterprise Edition requires a [license key](https://www.gravitee.io/pricing)
 
-If you want to install the Enterprise Edition, you must have a license key. For more information about getting a license key, visit the [Gravitee pricing page](https://www.gravitee.io/pricing).
+## Install APIM
 
-## Installing APIM
+1.  Download the `docker-compose.yml` file as `docker-compose-apim.yml`:
 
-1. Download the `docker-compose.yml` file as `docker-compose-apim.yml`.
+    ```bash
+    curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
+    ```
+2. If you are installing the Enterprise Edition:
+   1. Open `docker-compose-apim.yml` in a text editor
+   2.  Add the following line under `$services.gateway.volumes`, where `/gravitee/license.key` is the full path to the license key. This ensures that the Gateway can access the license key.
 
-```
-curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
-```
+       ```bash
+        - /gravitee/license.key:/opt/graviteeio-gateway/license/license.key
+       ```
+   3.  &#x20;Add the following line under `$services.management_api.volumes` , where `/gravitee/license.key` is the full path to the license key. This ensures that the Management API can access the license key.
 
-2. If you are installing the Enterprise Edition, open `docker-compose-apim.yml` in a text editor, and under `$services.gateway.volumes` add the following line.
+       ```bash
+        - /gravitee/license.key:/opt/graviteeio-management-api/license/license.key
+       ```
+3.  Run `docker compose` to download and start the components:
 
-```
- - /gravitee/license.key:/opt/graviteeio-gateway/license/license.key
-```
+    ```bash
+    docker compose -f docker-compose-apim.yml up -d
+    ```
+4.  In your browser:
 
-Where `/gravitee/license.key` is the full path to the license key. This ensures that the Gateway can access the license key.
+    1. Go to `http://localhost:8084` to open the Console
+    2. Go to `http://localhost:8085` to open the Developer Portal
 
-3. If you are installing the Enterprise Edition, under `$services.management_api.volumes` add the following line.
-
-```
- - /gravitee/license.key:/opt/graviteeio-management-api/license/license.key
-```
-
-Where `/gravitee/license.key` is the full path to the license key. This ensures that the Management API can access the license key.
-
-4. Run `docker compose` to download and start all of the components.
-
-```
-docker compose -f docker-compose-apim.yml up -d
-```
-
-5. In your browser, go to `http://localhost:8084` to open the Console, and go to `http://localhost:8085` to open the Developer Portal. You can log in to both with the username `admin` and password `admin`.
+    You can log in to both with username `admin` and password `admin`.
 
 {% hint style="info" %}
 **Container initialization**
 
-APIM can take up to a minute to fully initialize with Docker. If you get an error when going to `http://localhost:8084` or `http://localhost:8085`, wait a few minutes and try again.
+APIM can take up to a minute to fully initialize with Docker. If you get an error when going to `http://localhost:8084` or `http://localhost:8085`, wait, then try again.
 {% endhint %}
 
 {% hint style="success" %}
