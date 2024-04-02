@@ -9,8 +9,8 @@
 * [Gravitee APIM Enterprise Edition](overview/gravitee-apim-enterprise-edition/README.md)
   * [Enterprise Edition Licensing](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
 * [Gravitee API Definitions and Execution Engines](overview/gravitee-api-definitions-and-execution-engines/README.md)
-  * [Reactive execution engine](overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md)
-  * [Message Flow Control](overview/gravitee-api-definitions-and-execution-engines/message-flow-control.md)
+  * [Reactive Execution Engine](overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md)
+  * [Engine Comparisons](overview/gravitee-api-definitions-and-execution-engines/engine-comparisons.md)
 
 ## Getting Started
 
