@@ -2,14 +2,14 @@
 
 ## Overview
 
-Gravitee Expression Language (EL) is used to query and manipulate object graphs. It is an extended version of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that augments standard SpEL capabilities by providing additional object properties inside the expression language context. Since EL is an extension of SpEL, all capabilities detailed in the [SpEL documentation ](https://docs.spring.io/spring-framework/reference/core/expressions.html)are available in EL. However, Gravitee has implemented some customizations that are detailed on this page.
+Gravitee Expression Language (EL) is used to query and manipulate object graphs and dynamically configure various aspects and policies of an API. It allows you to reference values from the current API transaction to use expressions to create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
 
-EL is a powerful tool that can be used by API publishers to dynamically configure various aspects and policies of an API. It allows you to reference values from the current API transaction, meaning you can use expressions to create dynamic filters, routing rules, and policies that respond to specific conditions or parameters.
+EL is an extended version of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that augments standard SpEL capabilities by providing additional object properties inside the expression language context. As an extension of SpEL, all capabilities detailed in the [SpEL documentation ](https://docs.spring.io/spring-framework/reference/core/expressions.html)are available in EL. However, Gravitee has implemented customizations that are detailed below.
 
 {% hint style="info" %}
-**Object properties** are variables that hold information about the state of an object. They are part of an object's structure and are accessible via dot or bracket notation.
+**Object properties**&#x20;
 
-Both custom properties and attributes are object properties, but the terms "custom property" and "attribute" have special meanings in the Gravitee ecosystem:
+Custom properties and attributes have special meanings in the Gravitee ecosystem:
 
 * **Custom Properties:** Defined at the API level and read-only during the Gateway's execution of an API transaction. You can learn more about how to set an API's custom properties [here](policy-studio/v4-api-policy-studio.md#api-properties).
 * **Attributes:** Scoped to the current API transaction and can be manipulated during the execution phase through the `assign-attributes` policy. Attributes are used to attach additional information to a request or message via a variable that is dropped after the API transaction is completed.
@@ -339,7 +339,7 @@ In case of an error when using EL, an exception will be raised :
 
 If debugging your expression is difficult, consider the following example for guidance:
 
-Let's say you have `{#request.content.length() >= 10}` as the conditional expression on a flow. When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. So how do you know the actual output of the `#request.content.length()` expression? You can easily check the output of an expression using the Assign Attributes policy as shown in the arcade below.
+Assume `{#request.content.length() >= 10}` is the conditional expression on a flow. When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. To check the actual output of the `#request.content.length()` expression, use the Assign Attributes policy as shown in the arcade below.
 
 {% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %}
 
