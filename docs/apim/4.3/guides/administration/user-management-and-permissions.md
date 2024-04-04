@@ -207,10 +207,3 @@ To manage a user group:
     * **Delete a user group:** Click the delete icon associated with the user group entry
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-#### Create and manage User groups
-
