@@ -118,7 +118,7 @@ Custom Roles is an Enterprise Edition capability. To learn more about Gravitee E
 
 ### Users and user groups
 
-In Gravitee, a user is the profile of an individual who uses the platform. User groups are groupings of users that share the same role(s) for the API and/or Application scopes.
+In Gravitee, a user is the profile of an individual who uses the platform. User groups are groupings of users that share the same role(s) for the Environment, Organization, API, and/or Application scopes.
 
 {% tabs %}
 {% tab title="Create and manage users" %}
