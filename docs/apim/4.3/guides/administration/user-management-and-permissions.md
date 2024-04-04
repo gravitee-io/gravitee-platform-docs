@@ -122,14 +122,14 @@ In Gravitee, a user is the profile of an individual who uses the platform. User 
 
 {% tabs %}
 {% tab title="Create and manage users" %}
-## Create users
+### Create users
 
 Users are created in one of two ways:
 
 * [System Administrators](user-management-and-permissions.md#system-administrator-flow) can create users
 * Users can self-register via a registration form
 
-### System Administrator flow
+#### System Administrator flow
 
 To pre-register a user:
 
@@ -154,7 +154,7 @@ To pre-register a user:
     * Enter the service account's email
 6. Click **Create**
 
-## **Manage users**
+### **Manage users**
 
 To delete a user from your Organization, select the **Delete user** icon from the table on the **Users** page:
 
@@ -162,7 +162,7 @@ To delete a user from your Organization, select the **Delete user** icon from th
 {% endtab %}
 
 {% tab title="Create and manage user groups" %}
-## Create user groups
+### Create user groups
 
 To create a user group:
 
@@ -191,7 +191,7 @@ Once a user group is created, you will be able to:
 * Choose to associate the user group with existing APIs or Applications by selecting **Associate to existing APIs** and/or **Associate to existing applications**
 * View all members, associated APIs, and associated applications in the **Dependents** section
 
-## **Manage user groups**
+### **Manage user groups**
 
 To manage a user group:
 
