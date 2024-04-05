@@ -8,25 +8,21 @@ description: >-
 
 ## Gravitee Access Management 4.1.18 - April 5, 2024
 
-
-
 <details>
+
 <summary>Bug fixes</summary>
+
 **Gateway**
 
-* Disable Application https://github.com/gravitee-io/issues/issues/9584[#9584]
-
-
-
-
+* Disable Application [#9584](https://github.com/gravitee-io/issues/issues/9584)
 
 **Other**
 
-* Expired records present in table ciba_auth_requests. Cron is not taken into acoount. https://github.com/gravitee-io/issues/issues/9499[#9499]
-* Logs too verbose in AM when GeoIP plugin is not available https://github.com/gravitee-io/issues/issues/9633[#9633]
-* Support SAML mixing response binding protocol https://github.com/gravitee-io/issues/issues/9648[#9648]
-</details>
+* Expired records present in table ciba\_auth\_requests. Cron is not taken into account. [#9499](https://github.com/gravitee-io/issues/issues/9499)
+* Logs too verbose in AM when GeoIP plugin is not available [#9633](https://github.com/gravitee-io/issues/issues/9633)
+* Support SAML mixing response binding protocol [#9648](https://github.com/gravitee-io/issues/issues/9648)
 
+</details>
 
 ## Gravitee Access Management 4.1.17 - March 28, 2024
 
