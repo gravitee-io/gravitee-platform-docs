@@ -138,7 +138,7 @@
     * [Applications](guides/developer-portal/tools-and-features/applications.md)
     * [Documentation](guides/developer-portal/tools-and-features/documentation.md)
 * [API Measurement, Tracking, and Analytics](guides/api-measurement-tracking-and-analytics/README.md)
-  * [Configure the Dashboard with Custom API Analytics](guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md)
+  * [Create a Dashboard](guides/api-measurement-tracking-and-analytics/create-a-dashboard.md)
   * [Using the API Quality feature](guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md)
   * [Configure and Use API Logging](guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md)
 * [Gravitee Expression Language](guides/gravitee-expression-language.md)
