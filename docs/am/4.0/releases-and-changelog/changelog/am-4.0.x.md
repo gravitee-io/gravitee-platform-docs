@@ -333,6 +333,6 @@ Starting from AM 4.0, the MongoDB indices are now named using the first letters 
 
 **Enterprise Edition plugins**
 
-As mentioned in the [changelog](am-4.0.x-changelog.md), some plugins are now only available to Enterprise Edition and to use them requires a license.
+As mentioned in the [changelog](am-4.0.x.md), some plugins are now only available to Enterprise Edition and to use them requires a license.
 
 </details>
