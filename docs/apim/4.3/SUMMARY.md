@@ -140,7 +140,7 @@
 * [API Measurement, Tracking, and Analytics](guides/api-measurement-tracking-and-analytics/README.md)
   * [Dashboards](guides/api-measurement-tracking-and-analytics/create-a-dashboard.md)
   * [API Quality](guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md)
-  * [Configure and Use API Logging](guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging.md)
+  * [Audit Trail](guides/api-measurement-tracking-and-analytics/audit-trail.md)
 * [Gravitee Expression Language](guides/gravitee-expression-language.md)
 * [Gravitee Kubernetes Operator](guides/gravitee-kubernetes-operator/README.md)
   * [Quick Start](guides/gravitee-kubernetes-operator/quick-start.md)
