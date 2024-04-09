@@ -1,24 +1,22 @@
 ---
 description: >-
   This article focuses on how to use the API Quality feature to govern your APIs
-  and ensure that only high-quality APIs make it into production.
+  and ensure that only high-quality APIs enter production
 ---
 
-# Using the API Quality feature
+# API Quality
 
-### Introduction
+## Overview
 
-The Gravitee **API Quality** feature enables you to create and automatically assign customizable scores based on certain variables that you feel impact an API's overall quality. When enabled, APIs that you create in Gravitee will automatically be assigned an API quality score. This feature is incredibly valuable for organizations interested in API governance, as it allows them to ensure that certain standards are met, where these standards are treated as score-relevant variables.
+The Gravitee API Quality feature enables API governance by allowing you to create and automatically assign customizable scores based on certain variables determined to impact API quality. If API Quality is enabled, APIs that you create in Gravitee will automatically be assigned an API quality score.&#x20;
 
-### Configure API Quality
-
-{% @arcade/embed flowId="ditvkcx6pI6iFmYwQvt9" url="https://app.arcade.software/share/ditvkcx6pI6iFmYwQvt9" %}
+## Configure API Quality
 
 API Quality is configured at the Portal Settings level. To access these settings:
 
 1. Log in to your API Management Console.
-2. Select **Settings** from the left-hand nav.
-3. Under **Portal**, select **Quality.**
+2. Select **Settings** from the left nav.
+3. Select **API Quality** from the inner left nav
 
 <figure><img src="../../.gitbook/assets/Access API Quality settings.gif" alt=""><figcaption><p>Access the API Quality settings</p></figcaption></figure>
 

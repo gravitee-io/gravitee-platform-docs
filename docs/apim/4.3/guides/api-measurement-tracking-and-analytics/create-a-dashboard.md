@@ -4,7 +4,7 @@ description: >-
   applications
 ---
 
-# Create a Dashboard
+# Dashboards
 
 ## Overview <a href="#the-dashboard" id="the-dashboard"></a>
 
