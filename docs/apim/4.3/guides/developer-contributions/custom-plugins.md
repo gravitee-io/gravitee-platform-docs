@@ -1,20 +1,18 @@
 ---
-description: How to build and deploy your own plugins
+description: Learn how to build and deploy your own plugins
 ---
 
 # Custom Plugins
 
 ## Overview
 
-Gravitee API Management (APIM) plugins are additional components that can be _plugged into_ the Gravitee ecosystem. You can use plugins to extend and customize the behavior of Gravitee to meet your strategic needs.
-
-APIM includes a default set of plugins with each distribution. You can also obtain and [deploy](custom-plugins.md#deployment) some additional Gravitee-maintained and third-party plugins from the plugin marketplace.
+Gravitee API Management (APIM) plugins extend and customize component behavior to meet your strategic needs. Each APIM distribution includes a default set of plugins. You can also [deploy](custom-plugins.md#deployment) additional Gravitee-maintained and third-party plugins from the plugin marketplace.
 
 ## Common structure
 
-This section describes how to create your own custom plugins. Each plugin follows the following common structure:
+Plugins follow a common structure:
 
-```
+```bash
 -----------------
 .
 ├── pom.xml
@@ -33,30 +31,23 @@ This section describes how to create your own custom plugins. Each plugin follow
 -----------------
 ```
 
-The different key files are as follows:
+Below are the different key files:
 
-| File                   | Description                                       |
-| ---------------------- | ------------------------------------------------- |
-| pom.xml                | The main Maven POM file                           |
-| README.md              | The main entry point for the plugin documentation |
-| \<plugin>-assembly.xml | The common Maven assembly descriptor              |
-| plugin.properties      | The plugin descriptor file                        |
+<table><thead><tr><th width="264">File</th><th>Description</th></tr></thead><tbody><tr><td><code>pom.xml</code></td><td>The main Maven POM file</td></tr><tr><td><code>README.md</code></td><td>The main entry point for the plugin documentation</td></tr><tr><td><code>&#x3C;plugin>-assembly.xml</code></td><td>The common Maven assembly descriptor</td></tr><tr><td><code>plugin.properties</code></td><td>The plugin descriptor file</td></tr></tbody></table>
 
-### `pom.xml`
+{% tabs %}
+{% tab title="pom.xml" %}
+Any plugins (and more generally, any Gravitee projects) are [Maven](https://maven.apache.org/)-managed. A plugin project is described via the Maven [Project Object Model](https://maven.apache.org/pom.html) file.
+{% endtab %}
 
-Any plugins (and more generally any Gravitee projects) are [Maven](https://maven.apache.org/) managed. A plugin project is described by using the Maven [Project Object Model](https://maven.apache.org/pom.html) file.
+{% tab title="README.md" %}
+Each plugin should by documented by a dedicated `README.md` file that contains comprehensive information related to the use of your plugin.
+{% endtab %}
 
-### `README.md`
+{% tab title="<plugin>-assembly.xml" %}
+To integrate with the Gravitee ecosystem, a plugin needs to be deployed with a given file structure. The `<plugin>-assembly.xml` file is the [Maven Assembly](http://maven.apache.org/plugins/maven-assembly-plugin/) descriptor used to build the distribution file, which has the following structure:
 
-Each plugin should have a dedicated `README.md` file to document it. The `README.md` file should contain everything related to the use of your plugin: _What is its functionality? How can you use it? How can you configure it?_
-
-### `<plugin>-assembly.xml`
-
-In order to be plugged into the Gravitee ecosystem, a plugin needs to be deployed following a given file structure. The `<plugin>-assembly.xml` file is the [Maven Assembly](http://maven.apache.org/plugins/maven-assembly-plugin/) descriptor used to build the distribution file.
-
-Commonly, a plugin distribution file is organized as follows:
-
-```
+```bash
 -----------------
 .
 ├── <main Jar file>.jar
@@ -64,40 +55,39 @@ Commonly, a plugin distribution file is organized as follows:
 -----------------
 ```
 
-The different files are as follows:
+The different files are described below:
 
-| File                 | Description                                                                          |
-| -------------------- | ------------------------------------------------------------------------------------ |
-| \<main Jar file>.jar | The plugin’s main Jar file                                                           |
-| lib/                 | <p>A directory containing external libraries to correctly execute the</p><p>.jar</p> |
+<table><thead><tr><th width="244">File</th><th>Description</th></tr></thead><tbody><tr><td><code>&#x3C;main Jar file>.jar</code></td><td>The plugin’s main Jar file</td></tr><tr><td><code>lib/</code></td><td>A directory containing external libraries to correctly execute the .jar</td></tr></tbody></table>
 
-#### **`.jar`**
+{% tabs %}
+{% tab title=".jar" %}
+The main `.jar` file of each plugin contains information on the business behavior and the[ plugin descriptor file](custom-plugins.md#plugin.properties).
+{% endtab %}
 
-Each plugin has its main `.jar` file containing the business behavior _plus_ the[ plugin descriptor file](custom-plugins.md#plugin.properties).
+{% tab title="lib/" %}
+This directory contains all of the plugin's external dependencies (non-provided-scope Maven dependencies).
+{% endtab %}
+{% endtabs %}
+{% endtab %}
 
-#### **`lib/`**
+{% tab title="plugin.properties" %}
+The `plugin.properties` file is the plugin descriptor, which acts as an ID card and is read by APIM Gateway during the plugin loading process. The descriptor includes the following parameters:
 
-This directory contains all the plugin's external dependencies (non-provided-scope Maven dependencies).
-
-### `plugin.properties`
-
-The `plugin.properties` file is the descriptor of the plugin. It acts as the _ID Card_ of the plugin and will be read by APIM Gateway during the plugin loading process.
-
-The following parameters are included in the descriptor:
-
-| Parameter   | Description                               |
-| ----------- | ----------------------------------------- |
-| id          | The plugin identifier                     |
-| name        | The plugin name                           |
-| version     | The plugin version                        |
-| description | The plugin description                    |
-| class       | The main plugin class                     |
-| type        | The type of plugin (_policy_, _reporter_) |
+| Parameter   | Description                                 |
+| ----------- | ------------------------------------------- |
+| id          | The plugin identifier                       |
+| name        | The plugin name                             |
+| version     | The plugin version                          |
+| description | The plugin description                      |
+| class       | The main plugin class                       |
+| type        | The type of plugin (e.g., policy, reporter) |
 
 {% hint style="warning" %}
-The plugin identifier has to be unique to be correctly loaded by the APIM Gateway.
+The plugin identifier must be unique for the APIM Gateway to load it correctly
 {% endhint %}
+{% endtab %}
+{% endtabs %}
 
-## Deployment, discovery, and loading
-
-Head over to [the main plugins documentation](../../overview/plugins.md#deployment) to learn how to deploy your custom plugin.
+{% hint style="info" %}
+See [this page](../../overview/plugins.md#deployment) to learn how to deploy your custom plugin
+{% endhint %}
