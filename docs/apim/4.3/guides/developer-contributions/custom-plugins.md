@@ -37,7 +37,7 @@ Below are the different key files:
 
 {% tabs %}
 {% tab title="pom.xml" %}
-Any plugins (and more generally, any Gravitee projects) are [Maven](https://maven.apache.org/)-managed. A plugin project is described via the Maven [Project Object Model](https://maven.apache.org/pom.html) file.
+Gravitee projects are [Maven](https://maven.apache.org/)-managed. A plugin project is described via the Maven [Project Object Model](https://maven.apache.org/pom.html) file.
 {% endtab %}
 
 {% tab title="README.md" %}
@@ -55,7 +55,7 @@ To integrate with the Gravitee ecosystem, a plugin needs to be deployed with a g
 -----------------
 ```
 
-The different files are described below:
+The different files/folders are described below:
 
 <table><thead><tr><th width="244">File</th><th>Description</th></tr></thead><tbody><tr><td><code>&#x3C;main Jar file>.jar</code></td><td>The plugin’s main Jar file</td></tr><tr><td><code>lib/</code></td><td>A directory containing external libraries to correctly execute the .jar</td></tr></tbody></table>
 
