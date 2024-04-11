@@ -9,7 +9,7 @@ description: >-
 
 ## API documentation
 
-Before using the Gravitee API docs, we highly recommend reading the contextual information below. That said, if you'd like to go ahead and explore the API documentation first, please see the tabs below.
+Before using the Gravitee API docs, we highly recommend reading the contextual information in the sections below. That said, if you'd like to go ahead and explore the API documentation first, please see the tabs below.
 
 {% hint style="warning" %}
 These API docs are for v2 of our management API. To learn more about the different versions, please [refer to the relevant section below](management-api-reference.md#management).
