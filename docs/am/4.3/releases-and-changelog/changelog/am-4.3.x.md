@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.2 - April 12, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+**Console**
+
+* Error when notification are acknowledged https://github.com/gravitee-io/issues/issues/9661[#9661]
+
+**Other**
+
+* Enrollment Flow Logic Bug https://github.com/gravitee-io/issues/issues/9518[#9518]
+* Improve CORS Domain settings and replace default value https://github.com/gravitee-io/issues/issues/9531[#9531]
+* Empty rectangle displaying when fresh install of AM https://github.com/gravitee-io/issues/issues/9649[#9649]
+
+</details>
+
+
 ## Gravitee Access Management 4.3.1 - April 5, 2024
 
 <details>
