@@ -1,6 +1,6 @@
 ---
 description: >-
-  This article walks through how to design and enforce flows using the v4 Policy
+  This article describes how to design and enforce flows using the v4 Policy
   Studio
 ---
 
@@ -9,208 +9,186 @@ description: >-
 {% hint style="info" %}
 **Product limitations**
 
-The v4 Policy Studio can only design flows for APIs using the v4 API definition. Unlike the legacy v2 Policy Studio, the v4 Policy Studio supports designing and enforcing flows at the message level or for pub/sub use cases.
-
-\
-The v4 Policy Studio does not currently support Gravitee Debug mode. Support for this is planned for future releases.
+The v4 Policy Studio can only be used to design flows for APIs using the v4 API definition and supports applying policies at the message level or for pub/sub use cases. The v4 Policy Studio does not currently support Gravitee Debug mode.
 {% endhint %}
 
 ## Introduction
 
-Gravitee defines a flow as the method to control where, and under what conditions, policies act on an API transaction. The v4 Policy Studio is a no-code tool used to create and manage flows. The details of its purpose and functionality are broken into the following sections::
+Gravitee defines a flow as the method to control where, and under what conditions, policies act on an API transaction. The v4 Policy Studio is a no-code tool used to create and manage flows. The details of its purpose and functionality are described in the following sections:
 
-* **Design:** Manage all flows associated with your Gateway API
-* **Configuration:** Modify settings around flow execution
-* **Properties:** Define key-value pairs at the API level. These properties are read-only during the Gateway's execution of an API transaction.
-* **Resources:** Configure global resources to support your Gateway API's flows
+* [**Design**](v4-api-policy-studio.md#design)**:** Manage all flows associated with your Gateway API
+* [**Configuration**](v4-api-policy-studio.md#configure-flow-mode)**:** Modify settings related to flow execution
+* [**Properties**](v4-api-policy-studio.md#api-properties)**:** Define key-value pairs at the API level
+* [**Resources**](v4-api-policy-studio.md#resources)**:** Configure global resources to support your flows
 
 ## Design
 
-Flows can be added to existing v4 APIs, which are accessed by selecting **APIs** in the left-hand nav. Next, select the API for which you want to design a flow. You'll be taken to the API's **General** **Info** page. Select **Policy Studio** from the inner left-hand nav.
-
-In the Policy Studio, you can create a flow, then add one or more policies to the Request, Response, Publish, and/or Subscribe phases. These phases are available based on a flow's chosen entrypoint(s), with Request and Response appearing under the **Initial connection** tab and Subscribe and Publish appearing under the **Event messages** tab. When a policy is applied and how it is enforced depends on the phase:
-
-* **Request phase:** A policy is applied during the connection establishment. The Gateway enforces the policy at the time of the request, before a client is given access to the API that they are trying to call.
-* **Response phase:** A policy is applied to the response from the initial connection. The Gateway enforces the policy after the request is allowed, but before the response is returned to the client.
-* **Publish phase:** A policy is applied on messages sent to the endpoint. The Gateway enforces the policy when messages are published, before a client is given access to the API that they are trying to call.
-* **Subscribe phase:** A policy is applied on messages received by the entrypoint. The Gateway enforces the policy after messages are subscribed to, but before the response is returned to the client.
-
-You can create multiple policies for a single flow, each with a different configuration and applied to a different phase of the API. Flows can also be associated with specific plans or exist at the API level as common flows.
-
-The sample Gateway API shown below has three plans: Keyless, API Key, and JWT. Flows can be set to target subscribers of any of these three plans, like the "sample API Key flow", or they can target all users of the API, such as the "sample HTTP Get flow" and "sample Websocket flow".
-
-<figure><img src="../../.gitbook/assets/policy studio_flow.png" alt=""><figcaption><p>Sample v4 Policy Studio</p></figcaption></figure>
-
-### Create a flow
-
-As an example, let's create a flow that targets all users of the API.
-
-First, click the **+** icon on the **Common flows** button to create a flow. Before adding policies to the flow, you'll need to configure the flow using the **Create a new flow** module with the options shown below.
-
-<figure><img src="../../.gitbook/assets/create a new flow.png" alt=""><figcaption><p><strong>Create a new flow</strong> module</p></figcaption></figure>
-
-Define the following:
-
-* **Flow name:** Give your flow a descriptive name. If you don't, a name will be automatically generated using the channel and operation.
-* **Operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Channel**.
-* **Channel:** Define the path to use in conjunction with the **Operator** to determine if this flow should be applied.
-* **Entrypoints:** Select the entrypoint(s) for which you want the flow to be executed. If none are selected, the flow will be executed for all possible entrypoints, assuming required conditions are met. Available entrypoints are **HTTP GET**, **HTTP POST**, **Websocket**, **Server-Sent Events**, and **Webhook**.
-* **Entrypoints supported operations:** Select **Publish** and/or **Subscribe** as the operation(s) supported by the entrypoint(s). If none are selected, both will be supported.
-* **Condition:** Define specific conditions that will trigger flow execution using [Gravitee's Expression Language (EL)](../gravitee-expression-language.md).
-
-Once you've clicked **Create** to add a flow, be sure to also click **Save** in the upper right of the Policy Studio.
-
-### Add policies
-
+Flows are created when policies are added to the Request, Response, Publish, and/or Subscribe phases of an existing v4 API. A single API supports multiple flows, which can be applied to different phases and target either subscribers of an individual plan or all users of the API. \
+\
 Policies are added to flows to enforce security, reliability, and proper data transfer. Examples of policies include traffic shaping, authentication/authorization, rate limiting, and dynamic routing.
 
-To add a policy to a flow, click the **+** icon in the phase where you want the policy enforced. The module that appears is pre-populated with only the selections that are valid and/or supported based on the entrypoints and endpoints chosen for the flow. For example, below are the possible policies to configure for the **Request phase** of the "sample HTTP Get flow" shown above:
+<details>
 
-<figure><img src="../../.gitbook/assets/sample add policy.png" alt=""><figcaption><p>Sample policy selection</p></figcaption></figure>
+<summary>Phases</summary>
 
-Clicking on one of the available policies will open a configuration module. After you have made the selections and filled in the information appropriate to and required by your policy, click **Add policy**. The policy will appear in the flow diagram of the phase it was added to.
+Phases are available based on a flow's entrypoint(s). When a policy is applied and how it is enforced by the Gateway depends on the phase:
 
-For example, adding a **Latency** policy to the **Request phase** of the "sample HTTP Get flow" also adds **Latency** policy elements to the corresponding flow diagram.
+* **Request:** A policy is applied during connection establishment and enforced at the time of the request, before a client is given access to the API.
+* **Response:** A policy is applied to the response from the initial connection and enforced after the request is allowed, but before the response is returned to the client.
+* **Publish:** A policy is applied to messages sent to the endpoint and enforced when messages are published, before a client is given access to the API.
+* **Subscribe:** A policy is applied to messages received by the entrypoint and enforced after messages are subscribed to, but before the response is returned to the client.
 
-<figure><img src="../../.gitbook/assets/latency policy.png" alt=""><figcaption><p>Sample policy applied</p></figcaption></figure>
+</details>
 
-Once you've clicked **Add policy** to add a policy, be sure to also click **Save** in the upper right of the Policy Studio. To edit a policy, click on the three vertical dots on its icon in the flow diagram.
+To create a flow and add policies:
 
-Whenever you add or edit a flow or policy, you'll need to redeploy your API to the Gateway for the changes to take effect. You'll see a red, circular icon above **Policy Studio** in the inner left nav that has the tooltip message "API out of sync".
+1. Log in to your APIM Console
+2. Selecting **APIs** from the left nav
+3. Select the API for which to design a flow
+4. Select **Policies** from the inner left nav
+5.  Click the **+** icon for a plan or **Common flows** to create a flow&#x20;
+
+    <figure><img src="../../.gitbook/assets/flow_add flow.png" alt=""><figcaption><p>Create a flow</p></figcaption></figure>
+6.  Configure the flow using the **Create a new flow** module with the options shown below&#x20;
+
+    <figure><img src="../../.gitbook/assets/flow_configure flow.png" alt=""><figcaption><p>Configure a new flow</p></figcaption></figure>
+
+    * **Flow name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the channel and operation.
+    * **Operator:** Apply this flow to requests with a path that **Equals** or **Starts with** the specified **Channel**.
+    * **Channel:** Define the path to use in conjunction with the **Operator** to determine if this flow should be applied.
+    * **Entrypoints:** Select the entrypoint(s) for which the flow will be executed. If none are selected, the flow will be executed for all possible entrypoints, assuming required conditions are met.
+    * **Entrypoints supported operations:** Select **Publish** and/or **Subscribe** as the operation(s) supported by the entrypoint(s). If none are selected, both will be supported.
+    * **Condition:** Use [Gravitee's Expression Language (EL)](../gravitee-expression-language.md) to define specific conditions that will trigger flow execution.
+7. Click **Create** in the modal, then **Save** on the **Policies** page
+8.  To add a policy, click the **+** icon to the phase where the policy should be enforced
+
+    <figure><img src="../../.gitbook/assets/flow_add policy.png" alt=""><figcaption><p>Add a policy</p></figcaption></figure>
+
+    * Select the **Initial connection** tab to add policies to the Request and/or Response phase(s)
+    * Select the **Event messages** tab to add policies to the Publish and/or Subscribe phase(s)
+9. Select from the pre-populated policies that are valid by the entrypoints and endpoints
+10. In the policy configuration modal, enter the information appropriate to and required by the policy
+11. Click **Add policy**. The policy will appear in the flow diagram of the phase it was added to.&#x20;
+
+    <figure><img src="../../.gitbook/assets/flow_policy in flow.png" alt=""><figcaption><p>Policy added to flow</p></figcaption></figure>
+12. Click **Save** on the **Policies** page, then redeploy your API to the Gateway for the changes to take effect
+
+{% hint style="info" %}
+To edit a policy, click on the three vertical dots on its icon in the flow diagram
+{% endhint %}
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **Default** and **Best Match**. The **Default** flow selection is based on the **Operator** defined for your flow and whether it **Equals** or **Starts with** the specified path, or **Channel**. Choose the **Best Match** option to select the flow that's the closest match to the API request path.
+To configure the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module&#x20;
 
-To select the flow mode, click the gear icon in the **Flows** panel to open the **Flow execution** module, then use the drop-down menu. You can also toggle **Fail on flow mismatch** to ON to generate an error when there is no match between the request **Channel** and any defined flow.
+<figure><img src="../../.gitbook/assets/flow_execution.png" alt=""><figcaption><p>Configure flow mode</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/flow modes.png" alt=""><figcaption><p>v4 Policy Studio: Configure flow mode</p></figcaption></figure>
+* **Default flow mode:** Use the drop-down menu to select **Default** or **Best Match**
+* **Fail on flow mismatch:** Enable to generate an error when there is no match between the request **Channel** and any defined flow
 
 ## API properties
 
-Properties are key-value pairs you can define at the Gateway API level to implement different logic in your flows and policies. Properties are read-only during the Gateway's execution of an API transaction but can be accessed from within a flow using Gravitee's Expression Language (EL) and the `#api.properties` statement.
+Properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within flows using Gravitee's Expression Language (EL) and the `#api.properties` statement. To configure properties:
 
-To configure API properties, select **Configuration** from the inner left nav, then the **Properties** tab. To add hardcoded properties, either:
+To configure API properties:
 
-* Click **Add property** and enter property definitions one at a time as a key-value pair
-* Click **Import** and enter property definitions as a list in `<key>=<value>` format&#x20;
+1. Log in to your APIM Console
+2. Selecting **APIs** from the left nav
+3. Select the API for which to design a flow
+4. Select **Configuration** from the inner left nav
+5.  Select the **Properties** tab&#x20;
 
-<figure><img src="../../.gitbook/assets/api properties_tab.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api properties_tab (1).png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+6. To add hardcoded properties, either:
+   * Click **Add property** and enter property definitions one at a time as a key-value pair
+   * Click **Import** and enter property definitions as a list in `<key>=<value>` format&#x20;
 
 ### Encryption
 
-Gravitee supports encryption to protect sensitive or confidential data stored as hardcoded property values. The encryption method for API properties is based on the default secret key in the `gravitee.yml` config file. Before using encryption, you must override the secret key to ensure proper security.
-
 {% hint style="warning" %}
-The secret must be 32 bytes in length.
+Encrypted values can be used by API policies, but encrypted data should be used with care. APIM Gateway will automatically decrypt these values.
 {% endhint %}
 
-{% code title="gravitee.yml" %}
-```yaml
-# Encrypt API properties using this secret:
-api:
-  properties:
-    encryption:
-         secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
- to provide the best security available.
-```
-{% endcode %}
+To encrypt a hardcoded API property value:
 
-To encrypt an API property, enable the **Encrypt** toggle when adding a property via **Add property**.&#x20;
+1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.&#x20;
 
-<div align="left">
-
-<figure><img src="../../.gitbook/assets/api properties_add.png" alt="" width="375"><figcaption><p>Encrypt a new property</p></figcaption></figure>
-
-</div>
-
-The property value will remain unencrypted and editable until you save your changes. Once you select **Save**, you can no longer edit, modify, or view the value.
-
-{% hint style="danger" %}
-Encrypted values can be used by API policies, but encrypted data should be used with care. **APIM Gateway will automatically decrypt these values**.
-{% endhint %}
+    ```yaml
+    # Encrypt API properties using this secret:
+    api:
+      properties:
+        encryption:
+             secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
+     to provide the best security available.
+    ```
+2. Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value. ![](<../../.gitbook/assets/api properties\_add (1).png>)
 
 ### **Dynamic properties**
 
-In addition to hardcoded properties, Gravitee supports dynamic properties. The dynamic properties associated with a Gateway API are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.
+To configure dynamic properties:
 
-To access the dynamic properties module, click on the  from the inner left nav and the **Dynamic properties** tab.
+1. Log in to your APIM Console
+2. Selecting **APIs** from the left nav
+3. Select the API for which to design a flow
+4. Select **Configuration** from the inner left nav
+5. Select the **Properties** tab
+6.  Click the **Manage dynamically** button and define the configuration&#x20;
 
-<figure><img src="../../.gitbook/assets/api properties_dynamically manage.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/api properties_dynamically manage (2).png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
 
-Click on the **Set-up guide** drop-down for useful configuration information. To configure dynamic properties,&#x20;
-
-1. Toggle **Enabled** to ON
-2. Specify the following:
-   * **Schedule:** A cron expression to schedule the health check
-   * **HTTP Method:** The HTTP method that invokes the endpoint
-   * **URL:** The target from which to fetch dynamic properties
-   * **Request Headers:** The HTTP headers to add to the request fetching properties
-   * **Request body:** The HTTP body content to add to the request fetching properties
-   * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn’t return the expected output, edit the JOLT transformation accordingly
-3. Toggle **Use system proxy** ON to use the system proxy configured in APIM installation
+    * Toggle **Enabled** to ON
+    * **Schedule:** A cron expression to schedule the health check
+    * **HTTP Method:** The HTTP method that invokes the endpoint
+    * **URL:** The target from which to fetch dynamic properties
+    * **Request Headers:** The HTTP headers to add to the request fetching properties
+    * **Request body:** The HTTP body content to add to the request fetching properties
+    * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn’t return the expected output, edit the JOLT transformation accordingly
+    * Toggle **Use system proxy** ON to use the system proxy configured in APIM installation
+7. Click **Save**
 
 After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
 
 {% hint style="info" %}
-**Dictionaries vs API properties**
-
-The list of shop IDs and URLs could also be maintained using a dictionary, e.g., in organizations where the administrator maintains this information independently of the API creation process or if the list needs to be available to multiple APIs. See [Dictionaries](../../getting-started/configuration/apim-gateway/dictionaries.md) for more information.
+Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.&#x20;
 {% endhint %}
 
 ## Resources
 
-Some policies support the addition of resources, which can be used for authentication and schema registry validation, etc. Policies and the resources they support or rely on are shown in the table below.
+Some policies support the addition of [resources](../api-configuration/resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
 
-| Policy type                                          | Resource(s)                                                                         |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Cache                                                | <p>Cache<br>Cache Redis</p>                                                         |
-| OAuth2                                               | <p>OAuth2 - Gravitee Access Management<br>OAuth2 - Generic Authorization Server</p> |
-| OpenID Connect - Userinfo                            | Keycloak Adapter                                                                    |
-| Serialization & deserialization (e.g., Avro <> JSON) | Confluent Schema Registry                                                           |
-| HTTP signature                                       | HTTP Authentication Provider                                                        |
-| Basic authentication                                 | <p>LDAP Authentication Provider<br>Inline Authentication Provider</p>               |
-
-After these resources are created, you will be able to reference them when designing policies using the **Policy Studio**. Refer to the [Resources](../api-configuration/resources.md) and [Policy Reference](./#v4) documentation for more information on resources and how they are used by policies.
+<table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td><a href="../../reference/policy-reference/basic-authentication.md">Basic Authentication</a></td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td><a href="../../reference/policy-reference/cache.md">Cache</a></td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td><a href="../../reference/policy-reference/http-signature.md">HTTP Signature</a><br><a href="../../reference/policy-reference/generate-http-signature.md">Generate HTTP Signature</a></td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td><a href="../../reference/policy-reference/oauth2/">OAuth2</a></td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td><a href="../../reference/policy-reference/openid-connect-userinfo.md">OpenID Connect Userinfo</a></td><td>Specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource</td></tr><tr><td><a href="../../reference/policy-reference/avro-to-json.md">AVRO to JSON</a><br><a href="../../reference/policy-reference/avro-to-protobuf.md">AVRO to Protobuf</a><br><a href="../../reference/policy-reference/protobuf-to-json.md">Protobuf to JSON</a></td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
 
 {% hint style="info" %}
-Global resources are globally available to all flows associated with the Gateway API. However, they will not be available to other Gateway APIs.
+Global resources are available to all flows associated with the Gateway API, but are not available to other Gateway APIs.
 {% endhint %}
 
 ## Examples
 
-### Example 1: Dynamic routing
+<details>
 
-{% hint style="info" %}
-This example applies to v4 APIs using the [**Proxy Upstream Protocol**](../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
-{% endhint %}
+<summary>Example 1: Dynamic routing</summary>
 
-In this example, we want our Gateway API to query our shop databases to check their stock levels. We will dynamically reroute any API call containing a shop ID to its associated URL.
+Configure a v4 proxy API to query the stock levels of shop databases, then dynamically reroute any API call containing a shop ID to its associated URL:
 
-The first step is to define a list of properties for the shops. For each property, enter a unique shop ID for the key and the URL of the shop for the value.
-
-<figure><img src="../../.gitbook/assets/example1_properties.png" alt=""><figcaption></figcaption></figure>
-
-We then configure a dynamic routing policy for the API via a routing rule that builds a new URL dynamically through property matching. The URL is created with a `#api.properties` statement that matches properties returned by querying the request header that contains the shop ID.
-
-<figure><img src="../../.gitbook/assets/example1_dynamic routing.png" alt=""><figcaption></figcaption></figure>
+1. Define a list of properties for the shops, where `<key>` is the unique shop ID and `<value>` is the shop URL ![](<../../.gitbook/assets/example1\_properties list.png>)
+2. Configure a dynamic routing policy that builds new URLs dynamically through property matching via the `#api.properties` statement: ![](<../../.gitbook/assets/example1\_properties rule.png>)
 
 If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
 
-### Example 2: Monetization via latency
+</details>
 
-{% hint style="info" %}
-This example applies to v4 APIs using the [**Introspect Messages from Event-Driven Backend**](../create-apis/the-api-creation-wizard/v4-api-creation-wizard.md#step-2-entrypoints) backend exposure method.
-{% endhint %}
+<details>
 
-In this example, our Gateway API sends an alert whenever inventory is added to our online store that sells limited edition designer merchandise at discount prices. Casual shoppers pay a certain amount to learn about item availability in slightly less than real-time, while our best customers pay more to access this data in true real-time.
+<summary>Example 2: Monetization via latency</summary>
 
-To monetize data delivery, we can use the Keyless and API Key plans introduced [above](v4-api-policy-studio.md#design). First, we add a "sample Keyless flow" to our Keyless plan.
+To monetize data delivery, consider a v4 message API that sends an alert whenever inventory is added to an online store. Tier 1 customers pay for item availability alerts in true real-time, while Tier 2 customers are notified for free, but in less than real-time.
 
-<figure><img src="../../.gitbook/assets/sample keyless flow.png" alt=""><figcaption></figcaption></figure>
+1. Add a keyless flow to the Default Keyless Plan ![](<../../.gitbook/assets/example2\_keyless flow.png>)
+2. Apply a latency policy to the Default Keyless Plan ![](../../.gitbook/assets/example2\_latency.png)
+3. Select **Consumers** from the inner left nav
+4. Under the **Plans** tab, click **+ Add new plan** ![](<../../.gitbook/assets/example2\_add plan.png>)
+5. Select **API Key** from the drop-down menu and configure an API Key plan
 
-Next, we apply a latency policy to our Keyless plan.
+Tier 2 customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. Tier 1 customers who purchase the API Key plan are given unlimited access to real-time data.
 
-<figure><img src="../../.gitbook/assets/sample keyless policy.png" alt=""><figcaption></figcaption></figure>
-
-Customers can use our API for free, but new merchandise alerts are delayed by 30 minutes. However, customers who purchase our API Key plan are given unlimited access to real-time data.
+</details>

@@ -74,7 +74,7 @@ Limit the number of requests that a client can make using the HTTP GET method to
 
 ## Configure flow mode
 
-Gravitee offers two flow modes: **DEFAULT** and **BEST\_MATCH**:
+Gravitee offers two flow modes: **DEFAULT** and **BEST\_MATCH**.
 
 {% tabs %}
 {% tab title="DEFAULT" %}
@@ -110,7 +110,7 @@ To modify the flow mode:
 
 ## API properties
 
-Properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within flows using Gravitee's Expression Language (EL) and the `#properties` statement. To configure properties:
+Properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within flows using Gravitee's Expression Language (EL) and the `#api.properties` statement. To configure properties:
 
 1. Log in to your APIM Console
 2. Selecting **APIs** from the left nav
@@ -124,7 +124,7 @@ Properties are read-only during the Gateway's execution of an API transaction. T
 ### Encryption
 
 {% hint style="warning" %}
-Encrypted values can be used by API policies and APIM Gateway will automatically decrypt these values. Use caution handling encrypted data in policies.
+Encrypted values can be used by API policies, but encrypted data should be handled with care. APIM Gateway will automatically decrypt these values.
 {% endhint %}
 
 To encrypt an API property:
@@ -185,7 +185,7 @@ Configure the Gateway API to query the stock levels of shop databases, then dyna
 
 ## Resources
 
-Some policies support the addition of resources, which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
+Some policies support the addition of [resources](../api-configuration/resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
 
 <table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td><a href="../../reference/policy-reference/basic-authentication.md">Basic Authentication</a></td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td><a href="../../reference/policy-reference/cache.md">Cache</a></td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td><a href="../../reference/policy-reference/http-signature.md">HTTP Signature</a><br><a href="../../reference/policy-reference/generate-http-signature.md">Generate HTTP Signature</a></td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td><a href="../../reference/policy-reference/oauth2/">OAuth2</a></td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td><a href="../../reference/policy-reference/openid-connect-userinfo.md">OpenID Connect Userinfo</a></td><td>Specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource</td></tr><tr><td><a href="../../reference/policy-reference/avro-to-json.md">AVRO to JSON</a><br><a href="../../reference/policy-reference/avro-to-protobuf.md">AVRO to Protobuf</a><br><a href="../../reference/policy-reference/protobuf-to-json.md">Protobuf to JSON</a></td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
 
