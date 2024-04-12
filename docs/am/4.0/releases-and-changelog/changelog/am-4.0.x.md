@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.16 - April 12, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+**Console**
+
+* Error when notification are acknowledged https://github.com/gravitee-io/issues/issues/9661[#9661]
+
+**Other**
+
+* Enrollment Flow Logic Bug https://github.com/gravitee-io/issues/issues/9518[#9518]
+* Improve CORS Domain settings and replace default value https://github.com/gravitee-io/issues/issues/9531[#9531]
+
+</details>
+
+
 ## Gravitee Access Management 4.0.15 - April 5, 2024
 
 <details>
