@@ -18,8 +18,6 @@ The v2 Policy Studio consists of the following sections:
 
 * [**Design**](v2-api-policy-studio.md#design)**:** Manage all flows associated with your Gateway API
 * [**Configuration**](v2-api-policy-studio.md#configure-flow-mode)**:** Modify settings related to flow execution
-* [**Properties**](v2-api-policy-studio.md#api-properties)**:** Define key-value pairs at the API level
-* [**Resources**](v2-api-policy-studio.md#resources)**:** Configure global resources to support your flows
 * [**Debug**](v2-api-policy-studio.md#debug-mode)**:** Test and troubleshoot your Gateway APIs
 
 ## Design
@@ -31,22 +29,21 @@ To create a flow and add policies:
 1. Log in to your APIM Console
 2. Selecting **APIs** from the left nav
 3. Select the API for which to design a flow
-4. Select **Design** from the inner left nav
-5.  In the **Flows** section, select the **+** icon, then configure the flow using the **Flow Configuration** module:&#x20;
+4. Select **Policy Studio** from the inner left nav
+5. Select the **Design** tab
+6.  In the **Flows** section, select the **+** icon, then configure the flow:&#x20;
 
-    <figure><img src="../../.gitbook/assets/v2_flow_config (1).png" alt=""><figcaption><p>Sample flow configuration</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/v2 design.png" alt=""><figcaption><p>Configure a flow</p></figcaption></figure>
 
     * **Name:** Give your flow a descriptive name. Otherwise, a name will be automatically generated using the path and methods.
     * **Operator path:** For the provided **Path**, apply this flow to requests with a path that **Equals** or **Starts with** the same path.
     * **Path:** Define the path to use in conjunction with the **Operator path** to determine if this flow should be applied.
     * **Methods:** Define the HTTP methods for which you want the flow to be executed. If you leave this empty, the flow will be executed for every HTTP method, assuming the other conditions are met.
     * **Conditions:** Define specific conditions that will trigger flow execution using Gravitee's Expression Language (EL).
-6. To add a policy to the flow, drag-and-drop the policy that you want to enforce onto either the request or response phase
-7. To configure the policy, select it and use the menu beneath the flow map
-8.  Select the **checkmark icon**, then click **Save** in the pop-up window&#x20;
-
-    <figure><img src="../../.gitbook/assets/v2_policy_config (1).png" alt=""><figcaption><p>Configure a policy</p></figcaption></figure>
-9. Redeploy your API to the Gateway for the changes to take effect
+7. To add a policy to the flow, drag-and-drop the policy that you want to enforce onto either the request or response phase
+8. To configure the policy, select it and use the menu beneath the flow map
+9. Select the **checkmark icon**, then click **Save** in the pop-up window&#x20;
+10. Redeploy your API to the Gateway for the changes to take effect
 
 {% hint style="info" %}
 * A policy added to the request phase will be enforced by the Gateway at the time of the request, before a client is given access to the API.&#x20;
@@ -102,98 +99,11 @@ To modify the flow mode:
 1. Log in to your APIM Console
 2. Selecting **APIs** from the left nav
 3. Select the API for which to design a flow
-4. Select **Design** from the inner left nav
+4. Select **Policy Studio** from the inner left nav
 5. Select the **Configuration** tab&#x20;
 6.  Change the **Flow Mode** to either **DEFAULT** or **BEST\_MATCH** using the drop-down menu&#x20;
 
-    <figure><img src="../../.gitbook/assets/Configure flow mode (2).png" alt=""><figcaption><p>v2 Policy Studio: Configure flow mode</p></figcaption></figure>
-
-## API properties
-
-Properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within flows using Gravitee's Expression Language (EL) and the `#api.properties` statement. To configure properties:
-
-1. Log in to your APIM Console
-2. Selecting **APIs** from the left nav
-3. Select the API for which to design a flow
-4. Select **Design** from the inner left nav
-5. Select the **Properties** tab
-6.  Specify properties one by one, or toggle from **Simple** to **Expert** mode and paste property definitions into the editor using `<key>=<value>` format&#x20;
-
-    <figure><img src="../../.gitbook/assets/v2 properties.png" alt=""><figcaption><p>API properties: Expert format</p></figcaption></figure>
-
-### Encryption
-
-{% hint style="warning" %}
-Encrypted values can be used by API policies, but encrypted data should be handled with care. APIM Gateway will automatically decrypt these values.
-{% endhint %}
-
-To encrypt an API property:
-
-1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.&#x20;
-
-    ```yaml
-    # Encrypt API properties using this secret:
-    api:
-      properties:
-        encryption:
-             secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
-     to provide the best security available.
-    ```
-2.  Enable the **Encrypted** toggle next to the property. Once you click **Save**, you can no longer edit, modify, or view the value.&#x20;
-
-    <figure><img src="../../.gitbook/assets/v2 encrypted property.png" alt=""><figcaption><p>Encrypted API property</p></figcaption></figure>
-
-### **Dynamic properties**
-
-To configure dynamic properties:
-
-1.  Under the **Properties** tab, select **CONFIGURE DYNAMIC PROPERTIES**&#x20;
-
-    <figure><img src="../../.gitbook/assets/v2 dynamic properties.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
-2. Specify the details of the property:
-   * `cron` schedule
-   * HTTP method(s)
-   * URL
-   * Request headers and body to include with the call
-   * JOLT transformation to perform on the response
-3. Toggle **Enabled** ON
-4. Select the tick icon ![tick icon](https://docs.gravitee.io/images/icons/tick-icon.png) to save your changes
-5. Select **SAVE**
-
-After the first call, the resulting property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
-
-{% hint style="info" %}
-Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.&#x20;
-{% endhint %}
-
-<details>
-
-<summary>Example</summary>
-
-Configure the Gateway API to query the stock levels of shop databases, then dynamically reroute any API call containing a shop ID to its associated URL:
-
-1.  Define a list of properties for the shops, where `<key>` is the unique shop ID and `<value>` is the shop URL&#x20;
-
-    <figure><img src="../../.gitbook/assets/v2 dynamic properties example 1.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
-2.  Configure a dynamic routing policy that builds new URLs dynamically through property matching via the `#properties` statement:&#x20;
-
-    <figure><img src="../../.gitbook/assets/dynamic-routing-properties.png" alt=""><figcaption><p>Add a dynamic routing policy based on an API property</p></figcaption></figure>
-
-    If the ID in the request header matches the key of one of the properties, it is replaced with the URL. The dynamic routing policy then reroutes the API call to the URL.
-
-</details>
-
-## Resources
-
-Some policies support the addition of [resources](../api-configuration/resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
-
-<table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td><a href="../../reference/policy-reference/basic-authentication.md">Basic Authentication</a></td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td><a href="../../reference/policy-reference/cache.md">Cache</a></td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td><a href="../../reference/policy-reference/http-signature.md">HTTP Signature</a><br><a href="../../reference/policy-reference/generate-http-signature.md">Generate HTTP Signature</a></td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td><a href="../../reference/policy-reference/oauth2/">OAuth2</a></td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td><a href="../../reference/policy-reference/openid-connect-userinfo.md">OpenID Connect Userinfo</a></td><td>Specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource</td></tr><tr><td><a href="../../reference/policy-reference/avro-to-json.md">AVRO to JSON</a><br><a href="../../reference/policy-reference/avro-to-protobuf.md">AVRO to Protobuf</a><br><a href="../../reference/policy-reference/protobuf-to-json.md">Protobuf to JSON</a></td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
-
-<figure><img src="../../.gitbook/assets/Confluent schema registry.png" alt=""><figcaption><p>Resources: Confluent Schema Registry</p></figcaption></figure>
-
-{% hint style="info" %}
-Global resources are available to all flows associated with the Gateway API, but are not available to other Gateway APIs.
-{% endhint %}
+    <figure><img src="../../.gitbook/assets/v2 PS configuration.png" alt=""><figcaption><p>Configure Flow Mode</p></figcaption></figure>
 
 ## Debug mode
 
@@ -218,9 +128,19 @@ Debug mode is a troubleshooting tool that enables insights into policy order of 
 
 To debug your flows:
 
-1. Select the **Debug** tab
-2. Define the HTTP method, path, headers, and request bodies for the debug request
-3.  Select **Send** to prompt Gravitee to initiate a test request and present you with a timeline showing the order of your flows and policies&#x20;
+1. Log in to your APIM Console
+2. Selecting **APIs** from the left nav
+3. Select the API for which to design a flow
+4. Select **Policy Studio** from the inner left nav
+5.  Select the **Debug** tab&#x20;
+
+    <div align="left">
+
+    <figure><img src="../../.gitbook/assets/v2 debug.png" alt="" width="188"><figcaption><p>Configure Debug</p></figcaption></figure>
+
+    </div>
+6. Define the HTTP method, path, headers, and request bodies for the debug request
+7.  Select **Send** to prompt Gravitee to initiate a test request and present you with a timeline showing the order of your flows and policies&#x20;
 
     <figure><img src="../../.gitbook/assets/Debug mode timeline (1).png" alt=""><figcaption><p>Debug mode timeline</p></figcaption></figure>
 

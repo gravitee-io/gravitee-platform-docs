@@ -4,8 +4,6 @@ description: This article walks through how to configure user and group access t
 
 # User and Group Access
 
-{% @arcade/embed flowId="T68J1lMLPo7xwHhsqucb" url="https://app.arcade.software/share/T68J1lMLPo7xwHhsqucb" %}
-
 ## Introduction
 
 You can manage user and group access to individual APIs. This article walks through that process. If you want to learn more about user and group creation and administration, please refer to the [User Management and Permissions ](../../administration/user-management-and-permissions.md)documentation.

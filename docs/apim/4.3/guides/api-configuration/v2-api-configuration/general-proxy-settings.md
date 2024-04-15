@@ -1,120 +1,61 @@
 ---
-description: >-
-  This article focuses on how to configure the General Proxy settings for an
-  API, which includes Entrypoints, CORS, Deployments, and Response Templates
-  configurations.
+description: This article describes how to configure v2 API proxy settings
 ---
 
-# General Proxy Settings
+# Proxy Settings
 
-### Introduction
+## Introduction
 
-In Gravitee, there is a **General** subsection of the **Proxy** section. In the **General** section, you can configure the following settings per API:
+To configure the **Proxy** settings for a v2 API:
 
-* Entrypoints
-* CORS
-* Deployments
-* Response Templates
+1. Log in to your APIM Console
+2. Select APIs from the left nav
+3. Select your API
+4. Under the Proxy section of the inner left nav, select from the following:
+   * [Entrypoints](general-proxy-settings.md#entrypoints)
+   * [CORS](general-proxy-settings.md#cors)
+   * [Deployments](general-proxy-settings.md#deployments)
+   * [Response templates](general-proxy-settings.md#response-templates)
+   * [Properties](general-proxy-settings.md#properties)&#x20;
+   * [Resources](general-proxy-settings.md#resources)
 
-This article walks through how to configure each of the above.
+## Entrypoints
 
-### Configure Entrypoints
+To configure the API entrypoints:&#x20;
 
-To configure Entrypoints, follow the below interactive tutorial, or, follow the numbered steps below.
+1.  Select **Entrypoints** from the inner left nav&#x20;
 
-{% @arcade/embed flowId="4353kgHZvdMRtEEL5xy9" url="https://app.arcade.software/share/4353kgHZvdMRtEEL5xy9" %}
+    <figure><img src="../../../.gitbook/assets/v2 proxy_entrypoints.png" alt=""><figcaption><p>Configure v2 API entrypoints</p></figcaption></figure>
 
-If you prefer to use a written list of steps, follow these steps:
 
-Log in to the Gravitee API Management Console. In the **APIs** menu, select the API for whom you want to configure Entrypoints.
 
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/665c071d-8767-48ce-8690-c3261769fda0/1/24.166666666667/22.11524135876?0)
+    * Edit your **Context-path** or create a new one via **Add context-path**
+    * Toggle **Enable virtual hosts** ON or OFF
+2. Click **Save**
 
-Select the **Edit API** icon.
+## CORS
 
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/0c8fd2c2-43d7-4985-9b69-31dc00f385d8/1/96.666666666667/58.377719010727?0)
+CORS is a mechanism that allows resources on a web page to be requested from another domain. To configure CORS for your API:
 
-Find the **Proxy** section in the left-hand nav. Select **General**.
+1.  Select **CORS** from the inner left nav&#x20;
 
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/e7e8492f-4889-42ec-a420-5dcc08d39a15/1/20/61.144219308701?0)
+    <figure><img src="../../../.gitbook/assets/v2 proxy_CORS.png" alt=""><figcaption><p>Configure CORS</p></figcaption></figure>
+2.  Set the following parameters:
 
-The **Entrypoints** tab is automatically selected.
+    * **Enable CORS:** Toggle to ON to enable CORS.
+    * **Access-Control-Allow-Origin:** Define a URI that can access the resource. Enter \* to allow all requests, regardless of origin.
 
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/e2d81981-357a-4d7d-a985-0eff3aba449d/1/50.166666666667/11.084624553039?0)
+    {% hint style="danger" %}
+    A value of \* is not recommended for production environments. By allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data.
+    {% endhint %}
 
-Define your **Context path**. This is the URL location of your API. So if your URL is \[https://apim-master-gateway.team-apim.gravitee.dev/myAPI], then \[/myAPI] is the context path.
-
-{% hint style="info" %}
-This is the path where your API is exposed. It must start with a '/' and can only contain any letter, capitalized letter, number, dash, or underscore.
-{% endhint %}
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/5d7e90d7-3bf8-4abd-b7eb-3c0a3dbab79c/1/57.771484375/42.353247914184?0)
-
-{% hint style="success" %}
-Select **Save**. You've now configured your Entrypoints.
-{% endhint %}
-
-### Configure CORS
-
-CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API.
-
-To configure CORS for an API, follow these steps:
-
-Log in to your Gravitee API Management Console. Select the **APIs** menu. Find the API for which you want to configure CORS.
-
-![](https://dubble-prod-01.s3.amazonaws.com/assets/6121e44d-f50d-411b-8194-4ae9a611d2f8.png?0)
-
-Select the **Edit API** icon.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/0cceaf2b-d55e-4d94-84ec-eb9a2f0cf227/1.5/95.833333333333/49.307436790506?0)
-
-In the **Proxy** section, select **General**.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/08ef1ea0-f0b6-4864-871c-6485c36da949/1/13.888888888889/51.083591331269?0)
-
-Select the **CORS** tab.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/673f58c2-755c-43b9-8d99-f9c447cb7c57/1.5/39.467592592593/9.5975232198142?0)
-
-Toggle **Enable CORS** ON.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/ad4c811b-6b25-46a2-9ed5-6ea23d2922eb/1.5/36.082175925926/25.077399380805?0)
-
-If you want to allow origins, enter **\*** in the **Allow Origins** field. This will define the one or multiple origins that can access the resource.
-
-{% hint style="danger" %}
-We do _not_ recommend this configuration for production environments. By allowing cross-origin requests, a server may inadvertently expose sensitive information to unauthorized parties. For example, if a server includes sensitive data in a response that is accessible via CORS, an attacker could use a malicious website to extract that data.
-{% endhint %}
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/b47f940f-9f12-41f3-a8e3-a0384bd89b0f/1.2507598784195/64.178240740741/40.041279669763?0)
-
-In the **Access-Control-Allow-Methods** field, define the method or methods allowed to access the resource. This is used in response to a preflight request.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/147983dc-6642-4edb-86b3-7fef719710b0/1.1441484300666/63.715277777778/60.108681630547?0)
-
-In the **Access-Control-Request-Headers** drop down, define which headers will be allowed in your requests. Typically, your request header will include `Access-Control-Request-Headers`, which relies on the CORS configuration to allow its values.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/55c5eab5-8152-40a1-a714-6497076f9c01/1.3094240837696/64.178240740741/89.869549793602?0)
-
-If you want to allow the response to the request to be exposed when the credentials flag is true, toggle **Access-Control-Allow-Credentials** ON.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/0ac57e83-1116-4a83-92a7-25e5845468a3/2/35.619212962963/55.575174148607?0)
-
-In the **Access-Control-Allow-Max-Age** field, define how long the results of preflight requests can be cached. This is optional, and `-1` will be the value if this is disabled.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/c2704a8a-aa9b-4e00-beca-2789cbe40a34/1.2507598784195/64.178240740741/55.93072755418?0)
-
-In the **Access-Control-Expose-Headers** field, you can define a list of headers that browsers are allowed to access.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/a45c9e34-8b63-44f3-a4ca-9394d148a8c2/1.2507598784195/64.178240740741/70.663215944272?0)
-
-If you want the API Gateway to execute policies for preflight-requests, toggle **Run policies for preflight requests** ON. By default, this is not enabled.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/869aea62-91f0-4929-8471-4a10b0193fbd/2/60.345262096774/93.644675510936?0)
-
-{% hint style="success" %}
-You've configured your CORS settings for your API. When you are done, select **Save.**.
-{% endhint %}
+    * **Access-Control-Allow-Methods:** Select the method(s) allowed when accessing the resource, which is used in response to a preflight request: `GET`, `DELETE`, `PATCH`, `POST`, `PUT`, `OPTIONS`, `TRACE`, and/or `HEAD`.
+    * **Access-Control-Allow-Headers:** Select the HTTP header(s) that can be used when making the actual request, in response to a preflight request. Typically, your request header will include `Access-Control-Request-Headers`, which relies on the CORS configuration to allow its values.
+    * **Access-Control-Allow-Credentials:** Toggle ON or OFF to indicate whether the response to the request can be exposed when the credentials flag is true.
+    * **Max Age:** Specify how long (in seconds) the results of a preflight request can be cached. This is optional, and a value of `-1` indicates it is disabled.
+    * **Access-Control-Expose-Headers:** Define a list of headers that browsers are allowed to access.
+    * **Run policies for preflight requests:** Toggle ON for the API Gateway to execute policies for preflight-requests. By default, this is not enabled.
+3. Click **Save**
 
 {% hint style="info" %}
 **Troubleshooting CORS**
@@ -124,113 +65,117 @@ All requests rejected because of CORS issues will generate logs that you can vie
 <img src="../../../.gitbook/assets/graviteeio-troubleshooting-cors.png" alt="" data-size="original">
 {% endhint %}
 
-### Configure Deployments
+## Deployments
 
-The **Deployments** tab is where you can choose to use sharding tags to control where your API is deployed. Sharding tags are configured at the **Organization** level in Gravitee. For more information on sharding tags, what they are useful for, and how to configure them, refer to [this article](../../../getting-started/configuration/apim-gateway/sharding-tags.md).
+**Deployments** is where you can choose to use [sharding tags](../../../getting-started/configuration/apim-gateway/sharding-tags.md) sharding tags to control where your API is deployed. To configure sharding tags for your API:
 
-To choose sharding tags, follow the below interactive tutorial, or, follow the steps below.
+1.  Select **Deployments** from the inner left nav&#x20;
 
-{% @arcade/embed flowId="d6TOgaGsnGu4ycqJ4PUr" url="https://app.arcade.software/share/d6TOgaGsnGu4ycqJ4PUr" %}
+    <figure><img src="../../../.gitbook/assets/v2 proxy_deployments.png" alt=""><figcaption><p>Configure sharding tags</p></figcaption></figure>
+2. From the **Sharding tags** drop-down menu, choose one or more sharding tags
+3. Click **Save**
 
-Log in to the API Management Console. Select the **APIs** menu.
+## Response templates
 
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/9ab2716a-118b-4eb0-b1f1-b0961edf401a/1/1.3333333333333/23.301549463647?0)
+Response templates are used to override the default values sent in response to consumer calls to an API. Response template overrides are triggered by error keys, which are specific to policies. Responses can be templatized if the errors raised during the request/response phase(s) are associated with overridable policy keys. Each response template defines the new values to be returned for one or more status codes when the template is triggered.
 
-Select the API for which you want to configure Deployments.
+### Prerequisites
 
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/8f848b27-8130-4f2a-9b4b-979e61138eee/1/24.166666666667/22.11524135876?0)
-
-Select the **Edit API** icon.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/0c93469f-f6a1-45cf-a30e-98abaa26b355/1/96.666666666667/58.377719010727?0)
-
-Under **Proxy**, select **General**.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/9203d84f-2fdc-4448-a42f-a8688d989a4a/1/20/61.144219308701?0)
-
-Select the **Deployments** tab.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/04d84637-14ed-4147-ab3a-ad01a01de22e/1.5/83.5/11.084624553039?0)
-
-Select the **Sharding tags** drop down menu.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/2b14b4dd-bbb5-4f59-95c8-5b4966ff8ee0/1.5/98.26953125/31.236032479142?0)
-
-Choose the sharding tag that you want to assign to the API. This will dictate where it is deployed.
-
-![](https://d3q7ie80jbiqey.cloudfront.net/media/image/zoom/d019ecb2-ac33-417e-abe5-76a8f04dcabb/1.5/41.708333333333/53.003016984505?0)
-
-{% hint style="success" %}
-Select Save. You will have successfully configured your API deployment settings via choosing a sharding tag.
-{% endhint %}
-
-### Configure Response Templates
-
-{% @arcade/embed flowId="5v4I7T6RoqgUFaQpk7gL" url="https://app.arcade.software/share/5v4I7T6RoqgUFaQpk7gL" %}
-
-You can use response templates to override the default values sent in response to consumer calls to an API. Response template overrides are triggered by error keys, which are specific to policies. Each response template defines the new values to be returned for one or more status codes when the template is triggered. Because Response templates are dependent on policies, you will need to know the following before attempting to define Response templates:
+Prior to defining a response template, verify:
 
 * Which policies have been applied to the API. This can be viewed in the [API's plan](../../api-exposure-plans-applications-and-subscriptions/plans.md).
-* Which error keys you can override per policy associated with your API. Refer to the table below to see the Policy error keys that you can override by configuring Response templates.
+* Which error keys can be overridden per policy associated with your API.&#x20;
 
-**Policy error keys that you can override**
+Below are the policy error keys that you can override by configuring response templates:
 
-| Key                                     | Policy                                 |
-| --------------------------------------- | -------------------------------------- |
-| `API_KEY_MISSING`                       | API key                                |
-| `API_KEY_INVALID`                       | API key                                |
-| `QUOTA_TOO_MANY_REQUESTS`               | Rate limiting                          |
-| `RATE_LIMIT_TOO_MANY_REQUESTS`          | Rate limiting                          |
-| `REQUEST_CONTENT_LIMIT_TOO_LARGE`       | Request content limit                  |
-| `REQUEST_CONTENT_LIMIT_LENGTH_REQUIRED` | Request content limit                  |
-| `REQUEST_TIMEOUT`                       | Mock, Callout HTTP, Request validation |
-| `REQUEST_VALIDATION_INVALID`            | Request validation                     |
-| `RESOURCE_FILTERING_METHOD_NOT_ALLOWED` | Resource filtering                     |
-| `RBAC_INVALID_USER_ROLES`               | Role-based access control              |
-| `RESOURCE_FILTERING_FORBIDDEN`          | Resource filtering                     |
-| `RBAC_FORBIDDEN`                        | Role-based access control              |
-| `RBAC_NO_USER_ROLE`                     | Role-based access control              |
-| `OAUTH2_MISSING_SERVER`                 | OAuth2                                 |
-| `OAUTH2_MISSING_HEADER`                 | OAuth2                                 |
-| `OAUTH2_MISSING_ACCESS_TOKEN`           | OAuth2                                 |
-| `OAUTH2_INVALID_ACCESS_TOKEN`           | OAuth2                                 |
-| `OAUTH2_INSUFFICIENT_SCOPE`             | OAuth2                                 |
-| `OAUTH2_INVALID_SERVER_RESPONSE`        | OAuth2                                 |
-| `OAUTH2_SERVER_UNAVAILABLE`             | OAuth2                                 |
-| `HTTP_SIGNATURE_INVALID_SIGNATURE`      | HTTP Signature                         |
-| `JWT_MISSING_TOKEN`                     | JWT                                    |
-| `JWT_INVALID_TOKEN`                     | JWT                                    |
-| `JSON_INVALID_PAYLOAD`                  | JSON validation                        |
-| `JSON_INVALID_FORMAT`                   | JSON validation                        |
-| `JSON_INVALID_RESPONSE_PAYLOAD`         | JSON validation                        |
-| `JSON_INVALID_RESPONSE_FORMAT`          | JSON validation                        |
-| `GATEWAY_INVALID_REQUEST`               | All                                    |
-| `GATEWAY_INVALID_RESPONSE`              | All                                    |
-| `GATEWAY_OAUTH2_ACCESS_DENIED`          | All                                    |
-| `GATEWAY_OAUTH2_SERVER_ERROR`           | All                                    |
-| `GATEWAY_OAUTH2_INVALID_CLIENT`         | All                                    |
-| `GATEWAY_MISSING_SECURITY_PROVIDER`     | All                                    |
-| `GATEWAY_PLAN_UNRESOLVABLE`             | All                                    |
-| `GATEWAY_POLICY_INTERNAL_ERROR`         | All                                    |
+<table><thead><tr><th width="417">Key</th><th>Policy</th></tr></thead><tbody><tr><td><code>API_KEY_MISSING</code></td><td>API key</td></tr><tr><td><code>API_KEY_INVALID</code></td><td>API key</td></tr><tr><td><code>QUOTA_TOO_MANY_REQUESTS</code></td><td>Rate limiting</td></tr><tr><td><code>RATE_LIMIT_TOO_MANY_REQUESTS</code></td><td>Rate limiting</td></tr><tr><td><code>REQUEST_CONTENT_LIMIT_TOO_LARGE</code></td><td>Request content limit</td></tr><tr><td><code>REQUEST_CONTENT_LIMIT_LENGTH_REQUIRED</code></td><td>Request content limit</td></tr><tr><td><code>REQUEST_TIMEOUT</code></td><td>Mock, Callout HTTP, Request validation</td></tr><tr><td><code>REQUEST_VALIDATION_INVALID</code></td><td>Request validation</td></tr><tr><td><code>RESOURCE_FILTERING_METHOD_NOT_ALLOWED</code></td><td>Resource filtering</td></tr><tr><td><code>RBAC_INVALID_USER_ROLES</code></td><td>Role-based access control</td></tr><tr><td><code>RESOURCE_FILTERING_FORBIDDEN</code></td><td>Resource filtering</td></tr><tr><td><code>RBAC_FORBIDDEN</code></td><td>Role-based access control</td></tr><tr><td><code>RBAC_NO_USER_ROLE</code></td><td>Role-based access control</td></tr><tr><td><code>OAUTH2_MISSING_SERVER</code></td><td>OAuth2</td></tr><tr><td><code>OAUTH2_MISSING_HEADER</code></td><td>OAuth2</td></tr><tr><td><code>OAUTH2_MISSING_ACCESS_TOKEN</code></td><td>OAuth2</td></tr><tr><td><code>OAUTH2_INVALID_ACCESS_TOKEN</code></td><td>OAuth2</td></tr><tr><td><code>OAUTH2_INSUFFICIENT_SCOPE</code></td><td>OAuth2</td></tr><tr><td><code>OAUTH2_INVALID_SERVER_RESPONSE</code></td><td>OAuth2</td></tr><tr><td><code>OAUTH2_SERVER_UNAVAILABLE</code></td><td>OAuth2</td></tr><tr><td><code>HTTP_SIGNATURE_INVALID_SIGNATURE</code></td><td>HTTP Signature</td></tr><tr><td><code>JWT_MISSING_TOKEN</code></td><td>JWT</td></tr><tr><td><code>JWT_INVALID_TOKEN</code></td><td>JWT</td></tr><tr><td><code>JSON_INVALID_PAYLOAD</code></td><td>JSON validation</td></tr><tr><td><code>JSON_INVALID_FORMAT</code></td><td>JSON validation</td></tr><tr><td><code>JSON_INVALID_RESPONSE_PAYLOAD</code></td><td>JSON validation</td></tr><tr><td><code>JSON_INVALID_RESPONSE_FORMAT</code></td><td>JSON validation</td></tr><tr><td><code>GATEWAY_INVALID_REQUEST</code></td><td>All</td></tr><tr><td><code>GATEWAY_INVALID_RESPONSE</code></td><td>All</td></tr><tr><td><code>GATEWAY_OAUTH2_ACCESS_DENIED</code></td><td>All</td></tr><tr><td><code>GATEWAY_OAUTH2_SERVER_ERROR</code></td><td>All</td></tr><tr><td><code>GATEWAY_OAUTH2_INVALID_CLIENT</code></td><td>All</td></tr><tr><td><code>GATEWAY_MISSING_SECURITY_PROVIDER</code></td><td>All</td></tr><tr><td><code>GATEWAY_PLAN_UNRESOLVABLE</code></td><td>All</td></tr><tr><td><code>GATEWAY_POLICY_INTERNAL_ERROR</code></td><td>All</td></tr></tbody></table>
 
-Response templates are configured in an API's General Proxy settings. You'll find the Response templates tab. Here, you can define:
+### Create a response template
+
+When creating response templates, you can define:
 
 * Multiple templates for one API (for multiple policies and/or multiple error keys sent by the same policy)
 * Multiple template definitions for the same error key in a single template (for different content types or status codes)
 
-To configure Response templates, follow these few steps:
+To configure a response template:
 
-1. Choose the template key by using the **Template key** drop-down.
-2. Choose the requests header that should trigger your response template to be used. By default, the value is `*/*`. However, if you want to send the template override values only for JSON or XML requests, specify `JSON` or `XML.`
-3. Specify the status code that you want to send to the API consumer using **Status code** drop-down.
-4. Specify the override values to send to the API consumer. These can either be:
-   * One or more HTTP headers to include in the response
-   * A response template body
+1. Select **Response Templates** from the inner left nav
+2. Click on the **Add new Response Template** button
+3.  Customize the **Create a new Response Template** form&#x20;
 
-<figure><img src="../../../.gitbook/assets/Response templates.gif" alt=""><figcaption><p>Configure Response templates</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/create response template.png" alt=""><figcaption><p>Configure a new response template</p></figcaption></figure>
 
-{% hint style="success" %}
-**Success!**
+    * **Template key:** Choose the template key via the **Template key** drop-down.
+    * **Accept header to match:** Specify the requests header that should trigger use of the response template. The default value is `*/*`. To send the template override values only for JSON or XML requests, specify `JSON` or `XML.`
+    * **Status code:** Specify the status code that to send to the API consumer via the **Status code** drop-down.
+    * Specify the override values to send to the API consumer. These can either be:
+      * One or more HTTP headers to include in the response
+      * A response template body
+4. Click **Create**
 
-From here, you can either finish up or add more Response templates by following the above steps.
+## Properties
+
+Properties are read-only during the Gateway's execution of an API transaction. They can be accessed from within flows using Gravitee's Expression Language (EL) and the `#api.properties` statement. To configure properties:
+
+To configure API properties:
+
+1.  Select **Properties** from the inner left nav&#x20;
+
+    <figure><img src="../../../.gitbook/assets/v2 proxy_properties.png" alt=""><figcaption><p>Add API properties</p></figcaption></figure>
+2. To add hardcoded properties, either:
+   * Click **Add property** and enter property definitions one at a time as a key-value pair
+   * Click **Import** and enter property definitions as a list in `<key>=<value>` format&#x20;
+
+### Encryption
+
+{% hint style="warning" %}
+Encrypted values can be used by API policies, but encrypted data should be used with care. APIM Gateway will automatically decrypt these values.
+{% endhint %}
+
+To encrypt a hardcoded API property value:
+
+1.  Reset the default secret key in `gravitee.yml`. The secret must be 32 bytes in length.&#x20;
+
+    ```yaml
+    # Encrypt API properties using this secret:
+    api:
+      properties:
+        encryption:
+             secret: vvLJ4Q8Khvv9tm2tIPdkGEdmgKUruAL6
+     to provide the best security available.
+    ```
+2. Enable the **Encrypt** toggle when adding a property via **Add property**. Once you click **Save**, you can no longer edit, modify, or view the value. ![](<../../../.gitbook/assets/api properties\_add (1).png>)
+
+### **Dynamic properties**
+
+To configure dynamic properties:
+
+1.  Click the **Manage dynamically** button and define the configuration&#x20;
+
+    <figure><img src="../../../.gitbook/assets/v2 proxy_properties dynamic.png" alt=""><figcaption><p>Configure dynamic properties</p></figcaption></figure>
+
+    * Toggle **Enabled** to ON
+    * **Schedule:** A cron expression to schedule the health check
+    * **HTTP Method:** The HTTP method that invokes the endpoint
+    * **URL:** The target from which to fetch dynamic properties
+    * **Request Headers:** The HTTP headers to add to the request fetching properties
+    * **Request body:** The HTTP body content to add to the request fetching properties
+    * (Optional) **Transformation (JOLT specification):** If the HTTP service doesn’t return the expected output, edit the JOLT transformation accordingly
+    * Toggle **Use system proxy** ON to use the system proxy configured in APIM installation
+2. Click **Save**
+
+After the first call, the resultant property is added to the list of global properties, where its value is continuously updated according to the `cron` schedule specified.
+
+{% hint style="info" %}
+Key-value pairs can also be maintained using a dictionary, e.g., if this information is stored independently of the API creation process or applies to multiple APIs.&#x20;
+{% endhint %}
+
+## Resources
+
+Some policies support the addition of [resources](../resources.md), which can be used for actions such as authentication and schema registry validation. After you create resources, you will be able to reference them when designing policies. Policies that support resources include:
+
+<table data-header-hidden><thead><tr><th width="242"></th><th></th></tr></thead><tbody><tr><td><a href="../../../reference/policy-reference/basic-authentication.md">Basic Authentication</a></td><td>Specify an LDAP Authentication Provider resource and/or an Inline Authentication Provider resource to authenticate users in memory</td></tr><tr><td><a href="../../../reference/policy-reference/cache.md">Cache</a></td><td>Specify a cache resource via the Cache or Cache Redis resources</td></tr><tr><td><a href="../../../reference/policy-reference/http-signature.md">HTTP Signature</a><br><a href="../../../reference/policy-reference/generate-http-signature.md">Generate HTTP Signature</a></td><td>Specify your HTTP Authentication Provider resource</td></tr><tr><td><a href="../../../reference/policy-reference/oauth2/">OAuth2</a></td><td>Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource</td></tr><tr><td><a href="../../../reference/policy-reference/openid-connect-userinfo.md">OpenID Connect Userinfo</a></td><td>Specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource</td></tr><tr><td><a href="../../../reference/policy-reference/avro-to-json.md">AVRO to JSON</a><br><a href="../../../reference/policy-reference/avro-to-protobuf.md">AVRO to Protobuf</a><br><a href="../../../reference/policy-reference/protobuf-to-json.md">Protobuf to JSON</a></td><td>Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry</td></tr></tbody></table>
+
+{% hint style="info" %}
+Global resources are available to all flows associated with the Gateway API, but are not available to other Gateway APIs.
 {% endhint %}

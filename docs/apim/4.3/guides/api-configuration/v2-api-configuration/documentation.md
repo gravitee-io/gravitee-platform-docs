@@ -1,20 +1,8 @@
 ---
-description: >-
-  This article walks through how to create documentation for your APIs in
-  Gravitee
+description: This article describes how to create documentation for v2 APIs
 ---
 
 # Documentation
-
-{% @arcade/embed flowId="2NtJYq9KSReDKxJPQD2q" url="https://app.arcade.software/share/2NtJYq9KSReDKxJPQD2q" %}
-
-
-
-{% hint style="info" %}
-**v4 API limitations**
-
-As of Gravitee 4.0, you can not yet create documentation for v4 APIs. Support for this is planned for future releases.
-{% endhint %}
 
 ## Introduction
 
