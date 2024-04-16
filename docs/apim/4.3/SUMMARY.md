@@ -3,7 +3,8 @@
 ## Overview
 
 * [Introduction to Gravitee API Management (APIM)](README.md)
-* [APIM Architecture](overview/apim-architecture.md)
+* [APIM Architecture](overview/apim-architecture/README.md)
+  * [Production Deployments and Capacity Planning](overview/apim-architecture/production-deployments-and-capacity-planning.md)
 * [Plugins](overview/plugins.md)
 * [Integrations](overview/integrations.md)
 * [Gravitee APIM Enterprise Edition](overview/gravitee-apim-enterprise-edition/README.md)

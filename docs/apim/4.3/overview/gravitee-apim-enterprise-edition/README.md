@@ -124,4 +124,4 @@ Gravitee EE is an investment in deployment flexibility, and, optionally, the abi
 * **Gravitee-managed deployments**: Gravitee hosts and manages all APIM components within its own cloud environment.
 * **Hybrid deployment**: Gravitee hosts and manages some APIM components within its cloud environment while you manage others within your private cloud/environment.
 
-For more information on each, please refer to our [APIM Architecture documentation](../apim-architecture.md).
+For more information on each, please refer to our [APIM Architecture documentation](../apim-architecture/).
