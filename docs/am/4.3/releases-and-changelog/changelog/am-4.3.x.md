@@ -12,22 +12,17 @@ description: >-
 
 <summary>Bug fixes</summary>
 
-
-
-
-
 **Console**
 
-* Error when notification are acknowledged https://github.com/gravitee-io/issues/issues/9661[#9661]
+* Error when notifications are acknowledged [#9661](https://github.com/gravitee-io/issues/issues/9661)
 
 **Other**
 
-* Enrollment Flow Logic Bug https://github.com/gravitee-io/issues/issues/9518[#9518]
-* Improve CORS Domain settings and replace default value https://github.com/gravitee-io/issues/issues/9531[#9531]
-* Empty rectangle displaying when fresh install of AM https://github.com/gravitee-io/issues/issues/9649[#9649]
+* Enrollment Flow Logic Bug [#9518](https://github.com/gravitee-io/issues/issues/9518)
+* Improve CORS Domain settings and replace default values [#9531](https://github.com/gravitee-io/issues/issues/9531)
+* Empty rectangle displayed with fresh install of AM [#9649](https://github.com/gravitee-io/issues/issues/9649)
 
 </details>
-
 
 ## Gravitee Access Management 4.3.1 - April 5, 2024
 
