@@ -28,7 +28,7 @@ To configure user and group access for an API:
 
 ### Add members to an API
 
-Use the **+ Add members icon** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../../administration/user-management-and-permissions.md#roles)
+Click **+ Add members** to add members to your API or alter member roles, which grant specific permissions. For more information on roles, please refer to the [roles documentation.](../../administration/user-management-and-permissions.md#roles)
 
 <figure><img src="../../../.gitbook/assets/user permissions_add members alter roles.png" alt=""><figcaption><p>Add members and alter roles</p></figcaption></figure>
 
@@ -40,6 +40,6 @@ To give groups access to your API, click **Manage groups** and select the desire
 
 ### Transfer API ownership
 
-If you are the owner of the API, you can transfer ownership to another member, user, or group. Click the **Transfer ownership** button, then select **API member**, **Other user**, or **Primary owner group.** Next, define the stakeholder to which you want to transfer API ownership and assign that stakeholder a role.
+If you are the owner of the API, you can transfer ownership to another member, user, or group. Click **Transfer ownership**, then select **API member**, **Other user**, or **Primary owner group.** Next, define the stakeholder to which you want to transfer API ownership and assign that stakeholder a role.
 
 <figure><img src="../../../.gitbook/assets/user permissions_transfer ownership.png" alt=""><figcaption><p>Transfer API ownership</p></figcaption></figure>
