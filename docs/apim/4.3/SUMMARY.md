@@ -116,7 +116,7 @@
     * [General Info Settings](guides/api-configuration/v2-api-configuration/general-info-settings.md)
     * [Proxy Settings](guides/api-configuration/v2-api-configuration/general-proxy-settings.md)
     * [Documentation](guides/api-configuration/v2-api-configuration/documentation.md)
-    * [Load-Balancing, Failover, and Health Checks](guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md)
+    * [Load-balancing, Failover, and Health-checks](guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md)
     * [Service Discovery](guides/api-configuration/v2-api-configuration/service-discovery.md)
     * [User and Group Access](guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md)
   * [Resources](guides/api-configuration/resources.md)
