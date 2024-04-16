@@ -83,6 +83,6 @@ spec:
 
 An overview of this architecture is described by the diagram below.
 
-<img src="../../../.gitbook/assets/file.excalidraw.svg" alt="One operator, multiple clusters/regions" class="gitbook-drawing">
+<img src="../../../.gitbook/assets/file.excalidraw (23).svg" alt="One operator, multiple clusters/regions" class="gitbook-drawing">
 {% endtab %}
 {% endtabs %}

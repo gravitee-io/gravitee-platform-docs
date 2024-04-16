@@ -35,7 +35,7 @@ Optionally, you can use the Advanced mode by selecting the Advanced mode hyperli
 
 In this step you will define your Backend, which is the target backend where the request will be received.
 
-Optionally, you can select Advanced mode to define Tenants and/or Sharding tags for this API. These define the Gateways to which the API is deployed. For more information, please refer to the [Tenants](../../../getting-started/configuration/apim-gateway/tenants.md) and/or [Sharding tags](../../../getting-started/configuration/apim-gateway/sharding-tags.md) documentation.
+Optionally, you can select Advanced mode to define Tenants and/or Sharding tags for this API. These define the Gateways to which the API is deployed. For more information, please refer to the [Tenants](../../../getting-started/configuration/the-gravitee-api-gateway/tenants.md) and/or [Sharding tags](../../../getting-started/configuration/the-gravitee-api-gateway/sharding-tags.md) documentation.
 
 <figure><img src="../../../.gitbook/assets/Screen Shot 2023-06-07 at 1.35.16 PM.png" alt=""><figcaption><p>Define your APIs Gateway settings</p></figcaption></figure>
 

@@ -36,7 +36,7 @@ The integrations Gravitee uses to enable Kafka, MQTT, RabbitMQ, and Solace endpo
 
 Click on the tiles below for specific configuration and implementation details.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Kafka</td><td></td><td><a href="kafka.md">kafka.md</a></td></tr><tr><td></td><td>MQTT5</td><td></td><td><a href="mqtt5.md">mqtt5.md</a></td></tr><tr><td></td><td>Solace</td><td></td><td><a href="solace.md">solace.md</a></td></tr><tr><td></td><td>RabbitMQ</td><td></td><td><a href="rabbitmq.md">rabbitmq.md</a></td></tr><tr><td></td><td>Mock</td><td></td><td><a href="mock.md">mock.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Kafka</td><td></td><td><a href="kafka.md">kafka.md</a></td></tr><tr><td></td><td>MQTT5</td><td></td><td><a href="mqtt5.md">mqtt5.md</a></td></tr><tr><td></td><td>Solace</td><td></td><td><a href="solace.md">solace.md</a></td></tr><tr><td></td><td>RabbitMQ</td><td></td><td><a href="rabbitmq.md">rabbitmq.md</a></td></tr><tr><td></td><td>Mock</td><td></td><td><a href="../../endpoint-configuration/v4-message-api-endpoints/mock.md">mock.md</a></td></tr></tbody></table>
 
 {% hint style="info" %}
 For more detailed information on Gravitee endpoints, see the [Endpoint Reference](../../../../../reference/endpoint-reference/) documentation.

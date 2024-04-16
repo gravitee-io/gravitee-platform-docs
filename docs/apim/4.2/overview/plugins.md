@@ -102,7 +102,7 @@ A secret provider resolves secrets to avoid exposing plain text passwords and se
 
 ## Deployment
 
-Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../getting-started/configuration/apim-gateway/general-configuration.md#configure-the-plugins-directory) for more information on modifying the directory structure.
+Deploying a plugin is as easy as copying the plugin archive (zip) into the dedicated directory. By default, you need to deploy the archives in `${GRAVITEE_HOME/plugins}`. Refer to the [APIM Gateway Configuration Documentation](../getting-started/configuration/the-gravitee-api-gateway/general-configuration.md#configure-the-plugins-directory) for more information on modifying the directory structure.
 
 {% hint style="warning" %}
 You must restart APIM nodes when applying new or updated plugins.

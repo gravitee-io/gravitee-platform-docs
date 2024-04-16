@@ -27,7 +27,7 @@ This section describes how to test Gravitee Kubernetes Operator (GKO) functional
 {% endcode %}
 
 {% hint style="info" %}
-See the [Configure APIM Gateway](../../getting-started/configuration/apim-gateway/) section for more information on using environment variables in Gateway configurations.
+See the [Configure APIM Gateway](../../getting-started/configuration/the-gravitee-api-gateway/) section for more information on using environment variables in Gateway configurations.
 {% endhint %}
 
 ## 1. Create a `ManagementContext` custom resource
