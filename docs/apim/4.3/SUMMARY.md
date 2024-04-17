@@ -85,7 +85,6 @@
   * [The API Creation Wizard](guides/create-apis/the-api-creation-wizard/README.md)
     * [v4 API creation wizard](guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
     * [v2 API creation wizard](guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md)
-  * [TCP Proxy APIs](guides/create-apis/tcp-proxy-apis.md)
 * [API Configuration](guides/api-configuration/README.md)
   * [v4 API Configuration](guides/api-configuration/v4-api-configuration/README.md)
     * [Entrypoints](guides/api-configuration/v4-api-configuration/entrypoints/README.md)
