@@ -49,7 +49,7 @@ The [`ManagementContext` custom resource](custom-resource-definitions/management
 
 To create a `ManagementContext` custom resource requires a YAML file with the correct Management Context configuration. The following sample Gravitee YAML file can be used directly or as a template:
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/config/samples/context/k3d/management-context-with-credentials.yml" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/examples/management_context/cluster/management-context-with-credentials.yml" %}
 
 To create the `ManagementContext` resource using the Gravitee sample file, run the following command:
 
@@ -69,7 +69,7 @@ The [`ApiDefinition` custom resource](custom-resource-definitions/apidefinition.
 
 To create an `ApiDefinition` custom resource requires a YAML file with the desired API Definition configuration. The following sample Gravitee YAML file can be used directly or as a template:
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/config/samples/apim/api-with-context.yml" %}
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/examples/apim/api_definition/api-with-context.yml" %}
 
 To create the `ApiDefinition` resource using the Gravitee sample file, run the following command:
 
