@@ -159,7 +159,7 @@ For more information, refer to the [Notifications](../../getting-started/configu
 
 ### AVRO <> Protobuf
 
-You can use the [`avro-protobuf`](broken-reference) policy to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
+You can use the [`avro-protobuf` policy](../../reference/policy-reference/avro-to-protobuf.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
 
 AVRO to Protobuf conversion:
 
@@ -175,13 +175,13 @@ Protobuf to AVRO conversion:
 
 ### GraphQL Rate Limit
 
-The [`graphql-rate-limit` policy](broken-reference) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
+The [`graphql-rate-limit` policy](../../reference/policy-reference/graphql-rate-limit.md) has been added to limit the load placed on the GraphQL server so that GraphQL resources can be served reliably without overloading the system. It is a Gravitee Enterprise Edition feature and requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)​.
 
 The Gravitee Gateway evaluates query costs by introspecting schema and analyzing the query, then applying a rate-limiting strategy based on a computed/weighted score. This protects the backend GraphQL server from having to process costly GraphQL requests.
 
 ### Protobuf <> JSON
 
-You can use the [`protobuf-json`](broken-reference) policy to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
+You can use the [`protobuf-json` policy](../../reference/policy-reference/protobuf-to-json.md) to apply a transformation (or mapping) on the request, and/or response, and/or message content of an API call.&#x20;
 
 Protobuf to JSON conversion:
 
@@ -204,7 +204,7 @@ To dynamically set the custom key, it can be defined using Gravitee Expression L
 
 Instead of accessing a client certificate via API call during an active TLS session, a reverse proxy (e.g., NGINX, Apache) can pass the client certificate using a specified header. This option requires the user to specify which header contains the certificate, which is base64-encoded. The `ssl-enforcement` policy uses the base64-encoded text of the certificate to validate whether the certificate is valid.
 
-Refer to the [`ssl-enforcement`](../../reference/policy-reference/ssl-enforcement.md) policy for additional details.
+Refer to the [`ssl-enforcement` policy](../../reference/policy-reference/ssl-enforcement.md) for additional details.
 
 ## Sharding tags
 
