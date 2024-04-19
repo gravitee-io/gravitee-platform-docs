@@ -74,7 +74,7 @@ Events and audit entries are now captured at the API level for v4 APIs. These ar
 
 <figure><img src="../../.gitbook/assets/audit logs_v4 apis.png" alt=""><figcaption><p>Events and audit logs</p></figcaption></figure>
 
-See the [Audit Logs](broken-reference) documentation for more information.
+See the [Audit Logs](../../guides/api-configuration/v4-api-configuration/audit-logs.md) documentation for more information.
 
 ## Developer Portal&#x20;
 
@@ -100,7 +100,7 @@ The Management Console's Health-check feature can be used for v4 HTTP proxy APIs
 
 <figure><img src="../../.gitbook/assets/health-check config form (1).png" alt=""><figcaption><p>Health-check configuration settings for v4 HTTP proxy APIs</p></figcaption></figure>
 
-For more information, see [Health-check](broken-reference).
+For more information, see [Health-check](../../guides/api-configuration/v4-api-configuration/endpoints/health-check.md).
 
 ### Version history
 
@@ -108,7 +108,7 @@ The Management Console's Version History feature allows you to view a v4 API's d
 
 <figure><img src="../../.gitbook/assets/deployment_version history details.png" alt=""><figcaption><p>JSON definition of an API version</p></figcaption></figure>
 
-For more information, see [Version History](broken-reference).
+For more information, see [Version History](../../guides/api-configuration/v4-api-configuration/version-history.md).
 
 ### Webhook
 
@@ -124,11 +124,11 @@ For more information, see the [Webhook entrypoint configuration ](../../guides/a
 
 CORS support has been extended to v4 message and proxy APIs. For CORS to be applied, an API must contain at least one HTTP GET, HTTP POST, HTTP Proxy, or SSE entrypoint. WebSocket entrypoints do not support CORS.&#x20;
 
-To learn more, see the [v4 CORS configuration](broken-reference) documentation.
+To learn more, see the [v4 CORS configuration](../../guides/api-configuration/v4-api-configuration/entrypoints/cors.md) documentation.
 
 ### Response templates
 
-[Response templates](broken-reference) can be implemented for all v4 API HTTP entrypoints:
+[Response templates](../../guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md) can be implemented for all v4 API HTTP entrypoints:
 
 * HTTP GET
 * HTTP POST
