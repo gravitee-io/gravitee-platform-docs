@@ -1,7 +1,7 @@
 ---
 description: >-
   The Management API empowers orgs to manage APIs effectively, automate
-  processes, and enhance developer experiences.
+  processes, and enhance developer experiences
 ---
 
 # Management API Reference
@@ -12,7 +12,7 @@ The Management API component manages the configuration of the entire Gravitee AP
 
 ## Documentation Viewer
 
-Before using the Gravitee API docs, we highly recommend reading the contextual information in the sections below. That said, if you'd like to go ahead and explore the API documentation first, please select the category of endpoints you would like to view below to open an integrated API viewer and client. If desired, there is an option to download the API specification inside the viewer.
+Before using the Gravitee API docs, we highly recommend reading the contextual information in the sections below. To explore the API documentation, select from the following endpoints categories to open an integrated API viewer and client. The viewer includes an option to download the API specification.
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Console UI and v2 APIs Endpoints Documentation Viewer</strong></td><td></td><td>Manage all aspects of the Console UI and v2 APIs, e.g., import, update, export, and delete API definitions to configure plans, policies, users, groups, and analytics settings.</td><td><a href="https://gravitee-io-labs.github.io/mapi-v1-docs/">https://gravitee-io-labs.github.io/mapi-v1-docs/</a></td></tr><tr><td><strong>v4 API Endpoints Documentation Viewer</strong></td><td></td><td>Manage v4 APIs, e.g., import, update, export, and delete API definitions to configure plans, policies, users, groups, and analytics settings.</td><td><a href="https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-apis/">https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-apis/</a></td></tr><tr><td><strong>Portal Endpoints Documentation Viewer</strong></td><td></td><td>Manage all aspects of the Developer Portal.</td><td><a href="https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-portal/">https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-portal/</a></td></tr><tr><td><strong>Plugin Endpoints Documentation Viewer</strong></td><td></td><td>Read-only. Get information on entrypoints, endpoints, and policy plugins.</td><td><a href="https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-plugins/">https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-plugins/</a></td></tr><tr><td><strong>Installation Endpoints Documentation Viewer</strong></td><td></td><td>Read-only. Get environment and organization details.</td><td><a href="https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-installation/">https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-installation/</a></td></tr><tr><td><strong>OEM Customization Endpoints Documentation Viewer</strong></td><td></td><td>Read-only. Get details around OEM customization of the Console UI.</td><td><a href="https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-ui/">https://gravitee-io-labs.github.io/mapi-v2-docs-openapi-ui/</a></td></tr></tbody></table>
 
@@ -24,14 +24,16 @@ All Management API endpoints are accessible via the main Management API componen
 
 ### Management
 
-#### **V1**
+There are two versions of the `Management` subcomponent: V1 and V2.
 
+{% tabs %}
+{% tab title="V1" %}
 V1 is the initial version of the Management API, which covers all v2 APIs (including plans, policies, documentation, etc.) and all other resources available in the Console UI, e.g., applications, subscriptions, users, etc.&#x20;
 
 The **V1 specification** (YAML OAS) is available at `/management/openapi.yaml` of the Management API component.
+{% endtab %}
 
-#### **V2**
-
+{% tab title="V2" %}
 V2 is the latest version of the Management API, which currently covers v4 APIs (including plans, policies, documentation, etc.), plugins, installation, and OEM customization of the Console UI. T
 
 The **V2 home page** is accessible at `/management/v2/` of the Management API component. It is split into four groups:
@@ -40,6 +42,8 @@ The **V2 home page** is accessible at `/management/v2/` of the Management API co
 * **Plugins**: Accessible at `/management/v2/openapi-plugins.yaml` of the Management API
 * **Installation**: Accessible at `/management/v2/openapi-installation.yaml` of the Management API
 * **OEM Customizations**: Accessible at `/management/v2/openapi-ui.yaml` of the Management API
+{% endtab %}
+{% endtabs %}
 
 ### Portal
 
