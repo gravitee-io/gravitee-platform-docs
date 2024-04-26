@@ -5,11 +5,12 @@ description: >-
 ---
 
 # APIM 4.1.x
- 
+
 ## Gravitee API Management 4.1.14 - April 26, 2024
+
 <details>
 
-<summary>BugFixes</summary>
+<summary>Bug fixes</summary>
 
 **Management API**
 
@@ -26,13 +27,11 @@ description: >-
 
 **Other**
 
-* [gravitee-policy-cache] Cache Policy Always Caches the First Response [#9534](https://github.com/gravitee-io/issues/issues/9534)
-* [gravitee-policy-cache] Cache Policy Does Not Correctly Return Images [#9585](https://github.com/gravitee-io/issues/issues/9585)
-* [gravitee-policy-cache] Time to live setting not working [#9692](https://github.com/gravitee-io/issues/issues/9692)
+* \[gravitee-policy-cache] Cache Policy Always Caches the First Response [#9534](https://github.com/gravitee-io/issues/issues/9534)
+* \[gravitee-policy-cache] Cache Policy Does Not Correctly Return Images [#9585](https://github.com/gravitee-io/issues/issues/9585)
+* \[gravitee-policy-cache] Time to live setting not working [#9692](https://github.com/gravitee-io/issues/issues/9692)
 
 </details>
-
-
 
 ## Gravitee API Management 4.1.13 - April 11, 2024
 
