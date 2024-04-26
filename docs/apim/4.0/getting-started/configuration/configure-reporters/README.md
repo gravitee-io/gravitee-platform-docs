@@ -65,11 +65,14 @@ reporters:
       rename:
         application: app
     log:
-      exclude: *
+      exclude:
+        - "*"
     node:
-      exclude: *
-    healthcheck:
-      exclude: *
+      exclude:
+        - "*"
+    health-check:
+      exclude:
+        - "*"
 ```
 {% endtab %}
 {% endtabs %}
@@ -124,11 +127,14 @@ reporters:
       rename:
         application: app
     log:
-      exclude: *
+      exclude:
+        - "*"
     node:
-      exclude: *
-    healthcheck:
-      exclude: *
+      exclude:
+        - "*"
+    health-check:
+      exclude:
+        - "*"
     tls:
       enabled: true
       verifyClient: true
