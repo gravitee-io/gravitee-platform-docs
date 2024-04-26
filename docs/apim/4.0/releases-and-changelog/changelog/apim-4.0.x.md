@@ -5,6 +5,34 @@ description: >-
 ---
 
 # APIM 4.0.x
+ 
+## Gravitee API Management 4.0.23 - April 26, 2024
+<details>
+
+<summary>BugFixes</summary>
+
+**Management API**
+
+* Error in OpenApi spec [#9665](https://github.com/gravitee-io/issues/issues/9665)
+* Unable to update the service account email through API [#9682](https://github.com/gravitee-io/issues/issues/9682)
+
+**Console**
+
+* Cannot create Backend-to-Backend Application from UI Console [#9636](https://github.com/gravitee-io/issues/issues/9636)
+
+**Portal**
+
+* Problem of swagger interpretation with redocly [#9673](https://github.com/gravitee-io/issues/issues/9673)
+
+**Other**
+
+* [gravitee-policy-cache] Cache Policy Always Caches the First Response [#9534](https://github.com/gravitee-io/issues/issues/9534)
+* [gravitee-policy-cache] Cache Policy Does Not Correctly Return Images [#9585](https://github.com/gravitee-io/issues/issues/9585)
+* [gravitee-policy-cache] Time to live setting not working [#9692](https://github.com/gravitee-io/issues/issues/9692)
+
+</details>
+
+
 
 ## Gravitee API Management 4.0.22 - April 11, 2024
 
