@@ -10,11 +10,10 @@ The API lifecycle includes API design, development, testing, deployment, trouble
 
 Gravitee offers an API lifecycle toolset that extends beyond conventional API strategy and implementation. One of Gravitee’s core differentiators is that it's an event-native API solution, built on an event-driven architecture implemented with reactive programming. It fully supports both asynchronous, event-driven APIs and synchronous APIs, even mediating between synchronous and asynchronous protocols.
 
-The following sections provide a high-level overview of Gravitee architecture and concepts:
+The following sections provide a high-level overview of Gravitee architecture, concepts, and features:
 
 * [Global architecture](gravitee-core-concepts.md#gravitee-global-architecture-4)
 * [Cockpit architecture](gravitee-core-concepts.md#gravitee-cockpit-architecture)
-* [API Management](gravitee-core-concepts.md#gravitee-api-management)
 * [API Gateway](gravitee-core-concepts.md#api-gateway-policies-and-plugins-5)
 * [API policies](gravitee-core-concepts.md#api-policies)
 * [API plugins](gravitee-core-concepts.md#api-plugins)
@@ -50,12 +49,6 @@ Gravitee-managed deployments are connected to Gravitee Cockpit by default.
 * **Environment:** Lowest level. Typically an environment in an IT infrastructure, such as development or production.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample Gravitee Cockpit hierarchy</p></figcaption></figure>
-
-## API Management
-
-Gravitee API Management is a lightweight and performant solution  to accelerate and streamline the governance and security of both synchronous and asynchronous APIs. It provides a centralized platform from which to measure and control API consumption, share and discover APIs, and manage the API lifecycle, versioning, and documentation.
-
-As a highly flexible and scalable solution, Gravitee APIM integrates with a customer's infrastructure and conforms to specific business needs. APIM is fully extensible using its own internal plugin system where customers can define their own policies and develop their own reporting systems.
 
 ## API Gateway <a href="#api-gateway-policies-and-plugins-5" id="api-gateway-policies-and-plugins-5"></a>
 
