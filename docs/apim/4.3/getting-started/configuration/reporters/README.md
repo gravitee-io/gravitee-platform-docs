@@ -1,4 +1,4 @@
-# Reporters
+**# Reporters
 
 ## Overview
 
@@ -78,7 +78,7 @@ reporters:
 {% endtabs %}
 
 {% hint style="info" %}
-\<EVENT\_TYPE> refers to the kind of event reported by the Gateway and can be either `request`, `log`, `node` or `healthcheck`. Fields referenced as `exclude`, `include` and `rename` items all support [jsonPath](https://github.com/json-path/JsonPath) for accessing nested elements.
+\<EVENT\_TYPE> refers to the kind of event reported by the Gateway and can be either `request`, `log`, `node` or `health-check`. Fields referenced as `exclude`, `include` and `rename` items all support [jsonPath](https://github.com/json-path/JsonPath) for accessing nested elements.
 {% endhint %}
 
 ### TCP reporter
@@ -192,4 +192,4 @@ reporters:
       #password: "YOUR_PASSWORD"
 ```
 {% endtab %}
-{% endtabs %}
+{% endtabs %}**
