@@ -78,13 +78,12 @@ To install the Enterprise Edition of APIM requires a license key.&#x20;
 For information on obtaining a license key, visit the [Gravitee pricing page](https://www.gravitee.io/pricing).&#x20;
 {% endhint %}
 
-The default location of the EE license file `license.key` is the `GRAVITEE_HOME/license/license.key` directory. To override this with a different location, provide the absolute path to the license file using one of the following:
+Users can directly provide the base64-encoded enterprise license with the `GRAVITEE_LICENSE_KEY` environment variable.&#x20;
 
-* The `GRAVITEE_LICENSE` environment variable, e.g., `export GRAVITEE_LICENSE="/path/to/my/very_own_license.key"`
-* The  `license` property in the `gravitee.yml` file, e.g., `gravitee_license: /path/to/my/very_own_license.key`
+The default location of the EE license file `license.key` is the `GRAVITEE_HOME/license/license.key` directory. To override this with a different location, provide the absolute path to the license file using the  `-Dgravitee.license` property in the `gravitee.yml` file, e.g., `gravitee_license: /path/to/my/own_license.key`.
 
 To locate the `license.key`, both the `Gateway` and `Management API` components use the following search sequence:
 
-1. The component will first look for the `GRAVITEE_LICENSE` environment variable
-2. If it cannot find the `GRAVITEE_LICENSE` environment variable, the component will look for an absolute path to the license file in the `license` property of `gravitee.yml`
+1. The component will first look for the `GRAVITEE_LICENSE_KEY` environment variable
+2. If it cannot find the `GRAVITEE_LICENSE_KEY` environment variable, the component will look for an absolute path to the license file in the `license` property of `gravitee.yml`
 3. If the license property is not set in the `gravitee.yml` file, the component will try to retrieve the key from the default location `GRAVITEE_HOME/license/license.key`
