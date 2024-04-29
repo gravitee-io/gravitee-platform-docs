@@ -8,11 +8,9 @@ description: >-
 
 ## Introduction
 
-Gravitee allows you to set up alerts and notifications based on events recognized by the Gateway. You can [set up notifications](notifications.md#configure-notifications-for-your-apis) that appear in the Gravitee API Management Console or that are sent to Gravitee users via email. You can also [create custom alerts](notifications.md#configure-alerts) based on user-defined rules and conditions. Keep reading to learn how to configure alerts and notifications.
+Gravitee allows you to set up alerts and notifications based on events recognized by the Gateway. You can [set up notifications](notifications.md#configure-notifications-for-your-apis) that appear in the Gravitee API Management Console or that are sent to Gravitee users via email. You can also [create custom alerts](notifications.md#configure-alerts) based on user-defined rules and conditions.
 
 ## Configure notifications for your APIs
-
-{% @arcade/embed flowId="vLOPiPtuGAbHWNJj6LRN" url="https://app.arcade.software/share/vLOPiPtuGAbHWNJj6LRN" %}
 
 APIM includes 3 categories of notifications and 3 types of notifiers. Their purpose and configuration are described below, along with customization via templates.
 
@@ -217,13 +215,11 @@ The available attributes are summarized below. Use the [Apache Freemarker templa
 The following documentation is only relevant if you have Gravitee Alert Engine enabled, which is an Enterprise-only capability. To enable the following alerting capabilities, please [contact us](https://www.gravitee.io/contact-us) or reach out to your CSM.
 {% endhint %}
 
-When configuring an API's settings, you can also set up alerting conditions for the Gateway. To configure alerts for an API, select the API from the **APIs** menu. Then, under **Notifications,** select **Alerts**.
+When configuring platform settings, you can also set up alerting conditions for the Gateway. To configure alerts, select **Alerts** from the left nav of your APIM console. If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
 
-If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
+<figure><img src="../../.gitbook/assets/alerts.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Alerts menu.png" alt=""><figcaption><p>Blank alerts page</p></figcaption></figure>
-
-Select the **+** icon to create your first alert. On the **Create a new alert** page, you can configure the following:
+Select the **+** icon to create your first alert. On the **Create a new alert** page, configure the following:
 
 * **General settings:** Name, Rule (Gravitee includes several pre-built rules), Severity, Description
 * **Timeframe:** Create a timeline for this alerting mechanism
@@ -234,7 +230,7 @@ By default, alerts will show up in your **Dashboard** under the **Alerts** tab a
 
 <figure><img src="../../.gitbook/assets/Alert areas.gif" alt=""><figcaption><p>You can see alerts in the Alerts tab and the Alerts page.</p></figcaption></figure>
 
-In addition to viewing alerts in these locations, you can configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications** tab\*\*.\*\* On this page, you can:
+In addition to viewing alerts in these locations, you can configure notifications that are attached to these alerts. This is done on the **Create a new alert** page under the **Notifications** tab. On this page, you can:
 
 * **Define a dampening rule:** Limit the number of notifications if the trigger is fired multiple times for the same condition
 * **Add a notification:** Add a notification type to your alerts to trigger notifications when alerts are processed. The available notification channels are email, Slack, system email, and Webhook.

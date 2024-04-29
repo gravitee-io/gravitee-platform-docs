@@ -8,9 +8,7 @@ description: >-
 
 ## Introduction
 
-This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../#configuring-apim-components), you can override these settings by using system properties or environment variables
-
-## The `gravitee.yaml` file
+This guide will walk through how to configure your general Gravitee API Management (APIM) Gateway settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../#configuring-apim-components), you can override these settings by using system properties or environment variables.
 
 The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
 
@@ -22,23 +20,15 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 
 With the `gravitee.yaml` file, you can configure the following:
 
-* HTTP Server
-  * HTTPS support
-  * File keystore
-  * Kubernetes Secret/ConfigMap keystore
-  * HTTP/2 support
-  * WebSocket support
-  * Certificate-based client authentication
-* Plugins repository
-* Management repository
-* Rate Limit repository
-  * Store counters in MongoDB
-  * Store counters in JDBC
-* Reporters
-* Services
-* Sharding tags
-* Organizations and environments
-* Transaction ID and Request ID headers
+* [HTTP Server](general-configuration.md#configure-your-http-server)
+* [Plugins repository](general-configuration.md#configure-the-plugins-directory)
+* [Management repository](general-configuration.md#configure-the-management-repository)
+* [Rate Limit repository](general-configuration.md#configure-the-rate-limit-repository)
+* [Reporters](general-configuration.md#configure-reporters)
+* [Services](general-configuration.md#configure-services)
+* [Sharding tags](general-configuration.md#configure-sharding-tags)
+* [Organizations and environments](general-configuration.md#configure-organizations-and-environments)
+* [Transaction ID and request ID headers](general-configuration.md#configure-transaction-id-and-request-id-headers)
 
 ## Configure your HTTP Server
 
@@ -67,9 +57,21 @@ http:
       password: secret
 ```
 
+This section discusses how to enable support for:
+
+* [HTTPS](general-configuration.md#enable-https-support)
+* [HTTP/2](general-configuration.md#enable-http-2-support)
+* [WebSocket](general-configuration.md#enable-websocket-support)
+* [Certificate-based client authentication](general-configuration.md#enable-certificate-based-client-authentication)
+* [Multi-server](general-configuration.md#multi-server-support)
+
 ### **Enable HTTPS support**
 
-You can use the gravitee.yaml file to configure HTTPS support. However, you first need to provide a keystore. If you do not have one, you can generate it:
+You can use the gravitee.yaml file to configure HTTPS support. However, you first need to enable secure mode in `gravitee.yml` and provide a keystore. You can generate a keystore if you don't have one, or use the file path or Kubernetes location.
+
+{% tabs %}
+{% tab title="Generate a keystore" %}
+Generate a keystore:
 
 ```sh
 keytool -genkey \
@@ -82,10 +84,10 @@ keytool -genkey \
   -keypass secret \
   -storepass secret
 ```
+{% endtab %}
 
-#### **File keystore**
-
-You then need to enable secure mode in `gravitee.yml` and provide a path pointing to the keystore containing the certificate and the associated private key:
+{% tab title="File keystore" %}
+Provide a path pointing to the keystore containing the certificate and the associated private key:
 
 ```yaml
 http:
@@ -106,10 +108,10 @@ http:
 
 As of Gravitee APIM v3.13.0, the keystore file is automatically watched for any modifications and reloaded without having to restart the Gateway server.
 {% endhint %}
+{% endtab %}
 
-#### **Kubernetes Secret/ConfigMap keystore**
-
-It is also possible to load the keystore directly from the Kubernetes secret or configmap by just specifying the appropriate Kubernetes location. You can do so in the `gravitee.yaml` file like so:
+{% tab title="K8s secret / configmap keystore" %}
+It is possible to load the keystore directly from the Kubernetes secret or configmap by specifying the appropriate Kubernetes location in the `gravitee.yaml` file:
 
 ```yaml
 http:
@@ -131,6 +133,8 @@ The expected `http.ssl.keystore.kubernetes` is structured as follows: `/{namespa
 * `key`: the name of the key holding the value to retrieve. The `key` is optional when using a standard `kubernetes.io/tls` secret (note: it only supports PEM cert & key). The `key` is mandatory for any `Opaque` secret or configmap (note: they only support JKS & PKC12 keystore type).
 
 The keystore (or PEM cert & key) stored in the Kubernetes secret or configmap is automatically watched for any modifications and reloaded without having to restart the Gateway server.
+{% endtab %}
+{% endtabs %}
 
 ### **Enable HTTP/2 support**
 
@@ -152,7 +156,7 @@ curl -k -v --http2 https://localhost:8082/my_api
 
 ### **Enable WebSocket support**
 
-To enable WebSocket support, update the `gravitee.yaml` file like so:
+To enable WebSocket support, update the `gravitee.yaml` file:
 
 ```yaml
 http:
@@ -179,9 +183,9 @@ http:
 
 Available modes for `clientAuth` are:
 
-* none: Client authentication is disabled (replacement of the `false` value)
-* request: Client authentication is not required but can be if using SSL enforcement policy
-* requires: Client authentication is required (replacement of `true` value)
+* None: Client authentication is disabled (replacement of the `false` value)
+* Request: Client authentication is not required but can be if using SSL enforcement policy
+* Requires: Client authentication is required (replacement of `true` value)
 
 ### Multi-server support
 
@@ -222,8 +226,10 @@ servers:
 
 ## Configure the plugins directory
 
-### Local installation
+The plugins directory can be configured via either local installation or Helm.
 
+{% tabs %}
+{% tab title="Local installation" %}
 You can configure the APIM Gateway [plugins](../../../overview/plugins.md) directory with `plugins.path` configuration property:
 
 ```yaml
@@ -247,10 +253,10 @@ plugins:
 ```
 
 In this example, bundled plugins remain in the default directory. This configuration adds an additional `plugins-ext` directory for the user to add plugins not included in APIM's default distribution.
+{% endtab %}
 
-### Helm chart
-
-Gravitee's Helm chart protects the bundled plugins directory by default. This is a sample configuration of how to add additional plugins:
+{% tab title="Helm Chart" %}
+Gravitee's Helm Chart protects the bundled plugins directory by default. This is a sample configuration of how to add additional plugins:
 
 {% code title="value.yaml" %}
 ```yaml
@@ -265,6 +271,8 @@ api:
 {% endcode %}
 
 The property `removePlugins` has been removed from the Helm chart as it is no longer necessary. See [plugin discovery and loading](../../../overview/plugins.md#discovery-and-loading) for more information.
+{% endtab %}
+{% endtabs %}
 
 ## Configure the Management repository
 
@@ -343,7 +351,11 @@ When defining the Rate Limiting policy, the Gravitee APIM Gateway needs to store
 
 For Management repositories, you can define a custom prefix for the Rate Limit table or collection name.
 
-### **Store counters in MongoDB**
+Counters can be stored in MongoDB, JDBC, or Redis Standalone.
+
+{% tabs %}
+{% tab title="MongoDB" %}
+To store counters in MongoDB:
 
 ```yaml
 ratelimit:
@@ -354,8 +366,10 @@ ratelimit:
 ```
 
 If you want to use a custom prefix, you need to follow the following [instructions](../repositories/#use-a-custom-prefix).
+{% endtab %}
 
-### **Store counters in JDBC**
+{% tab title="JDBC" %}
+To store counters in JDBC:
 
 ```yaml
 ratelimit:
@@ -368,8 +382,10 @@ ratelimit:
 ```
 
 If you want to use a custom prefix, you need to follow the following [instructions](../repositories/#use-a-custom-prefix-1).
+{% endtab %}
 
-### Store counters in Redis Standalone
+{% tab title="Redis Standalone" %}
+To store counters in Redis Standalone:
 
 ```yaml
 ratelimit:
@@ -381,6 +397,8 @@ ratelimit:
 ```
 
 Redis Sentinel and Redis SSL configuration options are presented [here](../repositories/#redis).
+{% endtab %}
+{% endtabs %}
 
 ## Configure reporters
 

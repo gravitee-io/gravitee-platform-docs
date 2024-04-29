@@ -7,11 +7,13 @@ Caches are used to store different types of data in Gravitee API Management (API
 * **Standalone Cache Manager:** The default plugin. The cache will not be distributed and will always remain local to the node (in-memory).
 * **Hazelcast Cache Manager:** Must be added to the distribution and enabled by setting `cache.type` to `hazelcast`. The cache can be either local (in-memory) or distributed (Hazelcast IMap).&#x20;
 
-The following is an example of the Hazelcast implementation:
+## Configuration
 
 {% hint style="warning" %}
-The below example must be modified according to your installation context.
+The example below must be modified according to your installation context.
 {% endhint %}
+
+The following is an example of the Hazelcast implementation:
 
 ```xml
 <cluster-name>gio-apim-distributed-cache</cluster-name>
@@ -29,9 +31,9 @@ The below example must be modified according to your installation context.
 
 ## Networking
 
-Depending on your installation (regular VMs, Kubernetes, AWS, etc.​), there are multiple ways to configure Hazelcast networking. The default configuration is designed to work in standalone mode. Distribution mode is not relevant to most use cases and not recommended.
+Depending on your installation (VMs, Kubernetes, AWS, etc.​), there are multiple ways to configure Hazelcast networking. The default configuration is designed to work in standalone mode. Distribution mode is not relevant to most use cases and not recommended.
 
-If you need run Hazelcast in a cluster, the simplest way is to enable multicast:
+If you need to run Hazelcast in a cluster, the simplest way is to enable multicast:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -68,4 +70,4 @@ Configuration of Cache resources cannot be managed using the `hazelcast.xml` fil
 
 ## Persistent cache
 
-APIM also supports the Gravitee [Redis Cache resource](../../guides/api-configuration/resources.md#cache-redis) plugin based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../../overview/plugins.md#deployment).
+APIM also supports the Gravitee [Redis Cache resource](../../guides/api-configuration/resources.md#cache-redis) plugin, based on [Redis](https://redis.io/documentation). This plugin is not in the default distribution, but can be [downloaded](https://download.gravitee.io/#graviteeio-apim/plugins/resources/gravitee-resource-cache-redis/) and deployed with these [instructions](../../overview/plugins.md#deployment).

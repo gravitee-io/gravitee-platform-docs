@@ -4,10 +4,6 @@ description: This article describes how to configure tenants
 
 # Tenants
 
-{% hint style="warning" %}
-As of Gravitee 4.0, you cannot implement tenants for v4 APIs.
-{% endhint %}
-
 ## Introduction
 
 Tenants are a way to leverage Gravitee's multi-endpoint capability, i.e., the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
@@ -38,17 +34,15 @@ EU Region: tenant: ‘eu’
 
 Once the Gateway has been configured, the tenant definition must be added via the API Management Console:
 
-1. Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant** and enter the value for each of your regions, e.g., “usa” and “eu." We also recommend giving each tenant a descriptive name.
+1.  Navigate to **Organization Settings** and select **Tenants**_**.**_ Select **Add a tenant** and enter the value for each of your regions, e.g., “usa” and “eu." We also recommend giving each tenant a descriptive name.&#x20;
 
-<figure><img src="https://miro.medium.com/v2/resize:fit:1400/0*dqayn7uZPfVmyQgT" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/tenant_create.png" alt=""><figcaption></figcaption></figure>
+2.  Next, configure the Backend and Customer APIs by adding two different endpoints. In our example, these will point to the USA and EU upstream systems (the backend server or the Customer API, depending on which API you are configuring).&#x20;
 
-2. Next, configure the Backend and Customer APIs by adding two different endpoints. In our example, these will point to the USA and EU upstream systems (the backend server or the Customer API, depending on which API you are configuring).
+    <figure><img src="../../../.gitbook/assets/tenant_BE &#x26; customer.png" alt=""><figcaption></figcaption></figure>
+3.  Specify which tenant a backend will apply to. Our two endpoints each point to different backends and are each assigned to a different tenant:&#x20;
 
-<figure><img src="https://miro.medium.com/v2/resize:fit:1400/0*en1j7FLNVLWpoOkn" alt=""><figcaption></figcaption></figure>
-
-3. Specify which tenant a backend will apply to. Our two endpoints each point to different backends and are each assigned to a different tenant:
-
-<figure><img src="https://miro.medium.com/v2/resize:fit:1400/0*ZhfPrNuU0Aa7YQ8c" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/tenant_specify.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Now that the two endpoints are defined, Gateways GWI1, GWI2, GWI3 and GWI4 will apply this logic:

@@ -4,15 +4,20 @@
 
 A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.&#x20;
 
+* [Import an API](openapi-spec-import.md#import-an-api)
+* [Context-path resolution](openapi-spec-import.md#context-path-resolution)
+* [Policies on path](openapi-spec-import.md#policies-on-path)
+
+## Import an API
+
 To import an API from OpenAPI:
 
-* If the OpenAPI specification is a file, select **IMPORT FILE** and browse your file system
+*   If the OpenAPI specification is a file, select **IMPORT FILE** and browse your file system&#x20;
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/manage-apis/graviteeio-import-openapi-file.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-import-openapi-file.png" alt=""><figcaption></figcaption></figure>
+*   If the OpenAPI specification is a link, select **IMPORT FROM LINK**, choose **Swagger / OpenAPI**, and enter the definition URL&#x20;
 
-* If the OpenAPI specification is a link, select **IMPORT FROM LINK**, choose **Swagger / OpenAPI**, and enter the definition URL
-
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/manage-apis/graviteeio-import-openapi-link.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/graviteeio-import-openapi-link.png" alt=""><figcaption></figcaption></figure>
 
 ## **Context-path resolution**
 
@@ -75,7 +80,7 @@ To learn how some policies can be defined in the OpenAPI spec as a vendor extens
 
 To use a vendor extension, add the `x-graviteeio-definition` field at the root of the specification. The value of this field is an `object` that follows this [JSON Schema](https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-rest-api/gravitee-apim-rest-api-service/src/main/resources/schema/xGraviteeIODefinition.json).
 
-Consider that:
+### Considerations
 
 * Categories must contain either a key or an ID.
 * Only existing categories are imported.
@@ -91,7 +96,7 @@ Consider that:
   * URL
 * Picture only accepts Data-URI format. Please see the example below.
 
-Example configuration:
+### Example configuration
 
 <pre class="language-yaml"><code class="lang-yaml"><strong>openapi: "3.0.0"
 </strong>info:

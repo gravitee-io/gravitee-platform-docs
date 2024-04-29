@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Gravitee 4.2 and later offers a set of `secret-provider` plugins that, when deployed, enable secret managers to obscure database passwords and certificates in Gravitee Gateway, API Management, and Access Management configuration files.
+Gravitee offers a set of `secret-provider` plugins that, when deployed, enable secret managers to obscure database passwords and certificates in Gravitee Gateway, API Management, and Access Management configuration files.
 
 {% hint style="info" %}
 A future release will enable secret providers to obscure API endpoint credentials in the Management Console.
@@ -186,8 +186,8 @@ ds:
 
 ### Resolving secrets for TLS
 
-#### For PEM
-
+{% tabs %}
+{% tab title="For PEM" %}
 The following shows the TLS configuration in `gravitee.yml`, which replaces the `ssl.keystore.kubernetes` parameter:
 
 ```yaml
@@ -216,10 +216,10 @@ secret://kubernetes/giotls?
   keymap=certificate:frontend-tls-cert&keymap=private_key:frontend-tls-priv-key
 ```
 
-Here, we expect the secret named `giotls` to contain two keys, `frontend-tls-cert` and `frontend-tls-key`, which are mapped to `certifcate` and `private_key`, respectively.
+We expect the secret named `giotls` to contain two keys, `frontend-tls-cert` and `frontend-tls-key`, which are mapped to `certifcate` and `private_key`, respectively.
+{% endtab %}
 
-#### For Java KeyStore
-
+{% tab title="For Java KeyStore" %}
 Instead of using PEM, you can use a base64 encoded Java KeyStore with the following configuration:
 
 ```yaml
@@ -234,6 +234,8 @@ http:
 ```
 
 Note that the keystore content (key `content` of `garavitee-jks`) and password are sought separately. In addition, Gravitee does not perform any mapping because naming is Java-specific.
+{% endtab %}
+{% endtabs %}
 
 ### Using `secret providers` to configure Secret Managers
 

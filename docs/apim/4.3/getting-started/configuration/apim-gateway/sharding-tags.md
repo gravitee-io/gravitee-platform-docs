@@ -12,6 +12,14 @@ Sharding tags allow you to “tag” Gateways with a keyword and deploy an API t
 
 To learn more about how to deploy APIs to specific Gateways based on sharding tags, refer to [Configure Deployments](../../../guides/api-configuration/v2-api-configuration/general-proxy-settings.md#configure-deployments).
 
+The sections below discuss:
+
+* [Tagged Gateway/API behavior](sharding-tags.md#tagged-gateway-api-behavior)
+* [Configuring sharding tags for Gravitee API Gateways](sharding-tags.md#configure-sharding-tags-for-your-gravitee-api-gateways)
+* [Defining sharding tags for an organization](sharding-tags.md#define-sharding-tags-for-an-organization)
+* [Adding sharding tags to an API](sharding-tags.md#add-sharding-tags-to-an-api)
+* [Mapping entrypoints to sharding tags](sharding-tags.md#map-entrypoints-to-sharding-tags)
+
 ## Tagged Gateway/API behavior
 
 API deployment is impacted by how tags are applied to APIs and Gateways.
@@ -34,7 +42,7 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 Our discussion of sharding tag configuration assumes an architecture that includes both DMZ Gateways and internal, corporate Gateways. We want to tag these Gateways as external-only and internal-only, respectively, per the diagram below:
 
-<figure><img src="../../../.gitbook/assets/Example architecture (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Example architecture (3).png" alt=""><figcaption></figcaption></figure>
 
 Before sharding tags can be defined in the Gravitee API Management Console, the API Gateway `gravitee.yaml` file must be modified to assign a Gravitee API Gateway to a specific sharding tag:
 

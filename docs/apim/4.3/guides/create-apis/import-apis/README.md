@@ -13,39 +13,33 @@ Gravitee supports importing APIs as:
 * API definition (URL)
 * WSDL (URL)
 
-{% hint style="info" %}
-As of Gravitee 4.1, APIs using the v2 and v4 API definitions can be imported as JSON files.
-{% endhint %}
-
 ## Import your API
 
-To import your API, head to the **APIs** page and select **+ Add API.** You'll be presented with three options for creating APIs. Select **Import an existing API**.
+To import your API:
 
-You'll be presented with the following options:
+1. Log in to your API Console
+2. Select **APIs** from the left nav
+3.  Select **+ Add API**&#x20;
 
-* **Upload a file:** This allows you to import an API as an uploaded file. You can import YML, YAML, JSON, WSDL, and XML files. Once you've uploaded your file, select **Import.** If the import runs smoothly, you'll be brought to the newly created API's details page.
-* **Swagger / OpenAPI:** If you choose this option, you'll need to provide a Swagger descriptor URL and choose your configuration options. These include:
-  * Create documentation: This will overwrite documentation if there is only one existing, or create it if it does not exist yet.
-  * Create the path mapping for analytics: This will overwrite all the path-mappings.
-  * Create policies on paths: This will overwrite all the policies. Policies that you can create upon import include:
-    * **JSON Validation**
-    * **Mock**
-    * **Request Validation**
-    * **REST to SOAP**
-    * **XML Validation**
-* **API definition:** If you choose this option, you'll need to include a URL that links to your API definition.
-* **WSDL:** If you choose this option, you'll need to provide a WSDL descriptor URL. Like the Swagger/OpenAPI option, you'll be able to configure the following prior to import:
-  * Create documentation: This will overwrite documentation if there is only one existing, or create it if it does not exist yet.
-  * Create the path mapping for analytics: This will overwrite all the path-mappings.
-  * Create policies on paths: This will overwrite all the policies. Policies that you can create upon import include:
-    * **JSON Validation**
-    * **Mock**
-    * **Request Validation**
-    * **REST to SOAP**
-    * **XML Validation**
+    <figure><img src="../../../.gitbook/assets/import_add api.png" alt=""><figcaption></figcaption></figure>
+4.  In the **Import an API definition** tile, click **Import**&#x20;
+
+    <figure><img src="../../../.gitbook/assets/import_import.png" alt=""><figcaption></figcaption></figure>
+5. Choose and configure an import option:
+   * **Upload a file:** Import a YML, YAML, JSON, WSDL, or XML file
+   * **Swagger / OpenAPI:**&#x20;
+     * Provide a **Swagger descriptor URL**
+     * **Create documentation:** Overwrites existing documentation or create it if it does not exist
+     * **Create the path mapping for analytics:** Overwrites all of the path-mappings
+     * **Create policies on paths:** Overwrites all of the policies. Policies that you can create upon import include **JSON Validation**, **Mock**, **Request Validation**, **REST to SOAP**, and **XML Validation**.
+   * **API definition:** Provide a URL that links to your API definition
+   * **WSDL:**&#x20;
+     * Provide a **WSDL descriptor URL**
+     * **Create documentation:** Overwrites existing documentation or create it if it does not exist
+     * **Create the path mapping for analytics:** Overwrites all of the path-mappings
+     * **Create policies on paths:** Overwrites all of the policies. Policies that you can create upon import include **JSON Validation**, **Mock**, **Request Validation**, **REST to SOAP**, and **XML Validation**.
+6. Click **Import**
 
 {% hint style="success" %}
-**Success!**
-
-Once you've imported your API, it will be created as a private API, and you will be brought to that APIs menu and details page. From here, you can further [configure your API](../../api-configuration/), [design policies for that API](../../policy-studio/), [expose that API](../../api-exposure-plans-applications-and-subscriptions/), etc.
+Once you've imported your API, it will be created as a private API and you will be brought to the API menu and details page.
 {% endhint %}

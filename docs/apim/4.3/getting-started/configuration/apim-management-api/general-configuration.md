@@ -8,9 +8,7 @@ description: >-
 
 ## Introduction
 
-This guide will walk through how to configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../#configuring-apim-components), you can override these settings by using system properties or environment variables
-
-## The `gravitee.yaml` file
+This guide will walk through how to configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in the [Configuring APIM Components](../#configuring-apim-components), you can override these settings by using system properties or environment variables.
 
 The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
 
@@ -22,18 +20,13 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 
 With the `gravitee.yaml` file, you can configure the following:
 
-* Configure HTTP Server
-  * Enable HTTPS support
-* Configure the Management and Portal APIs
-* CORS configuration
-  * Configure in APIM Console
-* Configure the Plugins repository
-* Configure the Management repository
-* Configure the Analytics repository
-* SMTP configuration
-  * Configure in APIM Console
-  * Configure the Gmail SMTP server
-* Default `gravitee.yaml` configuration file
+* [HTTP Server](general-configuration.md#configure-http-server)
+* [Management and Portal APIs](general-configuration.md#configure-the-management-and-portal-apis)
+* [CORS](general-configuration.md#cors-configuration)
+* [Management repository](general-configuration.md#configure-the-management-repository)
+* [Analytics repository](general-configuration.md#configure-the-analytics-repository)
+* [SMTP](general-configuration.md#smtp-configuration)
+* [Default `gravitee.yaml` file](general-configuration.md#default-gravitee.yaml-config-file)
 
 ## Configure HTTP server
 

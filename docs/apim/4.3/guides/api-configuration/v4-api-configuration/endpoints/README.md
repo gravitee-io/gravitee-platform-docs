@@ -1,20 +1,24 @@
 ---
 description: >-
-  This article discusses endpoint behavior and the processes for configuring and
-  managing v4 API endpoints
+  This article introduces endpoint behavior and the processes for configuring
+  and managing v4 API endpoints
 ---
 
 # Endpoints
 
 ## Introduction
 
-In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API. After you've created your Gateway API and selected your endpoint(s), you can configure them in the API Management Console.
+In Gravitee, Gateway endpoints define the protocol and configuration settings by which the Gateway API will fetch data from, or post data to, the backend API. After you've created your Gateway API and selected your endpoint(s), you can configure them in the API Management Console. The following sections:
+
+* [Link to endpoint configuration and implementation](./#configuration-and-implementation)
+* [Describe endpoint management](./#endpoint-management)
+* [Describe endpoint default behavior](./#default-behavior)
 
 ## Configuration and implementation
 
 Click on the tiles below to learn how to configure and implement v4 proxy API endpoints and v4 message API endpoints.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>v4 Proxy API Endpoints</td><td></td><td><a href="v4-proxy-api-endpoints.md">v4-proxy-api-endpoints.md</a></td></tr><tr><td></td><td>v4 Message API Endpoints</td><td></td><td><a href="v4-message-api-endpoints/">v4-message-api-endpoints</a></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>v4 Proxy API Endpoints</td><td></td><td><a href="v4-proxy-api-endpoints.md">v4-proxy-api-endpoints.md</a></td></tr><tr><td></td><td>v4 Message API Endpoints</td><td></td><td><a href="v4-message-api-endpoints/">v4-message-api-endpoints</a></td></tr><tr><td></td><td>Health-check</td><td></td><td><a href="health-check.md">health-check.md</a></td></tr></tbody></table>
 
 ## Endpoint management
 

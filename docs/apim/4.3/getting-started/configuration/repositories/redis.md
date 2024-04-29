@@ -6,7 +6,7 @@ description: This article explains how to configure a Redis repository
 
 ## Overview
 
-The Redis repository plugin enables you to connect to Redis databases for the Rate Limit feature. The Redis plugin is part of the default distribution of APIM.
+The Redis repository plugin enables you to connect to Redis databases to use the Rate Limit feature. The Redis plugin is part of the default distribution of APIM.
 
 ## Supported databases
 
@@ -50,7 +50,7 @@ Redis SSL truststore options:
 {% endtab %}
 {% endtabs %}
 
-The example below shows the minimum configuration needed to get started with a Redis database.
+Below is the minimum configuration needed to get started with a Redis database.
 
 ```yaml
 # ===================================================================
@@ -112,7 +112,5 @@ ratelimit:
 ```
 
 {% hint style="info" %}
-**Don't forget**
-
-If Redis Rate Limit repository is not accessible, the call to API will pass successfully. Do not forget to monitor your probe healthcheck to verify that Redis repository is healthy. You can find health endpoints in the [Internal API documentation](../apim-management-api/general-configuration.md).
+If Redis Rate Limit repository is not accessible, the API call will fail. Do not forget to monitor your probe health-check to verify that Redis repository is healthy. See the [Internal API documentation](../apim-management-api/general-configuration.md) for health endpoints.
 {% endhint %}

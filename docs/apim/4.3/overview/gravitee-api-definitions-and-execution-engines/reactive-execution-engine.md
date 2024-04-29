@@ -2,7 +2,7 @@
 description: This page provides a high-level overview of the v4 engine
 ---
 
-# Reactive execution engine
+# Reactive Execution Engine
 
 ## Overview
 

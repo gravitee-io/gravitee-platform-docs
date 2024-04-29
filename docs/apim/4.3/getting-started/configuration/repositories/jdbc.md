@@ -6,7 +6,7 @@ description: This article explains how to configure a JDBC repository
 
 ## Overview
 
-The JDBC plugin is part of the default distribution of APIM. However, you need to install the correct driver for the database you are using in order to use JDBC as a repository.
+The JDBC plugin is part of the default distribution of APIM. However, you must install the correct database driver to use JDBC as a repository.
 
 ## Supported databases
 
@@ -14,7 +14,7 @@ The JDBC plugin is part of the default distribution of APIM. However, you need t
 
 ## Install the JDBC driver
 
-Repeat these steps on each component (APIM Gateway and APIM API) where the SQL database is used:
+Repeat these steps for each component (APIM Gateway and APIM API) where the SQL database is used:
 
 1. Download the JDBC driver corresponding to your database version
 2. Place the driver in `$GRAVITEE_HOME/plugins/ext/repository-jdbc`
@@ -23,14 +23,14 @@ Repeat these steps on each component (APIM Gateway and APIM API) where the SQL d
 {% hint style="info" %}
 **Before moving on**
 
-If you are using Docker to install and run APIM, you should place the driver in the `plugins-ext` folder and configure it by using the Docker compose file or command-line arguments. For more information, see [Further Customization](../../install-and-upgrade-guides/install-on-docker/further-customization.md) of a Docker installation.
+If you are using Docker to install and run APIM, you should place the driver in the `plugins-ext` folder and configure it by using the Docker Compose file or command line arguments. For more information, see [Further Customization](../../install-and-upgrade-guides/install-on-docker/further-customization.md) of a Docker installation.
 {% endhint %}
 
 ## Configuration
 
 ### Mandatory configuration
 
-The example below shows the minimum configuration needed to get started with a JDBC database.
+Below is the minimum configuration needed to get started with a JDBC database.
 
 ```
 management:
@@ -62,9 +62,9 @@ management:
 
 ## Use a custom prefix
 
-You can use a custom prefix for your table names. For example, this is useful if you want to use the same databases for APIM and AM.
+You can use a custom prefix for your table names. This is useful if you want to use the same databases for APIM and AM.
 
-The following steps explain how to rename your tables with a custom prefix, using the prefix `prefix_` as an example.
+The following steps explain how to rename your tables with a custom prefix, using the example prefix `prefix_`.
 
 ### Use a custom prefix on a new installation
 

@@ -6,28 +6,34 @@ description: >-
 
 # Multi-tenancy
 
-## Overview
-
 {% hint style="warning" %}
 Multi-tenancy requires running APIM 4.2 and an [enterprise-enabled Gravitee Cockpit account](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee#enterprise-version-of-gravitee-cockpit).&#x20;
 
 To learn more about Gravitee Enterprise and what's included in various enterprise packages, [book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/) or [check out the pricing page](https://www.gravitee.io/pricing).
 {% endhint %}
 
-Gravitee uses the term multi-tenancy to describe a configuration in which:&#x20;
+## Overview
+
+Changes to the management of Gravitee Organizations and Environments and to the configuration propagated from Gravitee Cockpit enable multi-tenancy. Gravitee multi-tenancy describes a configuration in which:&#x20;
 
 * A single APIM installation supports multiple Organizations and Environments created through Cockpit. Each tenant can be either an Organization or an Environment.
 * Features and data are isolated between tenants.
 * Dedicated URLs, or Access Points, are used to access APIM components and APIs deployed on Gravitee Gateways. APIs may only be published on these defined entrypoints.
 
 {% hint style="info" %}
-The way in which data and features are isolated between the logical hierarchical structures of APIM enables the existence of a multi-tenant Developer Portal.
+The isolation scheme of data and features between the logical hierarchical structures of APIM enables a multi-tenant Developer Portal.
 {% endhint %}
 
-APIM 4.2 implements changes to how Organizations and Environments are managed, in addition to the configuration that is propagated from Gravitee Cockpit. The following sections cover:
+The following sections describe:
 
-* How to configure a `multi-tenant` installation with Gravitee 4.2, including Access Points.
-* For information on how to run a `standalone` (not multi-tenant) installation with APIM 4.2 and newer, refer to the [4.2 Upgrade Guide](4.2-upgrade-guide.md#updating-cockpit-connection).
+* [How to set up multi-tenancy](multi-tenancy.md#how-to-set-up-multi-tenancy)
+* [Access points](multi-tenancy.md#access-points)
+* [Constraints of multi-tenancy mode](multi-tenancy.md#constraints-of-multi-tenancy-mode)
+* [A typical multi-tenant setup](multi-tenancy.md#a-typical-multi-tenant-setup)
+
+{% hint style="info" %}
+For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](4.2-upgrade-guide.md#updating-cockpit-connection).
+{% endhint %}
 
 ## How to set up multi-tenancy
 
@@ -47,38 +53,39 @@ Once a multi-tenant APIM is connected to Cockpit, it is not possible to disable 
 {% endhint %}
 
 1. [Install APIM](./) on your preferred infrastructure and deployment type
-2. Explicitly set APIM to multi-tenant mode by commenting out the multi-tenant section in the configuration. Optionally, you can specify the configuration of Access Points, which comprises the URLs that APIM components will be addressed on.&#x20;
+2.  Explicitly set APIM to multi-tenant mode by commenting out the multi-tenant section in the configuration. Optionally, you can specify the configuration of Access Points, which comprises the URLs that APIM components will be addressed on.&#x20;
 
-{% hint style="info" %}
-Cockpit is able to interpret a variabilized Access Point structure based on Account, Organization, and Environment Human Readable IDs. Cockpit will interpret non-variabilized instructions literally, which may result in multiple Environment components receiving the same Access Point configuration.
-{% endhint %}
+    {% hint style="info" %}
+    Cockpit is able to interpret a variabilized Access Point structure based on Account, Organization, and Environment Human Readable IDs. Cockpit will interpret non-variabilized instructions literally, which may result in multiple Environment components receiving the same Access Point configuration.
+    {% endhint %}
 
-```yaml
-installation:
-  type: multi-tenant
-  multi-tenant:
-    # Specify the Access Points of your installation, mandatory if you want to connect it to Cockpit with a multi-tenant installation
-    # You can use template variable such as {account}, {organization} or {environment}
-    accessPoints:
-      organization:
-        console:
-          host: '{organization}.{account}.example.com'
-          secured: true
-        console-api:
-          host: '{organization}.{account}.example.com'
-          secured: true
-      environment:
-        portal:
-          host: '{environment}.{organization}.{account}.example.com'
-          secured: true
-        portal-api:
-          host: '{environment}.{organization}.{account}.example.com'
-          secured: true
-        gateway:
-          host: '{environment}.{organization}.{account}.example.com'
-          secured: true
-```
 
+
+    ```yaml
+    installation:
+      type: multi-tenant
+      multi-tenant:
+        # Specify the Access Points of your installation, mandatory if you want to connect it to Cockpit with a multi-tenant installation
+        # You can use template variable such as {account}, {organization} or {environment}
+        accessPoints:
+          organization:
+            console:
+              host: '{organization}.{account}.example.com'
+              secured: true
+            console-api:
+              host: '{organization}.{account}.example.com'
+              secured: true
+          environment:
+            portal:
+              host: '{environment}.{organization}.{account}.example.com'
+              secured: true
+            portal-api:
+              host: '{environment}.{organization}.{account}.example.com'
+              secured: true
+            gateway:
+              host: '{environment}.{organization}.{account}.example.com'
+              secured: true
+    ```
 3. Sign in to your enterprise version of Gravitee Cockpit and
    * Create one Organization
    * Create one Environment
@@ -113,7 +120,7 @@ The Access Points feature allows different tenants to use dedicated URLs to acce
 
 ## Constraints of multi-tenancy mode
 
-As of APIM 4.2, multi-tenancy is subject to the following limitations:
+Multi-tenancy is subject to the following limitations:
 
 * Although you can connect more than one standalone APIM installation to the same Cockpit Organization, you cannot connect more than one multi-tenant APIM installation. Trying to do so will generate errors.&#x20;
 * You cannot connect a multi-tenant-enabled APIM installation to Cockpit if you do not have an enterprise-enabled Cockpit account. Trying to do so will generate errors.
@@ -122,7 +129,7 @@ As of APIM 4.2, multi-tenancy is subject to the following limitations:
 If you are an existing Gravitee Enterprise customer and encounter issues setting up multi-tenancy mode, reach out to your Customer Success Manager to make sure your Cockpit Account has all enterprise features enabled.
 {% endhint %}
 
-## Example: A typical multi-tenant setup
+## A typical multi-tenant setup
 
 By leveraging the same APIM installation, multi-tenancy mode allows you to reduce the footprint of your infrastructure, and typically its cost and complexity. However, it can be beneficial to use separate installations for production and non-production environments.
 

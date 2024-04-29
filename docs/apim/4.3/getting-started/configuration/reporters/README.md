@@ -1,4 +1,4 @@
-**# Reporters
+# Reporters
 
 ## Overview
 
@@ -14,7 +14,7 @@ The following sections detail:
 
 The following event types are supported:
 
-<table><thead><tr><th width="214.5">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>request</code></td><td>This event type provides common request and response metrics, such as response time, application, request ID, and more.</td></tr><tr><td><code>log</code></td><td>This event type provides more detailed request and response metrics. It is reported when logging has been enabled at the API level.</td></tr><tr><td><code>healthcheck</code></td><td>This event type allows for healthcheck events to be reported when a healthcheck endpoint has been configured and enabled on an API.</td></tr><tr><td><code>node</code></td><td>This event type provides some system and JVM metrics for the node Gravitee is running on.</td></tr></tbody></table>
+<table><thead><tr><th width="214.5">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>request</code></td><td>This event type provides common request and response metrics, such as response time, application, request ID, and more.</td></tr><tr><td><code>log</code></td><td>This event type provides more detailed request and response metrics. It is reported when logging has been enabled at the API level.</td></tr><tr><td><code>health-check</code></td><td>This event type allows for health-check events to be reported when a health-check endpoint has been configured and enabled on an API.</td></tr><tr><td><code>node</code></td><td>This event type provides some system and JVM metrics for the node Gravitee is running on.</td></tr></tbody></table>
 
 ## Available reporters
 
@@ -48,7 +48,7 @@ The file reporter has the following configuration parameters:
 {% endtab %}
 
 {% tab title="Example" %}
-The configuration example below excludes all fields from the request JSON file except the `api` and `application` fields, renames the `application` field to `app`, and excludes `log`, `node`, and `healthcheck` events from being reported:
+The configuration example below excludes all fields from the request JSON file except the `api` and `application` fields, renames the `application` field to `app`, and excludes `log`, `node`, and `health-check` events from being reported:
 
 ```yaml
 reporters:
@@ -98,7 +98,7 @@ The file reporter has the following configuration parameters:
 | `reconnectInterval`       | Time (in milliseconds) between socket connection attempts.                                                                                                            | 500           |
 | `retryTimeout`            | If the max reconnect attempts have been reached, this setting determines how long (in milliseconds) the reporter should wait before trying to connect again.          | 5000          |
 | `tls.enabled`             | Enable TLS                                                                                                                                                            | false         |
-| `tls.verifyClient`        | If true, client certificate will be sent for mutual TLS negotiation. When enabling this, providing a key-store is required so that mutual TLS negociation can happen. | false         |
+| `tls.verifyClient`        | If true, client certificate will be sent for mutual TLS negotiation. When enabling this, providing a key-store is required so that mutual TLS negotiation can happen. | false         |
 | `tls.keystore.type`       | The type of key-store to use (either PEM, JKS or PFX)                                                                                                                 | null          |
 | `tls.keystore.password`   | The password to use for the key-store (only for JKS and PFX types)                                                                                                    | null          |
 | `tls.keystore.certs`      | The list of certificates used, when type is PEM                                                                                                                       | null          |
@@ -192,4 +192,4 @@ reporters:
       #password: "YOUR_PASSWORD"
 ```
 {% endtab %}
-{% endtabs %}**
+{% endtabs %}

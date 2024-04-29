@@ -79,7 +79,7 @@ reporters:
 
 ## Index management with ES Curator
 
-ES Curator is a tool for ES administration. To optimize data footprint and ES performance, define a retention window and periodically merge shards into only one segment.
+ES Curator is a tool for ES administration. To optimize the data footprint and ES performance, define a retention window and periodically merge shards into only one segment.
 
 {% code overflow="wrap" %}
 ```sh
@@ -152,13 +152,9 @@ If you deploy ES Curator on every ES data node, set `master_only: True` in the c
 
 ## Index management with ES ILM
 
-You can configure Index Lifecycle Management (ILM) policies to automatically manage indices according to your retention requirements. For example, you can use ILM to create a new index each day and archive the previous ones. You can check the documentation [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/set-up-lifecycle-policy.html#ilm-create-policy) for more information.
+You can configure Index Lifecycle Management (ILM) policies to automatically manage indices according to your retention requirements. For example, you can use ILM to create a new index each day and archive the previous ones. See [this documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/set-up-lifecycle-policy.html#ilm-create-policy) for more information.
 
-By default, the `index_mode` configuration value is `daily`: Gravitee suffixes index names with the date.
-
-If you want to let ILM handles that, you can set `index_mode` to `ILM`. Gravitee will no longer add a suffix to index names.
-
-You also need to tell your APIM Gateway which ILM policies to use.
+By default, the `index_mode` configuration value is `daily`, where Gravitee suffixes index names with the date. To let ILM handle indexing, you can set `index_mode` to `ILM`. Gravitee will no longer add a suffix to index names. You also need to tell your APIM Gateway which ILM policies to use.
 
 Here’s an example configuration for APIM Gateway:
 

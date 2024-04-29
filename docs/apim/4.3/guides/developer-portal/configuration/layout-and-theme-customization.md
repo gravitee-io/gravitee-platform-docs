@@ -207,3 +207,60 @@ The top menu includes the following options:
 * **Import:** Upload a custom theme in `JSON` format. To view the required structure of the `JSON` file, **Export** the current theme.
 * **Export:** Downloads your current theme in `JSON` format.
 * **Restore Default Theme:** Overwrites your modifications with the default theme.
+
+### Basic customization
+
+<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default.</td></tr></tbody></table>
+
+### Advanced customization
+
+Each component uses its own properties but, where possible, the properties are grouped into common variables. To further customize the Developer Portal, you can define the graphic properties to expose for each component.
+
+For example, hover your mouse over the color bubble to see common component colors. For other property types, if a common property is used, it appears in the placeholder field.
+
+### Override theme files
+
+APIM API includes a default theme and two default logos, located in the `/themes` folder of the API distribution folder:
+
+* `definition.json`
+* `logo.png`
+* `logo-light.png`
+
+To customize the Developer Portal theme, either modify these three files or specify a new folder in the `gravitee.yml` file:
+
+```yaml
+# Portal themes
+portal:
+  themes:
+    path: ${gravitee.home}/themes
+```
+
+By default, this configuration is commented out and the path is `${gravitee.home}/themes`.
+
+For assistance creating a theme, use the editor in **Settings > Theme** and export it to a JSON file via the EXPORT button in the header menu. Keep in mind:
+
+* Images and logos cannot be changed using this method. The two files must be edited in the distribution.
+* Exported themes do not have the same format as the provided `definition.json` file, requiring minor edits to the exported theme.
+
+Expected format:
+
+```json
+{
+  "data": [
+    {
+      "name": "gv-theme",
+      "css": [
+        {
+          "name": "--gv-theme-color-darker",
+          "description": "Primary darker color",
+          "type": "color",
+          "default": "#383E3F",
+          "value": "#383E3F"
+        },
+        ...
+      ]
+    },
+    ...
+  ]
+}
+```

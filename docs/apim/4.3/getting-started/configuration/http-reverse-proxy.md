@@ -1,10 +1,8 @@
 # HTTP Reverse Proxy
 
-Here is a simple example of APIM components configuration with docker-compose.
-
 ## APIM configuration
 
-For this example, we use a `docker-compose.yml` file to configure each APIM component:
+The examples below uses a `docker-compose.yml` file to configure each APIM component:
 
 ```yaml
 version: '3.5'

@@ -6,34 +6,31 @@ description: Learn how to configure various Gravitee API Management components
 
 ## Introduction
 
-This guide explains how to configure all of the core aspects of Gravitee API Management (APIM) after installation including, but not limited to, the four main components:
-
-* APIM Gateway
-* APIM Management API
-* APIM Console
-* APIM Developer Portal
-
-## Configuring APIM components
-
-You can configure APIM's four components using three methods:
+APIM components can be configured using:
 
 1. Environment variables
 2. System properties
 3. The `gravitee.yaml` file
 
-{% hint style="info" %}
-**Hierarchies**
-
-The order in which they are listed above corresponds to their order of precedence. In other words, system properties override the `gravitee.yml` configuration and environment variables override all other configuration methods.
+{% hint style="warning" %}
+The order in which they are listed corresponds to their order of precedence. System properties override the `gravitee.yml` configuration and environment variables override all other configuration methods.
 {% endhint %}
 
-### Environment variables
+## Environment variables
 
-You can override the default APIM configuration (`gravitee.yml`) and system properties by defining environment variables. You can translate any property in the `yaml` file to an environment variable by prefixing the property with "gravitee" and using `camel_case` or dot notation.
+You can override the default APIM configuration (`gravitee.yml`) and system properties by defining environment variables. Any property in the `yaml` file can be translated to an environment variable by prefixing the property with "gravitee" and using `camel_case` or dot notation.
 
-Some properties are case-sensitive and cannot be written in uppercase (for example, `gravitee_security_providers_0_tokenIntrospectionEndpoint`). Therefore, we advise you to define all Gravitee environment variables in lowercase.
+{% hint style="warning" %}
+Certain properties are case-sensitive and cannot use uppercase characters. We recommend using lowercase characters to define all Gravitee environment variables. To ensure compatibility and avoid or confusion, refer to your system documentation for environment variable naming best practices.
+{% endhint %}
 
-For example, to override this property:
+<details>
+
+<summary>Environment variable override examples</summary>
+
+### Example 1
+
+To override this property:
 
 ```yaml
 management:
@@ -48,15 +45,9 @@ gravitee_management_mongodb_dbname=myDatabase
 gravitee.management.mongodb.dbname=myDatabase
 ```
 
-{% hint style="warning" %}
-**Environment variable considerations**
+### Example 2
 
-In Unix systems, including Linux and macOS, the dot (.) character is not commonly used in environment variable names. To ensure compatibility and avoid any conflicts or confusion, it is generally best to stick to uppercase letters, numbers, and underscores when defining environment variable names in Unix systems.
-
-In some systems, hyphens are not allowed in variable names. For example, you may need to write `gravitee_policy_api-key_header` as `gravitee_policy_apikey_header`. We recommend you check your system documentation.
-{% endhint %}
-
-Some properties are arrays like the example below:
+Some properties are arrays:
 
 ```yaml
 analytics:
@@ -97,9 +88,15 @@ gravitee.security.providers[0]context-source-password=password
 gravitee.security.providers[0].users[1].password=password
 ```
 
-### System properties
+</details>
 
-You can also override the default APIM configuration (`gravitee.yml`) by defining system properties.
+## System properties
+
+You can override the default APIM configuration (`gravitee.yml`) by defining system properties.
+
+<details>
+
+<summary>System property override example</summary>
 
 To override this property:
 
@@ -115,18 +112,12 @@ Add this property to the JVM:
 -Dmanagement.mongodb.dbname=myDatabase
 ```
 
-### The `gravitee.yaml` file
+</details>
+
+## The `gravitee.yaml` file
 
 The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way to configure APIM.
 
 {% hint style="info" %}
-**Format sensitive**
-
 YAML format is sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
 {% endhint %}
-
-## Component configuration
-
-Check out any of the following guides for that component's detailed configuration options:
-
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Gateway</td><td></td><td><a href="apim-gateway/">apim-gateway</a></td></tr><tr><td></td><td>APIM Management API</td><td></td><td><a href="apim-management-api/">apim-management-api</a></td></tr><tr><td></td><td>APIM Console</td><td></td><td><a href="apim-console.md">apim-console.md</a></td></tr><tr><td></td><td>APIM Developer Portal</td><td></td><td><a href="apim-developer-portal.md">apim-developer-portal.md</a></td></tr><tr><td></td><td>Repositories</td><td></td><td><a href="repositories/">repositories</a></td></tr><tr><td></td><td>Reporters</td><td></td><td><a href="reporters/">reporters</a></td></tr><tr><td></td><td>Cache</td><td></td><td><a href="cache.md">cache.md</a></td></tr><tr><td></td><td>HTTP Reverse Proxy</td><td></td><td><a href="http-reverse-proxy.md">http-reverse-proxy.md</a></td></tr><tr><td></td><td>Authentication</td><td></td><td><a href="authentication.md#gravitee-access-management-authentication">#gravitee-access-management-authentication</a></td></tr><tr><td></td><td>Notifications</td><td></td><td><a href="notifications.md">notifications.md</a></td></tr><tr><td></td><td>Production-ready APIM Environment</td><td></td><td><a href="production-ready-apim-environment.md">production-ready-apim-environment.md</a></td></tr><tr><td></td><td>Secret Providers</td><td></td><td><a href="secret-providers.md">secret-providers.md</a></td></tr></tbody></table>
