@@ -5,7 +5,7 @@
 
 You are reading the documentation for Gravitee APIM 4.3.
 
-* Use the drop-down in the header to switch to other versions of 4.x.
+* Use the drop-down menu in the header to switch to other versions of 4.x.
 * Support for [prior versions](https://docs.gravitee.io/) will end on April 30, 2024.
 {% endhint %}
 
