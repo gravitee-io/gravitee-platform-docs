@@ -6,6 +6,31 @@ description: >-
 
 # AM 4.2.x
 
+## Gravitee Access Management 4.2.10 - April 29, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Issue with MFA and silent refresh token [#9622](https://github.com/gravitee-io/issues/issues/9622)
+* [WebAuthn] Problèmatique Authenticator "SecurityError : The operation is insecure." [#9686](https://github.com/gravitee-io/issues/issues/9686)
+
+**Management API**
+
+*  Not able to add new attribute to User’s profile through AM REST Api when using Google Identity provider [#8434](https://github.com/gravitee-io/issues/issues/8434)
+* AM - Application Analytics Timeout [#9405](https://github.com/gravitee-io/issues/issues/9405)
+
+
+
+**Other**
+
+* La vérification a échoué + email pas envoyé automatiquement [#9659](https://github.com/gravitee-io/issues/issues/9659)
+
+</details>
+
+
 ## Gravitee Access Management 4.2.9 - April 12, 2024
 
 <details>
