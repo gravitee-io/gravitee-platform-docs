@@ -2,17 +2,19 @@
 
 ## Overview
 
-Helm assists in the management of Kubernetes applications. In particular, Helm Charts facilitate the definition, installation, and upgrade of even the most complex Kubernetes applications.
+Helm assists in the management of Kubernetes applications. In particular, Helm Charts facilitate the definition, installation, and upgrade of even the most complex Kubernetes applications. You can also use Helm to deploy your CRDs into your cluster and leverage all of the features that Helm provides (e.g., templating).
 
-You can also use Helm to deploy your CRDs into your cluster and leverage all of the features that Helm provides (e.g., templating).
+## Deploy CRDs with Helm
 
 Below are the basic steps to deploy CRDs with Helm:
 
-1. Create an empty project using Helm
-2. Add required templates for the Gravitee CRDs
-3. Install/upgrade your Helm Charts
+1. [Create an empty project using Helm](deploy-operator-resources-with-helm.md#id-1.-create-an-empty-project-using-helm)
+2. [Add required templates for the Gravitee CRDs](deploy-operator-resources-with-helm.md#id-2.-add-required-templates-for-the-gravitee-crds)
+3. [Install/upgrade your Helm Charts](deploy-operator-resources-with-helm.md#id-3.-install-upgrade-your-helm-charts)
 
-You can create an empty project using the following command:
+### 1. Create an empty project using Helm
+
+Create an empty project:
 
 ```sh
 helm create sample-crds
@@ -20,7 +22,7 @@ helm create sample-crds
 
 The project will have the following structure:
 
-```
+```bash
 sample-crds
 ├── Chart.yaml
 ├── charts
@@ -37,7 +39,9 @@ sample-crds
 └── values.yaml
 ```
 
-The next step is to delete existing templates from the templates folder and replace them with new templates for your CRDs. For example, the template below can be used for the `ManagementContext` CRD:
+### 2. Add required templates for the Gravitee CRDs
+
+Delete existing templates from the templates folder and replace them with new templates for your CRDs. For example, the template below can be used for the `ManagementContext` CRD:
 
 ```yaml
 {{ - range $context := .Values.contexts }}
@@ -74,7 +78,9 @@ The GKO can resolve a `ConfigMap` or `Secret` during deployment if it is referen
 [[ configmap `YOUR_CONFIGMAP_NAME/KEY_NAME` ]]
 ```
 
-Once your templates have been created, you can package them and install/upgrade your Helm Charts by running the following commands:
+### 3. Install/upgrade your Helm Charts
+
+Package your templates and install/upgrade your Helm Charts:
 
 ```sh
 $ helm package .
@@ -84,5 +90,5 @@ $ helm install sample-crds sample-crds-0.1.0.tgz
 For more information on Helm, see the [documentation](https://helm.sh/).
 
 {% hint style="info" %}
-For a comprehensive example of the topics introduced in this section, check out the [GKO repository guide](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/alpha/docs/guides/deploy-crd-with-helm).
+For a comprehensive example of the topics introduced in this section, see the [GKO repository guide](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/alpha/docs/guides/deploy-crd-with-helm).
 {% endhint %}
