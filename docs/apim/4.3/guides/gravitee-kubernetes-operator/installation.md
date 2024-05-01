@@ -1,4 +1,4 @@
-# Helm
+# Helm Installation
 
 ## Overview
 
@@ -43,10 +43,10 @@ $ helm upgrade --install graviteeio-gko graviteeio/gko
 
 The Gravitee Kubernetes Operator Helm Chart supports configuration of the following:
 
-* [RBAC](helm.md#rbac)
-* [RBAC Proxy](helm.md#rbac-proxy)
-* [Controller Manager](helm.md#controller-manager)
-* [Ingress](helm.md#ingress)
+* [RBAC](installation.md#rbac)
+* [RBAC Proxy](installation.md#rbac-proxy)
+* [Controller Manager](installation.md#controller-manager)
+* [Ingress](installation.md#ingress)
 
 {% tabs %}
 {% tab title="RBAC" %}

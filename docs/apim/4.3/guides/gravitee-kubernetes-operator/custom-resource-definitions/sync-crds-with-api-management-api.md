@@ -1,5 +1,16 @@
 # Sync CRDs with API Management API
 
+## Overview
+
+This page includes the following sections:
+
+* [How to synchronize your API CRDs with an existing Management API](sync-crds-with-api-management-api.md#how-to-synchronize-your-api-crds-with-an-existing-management-api)
+* [Using an APIM export endpoint to create an API definition from an existing API](sync-crds-with-api-management-api.md#using-an-apim-export-endpoint-to-create-an-api-definition-from-an-existing-api)
+* [Starting and stopping your API](sync-crds-with-api-management-api.md#starting-and-stopping-your-api)
+* [Updating your API](sync-crds-with-api-management-api.md#updating-your-api)
+* [Deleting your API](sync-crds-with-api-management-api.md#deleting-your-api)
+* [Multi-environment deployment architecture](sync-crds-with-api-management-api.md#multi-environment-deployment-architecture)
+
 ## How to synchronize your API CRDs with an existing Management API
 
 The following examples of creating a Management Context custom resource and an API referencing it assume that a Management API has already been deployed in a namespace called `apim-example`. The connection to that Management API uses the default in-memory credentials.

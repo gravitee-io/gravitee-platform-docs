@@ -2,7 +2,10 @@
 
 ## Overview
 
-This page details the steps to deploy the Gravitee Gateway as an ingress runtime and the Gravitee Kubernetes Operator (GKO) as an ingress controller:
+This page describes how to deploy, test, and secure the Gravitee Gateway as an ingress runtime and the Gravitee Kubernetes Operator (GKO) as an ingress controller, then how to extend an ingress using an API definition template.
+
+* [Deploy the ingress runtime and controller](gravitee-as-an-ingress-controller.md#deploy-the-ingress-runtime-and-controller)
+* [Extend an ingress using an API definition template](gravitee-as-an-ingress-controller.md#extending-an-ingress-using-an-api-definition-template)
 
 {% hint style="info" %}
 **Limitations**
@@ -13,24 +16,33 @@ The `graviteeio` ingress class does not currently support the following features
 * [Hostname Wildcards](https://kubernetes.io/docs/concepts/services-networking/ingress/#hostname-wildcards)
 {% endhint %}
 
-## Deployment
+## Deploy the ingress runtime and controller
 
-The Gravitee Gateway will be deployed in the `gravitee-ingress` namespace and available at the `graviteeio.example.com` domain name.
-
-A Gravitee backend service routed and made available through a Gravitee ingress will be deployed in the `gravitee-apis` namespace.
-
-The APIM components used to gather analytics and review our configuration will be deployed in the `gravitee-apim` namespace.
+* The Gravitee Gateway will be deployed in the `gravitee-ingress` namespace and available at the `graviteeio.example.com` domain name.
+* A Gravitee backend service routed and made available through a Gravitee ingress will be deployed in the `gravitee-apis` namespace.
+* The APIM components used to gather analytics and review our configuration will be deployed in the `gravitee-apim` namespace.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/kubernetes/gko-architecture-4-ingress.png" alt=""><figcaption><p>Sample Kubernetes cluster</p></figcaption></figure>
 
+This section is divided into the following:
+
+* [Prerequisites](gravitee-as-an-ingress-controller.md#prerequisites)
+* [1. Configure your deployment](gravitee-as-an-ingress-controller.md#id-1.-configure-your-deployment)
+* [2. Deploy your Gateway](gravitee-as-an-ingress-controller.md#id-2.-deploy-your-gateway)
+* [3. Deploy the GKO](gravitee-as-an-ingress-controller.md#id-3.-deploy-the-gko)
+* [4. Add a test backend](gravitee-as-an-ingress-controller.md#id-4.-add-a-test-backend)
+* [5. Define your ingress](gravitee-as-an-ingress-controller.md#id-5.-define-your-ingress)
+* [6. Test your installation](gravitee-as-an-ingress-controller.md#id-6.-test-your-installation)
+* [7. Secure your Gateway and ingress resources](gravitee-as-an-ingress-controller.md#user-content-secure-your-gateway-and-ingress-resources)
+
 ### Prerequisites
 
-* A basic knowledge of [helm](https://helm.sh/docs/) and [kubectl](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands) command-line tools.
-* It is assumed that [`external-dns`](https://github.com/kubernetes-sigs/external-dns) has been configured to handle domain name resolution on your cluster.
+* A basic knowledge of [helm](https://helm.sh/docs/) and [kubectl](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands) CLI tools
+* [`external-dns`](https://github.com/kubernetes-sigs/external-dns) has been configured to handle domain name resolution on your cluster
 
-### Configure your deployment
+### 1. Configure your deployment
 
-Next, use the [Gravitee Helm Chart](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md) to install the Gateway that will act as an Ingress runtime on your Kubernetes cluster. Below is the minimum set of properties that your Helm values should contain:
+Configure the [Gravitee Helm Chart](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md). Below is the minimum set of properties that your Helm values should contain:
 
 {% code title="values.yml" %}
 ```yaml
@@ -50,14 +62,14 @@ gateway:
 {% endcode %}
 
 {% hint style="info" %}
-For the Gravitee Gateway to handle inbound traffic, `ingress` must be disabled to prevent NGINX from acting as an ingress runtime.
+For the Gateway to handle inbound traffic, `ingress` must be disabled to prevent NGINX from acting as an ingress runtime.
 {% endhint %}
 
 The `external-dns.alpha.kubernetes.io/hostname` instructs `external-dns` to use your external DNS provider to create a DNS entry that matches the load balancer service IP.
 
-### Deploy your Gateway
+### 2. Deploy your Gateway
 
-We can now install the Gravitee Gateway using the following command:
+Use the Gravitee Helm Chart to install the Gateway that will act as an ingress runtime on your Kubernetes cluster:
 
 ```sh
 helm upgrade --install gravitee-ingress \
@@ -66,9 +78,9 @@ helm upgrade --install gravitee-ingress \
   graviteeio/apim
 ```
 
-### Deploy the Gravitee Kubernetes Operator
+### 3. Deploy the GKO
 
-The Gravitee Kubernetes Operator that will act as our Ingress controller can also be installed using the Gravitee Helm Chart. You can find the operator Helm Chart documentation [here](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview.md).
+Use the Gravitee Helm Chart to install the Gravitee Kubernetes Operator that will act as your ingress controller:
 
 ```sh
 helm upgrade --install gravitee-gko \
@@ -76,166 +88,176 @@ helm upgrade --install gravitee-gko \
   graviteeio/gko
 ```
 
-### Add a test backend
+{% hint style="info" %}
+Refer to the [Helm Chart documentation](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview.md) for more information.
+{% endhint %}
 
-To be able to test our installation, we will deploy [`go-httpbin`](https://github.com/mccutchen/go-httpbin) as a backend service routed through our ingress resource. The following snippet defines the minimum resources required to initialize the backend service:
+### 4. Add a test backend
 
-{% code title="httpbin.yaml" %}
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: httpbin
-  labels:
-    type: httpbin
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      type: httpbin
-  template:
+To test the installation:
+
+1.  Deploy [`go-httpbin`](https://github.com/mccutchen/go-httpbin) as a backend service routed through your ingress resource. The minimum resources required to initialize the backend service are defined below:
+
+    {% code title="httpbin.yaml" %}
+    ```yaml
+    apiVersion: apps/v1
+    kind: Deployment
     metadata:
+      name: httpbin
       labels:
         type: httpbin
     spec:
-      containers:
-        - name: httpbin
-          image: mccutchen/go-httpbin
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 8080
-          env:
-            - name: USE_REAL_HOSTNAME
-              value: "true"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: httpbin
-  labels:
-    type: httpbin
-spec:
-  ports:
-    - port: 8080
-      targetPort: 8080
-  selector:
-    type: httpbin
-```
-{% endcode %}
+      replicas: 1
+      selector:
+        matchLabels:
+          type: httpbin
+      template:
+        metadata:
+          labels:
+            type: httpbin
+        spec:
+          containers:
+            - name: httpbin
+              image: mccutchen/go-httpbin
+              imagePullPolicy: IfNotPresent
+              ports:
+                - containerPort: 8080
+              env:
+                - name: USE_REAL_HOSTNAME
+                  value: "true"
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: httpbin
+      labels:
+        type: httpbin
+    spec:
+      ports:
+        - port: 8080
+          targetPort: 8080
+      selector:
+        type: httpbin
+    ```
+    {% endcode %}
+2.  Apply the resources on your cluster:
 
-Apply the resources on your cluster using the following command:
+    ```sh
+    kubectl apply -f httpbin.yaml
+    ```
 
-```sh
-kubectl apply -f httpbin.yaml
-```
-
-### Define your ingress
-
+{% hint style="info" %}
 Once the `httpbin` service is created, it can be used as a reference in one or more ingress resources.
+{% endhint %}
+
+### 5. Define your ingress
 
 The example below specifies the rules for routing traffic to your backend service. The GKO's ingress controller interprets this ingress resource and publishes a new API on the Gravitee Gateway. The Gateway acts as a runtime ingress, handling traffic and forwarding it to your backend service.
 
-{% code title="httpbin-ingress.yaml" %}
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: httpbin-ingress
-  annotations:
-    kubernetes.io/ingress.class: graviteeio
-spec:
-  rules:
-    - http:
-        paths:
-          - path: /httpbin
-            pathType: Prefix
-            backend:
-              service:
-                name: httpbin
-                port:
-                  number: 8000
-```
-{% endcode %}
+1.  Configure `httpbin-ingress.yaml`:
 
-Apply the ingress on your cluster using the following command:
+    {% code title="httpbin-ingress.yaml" %}
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: httpbin-ingress
+      annotations:
+        kubernetes.io/ingress.class: graviteeio
+    spec:
+      rules:
+        - http:
+            paths:
+              - path: /httpbin
+                pathType: Prefix
+                backend:
+                  service:
+                    name: httpbin
+                    port:
+                      number: 8000
+    ```
+    {% endcode %}
 
-```sh
-kubectl apply -f httpbin-ingress.yaml
-```
 
-### Test your installation
+2.  Apply the ingress on your cluster:
 
-The above settings establish a secure way for you to call the Gateway and your ingress. You can now test your installation by sending a request to your ingress resource:
+    ```sh
+    kubectl apply -f httpbin-ingress.yaml
+    ```
+
+### 6. Test your installation
+
+The above settings establish a secure way to call the Gateway and your ingress. You can test your installation by sending a request to your ingress resource:
 
 ```sh
 curl -i https://graviteeio.example.com/httpbin/hostname
 ```
 
-### Secure your Gateway and ingress resources <a href="#user-content-secure-your-gateway-and-ingress-resources" id="user-content-secure-your-gateway-and-ingress-resources"></a>
+### 7. Secure your Gateway and ingress resources <a href="#user-content-secure-your-gateway-and-ingress-resources" id="user-content-secure-your-gateway-and-ingress-resources"></a>
 
-To secure the connection between your client and the Gateway, you must modify the Gateway `ConfigMap`.
+To secure the connection between your client and the Gateway, you must modify the Gateway `ConfigMap`:
 
-As a prerequisite, a keystore must be added to the cluster. You can create a keystore using the following command:
+1.  As a prerequisite, create a keystore and add it to the cluster:
 
-```sh
-keytool -genkeypair -alias example.com -storepass changeme -keypass changeme \
--keystore gw-keystore.jks -dname "CN=example.com"
-```
+    ```sh
+    keytool -genkeypair -alias example.com -storepass changeme -keypass changeme \
+    -keystore gw-keystore.jks -dname "CN=example.com"
+    ```
 
-{% hint style="info" %}
-Currently, Gravitee only supports the JKS keystore.
-{% endhint %}
 
-Next, add your keystore to your target namespace. This example uses the default namespace:
 
-```sh
-kubectl create secret generic gw-keystore \
---from-file=keystore=gw-keystore.jks
-```
+    {% hint style="info" %}
+    Currently, Gravitee only supports the JKS keystore.
+    {% endhint %}
+2.  Add your keystore to your target namespace, e.g., the default namespace used below:
 
-After the keystore is added to the cluster, you need to configure the Gateway to use it and enable HTTPS. Open the `ConfigMap` that includes the Gateway configuration and add the following to the `HTTP` or the `listeners.https` section of the `gravitee.yaml` file:
+    ```sh
+    kubectl create secret generic gw-keystore \
+    --from-file=keystore=gw-keystore.jks
+    ```
+3.  To configure the Gateway to use the keystore and enable HTTPS, open the `ConfigMap` that includes the Gateway configuration and add the following to the `HTTP` or the `listeners.https` section of the `gravitee.yaml` file:
 
-```yaml
- http:
-   secured: true # Turns on the https
-   ssl:
-     keystore:
-       type: jks
-       kubernetes: /default/secrets/gw-keystore/keystore
-       password: changeme
-     sni: true
-```
+    ```yaml
+     http:
+       secured: true # Turns on the https
+       ssl:
+         keystore:
+           type: jks
+           kubernetes: /default/secrets/gw-keystore/keystore
+           password: changeme
+         sni: true
+    ```
 
-{% hint style="info" %}
-You must also add this label to your Gateway `ConfigMap` to tell the controller where your Gateway configuration is located.
-{% endhint %}
 
-Restart the Gateway for the changes to take effect.
+
+    {% hint style="info" %}
+    You must also add this label to your Gateway `ConfigMap` to tell the controller where your Gateway configuration is located.
+    {% endhint %}
+4. Restart the Gateway for the changes to take effect.
 
 #### Modify keystore
 
 There are two ways that the GKO can modify your keystore:
 
-1\) Add the following label to your exiting Gateway `ConfigMap`:
+*   Add the following label to your exiting Gateway `ConfigMap`:
 
-```
-gravitee.io/component=gateway
-```
+    ```bash
+    gravitee.io/component=gateway
+    ```
+*   Create a new Secret and provide the name of the Gateway keystore and its password:
 
-2\) Create a new Secret and provide the name of the Gateway keystore and its password:
+    ```sh
+    kubectl create secret generic gw-keystore-config \
+    -n default \
+    --from-literal=name=gw-keystore \
+    --from-literal=password=changeme
+    ```
 
-```sh
-kubectl create secret generic gw-keystore-config \
--n default \
---from-literal=name=gw-keystore \
---from-literal=password=changeme
-```
+    Then label the Secret:
 
-You also need to label the Secret:
-
-```
-gravitee.io/gw-keystore-config=true
-```
+    ```
+    gravitee.io/gw-keystore-config=true
+    ```
 
 #### Add TLS to the ingress resources <a href="#user-content-add-tls-to-the-ingress-resources" id="user-content-add-tls-to-the-ingress-resources"></a>
 
@@ -282,124 +304,125 @@ Alternatively, run the following command for a self-signed certificate:
 curl --insecure -v https://foo.com/httpbin
 ```
 
-## Extending an ingress using an API definition template
+## Extend an ingress using an API definition template
 
-Policies allow you to apply custom behaviors on requests issued to a backend service. This can be achieved using an API definition labeled as a template.
+Policies allow you to apply custom behaviors to requests issued to a backend service. This can be achieved using an API definition labeled as a template. The subsections below describe how to extend an ingress using an API definition template and the `httpbin` service:
 
-The examples below will build on the previous example in the deployment section, which uses the `httpbin` service.
+1. [Create an API definition template](gravitee-as-an-ingress-controller.md#id-1.-create-an-api-definition-template)
+2. [Reference the template](gravitee-as-an-ingress-controller.md#id-2.-reference-the-template)
+3. [Test your ingress](gravitee-as-an-ingress-controller.md#id-3.-test-your-ingress)
 
-### API definition template
+### 1. Create an API definition template
 
-A template is an API definition with the `gravitee.io/template` label set to `true`.
+A template is an API definition with the `gravitee.io/template` label set to `true`. To create a template that defines a [`cache` policy](../../reference/policy-reference/cache.md):
 
-This example below creates a template that defines a [`cache` policy](../../reference/policy-reference/cache.md):
+1.  Configure the `ingress-cache-template.yaml` file:
 
-{% code title="ingress-cache-template.yaml" %}
-```yaml
-apiVersion: "gravitee.io/v1alpha1"
-kind: "ApiDefinition"
-metadata:
-  name: "ingress-cache-template"
-  annotations:
-    gravitee.io/template: "true"
-spec:
-  name: "ingress-cache-template"
-  version: "1"
-  description: "This template can be used to implement caching on your ingresses"
-  visibility: "PRIVATE"
-  resources:
-    - name: "simple-cache"
-      type: "cache"
-      enabled: true
-      configuration:
-        timeToIdleSeconds: 0
-        timeToLiveSeconds: 600
-        maxEntriesLocalHeap: 1000
-  flows:
-  - name: ""
-    path-operator:
-      path: "/"
-      operator: "STARTS_WITH"
-    condition: ""
-    consumers: []
-    methods: []
-    pre:
-    - name: "Cache"
-      description: ""
-      enabled: true
-      policy: "cache"
-      configuration:
-        timeToLiveSeconds: 600
-        cacheName: "simple-cache"
-        methods:
-        - "GET"
-        - "OPTIONS"
-        - "HEAD"
-        scope: "APPLICATION"
-    post: []
-    enabled: true
-  gravitee: "2.0.0"
-  flow_mode: "DEFAULT"
-```
-{% endcode %}
+    {% code title="ingress-cache-template.yaml" %}
+    ```yaml
+    apiVersion: "gravitee.io/v1alpha1"
+    kind: "ApiDefinition"
+    metadata:
+      name: "ingress-cache-template"
+      annotations:
+        gravitee.io/template: "true"
+    spec:
+      name: "ingress-cache-template"
+      version: "1"
+      description: "This template can be used to implement caching on your ingresses"
+      visibility: "PRIVATE"
+      resources:
+        - name: "simple-cache"
+          type: "cache"
+          enabled: true
+          configuration:
+            timeToIdleSeconds: 0
+            timeToLiveSeconds: 600
+            maxEntriesLocalHeap: 1000
+      flows:
+      - name: ""
+        path-operator:
+          path: "/"
+          operator: "STARTS_WITH"
+        condition: ""
+        consumers: []
+        methods: []
+        pre:
+        - name: "Cache"
+          description: ""
+          enabled: true
+          policy: "cache"
+          configuration:
+            timeToLiveSeconds: 600
+            cacheName: "simple-cache"
+            methods:
+            - "GET"
+            - "OPTIONS"
+            - "HEAD"
+            scope: "APPLICATION"
+        post: []
+        enabled: true
+      gravitee: "2.0.0"
+      flow_mode: "DEFAULT"
+    ```
+    {% endcode %}
+2.  Apply this template:
 
-You can apply this template with the following command:
+    ```sh
+    kubectl apply -f ingress-cache-template.yml
+    ```
 
-```sh
-kubectl apply -f ingress-cache-template.yml
-```
+### 2. Reference the template
 
-### Reference the template
+To apply the template policies to requests issued to the `httpbin` ingress:
 
-To apply the template policies to requests issued to the `httpbin` ingress, you must add the required label.
+1.  Add the required label by annotating the ingress, using the `gravitee.io/template` as the key and the API definition template name as the value:
 
-This is done by annotating the ingress, using the `gravitee.io/template` as the key and the API definition template name as the value.
+    {% hint style="info" %}
+    The template must exist in the same Kubernetes namespace as the ingress.
+    {% endhint %}
 
-{% hint style="info" %}
-The template must exist in the same Kubernetes namespace as the ingress.
-{% endhint %}
 
-{% code title="httpbin-ingress.yaml" %}
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: httpbin-ingress
-  annotations:
-    kubernetes.io/ingress.class: graviteeio
-    gravitee.io/template: ingress-cache-template
-spec:
-  rules:
-    - http:
-        paths:
-          - path: /httpbin
-            pathType: Prefix
-            backend:
-              service:
-                name: httpbin
-                port:
-                  number: 8000
-```
-{% endcode %}
 
-You can apply this change with the following command:
+    {% code title="httpbin-ingress.yaml" %}
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: httpbin-ingress
+      annotations:
+        kubernetes.io/ingress.class: graviteeio
+        gravitee.io/template: ingress-cache-template
+    spec:
+      rules:
+        - http:
+            paths:
+              - path: /httpbin
+                pathType: Prefix
+                backend:
+                  service:
+                    name: httpbin
+                    port:
+                      number: 8000
+    ```
+    {% endcode %}
+2.  Apply this change:
 
-```sh
-kubectl apply -f httpbin-ingress.yaml
-```
+    ```sh
+    kubectl apply -f httpbin-ingress.yaml
+    ```
 
-### Testing your ingress
+### 3. Test your ingress
 
-To test that the `cache` policy is enforced on the `httpbin` ingress, request the `/headers` endpoint of `httpbin` and pass a timestamp as a header:
+To test that the `cache` policy is enforced on the `httpbin` ingress:
 
-```sh
-curl `https://graviteeio.example.com/httpbin/headers -H  "X-Date: $(date)"`
-```
+1.  Request the `/headers` endpoint of `httpbin` and pass a timestamp as a header:
 
-Then send the same request again:
+    ```sh
+    curl `https://graviteeio.example.com/httpbin/headers -H  "X-Date: $(date)"`
+    ```
+2.  Resend this request to return the same value for the `X-Date` header until the 10-minute window of the `cache` policy has elapsed:
 
-```sh
-curl `https://graviteeio.example.com/httpbin/headers -H  "X-Date: $(date)"`
-```
-
-This will return the same value for the `X-Date` header until the 10-minute window of the `cache` policy has elapsed.
+    ```sh
+    curl `https://graviteeio.example.com/httpbin/headers -H  "X-Date: $(date)"`
+    ```
