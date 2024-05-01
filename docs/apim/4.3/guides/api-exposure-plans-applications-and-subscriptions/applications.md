@@ -131,7 +131,8 @@ At the bottom of the **Client Registration** page, click **+ Add a provider** an
     * **Client Template (software\_id):** Client template ID to use for all applications registering through this provider
 * **Enable renew client\_secret support:** Allow registered clients to call the endpoint with their `client_id` to renew the `client_secret` issued by the authorization server
   * Provide the **HTTP Method**&#x20;
-  * Provide the **Endpoint**. This field supports Gravitee Expression Language, e.g.,&#x20;
+  * Provide the **Endpoint**. This field supports Gravitee Expression Language, e.g.,\
+    `https://<your-am-gateway-domain>/<your-security-domain>/oidc/register/{#client_id}/renew_secret`
 
 <details>
 
