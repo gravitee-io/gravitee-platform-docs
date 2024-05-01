@@ -130,7 +130,8 @@ At the bottom of the **Client Registration** page, click **+ Add a provider** an
     * **Scopes:** Default scopes to use for application registration
     * **Client Template (software\_id):** Client template ID to use for all applications registering through this provider
 * **Enable renew client\_secret support:** Allow registered clients to call the endpoint with their `client_id` to renew the `client_secret` issued by the authorization server
-  * Provide the **HTTP Method** and **Endpoint**
+  * Provide the **HTTP Method**&#x20;
+  * Provide the **Endpoint**. This field supports Gravitee Expression Language, e.g.,&#x20;
 
 <details>
 
