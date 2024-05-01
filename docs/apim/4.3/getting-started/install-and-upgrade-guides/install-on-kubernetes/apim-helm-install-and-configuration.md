@@ -8,9 +8,9 @@ description: >-
 
 ## Introduction
 
-This guide will walk you through how to install APIM on a Kubernetes cluster using our official Helm chart.
+This page describes how to install APIM on any Kubernetes environment using our official Helm Chart. The Helm Chart is designed to be flexible and can be deployed on various Kubernetes distributions, including but not limited to AKS and OpenShift.
 
-Additionally, the Helm chart supports a variety of configuration types and database options. Gravitee Helm Chart parameters, default values, and other configuration details are summarized in the following sections:
+Additionally, the Helm Chart supports a variety of configuration types and database options. Gravitee Helm Chart parameters, default values, and other configuration details are summarized in the following sections:
 
 * [Application settings](apim-helm-install-and-configuration.md#application-settings)
 * [Configuration types](apim-helm-install-and-configuration.md#configuration-types)
