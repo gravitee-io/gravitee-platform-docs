@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.4 - May 9, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* There are no MFA logs [#9629](https://github.com/gravitee-io/issues/issues/9629)
+* Enabling MFA in Gravitee AM Console Gives 500 error [#9685](https://github.com/gravitee-io/issues/issues/9685)
+* _node/health endpoint is not accessible  [#9698](https://github.com/gravitee-io/issues/issues/9698)
+* Plugin "Orange Contact Everyone" is not compatible with version 4.3.2 [#9704](https://github.com/gravitee-io/issues/issues/9704)
+
+</details>
+
+
 ## Gravitee Access Management 4.3.3 - April 29, 2024
 
 <details>
