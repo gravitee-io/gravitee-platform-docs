@@ -5,15 +5,16 @@ description: >-
 ---
 
 # APIM 4.2.x
- 
+
 ## Gravitee API Management 4.2.9 - May 10, 2024
+
 <details>
 
-<summary>Bug Fixes</summary>
+<summary>Bug fixes</summary>
 
 **Management API**
 
-* Portal global api search is returning a 500 "maxClauseCount is set to 1024" [#9730](https://github.com/gravitee-io/issues/issues/9730)
+* Portal global API search is returning a 500 "maxClauseCount is set to 1024" [#9730](https://github.com/gravitee-io/issues/issues/9730)
 
 **Other**
 
@@ -27,15 +28,13 @@ description: >-
 
 **Helm Charts**
 
-* Enhance the experience to deploy Gateway with Redis SSL using Helm Chart [#9726](https://github.com/gravitee-io/issues/issues/9726)
+* Enhance the experience of deploying Gateway with Redis SSL using Helm Chart [#9726](https://github.com/gravitee-io/issues/issues/9726)
 
 **Other**
 
 * \[gravitee-entrypoint-webhook] Support 500 responses for DLQ [#9722](https://github.com/gravitee-io/issues/issues/9722)
 
 </details>
-
-
 
 ## Gravitee API Management 4.2.8 - April 26, 2024
 
