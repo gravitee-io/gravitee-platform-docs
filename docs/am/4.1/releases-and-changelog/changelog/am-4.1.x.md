@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.21 - May 9, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* There are no MFA logs [#9629](https://github.com/gravitee-io/issues/issues/9629)
+* _node/health endpoint is not accessible  [#9698](https://github.com/gravitee-io/issues/issues/9698)
+* Plugin "Orange Contact Everyone" is not compatible with version 4.3.2 [#9704](https://github.com/gravitee-io/issues/issues/9704)
+
+</details>
+
+
 ## Gravitee Access Management 4.1.20 - April 29, 2024
 
 <details>
