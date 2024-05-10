@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.18 - May 9, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* There are no MFA logs [#9629](https://github.com/gravitee-io/issues/issues/9629)
+* _node/health endpoint is not accessible  [#9698](https://github.com/gravitee-io/issues/issues/9698)
+
+</details>
+
+
 ## Gravitee Access Management 4.0.17 - April 29, 2024
 
 <details>
