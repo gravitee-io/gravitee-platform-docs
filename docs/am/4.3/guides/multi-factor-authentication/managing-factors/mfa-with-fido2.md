@@ -5,7 +5,7 @@
 FIDO2 plugin implements the functionalities so that the passwordless authentication flow can be used during the multi-factor authentication process. This plugin does not have its own configuration but rather uses an existing **WebAuthn** configuration.
 
 {% hint style="info" %}
-Please configure **WebAuthn** under the **Security** section so that the plugin works as expected. Check the [Passwordless (W3C WebAuthn)](../login/passwordless-w3c-webauthn.md) section for details.
+Please configure **WebAuthn** under the **Security** section so that the plugin works as expected. Check the [Passwordless (W3C WebAuthn)](../../login/passwordless-w3c-webauthn.md) section for details.
 {% endhint %}
 
 ## Create FIDO2 factor
@@ -48,7 +48,5 @@ The following diagram shows how enrollment occurs for the scenarios mentioned in
 ## Challenge step
 
 The following diagram shows only the challenge step. For simplicity, the diagram assumes the user has already enrolled to a FIDO2 factor plugin.
-
-\\
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-fido2-challenge-flow.png" alt=""><figcaption><p>Challenge diagram</p></figcaption></figure>

@@ -1,4 +1,4 @@
-# Reset MFA
+# Manage User MFA
 
 ## Overview
 
