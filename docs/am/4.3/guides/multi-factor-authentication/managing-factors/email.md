@@ -6,7 +6,7 @@ With Email verification, you can receive a verification code on your email addre
 Email MFA requires a compatible [resource](../../resources.md).
 {% endhint %}
 
-Using the `email-am-factor` plugin configuration form, you can define the number of digits used to generate the verification code. The configured resource must be a [SMTP Resource](broken-reference). The email template used by this plugin is defined in the design section of the domain or application.
+Using the `email-am-factor` plugin configuration form, you can define the number of digits used to generate the verification code. The configured resource must be an [SMTP Resource](../../resources.md#resource-types). The email template used by this plugin is defined in the design section of the domain or application.
 
 <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-mfa-email-config.png" alt=""><figcaption><p>Email MFA configuration</p></figcaption></figure>
 

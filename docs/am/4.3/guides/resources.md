@@ -64,7 +64,7 @@ To configure an Infobip 2FA resource, you must specify:
 {% endtab %}
 
 {% tab title="SMTP" %}
-SMTP is a resource you can use to send email over SMTP. Once you have created your SMTP resource, you can reference it in the [Email factor configuration.](broken-reference)
+SMTP is a resource you can use to send email over SMTP. Once you have created your SMTP resource, you can reference it in the [email factor configuration](multi-factor-authentication/managing-factors/email.md).
 
 <figure><img src="../.gitbook/assets/resource_smtp 2.png" alt="" width="563"><figcaption><p>Configure an SMTP resource</p></figcaption></figure>
 
