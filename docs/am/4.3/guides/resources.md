@@ -8,10 +8,10 @@ Resources provide a way to define reusable configuration sets.
 
 Gravitee AM currently supports the following resources:
 
-* [HTTP Factor](resources.md#http-factor)
-* [Infobip 2FA](resources.md#infobip-2fa)
-* [SMTP](resources.md#smtp)
-* [Twilio Verify](resources.md#twilio-verify)
+* HTTP Factor
+* Infobip 2FA
+* SMTP
+* Twilio Verify
 
 Click on the tabs below to learn more.
 
