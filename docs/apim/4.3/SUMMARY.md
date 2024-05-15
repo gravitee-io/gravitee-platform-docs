@@ -198,7 +198,7 @@
   * [HTTP Callout](reference/policy-reference/http-callout.md)
   * [HTTP Signature](reference/policy-reference/http-signature.md)
   * [Interrupt](reference/policy-reference/interrupt.md)
-  * [IP filtering](reference/policy-reference/ip-filtering.md)
+  * [IP Filtering](reference/policy-reference/ip-filtering.md)
   * [Javascript](reference/policy-reference/javascript.md)
   * [JSON to JSON](reference/policy-reference/json-to-json.md)
   * [JSON to XML](reference/policy-reference/json-to-xml.md)
