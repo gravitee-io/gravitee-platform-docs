@@ -40,25 +40,25 @@ The information below summarizes:
 {% tab title="Syntax" %}
 **Expressions**
 
-Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol. Both dot notation and bracket notation are supported for accessing the properties of an object.
+Expressions in Gravitee are enclosed in curly braces `{}` and begin with the `#` symbol. Both dot notation and bracket notation are supported for accessing the properties of an object. This is true, but maybe we can recommend to use the bracket notation when accessing an array (headers is a good example), it simplify the reading imho
 
 Example: `{#context.attributes['user'].email}`
 
 {% hint style="info" %}
 **Dot notation vs bracket notation**
 
-Please note that dot notation will not work with special characters:
+Please note that dot notation will not work with special characters: 
 
 `{#request.headers.my-header}` <- **This will result in an error**
 
 Bracket notation should be used for property names that include a space or a hyphen, or start with a number:
 
-`{#request.headers['my-header']}`
+`{#request.headers['my-header']}` ⚠️ This example, even if it is perfectly valid, will return an array of values, it might be confusing for a person who will copy this and expect to retrieve the first header.
 {% endhint %}
 
 **Lists**
 
-Expressions can be used to assign lists, e.g., `{({'admin', 'writer'})}`
+Expressions can be used to assign lists, e.g., `{({'admin', 'writer'})}` never tester, I can't confirm
 
 1. The outer enclosing brackets start and end the EL expression
 2. The parentheses indicates an object is being instantiated
@@ -70,7 +70,7 @@ EL allows you to reference certain values injected into the EL context as object
 
 * `{#api.properties}`: Contains custom properties defined by the API publisher for that Gateway API.
 * `{#dictionaries}`: Contains custom dictionaries defined by the API publisher for that Gateway API.
-* `{#endpoints}`: Contains information about the Gateway API's respective endpoints.
+* `{#endpoints}`: Contains information about the Gateway API's respective endpoints. it is more a way to access an endpoint (or group) for a policy like Dynamic Routing, I don't think you can use it to extract any info
 * `{#request}`: Contains information about the current API request.
 * `{#response}`: Contains information about the current API response.
 * `{#message}`: Contains information about the current API message.
@@ -82,6 +82,8 @@ The `attributes` object property contains attributes that are automatically crea
 
 * `{#context.attributes}`: Contains attributes associated with v2 APIs or v4 Proxy APIs. A v4 Proxy API is created using the **Proxy upstream protocol** method.
 * `{#message.attributes}`: Contains attributes associated with v4 Message APIs. These APIs are created using the **Introspect messages from event-driven backend** method.
+
+It would be interesting to provide an example of accessing an attribute, since it is an array.
 
 See the [v4 API creation wizard](create-apis/the-api-creation-wizard/v4-api-creation-wizard.md) for more details.
 {% endtab %}
@@ -155,7 +157,7 @@ When accessing an encrypted custom property, Gravitee's Gateway will automatical
 {% endhint %}
 {% endtab %}
 
-{% tab title="Dictionaries" %}
+{% tab title="Dictionaries" %} I would not put this one under APIs section, Dictionaries are not part of an API, they are only accessible from it. we can see it because we don't use #api.dictionaries but #dictionaries directly
 [Dictionaries](https://docs.gravitee.io/apim/3.x/apim\_installguide\_configuration\_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary ID as well as the dictionary property name. Dictionary properties are simply key-value pairs that can be accessed from the `{#dictionaries}` root-level object property.
 
 #### Example
@@ -184,6 +186,8 @@ The object properties you can access from the `{#request}` root-level object pro
 {% tab title="Table" %}
 <table><thead><tr><th width="172">Object Property</th><th width="157">Description</th><th width="134">Type</th><th>Example</th></tr></thead><tbody><tr><td><a data-footnote-ref href="#user-content-fn-1">content</a></td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>contextPath</td><td>Context path</td><td>string</td><td>/v2/</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>host</td><td>The host of the request. This is preferable to using the Host header of the request because HTTP2 requests do not provide this header.</td><td>string</td><td>gravitee.example.com</td></tr><tr><td>id</td><td>Identifier</td><td>string</td><td>12345678-90ab-cdef-1234-567890ab</td></tr><tr><td>localAddress</td><td>Local address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>method</td><td>HTTP method</td><td>string</td><td>GET</td></tr><tr><td>params</td><td>Query parameters</td><td>key / value</td><td>order → 100</td></tr><tr><td>path</td><td>Path</td><td>string</td><td>/v2/store/MyStore</td></tr><tr><td>pathInfo</td><td>Path info</td><td>string</td><td>/store/MyStore</td></tr><tr><td>pathInfos</td><td>Path info parts</td><td>array of strings</td><td>[,store,MyStore]</td></tr><tr><td>pathParams</td><td>Path parameters</td><td>key / value</td><td>storeId → MyStore (<em>see Warning for details</em>)</td></tr><tr><td>pathParamsRaw</td><td>Path parameters</td><td>string</td><td>/something/:id/**</td></tr><tr><td>paths</td><td>Path parts</td><td>array of strings</td><td>[,v2,store,MyStore]</td></tr><tr><td>remoteAddress</td><td>Remote address</td><td>string</td><td>0:0:0:0:0:0:0:1</td></tr><tr><td>scheme</td><td>The scheme of the request (either <code>http</code> or <code>https</code>)</td><td>string</td><td>http</td></tr><tr><td>host</td><td></td><td>string</td><td></td></tr><tr><td>ssl</td><td>SSL session information</td><td>SSL object</td><td>-</td></tr><tr><td>timestamp</td><td>Timestamp</td><td>long</td><td>1602781000267</td></tr><tr><td>transactionId</td><td>Transaction identifier</td><td>string</td><td>cd123456-7890-abcd-ef12-34567890</td></tr><tr><td>uri</td><td>URI</td><td>string</td><td>/v2/store/MyStore?order=100</td></tr><tr><td>version</td><td>HTTP version</td><td>string</td><td>HTTP_1_1</td></tr></tbody></table>
 {% endtab %}
+
+In the previous table, there is a "see Warning for details" but I can't find any reference to a Warning section
 
 {% tab title="Examples" %}
 * Get the value of the `Content-Type` header for an incoming HTTP request using `{#request.headers['content-type']}`
@@ -323,12 +327,12 @@ You can use the EL to update some aspects of policy configuration. The policy sp
 
 You can use the EL to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as `&&` or `||`, as shown in the example below:
 
-`{#request.headers['my-header'] != null && #request.headers['my-header'][0] == "my-value"}`
+`{#request.headers['my-header'] != null && #request.headers['my-header'][0] == "my-value"}` here I can see the [0] which is good but it does not seem deployed on doc website
 
 {% hint style="info" %}
 **Alternate equality check**
 
-You can use the `equals()` method instead of `==`. When you use `.equals()`, it is recommended to put the string first to prevent an error. For example, if `#request.headers['my-header']` is `null` , then `'my-value'.equals(#request.headers['my-header'])`will prevent an error.
+You can use the `equals()` method instead of `==`. When you use `.equals()`, it is recommended to put the string first to prevent an error. For example, if `#request.headers['my-header']` is `null` , then `'my-value'.equals(#request.headers['my-header'][0])`will prevent an error. little error here.
 {% endhint %}
 
 ## Debugging
@@ -344,3 +348,5 @@ Assume `{#request.content.length() >= 10}` is the conditional expression on a fl
 {% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %}
 
 [^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.
+
+Response templates configuration also have particular fields for EL to access details of an error, maybe it deserves a section ?
