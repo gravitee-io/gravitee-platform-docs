@@ -76,8 +76,8 @@ The first and most important option is the **Target url**. This is the root-leve
 
 Let's imagine your backend API server, `https://backend-api-server/`, has two resources: `orders` and `customers`. After setting the Gateway API's target URL to `https://backend-api-server/`, an API consumer would send API requests to the following URLs to reach these resources through the Gateway:&#x20;
 
-* Access the `orders/1` resource at `https://apim-gateway-server/unique-path/orders/1`
-* Access the `customers/1` resource at `https://apim-gateway-server/unique-path/customers/1`
+* Access the `orders/1` resource at `https://apim-gateway-server/qs-traditional-api/orders/1`
+* Access the `customers/1` resource at `https://apim-gateway-server/qs-traditional-api/customers/1`
 
 </details>
 
