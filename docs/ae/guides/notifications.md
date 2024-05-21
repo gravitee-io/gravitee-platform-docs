@@ -15,7 +15,7 @@ Notifiers are a type of plugin used to configure a notification for a recipient.
 * Slack
 * Webhook
 
-Please refer to the [Configure alerts documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-alerts-and-notifications#configure-alerts) to learn how to configure AE-driven alerts and notifications.&#x20;
+Please refer to the [alerts documentation](https://documentation.gravitee.io/apim/getting-started/configuration/notifications#configure-alerts) to learn how to configure AE-driven alerts and notifications.
 
 This article walks through how to configure notifications via these channels as well as how to:
 
@@ -115,4 +115,4 @@ The following table lists the properties available in every alert triggered by a
 | `node.probe.management-api`                | Health of a dedicated probe, values: `true` or `false`                                                       | ${notification.properties\['node.probe.management-api']?string('yes','no')}        |
 | `node.probe.management-api.message`        | If `node.probe.management-api` is false, contains the error message                                          | ${notification.properties\['node.probe.management-api.message']}                   |
 
-\
+\\
