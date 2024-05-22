@@ -43,6 +43,12 @@ A JWT plan presents the following configuration options:
 * **Ignore missing CNF:** Ignores CNF validation if the token doesn't contain any CNF information
 * **Enable certificate bound thumbprint validation:** Validates the certificate thumbprint extracted from the `access_token` against the one provided by the client
 * **Extract client certificate from headers:** Extracts the client certificate from the request header (provided in **Header name** field). Necessary when the mTLS connection is handled by a proxy.
-* **Additional selection rule:** Allows you to use the EL to filter by contextual data (request headers, tokens, attributes, etc.) for plans of the same type (e.g., for two JWT plans, you can set different selection rules on each plan to determine which plan handles each request)
+*   **Additional selection rule:** Allows you to use the EL to filter by contextual data (request headers, tokens, attributes, etc.) for plans of the same type (e.g., for two JWT plans, you can set different selection rules on each plan to determine which plan handles each request)&#x20;
+
+    <figure><img src="../../../.gitbook/assets/jwt selection rule.png" alt=""><figcaption></figcaption></figure>
+
+    {% hint style="info" %}
+    Plan selection and evaluation of the selection rule use the EL syntax `#context.attributes['jwt'].claims['iss']` per the example above. However, when the policy is executed, the field is placed directly in the attributes map with the key. The correct EL syntax to access JWT fields changes to `#context.attributes['jwt.claims']['iss']`.
+    {% endhint %}
 
 Once JWT configuration is complete and the plan is created and published, your API will be JWT-secured and subscribed consumers must call the API with an `Authorization: Bearer your-JWT` HTTP header.
