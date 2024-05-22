@@ -1,12 +1,12 @@
-# OpenAPI Spec Import
+# OpenAPI Spec
 
 ## Overview
 
 A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.&#x20;
 
-* [Import an API](openapi-spec-import.md#import-an-api)
-* [Context-path resolution](openapi-spec-import.md#context-path-resolution)
-* [Policies on path](openapi-spec-import.md#policies-on-path)
+* [Import an API](openapi-spec.md#import-an-api)
+* [Context-path resolution](openapi-spec.md#context-path-resolution)
+* [Policies on path](openapi-spec.md#policies-on-path)
 
 ## Import an API
 
@@ -75,7 +75,7 @@ paths:
 You can use a vendor extension to add more information about your API to an OpenAPI specification.
 
 {% hint style="info" %}
-To learn how some policies can be defined in the OpenAPI spec as a vendor extension, see [Policies on path](openapi-spec-import.md#policies-on-path).
+To learn how some policies can be defined in the OpenAPI spec as a vendor extension, see [Policies on path](openapi-spec.md#policies-on-path).
 {% endhint %}
 
 To use a vendor extension, add the `x-graviteeio-definition` field at the root of the specification. The value of this field is an `object` that follows this [JSON Schema](https://raw.githubusercontent.com/gravitee-io/gravitee-api-management/master/gravitee-apim-rest-api/gravitee-apim-rest-api-service/src/main/resources/schema/xGraviteeIODefinition.json).

@@ -93,7 +93,8 @@
 
 * [Create APIs](guides/create-apis/README.md)
   * [Import APIs](guides/create-apis/import-apis/README.md)
-    * [OpenAPI Spec Import](guides/create-apis/import-apis/openapi-spec-import.md)
+    * [OpenAPI Spec](guides/create-apis/import-apis/openapi-spec.md)
+    * [JSON Definition](guides/create-apis/import-apis/json-definition.md)
   * [The API Creation Wizard](guides/create-apis/the-api-creation-wizard/README.md)
     * [v4 API creation wizard](guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
     * [v2 API creation wizard](guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md)
