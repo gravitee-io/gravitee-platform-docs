@@ -8,7 +8,7 @@ This tutorial builds off of [Configure JWT Security with APIM](configure-jwt-sec
 
 Gravitee API Management (APIM) has a [Role-based Access Control policy](../reference/policy-reference/role-based-access-control-rbac.md) that can act as an additional security and access control measure. This allows fine-grained control over which applications can access which resources based on their assigned roles.
 
-Due to some community requests, this tutorial will serve as a short extension of the [Configure JWT Security with APIM](configure-jwt-security-with-apim.md) tutorial. This tutorial will show how to configure the Role-based Access Control (RBAC) policy on a JWT plan when using a third-party IdP. Additionally, we will configure the policy to only be active on a sub-resource of our backend API server.
+Due to some community requests, this tutorial will serve as a short extension of the [Configure JWT Security with APIM](configure-jwt-security-with-apim.md) tutorial. This tutorial will show how to configure the Role-based Access Control (RBAC) policy on a JWT plan when using an IdP. Additionally, we will configure the policy to only be active on a sub-resource of our backend API server.
 
 {% hint style="warning" %}
 Currently, the RBAC policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs. If you’re unsure of the differences, check out [these docs](../overview/gravitee-api-definitions-and-execution-engines/).
@@ -22,19 +22,7 @@ Additionally, the following guide assumes you have already completed the [Config
 
 ## Configure your IdP <a href="#configure-your-idp-4" id="configure-your-idp-4"></a>
 
-Third-party IdPs such as Okta provide a number of ways to add roles to your access token’s claims, such as permissions and custom rules. However, regardless of the method, it is essential for Gravitee’s RBAC policy to receive the roles in a `List` like `['admin', 'user']` as opposed to a space-separated `String` like `'admin user'`.
-
-### Example IdP Configuration with Okta <a href="#example-idp-configuration-with-okta-5" id="example-idp-configuration-with-okta-5"></a>
-
-The easiest way to set this up in Okta is to go to your application’s authorized API, select the **Settings** tab, scroll down to **RBAC Settings**, and toggle **Enable RBAC** and **Add Permissions in the Access Token** ON. Make sure you select **Save** at the bottom of the page when you’re done.
-
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/a/a69affcc5853fd5dc2c36f04de85fcc2f041c0ad_2_690x288.png" alt=""><figcaption></figcaption></figure>
-
-Next, select the **Permissions** tab of your authorized API. Here, add a couple of roles to your API as shown below. These are the roles our RBAC policy will be checking for in the access token during API transactions.
-
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/e/ee839b440d4b2c39aa921024ae8c952c26340107_2_690x289.png" alt=""><figcaption></figcaption></figure>
-
-Finally, when requesting an access token, include those roles in the `scope` authorization parameter. This will result in a `permissions` claim being added to the access token which will contain all requested roles stored in a `List`.
+Gravitee Access Management and third-party IdPs provide a number of ways to add roles to your access token’s claims, such as permissions and custom rules. However, regardless of the method, it is essential for Gravitee’s RBAC policy to receive the roles in a `List` like `['admin', 'user']` as opposed to a space-separated `String` like `'admin user'`.
 
 ## Add Policies to the Gateway API <a href="#add-policies-to-the-gateway-api-6" id="add-policies-to-the-gateway-api-6"></a>
 
