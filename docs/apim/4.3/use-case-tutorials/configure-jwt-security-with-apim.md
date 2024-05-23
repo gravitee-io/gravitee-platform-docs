@@ -59,17 +59,13 @@ Provide your plan a name, and then scroll down and toggle on **Auto validate sub
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/b3584dcab75595ea34f4da86dcf7b5fdab1e526c_2_690x307.png" alt=""><figcaption></figcaption></figure>
 
-On the security page, select the **Signature** that your IdP uses to encrypt your access tokens. For example, the image below shows a sample application configured in Okta, a popular IdP, to use the RS256 signing algorithm:
+On the security page, select the **Signature** that your IdP uses to encrypt your access tokens.&#x20;
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/b299528f29251ae5f8b8808d8cb8f4c577708425_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/jwt security.png" alt=""><figcaption></figcaption></figure>
 
 Next, you need to tell the Gravitee Gateway where it can retrieve the JSON web key set (JWKS) to validate the signature with a public key. Typically, in a production setup, you want to use JWKS URL as it is more secure and eliminates the need to update the resolver when you rotate keys.
 
-A JWKS URL must be provided by your IdP of choice. Continuing with the Okta example, you can see the JWKS endpoint in the image below:
-
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/f/f363ea37393ec45842363e446be5580272dfd0b0_2_690x286.png" alt=""><figcaption></figcaption></figure>
-
-Copy the endpoint and return to APIM’s Console UI. Under **JWKS resolver**, select **JWKS\_URL** and then paste the endpoint in the **JWKS\_URL** input box.
+A JWKS URL must be provided by your IdP of choice. Copy the endpoint and return to APIM’s Console UI. Under **JWKS resolver**, select **JWKS\_URL** and then paste the endpoint in the **JWKS\_URL** input box.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/3/3e06b462925189359605f8d189ca576edb38e397_2_690x338.png" alt=""><figcaption></figcaption></figure>
 
