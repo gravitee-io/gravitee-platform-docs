@@ -25,6 +25,7 @@ The following sections define the scope and usage of EL:
 * [Nodes](gravitee-expression-language.md#nodes)
 * [Mixin](gravitee-expression-language.md#mixin)
 * [Policies](gravitee-expression-language.md#policies)
+* [Response templates](gravitee-expression-language.md#response-templates)
 * [Conditions](gravitee-expression-language.md#conditions)
 * [Debugging](gravitee-expression-language.md#debugging)
 
@@ -87,7 +88,7 @@ The `attributes` object property contains attributes that are automatically crea
 * `{#context.attributes}`: Contains attributes associated with v2 APIs or v4 Proxy APIs. A v4 Proxy API is created using the **Proxy upstream protocol** method.
 * `{#message.attributes}`: Contains attributes associated with v4 Message APIs. These APIs are created using the **Introspect messages from event-driven backend** method.
 
-See the [v4 API creation wizard](create-apis/the-api-creation-wizard/v4-api-creation-wizard.md) for more details.
+You can access an attribute from the `attributes` array via brackets, e.g, `{#context.attributes['my-attribute']}`.
 {% endtab %}
 
 {% tab title="Operators" %}
@@ -320,6 +321,24 @@ For example, to retrieve the value of an HTTP header where the name is based on 
 You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the Policy Studio configuration.
 
 <figure><img src="../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
+
+## Response templates
+
+EL can use particular fields within the body configuration of a response template to access the details of an error.&#x20;
+
+* To access the request and its content: `{#request.headers['my-header'][0]}`
+* To access the error:
+  * `{#error.statusCode}`: The status code returned by the error
+  * `{#error.key}`: Yhe key used to select the response template
+  * `{#error.message}`: The message failure
+*   To access the parameters of the failure (values can be null), e.g., the AWS Lambda policy uses `region` and `error` parameters:
+
+    * `{#parameters.region}`: The geo zone of the deployment
+    * `{#parameters.error}`: Contains the error message (content is unknown)
+
+    {% hint style="info" %}
+    Parameters vary between policies. The policy generating the error(s) directly updates the `parameters` dictionary to provide dynamic error information to a response template.&#x20;
+    {% endhint %}
 
 ## Conditions
 
