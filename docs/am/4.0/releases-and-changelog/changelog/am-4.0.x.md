@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.19 - May 24, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Unable to remove a FORM at orgnazation level [#9124](https://github.com/gravitee-io/issues/issues/9124)
+* Application - Forms - Page not found error when enabling custom form again after being 'cleared' [#9492](https://github.com/gravitee-io/issues/issues/9492)
+* Password Policy Blank value in dropbox when selecting value Unlimited
+
+</details>
+
+
 ## Gravitee Access Management 4.0.18 - May 9, 2024
 
 <details>
