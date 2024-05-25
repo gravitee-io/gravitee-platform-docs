@@ -5,36 +5,35 @@ description: >-
 ---
 
 # APIM 4.3.x
- 
+
 ## Gravitee API Management 4.3.5 - May 24, 2024
+
 <details>
 
-<summary>Bug Fixes</summary>
+<summary>Bug fixes</summary>
 
 **Gateway**
 
 * Gateway monitoring page has no data [#9677](https://github.com/gravitee-io/issues/issues/9677)
-* the assign content policy seems to be broken when using with retry policy. [#9737](https://github.com/gravitee-io/issues/issues/9737)
+* The Assign Content policy seems to be broken when using with Retry policy [#9737](https://github.com/gravitee-io/issues/issues/9737)
 
 **Management API**
 
 * Logs mismatched between environments [#9599](https://github.com/gravitee-io/issues/issues/9599)
-* Incompatible Qos between entrypoints and endpoints [#9608](https://github.com/gravitee-io/issues/issues/9608)
+* Incompatible QoS between entrypoints and endpoints [#9608](https://github.com/gravitee-io/issues/issues/9608)
 * Unable to Search Users by Company Name and Country in Users API [#9702](https://github.com/gravitee-io/issues/issues/9702)
 
 **Console**
 
-* Incompatible Qos between entrypoints and endpoints [#9608](https://github.com/gravitee-io/issues/issues/9608)
-* OpenAPI component references are not read correctly when uploading the swagger document [#9738](https://github.com/gravitee-io/issues/issues/9738)
+* Incompatible QoS between entrypoints and endpoints [#9608](https://github.com/gravitee-io/issues/issues/9608)
+* OpenAPI component references are not read correctly when uploading the Swagger document [#9738](https://github.com/gravitee-io/issues/issues/9738)
 * Dashboard Overview Widgets Loading Too Long [#9747](https://github.com/gravitee-io/issues/issues/9747)
 
 **Portal**
 
-* OpenAPI component references are not read correctly when uploading the swagger document [#9738](https://github.com/gravitee-io/issues/issues/9738)
+* OpenAPI component references are not read correctly when uploading the Swagger document [#9738](https://github.com/gravitee-io/issues/issues/9738)
 
 </details>
-
-
 
 ## Gravitee API Management 4.3.4 - May 10, 2024
 
