@@ -5,6 +5,30 @@ description: >-
 ---
 
 # APIM 4.1.x
+ 
+## Gravitee API Management 4.1.16 - May 24, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway monitoring page has no data [#9677](https://github.com/gravitee-io/issues/issues/9677)
+* the assign content policy seems to be broken when using with retry policy. [#9737](https://github.com/gravitee-io/issues/issues/9737)
+
+**Management API**
+
+* Logs mismatched between environments [#9599](https://github.com/gravitee-io/issues/issues/9599)
+* Incompatible Qos between entrypoints and endpoints [#9608](https://github.com/gravitee-io/issues/issues/9608)
+* Unable to Search Users by Company Name and Country in Users API [#9702](https://github.com/gravitee-io/issues/issues/9702)
+
+**Console**
+
+* Incompatible Qos between entrypoints and endpoints [#9608](https://github.com/gravitee-io/issues/issues/9608)
+
+</details>
+
+
 
 ## Gravitee API Management 4.1.15 - May 10, 2024
 
