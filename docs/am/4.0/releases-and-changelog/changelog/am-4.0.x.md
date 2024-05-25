@@ -12,20 +12,13 @@ description: >-
 
 <summary>Bug fixes</summary>
 
-
-
-
-
-
-
 **Other**
 
-* Unable to remove a FORM at orgnazation level [#9124](https://github.com/gravitee-io/issues/issues/9124)
+* Unable to remove a FORM at organization level [#9124](https://github.com/gravitee-io/issues/issues/9124)
 * Application - Forms - Page not found error when enabling custom form again after being 'cleared' [#9492](https://github.com/gravitee-io/issues/issues/9492)
 * Password Policy Blank value in dropbox when selecting value Unlimited
 
 </details>
-
 
 ## Gravitee Access Management 4.0.18 - May 9, 2024
 
@@ -33,19 +26,12 @@ description: >-
 
 <summary>Bug fixes</summary>
 
-
-
-
-
-
-
 **Other**
 
 * There are no MFA logs [#9629](https://github.com/gravitee-io/issues/issues/9629)
-* _node/health endpoint is not accessible  [#9698](https://github.com/gravitee-io/issues/issues/9698)
+* \_node/health endpoint is not accessible [#9698](https://github.com/gravitee-io/issues/issues/9698)
 
 </details>
-
 
 ## Gravitee Access Management 4.0.17 - April 29, 2024
 
@@ -56,19 +42,14 @@ description: >-
 **Gateway**
 
 * Issue with MFA and silent refresh token [#9622](https://github.com/gravitee-io/issues/issues/9622)
-* [WebAuthn] Problèmatique Authenticator "SecurityError : The operation is insecure." [#9686](https://github.com/gravitee-io/issues/issues/9686)
+* \[WebAuthn] Problèmatique Authenticator "SecurityError : The operation is insecure." [#9686](https://github.com/gravitee-io/issues/issues/9686)
 
 **Management API**
 
-*  Not able to add new attribute to User’s profile through AM REST Api when using Google Identity provider [#8434](https://github.com/gravitee-io/issues/issues/8434)
+* Not able to add new attribute to User’s profile through AM REST Api when using Google Identity provider [#8434](https://github.com/gravitee-io/issues/issues/8434)
 * AM - Application Analytics Timeout [#9405](https://github.com/gravitee-io/issues/issues/9405)
 
-
-
-
-
 </details>
-
 
 ## Gravitee Access Management 4.0.16 - April 12, 2024
 
