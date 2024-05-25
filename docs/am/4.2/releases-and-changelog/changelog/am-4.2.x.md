@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.2.x
 
+## Gravitee Access Management 4.2.12 - May 24, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Error with MFA challenge policy in Reset Password Flow [#9735](https://github.com/gravitee-io/issues/issues/9735)
+
+
+
+
+
+**Other**
+
+* Unable to remove a FORM at orgnazation level [#9124](https://github.com/gravitee-io/issues/issues/9124)
+* Application - Forms - Page not found error when enabling custom form again after being 'cleared' [#9492](https://github.com/gravitee-io/issues/issues/9492)
+* [DCR] improve client sanitizeTemplate method [#9687](https://github.com/gravitee-io/issues/issues/9687)
+* Password Policy Blank value in dropbox when selecting value Unlimited
+
+</details>
+
+
 ## Gravitee Access Management 4.2.11 - May 9, 2024
 
 <details>
