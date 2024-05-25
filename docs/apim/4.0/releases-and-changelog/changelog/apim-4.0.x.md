@@ -5,16 +5,17 @@ description: >-
 ---
 
 # APIM 4.0.x
- 
+
 ## Gravitee API Management 4.0.25 - May 24, 2024
+
 <details>
 
-<summary>Bug Fixes</summary>
+<summary>Bug fixes</summary>
 
 **Gateway**
 
 * Gateway monitoring page has no data [#9677](https://github.com/gravitee-io/issues/issues/9677)
-* the assign content policy seems to be broken when using with retry policy. [#9737](https://github.com/gravitee-io/issues/issues/9737)
+* The Assign Content policy seems to be broken when using with Retry policy [#9737](https://github.com/gravitee-io/issues/issues/9737)
 
 **Management API**
 
@@ -22,8 +23,6 @@ description: >-
 * Unable to Search Users by Company Name and Country in Users API [#9702](https://github.com/gravitee-io/issues/issues/9702)
 
 </details>
-
-
 
 ## Gravitee API Management 4.0.24 - May 10, 2024
 
