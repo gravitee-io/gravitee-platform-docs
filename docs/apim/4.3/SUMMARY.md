@@ -219,6 +219,7 @@
   * [Keyless](reference/policy-reference/keyless.md)
   * [Latency](reference/policy-reference/latency.md)
   * [Message Filtering](reference/policy-reference/message-filtering.md)
+  * [Metrics Reporter](reference/policy-reference/metrics-reporter.md)
   * [Mock](reference/policy-reference/mock.md)
   * [OAuth2](reference/policy-reference/oauth2/README.md)
     * [Generic OAuth2 Authorization Server](reference/policy-reference/oauth2/generic-oauth2-authorization-server.md)
