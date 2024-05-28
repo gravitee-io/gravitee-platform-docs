@@ -240,6 +240,7 @@
   * [Traffic Shadowing](reference/policy-reference/traffic-shadowing.md)
   * [Transform Headers](reference/policy-reference/transform-headers.md)
   * [Transform Query Parameters](reference/policy-reference/transform-query-parameters.md)
+  * [URL Rewriting](reference/policy-reference/url-rewriting.md)
   * [WS Security Authentication](reference/policy-reference/ws-security-authentication.md)
   * [XML to JSON](reference/policy-reference/xml-to-json.md)
   * [XML Threat Protection](reference/policy-reference/xml-threat-protection.md)
