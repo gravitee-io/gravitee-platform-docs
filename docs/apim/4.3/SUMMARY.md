@@ -205,6 +205,7 @@
   * [GeoIP Filtering](reference/policy-reference/geoip-filtering.md)
   * [GraphQL Rate Limit](reference/policy-reference/graphql-rate-limit.md)
   * [Groovy](reference/policy-reference/groovy.md)
+  * [HTML to JSON](reference/policy-reference/html-to-json.md)
   * [HTTP Callout](reference/policy-reference/http-callout.md)
   * [HTTP Signature](reference/policy-reference/http-signature.md)
   * [Interrupt](reference/policy-reference/interrupt.md)
