@@ -197,6 +197,7 @@
   * [Cache](reference/policy-reference/cache.md)
   * [Circuit Breaker](reference/policy-reference/circuit-breaker.md)
   * [Cloud Events](reference/policy-reference/cloud-events.md)
+  * [Custom Query Parameters Parser](reference/policy-reference/custom-query-parameters-parser.md)
   * [Data Logging Masking](reference/policy-reference/data-logging-masking.md)
   * [Dynamic Routing](reference/policy-reference/dynamic-routing.md)
   * [Generate HTTP Signature](reference/policy-reference/generate-http-signature.md)

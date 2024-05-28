@@ -118,3 +118,5 @@ You can configure the `data-logging-masking` policy with the following options:
 The following is the compatibility matrix for APIM and the `data-logging-masking` policy:
 
 <table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>Up to 1.x</td><td>Up to 3.17.x</td></tr><tr><td>2.0 to 2.x</td><td>3.18.x to 3.20.x</td></tr><tr><td>3.0+</td><td>4.0+</td></tr></tbody></table>
+
+xx
