@@ -68,6 +68,7 @@
     * [Gravitee AM Authentication](getting-started/configuration/authentication/gravitee-am-authentication.md)
     * [Social Providers](getting-started/configuration/authentication/social-providers.md)
     * [Custom OAuth2/OpenID Authorization Server](getting-started/configuration/authentication/custom-oauth2-openid-authorization-server.md)
+    * [Azure AD / Entra ID](getting-started/configuration/authentication/azure-ad-entra-id.md)
   * [Notifications](getting-started/configuration/notifications.md)
   * [Production-ready APIM Environment](getting-started/configuration/production-ready-apim-environment/README.md)
     * [Internal APIs](getting-started/configuration/production-ready-apim-environment/internal-apis.md)
