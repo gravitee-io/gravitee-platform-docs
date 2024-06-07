@@ -5,6 +5,41 @@ description: >-
 ---
 
 # APIM 4.3.x
+ 
+## Gravitee API Management 4.3.6 - June 7, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Error in the gateway when upgrading connection from http1.1 to http2 [#9757](https://github.com/gravitee-io/issues/issues/9757)
+* Socket.io disconnect/reconnect latency [#9766](https://github.com/gravitee-io/issues/issues/9766)
+
+**Management API**
+
+* Pushing an API with API Designer fails [#9761](https://github.com/gravitee-io/issues/issues/9761)
+* Gitlab fetcher CronSequenceGenerator deprecation [#9733](https://github.com/gravitee-io/issues/issues/9733)
+* Inheritance of a V2 API endpoint configuration is not set when importing an OpenAPI spec [#9775](https://github.com/gravitee-io/issues/issues/9775)
+
+**Console**
+
+* Documentation not appearing for 4.3.2 / 4.3.3 Policies (on the RHS) [#9760](https://github.com/gravitee-io/issues/issues/9760)
+* Login via OIDC on Management Console not possible [#9769](https://github.com/gravitee-io/issues/issues/9769)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* \[gravitee-policy-groovy] Have access to the binary value of a message content [#9767](https://github.com/gravitee-io/issues/issues/9767)
+
+</details>
+
+
 
 ## Gravitee API Management 4.3.5 - May 24, 2024
 
