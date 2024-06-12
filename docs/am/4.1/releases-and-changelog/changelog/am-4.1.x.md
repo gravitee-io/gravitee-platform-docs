@@ -6,6 +6,38 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.23 - June 6, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* [AM] [3.21.18] User don't receive the email to recover his password with an uppercase email [#9624](https://github.com/gravitee-io/issues/issues/9624)
+* Exception on start-up in Spring Boot applications after upgrade to AM 4.3.1 [#9667](https://github.com/gravitee-io/issues/issues/9667)
+* Error Azure SCIM user update  [#9674](https://github.com/gravitee-io/issues/issues/9674)
+* DCR new client using Template doesn't copy all parameters [#9691](https://github.com/gravitee-io/issues/issues/9691)
+* Brute Force Detection not working to IDPs with Account Linking Policy [#9713](https://github.com/gravitee-io/issues/issues/9713)
+* Source IP and user agent missing from FORGOT_PASSWORD_REQUESTED audit log [#9724](https://github.com/gravitee-io/issues/issues/9724)
+* Domain not available into the ExpresionLanguage context [#9745](https://github.com/gravitee-io/issues/issues/9745)
+
+**Management API**
+
+* Not able to configure email notifier using Gravitee [#9581](https://github.com/gravitee-io/issues/issues/9581)
+
+**Console**
+
+* AM - Change error message when admin user tries to remove certificate tied to an application [#8952](https://github.com/gravitee-io/issues/issues/8952)
+
+**Other**
+
+* Editing HTTP Provider selects wrong password encoder [#9627](https://github.com/gravitee-io/issues/issues/9627)
+* Email from [%s] is invalid - SMTP Resource [#9749](https://github.com/gravitee-io/issues/issues/9749)
+
+</details>
+
+
 ## Gravitee Access Management 4.1.22 - May 24, 2024
 
 <details>
