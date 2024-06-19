@@ -6,6 +6,44 @@ description: >-
 
 # APIM 4.2.x
  
+## Gravitee API Management 4.2.12 - June 19, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Allow users to configure keepalive timeout in the console for V2 APIs [#9651](https://github.com/gravitee-io/issues/issues/9651)
+* Filter on 208 status code not available [#9784](https://github.com/gravitee-io/issues/issues/9784)
+
+**Portal**
+
+* Documentation too slow [#9788](https://github.com/gravitee-io/issues/issues/9788)
+
+**Helm Charts**
+
+* Improve the ingress configuration to redirect HTTPS [#9710](https://github.com/gravitee-io/issues/issues/9710)
+
+**Other**
+
+* \[gravitee-endpoint-kafka] Kafka sender options customization not taken into account [#9656](https://github.com/gravitee-io/issues/issues/9656)
+* \[gravitee-policy-json-validation] v4 Policy Studio UI doesn't support multi-line values [#9799](https://github.com/gravitee-io/issues/issues/9799)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* \[gravitee-entrypoint-webhook] Support 500 responses for DLQ : add client_id and errors stack in the message sent to DLQ [#9740](https://github.com/gravitee-io/issues/issues/9740)
+* \[gravitee-endpoint-kafka] Add a option on kafka endpoint to remove Confluent Wire format header [#9795](https://github.com/gravitee-io/issues/issues/9795)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.2.11 - June 7, 2024
 <details>
 
