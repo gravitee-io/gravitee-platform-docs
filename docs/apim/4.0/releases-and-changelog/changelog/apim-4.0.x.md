@@ -6,6 +6,42 @@ description: >-
 
 # APIM 4.0.x
  
+## Gravitee API Management 4.0.27 - June 19, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Filter on 208 status code not available [#9784](https://github.com/gravitee-io/issues/issues/9784)
+
+**Portal**
+
+* Documentation too slow [#9788](https://github.com/gravitee-io/issues/issues/9788)
+
+**Helm Charts**
+
+* Improve the ingress configuration to redirect HTTPS [#9710](https://github.com/gravitee-io/issues/issues/9710)
+
+**Other**
+
+* \[gravitee-endpoint-kafka] Kafka sender options customization not taken into account [#9656](https://github.com/gravitee-io/issues/issues/9656)
+* \[gravitee-policy-json-validation] v4 Policy Studio UI doesn't support multi-line values [#9799](https://github.com/gravitee-io/issues/issues/9799)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* \[gravitee-endpoint-kafka] Add a option on kafka endpoint to remove Confluent Wire format header [#9795](https://github.com/gravitee-io/issues/issues/9795)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.0.26 - June 7, 2024
 <details>
 
