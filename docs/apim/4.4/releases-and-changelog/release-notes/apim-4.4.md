@@ -1,5 +1,11 @@
 # APIM 4.4
 
+{% hint style="danger" %}
+**Make sure you upgrade your license file**
+
+If you are an existing Gravitee Enterprise customer upgrading to 4.x, please make sure that you upgrade your Gravitee license file. Reach out to your Customer Success Manager or Support team in order to receive a new 4.x license.
+{% endhint %}
+
 ## Gravitee API Management 4.4
 
 In Gravitee API Management version 4.4, we’ve released the following new products and functionality:
