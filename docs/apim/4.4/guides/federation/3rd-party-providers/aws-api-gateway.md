@@ -1,0 +1,98 @@
+# AWS API Gateway
+
+{% hint style="warning" %}
+**Tech Preview**
+
+Federated APIs are a Tech Preview feature and are not recommended for usage in production environments. If you are interested in trying our Gravitee Federated API Management, we highly recommend:
+
+* Customers to reach out to their CSM or CSA
+* Non-customers to [book some time](https://www.gravitee.io/demo) with a Gravitee Engineer for a demo and/or free POC
+
+
+
+Gravitee does not provide formal support for tech preview features. Service-level agreements do not apply for tech preview features, and the use of tech preview features in production is at the sole risk and discretion of the customer.
+{% endhint %}
+
+## Overview
+
+The details of Gravitee's AWS API Gateway integration are described below.&#x20;
+
+## Connecting to AWS
+
+Gravitee authenticates with the AWS management API using an access key and secret that identifies a root or IAM user. This user must have permissions to manage the AWS API gateway resources that the integration needs to manipulate.
+
+## API Import
+
+Rules for importing APIs from AWS:
+
+*   Only import APIs of [type “REST”](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html)
+
+    {% hint style="info" %}
+    Gravitee does not currently support type HTTP
+    {% endhint %}
+* Only import APIs that are deployed. This implies that the OAS definition is available.
+* Only import APIs that are part of a [Usage Plan](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html).
+* Create one Gravitee federated API per AWS API.
+* An integration will only import APIs from a specific AWS stage.
+*   For AWS APIs that require an API key for at least one method, federated APIs are allotted one API Key plan per Usage Plan.&#x20;
+
+    <figure><img src="../../../.gitbook/assets/aws api gateway federation.png" alt=""><figcaption></figcaption></figure>
+
+### Field mapping
+
+| AWS REST API                                                                                                                                     | Gravitee Federated API | Comments                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | -------------------------------------------------------------------------------------- |
+| name                                                                                                                                             | name                   | <p><br></p>                                                                            |
+| description                                                                                                                                      | description            | <p><br></p>                                                                            |
+| Version (passed from the version attribute of the [GetRestApi response](https://docs.aws.amazon.com/apigateway/latest/api/API\_GetRestApi.html)) | version                | This is a descriptive field. Multiple versions of an AWS API cannot exist in parallel. |
+
+| AWS Usage Plan | Gravitee Federated API | Comments    |
+| -------------- | ---------------------- | ----------- |
+| name           | plan.name              | <p><br></p> |
+| description    | plan.description       | <p><br></p> |
+
+## Applications
+
+Unlike Gravitee, AWS API gateway doesn’t have a concept of [applications](../../api-exposure-plans-applications-and-subscriptions/applications.md), but natively supports an independent concept of API keys, which:
+
+* Have the following attributes: `id`, `description`, `creation date`, `status` (e.g., active), `API key` (API key value)
+* Are associated with multiple Usage Plans, which reference multiple APIs
+
+Gravitee creates one API key in AWS for each application in Gravitee. Each time the application subscribes to an API, Gravitee associates that API key with the API’s corresponding Usage Plan.&#x20;
+
+### Field mapping
+
+<table><thead><tr><th width="208">Gravitee application</th><th width="172">AWS API key</th><th>Comments</th></tr></thead><tbody><tr><td>name</td><td>name</td><td><br></td></tr><tr><td>description</td><td>description</td><td><br></td></tr><tr><td>subscription.apikey</td><td>api key</td><td><br></td></tr></tbody></table>
+
+## API key subscription
+
+The AWS REST APIs must be configured to [check for an API key](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-setup-api-key-with-console.html):
+
+1. In the Gravitee Developer Portal, the API consumer creates an application without a client ID.
+2. In the Gravitee Developer Portal, the API consumer subscribes the application to the API Key plan of the federated AWS API.
+3. Gravitee requests AWS to create a new API key for the application (if it doesn’t exist).
+4. Gravitee requests AWS to associate the API key to the matching AWS Usage Plan.
+5. Gravitee creates a new subscription for the application and uses the API key generated by AWS as value for the subscription’s API key.
+6. The application can use the API key to call the AWS API.
+
+## Using a Lambda Authorizer to validate auth tokens
+
+{% hint style="info" %}
+See [Use API Gateway Lambda authorizers](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html)
+{% endhint %}
+
+<figure><img src="https://lh7-eu.googleusercontent.com/NyYzwTkvYA7YuOpIV9FTCVZ-Y9LeypsGZ4z2Rk8Vh76qPqrf0s3gMvh-vmfbOStScMsDWZYseHA1eavvYJFh-m609KNocexsSasdt2XH4hyHWO_REDXyM0xT9t6R2naSxJJKHaEWoyprqdQtj3S2HZY" alt=""><figcaption></figcaption></figure>
+
+Using this method, the AWS API gateway forwards a header or query parameters to a Lambda function that decides whether or not to accept a call. The **Gravitee** API Gateway will accept or reject the client’s request depending on how the lambda authorizer responds.&#x20;
+
+**Example:** The API [My Lambda Authorizer API](https://eu-west-2.console.aws.amazon.com/apigateway/main/apis/437wmzcl19/resources?api=437wmzcl19\&experience=rest\&region=eu-west-2) can be called with the header `authorizationToken`. The value `allow` causes the Lambda to accept the call and the value `deny` causes the Lambda to reject the call.&#x20;
+
+<figure><img src="https://lh7-eu.googleusercontent.com/8ytKdaRKGOxBo3B8gVi4kgDRJoVqG0Yadd18f0NkImKRkAA6UMnmZCFrJ5oePx1r0trqfBRPr84B4r7HJeoIiK77aE6X8GMJKxyHbo4LB_VR0pvX3HZckPsxlDP_GRAox-Cz4WGCnQ1hkOvHgRKB4uc" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+**Amazon Cognito**
+
+See [Control access to a REST API using Amazon Cognito user pools as authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
+{% endhint %}
+
+\
