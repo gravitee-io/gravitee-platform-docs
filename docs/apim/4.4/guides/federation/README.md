@@ -1,16 +1,5 @@
 # Federation
 
-
-
-{% hint style="warning" %}
-**Tech Preview**
-
-This tech preview feature is new! We're gathering feedback on it to make it even better, so it may change as we make improvements. If you are interested in trying our Gravitee Federated API Management, we highly recommend:
-
-* Customers to reach out to their CSM or CSA
-* Non-customers to [book some time](https://www.gravitee.io/demo) with a Gravitee Engineer for a demo and/or free POC
-{% endhint %}
-
 ## Introduction
 
 Federation describes an approach by which Gravitee can unify APIs and event streams running on different providers into a single platform for simplified governance and an improved developer experience. The benefits of federation include:

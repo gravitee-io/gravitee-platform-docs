@@ -1,18 +1,5 @@
 # Federation Agent
 
-{% hint style="warning" %}
-**Tech Preview**
-
-Federated APIs are a Tech Preview feature and are not recommended for usage in production environments. If you are interested in trying our Gravitee Federated API Management, we highly recommend:
-
-* Customers to reach out to their CSM or CSA
-* Non-customers to [book some time](https://www.gravitee.io/demo) with a Gravitee Engineer for a demo and/or free POC
-
-
-
-Gravitee does not provide formal support for tech preview features. Service-level agreements do not apply for tech preview features, and the use of tech preview features in production is at the sole risk and discretion of the customer.
-{% endhint %}
-
 ## Overview
 
 A federation agent is an executable (e.g., `docker-compose` and configuration files) that integrates with a 3rd-party provider and communicates with an integration defined in Gravitee. For an integration to function, its associated agent to be properly configured and deployed. Agents are necessary because the Gravitee control plane (APIM Console and Management API) may not have direct network access to the 3rd-party provider’s management API.

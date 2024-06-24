@@ -1,18 +1,5 @@
 # Federated APIs
 
-{% hint style="warning" %}
-**Tech Preview**
-
-Federated APIs are a Tech Preview feature and are not recommended for usage in production environments. If you are interested in trying our Gravitee Federated API Management, we highly recommend:
-
-* Customers to reach out to their CSM or CSA
-* Non-customers to [book some time](https://www.gravitee.io/demo) with a Gravitee Engineer for a demo and/or free POC
-
-
-
-Gravitee does not provide formal support for tech preview features. Service-level agreements do not apply for tech preview features, and the use of tech preview features in production is at the sole risk and discretion of the customer.
-{% endhint %}
-
 ## Overview
 
 Federated APIs join proxy and message APIs as one of the three main types of v4 Gravitee APIs. Federated APIs are created based on assets discovered by integrations with 3rd-party API gateway or event broker providers. This page discusses:
