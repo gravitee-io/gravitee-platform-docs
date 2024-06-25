@@ -81,7 +81,7 @@
 
 ## Most common use cases
 
-* [Rate limiting REST APIs](most-common-use-cases/rate-limiting-rest-apis.md)
+* [Rate Limiting REST API Use Cases](most-common-use-cases/rate-limiting-rest-api-use-cases.md)
 * [Configure JWT Security with APIM](most-common-use-cases/configure-jwt-security-with-apim.md)
 * [Adding Role-based Access Control to your JWT Plan](most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan.md)
 * [Configure Dynamic Client Registration with APIM](most-common-use-cases/configure-dynamic-client-registration-with-apim.md)
