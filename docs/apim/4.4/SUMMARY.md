@@ -79,13 +79,13 @@
   * [Hybrid Deployment on Kubernetes](getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md)
   * [Advanced Hybrid Deployment](getting-started/hybrid-deployment/advanced-hybrid-deployment.md)
 
-## Copy of Getting Started
+## Most common use cases
 
-* [Rate limiting REST APIs](copy-of-getting-started/rate-limiting-rest-apis.md)
-* [Configure JWT Security with APIM](copy-of-getting-started/configure-jwt-security-with-apim.md)
-* [Adding Role-based Access Control to your JWT Plan](copy-of-getting-started/adding-role-based-access-control-to-your-jwt-plan.md)
-* [Configure Dynamic Client Registration with APIM](copy-of-getting-started/configure-dynamic-client-registration-with-apim.md)
-* [Secure and Expose gRPC Services with Gravitee](copy-of-getting-started/secure-and-expose-grpc-services-with-gravitee.md)
+* [Rate limiting REST APIs](most-common-use-cases/rate-limiting-rest-apis.md)
+* [Configure JWT Security with APIM](most-common-use-cases/configure-jwt-security-with-apim.md)
+* [Adding Role-based Access Control to your JWT Plan](most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan.md)
+* [Configure Dynamic Client Registration with APIM](most-common-use-cases/configure-dynamic-client-registration-with-apim.md)
+* [Secure and Expose gRPC Services with Gravitee](most-common-use-cases/secure-and-expose-grpc-services-with-gravitee.md)
 
 ## Guides
 
