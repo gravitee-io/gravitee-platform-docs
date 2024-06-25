@@ -12,7 +12,6 @@ In Gravitee API Management version 4.4, we’ve released the following new produ
 
 * Federated API Management, with support for publishing and governing APIs from different API Gateways and Event brokers&#x20;
 * More functionality for v4 APIs
-* A new OAS spec validation policy
 * A new Azure Service Bus endpoint for protocol mediation APIs
 * A new Developer Portal (Tech preview)
 * And more!
@@ -157,8 +156,6 @@ Below is a table that outlines just how close we are to v2 and v4 feature parity
 
 <table data-header-hidden><thead><tr><th width="187">Functionality</th><th width="187">Supported in v2 proxy APIs</th><th>Supported in v4 proxy APIs</th><th>Supported in v4 message APIs</th></tr></thead><tbody><tr><td>User Permissions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Properties</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Resources</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Notifications</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Categories</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Audit Logs</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Response Templates</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>CORS</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Virtual Hosts</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Failover</td><td>✅</td><td>✅</td><td>⚠️ Depends on use case</td></tr><tr><td>Health Check</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Health Check Dashboard</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Improved Policy Studio</td><td>🚫</td><td>✅</td><td>✅</td></tr><tr><td>Debug Mode</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Plans</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Subscriptions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Messages / Broadcasts</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - Markdown</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - OAS</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - AsyncAPI</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - AsciiDoc</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Home Page</td><td>✅</td><td>⚠️ Set via API</td><td>✅</td></tr><tr><td>Documentation - Metadata</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Documentation - Translations</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Group Access Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Role Access Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Swagger vs. Redoc Control</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Try It Configuration</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Documentation - Nested Folder Creation</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Terms &#x26; Conditions on a Plan</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Sharding Tags</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Deployment History</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Rollback</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Compare API to Previous Versions</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Analytics</td><td>✅</td><td>⚠️ WIP</td><td>⚠️ WIP</td></tr><tr><td>Custom Dashboards</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Path Mappings</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>Logs</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>API Quality</td><td>✅</td><td>🚫</td><td>🚫</td></tr><tr><td>API Review</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Export API as Gravitee def (+options)</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Export API as GKO spec</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Import API from Gravitee def (+options)</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
 
-\
-\
 
 
 ## The new Gravitee API Developer Portal (Tech preview) (EE only)
@@ -187,7 +184,6 @@ This Developer Portal is only a tech preview. For production use cases, we still
 While Federated APIs, feature party work for v4 APIs, and a brand new Developer Portal are the major highlights of this release, that’s not all that we’ve been up to for the last quarter! We’ve also released the following new functionality:
 
 * OpenTelemetry plugin
-* OpenAPI spec validation policy
 * Azure Service Bus endpoint
 * The ability to customize the order of APIs within a category in the portal
 * Add token option to body of MAPI token exchange endpoint
@@ -197,10 +193,6 @@ While Federated APIs, feature party work for v4 APIs, and a brand new Developer 
 ### The OpenTelemetry plugin
 
 Using the new OpenTelemetry plugin, Gravitee APIs can now generate OpenTelemetry data and export it to the tool of their choice using the built-in OpenTelemetry exporter. This enables our customers to utilize their existing telemetry infrastructure using the industry standard. This functionality supersedes our existing Jaeger support.
-
-### OpenAPI spec validation policy
-
-Many Gravitee users and customers want to run validation logic to ensure that API traffic conforms to the external specification used to create their APIs. The new OpenAPI spec validation policy gives you a single validation policy to accomplish this task, as opposed to having to add complex JSON validation or bundle multiple other policies.
 
 ### More protocol mediation support: Azure Service Bus endpoint
 
