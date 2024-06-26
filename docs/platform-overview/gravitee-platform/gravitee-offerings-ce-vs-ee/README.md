@@ -2,7 +2,7 @@
 description: Gravitee's core products
 ---
 
-# Distribution Types
+# Distribution Options
 
 ## Introduction
 
@@ -28,7 +28,7 @@ Refer to the table below for a quick comparison of Gravitee Community Edition (C
 
 ## OSS vs EE API Management
 
-{% embed url="https://documentation.gravitee.io/apim/overview/ee-vs-oss" %}
+{% embed url="https://documentation.gravitee.io/apim/overview/gravitee-apim-enterprise-edition" %}
 
 ## OSS vs EE Access Management
 
