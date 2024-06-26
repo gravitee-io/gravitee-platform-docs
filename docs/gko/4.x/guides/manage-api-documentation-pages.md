@@ -19,6 +19,11 @@ For page types other than folders, the pages can either be:
 * [referenced from an external source](manage-api-documentation-pages.md#referencing-external-pages-with-fetchers), such a web page or Git repo, using a fetcher (recommended)
 * [defined inline](manage-api-documentation-pages.md#inline-pages) in the yaml manifest
 
+Referencing from an external source is recommended for two main reasons:
+
+1. the yaml manifests can become quite unreadable with large inline documentation pages
+2. etcd has a [default max value size](https://etcd.io/docs/v3.5/dev-guide/limit/) set to 1.5MiB, which could be surpassed with overly large manifests.
+
 Both v4 and v2 API CRDs share the same syntax for specifying doc pages using a **pages** attribute at the root of the spec.&#x20;
 
 ```yaml
