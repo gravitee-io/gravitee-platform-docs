@@ -264,4 +264,3 @@
   * [Support](https://community.gravitee.io/c/support/11)
   * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
-* [Understanding tech previews](community-and-support/understanding-tech-previews.md)
