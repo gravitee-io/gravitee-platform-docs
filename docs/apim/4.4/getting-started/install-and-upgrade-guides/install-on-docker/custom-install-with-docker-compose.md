@@ -169,3 +169,89 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 {% hint style="success" %}
 Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
 {% endhint %}
+
+## Enable Federation
+
+[Federation](../../../guides/federation/) is a new capability that was released with Gravitee 4.4.
+
+Federation is disabled by default and must be explicitly activated for it to work.&#x20;
+
+To enable federation, follow the first guide below to [enable federation with Docker Compose](custom-install-with-docker-compose.md#enable-federation-with-docker-compose).&#x20;
+
+If in addition you are running multiple replicas of APIM for high availability, you'll also need to ensure that [cluster mode is set up](custom-install-with-docker-compose.md#set-up-cluster-mode).&#x20;
+
+### Enable Federation with Docker Compose
+
+To enable federation, define the following environment variable and set its value to `true` (default is `false`):
+
+`GRAVITEE_INTEGRATION_ENABLED = true`
+
+### Set up cluster mode
+
+For cases where APIM is running with high availability, you'll need to setup cluster mode.
+
+The following parameters and values need to be added to the root of the gravitee.yaml configuration file:
+
+```bash
+GRAVITEE_CLUSTER_TYPE = hazelcast
+GRAVITEE_CLUSTER_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast.xml
+GRAVITEE_CACHE_TYPE = hazelcast
+GRAVITEE_CACHE_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast.xml
+```
+
+In addition, you'll need to mount a volume with the hazelcast.xml configuration file. This is used to configure Hazelcast that will run as a library inside the APIM container.
+
+An example hazelcast.xml configuration file will be included in the distribution, but you may need to change certain parts (those emphasized below):
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.hazelcast.com/schema/config
+          http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd">
+   <cluster-name>graviteeio-api-cluster</cluster-name>
+   <properties>
+       <property name="hazelcast.discovery.enabled">true</property>
+       <property name="hazelcast.max.wait.seconds.before.join">3</property>
+       <property name="hazelcast.member.list.publish.interval.seconds">5</property>
+       <property name="hazelcast.socket.client.bind.any">false</property>
+       <property name="hazelcast.logging.type">slf4j</property>
+   </properties>
+
+
+   <queue name="integration-cluster-command-*">
+       <backup-count>0</backup-count>
+       <async-backup-count>1</async-backup-count>
+   </queue>
+
+
+   <map name="integration-controller-primary-channel-candidate">
+       <backup-count>0</backup-count>
+       <async-backup-count>1</async-backup-count>
+   </map>
+
+
+   <cp-subsystem>
+       <cp-member-count>0</cp-member-count>
+   </cp-subsystem>
+
+
+   <network>
+       <!-- CUSTOMIZE THIS JOIN SECTION --> 
+       <join>
+            <auto-detection/>
+            <multicast enabled="false"/>
+            <tcp-ip enabled="true">
+                <interface>127.0.0.1</interface>
+            </tcp-ip>
+       </join>
+   </network>
+</hazelcast>
+```
+
+You will also need to add two new plugins to APIM that aren’t included by default:
+
+* [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip ](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
+* [https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip)
+
+\

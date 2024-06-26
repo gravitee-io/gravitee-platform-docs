@@ -633,6 +633,42 @@ The following tables list the available configuration parameters for the Gravite
 {% endtab %}
 {% endtabs %}
 
+## Federation
+
+[Federation](../../guides/federation/) is a new capability that was released with APIM 4.4.
+
+Federation is deactivated by default in the default Helm values. To activate it, set enabled = `true` as shown in the snippet below:
+
+```yaml
+federation:
+    enabled: false
+    port: 8072
+    ingress:
+      enabled: true
+      ingressClassName: ""
+      path: /integration-controller(/.*)?
+      pathType: Prefix
+#      hosts:
+#        - apim.example.com
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/proxy-read-timeout: 3600                                                                                                                                              
+        nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
+        nginx.ingress.kubernetes.io/rewrite-target: /$1
+#      tls:
+#        - hosts:
+#            - apim.example.com
+#          secretName: api-custom-cert
+    service:
+      externalPort: 72  
+```
+
+When this flag is set to enabled, it has the following impacts:
+
+* APIM cluster mode is activated. This will enable federation to work correctly in a highly available APIM deployment. Under the hood, Hazelcast is configured and runs in memory as a library inside APIM.
+  * **Note**: here we are working with the assumption that generally APIM deployed on Kubernetes will run multiple APIM replicas (pods) for high-availability, and there we have made the decision that activating federation generally requires activating clustered mode for APIM.
+* The default ingress used, that the agent will use to connect to APIM, is the host used for the management API, with default path `/integration-controller`. This can be overridden with a dedicated host for the integration controller, in the federation ingress section, in which case the `/integration-controller` path is not required.
+
 ## OpenShift
 
 The Gravitee API Management Helm Chart supports Ingress standard objects and does not support specific OpenShift Routes. It is therefore compatible with OpenShift versions 3.10 and later. When deploying APIM within OpenShift:

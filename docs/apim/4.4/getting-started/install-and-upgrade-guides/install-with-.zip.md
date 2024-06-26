@@ -289,3 +289,19 @@ To locate the `license.key`, both the `Gateway` and `Management API` components 
 1. The component will first look for the `GRAVITEE_LICENSE_KEY` environment variable
 2. If it cannot find the `GRAVITEE_LICENSE_KEY` environment variable, the component will look for an absolute path to the license file in the `license` property of `gravitee.yml`
 3. If the license property is not set in the `gravitee.yml` file, the component will try to retrieve the key from the default location `GRAVITEE_HOME/license/license.key`
+
+## Federation
+
+[Federation](../../guides/federation/) is a new capability that was released with APIM 4.4.
+
+Federation is deactivated by default in the gravitee.yaml configuration file.
+
+To activate it, set the federation.enable flag to `true` as follows, at the root of the gravitee.yaml file:
+
+```yaml
+Integration:
+  enabled: true
+  controller:
+    ws:
+      port: 8072
+```
