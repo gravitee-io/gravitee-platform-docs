@@ -1,6 +1,6 @@
 # GKO 4.4.x
 
-## Gravitee Kubernetes Operator 4.1.1 - June 26, 2024
+## Gravitee Kubernetes Operator 4.4.1 - June 26, 2024
 
 <details>
 
@@ -11,7 +11,7 @@
 
 </details>
 
-## Gravitee Kubernetes Operator 4.1.0 - June 24, 2024
+## Gravitee Kubernetes Operator 4.4.0 - June 24, 2024
 
 <details>
 
