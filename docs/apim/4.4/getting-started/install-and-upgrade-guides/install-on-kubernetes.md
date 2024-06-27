@@ -641,7 +641,7 @@ Federation is deactivated by default in the default Helm values. To activate it,
 
 ```yaml
 federation:
-    enabled: false
+    enabled: true
     port: 8072
     ingress:
       enabled: true
