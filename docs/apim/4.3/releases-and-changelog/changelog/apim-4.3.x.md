@@ -6,6 +6,51 @@ description: >-
 
 # APIM 4.3.x
  
+## Gravitee API Management 4.3.7 - June 19, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Allow users to configure keepalive timeout in the console for V2 APIs [#9651](https://github.com/gravitee-io/issues/issues/9651)
+* Application analytics view logs navigation with filters [#9762](https://github.com/gravitee-io/issues/issues/9762)
+* Transfer ownership to group shows as option for applications [#9774](https://github.com/gravitee-io/issues/issues/9774)
+* Endpoint configuration enable proxy setup just after creation of endpoint [#9780](https://github.com/gravitee-io/issues/issues/9780)
+* Clicking on existing Doc/Page shows an empty screen [#9781](https://github.com/gravitee-io/issues/issues/9781)
+* Filter on 208 status code not available [#9784](https://github.com/gravitee-io/issues/issues/9784)
+* IDP Logout does not contain the correct subpath for console. [#9786](https://github.com/gravitee-io/issues/issues/9786)
+* Display issues in token generation modal [#9793](https://github.com/gravitee-io/issues/issues/9793)
+
+**Portal**
+
+* Current portal incorrectly handles case where API description is "null" [#9785](https://github.com/gravitee-io/issues/issues/9785)
+* Documentation too slow [#9788](https://github.com/gravitee-io/issues/issues/9788)
+
+**Helm Charts**
+
+* Improve the ingress configuration to redirect HTTPS [#9710](https://github.com/gravitee-io/issues/issues/9710)
+
+**Other**
+
+* \[gravitee-endpoint-kafka] Kafka sender options customization not taken into account [#9656](https://github.com/gravitee-io/issues/issues/9656)
+* \[gravitee-policy-json-validation] v4 Policy Studio UI doesn't support multi-line values [#9799](https://github.com/gravitee-io/issues/issues/9799)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* \[gravitee-entrypoint-webhook] Support 500 responses for DLQ : add client_id and errors stack in the message sent to DLQ [#9740](https://github.com/gravitee-io/issues/issues/9740)
+* \[gravitee-endpoint-kafka] Add a option on kafka endpoint to remove Confluent Wire format header [#9795](https://github.com/gravitee-io/issues/issues/9795)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.3.6 - June 7, 2024
 <details>
 
