@@ -3,7 +3,7 @@
 The Gravitee Kubernetes Operator (GKO) comes with several custom resource definitions (CRDs):
 
 * [`ManagementContext`](./#managementcontext)
-* [`ApiV4Definition`](./#apidefinition)[ and `ApiDefinition`](./#apiv4definition-and-apidefinition)
+* [`ApiV4Definition`](./#apidefinition) and [`ApiDefinition`](apidefinition.md)
 * [`ApiResource`](./#apiresource)
 * [`Application`](./#application)
 
@@ -13,7 +13,7 @@ Sample CRDs are available in the [GKO GitHub repository](https://github.com/grav
 
 The `ApiV4Definition` and `ApiDefinition` custom resources are used to define individual APIs that run on the gateway.  APIs are the most important resource that GKO manages. `ApiV4Definition` is used to define V4 Gravitee APIs and supports both traditional proxy APIs as well as event APIs, and were introduced in GKO 4.4. `ApiDefinition` is used to define v2 Gravitee APIs.&#x20;
 
-`Resources` are objects that allow you to define pointers to external resources such as authentication providers and caches that can then be referenced from an API definition's policies. For example, an OAuth2 provider can be referenced from an API's OAuth2 authentication policy by point to the right `Resource`. Resources are referenced from `ApiV4Definitions` and `ApiDefinitions`.
+`Resources` are objects that allow you to define pointers to external resources such as authentication providers and caches that can then be referenced from an API definition's policies. For example, an OAuth2 provider can be referenced from an API's OAuth2 authentication policy by pointing to the right `Resource`. Resources are referenced from `ApiV4Definitions` and `ApiDefinitions`.
 
 The `Application` custom resource represents the configuration for an application.  `Applications` are used to identify the consumer of an API, and to carry subscriptions and credentials.&#x20;
 
