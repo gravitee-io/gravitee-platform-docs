@@ -2,10 +2,10 @@
 
 The Gravitee Kubernetes Operator (GKO) comes with several custom resource definitions (CRDs):
 
-* [`ManagementContext`](./#managementcontext)
-* [`ApiV4Definition`](./#apidefinition) and [`ApiDefinition`](apidefinition.md)
-* [`ApiResource`](./#apiresource)
-* [`Application`](./#application)
+* [`ManagementContext`](managementcontext.md)
+* [`ApiV4Definition`](apiv4definition.md) and [`ApiDefinition`](apidefinition.md)
+* [`ApiResource`](apiresource.md)
+* [`Application`](application.md)
 
 {% hint style="info" %}
 Sample CRDs are available in the [GKO GitHub repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples/apim).
