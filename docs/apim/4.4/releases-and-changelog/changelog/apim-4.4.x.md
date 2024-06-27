@@ -1,12 +1,8 @@
----
-description: >-
-  This page contains the changelog entries for APIM 4.4.x and any future patch
-  APIM 4.4.x releases
----
-
 # APIM 4.4.x
- 
-## Gravitee API Management 4.4.1 - June 27, 2024
+
+## APIM 4.4.x
+
+### Gravitee API Management 4.4.1 - June 27, 2024
 
 <details>
 
@@ -40,7 +36,7 @@ description: >-
 **Other**
 
 * \[gravitee-policy-ipfiltering] CIDR block /32 (single IP) not working in the IP Filtering Policy [#9602](https://github.com/gravitee-io/issues/issues/9602)
-* \[gravitee-policy-jwt] 500 error on jwt plan with GATEWAY_KEYS when using  "Emulate v4 engine" [#9693](https://github.com/gravitee-io/issues/issues/9693)
+* \[gravitee-policy-jwt] 500 error on jwt plan with GATEWAY\_KEYS when using "Emulate v4 engine" [#9693](https://github.com/gravitee-io/issues/issues/9693)
 * \[MongoDb] Upgraders should use prefix for collection names [#9807](https://github.com/gravitee-io/issues/issues/9807)
 * \[JDBC] Unable to search subscription with Postgresql [#9808](https://github.com/gravitee-io/issues/issues/9808)
 * \[MongoDb] Api keys do not have the environment field [#9811](https://github.com/gravitee-io/issues/issues/9811)
@@ -52,7 +48,6 @@ description: >-
 
 <summary>Improvements</summary>
 
-
 **Management API**
 
 * The name of API/Application/Plan is not given in list of API's subscriptions [#9679](https://github.com/gravitee-io/issues/issues/9679)
@@ -62,8 +57,8 @@ description: >-
 * \[gravitee-policy-aws-lambda] Allow to dynamically configure AWS policy credentials [#9444](https://github.com/gravitee-io/issues/issues/9444)
 
 </details>
-  
-## Gravitee API Management 4.4.0 - June 27, 2024
+
+### Gravitee API Management 4.4.0 - June 27, 2024
 
 <details>
 
@@ -111,5 +106,3 @@ description: >-
 * \[gravitee-endpoint-kafka] Add a option on kafka endpoint to remove Confluent Wire format header [#9795](https://github.com/gravitee-io/issues/issues/9795)
 
 </details>
-
-
