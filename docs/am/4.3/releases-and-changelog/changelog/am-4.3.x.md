@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.7 - June 21, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Heml duplication of configuration [#9778](https://github.com/gravitee-io/issues/issues/9778)
+* AM Gateway pod is not starting due to StackOverflowError [#9794](https://github.com/gravitee-io/issues/issues/9794)
+
+
+
+
+
+**Other**
+
+* Improve the ingress configuration to redirect HTTPS [#9712](https://github.com/gravitee-io/issues/issues/9712)
+
+</details>
+
+
 ## Gravitee Access Management 4.3.6 - June 6, 2024
 
 <details>
