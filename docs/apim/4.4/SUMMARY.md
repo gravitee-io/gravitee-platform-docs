@@ -27,7 +27,7 @@
     * [Manual install](getting-started/install-and-upgrade-guides/install-on-amazon/manual-install.md)
   * [Install on Red Hat and CentOS](getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos.md)
   * [Install With .ZIP](getting-started/install-and-upgrade-guides/install-with-.zip.md)
-  * [4.3 Upgrade Guide](getting-started/install-and-upgrade-guides/4.2-upgrade-guide.md)
+  * [Upgrade Guide](getting-started/install-and-upgrade-guides/upgrade-guide.md)
   * [Multi-tenancy](getting-started/install-and-upgrade-guides/multi-tenancy.md)
 * [Quickstart Guide](getting-started/quickstart-guide/README.md)
   * [Gateway APIs 101 - Traditional & Message Proxies](getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/README.md)

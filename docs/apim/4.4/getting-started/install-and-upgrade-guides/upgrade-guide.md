@@ -1,4 +1,4 @@
-# 4.3 Upgrade Guide
+# 4.4 Upgrade Guide
 
 {% hint style="danger" %}
 **Upgrade your license file**
@@ -8,7 +8,7 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 ## Overview
 
-Upgrading to APIM 4.3 is deployment-specific. The 4.0 breaking changes cited below must be noted and/or adopted for a successful upgrade.
+Upgrading to APIM 4.4 is deployment-specific. The 4.0 breaking changes cited below must be noted and/or adopted for a successful upgrade.
 
 {% hint style="warning" %}
 **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
@@ -194,3 +194,43 @@ installation:
         - envId: environment#2
           url: http:/localhost:4101
 ```
+
+
+## APIM 4.4.+ & Hybrid Gateways:
+
+Starting with APIM 4.4.0, gateways need to explicitly disable certificate checks. The default "trust all" value was `true`  it is now `false` for management of type "http".
+
+You **need to** update `gravitee.yml` or your Helm's `values.yaml` if your configuration match **all of** the following:
+- You were using a secured connection between Hybrid Gateway and Bridge Server (Gateway or Management API)
+- You were using the default value (unset param)
+- You were using a non-public CA to sign your certificate 
+- Your `gateway.http.management.ssl configuration do not use a trust store to accept the server certificate.
+
+The can explicitly disable certificate checks in the `gravitee.yaml`:
+```yaml
+management:
+  http:
+    ssl:
+      trustAll: true
+```
+
+Or if you are using Helm charts, you can set it in your `values.yaml` file:
+```yaml
+gateway:
+  management:
+    http:
+      ssl:
+        trustAll: true
+```
+
+Or you can use an environment variable:
+```
+GRAVITEE_MANAGEMENT_HTTP_SSL_TRUSTALL="true"
+```
+---
+**NOTE**
+
+You may have noticed the "trust all" configuration parameter was formerly named `trustall`, it is now named `trustAll` for consistency.
+To avoid a breaking change here both names work, but the former has been deprecated.
+
+---
