@@ -1,4 +1,6 @@
-# GKO 4.3.7
+# GKO 4.3.x
+
+## Gravitee Kubernetes Operator 4.3.7 - June 24, 2024
 
 GKO 4.3.7 is a tag based on GKO 0.13.1. For details of changes that came in releases from GKO 4.3.7 and earlier, please take a look at the change logs in Github.
 
