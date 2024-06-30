@@ -2,7 +2,7 @@
 
 DB-less mode allows a Gateway to be deployed with no dependencies, assuming only that there is an operator running in the same cluster or namespace. Although the setup does not include Elasticsearch or MongoDB, analytics can still be configured using a custom reporter such as Datadog, TCP with Logstash, etc.
 
-Below is the minimum `value-dbless.yml` APIM configuration required by a DB-less deployment. Change the `domain` value and run the following command:
+Below is the minimum `value-dbless.yml` APIM configuration required by a DB-less deployment. Run the following command:
 
 <pre><code><strong>helm install gravitee-apim graviteeio/apim -f values-dbless.yml
 </strong></code></pre>
