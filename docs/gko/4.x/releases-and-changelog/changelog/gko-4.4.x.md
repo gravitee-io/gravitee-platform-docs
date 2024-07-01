@@ -4,7 +4,7 @@
 
 <details>
 
-<summary>Fixes</summary>
+<summary>Bug fixes</summary>
 
 * default image tag for Kube RBAC proxy should be upgraded [9825](https://github.com/gravitee-io/issues/issues/9825)
 * v2 API exported as CRD can't be re-imported due to unknown field status [9824](https://github.com/gravitee-io/issues/issues/9824)
@@ -15,7 +15,7 @@
 
 <details>
 
-<summary>Enhancements</summary>
+<summary>Improvements</summary>
 
 * Core support for v4 API definition
 * Documentation page support for v2 and v4 API definitions
