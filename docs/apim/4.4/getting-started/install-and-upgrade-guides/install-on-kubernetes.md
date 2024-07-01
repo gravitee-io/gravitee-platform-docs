@@ -669,11 +669,15 @@ When this flag is set to enabled, it has the following impacts:
   * **Note**: here we are working with the assumption that generally APIM deployed on Kubernetes will run multiple APIM replicas (pods) for high-availability, and there we have made the decision that activating federation generally requires activating clustered mode for APIM.
 * The default ingress used, that the agent will use to connect to APIM, is the host used for the management API, with default path `/integration-controller`. This can be overridden with a dedicated host for the integration controller, in the federation ingress section, in which case the `/integration-controller` path is not required.
 
-If you are running a single replica of APIM, then you can also choose to deactivate cluster mode by specifying the following environment variables and values:
+If you are running a single replica of APIM, then you can also choose to deactivate cluster mode by specifying the following environment variables and values under `api`:
 
-```bash
-GRAVITEE_CLUSTER_TYPE = standalone
-GRAVITEE_CACHE_TYPE = standalone
+```yaml
+api:
+  env: 
+    - name: GRAVITEE_CLUSTER_TYPE
+      value: standalone
+    - name: GRAVITEE_CACHE_TYPE
+      value: standalone
 ```
 
 ## OpenShift
