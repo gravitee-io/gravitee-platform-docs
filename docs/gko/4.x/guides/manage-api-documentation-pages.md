@@ -97,7 +97,7 @@ spec:
         type: http-fetcher
         configuration:
           url: https://petstore.swagger.io/v2/swagger.json
-          fetchCron: '0 1 * * *'
+          fetchCron: '*/10 * * * * *'
 ```
 
 ## Inline pages
