@@ -2,6 +2,10 @@
 
 The `Application` custom resource represents the configuration for a Gravitee application. Applications. To access Gravitee APIs, consumers must register an application and subscribe to a published API plan. Applications act on behalf of the user to request tokens, provide user identity information, and consume APIs.
 
+{% hint style="danger" %}
+The Application CRD is expected to undergo many changes, including breaking changes, between GKO 4.4 and 4.5. We are making this exceptional decision given the initial feedback we have received on the Application CRD in its first iteration. From GKO 4.5 onwards, we expect this CRD to become highly stable and respect the versioning policy more strictly.
+{% endhint %}
+
 ## Create an `Application`
 
 The example below shows a simple `Application` custom resource definition:
