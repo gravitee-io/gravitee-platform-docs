@@ -6,6 +6,70 @@ description: >-
 
 # APIM 4.0.x
  
+## Gravitee API Management 4.0.28 - July 5, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* 500 Internal server error when logs enabled [#9719](https://github.com/gravitee-io/issues/issues/9719)
+* Enabled Logging with condition does not work properly [#9756](https://github.com/gravitee-io/issues/issues/9756)
+* Upgrade to gio 4.4.0 corrupts API Keys [#9834](https://github.com/gravitee-io/issues/issues/9834)
+* Add Base64 class in Expression Language whitelist [#9850](https://github.com/gravitee-io/issues/issues/9850)
+
+**Management API**
+
+* Override an email template with multiple REST API [#9445](https://github.com/gravitee-io/issues/issues/9445)
+* Cannot Create Local User (no email to set password) [#9680](https://github.com/gravitee-io/issues/issues/9680)
+* Error in Gravitee OpenAPI spec [#9711](https://github.com/gravitee-io/issues/issues/9711)
+* Endpoint's target url can be saved with a space or tab [#9791](https://github.com/gravitee-io/issues/issues/9791)
+* Unable delete existing PAT tokens [#9801](https://github.com/gravitee-io/issues/issues/9801)
+* Error on platform analytics and logs screens when too many applications and/or APIs [#9823](https://github.com/gravitee-io/issues/issues/9823)
+
+**Console**
+
+* Correct API properties Expression Language for v4 APIs [#9694](https://github.com/gravitee-io/issues/issues/9694)
+* When updating a service account email through API, no mail validation is performed [#9709](https://github.com/gravitee-io/issues/issues/9709)
+* Unable to Add or Remove Context Path Segments for a v4 API [#9716](https://github.com/gravitee-io/issues/issues/9716)
+* Enabled Logging with condition does not work properly [#9756](https://github.com/gravitee-io/issues/issues/9756)
+* Cannot subscribe to API plans via the web [#9758](https://github.com/gravitee-io/issues/issues/9758)
+* Cannot Save Dashboard Updates in UI [#9771](https://github.com/gravitee-io/issues/issues/9771)
+* Unable to Add Members to Group During Group Creation [#9783](https://github.com/gravitee-io/issues/issues/9783)
+* Endpoint's target url can be saved with a space or tab [#9791](https://github.com/gravitee-io/issues/issues/9791)
+* In some cases it is difficult to view the configuration in the history menu. [#9800](https://github.com/gravitee-io/issues/issues/9800)
+* Policy - losing focus when opening documentation [#9802](https://github.com/gravitee-io/issues/issues/9802)
+* Dashboard widget not working  [#9820](https://github.com/gravitee-io/issues/issues/9820)
+* Client Id not saved between Security section and subscriptions during application creation [#9828](https://github.com/gravitee-io/issues/issues/9828)
+* JSON to XML policy does not work with default configuration for V4 proxy APIs [#9833](https://github.com/gravitee-io/issues/issues/9833)
+
+**Other**
+
+* \[gravitee-policy-ipfiltering] CIDR block /32 (single IP) not working in the IP Filtering Policy [#9602](https://github.com/gravitee-io/issues/issues/9602)
+* \[gravitee-resource-oauth2-provider-keycloak] Update of 'gravitee-resource-oauth2-provider-keycloak' Plugin [#9628](https://github.com/gravitee-io/issues/issues/9628)
+* \[gravitee-policy-jwt] 500 error on jwt plan with GATEWAY_KEYS when using  "Emulate v4 engine" [#9693](https://github.com/gravitee-io/issues/issues/9693)
+* \[MongoDb] Upgraders should use prefix for collection names [#9807](https://github.com/gravitee-io/issues/issues/9807)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* PrimaryOwner not given in list of APIs [#9678](https://github.com/gravitee-io/issues/issues/9678)
+* The name of API/Application/Plan is not given in list of API's subscriptions [#9679](https://github.com/gravitee-io/issues/issues/9679)
+* Improve API synchronization state computation [#9852](https://github.com/gravitee-io/issues/issues/9852)
+
+**Other**
+
+* \[gravitee-policy-aws-lambda] Allow to dynamically configure AWS policy credentials [#9444](https://github.com/gravitee-io/issues/issues/9444)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.0.27 - June 19, 2024
 <details>
 
