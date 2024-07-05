@@ -1,4 +1,55 @@
 # APIM 4.4.x
+ 
+## Gravitee API Management 4.4.2 - July 5, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Upgrade to gio 4.4.0 corrupts API Keys [#9834](https://github.com/gravitee-io/issues/issues/9834)
+* Add Base64 class in Expression Language whitelist [#9850](https://github.com/gravitee-io/issues/issues/9850)
+
+**Management API**
+
+* Endpoint's target url can be saved with a space or tab [#9791](https://github.com/gravitee-io/issues/issues/9791)
+* Unable delete existing PAT tokens [#9801](https://github.com/gravitee-io/issues/issues/9801)
+* Error on platform analytics and logs screens when too many applications and/or APIs [#9823](https://github.com/gravitee-io/issues/issues/9823)
+
+**Console**
+
+* Cannot Save Dashboard Updates in UI [#9771](https://github.com/gravitee-io/issues/issues/9771)
+* Unable to Add Members to Group During Group Creation [#9783](https://github.com/gravitee-io/issues/issues/9783)
+* Endpoint's target url can be saved with a space or tab [#9791](https://github.com/gravitee-io/issues/issues/9791)
+* Policy - losing focus when opening documentation [#9802](https://github.com/gravitee-io/issues/issues/9802)
+* Dashboard widget not working  [#9820](https://github.com/gravitee-io/issues/issues/9820)
+* Client Id not saved between Security section and subscriptions during application creation [#9828](https://github.com/gravitee-io/issues/issues/9828)
+* JSON to XML policy does not work with default configuration for V4 proxy APIs [#9833](https://github.com/gravitee-io/issues/issues/9833)
+
+**Portal**
+
+* \[portal-next] Curl command for API key in new portal is incorrect [#9843](https://github.com/gravitee-io/issues/issues/9843)
+
+**Other**
+
+* \[gravitee-resource-oauth2-provider-keycloak] Update of 'gravitee-resource-oauth2-provider-keycloak' Plugin [#9628](https://github.com/gravitee-io/issues/issues/9628)
+* \[JDBC] Liquibase errors on upgrade to 4.4.x [#9835](https://github.com/gravitee-io/issues/issues/9835)
+* \[JDBC] Getting bad SQL grammar exception when querying JDBC access points with pagination [#9836](https://github.com/gravitee-io/issues/issues/9836)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* PrimaryOwner not given in list of APIs [#9678](https://github.com/gravitee-io/issues/issues/9678)
+* Improve API synchronization state computation [#9852](https://github.com/gravitee-io/issues/issues/9852)
+
+</details>
+
+
 
 ## APIM 4.4.x
 
