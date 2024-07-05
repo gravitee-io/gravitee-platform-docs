@@ -1,5 +1,15 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.2 - July 5, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * false values are not persisted for `disable_membership_notifications` in applications [#9847](https://github.com/gravitee-io/issues/issues/9847)
+  * v2 crd export fails because of unknown plan fields [#9830](https://github.com/gravitee-io/issues/issues/9830)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.1 - June 26, 2024
 
 <details>
