@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.22 - July 5, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* OTPFactorProvider - An error occurs while validating 2FA code [#9725](https://github.com/gravitee-io/issues/issues/9725)
+* null-1 entry in auth_flow_ctx table should not be stored in database [#9803](https://github.com/gravitee-io/issues/issues/9803)
+
+
+
+
+
+**Other**
+
+* When creating user with preregistratoin, the password creation steps are skipped [#9839](https://github.com/gravitee-io/issues/issues/9839)
+
+</details>
+
+
 ## Gravitee Access Management 4.0.21 - June 21, 2024
 
 <details>
