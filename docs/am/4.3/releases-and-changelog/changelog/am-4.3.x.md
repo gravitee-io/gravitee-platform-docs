@@ -171,3 +171,25 @@ description: >-
 * Support SAML mixing response binding protocol [#9648](https://github.com/gravitee-io/issues/issues/9648)
 
 </details>
+
+## Gravitee Access Management 4.3 - March 29, 2024
+
+For more in-depth information on what's new, please refer to the [Gravitee AM 4.3 release notes](../release-notes/am-4.3.md).
+
+<details>
+
+<summary>What's new</summary>
+
+**Audit logs**
+
+Gravitee 4.3 now captures audit logs for client authentications and MFA events so that an AM admin can understand where an authentication flow fails. Audit entries are written for each occurrence of the events listed below.
+
+</details>
+
+<details>
+
+<summary>Breaking changes</summary>
+
+The `openid` scope is now forbidden for client_credentials flow as this not related to user authentication. 
+
+</details>
