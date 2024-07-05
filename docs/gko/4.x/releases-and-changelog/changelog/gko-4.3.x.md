@@ -1,5 +1,30 @@
 # GKO 4.3.x
 
+## Gravitee Kubernetes Operator 4.3.8 - July 5, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * false values are not persisted for `disable_membership_notifications` in applications [#9847](https://github.com/gravitee-io/issues/issues/9847)
+  * v2 crd export fails because of unknown plan fields [#9830](https://github.com/gravitee-io/issues/issues/9830)
+  * v2 API exported as CRD can't be re-imported due to unknown field status [#9824](https://github.com/gravitee-io/issues/issues/9824)
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  * make image pull policies configurable in helm chart [#9819](https://github.com/gravitee-io/issues/issues/9819)
+</details>
+
+
+<details>
+<summary>Security</summary>
+
+  * default image tag for Kube RBAC proxy should be upgraded [#9825](https://github.com/gravitee-io/issues/issues/9825)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.3.7 - June 24, 2024
 
 GKO 4.3.7 is a tag based on GKO 0.13.1. For details of changes that came in releases from GKO 4.3.7 and earlier, please take a look at the change logs in Github.
