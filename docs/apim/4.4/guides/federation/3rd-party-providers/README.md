@@ -4,11 +4,11 @@ There is a dedicated integration for each 3rd-party API gateway or event broker 
 
 ## Features and compatibility
 
-| Provider             | Discovery | Subscription | Minimum required APIM version |
-| -------------------- | --------- | ------------ | ----------------------------- |
-| AWS API Gateway      | ✅         | ✅            | 4.4.0                         |
-| Solace               | ✅         | ✅            | 4.4.0                         |
-| Apigee (coming soon) | ✅         | ✅            | 4.4.2                         |
+| Provider        | Discovery | Subscription | Minimum required APIM version |
+| --------------- | --------- | ------------ | ----------------------------- |
+| AWS API Gateway | ✅         | ✅            | 4.4.0                         |
+| Solace          | ✅         | ✅            | 4.4.0                         |
+| Apigee          | ✅         | ✅            | 4.4.2                         |
 
 
 
