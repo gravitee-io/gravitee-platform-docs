@@ -143,3 +143,16 @@ curl -i http://<your-gateway-host>/<your gateway path>/echo-api
 {% hint style="success" %}
 Congratulations, you did it!
 {% endhint %}
+
+## Next steps
+
+To continue learning, there are many other example GKO resources available here: [https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples)
+
+Try creating some of these example APIs (v2 and v4), Resources (authentication providers, caches, ...), and Applications. **But remember** to add the following ManagementContext reference to the API definition and Application yaml files so that GKO knows which APIM installation to sync the APIs with:
+
+```
+spec:
+  contextRef:
+    name: "management-context-1"
+    namespace: "default"
+```

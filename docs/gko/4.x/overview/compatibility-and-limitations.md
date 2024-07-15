@@ -14,10 +14,8 @@ Below are some examples of resources that are not managed by GKO. Not all of the
 
 **API-level** elements that are not managed by GKO:
 
-* Component resources
-* Alerts
-* Picture
 * Notification settings
+* Picture
 * Documentation page translations
 * Documentation page attached resources (aka API Media)
 * V4 API primary owner management
