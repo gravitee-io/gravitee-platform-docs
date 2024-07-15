@@ -4,22 +4,24 @@
 
 Following this quickstart guide is the fastest way to start working with the Gravitee Kubernetes Operator (GKO). The sections below describe how to:
 
-* [Deploy GKO](quickstart-guide.md#deploy-the-gko)
+* [Install GKO](quickstart-guide.md#deploy-the-gko)
 * [Create a Management Context](quickstart-guide.md#create-a-managementcontext)
-* [Create an API Definition](quickstart-guide.md#create-an-apidefinition)
-* [Invoke the deployed API](quickstart-guide.md#invoke-the-deployed-api-through-the-apim-gateway)
+* [Create an API Definition and invoke the API](quickstart-guide.md#create-an-apidefinition)
+
+In this guide, we assume that Gravitee API Management is acting as the control plane for the Gravitee gateway. The gateway loads it's APIs from APIM's repository (e.g. MongoDB, or via a Bridge Gateway in a hybrid setup). GKO acts as a way to define and manage API's "as-code" rather than using the GUI. GKO synchronises all of its actions, such as creating APIs and managing their lifecycle, directly with Gravitee API management through the management API.&#x20;
 
 ### Prerequisites
 
-* A Kubernetes cluster with Gravitee API Management installed.
+* A running instance of Gravitee API Management. It doesn't matter where this is running so long as you have access to credentials that can be used to connect GKO to this APIM instance.
+* A Kubernetes cluster on which to install GKO
 
-## Deploy GKO
+## Install GKO
 
 {% hint style="info" %}
 For comprehensive deployment details, see the [GKO Install Guide](installation/).
 {% endhint %}
 
-The GKO deployment process is the same for both remote and local Kubernetes clusters. To deploy the GKO on the cluster of your current Kubernetes context:
+Use Helm to install GKO on your Kubernetes cluster:
 
 {% code overflow="wrap" %}
 ```sh
@@ -30,56 +32,98 @@ $ helm install graviteeio-gko graviteeio/gko
 
 ## Create a ManagementContext
 
-The [`ManagementContext` ](../overview/custom-resource-definitions/managementcontext.md)CRD represents the configuration for a Management API.
+The [`ManagementContext` ](../overview/custom-resource-definitions/managementcontext.md)CRD is used to provide GKO with everything needed to invoke an APIM instance's management API. To fill out the CRD correctly, you'll need:
 
-To create a `ManagementContext` CRD requires a YAML file with the correct Management Context configuration. The sample Gravitee YAML file below can be used directly or as a template:
+* the APIM management API URL
+* credentials to authenticate GKO with the management API
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/examples/management_context/cluster/management-context-with-credentials.yml" %}
+If you're running APIM locally you can use the default admin account to authenticate (user: `admin`, password: `admin`). &#x20;
 
-To create the Management Context resource using the Gravitee sample file directly, modify the `spec:` section by providing the actual URL of your APIM instance and the user credentials that match the user configuration. Next, run the following command:
+Alternatively, you can head to your APIM instance and [created a dedicated service account and token](../guides/define-an-apim-service-account-for-gko.md) for GKO to use. Make sure to copy the token value to use in the step below.
 
-{% code overflow="wrap" %}
-```sh
-kubectl apply -f https://raw.githubusercontent.com/gravitee-io/gravitee-kubernetes-operator/master/config/samples/context/k3d/management-context-with-credentials.yml
+Create a file called `management-context-1.yaml` and enter the following contents:
+
+```yaml
+apiVersion: gravitee.io/v1alpha1
+kind: ManagementContext
+metadata:
+  name: "management-context-1"
+spec:
+  baseUrl: <APIM management API URL>
+  environmentId: DEFAULT
+  organizationId: DEFAULT
+  auth:
+    bearerToken: xxxx-yyyy-zzzz
 ```
-{% endcode %}
 
-Alternatively, to create the Management Context resource using a modified configuration, run the following command (using the appropriate filename):
+Be sure to replace the **baseUrl** and **bearerToken** with you values. If you're using the admin account or another user's credentials, you can use the following syntax:
 
-```sh
-kubectl apply -f your_management_context_credentials_config.yaml
+<pre class="language-yaml"><code class="lang-yaml"><strong>spec:
+</strong><strong>  auth:
+</strong>    credentials:
+      username: admin
+      password: admin    
+</code></pre>
+
+Create the **ManagementContext** resource with the following command:
+
+```
+kubectl apply -f management-context-1.yaml
 ```
 
 If the operation is successful, this line will appear in the CLI output:
 
 ```sh
-managementcontext.gravitee.io/dev-mgmt-ctx created
+managementcontext.gravitee.io/management-context-1 created
 ```
 
-{% hint style="info" %}
-The above example is using the admin account's personal credentials to authenticate GKO to the APIM control plane. Head to the [management context CRD documentation](../overview/custom-resource-definitions/managementcontext.md) to learn about how to use a service account token instead, which is the recommended approach for production.
-{% endhint %}
+Now that we've defined a way for GKO to communicate with a Gravitee API Management instance, we can create our first GKO-managed API.&#x20;
 
 ## Create an ApiDefinition
 
-The [`ApiDefinition` ](../overview/custom-resource-definitions/apidefinition.md)CRD represents the configuration for a single proxied API and its versions. It is similar to a YAML representation of an API definition in JSON format.
+The [`ApiDefinition` ](../overview/custom-resource-definitions/apidefinition.md)CRD is used to created Gravitee v2 APIs, and contains all the parameters of a Gravitee API such as entrypoint, endpoint, plans, policies, groups & members, and documentation pages. The CRD also lets you control whether the API is started or stopped, and whether or not it is published to the developer portal.&#x20;
 
-To create an `ApiDefinition` CRD requires a YAML file with the correct API Definition configuration. The following sample Gravitee YAML file can be used directly or as a template:
+Create a file called `echo-api.yaml` and enter the following contents:
 
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/examples/apim/api_definition/v2/api-with-context.yml" %}
-
-To create the API Definition resource using the Gravitee sample file directly, run the following command:
-
-{% code overflow="wrap" %}
-```sh
-kubectl apply -f https://raw.githubusercontent.com/gravitee-io/gravitee-kubernetes-operator/master/config/samples/apim/api-with-context.yml
+```yaml
+apiVersion: gravitee.io/v1alpha1
+kind: ApiDefinition
+metadata:
+  name: echo-api-declarative
+spec:
+  name: "Echo API Declarative"
+  contextRef: 
+    name: "management-context-1"
+    namespace: "default"
+  version: "1"
+  state: "STARTED"
+  lifecycle_state: "PUBLISHED"
+  description: "Gravitee Kubernetes Operator sample"
+  plans:
+    - name: "KEY_LESS"
+      description: "FREE"
+      security: "KEY_LESS"
+  proxy:
+    virtual_hosts:
+      - path: "/echo-api"
+    groups:
+      - endpoints:
+          - name: "Default"
+            target: "https://api.gravitee.io/echo"
+  local: false
 ```
-{% endcode %}
 
-Alternatively, to create the API Definition resource using a modified configuration, run the following command (using the appropriate filename):
+There are a few things worth mentioning about the above resource:
 
-```sh
-kubectl apply -f your_api_definition_config.yml
+* this API definition references the ManagementContext we just created. This will tell GKO to sync this API definition with the APIM installation referenced in the ManagementContext
+* The API definition specifies that the API should be created in a `STARTED` state (i.e. deployed), and `PUBLISHED` on the developer portal.
+* The backend **target** for this API is a mock service hosted by Gravitee that echoes back information about the incoming call
+* **local** is set to false, meaning the gateway will load this API through the usual central database (as opposed to a [local configMap](api-storage-and-control-options/configure-the-gateway-to-load-apis-from-local-configmaps.md))
+
+Create the resource with the following command:
+
+```
+kubectl apply -f echo-api.yaml
 ```
 
 If the operation is successful, this line will appear in the CLI output:
@@ -88,31 +132,13 @@ If the operation is successful, this line will appear in the CLI output:
 apidefinition.gravitee.io/basic-api-example created
 ```
 
-{% hint style="info" %}
-See [Create an `ApiDefinition` CRD](../overview/custom-resource-definitions/apidefinition.md) for more details.
-{% endhint %}
+You should now be able to open the APIM Console to view your newly created API. It will be labelled as "managed by GKO" and will be read-only in the APIM UI.
 
-You can view the new API at your Console URL:
-
-`http://<CONSOLE_URL>/console/#!/environments/default/`
-
-The Console URL below is typical for a local cluster created via the local cluster installation process:
-
-`http://localhost:9000/console/#!/environments/default/`
-
-The new API will be listed in the **Number of APIs** section of the Console dashboard:
-
-<figure><img src="../.gitbook/assets/Screenshot 2023-07-06 at 9.19.26 PM.png" alt=""><figcaption><p>APIM Console dashboard</p></figcaption></figure>
-
-## Invoke the deployed API through the APIM Gateway
-
-To test the API, call it using your APIM Gateway URL:
+You can now also invoke your deployed API through the APIM Gateway. You'll need to update the example host name given below with your gateway's real address:
 
 ```sh
-curl -i http://localhost:9000/gateway/k8s-basic-with-ctx
+curl -i http://<your-gateway-host>/<your gateway path>/echo-api
 ```
-
-The entrypoint used for the Gateway URL is deployment-dependent. The URL in the example above is typical for a local cluster created through the local cluster installation process.
 
 {% hint style="success" %}
 Congratulations, you did it!
