@@ -28,10 +28,11 @@ The following table lists the Data-Plane (Gateway) versions supported by each Co
 
 | Control-Plane version | Supported Data-Plane versions |
 | --------------------- | ----------------------------- |
-| 3.20.x                | 3.20.x                        |
 | 4.0.x                 | 3.20.x to 4.0.x               |
 | 4.1.x                 | 3.20.x to 4.1.x               |
 | 4.2.x                 | 3.20.x to 4.2.x               |
+| 4.3.x                 | 4.0.x to 4.3.x                |
+| 4.4.x                 | 4.1.x to 4.4.x                |
 
 The following table lists the Control-Plane (Bridge) versions supported by each Data-Plane (Gateway) version.
 
@@ -40,7 +41,9 @@ The following table lists the Control-Plane (Bridge) versions supported by each 
 | 3.20.x             | 3.20.x to 4.2.x                  |
 | 4.0.x              | 4.0.x to 4.2.x                   |
 | 4.1.x              | 4.1.x to 4.2.x                   |
-| 4.2.x              | 4.2.x                            |
+| 4.2.x              | 3.20.x to 4.2.x                  |
+| 4.3.x              | 4.0.x to 4.3.x                   |
+| 4.4.x              | 4.1.x to 4.4.x                   |
 
 ## Self-Hosted Hybrid Gateway installation <a href="#installation" id="installation"></a>
 
@@ -109,9 +112,16 @@ gateway:
   management:
     http:
       url: https://bridge-gateway-url:bridge-gateway-port
-      username: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
-      password: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
+      # the following still works but is deprecated 
+      # username: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
+      # password: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
+      authentication:
+        type: basic
+        basic:
+          username: secret://kubernetes/<my-secret-name>:<my-secret-key>
+          password: secret://kubernetes/<my-secret-name>:<my-secret-key>
       # ssl:
+      #   ### beware: since 4.4 default is false (see upgrade guide) 
       #   trustall: true
       #   verifyHostname: true
       #   keystore:
@@ -155,6 +165,7 @@ services:
       # --- BRIDGE GATEWAYS ---
       - gravitee_management_type=http
       - gravitee_management_http_url=https://bridge-gateway-url:bridge-gateway-port
+      - gravitee_management_http_authentication_type=basic
       - gravitee_management_http_authentication_basic_username=bridge-gateway-username
       - gravitee_management_http_authentication_basic_password=bridge-gateway-password
 ```
@@ -172,20 +183,22 @@ management:
     idleTimeout: 30000
     connectTimeout: 10000
     authentication:
+      type: basic
       basic:
         username: bridge-gateway-username
         password: bridge-gateway-password
-    # ssl:
-    #   trustAll: true
-    #   verifyHostname: true
-    #   keystore:
-    #     type: # can be jks / pem / pkcs12
-    #     path:
-    #     password:
-    #   trustore:
-    #     type: # can be jks / pem / pkcs12
-    #     path:
-    #     password:
+      # ssl:
+      #   ###beware: since 4.4 default is false (see upgrade guide) 
+      #   trustall: true
+      #   verifyHostname: true
+      #   keystore:
+      #     type: jks # Supports jks, pem, pkcs12
+      #     path: ${gravitee.home}/security/keystore.jks
+      #     password: secret
+      #   truststore:
+      #     type: jks # Supports jks, pem, pkcs12
+      #     path: ${gravitee.home}/security/truststore.jks
+      #     password: secret
 ```
 {% endcode %}
 {% endtab %}
@@ -379,8 +392,11 @@ gateway:
   management:
     http:
       url: https://bridge-gateway-url:bridge-gateway-port
-      username: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
-      password: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
+      authentication:
+        type: basic
+        basic:
+          username: secrets://kubernetes/<my-secret-name>:<my-secret-key>
+          password: secrets://kubernetes/<my-secret-name>:<my-secret-key>
   reporters:
     elasticsearch:
       enabled: false
@@ -395,8 +411,8 @@ alerts:
     - https://alert-engine-url:alert-engine-port
   security:
     enabled: true
-    username: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
-    password: kubernetes://<namespace>/secrets/<my-secret-name>/<my-secret-key>
+    username: secrets://kubernetes/<my-secret-name>:<my-secret-key>
+    password: secrets://kubernetes/<my-secret-name>:<my-secret-key>
 ```
 {% endcode %}
 {% endtab %}
@@ -441,6 +457,7 @@ services:
       # --- BRIDGE GATEWAYS ---
       - gravitee_management_type=http
       - gravitee_management_http_url=https://bridge-gateway-url:bridge-gateway-port
+      - gravitee_management_http_authentication_type=basic
       - gravitee_management_http_authentication_basic_username=bridge-gateway-username
       - gravitee_management_http_authentication_basic_password=bridge-gateway-password
       # --- RATE LIMIT REPO ---

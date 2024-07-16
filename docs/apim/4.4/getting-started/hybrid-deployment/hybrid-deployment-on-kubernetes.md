@@ -108,8 +108,11 @@ gateway:
     services:
         bridge:
             enabled: true
-            username: xxxxxxxxx
-            password: xxxxxxxxx
+            authentication:
+                type: basic
+                basic:
+                    username: xxxxxxxxx
+                    password: xxxxxxxxx            
             service:
                 externalPort: 92
                 internalPort: 18092
@@ -208,10 +211,15 @@ api:
 gateway:
     management:
         http:
-            version: 3.3.1
             url: https://demo-hybrid-apim-bridge.cloud.gravitee.io/
-            username: xxxxxxxxx
-            password: xxxxxxxxx
+            authentication:
+                type: basic
+                basic:
+                    username: xxxxxxxxx
+                    password: xxxxxxxxx
+            ssl:
+                ### beware: since 4.4 default is false
+                trustAll: false
     ingress:
         path: /
         hosts:
