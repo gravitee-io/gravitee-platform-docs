@@ -1,6 +1,13 @@
 # APIM 4.4.x
- 
+
+{% hint style="info" %}
+**Using SQL database?**&#x20;
+
+Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade straight to 4.4.2 **if using SQL database.**&#x20;
+{% endhint %}
+
 ## Gravitee API Management 4.4.2 - July 5, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -22,7 +29,7 @@
 * Unable to Add Members to Group During Group Creation [#9783](https://github.com/gravitee-io/issues/issues/9783)
 * Endpoint's target url can be saved with a space or tab [#9791](https://github.com/gravitee-io/issues/issues/9791)
 * Policy - losing focus when opening documentation [#9802](https://github.com/gravitee-io/issues/issues/9802)
-* Dashboard widget not working  [#9820](https://github.com/gravitee-io/issues/issues/9820)
+* Dashboard widget not working [#9820](https://github.com/gravitee-io/issues/issues/9820)
 * Client Id not saved between Security section and subscriptions during application creation [#9828](https://github.com/gravitee-io/issues/issues/9828)
 * JSON to XML policy does not work with default configuration for V4 proxy APIs [#9833](https://github.com/gravitee-io/issues/issues/9833)
 
@@ -48,8 +55,6 @@
 * Improve API synchronization state computation [#9852](https://github.com/gravitee-io/issues/issues/9852)
 
 </details>
-
-
 
 ## APIM 4.4.x
 
