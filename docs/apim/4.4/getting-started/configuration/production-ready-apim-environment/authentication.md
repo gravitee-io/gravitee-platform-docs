@@ -8,10 +8,10 @@ This section discusses authentication as it relates to [identity providers](auth
 
 **We highly recommend using your own corporate identity provider** (must be OAuth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:
 
-* [Gravitee Access Management](https://app.gitbook.com/s/ySqSVpDHfKA0fNml1fVO/getting-started/tutorial-getting-started-with-am)
-* [GitHub](https://app.gitbook.com/s/ySqSVpDHfKA0fNml1fVO/guides/identity-providers/social-identity-providers/github)
-* [Azure AD](https://app.gitbook.com/s/ySqSVpDHfKA0fNml1fVO/guides/identity-providers/social-identity-providers/azure-ad)
-* [Any compliant OAuth/OIDC server](https://app.gitbook.com/s/ySqSVpDHfKA0fNml1fVO/guides/identity-providers/social-identity-providers/openid-connect)
+* [Gravitee Access Management](https://app.gitbook.com/s/BhTMKXIHEN2PB8YB6Fz5/getting-started/tutorial-getting-started-with-am)
+* [GitHub](https://app.gitbook.com/s/BhTMKXIHEN2PB8YB6Fz5/guides/identity-providers/social-identity-providers/github)
+* [Azure AD](https://app.gitbook.com/s/BhTMKXIHEN2PB8YB6Fz5/guides/identity-providers/social-identity-providers/azure-ad)
+* [Any compliant OAuth/OIDC server](https://app.gitbook.com/s/BhTMKXIHEN2PB8YB6Fz5/guides/identity-providers/social-identity-providers/openid-connect)
 
 Alternatively, you can rely on your [LDAP server](https://documentation.gravitee.io/apim/getting-started/configuration/authentication-and-sso#ldap-authentication).
 
