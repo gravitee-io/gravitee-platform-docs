@@ -35,6 +35,7 @@
 * [Create your own Helm charts](guides/create-your-own-helm-charts.md)
 * [Gravitee Ingress Controller](guides/gravitee-ingress-controller.md)
 * [DB-less mode](guides/db-less-mode.md)
+* [Templating](guides/templating.md)
 
 ## REFERENCE
 
