@@ -1,6 +1,6 @@
 # APIM 4.4.x
 
-{% hint style="info" %}
+{% hint style="warning" %}
 **Using SQL database?**&#x20;
 
 Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade straight to 4.4.2 **if using SQL database.**&#x20;
