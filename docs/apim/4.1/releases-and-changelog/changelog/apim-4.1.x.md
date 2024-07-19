@@ -49,6 +49,37 @@ description: >-
 
 
  
+## Gravitee API Management 4.1.20 - July 19, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway Unhealthy when rate limit repository is set to none [#9869](https://github.com/gravitee-io/issues/issues/9869)
+
+**Management API**
+
+* JDBC Connection Pool Management Error - follow up ticket [#9851](https://github.com/gravitee-io/issues/issues/9851)
+
+**Console**
+
+* Non idempotent operation when creating APIs/Appplications/Users [#9688](https://github.com/gravitee-io/issues/issues/9688)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Paginated audit events loading to avoid memory issues [#9768](https://github.com/gravitee-io/issues/issues/9768)
+
+</details>
+
+
+
 ## Gravitee API Management 4.1.19 - July 5, 2024
 <details>
 
