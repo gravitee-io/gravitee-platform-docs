@@ -29,6 +29,33 @@ description: >-
 </details>
 
 
+## Gravitee Access Management 4.2.16 - July 19, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Propagate Message from Error Condition of HTTP IdP to Audit log. [#9841](https://github.com/gravitee-io/issues/issues/9841)
+* Passwordless KO - Certificate provider is required to sign JWT [#9864](https://github.com/gravitee-io/issues/issues/9864)
+
+**Management API**
+
+*  Redirect to login when device credentials are deleted [#9859](https://github.com/gravitee-io/issues/issues/9859)
+
+**Console**
+
+* A switch has an incorrect state when revisiting page - Application Settings [#9433](https://github.com/gravitee-io/issues/issues/9433)
+
+**Other**
+
+* Switching between environments is broken when multiple environments linked in cockpit [#9844](https://github.com/gravitee-io/issues/issues/9844)
+* "Rotate System Key" modifies application remember-device setting [#9857](https://github.com/gravitee-io/issues/issues/9857)
+
+</details>
+
+
 ## Gravitee Access Management 4.2.15 - July 5, 2024
 
 <details>
