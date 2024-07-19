@@ -48,7 +48,43 @@ description: >-
 </details>
 
 
- 
+
+## Gravitee API Management 4.2.14 - July 19, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway Unhealthy when rate limit repository is set to none [#9869](https://github.com/gravitee-io/issues/issues/9869)
+
+**Management API**
+
+* We do not allow a different DNS for the API of the portal and the console [#9721](https://github.com/gravitee-io/issues/issues/9721)
+* JDBC Connection Pool Management Error - follow up ticket [#9851](https://github.com/gravitee-io/issues/issues/9851)
+
+**Console**
+
+* Non idempotent operation when creating APIs/Appplications/Users [#9688](https://github.com/gravitee-io/issues/issues/9688)
+
+**Helm Charts**
+
+* We do not allow a different DNS for the API of the portal and the console [#9721](https://github.com/gravitee-io/issues/issues/9721)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Paginated audit events loading to avoid memory issues [#9768](https://github.com/gravitee-io/issues/issues/9768)
+
+</details>
+
+
+
 ## Gravitee API Management 4.2.13 - July 5, 2024
 <details>
 
