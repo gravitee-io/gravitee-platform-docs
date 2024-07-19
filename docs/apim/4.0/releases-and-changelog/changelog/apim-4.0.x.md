@@ -6,6 +6,33 @@ description: >-
 
 # APIM 4.0.x
  
+## Gravitee API Management 4.0.29 - July 19, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* JDBC Connection Pool Management Error - follow up ticket [#9851](https://github.com/gravitee-io/issues/issues/9851)
+
+**Console**
+
+* Non idempotent operation when creating APIs/Appplications/Users [#9688](https://github.com/gravitee-io/issues/issues/9688)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Paginated audit events loading to avoid memory issues [#9768](https://github.com/gravitee-io/issues/issues/9768)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.0.28 - July 5, 2024
 <details>
 
