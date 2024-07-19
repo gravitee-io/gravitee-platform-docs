@@ -6,6 +6,35 @@ description: >-
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.9 - July 19, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Propagate Message from Error Condition of HTTP IdP to Audit log. [#9841](https://github.com/gravitee-io/issues/issues/9841)
+* Workaround to limit breaking change in 4.3 [#9862](https://github.com/gravitee-io/issues/issues/9862)
+* Passwordless KO - Certificate provider is required to sign JWT [#9864](https://github.com/gravitee-io/issues/issues/9864)
+
+**Management API**
+
+*  Redirect to login when device credentials are deleted [#9859](https://github.com/gravitee-io/issues/issues/9859)
+
+**Console**
+
+* A switch has an incorrect state when revisiting page - Application Settings [#9433](https://github.com/gravitee-io/issues/issues/9433)
+
+**Other**
+
+* Expression language links within MFA page directing to APIM EL page [#9804](https://github.com/gravitee-io/issues/issues/9804)
+* Switching between environments is broken when multiple environments linked in cockpit [#9844](https://github.com/gravitee-io/issues/issues/9844)
+* "Rotate System Key" modifies application remember-device setting [#9857](https://github.com/gravitee-io/issues/issues/9857)
+
+</details>
+
+
 ## Gravitee Access Management 4.3.8 - July 5, 2024
 
 <details>
