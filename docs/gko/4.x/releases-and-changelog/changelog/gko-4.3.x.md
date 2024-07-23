@@ -1,5 +1,15 @@
 # GKO 4.3.x
 
+## Gravitee Kubernetes Operator 4.3.9 - July 22, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Execution mode cannot be configured for v2 ApiDefinition resources [#9867](https://github.com/gravitee-io/issues/issues/9867)
+  * Group gets removed from API on updates when API PO is the group PO [#9846](https://github.com/gravitee-io/issues/issues/9846)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.3.8 - July 5, 2024
     
 <details>
