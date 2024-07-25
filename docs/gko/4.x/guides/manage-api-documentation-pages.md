@@ -175,3 +175,31 @@ pages:
 
 For v2 APIs, you can also [define access control settings](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/docs/api/reference.md#apidefinitionspecpageskeyaccesscontrolsindex) to determine which groups of users can or cannot access the documentation page.
 
+The example below shows a documentation page SWAGGER fetcher that defines access controls:
+
+```yaml
+  pages:
+    swagger:
+      name: "pet-store"
+      type: SWAGGER
+      published: true
+      visibility: PRIVATE
+      source:
+        type: 'http-fetcher'
+        configuration:
+          url: https://petstore.swagger.io/v2/swagger.json
+      excludedAccessControls: false
+      accessControls:
+      - referenceId: "developers"
+        referenceType: "GROUP"
+```
+
+In the above example, a group called `developers` is referenced in **accessControls**.&#x20;
+
+**excludedAccessControls** is set to `false` (default), which means this group will be the only on allowed to view this page.
+
+If `excludedAccessControls` was set to **true**, this would mean that the `developers` group is excluded from accessing this page.
+
+{% hint style="warning" %}
+**Known limitation** - referencing Roles in access controls is not currently supported by GKO. We recommend using Groups.
+{% endhint %}
