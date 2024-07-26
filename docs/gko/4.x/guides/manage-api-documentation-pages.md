@@ -219,6 +219,10 @@ For an example of how to store secrets for accessing a private external source, 
 
 Gravitee API Management supports [importing multiple documentation pages](https://app.gitbook.com/s/Fc1ETPs5seXizrv8ozOs/guides/developer-portal/configuration/documentation#import-multiple-pages) from a repository using a single fetcher. You can either replicate the repository's same file structure and naming in the Gravitee API's documentation section, or change the structure using the descriptor file described in the previous link.
 
+{% hint style="warning" %}
+Loading multiple files is only supported with the GitLab and GitHub fetchers.
+{% endhint %}
+
 GKO also supports this capability by defining a page of type `ROOT` that will point to a folder in a repository.&#x20;
 
 The below example illustrates this in an ApiDefinition resource:
