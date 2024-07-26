@@ -6,7 +6,16 @@ description: Documentation pages can be defined in the API definition CRDs
 
 ## Overview
 
-The `ApiV4Definition` and `ApiDefinition` CRDs both support the definition of documentation pages to be created along with the API. Generally speaking, the CRDs support all the documentation page types supported by Gravitee API Management:
+The `ApiV4Definition` and `ApiDefinition` CRDs both support the definition of documentation pages to be created along with the API.&#x20;
+
+In this guide, learn how to:
+
+* [Reference external pages with fetchers](manage-api-documentation-pages.md#referencing-external-pages-with-fetchers)
+* [Define inline pages](manage-api-documentation-pages.md#inline-pages)
+* [Manage page access controls](manage-api-documentation-pages.md#documentation-page-access-controls)
+* [Import multiple pages from a directory using a fetcher](manage-api-documentation-pages.md#using-a-fetcher-to-load-multiple-pages)
+
+Generally speaking, the CRDs support all the documentation page types supported by Gravitee API Management:
 
 * OpenAPI specifications (OAS), a.k.a. Swagger
 * AsyncAPI definitions
@@ -200,6 +209,67 @@ In the above example, a group called `developers` is referenced in **accessContr
 
 If `excludedAccessControls` was set to **true**, this would mean that the `developers` group is excluded from accessing this page.
 
+For an example of how to store secrets for accessing a private external source, such as a private Github repository, please refer to the [guide on templating](templating.md).
+
 {% hint style="warning" %}
 **Known limitation** - referencing Roles in access controls is not currently supported by GKO. We recommend using Groups.
 {% endhint %}
+
+## Using a fetcher to load multiple pages
+
+Gravitee API Management supports [importing multiple documentation pages](https://app.gitbook.com/s/Fc1ETPs5seXizrv8ozOs/guides/developer-portal/configuration/documentation#import-multiple-pages) from a repository using a single fetcher. You can either replicate the repository's same file structure and naming in the Gravitee API's documentation section, or change the structure using the descriptor file described in the previous link.
+
+GKO also supports this capability by defining a page of type `ROOT` that will point to a folder in a repository.&#x20;
+
+The below example illustrates this in an ApiDefinition resource:
+
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiDefinition"
+metadata:
+  name: "github-multifile-fetcher"
+spec:
+  name: "github-multifile-fetcher"
+  contextRef:
+    name: management-context-1
+    namespace: default
+  version: "1"
+  description: "fetch documentation pages from a github repository root"
+  pages:
+    repository-root:
+      type: "ROOT"
+      published: true
+      visibility: "PRIVATE"
+      source:
+        type: "github-fetcher"
+        configuration:
+          githubUrl: "https://api.github.com"
+          owner: "jmcx"
+          branchOrTag: "main"
+          repository: "gko-multifile-doc-example"
+          filepath: "/"
+          username: "jmcx"
+          personalAccessToken: "[[ secret `http-github-fetcher/pat` ]]"
+          fetchCron: "5 * * * * *"
+          autoFetch: true
+      excludedAccessControls: true
+      accessControls:
+      - referenceId: "developers"
+        referenceType: "GROUP"
+  plans:
+    - name: "KEY_LESS"
+      description: "FREE"
+      security: "KEY_LESS"
+  proxy:
+    virtual_hosts:
+      - path: "/k8s-basic"
+    groups:
+      - endpoints:
+          - name: "Default"
+            target: "https://api.gravitee.io/echo"
+```
+
+This single `ROOT` page configuration will result in multiple documentation pages being created on the API. In this example, the public repository used contains a markdown and a swagger file at the root, both of which will result in new pages being created.&#x20;
+
+All access control settings such as **published**, **visibility**, **excludedAccessControls**, and **accessControl groups**, will be propagated to all created pages.&#x20;
+
