@@ -109,6 +109,13 @@ spec:
           fetchCron: '*/10 * * * * *'
 ```
 
+{% hint style="info" %}
+The CRON syntax for page fetchers uses Spring scheduled tasks syntax, which includes six parameters, for example: `*/10 * * * * *`&#x20;
+
+\
+Unix cron on the other hand uses five parameters and will cause errors if used here. An example of a Unix cron expression is `*/10 * * * *`
+{% endhint %}
+
 ## Inline pages
 
 Below is an example of a complete `ApiV4Definition` with an inline markdown page, the page is nested in a folder:
