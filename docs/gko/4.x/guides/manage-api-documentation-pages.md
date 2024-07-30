@@ -217,7 +217,7 @@ For an example of how to store secrets for accessing a private external source, 
 
 ## Using a fetcher to load multiple pages
 
-Gravitee API Management supports [importing multiple documentation pages](https://app.gitbook.com/s/Fc1ETPs5seXizrv8ozOs/guides/developer-portal/configuration/documentation#import-multiple-pages) from a repository using a single fetcher. You can either replicate the repository's same file structure and naming in the Gravitee API's documentation section, or change the structure using the descriptor file described in the previous link.
+Gravitee API Management supports importing multiple documentation pages from a repository using a single fetcher (please refer to the APIM docs for more details on this) . You can either replicate the repository's same file structure and naming in the Gravitee API's documentation section, or change the structure using the descriptor file described in the previous link.
 
 {% hint style="warning" %}
 Loading multiple files is only supported with the GitLab and GitHub fetchers.
