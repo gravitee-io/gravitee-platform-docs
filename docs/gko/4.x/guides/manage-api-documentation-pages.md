@@ -53,8 +53,7 @@ When an API definition resource containing a fetcher is created an pushed to Gra
 
 Below is an example of a complete `ApiV4Definition` with an OAS documentation page referenced from an external http source, this page is nested in a folder:
 
-```yaml
-apiVersion: gravitee.io/v1alpha1
+<pre class="language-yaml"><code class="lang-yaml">apiVersion: gravitee.io/v1alpha1
 kind: ApiV4Definition
 metadata:
   name: api-v4-with-swagger-http-fetcher
@@ -106,8 +105,15 @@ spec:
         type: http-fetcher
         configuration:
           url: https://petstore.swagger.io/v2/swagger.json
-          fetchCron: '*/10 * * * * *'
-```
+<strong>          fetchCron: '*/10 * * * * *'
+</strong></code></pre>
+
+{% hint style="info" %}
+The CRON syntax for page fetchers uses Spring scheduled tasks syntax, which includes six parameters, for example: `*/10 * * * * *`
+
+\
+Unix cron on the other hand uses five parameters and will cause errors if used here. An example of a Unix cron expression is `*/10 * * * *`
+{% endhint %}
 
 ## Inline pages
 
