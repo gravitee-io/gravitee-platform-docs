@@ -226,5 +226,4 @@
 * [Enterprise Support](community-and-support/enterprise-support.md)
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
-  * [Roadmap & Feedback](https://www.gravitee.io/user-feedback)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
