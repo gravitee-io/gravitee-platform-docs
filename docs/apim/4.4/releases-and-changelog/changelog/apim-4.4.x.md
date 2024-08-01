@@ -1,4 +1,32 @@
 # APIM 4.4.x
+ 
+## Gravitee API Management 4.4.4 - August 1, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Request timeout in JWT Plan  [#9911](https://github.com/gravitee-io/issues/issues/9911)
+* Request timeout when HTTP callout policy with system proxy
+
+**Management API**
+
+* Missing semicolon in Subscriptions Export [#9878](https://github.com/gravitee-io/issues/issues/9878)
+
+**Console**
+
+* Logs Have No Option to Be Opened in New Tab/Window [#9764](https://github.com/gravitee-io/issues/issues/9764)
+* Creating a personal token with the same name does not trigger a visual warning [#9873](https://github.com/gravitee-io/issues/issues/9873)
+
+**Other**
+
+* Upgrade failed from 4.3.1 to 4.4.2  [#9901](https://github.com/gravitee-io/issues/issues/9901)
+* APIM RPM installation overwrite portal configuration [#9914](https://github.com/gravitee-io/issues/issues/9914)
+
+</details>
+
+
 
 {% hint style="warning" %}
 **Using SQL database?**&#x20;
