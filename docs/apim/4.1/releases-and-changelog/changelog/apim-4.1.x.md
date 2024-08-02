@@ -6,6 +6,27 @@ description: >-
 
 # APIM 4.1.x
  
+## Gravitee API Management 4.1.21 - August 1, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Missing semicolon in Subscriptions Export [#9878](https://github.com/gravitee-io/issues/issues/9878)
+
+**Console**
+
+* Creating a personal token with the same name does not trigger a visual warning [#9873](https://github.com/gravitee-io/issues/issues/9873)
+
+**Other**
+
+* APIM RPM installation overwrite portal configuration [#9914](https://github.com/gravitee-io/issues/issues/9914)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.1.19 - July 5, 2024
 <details>
 
