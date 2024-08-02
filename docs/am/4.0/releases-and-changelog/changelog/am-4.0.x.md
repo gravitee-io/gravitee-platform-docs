@@ -6,6 +6,31 @@ description: >-
 
 # AM 4.0.x
 
+## Gravitee Access Management 4.0.23 - July 19, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Propagate Message from Error Condition of HTTP IdP to Audit log. [#9841](https://github.com/gravitee-io/issues/issues/9841)
+
+**Management API**
+
+*  Redirect to login when device credentials are deleted [#9859](https://github.com/gravitee-io/issues/issues/9859)
+
+**Console**
+
+* A switch has an incorrect state when revisiting page - Application Settings [#9433](https://github.com/gravitee-io/issues/issues/9433)
+
+**Other**
+
+* Switching between environments is broken when multiple environments linked in cockpit [#9844](https://github.com/gravitee-io/issues/issues/9844)
+
+</details>
+
+
 ## Gravitee Access Management 4.0.22 - July 5, 2024
 
 <details>
