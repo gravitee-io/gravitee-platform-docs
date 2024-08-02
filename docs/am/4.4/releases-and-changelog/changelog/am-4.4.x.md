@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.3 - August 2, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* [AM][GW] Set tl client header name behind reverse proxy through helm chart [#9874](https://github.com/gravitee-io/issues/issues/9874)
+* Cannot save UserInfo Endpoint in UI - Save Button Disabled [#9879](https://github.com/gravitee-io/issues/issues/9879)
+* Configuration via la console AM non prise en compte sur les gateways [#9888](https://github.com/gravitee-io/issues/issues/9888)
+* MFA - weird behavior when user is going back to the previous enroll step [#9897](https://github.com/gravitee-io/issues/issues/9897)
+* Error "ERR_TOO_MANY_REDIRECTS" when hide login form is enabled. [#9898](https://github.com/gravitee-io/issues/issues/9898)
+
+</details>
+
+
 ### Gravitee Access Management 4.4.1 - July 5, 2024 <a href="#gravitee-access-management-4.3.1-april-5-2024" id="gravitee-access-management-4.3.1-april-5-2024"></a>
 
 <details>
