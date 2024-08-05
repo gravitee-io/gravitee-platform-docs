@@ -1,5 +1,14 @@
 # GKO 4.3.x
 
+## Gravitee Kubernetes Operator 4.3.10 - August 5, 2024
+    
+<details>
+<summary>Improvements</summary>
+
+  * Make APIM HTTP client timeout configurable [#9890](https://github.com/gravitee-io/issues/issues/9890)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.3.9 - July 22, 2024
     
 <details>
