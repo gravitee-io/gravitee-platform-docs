@@ -1,5 +1,22 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.4 - August 5, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * v4 documentation not fully read-only [#9826](https://github.com/gravitee-io/issues/issues/9826)
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  * Make APIM HTTP client timeout configurable [#9890](https://github.com/gravitee-io/issues/issues/9890)
+  * Support access controls and visibility when fetching from `ROOT pages in v2 API definition [#9889](https://github.com/gravitee-io/issues/issues/9889)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.3 - July 22, 2024
     
 <details>
