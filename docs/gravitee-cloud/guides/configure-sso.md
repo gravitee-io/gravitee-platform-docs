@@ -38,7 +38,10 @@ It is recommended that the Account Primary Owner be a non-SSO user so that the C
 4.  Enter the details of your Oauth client in **Set up Oauth/ OpenID Connect configuration**&#x20;
 
     <figure><img src="../.gitbook/assets/sso_set up.png" alt=""><figcaption><p>Add the details of the OAuth client configured in your IdP</p></figcaption></figure>
-5. Ensure the **OpenID**, **Profile**, and **Email** scopes are enabled in your OAuth client so that Cockpit will receive all user attributes (claims) necessary to create the user profile
+5. Ensure the **OpenID**, **Profile**, and **Email** scopes are enabled in your OAuth client so that Cockpit will receive all user attributes (claims) necessary to create the user profile\
+   \
+   In order to fully build the user profile in Cockpit, the claims `email`, `family_name` and `given_name` must be present in the token. This should be the case if your IdP conforms to OpenID Connect standard scope `email` and `profile`. But please verify as each IdP may behave differently\
+
 6.  Click **Create Redirect URI**&#x20;
 
     <figure><img src="../.gitbook/assets/sso_scopes.png" alt=""><figcaption><p>Consent to enabling OpenID, Profile and Email scopes in your OAuth client</p></figcaption></figure>
