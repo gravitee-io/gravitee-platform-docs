@@ -1,5 +1,29 @@
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.5 - August 14, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Memory leak when using rate-limit with non-responsive Redis [#9928](https://github.com/gravitee-io/issues/issues/9928)
+* V4 api redeployments causes memory leak [#9936](https://github.com/gravitee-io/issues/issues/9936)
+
+**Management API**
+
+* Total APIs for Portal API Category endpoint always returns 0 [#9922](https://github.com/gravitee-io/issues/issues/9922)
+* Re: \[APIM/Gateway] Override an email template doesn't work [#9934](https://github.com/gravitee-io/issues/issues/9934)
+
+**Console**
+
+* Application names overflow container under API, Plans and Subscriptions [#9872](https://github.com/gravitee-io/issues/issues/9872)
+* UI Doesn't work behind google's Identity-Aware Proxy [#9919](https://github.com/gravitee-io/issues/issues/9919)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.4 - August 1, 2024
 <details>
 
