@@ -1,3 +1,9 @@
+---
+description: >-
+  This page contains the changelog entries for APIM 4.4.x and any future patch
+  APIM 4.4.x releases
+---
+
 # APIM 4.4.x
  
 ## Gravitee API Management 4.4.5 - August 14, 2024
@@ -50,14 +56,11 @@
 
 </details>
 
-
-
 {% hint style="warning" %}
 **Using SQL database?**&#x20;
 
 Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade straight to 4.4.2 **if using SQL database.**&#x20;
 {% endhint %}
-
 
 
 
@@ -149,9 +152,9 @@ Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade
 
 </details>
 
-## APIM 4.4.x
 
-### Gravitee API Management 4.4.1 - June 27, 2024
+
+## Gravitee API Management 4.4.1 - June 27, 2024
 
 <details>
 
@@ -207,7 +210,9 @@ Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade
 
 </details>
 
-### Gravitee API Management 4.4.0 - June 27, 2024
+
+
+## Gravitee API Management 4.4.0 - June 27, 2024
 
 <details>
 
