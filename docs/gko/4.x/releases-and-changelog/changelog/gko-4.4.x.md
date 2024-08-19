@@ -1,5 +1,15 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.5 - August 19, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * GKO Categories not being created or associated [Split from #9654] [#9905](https://github.com/gravitee-io/issues/issues/9905)
+  * v2 API properties are not readonly in APIM UI when the API is managed by the operator [#9892](https://github.com/gravitee-io/issues/issues/9892)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.4 - August 5, 2024
     
 <details>
