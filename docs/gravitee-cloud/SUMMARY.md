@@ -15,6 +15,7 @@
 * [Set up your Gravitee Cockpit Hierarchy](guides/set-up-your-gravitee-cloud-hierarchy.md)
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
+* [Promote APIs](guides/promote-apis.md)
 
 ## reference
 
