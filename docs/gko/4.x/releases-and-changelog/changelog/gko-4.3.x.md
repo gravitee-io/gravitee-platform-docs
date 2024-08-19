@@ -1,5 +1,14 @@
 # GKO 4.3.x
 
+## Gravitee Kubernetes Operator 4.3.11 - August 19, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * v2 API properties are not readonly in APIM UI when the API is managed by the operator [#9892](https://github.com/gravitee-io/issues/issues/9892)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.3.10 - August 5, 2024
     
 <details>
