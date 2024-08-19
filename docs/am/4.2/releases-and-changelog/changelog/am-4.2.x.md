@@ -6,6 +6,34 @@ description: >-
 
 # AM 4.2.x
 
+## Gravitee Access Management 4.2.19 - August 21, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Not double dash "--" in the returned code from an OAuth2 authentication flow [#9910](https://github.com/gravitee-io/issues/issues/9910)
+* Secrets in responses of SSAM [#9926](https://github.com/gravitee-io/issues/issues/9926)
+
+**Management API**
+
+* Audits present twice during user creation [#9837](https://github.com/gravitee-io/issues/issues/9837)
+* MFA - Invalid 2FA code  [#9929](https://github.com/gravitee-io/issues/issues/9929)
+
+</details>
+
+
+## Gravitee Access Management 4.2.18 - August 19, 2024
+
+{% hint style="warning" %}
+
+Due to technical issues during release process, 4.2.18 version should be ignored. Please skip these this version and upgrade straight to 4.2.19&#x20;
+
+{% endhint %}
+
+
 ## Gravitee Access Management 4.2.17 - August 2, 2024
 
 <details>
