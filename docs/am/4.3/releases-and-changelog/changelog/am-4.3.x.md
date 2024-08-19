@@ -6,17 +6,33 @@ description: >-
 
 # AM 4.3.x
 
-## Gravitee Access Management 4.3.10 - August 5, 2024
+## Gravitee Access Management 4.3.11 - August 19, 2024
 
 <details>
 
 <summary>Bug fixes</summary>
 
+**Gateway**
+
+* Not double dash "--" in the returned code from an OAuth2 authentication flow [#9910](https://github.com/gravitee-io/issues/issues/9910)
+* Secrets in responses of SSAM [#9926](https://github.com/gravitee-io/issues/issues/9926)
+
+**Management API**
+
+* Audits present twice during user creation [#9837](https://github.com/gravitee-io/issues/issues/9837)
+* MFA - Invalid 2FA code  [#9929](https://github.com/gravitee-io/issues/issues/9929)
 
 
 
 
 
+</details>
+
+## Gravitee Access Management 4.3.10 - August 5, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
 
 **Other**
 
@@ -27,6 +43,7 @@ description: >-
 * Error "ERR_TOO_MANY_REDIRECTS" when hide login form is enabled. [#9898](https://github.com/gravitee-io/issues/issues/9898)
 
 </details>
+
 
 
 ## Gravitee Access Management 4.3.9 - July 19, 2024
