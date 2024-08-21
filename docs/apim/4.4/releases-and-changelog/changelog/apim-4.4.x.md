@@ -6,6 +6,23 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.6 - August 21, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* gRPC APIs latency on remote gRPC backend with large response payloads  [#9949](https://github.com/gravitee-io/issues/issues/9949)
+
+**Console**
+
+* gRPC APIs latency on remote gRPC backend with large response payloads  [#9949](https://github.com/gravitee-io/issues/issues/9949)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.5 - August 14, 2024
 <details>
 
