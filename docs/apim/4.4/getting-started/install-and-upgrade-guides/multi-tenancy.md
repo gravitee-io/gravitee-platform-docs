@@ -32,7 +32,7 @@ The following sections describe:
 * [A typical multi-tenant setup](multi-tenancy.md#a-typical-multi-tenant-setup)
 
 {% hint style="info" %}
-For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](4.2-upgrade-guide.md#updating-cockpit-connection).
+For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](broken-reference).
 {% endhint %}
 
 ## How to set up multi-tenancy
@@ -104,7 +104,14 @@ The Access Points feature allows different tenants to use dedicated URLs to acce
 
 * As Access Points rely on proper mapping, e.g., through a load balancer, you may need to edit your `etc/hosts` file prior to testing locally.
 * When enabled, Access Point URLs will be used declaratively whenever possible.&#x20;
-  * For example, when an API is created, its entrypoint will be set to virtual host mode and the host option will be limited to what the Access Points define. This allows users sharing an installation to have APIs with the same path deployed on the same set of logical Gateways.
+  * For example, when you create an API, the entrypoint of the gateway will be restricted to the defined gateway environment Access Point. This allows users sharing an installation to have APIs with the same path deployed on the same set of logical Gateways.
+
+{% hint style="info" %}
+Note that prior to 4.4, APIs where forced to be in virtual host mode. This is no longer needed in 4.4 as improvements to Gateway environment Access Points have been made. Path based APIs are now supported in multi-tenant mode.\
+\
+All APIs that have been created prior to 4.4 will still be in virtual host mode.
+{% endhint %}
+
 * Once a multi-tenant APIM installation is connected to Cockpit, custom Access Points can be defined at both the Organization and Environment levels using Cockpit. These values will override the values originally sent from the APIM installation, as shown below.
 
 <figure><img src="../../.gitbook/assets/image (57).png" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cockpit</p></figcaption></figure>
