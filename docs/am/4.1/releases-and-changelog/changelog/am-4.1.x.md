@@ -12,12 +12,6 @@ description: >-
 
 <summary>Bug fixes</summary>
 
-
-
-
-
-
-
 **Other**
 
 * [AM][GW] Set tl client header name behind reverse proxy through helm chart [#9874](https://github.com/gravitee-io/issues/issues/9874)
@@ -25,6 +19,31 @@ description: >-
 * Configuration via la console AM non prise en compte sur les gateways [#9888](https://github.com/gravitee-io/issues/issues/9888)
 * MFA - weird behavior when user is going back to the previous enroll step [#9897](https://github.com/gravitee-io/issues/issues/9897)
 * Error "ERR_TOO_MANY_REDIRECTS" when hide login form is enabled. [#9898](https://github.com/gravitee-io/issues/issues/9898)
+
+</details>
+
+
+## Gravitee Access Management 4.1.26 - July 19, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Propagate Message from Error Condition of HTTP IdP to Audit log. [#9841](https://github.com/gravitee-io/issues/issues/9841)
+
+**Management API**
+
+*  Redirect to login when device credentials are deleted [#9859](https://github.com/gravitee-io/issues/issues/9859)
+
+**Console**
+
+* A switch has an incorrect state when revisiting page - Application Settings [#9433](https://github.com/gravitee-io/issues/issues/9433)
+
+**Other**
+
+* Switching between environments is broken when multiple environments linked in cockpit [#9844](https://github.com/gravitee-io/issues/issues/9844)
 
 </details>
 
