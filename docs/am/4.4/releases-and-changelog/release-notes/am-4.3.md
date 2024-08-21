@@ -2,6 +2,7 @@
 description: >-
   This article covers the new features released in Gravitee Access Management
   4.3
+hidden: true
 ---
 
 # AM 4.3
