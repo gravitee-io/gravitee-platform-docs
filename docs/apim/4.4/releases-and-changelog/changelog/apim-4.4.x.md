@@ -6,6 +6,19 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.7 - August 23, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Unable to start the Gateway when cloud enabled [#9954](https://github.com/gravitee-io/issues/issues/9954)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.6 - August 21, 2024
 <details>
 
@@ -20,6 +33,12 @@ description: >-
 * gRPC APIs latency on remote gRPC backend with large response payloads  [#9949](https://github.com/gravitee-io/issues/issues/9949)
 
 </details>
+
+{% hint style="warning" %}
+**Using Cloud?**&#x20;
+
+Please skip this version and upgrade straight to 4.4.7 **if using Cloud.**&#x20;
+{% endhint %}
 
 
  
