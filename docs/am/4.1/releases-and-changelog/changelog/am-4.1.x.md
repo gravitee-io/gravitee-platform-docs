@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.29 - August 27, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Installation collection can have more than one entry [#9403](https://github.com/gravitee-io/issues/issues/9403)
+* Bot detection plugin error [#9909](https://github.com/gravitee-io/issues/issues/9909)
+* OAuth 2.0 - Current tokens still active when disabling an application [#9933](https://github.com/gravitee-io/issues/issues/9933)
+* Windows Hello issue registering webauthn [#9964](https://github.com/gravitee-io/issues/issues/9964)
+
+</details>
+
+
 ## Gravitee Access Management 4.1.28 - August 19, 2024
 
 <details>
