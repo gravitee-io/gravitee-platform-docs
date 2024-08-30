@@ -323,7 +323,7 @@ You can use the EL to update some aspects of policy configuration. The policy sp
 
 You can use the EL to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as `&&` or `||`, as shown in the example below:
 
-`{#request.headers['my-header'] != null && #request.headers['my-header'] == "my-value"}`
+`{#request.headers['my-header'] != null && #request.headers['my-header'][0] =="my-value"}`
 
 {% hint style="info" %}
 **Alternate equality check**

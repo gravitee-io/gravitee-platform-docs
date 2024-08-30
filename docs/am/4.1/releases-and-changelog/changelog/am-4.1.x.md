@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.30 - August 30, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* NPE  in filter sensitive information. [#9968](https://github.com/gravitee-io/issues/issues/9968)
+
+
+
+**Other**
+
+* Error with MFA challenge policy in Registration Confirmation Flow [#9945](https://github.com/gravitee-io/issues/issues/9945)
+* Make LDAP IDP non blocking [#9969](https://github.com/gravitee-io/issues/issues/9969)
+* Configure the validation period for LDAP IDP [#9971](https://github.com/gravitee-io/issues/issues/9971)
+* Fix connection leak on LDAP idp [#9973](https://github.com/gravitee-io/issues/issues/9973)
+
+</details>
+
+
 ## Gravitee Access Management 4.1.29 - August 27, 2024
 
 <details>
