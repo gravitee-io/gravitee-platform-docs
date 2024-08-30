@@ -6,6 +6,36 @@ description: >-
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.12 - August 30, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Bot detection plugin error [#9909](https://github.com/gravitee-io/issues/issues/9909)
+* Windows Hello issue registering webauthn [#9964](https://github.com/gravitee-io/issues/issues/9964)
+
+**Management API**
+
+* Installation collection can have more than one entry [#9403](https://github.com/gravitee-io/issues/issues/9403)
+* OAuth 2.0 - Current tokens still active when disabling an application [#9933](https://github.com/gravitee-io/issues/issues/9933)
+* NPE  in filter sensitive information. [#9968](https://github.com/gravitee-io/issues/issues/9968)
+
+
+
+**Other**
+
+* Enable SSL using Secret Providers for AM via Kubernetes  [#9899](https://github.com/gravitee-io/issues/issues/9899)
+* Error with MFA challenge policy in Registration Confirmation Flow [#9945](https://github.com/gravitee-io/issues/issues/9945)
+* Make LDAP IDP non blocking [#9969](https://github.com/gravitee-io/issues/issues/9969)
+* Configure the validation period for LDAP IDP [#9971](https://github.com/gravitee-io/issues/issues/9971)
+* Fix connection leak on LDAP idp [#9973](https://github.com/gravitee-io/issues/issues/9973)
+
+</details>
+
+
 ## Gravitee Access Management 4.3.11 - August 19, 2024
 
 <details>
