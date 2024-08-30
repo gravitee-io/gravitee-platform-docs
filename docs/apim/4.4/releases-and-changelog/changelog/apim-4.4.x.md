@@ -6,6 +6,29 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.8 - August 30, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Decrypt api properties using debug mode [#9943](https://github.com/gravitee-io/issues/issues/9943)
+* Impossible to create Date from string in groovy scripts [#9967](https://github.com/gravitee-io/issues/issues/9967)
+* XPath not working as expected in gravitee expression language [#9974](https://github.com/gravitee-io/issues/issues/9974)
+
+**Management API**
+
+* Unresponsive/slow UI when emails are sent in APIM 3.x, 4.x [#9522](https://github.com/gravitee-io/issues/issues/9522)
+
+**Console**
+
+* Inappropriate rights for users [#9875](https://github.com/gravitee-io/issues/issues/9875)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.7 - August 23, 2024
 <details>
 
