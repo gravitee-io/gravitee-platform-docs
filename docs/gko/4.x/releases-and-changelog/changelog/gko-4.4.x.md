@@ -1,5 +1,14 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.8 - September 2, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Application description should be mandatory [#9963](https://github.com/gravitee-io/issues/issues/9963)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.7 - September 2, 2024
 
 There is nothing new in version 4.4.7.
