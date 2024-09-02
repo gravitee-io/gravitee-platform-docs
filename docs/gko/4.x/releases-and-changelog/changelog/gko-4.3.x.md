@@ -1,5 +1,14 @@
 # GKO 4.3.x
 
+## Gravitee Kubernetes Operator 4.3.12 - September 2, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Application description should be mandatory [#9963](https://github.com/gravitee-io/issues/issues/9963)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.3.11 - August 19, 2024
     
 <details>
