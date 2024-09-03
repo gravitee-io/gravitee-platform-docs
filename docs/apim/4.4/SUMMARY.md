@@ -87,6 +87,7 @@
 * [Adding Role-based Access Control to your JWT Plan](most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan.md)
 * [Configure Dynamic Client Registration with APIM](most-common-use-cases/configure-dynamic-client-registration-with-apim.md)
 * [Secure and Expose gRPC Services with Gravitee](most-common-use-cases/secure-and-expose-grpc-services-with-gravitee.md)
+* [Expose SOAP webservices as REST APIs](most-common-use-cases/expose-soap-webservices-as-rest-apis.md)
 
 ## Guides
 
