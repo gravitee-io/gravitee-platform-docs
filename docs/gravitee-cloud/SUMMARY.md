@@ -2,20 +2,25 @@
 
 ## Overview
 
-* [Introduction to Gravitee Cockpit](README.md)
+* [Gravitee Cloud](README.md)
 
 ## Getting started
 
-* [Access and setup](getting-started/access-and-set-up.md)
+* [Getting started with Gravitee Cloud](getting-started/getting-started-with-gravitee-cloud.md)
 
 ## Guides
 
-* [Register installations](guides/register-installations.md)
-* [Monitor and check health of installations](guides/monitor-and-check-health-of-installations.md)
-* [Set up your Gravitee Cockpit Hierarchy](guides/set-up-your-gravitee-cloud-hierarchy.md)
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
 * [Promote APIs](guides/promote-apis.md)
+
+## SELF-HOSTED
+
+* [Getting started with Self-hosted Profile](self-hosted/getting-started-with-self-hosted-profile.md)
+* [Access and setup](self-hosted/access-and-set-up.md)
+* [Set up your Gravitee Cockpit Hierarchy](self-hosted/set-up-your-gravitee-cloud-hierarchy.md)
+* [Register installations](self-hosted/register-installations.md)
+* [Monitor and check health of installations](self-hosted/monitor-and-check-health-of-installations.md)
 
 ## reference
 

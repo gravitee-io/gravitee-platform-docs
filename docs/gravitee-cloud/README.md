@@ -1,39 +1,17 @@
 ---
-description: Learn more about Gravitee Cockpit
+description: Gravitee's API Platform as a service.
 ---
 
-# Introduction to Gravitee Cockpit
+# Gravitee Cloud
 
 ## Introduction
 
-Previously Cockpit, Gravitee Cockpit is the environment management solution and “homepage” for your entire Gravitee platform.
+Formerly known as Cockpit, Gravitee Cloud is a simple and secure method of running the Gravitee API Management (APIM). With the Control Plane hosted by Gravitee, you can count on consistent availability, cutting-edge features, and innovations from the Gravitee team.
 
-Here, you can:
+<figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption><p>Gravitee Cloud UI.</p></figcaption></figure>
 
-* Add and manage various Gravitee API Management and Access Management installations and environments
-* Promote APIs across higher and lower environments
-* Get started with an enterprise API Management free trial. The trial now includes pre-seeded APIs and a demo application so that you can test out all these new Gravitee 4.0 features without connecting your own application or building all new APIs.
+When you subscribe to to Gravitee Cloud, Gravitee generates a pre-configured and best-practice setup for your APIM, which is ready to help you unlock new potential for your APIs. Whether you choose to run your API Gateways with Gravitee-hosted, hybrid, or federated third-party gateways, we provide a unified platform that adapts to your IT landscape.
 
-## Gravitee Cockpit hierarchy
 
-Gravitee Cockpit is based on a hierarchy of the following entity types:
 
-<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Gravitee Cockpit hierarchy</p></figcaption></figure>
-
-<table><thead><tr><th width="264.008547008547">Entity</th><th>Description</th></tr></thead><tbody><tr><td>Account</td><td>The top level entity, your company. One user can have multiple accounts.</td></tr><tr><td>Organization</td><td>A logical part of your company in the way that makes most sense in your setup, for example a region or business unit. There can be multiple organizations linked to one account.</td></tr><tr><td>Environment</td><td>An environment in an IT infrastructure, such as development or production. There can be multiple environments linked to one organization.</td></tr><tr><td>APIM and AM installations, linked to environments in Gravitee Cockpit. Each linked APIM and AM installation automatically reports its REST API and Gateway nodes to Gravitee Cockpit.</td><td><p>Nodes can belong to multiple environments. You can configure the organizations and environments associated with Gateway nodes in APIM and AM, by updating the Gateway configuration files.</p><p>Only Gateway nodes are configurable in this way, not REST API nodes.</p></td></tr></tbody></table>
-
-Each entity managed in Gravitee Cockpit has some common properties:
-
-* ID: an internal ID that is never shown in the Gravitee Cockpit UI, but that you can find if you look at the API responses.
-* HRID: a human readable ID of the entity. This ID is unique (no two environments in the same organization can have the same HRID), and they are used to provide readable URLs.
-* Name: the name of the entity.
-* Description: a description of the entity.
-
-## Example hierarchy
-
-The Gravitee Cockpit hierarchy pictured below has the following setup:
-
-* One APIM installation, with two Gateway nodes and one REST API node.
-* One AM installation, with one Gateway node and one REST API node.
-
-<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption><p>Example hierarchy</p></figcaption></figure>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Log in to your Gravitee Cloud account<br><br><a href="https://cockpit.gravitee.io">Gravitee Cloud Login</a></td><td></td><td><a href="https://cockpit.gravitee.io/">https://cockpit.gravitee.io/</a></td></tr><tr><td></td><td>Start a Free Gravitee Cloud Trial!<br><br><a href="https://cockpit.gravitee.io/?createUser=true">Embark on an enhanced API Platform journey!</a></td><td></td><td></td></tr></tbody></table>
