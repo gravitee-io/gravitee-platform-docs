@@ -635,7 +635,7 @@ The following tables list the available configuration parameters for the Gravite
 
 ## Federation
 
-[Federation](../../guides/federation/) is a new capability that was released with APIM 4.4.
+[Federation](../../../guides/federation/) is a new capability that was released with APIM 4.4.
 
 Federation is deactivated by default in the default Helm values. To activate it, set enabled = `true` as shown in the snippet below:
 

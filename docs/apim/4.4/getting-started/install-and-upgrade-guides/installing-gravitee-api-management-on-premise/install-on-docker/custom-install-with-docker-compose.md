@@ -167,12 +167,12 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/) for your next steps.
 {% endhint %}
 
 ## Enable Federation
 
-[Federation](../../../guides/federation/) is a new capability that was released with Gravitee 4.4.
+[Federation](../../../../guides/federation/) is a new capability that was released with Gravitee 4.4.
 
 Federation is disabled by default and must be explicitly activated for it to work.&#x20;
 

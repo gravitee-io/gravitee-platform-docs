@@ -13,7 +13,7 @@ If you used the file structure described in [the custom install section](custom-
 * The `plugin-ext` folder is `/gravitee/apim-gateway/plugins` for the API Gateway
 * The `plugin-ext` folder is `/gravitee/apim-management-api/plugins` for the Management API
 
-You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/). For more information on plugin deployment, see [Deployment](../../../overview/plugins.md#deployment).
+You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/). For more information on plugin deployment, see [Deployment](../../../../overview/plugins.md#deployment).
 
 {% hint style="warning" %}
 Some plugins need to be installed on both the API Gateway and the Management API. Installation details are provided in a specific plugin’s documentation.
@@ -62,13 +62,13 @@ To use JDBC as the datastore for management:
 
 ### 1. Download the driver
 
-1. Download the correct driver for your database from [Supported databases.](../../configuration/repositories/#supported-databases)
+1. Download the correct driver for your database from [Supported databases.](../../../configuration/repositories/#supported-databases)
 2. Place the driver in the `plugins-ext` folder. If you used the file structure described in the [custom install section](custom-install-with-docker-compose.md):
    * The `plugin-ext` folder is `/gravitee/apim-gateway/plugins` for the API Gateway&#x20;
    * The `plugin-ext` folder is `/gravitee/apim-management-api/plugins` for the Management API
 
 {% hint style="info" %}
-For more information on the JDBC plugin and drivers, see [JDBC](../../configuration/repositories/#jdbc).
+For more information on the JDBC plugin and drivers, see [JDBC](../../../configuration/repositories/#jdbc).
 {% endhint %}
 
 ### 2. Use JDBC
