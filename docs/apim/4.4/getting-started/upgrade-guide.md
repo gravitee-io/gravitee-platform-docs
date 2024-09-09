@@ -1,4 +1,4 @@
-# 4.4 Upgrade Guide
+# Upgrade Guide
 
 {% hint style="danger" %}
 **Upgrade your license file**
@@ -18,30 +18,37 @@ Upgrading to APIM 4.4 is deployment-specific. The 4.0 breaking changes cited bel
 
 ## EE plugins
 
-Particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/) for additional information.
+Particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../overview/gravitee-apim-enterprise-edition/) for additional information.
 
 ## Running APIM
 
 * APIM requires a minimum of JDK 17.
 * There are no longer enterprise tags (i.e., suffixed by `-ee`).
 * Cluster managers are available as plugins. Hazelcast Cluster Manager has been removed from the default distribution.
-*   TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
+* TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
-    {% code overflow="wrap" %}
-    ```yaml
-    http:
-      ssl:
-        tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
-    ```
-    {% endcode %}
+{% code overflow="wrap" %}
+````
+```yaml
+http:
+  ssl:
+    tlsProtocols: TLSv1.0, TLSv1.1, TLSv1.2
+```
+````
+{% endcode %}
 
-    &#x20;or using environment variables:
+```
+&#x20;or using environment variables:
 
-    {% code overflow="wrap" %}
-    ```bash
-    GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
-    ```
-    {% endcode %}
+```
+
+{% code overflow="wrap" %}
+````
+```bash
+GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
+```
+````
+{% endcode %}
 
 ## **Monitoring APIM**
 
@@ -195,18 +202,19 @@ installation:
           url: http:/localhost:4101
 ```
 
-
 ## APIM 4.4.+ & Hybrid Gateways:
 
-Starting with APIM 4.4.0, gateways need to explicitly disable certificate checks. The default "trust all" value was `true`  it is now `false` for management of type "http".
+Starting with APIM 4.4.0, gateways need to explicitly disable certificate checks. The default "trust all" value was `true` it is now `false` for management of type "http".
 
 You **need to** update `gravitee.yml` or your Helm's `values.yaml` if your configuration match **all of** the following:
-- You were using a secured connection between Hybrid Gateway and Bridge Server (Gateway or Management API)
-- You were using the default value (unset param)
-- You were using a non-public CA to sign your certificate 
-- Your `gateway.http.management.ssl configuration do not use a trust store to accept the server certificate.
+
+* You were using a secured connection between Hybrid Gateway and Bridge Server (Gateway or Management API)
+* You were using the default value (unset param)
+* You were using a non-public CA to sign your certificate
+* Your \`gateway.http.management.ssl configuration do not use a trust store to accept the server certificate.
 
 The can explicitly disable certificate checks in the `gravitee.yaml`:
+
 ```yaml
 management:
   http:
@@ -215,6 +223,7 @@ management:
 ```
 
 Or if you are using Helm charts, you can set it in your `values.yaml` file:
+
 ```yaml
 gateway:
   management:
@@ -224,13 +233,15 @@ gateway:
 ```
 
 Or you can use an environment variable:
+
 ```
 GRAVITEE_MANAGEMENT_HTTP_SSL_TRUSTALL="true"
 ```
----
+
+***
+
 **NOTE**
 
-You may have noticed the "trust all" configuration parameter was formerly named `trustall`, it is now named `trustAll` for consistency.
-To avoid a breaking change here both names work, but the former has been deprecated.
+You may have noticed the "trust all" configuration parameter was formerly named `trustall`, it is now named `trustAll` for consistency. To avoid a breaking change here both names work, but the former has been deprecated.
 
----
+***

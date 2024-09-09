@@ -12,9 +12,9 @@ Federation describes an approach by which Gravitee can unify APIs and event stre
 {% hint style="warning" %}
 Federation is **deactivated by default**. To enable it, please refer to the dedicated sections in the installation guide of choice:
 
-* [enable Federation when installing with Helm on Kubernetes](../../getting-started/install-and-upgrade-guides/installing-gravitee-api-management-on-premise/install-on-kubernetes.md#federation)
-* [enable Federation when installing with Docker Compose](../../getting-started/install-and-upgrade-guides/installing-gravitee-api-management-on-premise/install-on-docker/custom-install-with-docker-compose.md#enable-federation)
-* [enable Federation when installing with .zip](../../getting-started/install-and-upgrade-guides/installing-gravitee-api-management-on-premise/install-with-.zip.md#federation)
+* [enable Federation when installing with Helm on Kubernetes](../../getting-started/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes.md#federation)
+* [enable Federation when installing with Docker Compose](../../getting-started/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/custom-install-with-docker-compose.md#enable-federation)
+* [enable Federation when installing with .zip](../../getting-started/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-with-.zip.md#federation)
 {% endhint %}
 
 The pages below discuss the details of federation components and processes.
