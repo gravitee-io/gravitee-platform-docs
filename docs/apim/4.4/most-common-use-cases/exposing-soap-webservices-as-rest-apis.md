@@ -89,7 +89,7 @@ To transform the incoming JSON request to a SOAP envelope, complete these steps:
 
 1. Within the Request phase, click the “**+**” button to add a new policy.
 2. Select the “**REST to SOAP Transformer**” policy.
-3. Specify the required SOAP envelope, and then use Gravitee’s Expression Language (EL) to dynamically insert the ‘Celsius’ value from the JSON request payload. Here is an example of the specification (notice the use of jsonPath to pull a specific attribute/value from the JSON request plaload):
+3. Specify the required SOAP envelope, and then use Gravitee’s Expression Language (EL) to dynamically insert the ‘Celsius’ value from the JSON request payload. Here is an example of the specification (notice the use of jsonPath to pull a specific attribute/value from the JSON request playload):
 
 ```bash
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
