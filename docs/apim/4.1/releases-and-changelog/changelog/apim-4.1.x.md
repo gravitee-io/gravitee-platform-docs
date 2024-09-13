@@ -6,6 +6,47 @@ description: >-
 
 # APIM 4.1.x
  
+## Gravitee API Management 4.1.24 - September 13, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Debug mode can impact the sync process [#9976](https://github.com/gravitee-io/issues/issues/9976)
+
+**Management API**
+
+* Upgrade 4.2.5 -> 4.4.2 fails due to existing dashboards type column [#9893](https://github.com/gravitee-io/issues/issues/9893)
+* Version is always #1 in api history [#9950](https://github.com/gravitee-io/issues/issues/9950)
+
+**Console**
+
+* Message-level conditions not working in v4 policy studio [#9335](https://github.com/gravitee-io/issues/issues/9335)
+* Deprecated plan design are no longer accessible [#9966](https://github.com/gravitee-io/issues/issues/9966)
+
+**Helm Charts**
+
+* \[Helm] Gateway technical ingress miss common label [#9998](https://github.com/gravitee-io/issues/issues/9998)
+
+**Other**
+
+* \[gravitee-policy-assign-attributes] - Assign Attributes Policy value field needs to support multiline. [#10012](https://github.com/gravitee-io/issues/issues/10012)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Helm Charts**
+
+* \[Helm] rework the definition of probes startup, liveness and readiness [#9996](https://github.com/gravitee-io/issues/issues/9996)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.1.23 - August 30, 2024
 <details>
 
