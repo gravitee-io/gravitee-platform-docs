@@ -6,6 +6,36 @@ description: >-
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.13 - September 13, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Keeping query-params after the validate request policy has been triggered [#9907](https://github.com/gravitee-io/issues/issues/9907)
+* Token mapper - user rolesPermissions are missing [#9918](https://github.com/gravitee-io/issues/issues/9918)
+* Windows Hello issue registering webauthn [#9964](https://github.com/gravitee-io/issues/issues/9964)
+* HTTP Factor Resource Error [#9988](https://github.com/gravitee-io/issues/issues/9988)
+* MFA - missing Enrolled Factor in the Thymeleaf context [#9990](https://github.com/gravitee-io/issues/issues/9990)
+* [AM][4.4.5] Orange plugin cannot be used for SMS MFA [#9997](https://github.com/gravitee-io/issues/issues/9997)
+* Regression on OTP and France Connect Plugin  [#10000](https://github.com/gravitee-io/issues/issues/10000)
+* Unable to login with Azure AD Provider [#10006](https://github.com/gravitee-io/issues/issues/10006)
+
+
+
+**Console**
+
+* Federated IdP - Domain Whitelist description is wrong during creation [#10002](https://github.com/gravitee-io/issues/issues/10002)
+
+**Other**
+
+* Possible to set empty Redirect URI on app [#9987](https://github.com/gravitee-io/issues/issues/9987)
+
+</details>
+
+
 ## Gravitee Access Management 4.3.12 - August 30, 2024
 
 <details>
