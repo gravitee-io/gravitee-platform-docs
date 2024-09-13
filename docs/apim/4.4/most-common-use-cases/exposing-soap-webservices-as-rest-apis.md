@@ -153,7 +153,7 @@ To transform the SOAP response into a JSON response, complete the following step
 ]
 ```
 
-1. Click **Save** and **Deploy** **API**.
+3. Click **Save** and **Deploy** **API**.
 
 ### Testing the API
 
