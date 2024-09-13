@@ -5,4 +5,4 @@ structure:
   summary: SUMMARY.md
 
 redirects:
-getting-started/configuration/configure-alerts-and-notifications: getting-started/configuration/notifications.md
+getting-started/configuration/configure-alerts-and-notifications#configure-alerts: getting-started/configuration/notifications.md
