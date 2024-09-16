@@ -16,7 +16,7 @@ This page is divided into four sections to define: [Gravitee products](glossary.
 
 **Gravitee API Designer (APID):** Used to design, document, and publish API data models. The community version is limited to one data model.
 
-**Gravitee Cockpit (GC):** Enables centralized management of Gravitee installations and promotes APIs across various environments. The community version is limited to one managed environment.
+**Gravitee Cloud (GC):** Enables centralized management of Gravitee installations and promotes APIs across various environments. The community version is limited to one managed environment.
 
 ## Gravitee product components
 

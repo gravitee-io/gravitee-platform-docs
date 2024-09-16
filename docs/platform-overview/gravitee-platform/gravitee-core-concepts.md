@@ -13,7 +13,7 @@ Gravitee offers an API lifecycle toolset that extends beyond conventional API st
 The following sections provide a high-level overview of Gravitee architecture, concepts, and features:
 
 * [Global architecture](gravitee-core-concepts.md#gravitee-global-architecture-4)
-* [Cockpit architecture](gravitee-core-concepts.md#gravitee-cockpit-architecture)
+* [Cloud architecture](gravitee-core-concepts.md#gravitee-cockpit-architecture)
 * [API Gateway](gravitee-core-concepts.md#api-gateway-policies-and-plugins-5)
 * [API policies](gravitee-core-concepts.md#api-policies)
 * [API plugins](gravitee-core-concepts.md#api-plugins)
@@ -36,19 +36,19 @@ The architecture diagrams below offer a high-level conceptualization of the Grav
 * A single Gravitee APIM instance is composed of several core Gravitee components.
 * An AM instance is deployed separately from APIM. AM and APIM can be linked together or used as standalone products.
 
-## Cockpit architecture
+## Cloud architecture
 
-Each APIM and AM instance can be attached to a Gravitee Cockpit environment. Gravitee Cockpit observes a hierarchy of three entity types:
+Each APIM and AM instance can be attached to a Gravitee Cloud environment. Gravitee Cloud observes a hierarchy of three entity types:
 
 {% hint style="info" %}
-Gravitee-managed deployments are connected to Gravitee Cockpit by default.
+By default, Gravitee-managed deployments are connected to Gravitee Cloud.
 {% endhint %}
 
 * **Account:** Top level. Typically a company, not an individual user.
 * **Organization:** Second level. Typically a logical part of the company in a particular context, such as a region or business unit.
 * **Environment:** Lowest level. Typically an environment in an IT infrastructure, such as development or production.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample Gravitee Cockpit hierarchy</p></figcaption></figure>
+<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/7/7bf3116daf4855840784ef9a860641ddf335f924_2_690x230.png" alt=""><figcaption><p>Sample Gravitee Cloud hierarchy</p></figcaption></figure>
 
 ## API Gateway <a href="#api-gateway-policies-and-plugins-5" id="api-gateway-policies-and-plugins-5"></a>
 

@@ -20,7 +20,7 @@ Refer to the table below for a quick comparison of Gravitee Community Edition (C
 | ---------------------------------------- | ---------------------------------------- |
 | Open source version of API Management    | Enterprise version of API Management     |
 | Open source version of Access Management | Enterprise version of Access Management  |
-| Limited version of Gravitee Cockpit      | Enterprise version of Gravitee Cockpit   |
+| Limited version of Gravitee Cloud        | Enterprise version of Gravitee Cloud     |
 | Limited version of API Designer          | Enterprise version of API Designer       |
 | Self-hosted deployments only             | Support for self-hosted deployments      |
 |                                          | Support for Gravitee-managed deployments |
@@ -34,9 +34,9 @@ Refer to the table below for a quick comparison of Gravitee Community Edition (C
 
 {% embed url="https://documentation.gravitee.io/am/overview/open-source-vs-enterprise-am" %}
 
-## Enterprise version of Gravitee Cockpit
+## Enterprise version of Gravitee Cloud
 
-Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee Cockpit.](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.
+Gravitee EE APIM enables you to register multiple APIM environments and installations using [Gravitee C](https://documentation.gravitee.io/gravitee-cloud)[loud](https://documentation.gravitee.io/gravitee-cloud) This enables you to manage environment hierarchies and promote APIs across higher and lower environments.
 
 ## Enterprise version of API Designer
 
