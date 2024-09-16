@@ -8,7 +8,7 @@ description: >-
 
 ## Introduction
 
-Existing self-hosted installations of Gravitee API Management (APIM) and Access Management (AM) can be registered in Gravitee Cockpit (GC). This allows users to create and propagate new organizations and environments to these existing installations.
+Existing self-hosted installations of Gravitee API Management (APIM) and Access Management (AM) can be registered in Gravitee Cloud (GC). This allows users to create and propagate new organizations and environments to these existing installations.
 
 A registered installation communicates with GC via a WebSocket connection, secured with TLS.
 

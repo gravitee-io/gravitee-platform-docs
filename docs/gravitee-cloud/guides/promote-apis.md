@@ -2,7 +2,7 @@
 
 ## Overview
 
-The following sections describe how to promote an API from one environment to another. This feature requires that your installation is linked to Cockpit.
+The following sections describe how to promote an API from one environment to another. This feature requires that your installation is linked to Gravitee Cloud.
 
 {% hint style="warning" %}
 **Promotion limitations**

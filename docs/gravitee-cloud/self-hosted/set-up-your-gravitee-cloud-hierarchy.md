@@ -1,8 +1,8 @@
-# Set up your Gravitee Cockpit Hierarchy
+# Set up your Gravitee Cloud Hierarchy
 
 ## Introduction
 
-Gravitee Cockpit (GC) enables you to set up and edit Gravitee hierarchies.&#x20;
+Gravitee Cloud (GC) enables you to set up and edit Gravitee hierarchies.
 
 ## Set up your hierarchy
 
@@ -10,7 +10,7 @@ You create your hierarchy from the GC dashboard, select your organization in the
 
 <figure><img src="../.gitbook/assets/2023-07-19_09-02-12.png" alt=""><figcaption></figcaption></figure>
 
-Here, you'll see your various Gravitee APIM and/or AM entities/environments.&#x20;
+Here, you'll see your various Gravitee APIM and/or AM entities/environments.
 
 ### Update entity settings
 
