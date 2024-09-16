@@ -7,7 +7,7 @@ Version 3.18.0 of the Gravitee platform (released on 7th July 2022) has introduc
 
 If you are a Gravitee CE user and you want to try out EE features, install the unified bundle, request an EE license, apply it to the installation, and restart. You no longer need to download a new EE version of APIM!
 
-In addition, you can now [register for a free time-limited Gravitee Cockpit trial directly on the web](https://cockpit.gravitee.io/register). Registration allows you to access a full EE-grade API Management trial (including Alert Engine), manage Gravitee environments and installations, and design APIs with the Gravitee API Designer (also included in the trial).
+In addition, you can now [register for a free time-limited Gravitee Cloud trial directly on the web](https://cockpit.gravitee.io/register). Registration allows you to access a full EE-grade API Management trial (including Alert Engine), manage Gravitee environments and installations, and design APIs with the Gravitee API Designer (also included in the trial).
 
 For more information about Enterprise Edition licenses, installation, and versioning, see the Enterprise Edition section.
 {% endhint %}
