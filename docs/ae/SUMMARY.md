@@ -37,6 +37,7 @@
 ## Reference
 
 * [API reference](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/ae/spec/2.0/alert-engine-spec.yml)
+* [Azure regions for SaaS and Hybrid Deployments](reference/azure-regions-for-saas-and-hybrid-deployments.md)
 
 ## Changelog
 
