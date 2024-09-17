@@ -246,6 +246,7 @@
 * [Entrypoint Reference](reference/entrypoint-reference/README.md)
   * [Server-sent Events](reference/entrypoint-reference/server-sent-events.md)
   * [Webhook](reference/entrypoint-reference/webhook.md)
+* [Azure regions for SaaS and Hybrid Deployments](reference/azure-regions-for-saas-and-hybrid-deployments.md)
 
 ## Releases & Changelog
 
