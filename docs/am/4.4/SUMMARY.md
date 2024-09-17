@@ -139,6 +139,7 @@
 ## Reference
 
 * [AM API Reference](reference/am-api-reference.md)
+* [Azure regions for SaaS and Hybrid Deployments](reference/azure-regions-for-saas-and-hybrid-deployments.md)
 
 ## Releases & Changelog
 
