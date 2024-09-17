@@ -34,6 +34,7 @@
     * [Advanced Hybrid Deployment](getting-started/install-gravitee-api-management/installing-gravitee-api-management-using-hybrid-deployment/advanced-hybrid-deployment.md)
   * [Multi-tenancy](getting-started/install-gravitee-api-management/multi-tenancy.md)
 * [Upgrade Guide](getting-started/upgrade-guide.md)
+* [Breaking changes and deprecated functionality](getting-started/breaking-changes-and-deprecated-functionality.md)
 * [Quickstart Guide](getting-started/quickstart-guide/README.md)
   * [Gateway APIs 101 - Traditional & Message Proxies](getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/README.md)
     * [Traditional Proxy](getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/traditional-proxy.md)
