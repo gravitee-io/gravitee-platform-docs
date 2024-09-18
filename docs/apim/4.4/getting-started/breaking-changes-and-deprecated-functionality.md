@@ -68,10 +68,6 @@ Here is the deprecated functionality from 4.X of Gravitee
 
 #### 4.4.0
 
-**gateway | api.services.bridge.username deprecation**
-
-To allow JWT auth to be configured, gateway|api.services.bridge.username and password have been deprecated. For more information about this deprecation, go to [Changelog](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/CHANGELOG.md).
-
 **gateway.management.http.username deprecation**
 
 To allow JWT auth to be configured, gateway.management.http.username and password have been deprecated to allow JWT auth to be configured. For more information about the deprecation, go to [Changelog](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/CHANGELOG.md).
