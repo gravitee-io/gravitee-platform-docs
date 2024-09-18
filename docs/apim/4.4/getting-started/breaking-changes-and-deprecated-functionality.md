@@ -46,7 +46,7 @@ Probes configuration was moved under deployment.
 
 **Probe default configuration**
 
-Changed probe default configuration.
+Changed probe default configuration. For more information about the change to the default configuration, go to the following [GitHub pull request](https://github.com/gravitee-io/gravitee-api-management/pull/8885).
 
 **Removed the apiSync parameter**
 
