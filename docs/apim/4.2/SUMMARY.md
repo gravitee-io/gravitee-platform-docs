@@ -36,6 +36,7 @@
     * [APIM Components Installation](getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation.md)
   * [Install With .ZIP](getting-started/install-and-upgrade-guides/install-with-.zip.md)
   * [4.2 Upgrade Guide](getting-started/install-and-upgrade-guides/4.2-upgrade-guide.md)
+  * [Breaking changes and deprecated functionality](getting-started/install-and-upgrade-guides/breaking-changes-and-deprecated-functionality.md)
   * [Multi-tenancy](getting-started/install-and-upgrade-guides/multi-tenancy.md)
 * [Quickstart Guide](getting-started/quickstart-guide/README.md)
   * [Gateway APIs 101 - Traditional & Message Proxies](getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/README.md)
