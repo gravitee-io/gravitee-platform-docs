@@ -1,9 +1,9 @@
 # 4.3 Upgrade Guide
 
 {% hint style="warning" %}
-**If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
-
-**Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
+* **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
+* **Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
+* **Ensure that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [Breaking changes and deprecated functionality for API Management](https://documentation.gravitee.io/apim/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality).
 {% endhint %}
 
 ## General
@@ -12,4 +12,4 @@ Upgrading to AM 4.3 is deployment-specific. If you are upgrading from AM 3.x, th
 
 ## Multi-Factor Authentication
 
-In this new version, the MFA has been reworked and data structure has changed. During the Management API startup, an upgrader will be executed automatically to adapt the settings. 
+In this new version, the MFA has been reworked and data structure has changed. During the Management API startup, an upgrader will be executed automatically to adapt the settings.
