@@ -36,7 +36,7 @@
 * [Upgrading Gravitee API Management](getting-started/upgrading-gravitee-api-management/README.md)
   * [Upgrade Guide](getting-started/upgrading-gravitee-api-management/upgrade-guide.md)
   * [Upgrading Gravitee API Management installed with RPM packages](getting-started/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages.md)
-  * [Breaking changes and deprecated functionality](getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality.md)
+  * [Breaking changes and deprecated functionality for API Management](getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md)
 * [Quickstart Guide](getting-started/quickstart-guide/README.md)
   * [Gateway APIs 101 - Traditional & Message Proxies](getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/README.md)
     * [Traditional Proxy](getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/traditional-proxy.md)
