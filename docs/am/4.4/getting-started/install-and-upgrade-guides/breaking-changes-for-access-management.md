@@ -10,7 +10,7 @@ description: >-
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
-### 4.4.0
+### 4.0.0
 
 **MongoDB index names**
 
