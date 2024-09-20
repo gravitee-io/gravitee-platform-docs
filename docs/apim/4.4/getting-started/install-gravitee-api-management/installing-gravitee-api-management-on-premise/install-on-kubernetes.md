@@ -1,138 +1,92 @@
 ---
-description: An overview of Helm Charts and Kubernetes operators
+description: How to install Gravitee API Management on Kubernetes
 ---
 
-# Install on Kubernetes
-
-{% hint style="info" %}
-This guide assumes familiarity with Kubernetes and its terms.
-{% endhint %}
+# Installing Gravitee API Management on Kubernetes
 
 ## Introduction
 
 This page describes how to install APIM on any Kubernetes environment using the official Gravitee Helm Chart.
 
-Helm is a package manager for Kubernetes that simplifies the deployment and management of applications on Kubernetes clusters. Helm packages are called charts, which are collections of YAML templates that describe the different Kubernetes resources needed to run an application (e.g., deployments, services, ConfigMaps, etc).
+{% hint style="info" %}
+For more information about Helm charts, go to [Helm Docs](https://helm.sh/docs/topics/chart\_repository/).
+{% endhint %}
 
-If you used Helm to install APIM on Kubernetes, you can continue to use it to manage the APIM installation. Helm allows you to install, upgrade, rollback, and delete applications with just a few commands.&#x20;
-
-**The APIM Helm chart supports Gravitee APIM Management (APIM) versions: 3.0.x and higher** and deploys the following:
+The APIM Helm char**t** deploys the following components:
 
 * APIM Management API
 * APIM Management Console
 * APIM Developer Portal
 * APIM Gateway
-* MongoDB replica set or PostgresSQL (optional dependency)
-* Elasticsearch Cluster (optional dependency)
+* MongoDB replica set or PostgresSQL&#x20;
+* Elasticsearch Cluster
 
-The Helm Chart is designed to be flexible and can be deployed on various Kubernetes distributions, including but not limited to AKS and OpenShift.
-
-Additionally, the Helm Chart supports a variety of configuration types and database options. Gravitee Helm Chart parameters, default values, and other configuration details are summarized in the following sections:
-
-* [Installation](install-on-kubernetes.md#installation)
-* [Application settings](install-on-kubernetes.md#application-settings)
-* [Configuration types](install-on-kubernetes.md#configuration-types)
-* [Database options](install-on-kubernetes.md#database-options)
-* [Gravitee parameters](install-on-kubernetes.md#gravitee-parameters)
-* [OpenShift](install-on-kubernetes.md#openshift)
-* [Licenses](install-on-kubernetes.md#licences)
-
-## Installation
+## Installing Gravitee API Management
 
 ### Prerequisites
 
-The following command line tools must be installed:
+You must install the following command line tools:
 
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 * [Helm v3](https://helm.sh/docs/intro/install/)
 
 ### Installation steps
 
-1.  Add the Gravitee Helm Chart repo:
+1.  Add the Gravitee Helm chart repo using the following command:
 
+    <pre class="language-sh"><code class="lang-sh"><strong>helm repo add graviteeio https://helm.gravitee.io
+    </strong></code></pre>
+2.  Install the Helm chart to a dedicated namespace using the following command:
+
+    {% code overflow="wrap" %}
     ```sh
-    helm repo add graviteeio https://helm.gravitee.io
+    helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
     ```
-2.  Install the chart from the Helm repo specifying the desired release, e.g., `graviteeio-apim4x` in the example below. The chart can be installed into either the default namespace or a dedicated namespace.
+    {% endcode %}
 
-    {% hint style="warning" %}
-    **Dedicated namespace**
+{% hint style="info" %}
+**Installation tips**
 
-    To prevent potential issues, it is best practice to create a separate namespace for your installation and avoid using the default Kubernetes namespace. This is not mandatory, but the installation command below follows this recommendation.
-    {% endhint %}
+* Specify each parameter using either of the following methods:
+  * Specify each parameter using the following command:`helm install` and the `--set key=value[,key=value]`.&#x20;
+  * Provide a YAML file that specifics the values for the parameters when you install the Helm chart. For example,&#x20;
 
-    *   **Dedicated namespace:** To install the Helm Chart using a dedicated namespace (e.g., `gravitee-apim`), run the following command:
+```bash
+helm install my-release -f values.yaml gravitee
+```
+{% endhint %}
 
-        {% code overflow="wrap" %}
-        ```sh
-        helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
-        ```
-        {% endcode %}
-    *   **Default namespace:** To install the Helm Chart using the default namespace (not recommended), run the following command:
+## Configuring the application settings
 
-        ```sh
-        helm install graviteeio-apim4x graviteeio/apim
-        ```
+By default, the Helm chart creates a ServiceAccount that enables Gravitee API Management (APIM) to connect to the Kubernetes API. This connection allows Kubernetes ConfigMaps and Secrets to initialize Gravitee settings.
 
-    {% hint style="info" %}
-    **Installation tips**
+Roles enable use of the service account, which has the following characteristics:
 
-    Specify each parameter using `helm install` and the `--set key=value[,key=value]`.
-
-    Alternatively, provide a YAML file that specifies the values for the parameters when installing the chart. For example:
-
-    ```sh
-    helm install my-release -f values.yaml gravitee
-    ```
-
-    By default, APIM uses the values in the `values.yml` config file during installation. These can be modified via the parameters in the [configuration](install-on-kubernetes.md#configuration-types) tables.
-    {% endhint %}
-3.  (Optional) Alternatively, you can package this chart directory into a chart archive:
-
-    ```sh
-    helm package .
-    ```
-
-    To install the chart using the chart archive, run:
-
-    ```sh
-    helm install apim-4.0.0.tgz
-    ```
-
-## Application settings
-
-By default, the Helm Chart creates a ServiceAccount that enables Gravitee API Management (APIM) to connect to the Kubernetes API. This allows Kubernetes ConfigMaps and Secrets to initialize Gravitee settings.
-
-[Roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) enable use of the service account:
-
-* By default, the service account created does not have a cluster role.
-* The Helm Chart includes an option to configure the service account to use a cluster role.
+* The service account created does not have a cluster role. The Helm chart includes an option to configure the service account to use a cluster role.&#x20;
 * To access a Secret, create a role within your namespace.
-* To deploy in another namespace from which you will access a Secret, create a another role in that namespace. The two roles can have the same name but are completely separate objects. Each role only provides access to the namespace in which it is created.
+* To access a Secret after you deployed in another namespace, create another role in the other namespace. The two roles can have the same name. Each role provides access to only the namespace where you created the role.
 
-Application settings must be defined as follows:
+{% hint style="info" %}
+For more information about roles, go to [Role and ClusterRole](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole).
+{% endhint %}
 
-*   Secret settings: `secrets://kubernetes/mysecret:key?namespace=ns`, with the kube plugin enabled via `secrets.kubernetes.enabled=true`
+To define the application settings, complete the following settings:
 
-    {% hint style="warning" %}
-    The above syntax applies to Gravitee versions 4.2 and later
-    {% endhint %}
-* ConfigMap settings: `kubernetes://<namespace>/configmaps/<my-configmap-name>/<my-configmap-key>`
+* Ensure that you enable the kubernetes plugin, and then define the Secret settings using the following command: `secrets://kubernetes/mysecret:key?namespace=ns`.&#x20;
 
-For example, the MongoDB URI initialized from the `mongo` Secret deployed in the `default` namespace is defined as:
+{% hint style="warning" %}
+This syntax applies to only Gravitee versions 4.2 and later.
+{% endhint %}
 
-```
-mongo:
-  uri: kubernetes://default/secrets/mongo/mongouri
-```
+* Define the ConfigMap settings using the following command: `kubernetes://<namespace>/configmaps/<my-configmap-name>/<my-configmap-key>`
 
 ## **Configuration types**
 
-Development deployment, external, and shared configuration types are described in detail below.
-
 {% tabs %}
-{% tab title="Dev deployment" %}
-Below is the minimum `value-light.yml` configuration required by a development deployment. Change the `domain` value and run the following command:
+{% tab title="Development deployment" %}
+Here is the minimum `value-light.yml` configuration required by a development deployment.&#x20;
+
+* To deploy the development deployment, change the `domain` value, and then run the following command:
 
 {% hint style="warning" %}
 Do not use `value-light.yml` in production.
@@ -194,7 +148,7 @@ ui:
 {% endtab %}
 
 {% tab title="External configuration" %}
-To use an external configuration file, such as `gravitee.yaml` for the Gateway or API management, or `constant.json` for the UI, add the following to the Helm Chart (`gravitee-config-configmap-name` is the name of the ConfigMap that contains the external configuration file):
+* To use an external configuration file, for example the`gravitee.yaml` for the Gateway or API management, add the following code to the Helm Chart:
 
 ```yaml
 extraVolumes: |
@@ -204,7 +158,7 @@ extraVolumes: |
 ```
 
 {% hint style="warning" %}
-External configuration files are only available for:
+External configuration files are  available for only the following Hellm Chart versions:
 
 * AE Helm Charts 1.1.42 and later
 * AM Helm Charts 1.0.53 and later
@@ -213,39 +167,37 @@ External configuration files are only available for:
 {% endtab %}
 
 {% tab title="Shared configuration" %}
-To configure common features such as:
+To configure the following features, complete the following steps:
 
-* Chaos testing: See [chaoskube](https://github.com/kubernetes/charts/tree/master/stable/chaoskube) chart
-* Configuration database: See [mongodb](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) chart
-* Logs database: See [elasticsearch](https://github.com/bitnami/charts/tree/master/bitnami/elasticsearch) chart
+* To configure Chaos testing, see the [chaoskube](https://github.com/kubernetes/charts/tree/master/stable/chaoskube) chart.
+* To configure the Configuration database, see the [mongodb](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) chart.
+* To configure the Logs database, see the [elasticsearch](https://github.com/bitnami/charts/tree/master/bitnami/elasticsearch) chart.
 
 <table><thead><tr><th width="255">Parameter</th><th width="190">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>chaos.enabled</code></td><td>Enable Chaos test</td><td>false</td></tr><tr><td><code>inMemoryAuth.enabled</code></td><td>Enable oauth login</td><td>true</td></tr><tr><td><code>ldap.enabled</code></td><td>Enable LDAP login</td><td>false</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 
-## **Database options**
-
-Gravitee supports MongoDB, PostgreSQL, Elasticsearch, and Redis configurations. Installation instructions and parameters are detailed below.
+## **Configuring your database options**
 
 {% tabs %}
 {% tab title="MongoDB" %}
-To install MongoDB with Helm:
+To install MongoDB with Helm, use the following command:
 
 ```
 helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
 ```
 
-**MongoDB connections**
+**Configuring the connection MongoBD**
 
-There are three ways to configure MongoDB connections.
+To configure the connection to MongoDB, complete any of the following steps:
 
-1. The simplest way is to provide the [MongoDB URI](https://docs.mongodb.com/manual/reference/connection-string/).
+* Provide the MongoDB URI. For more information about the MongoDB URI, go to [Connection Strings](https://www.mongodb.com/docs/manual/reference/connection-string/).
 
 | Parameter   | Description | Default |
 | ----------- | ----------- | ------- |
 | `mongo.uri` | Mongo URI   | `null`  |
 
-2. If no `mongo.uri` is provided, you can provide a `mongo.servers` raw definition in combination with `mongo.dbname` and an authentication configuration:
+* Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:
 
 ```yaml
 mongo:
@@ -261,7 +213,7 @@ mongo:
     password:
 ```
 
-3. If neither `mongo.uri` nor `mongo.servers` is provided, you must define the following configuration options:
+* Define the following configuration options:
 
 <table><thead><tr><th width="247.66666666666666">Parameter</th><th width="190">Description</th><th>Default</th></tr></thead><tbody><tr><td><code>mongo.rsEnabled</code></td><td>Whether Mongo replicaset is enabled or not</td><td><code>true</code></td></tr><tr><td><code>mongo.rs</code></td><td>Mongo replicaset name</td><td><code>rs0</code></td></tr><tr><td><code>mongo.dbhost</code></td><td>Mongo host address</td><td><code>mongo-mongodb-replicaset</code></td></tr><tr><td><code>mongo.dbport</code></td><td>Mongo host port</td><td><code>27017</code></td></tr><tr><td><code>mongo.dbname</code></td><td>Mongo DB name</td><td><code>gravitee</code></td></tr><tr><td><code>mongo.auth.enabled</code></td><td>Enable Mongo DB authentication</td><td><code>false</code></td></tr><tr><td><code>mongo.auth.username</code></td><td>Mongo DB username</td><td><code>null</code></td></tr><tr><td><code>mongo.auth.password</code></td><td>Mongo DB password</td><td><code>null</code></td></tr></tbody></table>
 
@@ -275,31 +227,34 @@ mongo:
 **Mongo replica set**
 
 {% hint style="warning" %}
-The mongodb-replicaset installed by Gravitee is NOT recommended in production. It should be used for testing purpose and running APIM locally.
+Use the mongodb-replicaset for only testing purposes and running locally.
 {% endhint %}
 
-<table><thead><tr><th width="233.66666666666666">Parameter</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td><code>mongodb-replicaset.enabled</code></td><td>Enable deployment of Mongo replicaset</td><td><code>false</code></td></tr></tbody></table>
-
-See [MongoDB](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) for detailed Helm Chart documentation.
+<table><thead><tr><th width="233.66666666666666">Parameter</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td><strong><code>mongodb-replicaset.enabled</code></strong></td><td>Enable deployment of Mongo replicaset</td><td><code>false</code></td></tr></tbody></table>
 
 {% hint style="warning" %}
-You may encounter issues while [running this Helm Chart on Apple Silicon M1](https://github.com/bitnami/charts/issues/7305). If you want to deploy MongoDB on M1, we encourage you to use another Helm Chart.
+You may encounter issues while running this Helm chart on Apple Silicon M1. If you want to deploy MongoDB on M1, use another Helm chart. For more information, go to  [Support for ARM64 architecture in Bitnami container images](https://github.com/bitnami/charts/issues/7305).
 {% endhint %}
 {% endtab %}
 
 {% tab title="PostgreSQL" %}
-To install a new PostgresSQL database via JDBC, first run the command below after updating the `username`, `password`, and `databasename` parameters:
+To install a new PostgresSQL database using JDBC, complete the following steps:&#x20;
+
+1. Update the `username`, `password`, and `databasename` parameters
+2. Run the following command:
 
 ```sh
 helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
 --set postgresqlDatabase=graviteeapim postgres-apim bitnami/postgresql
 ```
 
-Verify that the PostgreSQL pod is up and running via `kubectl get pods`:
+3. Verify that the PostgreSQL pod works using the following command:
 
-```sh
+```bash
 kubectl get pods
 ```
+
+If the PostgresSQL is running correctly, you see an output similar to the following output:
 
 {% code title="Expected output" %}
 ```
@@ -308,7 +263,7 @@ postgres-apim-postgresql-0                1/1     Running      0           98s
 ```
 {% endcode %}
 
-Modify the `values.yml` content below to use the `username`, `password`, `URL`, and `database name` specific to your instance:
+4. Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:
 
 ```yaml
 jdbc:
@@ -338,19 +293,21 @@ The Elasticsearch installed by Gravitee is NOT recommended in production. It is 
 {% endtab %}
 
 {% tab title="Redis" %}
-To install Redis, use the command below:
+1. To install Redis, use the following command:
 
 ```sh
 helm install --set auth.password=p@ssw0rd redis-apim bitnami/redis
 ```
 
-See [Redis](https://github.com/bitnami/charts/tree/main/bitnami/redis) for detailed documentation on this Helm Chart (like how to use Sentinel).
+For more information about Redis, go to [Redis](https://github.com/bitnami/charts/tree/main/bitnami/redis).
 
-Check that Redis pod is up and running before proceeding by running `kubectl get pods` as indicated below.
+2. Check that Redis pod works using the following command:
 
-```
+```bash
 kubectl get pods
 ```
+
+If the Redis pod is working correctly, you see an output similar to the following output:
 
 {% code title="Expected output" %}
 ```
@@ -362,7 +319,7 @@ redis-apim-replicas-2   1/1     Running   0          40s
 ```
 {% endcode %}
 
-To use Redis for rate limit policy, use the information below in `values.yml` and replace the `host`, `port` and `password` with details for your specific instance. You can enable ssl by setting `ssl` to true.
+3. To use Redis for rate limit policy, add the following information to the `values.yml` file:
 
 ```yaml
 ratelimit:
@@ -376,7 +333,12 @@ gateway:
       ssl: false
 ```
 
-If you want to connect to a Sentinel cluster, you need to specify the `master` and the `nodes`.
+* Replace `host`, `port`, and `password` with details specific to your instance.&#x20;
+
+
+
+4. (optional) Enable `ssl` by setting `ssl` to `true`.
+5. (optional) To connect to a Sentinel cluster, specify the `master` and the `nodes`.
 
 ```yaml
 gateway:
@@ -403,7 +365,12 @@ gateway:
 
 ### **Gravitee parameters**
 
-The following tables list the available configuration parameters for the Gravitee UI, Gravitee API, Gravitee Gateway, and Alert Engine.
+The following tables lists the available configuration parameters for these components:&#x20;
+
+* Gravitee UI
+* Gravitee API
+* Gravitee Gateway
+* Alert Engine.
 
 {% tabs %}
 {% tab title="Gravitee UI" %}
@@ -637,7 +604,7 @@ The following tables list the available configuration parameters for the Gravite
 
 [Federation](../../../guides/federation/) is a new capability that was released with APIM 4.4.
 
-Federation is deactivated by default in the default Helm values. To activate it, set enabled = `true` as shown in the snippet below:
+Federation is deactivated by default in the default Helm values. To activate Federation, set enabled = `true` like the following example:
 
 ```yaml
 federation:
@@ -665,11 +632,10 @@ federation:
 
 When this flag is set to enabled, it has the following impacts:
 
-* APIM cluster mode is activated. This will enable federation to work correctly in a highly available APIM deployment. Under the hood, Hazelcast is configured and runs in memory as a library inside APIM.
-  * **Note**: here we are working with the assumption that generally APIM deployed on Kubernetes will run multiple APIM replicas (pods) for high-availability, and there we have made the decision that activating federation generally requires activating clustered mode for APIM.
-* The default ingress used, that the agent will use to connect to APIM, is the host used for the management API, with default path `/integration-controller`. This can be overridden with a dedicated host for the integration controller, in the federation ingress section, in which case the `/integration-controller` path is not required.
+* APIM cluster mode is activated. Federation can work correctly in a highly available APIM deployment.  Also, Hazelcast is configured and runs in memory as a library inside APIM.
+* The default ingress used is the host used for the management API. Here is the default path: `/integration-controller`. The default ingress can be overridden n the federation ingress section with a dedicated host for the integration controller.
 
-If you are running a single replica of APIM, then you can also choose to deactivate cluster mode by specifying the following environment variables and values under `api`:
+If you run a single replica of APIM, you can deactivate cluster mode by specifying the following environment variables and values:
 
 ```yaml
 api:
@@ -682,12 +648,15 @@ api:
 
 ## OpenShift
 
-The Gravitee API Management Helm Chart supports Ingress standard objects and does not support specific OpenShift Routes. It is therefore compatible with OpenShift versions 3.10 and later. When deploying APIM within OpenShift:
+{% hint style="warning" %}
+The Gravitee API Management Helm chart is compatible with only OpenShift versions 3.10 and later.
+{% endhint %}
 
-* Use the full host domain instead of paths for all components (ingress paths are not supported well by OpenShift)
-* Override the security context to let OpenShift automatically define the `user-id` and `group-id` used to run the containers
+When deploying APIM within OpenShift, you must complete the following actions:
 
-For Openshift to automatically create Routes from the Ingress, you must define the `ingressClassName` as `none`. Here is a standard `values.yaml` used to deploy APIM into OpenShift:
+* Use the full host domain instead of paths for all components.
+* Override the security context to let OpenShift automatically define the `user-id` and `group-id`  you use to run the containers.
+* For Openshift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is a standard `values.yaml` used to deploy APIM into OpenShift:
 
 {% code title="values.yml" %}
 ```yaml
@@ -779,11 +748,13 @@ ui:
 ```
 {% endcode %}
 
-By setting `runAsUser` to `null`, OpenShift is forced to define the correct values when deploying the Helm Chart.
+By setting `runAsUser` to `null`, OpenShift is forced to define the correct values when deploying the Helm chart.
 
-## Licences
+## Licenses
 
-Enterprise plugins require a license in APIM. To define a license, enter the `license.key` value in the `values.yml` file and add the Helm argument `--set license.key=<license.key in base64>`.
+Enterprise plugins require a license in APIM.&#x20;
+
+To define a license, enter the `license.key` value in the `values.yml` file, and then add the Helm argument `--set license.key=<license.key in base64>`.
 
 {% hint style="info" %}
 The `license.key` value you enter must be encoded in `base64`:
@@ -791,8 +762,6 @@ The `license.key` value you enter must be encoded in `base64`:
 * Linux: `base64 -w 0 license.key`
 * macOS: `base64 license.key`
 {% endhint %}
-
-Example:
 
 ```sh
 $ export GRAVITEESOURCE_LICENSE_B64="$(base64 -w 0 license.key)"
