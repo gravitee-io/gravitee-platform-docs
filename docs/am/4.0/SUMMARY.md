@@ -22,6 +22,7 @@
   * [Deploy in Kubernetes](getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md)
   * [Configure a Production-ready AM Environment](getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md)
   * [4.0 Upgrade Guide](getting-started/install-and-upgrade-guides/upgrade-guide.md)
+  * [Breaking changes for Access Management](getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md)
 * [Configuration](getting-started/configuration/README.md)
   * [Configure AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)
