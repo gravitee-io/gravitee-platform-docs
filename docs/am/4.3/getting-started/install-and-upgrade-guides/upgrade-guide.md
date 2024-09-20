@@ -3,7 +3,6 @@
 {% hint style="warning" %}
 * **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
 * **Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
-* **Ensure that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [Breaking changes and deprecated functionality for API Management](https://documentation.gravitee.io/apim/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality).
 {% endhint %}
 
 ## General
