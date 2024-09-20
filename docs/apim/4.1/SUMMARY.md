@@ -42,7 +42,7 @@
     * [APIM Components Installation](getting-started/install-guides/install-on-red-hat-and-centos/apim-components.md)
   * [Install With .ZIP](getting-started/install-guides/install-with-.zip.md)
   * [4.1 Upgrade Guide](getting-started/install-guides/installation-guide-migration.md)
-  * [Breaking changes and deprecated functionality](getting-started/install-guides/breaking-changes-and-deprecated-functionality.md)
+  * [Breaking changes and deprecated functionality for API Management](getting-started/install-guides/breaking-changes-and-deprecated-functionality-for-api-management.md)
 * [Quickstart Guide](getting-started/quickstart-guide/README.md)
   * [Gateway APIs 101 - Traditional & Message Proxies](getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/README.md)
     * [Traditional Proxy](getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/traditional-proxy.md)
