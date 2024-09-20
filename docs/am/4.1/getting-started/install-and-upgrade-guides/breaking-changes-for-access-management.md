@@ -6,10 +6,6 @@ description: >-
 
 # Breaking changes for Access Management
 
-## Breaking changes from 4.X
-
-Here are the breaking changes from versions 4.X of Gravitee.
-
 ## Breaking changes from 3.X
 
 Here are the breaking changes from versions 3.X of Gravitee.
