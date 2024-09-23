@@ -1,47 +1,56 @@
-# Hybrid Deployment on Kubernetes
+# Installing Gravitee API Management with a Hybrid Deployment on Kubernetes
 
-This section describes how to install an APIM hybrid deployment using Kubernetes Helm charts.
+This section describes how to install an API Management hybrid deployment using Kubernetes Helm charts.
 
 {% hint style="info" %}
-We assume familiarity with Google Cloud Platform (GCP), Kubernetes (K8s), and Helm. We also recommend that you read the [Introduction to APIM hybrid deployment](hybrid-deployment.md) first.
+You must be familiar with the following topics:
+
+* Google Cloud Platform (GCP)
+* Kubernetes (K8s)
+* Helm
 {% endhint %}
 
 ## Target architecture
 
-In this example, we will demonstrate how to deploy APIM in two different GCP regions and two different K8s clusters:
+In this example, we demonstrate how to deploy Gravitee API Management (APIM) in two different GCP regions. Also, we demonstrate how to deploy Gravitee APIM in the follow two different K8s clusters:
 
-* A **Management cluster** (pictured on the left of the diagram below) — running the management API, the two APIM UI components, and a bridge gateway
-* A **Gateway cluster** (pictured on the right of the diagram below) — running APIM gateway
+* A **Management cluster** that runs the following components:
+  * &#x20;The management API
+  * &#x20;The two APIM UI components
+  * &#x20;A bridge gateway
+* A **Gateway cluster** that runs the APIM gateway
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_k8s.png" alt=""><figcaption><p>Kubernetes hybrid deployment architecture diagram</p></figcaption></figure>
 
-In this schema, we can see that:
+In this example, the deployment consists of the following components:
 
-* MongoDB is used for all the management data (API definitions, subscriptions, API keys, etc.)
-* ElasticSearch is also deployed in the Management cluster
-* Redis is used to manage rate limits and quota counters within the Gateway cluster
+* MongoDB. MongoDB manages all the management data. For example,  API definitions, subscriptions, and API keys.
+* ElasticSearch. ElasticSearch is deployed in the Management cluster.
+* Redis. Redis manages the rate limits and quota counters within the Gateway cluster.
 
-{% hint style="info" %}
-Before you continue, keep in mind that the bridge Gateway (the red box in the left-hand region of the schema) is simply an APIM Gateway instance with additional capabilities. This is essential to understanding how we are deploying the bridge. For more information, see the introduction to [Hybrid Deployment](hybrid-deployment.md).
-{% endhint %}
+## Deploying a Hybrid architecture with Helm
 
-## Deploying with Helm
-
-You can find everything you need to deploy this hybrid architecture in [Gravitee's Helm charts](https://helm.gravitee.io/).
+* To deploy a Hybrid architecture with Kubernetes, go to [Gravitee's Helm charts](https://helm.gravitee.io/).
 
 ### Before you begin
 
-Before you deploy APIM, ensure the two GCP clusters exist and that Helm is installed on both clusters:
+* Ensure the two GCP clusters exist.
+* Ensure that Helm is installed on the GCP clusters.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_k8s_clusters.png" alt=""><figcaption><p>Samle K8 clusters</p></figcaption></figure>
 
 {% hint style="warning" %}
-The following examples use the names in the illustration above, but you can name your clusters whatever you like and replace the names with your own.
+The following Hybrid architecture example use the following names:
+
+* hybrid-gw-eu
+* hybrid-mgmt-eu
+
+You can replace these names with the name of your clusters.
 {% endhint %}
 
-### Deploy the management cluster
+### Deploying the management cluster
 
-1. The first step is to initialize the cluster with some prerequisites:
+1. Initialize the cluster with some prerequisites using the following commands:
 
 {% code overflow="wrap" %}
 ```sh
@@ -58,7 +67,12 @@ $ helm repo add graviteeio https://helm.gravitee.io
 ```
 {% endcode %}
 
-2. Deploy the management APIM instance, which includes components Management Console, Developer Portal, Management API and the bridge Gateway (which will be used as a bridge between the two clusters):
+2. Deploy the management APIM instance using the following command. The management APIM contains the follow components:&#x20;
+
+* The Management Console
+* The Developer Portal
+* Management API
+* The Bridge Gateway
 
 ```sh
 $ helm install — name graviteeio-apim3 — namespace graviteeio \
@@ -67,7 +81,7 @@ $ helm install — name graviteeio-apim3 — namespace graviteeio \
  graviteeio/apim3
 ```
 
-The `values-hybrid-management-eu.yaml` file looks like this:
+When you install the `values-hybrid-management-eu.yaml`, the file looks like this example:
 
 {% code title="values-hybrid-management-eu.yaml" %}
 ```yaml
@@ -155,16 +169,17 @@ portal:
 ```
 {% endcode %}
 
-From this file, we can see that:
+The file shows the following elements:
 
-* the Gateway is not exposed through the ingress controller (it is not accepting API calls for the bridge gateway)
-* we have enabled the bridge service for the Gateway and declared a new ingress to expose it to remote clusters
+* The Gateway is not exposed through the ingress controller.
+* You enabled the bridge service for the Gateway.
+* Declared a new ingress to expose it to remote clusters.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_ingress.png" alt=""><figcaption><p>APIM management cluster</p></figcaption></figure>
 
 ### Deploy the Gateway cluster
 
-1. Again, we need to initialize the cluster with some prerequisites:
+1. Initialize the cluster with some prerequisites using the following commands:
 
 {% code overflow="wrap" %}
 ```sh
@@ -181,7 +196,7 @@ $ helm repo add graviteeio https://helm.gravitee.io
 ```
 {% endcode %}
 
-2. Now we deploy APIM, but only the APIM Gateway component:
+2. Deploy only the APIM Gateway component using the following command:
 
 ```sh
 $ helm install — name graviteeio-apim3 — namespace graviteeio \
@@ -190,7 +205,7 @@ $ helm install — name graviteeio-apim3 — namespace graviteeio \
  graviteeio/apim3
 ```
 
-The `values-hybrid-management-gw-eu.yaml` file looks like this:
+When you deploy the Gravitee APIM Gateway, the `values-hybrid-management-gw-eu.yaml` file looks like the following example:
 
 {% code title="values-hybrid-management-gw-eu.yaml" %}
 ```yaml
@@ -235,14 +250,20 @@ portal:
 ```
 {% endcode %}
 
-From this file, we can see that:
+`values-hybrid-management-gw-eu.yaml` shows the following elements:
 
-* All the management components have been disabled to prevent their deployment — management API, Management Console, and Developer Portal
-* We have enabled `http` management mode for the gateway, and we use this link to mount all the required information in the Gateway to be able to process API calls
+* You have disabled all the management components to prevent their deployment.
+* You have enabled `http` management mode for the gateway, and you use this link to mount all the required information in the Gateway to process API calls.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_http.png" alt=""><figcaption><p>APIM gatewaye cluster</p></figcaption></figure>
 
-If you have a look at the Gateway pod logs, you will see something like this:
+### Verification
+
+To verify that you deployed this architecture correctly, complete the following steps:
+
+#### Examine the Gateway pod logs
+
+* Examine the Gateway pod logs. You should see an output like this example:
 
 ```sh
 08:27:29.394 [graviteeio-node] [] INFO  i.g.g.r.p.RepositoryPluginHandler - Register a new repository plugin: repository-bridge-http-client [io.gravitee.repository.bridge.client.HttpBridgeRepository]
@@ -251,7 +272,9 @@ If you have a look at the Gateway pod logs, you will see something like this:
 08:27:32.888 [vert.x-eventloop-thread-1] [] INFO  i.g.r.b.client.http.WebClientFactory - Bridge Server connection successful.
 ```
 
-We can now open up Management Console and see our two gateways running:
+#### Check the Management Gateway
+
+* Open the Management Console. You should see two gateways.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_gateways.png" alt=""><figcaption><p>Hybrid K8 deployment</p></figcaption></figure>
 

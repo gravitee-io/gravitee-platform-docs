@@ -1,63 +1,44 @@
 ---
-description: A detailed guide for installing and configuring a hybrid APIM deployment
+description: Installing and configuring a hybrid API Management deployment
 ---
 
-# Advanced Hybrid Deployment
+# Installing Gravitee API Management with a Hybrid Deployment
 
 ## Introduction
 
-This page focuses on the installation of the Self-Hosted Data-Plane, which is part of the API Management platform in a hybrid architecture (SaaS Control-Plane + Self-Hosted Data-Plane). The Control-Plane signifies the Bridge while the Data-Plane signifies the Gateway.&#x20;
+Hybrid architecture is the deployment of the Gravitee API Management (APIM) using on-premise and cloud deployments.
 
-<img src="../../../.gitbook/assets/file.excalidraw (18).svg" alt="" class="gitbook-drawing">
+The Gravitee APIM hybrid deployment uses hybrid components to provide flexibility when you define your architecture and deployment.&#x20;
 
-## Hybrid architecture <a href="#saas-components" id="saas-components"></a>
+This page explains how to install a Self-Hosted Data-Plane in a Hybrid deployment, which consists of a SaaS Control-Plane and a Self-Hosted Data-Plane. The control plane signifies the Bridge and the data-plane signifies the Gateway.&#x20;
 
-### SaaS Control-Plane components <a href="#saas-components" id="saas-components"></a>
+The Gravitee APIM Gateway needs the following two components:
 
-<table><thead><tr><th width="225.37383177570098" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Console<br>(for API producers)</td><td>This web UI gives easy access to some key APIM Management API services. <a href="../../../#api-publisher">API publishers</a> can use it to publish APIs.<br>Administrators can also configure global platform settings and specific portal settings.</td></tr><tr><td align="center">APIM Management API</td><td>This RESTful API exposes services to manage and configure the APIM Console and APIM Developer Portal web UIs.<br>All exposed services are restricted by authentication and authorization rules. For more information, see the<a href="../../../reference/management-api-reference.md"> Management API Reference</a> section.</td></tr><tr><td align="center"><a href="../../../guides/developer-portal/">APIM Developer Portal</a><br>(for API consumers)</td><td>This web UI gives easy access to some key APIM API services. It allows <a href="../../../#api-consumer">API Consumers</a> to <a href="../../../guides/api-exposure-plans-applications-and-subscriptions/#applications">manage their applications</a> and search for, view, try out, and subscribe to a published API.</td></tr><tr><td align="center">APIM SaaS API Gateways</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="../../../guides/policy-studio/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Bridge Gateways</td><td>A <em>bridge</em> API Gateway exposes extra HTTP services for bridging HTTP calls to the underlying repository (which can be any of our supported repositories: MongoDB, JDBC, etc.)</td></tr><tr><td align="center">Config Database</td><td>All the API Management platform management data, such as API definitions, users, applications, and plans.</td></tr><tr><td align="center">S3 Bucket + Analytics Database</td><td>Analytics and logs data.</td></tr><tr><td align="center">Gravitee Cockpit</td><td>Gravitee Cockpit is a centralized, multi-environments / organizations tool for managing all your Gravitee API Management and Access Management installations in a single place.</td></tr><tr><td align="center">[Optional]<br>API Designer</td><td>Drag-and-Drop graphical (MindMap) API designer to quickly and intuitively design your APIs (Swagger / OAS) and deploy mocked APIs for quick testing.</td></tr><tr><td align="center">[Optional]<br>Alert Engine</td><td>Alert Engine (AE) provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configuration and notifications sent through their preferred channels, such as email, Slack and using Webhooks.<br>AE does not require any external components or a database as it does not store anything. It receives events and sends notifications under the conditions which have been pre-configured upstream with triggers.</td></tr></tbody></table>
+* An HTTP _Bridge_ server that exposes extra HTTP services for bridging HTTP calls to the underlying repositories. For example, MongoDB and JDBC.
+* A _standard_ APIM Gateway. You must switch the default repository plugin to the bridge repository plugin.
 
-### Self-Hosted Data-Plane components[¶](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#on-prem-private-cloud-components) <a href="#on-prem-private-cloud-components" id="on-prem-private-cloud-components"></a>
+## Before you begin
 
-<table><thead><tr><th width="172.18918918918916" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Gateway</td><td>APIM Gateway is the core component of the APIM platform. You can think of it like a smart reverse proxy.<br><br>Unlike a traditional HTTP proxy, APIM Gateway has the capability to apply <a href="../../../guides/policy-studio/">policies</a> (i.e., rules or logic) to both the request and response phases of an API transaction. With these policies, you can transform, secure, monitor, etc., your APIs.</td></tr><tr><td align="center">Logstash</td><td>Collect and send local Gateway logs and metrics to the Gravitee APIM SaaS Control Plane.</td></tr><tr><td align="center">Redis</td><td>The database used locally for rate limit synchronized counters (RateLimit, Quota, Spike Arrest) and, optionally, as an external cache for the Cache policy.</td></tr></tbody></table>
+* Ensure that you understand the various components of a Hybrid deployment. For more information about the components of a Hybrid architecture, see [Components of Hybrid architecture](components-of-hybrid-architecture.md).
+* Ensure that the Bridge and Gateway versions that you use for your Hybrid deployment are compatible. For more information about Gateway and Bridge compatibility versions, see [Gateway and Bridge compatibility versions](gateway-and-bridge-compatibility-versions.md).
+
+<img src="../../../.gitbook/assets/file.excalidraw (18).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
 
 <img src="../../../.gitbook/assets/file.excalidraw (15).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
 
-### Gateway and Bridge compatibility versions <a href="#installation" id="installation"></a>
-
-The following table lists the Data-Plane (Gateway) versions supported by each Control-Plane (Bridge) version.
-
-| Control-Plane version | Supported Data-Plane versions |
-| --------------------- | ----------------------------- |
-| 4.0.x                 | 3.20.x to 4.0.x               |
-| 4.1.x                 | 3.20.x to 4.1.x               |
-| 4.2.x                 | 3.20.x to 4.2.x               |
-| 4.3.x                 | 4.0.x to 4.3.x                |
-| 4.4.x                 | 4.1.x to 4.4.x                |
-
-The following table lists the Control-Plane (Bridge) versions supported by each Data-Plane (Gateway) version.
-
-| Data-Plane version | Supported Control-Plane versions |
-| ------------------ | -------------------------------- |
-| 3.20.x             | 3.20.x to 4.2.x                  |
-| 4.0.x              | 4.0.x to 4.2.x                   |
-| 4.1.x              | 4.1.x to 4.2.x                   |
-| 4.2.x              | 3.20.x to 4.2.x                  |
-| 4.3.x              | 4.0.x to 4.3.x                   |
-| 4.4.x              | 4.1.x to 4.4.x                   |
-
-## Self-Hosted Hybrid Gateway installation <a href="#installation" id="installation"></a>
+## Installing your Self-Hosted Hybrid Gateway <a href="#installation" id="installation"></a>
 
 {% hint style="danger" %}
-Make sure the version you are installing aligns with the Control-Plane SaaS version.
+Make sure that the version you install is compatible with the Control-Plane SaaS version.
 {% endhint %}
 
 {% hint style="info" %}
-Don't forget to add the Gravitee.io License file.
+Ensure that you add the Gravitee.io License file.
 {% endhint %}
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-* Follow the APIM installation instructions in the [Install on Kubernetes](../installing-gravitee-api-management-on-premise/install-on-kubernetes.md) guide.
+* Install Gravitee API Management. For more information about installing Gravitee APIM, see [Install on Kubernetes](../installing-gravitee-api-management-on-premise/install-on-kubernetes.md).
 * Install **only the Gateway** and disable the other components in your `values.yaml` configuration file.
 
 {% hint style="info" %}
@@ -69,38 +50,30 @@ Don't forget to add the Gravitee.io License file.
 {% endtab %}
 
 {% tab title="Docker" %}
-Follow the APIM installation instructions in the [Install on Docker](../installing-gravitee-api-management-on-premise/install-on-docker/) guide.
-
-{% hint style="info" %}
-**Download and mount the required plugins for the Gravitee.io Gateway:**
-
-* [Redis Repository](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis): The database used locally for rate limits synchronized counters
-* [TCP Reporter](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/): To push events to Logstash
-{% endhint %}
+* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install on Docker](../installing-gravitee-api-management-on-premise/install-on-docker/).
+* Download, and then mount the following plugins for the Gravitee Gateway:
+  * Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
+  * TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)
 {% endtab %}
 
 {% tab title="VM" %}
-Follow the APIM installation instructions in the [Install with `.ZIP`](../installing-gravitee-api-management-on-premise/install-with-.zip.md) guide.
-
-{% hint style="info" %}
-**Download and mount the required plugins for the Gravitee.io Gateway:**
-
-* [Redis Repository](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis): The database used locally for rate limits synchronized counters
-* [TCP Reporter](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/): To push events to Logstash
-{% endhint %}
+* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install with .ZIP](../installing-gravitee-api-management-on-premise/install-with-.zip.md).
+* Download, and then mount the following plugins for the Gravitee Gateway:
+  * Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
+  * TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)
 {% endtab %}
 {% endtabs %}
 
-## Self-Hosted Hybrid Gateway configuration <a href="#configuration" id="configuration"></a>
+## Configuring your Self-Hosted Hybrid Gateway <a href="#configuration" id="configuration"></a>
 
-There are at least 3 connections to configure:
+Here are the following configurations for your self-hosted Gateway:
 
-* The connection to the SaaS Control-Plane via the Bridge Gateway.
-* The connection to push analytics and logs via the file or TCP reporter to Logstash and the SaaS storage.
+* The connection between the SaaS Control-Plane and the Bridge Gateway.
+* The connection between the push analytics and logs to Logstash and the SaaS storage.
 * The connection to the local rate limits database (Redis).
 * (Optional) The connection to the SaaS Alert Engine.
 
-### **Management (SaaS Control-Plane Bridge Gateway)**[**¶**](https://dobl1.github.io/gravitee-se-docs/api-management/install/hybrid/#management)
+### **Configuring the connection between the SaaS Control-Plane and the Bridge Gateway**
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
@@ -204,7 +177,7 @@ management:
 {% endtab %}
 {% endtabs %}
 
-### **Analytics and logs**
+### **Configuring the connection between Analytics and Logs to Logstash and SaaS storage**
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
@@ -262,7 +235,7 @@ reporters:
 {% endtab %}
 {% endtabs %}
 
-### **Rate limits**
+### Configuring the connection to the local rate limits database (Redis)
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
@@ -321,7 +294,7 @@ ratelimit:
 {% endtab %}
 {% endtabs %}
 
-### **Alert Engine**
+### **Configuring the connection to the SaaS Alert Engine**
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
@@ -380,7 +353,7 @@ alerts:
 {% endtab %}
 {% endtabs %}
 
-### **Configuration: Full example**
+### **An example of a Self-Hosted Gateway configuration**
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
@@ -631,13 +604,11 @@ classloader:
 {% endtab %}
 {% endtabs %}
 
-## Redis <a href="#redis" id="redis"></a>
-
-### Installation <a href="#redis" id="redis"></a>
+## Installing Redis to use with your Hybrid Deployment <a href="#redis" id="redis"></a>
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-[Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis)
+* To install Redis, go to [Bitnami Helm charts](https://artifacthub.io/packages/helm/bitnami/redis).
 {% endtab %}
 
 {% tab title="Docker" %}
@@ -670,18 +641,17 @@ services:
 {% endtab %}
 
 {% tab title="VM" %}
-[Installing Redis from redis.io](https://redis.io/docs/getting-started/installation/)
+* To install Redis, go to[ redis.io](https://redis.io/docs/getting-started/installation/).
 {% endtab %}
 {% endtabs %}
 
-## Logstash <a href="#logstash" id="logstash"></a>
-
-### Installation <a href="#installation_2" id="installation_2"></a>
+## Downloading Logstash to use with your Hybrid deployment <a href="#logstash" id="logstash"></a>
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-* [Official Helm charts](https://artifacthub.io/packages/helm/elastic/logstash#how-to-install-oss-version-of-logstash)
-* [Bitnami Helm charts](https://bitnami.com/stack/logstash/helm)
+* To install Logstash, go to either of the following websites:
+  * [Official Helm charts](https://artifacthub.io/packages/helm/elastic/logstash#how-to-install-oss-version-of-logstash)
+  * [Bitnami Helm charts](https://bitnami.com/stack/logstash/helm)
 {% endtab %}
 
 {% tab title="Docker" %}
@@ -712,11 +682,17 @@ services:
 {% endtab %}
 
 {% tab title="VM" %}
-[Download Logstash OSS](https://www.elastic.co/downloads/logstash-oss)
+* To install Logstash, go to [Download Logstash - OSS only](https://www.elastic.co/downloads/logstash-oss).
 {% endtab %}
 {% endtabs %}
 
-### Configuration <a href="#configuration_2" id="configuration_2"></a>
+### Configuring Logstash <a href="#configuration_2" id="configuration_2"></a>
+
+{% hint style="info" %}
+* For more information about configuring logstash, see [Configuring Logstash](https://www.elastic.co/guide/en/logstash/current/configuration.html).
+{% endhint %}
+
+To configure logstash for you environment, copy the following example:
 
 {% code title="logstash.conf" lineNumbers="true" %}
 ```
@@ -747,24 +723,17 @@ output {
 ```
 {% endcode %}
 
-{% hint style="info" %}
-**Additional assets**
-
-* [Configuring Logstash](https://www.elastic.co/guide/en/logstash/current/configuration.html)
-{% endhint %}
-
-## Fluentd <a href="#fluentd" id="fluentd"></a>
-
-### Installation
+## Installing Fluentd to use with your Hybrid deployment <a href="#fluentd" id="fluentd"></a>
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-* [Official Helm charts](https://artifacthub.io/packages/helm/fluent/fluentd)
-* [Bitnami Helm charts](https://bitnami.com/stack/fluentd/helm)
+* To install Fluentd, go to either of the following sites:
+  * [Official Helm charts](https://artifacthub.io/packages/helm/fluent/fluentd)
+  * [Bitnami Helm charts](https://bitnami.com/stack/fluentd/helm)
 {% endtab %}
 
 {% tab title="Docker" %}
-You have to build your own docker image:
+To install Fluentd using Docker, you must build a docker image.&#x20;
 
 {% code title="Dockerfile" lineNumbers="true" %}
 ```
