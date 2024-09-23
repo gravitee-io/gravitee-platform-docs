@@ -1,53 +1,52 @@
-# Quick Install with Docker Compose
-
-## Overview
-
-This page describes how to install and run Gravitee API Management (APIM) Community Edition or APIM Enterprise Edition in Docker containers on `localhost` using the `docker compose` command.
+# Quick Install Gravitee API Management with Docker Compose
 
 {% hint style="warning" %}
-This installation method does not allow for custom plugins. To add custom plugins, see [Custom Install with Docker Compose](custom-install-with-docker-compose.md).
+You cannot install Gravitee API Management (APIM) with custom plugins using this installation method. To install custom plugins, see [Custom Install with Docker Compose](custom-install-with-docker-compose.md).
 {% endhint %}
 
-## Prerequisites
+## Before you begin
 
-* Docker is installed and running
-* The Enterprise Edition requires a [license key](https://www.gravitee.io/pricing)
+* You must install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
+* If you are deploying the Enterprise Edition of Gravitee, ensure that you have your license key. For more information about license keys, see [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
 
-## Install APIM
+## Installing Gravitee API Management
 
-1.  Download the `docker-compose.yml` file as `docker-compose-apim.yml`:
+1.  Download the `docker-compose.yml` file as `docker-compose-apim.yml` using the following command:
 
     ```bash
     curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
     ```
-2. If you are installing the Enterprise Edition:
-   1. Open `docker-compose-apim.yml` in a text editor
-   2.  Add the following line under `$services.gateway.volumes`, where `/gravitee/license.key` is the full path to the license key. This ensures that the Gateway can access the license key.
+2.  (Optional) If you are installing the Enterprise Edition, add you license key by completing the follow sub-steps:
 
-       ```bash
-        - /gravitee/license.key:/opt/graviteeio-gateway/license/license.key
-       ```
-   3.  &#x20;Add the following line under `$services.management_api.volumes` , where `/gravitee/license.key` is the full path to the license key. This ensures that the Management API can access the license key.
+    a. In a text editor, open `docker-compose-apim.yml.`
 
-       ```bash
-        - /gravitee/license.key:/opt/graviteeio-management-api/license/license.key
-       ```
-3.  Run `docker compose` to download and start the components:
+&#x20;       b. Navigate to `$services.management_api.volumes`.
 
-    ```bash
-    docker compose -f docker-compose-apim.yml up -d
-    ```
-4.  In your browser:
+&#x20;       c. On a new line, add the path to the license key. This addition ensures that the Gateway can access the licensing key.
 
-    1. Go to `http://localhost:8084` to open the Console
-    2. Go to `http://localhost:8085` to open the Developer Portal
+```bash
+ - /gravitee/license.key:/opt/graviteeio-gateway/license/license.key
+```
 
-    You can log in to both with username `admin` and password `admin`.
+3. Download, and then start the components using the following command:&#x20;
+
+```bash
+docker compose -f docker-compose-apim.yml up -d
+```
 
 {% hint style="info" %}
-**Container initialization**
+APIM can take up to a minute to fully initialize with Docker.&#x20;
+{% endhint %}
 
-APIM can take up to a minute to fully initialize with Docker. If you get an error when going to `http://localhost:8084` or `http://localhost:8085`, wait, then try again.
+4.  Once Docker is initialized, You can access the Console and the Developer Portal by following the following steps:
+
+    a. To open the Console, start your browser, and then go to [http://localhost:8084](http://localhost:8084).
+
+    b. To open the Developer Portal, start your browser, and then go to [http://localhost:8085](http://localhost:8085).
+
+{% hint style="info" %}
+* The default username for the Console and the Developer Portal is admin.
+* The default password for the Developer Portal is admin.
 {% endhint %}
 
 {% hint style="success" %}

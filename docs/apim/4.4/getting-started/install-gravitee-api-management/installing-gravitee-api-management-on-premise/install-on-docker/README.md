@@ -1,27 +1,19 @@
-# Install on Docker
+# Installing Gravitee API Mangement with Docker
 
-## Overview
+There are three methods for installing Gravitee API Management (APIM) with Docker:
 
-Choose from the following options to install Gravitee API Management (APIM) with Docker:
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="quick-install-with-docker-compose.md">quick-install-with-docker-compose.md</a></td><td>With this method, you install docker quickly without any additional plugins.     </td><td><a href="quick-install-with-docker-compose.md">quick-install-with-docker-compose.md</a></td></tr><tr><td><a href="custom-install-with-docker-compose.md">custom-install-with-docker-compose.md</a></td><td>With this method, you can add additional plugins and you control the location of the persistent data             </td><td><a href="custom-install-with-docker-compose.md">custom-install-with-docker-compose.md</a></td></tr><tr><td><a href="docker-images-install.md">docker-images-install.md</a></td><td>With this method, you create all the components for the installation using the command line.             </td><td><a href="docker-images-install.md">docker-images-install.md</a></td></tr></tbody></table>
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Quick install with <code>docker compose</code></td><td></td><td><a href="quick-install-with-docker-compose.md">quick-install-with-docker-compose.md</a></td></tr><tr><td></td><td>Custom install with <code>docker compose</code></td><td></td><td><a href="custom-install-with-docker-compose.md">custom-install-with-docker-compose.md</a></td></tr><tr><td></td><td>Docker images install</td><td></td><td><a href="docker-images-install.md">docker-images-install.md</a></td></tr></tbody></table>
+## Architecture of Gravitee API Management with Docker
 
-* The quick install brings up APIM quickly without additional plugins.&#x20;
-* The custom install and image-based methods give you the ability to add custom plugins and more control over the location of persistence data.
+The following diagram shows the architecture that is common each Docker installation method:
 
-## Architecture
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/docker/apim_simple_docker_architecture.png" alt="Diagram showing the architecture of Gravitee API Management installed on Docker"><figcaption><p>Docker installation architecture</p></figcaption></figure>
 
-The diagram below shows the architecture common to all Docker installations.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/docker/apim_simple_docker_architecture.png" alt=""><figcaption><p>Docker installation architecture</p></figcaption></figure>
 
-Components are configured as follows:
+## Configuration of the individual components
 
-| Component        | Docker container name     | Networks              | Published port | Storage (where used)            |
-| ---------------- | ------------------------- | --------------------- | -------------- | ------------------------------- |
-| API Gateway      | `gio_apim_gateway`        | `frontend`, `storage` | `8082`         | `/gravitee/apim-gateway`        |
-| Management API   | `gio_apim_management_api` | `frontend`, `storage` | `8083`         | `/gravitee/apim-management-api` |
-| Console          | `gio_apim_management_ui`  | `frontend`            | `8084`         | `/gravitee/apim-management-ui`  |
-| Developer Portal | `gio_apim_portal_ui`      | `frontend`            | `8085`         | `/gravitee/apim-portal-ui`      |
-| MongoDB          | `gio_apim_mongodb`        | `storage`             | n/a            | `/gravitee/mongodb`             |
-| Elasticsearch    | `gio_apim_elasticsearch`  | `storage`             | n/a            | `/gravitee/elasticsearch`       |
+The following table shows the configuration of the components for the installations methods on Docker:
+
+<table><thead><tr><th width="140">Component</th><th width="227">Docker container name</th><th width="103">Networks</th><th width="152">Published port</th><th>Storage</th></tr></thead><tbody><tr><td>API Gateway</td><td><code>gio_apim_gateway</code></td><td><code>frontend</code>, <code>storage</code></td><td><code>8082</code></td><td><code>/gravitee/apim-gateway</code></td></tr><tr><td>Management API</td><td><code>gio_apim_management_api</code></td><td><code>frontend</code>, <code>storage</code></td><td><code>8083</code></td><td><code>/gravitee/apim-management-api</code></td></tr><tr><td>Console</td><td><code>gio_apim_management_ui</code></td><td><code>frontend</code></td><td><code>8084</code></td><td><code>/gravitee/apim-management-ui</code></td></tr><tr><td>Developer Portal</td><td><code>gio_apim_portal_ui</code></td><td><code>frontend</code></td><td><code>8085</code></td><td><code>/gravitee/apim-portal-ui</code></td></tr><tr><td>MongoDB</td><td><code>gio_apim_mongodb</code></td><td><code>storage</code></td><td>n/a</td><td><code>/gravitee/mongodb</code></td></tr><tr><td>Elasticsearch</td><td><code>gio_apim_elasticsearch</code></td><td><code>storage</code></td><td>n/a</td><td><code>/gravitee/elasticsearch</code></td></tr></tbody></table>
