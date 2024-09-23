@@ -1,6 +1,6 @@
-# Installing Gravitee API Management with a Hybrid Deployment on Kubernetes
+# Installing a Gravitee Gateway with a Hybrid Deployment on Kubernetes
 
-This section describes how to install an API Management hybrid deployment using Kubernetes Helm charts.
+This section describes how to install a Gravitee Gateway with a hybrid deployment using Kubernetes Helm charts.
 
 {% hint style="info" %}
 You must be familiar with the following topics:
@@ -12,7 +12,7 @@ You must be familiar with the following topics:
 
 ## Target architecture
 
-In this example, we demonstrate how to deploy Gravitee API Management (APIM) in two different GCP regions. Also, we demonstrate how to deploy Gravitee APIM in the follow two different K8s clusters:
+In this example, we demonstrate how to deploy a Gravitee Gateway (APIM) in two different GCP regions. Also, we demonstrate how to deploy Gravitee APIM in the follow two different K8s clusters:
 
 * A **Management cluster** that runs the following components:
   * &#x20;The management API

@@ -2,20 +2,20 @@
 description: Installing and configuring a hybrid API Management deployment
 ---
 
-# Installing Gravitee API Management with a Hybrid Deployment
+# Installing a Gravitee Gateway with a Hybrid Deployment
 
 ## Introduction
 
-Hybrid architecture is the deployment of the Gravitee API Management (APIM) using on-premise and cloud deployments.
+Hybrid architecture is the deployment of a Gravitee Gateway using self-hosted and cloud deployments.
 
-The Gravitee APIM hybrid deployment uses hybrid components to provide flexibility when you define your architecture and deployment.&#x20;
+The Gravitee Gateway hybrid deployment uses hybrid components to provide flexibility when you define your architecture and deployment.&#x20;
 
 This page explains how to install a Self-Hosted Data-Plane in a Hybrid deployment, which consists of a SaaS Control-Plane and a Self-Hosted Data-Plane. The control plane signifies the Bridge and the data-plane signifies the Gateway.&#x20;
 
-The Gravitee APIM Gateway needs the following two components:
+The Gravitee Gateway needs the following two components:
 
 * An HTTP _Bridge_ server that exposes extra HTTP services for bridging HTTP calls to the underlying repositories. For example, MongoDB and JDBC.
-* A _standard_ APIM Gateway. You must switch the default repository plugin to the bridge repository plugin.
+* A _standard_ API Management (APIM) Gateway. You must switch the default repository plugin to the bridge repository plugin.
 
 ## Before you begin
 
@@ -38,7 +38,7 @@ Ensure that you add the Gravitee.io License file.
 
 {% tabs %}
 {% tab title="Kubernetes (Helm)" %}
-* Install Gravitee API Management. For more information about installing Gravitee APIM, see [Install on Kubernetes](../installing-gravitee-api-management-on-premise/install-on-kubernetes.md).
+* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install on Kubernetes](../installing-gravitee-api-management-on-premise/install-on-kubernetes.md).
 * Install **only the Gateway** and disable the other components in your `values.yaml` configuration file.
 
 {% hint style="info" %}
