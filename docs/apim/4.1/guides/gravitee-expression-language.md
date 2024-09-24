@@ -210,6 +210,15 @@ Request context attributes and examples are listed below.
 {% endtab %}
 {% endtabs %}
 
+#### Important Note for v4 Emulation Engine Users
+When you use the v4 emulation engine, you retrieve the API Key from the request parameters or headers. You cannot reference the API directly with expressions like `{#context.attributes['api-key'] == 'api-key-value'}` because the api-key attribute is not accessible in the context as a logging filter expression.
+
+```
+{(#request.params['api-key'] != null && #request.params['api-key'][0] == 'my-api-key') || #request.headers['X-Gravitee-Api-Key'][0] == 'my-api-key'}
+```
+
+This approach checks for the API key either in the query parameters (api-key) or in the headers (X-Gravitee-Api-Key), which ensures compatibility with v4 emulation.
+
 ### SSL object properties <a href="#ssl_object" id="ssl_object"></a>
 
 The object properties you can access in the `ssl` session object from the `{#request.ssl}` root-level object property are listed below.
