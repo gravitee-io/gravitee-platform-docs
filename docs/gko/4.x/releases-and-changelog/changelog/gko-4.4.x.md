@@ -1,5 +1,15 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.9 - September 16, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * updates to API v4 are not deployed on the gateway [#10009](https://github.com/gravitee-io/issues/issues/10009)
+  * sync-process probe passes to healthy before APIs are deployed [#9797](https://github.com/gravitee-io/issues/issues/9797)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.8 - September 2, 2024
     
 <details>
