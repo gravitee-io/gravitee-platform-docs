@@ -29,15 +29,5 @@
 
 ## Contribute
 
-* [Contribute to Gravitee](contribute/contribute-to-gravitee/README.md)
-  * [Contribute to the Codebase](contribute/contribute-to-gravitee/contribute-to-the-codebase.md)
-  * [Contribute to Docs](contribute/contribute-to-gravitee/contribute-to-gravitee-docs.md)
-  * [Style Guide and Best Practices](contribute/contribute-to-gravitee/style-guide-and-best-practices/README.md)
-    * [Content](contribute/contribute-to-gravitee/style-guide-and-best-practices/content.md)
-    * [Formatting](contribute/contribute-to-gravitee/style-guide-and-best-practices/formatting.md)
-    * [Styling](contribute/contribute-to-gravitee/style-guide-and-best-practices/styling.md)
-    * [Lists](contribute/contribute-to-gravitee/style-guide-and-best-practices/lists.md)
-    * [Language](contribute/contribute-to-gravitee/style-guide-and-best-practices/language.md)
-    * [Admonitions](contribute/contribute-to-gravitee/style-guide-and-best-practices/admonitions.md)
-    * [Code Blocks](contribute/contribute-to-gravitee/style-guide-and-best-practices/code-blocks.md)
-    * [Media](contribute/contribute-to-gravitee/style-guide-and-best-practices/media.md)
+* [Documentation feedback](contribute/contribute-to-gravitee-docs.md)
+* [Contribute to the Codebase](contribute/contribute-to-the-codebase.md)
