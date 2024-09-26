@@ -22,11 +22,11 @@ The first step is to create a Gateway API. A Gateway API is simply an API deploy
 
 In the Console UI, select the Gateway API you want to secure with a JWT plan.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2Ff%2Ff84821f421fb5f2346248159d729b08b33009191\_2\_690x306.png\&width=768\&dpr=4\&quality=100\&sign=9fbd505b\&sv=1)
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 Alternatively, if you haven’t created a Gateway API yet, you can learn [how to create a Gateway API here](https://documentation.gravitee.io/apim/v/4.3/guides/create-apis). For now, be sure to leave the **Default Keyless (UNSECURED)** plan as we’ll be configuring the plan separately.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2Fc%2Fc34e5bef0770b919f285de2a37b897a8118fba56\_2\_690x306.png\&width=768\&dpr=4\&quality=100\&sign=832fd553\&sv=1)
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Save and deploy the API when you’re finished.
 
@@ -47,25 +47,25 @@ All Gateway APIs require at least one published plan to deploy the API to the Ga
 
 In the APIM Console UI, open the Gateway API you want to secure with a JWT plan. You should see a screen similar to the following:
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2F4%2F4a22f8558a9cc5ab82fb22d0e0fed60cb1f5dbe0\_2\_690x306.png\&width=768\&dpr=4\&quality=100\&sign=24dabd4f\&sv=1)
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 In the sidebar, select **Plans**, and then select **+Add new plan** in the top right of the screen. In the dropdown that appears, select **JWT**.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2F5%2F54be0b41964cb474834d646d18dcfec6a47f6171\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=62dababc\&sv=1)
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Provide your plan a name, and then scroll down and toggle on **Auto validate subscription** so we don’t have to manually validate subscription requests later in the tutorial. Scroll down and select **Next**.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2Fb%2Fb3584dcab75595ea34f4da86dcf7b5fdab1e526c\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=ec61aa5a\&sv=1)
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 On the security page, select the **Signature** that your IdP uses to encrypt your access tokens.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2F4260319747-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FlGMAxnYO3Z9dU9bQfplr%252Fuploads%252FiX2U9GZfuVVjeXrYOcrY%252Fjwt%2520security.png%3Falt%3Dmedia%26token%3D40119ac1-1343-4161-a2bf-59b9e1990db6\&width=768\&dpr=4\&quality=100\&sign=23f8711b\&sv=1)
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 Next, you need to tell the Gravitee Gateway where it can retrieve the JSON web key set (JWKS) to validate the signature with a public key. Typically, in a production setup, you want to use JWKS URL as it is more secure and eliminates the need to update the resolver when you rotate keys.
 
 A JWKS URL must be provided by your IdP of choice. Copy the endpoint and return to APIM’s Console UI. Under **JWKS resolver**, select **JWKS\_URL** and then paste the endpoint in the **JWKS\_URL** input box.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2F3%2F3e06b462925189359605f8d189ca576edb38e397\_2\_690x338.png\&width=768\&dpr=4\&quality=100\&sign=9984575e\&sv=1)
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 Scroll down and also toggle on **Extract JWT Claims**. This essentially makes all the claims associated with the token available through Gravitee’s Expression Langauge (EL). This is useful for configuring additional policies such as Role-based Access Control.
 
@@ -73,7 +73,7 @@ For this quick tutorial, everything else can be left as default. Scroll to the b
 
 We won’t be adding any restrictions to the consumption of this API so simply select **Create** on the Restrictions page.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2F0%2F0385a318168983d61989566aaefe99b7ec259804\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=b5200d42\&sv=1)
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 After creating a plan, it’s initially in the first of the four stages of a plan: staging, published, deprecated, and closed.
 
@@ -82,21 +82,21 @@ After creating a plan, it’s initially in the first of the four stages of a pla
 * **Deprecated**: You can deprecate a plan so that it won’t be available on the APIM Developer Portal and API Consumers won’t be able to subscribe to it. Existing subscriptions remain, so it doesn’t impact your existing API consumers.
 * **Closed**: Once a plan is closed, all associated subscriptions are closed too. This cannot be undone. API consumers subscribed to this plan won’t be able to use your API.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foriginal%2F2X%2F2%2F2cf712b5e5286499ec7a0f790bb3542dbd88be0c.png\&width=768\&dpr=4\&quality=100\&sign=d822f6c\&sv=1)
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 Publish your plan by selecting the publish icon on your plan as shown below.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2F6%2F671f6a52964fb6ba83ea3e914e7eb3bf11c2c658\_2\_690x306.png\&width=768\&dpr=4\&quality=100\&sign=c3139a4e\&sv=1)
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 At this point, it is likely you have both a Keyless and a JWT plan published. Please delete any Keyless plans to ensure the JWT plan can not be bypassed. Select the **X** icon and then follow the prompts in the modal to delete the Keyless plan as shown below:
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2F0%2F07753175189b642396c25bb02d8bdb0205c8d417\_2\_690x307.jpeg\&width=768\&dpr=4\&quality=100\&sign=749a95e7\&sv=1)
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 ### Redeploying your API <a href="#redeploying-your-api-7" id="redeploying-your-api-7"></a>
 
 As you make modifications to your Gateway API in the Console UI, you will see an orange banner appear that states your API is out of sync. This is because changes you make in the Console UI are not actually synced to the Gateway until you manually redeploy it. Once ready, select **Deploy API** in the banner and then **Deploy** in the subsequent modal to sync your latest changes to the Gravitee Gateway.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2Fb%2Fb823a2161a4ed870c4aead9622a75286e1e4bf00\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=fc6ddda9\&sv=1)
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 ### Subscribe to the JWT Plan <a href="#subscribe-to-the-jwt-plan-8" id="subscribe-to-the-jwt-plan-8"></a>
 
@@ -106,7 +106,7 @@ APIM uses the subscription to decide whether to accept or deny an incoming reque
 
 First, ensure your API is visible in the developer portal by selecting **General** in the Console UI sidebar and scrolling down to the bottom. In the **Danger Zone**, the API must be published which grants visibility to all members of your API (members are managed under User and group access). Additionally, you can make your API public which makes it visible to anybody who has access to your Developer Portal.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2Fc%2Fc752d6ded404b79d2c2c0fdceaf73261c0b0fab8\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=55ff0f3e\&sv=1)
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 #### Access Developer Portal <a href="#access-developer-portal-10" id="access-developer-portal-10"></a>
 
@@ -116,7 +116,7 @@ With that completed, let’s head to the Developer Portal by selecting the Devel
 
 If you do not see a link in your deployment of APIM, please reference the respective installation docs to see how it’s deployed. For example, with default docker installation, you can access the Developer Portal at `localhost:8085` in your browser.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2F2%2F2cdc916aaa7941e322d2eafc43c066cdec417849\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=443fb3a4\&sv=1)
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 #### Create an Application <a href="#create-an-application-11" id="create-an-application-11"></a>
 
@@ -128,23 +128,23 @@ For the sake of this demo, we will be creating a Simple application in the Devel
 
 In the Developer Portal, select **Applications** in the top navigation bar and then select **+ Create an app** in the top right of the screen.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2F5%2F504ea369ccdbddfda96513c23d72835f2f09efc3\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=7684cfb1\&sv=1)
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 Provide a name and description then select **Next**. On the security screen, select a Simple application and provide a `client_id` that matches the `client_id` of your IdP’s application. For example, in Okta, you can find your `client_id` right next to the name of your application.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2Fe%2Fed98ec39d86fa54cf243f3cd132d43ee924762dc\_2\_690x128.png\&width=768\&dpr=4\&quality=100\&sign=13e4fdc9\&sv=1)
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 After providing the `client_id`, select **Next**.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2Fb%2Fb9e2304279e86ee993fdd9f3acf203a40793cdb1\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=182246c3\&sv=1)
+<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 On the **Subscription** page, you can directly search for your Gateway API and see the available plans. Search for your API, select **Subscribe**, and then select **Next**.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2Fa%2Faaa1b97559fa2f17b5bb61298405535f4cff42cb\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=9269e411\&sv=1)
+<figure><img src="../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
 
 Finally, you can see an overview of your new Gravitee application. After careful review, select **Create the App** to create your application.
 
-![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Feurope1.discourse-cdn.com%2Fbusiness20%2Fuploads%2Fgraviteeforum%2Foptimized%2F2X%2F7%2F72219bbf378e13e163ed607b133f6bcb3394c4d9\_2\_690x307.png\&width=768\&dpr=4\&quality=100\&sign=d8cf3f46\&sv=1)
+<figure><img src="../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
 
 Bravo! Since your JWT plan has auto-validation enabled, your application is now approved to send requests through Gravitee’s Gateway to access the protected resources. To test, include the `Authorization: Bearer <your_jwt_token_here>` HTTP header with your request to the Gateway:
 
