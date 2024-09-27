@@ -26,7 +26,7 @@ You can set the following password characteristics:
 * **Expiry Duration**: the expiration duration (in days) of a password.
 * **Special characters**: must include at least one special character. Here are the supported special characters: &#x20;
   * ! \~< > . , ; : \_ = ? / \* + - # " ' & § \` £ € % ° ( ) | \[ ] $ ^ @ ]&#x20;
-  * &#x20;a-z, and A-Z characters with an accent. For example, Ü.&#x20;
+  * &#x20;a-z and A-Z characters with an accent. For example, Ü.&#x20;
 * **Mixed case**: must include lowercase and uppercase letters.
 * **Exclude common passwords**: will exclude common passwords from a dictionary.
 * **Exclude user profile information from passwords**: will exclude user profile information from use in passwords (case insensitive).
