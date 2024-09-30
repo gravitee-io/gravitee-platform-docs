@@ -6,6 +6,44 @@ description: >-
 
 # APIM 4.1.x
  
+## Gravitee API Management 4.1.25 - September 30, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Transfer subscription does not use new plan when V4 emulation is disabled [#10047](https://github.com/gravitee-io/issues/issues/10047)
+
+**Management API**
+
+* Dictionaries not deployed after migration from 3.20.x to 4.x [#10026](https://github.com/gravitee-io/issues/issues/10026)
+* Validation for unique names is MISSING in Categories  [#10053](https://github.com/gravitee-io/issues/issues/10053)
+
+**Console**
+
+* Display issue with lateral collasped menu [#9792](https://github.com/gravitee-io/issues/issues/9792)
+* API History shows warning for all policies [#9866](https://github.com/gravitee-io/issues/issues/9866)
+* No display of resource property for redis cache [#10001](https://github.com/gravitee-io/issues/issues/10001)
+* Not able to see API events in Dashboard [#10018](https://github.com/gravitee-io/issues/issues/10018)
+* Analytics dashboard filtered become empty when a tenant is selected [#10019](https://github.com/gravitee-io/issues/issues/10019)
+* Allow API member with right to Env Group to see all group member's of an API [#10021](https://github.com/gravitee-io/issues/issues/10021)
+
+**Helm Charts**
+
+* APIM Helm chart doesn't configure SSL keystore secret [#9854](https://github.com/gravitee-io/issues/issues/9854)
+
+**Other**
+
+* \[gravitee-entrypoint-webhook] V4 Message API Webhook Timeout Behavior [#9750](https://github.com/gravitee-io/issues/issues/9750)
+* \[gravitee-policy-callout-http] Callout policy does not work as expected with fire&forget mode on v4 engine for v2 API [#9937](https://github.com/gravitee-io/issues/issues/9937)
+* Command creation failure in database when illegal character is used on a message header in a webhook API [#9979](https://github.com/gravitee-io/issues/issues/9979)
+* \[gravitee-policy-data-logging-masking] DLM policies will not allow the DataDog Reporter to forward logs to DataDog if a property is not found [#10044](https://github.com/gravitee-io/issues/issues/10044)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.1.24 - September 13, 2024
 <details>
 
