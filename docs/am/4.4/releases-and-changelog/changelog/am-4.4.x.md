@@ -6,6 +6,33 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.7 - September 27, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Validate policy message double encoded [#9920](https://github.com/gravitee-io/issues/issues/9920)
+* Introduce option to adapt the create App behaviour [#10024](https://github.com/gravitee-io/issues/issues/10024)
+* MFA - initialisation of the phone field for the SMS factor [#10030](https://github.com/gravitee-io/issues/issues/10030)
+* FingerprintJs is not called in the confirmRegistration/resetPassword page for auto login [#10031](https://github.com/gravitee-io/issues/issues/10031)
+* Post logout redirection does not work properly. [#10038](https://github.com/gravitee-io/issues/issues/10038)
+
+
+
+**Console**
+
+* Password Policy - expiration date limited to 64 [#10028](https://github.com/gravitee-io/issues/issues/10028)
+
+**Other**
+
+* SAML IDP can't validate finalize authentication [#10042](https://github.com/gravitee-io/issues/issues/10042)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.6 - September 13, 2024
 
 <details>
