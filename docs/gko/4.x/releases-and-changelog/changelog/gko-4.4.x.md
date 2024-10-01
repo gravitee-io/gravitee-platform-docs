@@ -1,5 +1,15 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.10 - October 1, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * GKO - Unable to import API V4 Message with push plan - 400 Bad Request : PlanSecurityType empty [#10036](https://github.com/gravitee-io/issues/issues/10036)
+  * Plan description field is optional in APIM but required in GKO [#10041](https://github.com/gravitee-io/issues/issues/10041)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.8 - September 2, 2024
     
 <details>
