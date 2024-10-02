@@ -5,5 +5,5 @@ root: ./
   summary: SUMMARY.md​
 
 redirects:
-  gravitee-cloud/guides/hybrid/install-on-docker: gravitee-cloud/guides/hybrid#hybrid-gateway-wizard.md
-  gravitee-cloud/guides/hybrid/install-on-kubernetes: gravitee-cloud/guides/hybrid#hybrid-gateway-wizard.md
+  gravitee-cloud/guides/hybrid/install-on-docker: gravitee-cloud/guides/hybrid
+  gravitee-cloud/guides/hybrid/install-on-kubernetes: gravitee-cloud/guides/hybrid
