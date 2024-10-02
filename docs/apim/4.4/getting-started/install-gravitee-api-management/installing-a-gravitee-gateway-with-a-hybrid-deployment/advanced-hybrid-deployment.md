@@ -7,7 +7,7 @@ description: Installing and configuring a hybrid API Management deployment
 ## Installing your Self-Hosted Hybrid Gateway
 
 {% hint style="danger" %}
-Make sure that the version you install is compatible with the Control-Plane SaaS version.
+Make sure that the version you install is compatible with the Control-Plane SaaS version. For more information about compatibility, see [Components of Hybrid Architecture](https://documentation.gravitee.io/apim/getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment#components-of-hybrid-architecture).
 {% endhint %}
 
 {% hint style="info" %}
