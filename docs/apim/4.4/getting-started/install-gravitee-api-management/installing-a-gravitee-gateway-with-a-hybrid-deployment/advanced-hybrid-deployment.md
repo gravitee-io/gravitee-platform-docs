@@ -2,31 +2,9 @@
 description: Installing and configuring a hybrid API Management deployment
 ---
 
-# Installing a Gravitee Gateway with a Hybrid Deployment
+# Installing a Gravitee Gateway with a standard Hybrid Deployment
 
-## Introduction
-
-Hybrid architecture is the deployment of a Gravitee Gateway using self-hosted and cloud deployments.
-
-The Gravitee Gateway hybrid deployment uses hybrid components to provide flexibility when you define your architecture and deployment.&#x20;
-
-This page explains how to install a Self-Hosted Data-Plane in a Hybrid deployment, which consists of a SaaS Control-Plane and a Self-Hosted Data-Plane. The control plane signifies the Bridge and the data-plane signifies the Gateway.&#x20;
-
-The Gravitee Gateway needs the following two components:
-
-* An HTTP _Bridge_ server that exposes extra HTTP services for bridging HTTP calls to the underlying repositories. For example, MongoDB and JDBC.
-* A _standard_ API Management (APIM) Gateway. You must switch the default repository plugin to the bridge repository plugin.
-
-## Before you begin
-
-* Ensure that you understand the various components of a Hybrid deployment. For more information about the components of a Hybrid architecture, see [Components of Hybrid architecture](components-of-hybrid-architecture.md).
-* Ensure that the Bridge and Gateway versions that you use for your Hybrid deployment are compatible. For more information about Gateway and Bridge compatibility versions, see [Gateway and Bridge compatibility versions](gateway-and-bridge-compatibility-versions.md).
-
-<img src="../../../.gitbook/assets/file.excalidraw (18).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
-
-<img src="../../../.gitbook/assets/file.excalidraw (15).svg" alt="Hybrid architecture connections" class="gitbook-drawing">
-
-## Installing your Self-Hosted Hybrid Gateway <a href="#installation" id="installation"></a>
+## Installing your Self-Hosted Hybrid Gateway
 
 {% hint style="danger" %}
 Make sure that the version you install is compatible with the Control-Plane SaaS version.
@@ -767,7 +745,7 @@ services:
 {% endtab %}
 {% endtabs %}
 
-### Configuration
+### Configuring Fluentd
 
 {% code title="fluentd.conf" lineNumbers="true" %}
 ```
