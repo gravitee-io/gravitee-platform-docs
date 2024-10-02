@@ -86,8 +86,7 @@ In this example, we will create an In-memory identity provider with an inline us
 4. Give your identity provider a **Name** and enter the user details, then click **Create**.
 
 {% code overflow="wrap" %}
-````
-```sh
+```
 curl -H "Authorization: Bearer :accessToken" \
      -H "Content-Type:application/json;charset=UTF-8" \
      -X POST \
@@ -99,7 +98,6 @@ curl -H "Authorization: Bearer :accessToken" \
          }' \
      http://GRAVITEEIO-AM-MGT-API-HOST/management/organizations/DEFAULT/environments/DEFAULT/domains/:securityDomainPath/identities
 ```
-````
 {% endcode %}
 
 ```
