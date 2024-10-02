@@ -1,0 +1,9 @@
+root: ./
+
+​structure:
+  readme: README.md
+  summary: SUMMARY.md​
+
+redirects:
+  guides/hybrid/install-on-docker: guides/hybrid#hybrid-gateway-wizard
+  guides/hybrid/install-on-kubernetes: guides/hybrid#hybrid-gateway-wizard
