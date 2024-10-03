@@ -5,5 +5,5 @@ root: ./
   summary: SUMMARY.md​
 
 redirects:
-  guides/hybrid/install-on-docker: guides/hybrid
-  guides/hybrid/install-on-kubernetes: guides/hybrid
+  guides/hybrid/install-on-docker: guides/hybrid.md
+  guides/hybrid/install-on-kubernetes: guides/hybrid.md
