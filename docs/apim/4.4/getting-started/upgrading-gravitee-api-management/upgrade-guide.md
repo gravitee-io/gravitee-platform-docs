@@ -245,3 +245,11 @@ GRAVITEE_MANAGEMENT_HTTP_SSL_TRUSTALL="true"
 You may have noticed the "trust all" configuration parameter was formerly named `trustall`, it is now named `trustAll` for consistency. To avoid a breaking change here both names work, but the former has been deprecated.
 
 ***
+
+## Introduction of USER_TOKEN Permission for Token Management
+
+Starting with version 4.4.11, there is a new permission called USER_TOKEN. This permission controls which users have the ability to read, create, update, and delete user tokens.
+
+Previously, these actions were governed by the broader 'USER' permission. As part of the migration from version 4.1.25 to 4.1.26, no breaking changes have been introduced. Users who previously had the permission to manage user tokens under the 'USER' permission will retain their access automatically.
+
+However, this new 'USER_TOKEN' permission gives administrators more granular control. They can now selectively determine which users truly need access to manage user tokens, allowing for better security and role-based management within the system.
