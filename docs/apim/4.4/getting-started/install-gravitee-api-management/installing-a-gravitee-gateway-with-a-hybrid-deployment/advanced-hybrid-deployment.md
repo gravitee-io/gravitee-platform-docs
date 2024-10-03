@@ -670,7 +670,7 @@ services:
 * For more information about configuring logstash, see [Configuring Logstash](https://www.elastic.co/guide/en/logstash/current/configuration.html).
 {% endhint %}
 
-To configure logstash for you environment, copy the following example:
+To configure logstash for your environment, copy the following example:
 
 {% code title="logstash.conf" lineNumbers="true" %}
 ```
@@ -689,7 +689,7 @@ filter {
 
 output {
   s3 {
-    access_key_id => "${S3_ACEESS_KEY_ID}"
+    access_key_id => "${S3_ACCESS_KEY_ID}"
     secret_access_key => "${S3_SECRET_ACCESS_KEY}"
     region => "${S3_REGION}"
     bucket => "${S3_BUCKET_NAME}"
