@@ -1,4 +1,4 @@
-# Docker Images Install
+# Installing Gravitee API Management with Docker Images Install
 
 ## Overview
 
@@ -166,5 +166,5 @@ APIM can take up to a minute to fully initialize with Docker. If you get an erro
 {% endhint %}
 
 {% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../quickstart-guide/) for your next steps.
+Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/) for your next steps.
 {% endhint %}

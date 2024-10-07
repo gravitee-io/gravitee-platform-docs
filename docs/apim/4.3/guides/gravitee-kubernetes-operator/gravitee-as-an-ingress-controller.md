@@ -42,7 +42,7 @@ This section is divided into the following:
 
 ### 1. Configure your deployment
 
-Configure the [Gravitee Helm Chart](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md). Below is the minimum set of properties that your Helm values should contain:
+Configure the [Gravitee Helm Chart](../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md). Below is the minimum set of properties that your Helm values should contain:
 
 {% code title="values.yml" %}
 ```yaml
@@ -89,7 +89,7 @@ helm upgrade --install gravitee-gko \
 ```
 
 {% hint style="info" %}
-Refer to the [Helm Chart documentation](../../getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview.md) for more information.
+Refer to the [Helm Chart documentation](../../getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md) for more information.
 {% endhint %}
 
 ### 4. Add a test backend

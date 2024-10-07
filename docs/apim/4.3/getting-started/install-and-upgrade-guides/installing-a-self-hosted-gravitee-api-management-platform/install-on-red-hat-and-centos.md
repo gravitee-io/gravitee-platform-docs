@@ -1,4 +1,4 @@
-# Install on Red Hat and CentOS
+# Installing Gravitee API Management using RPM Packages
 
 ## Introduction
 
@@ -139,7 +139,7 @@ When all components are started, you can run a quick test by checking these URLs
 {% hint style="info" %}
 **Gravitee dependencies**
 
-Gravitee's [Installation & Upgrade Guides](./) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
+Gravitee's [Installation & Upgrade Guides](../) provide information on how to install Gravitee components. For prerequisite documentation on third-party products such as [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
 {% endhint %}
 
 <details>
@@ -401,7 +401,7 @@ sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
 For version 4.1.4 and above, you can upgrade and restart APIM to perform an `rpm` upgrade of APIM components.
 
 {% hint style="warning" %}
-Refer to the [changelog](../../releases-and-changelog/changelog/apim-4.3.x.md) to follow potential breaking changes.
+Refer to the [changelog](../../../releases-and-changelog/changelog/apim-4.3.x.md) to follow potential breaking changes.
 {% endhint %}
 
 The appropriate upgrade process depends on the type of installation. Choose to either:
