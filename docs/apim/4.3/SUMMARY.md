@@ -31,7 +31,7 @@
     * [Installing Gravitee API Management using RPM Packages](getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-red-hat-and-centos.md)
     * [Installing Gravitee API Management with .ZIP](getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-with-.zip.md)
   * [Installing a Gravitee Gateway with a Hybrid Deployment](getting-started/install-and-upgrade-guides/hybrid-deployment/README.md)
-    * [Hybrid Deployment on Kubernetes](getting-started/install-and-upgrade-guides/hybrid-deployment/hybrid-deployment-on-kubernetes.md)
+    * [Installing a Gravitee Gateway with a Hybrid Deployment on Kubernetes](getting-started/install-and-upgrade-guides/hybrid-deployment/hybrid-deployment-on-kubernetes.md)
     * [Advanced Hybrid Deployment](getting-started/install-and-upgrade-guides/hybrid-deployment/advanced-hybrid-deployment.md)
   * [Multi-tenancy](getting-started/install-and-upgrade-guides/multi-tenancy.md)
 * [Upgrading Gravitee API Management](getting-started/upgrading-gravitee-api-management/README.md)
