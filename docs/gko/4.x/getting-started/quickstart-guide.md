@@ -99,6 +99,7 @@ spec:
   state: "STARTED"
   lifecycle_state: "PUBLISHED"
   description: "Gravitee Kubernetes Operator sample"
+  local: false
   plans:
     - name: "KEY_LESS"
       description: "FREE"
@@ -110,7 +111,6 @@ spec:
       - endpoints:
           - name: "Default"
             target: "https://api.gravitee.io/echo"
-  local: false
 ```
 
 There are a few things worth mentioning about the above resource:

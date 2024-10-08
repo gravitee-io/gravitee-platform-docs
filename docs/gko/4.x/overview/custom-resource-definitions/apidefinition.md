@@ -16,6 +16,7 @@ spec:
   name: "GKO Basic"
   version: "1.1"
   description: "Basic api managed by Gravitee Kubernetes Operator"
+  local: false
   proxy:
     virtual_hosts:
       - path: "/k8s-basic"
@@ -36,6 +37,7 @@ spec:
   name: "K8s OAuth2 Example"
   version: "1.0"
   description: "Api managed by Gravitee Kubernetes Operator with OAuth2 plan"
+  local: false
   resources:
     - name: "am-demo"
       type: oauth2-am-resource

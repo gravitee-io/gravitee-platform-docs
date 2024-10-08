@@ -62,6 +62,9 @@ spec:
   contextRef:
     name: dev-ctx
     namespace: gravitee
+  definitionContext:
+    origin: KUBERNETES
+    syncFrom: MANAGEMENT
   name: api-with-swagger-http-fetcher
   version: 1.0
   description: An API V4 with a simple markdown page
@@ -127,6 +130,9 @@ metadata:
   namespace: gravitee
 spec:
   name: api-v4-with-markdown-page
+  definitionContext:
+    origin: KUBERNETES
+    syncFrom: MANAGEMENT
   version: 1.0
   description: An API V4 with a simple markdown page
   type: PROXY
@@ -245,6 +251,7 @@ spec:
     namespace: default
   version: "1"
   description: "fetch documentation pages from a github repository root"
+  local: false
   pages:
     repository-root:
       type: "ROOT"

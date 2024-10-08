@@ -22,6 +22,7 @@ spec:
   version: 1.0.0
   description: Basic api managed by Gravitee Kubernetes Operator
   lifecycle_state: PUBLISHED
+  local: false
   proxy:
     virtual_hosts:
       - path: /k8s-basic
@@ -47,6 +48,9 @@ metadata:
   namespace: gravitee
 spec:
   name: api-v4
+  definitionContext:
+    origin: KUBERNETES
+    syncFrom: MANAGEMENT
   description: API v4 managed by Gravitee Kubernetes Operator
   version: 1.0
   type: PROXY

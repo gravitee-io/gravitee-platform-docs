@@ -17,6 +17,7 @@ spec:
   version: 1.0.0
   description: Basic api managed by Gravitee Kubernetes Operator
   state: STARTED
+  local: false
   proxy:
     virtual_hosts:
       - path: /k8s-basic
@@ -42,6 +43,7 @@ spec:
   version: 1.0.0
   description: Basic api managed by Gravitee Kubernetes Operator
   state: STOPPED
+  local: false
   proxy:
     virtual_hosts:
       - path: /k8s-basic

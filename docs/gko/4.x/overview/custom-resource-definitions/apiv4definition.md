@@ -17,6 +17,9 @@ spec:
   description: "API v4 managed by Gravitee Kubernetes Operator"
   version: "1.0"
   type: PROXY
+  definitionContext:
+    origin: KUBERNETES
+    syncFrom: MANAGEMENT
   listeners:
     - type: HTTP
       paths:
