@@ -6,4 +6,4 @@ root: ./
 
 redirects:
  getting-started/configuration/configure-alerts-and-notifications: getting-started/configuration/notifications.md
- guides/api-configuration/v4-api-configuration/entrypoint-configuration: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints
+ guides/api-configuration/v4-api-configuration/entrypoint-configuration: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints.md
