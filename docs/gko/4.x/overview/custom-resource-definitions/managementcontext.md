@@ -163,6 +163,9 @@ spec:
     namespace: "default"
   type: PROXY
   state: STARTED
+  definitionContext:
+    origin: KUBERNETES
+    syncFrom: MANAGEMENT
   listeners:
     - type: HTTP
       paths:
