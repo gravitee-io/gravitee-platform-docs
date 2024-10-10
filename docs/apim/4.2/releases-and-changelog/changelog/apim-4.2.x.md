@@ -6,6 +6,36 @@ description: >-
 
 # APIM 4.2.x
  
+## Gravitee API Management 4.2.20 - October 10, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Invalid error content/type when using v4 emulation [#9930](https://github.com/gravitee-io/issues/issues/9930)
+* \[3.20.X and 4.4.X] DNS Resolution fails for hosts having more than 30 A records [#10051](https://github.com/gravitee-io/issues/issues/10051)
+* \[Gateway Distributed Sync] Properly differentiate v2 from v4 API events [#10055](https://github.com/gravitee-io/issues/issues/10055)
+
+**Management API**
+
+* Missing braces in webhook notifier messages when special characters are present [#9856](https://github.com/gravitee-io/issues/issues/9856)
+* Debug mode not working when too many gateway started events [#9977](https://github.com/gravitee-io/issues/issues/9977)
+* Issue on permissions of the ORGANIZATION_USER role [#10040](https://github.com/gravitee-io/issues/issues/10040)
+
+**Helm Charts**
+
+* Add serviceAccount in helm chart  [#10057](https://github.com/gravitee-io/issues/issues/10057)
+
+**Other**
+
+* \[gravitee-policy-groovy] Groovy script compilation blocks the Vertx event loop [#9653](https://github.com/gravitee-io/issues/issues/9653)
+* \[gravitee-policy-generate-jwt] Generate JWT policy generates incorrect tokens [#9975](https://github.com/gravitee-io/issues/issues/9975)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.2.19 - September 30, 2024
 <details>
 
