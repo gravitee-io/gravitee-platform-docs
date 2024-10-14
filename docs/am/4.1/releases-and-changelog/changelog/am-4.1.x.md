@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.34 - October 14, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* AM Refresh token active set to false [#10065](https://github.com/gravitee-io/issues/issues/10065)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.1.32 - September 27, 2024
 
 <details>
