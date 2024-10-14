@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.8 - October 14, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Able to update username using a blank space [#10015](https://github.com/gravitee-io/issues/issues/10015)
+* AM Refresh token active set to false [#10065](https://github.com/gravitee-io/issues/issues/10065)
+* The "path" parameter for SCIM patch requests does not function as expected [#10073](https://github.com/gravitee-io/issues/issues/10073)
+* AM upgrade from 4.1.20 to 4.1.31 lead to 200% CPU on MongoDb cluster [#10084](https://github.com/gravitee-io/issues/issues/10084)
+* Password rules not displayed in the registration confirmation webpage [#10089](https://github.com/gravitee-io/issues/issues/10089)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.4.7 - September 27, 2024
 
 <details>
