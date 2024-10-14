@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.15 - October 14, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Able to update username using a blank space [#10015](https://github.com/gravitee-io/issues/issues/10015)
+* AM Refresh token active set to false [#10065](https://github.com/gravitee-io/issues/issues/10065)
+* AM upgrade from 4.1.20 to 4.1.31 lead to 200% CPU on MongoDb cluster [#10084](https://github.com/gravitee-io/issues/issues/10084)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.3.14 - September 27, 2024
 
 <details>

@@ -1,5 +1,14 @@
 # GKO 4.3.x
 
+## Gravitee Kubernetes Operator 4.3.15 - October 14, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Allow to set imagePullSecrets in deployments using Helm [#10092](https://github.com/gravitee-io/issues/issues/10092)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.3.12 - September 2, 2024
     
 <details>
