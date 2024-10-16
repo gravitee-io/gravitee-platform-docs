@@ -83,39 +83,3 @@ spec:
     name: "management-context-1"
   ...
 ```
-
-## Improved compatibility with ArgoCD & FluxCD
-
-We've made a change in order to improve compatibility with workflows built using GitOps tools like ArgoCD and FluxCD.
-
-We now guarantee that resource manifests that you create that include empty values or values that match the GKO default values will still be stored in **etcd** as they were specified in the first place. Previously, GKO was trimming empty values from the resource definitions. This could cause a discrepancy between what ArgoCD was seeing in version control compared to what was stored on Kubernetes.
-
-To illustrate, consider the API definition below:
-
-```yaml
-apiVersion: gravitee.io/v1alpha1
-kind: ApiDefinition
-metadata:
-  name: basic-api-example
-  namespace: gravitee
-spec:
-  name: "GKO Basic"
-  version: "1.1"
-  description: ""
-  contextRef: 
-    name: "management-context-1"
-  local: false
-  proxy:
-    virtual_hosts:
-      - path: "/k8s-basic"
-    groups:
-      - endpoints:
-          - name: "Default"
-            target: "https://api.gravitee.io/echo"
-  groups: []
-  members: []
-```
-
-If applied, GKO will properly store the empty values for the **description**, **groups**, and **members**.&#x20;
-
-This is useful in case you want to enforce, with absolute certainty, your own clear "default values" for certain attributes.
