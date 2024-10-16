@@ -8,7 +8,7 @@ With the release of Gravitee 4.5, we have pushed some important updates to the G
 * For more complete functionality, simplicity, and consistency, we have updated the Application CRD, which includes breaking changes.&#x20;
 * Updates to how primary owners are handled by GKO.
 * In the contextRef attribute that references a ManagementContext from a Gravitee resource, Namespace becomes optional.
-* Improve compatibility with ArgoCD & FluxCD
+* Improved compatibility with ArgoCD & FluxCD
 
 {% hint style="info" %}
 GKO 4.5 must be used with APIM 4.5.
@@ -84,13 +84,13 @@ spec:
   ...
 ```
 
-## Improve compatibility with ArgoCD & FluxCD
+## Improved compatibility with ArgoCD & FluxCD
 
 We've made a change in order to improve compatibility with workflows built using GitOps tools like ArgoCD and FluxCD.
 
 We now guarantee that resource manifests that you create that include empty values or values that match the GKO default values will still be stored in **etcd** as they were specified in the first place. Previously, GKO was trimming empty values from the resource definitions. This could cause a discrepancy between what ArgoCD was seeing in version control compared to what was stored on Kubernetes.
 
-To illustrate, if you now specify an API definition like the one below:
+To illustrate, consider the API definition below:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -116,6 +116,6 @@ spec:
   members: []
 ```
 
-Then GKO will properly store the empty values for the description, groups, and members.&#x20;
+If applied, GKO will properly store the empty values for the **description**, **groups**, and **members**.&#x20;
 
-This is useful in case you want to enforce, with certainty, your own default values for certain attributes.&#x20;
+This is useful in case you want to enforce, with absolute certainty, your own clear "default values" for certain attributes.
