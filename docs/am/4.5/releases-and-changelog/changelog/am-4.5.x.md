@@ -82,7 +82,7 @@ Previously, all the settings related to the repositories where define at the roo
 
 {% code lineNumbers="true" %}
 ```yaml
-mangement:
+management:
   type: mongodb
   mongodb: 
     uri: ...
