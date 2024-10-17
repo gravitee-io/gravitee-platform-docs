@@ -20,7 +20,7 @@ The tables below summarize major integrations that Gravitee API Management (APIM
 
 ## Service discovery
 
-<table><thead><tr><th width="144">Solution</th><th>Integration description</th><th>Plugin or add-on required</th></tr></thead><tbody><tr><td><a href="../using-the-product/manging-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/service-discovery.md">HashiCorp Consul</a></td><td>Bind the backend endpoints of your API so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.</td><td><ul><li>Gravitee service discovery consul plugin</li></ul></td></tr></tbody></table>
+<table><thead><tr><th width="144">Solution</th><th>Integration description</th><th>Plugin or add-on required</th></tr></thead><tbody><tr><td><a href="../guides/api-configuration/v2-api-configuration/service-discovery.md">HashiCorp Consul</a></td><td>Bind the backend endpoints of your API so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.</td><td><ul><li>Gravitee service discovery consul plugin</li></ul></td></tr></tbody></table>
 
 ## API documentation
 

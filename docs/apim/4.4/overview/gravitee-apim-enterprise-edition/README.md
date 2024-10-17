@@ -72,7 +72,7 @@ The Event-native pack includes capabilities that enable Gravitee to expose, secu
 * [**Message Filtering policy**](../../using-the-product/manging-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/message-filtering.md)**:** Filter messages streamed to clients/subscribers based on API publisher and/or client criteria.
 * [**Avro to JSON policy**](../../using-the-product/manging-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/avro-to-json.md)**:** Transform information from Avro format to JSON format.
 * **Gateway message reactor plugin:** Enable the Gravitee Gateway to intercept and introspect messages when publishing and subscribing to/from message-based systems.
-* [**Confluent Schema Registry resource**](../../using-the-product/manging-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
+* [**Confluent Schema Registry resource**](../../guides/api-configuration/resources.md#confluent-schema-registry)**:** Define Confluent Schema Registry as a resource for serialization and deserialization policies.
 
 </details>
 

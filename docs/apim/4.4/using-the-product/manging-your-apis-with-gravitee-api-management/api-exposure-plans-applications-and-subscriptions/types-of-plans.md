@@ -111,7 +111,7 @@ The OAuth2 authentication type checks access token validity during request proce
 
 ## Configuration
 
-To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../configuring-apis-with-the-gravitee-api-management/resources.md) that represents your OAuth 2.0 authorization server.
+To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../../../guides/api-configuration/resources.md) that represents your OAuth 2.0 authorization server.
 
 Configuring an OAuth2 plan presents the following options:
 

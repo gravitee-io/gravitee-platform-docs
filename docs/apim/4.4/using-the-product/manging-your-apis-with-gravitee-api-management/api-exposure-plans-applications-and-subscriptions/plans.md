@@ -1,4 +1,4 @@
-# Applying Plans to you APIs
+# Applying Plans to your APIs
 
 ## Introduction
 
@@ -44,7 +44,7 @@ To create a plan:
     * **Name:** Enter a name for your plan
     * **Description:** Enter a description of your plan
     * **Characteristics:** Define labels used to tag your plan
-    * **Page of General Conditions:** Select a published [Documentation](../configuring-apis-with-the-gravitee-api-management/v4-api-configuration/documentation.md) page whose terms must be accepted by the user to finalize the subscription process
+    * **Page of General Conditions:** Select a published [Documentation](../../../guides/api-configuration/v4-api-configuration/documentation.md) page whose terms must be accepted by the user to finalize the subscription process
     * Toggle **Auto validate subscription** ON to accept all subscriptions to a plan without the API publisher's approval
     * Toggle **Consumer must provide a comment when subscribing to the plan** ON to require an explanation for the subscription request, with the option to leave a **Custom message to display to consumer**
     * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md)
@@ -268,7 +268,7 @@ The OAuth2 authentication type checks access token validity during request proce
 
 ## Configuration
 
-To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../configuring-apis-with-the-gravitee-api-management/resources.md) that represents your OAuth 2.0 authorization server.
+To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../../../guides/api-configuration/resources.md) that represents your OAuth 2.0 authorization server.
 
 Configuring an OAuth2 plan presents the following options:
 

@@ -51,11 +51,11 @@ To access federated API configuration options:
 
 Follow the links below to visit the documentation for each configuration page.
 
-| Configuration category | Configuration page                                                                                                                                                                                                                                                                                                                                                                  | Comments                                         |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
-| Configuration          | <p><a href="../configuring-apis-with-the-gravitee-api-management/v4-api-configuration/general-info-settings.md">General</a><br><a href="../configuring-apis-with-the-gravitee-api-management/v4-api-configuration/user-permissions.md">User Permissions</a><br><a href="../configuring-apis-with-the-gravitee-api-management/v4-api-configuration/audit-logs.md">Audit Logs</a></p> |                                                  |
-| Consumers              | <p><a href="../api-exposure-plans-applications-and-subscriptions/plans.md#plan-stages">Plans</a><br><a href="../api-exposure-plans-applications-and-subscriptions/subscriptions.md">Subscriptions</a><br><a href="../configuring-apis-with-the-gravitee-api-management/v4-api-configuration/documentation.md#send-messages">Broadcasts</a></p>                                      | Plans cannot be manually added to federated APIs |
-| Documentation          | <p><a href="../configuring-apis-with-the-gravitee-api-management/v4-api-configuration/documentation.md">Pages</a><br><a href="../configuring-apis-with-the-gravitee-api-management/v4-api-configuration/documentation.md#add-metadata">Metadata</a></p>                                                                                                                             |                                                  |
+| Configuration category | Configuration page                                                                                                                                                                                                                                                                                                          | Comments                                         |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| Configuration          | <p><a href="../../../guides/api-configuration/v4-api-configuration/general-info-settings.md">General</a><br><a href="../../../guides/api-configuration/v4-api-configuration/user-permissions.md">User Permissions</a><br><a href="../../../guides/api-configuration/v4-api-configuration/audit-logs.md">Audit Logs</a></p>  |                                                  |
+| Consumers              | <p><a href="../api-exposure-plans-applications-and-subscriptions/plans.md#plan-stages">Plans</a><br><a href="../api-exposure-plans-applications-and-subscriptions/subscriptions.md">Subscriptions</a><br><a href="../../../guides/api-configuration/v4-api-configuration/documentation.md#send-messages">Broadcasts</a></p> | Plans cannot be manually added to federated APIs |
+| Documentation          | <p><a href="../../../guides/api-configuration/v4-api-configuration/documentation.md">Pages</a><br><a href="../../../guides/api-configuration/v4-api-configuration/documentation.md#add-metadata">Metadata</a></p>                                                                                                           |                                                  |
 
 ## Federated API plans, applications, and subscriptions
 
@@ -112,7 +112,7 @@ To view or add documentation to an existing federated API:
     {% hint style="info" %}
     By default, the page is published with private visibility.
     {% endhint %}
-5. Refer to [Documentation](../../using-the-gravitee-api-management-components/developer-portal-101/documentation.md) for information on how to create and manage API documentation
+5. Refer to [Documentation](../../../guides/developer-portal/tools-and-features/documentation.md) for information on how to create and manage API documentation
 
 ## Publishing federated APIs to the Developer Portal
 

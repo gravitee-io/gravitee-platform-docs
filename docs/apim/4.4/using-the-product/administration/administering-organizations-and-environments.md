@@ -50,7 +50,7 @@ Organization-wide CORS settings include:
 * **Max age:** How long the response from a preflight request can be cached by clients.
 
 {% hint style="info" %}
-CORS can also be configured at the API level. For more information, see the [v2 API](../manging-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/general-proxy-settings.md#configure-cors) and [v4 API ](../manging-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/cors.md)CORS documentation.
+CORS can also be configured at the API level. For more information, see the [v2 API](../../guides/api-configuration/v2-api-configuration/general-proxy-settings.md#configure-cors) and [v4 API ](../../guides/api-configuration/v4-api-configuration/entrypoints/cors.md)CORS documentation.
 {% endhint %}
 {% endtab %}
 
