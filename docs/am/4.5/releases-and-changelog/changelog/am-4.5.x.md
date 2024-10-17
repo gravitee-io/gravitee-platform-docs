@@ -94,10 +94,10 @@ oauth2:
 ```
 {% endcode %}
 
-Starting from 4.5.0, a `repositories` section has been introduce to easily identify the settings related to the reposity layer.
+Starting from 4.5.0, a `repositories` section has been introduce to easily identify the settings related to the repository layer.
 
 <pre class="language-yaml" data-line-numbers><code class="lang-yaml"><strong>repositories:
-</strong><strong>  mangement:
+</strong><strong>  management:
 </strong><strong>    type: mongodb
 </strong>    mongodb: 
       uri: ...
