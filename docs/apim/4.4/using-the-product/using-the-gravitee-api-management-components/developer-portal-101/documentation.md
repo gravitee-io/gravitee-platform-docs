@@ -14,5 +14,5 @@ To find and view API documentation:
 <figure><img src="../../../.gitbook/assets/dev portal_documentation.png" alt=""><figcaption><p>Sample API documentation</p></figcaption></figure>
 
 {% hint style="info" %}
-An administrator can create documentation following the process described [here](creating-and-maintaining-apis-with-the-gravitee-developer-portal/documentation.md).
+An administrator can create documentation following the process described [here](publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation.md).
 {% endhint %}

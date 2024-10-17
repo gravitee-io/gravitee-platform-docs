@@ -4,13 +4,6 @@ description: Add layers of security and functionality to your backend resources
 
 # Plans and Policies overview
 
-{% hint style="warning" %}
-This is the second section of the Quickstart Guide.&#x20;
-
-* By this point, you should already have [created a Gateway API](../gateway-apis-101-traditional-and-message-proxies/).&#x20;
-* Steps will be provided for both traditional proxy and message proxy Gateway APIs.
-{% endhint %}
-
 ## Overview
 
 The next two core Gravitee API Management (APIM) concepts we will focus on are plans and policies:
