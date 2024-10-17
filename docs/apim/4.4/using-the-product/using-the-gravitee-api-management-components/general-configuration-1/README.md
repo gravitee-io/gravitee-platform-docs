@@ -114,7 +114,7 @@ For more information on CORS, take a look at the [CORS specification](https://ww
 
 CORS can be applied at three different levels:&#x20;
 
-1. [API](../../../guides/api-configuration/v2-api-configuration/general-proxy-settings.md#configure-cors)
+1. [API](../../managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/general-proxy-settings.md#configure-cors)
 2. Environment
 3. Organization
 
