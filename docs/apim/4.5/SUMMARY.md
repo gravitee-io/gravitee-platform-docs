@@ -39,7 +39,7 @@
     * [Installing Gravitee API Mangement with Docker](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/README.md)
       * [Quick Install Gravitee API Management with Docker Compose](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/quick-install-with-docker-compose.md)
       * [Custom Install Gravitee API Management with Docker Compose](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/custom-install-with-docker-compose.md)
-      * [Install Gravitee API Management with Docker Images Install](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/docker-images-install.md)
+      * [Installing Gravitee API Management with Docker Images Install](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/docker-images-install.md)
       * [Customizing your Gravitee API Management installation on Docker](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/further-customization.md)
     * [Installing Gravitee API Management on Kubernetes](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes.md)
     * [Installing Gravitee API Management using RPM Packages](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-red-hat-and-centos.md)
