@@ -48,7 +48,3 @@ APIM can take up to a minute to fully initialize with Docker.&#x20;
 * The default username for the Console and the Developer Portal is admin.
 * The default password for the Developer Portal is admin.
 {% endhint %}
-
-{% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](broken-reference) for your next steps.
-{% endhint %}
