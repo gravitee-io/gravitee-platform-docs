@@ -92,7 +92,7 @@
     * [Importing an OpenAPI Specification to the Gravitee Gateway](using-the-product/manging-your-apis-with-gravitee-api-management/create-apis/openapi-spec-import.md)
     * [Creating APIs with API Creation Wizard](using-the-product/manging-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/README.md)
       * [Creating APIs with the v4 API creation wizard](using-the-product/manging-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
-      * [Creating APIs with the v4 API creation wizard](using-the-product/manging-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md)
+      * [Creating APIs with the v2 API creation wizard](using-the-product/manging-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md)
     * [v2 APIs and v4 APIs comparison](using-the-product/manging-your-apis-with-gravitee-api-management/create-apis/v2-apis-and-v4-apis-comparison.md)
   * [Configuring APIs with the Gravitee API Management](using-the-product/manging-your-apis-with-gravitee-api-management/api-configuration/README.md)
     * [Configuring v2 APIs](using-the-product/manging-your-apis-with-gravitee-api-management/api-configuration/v2-api-configuration/README.md)
