@@ -1,7 +1,5 @@
 # Adding a policy
 
-Let's work through how to add a simple policy to modify the behavior of the Gateway API we created in the [first part of the Quickstart Guide](../gateway-apis-101-traditional-and-message-proxies/).
-
 ### Access API
 
 First, we need to open the API in the APIM Console. You may already have it open from the previous part of the Quickstart Guide. If not, simply head back over to the **APIs** homescreen and select the API you created.
