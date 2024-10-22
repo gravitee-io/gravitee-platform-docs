@@ -44,7 +44,7 @@ Also, you defined the settings related to the repositories at the root level of 
 
 {% code lineNumbers="true" %}
 ```yaml
-mangement:
+management:
   type: mongodb
   mongodb: 
     uri: ...
@@ -63,7 +63,7 @@ Also, a `repositories` section has been introduced to identify the settings rela
 {% code lineNumbers="true" %}
 ```yaml
 repositories:
-  mangement:
+  management:
     type: mongodb
     mongodb: 
       uri: ...
@@ -83,8 +83,12 @@ repositories:
 {% hint style="info" %}
 If you use the environment variable to provide database settings, complete the following actions:
 
-* adapt the variable name to include the "repositories" keyword
-* add the settings for the gateway scope
+* adapt the variable name to include the "repositories" keyword, for example:\
+  `GRAVITEE_MANAGEMENT_TYPE=... => GRAVITEE_REPOSITORIES_MANAGEMENT_TYPE=...`
+* add the settings for the gateway scope\
+  `GRAVITEE_GATEWAY_TYPE=... => GRAVITEE_REPOSITORIES_GATEWAY_TYPE=...`
+
+
 {% endhint %}
 
 ### 4.0.0
@@ -502,7 +506,7 @@ Also, at management-api level, the schema changes to save the new application co
 }
 ```
 
-Finally, you can check the API reference. To check the APU reference, go to [Mangement API reference](https://docs.gravitee.io/am/current/am\_devguide\_management\_api\_documentation.html).
+Finally, you can check the API reference. To check the APU reference, go to [Management API reference](https://docs.gravitee.io/am/current/am\_devguide\_management\_api\_documentation.html).
 
 ### 3.15
 

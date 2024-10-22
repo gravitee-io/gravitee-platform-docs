@@ -60,7 +60,7 @@ On application creation or update `redirect_uris` is now required for applicatio
 
 ## Token generation
 
-For all domains created from AM 4.5.0 the `sub` claim will not represent the user internalID as it was the case previously. The `sub` value is now an opaque value computed based on the user externalId and the identity provider identifier. Even if this value is opaque, it will remain the same for a given user accross multiple token generations as per the requirement of the OIDC specification.&#x20;
+For all domains created from AM 4.5.0 the `sub` claim will not represent the user internalID as it was the case previously. The `sub` value is now an opaque value computed based on the user externalId and the identity provider identifier. Even if this value is opaque, it will remain the same for a given user across multiple token generations as per the requirement of the OIDC specification.&#x20;
 
 <mark style="color:red;">**NOTE:**</mark> For all domains created in previous version, the sub claim remains the user internalId.
 
@@ -115,8 +115,10 @@ Starting from 4.5.0, a `repositories` section has been introduce to easily ident
 
 If you were using environment variable to provide database settings remember to:
 
-* adapt the variable name to includ the "repositories" keyword
-* add the settings for the gateway scope
+* adapt the variable name to include the "repositories" keyword, for example:\
+  `GRAVITEE_MANAGEMENT_TYPE=... => GRAVITEE_REPOSITORIES_MANAGEMENT_TYPE=...`
+* add the settings for the gateway scope\
+  `GRAVITEE_GATEWAY_TYPE=... => GRAVITEE_REPOSITORIES_GATEWAY_TYPE=...`
 
 </details>
 
