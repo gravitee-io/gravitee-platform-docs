@@ -75,6 +75,6 @@ If you plan to keep the internal API enabled, please consider enforcing the secu
 {% hint style="info" %}
 To learn more about internal APIs, see:
 
-* [Configure the APIM Management API internal API](../using-the-gravitee-api-management-components/apim-management-api/internal-api.md)
-* [Configure the APIM Gateway internal API](../using-the-gravitee-api-management-components/apim-gateway/internal-api.md)
+* [Configure the APIM Management API internal API](broken-reference)
+* [Configure the APIM Gateway internal API](../using-the-gravitee-api-management-components/general-configuration/internal-api.md)
 {% endhint %}

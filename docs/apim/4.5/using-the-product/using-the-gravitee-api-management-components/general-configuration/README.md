@@ -4,7 +4,7 @@ description: >-
   properties, and the gravitee.yaml file
 ---
 
-# General Configuration
+# Gravitee API Management Gateway
 
 ## Introduction
 
@@ -20,15 +20,15 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 
 With the `gravitee.yaml` file, you can configure the following:
 
-* [HTTP Server](general-configuration.md#configure-your-http-server)
-* [Plugins repository](general-configuration.md#configure-the-plugins-directory)
-* [Management repository](general-configuration.md#configure-the-management-repository)
-* [Rate Limit repository](general-configuration.md#configure-the-rate-limit-repository)
-* [Reporters](general-configuration.md#configure-reporters)
-* [Services](general-configuration.md#configure-services)
-* [Sharding tags](general-configuration.md#configure-sharding-tags)
-* [Organizations and environments](general-configuration.md#configure-organizations-and-environments)
-* [Transaction ID and request ID headers](general-configuration.md#configure-transaction-id-and-request-id-headers)
+* [HTTP Server](./#configure-your-http-server)
+* [Plugins repository](./#configure-the-plugins-directory)
+* [Management repository](./#configure-the-management-repository)
+* [Rate Limit repository](./#configure-the-rate-limit-repository)
+* [Reporters](./#configure-reporters)
+* [Services](./#configure-services)
+* [Sharding tags](./#configure-sharding-tags)
+* [Organizations and environments](./#configure-organizations-and-environments)
+* [Transaction ID and request ID headers](./#configure-transaction-id-and-request-id-headers)
 
 ## Configure your HTTP Server
 
@@ -59,11 +59,11 @@ http:
 
 This section discusses how to enable support for:
 
-* [HTTPS](general-configuration.md#enable-https-support)
-* [HTTP/2](general-configuration.md#enable-http-2-support)
-* [WebSocket](general-configuration.md#enable-websocket-support)
-* [Certificate-based client authentication](general-configuration.md#enable-certificate-based-client-authentication)
-* [Multi-server](general-configuration.md#multi-server-support)
+* [HTTPS](./#enable-https-support)
+* [HTTP/2](./#enable-http-2-support)
+* [WebSocket](./#enable-websocket-support)
+* [Certificate-based client authentication](./#enable-certificate-based-client-authentication)
+* [Multi-server](./#multi-server-support)
 
 ### **Enable HTTPS support**
 

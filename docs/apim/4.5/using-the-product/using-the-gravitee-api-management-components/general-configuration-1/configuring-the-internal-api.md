@@ -1,4 +1,4 @@
-# Internal API
+# Configuring the Internal API
 
 ## Overview
 

@@ -4,7 +4,7 @@ description: >-
   properties, and the gravitee.yaml file
 ---
 
-# General Configuration
+# Gravitee API Management API
 
 ## Introduction
 
@@ -20,13 +20,13 @@ YAML (`yml`) format is sensitive to indentation. Ensure you include the correct 
 
 With the `gravitee.yaml` file, you can configure the following:
 
-* [HTTP Server](general-configuration.md#configure-http-server)
-* [Management and Portal APIs](general-configuration.md#configure-the-management-and-portal-apis)
-* [CORS](general-configuration.md#cors-configuration)
-* [Management repository](general-configuration.md#configure-the-management-repository)
-* [Analytics repository](general-configuration.md#configure-the-analytics-repository)
-* [SMTP](general-configuration.md#smtp-configuration)
-* [Default `gravitee.yaml` file](general-configuration.md#default-gravitee.yaml-config-file)
+* [HTTP Server](./#configure-http-server)
+* [Management and Portal APIs](./#configure-the-management-and-portal-apis)
+* [CORS](./#cors-configuration)
+* [Management repository](./#configure-the-management-repository)
+* [Analytics repository](./#configure-the-analytics-repository)
+* [SMTP](./#smtp-configuration)
+* [Default `gravitee.yaml` file](./#default-gravitee.yaml-config-file)
 
 ## Configure HTTP server
 

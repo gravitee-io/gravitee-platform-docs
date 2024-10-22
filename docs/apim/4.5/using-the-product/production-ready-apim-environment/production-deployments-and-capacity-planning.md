@@ -69,7 +69,7 @@ Monitoring the health and performance of Gravitee APIM Gateways and Management A
 
 **Gateway Internal API Endpoints**
 
-The[ Gateway internal API](../using-the-gravitee-api-management-components/apim-gateway/internal-api.md) and [Management API Internal API](../using-the-gravitee-api-management-components/apim-management-api/internal-api.md) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
+The[ Gateway internal API](../using-the-gravitee-api-management-components/general-configuration/internal-api.md) and [Management API Internal API](broken-reference) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
 
 **Mock Policy for Active Health Checks**
 
@@ -77,7 +77,7 @@ Utilizing an API with a [Mock policy](../manging-your-apis-with-gravitee-api-man
 
 **Prometheus Metrics**
 
-[Integration with Prometheus](../using-the-gravitee-api-management-components/apim-gateway/logging.md#expose-metrics-to-prometheus) allows administrators to expose and collect metrics related to Gravitee APIM Gateways, including Vert.x 4 metrics. By accessing the `/_node/metrics/prometheus` endpoint on the internal API, administrators can retrieve detailed metrics with customizable labels, enabling them to monitor system performance and identify trends over time.
+[Integration with Prometheus](../using-the-gravitee-api-management-components/general-configuration/logging.md#expose-metrics-to-prometheus) allows administrators to expose and collect metrics related to Gravitee APIM Gateways, including Vert.x 4 metrics. By accessing the `/_node/metrics/prometheus` endpoint on the internal API, administrators can retrieve detailed metrics with customizable labels, enabling them to monitor system performance and identify trends over time.
 
 **OpenTracing with Jaeger**
 
@@ -102,7 +102,7 @@ Storage concerns reside at the analytics database level and depend on:
 * API rate (RPS: Requests Per Second)
 * API payload sizes
 
-To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](../using-the-gravitee-api-management-components/apim-gateway/logging.md#modify-logging-information) on all API requests and responses.
+To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](../using-the-gravitee-api-management-components/general-configuration/logging.md#modify-logging-information) on all API requests and responses.
 
 For example, if you have activated the advanced logs on requests and responses with an average (requests + responses) payload size of 10kB and at 10 RPS, then retaining the logs for 6 months will require 1.5 TB of storage.
 {% endtab %}

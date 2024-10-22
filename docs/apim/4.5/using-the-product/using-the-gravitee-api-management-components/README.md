@@ -11,4 +11,4 @@ For more information about these four components and how to use them in your env
 
 
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td><a href="apim-console/">apim-console</a></td><td></td><td></td></tr><tr><td><a href="apim-gateway/">apim-gateway</a></td><td></td><td></td></tr><tr><td><a href="apim-management-api/">apim-management-api</a></td><td></td><td></td></tr><tr><td><a href="developer-portal/">developer-portal</a></td><td></td><td></td></tr><tr><td><a href="configuration.md">configuration.md</a></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td><a href="apim-console/">apim-console</a></td><td></td><td></td></tr><tr><td><a href="broken-reference">Broken link</a></td><td></td><td></td></tr><tr><td><a href="broken-reference">Broken link</a></td><td></td><td></td></tr><tr><td><a href="developer-portal/">developer-portal</a></td><td></td><td></td></tr><tr><td><a href="configuration.md">configuration.md</a></td><td></td><td></td></tr></tbody></table>

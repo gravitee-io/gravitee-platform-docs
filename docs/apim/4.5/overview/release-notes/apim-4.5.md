@@ -32,7 +32,7 @@ The lifecycle of shared policy groups is independent from the deployment lifecyc
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXcoKhPtTopSLkMfTjumJh45pfl1YHyQaldlRED2s9yi9K--mScz9gjxLfFo8OLK_jUfFMr6wKgzcMFCIAikIuBAXr7aq2y1LvRZO6JZQKlRQ_5T2MzQyjtCFil39nezPbfQf5OdtIj09EJEuPgmd_oAf-OA?key=PrMp2J0zWBtqrsqO75zcMw" alt=""><figcaption></figcaption></figure>
 
-For more information about Shared Policy Groups, See [Shared Policy Groups](../../using-the-product/using-the-gravitee-api-management-components/apim-gateway/shared-policy-groups/).
+For more information about Shared Policy Groups, See [Shared Policy Groups](../../using-the-product/using-the-gravitee-api-management-components/general-configuration/shared-policy-groups/).
 
 ## mTLS Plans
 

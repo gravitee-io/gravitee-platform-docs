@@ -43,7 +43,7 @@ To create a plan:
     * **Page of General Conditions:** Select a published [Documentation](../../api-configuration/v4-api-configuration/documentation.md) page whose terms must be accepted by the user to finalize the subscription process
     * Toggle **Auto validate subscription** ON to accept all subscriptions to a plan without the API publisher's approval
     * Toggle **Consumer must provide a comment when subscribing to the plan** ON to require an explanation for the subscription request, with the option to leave a **Custom message to display to consumer**
-    * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../../using-the-gravitee-api-management-components/apim-gateway/sharding-tags.md)
+    * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md)
     * **Groups excluded:** Prevent specified [user groups](../../../administration/user-management-and-permissions.md) from accessing your plan
 7. Click **Next**
 8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See  [**OAuth2**](broken-reference), [**JWT**](broken-reference), [**API Key**](broken-reference), [**Keyless (public)**](broken-reference), or [**Push plan**](broken-reference) for more information.

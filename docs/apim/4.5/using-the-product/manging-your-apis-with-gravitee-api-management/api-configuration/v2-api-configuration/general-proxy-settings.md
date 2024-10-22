@@ -67,7 +67,7 @@ All requests rejected because of CORS issues will generate logs that you can vie
 
 ## Deployments
 
-**Deployments** is where you can choose to use [sharding tags](../../../using-the-gravitee-api-management-components/apim-gateway/sharding-tags.md) sharding tags to control where your API is deployed. To configure sharding tags for your API:
+**Deployments** is where you can choose to use [sharding tags](../../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md) sharding tags to control where your API is deployed. To configure sharding tags for your API:
 
 1.  Select **Deployments** from the inner left nav&#x20;
 

@@ -29,7 +29,7 @@ The metrics in this section describe how well your API conforms to rules set for
 {% tab title="Danger Zone" %}
 Mission-critical (and potentially dangerous) actions:
 
-* **Start the API:** Deploy the API to all Gateways, or the Gateways specified using [Sharding tags](../../../using-the-gravitee-api-management-components/apim-gateway/sharding-tags.md)
+* **Start the API:** Deploy the API to all Gateways, or the Gateways specified using [Sharding tags](../../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md)
 * **Publish the API:** Publish the API to the Developer Portal
 * **Make Public:** Make the API public so that everybody can see it
 * **Deprecate this API:** Unpublish it from the Developer Portal
