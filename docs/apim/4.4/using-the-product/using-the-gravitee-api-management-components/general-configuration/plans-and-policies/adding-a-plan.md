@@ -83,12 +83,4 @@ curl -X GET -i "https://<your-gateway-server>/<your-context-path>"
 The request will be denied with an HTTP **`401 Unauthorized`** error response status code.&#x20;
 {% endhint %}
 
-The error response confirms the keyless plan was removed and all requests are now routed to the API key plan. We will need to subscribe to the API key plan and pass the proper authorization token with each request to continue to use the API.
-
-## Next steps
-
-You should now be starting to grasp the power, versatility, and scope of the Gravitee APIM platform.&#x20;
-
-For the final part of the Quickstart Guide, we will be diving into the Developer Portal to show how API publishers can expose and catalog their APIs, and how API consumers can create applications and subscribe to APIs in a catalog.
-
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Developer Portal 101</td><td></td><td><a href="../../developer-portal-101/">developer-portal-101</a></td></tr></tbody></table>
+The error response confirms the keyless plan was removed and all requests are now routed to the API key plan. We will need to subscribe to the API key plan and pass the proper authorization token with each request to continue to use the API..
