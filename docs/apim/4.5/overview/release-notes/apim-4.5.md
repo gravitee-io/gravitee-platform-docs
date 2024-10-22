@@ -46,7 +46,7 @@ Before this update, you could set up the Gravitee gateway to require client auth
 
 With this update, the mTLS plan enhances this authentication by using the client certificate to authorize requests to APIs using the plan.
 
-For more information about mTLS Plans, see [mTLS Plans](../../using-the-product/manging-your-apis-with-gravitee-api-management/preparing-apis-for-subscribers/plans/mtls/).
+For more information about mTLS Plans, see [mTLS Plans](../../using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans/mtls/).
 
 ## Developer Portal enhancements
 

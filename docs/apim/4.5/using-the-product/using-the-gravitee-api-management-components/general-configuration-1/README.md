@@ -4,7 +4,7 @@ description: >-
   properties, and the gravitee.yaml file
 ---
 
-# Gravitee API Management API
+# Management API
 
 ## Introduction
 
@@ -114,7 +114,7 @@ For more information on CORS, take a look at the [CORS specification](https://ww
 
 CORS can be applied at three different levels:&#x20;
 
-1. [API](../../manging-your-apis-with-gravitee-api-management/api-configuration/v2-api-configuration/general-proxy-settings.md#configure-cors)
+1. [API](../../managing-your-apis/api-configuration/v2-api-configuration/general-proxy-settings.md#configure-cors)
 2. Environment
 3. Organization
 

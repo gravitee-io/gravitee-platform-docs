@@ -1,4 +1,4 @@
-# Custom Install Gravitee API Management with Docker Compose
+# Custom Install with Docker Compose
 
 When you install Gravitee API Management (APIM) with Docker Compose, you can install custom plugins and control the location of the persistent data.
 
@@ -147,7 +147,7 @@ Congratulations! Now that APIM is up and running, check out the [Quickstart Guid
 
 ## Enable Federation
 
-[Federation](../../../../using-the-product/manging-your-apis-with-gravitee-api-management/federation/) is a new capability that was released with Gravitee 4.4.
+[Federation](../../../../using-the-product/managing-your-apis/federation/) is a new capability that was released with Gravitee 4.4.
 
 Federation is disabled by default and must be explicitly activated for it to work.&#x20;
 

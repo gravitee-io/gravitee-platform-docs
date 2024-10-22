@@ -4,7 +4,7 @@ description: >-
   Management
 ---
 
-# Configuring the Dictionaries in Gravitee API Management Gateway
+# Dictionaries
 
 ## Introduction
 
@@ -19,7 +19,7 @@ Dictionaries need to be deployed to the API Gateway before you can use them. You
 {% hint style="info" %}
 **How are dictionaries used?**
 
-You can use dictionaries anywhere in APIM where [Gravitee Expression Language](../../manging-your-apis-with-gravitee-api-management/gravitee-expression-language.md) is supported, such as when defining policies for API flows. You can access dictionary properties with the Expression Language statement `#dictionaries`.
+You can use dictionaries anywhere in APIM where [Gravitee Expression Language](../../managing-your-apis/gravitee-expression-language.md) is supported, such as when defining policies for API flows. You can access dictionary properties with the Expression Language statement `#dictionaries`.
 {% endhint %}
 
 ## Create a new dictionary

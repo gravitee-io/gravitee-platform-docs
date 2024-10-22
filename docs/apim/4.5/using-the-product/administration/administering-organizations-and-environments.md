@@ -50,7 +50,7 @@ Organization-wide CORS settings include:
 * **Max age:** How long the response from a preflight request can be cached by clients.
 
 {% hint style="info" %}
-CORS can also be configured at the API level. For more information, see the [v2 API](../manging-your-apis-with-gravitee-api-management/api-configuration/v2-api-configuration/general-proxy-settings.md#configure-cors) and [v4 API ](../manging-your-apis-with-gravitee-api-management/api-configuration/v4-api-configuration/entrypoints/cors.md)CORS documentation.
+CORS can also be configured at the API level. For more information, see the [v2 API](../managing-your-apis/api-configuration/v2-api-configuration/general-proxy-settings.md#configure-cors) and [v4 API ](../managing-your-apis/api-configuration/v4-api-configuration/entrypoints/cors.md)CORS documentation.
 {% endhint %}
 {% endtab %}
 
@@ -71,14 +71,14 @@ Organization-wide emailing settings include:
   * SSL Trust
 
 {% hint style="info" %}
-To learn more about notifications, refer to the [Notifications](../using-the-gravitee-api-management-components/general-configuration/notifications.md) documentation.
+To learn more about notifications, refer to the [Notifications](broken-reference) documentation.
 {% endhint %}
 {% endtab %}
 {% endtabs %}
 
 ### Platform access
 
-As a part of Organization administration, Gravitee offers multiple ways to manage and control access to the Gravitee platform via identity provider configuration and login/registration settings. See the [Authentication](../../configuration/authentication/) documentation for details.
+As a part of Organization administration, Gravitee offers multiple ways to manage and control access to the Gravitee platform via identity provider configuration and login/registration settings. See the [Authentication](authentication/) documentation for details.
 
 {% hint style="warning" %}
 This should _not_ be confused with [Gravitee Access Management](https://documentation.gravitee.io/am), which is a full-featured Identity and Access Management solution used to control access to applications and APIs.
