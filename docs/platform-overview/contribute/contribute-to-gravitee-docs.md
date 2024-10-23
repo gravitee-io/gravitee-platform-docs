@@ -4,4 +4,4 @@ description: This page describes how you submit feedback about Gravitee's docume
 
 # Documentation feedback
 
-To contribute to Gravitee's documentation, go to [our documentation repository on Github](../../apim/4.5/).&#x20;
+To provide feedback to the documentation team, [submit a Documentation Request on GitHub](https://github.com/gravitee-io/issues/issues/new/choose).
