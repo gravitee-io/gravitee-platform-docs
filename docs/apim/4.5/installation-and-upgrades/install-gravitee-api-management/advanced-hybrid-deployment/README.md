@@ -321,7 +321,7 @@ To verify that you deployed this architecture correctly, complete the following 
 {% hint style="info" %}
 **Additional assets**
 
-* [Hybrid Deployment on Kubernetes](hybrid-deployment-on-kubernetes.md)
+* [Hybrid Deployment on Kubernetes](broken-reference)
 * [Gravitee Helm charts](https://artifacthub.io/packages/helm/graviteeio/apim3)
 {% endhint %}
 {% endtab %}
@@ -394,7 +394,7 @@ gateway:
 {% hint style="info" %}
 **Additional assets**
 
-* [Hybrid deployment on Kubernetes](hybrid-deployment-on-kubernetes.md)
+* [Hybrid deployment on Kubernetes](broken-reference)
 * [Gravitee Helm charts](https://artifacthub.io/packages/helm/graviteeio/apim3)
 {% endhint %}
 {% endtab %}
