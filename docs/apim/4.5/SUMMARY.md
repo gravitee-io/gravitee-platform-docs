@@ -48,7 +48,7 @@
     * [Installing with .ZIP](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-with-.zip.md)
   * [Installing a Gravitee Gateway with a Hybrid Deployment](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/README.md)
     * [Installing a Gravitee Gateway on Kubernetes](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/hybrid-deployment-on-kubernetes.md)
-    * [Installing with a Hybrid Deployment](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/advanced-hybrid-deployment.md)
+    * [Installing a Gravitee Gateway with a Hybrid Deployment](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/advanced-hybrid-deployment.md)
     * [Components of Hybrid architecture](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/components-of-hybrid-architecture.md)
     * [Gateway and Bridge compatibility versions](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/gateway-and-bridge-compatibility-versions.md)
   * [Multi-tenancy](installation-and-upgrades/install-gravitee-api-management/multi-tenancy.md)
