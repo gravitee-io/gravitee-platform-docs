@@ -270,7 +270,6 @@
     * [Configuring the User and Management settings](using-the-product/using-the-gravitee-api-management-components/general-configuration-1/user-and-management-configuration.md)
     * [Configuring the security](using-the-product/using-the-gravitee-api-management-components/general-configuration-1/security.md)
     * [Configuring the Internal API](using-the-product/using-the-gravitee-api-management-components/general-configuration-1/configuring-the-internal-api.md)
-    * [Management API Reference](using-the-product/using-the-gravitee-api-management-components/general-configuration-1/management-api-reference.md)
   * [Management Console](using-the-product/using-the-gravitee-api-management-components/apim-console/README.md)
     * [Configuring notifications and alerts for your APIs](using-the-product/using-the-gravitee-api-management-components/apim-console/configuring-notifications-and-alerts-for-your-apis.md)
   * [Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/README.md)
@@ -305,3 +304,7 @@
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
   * [Contributing to the Gravitee API Management developement](community-and-support/community/contributing-to-the-gravitee-api-management-developement.md)
 * [Contributing to the Gravitee API Management developement](community-and-support/contributing-to-the-gravitee-api-management-developement.md)
+
+## Reference
+
+* [Management API Reference](reference/management-api-reference.md)
