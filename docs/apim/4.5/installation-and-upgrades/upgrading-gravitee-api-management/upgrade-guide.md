@@ -8,7 +8,7 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, please mak
 
 ## Overview
 
-Upgrading to APIM 4.4 is deployment-specific. The 4.0 breaking changes cited below must be noted and/or adopted for a successful upgrade.
+Upgrading to APIM 4.5 is deployment-specific. The 4.0 breaking changes cited below must be noted and/or adopted for a successful upgrade.
 
 {% hint style="warning" %}
 * **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
