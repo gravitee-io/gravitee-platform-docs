@@ -26,13 +26,14 @@ Plans and policies are managed by the API publisher to add different layers of s
 
 There are many possible API access scenarios, any of which can be difficult to encode into your backend services. Plans are a powerful way to decouple the business logic from the access control of your backend services.&#x20;
 
-In APIM, all APIs require at least one plan before they can be deployed on the Gateway. The most important part of plan configuration is selecting the security type. APIM supports the following five security types:
+In APIM, all APIs require at least one plan before they can be deployed on the Gateway. The most important part of plan configuration is selecting the security type. APIM supports the following six security types:
 
 * Keyless (public)
 * Push
 * API Key
 * OAuth 2.0
 * JWT
+* mTLS
 
 APIM intelligently routes API consumers to plans [based on specific criteria](../../guides/api-exposure-plans-applications-and-subscriptions/plans/#plan-selection) in the API request. APIM then uses an application-based subscription model to decide whether to accept or deny an incoming API request.&#x20;
 
