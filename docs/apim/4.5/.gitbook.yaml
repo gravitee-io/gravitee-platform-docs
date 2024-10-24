@@ -1,0 +1,10 @@
+root: ./
+
+​structure:
+  readme: README.md
+  summary: SUMMARY.md​
+
+redirects:
+ getting-started/configuration/configure-alerts-and-notifications: getting-started/configuration/notifications.md
+ guides/api-configuration/v4-api-configuration/entrypoint-configuration: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints.md
+ getting-started/install-and-upgrade-guides/multi-tenancy: installation-and-upgrades/install-gravitee-api-management/multi-tenancy.md
