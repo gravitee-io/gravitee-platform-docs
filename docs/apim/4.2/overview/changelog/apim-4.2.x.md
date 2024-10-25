@@ -44,6 +44,7 @@ description: >-
 * Invalid error content/type when using v4 emulation [#9930](https://github.com/gravitee-io/issues/issues/9930)
 * \[3.20.X and 4.4.X] DNS Resolution fails for hosts having more than 30 A records [#10051](https://github.com/gravitee-io/issues/issues/10051)
 * \[Gateway Distributed Sync] Properly differentiate v2 from v4 API events [#10055](https://github.com/gravitee-io/issues/issues/10055)
+* Error Key champ not present when using Response Template [#9931](https://github.com/gravitee-io/issues/issues/9931)
 
 **Management API**
 

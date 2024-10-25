@@ -62,7 +62,7 @@ v2 APIs have the following phases:
 
 ## Compatibility matrices
 
-The [changelog for each version of APIM](../../releases-and-changelog/changelog/) provides a list of policies included in the default distribution. The documentation for each policy includes the compatibility matrix for APIM and that particular policy.
+The [changelog for each version of APIM](../../overview/changelog/) provides a list of policies included in the default distribution. The documentation for each policy includes the compatibility matrix for APIM and that particular policy.
 
 ## Related learning
 
