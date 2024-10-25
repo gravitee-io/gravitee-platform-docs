@@ -6,6 +6,33 @@ description: >-
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.1 - October 25, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* AM Refresh token active set to false [#10065](https://github.com/gravitee-io/issues/issues/10065)
+* The "path" parameter for SCIM patch requests does not function as expected [#10073](https://github.com/gravitee-io/issues/issues/10073)
+* why does "Skip MFA enrollment" also skips MFA validation on login [#10086](https://github.com/gravitee-io/issues/issues/10086)
+* Password rules not displayed in the registration confirmation webpage [#10089](https://github.com/gravitee-io/issues/issues/10089)
+
+
+
+
+
+**Other**
+
+* /sendChallenge returns status code 0 [#10097](https://github.com/gravitee-io/issues/issues/10097)
+* Original access token out of an OpenID federation is not able to be used for the mapping into the ID token going back to the application [#10104](https://github.com/gravitee-io/issues/issues/10104)
+* Gravitee AM SAML not working [#10106](https://github.com/gravitee-io/issues/issues/10106)
+* Error message on IP filtering policy always returns remote address [#10108](https://github.com/gravitee-io/issues/issues/10108)
+
+</details>
+
+
 ## Gravitee Access Management 4.5 - October 10, 2024
 
 {% hint style="warning" %}
