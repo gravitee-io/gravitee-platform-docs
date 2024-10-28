@@ -226,7 +226,6 @@
     * [Audit Trail](using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/audit-trail.md)
   * [Gravitee Expression Language](using-the-product/managing-your-apis/gravitee-expression-language.md)
 * [Federating your APIs](using-the-product/federating-your-apis/README.md)
-  * [Overview](using-the-product/federating-your-apis/federation.md)
   * [Integrations](using-the-product/federating-your-apis/integrations.md)
   * [Discovery](using-the-product/federating-your-apis/discovery.md)
   * [Federated APIs](using-the-product/federating-your-apis/federated-apis.md)
