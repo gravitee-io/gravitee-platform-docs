@@ -1,4 +1,4 @@
-# Federating your APIs
+# Overview
 
 ## Introduction
 
@@ -16,9 +16,5 @@ If you're hosting Gravitee yourself, then Federation is **deactivated by default
 * [enable Federation when installing with Docker Compose](../../installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/custom-install-with-docker-compose.md#enable-federation)
 * [enable Federation when installing with .zip](../../installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-with-.zip.md#federation)
 {% endhint %}
-
-The pages below discuss the details of federation components and processes.
-
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Integrations</td><td></td><td><a href="integrations.md">integrations.md</a></td></tr><tr><td></td><td>Discovery</td><td></td><td><a href="discovery.md">discovery.md</a></td></tr><tr><td></td><td>Federated APIs</td><td></td><td><a href="federated-apis.md">federated-apis.md</a></td></tr><tr><td></td><td>3rd-party providers</td><td></td><td><a href="3rd-party-providers/">3rd-party-providers</a></td></tr></tbody></table>
 
 \
