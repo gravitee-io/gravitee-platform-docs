@@ -147,7 +147,7 @@ Congratulations! Now that APIM is up and running, check out the [Quickstart Guid
 
 ## Enable Federation
 
-[Federation](../../../../using-the-product/managing-your-apis/federation/) is a new capability that was released with Gravitee 4.4.
+[Federation](../../../../using-the-product/federation/) is a new capability that was released with Gravitee 4.4.
 
 Federation is disabled by default and must be explicitly activated for it to work.&#x20;
 
