@@ -26,7 +26,7 @@
   * [APIM 4.0](https://documentation.gravitee.io/apim/v/4.0-5/releases-and-changelog/release-notes/apim-4.0)
 * [Changelog](overview/changelog/README.md)
   * [APIM 4.5.x](overview/changelog/apim-4.5.x.md)
-  * [APIM 4.4.x](https://documentation.gravitee.io/apim/4.4/overview/changelog/apim-4.4.x)
+  * [APIM 4.4.x](https://documentation.gravitee.io/apim/4.4/overview/release-notes/apim-4.4)
   * [APIM 4.3.x](https://documentation.gravitee.io/apim/v/4.3/overview/changelog/apim-4.3.x)
   * [APIM 4.2.x](https://documentation.gravitee.io/apim/v/4.2/overview/changelog/apim-4.2.x)
   * [APIM 4.1.x](https://documentation.gravitee.io/apim/v/4.1/releases-and-changelog/changelogs/apim-4.1.x-changelog)
