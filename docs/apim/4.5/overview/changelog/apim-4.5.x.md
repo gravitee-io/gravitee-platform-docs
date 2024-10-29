@@ -7,6 +7,7 @@ description: >-
 # APIM 4.5.x
 
 ## Gravitee API Management 4.5.1 - October 24, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -20,7 +21,7 @@ description: >-
 
 * Unable to delete Cors Allow-Origin URL [#9765](https://github.com/gravitee-io/issues/issues/9765)
 * Error on sharding tags page refresh [#10067](https://github.com/gravitee-io/issues/issues/10067)
-* Rollback from history removes groups of users from API  [#10074](https://github.com/gravitee-io/issues/issues/10074)
+* Rollback from history removes groups of users from API [#10074](https://github.com/gravitee-io/issues/issues/10074)
 * Upgrade nginx image to 1.27.2 [#10116](https://github.com/gravitee-io/issues/issues/10116)
 
 **Portal**
