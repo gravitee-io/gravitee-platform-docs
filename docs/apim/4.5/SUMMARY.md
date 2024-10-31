@@ -35,8 +35,6 @@
 ## Installation and upgrades
 
 * [Installing Gravitee API Management](installation-and-upgrades/install-gravitee-api-management/README.md)
-  * [Installing a Gravitee Gateway with a Hybrid Deployment](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/advanced-hybrid-deployment.md)
-    * [Gateway and Bridge compatibility versions](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/gateway-and-bridge-compatibility-versions.md)
   * [Installing a self-hosted Gravitee API Management platform](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/README.md)
     * [Installing on an Amazon instance](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-amazon/README.md)
       * [Installing on an Amazon instance with Quick install](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-amazon/quick-install.md)
@@ -49,6 +47,8 @@
     * [Installing on Kubernetes](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes.md)
     * [Installing with RPM Packages](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-red-hat-and-centos.md)
     * [Installing with .ZIP](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-with-.zip.md)
+  * [Installing a Gravitee Gateway with a Hybrid Deployment](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/advanced-hybrid-deployment.md)
+    * [Gateway and Bridge compatibility versions](installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/gateway-and-bridge-compatibility-versions.md)
   * [Multi-tenancy](installation-and-upgrades/install-gravitee-api-management/multi-tenancy.md)
 * [Upgrading Gravitee API Management](installation-and-upgrades/upgrading-gravitee-api-management/README.md)
   * [Upgrade Guide](installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide.md)
