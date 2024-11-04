@@ -2,7 +2,7 @@
 description: This article explains how to configure a MongoDB repository
 ---
 
-# MongoDB
+# Configuring MongoDB
 
 ## Overview
 
@@ -17,21 +17,21 @@ The MongoDB plugin is part of the default APIM distribution.
 {% hint style="info" %}
 **Support for databases with MongoDB compatibility**
 
-Some databases are almost fully compatible with MongoDB, e.g.:
+Some databases are almost fully compatible with MongoDB. For example:
 
 * DocumentDB (AWS)
 * Azure Cosmos DB for MongoDB (Azure)
 
-However, some features may not be supported, or may behave or perform differently. Consequently, MongoDB is currently the only officially supported database.
+However, some features might not be supported or might perform differently. Consequently, MongoDB is currently the only officially supported database.
 {% endhint %}
 
 ## Configuration
 
-[MongoDB](https://www.mongodb.org/) is the default repository implementation used by APIM.
+MongoDB is the default repository implementation used by APIM. For more information about MongoDB, go to [MongoDB](https://www.mongodb.org/).
 
 ### Mandatory configuration
 
-The example below shows the minimum configuration needed to get started with a MongoDB database.
+The following example shows the minimum configuration that you need to configure a MongoDB database.
 
 ```yaml
 # ===================================================================
@@ -47,9 +47,9 @@ management:
     port:                   # mongodb port (default 27017)
 ```
 
-### Optional configuration
+### (Optional) Customizing the behavior of a MongoDB database
 
-You can configure the following additional properties to customize the behavior of a MongoDB database.
+You can configure the following additional properties to customize the behavior of a MongoDB database:
 
 ```yaml
 # ===================================================================
@@ -114,13 +114,13 @@ management:
     keyPassword:                # password for recovering keys in the KeyStore (when sslEnabled is true, default null)
 ```
 
-## Use a custom prefix
+## Using a custom prefix
 
-You can use a custom prefix for your collection names. For example, this is useful if you want to use the same databases for APIM and AM.
+You can use a custom prefix for your collection names. For example, custom prefixes are useful if you want to use the same databases for APIM and Access Management (AM).
 
-### Use a custom prefix on a new installation
+### Using a custom prefix on a new installation
 
-If you are installing APIM for the first time, you need to update the following two values in the APIM Gateway and APIM API `gravitee.yml` files:
+If you install APIM for the first time, you must update the following two values in the APIM Gateway and APIM API `gravitee.yml` files:
 
 * `management.mongodb.prefix`
 * `ratelimit.mongodb.prefix`
@@ -129,19 +129,92 @@ By default, these values are empty.
 
 ### Migrating an existing installation
 
-Before running any scripts, you must create a dump of your existing database. You need to repeat these steps on both APIM Gateway and APIM API.
+Before running any scripts, you must create a dump of your existing database. You need to repeat these steps for both APIM Gateway and APIM API.
 
-To prefix your collections, you need to rename them. You can use [this script](https://gh.gravitee.io/gravitee-io/gravitee-api-management/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/3.7.0/1-rename-collections-with-prefix.js), which renames all the collections by adding a prefix and rateLimitPrefix of your choice.
+To prefix your collections, complete the following steps:
 
-Then, update the values of `management.mongodb.prefix` and `ratelimit.mongodb.prefix` in the `gravitee.yml` file.
+1. &#x20;Rename the collections. You can use the following script to rename all the collections by adding a prefix and rateLimitPrefix that you choose:
 
-## Index
+```
+print('Add a prefix to all collections');
 
-You can create an index using the [script](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/create-index.js) available from our MongoDB GitHub repository. You must use the correct version of this script for the version of APIM you are running. If you use a custom prefix for collections, do not forget to set it on the first line of the script.
+const collections = [
+    'apiqualityrules',
+    'applications',
+    'keys',
+    'identity_provider_activations',
+    'users',
+    'tickets',
+    'genericnotificationconfigs',
+    'workflows',
+    'environments',
+    'invitations',
+    'client_registration_providers',
+    'page_revisions',
+    'ratingAnswers',
+    'apis',
+    'rating',
+    'themes',
+    'metadata',
+    'alert_triggers',
+    'parameters',
+    'dashboards',
+    'events',
+    'identity_providers',
+    'audits',
+    'categories',
+    'tenants',
+    'portalnotifications',
+    'custom_user_fields',
+    'alert_events',
+    'roles',
+    'entrypoints',
+    'metadatas',
+    'memberships',
+    'dictionaries',
+    'qualityrules',
+    'pages',
+    'groups',
+    'portalnotificationconfigs',
+    'installation',
+    'notificationTemplates',
+    'commands',
+    'tokens',
+    'apiheaders',
+    'plans',
+    'tags',
+    'subscriptions',
+    'organizations',
+];
+
+try {
+    // Use your prefix here
+    const prefix = "";
+    const rateLimitPrefix = "";
+    collections.forEach(collectionName => {
+        db.getCollection(collectionName).renameCollection(`${prefix}${collectionName}`);
+    })
+
+    db.ratelimit.renameCollection(`${rateLimitPrefix}ratelimit`);
+} catch(e) {
+    print(`Error while renaming collection.\nError: ${e}`);
+}
+```
+
+2. In the `gravitee.yml` file, update the values of `management.mongodb.prefix` and `ratelimit.mongodb.prefix`&#x20;
+
+## Creating an Index
+
+To create an index, use the script available from the Gravitee MongoDB GitHub repository. To view the script, go to the [Gravitee GitHub repository](https://github.com/gravitee-io/gravitee-api-management/blob/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/create-index.js).
+
+{% hint style="warning" %}
+* Use the version of the script that matches your version of APIM.
+* If you use a custom prefix, set the prefix on the first line of the script.
+{% endhint %}
 
 ## Security
 
-You may need to apply specific security constraints and rules to users accessing your database. The following table summarizes how to define granular constraints per collection.
+You might need to apply specific security constraints and rules to users accessing your database. The following table summarizes how to define granular constraints for each collection.
 
 | Component    | Read-only                           | Read-write                       |
 | ------------ | ----------------------------------- | -------------------------------- |

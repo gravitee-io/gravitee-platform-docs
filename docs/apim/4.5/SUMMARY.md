@@ -54,15 +54,12 @@
   * [Upgrade Guide](installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide.md)
   * [Upgrading with RPM packages](installation-and-upgrades/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages.md)
   * [Breaking changes and deprecated functionality for API Management](installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md)
-
-## Configuration
-
-* [Gravitee API Management repositories](configuration/repositories/README.md)
-  * [Configuring MongoDB](configuration/repositories/mongodb.md)
-  * [Configuring ElasticSearch](configuration/repositories/elasticsearch.md)
-  * [Configuring JDBC for Gravitee API Management](configuration/repositories/jdbc.md)
-  * [Configuring Redis for Gravitee API Management](configuration/repositories/redis.md)
-* [Configuring Gravitee API Management Cache](configuration/cache.md)
+* [Configuring data storage](installation-and-upgrades/repositories/README.md)
+  * [Configuring MongoDB](installation-and-upgrades/repositories/mongodb.md)
+  * [Configuring Relational Databases](installation-and-upgrades/repositories/jdbc.md)
+  * [Configuring ElasticSearch](installation-and-upgrades/repositories/elasticsearch.md)
+  * [Configuring Redis for rate limiting](installation-and-upgrades/repositories/redis.md)
+  * [Configuring caching](installation-and-upgrades/repositories/cache.md)
 
 ## Using the product
 
@@ -286,7 +283,7 @@
       * [Publishing your API with the Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/publishing-your-api-with-the-gravitee-developer-portal.md)
       * [Managing API documentation with the Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation.md)
   * [Configuring the Gravitee API Management configuration](using-the-product/using-the-gravitee-api-management-components/configuration.md)
-* [Creating a production-ready API Management environment](using-the-product/production-ready-apim-environment/README.md)
+* [Creating a production-ready  environment](using-the-product/production-ready-apim-environment/README.md)
   * [Preparing a production deployment of Gravitee API Management](using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning.md)
   * [Configuring Internal APIs](using-the-product/production-ready-apim-environment/internal-apis.md)
   * [Deploying the Console and Developer Portal APIs](using-the-product/production-ready-apim-environment/deployment.md)
