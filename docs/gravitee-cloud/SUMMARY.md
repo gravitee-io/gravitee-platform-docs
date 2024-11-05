@@ -27,6 +27,8 @@
 ## reference
 
 * [Cloud API Reference](reference/cloud-api-reference.md)
+* [Release Notes](reference/release-notes/README.md)
+  * [September 28](reference/release-notes/september-28.md)
 
 ## Community and Support
 
