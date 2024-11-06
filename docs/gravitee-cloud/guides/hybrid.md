@@ -102,7 +102,7 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 {% tab title="Docker" %}
 a. Copy your Cloud Token and License Key.&#x20;
 
-b . Run the following script:
+b. Run the following script:
 
 ```bash
 docker run -d \
