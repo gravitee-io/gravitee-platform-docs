@@ -70,6 +70,11 @@ Identity Providers now provide a [Group Mapper](../../guides/identity-providers/
 
 A cache layer has been introduce to limit the Database access during the user authentication flow.
 
+### Upgrader framework
+
+AM now provide the same upgrader framework as APIM meaning that from 4.5.0, no manual scripts need to be executed before an upgrade.
+When AM is deployed on kuberneetes using Helm, the value `api.upgrader` needs to be set to `true` so before starting the Management API or the Gateway the helm chart will deploy a job to execute the upgraders. 
+
 </details>
 
 <details>
