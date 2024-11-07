@@ -359,7 +359,7 @@ ratelimit:
     prefix: # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../../../configuration/repositories/#use-a-custom-prefix).
+If you want to use a custom prefix, you need to follow the following [instructions](../../../installation-and-upgrades/repositories/#use-a-custom-prefix).
 {% endtab %}
 
 {% tab title="JDBC" %}
@@ -375,7 +375,7 @@ ratelimit:
     prefix:   # collection prefix
 ```
 
-If you want to use a custom prefix, you need to follow the following [instructions](../../../configuration/repositories/#use-a-custom-prefix-1).
+If you want to use a custom prefix, you need to follow the following [instructions](../../../installation-and-upgrades/repositories/#use-a-custom-prefix-1).
 {% endtab %}
 
 {% tab title="Redis Standalone" %}
@@ -390,7 +390,7 @@ ratelimit:
     password: 'mysecretpassword'
 ```
 
-Redis Sentinel and Redis SSL configuration options are presented [here](../../../configuration/repositories/#redis).
+Redis Sentinel and Redis SSL configuration options are presented [here](../../../installation-and-upgrades/repositories/#redis).
 {% endtab %}
 {% endtabs %}
 

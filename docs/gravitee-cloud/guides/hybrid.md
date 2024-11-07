@@ -96,6 +96,29 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 
 <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up with last step where you are able to copy your generated Cloud Token and your License.</p></figcaption></figure>
 
+9. Depending on your installation method, complete either of the following steps:
+
+{% tabs %}
+{% tab title="Docker" %}
+a. Copy your Cloud Token and License Key.&#x20;
+
+b. Run the following script:
+
+```bash
+docker run -d \
+  --name gio-apim-hybrid-gateway \
+  -p 8082:8082 \
+  -e gravitee_cloud_token=<cloud_token> \
+  -e gravitee_license_key=<license_key> \
+  graviteeio/apim-gateway:4.4.10
+```
+
+* Replace \<cloud\_token> and \<license\_key> with the Cloud token and License Key from step a.&#x20;
+{% endtab %}
+{% endtabs %}
+
+
+
 9. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
 
 <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Gravitee Cloud Dashboard, now with one hybrid gateway configuration added to Development environment.</p></figcaption></figure>
