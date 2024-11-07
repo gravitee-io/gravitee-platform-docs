@@ -5,6 +5,35 @@ description: >-
 ---
 
 # APIM 4.4.x
+ 
+## Gravitee API Management 4.4.13 - November 5, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Inconsistent application of validateSubscription flag [#10120](https://github.com/gravitee-io/issues/issues/10120)
+* Sync process failed if subscription exists without the linked API [#10140](https://github.com/gravitee-io/issues/issues/10140)
+
+**Management API**
+
+* Page revisions are still present when the associated API is deleted [#10039](https://github.com/gravitee-io/issues/issues/10039)
+* API webhook notifier is not working for subscriptions [#10056](https://github.com/gravitee-io/issues/issues/10056)
+* Alert Templates are always created in default environment [#10126](https://github.com/gravitee-io/issues/issues/10126)
+
+**Console**
+
+* Code blocks and long strings of text cause overflow of documentation text in the new dev portal [#10048](https://github.com/gravitee-io/issues/issues/10048)
+
+**Other**
+
+* Gateways can not reconnect to the bridge mapi [#10101](https://github.com/gravitee-io/issues/issues/10101)
+* \[gravitee-policy-jwt] Complete gateway disruption occurred in retrieving JWT public keys after startup under a heavy load of API calls [#10119](https://github.com/gravitee-io/issues/issues/10119)
+
+</details>
+
+
 
 ## Gravitee API Management 4.4.12 - October 24, 2024
 <details>

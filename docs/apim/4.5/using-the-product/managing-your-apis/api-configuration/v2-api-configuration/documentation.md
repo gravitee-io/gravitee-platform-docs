@@ -8,16 +8,18 @@ description: This article describes how to create documentation for v2 APIs
 
 With the APIM Console, you can create API documentation, import API documentation, and add API metadata. Gravitee supports ASCIIDOC, AsyncAPI spec, OpenAPI spec, Swagger, and Markdown formats.
 
-## Import documentation files
+You can add the documentation through the API Management (APIM) Console to inform API consumers how to use an API. If the API and documentation are both published to the Developer Portal, the documentation appears in the Portal.
+
+## Importing documentation files
 
 To import documentation:
 
-1. Log in to your APIM Console
-2. Select **APIs** from the left nav
-3. Select your API
-4. Select **Documentation** from the inner left nav
-5. Select the **Pages** tab
-6. Choose one of the following two options:
+1. Sign in to your APIM Console
+2. From the navigation menu, select **APIs**
+3. Select your API.
+4. From the inner left nav, select **Documentation**.
+5. Select the **Pages** tab.
+6. To import documentation files, choose either of the following options:
    *   Click on **Import multiple files**&#x20;
 
        <figure><img src="../../../../.gitbook/assets/v2 docs_import multiple files.png" alt=""><figcaption><p>Import multiple files</p></figcaption></figure>
@@ -32,20 +34,22 @@ To import documentation:
      *   Under the **Pages** tab, click the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon&#x20;
 
          <figure><img src="../../../../.gitbook/assets/v2 docs_create.png" alt=""><figcaption><p>Import via page creation</p></figcaption></figure>
-     * Choose from **ASCIIDOC**, **ASYNCAPI**, **SWAGGER**, and **MARKDOWN**
-     * Scroll down to the bottom of the configuration page and click **Choose File**
-     * After selecting your file, click **SAVE**
+     * Select one of the following options:
+       * ASCIIDOC
+       * ASYNCAPI
+       * SWAGGER
+       * MARKDOWN
+     * At the bottom of the configuration page, click **Choose File**.
+     * After you select your file, click **SAVE**.
 
-## Create API documentation
+## Creating API documentation
 
-To create API documentation:
-
-1. Log in to your APIM Console
-2. Select **APIs** from the left nav
-3. Select your API
-4. Select **Documentation** from the inner left nav
-5. Under the **Pages** tab, select the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon
-6. Select your preferred format
+1. SIgn in to your APIM Console
+2. From the left nav, select **APIs**&#x20;
+3. Select the API that you want to add documentation to.
+4. From the inner left nav, select **Documentation**.
+5. Under the **Pages** tab, select the <img src="../../../../.gitbook/assets/Screen Shot 2023-06-08 at 3.06.53 PM.png" alt="" data-size="line"> icon.
+6. Select your preferred format.
 7. Create and configure your documentation:
    1. Give your documentation a name
    2. Choose whether to:
@@ -72,3 +76,8 @@ To add metadata:
     <figure><img src="../../../../.gitbook/assets/v2 docs_metadata.png" alt=""><figcaption><p>Add API metadata</p></figcaption></figure>
 7. Choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value
 8. Click **Save**
+
+## Referencing metadata
+
+
+

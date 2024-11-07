@@ -4,4 +4,4 @@ Welcome to the documentation site for Gravitee API Management (APIM). Gravitee A
 
 For introductory content about APIM, see the following articles:&#x20;
 
-<table data-card-size="large" data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td><a href="./">.</a></td><td></td><td></td></tr><tr><td><a href="overview/readme/architecture.md">architecture.md</a></td><td></td><td></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td></td><td><a href="overview/readme/overview.md">Overview</a></td><td></td></tr><tr><td><a href="overview/readme/architecture.md">architecture.md</a></td><td></td><td></td></tr></tbody></table>

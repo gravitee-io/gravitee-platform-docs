@@ -8,7 +8,9 @@ description: >-
 
 ## Overview
 
-The tables below summarize major integrations that Gravitee API Management (APIM) offers with other enterprise tooling.
+Gravitee's gateway integrates with a number of different types of enterprise software. These integrations allow users to expose these resources as APIs through the gateway and developer portal. Additionally, Gravitee provides direct and indirect integrations with APM, service discovery, cache, and documentation services.
+
+The following tables summarize major integrations that Gravitee API Management (APIM) offers with other enterprise tooling.
 
 ## Event brokers
 
