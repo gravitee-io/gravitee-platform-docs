@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.9 - October 25, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* why does "Skip MFA enrollment" also skips MFA validation on login [#10086](https://github.com/gravitee-io/issues/issues/10086)
+
+
+
+
+
+**Other**
+
+* /sendChallenge returns status code 0 [#10097](https://github.com/gravitee-io/issues/issues/10097)
+* Original access token out of an OpenID federation is not able to be used for the mapping into the ID token going back to the application [#10104](https://github.com/gravitee-io/issues/issues/10104)
+* Gravitee AM SAML not working [#10106](https://github.com/gravitee-io/issues/issues/10106)
+* Error message on IP filtering policy always returns remote address [#10108](https://github.com/gravitee-io/issues/issues/10108)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.8 - October 14, 2024
 
 <details>
