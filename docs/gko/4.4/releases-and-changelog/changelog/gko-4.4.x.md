@@ -15,6 +15,23 @@ There is nothing new in version 4.4.12.
   * Allow to set imagePullSecrets in deployments using Helm [#10092](https://github.com/gravitee-io/issues/issues/10092)
 </details>
 
+## Gravitee Kubernetes Operator 4.4.10 - October 1, 2024
+
+<details>
+<summary>Bug fixes</summary>
+
+  * GKO - Unable to import API V4 Message with push plan - 400 Bad Request : PlanSecurityType empty [#10036](https://github.com/gravitee-io/issues/issues/10036)
+  * Plan description field is optional in APIM but required in GKO [#10041](https://github.com/gravitee-io/issues/issues/10041)
+</details>
+
+## Gravitee Kubernetes Operator 4.4.9 - September 16, 2024
+
+<details>
+<summary>Bug fixes</summary>
+
+  * updates to API v4 are not deployed on the gateway [#10009](https://github.com/gravitee-io/issues/issues/10009)
+  * sync-process probe passes to healthy before APIs are deployed [#9797](https://github.com/gravitee-io/issues/issues/9797)
+</details>
 
 ## Gravitee Kubernetes Operator 4.4.8 - September 2, 2024
     

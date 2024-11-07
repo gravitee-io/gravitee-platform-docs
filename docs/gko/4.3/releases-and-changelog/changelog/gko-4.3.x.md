@@ -15,6 +15,12 @@ There is nothing new in version 4.3.16.
   * Allow to set imagePullSecrets in deployments using Helm [#10092](https://github.com/gravitee-io/issues/issues/10092)
 </details>
 
+## Gravitee Kubernetes Operator 4.3.14 - October 1, 2024
+
+There is nothing new in version 4.3.14.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
 
 ## Gravitee Kubernetes Operator 4.3.12 - September 2, 2024
     
