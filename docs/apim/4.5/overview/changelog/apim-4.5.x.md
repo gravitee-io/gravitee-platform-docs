@@ -67,3 +67,42 @@ description: >-
 * \[JDBC] Unable to create federation [#10107](https://github.com/gravitee-io/issues/issues/10107)
 
 </details>
+
+## Gravitee API Management 4.5.0 - October 10, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Transfer subscription does not use new plan when V4 emulation is disabled [#10047](https://github.com/gravitee-io/issues/issues/10047)
+* \[3.20.X and 4.4.X] DNS Resolution fails for hosts having more than 30 A records [#10051](https://github.com/gravitee-io/issues/issues/10051)
+* \[Gateway Distributed Sync] Properly differentiate v2 from v4 API events [#10055](https://github.com/gravitee-io/issues/issues/10055)
+* \[gravitee-node] Gravitee metrics return NaN [#10070](https://github.com/gravitee-io/issues/issues/10070)
+
+**Management API**
+
+* Issue on permissions of the ORGANIZATION_USER role [#10040](https://github.com/gravitee-io/issues/issues/10040)
+
+**Console**
+
+* Not able to see API events in Dashboard [#10018](https://github.com/gravitee-io/issues/issues/10018)
+* Analytics dashboard filtered become empty when a tenant is selected [#10019](https://github.com/gravitee-io/issues/issues/10019)
+* Redirect user to login screen when JWT token has expired [#10029](https://github.com/gravitee-io/issues/issues/10029)
+* Button color UI bug [#10035](https://github.com/gravitee-io/issues/issues/10035)
+
+**Portal**
+
+* Users without admin or API access cannot view application API keys in the new dev portal [#10014](https://github.com/gravitee-io/issues/issues/10014)
+* Search bar not sorting results properly on portal for API [#10075](https://github.com/gravitee-io/issues/issues/10075)
+
+**Helm Charts**
+
+* Add serviceAccount in helm chart  [#10057](https://github.com/gravitee-io/issues/issues/10057)
+* Update values.yml to Values.gateway.ratelimit.management.http.url  [#10091](https://github.com/gravitee-io/issues/issues/10091)
+
+**Other**
+
+* \[gravitee-policy-data-logging-masking] DLM policies will not allow the DataDog Reporter to forward logs to DataDog if a property is not found [#10044](https://github.com/gravitee-io/issues/issues/10044)
+
+</details>
