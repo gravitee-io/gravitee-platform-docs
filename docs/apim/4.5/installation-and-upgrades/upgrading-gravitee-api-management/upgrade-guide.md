@@ -23,12 +23,12 @@ Some plugins are available to only customers with the Enterprise Edition of Grav
 ## Running APIM
 
 * APIM requires a minimum of JDK 17.
-* There are no longer enterprise tags (i.e., suffixed by `-ee`).
+* There are no longer enterprise tags. For example, suffixed by `-ee`.
 * Cluster managers are available as plugins. Hazelcast Cluster Manager has been removed from the default distribution.
-* TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
+* By default, TLS 1.0 and TLS 1.1 protocols are disabled. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
 
 {% code overflow="wrap" %}
-````
+````yaml
 ```yaml
 http:
   ssl:
@@ -37,13 +37,13 @@ http:
 ````
 {% endcode %}
 
-```
+```yaml
 &#x20;or using environment variables:
 
 ```
 
 {% code overflow="wrap" %}
-````
+````bash
 ```bash
 GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 ```
@@ -52,9 +52,9 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 
 ## **Monitoring APIM**
 
-* The name of the sync probe has been changed from `api-sync` to `sync-process` to make the completion of all sync processes explicit.
-* The content of the sync handler has changed slightly to align with new concepts:
-  * `initialDone`: `true` if the first initial synchronization is done
+* To make the completion of all sync processes explicit, the name of the sync probe has been changed from `api-sync` to `sync-process`.
+* The content of the sync handler has changed to align with new concepts:
+  * `initialDone`: `true` if the first initial synchronization is complete
   * `counter`: The number of iterations
   * `nextSyncTime`: Time of the next synchronization
   * `lastOnError`: The latest synchronization with an error
@@ -63,21 +63,23 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 
 ## **Managing APIs**
 
-*   The endpoint configuration is now split into:
+* The endpoint configuration is now split into the following two configurations:
+  * A shared configuration that can be used at the group level.
+  * A configuration dedicated to the endpoint that can override the shared configuration.
 
-    * A shared configuration that can be used at the group level
-    * A configuration dedicated to the endpoint that can override the shared configuration
+{% hint style="info" %}
+Existing v4 APIs need to be updated and reconfigured accordingly.
+{% endhint %}
 
-    Existing v4 APIs need to be updated and reconfigured accordingly.
-* An unused and outdated file synchronization feature known as `localregistry` has been removed.
-* Subscriptions with `type: SUBSCRIPTION` have been renamed to `type: PUSH`. Plans have a new field called `mode` that is `STANDARD` by default but needs to be `PUSH` for all Push plans.
+* The file synchronization feature known as `localregistry` has been removed.
+* Subscriptions with `type: SUBSCRIPTION` have been renamed to `type: PUSH`. By default, Plans have a new field called `mode` that is set to `STANDARD`. For all Push plans, you must set this field to `PUSH`.
   * A [mongo script](https://github.com/gravitee-io/gravitee-api-management/tree/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/4.0.0) is available to migrate the data in MongoDB.
-* Jupiter mode has been replaced with the v4 emulation engine:
+* Jupiter mode has been replaced with the v4 emulation engine. This replacement has the followig implications:
   * `jupiterModeEnabled` configuration has been removed and can no longer be disabled.
   * By default, any v2 API created or imported will emulate v4 Engine.
-  * All new requests will use the new `HttpProtocolVerticle` introduced with the v4 engine. The legacy `ReactorVerticle` has been removed.
-  * The default timeout is set to 30s for any request.
-*   Security policies such as Keyless, ApiKey, JWT, and OAuth2 have been updated to return a simple unauthorized message in case of an error. No additional details are provided to protect against a potential attacker. **This impacts both v2 and v4 APIs.** Error keys remain available for error templating. Error keys by policy:
+  * All new requests use the new `HttpProtocolVerticle` introduced with the v4 engine. The legacy `ReactorVerticle` has been removed.
+  * For any request, the default timeout is set to 30 seconds.
+*   Security policies such as Keyless, ApiKey, JWT, and OAuth2 have been updated to return a simple unauthorized message in case of an error. No additional details are provided to protect against a potential attacker. **This impacts both v2 and v4 APIs.** Error keys remain available for error templating. Here are the error keys by policy:
 
     <table><thead><tr><th width="148">Policy</th><th>Error key</th></tr></thead><tbody><tr><td>ApiKey</td><td><ul><li>API_KEY_MISSING</li><li>API_KEY_INVALID</li><li><p>JWT</p><ul><li>JWT_MISSING_TOKEN</li><li>JWT_INVALID_TOKEN</li></ul></li></ul></td></tr><tr><td>OAuth2</td><td><ul><li>OAUTH2_MISSING_SERVER</li><li>OAUTH2_MISSING_HEADER</li><li>OAUTH2_MISSING_ACCESS_TOKEN</li><li>OAUTH2_INVALID_ACCESS_TOKEN</li><li>OAUTH2_INVALID_SERVER_RESPONSE</li><li>OAUTH2_INSUFFICIENT_SCOPE</li><li>OAUTH2_SERVER_UNAVAILABLE</li></ul></td></tr></tbody></table>
 *   Plan selection has been changed to reflect the actual security applied on the API:
@@ -86,7 +88,7 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 * Plugins are overridden when duplicates (id/type) are found. The plugin zip file with the most recent modified time is kept and others are ignored. This allows `additionalPlugins` for Helm Chart-based deployment to operate efficiently without the need to remove bundled plugins.
 * The v4 API definition expects a `FlowExecution` object instead of a `FlowMode` enumeration.
 * The Gravitee Expression Language (EL) syntax to access custom API properties has changed from `{#properties}` to `{#api.properties}`.
-* The `Endpoint` schema is now split into two schemas and the `Endpoint` object contains two string fields to manage both the configuration specific to the endpoint and the configuration that may be overridden from the `EndpointGroup`.
+* The `Endpoint` schema is now split into two schemas. Also, the `Endpoint` object contains two string fields to manage both the configuration specific to the endpoint and the configuration that may be overridden from the `EndpointGroup`.
 * Endpoint name and endpoint group name must be unique.
 *   Analytics have been introduced and the legacy logging configuration has been moved. For v4 APIs only, a new `Analytics` object is available on the API allowing you to configure all aspects of analytics:
 
@@ -134,7 +136,7 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
 
 ## Updating Cloud connection
 
-APIM 4.2 brings improved management of multi-tenancy mode, where one APIM installation now tends to multiple tenants on either the Organization on Environment level.\
+APIM 4.2 brings improved management of multi-tenancy mode, where one APIM installation now tends to multiple tenants on either the Organization or Environment level.\
 \
 Multi-tenancy support in Gravitee 4.2 necessitated changes to both APIM and Cloud, but customer deployments may continue to function as `standalone` APIM installations. A `standalone` installation behaves the same as APIM 4.1 connected to Cloud.\
 \
@@ -173,7 +175,7 @@ installation:
 The user must edit the Management API's `gravitee.yaml`.
 {% endhint %}
 
-If an APIM installation with multiple Consoles and/or Portals set up in a connected Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
+If an APIM installation with multiple Consoles and Portals set up in a connected Cloud is upgraded to 4.2, the user must make the following changes to the Management API's `gravitee.yaml` file for the installation to function as `standalone`:
 
 ```yaml
 installation:
