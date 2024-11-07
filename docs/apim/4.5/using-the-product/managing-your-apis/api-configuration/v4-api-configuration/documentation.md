@@ -179,6 +179,22 @@ To view metadata keys and values for v4 API documentation, click **Add API Metad
 
 Changes to metadata values are reflected on the portal.
 
+## Referencing Metadata
+
+To reference metadata in the markdown entry, use the following syntax:&#x20;
+
+```
+${api.metadata['<value>']}
+```
+
+* Replace \<value> with the metadata entry that you want to reference.
+
+Here is an example that references a metadata entry named **custom**:&#x20;
+
+```
+${api.metadata['custom']}
+```
+
 ## Editing
 
 To edit or delete folders or pages, or to change the documentation structure, select the **Pages** header and use the icons in the **Actions** section of an entry. All edits are immediately shown in the Developer Portal.

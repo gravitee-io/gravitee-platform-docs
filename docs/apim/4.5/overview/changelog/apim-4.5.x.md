@@ -1,12 +1,42 @@
 ---
 description: >-
-  This page contains the changelog entries for APIM 4.4.x and any future patch
-  APIM 4.4.x releases
+  This page contains the changelog entries for APIM 4.5.x and any future patch
+  APIM 4.5.x releases
 ---
 
 # APIM 4.5.x
 
+## Gravitee API Management 4.5.2 - November 5, 2024
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Inconsistent application of validateSubscription flag [#10120](https://github.com/gravitee-io/issues/issues/10120)
+* Sync process failed if subscription exists without the linked API [#10140](https://github.com/gravitee-io/issues/issues/10140)
+
+**Management API**
+
+* Page revisions are still present when the associated API is deleted [#10039](https://github.com/gravitee-io/issues/issues/10039)
+* API webhook notifier is not working for subscriptions [#10056](https://github.com/gravitee-io/issues/issues/10056)
+* Alert Templates are always created in default environment [#10126](https://github.com/gravitee-io/issues/issues/10126)
+* Updating the application generates an exception. [#10130](https://github.com/gravitee-io/issues/issues/10130)
+
+**Console**
+
+* Code blocks and long strings of text cause overflow of documentation text in the new dev portal [#10048](https://github.com/gravitee-io/issues/issues/10048)
+
+**Other**
+
+* Gateways can not reconnect to the bridge mapi [#10101](https://github.com/gravitee-io/issues/issues/10101)
+* \[gravitee-policy-jwt] Complete gateway disruption occurred in retrieving JWT public keys after startup under a heavy load of API calls [#10119](https://github.com/gravitee-io/issues/issues/10119)
+
+</details>
+
 ## Gravitee API Management 4.5.1 - October 24, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -20,7 +50,7 @@ description: >-
 
 * Unable to delete Cors Allow-Origin URL [#9765](https://github.com/gravitee-io/issues/issues/9765)
 * Error on sharding tags page refresh [#10067](https://github.com/gravitee-io/issues/issues/10067)
-* Rollback from history removes groups of users from API  [#10074](https://github.com/gravitee-io/issues/issues/10074)
+* Rollback from history removes groups of users from API [#10074](https://github.com/gravitee-io/issues/issues/10074)
 * Upgrade nginx image to 1.27.2 [#10116](https://github.com/gravitee-io/issues/issues/10116)
 
 **Portal**
