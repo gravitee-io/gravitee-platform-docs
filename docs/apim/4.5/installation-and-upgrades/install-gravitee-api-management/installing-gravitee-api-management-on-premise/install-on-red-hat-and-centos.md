@@ -4,7 +4,7 @@ description: >-
   using the YUM package manager.
 ---
 
-# Installing Gravitee API Management using RPM Packages
+# Installing with RPM Packages
 
 ## Before you begin
 
@@ -87,11 +87,11 @@ http_port_t                    tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443
 4. Restart Nginx
 {% endhint %}
 
-### Install the full APIM stack
+### Installing the full APIM stack
 
 <details>
 
-<summary>Installing Gravitee API Management on Linux with Quick install</summary>
+<summary>Installing Gravitee API Management with Quick install</summary>
 
 #### Prerequisites
 
@@ -139,7 +139,7 @@ $ curl -X GET http://localhost:8085/
 
 </details>
 
-### Installing Gravitee's API Management components on Linux using Manual install
+### Installing Gravitee's API Management components individually
 
 {% hint style="info" %}
 **Gravitee dependencies**
