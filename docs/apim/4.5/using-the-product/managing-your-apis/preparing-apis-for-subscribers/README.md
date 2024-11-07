@@ -6,4 +6,4 @@ For more information about preparing your APIs for subscribers, see the followin
 
 
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td><a href="plans/">plans</a></td><td></td><td></td></tr><tr><td><a href="broken-reference">Broken link</a></td><td></td><td></td></tr><tr><td><a href="applications.md">applications.md</a></td><td></td><td></td></tr><tr><td><a href="subscriptions.md">subscriptions.md</a></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td><a href="plans/">plans</a></td><td></td><td></td></tr><tr><td><a href="types-of-plans.md">types-of-plans.md</a></td><td></td><td></td></tr><tr><td><a href="applications.md">applications.md</a></td><td></td><td></td></tr><tr><td><a href="subscriptions.md">subscriptions.md</a></td><td></td><td></td></tr></tbody></table>

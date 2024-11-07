@@ -1,4 +1,4 @@
-# Install Gravitee API Management with Docker Images Install
+# Installing with Docker Images Install
 
 ## Before you begin
 
@@ -174,8 +174,4 @@ The Developer Portal is on the `frontend` network and uses `/gravitee/apim-porta
 {% hint style="info" %}
 * The default username for the Console and the Developer Portal is admin.
 * The default password for the Developer Portal is admin.
-{% endhint %}
-
-{% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](broken-reference) for your next steps.
 {% endhint %}
