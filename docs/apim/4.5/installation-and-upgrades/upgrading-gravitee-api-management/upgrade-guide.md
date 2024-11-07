@@ -3,7 +3,7 @@
 {% hint style="danger" %}
 **Upgrade your license file**
 
-If you are an existing Gravitee Enterprise customer upgrading to 4.x, please make sure that you upgrade your Gravitee license file. Reach out to your Customer Success Manager or Support team in order to receive a new 4.x license.
+If you are an existing Gravitee Enterprise customer upgrading to 4.x, you must upgrade your Gravitee license file. To upgrade your license file, contact your Customer Success Manager or Support team to receive a new 4.x license.
 {% endhint %}
 
 ## Overview
