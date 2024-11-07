@@ -8,17 +8,17 @@ If you are an existing Gravitee Enterprise customer upgrading to 4.x, you must u
 
 ## Overview
 
-Upgrading to APIM 4.5 is deployment-specific. The 4.0 breaking changes cited below must be noted and/or adopted for a successful upgrade.
+Upgrading to APIM 4.5 is deployment-specific. For a successful upgrade, you must note and adopt the following 4.0 breaking changes:
 
 {% hint style="warning" %}
-* **If your upgrade will skip versions:** Read the version-specific upgrade notes for each intermediate version. You may be required to perform manual actions as part of the upgrade.
-* **Run scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
-* **Ensure that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [Breaking changes and deprecated functionality for API Management](https://documentation.gravitee.io/apim/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality).
+* **Skipping versions**: If your upgrade skips versions of APIM, read the version-specific upgrade notes for each version that your upgrade skips. You might be required to perform manual actions as part of the upfrade.
+* **Running scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
+* **Ensuring that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [Breaking changes and deprecated functionality for API Management](https://documentation.gravitee.io/apim/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality).
 {% endhint %}
 
-## EE plugins
+## Enterprise Edition plugins
 
-Particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../../overview/gravitee-apim-enterprise-edition/) for additional information.
+Some plugins are available to only customers with the Enterprise Edition of Gravitee. For more information about Enterprise Edition plugins, see [gravitee-apim-enterprise-edition](../../overview/gravitee-apim-enterprise-edition/ "mention").
 
 ## Running APIM
 
