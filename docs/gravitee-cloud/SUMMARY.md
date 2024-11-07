@@ -28,8 +28,6 @@
 
 * [Cloud API Reference](reference/cloud-api-reference.md)
 * [Release Notes](reference/release-notes.md)
-* [Service Level Agreements](reference/service-level-agreements.md)
-* [Upgrade policy](reference/upgrade-policy.md)
 
 ## Community and Support
 
