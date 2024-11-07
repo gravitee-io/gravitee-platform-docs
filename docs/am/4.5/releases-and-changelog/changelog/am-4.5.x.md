@@ -19,10 +19,6 @@ description: >-
 * why does "Skip MFA enrollment" also skips MFA validation on login [#10086](https://github.com/gravitee-io/issues/issues/10086)
 * Password rules not displayed in the registration confirmation webpage [#10089](https://github.com/gravitee-io/issues/issues/10089)
 
-
-
-
-
 **Other**
 
 * /sendChallenge returns status code 0 [#10097](https://github.com/gravitee-io/issues/issues/10097)
@@ -32,48 +28,47 @@ description: >-
 
 </details>
 
-
 ## Gravitee Access Management 4.5 - October 10, 2024
 
 {% hint style="warning" %}
-AM 4.5.0 introduce some deprecations which may have an impact on your systems. Please refer to the "Deprecations" section here after for more details.&#x20;
+AM 4.5.0 introduce some deprecations which may have an impact on your systems. Please refer to the "Deprecations" section here after for more details.
 {% endhint %}
 
 <details>
 
 <summary>What's new</summary>
 
-## Repositories
+### Repositories
 
-A new repository scope named `gateway` has been introduced in AM 4.5.0.&#x20;
+A new repository scope named `gateway` has been introduced in AM 4.5.0.
 
-## Token generation
+### Token generation
 
-For all domains created from AM 4.5.0 the `sub` claim will not represent the user internalID as it was the case previously.&#x20;
+For all domains created from AM 4.5.0 the `sub` claim will not represent the user internalID as it was the case previously.
 
-## AWS Certificate plugin
+### AWS Certificate plugin
 
 An AWS certificate plugin is now available as EE feature. Thanks to this plugin you can load certificate provided by AWS Secret Manager.
 
-## Reporters
+### Reporters
 
 Reporters have been improved in this new version of Access Management:
 
 * additional reporters can be configured as "global" in order to collect audits events coming from all the domains linked to this organization.
-* Events for domain creation and domain deletion are now published in the organization reporters.&#x20;
+* Events for domain creation and domain deletion are now published in the organization reporters.
 * The kafka reporter has been improved to manage Schema Registry
 
-## OpenID
+### OpenID
 
 We improved the OAuth2 / OpenID specification more strictly regarding the usage of the response\_mode paramet
 
-## Group mapper
+### Group mapper
 
 Identity Providers now provide a [Group Mapper](../../guides/identity-providers/user-and-role-mapping.md) section.
 
-## Cache Layer
+### Cache Layer
 
-A cache layer has been introduce to limit the Database access during the user authentication flow.&#x20;
+A cache layer has been introduce to limit the Database access during the user authentication flow.
 
 </details>
 
@@ -81,23 +76,23 @@ A cache layer has been introduce to limit the Database access during the user au
 
 <summary>Breaking Changes</summary>
 
-## Redirect Uris
+### Redirect Uris
 
-On application creation or update `redirect_uris` is now required for application with type WEB, NATIVE or SPA.&#x20;
+On application creation or update `redirect_uris` is now required for application with type WEB, NATIVE or SPA.
 
-## Token generation
+### Token generation
 
-For all domains created from AM 4.5.0 the `sub` claim will not represent the user internalID as it was the case previously. The `sub` value is now an opaque value computed based on the user externalId and the identity provider identifier. Even if this value is opaque, it will remain the same for a given user across multiple token generations as per the requirement of the OIDC specification.&#x20;
+For all domains created from AM 4.5.0 the `sub` claim will not represent the user internalID as it was the case previously. The `sub` value is now an opaque value computed based on the user externalId and the identity provider identifier. Even if this value is opaque, it will remain the same for a given user across multiple token generations as per the requirement of the OIDC specification.
 
 <mark style="color:red;">**NOTE:**</mark> For all domains created in previous version, the sub claim remains the user internalId.
 
-## Repositories
+### Repositories
 
-A new repository scope named `gateway` has been introduced in AM 4.5.0.&#x20;
+A new repository scope named `gateway` has been introduced in AM 4.5.0.
 
 The new gateway scope will manage entities which was previously managed by the `oauth2` scope and the `management` scope:
 
-* ScopeApproval&#x20;
+* ScopeApproval
 * AuthenticationFlowContext
 * LoginAttempts
 * RateLimit
@@ -153,7 +148,7 @@ If you were using environment variable to provide database settings remember to:
 
 <summary>Deprecations</summary>
 
-## Audits
+### Audits
 
 For kafka and File reporters, the `status` attibute has been deprecated for removal. The recommanded way to get access to the status is now the `outcome` structure which contains the `status` and a `message` fields. If you are using one of these reporter, please update your consumer to rely on the outcome structure
 
