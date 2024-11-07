@@ -1,12 +1,13 @@
 ---
 description: >-
-  This page contains the changelog entries for APIM 4.4.x and any future patch
-  APIM 4.4.x releases
+  This page contains the changelog entries for APIM 4.5.x and any future patch
+  APIM 4.5.x releases
 ---
 
 # APIM 4.5.x
- 
+
 ## Gravitee API Management 4.5.2 - November 5, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -33,8 +34,6 @@ description: >-
 * \[gravitee-policy-jwt] Complete gateway disruption occurred in retrieving JWT public keys after startup under a heavy load of API calls [#10119](https://github.com/gravitee-io/issues/issues/10119)
 
 </details>
-
-
 
 ## Gravitee API Management 4.5.1 - October 24, 2024
 
