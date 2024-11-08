@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.2.x
 
+## Gravitee Access Management 4.2.25 - November 8, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* System reporter can be deleted via API [#10155](https://github.com/gravitee-io/issues/issues/10155)
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.2.24 - October 25, 2024
 
 <details>
