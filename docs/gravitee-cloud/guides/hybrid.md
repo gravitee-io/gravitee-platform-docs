@@ -23,7 +23,7 @@ Authentication and authorization to the Cloud Gate is secured by using your very
 
 The Cloud Gate is deployed in each Control Plane data center region, which ensures optimal connectivity and performance. Your hybrid gateway will automatically calculate which region and corresponding Cloud Gate to connect to, based on the information contained in the Cloud Token.
 
-Analytics are reported to a Cloud Account dedicated pipeline where Cloud Gate are produced to a Kafka topics, ingested in logstash, and finally stored in dedicated Elastisearch index that your Cloud Accounts API Management Contorl Plane consumes.
+Analytics are reported to a Cloud Account dedicated pipeline where Cloud Gate are produced to a Kafka topics, ingested in logstash, and finally stored in dedicated Elastisearch index that your Cloud Accounts API Management Control Plane consumes.
 
 All communication between the hybrid gateway and the Cloud Gate endpoints is encrypted using TLS.
 
