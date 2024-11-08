@@ -8,16 +8,11 @@ description: >-
 
 ## Introduction
 
-A full SaaS set up of Gravitee is a convenient way of running Gravitee. Gravitee manages operations related to your environments for both the Control Plane and all gateways. Deploying Cloud hosted gateways has the following implications for you account:
+A full SaaS set up of Gravitee is a convenient way of running Gravitee. Gravitee manages operations related to your environments for both the Control Plane and all gateways. Deploying Cloud hosted gateways has the following benefits:
 
-* Gravitee automatically configures the gateways.
-* Gravitee automatically upgrades patch versions of your gateways.
-* Gravitee provides you with the ability to self-serve upgrade feature versions for each environments gateways.
-* Gravitee automatically scales gateways.
-* All gateways are deployed in a high availability set up.
-* API calls and throughput are relative to your subscription tier. The number of gateway nodes is not shown, Gravitee delivers the compute power and gateways to handle your traffic.
-* Cloud gateways are included your plan at no extra cost.
-* Cloud gateways are dedicated to only your account and each gateway is dedicated to an API Management environment of yours (Production, Test, Development).
+* **Automatic Configuration & Scaling**: Gravitee automatically configures and scales gateways in high availability setups, delivering the compute power and resources needed based on your subscription tier.
+* **Managed Upgrades**: Gravitee provides automatic patch upgrades, with self-serve feature upgrades available for enhanced control.
+* **Dedicated Environments**: Each Cloud hosted gateway is dedicated to an API Management environment of your choice (e.g., Production, Test, Development), ensuring isolation and security across environments.
 
 ## Deploying a Cloud hosted gateway
 
