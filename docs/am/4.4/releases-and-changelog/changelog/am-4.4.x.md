@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.10 - November 8, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Able to create a admin service user via the create domain user endpoint [#10127](https://github.com/gravitee-io/issues/issues/10127)
+* System reporter can be deleted via API [#10155](https://github.com/gravitee-io/issues/issues/10155)
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.4.9 - October 25, 2024
 
 <details>
