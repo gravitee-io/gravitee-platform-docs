@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.2 - November 8, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Target not displaying on audit log for delete events [#10069](https://github.com/gravitee-io/issues/issues/10069)
+* Able to create a admin service user via the create domain user endpoint [#10127](https://github.com/gravitee-io/issues/issues/10127)
+* System reporter can be deleted via API [#10155](https://github.com/gravitee-io/issues/issues/10155)
+
+
+
+**Other**
+
+* JDBC - Device identifier errors - management, gateway and UI [#10139](https://github.com/gravitee-io/issues/issues/10139)
+* BadSqlGrammarException after 4.5.0 Upgrade [#10148](https://github.com/gravitee-io/issues/issues/10148)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.1 - October 25, 2024
 
 <details>
