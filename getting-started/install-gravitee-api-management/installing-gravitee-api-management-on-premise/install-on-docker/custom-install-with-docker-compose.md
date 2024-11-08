@@ -42,126 +42,126 @@ When you install Gravitee API Management (APIM) with Docker Compose, you can ins
       gravitee/mongodb/data
     ```
 
-2. Download the `docker-compose.yml` file as `docker-compose-apim.yml` using the following command:
+1. Download the `docker-compose.yml` file as `docker-compose-apim.yml` using the following command:
 
     ```bash
     curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
     ```
 
-3. To ensure that the `docker-compose-apim.yml` uses the `gravitee` directory structure, follow the following sub-steps:
+1. To ensure that the `docker-compose-apim.yml` uses the `gravitee` directory structure, follow the following sub-steps:
 
-&#x20;        a. In a text editor, open `docker-compose-apim.yml`
+    1. In a text editor, open `docker-compose-apim.yml`
 
-&#x20;        b. Remove the following lines of code:
+    1. Remove the following lines of code:
 
-{% code overflow="wrap" %}
-```bash
-volumes:
-  data-elasticsearch:
-  data-mongo:
-```
-{% endcode %}
+        {% code overflow="wrap" %}
+        ```bash
+        volumes:
+          data-elasticsearch:
+          data-mongo:
+        ```
+        {% endcode %}
 
-&#x20;        c. Change `$services.mongodb.volumes` to the following code:
+    1. Change `$services.mongodb.volumes` to the following code:
 
-{% code overflow="wrap" %}
-```bash
-volumes:
-  - ./mongodb/data:/data/db
-# Access the MongoDB container logs with: docker logs gio_apim_mongodb
-```
-{% endcode %}
+        {% code overflow="wrap" %}
+        ```bash
+        volumes:
+          - ./mongodb/data:/data/db
+        # Access the MongoDB container logs with: docker logs gio_apim_mongodb
+        ```
+        {% endcode %}
 
-&#x20;        d. Change `$services.elasticsearch.volumes` to the following code:
+    1. Change `$services.elasticsearch.volumes` to the following code:
 
-{% code overflow="wrap" %}
-```bash
-volumes:
-  - ./elasticsearch/data:/usr/share/elasticsearch/data
-# Access the Elasticsearch container logs with: docker logs gio_apim_elasticsearch
-```
-{% endcode %}
+        {% code overflow="wrap" %}
+        ```bash
+        volumes:
+          - ./elasticsearch/data:/usr/share/elasticsearch/data
+        # Access the Elasticsearch container logs with: docker logs gio_apim_elasticsearch
+        ```
+        {% endcode %}
 
-&#x20;      e. Add the following lines to `$services.gateway`:
+    1. Add the following lines to `$services.gateway`:
 
-{% code overflow="wrap" %}
-```bash
-volumes:
-  - ./apim-gateway/logs:/opt/graviteeio-gateway/logs
-  - ./apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
-```
-{% endcode %}
+        {% code overflow="wrap" %}
+        ```bash
+        volumes:
+          - ./apim-gateway/logs:/opt/graviteeio-gateway/logs
+          - ./apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
+        ```
+        {% endcode %}
 
-&#x20;     f. Remove `$services.management_api.links`.
+    1. Remove `$services.management_api.links`.
 
-&#x20;    g. Add the following lines to `$services.management_api.environment`:
+    1. Add the following lines to `$services.management_api.environment`:
 
-{% code overflow="wrap" %}
-```bash
-- gravitee_plugins_path_0=/opt/graviteeio-management-api/plugins
-- gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext
-```
-{% endcode %}
+        {% code overflow="wrap" %}
+        ```bash
+        - gravitee_plugins_path_0=/opt/graviteeio-management-api/plugins
+        - gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext
+        ```
+        {% endcode %}
 
-&#x20;    h. Add the following lines to `$services.management_api`:
+    1. Add the following lines to `$services.management_api`:
 
-```bash
-volumes:
-  - ./apim-management-api/logs:/opt/graviteeio-management-api/logs
-  - ./apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
-```
+        ```bash
+        volumes:
+          - ./apim-management-api/logs:/opt/graviteeio-management-api/logs
+          - ./apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
+        ```
 
-&#x20;   i. Add the following lines to `$services.management_ui`:
+    1. Add the following lines to `$services.management_ui`:
 
-```bash
-volumes:
-  - ./apim-management-ui/logs:/var/log/nginx
-```
+        ```bash
+        volumes:
+          - ./apim-management-ui/logs:/var/log/nginx
+        ```
 
-&#x20;   j. Add the following lines to `$services.portal_ui`:
+    1. Add the following lines to `$services.portal_ui`:
 
-```bash
-volumes:
-  - ./apim-portal-ui/logs:/var/log/nginx
-```
+        ```bash
+        volumes:
+          - ./apim-portal-ui/logs:/var/log/nginx
+        ```
 
-4. (Optional) If you are using the Enterprise Edition (EE) of Gravitee APIM, add your license key by following the following steps:
+1. (Optional) If you are using the Enterprise Edition (EE) of Gravitee APIM, add your license key by following the following steps:
 
-&#x20;       a. Copy your license key to `/gravitee/license.key.`
+    1. Copy your license key to `/gravitee/license.key.`
 
-&#x20;       b. In a text editor, open the `docker-compose-apim.yml` file.
+    1. In a text editor, open the `docker-compose-apim.yml` file.
 
-&#x20;       c. Navigate to `$services.gateway.volumes`, and then add the following line of code:
+    1. Navigate to `$services.gateway.volumes`, and then add the following line of code:
 
-```bash
-- ./license.key:/opt/graviteeio-gateway/license/license.key
-```
+        ```bash
+        - ./license.key:/opt/graviteeio-gateway/license/license.key
+        ```
 
-&#x20;      d. Navigate to `$services.management_api.volumes`, and then add the following line of code:
+    1. Navigate to `$services.management_api.volumes`, and then add the following line of code:
 
-```bash
-- ./license.key:/opt/graviteeio-management-api/license/license.key
-```
+        ```bash
+        - ./license.key:/opt/graviteeio-management-api/license/license.key
+        ```
 
-5. Run `docker compose`using the following command:
+1. Run `docker compose`using the following command:
 
-```bash
-docker compose -f docker-compose-apim.yml up -d
-```
+   ```bash
+   docker compose -f docker-compose-apim.yml up -d
+   ```
 
-6. To open the Console and the Developer portal, complete the following steps:
+1. To open the Console and the Developer portal, complete the following steps:
 
-* To open the console, go to `http://localhost:8084`.
-* To open the Developer Portal, go to `http://localhost:8085.`
+    * To open the console, go to `http://localhost:8084`.
+    * To open the Developer Portal, go to `http://localhost:8085.`
 
-{% hint style="info" %}
-* The default username for the Console and the Developer Portal is admin.
-* The default password for the Developer Portal is admin.
-{% endhint %}
+    {% hint style="info" %}
+    * The default username for the Console and the Developer Portal is admin.
+    * The default password for the Developer Portal is admin.
+    {% endhint %}
 
-{% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/) for your next steps.
-{% endhint %}
+    {% hint style="success" %}
+    Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](../../../quickstart-guide/) for your next steps.
+    {% endhint %}
 
 ## Enable Federation
 
