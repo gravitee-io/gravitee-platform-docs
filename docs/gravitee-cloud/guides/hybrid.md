@@ -70,16 +70,16 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 
 1. On your Gravitee Cloud Dashboard, navigate to **Gateways**, and then click **Deploy Gateway**.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Gravitee Cloud Dashboard with no Gateways deployed.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Gravitee Cloud Dashboard with no Gateways deployed.</p></figcaption></figure>
 
 2. In the **Choose Gateway Deployment Method** pop-up window, select **Hybrid Gateway**.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Gravitee Cloud Gateway deployment selection with both Gravitee Hosted Gateways (full SaaS) and Hybrid Gateways as options.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Gravitee Cloud Gateway deployment selection with both Gravitee Hosted Gateways (full SaaS) and Hybrid Gateways as options.</p></figcaption></figure>
 
 3. From the **Platform** dropdown menu, select your preferred platform. This choice changes only the link reference to documentation
 4. Select the Gravitee Cloud API Management Environment that you wish to connect the Hybrid gateway to.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up guide with selection of platform and environment.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up guide with selection of platform and environment.</p></figcaption></figure>
 
 5. In the **Access Point** field, type the name of your host or hosts that your Hybrid gateway will is accessible through. You configured this host in your load balancer or ingress where you run the gateway.\
    \
@@ -89,12 +89,12 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 
 6. To retrieve your Cloud Token and License key, Click **Generate Installation Details**
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>The Deploy Hybrid Gateway screen where you should enter the gateway host that you hybrid gateway will listen to.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>The Deploy Hybrid Gateway screen where you should enter the gateway host that you hybrid gateway will listen to.</p></figcaption></figure>
 
 7. Copy your Cloud Token, and then add it to your gateway deployment configuration.
 8. Copy your License, and then add it to your gateway deployment configuration.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up with last step where you are able to copy your generated Cloud Token and your License.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up with last step where you are able to copy your generated Cloud Token and your License.</p></figcaption></figure>
 
 9. Depending on your installation method, complete either of the following steps:
 
@@ -121,7 +121,7 @@ docker run -d \
 
 9. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Gravitee Cloud Dashboard, now with one hybrid gateway configuration added to Development environment.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Gravitee Cloud Dashboard, now with one hybrid gateway configuration added to Development environment.</p></figcaption></figure>
 
 #### Verification
 
