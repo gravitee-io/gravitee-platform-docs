@@ -6,7 +6,7 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 <details>
 
-<summary>6th October</summary>
+<summary>6th November</summary>
 
 ## Cloud Hosted Gateways
 
