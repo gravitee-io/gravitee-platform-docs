@@ -9,11 +9,11 @@ When you install Gravitee API Management (APIM) with Docker Compose, you can ins
 
 ## Installing Gravitee APIM&#x20;
 
-1.  Create the directory structure, and then download the `docker compose` file. Once you create the directory, verify that the directory has the following structure:
+1.  Create the following directory structure
 
     {% code overflow="wrap" %}
     ```bash
-    /gravitee
+    gravitee
      ├── apim-gateway
      │    ├── logs
      │    └── plugins
@@ -30,7 +30,25 @@ When you install Gravitee API Management (APIM) with Docker Compose, you can ins
          └── data
     ```
     {% endcode %}
-2. &#x20;To ensure that the `docker-compose-apim.yml` uses the `/gravitee`directory structure, follow the following sub-steps:
+
+    ```bash
+    mkdir -p gravitee/apim-gateway/logs, \
+      gravitee/apim-gateway/plugins, \
+      gravitee/apim-management-api/logs, \
+      gravitee/apim-management-api/plugins, \
+      gravitee/apim-management-ui/logs, \
+      gravitee/apim-portal-ui/logs, \
+      gravitee/elasticsearch/data, \
+      gravitee/mongodb/data
+    ```
+
+2. Download the `docker-compose.yml` file as `docker-compose-apim.yml` using the following command:
+
+    ```bash
+    curl -L https://bit.ly/docker-apim-4x -o docker-compose-apim.yml
+    ```
+
+3. To ensure that the `docker-compose-apim.yml` uses the `gravitee` directory structure, follow the following sub-steps:
 
 &#x20;        a. In a text editor, open `docker-compose-apim.yml`
 
@@ -54,17 +72,17 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;        d. Change `$services.gateway.volumes` to the following code:
+&#x20;        d. Change `$services.elasticsearch.volumes` to the following code:
 
 {% code overflow="wrap" %}
 ```bash
 volumes:
-  - ./elasticsearch/data:/var/lib/elasticsearch/data
+  - ./elasticsearch/data:/usr/share/elasticsearch/data
 # Access the Elasticsearch container logs with: docker logs gio_apim_elasticsearch
 ```
 {% endcode %}
 
-&#x20;      e. Navigate to `$services.gateway.environment`, and then add the following lines of code:
+&#x20;      e. Add the following lines to `$services.gateway`:
 
 {% code overflow="wrap" %}
 ```bash
@@ -76,15 +94,7 @@ volumes:
 
 &#x20;     f. Remove `$services.management_api.links`.
 
-&#x20;    g. Change `$services.management_ui.volumes` to the following lines of code:
-
-```bash
-volumes:
-  - ./apim-management-api/logs:/opt/graviteeio-management-api/logs
-  - ./apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
-```
-
-&#x20;   h.  Add the following lines to `$services.management_api.environment`:
+&#x20;    g. Add the following lines to `$services.management_api.environment`:
 
 {% code overflow="wrap" %}
 ```bash
@@ -93,21 +103,29 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;   i. Change `$services.management_ui.volumes`to the following lines of code:
+&#x20;    h. Add the following lines to `$services.management_api`:
+
+```bash
+volumes:
+  - ./apim-management-api/logs:/opt/graviteeio-management-api/logs
+  - ./apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
+```
+
+&#x20;   i. Add the following lines to `$services.management_ui`:
 
 ```bash
 volumes:
   - ./apim-management-ui/logs:/var/log/nginx
 ```
 
-&#x20;   j. Change `$services.portal_ui.volumes` to the following lines of code:
+&#x20;   j. Add the following lines to `$services.portal_ui`:
 
 ```bash
 volumes:
   - ./apim-portal-ui/logs:/var/log/nginx
 ```
 
-3. (Optional) If you are using the Enterprise Edition (EE) of Gravitee APIM, add your license key by following the following steps:
+4. (Optional) If you are using the Enterprise Edition (EE) of Gravitee APIM, add your license key by following the following steps:
 
 &#x20;       a. Copy your license key to `/gravitee/license.key.`
 
@@ -125,13 +143,13 @@ volumes:
 - ./license.key:/opt/graviteeio-management-api/license/license.key
 ```
 
-4. Run `docker compose`using the following command:
+5. Run `docker compose`using the following command:
 
 ```bash
 docker compose -f docker-compose-apim.yml up -d
 ```
 
-5. To open the Console and the Developer portal, complete the following steps:
+6. To open the Console and the Developer portal, complete the following steps:
 
 * To open the console, go to `http://localhost:8084`.
 * To open the Developer Portal, go to `http://localhost:8085.`
