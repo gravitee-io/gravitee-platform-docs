@@ -24,7 +24,7 @@ Deploying a Cloud Hosted Gateway takes just a few minutes. Simply navigate to yo
 
 </details>
 
-## September&#x20;
+## September 2024
 
 <details>
 
