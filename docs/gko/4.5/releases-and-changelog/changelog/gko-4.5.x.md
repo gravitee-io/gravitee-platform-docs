@@ -1,5 +1,25 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.2 - November 12, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Having two plans with same name lead to duplicate key error on API v4 export [#10128](https://github.com/gravitee-io/issues/issues/10128)
+  * APIs sourced from kubernetes config map get out of sync after some time [#10095](https://github.com/gravitee-io/issues/issues/10095)
+  * Adding a member with an existing role id to a V2 API issues a warning [#10096](https://github.com/gravitee-io/issues/issues/10096)
+  * API Pages are not deleted when combining http-fetcher (or markdown) and github-fetchers together [#10087](https://github.com/gravitee-io/issues/issues/10087)
+  * GKO removes attributes with empty value from API Definition [#10034](https://github.com/gravitee-io/issues/issues/10034)
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  * Filter out v2 pages that are fetched from a root repo on CRD export [#10093](https://github.com/gravitee-io/issues/issues/10093)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.1 - October 28, 2024
     
 <details>
