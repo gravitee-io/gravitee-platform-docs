@@ -568,7 +568,7 @@ description: >-
 
 </details>
 
-## Gravitee API Management 4.3.0 - March XXX, 2024
+## Gravitee API Management 4.3.0 - March 29, 2024
 
 <details>
 
