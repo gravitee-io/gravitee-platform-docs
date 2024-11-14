@@ -567,3 +567,26 @@ description: >-
 * Organization licenses are not working when using bridge architecture [#9638](https://github.com/gravitee-io/issues/issues/9638)
 
 </details>
+
+## Gravitee API Management 4.3.0 - March XXX, 2024
+
+<details>
+
+**Gateway**
+* Improve HealthCheck service for V2 APIs [#3967](https://github.com/gravitee-io/issues/issues/3967)
+
+**Management API**
+* Deleted users still appear in query [#3614](https://github.com/gravitee-io/issues/issues/3614)
+
+**Console**
+* [endpoints] updating name or deleting group used as DLQ prevent from updating api [#3915](https://github.com/gravitee-io/issues/issues/3915)
+* [endpoints] creating a endpoint group should display endpoint configuration [#3916](https://github.com/gravitee-io/issues/issues/3916)
+* [shared api key] api key mode not displayed on application screen [#4229](https://github.com/gravitee-io/issues/issues/4229)
+* Flow Id is lost when Updating API with UI, causing it to regenerate new flow [#4184](https://github.com/gravitee-io/issues/issues/4184)
+
+**Other**
+* Liquibase changelog 4.0.20-dashboards adding NOT NULL column without default value [#4307](https://github.com/gravitee-io/issues/issues/4307)
+* APIM DashboardTypeUpgrader raises an error when used with DocumentDB [#4335](https://github.com/gravitee-io/issues/issues/4335)
+* API v4 proxy - problem with  client SSL certificate [#3969](https://github.com/gravitee-io/issues/issues/3969)
+
+</details>
