@@ -36,9 +36,6 @@
 
 * [Installing Gravitee API Management](installation-and-upgrades/install-gravitee-api-management/README.md)
   * [Installing a self-hosted Gravitee API Management platform](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/README.md)
-    * [Installing on an Amazon instance](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-amazon/README.md)
-      * [Installing on an Amazon instance with Quick install](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-amazon/quick-install.md)
-      * [Installing on an Amazon instance with Manual Install](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-amazon/manual-install.md)
     * [Installing with Docker](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/README.md)
       * [Quick Install with Docker Compose](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/quick-install-with-docker-compose.md)
       * [Custom Install with Docker Compose](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/custom-install-with-docker-compose.md)

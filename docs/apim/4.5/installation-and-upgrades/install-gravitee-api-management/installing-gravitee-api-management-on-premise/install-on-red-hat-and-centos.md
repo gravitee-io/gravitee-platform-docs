@@ -9,116 +9,157 @@ description: >-
 ## Before you begin
 
 {% hint style="warning" %}
-* RPM install is not supported on distributions with old versions of RPM, such as SLES 11 and CentOS 5 — in this case, you need to [install APIM with .zip](install-with-.zip.md) instead.
+* RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](install-with-.zip.md).
 * If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition Licensing Licensing, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
 {% endhint %}
 
-Amazon Linux instances use the package manager, `yum`. If you use an Amazon Linux operating system, you must configure access to Gravitee’s repository that contains the APIM components.
-
-To establish access to Gravitee’s repository using `yum`, complete the following steps:
-
-1.  Create a file called `/etc/yum.repos.d/graviteeio.repo` using the following command:
-
-    ```sh
-    sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
-    [graviteeio]
-    name=graviteeio
-    baseurl=https://packagecloud.io/graviteeio/rpms/el/7/\$basearch
-    gpgcheck=0
-    enabled=1
-    gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
-    metadata_expire=300
-    EOF
-    ```
-2.  Enable GPG signature handling using the following command. This command installs the packages that enable GPG signature handling:
-
-    ```sh
-    sudo yum install pygpgme yum-utils -y
-    ```
-3. Refresh the local cache using the following command:
-
-{% code overflow="wrap" %}
-````
-```sh
-sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
-```
-````
-{% endcode %}
-
-## Installing Gravitee’s API Management
-
-There are two methods that you can use to install Gravitee’s API Management (APIM):
-
-* Quick install. You install all the prerequisites that you need to run Gravitee’s APIM and the full APIM stack.&#x20;
-* Manual install. You control the installation of the prerequisites that you need to run APIM. Also, you control the installation of the individual components of the APIM stack
+### Perquisites for installing Gravitee APIM on an Amazon instance&#x20;
 
 {% hint style="warning" %}
-An SELinux configuration issue can prevent Nginx from opening on ports 8084/8085. To correct this:
-
-1. Validate that the port is not listed here:
-
-{% code overflow="wrap" %}
-````
-```sh
-# semanage port -l | grep http_port_t
-http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
-```
-````
-{% endcode %}
-
-2.  Add the port to bind to, e.g., 8084:
-
-    ```sh
-    # semanage port -a -t http_port_t  -p tcp 8084
-    ```
-3. Validate that the port is listed:
-
-{% code overflow="wrap" %}
-````
-```sh
-# semanage port -l | grep http_port_t
-http_port_t                    tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000
-```
-````
-{% endcode %}
-
-4. Restart Nginx
+Gravitee supports only the Amazon Linux 2 image.
 {% endhint %}
 
-### Installing the full APIM stack
+You can run Gravitee APIM on Amazon EC2 instances. However, if you run Gravitee APIM on an Amazon instance, there are the following additional requirements:
+
+* The EC2 instance type must be at least t2.medium.
+* The root volume size must be at least 40GB.
+* The security group must allow SSH connection to connect and install the Gravitee components.
+* The security group must allow access to ports 8082, 8083, 8084, and 8085.
+
+### Creating a Gravitee YUM repository
+
+Many enterprise Linux instances use the package manager `yum`. If you use an enterprise Linux-compatible operating system, you can create a YUM repository for Gravitee containing the APIM components.
 
 <details>
 
-<summary>Installing Gravitee API Management with Quick install</summary>
+<summary>Creating a Gravitee YUM repository</summary>
 
-#### Prerequisites
+1. Create a file called `/etc/yum.repos.d/graviteeio.repo` using the following command:
 
-Before you install the full APIM stack, you must complete the following configuration.
+```sh
+sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
+[graviteeio]
+name=graviteeio
+baseurl=https://packagecloud.io/graviteeio/rpms/el/7/\$basearch
+gpgcheck=0
+enabled=1
+gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+EOF
+```
 
-1. Install Nginx using the following commands:
+2. &#x20;Enable GPG signature handling by installing the following packages using the following command:
+
+```sh
+sudo yum install pygpgme yum-utils -y
+```
+
+3. Refresh the local cache using the following command:
+
+{% code overflow="wrap" %}
+```sh
+sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
+```
+{% endcode %}
+
+</details>
+
+### Installing Nginx
+
+you must install Nginx to run Gravitee APIM. To install Nginx, complete the following steps:
+
+<details>
+
+<summary>Installing Nginx</summary>
+
+1. Install Nginx using the following YUM commands:
 
 ```bash
 sudo yum install epel-release
 sudo yum install nginx
 ```
 
-2. You can install Gravitee’s APIM stack with dependencies or without dependencies. To install Gravitee’s APIM with dependencies or without dependencies complete the following steps:
+**Note:** If you use an Amazon Linux, install Nginx using the following:
 
-* To install Gravitee’s APIM stack without dependencies, use the following command:
+```sh
+sudo amazon-linux-extras install nginx1
+```
+
+2. Enable Nginx using the following commands:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable nginx
+```
+
+3. Start Nginx using the following commands:
+
+```sh
+sudo systemctl start nginx
+```
+
+**Verification**
+
+To verify that you installed Nginx correctly, verify that Ngnix is listening on port 80 using tghe following command:
+
+```bash
+sudo ss -lntp '( sport = 80 )'
+```
+
+#### (Optional) Manually Adding Nginx Repository to YUM
+
+In some cases, you may need to manually add the Nginx repository to yum.&#x20;
+
+To manually add the Nginx respository to YUM, create a file called `/etc/yum.repos.d/nginx.repo` using the following command:
+
+```sh
+export OS_TYPE=rhel # types listed at https://nginx.org/packages/
+sudo tee -a /etc/yum.repos.d/nginx.repo <<EOF
+[nginx-stable]
+name=nginx stable repo
+baseurl=http://nginx.org/packages/$OS_TYPE/\$releasever/\$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+priority=9
+EOF
+```
+
+The above commands to install and start Nginx will now run using this repository.
+
+</details>
+
+## Installing Gravitee API Management
+
+There are two methods that you can use to install Gravitee API Management with RPMs:
+
+* **Quick full-stack install:** You install all the prerequisites that you need to run Gravitee APIM and the full APIM stack (including the database dependencies).
+* **Manual install:** You control the installation of the prerequisites that you need to run APIM, installing the database dependencies as needed.
+
+### Quick full-stack install
+
+<details>
+
+<summary>Installing Gravitee API Management on Linux with Quick install</summary>
+
+1. To install Gravitee's APIM stack, use one of the following depending on if you are installing the APIM stack with database dependencies or without database dependencies:
+
+&#x20;       a. To install Gravitee’s APIM stack **without** database dependencies, use the following command :
 
 ```bash
 sudo yum install graviteeio-apim-4x
 ```
 
-* To install Gravitee’s APIM stack with dependencies, use the following command:
+&#x20;       b. To install Gravitee’s APIM stack **with** the database dependencies, use the following command:
 
 ```bash
 curl -L https://bit.ly/install-apim-4x | bash
 ```
 
-3. Enable the APIM components using the following commands:
+2. Enable the APIM components using the following commands:
 
 ```bash
 sudo systemctl daemon-reload
@@ -126,94 +167,189 @@ sudo systemctl start graviteeio-apim-gateway graviteeio-apim-rest-api
 sudo systemctl restart nginx
 ```
 
-#### Verification
+**Verification**
 
-To verify that you installed Gravitee’s APIM correctly, send four API calls using the following commands:
+* To verify that you installed Gravitee APIM correctly, send four API calls using the following commands on the machine hosting APIM (changing the hostname as needed):
 
 ```bash
-$ curl -X GET http://localhost:8082/
-$ curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
-$ curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
-$ curl -X GET http://localhost:8085/
+curl -X GET http://localhost:8082/
+curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
+curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
+curl -X GET http://localhost:8085/
 ```
 
 </details>
 
-### Installing Gravitee's API Management components individually
+### Manual install
 
-{% hint style="info" %}
-**Gravitee dependencies**
-
-Gravitee's [Installation & Upgrade Guides](../) provide information about how you install Gravitee components. For prerequisite documentation on third-party products like [MongoDB](https://www.mongodb.com/docs/v7.0/tutorial/install-mongodb-on-red-hat/) or [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/rpm.html), please visit their respective websites.
-{% endhint %}
-
-Depending on your environment's configuration, you can install only the APIM components that you want for your environment. Here are the components that you can install individually:&#x20;
+With this method, you install either all the individual components that you need to run Gravitee APIM or if you manage some components separately from APIM, only the components that you need.&#x20;
 
 <details>
 
-<summary>Installing the API Management Gateway</summary>
+<summary>Installing  Java 17</summary>
 
-1. Install the API Management Gateway using the following command:
+1. (optional) If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java:
 
 ```sh
-sudo yum install -y graviteeio-apim-gateway-4x
+sudo amazon-linux-extras enable java-openjdk17
 ```
 
-2. Enable the Gateway using the following commands:
+2. Install Java using the following the command:
+
+```sh
+sudo yum install java-17-openjdk -y
+```
+
+**Verification**
+
+* Verify that you installed Java correctly using the following command:
+
+```sh
+java -version
+```
+
+</details>
+
+<details>
+
+<summary>Install MongoDB</summary>
+
+Gravitee API Management uses MongoDB as its default repository to store global configurations.&#x20;
+
+1. To install MongoDB, use the following command:
+
+```sh
+sudo yum install mongodb-org -y
+```
+
+2. Enable MongoDB using the following commands:
 
 ```sh
 sudo systemctl daemon-reload
-sudo systemctl enable graviteeio-apim-gateway
+sudo systemctl enable mongod
 ```
 
-3. Start the API Management Gateway, and then stop the API Management gateway using the following commands:
+3. Start MongoDB using the following command:
 
 ```sh
-sudo systemctl start graviteeio-apim-gateway
-sudo systemctl stop graviteeio-apim-gateway
+sudo systemctl start mongod
 ```
+
+**Verification**
+
+* To verify that you installed MongoDB correctly, verify that there is a process listening on port 27017 using the following command:
+
+```sh
+sudo ss -lntp '( sport = 27017 )'
+```
+
+#### Manually Adding MongoDB Repository to YUM
+
+In some cases, you may need to manually add the MongoDB repository to yum. To manually add MongoDB repository to YUM, create a file called `/etc/yum.repos.d/mongodb-org-7.0.repo` using the following command:
+
+```sh
+export OS_TYPE=redhat # Replace redhat with amazon as needed
+case "`uname -i`" in
+    x86_64|amd64)
+        baseurl=https://repo.mongodb.org/yum/$OS_TYPE/2/mongodb-org/7.0/x86_64/;;
+    aarch64)
+        baseurl=https://repo.mongodb.org/yum/$OS_TYPE/2/mongodb-org/7.0/aarch64/;;
+esac
+
+sudo tee -a /etc/yum.repos.d/mongodb-org-7.0.repo <<EOF
+[mongodb-org-7.0]
+name=MongoDB Repository
+baseurl=${baseurl}
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
+EOF
+```
+
+The above commands to install and start MongoDB will now run using this repository.
 
 </details>
 
 <details>
 
-<summary>Install Management API</summary>
+<summary>Install ElasticSearch</summary>
 
-#### Prerequisites
+Gravitee API Management uses ElasticSearch as the default reporting and analytics repository.&#x20;
 
-The following steps assume you have configured your package management system as described in [Configure the package management system (yum).](install-on-red-hat-and-centos.md#configure-the-package-management-system-yum)
-
-#### Install the Management API package
-
-To install the last stable version of the management API, run the following command:
+1. To install ElasticSearch, use the following command:
 
 ```sh
+sudo yum install --enablerepo=elasticsearch elasticsearch -y
+sudo sed "0,/xpack.security.enabled:.*/s/xpack.security.enabled:.*/xpack.security.enabled: false/" -i /etc/elasticsearch/elasticsearch.yml
+```
+
+2. Enable ElasticSearch using the following command:
+
+<pre class="language-sh"><code class="lang-sh"><strong>sudo systemctl daemon-reload
+</strong><strong>sudo systemctl enable elasticsearch.service
+</strong></code></pre>
+
+3. Start ElasticSearch using the following command:
+
+```sh
+sudo systemctl start elasticsearch.service
+```
+
+**Verification**
+
+* To verify that you installed ElasticSearch correctly, verify that there is a process listening on port 9200 using the following command:
+
+```sh
+sudo ss -lntp '( sport = 9200 )'
+```
+
+#### Manually Adding ElasticSearch Repository to YUM
+
+In some cases, you may need to manually add the ElasticSearch repository to yum.&#x20;
+
+* To manually add ElasticSearch repository to YUM, create a file called `/etc/yum.repos.d/elasticsearch.repo` using the following command:
+
+```sh
+sudo tee -a /etc/yum.repos.d/elasticsearch.repo <<EOF
+[elasticsearch]
+name=Elasticsearch repository for 8.x packages
+baseurl=https://artifacts.elastic.co/packages/8.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+EOF
+```
+
+The above commands to install and start ElasticSearch will now run using this repository.
+
+</details>
+
+<details>
+
+<summary>Install Gravitee API Management components</summary>
+
+Depending on your environment's configuration, you can install only the APIM components that you want for your environment.&#x20;
+
+1. You can install the components that you want for your environment by using any combination of the following commands:
+
+```sh
+sudo yum install -y graviteeio-apim-gateway-4x
 sudo yum install -y graviteeio-apim-rest-api-4x
+sudo yum install -y graviteeio-apim-management-ui-4x
+sudo yum install -y graviteeio-apim-management-ui-4x
 ```
 
-#### Run the management API
-
-These steps assume that you are using the default settings.
-
-To configure the Management API to start automatically when the system boots up, run the following commands:
+2. (Optional) For each component, you can configure that component to start automatically when the server loads. To configure the component to start automatically, use the following commands, replacing the component with the desired one:
 
 ```sh
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable graviteeio-apim-rest-api
+export AUTOSTART_COMPONENT="graviteeio-apim-gateway-4x"
+sudo systemctl daemon-reload
+sudo systemctl enable $AUTOSTART_COMPONENT
 ```
 
-To start and stop the management API, run the following commands:
-
-```sh
-$ sudo systemctl start graviteeio-apim-rest-api
-$ sudo systemctl stop graviteeio-apim-rest-api
-```
-
-These commands provide no feedback as to whether the Management API started successfully. This information is written to the log files located in `/opt/graviteeio/apim/rest-api/logs/`.
-
-#### View the logs
-
-When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
+The Management API log files are located in `/opt/graviteeio/apim/rest-api/logs/`. When `systemd` logging is enabled, the logging information is available using the `journalctl` commands. The same `journalctl` commands can be used for each APIM component.
 
 To tail the journal, run the following command:
 
@@ -235,136 +371,31 @@ sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 
 </details>
 
-<details>
+## Troubleshooting Nginx with SELinux
 
-<summary>Install Management Console</summary>
+Sometimes, an SELinux configuration issue can prevent Nginx from opening on ports 8084 and 8085. To correct this issue, complete the following steps:
 
-#### Prerequisites
-
-Before you install the Management Console, you must complete the following configuration.
-
-1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](install-on-red-hat-and-centos.md#configure-the-package-management-system-yum)
-2. [Install and run the Management API.](install-on-red-hat-and-centos.md#install-management-api)
-3. Install Nginx by running the following commands:
+1. Validate that the port is not in the list of managed HTTP ports by running `semanage port -l`.  You should get the following output:
 
 ```sh
-$ sudo yum install epel-release
-$ sudo yum install nginx
+$ semanage port -l | grep http_port_t
+http_port_t                tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
 ```
 
-#### Install the Management Console package
-
-To install the last stable version of the Management Console, run the following command:
+2. Add the port for Nginx to bind to, for example, 8084, using the following command:
 
 ```sh
-$ sudo yum install -y graviteeio-apim-management-ui-4x
+$ semanage port -a -t http_port_t  -p tcp 8084
 ```
 
-#### Run the Management Console
+3. Validate that the port is listed using the following command:
 
-The Management Console is based on Nginx.
-
-To configure the Management Console to start automatically when the system boots up, run the following commands:
-
+{% code overflow="wrap" %}
 ```sh
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable nginx
+$ semanage port -l | grep http_port_t
+http_port_t                tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000
+
 ```
+{% endcode %}
 
-To start and stop Nginx, run the following commands:
-
-```sh
-$ sudo systemctl start nginx
-$ sudo systemctl stop nginx
-```
-
-#### View the logs
-
-When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
-
-To tail the journal, run the following command:
-
-```sh
-sudo journalctl -f
-```
-
-To list journal entries for the Nginx service, run the following command:
-
-```sh
-sudo journalctl --unit nginx
-```
-
-To list journal entries for the Nginx service starting from a given time, run the following command:
-
-```sh
-sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
-```
-
-</details>
-
-<details>
-
-<summary>Install Developer Portal</summary>
-
-#### Prerequisites
-
-Before you install the Developer Portal, you must complete the following configuration.
-
-1. Ensure you have configured your package management system, as described in [Configure the package management system (yum).](install-on-red-hat-and-centos.md#configure-the-package-management-system-yum)
-2. [Install and run the Management API.](install-on-red-hat-and-centos.md#install-management-api)
-3. Install Nginx by running the following commands:
-
-```sh
-$ sudo yum install epel-release
-$ sudo yum install nginx
-```
-
-#### Install the Developer Portal package
-
-To install the last stable version of The Developer Portal , run the following command:
-
-```sh
-sudo yum install -y graviteeio-apim-portal-ui-4x
-```
-
-#### Run the Developer Portal
-
-The Developer Portal is based on Nginx.
-
-To configure the Developer Portal to start automatically when the system boots up, run the following commands:
-
-```sh
-$ sudo systemctl daemon-reload
-$ sudo systemctl enable nginx
-```
-
-To start and stop Nginx, run the following commands:
-
-```sh
-$ sudo systemctl start nginx
-$ sudo systemctl stop nginx
-```
-
-#### View the logs
-
-When `systemd` logging is enabled, the logging information is available using the `journalctl` commands.
-
-To tail the journal, run the following command:
-
-```sh
-sudo journalctl -f
-```
-
-To list journal entries for the Nginx service, run the following command:
-
-```sh
-sudo journalctl --unit nginx
-```
-
-To list journal entries for the Nginx service starting from a given time, run the following command:
-
-```sh
-sudo journalctl --unit nginx --since  "2020-01-30 12:13:14"
-```
-
-</details>
+4. Restart Nginx.
