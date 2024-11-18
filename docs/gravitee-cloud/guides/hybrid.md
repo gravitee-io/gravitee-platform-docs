@@ -110,10 +110,11 @@ docker run -d \
   -p 8082:8082 \
   -e gravitee_cloud_token=<cloud_token> \
   -e gravitee_license_key=<license_key> \
-  graviteeio/apim-gateway:4.4.10
+  graviteeio/apim-gateway:<CONTROL_PLANE_VERSION>
 ```
 
 * Replace \<cloud\_token> and \<license\_key> with the Cloud token and License Key from step a.&#x20;
+* Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane i Gravitee Cloud.
 {% endtab %}
 {% endtabs %}
 
