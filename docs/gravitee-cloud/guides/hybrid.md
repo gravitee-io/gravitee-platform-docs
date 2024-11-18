@@ -114,7 +114,7 @@ docker run -d \
 ```
 
 * Replace \<cloud\_token> and \<license\_key> with the Cloud token and License Key from step a.&#x20;
-* Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane i Gravitee Cloud.
+* Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud.
 {% endtab %}
 {% endtabs %}
 
