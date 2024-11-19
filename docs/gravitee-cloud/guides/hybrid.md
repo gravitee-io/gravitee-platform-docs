@@ -120,7 +120,7 @@ docker run -d \
 
 
 
-9. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
+10. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
 
 <figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Gravitee Cloud Dashboard, now with one hybrid gateway configuration added to Development environment.</p></figcaption></figure>
 
