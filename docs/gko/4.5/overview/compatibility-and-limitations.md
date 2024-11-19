@@ -28,6 +28,7 @@ GKO does not manage any **environment-level** objects such as:
 * Platform-level common policies
 * APIM dictionaries
 * Developer Portal themes
+* Shared Policy Groups
 
 GKO does not manage other **Gravitee components** such as:
 
