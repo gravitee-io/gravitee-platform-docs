@@ -61,12 +61,12 @@
 ## Using the product
 
 * [Most common use cases](using-the-product/most-common-use-cases/README.md)
-  * [Exposing SOAP webservices as REST APIs](using-the-product/most-common-use-cases/exposing-soap-webservices-as-rest-apis.md)
-  * [Secure and Expose gRPC Services with Gravitee](using-the-product/most-common-use-cases/secure-and-expose-grpc-services-with-gravitee.md)
-  * [Configure Dynamic Client Registration with APIM](using-the-product/most-common-use-cases/configure-dynamic-client-registration-with-apim.md)
-  * [Adding Role-based Access Control to your JWT Plan](using-the-product/most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan.md)
-  * [Configure JWT Security with APIM](using-the-product/most-common-use-cases/configure-jwt-security-with-apim.md)
   * [Rate Limiting REST API Use Cases](using-the-product/most-common-use-cases/rate-limiting-rest-api-use-cases.md)
+  * [Configure JWT Security with APIM](using-the-product/most-common-use-cases/configure-jwt-security-with-apim.md)
+  * [Adding Role-based Access Control to your JWT Plan](using-the-product/most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan.md)
+  * [Configure Dynamic Client Registration with APIM](using-the-product/most-common-use-cases/configure-dynamic-client-registration-with-apim.md)
+  * [Secure and Expose gRPC Services with Gravitee](using-the-product/most-common-use-cases/secure-and-expose-grpc-services-with-gravitee.md)
+  * [Exposing SOAP webservices as REST APIs](using-the-product/most-common-use-cases/exposing-soap-webservices-as-rest-apis.md)
 * [Administration](using-the-product/administration/README.md)
   * [Administering organizations and environments](using-the-product/administration/administering-organizations-and-environments.md)
   * [Configuring sign-in access](using-the-product/administration/authentication/README.md)
