@@ -27,7 +27,7 @@ Analytics are reported to a Cloud Account dedicated pipeline where Cloud Gate ar
 
 All communication between the hybrid gateway and the Cloud Gate endpoints is encrypted using TLS.
 
-<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure US region west-us, with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens. </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens. </p></figcaption></figure>
 
 ### Cloud Gate Endpoints
 
