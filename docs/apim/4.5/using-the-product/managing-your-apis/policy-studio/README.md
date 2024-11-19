@@ -4,5 +4,5 @@ The Gravitee Policy Studio allows you to design flows, which are policy enforcem
 
 For more information about the policies and the policy studios for v2 APIs and v4 APIs, see the following articles:
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th></th></tr></thead><tbody><tr><td><a href="v2-api-policy-studio.md">v2-api-policy-studio.md</a></td><td></td><td></td></tr><tr><td><a href="v4-api-policy-studio.md">v4-api-policy-studio.md</a></td><td></td><td></td></tr><tr><td><a href="policy-reference.md">policy-reference.md</a></td><td></td><td></td></tr><tr><td><a href="policies-for-your-apis/">policies-for-your-apis</a></td><td></td><td></td></tr></tbody></table>
 
