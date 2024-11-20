@@ -40,7 +40,7 @@ Ensure all prerequisites are satisfied before attempting to configure your OpenI
 
 ### Configuration
 
-You can use either the `gavitee.yaml` file or the API Management Console to set up your OpenID Connect authentication. The tabs below contain general set up directions for OpenID Connect authentication:
+You can set up your OpenID Connect authentication using the `gavitee.yaml` file or the API Management (APIM) Console.&#x20;
 
 {% tabs %}
 {% tab title="gravitee.yaml file" %}
@@ -85,10 +85,10 @@ security:
 {% endcode %}
 {% endtab %}
 
-{% tab title="APIM UI" %}
-To configure OpenID Connect authentication using the APIM UI, follow these steps:
+{% tab title="APIM Console" %}
+To configure OpenID Connect authentication using the APIM Console, follow these steps:
 
-1. Log-in to the Gravitee APIM UI, and select **Organization** from the left-hand nav.
+1. Log in to Gravitee's APIM Console, and then select **Organization** from the navigation menu.
 2. Under **Console,** select **Authentication.**
 3. Select **+ Add an identity provider.**
 4. On the **Create a new identity provider** page, select OpenID Connect as your **Provider type.** Then you will need to:
@@ -161,7 +161,7 @@ To better illustrate how the OpenID Connect configuration works (and to assist u
 
 ### Create a Keycloak client
 
-Before you can connect to the Gravitee portal using Keycloak, you need to create a new client. To do so, follow these steps:
+Before you can connect to Gravitee's portal using Keycloak, you need to create a new client. To do so, follow these steps:
 
 1.  Log-in to Keycloak and create a new client.
 
@@ -189,7 +189,7 @@ Before you can connect to the Gravitee portal using Keycloak, you need to create
 
 ### Create Keycloak Client roles
 
-Optionally, you can configure Keycloak client roles. These roles can be defined later in Gravitee either via the `gravitee.yaml` file or the Gravitee APIM UI. To configure Client roles in Keycloak, follow these steps:
+Optionally, you can configure Keycloak client roles. These roles can be defined later in Gravitee either using the `gravitee.yaml` file or Gravitee's APIM Console. To configure Client roles in Keycloak, follow these steps:
 
 1.  In your client, create roles by organization, as needed.
 
@@ -215,7 +215,7 @@ security:
 
 ### Configure Keycloak authentication in Gravitee
 
-You can configure Keycloak settings in Gravitee either via the Gravitee APIM UI or the `gravitee.yaml` file. Either way, the configuration is stored in the database, meaning that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file).&#x20;
+You can configure Keycloak settings in Gravitee either using Gravitee's APIM Console or the `gravitee.yaml` file. Either way, the configuration is stored in the database, meaning that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file).&#x20;
 
 See the tabs below for how to configure Keycloak authentication via the APIM UI and the `gravitee.yaml` file.
 
@@ -263,10 +263,10 @@ security:
 {% endcode %}
 {% endtab %}
 
-{% tab title="APIM UI" %}
+{% tab title="APIM Console" %}
 To configure OpenID Connect authentication using the APIM UI, follow these steps:
 
-1. Log-in to the Gravitee APIM UI, and select **Organization** from the left-hand nav.
+1. Log-in to Gravitee's APIM Console, and select **Organization** from the left-hand nav.
 2. Under **Console,** select **Authentication.**
 3. Select **+ Add an identity provider.**
 4. On the **Create a new identity provider** page, select OpenID Connect as your **Provider type.** Then you will need to:
