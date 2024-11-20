@@ -40,7 +40,7 @@ Ensure all prerequisites are satisfied before attempting to configure your OpenI
 
 ### Configuration
 
-You can set up your OpenID Connect authentication using the `gavitee.yaml` file or the API Management (APIM) Console.&#x20;
+You can set up your OpenID Connect authentication using the `gravitee.yaml` file or the API Management (APIM) Console.&#x20;
 
 {% tabs %}
 {% tab title="gravitee.yaml file" %}
