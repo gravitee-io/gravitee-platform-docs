@@ -1,5 +1,24 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.3 - November 21, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * API v2 CRD export cannot be applied when setting selection rules on plans [#10185](https://github.com/gravitee-io/issues/issues/10185)
+  * Adding a page is allowed for v4 APIs managed by the operator [#10184](https://github.com/gravitee-io/issues/issues/10184)
+  * API state is not exported when the API is stopped [#10172](https://github.com/gravitee-io/issues/issues/10172)
+  * Cloud context fails with token stored in a secret [#10170](https://github.com/gravitee-io/issues/issues/10170)
+  * Webhook validation fails when management context references a secret [#10168](https://github.com/gravitee-io/issues/issues/10168)
+  * The notifyMembers property is ignored for V2 APIs [#10163](https://github.com/gravitee-io/issues/issues/10163)
+  * Empty map values are ignored when persisting resources [#10161](https://github.com/gravitee-io/issues/issues/10161)
+  * Plan IDs are regenerated for V2 APIs after GKO upgrade [#10159](https://github.com/gravitee-io/issues/issues/10159)
+  * GKO - API Definition - Default System Folder "Aside" [#10152](https://github.com/gravitee-io/issues/issues/10152)
+  * Edit on Github button deactivated when deploying github fetcher [#10078](https://github.com/gravitee-io/issues/issues/10078)
+  * API Pages are not deleted when combining http-fetcher (or markdown) and github-fetchers together [#10087](https://github.com/gravitee-io/issues/issues/10087)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.2 - November 12, 2024
     
 <details>
