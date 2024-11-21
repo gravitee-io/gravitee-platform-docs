@@ -6,6 +6,42 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.14 - November 21, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* SSE connections receives messages to the wrong API when connected to rabbitmq  [#10020](https://github.com/gravitee-io/issues/issues/10020)
+
+**Management API**
+
+* API webhook notifier is not working for subscriptions [#10056](https://github.com/gravitee-io/issues/issues/10056)
+* MAPI v2 : analytics : /respoinse-statuses : error 404 [#10175](https://github.com/gravitee-io/issues/issues/10175)
+
+**Console**
+
+* When creating an endpoint group, the page is not properly refreshed [#10129](https://github.com/gravitee-io/issues/issues/10129)
+
+**Other**
+
+* API CRD export mismatch on plan when using selection rules [#10179](https://github.com/gravitee-io/issues/issues/10179)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Support expression language in ip filtering policy [#10142](https://github.com/gravitee-io/issues/issues/10142)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.13 - November 5, 2024
 <details>
 
