@@ -1,5 +1,14 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.14 - November 21, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * API v2 CRD export cannot be applied when setting selection rules on plans [#10185](https://github.com/gravitee-io/issues/issues/10185)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.13 - November 12, 2024
     
 <details>
