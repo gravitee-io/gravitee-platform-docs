@@ -6,6 +6,33 @@ description: >-
 
 # APIM 4.2.x
  
+## Gravitee API Management 4.2.23 - November 21, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* SSE connections receives messages to the wrong API when connected to rabbitmq  [#10020](https://github.com/gravitee-io/issues/issues/10020)
+
+**Management API**
+
+* API webhook notifier is not working for subscriptions [#10056](https://github.com/gravitee-io/issues/issues/10056)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Support expression language in ip filtering policy [#10142](https://github.com/gravitee-io/issues/issues/10142)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.2.22 - November 5, 2024
 <details>
 
