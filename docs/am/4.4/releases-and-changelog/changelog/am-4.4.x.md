@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.11 - November 22, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Users are returned randomly via SCIM [#10147](https://github.com/gravitee-io/issues/issues/10147)
+* Using the /introspect endpoint with a bearer token does not work in 4.4.9 [#10166](https://github.com/gravitee-io/issues/issues/10166)
+
+
+
+
+
+**Other**
+
+* Improve WebAuthn Credential search indexes [#10165](https://github.com/gravitee-io/issues/issues/10165)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.10 - November 8, 2024
 
 <details>
