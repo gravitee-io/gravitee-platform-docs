@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.3 - November 22, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Users are returned randomly via SCIM [#10147](https://github.com/gravitee-io/issues/issues/10147)
+
+
+
+
+
+**Other**
+
+* [Helm Chart] Upgrader job can't be deployed [#10154](https://github.com/gravitee-io/issues/issues/10154)
+* Improve WebAuthn Credential search indexes [#10165](https://github.com/gravitee-io/issues/issues/10165)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.2 - November 8, 2024
 
 <details>
