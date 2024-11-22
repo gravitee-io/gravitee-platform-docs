@@ -85,6 +85,7 @@
     * [Creating APIs with API Creation Wizard](using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/README.md)
       * [Creating APIs with the v4 API creation wizard](using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md)
       * [Creating APIs with the v2 API creation wizard](using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md)
+    * [Creating and publishing an API with the Management API](using-the-product/managing-your-apis/create-apis/creating-and-publishing-an-api-with-the-management-api.md)
     * [v2 APIs and v4 APIs comparison](using-the-product/managing-your-apis/create-apis/v2-apis-and-v4-apis-comparison.md)
   * [Configuring APIs](using-the-product/managing-your-apis/api-configuration/README.md)
     * [Configuring v2 APIs](using-the-product/managing-your-apis/api-configuration/v2-api-configuration/README.md)
