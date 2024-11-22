@@ -13,7 +13,7 @@ description: >-
 * If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition Licensing Licensing, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
 {% endhint %}
 
-### Perquisites for installing Gravitee APIM on an Amazon instance&#x20;
+### Prerequisites for installing Gravitee APIM on an Amazon instance&#x20;
 
 {% hint style="warning" %}
 Gravitee supports only the Amazon Linux 2 image.
@@ -68,7 +68,7 @@ sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
 
 ### Installing Nginx
 
-you must install Nginx to run Gravitee APIM. To install Nginx, complete the following steps:
+You must install Nginx to run Gravitee APIM. To install Nginx, complete the following steps:
 
 <details>
 
