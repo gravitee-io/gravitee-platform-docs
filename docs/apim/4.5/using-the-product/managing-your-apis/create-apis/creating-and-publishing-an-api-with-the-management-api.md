@@ -1,24 +1,17 @@
----
-description: >-
-  This section walks you through creating and publishing your first API with the
-  Gravitee Management API (mAPI).
----
-
 # Creating and publishing an API with the Management API
 
-This guide uses the v4-Proxy API definition, creating an HTTP Proxy API. The principles are the same for other types of APIs.
+## Overview
+
+This guide uses the v4-Proxy API definition to create an HTTP Proxy API. The principles are the same for other types of APIs.
+
+This example uses the Gravitee Echo API to set up an HTTP proxy API. The Gravitee Echo API returns JSON-formatted data through the following URL: [https://api.gravitee.io/echo](https://api.gravitee.io/echo)
 
 {% hint style="info" %}
-In this example we will use the [Gravitee Echo API](https://api.gravitee.io/echo) to set up our first HTTP proxy API. The Gravitee Echo API returns JSON-formatted data via the following URL: [https://api.gravitee.io/echo](https://api.gravitee.io/echo)
+* If the `Enable API Review` option is enabled in your API Management settings, you need to use the "Ask for a review" and "Accept a review" requests to complete the API Review process.&#x20;
+* The `Enable API Review` option ensures that someone other than the API creator reviews and approves an API before the API creator publishes the API to a Gateway or the Developer Portal. For more information about the `Enable API Review`, see [using-the-api-quality-feature.md](../api-measurement-tracking-and-analytics/using-the-api-quality-feature.md "mention").
 {% endhint %}
 
-{% hint style="info" %}
-If the `Enable API Review` option is enabled in your API Management Settings, you will need to use the "Ask for a review" and "Accept a review" requests to complete the API Review process.
-
-The [Enable API Review](../api-measurement-tracking-and-analytics/using-the-api-quality-feature.md) option enforces someone (other than the API Creator) to review & approve an API before it can be published to a Gateway or to the Developer Portal.
-{% endhint %}
-
-There are a few steps needed to fully create, deploy, and (optionally) publish your API to the Developer Portal:
+To create, deploy, and publish your API to the Developer Portal, you must complete the following steps:
 
 * [Obtain a Personal Access Token](creating-and-publishing-an-api-with-the-management-api.md#obtaining-a-personal-access-token)
 * [Create the API definition in JSON](creating-and-publishing-an-api-with-the-management-api.md#create-the-api-definition-in-json)
@@ -26,23 +19,23 @@ There are a few steps needed to fully create, deploy, and (optionally) publish y
 * [Create a plan for the API](creating-and-publishing-an-api-with-the-management-api.md#create-a-plan-for-the-api)
 * [Publish the plan](creating-and-publishing-an-api-with-the-management-api.md#publish-the-plan)
 * [Start the API](creating-and-publishing-an-api-with-the-management-api.md#start-the-api)
-* [(Optionally) Publish the API to the developer portal](creating-and-publishing-an-api-with-the-management-api.md#optionally-publish-the-api-to-the-developer-portal)
+* [(Optional) Publish the API to the developer portal](creating-and-publishing-an-api-with-the-management-api.md#optional-publish-the-api-to-the-developer-portal)
 
 ## Obtain a Personal Access Token
 
-In order to authenticate with the Management API, you must provide a set of credentials or a Personal Access Token (PAT). &#x20;
+To authenticate with the Management API (mAPI), you must provide a set of credentials or a Personal Access Token (PAT). &#x20;
 
-Use these steps to generate a personal access token:
+To generate a PAT, complete the following steps:
 
 1. Log into your API Management Console
-2. Click on the `Organization` menu option
-3. Under `User Management`, click on the `Users` option
-4. Click on your username, and scroll down to `Tokens`
-5. Finally, click on `Generate a personal token`.  This (bearer) token will be used in the `Authorization` header when making requests to the Management API.
+2. In the navigation menu, click `Organization` .
+3. In the `User Management` section of the `Organization menu`, click `Users` .
+4. Click your username, and then scroll to `Tokens`.
+5. Click `Generate a personal token`.  This (bearer) token is used in the `Authorization` header when you make requests to the Management API.
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXevKrd-eEwy0weN9zG1LDc-gb00Q6Et0vnp3rSVq0BWgIqN5CuMXoGBPU6VDPCHrU2SnWoQZQoU1E7LC_qsdAWpI-1bqhti2QawjPQ3v343WGCUhrItm2daeniAdeF5FlK_w-4I-fm5UAJ4q4u6b-7YG_hf?key=ct5dl3MgXSqTMSd4JX9ipQ" alt=""><figcaption></figcaption></figure>
 
-To continue following this guide, set the Personal Access Token and management API base URL to enviornment variables, using values appropriate for your environment:
+6. &#x20;Set the Personal Access Token and management API base URL to environment variables by using values appropriate for your environment:
 
 ```bash
 export PERSONAL_ACCESS_TOKEN="kd2l91mL01110F..."
@@ -51,7 +44,18 @@ export MANAGEMENT_API_URL="localhost:8083"
 
 ## Create the API definition in JSON
 
-You can create the API definition for your API in JSON. Typically, you would get this by exporting an existing API definition and modifying it, or via a Kubernetes resource in GKO. However, in this case, we'll assume you are crafting the API definition manually. In that case, put the API data in a JSON file called `my-api.json`. The content should be like so:
+You can create the API definition manually for your API in JSON.&#x20;
+
+{% hint style="info" %}
+You can also create an API definition using the following methods:
+
+* Exporting an existing API definition, and then modifying the API definition.
+* Using a Kubernetes resource in Gravitee Kubernetes Operator (GKO).
+{% endhint %}
+
+If you craft the API definition manually, complete the following step:
+
+* Insert the API data in a JSON file called `my-api.json`. Your `my-api.json` file should match the following example:
 
 ```json
 {
@@ -95,9 +99,13 @@ You can create the API definition for your API in JSON. Typically, you would get
 }
 ```
 
-## Create the API via a mAPI call
+## Create the API with a mAPI call
 
-Now, run the `curl` command to create the API from the JSON definition:
+1. Run the the following `curl` command to create the API from the JSON definition:
+
+{% hint style="info" %}
+You can pass the full JSON definition in the data (`-d`) argument of the `curl` command.
+{% endhint %}
 
 ```sh
 curl -H "Authorization: ${PERSONAL_ACCESS_TOKEN}" \
@@ -107,9 +115,11 @@ curl -H "Authorization: ${PERSONAL_ACCESS_TOKEN}" \
 https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/DEFAULT/apis
 ```
 
-You can also pass the full JSON definition above in the data (`-d`) argument of the `curl` command.
+A successful request returns a `HTTP 201 Created` status and the full configuration of the API.
 
-If your request is successful, you should receive a `HTTP 201 Created` status returned, as well as the full configuration of your new API. You now want to capture the API `id` to use in subsequent calls. You can set this again as an environment variable like so:
+2. Capture the API `id` to use in subsequent calls.&#x20;
+
+In future calls, you can set this `id` as an environment variable like the following example:
 
 ```bash
 export API_ID="54593ae4-0e2e-41fe-993a-e40e2ee1fe61"
@@ -117,9 +127,11 @@ export API_ID="54593ae4-0e2e-41fe-993a-e40e2ee1fe61"
 
 ## Create a plan for the API
 
-Every API must have at least one Security/Consumer [Plan](../../using-the-gravitee-api-management-components/general-configuration/plans-and-policies/) associated with it before it can be deployed to a Gateway.  The following example shows how to create a `KEYLESS` plan.
+Your API must have at least one Security/Consumer [Plan](../../using-the-gravitee-api-management-components/general-configuration/plans-and-policies/) associated with it before it can be deployed to a Gateway. For more information about Plans, see [plans-and-policies](../../using-the-gravitee-api-management-components/general-configuration/plans-and-policies/ "mention"). The following procedure explains how to create a `KEYLESS` plan.
 
-To create a plan via the mAPI, run the following, replacing the&#x20;
+To create a `Keyless` plan, complete the following steps:
+
+1. To create a plan using the mAPI, run the following command:
 
 ```bash
 curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
@@ -129,7 +141,11 @@ curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
 https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/DEFAULT/apis/${API_ID}/plans
 ```
 
-As above, if your request is successful, you should receive a `HTTP 201 Created` status returned, as well as the full configuration of your new plan. You now want to capture the API `id` to use in subsequent calls. You can set this again as an environment variable like so:
+If your request is successful, The API call returns a `HTTP 201 Created` status and a full configuration of your new plan.&#x20;
+
+2. Capture the plan `id` to use in subsequent calls.&#x20;
+
+In future calls, you can set this `id` as an environment variable like the following example:
 
 ```bash
 export PLAN_ID="211jf90-dk211kl-9313-j9119-3k21t6leel19"
@@ -137,7 +153,11 @@ export PLAN_ID="211jf90-dk211kl-9313-j9119-3k21t6leel19"
 
 ## Publish the plan
 
-Now we need to publish the Plan (in accordance with the API lifecycle management guidelines). To do so, run:
+{% hint style="info" %}
+You must publish the Plan in accordance with the API lifecycle management guidelines.
+{% endhint %}
+
+* To publish the Plan, run the following command:
 
 ```bash
 curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
@@ -146,11 +166,11 @@ curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
 https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/DEFAULT/apis/${API_ID}/plans/${PLAN_ID}/_publish
 ```
 
-This time you should receive a `HTTP 200 OK` status that confirms your Plan was published successfully.
+If you published your plan successfully, you receive a `HTTP 200 OK` status.
 
 ## Start the API
 
-Now the last mandatory step in creating your first API (using the Management API) is to actually **start** your API.
+To start the API using the mAPI, use the following command:
 
 ```bash
 curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
@@ -158,13 +178,15 @@ curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
 https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/DEFAULT/apis/${API_ID}/_start
 ```
 
-This time you should receive a `HTTP 204 No Content` status. &#x20;
+If the API starts successfully, you receive a `HTTP 204 No Content` status. &#x20;
 
-Switch over to your Gravitee API Management Console and you should now see your API.  It will have the `KEYLESS` Plan published, and it’ll already be deployed to your API Gateway, so go ahead and test it out.
+You can now view your API in your Gravitee API Management Console. The API has the `KEYLESS` Plan published. Also, the API is deployed to the Gateway.
 
-## (Optionally) Publish the API to the Developer Portal
+## (Optional) Publish the API to the Developer Portal
 
-If you also want to publish your API to the Developer Portal then you will need to modify its configuration.  From the JSON response of the Create API Request, modify the `lifecycleState` attribute to value `PUBLISHED` and send the result in a `PUT` request.
+If you  want to publish your API to the Developer Portal, you must modify its configuration. To modify the APIs configuration, complete the following steps:&#x20;
+
+1. From the JSON response of the Create API Request, modify the `lifecycleState` attribute to value `PUBLISHED`, and then send the result in a `PUT` request like the following example:
 
 ```bash
 curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
@@ -175,7 +197,9 @@ https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/D
 
 ```
 
-This time you should receive a `HTTP 200 OK` status that confirms your API configuration was updated successfully. But since we made this change, we also need to re-deploy the API configuration again:
+If the `PUT` request is successful, you receive a `HTTP 200 OK` status.&#x20;
+
+2. Re-deploy the API configuration using the following command:
 
 ```bash
 curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
@@ -184,6 +208,4 @@ curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
 https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/DEFAULT/apis/${API_ID}/deployments
 ```
 
-A status of `HTTP 202 Accepted` informs you the deployment (of your API configuration to the Gateway) has been started.
-
-You have now created your first API using Gravitee’s Management API!
+A  `HTTP 202 Accepted` status informs you the deployment of your API configuration to the Gateway has been started.
