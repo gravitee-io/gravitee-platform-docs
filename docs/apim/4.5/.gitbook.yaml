@@ -9,3 +9,4 @@ redirects:
  guides/api-configuration/v4-api-configuration/entrypoint-configuration: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints.md
  getting-started/install-and-upgrade-guides/multi-tenancy: installation-and-upgrades/install-gravitee-api-management/multi-tenancy.md
  getting-started/install-and-upgrade-guides: installation-and-upgrades/install-gravitee-api-management/README.md
+ getting-started/quickstart-guide: https://documentation.gravitee.io/apim.md
