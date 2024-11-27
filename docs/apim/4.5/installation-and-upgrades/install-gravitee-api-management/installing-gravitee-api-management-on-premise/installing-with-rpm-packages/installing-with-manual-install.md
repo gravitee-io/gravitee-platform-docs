@@ -1,23 +1,21 @@
----
-description: >-
-  You can install Gravitee’s API Management (APIM) on a Linux operating system
-  using the YUM package manager.
----
-
-# Installing with RPM Packages
+# Installing with manual install
 
 ## Before you begin
 
 {% hint style="warning" %}
-* RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](install-with-.zip.md).
-* If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition Licensing Licensing, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
+
+
+* RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](../install-with-.zip.md).
+* If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition Licensing Licensing, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)&#x20;
 {% endhint %}
 
-### Prerequisites for installing Gravitee APIM on an Amazon instance&#x20;
+### Prerequisites for installing Graviitee APIM on an Amazon instance&#x20;
 
-{% hint style="warning" %}
-Gravitee supports only the Amazon Linux 2 image.
-{% endhint %}
+<details>
+
+<summary>Prerequisites for installing Gravitee APIM on an Amazon instance </summary>
+
+**NOTE:** Gravitee supports only the Amazon Linux 2 image.
 
 You can run Gravitee APIM on Amazon EC2 instances. However, if you run Gravitee APIM on an Amazon instance, there are the following additional requirements:
 
@@ -25,6 +23,8 @@ You can run Gravitee APIM on Amazon EC2 instances. However, if you run Gravitee 
 * The root volume size must be at least 40GB.
 * The security group must allow SSH connection to connect and install the Gravitee components.
 * The security group must allow access to ports 8082, 8083, 8084, and 8085.
+
+</details>
 
 ### Creating a Gravitee YUM repository
 
@@ -132,69 +132,21 @@ The above commands to install and start Nginx will now run using this repository
 
 </details>
 
-## Installing Gravitee API Management
-
-There are two methods that you can use to install Gravitee API Management with RPMs:
-
-* **Quick full-stack install:** You install all the prerequisites that you need to run Gravitee APIM and the full APIM stack (including the database dependencies).
-* **Manual install:** You control the installation of the prerequisites that you need to run APIM, installing the database dependencies as needed.
-
-### Quick full-stack install
-
-<details>
-
-<summary>Installing Gravitee API Management on Linux with Quick install</summary>
-
-1. To install Gravitee's APIM stack, use one of the following depending on if you are installing the APIM stack with database dependencies or without database dependencies:
-
-&#x20;       a. To install Gravitee’s APIM stack **without** database dependencies, use the following command :
-
-```bash
-sudo yum install graviteeio-apim-4x
-```
-
-&#x20;       b. To install Gravitee’s APIM stack **with** the database dependencies, use the following command:
-
-```bash
-curl -L https://bit.ly/install-apim-4x | bash
-```
-
-2. Enable the APIM components using the following commands:
-
-```bash
-sudo systemctl daemon-reload
-sudo systemctl start graviteeio-apim-gateway graviteeio-apim-rest-api
-sudo systemctl restart nginx
-```
-
-**Verification**
-
-* To verify that you installed Gravitee APIM correctly, send four API calls using the following commands on the machine hosting APIM (changing the hostname as needed):
-
-```bash
-curl -X GET http://localhost:8082/
-curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
-curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
-curl -X GET http://localhost:8085/
-```
-
-</details>
-
-### Manual install
-
-With this method, you install either all the individual components that you need to run Gravitee APIM or if you manage some components separately from APIM, only the components that you need.&#x20;
+## Installing the Gravitee API Management components
 
 <details>
 
 <summary>Installing  Java 17</summary>
 
-1. (optional) If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java:
+To install Java 17, use either of the following commands depending on your Operating System:
+
+* If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java using the following command:
 
 ```sh
 sudo amazon-linux-extras enable java-openjdk17
 ```
 
-2. Install Java using the following the command:
+If you are running APIM on any other Operating System, Install Java using the following the command:
 
 ```sh
 sudo yum install java-17-openjdk -y
@@ -371,31 +323,17 @@ sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 
 </details>
 
-## Troubleshooting Nginx with SELinux
+### **Verification**
 
-Sometimes, an SELinux configuration issue can prevent Nginx from opening on ports 8084 and 8085. To correct this issue, complete the following steps:
+* To verify that you installed Gravitee APIM correctly, send four API calls using the following commands on the machine hosting APIM:
 
-1. Validate that the port is not in the list of managed HTTP ports by running `semanage port -l`.  You should get the following output:
+{% hint style="info" %}
+If needed, change the hostnames.
+{% endhint %}
 
-```sh
-$ semanage port -l | grep http_port_t
-http_port_t                tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000
+```bash
+curl -X GET http://localhost:8082/
+curl -X GET http://localhost:8083/management/organizations/DEFAULT/console
+curl -X GET http://localhost:8083/portal/environments/DEFAULT/apis
+curl -X GET http://localhost:8085/
 ```
-
-2. Add the port for Nginx to bind to, for example, 8084, using the following command:
-
-```sh
-$ semanage port -a -t http_port_t  -p tcp 8084
-```
-
-3. Validate that the port is listed using the following command:
-
-{% code overflow="wrap" %}
-```sh
-$ semanage port -l | grep http_port_t
-http_port_t                tcp      8084, 80, 81, 443, 488, 8008, 8009, 8443, 9000
-
-```
-{% endcode %}
-
-4. Restart Nginx.
