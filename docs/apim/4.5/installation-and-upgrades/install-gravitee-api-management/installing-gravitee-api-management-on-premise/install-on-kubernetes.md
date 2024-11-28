@@ -9,7 +9,7 @@ description: How to install Gravitee API Management on Kubernetes
 This page describes how to install APIM on any Kubernetes environment using the official Gravitee Helm Chart.
 
 {% hint style="info" %}
-For more information about Helm charts, go to [Helm Docs](https://helm.sh/docs/topics/chart\_repository/).
+For more information about Helm charts, go to [Helm Docs](https://helm.sh/docs/topics/chart_repository/).
 {% endhint %}
 
 The APIM Helm char**t** deploys the following components:
@@ -745,6 +745,21 @@ ui:
         drop: ["ALL"]
       seccompProfile:
         type: RuntimeDefault
+      
+# This part is needed only if you want to enable federation or install plugins  
+initContainers:
+  image: alpine:latest
+  imagePullPolicy: Always
+  securityContext:
+    runAsUser: null
+    runAsGroup: 1000
+    runAsNonRoot: true
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop: ["ALL"]
+    seccompProfile:
+      type: RuntimeDefault
+
 ```
 {% endcode %}
 
