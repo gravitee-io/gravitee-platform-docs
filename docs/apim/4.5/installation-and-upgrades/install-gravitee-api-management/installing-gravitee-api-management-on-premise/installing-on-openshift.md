@@ -433,7 +433,7 @@ helm repo add graviteeio https://helm.gravitee.io
 2. Install the Helm chart to a dedicated namespace using the following command:
 
 ```
-helm install -f values.yaml graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-api
+helm install -f values.yml graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-api
 ```
 
-* `values.yaml` refers to the values file that you prepared in the [#configure-the-gravitee-parameters-and-values.yml-file](installing-on-openshift.md#configure-the-gravitee-parameters-and-values.yml-file "mention") section.
+* `values.yml` refers to the values file that you prepared in the [#configure-the-gravitee-parameters-and-values.yml-file](installing-on-openshift.md#configure-the-gravitee-parameters-and-values.yml-file "mention") section.
