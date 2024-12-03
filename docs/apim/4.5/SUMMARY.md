@@ -42,6 +42,7 @@
       * [Installing with Docker Images Install](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/docker-images-install.md)
       * [Customizing your Gravitee API Management installation on Docker](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/further-customization.md)
     * [Installing on Kubernetes](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes.md)
+    * [Installing on OpenShift](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/installing-on-openshift.md)
     * [Installing with RPM packages](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/installing-with-rpm-packages/README.md)
       * [Installing with quick full-stack install](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/installing-with-rpm-packages/installing-with-quick-full-stack-install.md)
       * [Installing with manual install](installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/installing-with-rpm-packages/installing-with-manual-install.md)
