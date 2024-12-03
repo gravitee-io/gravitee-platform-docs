@@ -11,17 +11,17 @@
 
 To install APIM within OpenShift, complete the following steps:
 
-* [#optional-configuring-the-serviceaccount-using-roles](installing-on-openshift.md#optional-configuring-the-serviceaccount-using-roles "mention")
-* [#optional-configuring-the-configuration-types](installing-on-openshift.md#optional-configuring-the-configuration-types "mention")
-* [#configuring-the-databases](installing-on-openshift.md#configuring-the-databases "mention")
-* [#configuring-the-gravitee-parameters-and-values.yml-file](installing-on-openshift.md#configuring-the-gravitee-parameters-and-values.yml-file "mention")
+* [#optional-configure-the-serviceaccount-using-roles](installing-on-openshift.md#optional-configure-the-serviceaccount-using-roles "mention")
+* [#optional-configure-the-configuration-types](installing-on-openshift.md#optional-configure-the-configuration-types "mention")
+* [#configure-the-databases](installing-on-openshift.md#configure-the-databases "mention")
+* [#configure-the-gravitee-parameters-and-values.yml-file](installing-on-openshift.md#configure-the-gravitee-parameters-and-values.yml-file "mention")
 * [#install-the-gravitee-helm-chart](installing-on-openshift.md#install-the-gravitee-helm-chart "mention")
 
-### (Optional) Configuring the ServiceAccount using roles
+### (Optional) Configure the ServiceAccount using roles
 
 If you want to configure the ServiceAccount with more advanced settings, you must use Roles. For more information about using roles, go to go to [Using RBAC to define and apply permissions RBAC overview](https://docs.openshift.com/container-platform/4.8/authentication/using-rbac.html).
 
-### (Optional) Configuring the configuration types
+### (Optional) Configure the configuration types
 
 You can configure your deployment for the following configuration types:
 
@@ -31,7 +31,7 @@ You can configure your deployment for the following configuration types:
 
 The configuration types for OpenShift are the same configuration types for Kubernetes. For more information about the configuration types, see [#configuration-types](install-on-kubernetes.md#configuration-types "mention").
 
-### Configuring the databases
+### Configure the databases
 
 To deploy OpenShift, you must configure the MongoDB database. Also, you can configure other databases if you need them.
 
@@ -276,7 +276,7 @@ gateway:
 {% endtab %}
 {% endtabs %}
 
-### Configuring the Gravitee Parameters and values.yml file
+### Configure the Gravitee Parameters and values.yml file
 
 #### Configuring the Gravitee Parameters
 
