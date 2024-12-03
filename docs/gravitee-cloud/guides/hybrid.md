@@ -96,10 +96,12 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 
 <figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up with last step where you are able to copy your generated Cloud Token and your License.</p></figcaption></figure>
 
-9. Depending on your installation method, complete either of the following steps:
+9. Install the Gravitee APIM Gateway. To install the APIM Gateway, complete any of the following sub-steps:
 
 {% tabs %}
 {% tab title="Docker" %}
+## Procedure
+
 a. Copy your Cloud Token and License Key.&#x20;
 
 b. Run the following script:
@@ -115,6 +117,118 @@ docker run -d \
 
 * Replace \<cloud\_token> and \<license\_key> with the Cloud token and License Key from step a.&#x20;
 * Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud.
+{% endtab %}
+
+{% tab title="Kubernetes (Helm)" %}
+## **Before you begin**
+
+You must install the following command line tools:
+
+* [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+* [Helm v3](https://helm.sh/docs/intro/install/)
+
+## Procedure
+
+1. Set up Helm. To set up Helm. complete the following sub-steps:
+
+&#x20;**1. Set up Helm**\
+\
+&#x20;  a. Add the Gravitee Helm chart repo using the following command:
+
+<pre class="language-bash"><code class="lang-bash"><strong>helm repo add graviteeio https://helm.gravitee.io
+</strong></code></pre>
+
+&#x20;  b. Install the Helm chart to a dedicated namespace using the following command:
+
+```bash
+helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
+```
+
+3. **Configure Parameters**\
+   \
+   a. On your local machine, copy and paste the following text into a file called `values.yaml`:
+
+```yaml
+gateway:
+    replicaCount: 1
+    image:
+        repository: graviteeio/apim-gateway
+        tag: <CONTROL_PLANE_VERSION>
+        pullPolicy: IfNotPresent
+    autoscaling:
+        enabled: false
+    podAnnotations:
+        prometheus.io/path: /_node/metrics/prometheus
+        prometheus.io/port: "18082"
+        prometheus.io/scrape: "true"
+    env:
+        - name: gravitee_cloud_token
+          value: "<cloud_token>"
+    services:
+        metrics:
+            enabled: true
+            prometheus:
+                enabled: true
+        core:
+            http:
+                enabled: true
+        sync:
+            kubernetes:
+                enabled: false
+        bridge:
+            enabled: false
+    service:
+        type: LoadBalancer
+        externalPort: 8082
+        loadBalancerIP: 127.0.0.1
+    ingress:
+        enabled: false
+    resources:
+        limits:
+            cpu: 500m
+            memory: 1024Mi
+        requests:
+            cpu: 200m
+            memory: 512Mi
+    deployment:
+        revisionHistoryLimit: 1
+        strategy:
+            type: RollingUpdate
+            rollingUpdate:
+                maxUnavailable: 0
+    reporters:
+        file:
+            enabled: false
+    terminationGracePeriod: 50
+    gracefulShutdown:
+        delay: 20
+        unit: SECONDS
+
+api:
+    enabled: false
+
+ratelimit:
+    type: none
+
+portal:
+    enabled: false
+
+ui:
+    enabled: false
+
+alerts:
+    enabled: false
+
+es:
+    enabled: false
+
+license:
+    key: "<license_key>"
+```
+
+* Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud.
+* Replace \<cloud\_token>  with your Cloud Token.&#x20;
+* Replace the \<license\_key> with your License Key.
 {% endtab %}
 {% endtabs %}
 
