@@ -6,6 +6,25 @@ description: >-
 
 # APIM 4.2.x
  
+## Gravitee API Management 4.2.24 - December 5, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Opensearch configuration and ism policy [#10100](https://github.com/gravitee-io/issues/issues/10100)
+
+**Management API**
+
+* 500 error when listing API categories [#10158](https://github.com/gravitee-io/issues/issues/10158)
+* \[APIM]\[Portal] Static data access  [#10162](https://github.com/gravitee-io/issues/issues/10162)
+* Unable to find users with emails containing uppercase letters in Gravitee APIM Console and API requests [#10167](https://github.com/gravitee-io/issues/issues/10167)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.2.23 - November 21, 2024
 <details>
 
