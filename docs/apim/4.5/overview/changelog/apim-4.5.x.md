@@ -6,6 +6,41 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.4 - December 5, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Websocket subprotocol doesn't work in API GW [#10023](https://github.com/gravitee-io/issues/issues/10023)
+* Opensearch configuration and ism policy [#10100](https://github.com/gravitee-io/issues/issues/10100)
+* Creating a Cache Policy with 4.5.3 or newer is not activating the trigger condition in the debug mode  [#10209](https://github.com/gravitee-io/issues/issues/10209)
+
+**Management API**
+
+* Custom Api key is not resuable between multiple environments [#10131](https://github.com/gravitee-io/issues/issues/10131)
+* Page Size Drop Down cannot exceed 100 [#10145](https://github.com/gravitee-io/issues/issues/10145)
+* \[APIM]\[Portal] Static data access  [#10162](https://github.com/gravitee-io/issues/issues/10162)
+* Unable to find users with emails containing uppercase letters in Gravitee APIM Console and API requests [#10167](https://github.com/gravitee-io/issues/issues/10167)
+* Webhook notification for Subscription_Accepted event is missing "owner" details [#10187](https://github.com/gravitee-io/issues/issues/10187)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Improve `/apis/{apiId}/import/swagger?definitionVersion=2.0.0` endpoint performances [#10117](https://github.com/gravitee-io/issues/issues/10117)
+
+  Note: Two new environment variables have been introduced to enhance the configuration. The first, `documentation.audit.max-content-size`, is designed to limit the size of the content saved in audits when a Page is created during an import. The second variable, `documentation.swagger.validate-safe-content`, determines whether the content of an imported OAS is validated for safety during the import process.
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.5.3 - November 21, 2024
 <details>
 
