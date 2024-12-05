@@ -24,11 +24,13 @@ description: >-
 * \[APIM]\[Portal] Static data access  [#10162](https://github.com/gravitee-io/issues/issues/10162)
 * Unable to find users with emails containing uppercase letters in Gravitee APIM Console and API requests [#10167](https://github.com/gravitee-io/issues/issues/10167)
 * Webhook notification for Subscription_Accepted event is missing "owner" details [#10187](https://github.com/gravitee-io/issues/issues/10187)
+* OpenAPI documentation "Show the URL to download the content" doesn't work [#9891](https://github.com/gravitee-io/issues/issues/9891)
 
 **Other**
 
 * DataDog issues with plugin v2.4.5 [#10176](https://github.com/gravitee-io/issues/issues/10176)
 * Health endpoint result is impacted by filtered probes in timeout [#10189](https://github.com/gravitee-io/issues/issues/10189)
+* [gravitee-policy-cache] Timeouts occur when trying to cache a large payload [#10208](https://github.com/gravitee-io/issues/issues/10208)
 
 </details>
 
