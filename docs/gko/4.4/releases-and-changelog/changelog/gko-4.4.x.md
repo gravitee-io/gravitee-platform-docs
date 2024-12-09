@@ -1,5 +1,16 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.15 - December 9, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Missing Key and Trust Store  fields in API Definition [#10215](https://github.com/gravitee-io/issues/issues/10215)
+  * Template strings are not resolved for API Resources references [#10214](https://github.com/gravitee-io/issues/issues/10214)
+  * Gateway throws NPE watching GKO configmaps [#10210](https://github.com/gravitee-io/issues/issues/10210)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.14 - November 21, 2024
     
 <details>
