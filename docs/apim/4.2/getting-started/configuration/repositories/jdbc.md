@@ -10,7 +10,7 @@ The JDBC plugin is part of the default distribution of APIM. However, you need t
 
 ## Supported databases
 
-<table><thead><tr><th width="211.66666666666666">Database</th><th>Version tested</th><th>JDBC Driver</th></tr></thead><tbody><tr><td>PostgreSQL</td><td>11.x / 12.x / 13.x / 14.x / 15.x</td><td><a href="https://jdbc.postgresql.org/download/">Download page</a></td></tr><tr><td>MySQL</td><td>5.7.x / 8.0.x</td><td><a href="https://dev.mysql.com/downloads/connector/j/">Download page</a></td></tr><tr><td>MariaDB</td><td>10.4.x / 10.5.x / 10.6.x / 10.10.x / 10.11.x / 11.x</td><td><a href="https://downloads.mariadb.org/connector-java/">Download page</a></td></tr><tr><td>Microsoft SQL Server</td><td>2017-x / 2019-x / 2022-x</td><td><a href="https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017">Download page</a></td></tr></tbody></table>
+<table><thead><tr><th width="211.66666666666666">Database</th><th>Version tested</th><th>JDBC Driver</th></tr></thead><tbody><tr><td>PostgreSQL</td><td>13.x / 14.x / 15.x / 16.x / 17.x</td><td><a href="https://jdbc.postgresql.org/download/">Download page</a></td></tr><tr><td>MySQL</td><td>5.7.x / 8.0.x</td><td><a href="https://dev.mysql.com/downloads/connector/j/">Download page</a></td></tr><tr><td>MariaDB</td><td>10.4.x / 10.5.x / 10.6.x / 10.10.x / 10.11.x / 11.x</td><td><a href="https://downloads.mariadb.org/connector-java/">Download page</a></td></tr><tr><td>Microsoft SQL Server</td><td>2017-x / 2019-x / 2022-x</td><td><a href="https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017">Download page</a></td></tr></tbody></table>
 
 ## Install the JDBC driver
 
