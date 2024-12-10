@@ -137,8 +137,8 @@ docker compose -f docker-compose-apim.yml up -d
 * To open the Developer Portal, go to `http://localhost:8085.`
 
 {% hint style="info" %}
-* The default username for the Console and the Developer Portal is admin.
-* The default password for the Developer Portal is admin.
+- The default username for the Console and the Developer Portal is admin.
+- The default password for the Developer Portal is admin.
 {% endhint %}
 
 {% hint style="success" %}
@@ -147,7 +147,7 @@ Congratulations! Now that APIM is up and running, check out the [Quickstart Guid
 
 ## Enable Federation
 
-[Federation](../../../../using-the-product/federating-your-apis/) is a new capability that was released with Gravitee 4.4.
+[Federation](../../using-the-product/federating-your-apis/) is a new capability that was released with Gravitee 4.4.
 
 Federation is disabled by default and must be explicitly activated for it to work.&#x20;
 

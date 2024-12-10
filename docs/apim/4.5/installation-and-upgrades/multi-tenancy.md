@@ -50,7 +50,7 @@ Follow the steps below to implement best practices for APIM multi-tenancy.
 Once a multi-tenant APIM is connected to Cloud, it is not possible to disable multi-tenancy mode in APIM. We recommend first trying multi-tenancy in a Sandbox or similar installation.
 {% endhint %}
 
-1. [Install APIM](./) on your preferred infrastructure and deployment type
+1. [Install APIM](broken-reference) on your preferred infrastructure and deployment type
 2.  Explicitly set APIM to multi-tenant mode by commenting out the multi-tenant section in the configuration. Optionally, you can specify the configuration of Access Points, which comprises the URLs that APIM components will be addressed on.&#x20;
 
     {% hint style="info" %}
@@ -110,9 +110,9 @@ All APIs that have been created prior to 4.4 will still be in virtual host mode.
 
 * Once a multi-tenant APIM installation is connected to Cloud, custom Access Points can be defined at both the Organization and Environment levels using Cloud. These values will override the values originally sent from the APIM installation, as shown below.
 
-<figure><img src="../../.gitbook/assets/image (110).png" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cloud</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (110).png" alt=""><figcaption><p>Access Points configuration for Organization-related APIM nodes, found in Organization settings in Cloud</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (108).png" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cloud</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (108).png" alt=""><figcaption><p>Access Points configuration for Environment-related APIM nodes, found in Environment settings in Cloud</p></figcaption></figure>
 
 ### Using custom Access Points
 

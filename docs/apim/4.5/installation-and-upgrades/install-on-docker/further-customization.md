@@ -2,20 +2,20 @@
 description: This page explains how to customize your Gravitee API Management on Docker
 ---
 
-# Customizing your Gravitee API Management installation on Docker
+# Customizing your installation on Docker
 
 ## Installing additional plugins
 
 * To add an additional plugin, copy the plugin archive that is contained in a `.zip` folder into the `plugins-ext` folder.&#x20;
 
 {% hint style="info" %}
-* For the API Gateway, `the plugin-ext` folder is located at `/gravitee/apim-gateway/plugins`.
-* For the Management API, the `plugin-ext` is located at `/gravitee/apim-management-api/plugins.`&#x20;
+- For the API Gateway, `the plugin-ext` folder is located at `/gravitee/apim-gateway/plugins`.
+- For the Management API, the `plugin-ext` is located at `/gravitee/apim-management-api/plugins.`&#x20;
 {% endhint %}
 
 You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).&#x20;
 
-For more information about plugin deployment, see [Deployment](../../../../overview/plugins-and-api-definitions/plugins/plugins.md#deployment).
+For more information about plugin deployment, see [Deployment](../../overview/plugins-and-api-definitions/plugins/plugins.md#deployment).
 
 {% hint style="warning" %}
 Some plugins need to be installed on both the API Gateway and the Management API. Installation details are provided in a specific plugin’s documentation.
@@ -72,7 +72,7 @@ Your Redis host and port may be different.
 
 1. To download the driver, complete the following sub-steps:
 
-&#x20;       a. Download the correct driver for your database. For more information about downloading the correct drive,  go to [Supported databases.](../../../repositories/#supported-databases)
+&#x20;       a. Download the correct driver for your database. For more information about downloading the correct drive,  go to [Supported databases.](../repositories/#supported-databases)
 
 &#x20;       b. Place the driver in the `plugins-ext` folder.&#x20;
 
