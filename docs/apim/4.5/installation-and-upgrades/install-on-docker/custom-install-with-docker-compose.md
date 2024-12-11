@@ -30,11 +30,11 @@ When you install Gravitee API Management (APIM) with Docker Compose, you can ins
          └── data
     ```
     {% endcode %}
-2. &#x20;To ensure that the `docker-compose-apim.yml` uses the `/gravitee`directory structure, follow the following sub-steps:
+2.  &#x20;To ensure that the `docker-compose-apim.yml` uses the `/gravitee`directory structure, follow the following sub-steps:
 
-&#x20;        a. In a text editor, open `docker-compose-apim.yml`
+    a. in a text editor, open `docker-compose-apim.yml`
 
-&#x20;        b. Remove the following lines of code:
+    b. Remove the following lines of code:
 
 {% code overflow="wrap" %}
 ```bash
@@ -44,7 +44,7 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;        c. Change `$services.mongodb.volumes` to the following code:
+&#x20;       c. Change `$services.mongodb.volumes` to the following code:
 
 {% code overflow="wrap" %}
 ```bash
@@ -64,19 +64,27 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;      e. Navigate to `$services.gateway.environment`, and then add the following lines of code:
+&#x20;      e. Navigate to `$services.gateway.volumes`, and then add the following lines of code:
 
 {% code overflow="wrap" %}
-```bash
+```yaml
 volumes:
   - ./apim-gateway/logs:/opt/graviteeio-gateway/logs
   - ./apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
 ```
 {% endcode %}
 
-&#x20;     f. Remove `$services.management_api.links`.
+&#x20;      f. Add the following environment variables:
 
-&#x20;    g. Change `$services.management_ui.volumes` to the following lines of code:
+```yaml
+environment:
+            - gravitee_plugins_path_0=/opt/graviteeio-gateway/plugins
+            - gravitee_plugins_path_1=/opt/graviteeio-gateway/plugins-ext
+```
+
+&#x20;    h. Remove `$services.management_api.links`.
+
+&#x20;    i. Change `$services.management_ui.volumes` to the following lines of code:
 
 ```bash
 volumes:
@@ -84,7 +92,7 @@ volumes:
   - ./apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
 ```
 
-&#x20;   h.  Add the following lines to `$services.management_api.environment`:
+&#x20;   j.  Add the following lines to `$services.management_api.environment`:
 
 {% code overflow="wrap" %}
 ```bash
@@ -93,14 +101,14 @@ volumes:
 ```
 {% endcode %}
 
-&#x20;   i. Change `$services.management_ui.volumes`to the following lines of code:
+&#x20;   k. Change `$services.management_ui.volumes`to the following lines of code:
 
 ```bash
 volumes:
   - ./apim-management-ui/logs:/var/log/nginx
 ```
 
-&#x20;   j. Change `$services.portal_ui.volumes` to the following lines of code:
+&#x20;   l. Change `$services.portal_ui.volumes` to the following lines of code:
 
 ```bash
 volumes:
