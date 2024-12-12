@@ -6,6 +6,23 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.13 - December 12, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.4.12 - December 12, 2024
 
 <details>
