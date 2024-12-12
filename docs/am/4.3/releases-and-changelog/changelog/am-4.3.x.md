@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.19 - December 12, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* SMSFactorProvider - Invalid phone number [#10193](https://github.com/gravitee-io/issues/issues/10193)
+
+
+**Console**
+
+* Able to create Kafka reporter without Bootstrap server and Topic [#10156](https://github.com/gravitee-io/issues/issues/10156)
+
+**Other**
+
+* SlowQuery (asSorted) + Index non utilisé [#10194](https://github.com/gravitee-io/issues/issues/10194)
+* Issue using LDAP Provider 2.1.0 (Operational attribute from LDAP) [#10229](https://github.com/gravitee-io/issues/issues/10229)
+
+</details>
+
+
 ## Gravitee Access Management 4.3.18 - November 22, 2024
 
 <details>
