@@ -188,8 +188,28 @@ reporters:
       #appKey: "YOUR_APP_KEY"
       #tokenScheme: ""
       #token: "YOUR_TOKEN"
-      #username: "YOUR_USERNAME"
-      #password: "YOUR_PASSWORD"
+      #username: "token"
+      #password: "token"
+    #http:
+    #  proxy:
+    #    type: HTTP #HTTP, SOCK4, SOCK5
+    #    https:
+    #      host: localhost
+    #      port: 3128
+    #      username: user
+    #      password: secret
+    #customTags: >
+    #  s1.company.com:9092,
+    #  s2.company.com:9092,
+    #  s3.company.com:9092
+    #log: # (Following mapping section is also available for other types: node, health-check, log)
+    #  exclude: # Can be a wildcard (ie '*') to exclude all fields (supports json path)
+    #    - clientRequest
+    #    - clientResponse
+    #    - proxyRequest
+    #request: # (Following mapping section is also available for other types: node, health-check, log)
+    #  exclude: 
+    #    - apiResponseTimeMs
 ```
 {% endtab %}
 {% endtabs %}
