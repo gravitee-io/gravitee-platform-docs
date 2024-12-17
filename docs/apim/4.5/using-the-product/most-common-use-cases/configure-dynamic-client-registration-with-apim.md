@@ -41,7 +41,7 @@ The **Configuration** section first requires you to provide an **OpenID Connect 
 {% hint style="info" %}
 **OpenID Connect Discovery Endpoint**
 
-The authorization server metadata published to this endpoint is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1\_0.html)
+The authorization server metadata published to this endpoint is a JSON listing of the OpenID/OAuth endpoints, supported scopes and claims, public keys used to sign the tokens, and other details. This information can be used to construct a request to the authorization server. The field names and values are defined in the [OIDC Discovery Specification.](https://openid.net/specs/openid-connect-discovery-1_0.html)
 {% endhint %}
 
 You must also select an **Initial Access Token Provider**, and we will be using **Client Credentials**. Client credentials is an authorization grant flow that allows APIM to securely retrieve an access token from AM.
@@ -93,6 +93,14 @@ Lastly, we need to enable the proper scopes for the app and retrieve the client 
 We need to add the `dcr_admin` scope to ensure the initial access token tied to this application has the proper permissions to create new applications. Select **+ Add Scopes**, search for **dcr\_admin**, select the **Client\_registration\_admin** scope that pops up, and click **Add**. After adding the scope, make sure you click **Save**.
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/4/4abf16fa75652187d15ab86c19ac1754acfb3d7c_2_690x306.png" alt=""><figcaption></figcaption></figure>
+
+The `dcr_admin` scope must also be added to the scope in the APIM DCR Provider configuration page.
+
+{% hint style="info" %}
+Alternatively, you could make the `dcr_admin` scope a default scope in the "DCR Application" of your IdP
+{% endhint %}
+
+
 
 To obtain the client credentials, simply click the **General** tab to return to the homepage of your AM application.
 
