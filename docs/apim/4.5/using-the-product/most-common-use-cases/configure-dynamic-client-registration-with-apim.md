@@ -28,13 +28,13 @@ Simple applications are not secure as they allow API consumers to define their o
 
 Under **Client registration providers (DCR)**, toggle on **Enable client registration providers (DCR) for applications**.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/8/8e9c9308bb960fbfa3dce7a309fc73f0df3dc09d_2_690x306.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.29.06 AM.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 2. Configure AM as DCR provider <a href="#configure-am-as-dcr-provider-6" id="configure-am-as-dcr-provider-6"></a>
 
 With DCR enabled, we now need to configure AM (or any auth server supporting OIDC). Select **+ Add a provider** to begin the configuration process. Provide a **Name** and **Description**:
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/9/9275223d34498e4df0c356ef021efe3ae4517acf_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 9.48.56 AM.png" alt=""><figcaption></figcaption></figure>
 
 The **Configuration** section first requires you to provide an **OpenID Connect Discovery Endpoint** which is the URL where an OIDC-compatible authorization server publishes its metadata.
 
@@ -56,11 +56,11 @@ Now let’s configure AM.
 
 The first step is to create or select the security domain that you want to use in AM. The security domain acts as the container to group related applications and configuration settings. Select your user in the top right and then either select an existing domain or **+ Create domain**.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/2/26f019dc2e5ce8fb9b4793d4327c2b9f31938aa8_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.32.02 AM.png" alt=""><figcaption></figcaption></figure>
 
 Once you have a domain, select **Settings** in the sidebar, scroll down to the **Openid** section, and select **Client Registration**. Toggle on the **Enable/Disable Dynamic Client Registration** setting.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/c/cfbcadaaedfcc4f3092852e61169da700347273c_2_690x306.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.33.29 AM.jpg" alt=""><figcaption></figcaption></figure>
 
 ### 2. Create AM Client Registration Provider Application <a href="#create-am-client-registration-provider-application-8" id="create-am-client-registration-provider-application-8"></a>
 
@@ -68,49 +68,51 @@ Now we just need to create an application in AM. This application is essentially
 
 To create an app in AM, select **Applications** in the sidebar and then select the **+ icon** in the bottom right. This will open up the following application creation wizard:
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/8/809f00103a6440bcddd38cf3aa68d454ab118d6b_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.39.11 AM.png" alt=""><figcaption></figcaption></figure>
 
 Select **Backend to Backend** and then **Next**. Finally, provide a **Name** and **Description** for your app, leave everything else as default, and click **Create**.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/c/cafddff667b92f7cf22788bda182ae75c6db6778_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.40.39 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### 3. Retrieve OpenID Endpoint and Client Credentials <a href="#retrieve-openid-endpoint-and-client-credentials-9" id="retrieve-openid-endpoint-and-client-credentials-9"></a>
 
 Next, we need to retrieve the OpenId configuration endpoint and the client credentials. To retrieve the endpoint, select **Endpoints** from the inner sidebar and scroll down to the **OpenID Configuration endpoint**.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/4/4fb1f68630527c5b134a2a01dda4cf3753b99947_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.46.20 AM.png" alt=""><figcaption></figcaption></figure>
 
 Copy the endpoint and paste it into APIM under **OpenID Connect Discovery Endpoint**.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/2/2055d089651a167ad8e85878173277e320c75e86_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.45.08 AM.png" alt=""><figcaption></figcaption></figure>
 
 ### 4. Enable scopes and retrieve client credentials
 
 Lastly, we need to enable the proper scopes for the app and retrieve the client credentials. Back in AM, select **Settings** in the inner sidebar. Next, select the **OAuth 2.0 / OIDC** tab and then select the **Scopes** tab on the lower navigation menu.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/e/e86f01817c9e2ccad4f3a5bf3ecddeb61485f6d2_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.50.26 AM.png" alt=""><figcaption></figcaption></figure>
 
 We need to add the `dcr_admin` scope to ensure the initial access token tied to this application has the proper permissions to create new applications. Select **+ Add Scopes**, search for **dcr\_admin**, select the **Client\_registration\_admin** scope that pops up, and click **Add**. After adding the scope, make sure you click **Save**.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/4/4abf16fa75652187d15ab86c19ac1754acfb3d7c_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.32 AM.png" alt=""><figcaption></figcaption></figure>
 
 The `dcr_admin` scope must also be added to the scope in the APIM DCR Provider configuration page.
+
+<figure><img src="../../.gitbook/assets/image (135).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 Alternatively, you could make the `dcr_admin` scope a default scope in the "DCR Application" of your IdP
 {% endhint %}
 
-
-
 To obtain the client credentials, simply click the **General** tab to return to the homepage of your AM application.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/6/6cba9d90aba570f4ccc3ba969c98f87805962f0e_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.53.48 AM.png" alt=""><figcaption></figcaption></figure>
 
 Copy the **Client ID** and **Client Secret** and paste them in the respective inputs inside the APIM client registration provider configuration page. Scroll down and click **Create**.
 
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.55.35 AM.png" alt=""><figcaption></figcaption></figure>
+
 Congrats! You have now configured a DCR provider and are ready to create advanced applications inside of APIM.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/b/bbf6fdd0c58fe7f42a521fefc129961a12508cd7_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 10.58.26 AM.png" alt=""><figcaption></figcaption></figure>
 
 ## Create an Advanced APIM App in the Developer Portal <a href="#create-an-advanced-apim-app-in-the-developer-portal-10" id="create-an-advanced-apim-app-in-the-developer-portal-10"></a>
 
@@ -118,7 +120,7 @@ To create the app, let’s head over to the Developer Portal since this is where
 
 To access the Developer Portal, select it from the top menu bar:
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/e/ec9fb552b70041e735990627f2e471419038cdc5_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.01.30 AM.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 **Accessing the Developer Portal**
@@ -128,18 +130,18 @@ In the default docker installation, you won’t see this link. By default, the D
 
 Inside the Developer Portal, select Application in the top nav and then select **+ Create an App**.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/a/aafc30f576dd0750da2f900b0a9db4b0630a7ddb_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.05.21 AM.png" alt=""><figcaption></figcaption></figure>
 
 Inside the application creation wizard, provide a **Name** and **Description**, then select **Next**.
 
 Let’s create a Backend to Backend application so we don’t have to worry about a Redirect URI. Select **Backend to Backend** then select **Next**.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/5/5e4b49cc5985931bcd1820891c179050e1faf1b0_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.07.23 AM.png" alt=""><figcaption></figcaption></figure>
 
 We can ignore the **Subscription** page and just click **Next** again. Finally, confirm your API details and select **Create The App**.
 
-<figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/4/4cb08f4fe974d471a3533bfa74266cfb4f39f641_2_690x306.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.18.39 AM.png" alt=""><figcaption></figcaption></figure>
 
 Well done! If you return to AM and select **Applications** in the sidebar, you should see the brand new application you just created in the Developer Portal:
 
-<figure><img src="../../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-11-14 at 11.20.02 AM.png" alt=""><figcaption></figcaption></figure>
