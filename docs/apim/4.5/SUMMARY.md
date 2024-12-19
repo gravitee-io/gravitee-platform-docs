@@ -269,7 +269,6 @@
   * [Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/README.md)
     * [Accessing the Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/accessing-the-gravitee-developer-portal.md)
     * [Creating and managing users with the Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/user-management.md)
-    * [Managing API subscriptions with the Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/managing-api-subscriptions-with-the-gravitee-developer-portal.md)
     * [Configuring Webhook Subscriptions with Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/webhook-subscription-management.md)
     * [Viewing API Documentation with Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/documentation.md)
     * [Configuring and customizing the Gravitee Developer Portal](using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/README.md)
