@@ -1,5 +1,24 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.4 - December 9, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Missing Key and Trust Store  fields in API Definition [#10215](https://github.com/gravitee-io/issues/issues/10215)
+  * Template strings are not resolved for API Resources references [#10214](https://github.com/gravitee-io/issues/issues/10214)
+  * Unable to import two v2 plans with same type in APIM [#10195](https://github.com/gravitee-io/issues/issues/10195)
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  * Issue a clear warning when attempting to apply a group with an API primary owner [#10094](https://github.com/gravitee-io/issues/issues/10094)
+  * Improve OAuth application settings validation [#10079](https://github.com/gravitee-io/issues/issues/10079)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.3 - November 21, 2024
     
 <details>

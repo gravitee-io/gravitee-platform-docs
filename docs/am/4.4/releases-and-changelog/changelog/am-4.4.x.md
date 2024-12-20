@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.14 - December 20, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Certificates description on the right of the page refers to identity providers [#10201](https://github.com/gravitee-io/issues/issues/10201)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.13 - December 12, 2024
 
 <details>
