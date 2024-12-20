@@ -6,6 +6,29 @@ description: >-
 
 # APIM 4.2.x
  
+## Gravitee API Management 4.2.25 - December 20, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* A WEIGHTED_ROUND_ROBIN on a unique endpoint with weight set to 0 leads to gateway thread blocked [#10241](https://github.com/gravitee-io/issues/issues/10241)
+
+**Console**
+
+* Cannot add new context-path that is only one character different [#9860](https://github.com/gravitee-io/issues/issues/9860)
+* Unable to grant Group Access-Control to Application [#10207](https://github.com/gravitee-io/issues/issues/10207)
+* Empty endpoint group prevents the update of the Global Healthcheck without clear error message [#10216](https://github.com/gravitee-io/issues/issues/10216)
+
+**Other**
+
+* Warnings about Groovy classes  [#10219](https://github.com/gravitee-io/issues/issues/10219)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.2.24 - December 5, 2024
 <details>
 
