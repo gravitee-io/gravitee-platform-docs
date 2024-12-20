@@ -1,5 +1,16 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.16 - December 20, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Missing deprecated status in API definition for plans [#10248](https://github.com/gravitee-io/issues/issues/10248)
+  * Application notifyMembers doesn't work [#10231](https://github.com/gravitee-io/issues/issues/10231)
+  * Editable HTTP configuration when an API is managed by the operator [#10221](https://github.com/gravitee-io/issues/issues/10221)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.14 - November 21, 2024
     
 <details>
