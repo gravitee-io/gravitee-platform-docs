@@ -188,8 +188,8 @@ reporters:
       #appKey: "YOUR_APP_KEY"
       #tokenScheme: ""
       #token: "YOUR_TOKEN"
-      #username: "token"
-      #password: "token"
+      #username: "YOUR_USERNAME"
+      #password: "YOUR_PASSWORD"
     #http:
     #  proxy:
     #    type: HTTP #HTTP, SOCK4, SOCK5

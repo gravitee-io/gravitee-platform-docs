@@ -149,10 +149,6 @@ docker compose -f docker-compose-apim.yml up -d
 - The default password for the Developer Portal is admin.
 {% endhint %}
 
-{% hint style="success" %}
-Congratulations! Now that APIM is up and running, check out the [Quickstart Guide](broken-reference) for your next steps.
-{% endhint %}
-
 ## Enable Federation
 
 [Federation](../../using-the-product/federating-your-apis/) is a new capability that was released with Gravitee 4.4.
@@ -236,5 +232,3 @@ You will also need to add two new plugins to APIM that aren’t included by defa
 
 * [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip ](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
 * [https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip)
-
-\
