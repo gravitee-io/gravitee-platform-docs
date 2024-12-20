@@ -1,13 +1,25 @@
 # GKO 4.4.x
 
+
 ## Gravitee Kubernetes Operator 4.4.16 - December 20, 2024
-    
+
 <details>
 <summary>Bug fixes</summary>
 
   * Missing deprecated status in API definition for plans [#10248](https://github.com/gravitee-io/issues/issues/10248)
   * Application notifyMembers doesn't work [#10231](https://github.com/gravitee-io/issues/issues/10231)
   * Editable HTTP configuration when an API is managed by the operator [#10221](https://github.com/gravitee-io/issues/issues/10221)
+</details>
+
+
+## Gravitee Kubernetes Operator 4.4.15 - December 9, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Missing Key and Trust Store  fields in API Definition [#10215](https://github.com/gravitee-io/issues/issues/10215)
+  * Template strings are not resolved for API Resources references [#10214](https://github.com/gravitee-io/issues/issues/10214)
+  * Gateway throws NPE watching GKO configmaps [#10210](https://github.com/gravitee-io/issues/issues/10210)
 </details>
 
 
