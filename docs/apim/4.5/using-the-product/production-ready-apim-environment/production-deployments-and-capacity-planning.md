@@ -4,7 +4,7 @@ description: >-
   availability in a production deployment
 ---
 
-# Preparing a production deployment of  Gravitee API Management
+# Preparing a production deployment of Gravitee API Management
 
 ## Overview
 
@@ -69,7 +69,7 @@ Monitoring the health and performance of Gravitee APIM Gateways and Management A
 
 **Gateway Internal API Endpoints**
 
-The[ Gateway internal API](../using-the-gravitee-api-management-components/general-configuration/internal-api.md) and [Management API Internal API](broken-reference) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
+The[ Gateway internal API](../using-the-gravitee-api-management-components/general-configuration/internal-api.md) and [Management API Internal API](../using-the-gravitee-api-management-components/general-configuration-1/configuring-the-internal-api.md) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
 
 **Mock Policy for Active Health Checks**
 
