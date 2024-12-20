@@ -30,7 +30,7 @@ description: >-
 
 * DataDog issues with plugin v2.4.5 [#10176](https://github.com/gravitee-io/issues/issues/10176)
 * Health endpoint result is impacted by filtered probes in timeout [#10189](https://github.com/gravitee-io/issues/issues/10189)
-* [gravitee-policy-cache] Timeouts occur when trying to cache a large payload [#10208](https://github.com/gravitee-io/issues/issues/10208)
+* \[gravitee-policy-cache] Timeouts occur when trying to cache a large payload [#10208](https://github.com/gravitee-io/issues/issues/10208)
 
 </details>
 
