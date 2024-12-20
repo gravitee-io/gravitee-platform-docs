@@ -129,24 +129,16 @@ You must install the following command line tools:
 
 ## Procedure
 
-1. Set up Helm. To set up Helm. complete the following sub-steps:
+1. **Set up Helm**
 
-&#x20;**1. Set up Helm**\
-\
-&#x20;  a. Add the Gravitee Helm chart repo using the following command:
+Add the Gravitee Helm chart repo using the following command:
 
 <pre class="language-bash"><code class="lang-bash"><strong>helm repo add graviteeio https://helm.gravitee.io
 </strong></code></pre>
 
-&#x20;  b. Install the Helm chart to a dedicated namespace using the following command:
+2. **Configure `values.yaml` file**
 
-```bash
-helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
-```
-
-3. **Configure Parameters**\
-   \
-   a. On your local machine, copy and paste the following text into a file called `values.yaml`:
+On your local machine, copy the following text into a file called `values.yaml`:
 
 ```yaml
 gateway:
@@ -226,13 +218,21 @@ license:
     key: "<license_key>"
 ```
 
-* Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud.
+* Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud (e.g.: "4.5.4").
 * Replace \<cloud\_token>  with your Cloud Token.&#x20;
 * Replace the \<license\_key> with your License Key.
+
+
+
+3. **Run Helm install**
+
+Install the Helm chart with the `values.yaml` file to a dedicated namespace using the following command:
+
+```bash
+helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim -f ./values.yaml
+```
 {% endtab %}
 {% endtabs %}
-
-
 
 10. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
 
