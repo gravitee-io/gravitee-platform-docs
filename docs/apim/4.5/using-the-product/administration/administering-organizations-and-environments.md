@@ -71,7 +71,7 @@ Organization-wide emailing settings include:
   * SSL Trust
 
 {% hint style="info" %}
-To learn more about notifications, refer to the [Notifications](broken-reference) documentation.
+To learn more about notifications, refer to the [Notifications](../using-the-gravitee-api-management-components/general-configuration/notifications.md) documentation.
 {% endhint %}
 {% endtab %}
 {% endtabs %}
