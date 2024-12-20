@@ -44,9 +44,27 @@ I will be able to filter any messages according to subscriptions metadata `produ
     "enabled": true,
     "policy": "message-filtering",
     "configuration": {
-        "filter": "#jsonPath(#message.content, '$.productId') == '#subscription.metadata.productId'"
+        "filter": "{#jsonPath(#message.content, '$.productId') == '#subscription.metadata.productId'}"
     }
 }
+```
+
+For nested JSON, add a dot between values. For example, to filter messages on `category` where the messages are formatted like so:
+
+```json
+{
+    "productId": "1234",
+    "data": {
+        "category": "orders",
+        "region": "west"
+    }
+}
+```
+
+Then the filter condition for messages with `category` value `orders` would be:
+
+```json
+{#jsonPath(#message.content, '$.data.category') == 'orders'}
 ```
 {% endtab %}
 {% endtabs %}

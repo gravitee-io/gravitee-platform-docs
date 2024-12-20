@@ -23,11 +23,11 @@ Authentication and authorization to the Cloud Gate is secured by using your very
 
 The Cloud Gate is deployed in each Control Plane data center region, which ensures optimal connectivity and performance. Your hybrid gateway will automatically calculate which region and corresponding Cloud Gate to connect to, based on the information contained in the Cloud Token.
 
-Analytics are reported to a Cloud Account dedicated pipeline where Cloud Gate are produced to a Kafka topics, ingested in logstash, and finally stored in dedicated Elastisearch index that your Cloud Accounts API Management Contorl Plane consumes.
+Analytics are reported to a Cloud Account dedicated pipeline where Cloud Gate are produced to a Kafka topics, ingested in logstash, and finally stored in dedicated Elastisearch index that your Cloud Accounts API Management Control Plane consumes.
 
 All communication between the hybrid gateway and the Cloud Gate endpoints is encrypted using TLS.
 
-<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure US region west-us, with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens. </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens. </p></figcaption></figure>
 
 ### Cloud Gate Endpoints
 
@@ -70,16 +70,16 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 
 1. On your Gravitee Cloud Dashboard, navigate to **Gateways**, and then click **Deploy Gateway**.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Gravitee Cloud Dashboard with no Gateways deployed.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Gravitee Cloud Dashboard with no Gateways deployed.</p></figcaption></figure>
 
 2. In the **Choose Gateway Deployment Method** pop-up window, select **Hybrid Gateway**.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Gravitee Cloud Gateway deployment selection with both Gravitee Hosted Gateways (full SaaS) and Hybrid Gateways as options.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Gravitee Cloud Gateway deployment selection with both Gravitee Hosted Gateways (full SaaS) and Hybrid Gateways as options.</p></figcaption></figure>
 
 3. From the **Platform** dropdown menu, select your preferred platform. This choice changes only the link reference to documentation
 4. Select the Gravitee Cloud API Management Environment that you wish to connect the Hybrid gateway to.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up guide with selection of platform and environment.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up guide with selection of platform and environment.</p></figcaption></figure>
 
 5. In the **Access Point** field, type the name of your host or hosts that your Hybrid gateway will is accessible through. You configured this host in your load balancer or ingress where you run the gateway.\
    \
@@ -89,17 +89,19 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 
 6. To retrieve your Cloud Token and License key, Click **Generate Installation Details**
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>The Deploy Hybrid Gateway screen where you should enter the gateway host that you hybrid gateway will listen to.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>The Deploy Hybrid Gateway screen where you should enter the gateway host that you hybrid gateway will listen to.</p></figcaption></figure>
 
 7. Copy your Cloud Token, and then add it to your gateway deployment configuration.
 8. Copy your License, and then add it to your gateway deployment configuration.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up with last step where you are able to copy your generated Cloud Token and your License.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up with last step where you are able to copy your generated Cloud Token and your License.</p></figcaption></figure>
 
-9. Depending on your installation method, complete either of the following steps:
+9. Install the Gravitee APIM Gateway. To install the APIM Gateway, complete any of the following sub-steps:
 
 {% tabs %}
 {% tab title="Docker" %}
+## Procedure
+
 a. Copy your Cloud Token and License Key.&#x20;
 
 b. Run the following script:
@@ -110,18 +112,131 @@ docker run -d \
   -p 8082:8082 \
   -e gravitee_cloud_token=<cloud_token> \
   -e gravitee_license_key=<license_key> \
-  graviteeio/apim-gateway:4.4.10
+  graviteeio/apim-gateway:<CONTROL_PLANE_VERSION>
 ```
 
 * Replace \<cloud\_token> and \<license\_key> with the Cloud token and License Key from step a.&#x20;
+* Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud.
+{% endtab %}
+
+{% tab title="Kubernetes (Helm)" %}
+## **Before you begin**
+
+You must install the following command line tools:
+
+* [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
+* [Helm v3](https://helm.sh/docs/intro/install/)
+
+## Procedure
+
+1. **Set up Helm**
+
+Add the Gravitee Helm chart repo using the following command:
+
+<pre class="language-bash"><code class="lang-bash"><strong>helm repo add graviteeio https://helm.gravitee.io
+</strong></code></pre>
+
+2. **Configure `values.yaml` file**
+
+On your local machine, copy the following text into a file called `values.yaml`:
+
+```yaml
+gateway:
+    replicaCount: 1
+    image:
+        repository: graviteeio/apim-gateway
+        tag: <CONTROL_PLANE_VERSION>
+        pullPolicy: IfNotPresent
+    autoscaling:
+        enabled: false
+    podAnnotations:
+        prometheus.io/path: /_node/metrics/prometheus
+        prometheus.io/port: "18082"
+        prometheus.io/scrape: "true"
+    env:
+        - name: gravitee_cloud_token
+          value: "<cloud_token>"
+    services:
+        metrics:
+            enabled: true
+            prometheus:
+                enabled: true
+        core:
+            http:
+                enabled: true
+        sync:
+            kubernetes:
+                enabled: false
+        bridge:
+            enabled: false
+    service:
+        type: LoadBalancer
+        externalPort: 8082
+        loadBalancerIP: 127.0.0.1
+    ingress:
+        enabled: false
+    resources:
+        limits:
+            cpu: 500m
+            memory: 1024Mi
+        requests:
+            cpu: 200m
+            memory: 512Mi
+    deployment:
+        revisionHistoryLimit: 1
+        strategy:
+            type: RollingUpdate
+            rollingUpdate:
+                maxUnavailable: 0
+    reporters:
+        file:
+            enabled: false
+    terminationGracePeriod: 50
+    gracefulShutdown:
+        delay: 20
+        unit: SECONDS
+
+api:
+    enabled: false
+
+ratelimit:
+    type: none
+
+portal:
+    enabled: false
+
+ui:
+    enabled: false
+
+alerts:
+    enabled: false
+
+es:
+    enabled: false
+
+license:
+    key: "<license_key>"
+```
+
+* Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud (e.g.: "4.5.4").
+* Replace \<cloud\_token>  with your Cloud Token.&#x20;
+* Replace the \<license\_key> with your License Key.
+
+
+
+3. **Run Helm install**
+
+Install the Helm chart with the `values.yaml` file to a dedicated namespace using the following command:
+
+```bash
+helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim -f ./values.yaml
+```
 {% endtab %}
 {% endtabs %}
 
+10. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
 
-
-9. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
-
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>Gravitee Cloud Dashboard, now with one hybrid gateway configuration added to Development environment.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Gravitee Cloud Dashboard, now with one hybrid gateway configuration added to Development environment.</p></figcaption></figure>
 
 #### Verification
 

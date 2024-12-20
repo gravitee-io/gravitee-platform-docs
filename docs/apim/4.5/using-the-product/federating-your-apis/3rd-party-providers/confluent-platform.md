@@ -24,7 +24,7 @@ For those that want a TL;DR, you can check out the repo and run a lightweight ve
 git clone https://github.com/confluentinc/cp-demo
 cd cp-demo
 git checkout 7.7.1-post
-./scripts/start.sh
+VIZ=false ./scripts/start.sh
 ```
 
 Once started (which can take a few minutes), you should be able to open the Confluent Platform web console at [http://localhost:9021](http://localhost:9021).

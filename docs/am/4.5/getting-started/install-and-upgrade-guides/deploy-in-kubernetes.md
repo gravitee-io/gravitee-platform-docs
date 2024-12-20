@@ -87,7 +87,7 @@ The following tables list the configurable parameters of the Gravitee chart and 
 
 You can rely on Kubernetes _ConfigMaps_ and _Secrets_ to initialize Gravitee settings since AM 3.15.0. To use this feature, you have to create the ServiceAccount that allows AM to connect to the Kubernetes API (the helm chart should do it by default) and then you simply have to define your application settings like this:
 
-* Secret settings: `secrets://kubernetes/mysecret:key?namespace=ns`, with the kube plugin enabled via `secrets.kubernetes.enabled=true`
+* Secret settings: `secret://kubernetes/mysecret:key?namespace=ns`, with the kube plugin enabled via `secrets.kubernetes.enabled=true`
 
 {% hint style="warning" %}
 The above syntax only applies to Gravitee versions 4.2 and later
@@ -631,7 +631,7 @@ jdbc:
   # URLs to download the drivers
   drivers:
     - https://jdbc.postgresql.org/download/postgresql-42.2.20.jar
-    - https://repo1.maven.org/maven2/io/r2dbc/r2dbc-postgresql/0.8.9.RELEASE/r2dbc-postgresql-0.8.9.RELEASE.jar
+    - https://repo1.maven.org/maven2/org/postgresql/r2dbc-postgresql/1.0.2.RELEASE/r2dbc-postgresql-1.0.2.RELEASE.jar
   pool:
     acquireRetry:  1
     initialSize: 0
@@ -645,6 +645,9 @@ management:
   type: jdbc
 
 oauth2:
+  type: jdbc
+
+gateway:
   type: jdbc
 ```
 {% endcode %}
@@ -663,7 +666,7 @@ jdbc:
   # URLs to download the drivers
   drivers:
     - https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.21/mysql-connector-java-8.0.21.jar
-    - https://repo1.maven.org/maven2/dev/miku/r2dbc-mysql/0.8.2.RELEASE/r2dbc-mysql-0.8.2.RELEASE.jar
+    - https://repo1.maven.org/maven2/io/asyncer/r2dbc-mysql/1.0.2/r2dbc-mysql-1.0.2.jar
   pool:
     acquireRetry:  1
     initialSize: 0
@@ -677,6 +680,9 @@ management:
   type: jdbc
 
 oauth2:
+  type: jdbc
+
+gateway:
   type: jdbc
 ```
 {% endcode %}
@@ -710,6 +716,9 @@ management:
 
 oauth2:
   type: jdbc
+  
+gateway:
+  type: jdbc
 ```
 {% endcode %}
 
@@ -727,7 +736,7 @@ jdbc:
   # URLs to download the drivers
   drivers:
     - https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/8.4.1.jre11/mssql-jdbc-8.4.1.jre11.jar
-    - https://repo1.maven.org/maven2/io/r2dbc/r2dbc-mssql/0.8.4.RELEASE/r2dbc-mssql-0.8.4.RELEASE.jar
+    - https://repo1.maven.org/maven2/io/r2dbc/r2dbc-mssql/1.0.0.RELEASE/r2dbc-mssql-1.0.0.RELEASE.jar
   pool:
     acquireRetry:  1
     initialSize: 0
@@ -741,6 +750,9 @@ management:
   type: jdbc
 
 oauth2:
+  type: jdbc
+  
+gateway:
   type: jdbc
 ```
 {% endcode %}

@@ -2,17 +2,17 @@
 description: How to install Gravitee API Management on Kubernetes
 ---
 
-# Installing on Kubernetes
+# Kubernetes
 
 ## Introduction
 
 This page describes how to install APIM on any Kubernetes environment using the official Gravitee Helm Chart.
 
 {% hint style="info" %}
-For more information about Helm charts, go to [Helm Docs](https://helm.sh/docs/topics/chart\_repository/).
+For more information about Helm charts, go to [Helm Docs](https://helm.sh/docs/topics/chart_repository/).
 {% endhint %}
 
-The APIM Helm char**t** deploys the following components:
+The APIM Helm chart deploys the following components:
 
 * APIM Management API
 * APIM Management Console
@@ -40,7 +40,7 @@ You must install the following command line tools:
 
     {% code overflow="wrap" %}
     ```sh
-    helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
+    helm install graviteeio-apimx graviteeio/apim --create-namespace --namespace gravitee-apim
     ```
     {% endcode %}
 
@@ -54,6 +54,10 @@ You must install the following command line tools:
 ```bash
 helm install my-release -f values.yaml gravitee
 ```
+{% endhint %}
+
+{% hint style="info" %}
+You can find the full Gravitee configuration file `values.yaml` here:  [https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml)
 {% endhint %}
 
 ## Configuring the application settings
@@ -89,12 +93,13 @@ Here is the minimum `value-light.yml` configuration required by a development de
 * To deploy the development deployment, change the `domain` value, and then run the following command:
 
 {% hint style="warning" %}
-Do not use `value-light.yml` in production.
+The below example is sufficient for a trial or evaluation environment, but do not use this`value-light.yml` in production.  You should review the available configuration options before implementing into production.
 {% endhint %}
 
 <pre><code><strong>helm install gravitee-apim graviteeio/apim -f value-light.yml
 </strong></code></pre>
 
+{% code title="values-light.yaml" %}
 ```yaml
 # Deploy an elasticsearch cluster.
 elasticsearch:
@@ -145,6 +150,7 @@ ui:
     hosts:
       - management-ui.mydomain.com
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="External configuration" %}
@@ -602,7 +608,7 @@ The following tables lists the available configuration parameters for these comp
 
 ## Federation
 
-[Federation](../../../using-the-product/federating-your-apis/) is a new capability that was released with APIM 4.4.
+[Federation](../using-the-product/federating-your-apis/) is a new capability that was released with APIM 4.4.
 
 Federation is deactivated by default in the default Helm values. To activate Federation, set enabled = `true` like the following example:
 
@@ -646,110 +652,6 @@ api:
       value: standalone
 ```
 
-## OpenShift
-
-{% hint style="warning" %}
-The Gravitee API Management Helm chart is compatible with only OpenShift versions 3.10 and later.
-{% endhint %}
-
-When deploying APIM within OpenShift, you must complete the following actions:
-
-* Use the full host domain instead of paths for all components.
-* Override the security context to let OpenShift automatically define the `user-id` and `group-id`  you use to run the containers.
-* For Openshift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is a standard `values.yaml` used to deploy APIM into OpenShift:
-
-{% code title="values.yml" %}
-```yaml
-api:
-  ingress:
-    management:
-      ingressClassName: none
-      path: /management
-      hosts:
-        - api-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
-      annotations:
-        route.openshift.io/termination: edge
-    portal:
-      ingressClassName: none
-      path: /portal
-      hosts:
-        - api-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
-      annotations:
-        route.openshift.io/termination: edge
-  deployment:
-    securityContext:
-      runAsUser: null
-      runAsGroup: 1000
-      runAsNonRoot: true
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop: ["ALL"]
-      seccompProfile:
-        type: RuntimeDefault
-
-gateway:
-  ingress:
-    ingressClassName: none
-    path: /
-    hosts:
-      - gw-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
-    annotations:
-      route.openshift.io/termination: edge
-  deployment:
-    securityContext:
-      runAsUser: null
-      runAsGroup: 1000
-      runAsNonRoot: true
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop: ["ALL"]
-      seccompProfile:
-        type: RuntimeDefault
-
-portal:
-  ingress:
-    ingressClassName: none
-    path: /
-    hosts:
-      - portal-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
-    annotations:
-      route.openshift.io/termination: edge
-  securityContext: null
-  deployment:
-    securityContext:
-      runAsUser: null
-      runAsGroup: null
-      runAsNonRoot: true
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop: ["ALL"]
-      seccompProfile:
-        type: RuntimeDefault
-
-ui:
-  ingress:
-    ingressClassName: none
-    path: /
-    hosts:
-      - console-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
-    annotations:
-      route.openshift.io/termination: edge
-  securityContext: null
-  deployment:
-    securityContext:
-      runAsUser: null
-      runAsGroup: null
-      runAsNonRoot: true
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop: ["ALL"]
-      seccompProfile:
-        type: RuntimeDefault
-```
-{% endcode %}
-
-By setting `runAsUser` to `null`, OpenShift is forced to define the correct values when deploying the Helm chart.
-
 ## Licenses
 
 Enterprise plugins require a license in APIM.&#x20;
@@ -768,12 +670,10 @@ $ export GRAVITEESOURCE_LICENSE_B64="$(base64 -w 0 license.key)"
 $ helm install \
   --set license.key=${GRAVITEESOURCE_LICENSE_B64} \
   --create-namespace --namespace gravitee-apim \
-  graviteeio-apim3x \
-  graviteeio/apim3
+  graviteeio-apimx \
+  graviteeio/apim
 ```
 
 | Parameter     | Description | Default                            |
 | ------------- | ----------- | ---------------------------------- |
 | `license.key` | string      | license.key file encoded in base64 |
-
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Helm Install and Configuration</td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td></td><td>Architecture Overview</td><td></td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>

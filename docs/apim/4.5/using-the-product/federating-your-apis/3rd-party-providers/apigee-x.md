@@ -38,7 +38,7 @@ To find the ID of the Google Cloud project you want to work with, you can head t
 
 To generate a Service Account Key you need to create a service account first. Please view the dedicated GCP docs on [How to create a GCP Service Account](https://cloud.google.com/iam/docs/service-accounts-create).&#x20;
 
-Once your service account is created, enter the GCP IAM application and choose the _Service Accounts_ tab from the menu bar on the left side. Then select your service account and click on the _Keys_ tab → _Add key_ button → _Create new key_ button _→ Key type: JSON →_ Save the key on your computer_._
+Once your service account is created, enter the GCP IAM application and choose the _Service Accounts_ tab from the menu bar on the left side. Then select your service account and click on the _Keys_ tab → _Add key_ button → _Create new key_ button _→ Key type: JSON →_ Save the key on your compute&#x72;_._
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2024-10-09 at 17.52.53.png" alt=""><figcaption></figcaption></figure>
 

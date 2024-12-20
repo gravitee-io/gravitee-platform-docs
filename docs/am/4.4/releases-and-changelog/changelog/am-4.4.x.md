@@ -6,6 +6,134 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.14 - December 20, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Certificates description on the right of the page refers to identity providers [#10201](https://github.com/gravitee-io/issues/issues/10201)
+
+</details>
+
+
+## Gravitee Access Management 4.4.13 - December 12, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Resize the client field for OAuth2 scope repository record [#10239](https://github.com/gravitee-io/issues/issues/10239)
+
+</details>
+
+
+## Gravitee Access Management 4.4.12 - December 12, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* SMSFactorProvider - Invalid phone number [#10193](https://github.com/gravitee-io/issues/issues/10193)
+
+
+
+**Console**
+
+* Able to create Kafka reporter without Bootstrap server and Topic [#10156](https://github.com/gravitee-io/issues/issues/10156)
+
+**Other**
+
+* SlowQuery (asSorted) + Index non utilisé [#10194](https://github.com/gravitee-io/issues/issues/10194)
+* Issue using LDAP Provider 2.1.0 (Operational attribute from LDAP) [#10229](https://github.com/gravitee-io/issues/issues/10229)
+
+</details>
+
+
+## Gravitee Access Management 4.4.11 - November 22, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Users are returned randomly via SCIM [#10147](https://github.com/gravitee-io/issues/issues/10147)
+* Using the /introspect endpoint with a bearer token does not work in 4.4.9 [#10166](https://github.com/gravitee-io/issues/issues/10166)
+
+
+
+
+
+**Other**
+
+* Improve WebAuthn Credential search indexes [#10165](https://github.com/gravitee-io/issues/issues/10165)
+
+</details>
+
+
+## Gravitee Access Management 4.4.10 - November 8, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Able to create a admin service user via the create domain user endpoint [#10127](https://github.com/gravitee-io/issues/issues/10127)
+* System reporter can be deleted via API [#10155](https://github.com/gravitee-io/issues/issues/10155)
+
+
+
+
+
+</details>
+
+
+## Gravitee Access Management 4.4.9 - October 25, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* why does "Skip MFA enrollment" also skips MFA validation on login [#10086](https://github.com/gravitee-io/issues/issues/10086)
+
+
+
+
+
+**Other**
+
+* /sendChallenge returns status code 0 [#10097](https://github.com/gravitee-io/issues/issues/10097)
+* Original access token out of an OpenID federation is not able to be used for the mapping into the ID token going back to the application [#10104](https://github.com/gravitee-io/issues/issues/10104)
+* Gravitee AM SAML not working [#10106](https://github.com/gravitee-io/issues/issues/10106)
+* Error message on IP filtering policy always returns remote address [#10108](https://github.com/gravitee-io/issues/issues/10108)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.8 - October 14, 2024
 
 <details>
