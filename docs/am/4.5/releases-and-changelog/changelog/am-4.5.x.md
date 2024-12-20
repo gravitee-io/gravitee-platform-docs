@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.5 - December 20, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Certificates description on the right of the page refers to identity providers [#10201](https://github.com/gravitee-io/issues/issues/10201)
+* Resize the client field for OAut2 scope repository record [#10239](https://github.com/gravitee-io/issues/issues/10239)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.4 - December 12, 2024
 
 <details>
