@@ -223,7 +223,7 @@ services:
       - http_method
       - http_code
       - http_path
-    prometheus:ya
+    prometheus:
       enabled: true
 ```
 

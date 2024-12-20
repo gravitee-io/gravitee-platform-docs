@@ -6,6 +6,61 @@ description: >-
 
 # APIM 4.3.x
  
+## Gravitee API Management 4.3.19 - December 5, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Opensearch configuration and ism policy [#10100](https://github.com/gravitee-io/issues/issues/10100)
+
+**Management API**
+
+* Page Size Drop Down cannot exceed 100 [#10145](https://github.com/gravitee-io/issues/issues/10145)
+* 500 error when listing API categories [#10158](https://github.com/gravitee-io/issues/issues/10158)
+* \[APIM]\[Portal] Static data access  [#10162](https://github.com/gravitee-io/issues/issues/10162)
+* Unable to find users with emails containing uppercase letters in Gravitee APIM Console and API requests [#10167](https://github.com/gravitee-io/issues/issues/10167)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.3.18 - November 21, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* SSE connections receives messages to the wrong API when connected to rabbitmq  [#10020](https://github.com/gravitee-io/issues/issues/10020)
+
+**Management API**
+
+* API webhook notifier is not working for subscriptions [#10056](https://github.com/gravitee-io/issues/issues/10056)
+
+**Console**
+
+* When creating an endpoint group, the page is not properly refreshed [#10129](https://github.com/gravitee-io/issues/issues/10129)
+
+**Other**
+
+* API CRD export mismatch on plan when using selection rules [#10179](https://github.com/gravitee-io/issues/issues/10179)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Support expression language in ip filtering policy [#10142](https://github.com/gravitee-io/issues/issues/10142)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.3.17 - November 5, 2024
 <details>
 
@@ -565,5 +620,28 @@ description: >-
 **Other**
 
 * Organization licenses are not working when using bridge architecture [#9638](https://github.com/gravitee-io/issues/issues/9638)
+
+</details>
+
+## Gravitee API Management 4.3.0 - March 29, 2024
+
+<details>
+
+**Gateway**
+* Improve HealthCheck service for V2 APIs [#3967](https://github.com/gravitee-io/issues/issues/3967)
+
+**Management API**
+* Deleted users still appear in query [#3614](https://github.com/gravitee-io/issues/issues/3614)
+
+**Console**
+* [endpoints] updating name or deleting group used as DLQ prevent from updating api [#3915](https://github.com/gravitee-io/issues/issues/3915)
+* [endpoints] creating a endpoint group should display endpoint configuration [#3916](https://github.com/gravitee-io/issues/issues/3916)
+* [shared api key] api key mode not displayed on application screen [#4229](https://github.com/gravitee-io/issues/issues/4229)
+* Flow Id is lost when Updating API with UI, causing it to regenerate new flow [#4184](https://github.com/gravitee-io/issues/issues/4184)
+
+**Other**
+* Liquibase changelog 4.0.20-dashboards adding NOT NULL column without default value [#4307](https://github.com/gravitee-io/issues/issues/4307)
+* APIM DashboardTypeUpgrader raises an error when used with DocumentDB [#4335](https://github.com/gravitee-io/issues/issues/4335)
+* API v4 proxy - problem with  client SSL certificate [#3969](https://github.com/gravitee-io/issues/issues/3969)
 
 </details>

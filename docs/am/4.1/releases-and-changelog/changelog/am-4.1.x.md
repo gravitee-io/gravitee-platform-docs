@@ -6,6 +6,42 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.36 - December 12, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Other**
+
+* SlowQuery (asSorted) + Index non utilisé [#10194](https://github.com/gravitee-io/issues/issues/10194)
+* Issue using LDAP Provider 2.1.0 (Operational attribute from LDAP) [#10229](https://github.com/gravitee-io/issues/issues/10229)
+
+</details>
+
+
+## Gravitee Access Management 4.1.35 - November 22, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* why does "Skip MFA enrollment" also skips MFA validation on login [#10086](https://github.com/gravitee-io/issues/issues/10086)
+* Using the /introspect endpoint with a bearer token does not work in 4.4.9 [#10166](https://github.com/gravitee-io/issues/issues/10166)
+
+
+
+
+
+**Other**
+
+* Improve WebAuthn Credential search indexes [#10165](https://github.com/gravitee-io/issues/issues/10165)
+
+</details>
+
+
 
 ## Gravitee Access Management 4.1.34 - October 14, 2024
 

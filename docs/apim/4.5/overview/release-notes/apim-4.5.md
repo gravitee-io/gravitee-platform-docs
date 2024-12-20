@@ -1,4 +1,4 @@
-# APIM 4.5
+# APIM 4.5.x
 
 {% hint style="danger" %}
 **Make sure you upgrade your license file**
@@ -82,16 +82,6 @@ Also, we have set aside the homepage for an API into its own configuration secti
 You can use the OAS Validation policy to validate a request to an API or the response from the backend against the OpenAPI specification. You can enforce that requests follow the specification, and provide many options for the elements can be validated. For example, headers, body, and parameters Also, during the creation workflow, you can also add the policy to all flows automatically when importing an OpenAPI Specification as a v4 API.
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXfdJX7iMRI4_bbilxyDv1SFoBDNpZR9DaGwYNRWcZ7tp5-XD-OYVLMn36whF_5c-WVmDgfr2BLb3Z697eiOWgmjSd4UfKMgbL-AOSGHeDbk9ygkIxbfPiZUDj5JwL1xbKsq1JpjvgxVsyuheiMfATr1xPyd?key=PrMp2J0zWBtqrsqO75zcMw" alt=""><figcaption></figcaption></figure>
-
-## Data Cache Policy
-
-{% hint style="info" %}
-The Data Cache policy will be released on October 24, 2024.
-{% endhint %}
-
-The Data Cache policy allows setting, getting, and expiring values in a cache based on a condition. The policy can be used for any use case where state needs to be maintained within the API execution. A common example is ensuring that a token is obtained from an authorization server only if it is not present in the cache. If the token already exists in the cache, then the policy to call out to get the token is not executed.
-
-The policy is flexible in what it can do, and you can use custom attributes to dynamically determine the cache operation, key, and value. In this version, the plugin only supports the local cache and Redis, but the storage interface is pluggable, so further storage layers can be supported in the future.
 
 ## Azure, IBM, and Confluent federation providers
 

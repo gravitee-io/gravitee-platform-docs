@@ -1,5 +1,21 @@
 # GKO 4.3.x
 
+## Gravitee Kubernetes Operator 4.3.18 - November 21, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * API v2 CRD export cannot be applied when setting selection rules on plans [#10185](https://github.com/gravitee-io/issues/issues/10185)
+</details>
+
+
+## Gravitee Kubernetes Operator 4.3.17 - November 12, 2024
+
+There is nothing new in version 4.3.17.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
 ## Gravitee Kubernetes Operator 4.3.16 - October 28, 2024
 
 There is nothing new in version 4.3.16.

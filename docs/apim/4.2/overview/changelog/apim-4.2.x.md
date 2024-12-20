@@ -6,6 +6,52 @@ description: >-
 
 # APIM 4.2.x
  
+## Gravitee API Management 4.2.24 - December 5, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Opensearch configuration and ism policy [#10100](https://github.com/gravitee-io/issues/issues/10100)
+
+**Management API**
+
+* 500 error when listing API categories [#10158](https://github.com/gravitee-io/issues/issues/10158)
+* \[APIM]\[Portal] Static data access  [#10162](https://github.com/gravitee-io/issues/issues/10162)
+* Unable to find users with emails containing uppercase letters in Gravitee APIM Console and API requests [#10167](https://github.com/gravitee-io/issues/issues/10167)
+
+</details>
+
+
+ 
+## Gravitee API Management 4.2.23 - November 21, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* SSE connections receives messages to the wrong API when connected to rabbitmq  [#10020](https://github.com/gravitee-io/issues/issues/10020)
+
+**Management API**
+
+* API webhook notifier is not working for subscriptions [#10056](https://github.com/gravitee-io/issues/issues/10056)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Support expression language in ip filtering policy [#10142](https://github.com/gravitee-io/issues/issues/10142)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.2.22 - November 5, 2024
 <details>
 
@@ -721,5 +767,110 @@ description: >-
 **Gateway**
 
 * Access request host property in Expression Language [#9453](https://github.com/gravitee-io/issues/issues/9453)
+
+</details>
+
+## Gravitee API Management 4.2.0 - December 21, 2023
+
+<details>
+
+### Gateway
+
+* Health Check doesn't support Endpoint with EL [#418](https://github.com/gravitee-io/issues/issues/418)
+* Old Kafka Connector not working properly with JSON validation policy and Failover activated [#1647](https://github.com/gravitee-io/issues/issues/1647)
+* Resource-filtering policy does not work with debug mode [#2821](https://github.com/gravitee-io/issues/issues/2821)
+* Gateways not able to send bulk index data to ES8 [#3180](https://github.com/gravitee-io/issues/issues/3180)
+* When using push plan there is no log when subscription webhook ends in error [#3191](https://github.com/gravitee-io/issues/issues/3191)
+* EL - request's local address is evaluated in place of remote address [#3507](https://github.com/gravitee-io/issues/issues/3507)
+* Health-check service never stopped when using Service Discovery [#3617](https://github.com/gravitee-io/issues/issues/3617)
+
+### Management API
+
+* Can't create Backend-to-Backend applications [#2437](https://github.com/gravitee-io/issues/issues/2437)
+* Can't assign a group to a Backend-to-Backend application [#2438](https://github.com/gravitee-io/issues/issues/2438)
+* Invalid CORS Allow Origin Can Be Imported To Create New API [#2604](https://github.com/gravitee-io/issues/issues/2604)
+* Email related to closed, paused, and resumed subscription of PUSH plan are not sent [#2846](https://github.com/gravitee-io/issues/issues/2846)
+* Unable to update health checks on endpoints with REST API v2 [#2850](https://github.com/gravitee-io/issues/issues/2850)
+* Unable to create custom email notification template [#2854](https://github.com/gravitee-io/issues/issues/2854)
+* Attached Media is lost when the API Documentation is renamed [#2855](https://github.com/gravitee-io/issues/issues/2855)
+* User email address policy treats valid email address as invalid [#2971](https://github.com/gravitee-io/issues/issues/2971)
+* Endpoint Configuration Resets to Default after Redeployment [#3002](https://github.com/gravitee-io/issues/issues/3002)
+* Alert template not automatically applied to new APIs [#3010](https://github.com/gravitee-io/issues/issues/3010)
+* Unable to import OpenAPI spec with unused `variables` in `servers` definition [#3024](https://github.com/gravitee-io/issues/issues/3024)
+* User with quotes in lastname isn't properly sanitized [#3052](https://github.com/gravitee-io/issues/issues/3052)
+* Listening Hosts are mandatory in Virtual Hosts mode [#3074](https://github.com/gravitee-io/issues/issues/3074)
+* Application `api_key_mode` is automatically and incorrectly set to EXCLUSIVE mode without owner consent [#3083](https://github.com/gravitee-io/issues/issues/3083)
+* The OpenAPI schema to close a plan has incorrect response code [#3091](https://github.com/gravitee-io/issues/issues/3091)
+* Email related to closed, paused, and resumed subscription of API_KEY plan are sent with an empty body [#3107](https://github.com/gravitee-io/issues/issues/3107)
+* JDBC deadlocks on Command table when running multiple Management API instances [#3113](https://github.com/gravitee-io/issues/issues/3113)
+* Error running graviteeio-apim-rest-api-4.1.2 [#3146](https://github.com/gravitee-io/issues/issues/3146)
+* Unable to access Alerts screen when there are millions of AlertEvents [#3190](https://github.com/gravitee-io/issues/issues/3190)
+* Unable to deploy an API with huge API definition and already a lot of deployments [#3193](https://github.com/gravitee-io/issues/issues/3193)
+* Environment rights: API "update" right is not enough to edit the entrypoint [#3264](https://github.com/gravitee-io/issues/issues/3264)
+* Security - Enforce password policy for users [#3266](https://github.com/gravitee-io/issues/issues/3266)
+* APIM - flows table / name column / extend column size [#3282](https://github.com/gravitee-io/issues/issues/3282)
+* Cannot Import API Definition with Automatic Group Association [#3364](https://github.com/gravitee-io/issues/issues/3364)
+* Can't stop a deprecated API [#3474](https://github.com/gravitee-io/issues/issues/3474)
+* API Does Not Deploy if a Common Flow Exists with Multiple Entrypoints Selected [#3552](https://github.com/gravitee-io/issues/issues/3552)
+* Cannot delete API with too many events [#3625](https://github.com/gravitee-io/issues/issues/3625)
+
+### Console
+
+* Unable to Update API with Open API yaml File [#2566](https://github.com/gravitee-io/issues/issues/2566)
+* Configure logging mode link not working [#2606](https://github.com/gravitee-io/issues/issues/2606)
+* Add members button does not work for group admin [#2731](https://github.com/gravitee-io/issues/issues/2731)
+* Unable to remove expiration date of an API Key [#2739](https://github.com/gravitee-io/issues/issues/2739)
+* Non-admin users can't see API keys of APIs they created [#2824](https://github.com/gravitee-io/issues/issues/2824)
+* Add date time picker instead of only date for subscription date field [#2828](https://github.com/gravitee-io/issues/issues/2828)
+* Unable to edit flows once saved with an invalid configuration [#2834](https://github.com/gravitee-io/issues/issues/2834)
+* Log Content Not Visible in V2 API Logs [#2968](https://github.com/gravitee-io/issues/issues/2968)
+* History not available if too many deployments [#3126](https://github.com/gravitee-io/issues/issues/3126)
+* Deploy banner not displayed when updating details of a Plan [#3287](https://github.com/gravitee-io/issues/issues/3287)
+* APIM console doc links point to old documentation site [#3370](https://github.com/gravitee-io/issues/issues/3370)
+* Inconsistency on "Inheritance" flag for endpoints/groups between frontend and backend [#3475](https://github.com/gravitee-io/issues/issues/3475)
+* Bad management of required in open API File [#3536](https://github.com/gravitee-io/issues/issues/3536)
+* Flow Name Display Does Not Match Gateway Behavior [#3569](https://github.com/gravitee-io/issues/issues/3569)
+* Log view too wide [#3593](https://github.com/gravitee-io/issues/issues/3593)
+* API subscription fails with insufficient rights error [#3067](https://github.com/gravitee-io/issues/issues/3067)
+* Error in Swagger documentation both in Portal and Console [#3401](https://github.com/gravitee-io/issues/issues/3401)
+
+### Portal
+
+* Homepage, strange tabs behavior [#508](https://github.com/gravitee-io/issues/issues/508)
+* Custom wide logo is too small in the Portal header [#3054](https://github.com/gravitee-io/issues/issues/3054)
+* The "All rights reserved" mention on Portal is using an old date [#3319](https://github.com/gravitee-io/issues/issues/3319)
+* Tickets Inaccessible When an API with Open Tickets Is Deleted [#3578](https://github.com/gravitee-io/issues/issues/3578)
+* Cannot Scroll in Markdown Documentation in Portal [#3582](https://github.com/gravitee-io/issues/issues/3582)
+* Sign up doesn't work anymore [#3626](https://github.com/gravitee-io/issues/issues/3626)
+* Synchronization inconsistency on ALL APIs page on portal [#3604](https://github.com/gravitee-io/issues/issues/3604)
+* Error in Swagger documentation both in Portal and Console [#3401](https://github.com/gravitee-io/issues/issues/3401)
+
+### Policies
+
+* IP filtering policy blacklist does not work if there is a space in the IP address [#1896](https://github.com/gravitee-io/issues/issues/1896)
+* User claim in OAuth2 resource seems ignored [#2453](https://github.com/gravitee-io/issues/issues/2453)
+* Domain name (host) in whitelist does not work in IP Filtering policy [#2549](https://github.com/gravitee-io/issues/issues/2549)
+* JWS Policy doesn't work with Java 17 [#2586](https://github.com/gravitee-io/issues/issues/2586)
+* Typo in the documentation of "cache policy" [#2803](https://github.com/gravitee-io/issues/issues/2803)
+* Jaeger not working in with APIM 4+ [#3027](https://github.com/gravitee-io/issues/issues/3027)
+* Groovy policy with On-request script not working in v4 engine emulation mode [#3201](https://github.com/gravitee-io/issues/issues/3201)
+* Generate JWT not working with APIM 4.x [#3245](https://github.com/gravitee-io/issues/issues/3245)
+* Missing “generate JWT policy” on a v4 message API entrypoint Request phase [#3265](https://github.com/gravitee-io/issues/issues/3265)
+* Transform headers policy should be case insensitive [#3283](https://github.com/gravitee-io/issues/issues/3283)
+* Transform Query Parameters policy [#3315](https://github.com/gravitee-io/issues/issues/3315)
+* Generate JWT Policy Key Resolver wrong value [#3377](https://github.com/gravitee-io/issues/issues/3377)
+* Make some non-migrated policies available on REQUEST phase for message APIs [#3594](https://github.com/gravitee-io/issues/issues/3594)
+* OAuth2 introspection and userinfo should send a 503 when technical exception instead of 401 [#3382](https://github.com/gravitee-io/issues/issues/3382)
+
+### Helm Charts
+
+* Quotify the namespace defined in ServiceAccount to avoid errors [#3075](https://github.com/gravitee-io/issues/issues/3075)
+* Alert Engine - system mail notification [#3449](https://github.com/gravitee-io/issues/issues/3449)
+* License deleted after helm upgrade [#3511](https://github.com/gravitee-io/issues/issues/3511)
+
+### Others
+
+* Configuration files are being overwritten during yum update [#3237](https://github.com/gravitee-io/issues/issues/3237)
+* [RabbitMQ] message not logged when Rabbit's message does not defined correlationId [#3102](https://github.com/gravitee-io/issues/issues/3102)
 
 </details>

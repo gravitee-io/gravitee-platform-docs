@@ -13,11 +13,7 @@ Administrators have the option to modify the layout and theme of the Developer P
 
 You can click on an API in the Developer Portal to access its details. Selecting the **General information** header tab will display the API's description and reviews (if any have been submitted), as well as a sidebar on the right that contains additional information.&#x20;
 
-<div data-full-width="false">
-
-<figure><img src="../../../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM.png" alt=""><figcaption><p>Developer Portal API sidebar</p></figcaption></figure>
-
-</div>
+<div data-full-width="false"><figure><img src="../../../../.gitbook/assets/Screenshot 2023-05-31 at 1.57.16 PM.png" alt=""><figcaption><p>Developer Portal API sidebar</p></figcaption></figure></div>
 
 {% tabs %}
 {% tab title="Modify the access URL" %}
@@ -63,10 +59,6 @@ To modify the sidebar settings:
 ## API Catalog
 
 ### Categories
-
-{% hint style="warning" %}
-Categories currently only support v2 APIs. You can learn more about the differences between v4 vs v2 [here](../../../../overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/).
-{% endhint %}
 
 {% hint style="info" %}
 At least one API inside the category must be published for the category to be visible. You can publish an API from its Info page in the Management Console.

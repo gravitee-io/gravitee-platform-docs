@@ -228,6 +228,7 @@ Page references are passed to the target folder relative to the root directory o
 Syntax requirements:
 
 * For the API-scoped path to an API's documentation page, the link must start with `/#!/documentation/api/`.
+* Guides, or environment-level documentation pages, also support this syntax, but are prefixed by `/#!/documentation/environment`. You can reference an environment-level Guide page in a Guide page itself, or within a regular API page.
 * The user needs to provide the names of the folders in the path and the name of the document with the correct extension (MARKDOWN, ASCIIDOC, ASYNCAPI, SWAGGER).
 * All spaces in folder or page names must be replaced with `%20`, as is done in a navigator. This is the only symbol/character that needs to be encoded by the user.
 * The names of the folder or page are not case-sensitive. No two folders or no two pages with the same extension can have the same spelling, regardless of capitalization.

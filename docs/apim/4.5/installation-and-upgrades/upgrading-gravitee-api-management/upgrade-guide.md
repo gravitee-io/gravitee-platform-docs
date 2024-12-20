@@ -13,7 +13,7 @@ Upgrading to APIM 4.5 is deployment-specific. For a successful upgrade, you must
 {% hint style="warning" %}
 * **Skipping versions**: If your upgrade skips versions of APIM, read the version-specific upgrade notes for each version that your upgrade skips. You might be required to perform manual actions as part of the upfrade.
 * **Running scripts on the correct database:** `gravitee` is not always the default database. Run `show dbs` to return your database name.
-* **Ensuring that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [Breaking changes and deprecated functionality for API Management](https://documentation.gravitee.io/apim/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality).
+* **Ensuring that you are aware of the breaking changes and deprecated functionality:** For more information about the breaking changes and deprecated functionality, see [breaking-changes-and-deprecated-functionality-for-api-management.md](breaking-changes-and-deprecated-functionality-for-api-management.md "mention").
 {% endhint %}
 
 ## Enterprise Edition plugins

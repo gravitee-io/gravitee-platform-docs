@@ -19,6 +19,7 @@ Below are some examples of resources that are not managed by GKO. Not all of the
 * Alerts
 * Documentation page translations
 * Documentation page attached resources (aka API Media)
+* Documentation pages of type LINK
 * V4 API primary owner management
 
 GKO does not manage any **environment-level** objects such as:
@@ -27,6 +28,7 @@ GKO does not manage any **environment-level** objects such as:
 * Platform-level common policies
 * APIM dictionaries
 * Developer Portal themes
+* Shared Policy Groups
 
 GKO does not manage other **Gravitee components** such as:
 

@@ -54,7 +54,7 @@ To add a Quota policy to each plan of this API:
 
 
 
-    **Flows vs. policies** Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific API_._
+    **Flows vs. policies** Flows are a collection of policies. Flows can be specified for each individual plan, e.g., API Key (SILVER), API Key (GOLD), and API Key (PLATINUM). Alternatively, a common flow can be applied to all plans within the specific AP&#x49;_._
 
 <figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
@@ -70,7 +70,7 @@ Add differentiated Quota policies to each plan per the instructions below.
 <figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 3. Click **Create**
-4. Select the **+** icon within the request phase section. This lets us use the Quota policy to limit the number of requests Silver Tier members can make to the API per month_._
+4. Select the **+** icon within the request phase section. This lets us use the Quota policy to limit the number of requests Silver Tier members can make to the API per mont&#x68;_._
 
 <figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 

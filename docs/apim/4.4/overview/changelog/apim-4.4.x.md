@@ -6,6 +6,82 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.15 - December 5, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Websocket subprotocol doesn't work in API GW [#10023](https://github.com/gravitee-io/issues/issues/10023)
+* Opensearch configuration and ism policy [#10100](https://github.com/gravitee-io/issues/issues/10100)
+
+**Management API**
+
+* Custom Api key is not resuable between multiple environments [#10131](https://github.com/gravitee-io/issues/issues/10131)
+* Page Size Drop Down cannot exceed 100 [#10145](https://github.com/gravitee-io/issues/issues/10145)
+* 500 error when listing API categories [#10158](https://github.com/gravitee-io/issues/issues/10158)
+* \[APIM]\[Portal] Static data access  [#10162](https://github.com/gravitee-io/issues/issues/10162)
+* Unable to find users with emails containing uppercase letters in Gravitee APIM Console and API requests [#10167](https://github.com/gravitee-io/issues/issues/10167)
+* Webhook notification for Subscription_Accepted event is missing "owner" details [#10187](https://github.com/gravitee-io/issues/issues/10187)
+
+**Other**
+
+* DataDog issues with plugin v2.4.5 [#10176](https://github.com/gravitee-io/issues/issues/10176)
+* Health endpoint result is impacted by filtered probes in timeout [#10189](https://github.com/gravitee-io/issues/issues/10189)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Improve `/apis/{apiId}/import/swagger?definitionVersion=2.0.0` endpoint performances [#10117](https://github.com/gravitee-io/issues/issues/10117)
+
+  Note: Two new environment variables have been introduced to enhance the configuration. The first, `documentation.audit.max-content-size`, is designed to limit the size of the content saved in audits when a Page is created during an import. The second variable, `documentation.swagger.validate-safe-content`, determines whether the content of an imported OAS is validated for safety during the import process.
+
+</details>
+
+
+ 
+## Gravitee API Management 4.4.14 - November 21, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* SSE connections receives messages to the wrong API when connected to rabbitmq  [#10020](https://github.com/gravitee-io/issues/issues/10020)
+
+**Management API**
+
+* API webhook notifier is not working for subscriptions [#10056](https://github.com/gravitee-io/issues/issues/10056)
+* MAPI v2 : analytics : /respoinse-statuses : error 404 [#10175](https://github.com/gravitee-io/issues/issues/10175)
+
+**Console**
+
+* When creating an endpoint group, the page is not properly refreshed [#10129](https://github.com/gravitee-io/issues/issues/10129)
+
+**Other**
+
+* API CRD export mismatch on plan when using selection rules [#10179](https://github.com/gravitee-io/issues/issues/10179)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Support expression language in ip filtering policy [#10142](https://github.com/gravitee-io/issues/issues/10142)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.13 - November 5, 2024
 <details>
 

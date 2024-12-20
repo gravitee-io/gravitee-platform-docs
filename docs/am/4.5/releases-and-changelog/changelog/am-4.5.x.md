@@ -6,6 +6,95 @@ description: >-
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.5 - December 20, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Certificates description on the right of the page refers to identity providers [#10201](https://github.com/gravitee-io/issues/issues/10201)
+* Resize the client field for OAut2 scope repository record [#10239](https://github.com/gravitee-io/issues/issues/10239)
+
+</details>
+
+
+## Gravitee Access Management 4.5.4 - December 12, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* SMSFactorProvider - Invalid phone number [#10193](https://github.com/gravitee-io/issues/issues/10193)
+* [4.5.1] Scope OpenID on client crendential and JWT bearer [#10196](https://github.com/gravitee-io/issues/issues/10196)
+
+
+**Console**
+
+* Able to create Kafka reporter without Bootstrap server and Topic [#10156](https://github.com/gravitee-io/issues/issues/10156)
+
+**Other**
+
+* SlowQuery (asSorted) + Index non utilisé [#10194](https://github.com/gravitee-io/issues/issues/10194)
+
+</details>
+
+
+## Gravitee Access Management 4.5.3 - November 22, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Users are returned randomly via SCIM [#10147](https://github.com/gravitee-io/issues/issues/10147)
+
+
+
+
+
+**Other**
+
+* [Helm Chart] Upgrader job can't be deployed [#10154](https://github.com/gravitee-io/issues/issues/10154)
+* Improve WebAuthn Credential search indexes [#10165](https://github.com/gravitee-io/issues/issues/10165)
+
+</details>
+
+
+## Gravitee Access Management 4.5.2 - November 8, 2024
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Target not displaying on audit log for delete events [#10069](https://github.com/gravitee-io/issues/issues/10069)
+* Able to create a admin service user via the create domain user endpoint [#10127](https://github.com/gravitee-io/issues/issues/10127)
+* System reporter can be deleted via API [#10155](https://github.com/gravitee-io/issues/issues/10155)
+
+
+
+**Other**
+
+* JDBC - Device identifier errors - management, gateway and UI [#10139](https://github.com/gravitee-io/issues/issues/10139)
+* BadSqlGrammarException after 4.5.0 Upgrade [#10148](https://github.com/gravitee-io/issues/issues/10148)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.1 - October 25, 2024
 
 <details>
@@ -69,6 +158,11 @@ Identity Providers now provide a [Group Mapper](../../guides/identity-providers/
 ### Cache Layer
 
 A cache layer has been introduce to limit the Database access during the user authentication flow.
+
+### Upgrader framework
+
+AM now provide the same upgrader framework as APIM meaning that from 4.5.0, no manual scripts need to be executed before an upgrade.
+When AM is deployed on kuberneetes using Helm, the value `api.upgrader` needs to be set to `true` so before starting the Management API or the Gateway the helm chart will deploy a job to execute the upgraders. 
 
 </details>
 
