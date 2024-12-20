@@ -8,11 +8,7 @@ To expose your API to internal or external consumers, it must have at least one 
 * Premium access with public resources and access limits for your partners
 * Unlimited access to your internal enterprise applications
 
-<div align="center">
-
-<figure><img src="../../../../.gitbook/assets/plan-diagram.png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure>
-
-</div>
+<div align="center"><figure><img src="../../../../.gitbook/assets/plan-diagram.png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
 
 Each plan must include at least one security type by which subscribers can be authenticated. A security type is a policy integrated directly into a plan. Once a plan is created, the security type can not be changed. However, you can add additional security at the API or plan level with policies.
 
@@ -46,7 +42,7 @@ To create a plan:
     * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../../using-the-gravitee-api-management-components/general-configuration/sharding-tags.md)
     * **Groups excluded:** Prevent specified [user groups](../../../administration/user-management-and-permissions.md) from accessing your plan
 7. Click **Next**
-8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See  [**OAuth2**](broken-reference), [**JWT**](broken-reference), [**API Key**](broken-reference), [**Keyless (public)**](broken-reference), or [**Push plan**](broken-reference) for more information.
+8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2.
 
     <figure><img src="../../../../.gitbook/assets/plan_oauth2.png" alt=""><figcaption><p>OAuth2 configuration</p></figcaption></figure>
 9.  Select any plan restrictions:&#x20;
