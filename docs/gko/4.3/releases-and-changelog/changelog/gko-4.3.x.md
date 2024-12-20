@@ -1,5 +1,22 @@
 # GKO 4.3.x
 
+
+## Gravitee Kubernetes Operator 4.3.20 - December 20, 2024
+
+There is nothing new in version 4.3.20.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
+## Gravitee Kubernetes Operator 4.3.19 - December 9, 2024
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Template strings are not resolved for API Resources references [#10214](https://github.com/gravitee-io/issues/issues/10214)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.3.18 - November 21, 2024
     
 <details>

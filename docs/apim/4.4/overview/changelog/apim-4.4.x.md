@@ -6,6 +6,28 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.16 - December 20, 2024
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* A WEIGHTED_ROUND_ROBIN on a unique endpoint with weight set to 0 leads to gateway thread blocked [#10241](https://github.com/gravitee-io/issues/issues/10241)
+
+**Console**
+
+* Empty endpoint group prevents the update of the Global Healthcheck without clear error message [#10216](https://github.com/gravitee-io/issues/issues/10216)
+
+**Other**
+
+* Warnings about Groovy classes  [#10219](https://github.com/gravitee-io/issues/issues/10219)
+* API not deployed if OAuth 2.0 resource (Generic and AM) set with system proxy enabled [#10223](https://github.com/gravitee-io/issues/issues/10223)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.15 - December 5, 2024
 <details>
 
