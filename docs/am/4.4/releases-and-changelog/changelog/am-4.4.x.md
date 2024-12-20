@@ -18,7 +18,9 @@ description: >-
 
 
 
+**Other**
 
+* Resize the client field for OAuth2 scope repository record [#10239](https://github.com/gravitee-io/issues/issues/10239)
 
 </details>
 
