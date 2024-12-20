@@ -12,7 +12,7 @@ This page describes how to install APIM on any Kubernetes environment using the 
 For more information about Helm charts, go to [Helm Docs](https://helm.sh/docs/topics/chart_repository/).
 {% endhint %}
 
-The APIM Helm char**t** deploys the following components:
+The APIM Helm chart deploys the following components:
 
 * APIM Management API
 * APIM Management Console
@@ -40,7 +40,7 @@ You must install the following command line tools:
 
     {% code overflow="wrap" %}
     ```sh
-    helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
+    helm install graviteeio-apimx graviteeio/apim --create-namespace --namespace gravitee-apim
     ```
     {% endcode %}
 
@@ -54,6 +54,10 @@ You must install the following command line tools:
 ```bash
 helm install my-release -f values.yaml gravitee
 ```
+{% endhint %}
+
+{% hint style="info" %}
+You can find the full Gravitee configuration file `values.yaml` here:  [https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml)
 {% endhint %}
 
 ## Configuring the application settings
@@ -89,12 +93,13 @@ Here is the minimum `value-light.yml` configuration required by a development de
 * To deploy the development deployment, change the `domain` value, and then run the following command:
 
 {% hint style="warning" %}
-Do not use `value-light.yml` in production.
+The below example is sufficient for a trial or evaluation environment, but do not use this`value-light.yml` in production.  You should review the available configuration options before implementing into production.
 {% endhint %}
 
 <pre><code><strong>helm install gravitee-apim graviteeio/apim -f value-light.yml
 </strong></code></pre>
 
+{% code title="values-light.yaml" %}
 ```yaml
 # Deploy an elasticsearch cluster.
 elasticsearch:
@@ -145,6 +150,7 @@ ui:
     hosts:
       - management-ui.mydomain.com
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="External configuration" %}
@@ -664,8 +670,8 @@ $ export GRAVITEESOURCE_LICENSE_B64="$(base64 -w 0 license.key)"
 $ helm install \
   --set license.key=${GRAVITEESOURCE_LICENSE_B64} \
   --create-namespace --namespace gravitee-apim \
-  graviteeio-apim3x \
-  graviteeio/apim3
+  graviteeio-apimx \
+  graviteeio/apim
 ```
 
 | Parameter     | Description | Default                            |
