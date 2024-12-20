@@ -124,7 +124,6 @@
           * [MQTT5](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/mqtt5.md)
           * [Solace](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/solace.md)
           * [RabbitMQ](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/rabbitmq.md)
-          * [Azure Service Bus](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/azure-service-bus.md)
       * [Quality of Service](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service.md)
       * [General Info Settings](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/general-info-settings.md)
       * [User Permissions](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/user-permissions.md)
