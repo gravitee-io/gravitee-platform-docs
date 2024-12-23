@@ -23,6 +23,15 @@ Authentication and authorization to the Cloud Gate is secured by using your very
 
 The Cloud Gate is deployed in each Control Plane data center region, which ensures optimal connectivity and performance. Your hybrid gateway will automatically calculate which region and corresponding Cloud Gate to connect to, based on the information contained in the Cloud Token.
 
+{% hint style="info" %}
+You need to allow your hybrid gateway to connect to the Cloud Gate in the region your control plane is deployed. The traffic is over https (port 443) and the Cloud Gate URLs are the following:\
+\
+US Cloud Gate: [https://us.cloudgate.gravitee.io/](https://us.cloudgate.gravitee.io/)\
+EU Cloud Gate: [https://eu.cloudgate.gravitee.io/](https://eu.cloudgate.gravitee.io/)
+{% endhint %}
+
+
+
 Analytics are reported to a Cloud Account dedicated pipeline where Cloud Gate are produced to a Kafka topics, ingested in logstash, and finally stored in dedicated Elastisearch index that your Cloud Accounts API Management Control Plane consumes.
 
 All communication between the hybrid gateway and the Cloud Gate endpoints is encrypted using TLS.
