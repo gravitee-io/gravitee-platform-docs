@@ -14,6 +14,7 @@ The ability to create APIs with message API endpoints is an Enterprise Edition c
 
 v4 message APIs currently support the following endpoints:
 
+* **Azure Service Bus:** Allows you to publish and subscribe to events in Azure Service Bus using web-friendly protocols such as HTTP or WebSocket. The Gravitee Gateway mediates the protocol between the client and the backend.
 * **Kafka**: Enables the Gravitee API Gateway to establish a persistent connection with a Kafka topic as a backend resource or target.
 * **MQTT 5**: Enables the Gravitee API Gateway to establish a persistent connection with an MQTT topic as a backend resource or target.
 * **RabbitMQ**: Enables the Gravitee API Gateway to establish a persistent connection with RabbitMQ as a backend resource or target. This will only work if you are using RabbitMQ and the AMQP 0-9-1 protocol. Because this endpoint supports the AMQP 0-9-1 protocol, it may support other event brokers and message queues that communicate over the AMQP 0-9-1 protocol. However, Gravitee does not guarantee or officially support these implementations.
@@ -36,4 +37,4 @@ The integrations Gravitee uses to enable Kafka, MQTT, RabbitMQ, and Solace endpo
 
 Click on the tiles below for specific configuration and implementation details.
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Kafka</td><td></td><td><a href="kafka.md">kafka.md</a></td></tr><tr><td></td><td>MQTT5</td><td></td><td><a href="mqtt5.md">mqtt5.md</a></td></tr><tr><td></td><td>Solace</td><td></td><td><a href="solace.md">solace.md</a></td></tr><tr><td></td><td>RabbitMQ</td><td></td><td><a href="rabbitmq.md">rabbitmq.md</a></td></tr><tr><td></td><td>Mock</td><td></td><td><a href="mock.md">mock.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>Kafka</td><td></td><td><a href="kafka.md">kafka.md</a></td></tr><tr><td></td><td>MQTT5</td><td></td><td><a href="mqtt5.md">mqtt5.md</a></td></tr><tr><td></td><td>Solace</td><td></td><td><a href="solace.md">solace.md</a></td></tr><tr><td></td><td>RabbitMQ</td><td></td><td><a href="rabbitmq.md">rabbitmq.md</a></td></tr><tr><td></td><td>Mock</td><td></td><td><a href="mock.md">mock.md</a></td></tr><tr><td></td><td>Azure Service Bus</td><td></td><td><a href="azure-service-bus.md">azure-service-bus.md</a></td></tr></tbody></table>

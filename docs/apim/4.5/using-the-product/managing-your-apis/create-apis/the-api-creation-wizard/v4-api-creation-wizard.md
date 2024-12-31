@@ -195,9 +195,7 @@ Depending on which endpoint you choose, you will need to further define certain 
 
 * **Define your target URL:** Enter your target URL in the **Target URL** text field.
 
-<!---->
-
-* **Define your HTTP options:**
+- **Define your HTTP options:**
   * Choose to either allow or disallow h2c clear text upgrade by toggling **Allow h2c Clear Text Upgrade** ON or OFF.
     * You'll need to select the HTTP protocol version to use. HTTP/1.1 and HTTP/2 are supported.
   * Choose to either enable or disable keep-alive by toggling **Enable keep-alive** ON or OFF.
@@ -211,8 +209,6 @@ Depending on which endpoint you choose, you will need to further define certain 
   * Choose to propagate client Accept-Encoding header by toggling **Propagate client Accept-Encoding header (no decompression if any)** ON or OFF.
   * Select **+ Add HTTP headers** to add headers that the Gateway should add or override before proxying the request to the backend API.
 
-<!---->
-
 * **Define your Proxy options:**
   * Choose whether to use a proxy for client connections by toggling **Use proxy** ON of OFF.
     * If enabled, you will need to select from the proxy types in the **Proxy type** drop-down: **HTTP proxy**, **SOCKS4**, or **SOCKS5**.
@@ -222,11 +218,7 @@ Depending on which endpoint you choose, you will need to further define certain 
     * (Optional) **Proxy username:** Enter your proxy username in the text field.
     * (Optional) **Proxy password:** Enter your proxy password in the text field.
 
-<!---->
-
-* **Define your SSL options**
-
-<!---->
+- **Define your SSL options**
 
 * **Define your keystore**
 
@@ -300,6 +292,7 @@ The ability to create APIs with message API endpoints is an Enterprise Edition c
 
 If you chose **Introspect messages from event-driven backend** as your exposure method, you will be able to choose from the following endpoints:
 
+* Azure Service Bus
 * Mock
 * MQTT 5.X
 * Kafka
@@ -307,6 +300,25 @@ If you chose **Introspect messages from event-driven backend** as your exposure 
 * Solace
 
 Depending on which endpoint you choose, you will need to further define certain sets of endpoint configurations. See the expandable sections below to learn more about the configuration of each available endpoint.
+
+<details>
+
+<summary>Azure Service Bus</summary>
+
+Modifying the following configuration parameters is optional.
+
+1. Enter the fully qualified name for your Service Bus namespace.
+2. Use the drop-down menu to instruct the Gateway Kafka client to **Use Consumer**, **Use Producer**, or **Use Consumer and Producer**.
+3. Enter the connection string for your Azure Service Bus authentication flow.
+4. (If applicable) Define the producer settings that the Gravitee Gateway client will rely on for producing messages to your backend Azure Service Bus topic/broker:
+   1. Define the name of the queue for which to create a producer.
+   2. Enter the name of the topic.
+5. (If applicable) Define the consumer settings that the Gravitee Gateway client will rely on for consuming messages from your backend Azure Service Bus topic/broker:
+   1. Define the name of the queue for which to create a receiver.
+   2. Enter the name of the topic.
+   3. Enter the name of the subscription to listen to in the topic.
+
+</details>
 
 <details>
 

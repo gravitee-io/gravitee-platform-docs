@@ -113,6 +113,7 @@
       * [Configuring your Endpoints](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/README.md)
         * [v4 Proxy API Endpoints](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md)
         * [v4 Message API Endpoints](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/README.md)
+          * [Azure Service Bus](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/azure-service-bus.md)
           * [Kafka](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka.md)
           * [MQTT5](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mqtt5.md)
           * [Solace](using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md)
