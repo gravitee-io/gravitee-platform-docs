@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.6 - January 3, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+**Console**
+
+* Can't configure new SSO IDP or modify existing one [#10251](https://github.com/gravitee-io/issues/issues/10251)
+
+**Other**
+
+* Unable to get a token using LDAP IDP [#10250](https://github.com/gravitee-io/issues/issues/10250)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.5 - December 20, 2024
 
 <details>
