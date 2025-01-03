@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.15 - January 3, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+**Console**
+
+* Can't configure new SSO IDP or modify existing one [#10251](https://github.com/gravitee-io/issues/issues/10251)
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.4.14 - December 20, 2024
 
 <details>
