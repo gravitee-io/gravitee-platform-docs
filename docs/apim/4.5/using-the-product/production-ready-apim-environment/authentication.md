@@ -1,4 +1,4 @@
-# Authentication
+# Configuring authentication for a production-ready environment
 
 ## Overview
 
@@ -28,7 +28,7 @@ portal:
       enabled: true
 ```
 
-The Developer Portal configuration can be fine-tuned to satisfy your needs. Additional details are in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/developer-portal/advanced-developer-portal-configuration).
+The Developer Portal configuration can be fine-tuned to satisfy your needs. Additional details are in the [Gravitee documentation](https://documentation.gravitee.io/apim/using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal).
 
 ## Users
 
