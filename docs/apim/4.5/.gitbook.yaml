@@ -10,4 +10,4 @@ redirects:
  getting-started/install-and-upgrade-guides/multi-tenancy: installation-and-upgrades/install-gravitee-api-management/multi-tenancy.md
  getting-started/install-and-upgrade-guides: installation-and-upgrades/install-gravitee-api-management/README.md
  getting-started/quickstart-guide: overview/readme/overview.md
- installation-and-upgrades/install-gravitee-api-management: overview/readme/overview
+ installation-and-upgrades/install-gravitee-api-management: overview/readme/overview.md
