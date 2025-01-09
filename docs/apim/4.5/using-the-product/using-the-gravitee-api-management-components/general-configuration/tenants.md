@@ -47,11 +47,11 @@ Once the Gateway has been configured, the tenant definition must be added via th
 {% hint style="success" %}
 Now that the two endpoints are defined, Gateways GWI1, GWI2, GWI3 and GWI4 will apply this logic:
 
-* If a tenant configuration is “eu,” a request to Backend API is proxied to `https://us.backend-api.mycompany.com`
+* If a tenant configuration is “eu,” a request to Backend API is proxied to `https://eu.backend.com`
 * If a tenant configuration is “usa,” a request to Backend API is proxied to `https://usa.backend.com`
 
 Similarly, Gateways GWE1, GWE2, GWE3, GWE4 will apply the following logic when serving partner requests to the Customer API:
 
-* If a tenant configuration is “eu,” a request to Customer API is proxied to `https://eu.backend-api.com`
+* If a tenant configuration is “eu,” a request to Customer API is proxied to `https://eu.customer-api.com`
 * If a tenant configuration is “usa,” a request to Backend API is proxied to `https://usa.backend-api.com`
 {% endhint %}
