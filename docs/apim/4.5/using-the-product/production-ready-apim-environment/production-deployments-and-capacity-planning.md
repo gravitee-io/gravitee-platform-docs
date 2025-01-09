@@ -152,6 +152,8 @@ services:
 ```
 {% endcode %}
 
+**Note:** During bootstrap, which occurs when the Gravitee component starts up, the `GIO_MIN_MEM`and `GIO_MAX_MEM` variables are injected into the JAVA\_OPTS .
+
 2. Run `docker compose up -d` to restart the container(s) with this new configuration.
 {% endtab %}
 
@@ -175,6 +177,8 @@ api-management:
       ...
 ```
 {% endcode %}
+
+**Note:** During bootstrap, which occurs when the Gravitee component starts up, the GIO\_MIN\_MEM and GIO\_MAX\_MEM variables are injected into the JAVA\_OPTS .
 
 2. Redeploy the values.yaml file with your specific command `helm upgrade [release] [chart] -f values.yml` (e.g.: `helm upgrade gravitee-apim graviteeio/apim -f values.yml`) to apply the updated configuration.
 {% endtab %}
