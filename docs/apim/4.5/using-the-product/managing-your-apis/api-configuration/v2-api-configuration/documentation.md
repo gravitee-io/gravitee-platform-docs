@@ -77,7 +77,3 @@ To add metadata:
 7. Choose a name for your API, select the format (string, numeric, boolean, date, mail, url), and define the value
 8. Click **Save**
 
-## Referencing metadata
-
-
-
