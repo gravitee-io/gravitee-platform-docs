@@ -129,3 +129,53 @@ By regularly monitoring CPU load levels, administrators can assess the current c
 The following table shows baseline hardware recommendations for a self-hosted deployment.
 
 <table><thead><tr><th width="239">Component</th><th width="156" align="center">vCPU</th><th width="165" align="center">RAM (GB)</th><th align="center">Disk (GB)</th></tr></thead><tbody><tr><td><strong>Dev Portal + REST API</strong> (Dev Portal only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Console + REST API</strong> (Console only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Dev Portal + Console + REST API</strong></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr><tr><td><strong>API Gateway instance</strong><br>Production best practice (HA) is 2 nodes.</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Alert Engine instance</strong><br>Production best practice (HA) is 2 nodes</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Analytics DB instance (ElasticSearch)</strong><br><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/setup.html">Production best practice is 3 nodes</a>.<br><a href="https://www.elastic.co/guide/en/elasticsearch/guide/master/hardware.html">Official hardware recommendations</a>.</td><td align="center">1 - 8</td><td align="center"> 2 - 8 or more</td><td align="center">20 + 0.5 per million requests for default metrics</td></tr><tr><td><strong>Config DB instance</strong> (MongoDB or JDBC DB)<br><a href="https://www.mongodb.com/docs/manual/administration/production-notes">Production best practice is 3 nodes</a></td><td align="center">1</td><td align="center">2</td><td align="center">30</td></tr><tr><td><strong>Rate Limit DB instance</strong> (Redis)<br><a href="https://docs.redis.com/latest/rs/installing-upgrading/hardware-requirements/#productionenvironment">Production best practice is 3 nodes</a></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr></tbody></table>
+
+## Gravitee JVM Memory Sizing <a href="#gravitee-jvm-memory-sizing" id="gravitee-jvm-memory-sizing"></a>
+
+You can specify the JVM memory sizing for each of the Gravitee nodes.
+
+{% tabs %}
+{% tab title="Docker Compose" %}
+To configure JVM memory sizing with `docker compose`, complete the following steps:
+
+1. For the specific Gravitee component that you want to configure, for example, gateway, management-api, management-ui, or portal-ui, etc, add the `GIO_MIN_MEM` and `GIO_MAX_MEM` lines within the `environment` section.  Here is an example of configuring JVM of the API Gateway:
+
+{% code title="docker-compose.yml" %}
+```yaml
+services:
+  gateway:
+    ...
+    environment:
+      - GIO_MIN_MEM=512
+      - GIO_MAX_MEM=1024
+      ...
+```
+{% endcode %}
+
+2. Run `docker compose up -d` to restart the container(s) with this new configuration.
+{% endtab %}
+
+{% tab title="Kubernetes (Helm)" %}
+To configure JVM memory sizing with Kubernetes `values.yaml`, complete the following steps:
+
+1. For the specific Gravitee component you want to configure, for example, gateway, management-api, management-ui, or portal-ui, etc, add the `GIO_MIN_MEM` and `GIO_MAX_MEM` lines within the components' `env` section.&#x20;
+
+Here is an example of configuring JVM of the API Gateway:
+
+{% code title="values.yaml" %}
+```yaml
+api-management:
+  gateway:
+    ...
+    env:
+      - name: GIO_MIN_MEM
+        value: 512m
+      - name: GIO_MAX_MEM
+        value: 1024m
+      ...
+```
+{% endcode %}
+
+2. Redeploy the values.yaml file with your specific command `helm upgrade [release] [chart] -f values.yml` (e.g.: `helm upgrade gravitee-apim graviteeio/apim -f values.yml`) to apply the updated configuration.
+{% endtab %}
+{% endtabs %}
