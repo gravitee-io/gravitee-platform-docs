@@ -156,6 +156,7 @@
         * [Circuit Breaker](using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/circuit-breaker.md)
         * [Cloud Events](using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/cloud-events.md)
       * [D-H](using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/README.md)
+        * [Data Cache](using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/data-cache.md)
         * [Data Logging Masking](using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/data-logging-masking.md)
         * [Dynamic Routing](using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/dynamic-routing.md)
         * [Generate HTTP Signature](using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/generate-http-signature.md)

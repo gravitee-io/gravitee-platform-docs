@@ -52,6 +52,10 @@ Here are the policies that you can apply to your APIs:
 {% endtab %}
 
 {% tab title="D-H" %}
+{% content-ref url="d-h/data-cache.md" %}
+[data-cache.md](d-h/data-cache.md)
+{% endcontent-ref %}
+
 {% content-ref url="d-h/data-logging-masking.md" %}
 [data-logging-masking.md](d-h/data-logging-masking.md)
 {% endcontent-ref %}
