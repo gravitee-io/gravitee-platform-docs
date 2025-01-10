@@ -25,6 +25,7 @@ Below are some examples of resources that are not managed by GKO. Not all of the
 GKO does not manage any **environment-level** objects such as:
 
 * Subscriptions and/or keys
+* APIM Environment user management
 * Platform-level common policies
 * APIM dictionaries
 * Developer Portal themes
