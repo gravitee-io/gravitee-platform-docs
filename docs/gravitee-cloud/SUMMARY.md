@@ -29,6 +29,8 @@
 
 * [Cloud API Reference](reference/cloud-api-reference.md)
 * [Release Notes](reference/release-notes.md)
+* [Service Level Agreement](reference/service-level-agreement.md)
+* [Upgrade policy](reference/upgrade-policy.md)
 
 ## Community and Support
 
