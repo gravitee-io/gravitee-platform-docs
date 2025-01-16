@@ -8,7 +8,7 @@ description: >-
 
 To use Gravitee Cloud where you connect your own fully self-hosted installations, you need to select "Self-hosted" as profile when setting up your account.
 
-<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption><p>Gravitee Cloud account set up paage with Self-hosted deployment option chosen.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption><p>Gravitee Cloud account set up page with Self-hosted deployment option chosen.</p></figcaption></figure>
 
 With Gravitee Cloud Self-hosted profile you can:
 
