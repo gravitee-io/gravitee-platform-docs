@@ -6,6 +6,31 @@ description: >-
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.7 - January 16, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Access token is generated from refresh token of deactivated user [#10258](https://github.com/gravitee-io/issues/issues/10258)
+
+
+
+**Console**
+
+* Bug Affichage : Administrative Roles box list illisible.  [#10256](https://github.com/gravitee-io/issues/issues/10256)
+* Memory user provider in fresh install has no permissions/roles [#10257](https://github.com/gravitee-io/issues/issues/10257)
+* Audit log details differ between roles [#10266](https://github.com/gravitee-io/issues/issues/10266)
+
+**Other**
+
+* Unable to update any reporters on domain and organisation level [#10259](https://github.com/gravitee-io/issues/issues/10259)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.6 - January 3, 2025
 
 <details>
