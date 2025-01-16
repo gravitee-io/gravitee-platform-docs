@@ -6,6 +6,36 @@ description: >-
 
 # APIM 4.3.x
  
+## Gravitee API Management 4.3.21 - January 16, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* 400 error "The plain HTTP request was sent to HTTPS port" when redirecting to HTTPS endpoint. [#10265](https://github.com/gravitee-io/issues/issues/10265)
+
+**Console**
+
+* Resource access is not allowed for a user with Publisher api role [#10032](https://github.com/gravitee-io/issues/issues/10032)
+* Sharding tags removed when API configuration updated [#10191](https://github.com/gravitee-io/issues/issues/10191)
+* API's member list cannot display more than 10 members  [#10212](https://github.com/gravitee-io/issues/issues/10212)
+* Changing flow selection (DEFAULT/Best Match) does not show deploy banner [#10235](https://github.com/gravitee-io/issues/issues/10235)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Helm Charts**
+
+* Helm chart - improve support of scale up/down policies [#10255](https://github.com/gravitee-io/issues/issues/10255)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.3.20 - December 20, 2024
 <details>
 
