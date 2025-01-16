@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.2.x
 
+## Gravitee Access Management 4.2.29 - January 16, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Access token is generated from refresh token of deactivated user [#10258](https://github.com/gravitee-io/issues/issues/10258)
+* MFA flow not executed [#10261](https://github.com/gravitee-io/issues/issues/10261)
+
+
+
+
+
+**Other**
+
+* Unable to update any reporters on domain and organisation level [#10259](https://github.com/gravitee-io/issues/issues/10259)
+
+</details>
+
+
 ## Gravitee Access Management 4.2.28 - December 20, 2024
 
 <details>
