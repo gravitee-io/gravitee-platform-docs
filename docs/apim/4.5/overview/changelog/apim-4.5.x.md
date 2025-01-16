@@ -6,6 +6,41 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.6 - January 16, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* API Gateway - memory leak [#10220](https://github.com/gravitee-io/issues/issues/10220)
+* 400 error "The plain HTTP request was sent to HTTPS port" when redirecting to HTTPS endpoint. [#10265](https://github.com/gravitee-io/issues/issues/10265)
+
+**Management API**
+
+* It is possible to create objects in APIM with ID value ""  [#10213](https://github.com/gravitee-io/issues/issues/10213)
+
+**Console**
+
+* Resource access is not allowed for a user with Publisher api role [#10032](https://github.com/gravitee-io/issues/issues/10032)
+* Sharding tags removed when API configuration updated [#10191](https://github.com/gravitee-io/issues/issues/10191)
+* API's member list cannot display more than 10 members  [#10212](https://github.com/gravitee-io/issues/issues/10212)
+* Changing flow selection (DEFAULT/Best Match) does not show deploy banner [#10235](https://github.com/gravitee-io/issues/issues/10235)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Helm Charts**
+
+* Helm chart - improve support of scale up/down policies [#10255](https://github.com/gravitee-io/issues/issues/10255)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.5.5 - December 20, 2024
 <details>
 
