@@ -1,5 +1,33 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.6 - January 17, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+* Admission panics when Management Context references a secret in another namespace [#10275](https://github.com/gravitee-io/issues/issues/10275)
+
+</details>
+
+<details>
+
+<summary>Security</summary>
+
+* Update module golang.org/x/net to v0.33.0 [#10254](https://github.com/gravitee-io/issues/issues/10254)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+* Upcoming 4.6 Gravitee Cloud support has been backported
+
+</details>
+
+🚀 Kudos to [@jachymsol](https://github.com/jachymsol) for making his first contribution to the Kubernetes Operator with [98ddc38](https://github.com/gravitee-io/gravitee-kubernetes-operator/commit/98ddc38ec043eb7812e6d334c1d4c8b6dcc4275a)
+
 ## Gravitee Kubernetes Operator 4.5.5 - December 20, 2024
 
 <details>
@@ -32,8 +60,6 @@
 * Missing Key and Trust Store fields in API Definition [#10215](https://github.com/gravitee-io/issues/issues/10215)
 
 </details>
-
-
 
 ## Gravitee Kubernetes Operator 4.5.3 - November 21, 2024
 
