@@ -1,5 +1,14 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.17 - January 17, 2025
+    
+<details>
+<summary>Security</summary>
+
+  * Update module golang.org/x/net to v0.33.0 [#10254](https://github.com/gravitee-io/issues/issues/10254)
+</details>
+
+
 
 ## Gravitee Kubernetes Operator 4.4.16 - December 20, 2024
 
