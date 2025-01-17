@@ -15,6 +15,10 @@ description: >-
 
 * 400 error "The plain HTTP request was sent to HTTPS port" when redirecting to HTTPS endpoint. [#10265](https://github.com/gravitee-io/issues/issues/10265)
 
+**Management API**
+
+* API closed subscription details not working [#10164](https://github.com/gravitee-io/issues/issues/10164)
+
 **Console**
 
 * Resource access is not allowed for a user with Publisher api role [#10032](https://github.com/gravitee-io/issues/issues/10032)
