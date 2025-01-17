@@ -15,12 +15,21 @@ description: >-
 
 * 400 error "The plain HTTP request was sent to HTTPS port" when redirecting to HTTPS endpoint. [#10265](https://github.com/gravitee-io/issues/issues/10265)
 
+**Management API**
+
+* API closed subscription details not working [#10164](https://github.com/gravitee-io/issues/issues/10164)
+
 **Console**
 
 * Resource access is not allowed for a user with Publisher api role [#10032](https://github.com/gravitee-io/issues/issues/10032)
 * Sharding tags removed when API configuration updated [#10191](https://github.com/gravitee-io/issues/issues/10191)
 * API's member list cannot display more than 10 members  [#10212](https://github.com/gravitee-io/issues/issues/10212)
 * Changing flow selection (DEFAULT/Best Match) does not show deploy banner [#10235](https://github.com/gravitee-io/issues/issues/10235)
+* Analytics filters are not applied when the dashboard is changed [#10238](https://github.com/gravitee-io/issues/issues/10238)
+
+**Portal**
+
+* Title of developer portal browser tab is not translated [#10263](https://github.com/gravitee-io/issues/issues/10263)
 
 </details>
 
