@@ -11,4 +11,4 @@ redirects:
  getting-started/install-and-upgrade-guides: installation-and-upgrades/install-gravitee-api-management/README.md
  getting-started/quickstart-guide: overview/readme/overview.md
  installation-and-upgrades/install-gravitee-api-management: overview/readme/overview.md
- getting-started/configuration/notifications: using-the-gravitee-api-management-components/general-configuration/notifications.md
+ getting-started/configuration/notifications: general-configuration/notifications.md
