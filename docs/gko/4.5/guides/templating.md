@@ -7,13 +7,17 @@ GKO has a templating mechanism that provides a flexible way to inject values int
 * Use Kubernetes secrets to store and inject sensitive parameters into Gravitee resources
 * Externalise configuration into Kubernetes configMaps and inject the parameters into Gravitee resources
 
-To use this feature, you can use the templating syntax in place of the value of a parameter in any Gravitee-managed CRD, and GKO will instantiate the templated values at runtime.
+To use this feature, you can use the templating syntax in place of the value of string parameters in any Gravitee-managed CRD, and GKO will instantiate the templated values at runtime.
 
 This guide includes the following topics:
 
 * [Using templates with Kubernetes secrets](templating.md#use-kubernetes-secrets)
 * [Using templates with Kubernetes configMaps](templating.md#use-kubernetes-configmaps)
 * [Example of using a Kubernetes secret to inject a GitHub personal access token into an API definition resource](templating.md#pass-a-github-personal-access-token-to-an-api-definition-from-a-secret)
+
+{% hint style="info" %}
+Templating only works for parameters of type `string`.
+{% endhint %}
 
 ## Use Kubernetes secrets
 
