@@ -19,6 +19,7 @@ description: >-
 **Management API**
 
 * It is possible to create objects in APIM with ID value ""  [#10213](https://github.com/gravitee-io/issues/issues/10213)
+* API closed subscription details not working [#10164](https://github.com/gravitee-io/issues/issues/10164)
 
 **Console**
 
@@ -26,6 +27,11 @@ description: >-
 * Sharding tags removed when API configuration updated [#10191](https://github.com/gravitee-io/issues/issues/10191)
 * API's member list cannot display more than 10 members  [#10212](https://github.com/gravitee-io/issues/issues/10212)
 * Changing flow selection (DEFAULT/Best Match) does not show deploy banner [#10235](https://github.com/gravitee-io/issues/issues/10235)
+* Analytics filters are not applied when the dashboard is changed [#10238](https://github.com/gravitee-io/issues/issues/10238)
+
+**Portal**
+
+* Title of developer portal browser tab is not translated [#10263](https://github.com/gravitee-io/issues/issues/10263)
 
 </details>
 
