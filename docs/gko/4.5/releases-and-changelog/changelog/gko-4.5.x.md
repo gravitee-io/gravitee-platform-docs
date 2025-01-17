@@ -22,9 +22,18 @@
 
 * Issue a clear warning when attempting to apply a group with an API primary owner [#10094](https://github.com/gravitee-io/issues/issues/10094)
 * Improve OAuth application settings validation [#10079](https://github.com/gravitee-io/issues/issues/10079)
+
+</details>
+
+<details>
+
+<summary>Bug fixes</summary>
+
 * Missing Key and Trust Store fields in API Definition [#10215](https://github.com/gravitee-io/issues/issues/10215)
 
 </details>
+
+
 
 ## Gravitee Kubernetes Operator 4.5.3 - November 21, 2024
 
