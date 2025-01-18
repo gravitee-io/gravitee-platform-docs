@@ -26,12 +26,6 @@
 
 </details>
 
-<details>
-<summary>Improvements</summary>
-
-  * Upcoming 4.6 Gravitee Cloud support has been backported
-</details>
-
 🚀 Kudos to [@jachymsol](https://github.com/jachymsol) for making his first contribution to the Kubernetes Operator with [98ddc38](https://github.com/gravitee-io/gravitee-kubernetes-operator/commit/98ddc38ec043eb7812e6d334c1d4c8b6dcc4275a)
 
 ## Gravitee Kubernetes Operator 4.5.5 - December 20, 2024
