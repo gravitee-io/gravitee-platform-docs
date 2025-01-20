@@ -146,8 +146,8 @@ services:
   gateway:
     ...
     environment:
-      - GIO_MIN_MEM=512
-      - GIO_MAX_MEM=1024
+      - GIO_MIN_MEM=512m
+      - GIO_MAX_MEM=1024m
       ...
 ```
 {% endcode %}
