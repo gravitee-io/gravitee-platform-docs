@@ -12,7 +12,7 @@ This page describes how to install APIM on any Kubernetes environment using the 
 For more information about Helm charts, go to [Helm Docs](https://helm.sh/docs/topics/chart_repository/).
 {% endhint %}
 
-The APIM Helm char**t** deploys the following components:
+The APIM Helm chart deploys the following components:
 
 * APIM Management API
 * APIM Management Console
@@ -22,6 +22,10 @@ The APIM Helm char**t** deploys the following components:
 * Elasticsearch Cluster
 
 ## Installing Gravitee API Management
+
+{% hint style="info" %}
+GKO is always run using a non-root user. This property is not configurable.
+{% endhint %}
 
 ### Prerequisites
 
