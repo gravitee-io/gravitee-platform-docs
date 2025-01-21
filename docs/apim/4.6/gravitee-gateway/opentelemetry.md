@@ -1,0 +1,70 @@
+# OpenTelemetry
+
+## Overview
+
+{% hint style="info" %}
+OpenTelemetry replaces OpenTracing. For more information about OpenTracing, see [OpenTracing](https://app.gitbook.com/s/i9IyjWJmsUdoilz8Mqms/using-the-product/using-the-gravitee-api-management-components/general-configuration/opentracing "mention").
+{% endhint %}
+
+Gravitee's OpenTelemetry solution allows you to trace every request handled by the API Management (APIM) Gateway. A request refers to the input object as defined by OpenTelemetry, which can be an HTTP request or other objects like a message or Kafka record. The OpenTelemetry framework supports standardized observability, meaning that you can export your Gravitee traces to any telemetry tool. For example, Jaegar.&#x20;
+
+With OpenTelemetry, tracers are created for specific services. A global tracer is created for a Gateway-level service and follows the same lifecycle as the Gateway. At a more granular level, a tracer can be created when a API is deployed. An API-level tracer follows the same lifecycle as the API and will be stopped/removed when the API is undeployed.
+
+Verbose tracing is supported for v4 APIs and can be enabled for individual APIs. The **Verbose** option uses technical tracing to generate additional request execution details. These additional details increase the number of spans per trace and generates a pre-processor-transaction trace.
+
+To use OpenTelemetry, you must enable OpenTelemetry on your Gateway, and optionally for APIs that you have deployed. When OpenTelemetry is enabled at the API level, OpenTelemetry data is generated.&#x20;
+
+## Enabling OpenTelemetry for your Gateway
+
+{% hint style="warning" %}
+If you currently use the Jaeger plugin, you must update your configuration to target your OpenTelemetry endpoint.&#x20;
+{% endhint %}
+
+* To enable OpenTelemetry on your Gateway, add the following code to your `gravitee.yaml` file:
+
+```yaml
+services:
+      opentelmetry:  
+        enabled: true
+        verbose: true
+        exporter:
+            endpoint: <OPENTELEMETRY_ENDPOINT>
+            protocol: 
+```
+
+* Replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.
+
+## Enabling OpenTelemetry for an API
+
+{% hint style="warning" %}
+To enable OpenTelemetry for an API, you must have OpenTelemetry enabled on your Gateway.
+{% endhint %}
+
+1. Log in to your APIM Console.
+2. Select **APIs** from the left nav.
+3. Select a deployed API.&#x20;
+4. From the inner left nav, select **API Traffic**.
+5. On the **API Traffic** screen, click the **Settings** header.
+6. Scroll down to the **OpenTelemetry** section and toggle **Enabled** to ON.&#x20;
+7. (Optional) Toggle **Verbose** to ON to enable technical tracing.
+
+<figure><img src="../.gitbook/assets/1 otel 1.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Enabling **Verbose** increases the number of spans per trace, which can negatively impact performance.
+{% endhint %}
+
+## OpenTelemetry API trace details
+
+OpenTelemetry traces can be used to view the following API transaction details:
+
+* Plan type used (e.g., Keyless, API Key)
+* `api_Id`
+* Webhook `subscription_Id`
+* Webhook URL
+* Number of messages (based on the defined sampling value)
+* Type of server used (e.g., Mock, Kafka)
+* Policies being executed
+* `message_Id` (e.g., the ID of each message in a Kafka topic)
+* If i call an api with invalid auth, i can see a trace with a warning and logs with details about the errors
+* For a POST/GET request: `request_body_size`, `request_content_length`, `context-path`, `host.name` and `http_status_code`
