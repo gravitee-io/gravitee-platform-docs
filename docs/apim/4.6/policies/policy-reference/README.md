@@ -7,7 +7,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 {% endhint %}
 
 * [API](https://github.com/gravitee-io/gravitee-policy-api)
-* [API Key](https://github.com/gravitee-io/gravitee-policy-apikey)
+* [API Key](api-key.md)
 * [Assign Attributes](assign-attributes.md)
 * [Assign Content](https://github.com/gravitee-io/gravitee-policy-assign-content)
 * [Assign Metrics](assign-metrics.md)\*
