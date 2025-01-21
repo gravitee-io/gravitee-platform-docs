@@ -8,7 +8,7 @@ The Gravitee Kafka Gateway applies Gravitee's API management capabilities direct
 
 Policies that can be applied at runtime on native Kafka topics are designed for Kafka-specific use cases. For example:
 
-* The ability to [mediate](../create-apis/overview.md#protocol-mediation) authentication to provide enhanced security
+* The ability to "mediate" authentication to provide enhanced security
 * Virtual topics and partitions to enable scalable and cost-effective deployments
 * A Developer Portal to facilitate topic availability and knowledge sharing
 
