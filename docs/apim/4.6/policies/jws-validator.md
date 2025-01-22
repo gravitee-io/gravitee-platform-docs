@@ -3,7 +3,7 @@ description: This page provides the technical details of the JSON Web Signature 
 hidden: true
 ---
 
-# JSON Web Signature (JWS)
+# JWS Validator
 
 ## Overview
 
@@ -17,11 +17,11 @@ JWT in JWS format enables secure content to be shared across security domains. T
 
 Functional and implementation information for the `jws-validator` policy is organized into the following sections:
 
-* [Examples](json-web-signature-jws.md#examples)
-* [Configuration](json-web-signature-jws.md#configuration)
-* [Compatibility matrix](json-web-signature-jws.md#compatibility-matrix)
-* [Errors](json-web-signature-jws.md#errors)
-* [Changelogs](json-web-signature-jws.md#changelogs)
+* [Examples](jws-validator.md#examples)
+* [Configuration](jws-validator.md#configuration)
+* [Compatibility matrix](jws-validator.md#compatibility-matrix)
+* [Errors](jws-validator.md#errors)
+* [Changelogs](jws-validator.md#changelogs)
 
 ## Examples
 

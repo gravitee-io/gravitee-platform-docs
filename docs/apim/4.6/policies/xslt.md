@@ -1,15 +1,16 @@
 ---
-description: This page provides the technical details of the XSLT policy
 hidden: true
 ---
 
-# XSLT
+# XSLT transformer policy
 
-{% hint style="warning" %}
-**This feature requires** [**Gravitee's Enterprise Edition**](../overview/gravitee-apim-enterprise-edition/)**.**
-{% endhint %}
+## Phase <a href="#user-content-phase" id="user-content-phase"></a>
 
-## Overview
+| onRequest | onResponse |
+| --------- | ---------- |
+| X         | X          |
+
+## Description <a href="#user-content-description" id="user-content-description"></a>
 
 You can use the `xslt` policy to apply an XSL transformation to an incoming XML request body or to the response body if your backend is exposing XML content.
 
@@ -17,24 +18,57 @@ This policy is based on the [Saxon](https://sourceforge.net/projects/saxon/) lib
 
 By default, a DOCTYPE declaration will cause an error. This is for security. If you want to allow it, you can set `policy.xslt.secure-processing` to `false` in the Gateway configuration file (`gravitee.yml`).
 
-Functional and implementation information for the `xslt` policy is organized into the following sections:
+### Compatibility with APIM <a href="#user-content-compatibility-with-apim" id="user-content-compatibility-with-apim"></a>
 
-* [Examples](xslt.md#examples)
-* [Configuration](xslt.md#configuration)
-* [Compatibility Matrix](xslt.md#compatibility-matrix)
-* [Errors](xslt.md#errors)
+| Plugin version | APIM version  |
+| -------------- | ------------- |
+| 2.x            | 3.x           |
+| 3.x            | 4.0 to latest |
 
-## Examples
+## Configuration <a href="#user-content-configuration" id="user-content-configuration"></a>
 
-{% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
-{% endhint %}
+### Policy <a href="#user-content-policy" id="user-content-policy"></a>
 
-{% tabs %}
-{% tab title="HTTP proxy API example" %}
-Remove SOAP elements when calling a WS:
+You can configure the policy with the following options:
 
-```xml
+| Property   | Required | Description                                           | Type                     | Default    |
+| ---------- | -------- | ----------------------------------------------------- | ------------------------ | ---------- |
+| scope      | X        | Execution scope (`request` or `response`)             | string                   | `RESPONSE` |
+| stylesheet | X        | XSLT stylesheet to apply                              | string                   |            |
+| parameters |          | Parameters to inject while running XSL transformation | Array of XSLT parameters | -          |
+
+### Configuration example <a href="#user-content-configuration-example" id="user-content-configuration-example"></a>
+
+```
+"xslt": {
+    "scope": "RESPONSE",
+    "stylesheet": "<xsl:stylesheet \n  version=\"2.0\"\n  xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\"\n  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"   xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:fn=\"http://www.w3.org/2005/xpath-functions\" exclude-result-prefixes=\"fn xsl\">\n  <xsl:output method=\"xml\" version=\"1.0\" encoding=\"UTF-8\" indent=\"yes\"/>\n\n  <!-- template to copy elements -->\n    <xsl:template match=\"*\">\n<xsl:if test=\"normalize-space(string(.)) != ''\">\n        <xsl:element name=\"{local-name()}\">\n            <xsl:apply-templates select=\"@* | node()\"/>\n        </xsl:element>\n</xsl:if>\n    </xsl:template>\n\n    <!-- template to copy attributes -->\n    <xsl:template match=\"@*\">\n        <xsl:attribute name=\"{local-name()}\">\n            <xsl:value-of select=\".\"/>\n        </xsl:attribute>\n    </xsl:template>\n\n    <!-- template to copy the rest of the nodes -->\n    <xsl:template match=\"comment() | text() | processing-instruction()\">\n        <xsl:copy/>\n    </xsl:template>\n\n  <xsl:template match=\"soapenv:*\">\n    <xsl:apply-templates select=\"@* | node()\" />\n  </xsl:template>\n\n  <xsl:template match=\"@xsi:nil[.='true']\"/>\n</xsl:stylesheet>",
+    "parameters": [
+        {
+            "name": "my-parameter",
+            "value": "my-value"
+        }
+    ]
+}
+```
+
+### Gateway <a href="#user-content-gateway" id="user-content-gateway"></a>
+
+By default, a DOCTYPE declaration will cause an error. This is for security. If you want to allow it, you can set `policy.xslt.secure-processing` to `false` in the Gateway configuration file (`gravitee.yml`).
+
+Configuration
+
+```
+policy:
+  xslt:
+    secure-processing: false
+```
+
+### Example <a href="#user-content-example" id="user-content-example"></a>
+
+#### XSL to remove SOAP elements when calling a WS <a href="#user-content-xsl-to-remove-soap-elements-when-calling-a-ws" id="user-content-xsl-to-remove-soap-elements-when-calling-a-ws"></a>
+
+```
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -72,54 +106,11 @@ Remove SOAP elements when calling a WS:
     <xsl:template match="@xsi:nil[.='true']"/>
 </xsl:stylesheet>
 ```
-{% endtab %}
-{% endtabs %}
 
-## Configuration
+## Error <a href="#user-content-error" id="user-content-error"></a>
 
-Sample policy configuration:
+### HTTP status code <a href="#user-content-http-status-code" id="user-content-http-status-code"></a>
 
-{% code title="Sample Configuration" %}
-```json
-"xslt": {
-    "scope": "RESPONSE",
-    "stylesheet": "<xsl:stylesheet \n  version=\"2.0\"\n  xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\"\n  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"   xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:fn=\"http://www.w3.org/2005/xpath-functions\" exclude-result-prefixes=\"fn xsl\">\n  <xsl:output method=\"xml\" version=\"1.0\" encoding=\"UTF-8\" indent=\"yes\"/>\n\n  <!-- template to copy elements -->\n    <xsl:template match=\"*\">\n<xsl:if test=\"normalize-space(string(.)) != ''\">\n        <xsl:element name=\"{local-name()}\">\n            <xsl:apply-templates select=\"@* | node()\"/>\n        </xsl:element>\n</xsl:if>\n    </xsl:template>\n\n    <!-- template to copy attributes -->\n    <xsl:template match=\"@*\">\n        <xsl:attribute name=\"{local-name()}\">\n            <xsl:value-of select=\".\"/>\n        </xsl:attribute>\n    </xsl:template>\n\n    <!-- template to copy the rest of the nodes -->\n    <xsl:template match=\"comment() | text() | processing-instruction()\">\n        <xsl:copy/>\n    </xsl:template>\n\n  <xsl:template match=\"soapenv:*\">\n    <xsl:apply-templates select=\"@* | node()\" />\n  </xsl:template>\n\n  <xsl:template match=\"@xsi:nil[.='true']\"/>\n</xsl:stylesheet>",
-    "parameters": [
-        {
-            "name": "my-parameter",
-            "value": "my-value"
-        }
-    ]
-}
-```
-{% endcode %}
-
-By default, a DOCTYPE declaration will cause an error. This is for security. If you want to allow it, you can set `policy.xslt.secure-processing` to `false` in the Gateway configuration file (`gravitee.yml`):
-
-```yaml
-policy:
-  xslt:
-    secure-processing: false
-```
-
-### Phases
-
-The phases checked below are supported by the `xslt` policy:
-
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="134" data-type="checkbox">Compatible?</th><th width="196.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>true</td><td>onResponse</td><td>true</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
-
-### Options
-
-The `xslt` policy can be configured with the following options:
-
-<table><thead><tr><th width="148">Property</th><th data-type="checkbox">Required</th><th width="205">Description</th><th width="135">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>true</td><td>Execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>RESPONSE</code></td></tr><tr><td>stylesheet</td><td>true</td><td>XSLT stylesheet to apply</td><td>string</td><td></td></tr><tr><td>parameters</td><td>false</td><td>Parameters to inject while running XSL transformation</td><td>Array of XSLT parameters</td><td>-</td></tr></tbody></table>
-
-## Compatibility matrix
-
-The following is the compatibility matrix for APIM and the `xslt` policy:
-
-<table data-full-width="false"><thead><tr><th>Plugin Version</th><th>Supported APIM versions</th></tr></thead><tbody><tr><td>2.x</td><td>3.x</td></tr><tr><td>3.x</td><td>4.0+</td></tr></tbody></table>
-
-## Errors
-
-<table data-full-width="false"><thead><tr><th width="188.5">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td><code>500</code></td><td>Bad stylesheet file or XSLT transformation cannot be executed properly</td></tr></tbody></table>
+| Code  | Message                                                                |
+| ----- | ---------------------------------------------------------------------- |
+| `500` | Bad stylesheet file or XSLT transformation cannot be executed properly |

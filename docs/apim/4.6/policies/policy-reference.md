@@ -6,20 +6,19 @@ The following policies can be applied to Gravitee APIs.
 Policies marked with an asterisk require an Enterprise Edition license.
 {% endhint %}
 
-* [API](https://github.com/gravitee-io/gravitee-policy-api)
 * [API Key](api-key.md)
 * [Assign Attributes](assign-attributes.md)
 * [Assign Content](assign-content.md)
 * [Assign Metrics](assign-metrics.md)\*
-* [AVRO to JSON Transformation](avro-to-json-transformation.md)\*
-* [AVRO to Protobuf Transformation](avro-to-protobuf-transformation.md)\*
+* [AVRO to JSON Transformation](avro-to-json.md)\*
+* [AVRO to Protobuf Transformation](avro-to-protobuf.md)\*
 * [AWS Lambda](aws-lambda.md)
 * [Basic Authentication](basic-authentication.md)
 * [Cache](cache.md)
 * [Circuit Breaker](circuit-breaker.md)
 * [CloudEvents](cloudevents.md)\*
 * [Custom Query Parameters Parser](custom-query-parameters-parser.md)
-* Data Cache
+* [Data Cache](data-cache.md)
 * [Data Logging Masking](data-logging-masking.md)\*
 * [Dynamic Routing](dynamic-routing.md)
 * [Generate HTTP Signature](generate-http-signature.md)
@@ -38,23 +37,23 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [JSON to JSON Transformation](json-to-json.md)
 * [JSON Validation](json-validation.md)
 * [JSON to XML Transformation](json-to-xml.md)
-* JWS Validator
-* JWT Validator
+* [JWS Validator](jws-validator.md)
+* [JWT Validator](jwt-validator.md)
 * Kafka ACL\*
 * [Kafka Quota](../kafka-gateway/policies/kafka-quota.md)\*
 * [Kafka Topic Mapping](kafka-topic-mapping.md)\*
 * [Keyless](keyless.md)
 * [Latency](latency.md)
-* Maven Archetype
+* [Maven Archetype](maven-archetype.md)
 * [Message Filtering](message-filtering.md)
 * [Metrics Reporter](metrics-reporter.md)
 * [Mock](mock.md)
-* mTLS
+* [mTLS](mtls.md)
 * [OAS Validation](oas-validation.md)\*
 * [OAuth2](oauth2/)
 * [OpenID Connect UserInfo](openid-connect-userinfo.md)
 * [Override HTTP Method](override-http-method.md)
-* [Protobuf to JSON Transformation](protobuf-to-json-transformation.md)\*
+* [Protobuf to JSON Transformation](protobuf-to-json.md)\*
 * [Rate Limit](rate-limit.md)
 * [Regex Threat Protection](regex-threat-protection.md)
 * [Request Content Limit](request-content-limit.md)
@@ -64,8 +63,8 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Retry](retry.md)
 * [RBAC](role-based-access-control-rbac.md)
 * [SSL Enforcement](ssl-enforcement.md)
-* Status Code Transformation
-* Template
+* [Status Code Transformation](status-code-transformation.md)
+* [Template](template.md)
 * [Traffic Shadowing](traffic-shadowing.md)
 * [Transform Headers](transform-headers.md)
 * [Transform Query Parameters](transform-query-parameters.md)
@@ -75,4 +74,4 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [XML to JSON Transformation](xml-to-json.md)
 * [XML Threat Protection](xml-threat-protection.md)
 * [XML Validation](xml-validation.md)
-* [XSLT Transformation](xslt-transformer-policy.md)\*
+* [XSLT Transformation](xslt.md)\*

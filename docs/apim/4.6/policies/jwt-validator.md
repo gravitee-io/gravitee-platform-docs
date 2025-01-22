@@ -3,7 +3,7 @@ description: This page provides the technical details of the JWT policy
 hidden: true
 ---
 
-# JSON Web Token (JWT)
+# JWT Validator
 
 ## Overview
 
@@ -22,11 +22,11 @@ A JWT is composed of three parts: A header, a payload and a signature. Each must
 
 Functional and implementation information for the `jwt` policy is organized into the following sections:
 
-* [Examples](json-web-token-jwt.md#examples)
-* [Configuration](json-web-token-jwt.md#configuration)
-* [Compatibility Matrix](json-web-token-jwt.md#compatibility-matrix)
-* [Errors](json-web-token-jwt.md#errors)
-* [Changelogs](json-web-token-jwt.md#changelogs)
+* [Examples](jwt-validator.md#examples)
+* [Configuration](jwt-validator.md#configuration)
+* [Compatibility Matrix](jwt-validator.md#compatibility-matrix)
+* [Errors](jwt-validator.md#errors)
+* [Changelogs](jwt-validator.md#changelogs)
 
 ## Examples
 
