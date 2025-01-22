@@ -8,7 +8,7 @@
 * [Enterprise Edition](overview/enterprise-edition.md)
 * [Release Notes](overview/release-notes/README.md)
   * [APIM 4.6](overview/release-notes/apim-4.6.md)
-  * [APIM 4.5](https://documentation.gravitee.io/am/releases-and-changelog/release-notes/am-4.5)
+  * [APIM 4.5](https://documentation.gravitee.io/apim/4.5/overview/release-notes/apim-4.5)
   * [APIM 4.4](https://documentation.gravitee.io/apim/4.4/overview/release-notes/apim-4.4)
   * [APIM 4.3](https://documentation.gravitee.io/apim/v/4.3/overview/release-notes/apim-4.3)
   * [APIM 4.2](https://documentation.gravitee.io/apim/v/4.2/overview/release-notes/apim-4.2)
@@ -23,7 +23,7 @@
   * [APIM 4.0.x](https://documentation.gravitee.io/apim/v/4.0-5/releases-and-changelog/changelogs/apim-4.0.x-changelog)
 * [Support](overview/support.md)
 
-## Getting started&#x20;
+## Getting started
 
 * [Production-ready Environment](getting-started/production-ready-environment/README.md)
   * [Best Practices](getting-started/production-ready-environment/best-practices.md)
@@ -92,7 +92,7 @@
 * [Secrets Managers](configure-apim/secrets-managers.md)
 * [Distributed Sync Process](configure-apim/distributed-sync-process.md)
 
-## Administration&#x20;
+## Administration
 
 * [Organizations and Environments](administration/organizations-and-environments.md)
 * [Authentication](administration/authentication/README.md)
