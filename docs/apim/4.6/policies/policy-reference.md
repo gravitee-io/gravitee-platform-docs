@@ -1,4 +1,4 @@
-# Policy reference
+# Policy Reference
 
 The following policies can be applied to Gravitee APIs.
 
@@ -7,72 +7,72 @@ Policies marked with an asterisk require an Enterprise Edition license.
 {% endhint %}
 
 * [API](https://github.com/gravitee-io/gravitee-policy-api)
-* [API Key](https://github.com/gravitee-io/gravitee-policy-apikey)
-* [Assign Attributes](https://github.com/gravitee-io/gravitee-policy-assign-attributes)
-* [Assign Content](https://github.com/gravitee-io/gravitee-policy-assign-content)
+* [API Key](api-key.md)
+* [Assign Attributes](assign-attributes.md)
+* [Assign Content](assign-content.md)
 * [Assign Metrics](assign-metrics.md)\*
 * [AVRO to JSON Transformation](avro-to-json-transformation.md)\*
 * [AVRO to Protobuf Transformation](avro-to-protobuf-transformation.md)\*
-* [AWS Lambda](https://github.com/gravitee-io/gravitee-policy-aws-lambda)
-* [Basic Authentication](https://github.com/gravitee-io/gravitee-policy-basic-authentication)
-* [Cache](https://github.com/gravitee-io/gravitee-policy-cache)
-* [Circuit Breaker](https://github.com/gravitee-io/gravitee-policy-circuit-breaker)
+* [AWS Lambda](aws-lambda.md)
+* [Basic Authentication](basic-authentication.md)
+* [Cache](cache.md)
+* [Circuit Breaker](circuit-breaker.md)
 * [CloudEvents](cloudevents.md)\*
-* [Custom Query Parameters Parser](https://github.com/gravitee-io/gravitee-policy-custom-query-parameters-parser)
-* [Data Cache](https://github.com/gravitee-io/gravitee-policy-data-cache)
+* [Custom Query Parameters Parser](custom-query-parameters-parser.md)
+* Data Cache
 * [Data Logging Masking](data-logging-masking.md)\*
-* [Dynamic Routing](https://github.com/gravitee-io/gravitee-policy-dynamic-routing)
-* [Generate HTTP Signature](https://app.gitbook.com/s/ySqSVpDHfKA0fNml1fVO/overview/readme)
-* [Generate JWT](https://github.com/gravitee-io/gravitee-policy-generate-jwt)
+* [Dynamic Routing](dynamic-routing.md)
+* [Generate HTTP Signature](generate-http-signature.md)
+* [Generate JWT](generate-jwt.md)
 * [GeoIP Filtering](geoip-filtering.md)\*
 * [GraphQL Rate Limit](graphql-rate-limit.md)\*
-* [Groovy](https://github.com/gravitee-io/gravitee-policy-groovy)
-* [HTML to JSON Transformation](https://github.com/gravitee-io/gravitee-policy-html-json)
-* [HTTP Callout](https://github.com/gravitee-io/gravitee-policy-callout-http)
-* [HTTP Signature](https://github.com/gravitee-io/gravitee-policy-http-signature)
+* [Groovy](groovy.md)
+* [HTML to JSON Transformation](html-to-json.md)
+* [HTTP Callout](http-callout.md)
+* [HTTP Signature](http-signature.md)
 * [InterOPS](interops.md)\*
-* [Interrupt](https://github.com/gravitee-io/gravitee-policy-interrupt)
-* [IP Filtering](https://github.com/gravitee-io/gravitee-policy-ipfiltering)
-* [JavaScript](https://github.com/gravitee-io/gravitee-policy-javascript)
-* [JSON Threat Protection](https://github.com/gravitee-io/gravitee-policy-json-threat-protection)
-* [JSON to JSON Transformation](https://github.com/gravitee-io/gravitee-policy-json-to-json)
-* [JSON Validation](https://github.com/gravitee-io/gravitee-policy-json-validation)
-* [JSON to XML Transformation](https://github.com/gravitee-io/gravitee-policy-json-xml)
-* [JWS Validator](https://github.com/gravitee-io/gravitee-policy-jws)
-* [JWT Validator](https://github.com/gravitee-io/gravitee-policy-jwt)
+* [Interrupt](interrupt.md)
+* [IP Filtering](ip-filtering.md)
+* [JavaScript](javascript.md)
+* [JSON Threat Protection](json-threat-protection.md)
+* [JSON to JSON Transformation](json-to-json.md)
+* [JSON Validation](json-validation.md)
+* [JSON to XML Transformation](json-to-xml.md)
+* JWS Validator
+* JWT Validator
 * Kafka ACL\*
 * [Kafka Quota](../kafka-gateway/policies/kafka-quota.md)\*
 * [Kafka Topic Mapping](kafka-topic-mapping.md)\*
-* [Keyless](https://github.com/gravitee-io/gravitee-policy-keyless)
-* [Latency](https://github.com/gravitee-io/gravitee-policy-latency)
-* [Maven Archetype](https://github.com/gravitee-io/gravitee-policy-maven-archetype)
-* [Message Filtering](https://github.com/gravitee-io/gravitee-policy-message-filtering)
-* [Metrics Reporter](https://github.com/gravitee-io/gravitee-policy-metrics-reporter)
-* [Mock](https://github.com/gravitee-io/gravitee-policy-mock)
-* [mTLS](https://github.com/gravitee-io/gravitee-policy-mtls)
+* [Keyless](keyless.md)
+* [Latency](latency.md)
+* Maven Archetype
+* [Message Filtering](message-filtering.md)
+* [Metrics Reporter](metrics-reporter.md)
+* [Mock](mock.md)
+* mTLS
 * [OAS Validation](oas-validation.md)\*
-* [OAuth2](https://github.com/gravitee-io/gravitee-policy-oauth2)
-* [OpenID Connect UserInfo](https://github.com/gravitee-io/gravitee-policy-openid-connect-userinfo)
-* [Override HTTP Method](https://github.com/gravitee-io/gravitee-policy-override-http-method)
+* [OAuth2](oauth2/)
+* [OpenID Connect UserInfo](openid-connect-userinfo.md)
+* [Override HTTP Method](override-http-method.md)
 * [Protobuf to JSON Transformation](protobuf-to-json-transformation.md)\*
-* [RateLimit](https://github.com/gravitee-io/gravitee-policy-ratelimit)
-* [Regex Threat Protection](https://github.com/gravitee-io/gravitee-policy-regex-threat-protection)
-* [Request Content Limit](https://app.gitbook.com/s/vKusJtMLe8r5QZxGXlFL/releases-and-changelog/changelog/gko-4.5.x)
-* [Request Validation](https://github.com/gravitee-io/gravitee-policy-request-validation)
-* [Resource Filtering](https://github.com/gravitee-io/gravitee-policy-resource-filtering)
-* [REST to SOAP](https://github.com/gravitee-io/gravitee-policy-rest-to-soap)
-* [Retry](https://github.com/gravitee-io/gravitee-policy-retry)
-* [RBAC](https://github.com/gravitee-io/gravitee-policy-role-based-access-control)
-* [SSL Enforcement](https://github.com/gravitee-io/gravitee-policy-ssl-enforcement)
-* [Status Code Transformation](https://github.com/gravitee-io/gravitee-policy-transform-status-code)
-* [Template](https://github.com/gravitee-io/gravitee-policy-template)
-* [Traffic Shadowing](https://github.com/gravitee-io/gravitee-policy-traffic-shadowing)
-* [Transform Headers](https://github.com/gravitee-io/gravitee-policy-transformheaders)
-* [Transform Query Parameters](https://github.com/gravitee-io/gravitee-policy-transformqueryparams)
-* [URL Rewriting](https://github.com/gravitee-io/gravitee-policy-url-rewriting)
+* [Rate Limit](rate-limit.md)
+* [Regex Threat Protection](regex-threat-protection.md)
+* [Request Content Limit](request-content-limit.md)
+* [Request Validation](request-validation.md)
+* [Resource Filtering](resource-filtering.md)
+* [REST to SOAP Transformation](rest-to-soap.md)
+* [Retry](retry.md)
+* [RBAC](role-based-access-control-rbac.md)
+* [SSL Enforcement](ssl-enforcement.md)
+* Status Code Transformation
+* Template
+* [Traffic Shadowing](traffic-shadowing.md)
+* [Transform Headers](transform-headers.md)
+* [Transform Query Parameters](transform-query-parameters.md)
+* [URL Rewriting](url-rewriting.md)
 * [WS Security Authentication](ws-security-authentication.md)\*
 * [WS Security Sign](ws-security-sign.md)\*
-* [XML to JSON Transformation](https://github.com/gravitee-io/gravitee-policy-xml-json)
-* [XML Threat Protection](https://github.com/gravitee-io/gravitee-policy-xml-threat-protection)
-* [XML Validation](https://github.com/gravitee-io/gravitee-policy-xml-validation)
+* [XML to JSON Transformation](xml-to-json.md)
+* [XML Threat Protection](xml-threat-protection.md)
+* [XML Validation](xml-validation.md)
 * [XSLT Transformation](xslt-transformer-policy.md)\*
