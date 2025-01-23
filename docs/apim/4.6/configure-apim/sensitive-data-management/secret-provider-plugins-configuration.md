@@ -36,19 +36,13 @@ You can enable `secret-provider` plugins by configuring them in `gravitee.yml`. 
 
 ### Use cases
 
-Using a secrets manager integration to obscure sensitive data in a configuration and using a secrets manager integration to obscure sensitive data in an API are two different use cases that are performed independently. For more information on each use case, see:
+Using a secrets manager integration to obscure sensitive data in a configuration and using a secrets manager integration to obscure sensitive data in an API are two different use cases that are performed independently. \
+\
+For more information on each use case, check the following sections below:
 
 [#example-for-configuration](secret-provider-plugins-configuration.md#example-for-configuration "mention")
 
 &#x20;[#example-for-v4-apis](secret-provider-plugins-configuration.md#example-for-v4-apis "mention")&#x20;
-
-### Enable a `secret-provider` plugin
-
-All secret providers share the `enabled` property, and this is disabled by default.
-
-```yaml
-enabled: true
-```
 
 ### Kubernetes (plugin id: `kubernetes`)
 

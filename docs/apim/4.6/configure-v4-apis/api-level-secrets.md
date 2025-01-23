@@ -275,7 +275,7 @@ Plugins that will evaluate EL strictly at runtime (when the API is called)
 If the secret cannot be resolved, and retry is activated the API will be deployed, but executing the policy or endpoint will failed until retry resolves the secret.
 {% endhint %}
 
-## Uses cases
+## Use cases
 
 ### Redis Cache example
 
@@ -297,7 +297,7 @@ And a secret in HC Vault created as follow:
 vault kv put -mount=secret gravitee/passwords -redis="[redacted]" ...
 ```
 
-If you want to secure Redis password, you can configure the resource as follow (extract)
+If you want to secure Redis password, you can configure the resource as follow (extract):
 
 <pre class="language-json"><code class="lang-json"><strong>{
 </strong><strong>    "name": "My API v4",
@@ -317,7 +317,11 @@ If you want to secure Redis password, you can configure the resource as follow (
 }
 </code></pre>
 
-You can see here that the definition does not contain a clear text secret. This definition is saved as is, and resolution occur once deployed on APIM Gateway. When the API is actually started the resource is being initialised and the secret evaluated and used to connect to Redis.
+You can see here that the definition does not contain a clear text secret. This definition is saved as is, and resolution occur once deployed on APIM Gateway. When the API is actually started the resource is being initialized and the secret evaluated and used to connect to Redis.
+
+Here is an example of referecing a secret when you configure a Redis Cache resource:
+
+<figure><img src="../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka Endpoint API example
 
@@ -382,7 +386,13 @@ If you want to use this token to configure SCRAM authentication, this how you ca
 }
 ```
 
-You can see here that the definition does not contain a clear text secret. This definition will be saved as is, and resolution will occur once deployed on APIM Gateway. The `kafka-auth` secret will resolved once. Then, when the API is actually called and the backend Kafka client created, the secret evaluated to be used for authentication.
+You can see here that the definition does not contain a clear text secret. This definition will be saved as is, and the resolution occurs once deployed on APIM Gateway. The `kafka-auth` secret is resolved once. Then, when the API is actually called and the backend Kafka client created, the secret evaluated to be used for authentication.
+
+Here is an example of referencing a secret when you configure a SASL Configuration:
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-01-23 at 13.54.01.png" alt=""><figcaption></figcaption></figure>
+
+
 
 ### Hiding secret provider plugin
 
