@@ -89,7 +89,9 @@
   * [ElasticSearch](configure-apim/repositories/elasticsearch.md)
   * [JDBC](configure-apim/repositories/jdbc.md)
   * [Redis](configure-apim/repositories/redis.md)
-* [Secrets Managers](configure-apim/secrets-managers.md)
+* [Sensitive Data Management](configure-apim/sensitive-data-management/README.md)
+  * [Secret Provider Plugins Configuration](configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md)
+  * [Configuration-Level Secrets](configure-apim/sensitive-data-management/configuration-level-secrets.md)
 * [Distributed Sync Process](configure-apim/distributed-sync-process.md)
 
 ## Administration
@@ -133,6 +135,7 @@
 * [Response Templates](configure-v4-apis/response-templates.md)
 * [CORS](configure-v4-apis/cors.md)
 * [Health-checks](configure-v4-apis/health-checks.md)
+* [API-Level Secrets](configure-v4-apis/api-level-secrets.md)
 * [Documentation](configure-v4-apis/documentation.md)
 * [Audit Logs](configure-v4-apis/audit-logs.md)
 * [Version History](configure-v4-apis/version-history.md)

@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-# XSLT transformer policy
+# XSLT
 
 ## Phase <a href="#user-content-phase" id="user-content-phase"></a>
 

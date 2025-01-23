@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-# Protobuf to JSON Transformation
+# Protobuf to JSON
 
 ## Phases <a href="#user-content-phases" id="user-content-phases"></a>
 

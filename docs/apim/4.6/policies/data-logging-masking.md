@@ -6,15 +6,11 @@ hidden: true
 
 ## Phase <a href="#user-content-phase" id="user-content-phase"></a>
 
-
-
 | onRequestContent | onResponseContent |
 | ---------------- | ----------------- |
 | X                | X                 |
 
 ## Description <a href="#user-content-description" id="user-content-description"></a>
-
-
 
 **If you enable logging on APIs**, you can use the `data-logging-masking` policy to configure rules to conceal sensitive data. You can use `json-path`, `xml-path` or a regular expression to identify the information to hide.
 
@@ -33,8 +29,6 @@ Additional information:
   * _`Uri`_: use to catch and hide sensitive addresses (supports HTTP, HTTPS, FTP, mailto and file)
 
 ## Compatibility with APIM <a href="#user-content-compatibility-with-apim" id="user-content-compatibility-with-apim"></a>
-
-
 
 | Plugin version | APIM version     |
 | -------------- | ---------------- |

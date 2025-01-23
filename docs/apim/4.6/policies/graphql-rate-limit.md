@@ -39,8 +39,6 @@ The total cost for the above GraphQL query is: ((((4 \* 10 + 1) + 1) + 1) \* 20 
 
 ## Compatibility with APIM <a href="#user-content-compatibility-with-apim" id="user-content-compatibility-with-apim"></a>
 
-
-
 | Plugin version  | APIM version    |
 | --------------- | --------------- |
 | 1.0.0 and upper | 4.3.0 to latest |

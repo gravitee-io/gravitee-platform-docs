@@ -49,33 +49,20 @@ Flexible API and protocol support enables you to integrate Gravitee with any bac
 Gravitee can be used for custom Salesforce integration use cases because Salesforce provides streaming APIs. For more information, [book a demo with one of our Solutions Engineers](https://www.gravitee.io/demo).
 {% endhint %}
 
-## Secret provider plugins
+## Secret Managers integration
 
-Secret providers are generic, configurable, and autonomous clients that manage connections, retries, and credentials renewal when connecting to secret managers. The following `secret-provider` plugins are available for Gravitee Gateway, Management API, and Access Management:
+| Solution           | Integration description                                                         | Plugin or add-on required         |
+| ------------------ | ------------------------------------------------------------------------------- | --------------------------------- |
+| Kubernetes         | A Community Edition plugin that fetches secret and TLS pairs from Kubernetes.io | Kubernetes secret provider plugin |
+| HashiCorp Vault    | An Enterprise Edition plugin that uses the Key/Value engine of HashiCorp Vault  | Kubernetes secret provider plugin |
+| AWS Secret Manager |  An Enterprise Edition plugin that uses AWS Secret Manager                      | Kubernetes secret provider plugin |
 
-* `kubernetes`: A Community Edition plugin that fetches secret and TLS pairs from Kubernetes.io
-* `vault`: An Enterprise Edition plugin that uses the Key/Value engine of HashiCorp Vault
-* `aws` : An Enterprise Edition plugin that uses AWS Secret Manager
+The following table shows which features have been implemented for each of these integration:
 
-{% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](../overview/enterprise-edition.md) and what's included in various enterprise packages, please:
+<table><thead><tr><th width="173">Feature</th><th>Kubernetes</th><th>HashiCorp Vault</th><th>AWS Secret Manager</th></tr></thead><tbody><tr><td>Resolve a secret</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Watch a secret</td><td>Yes</td><td>Yes (via polling)</td><td>No</td></tr><tr><td>Secret format</td><td>All K8s types (TLS, generic, etc.)</td><td><p>Key/Value engine v1 or v2</p><p>(no mixing)</p></td><td>Key/value as in AWS UI</td></tr><tr><td>TLS</td><td>Yes</td><td>Yes, but not with PKI engine</td><td>Yes, but no renewal</td></tr><tr><td>Client</td><td>in-house</td><td>Lean and community- based</td><td>AWS-SDK based</td></tr><tr><td>Zip size</td><td>11KB</td><td>161KB</td><td>8.9MB <br>(not included in base image)</td></tr></tbody></table>
 
-* [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
-* [Check out the pricing page](https://www.gravitee.io/pricing)
-{% endhint %}
+See the following page to know how to use this integration:
 
-The following table shows which features have been implemented for each of these plugins:
-
-<table><thead><tr><th width="173">Feature</th><th>kubernetes</th><th>vault</th><th>aws</th></tr></thead><tbody><tr><td>Resolve a secret</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Watch a secret</td><td>Yes</td><td>Yes (via polling)</td><td>No</td></tr><tr><td>Secret format</td><td>All K8s types (TLS, generic, etc.)</td><td><p>Key/Value engine v1 or v2</p><p>(no mixing)</p></td><td>Key/value as in AWS UI</td></tr><tr><td>TLS</td><td>Yes</td><td>Yes, but not with PKI engine</td><td>Yes, but no renewal</td></tr><tr><td>Client</td><td>in-house</td><td>Lean and community- based</td><td>AWS-SDK based</td></tr><tr><td>Zip size</td><td>11KB</td><td>161KB</td><td>8.9MB (not included in base image)</td></tr></tbody></table>
-
-For more information about Secret Providers, see [Broken link](broken-reference "mention").
-
-### Known limitations
-
-Current limitations are summarized below:
-
-* Only the `http.ssl.keystore.secret` x.509 pairs (whether format is PEM ot KeyStore) can be watched and therefore hot-reloaded.
-* Only system environment variables and `gravitee.yml` properties can be resolved into secrets. A secret URL cannot be set via JVM properties, e.g.:\
-  `-Dsystem.proxy.password=secret://kubernetes/giosecrets:proxypass` cannot be used. The parameters are passed directly to the platform without parsing and will not be detected by a `secret provider` plugin.
-* The `vault` plugin watches via polling because Vault events is an unstable feature.&#x20;
-* The `aws`plugin does not support watch. Used in configuration, it will resolve a secret only once.
+* [secret-provider-plugins-configuration.md](../configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md "mention")
+* [configuration-level-secrets.md](../configure-apim/sensitive-data-management/configuration-level-secrets.md "mention")
+* [api-level-secrets.md](../configure-v4-apis/api-level-secrets.md "mention")

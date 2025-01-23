@@ -8,15 +8,11 @@ hidden: true
 
 ### V3 engine <a href="#user-content-v3-engine" id="user-content-v3-engine"></a>
 
-
-
 | onRequest | onResponse | onRequestContent | onResponseContent |
 | --------- | ---------- | ---------------- | ----------------- |
 | X         | X          | X                | X                 |
 
 ### V4 engine <a href="#user-content-v4-engine" id="user-content-v4-engine"></a>
-
-
 
 | onRequest | onResponse | onMessageRequest | onMessageResponse |
 | --------- | ---------- | ---------------- | ----------------- |

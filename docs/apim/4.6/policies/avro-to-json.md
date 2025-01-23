@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-# Avro to JSON transformation
+# Avro to JSON
 
 ## Phases <a href="#user-content-phases" id="user-content-phases"></a>
 

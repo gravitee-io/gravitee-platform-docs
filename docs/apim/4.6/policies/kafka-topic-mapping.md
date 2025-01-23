@@ -6,13 +6,9 @@ hidden: true
 
 ## Description <a href="#user-content-description" id="user-content-description"></a>
 
-
-
 This policy allows you to map a topic to another topic. People using the Kafka Client can use a topic name that is different from the one used in the Kafka Broker.
 
 ## Configuration <a href="#user-content-configuration" id="user-content-configuration"></a>
-
-
 
 You can configure the policy with the following options:
 

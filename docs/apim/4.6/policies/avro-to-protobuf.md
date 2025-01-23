@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-# AVRO to Protobuf Transformation
+# AVRO to Protobuf
 
 ## Phases <a href="#user-content-phases" id="user-content-phases"></a>
 

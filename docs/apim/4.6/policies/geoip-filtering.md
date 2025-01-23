@@ -64,8 +64,6 @@ You can configure the policy with the following options:
 
 ### HTTP status code <a href="#user-content-http-status-code" id="user-content-http-status-code"></a>
 
-
-
 | Code  | Message                                    |
 | ----- | ------------------------------------------ |
 | `403` | You’re not allowed to access this resource |
