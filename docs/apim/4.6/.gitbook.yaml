@@ -7,4 +7,4 @@ root: ./
 redirects:
  getting-started/configuration/configure-alerts-and-notifications: getting-started/configuration/notifications.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/resource-filtering: https://github.com/gravitee-io/gravitee-policy-resource-filtering.md
- api-configuration/v4-api-configuration/documentation: configure-v4-apis/documentation.md
+ guides/api-configuration/v4-api-configuration/documentation: configure-v4-apis/documentation.md
