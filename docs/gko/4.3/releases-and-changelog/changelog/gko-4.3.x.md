@@ -1,128 +1,89 @@
 # GKO 4.3.x
 
-## Gravitee Kubernetes Operator 4.3.21 - January 17, 2025
-
-There is nothing new in version 4.3.21.
-
-> This version was generated to keep the kubernetes operator in sync with other gravitee products.
-
-
-
-## Gravitee Kubernetes Operator 4.3.20 - December 20, 2024
-
-There is nothing new in version 4.3.20.
-
-> This version was generated to keep the kubernetes operator in sync with other gravitee products.
-
-
-## Gravitee Kubernetes Operator 4.3.19 - December 9, 2024
-    
-<details>
-<summary>Bug fixes</summary>
-
-  * Template strings are not resolved for API Resources references [#10214](https://github.com/gravitee-io/issues/issues/10214)
-</details>
-
-
-## Gravitee Kubernetes Operator 4.3.18 - November 21, 2024
-    
-<details>
-<summary>Bug fixes</summary>
-
-  * API v2 CRD export cannot be applied when setting selection rules on plans [#10185](https://github.com/gravitee-io/issues/issues/10185)
-</details>
-
-
-## Gravitee Kubernetes Operator 4.3.17 - November 12, 2024
-
-There is nothing new in version 4.3.17.
-
-> This version was generated to keep the kubernetes operator in sync with other gravitee products.
-
-
 ## Gravitee Kubernetes Operator 4.3.16 - October 28, 2024
 
 There is nothing new in version 4.3.16.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
 
-
 ## Gravitee Kubernetes Operator 4.3.15 - October 14, 2024
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * Allow to set imagePullSecrets in deployments using Helm [#10092](https://github.com/gravitee-io/issues/issues/10092)
+* Allow to set imagePullSecrets in deployments using Helm [#10092](https://github.com/gravitee-io/issues/issues/10092)
+
 </details>
-
-## Gravitee Kubernetes Operator 4.3.14 - October 1, 2024
-
-There is nothing new in version 4.3.14.
-
-> This version was generated to keep the kubernetes operator in sync with other gravitee products.
-
 
 ## Gravitee Kubernetes Operator 4.3.12 - September 2, 2024
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * Application description should be mandatory [#9963](https://github.com/gravitee-io/issues/issues/9963)
-</details>
+* Application description should be mandatory [#9963](https://github.com/gravitee-io/issues/issues/9963)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.3.11 - August 19, 2024
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * v2 API properties are not readonly in APIM UI when the API is managed by the operator [#9892](https://github.com/gravitee-io/issues/issues/9892)
-</details>
+* v2 API properties are not readonly in APIM UI when the API is managed by the operator [#9892](https://github.com/gravitee-io/issues/issues/9892)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.3.10 - August 5, 2024
-    
+
 <details>
+
 <summary>Improvements</summary>
 
-  * Make APIM HTTP client timeout configurable [#9890](https://github.com/gravitee-io/issues/issues/9890)
-</details>
+* Make APIM HTTP client timeout configurable [#9890](https://github.com/gravitee-io/issues/issues/9890)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.3.9 - July 22, 2024
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * Execution mode cannot be configured for v2 ApiDefinition resources [#9867](https://github.com/gravitee-io/issues/issues/9867)
-  * Group gets removed from API on updates when API PO is the group PO [#9846](https://github.com/gravitee-io/issues/issues/9846)
-</details>
+* Execution mode cannot be configured for v2 ApiDefinition resources [#9867](https://github.com/gravitee-io/issues/issues/9867)
+* Group gets removed from API on updates when API PO is the group PO [#9846](https://github.com/gravitee-io/issues/issues/9846)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.3.8 - July 5, 2024
-    
+
 <details>
+
 <summary>Bug fixes</summary>
 
-  * false values are not persisted for `disable_membership_notifications` in applications [#9847](https://github.com/gravitee-io/issues/issues/9847)
-  * v2 crd export fails because of unknown plan fields [#9830](https://github.com/gravitee-io/issues/issues/9830)
-  * v2 API exported as CRD can't be re-imported due to unknown field status [#9824](https://github.com/gravitee-io/issues/issues/9824)
+* false values are not persisted for `disable_membership_notifications` in applications [#9847](https://github.com/gravitee-io/issues/issues/9847)
+* v2 crd export fails because of unknown plan fields [#9830](https://github.com/gravitee-io/issues/issues/9830)
+* v2 API exported as CRD can't be re-imported due to unknown field status [#9824](https://github.com/gravitee-io/issues/issues/9824)
+
 </details>
 
-
 <details>
+
 <summary>Improvements</summary>
 
-  * make image pull policies configurable in helm chart [#9819](https://github.com/gravitee-io/issues/issues/9819)
-</details>
+* make image pull policies configurable in helm chart [#9819](https://github.com/gravitee-io/issues/issues/9819)
 
+</details>
 
 <details>
+
 <summary>Security</summary>
 
-  * default image tag for Kube RBAC proxy should be upgraded [#9825](https://github.com/gravitee-io/issues/issues/9825)
-</details>
+* default image tag for Kube RBAC proxy should be upgraded [#9825](https://github.com/gravitee-io/issues/issues/9825)
 
+</details>
 
 ## Gravitee Kubernetes Operator 4.3.7 - June 24, 2024
 
