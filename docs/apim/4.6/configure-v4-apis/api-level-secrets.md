@@ -60,6 +60,8 @@ api:
 
 #### Environment variable
 
+You can add the following environment variables to your gravitee.yml file to configure secret providers:&#x20;
+
 ```sh
 GRAVITEE_API_SECRETS_PROVIDERS_0_PLUGIN="<plugin id>"
 GRAVITEE_API_SECRETS_PROVIDERS_0_CONFIGURATION_ENABLED="true"
