@@ -60,8 +60,6 @@ api:
 
 #### Environment variable
 
-Translation of `gravitee.yml` tab.
-
 ```sh
 GRAVITEE_API_SECRETS_PROVIDERS_0_PLUGIN="<plugin id>"
 GRAVITEE_API_SECRETS_PROVIDERS_0_CONFIGURATION_ENABLED="true"
