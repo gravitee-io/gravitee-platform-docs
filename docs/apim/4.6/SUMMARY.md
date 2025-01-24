@@ -45,6 +45,7 @@
   * [Configure DCR](getting-started/use-case-tutorials/configure-dcr.md)
   * [Secure and Expose gRPC Services](getting-started/use-case-tutorials/secure-and-expose-grpc-services.md)
   * [Expose SOAP Webservices as REST APIs](getting-started/use-case-tutorials/expose-soap-webservices-as-rest-apis.md)
+  * [Create and Publish an API Using the Management API](getting-started/use-case-tutorials/create-and-publish-an-api-using-the-management-api.md)
 
 ## Install and upgrade
 
