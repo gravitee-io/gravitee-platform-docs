@@ -25,4 +25,5 @@ redirects:
  using-the-product/managing-your-apis/resources: policies/resources.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/dynamic-routing: policies/dynamic-routing.md
  using-the-product/managing-your-apis/api-configuration/v2-api-configuration/documentation: configure-v2-apis/documentation.md
+ using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans: expose-apis/plans.md
 
