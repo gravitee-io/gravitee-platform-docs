@@ -19,3 +19,4 @@ redirects:
  installation-and-upgrades/upgrading-gravitee-api-management: install-and-upgrade/upgrade-guide.md
  overview/gravitee-apim-enterprise-edition/enterprise-support: overview/enterprise-edition.md
  using-the-product/managing-your-apis/resources: policies/resources.md
+ using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans/mtls: expose-apis/plans/mtls.md
