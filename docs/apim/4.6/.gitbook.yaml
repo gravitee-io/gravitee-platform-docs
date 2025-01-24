@@ -65,3 +65,4 @@ redirects:
  using-the-product/managing-your-apis/create-apis/creating-and-publishing-an-api-with-the-management-api: getting-started/use-case-tutorials/create-and-publish-an-api-using-the-management-api.md
  using-the-product/administration: administration/organizations-and-environments.md
  overview/changelog/apim-4.5.x: overview/changelog/README.md
+ releases-and-changelog/release-notes/apim-4.4: overview/release-notes/README.md
