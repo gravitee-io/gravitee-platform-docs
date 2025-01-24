@@ -6,6 +6,19 @@ description: >-
 
 # APIM 4.3.x
  
+## Gravitee API Management 4.3.22 - January 24, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Path mapping does not work with hyphen [#10289](https://github.com/gravitee-io/issues/issues/10289)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.3.21 - January 16, 2025
 <details>
 
