@@ -6,6 +6,27 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.18 - January 24, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Problem with request body size above 2MB when using V4 Engine [#10291](https://github.com/gravitee-io/issues/issues/10291)
+
+**Console**
+
+* Path mapping does not work with hyphen [#10289](https://github.com/gravitee-io/issues/issues/10289)
+
+**Portal**
+
+* Developer Portal Preview not working in Multi-tenant mode [#10204](https://github.com/gravitee-io/issues/issues/10204)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.17 - January 16, 2025
 <details>
 
