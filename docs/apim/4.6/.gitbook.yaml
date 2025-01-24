@@ -13,3 +13,4 @@ redirects:
  reference/policy-reference/message-filtering: policies/message-filtering.md
  installation-and-upgrades/repositories/elasticsearch: configure-apim/repositories/elasticsearch.md
  installation-and-upgrades/repositories/redis: configure-apim/repositories/redis.md
+ installation-and-upgrades/repositories/jdbc: configure-apim/repositories/jdbc.md
