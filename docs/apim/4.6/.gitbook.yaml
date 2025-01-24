@@ -55,3 +55,4 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket: configure-v4-apis/entrypoints/websocket.md
  getting-started/install-and-upgrade-guides/install-on-kubernetes: install-and-upgrade/kubernetes.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal: developer-portal/configuration-file.md
+ using-the-product/managing-your-apis/create-apis/the-api-creation-wizard: create-apis/v4-api-creation-wizard.md
