@@ -15,3 +15,4 @@ redirects:
  installation-and-upgrades/repositories/redis: configure-apim/repositories/redis.md
  installation-and-upgrades/repositories/jdbc: configure-apim/repositories/jdbc.md
  installation-and-upgrades/advanced-hybrid-deployment: hybrid-deployment/overview.md
+ guides/developer-portal/tools-and-features: developer-portal/configuration-file.md
