@@ -56,3 +56,4 @@ redirects:
  getting-started/install-and-upgrade-guides/install-on-kubernetes: install-and-upgrade/kubernetes.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal: developer-portal/configuration-file.md
  using-the-product/managing-your-apis/create-apis/the-api-creation-wizard: create-apis/v4-api-creation-wizard.md
+ using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/audit-trail: api-analytics/audit-trail.md
