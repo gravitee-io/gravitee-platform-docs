@@ -6,7 +6,6 @@ root: ./
 
 redirects:
  getting-started/configuration/configure-alerts-and-notifications: getting-started/configuration/notifications.md
- using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/resource-filtering: https://github.com/gravitee-io/gravitee-policy-resource-filtering.md
  guides/api-configuration/v4-api-configuration/documentation: configure-v4-apis/documentation.md
  installation-and-upgrades/repositories: configure-apim/repositories/README.md
  installation-and-upgrades/repositories/mongodb: configure-apim/repositories/mongodb.md
@@ -25,3 +24,4 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/general-configuration/secret-providers: configure-apim/sensitive-data-management/README.md
  using-the-product/managing-your-apis/resources: policies/resources.md
  using-the-product/federating-your-apis/federated-apis: federation/federated-apis.md
+ guides/federation/federated-apis: federation/federated-apis.md
