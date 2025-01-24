@@ -47,3 +47,4 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/developer-portal/webhook-subscription-management: developer-portal/webhook-subscriptions.md
  getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/advanced-hybrid-deployment: hybrid-deployment/overview.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints: configure-v4-apis/endpoints/README.md
+ using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/general-settings: developer-portal/settings.md
