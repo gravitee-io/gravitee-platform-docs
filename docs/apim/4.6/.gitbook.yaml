@@ -67,5 +67,5 @@ redirects:
  overview/changelog/apim-4.5.x: overview/changelog/README.md
  releases-and-changelog/release-notes/apim-4.4: overview/release-notes/README.md
  guides/developer-portal/tools-and-features: developer-portal/settings.md
- getting-started/install-guides/install-on-docker: install-and-upgrade/docker/README.md
+ getting-started/install-guides/install-on-docker/README: install-and-upgrade/docker/README.md
 
