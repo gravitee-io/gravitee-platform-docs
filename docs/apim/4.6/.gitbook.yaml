@@ -49,3 +49,4 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints: configure-v4-apis/endpoints/README.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/general-settings: developer-portal/settings.md
  using-the-product/managing-your-apis/preparing-apis-for-subscribers/subscriptions: expose-apis/subscriptions.md 
+ installation-and-upgrades/advanced-hybrid-deployment/gateway-and-bridge-compatibility-versions: hybrid-deployment/overview.md
