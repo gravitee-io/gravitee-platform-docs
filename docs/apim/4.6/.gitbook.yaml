@@ -26,3 +26,4 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints: configure-v4-apis/endpoints/README.md
  using-the-product/managing-your-apis/create-apis/v2-apis-and-v4-apis-comparison: create-apis/v2-and-v4-api-comparison.md
  overview/apim-architecture: overview/architecture.md
+ using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/health-check: configure-v4-apis/health-checks.md
