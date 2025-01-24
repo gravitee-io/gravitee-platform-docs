@@ -23,4 +23,4 @@ redirects:
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/data-logging-masking: policies/data-logging-masking.md
  most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan: getting-started/use-case-tutorials/add-rbac-to-your-jwt-plan.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/secret-providers: configure-apim/sensitive-data-management/README.md
- using-the-product/managing-your-apis/resources/authentication-provider: policies/resources.md
+ using-the-product/managing-your-apis/resources: policies/resources.md
