@@ -52,4 +52,4 @@ redirects:
  installation-and-upgrades/advanced-hybrid-deployment/gateway-and-bridge-compatibility-versions: hybrid-deployment/overview.md
  using-the-product/using-the-gravitee-api-management-components/apim-console/configuring-notifications-and-alerts-for-your-apis: gravitee-gateway/alerts.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/entrypoint-reference/server-sent-events: configure-v4-apis/entrypoints/server-sent-events.md
- using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket:configure-v4-apis/entrypoints/websocket.md
+ using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket: configure-v4-apis/entrypoints/websocket.md
