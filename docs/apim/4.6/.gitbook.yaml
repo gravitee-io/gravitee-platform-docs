@@ -28,3 +28,4 @@ redirects:
  overview/apim-architecture: overview/architecture.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/health-check: configure-v4-apis/health-checks.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/cors: configure-v4-apis/cors.md
+ releases-and-changelog/release-notes: overview/release-notes.md
