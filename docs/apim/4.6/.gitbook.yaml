@@ -36,3 +36,4 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v2-api-configuration/general-proxy-settings: configure-v2-apis/proxy-settings.md
  using-the-product/federating-your-apis/3rd-party-providers/solace: federation/3rd-party-providers/solace.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/entrypoint-reference/webhook: configure-v4-apis/entrypoints/webhook.md
+ using-the-product/managing-your-apis/policy-studio/v2-api-policy-studio: policies/v2-api-policy-studio.md
