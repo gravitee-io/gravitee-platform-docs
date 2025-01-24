@@ -119,6 +119,7 @@ b. Run the following script:
 docker run -d \
   --name gio-apim-hybrid-gateway \
   -p 8082:8082 \
+  -e gravitee_ratelimit_type=none \
   -e gravitee_cloud_token=<cloud_token> \
   -e gravitee_license_key=<license_key> \
   graviteeio/apim-gateway:<CONTROL_PLANE_VERSION>
@@ -126,6 +127,26 @@ docker run -d \
 
 * Replace \<cloud\_token> and \<license\_key> with the Cloud token and License Key from step a.&#x20;
 * Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud.
+
+{% hint style="info" %}
+**Rate Limiting**:  If you want to enable rate-limiting of APIs, please consult this documentation to configure your Hybrid Gateway to use Redis: [https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway#configure-the-rate-limit-repository](https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway#configure-the-rate-limit-repository)
+
+Example Docker Run command:
+
+```bash
+docker run -d \
+  --name gio-apim-hybrid-gateway \
+  -p 8082:8082 \
+  -e gravitee_ratelimit_type=redis \
+  -e gravitee_ratelimit_redis_host=redis \
+  -e gravitee_ratelimit_redis_port=6379 \
+  -e gravitee_ratelimit_redis_password=${redis_password} \
+  -e gravitee_ratelimit_redis_ssl=false \
+  -e gravitee_cloud_token=<cloud_token> \
+  -e gravitee_license_key=<license_key> \
+  graviteeio/apim-gateway:<CONTROL_PLANE_VERSION>
+```
+{% endhint %}
 {% endtab %}
 
 {% tab title="Kubernetes (Helm)" %}
@@ -209,7 +230,7 @@ api:
     enabled: false
 
 ratelimit:
-    type: none # To enable rate-limiting, install Redis - please see documentation
+    type: none
 
 portal:
     enabled: false
@@ -242,6 +263,8 @@ helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gr
 ```
 {% endtab %}
 {% endtabs %}
+
+
 
 10. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
 
