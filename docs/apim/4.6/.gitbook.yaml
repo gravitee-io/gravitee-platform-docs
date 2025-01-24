@@ -45,3 +45,4 @@ redirects:
  using-the-product/managing-your-apis/create-apis: create-apis/overview.md
  getting-started/tutorials: getting-started/use-case-tutorials/README.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/webhook-subscription-management: developer-portal/webhook-subscriptions.md
+ getting-started/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/advanced-hybrid-deployment: hybrid-deployment/overview.md
