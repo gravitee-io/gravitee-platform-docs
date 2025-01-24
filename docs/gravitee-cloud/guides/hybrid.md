@@ -209,7 +209,7 @@ api:
     enabled: false
 
 ratelimit:
-    type: none
+    type: none # To enable rate-limiting, install Redis - please see documentation
 
 portal:
     enabled: false
