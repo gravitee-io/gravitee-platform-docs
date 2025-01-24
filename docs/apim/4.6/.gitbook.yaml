@@ -60,3 +60,4 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/audit-logs: configure-v4-apis/audit-logs.md
  guides/developer-portal/tools-and-features/documentation: developer-portal/api-documentation.md
  guides/policy-design/v2-api-policy-design-studio: policies/v2-api-policy-studio.md
+ using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook: configure-v4-apis/entrypoints/webhook.md
