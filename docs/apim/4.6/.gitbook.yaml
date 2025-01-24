@@ -37,3 +37,4 @@ redirects:
  using-the-product/federating-your-apis/3rd-party-providers/solace: federation/3rd-party-providers/solace.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/entrypoint-reference/webhook: configure-v4-apis/entrypoints/webhook.md
  using-the-product/managing-your-apis/policy-studio/v2-api-policy-studio: policies/v2-api-policy-studio.md
+ using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans/mtls/mtls-plans-overview: expose-apis/plans/mtls.md
