@@ -42,3 +42,4 @@ redirects:
  overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines: overview/execution-engine.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/version-history: configure-v4-apis/version-history.md
  using-the-product/managing-your-apis/policy-studio/policy-reference: policies/policy-reference.md
+ using-the-product/managing-your-apis/create-apis: create-apis/overview.md
