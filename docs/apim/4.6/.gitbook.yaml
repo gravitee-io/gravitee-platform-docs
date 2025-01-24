@@ -17,3 +17,4 @@ redirects:
  installation-and-upgrades/advanced-hybrid-deployment: hybrid-deployment/overview.md
  guides/developer-portal/tools-and-features: developer-portal/configuration-file.md
  installation-and-upgrades/upgrading-gravitee-api-management: install-and-upgrade/upgrade-guide.md
+ overview/gravitee-apim-enterprise-edition/enterprise-support: overview/enterprise-edition.md
