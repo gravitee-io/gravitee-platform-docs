@@ -62,3 +62,5 @@ redirects:
  guides/policy-design/v2-api-policy-design-studio: policies/v2-api-policy-studio.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook: configure-v4-apis/entrypoints/webhook.md
  using-the-product/managing-your-apis/policy-studio: policies/v4-api-policy-studio.md
+ using-the-product/managing-your-apis/create-apis/creating-and-publishing-an-api-with-the-management-api: getting-started/use-case-tutorials/create-and-publish-an-api-using-the-management-api.md
+ using-the-product/administration: administration/organizations-and-environments.md
