@@ -9,3 +9,4 @@ redirects:
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/resource-filtering: https://github.com/gravitee-io/gravitee-policy-resource-filtering.md
  guides/api-configuration/v4-api-configuration/documentation: configure-v4-apis/documentation.md
  installation-and-upgrades/repositories: configure-apim/repositories/README.md
+ installation-and-upgrades/repositories/mongodb: configure-apim/repositories/mongodb.md
