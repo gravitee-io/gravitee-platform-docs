@@ -23,7 +23,4 @@ redirects:
  most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan: getting-started/use-case-tutorials/add-rbac-to-your-jwt-plan.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/secret-providers: configure-apim/sensitive-data-management/README.md
  using-the-product/managing-your-apis/resources: policies/resources.md
- using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/dynamic-routing: policies/dynamic-routing.md
- using-the-product/managing-your-apis/api-configuration/v2-api-configuration/documentation: configure-v2-apis/documentation.md
- using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans: expose-apis/plans.md
-
+ getting-started/install-guides: install-and-upgrade/docker.md
