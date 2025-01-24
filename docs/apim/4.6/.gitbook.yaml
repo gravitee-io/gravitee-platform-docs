@@ -58,3 +58,4 @@ redirects:
  using-the-product/managing-your-apis/create-apis/the-api-creation-wizard: create-apis/v4-api-creation-wizard.md
  using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/audit-trail: api-analytics/audit-trail.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/audit-logs: configure-v4-apis/audit-logs.md
+ guides/developer-portal/tools-and-features/documentation: developer-portal/api-documentation.md
