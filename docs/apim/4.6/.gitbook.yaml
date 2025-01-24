@@ -68,4 +68,5 @@ redirects:
  releases-and-changelog/release-notes/apim-4.4: overview/release-notes/README.md
  guides/developer-portal/tools-and-features: developer-portal/settings.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/keyless: policies/keyless.md
+ using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/kafka: configure-v4-apis/endpoints/kafka.md
 
