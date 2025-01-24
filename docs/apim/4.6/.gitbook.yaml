@@ -11,3 +11,4 @@ redirects:
  installation-and-upgrades/repositories: configure-apim/repositories/README.md
  installation-and-upgrades/repositories/mongodb: configure-apim/repositories/mongodb.md
  reference/policy-reference/message-filtering: policies/message-filtering.md
+ installation-and-upgrades/repositories/elasticsearch: configure-apim/repositories/elasticsearch.md
