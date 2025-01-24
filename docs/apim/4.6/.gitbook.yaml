@@ -33,3 +33,4 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation: developer-portal/api-documentation.md
  guides/gravitee-expression-language: getting-started/gravitee-expression-language.md
  using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/layout-and-theme-customization: developer-portal/layout-and-theme.md
+ using-the-product/managing-your-apis/api-configuration/v2-api-configuration/general-proxy-settings: configure-v2-apis/proxy-settings.md
