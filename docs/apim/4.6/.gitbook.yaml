@@ -25,3 +25,4 @@ redirects:
  using-the-product/managing-your-apis/resources: policies/resources.md
  using-the-product/federating-your-apis/federated-apis: federation/federated-apis.md
  guides/federation/federated-apis: federation/federated-apis.md
+ reference/policy-reference/json-web-token-jwt: policies/jwt-validator.md
