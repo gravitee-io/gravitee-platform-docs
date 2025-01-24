@@ -30,3 +30,4 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/cors: configure-v4-apis/cors.md
  releases-and-changelog/release-notes: overview/release-notes/README.md
  using-the-product/managing-your-apis/create-apis/openapi-spec-import: create-apis/import-apis.md
+ using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation: developer-portal/api-documentation.md
