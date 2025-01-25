@@ -63,7 +63,7 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook: configure-v4-apis/entrypoints/webhook.md
  using-the-product/managing-your-apis/policy-studio: policies/v4-api-policy-studio.md
  using-the-product/managing-your-apis/create-apis/creating-and-publishing-an-api-with-the-management-api: getting-started/use-case-tutorials/create-and-publish-an-api-using-the-management-api.md
- using-the-product/administration: administration/organizations-and-environments.md
+ using-the-product/administration/dXNlci1tYW: administration/organizations-and-environments.md
  overview/changelog/apim-4.5.x: overview/changelog/README.md
  releases-and-changelog/release-notes/apim-4.4: overview/release-notes/README.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/kafka: configure-v4-apis/endpoints/kafka.md
