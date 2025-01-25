@@ -68,3 +68,4 @@ redirects:
  releases-and-changelog/release-notes/apim-4.4: overview/release-notes/README.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/kafka: configure-v4-apis/endpoints/kafka.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/keyless: policies/keyless.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-threat-protection: policies/xml-threat-protection.md
