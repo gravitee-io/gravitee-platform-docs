@@ -70,3 +70,15 @@ redirects:
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/keyless: policies/keyless.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-threat-protection: policies/xml-threat-protection.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2/generic-oauth2-authorization-server: policies/oauth2/generic-oauth2-authorization-server.md
+ using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/apim-developer-portal: developer-portal/configuration-file.md
+ using-the-product/federating-your-apis/3rd-party-providers/aws-api-gateway: federation/3rd-party-providers/aws-api-gateway.md
+ getting-started/install-guides?_gl=1*1qp0kl9*_gcl_au*MTE0NDkzNTMzNi4xNzM3MTUzMDgz: install-and-upgrade/upgrade-guide.md
+ guides/federation/federated-apis: federation/federated-apis.md
+ getting-started/install-guides/install-on-docker?_gl=1*crt955*_gcl_au*MTc1NzM2MTQyMC4xNzM3NjMwNzc2: install-and-upgrade/docker/README.md
+ using-the-product/using-the-gravitee-api-management-components/general-configuration/opentracing: gravitee-gateway/opentelemetry.md
+ reference/policy-reference/groovy: policies/groovy.md
+ using-the-product: getting-started/use-case-tutorials/README.md
+ releases-and-changelog/changelog/apim-4.6.x: overview/changelog/apim-4.6.x.md
+ using-the-product/managing-your-apis/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks#failover: configure-v2-apis/load-balancing-failover-and-health-checks.md
+ configure-apim/secrets-managers: configure-apim/sensitive-data-management/README.md
+ reference/policy-reference/geoip-filtering#whitelist-rule: policies/geoip-filtering.md
