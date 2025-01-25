@@ -66,6 +66,7 @@ redirects:
  using-the-product/administration: administration/organizations-and-environments.md
  overview/changelog/apim-4.5.x: overview/changelog/README.md
  releases-and-changelog/release-notes/apim-4.4: overview/release-notes/README.md
- 
+ guides/developer-portal/tools-and-features: developer-portal/settings
+ using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/kafka: configure-v4-apis/endpoints/kafka.md
 
 
