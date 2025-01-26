@@ -97,3 +97,36 @@ redirects:
  overview/ee-vs-oss: overview/enterprise-edition.md
  gravitee-api-management/readme: README.md
  guides/developer-portal: developer-portal/settings.md
+ reference/policy-reference/api-key: policies/api-key.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/assign-metrics: policies/assign-metrics.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/generate-http-signature: policies/generate-http-signature.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/avro-to-protobuf: policies/avro-to-protobuf.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/transform-headers: policies/transform-headers.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/traffic-shadowing: policies/traffic-shadowing.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-web-signature-jws: policies/jws-validator.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/geoip-filtering: policies/geoip-filtering.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/override-http-method: policies/override-http-method.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/transform-query-parameters: policies/transform-query-parameters.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/groovy: policies/groovy.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oas-validation: policies/oas-validation.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/basic-authentication: policies/basic-authentication.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/cache: policies/cache.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/http-signature: policies/http-signature.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/resource-filtering: policies/resource-filtering.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/generate-jwt: policies/generate-jwt.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/request-content-limit: policies/request-content-limit.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xslt: policies/xslt.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-threat-protection: policies/json-threat-protection.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/regex-threat-protection: policies/regex-threat-protection.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/rate-limit: policies/rate-limit.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/dynamic-routing: policies/dynamic-routing.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/api-key: policies/api-key.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/mock: policies/mock.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/assign-attributes: policies/assign-attributes.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/retry: policies/retry.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/circuit-breaker: policies/circuit-breaker.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/role-based-access-control-rbac: policies/role-based-access-control-rbac.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-validation: policies/json-validation.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/http-callout: policies/http-callout.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/request-validation: policies/request-validation.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/ip-filtering: policies/ip-filtering.md
