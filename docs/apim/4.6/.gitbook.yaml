@@ -130,3 +130,29 @@ redirects:
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/http-callout: policies/http-callout.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/request-validation: policies/request-validation.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/ip-filtering: policies/ip-filtering.md
+ getting-started/install-guides/install-on-docker/quick-install-with-docker-compose: install-and-upgrade/docker/docker-compose.md
+ using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/rabbitmq: configure-v4-apis/endpoints/rabbitmq.md
+ using-the-product/managing-your-apis/resources/authentication-providers#ldap: administration/authentication/authentication-providers.md
+ using-the-product/federating-your-apis/3rd-party-providers/apigee-x: federation/3rd-party-providers/apigee-x.md
+ installation-and-upgrades/installing-with-rpm-packages/installing-with-manual-install: install-and-upgrade/rpm/manual-install.md
+ using-the-product/manging-your-apis-with-gravitee-api-management/preparing-apis-for-subscribers/plans/mtls/mtls-plans-overview: expose-apis/plans/mtls.md
+ using-the-product/federating-your-apis/3rd-party-providers/ibm-api-connect: federation/3rd-party-providers/ibm-api-connect.md
+ reference/bWFuYWdlbW: management-api/management-api-reference.md
+ getting-started/configuration/configure-apim-management-api/internal-api#enable-https-support: management-api/internal-api.md
+ getting-started/configuration/configure-apim-management-api/internal-api: management-api/internal-api.md
+ getting-started/configuration/apim-gateway: gravitee-gateway/internal-api.md
+ using-the-product/managing-your-apis: create-apis/overview.md
+ getting-started/configuration/notifications#configure-alerts: gravitee-gateway/alerts.md
+ using-the-product/using-the-gravitee-api-management-components/apim-console: configure-apim/apim-components/apim-console.md
+ getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication: administration/authentication/gravitee-access-management.md
+ installation-and-upgrades/install-gravitee-api-management: overview/introduction-to-apim.md
+ using-the-product/federating-your-apis: federation/overview.md
+ installation-and-upgrades/repositories/elasticsearch#index-management-with-es-ilm: configure-apim/repositories/elasticsearch.md
+ guides/developer-contributions/dev-guide-plugins: getting-started/plugins/customization.md
+ configure-apim/secrets-managers#enabling-api-level-secrets: configure-v4-apis/api-level-secrets.md
+ using-the-product/federating-your-apis/federated-apis: federation/federated-apis.md
+ releases-and-changelog/changelog: overview/changelog.md
+ reference/policy-reference/json-web-token-jwt: policies/jwt-validator.md
+ using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/adding-a-policy: policies/v4-api-policy-studio.md
+ overview/changelog/apim-4.2: releases-and-changelog/changelog/apim-4.2.x.md
+
