@@ -82,3 +82,12 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks#failover: configure-v2-apis/load-balancing-failover-and-health-checks.md
  configure-apim/secrets-managers: configure-apim/sensitive-data-management/README.md
  reference/policy-reference/geoip-filtering#whitelist-rule: policies/geoip-filtering.md
+ reference/policy-reference/traffic-shadowing: policies/traffic-shadowing.md
+ using-the-product/managing-your-apis/api-configuration/v2-api-configuration/service-discovery: configure-v2-apis/service-discovery.md
+ guides/api-configuration/v4-api-configuration/quality-of-service: configure-v4-apis/quality-of-service.md
+ overview/plugins-and-api-definitions/README: getting-started/plugins.md
+ using-the-product/manging-your-apis-with-gravitee-api-management/policy-studio/policies-for-your-apis/a-c/assign-attributes: policies/assign-attributes.md
+ getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality: install-and-upgrade/breaking-changes-and-deprecations.md
+ getting-started/configuration/authentication-and-sso: administration/authentication/README.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis: policies/policy-reference.md
+ getting-started/configuration/authentication/gravitee-am-authentication: administration/authentication/gravitee-access-management.md
