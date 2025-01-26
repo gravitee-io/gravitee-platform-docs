@@ -91,3 +91,9 @@ redirects:
  getting-started/configuration/authentication-and-sso: administration/authentication/README.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis: policies/policy-reference.md
  getting-started/configuration/authentication/gravitee-am-authentication: administration/authentication/gravitee-access-management.md
+ installation-and-upgrades/installing-with-rpm-packages: install-and-upgrade/rpm/README.md
+ guides/create-apis/guides/create-apis/the-api-creation-wizard: create-apis/v4-api-creation-wizard.md
+ getting-started/quickstart-guide: getting-started/use-case-tutorials/README.md
+ overview/ee-vs-oss: overview/enterprise-edition.md
+ gravitee-api-management/readme: README.md
+ guides/developer-portal: developer-portal/settings.md
