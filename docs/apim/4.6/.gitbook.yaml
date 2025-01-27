@@ -164,3 +164,4 @@ redirects:
  using-the-product/managing-your-apis/api-configuration/v2-api-configuration/documentation: configure-v2-apis/documentation.md
  getting-started/install-guides/install-on-docker: install-and-upgrade/docker/README.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2: policies/oauth2/README.md
+ using-the-product/using-the-gravitee-api-management-components/general-configuration-1: configure-apim/apim-components/management-api.md
