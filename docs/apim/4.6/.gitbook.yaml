@@ -145,7 +145,7 @@ redirects:
  getting-started/configuration/notifications#configure-alerts: gravitee-gateway/alerts.md
  using-the-product/using-the-gravitee-api-management-components/apim-console: configure-apim/apim-components/apim-console.md
  getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication: administration/authentication/gravitee-access-management.md
- installation-and-upgrades/install-gravitee-api-management: overview/introduction-to-apim.md
+ installation-and-upgrades/install-gravitee-api-management: install-and-upgrade/upgrade-guide.md
  using-the-product/federating-your-apis: federation/overview.md
  installation-and-upgrades/repositories/elasticsearch#index-management-with-es-ilm: configure-apim/repositories/elasticsearch.md
  guides/developer-contributions/dev-guide-plugins: getting-started/plugins/customization.md
