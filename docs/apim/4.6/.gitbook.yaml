@@ -5,7 +5,7 @@ root: ./
   summary: SUMMARY.md​
 
 redirects:
- getting-started/configuration/configure-alerts-and-notifications: getting-started/configuration/notifications.md
+ getting-started/configuration/configure-alerts-and-notifications: gravitee-gateway/notifications.md
  guides/api-configuration/v4-api-configuration/documentation: configure-v4-apis/documentation.md
  installation-and-upgrades/repositories: configure-apim/repositories/README.md
  installation-and-upgrades/repositories/mongodb: configure-apim/repositories/mongodb.md
@@ -14,7 +14,7 @@ redirects:
  installation-and-upgrades/repositories/redis: configure-apim/repositories/redis.md
  installation-and-upgrades/repositories/jdbc: configure-apim/repositories/jdbc.md
  installation-and-upgrades/advanced-hybrid-deployment: hybrid-deployment/overview.md
- guides/developer-portal/tools-and-features: developer-portal/configuration-file.md
+ guides/developer-portal/tools-and-features: developer-portal/settings.md
  installation-and-upgrades/upgrading-gravitee-api-management: install-and-upgrade/upgrade-guide.md
  overview/gravitee-apim-enterprise-edition/enterprise-support: overview/enterprise-edition.md
  using-the-product/managing-your-apis/resources: policies/resources.md
@@ -162,4 +162,5 @@ redirects:
  getting-started/install-guides: overview/introduction-to-apim.md
  using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans: expose-apis/plans/README.md
  using-the-product/managing-your-apis/api-configuration/v2-api-configuration/documentation: configure-v2-apis/documentation.md
-
+ getting-started/install-guides/install-on-docker: overview/introduction-to-apim.md
+ using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2: policies/oauth2/README.md
