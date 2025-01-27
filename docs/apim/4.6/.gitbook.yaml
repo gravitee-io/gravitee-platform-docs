@@ -151,7 +151,7 @@ redirects:
  guides/developer-contributions/dev-guide-plugins: getting-started/plugins/customization.md
  configure-apim/secrets-managers#enabling-api-level-secrets: configure-v4-apis/api-level-secrets.md
  using-the-product/federating-your-apis/federated-apis: federation/federated-apis.md
- releases-and-changelog/changelog: overview/changelog.md
+ releases-and-changelog/changelog: overview/changelog/README.md
  reference/policy-reference/json-web-token-jwt: policies/jwt-validator.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/adding-a-policy: policies/v4-api-policy-studio.md
  overview/changelog/apim-4.2: releases-and-changelog/changelog/README.md
