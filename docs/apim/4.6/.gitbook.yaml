@@ -167,3 +167,4 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/general-configuration-1: configure-apim/apim-components/management-api.md
  getting-started/configuration/configure-apim-management-api/internal-api-1: management-api/internal-api.md
  4.3/guides/create-apis/guides/create-apis/the-api-creation-wizard: 4.3/guides/create-apis/the-api-creation-wizard/README.md
+ 4.2/overview/changelog/apim-4.2: 4.2/releases-and-changelog/changelog/apim-4.2.x.md
