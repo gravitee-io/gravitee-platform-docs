@@ -85,7 +85,7 @@ redirects:
  reference/policy-reference/traffic-shadowing: policies/traffic-shadowing.md
  using-the-product/managing-your-apis/api-configuration/v2-api-configuration/service-discovery: configure-v2-apis/service-discovery.md
  guides/api-configuration/v4-api-configuration/quality-of-service: configure-v4-apis/quality-of-service.md
- overview/plugins-and-api-definitions/README: getting-started/plugins.md
+ overview/plugins-and-api-definitions: getting-started/plugins.md
  using-the-product/manging-your-apis-with-gravitee-api-management/policy-studio/policies-for-your-apis/a-c/assign-attributes: policies/assign-attributes.md
  getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality: install-and-upgrade/breaking-changes-and-deprecations.md
  getting-started/configuration/authentication-and-sso: administration/authentication/README.md
@@ -154,5 +154,12 @@ redirects:
  releases-and-changelog/changelog: overview/changelog.md
  reference/policy-reference/json-web-token-jwt: policies/jwt-validator.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/adding-a-policy: policies/v4-api-policy-studio.md
- overview/changelog/apim-4.2: releases-and-changelog/changelog/apim-4.2.x.md
+ overview/changelog/apim-4.2: overview/changelog/README.md
+ getting-started/configuration/configure-repositories/elasticsearch#apim-api-configuration: configure-apim/repositories/elasticsearch.md
+ releases-and-changelog/changelog/apim-4.4.x: overview/changelog/README.md
+ overview/release-notes/apim-4.5: overview/release-notes/README.md
+ releases-and-changelog/release-notes/gravitee-4.x/apim-4.0?utm_campaign=Gravitee%204.0%20Launch&utm_medium=email&_hsmi=268551278&_hsenc=p2ANqtz-98rc9Y9BF23YeJlS3_v8XkPquCUkttzd1dUhjnBi8a-MVjKluti9dCEAAoaC_MUW-3whMoonXZBSTFnJvlt4dlP-f1gQ&utm_content=268551278&utm_source=hs_email: overview/release-notes/README.md
+ getting-started/install-guides: overview/introduction-to-apim.md
+ using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans: expose-apis/plans/README.md
+ using-the-product/managing-your-apis/api-configuration/v2-api-configuration/documentation: configure-v2-apis/documentation.md
 
