@@ -1,5 +1,23 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.7 - January 27, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * RBAC creation is inconsistent for admission webhook when scope is not cluster [#10294](https://github.com/gravitee-io/issues/issues/10294)
+  * Re-deploying an exported API CRD fails due to unknown metadata field [#10282](https://github.com/gravitee-io/issues/issues/10282)
+  * Documentation page not visible if parent field doesn't match folder name [#10281](https://github.com/gravitee-io/issues/issues/10281)
+</details>
+
+
+<details>
+<summary>Security</summary>
+
+  * Webhook cluster role access should be narrowed down to resource names we use [#10296](https://github.com/gravitee-io/issues/issues/10296)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.6 - January 17, 2025
 
 <details>
