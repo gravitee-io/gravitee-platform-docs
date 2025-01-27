@@ -154,7 +154,7 @@ redirects:
  releases-and-changelog/changelog: overview/changelog.md
  reference/policy-reference/json-web-token-jwt: policies/jwt-validator.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/adding-a-policy: policies/v4-api-policy-studio.md
- overview/changelog/apim-4.2: overview/changelog/README.md
+ overview/changelog/apim-4.2: releases-and-changelog/changelog/README.md
  getting-started/configuration/configure-repositories/elasticsearch#apim-api-configuration: configure-apim/repositories/elasticsearch.md
  releases-and-changelog/changelog/apim-4.4.x: overview/changelog/README.md
  overview/release-notes/apim-4.5: overview/release-notes/README.md
