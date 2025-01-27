@@ -166,3 +166,4 @@ redirects:
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2: policies/oauth2/README.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration-1: configure-apim/apim-components/management-api.md
  getting-started/configuration/configure-apim-management-api/internal-api-1: management-api/internal-api.md
+ guides/create-apis/guides/create-apis/the-api-creation-wizard: create-apis/v4-api-creation-wizard.md
