@@ -5,4 +5,4 @@ root: ./
   summary: SUMMARY.md​
 
 redirects:
-  XXX: YYY 
+  releases-and-changelog/release-notes/gko-4.5: releases-and-changelog/release-notes/README.md 
