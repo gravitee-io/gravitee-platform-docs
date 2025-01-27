@@ -159,8 +159,8 @@ redirects:
  releases-and-changelog/changelog/apim-4.4.x: overview/changelog/README.md
  overview/release-notes/apim-4.5: overview/release-notes/README.md
  releases-and-changelog/release-notes/gravitee-4.x/apim-4.0?utm_campaign=Gravitee%204.0%20Launch&utm_medium=email&_hsmi=268551278&_hsenc=p2ANqtz-98rc9Y9BF23YeJlS3_v8XkPquCUkttzd1dUhjnBi8a-MVjKluti9dCEAAoaC_MUW-3whMoonXZBSTFnJvlt4dlP-f1gQ&utm_content=268551278&utm_source=hs_email: overview/release-notes/README.md
- getting-started/install-guides: overview/introduction-to-apim.md
+ getting-started/install-guides: install-and-upgrade/upgrade-guide.md
  using-the-product/managing-your-apis/preparing-apis-for-subscribers/plans: expose-apis/plans/README.md
  using-the-product/managing-your-apis/api-configuration/v2-api-configuration/documentation: configure-v2-apis/documentation.md
- getting-started/install-guides/install-on-docker: overview/introduction-to-apim.md
+ getting-started/install-guides/install-on-docker: install-and-upgrade/docker/README.md
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2: policies/oauth2/README.md
