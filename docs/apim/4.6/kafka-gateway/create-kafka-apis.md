@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Gravitee Kafka APIs aply Gravitee API Management (APIM) capabilities directly to the Kafka protocol. Kafka APIs are based on the Gravitee [v4 API definition](../create-apis/overview.md#gravitee-v4-apis). A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, and to create plans for your Gravitee APIs and their transactions. You can create Kafka APIs through the API creation wizard UI, or via the [management API](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/).
+Gravitee Kafka APIs apply Gravitee API Management (APIM) capabilities directly to the Kafka protocol. Kafka APIs are based on the Gravitee [v4 API definition](../create-apis/overview.md#gravitee-v4-apis). A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, and to create plans for your Gravitee APIs and their transactions. You can create Kafka APIs through the API creation wizard UI, or via the [management API](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/).
 
 {% hint style="info" %}
 API consumers call or subscribe to Gateway APIs to retrieve data or functionality exposed by backend services. Gravitee defines three different types of Gateway APIs: proxy APIs, message APIs, and native APIs. These are differentiated by whether they proxy REST or event-driven APIs, and whether the Gravitee Gateway performs [protocol mediation](../create-apis/overview.md#protocol-mediation) or proxies the native protocol.
