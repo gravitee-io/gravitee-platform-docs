@@ -79,9 +79,9 @@ redirects:
  reference/policy-reference/groovy: policies/groovy.md
  using-the-product: getting-started/use-case-tutorials/README.md
  releases-and-changelog/changelog/apim-4.6.x: overview/changelog/apim-4.6.x.md
- using-the-product/managing-your-apis/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks#failover: configure-v2-apis/load-balancing-failover-and-health-checks.md
+ using-the-product/managing-your-apis/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks: configure-v2-apis/load-balancing-failover-and-health-checks.md
  configure-apim/secrets-managers: configure-apim/sensitive-data-management/README.md
- reference/policy-reference/geoip-filtering#whitelist-rule: policies/geoip-filtering.md
+ reference/policy-reference/geoip-filtering: policies/geoip-filtering.md
  reference/policy-reference/traffic-shadowing: policies/traffic-shadowing.md
  using-the-product/managing-your-apis/api-configuration/v2-api-configuration/service-discovery: configure-v2-apis/service-discovery.md
  guides/api-configuration/v4-api-configuration/quality-of-service: configure-v4-apis/quality-of-service.md
@@ -132,7 +132,7 @@ redirects:
  using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/ip-filtering: policies/ip-filtering.md
  getting-started/install-guides/install-on-docker/quick-install-with-docker-compose: install-and-upgrade/docker/docker-compose.md
  using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/rabbitmq: configure-v4-apis/endpoints/rabbitmq.md
- using-the-product/managing-your-apis/resources/authentication-providers#ldap: administration/authentication/authentication-providers.md
+ using-the-product/managing-your-apis/resources/authentication-providers: administration/authentication/authentication-providers.md
  using-the-product/federating-your-apis/3rd-party-providers/apigee-x: federation/3rd-party-providers/apigee-x.md
  installation-and-upgrades/installing-with-rpm-packages/installing-with-manual-install: install-and-upgrade/rpm/manual-install.md
  using-the-product/manging-your-apis-with-gravitee-api-management/preparing-apis-for-subscribers/plans/mtls/mtls-plans-overview: expose-apis/plans/mtls.md
@@ -142,7 +142,7 @@ redirects:
  getting-started/configuration/configure-apim-management-api/internal-api: management-api/internal-api.md
  getting-started/configuration/apim-gateway: gravitee-gateway/internal-api.md
  using-the-product/managing-your-apis: create-apis/overview.md
- getting-started/configuration/notifications#configure-alerts: gravitee-gateway/alerts.md
+ getting-started/configuration/notifications: gravitee-gateway/alerts.md
  using-the-product/using-the-gravitee-api-management-components/apim-console: configure-apim/apim-components/apim-console.md
  getting-started/configuration/authentication-and-sso#gravitee-access-management-authentication: administration/authentication/gravitee-access-management.md
  installation-and-upgrades/install-gravitee-api-management: install-and-upgrade/upgrade-guide.md
