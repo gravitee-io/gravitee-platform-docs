@@ -13,10 +13,10 @@ This can be done if a load balancer is placed in front of the gateway that termi
 
 ## Limitations
 
-mTLS plans have the following limitations:
+Currently, mTLS plans have the following limitations:
 
 * You can apply mTLS plans to only v4 APIs.
-* You cannot yet use mTLS plans in Gravitee Cloud with SaaS-based Gateways.
+* You cannot use mTLS plans in Gravitee Cloud with SaaS-based Gateways.
 * Only one client certificate can be added per application. This means that to rotate certificates for an application, you need to pause the application’s subscriptions or schedule a maintenance window to avoid traffic for that API.&#x20;
 * Applications do not provide a warning that certificates are going to expire.
 
