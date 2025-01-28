@@ -1,0 +1,11 @@
+root: ./
+
+​structure:
+  readme: README.md
+  summary: SUMMARY.md​
+
+redirects:
+ releases-and-changelog/changelog/am-4.4.x: releases-and-changelog/changelog/README.md
+ releases-and-changelog/release-notes/am-4.1: releases-and-changelog/release-notes/README.md
+ releases-and-changelog/release-notes/am-4.5: releases-and-changelog/release-notes/README.md
+ releases-and-changelog/changelog/am-4.5.x: releases-and-changelog/changelog/README.md
