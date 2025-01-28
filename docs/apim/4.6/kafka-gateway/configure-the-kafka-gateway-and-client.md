@@ -19,7 +19,7 @@ To run the Kafka Gateway, you enable the gateway server in \`gravitee.yml\`.  Th
 ```yaml
 # Gateway Kafka server
 kafka:
-  enabled: false
+  enabled: true
 
   routingMode: host # default is host. Only host is supported for now.
   # Routing Host Mode
