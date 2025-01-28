@@ -6,3 +6,5 @@ root: ./
 
 redirects:
  gravitee-essentials/gravitee-core-concepts: gravitee-platform/gravitee-core-concepts.md
+ gravitee-essentials/gravitee-offerings-ce-vs-ee#enterprise-version-of-gravitee-cockpit: community/enterprise-support.md
+ 
