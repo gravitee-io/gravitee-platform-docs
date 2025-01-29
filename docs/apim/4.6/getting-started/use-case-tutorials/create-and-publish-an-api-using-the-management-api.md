@@ -8,7 +8,7 @@ This example uses the Gravitee Echo API to set up an HTTP proxy API. The Gravite
 
 {% hint style="info" %}
 * If the `Enable API Review` option is enabled in your API Management settings, you need to use the "Ask for a review" and "Accept a review" requests to complete the API Review process.&#x20;
-* The `Enable API Review` option ensures that someone other than the API creator reviews and approves an API before the API creator publishes the API to a Gateway or the Developer Portal. For more information about the `Enable API Review`, see [Broken link](broken-reference "mention").
+* The `Enable API Review` option ensures that someone other than the API creator reviews and approves an API before the API creator publishes the API to a Gateway or the Developer Portal.
 {% endhint %}
 
 To create, deploy, and publish your API to the Developer Portal, you must complete the following steps:
