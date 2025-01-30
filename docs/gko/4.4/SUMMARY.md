@@ -9,7 +9,7 @@
   * [ApiDefinition](../4.6/overview/custom-resource-definitions/apidefinition.md)
   * [ApiResource](../4.6/overview/custom-resource-definitions/apiresource.md)
   * [Application](../4.6/overview/custom-resource-definitions/application.md)
-  * [Subscription](overview/custom-resource-definitions/subscription.md)
+  * [Subscription](../4.6/overview/custom-resource-definitions/subscription.md)
 * [Example architecture](../4.6/overview/example-architecture.md)
 * [Compatibility and limitations](../4.6/overview/compatibility-and-limitations.md)
 
@@ -26,7 +26,7 @@
 
 ## GUIDES
 
-* [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
+* [Manage JWT subscriptions with GKO](../4.6/guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](../4.6/guides/define-an-apim-service-account-for-gko.md)
 * [Deploy APIs to a gateway](../4.6/guides/deploy-apis-to-a-gateway.md)
 * [Publish APIs to the portal](../4.6/guides/publish-apis-to-the-portal.md)
@@ -46,12 +46,12 @@
 ## RELEASES & CHANGELOG
 
 * [Release notes](../4.6/releases-and-changelog/release-notes/README.md)
-  * [GKO 4.6](releases-and-changelog/release-notes/gko-4.6.md)
+  * [GKO 4.6](../4.6/releases-and-changelog/release-notes/gko-4.6.md)
   * [GKO 4.5](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.5/releases-and-changelog/release-notes/gko-4.5)
   * [GKO 4.4](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/gko-4.4/releases-and-changelog/release-notes/gko-4.4)
   * [GKO 4.3](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.3/releases-and-changelog/release-notes/gko-4.3)
 * [Changelog](../4.6/releases-and-changelog/changelog/README.md)
-  * [GKO 4.5.x](releases-and-changelog/changelog/gko-4.5.x.md)
+  * [GKO 4.5.x](../4.6/releases-and-changelog/changelog/gko-4.5.x.md)
   * [GKO 4.4.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/gko-4.4/releases-and-changelog/changelog/gko-4.4.x)
   * [GKO 4.3.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.3/releases-and-changelog/changelog/gko-4.3.x)
 
