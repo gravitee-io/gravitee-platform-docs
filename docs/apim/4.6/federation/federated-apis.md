@@ -74,7 +74,7 @@ Under the **Plans** tab, you'll see all of the plans for your API that are eithe
 By default, the plan state is set to published and the subscription validation policy is set to manual (subscription auto-validation is not enabled).
 {% endhint %}
 
-Before publishing your federated API to the Developer Portal, make sure that your plan is published. Otherwise, there will be know way for API consumers to subscribe to your federated API.
+Before publishing your federated API to the Developer Portal, make sure that your plan is published. Otherwise, there will be no way for API consumers to subscribe to your federated API.
 
 ## Federated API documentation
 
