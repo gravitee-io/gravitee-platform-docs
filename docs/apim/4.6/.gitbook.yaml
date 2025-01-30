@@ -169,3 +169,4 @@ redirects:
  4.3/guides/create-apis/guides/create-apis/the-api-creation-wizard: 4.3/guides/create-apis/the-api-creation-wizard/README.md
  4.2/overview/changelog/apim-4.2: 4.2/releases-and-changelog/changelog/apim-4.2.x.md
  overview/gravitee-api-definitions-and-execution-engines/engine-comparisons: overview/execution-engine.md
+ using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/custom-policies: policies/custom-policies.md
