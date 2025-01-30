@@ -39,6 +39,6 @@ For APIs managed by GKO, the source of truth for groups and members should exclu
 
 However, in the Gravitee API Management Console, there are environment-level settings that can be used to automatically assign groups to every new API or application that gets created. These settings are shown in the screenshot below.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../4.4/.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 It is not recommend to use or to rely on these features for APIs managed by GKO. If used, these automatic groups will be added when an API is first created by the operator, but will be removed when changes are applied later on.&#x20;
