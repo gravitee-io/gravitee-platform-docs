@@ -17,7 +17,7 @@ This guide takes you step-by-step through managing JWT subscriptions with GKO. I
 
 ## Procedure
 
-To set up a subscription, complete the following steps:
+To set up a subscription, complete the following steps:&#x20;
 
 * [#generate-a-public-key](manage-jwt-subscriptions-with-gko.md#generate-a-public-key "mention")
 * [#store-the-public-key](manage-jwt-subscriptions-with-gko.md#store-the-public-key "mention")
@@ -38,7 +38,7 @@ openssl rsa -in jwt-demo.key -pubout -outform PEM -out pki/public.key
 
 ### Store the public key
 
-Store the public key in a secret using the following command:
+Store the public key in a secret using the following command:&#x20;
 
 ```
 kubectl create secret generic jwt --from-file=pki/public.key --dry-run=client -o yaml > resources/jwt-key.yml

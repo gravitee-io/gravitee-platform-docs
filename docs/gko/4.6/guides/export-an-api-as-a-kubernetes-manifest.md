@@ -9,6 +9,7 @@ Gravitee API Management provides the ability to export v2 and v4 APIs defined in
 There are a few use cases for exporting your API created in APIM as a Kubernetes manifest for GKO:
 
 * It is an easy way to bootstrap an `ApiV4Definition` or `ApiDefinition` resource without needed to know the yaml syntax by heart
+
 * You can create a workflow in which users start by creating APIs in the APIM UI during development, and then transition to using a GitOps workflow with the Gravitee Kubernetes Operator for downstream environments like staging and production.
 
 Export can be done through the UI, or using the management API (which is very practical for integration with CI pipelines).
@@ -28,6 +29,13 @@ You will then be prompted to save your API definition yaml Kubernetes manifest t
 ## Exporting from the management API
 
 The APIM management API provides an export endpoint that allows you to export an API as an API Definition resource.
+=======
+
+You will then be prompted to save your API definition yaml Kubernetes manifest to disk.&#x20;
+
+## Exporting from the management API
+
+The APIM management API  provides an export endpoint that allows you to export an API as an API Definition resource.
 
 This allows you to easily create an API Definition from a given environment by calling the endpoint and piping the result to a `kubectl` command. For example:
 

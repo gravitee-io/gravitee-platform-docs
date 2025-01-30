@@ -16,7 +16,9 @@ This guide includes the following topics:
 * [Example of using a Kubernetes secret to inject a GitHub personal access token into an API definition resource](templating.md#pass-a-github-personal-access-token-to-an-api-definition-from-a-secret)
 
 {% hint style="info" %}
+
 Templating can only be used with parameters of type `string`.
+
 {% endhint %}
 
 ## Use Kubernetes secrets

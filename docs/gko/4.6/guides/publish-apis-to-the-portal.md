@@ -35,7 +35,11 @@ To unpublish the API, change the `lifecycle_state` property value to `UNPUBLISHE
 
 ## Setting a category for an API
 
+<<<<<<< HEAD
 APIs can be grouped into categories to improve navigation for API consumers that discover APIs on the developer portal. Both `ApiV4Definition` and `ApiDefinition` can reference categories in APIM by name. If a category is referenced that does not exist in APIM, it will simply be ignored.
+=======
+APIs can be grouped into categories to improve navigation for API consumers that discover APIs on the developer portal. Both `ApiV4Definition` and `ApiDefinition` can reference categories in APIM by name. If a category is referenced that does not exist in APIM, it will simply be ignored.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 Below is an example `ApiV4Definition` that references two categories called `banking` and `credit`:
 

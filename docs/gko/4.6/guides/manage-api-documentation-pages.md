@@ -6,7 +6,11 @@ description: Documentation pages can be defined in the API definition CRDs
 
 ## Overview
 
+<<<<<<< HEAD
 The `ApiV4Definition` and `ApiDefinition` CRDs both support the definition of documentation pages to be created along with the API.
+=======
+The `ApiV4Definition` and `ApiDefinition` CRDs both support the definition of documentation pages to be created along with the API.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 In this guide, learn how to:
 
@@ -33,7 +37,11 @@ Referencing from an external source is recommended for two main reasons:
 1. the yaml manifests can become quite unreadable with large inline documentation pages
 2. etcd has a [default max value size](https://etcd.io/docs/v3.5/dev-guide/limit/) set to 1.5MiB, which could be surpassed with overly large manifests.
 
+<<<<<<< HEAD
 Both v4 and v2 API CRDs share the same syntax for specifying doc pages using a **pages** attribute at the root of the spec.
+=======
+Both v4 and v2 API CRDs share the same syntax for specifying doc pages using a **pages** attribute at the root of the spec.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 ```yaml
 spec:
@@ -42,14 +50,24 @@ spec:
 ```
 
 {% hint style="info" %}
+<<<<<<< HEAD
 For APIs managed by GKO, you will not be able to add or modify documentation pages manually from the API management console
+=======
+For APIs managed by GKO, you will not be able to add or modify documentation pages manually from the API management console&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 {% endhint %}
 
 ## Referencing external pages with fetchers
 
+<<<<<<< HEAD
 The recommended approach for embedding large documentation pages into APIs managed by Gravitee Kubernetes Operator is to use a fetcher to load the page from an external source. Supported sources are Git, Bitbucket, Github, Gitlab, and Web.
 
 When an API definition resource containing a fetcher is created an pushed to Gravitee API Management, the platform will automatically fetch the documentation pages and store them as part of that API in APIM. You can also optionally pass a cron expression to determine how often new fetches should be performed. This avoids the need to define large documentation pages inline in an API CRD, and also provides the possibility to manage the lifecycle of those documentation pages outside of the Gravitee platform.
+=======
+The recommended approach for embedding large documentation pages into APIs managed by Gravitee Kubernetes Operator is to use a fetcher to load the page from an external source. Supported sources are Git, Bitbucket, Github, Gitlab, and Web.&#x20;
+
+When an API definition resource containing a fetcher is created an pushed to Gravitee API Management, the platform will automatically fetch the documentation pages and store them as part of that API in APIM. You can also optionally pass a cron expression to determine how often new fetches should be performed. This avoids the need to define large documentation pages inline in an API CRD, and also provides the possibility to manage the lifecycle of those documentation pages outside of the Gravitee platform.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 Below is an example of a complete `ApiV4Definition` with an OAS documentation page referenced from an external http source, this page is nested in a folder:
 
@@ -216,7 +234,11 @@ The example below shows a documentation page SWAGGER fetcher that defines access
         referenceType: "GROUP"
 ```
 
+<<<<<<< HEAD
 In the above example, a group called `developers` is referenced in **accessControls**.
+=======
+In the above example, a group called `developers` is referenced in **accessControls**.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 **excludedAccessControls** is set to `false` (default), which means this group will be the only on allowed to view this page.
 
@@ -236,7 +258,11 @@ Gravitee API Management supports importing multiple documentation pages from a r
 Loading multiple files is only supported with the GitLab and GitHub fetchers.
 {% endhint %}
 
+<<<<<<< HEAD
 GKO also supports this capability by defining a page of type `ROOT` that will point to a folder in a repository.
+=======
+GKO also supports this capability by defining a page of type `ROOT` that will point to a folder in a repository.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 The below example illustrates this in an ApiDefinition resource:
 
@@ -286,6 +312,13 @@ spec:
             target: "https://api.gravitee.io/echo"
 ```
 
+<<<<<<< HEAD
 This single `ROOT` page configuration will result in multiple documentation pages being created on the API. In this example, the public repository used contains a markdown and a swagger file at the root, both of which will result in new pages being created.
 
 All access control settings such as **published**, **visibility**, **excludedAccessControls**, and **accessControl groups**, will be propagated to all created pages.
+=======
+This single `ROOT` page configuration will result in multiple documentation pages being created on the API. In this example, the public repository used contains a markdown and a swagger file at the root, both of which will result in new pages being created.&#x20;
+
+All access control settings such as **published**, **visibility**, **excludedAccessControls**, and **accessControl groups**, will be propagated to all created pages.&#x20;
+
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)

@@ -33,7 +33,7 @@ For APIs managed by GKO, you will not be able to add or modify groups or members
 
 ## Limitations
 
-For APIs and Applications managed by GKO, the source of truth for groups and members should exclusively be what is defined in the CRD.
+For APIs and Applications managed by GKO, the source of truth for groups and members should exclusively be what is defined in the CRD.&#x20;
 
 However, in the Gravitee API Management Console, there are environment-level settings that can be used to automatically assign groups to every new API or application that gets created. These settings are shown in the screenshot below.
 

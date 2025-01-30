@@ -6,7 +6,11 @@ As a pre-requisite, this requires the gateway to be [configured to load APIs fro
 
 Using this approach has certain benefits:
 
+<<<<<<< HEAD
 * it removes or reduces the need for Gateways to load configuration from remote repositories. Instead, Gateways load their configuration locally.
+=======
+* it removes or reduces the need for Gateways to load configuration from remote repositories. Instead, Gateways load their configuration locally.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 * it removes the need to use a ManagementContext, and also enables the [DB-less mode](../../guides/db-less-mode.md)
 
 On the downside however:
@@ -40,9 +44,15 @@ spec:
             target: https://api.gravitee.io/echo
 ```
 
+<<<<<<< HEAD
 The **definitionContext.syncFrom** attribute is set to `KUBERNETES` (which is the default value) to indicate that the API will be deployed only in the cluster where the custom resource is applied, and stored in a local ConfigMap.
 
 Run the following command to verify that the API ConfigMap has been created in the cluster:
+=======
+The **definitionContext.syncFrom** attribute is set to `KUBERNETES` (which is the default value) to indicate that the API will be deployed only in the cluster where the custom resource is applied, and stored in a local ConfigMap.&#x20;
+
+Run the following command to verify that the API ConfigMap has been created in the  cluster:
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 ```sh
 kubectl get configmaps -n gravitee
@@ -77,9 +87,15 @@ spec:
   local: true
 ```
 
+<<<<<<< HEAD
 The `local` field is optional and is set to `true` by default to indicate that the API will be deployed only in the cluster where the custom resource is applied.
 
 Run the following command to verify that the API ConfigMap has been created in the cluster:
+=======
+The `local` field is optional and is set to `true` by default to indicate that the API will be deployed only in the cluster where the custom resource is applied.&#x20;
+
+Run the following command to verify that the API ConfigMap has been created in the  cluster:
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 ```sh
 kubectl get configmaps -n gravitee
