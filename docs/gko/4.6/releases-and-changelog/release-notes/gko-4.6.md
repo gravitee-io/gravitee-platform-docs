@@ -8,7 +8,7 @@ description: Gravitee Kubernetes Operator 4.6 Release Notes.
 
 Gravitee API management 4.6 includes the introduction of the Gravitee Kafka Gateway, allowing you to natively expose the Kafka protocol to Kafka consumers and producers, while proxying an upstream Kafka cluster.
 
-With GKO 4.6, we've added the ability to define Native Kafka APIs using the Gravitee Kubernetes Operator, so that you can create familiar APIOps automation pipelines to configure you native Kafka APIs.&#x20;
+With GKO 4.6, we've added the ability to define Native Kafka APIs using the Gravitee Kubernetes Operator, so that you can create familiar APIOps automation pipelines to configure you native Kafka APIs.
 
 Practically speaking, Native Kafka APIs are just a new type of v4 API, alongside proxy and message APIs. Below is a simple example of a Native Kafka API defined using GKO's ApiV4Definition CRD:
 
@@ -53,15 +53,15 @@ spec:
         type: "KEY_LESS"
 ```
 
-Just like other API definitions managed by the Gravitee Kubernetes Operator, native Kafka APIs can carry policies, lifecycle information, plans to control access, documentation pages, RBAC, and more!&#x20;
+Just like other API definitions managed by the Gravitee Kubernetes Operator, native Kafka APIs can carry policies, lifecycle information, plans to control access, documentation pages, RBAC, and more!
 
 ## Manage JWT, OAuth, and mTLS subscriptions with GKO
 
-With 4.6, the operator now includes a new Subscription CRD. This allows you to create subscriptions to API plans in APIM. A subscription ties an Application to a specific plan from an API, thereby giving that application permission to consume the API.&#x20;
+With 4.6, the operator now includes a new Subscription CRD. This allows you to create subscriptions to API plans in APIM. A subscription ties an Application to a specific plan from an API, thereby giving that application permission to consume the API.
 
 This significantly expands the scope of what you can do with GKO, thereby providing GitOps support across an even larger part of the API lifecycle. This will be particularly attractive for covering automated deployments that also need to enable consumption by applications as part of the automation.
 
-GKO will support three plan types: JWT, OAuth, and mTLS. API key is not supported at this time, but is likely to come in a future release.&#x20;
+GKO will support three plan types: JWT, OAuth, and mTLS. API key is not supported at this time, but is likely to come in a future release.
 
 Below is an example instance of the new subscription custom resource definition:
 
@@ -83,11 +83,11 @@ This resources references:
 * a **plan** called `jwt-plan`, based on the key that uniquely identifies the plan in the `api-v4-jwt` resource
 * an **application** called `oauth-app`, based on its Kubernetes metadata name
 
-One this resource is created, the subscription is considered active. When deleted, the subscription ends. In the future, we'll likely provide an **enabled** boolean flag that lets you easily toggle a subscription on and off without need to delete the resource completely.&#x20;
+One this resource is created, the subscription is considered active. When deleted, the subscription ends. In the future, we'll likely provide an **enabled** boolean flag that lets you easily toggle a subscription on and off without need to delete the resource completely.
 
 For more details on how this works, check out the accompanying release blog post and video that run through a complete example that uses Gravitee Access Management as the identity provider for issuing JWT tokens.
 
-The GKO GitHub repository also includes great [end-to-end guides](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples/usecase) for setting up JWT and mTLS subscriptions without needing an external identity provider.&#x20;
+The GKO GitHub repository also includes great [end-to-end guides](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples/usecase) for setting up JWT and mTLS subscriptions without needing an external identity provider.
 
 ## Other improvements
 
@@ -105,9 +105,7 @@ Failover configuration settings are now supported for PROXY and MESSAGE API type
 
 The `DisplayName` field is no longer part of API exports, ensuring cleaner data handling.
 
-We looking forward to hearing your thoughts on this new release!&#x20;
-
-
+We looking forward to hearing your thoughts on this new release!
 
 **New GKO logging configuration options**
 

@@ -97,7 +97,7 @@ spec:
 ```
 {% endcode %}
 
-### Configure the application resource&#x20;
+### Configure the application resource
 
 * Configure the application resource based on your setup. The client\_Id must match the client ID of the token.
 
@@ -123,10 +123,10 @@ spec:
 
 ### Configuring the subscription resource
 
-For a subscription to be valid, it must have the following elements:&#x20;
+For a subscription to be valid, it must have the following elements:
 
-* Reference a valid API using the APIs name and an optional namespace. If you do not provide a namespace, the namespace of the subscription is used.&#x20;
-* Reference a valid plan key defined in the API.&#x20;
+* Reference a valid API using the APIs name and an optional namespace. If you do not provide a namespace, the namespace of the subscription is used.
+* Reference a valid plan key defined in the API.
 * Reference a valid application and an optional namespace
 
 {% hint style="info" %}
@@ -148,14 +148,14 @@ spec:
   plan: JWT
 ```
 
-### Applying the resource&#x20;
+### Applying the resource
 
 {% hint style="warning" %}
-* Only resources with a management context reference are supported.&#x20;
-* The management context must be configured to your setup. To configure the management context, use the management API URL and credentials.&#x20;
+* Only resources with a management context reference are supported.
+* The management context must be configured to your setup. To configure the management context, use the management API URL and credentials.
 {% endhint %}
 
-To apply the resource, use the following commands:&#x20;
+To apply the resource, use the following commands:
 
 ```
 kubectl apply -f resources/management-context.yml
