@@ -1,6 +1,10 @@
 # Cluster vs namespaced install
 
+<<<<<<< HEAD
 The Gravitee Kubernetes Operator (GKO) can be configured to either listen to resources across an entire cluster, or scoped to a single namespace. The manager.scope.cluster boolean parameter is used to determine which installation method is used by the GKO Helm chart.
+=======
+The Gravitee Kubernetes Operator (GKO) can be configured to either listen to resources across an entire cluster, or scoped to a single namespace. The manager.scope.cluster boolean parameter is used to determine which installation method is used by the GKO Helm chart.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 {% tabs %}
 {% tab title="Cluster Mode" %}
@@ -12,7 +16,15 @@ By default, an APIM Gateway installed using the Helm Chart includes a limited se
 
 An overview of this architecture is described by the diagram below.
 
+<<<<<<< HEAD
+<<<<<<<< HEAD:docs/gko/4.6/getting-started/installation/cluster-vs-namespaced-install.md
 <figure><img src="../../../4.4/.gitbook/assets/k8s cluster mode (1).png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
+========
+<figure><img src="../../.gitbook/assets/k8s cluster mode.png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
+>>>>>>>> parent of 87f43e23 (GitBook: No commit message):docs/gko/4.x/getting-started/installation/cluster-vs-namespaced-install.md
+=======
+<figure><img src="../../.gitbook/assets/k8s cluster mode.png" alt=""><figcaption><p>Default Cluster Mode architecture</p></figcaption></figure>
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 {% endtab %}
 
 {% tab title="Namespaced Mode" %}
@@ -22,6 +34,17 @@ To achieve this architecture, the `manager.scope.cluster` value must be set to `
 
 An overview of this architecture is described by the diagram below.
 
+<<<<<<< HEAD
+<<<<<<<< HEAD:docs/gko/4.6/getting-started/installation/cluster-vs-namespaced-install.md
 <figure><img src="../../../4.4/.gitbook/assets/k8s namespaced mode (1).png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
+========
+<figure><img src="../../.gitbook/assets/k8s namespaced mode.png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
+>>>>>>>> parent of 87f43e23 (GitBook: No commit message):docs/gko/4.x/getting-started/installation/cluster-vs-namespaced-install.md
 {% endtab %}
 {% endtabs %}
+=======
+<figure><img src="../../.gitbook/assets/k8s namespaced mode.png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)

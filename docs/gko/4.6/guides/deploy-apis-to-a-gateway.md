@@ -52,3 +52,7 @@ spec:
 ```
 
 To start the API again, change the `state` property value back to `STARTED`.
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)

@@ -12,7 +12,15 @@ The requirements to achieve this are that:
 
 An example of the architecture enabled by these settings is illustrated by the diagram below.
 
+<<<<<<< HEAD
+<<<<<<<< HEAD:docs/gko/4.6/getting-started/api-storage-and-control-options/use-a-central-apim-repository.md
 <figure><img src="../../../4.4/.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
+========
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
+>>>>>>>> parent of 87f43e23 (GitBook: No commit message):docs/gko/4.x/getting-started/api-storage-and-control-options/use-a-central-apim-repository.md
+=======
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 Next are some detailed examples that illustrate what API definition resources should look like in order to support this deployment style.
 

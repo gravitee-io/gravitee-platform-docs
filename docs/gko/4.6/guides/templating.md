@@ -16,7 +16,11 @@ This guide includes the following topics:
 * [Example of using a Kubernetes secret to inject a GitHub personal access token into an API definition resource](templating.md#pass-a-github-personal-access-token-to-an-api-definition-from-a-secret)
 
 {% hint style="info" %}
+<<<<<<< HEAD
 Templating can only be used with parameters of type `string`.
+=======
+Templating can only be used with parameters of type `string`.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 {% endhint %}
 
 ## Use Kubernetes secrets
@@ -41,7 +45,11 @@ You can create a Kubernetes secret that matches this template with the following
 kubectl create secret generic api-definition-secret --from-literal=api-name=my-api
 ```
 
+<<<<<<< HEAD
 At runtime, when GKO reconciles this API definition, it will execute the templating engine and inject the referenced value.
+=======
+At runtime, when GKO reconciles this API definition, it will execute the templating engine and inject the referenced value.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 ## Use Kubernetes configMaps
 
@@ -65,7 +73,11 @@ You can create a Kubernetes configMap that matches this template with the follow
 kubectl create configmap api-definition-cm --from-literal=api-name=my-api
 ```
 
+<<<<<<< HEAD
 At runtime, when GKO reconciles this API definition, it will execute the templating engine and inject the referenced value.
+=======
+At runtime, when GKO reconciles this API definition, it will execute the templating engine and inject the referenced value.&#x20;
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 ## Pass a GitHub personal access token to an API definition from a secret
 
@@ -119,6 +131,23 @@ k create secret generic http-github-fetcher --from-literal=pat=<YOUR-TOKEN>
 
 Now when you create this API, it will dynamically load the README.md markdown file from the referenced GitHub repository, and add it as a page in your API. You can check in the Gravitee API Management console to make sure it was created successfully. You'll see both the contents of the page (first screenshot) as well as the configuration of the doc fetcher (second screenshot):
 
+<<<<<<< HEAD
+<<<<<<<< HEAD:docs/gko/4.6/guides/templating.md
 <figure><img src="../../4.4/.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+========
+=======
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+
+
+
+<<<<<<< HEAD
+>>>>>>>> parent of 87f43e23 (GitBook: No commit message):docs/gko/4.x/guides/templating.md
 
 <figure><img src="../../4.4/.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+=======
+
+>>>>>>> parent of 87f43e23 (GitBook: No commit message)
