@@ -29,4 +29,4 @@ Under the **Shared API Keys** header you can view the API keys that are shared w
 
 <figure><img src="../../.gitbook/assets/1 shared 1.png" alt=""><figcaption></figcaption></figure>
 
-Click the **x** icon to revoke an API key, or the **Renew** button or renew it.
+Click the **x** icon to revoke an API key, or the **Renew** button to renew it.
