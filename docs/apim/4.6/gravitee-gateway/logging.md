@@ -220,7 +220,6 @@ services:
     enabled: true
     labels:
       - local
-      - remote
       - http_method
       - http_code
       - http_path
