@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.22 - January 31, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Double quote prevent HTTP Provider to authenticate [#10277](https://github.com/gravitee-io/issues/issues/10277)
+
+</details>
+
+
 ## Gravitee Access Management 4.3.21 - January 16, 2025
 
 <details>
