@@ -204,7 +204,8 @@ services:
 ```
 
 {% hint style="info" %}
-By default, the internal component API is bound to `localhost` only and must not be invoked outside `localhost`. To widely expose the API, you may need to set the `services.core.http.host` property to the correct network interface. If you are running the application in a Docker container, set the IP to the IP address of the container. Each change requires a restart.
+* By default, the internal component API is bound to `localhost` only and must not be invoked outside `localhost`. To widely expose the API, you may need to set the `services.core.http.host` property to the correct network interface.&#x20;
+* If you run the application in a Docker container, set the IP address to 0.0.0.0.
 {% endhint %}
 
 ### Configure labels
