@@ -14,7 +14,7 @@ After choosing a plan, a consumer selects an [application](applications/) to use
 
 ## Configuration
 
-From a DevOps perspective, a subscription is a successful contract between an API publisher and an API consumer. A subscription is created when an API consumer uses a registered application to make a subscription request to a published plan and an API publisher either manually or automatically validates the subscription.
+From a configuration perspective, a subscription is a successful contract between an API publisher and an API consumer. A subscription is created when an API consumer uses a registered application to make a subscription request to a published plan and an API publisher either manually or automatically validates the subscription.
 
 {% hint style="info" %}
 **Keyless plan subscriptions**
