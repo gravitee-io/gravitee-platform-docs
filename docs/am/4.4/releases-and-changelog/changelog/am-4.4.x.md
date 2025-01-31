@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.17 - January 31, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* [Backport-4.4] oauth2 response strict mode [#10318](https://github.com/gravitee-io/issues/issues/10318)
+
+
+
+
+
+**Other**
+
+* Double quote prevent HTTP Provider to authenticate [#10277](https://github.com/gravitee-io/issues/issues/10277)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.16 - January 16, 2025
 
 <details>
