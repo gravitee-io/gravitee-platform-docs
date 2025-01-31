@@ -6,6 +6,32 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.19 - January 31, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Repeating Error Eventually Causing Restarts [#10225](https://github.com/gravitee-io/issues/issues/10225)
+
+**Console**
+
+* Missing "Add Member" Button in group settings [#10050](https://github.com/gravitee-io/issues/issues/10050)
+* Application updates remove the picture  [#10302](https://github.com/gravitee-io/issues/issues/10302)
+
+**Portal**
+
+* Subscribing to an API with general condition page when creating an application returns a 404 [#10103](https://github.com/gravitee-io/issues/issues/10103)
+
+**Helm Charts**
+
+* Repeating Error Eventually Causing Restarts [#10225](https://github.com/gravitee-io/issues/issues/10225)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.18 - January 24, 2025
 <details>
 
