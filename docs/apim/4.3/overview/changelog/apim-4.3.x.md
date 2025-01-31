@@ -6,6 +6,24 @@ description: >-
 
 # APIM 4.3.x
  
+## Gravitee API Management 4.3.23 - January 31, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Console**
+
+* Missing "Add Member" Button in group settings [#10050](https://github.com/gravitee-io/issues/issues/10050)
+* Application updates remove the picture  [#10302](https://github.com/gravitee-io/issues/issues/10302)
+
+**Portal**
+
+* Subscribing to an API with general condition page when creating an application returns a 404 [#10103](https://github.com/gravitee-io/issues/issues/10103)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.3.22 - January 24, 2025
 <details>
 
