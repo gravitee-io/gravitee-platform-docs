@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.8 - January 31, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* GIS reference not removed from session with prompt=login [#10292](https://github.com/gravitee-io/issues/issues/10292)
+
+
+
+
+
+**Other**
+
+* Double quote prevent HTTP Provider to authenticate [#10277](https://github.com/gravitee-io/issues/issues/10277)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.7 - January 16, 2025
 
 <details>
