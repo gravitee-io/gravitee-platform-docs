@@ -12,10 +12,10 @@ Gravitee supports the following Kafka policies, which can be applied to Kafka AP
 
 The request and response of a Kafka API transaction are broken up into the following phases:
 
-* **Connect:** Policies will be applied when the client connects to the Gateway.
-* **Interact:** Policies will be applied on all interactions between the client and the Gateway.
-* **Publish:** Policies will be applied when publishing messages.
-* **Subscribe:** Policies will be applied when fetching messages.
+* **Connect:** Policies are executed after plan selection and authentication on the Gateway, but before the client connects to the upstream broker.&#x20;
+* **Interact:** Policies with a global scope (e.g., topic mapping) are executed on all interactions between the client and the Gateway.&#x20;
+* **Publish:** Specific policies acting at the message level are applied to each produced record.
+* **Subscribe:** Specific policies acting at the message level are applied to each fetched record.
 
 Which Kafka policies can be applied to each phase is summarized below:
 
