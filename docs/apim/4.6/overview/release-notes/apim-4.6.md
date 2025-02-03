@@ -7,7 +7,7 @@ In addition to the Kafka Gateway, we’re excited to release the following featu
 * The ability to use secrets managers in API-level configurations to extract sensitive information from APIs and retrieve the values at runtime.
 * An OpenTelemetry plugin to retrieve detailed runtime tracing data for both proxy and message APIs.
 * Error notifications and retries with exponential backoff for the Webhook entrypoint.
-* A [new policy](../../kafka-gateway/policies/) to transform status codes for proxy APIs, and the ability to transform the status codes for message APIs via the HTTP POST or GET entrypoint.
+* A [Status Code Transformation policy](../../policies/status-code-transformation.md) to transform status codes for proxy APIs, and the status codes for message APIs via the HTTP POST or GET entrypoint.
 * The addition of the category column in the API list.
 * A Management API endpoint to delete portal media.
 * Improvements to API Score (tech preview).

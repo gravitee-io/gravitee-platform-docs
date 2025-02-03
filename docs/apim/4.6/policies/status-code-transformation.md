@@ -93,8 +93,7 @@ The `status-code` policy does not generate errors on its own. It operates silent
 
 ### Changelog <a href="#user-content-changelog" id="user-content-changelog"></a>
 
-* **Version 1.0.0**:
-* Initial release of the Status Code Transformation Policy.
+* **Version 1.0.0:** Initial release of the Status Code Transformation Policy.
 
 ### License <a href="#user-content-license" id="user-content-license"></a>
 
