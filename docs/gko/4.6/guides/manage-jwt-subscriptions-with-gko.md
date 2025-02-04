@@ -167,7 +167,7 @@ kubectl apply -f resources/subscription.yml
 
 ### Retrieving a token
 
-Forge a toke using the JWT debugger. For more information about the JWT debugger, go to [jwt.io](https://jwt.io/).
+Forge a token using the JWT debugger. For more information about the JWT debugger, go to [jwt.io](https://jwt.io/).
 
 Set the algorithm to `RS256` and sign your token with the provided keys and the following claims:
 
