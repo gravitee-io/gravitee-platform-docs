@@ -2,11 +2,8 @@
 
 The Gravitee Gateway can load API definitions from two places:
 
-<<<<<<< HEAD
 1. The Gateway can load APIs from a central repository (e.g. APIM's MongoDB database). This is the classic approach used for Gravitee API Management.
-=======
-1. The Gateway can load APIs from a central repository (e.g. APIM's MongoDB database). This is the classic approach used for Gravitee API Management.&#x20;
->>>>>>> parent of 87f43e23 (GitBook: No commit message)
+
 2. The Gateway can load APIs from Kubernetes ConfigMaps local to the cluster on which the Gateway is running. These ConfigMaps are managed by GKO.
 
 The default behaviour is for the gateway to load its API definitions from a central repository, as described in option 1 above. This is the most common approach used, as described in the [Example Architecture](../../overview/example-architecture.md).
@@ -29,10 +26,6 @@ To load APIs from local ConfigMAps, in the Gateway's configuration, ensure that 
       ```
       {% endcode %}
 
-<<<<<<< HEAD
 The Gateway can be configured to both load APIs from a central repository as well as from local ConfigMaps. This means that some API definitions can come from the APIM Console, and others from the Gravitee Kubernetes Operator.
-=======
-The Gateway can be configured to both load APIs from a central repository as well as from local ConfigMaps. This means that some API definitions can come from the APIM Console, and others from the Gravitee Kubernetes Operator.&#x20;
->>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 For the Operator to create APIs as local ConfigMaps, the ApiV4Definition and ApiDefinition resources need to be configured accordingly, as is described [on this page](store-apis-in-local-configmaps.md).
