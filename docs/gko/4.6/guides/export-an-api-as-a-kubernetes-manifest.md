@@ -28,13 +28,6 @@ You will then be prompted to save your API definition yaml Kubernetes manifest t
 
 ## Exporting from the management API
 
-The APIM management API provides an export endpoint that allows you to export an API as an API Definition resource.
-=======
-
-You will then be prompted to save your API definition yaml Kubernetes manifest to disk.&#x20;
-
-## Exporting from the management API
-
 The APIM management API  provides an export endpoint that allows you to export an API as an API Definition resource.
 
 This allows you to easily create an API Definition from a given environment by calling the endpoint and piping the result to a `kubectl` command. For example:
