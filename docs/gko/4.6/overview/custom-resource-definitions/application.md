@@ -7,15 +7,10 @@ The `Application` custom resource represents the configuration for a Gravitee ap
 Gravitee applications fall into two main categories:
 
 * **Simple applications:** these are entirely managed and self-contained within Gravitee
-<<<<<<< HEAD
+
 * **Web, SPA, Native, and Backend-to-backend applications:** also know as OAuth applications, or OAuth clients, these can only be created if you have activated Dynamic Client Registration in APIM. This way, Gravitee will refer to an external Identity provider (such as Gravitee Access Management, Keycloak or Ping Federate) to request creation of the application. Gravitee will receive the application's client Id and client secret in response. This allows you to setup OAuth and JWT authentication patterns that involve coordinate across the application, gateway, and authorization server.
 
 ## Simple applications
-=======
-* **Web, SPA, Native, and Backend-to-backend applications:** also know as OAuth applications, or OAuth clients, these can only be created if you have activated Dynamic Client Registration in APIM. This way, Gravitee will refer to an external Identity provider (such as Gravitee Access Management, Keycloak or Ping Federate) to request creation of the application. Gravitee will receive the application's client Id and client secret in response. This allows you to setup OAuth and JWT authentication patterns that involve coordinate across the application, gateway, and authorization server.&#x20;
-
-## Simple applications&#x20;
->>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 The example below shows a simple `Application` custom resource definition:
 
