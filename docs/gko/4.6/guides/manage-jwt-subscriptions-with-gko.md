@@ -17,7 +17,7 @@ This guide takes you step-by-step through managing JWT subscriptions with GKO. I
 
 ## Procedure
 
-To set up a subscription, complete the following steps:&#x20;
+To set up a subscription, complete the following steps:
 
 * [#generate-a-public-key](manage-jwt-subscriptions-with-gko.md#generate-a-public-key "mention")
 * [#store-the-public-key](manage-jwt-subscriptions-with-gko.md#store-the-public-key "mention")
@@ -38,7 +38,7 @@ openssl rsa -in jwt-demo.key -pubout -outform PEM -out pki/public.key
 
 ### Store the public key
 
-Store the public key in a secret using the following command:&#x20;
+Store the public key in a secret using the following command:
 
 ```
 kubectl create secret generic jwt --from-file=pki/public.key --dry-run=client -o yaml > resources/jwt-key.yml
@@ -127,7 +127,7 @@ For a subscription to be valid, it must have the following elements:
 
 * Reference a valid API using the APIs name and an optional namespace. If you do not provide a namespace, the namespace of the subscription is used.
 * Reference a valid plan key defined in the API.
-* Reference a valid application and an optional namespace
+* Reference a valid application and an optional namespace.
 
 {% hint style="info" %}
 If your API reference point to a v2 API, you must add the `kind` property with the `ApiDefinition` value to your API reference.
