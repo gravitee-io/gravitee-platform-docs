@@ -1,10 +1,6 @@
 # ApiDefinition
 
-<<<<<<< HEAD
 The `ApiDefinition` custom resource represents the configuration for a v2 API on the Gravitee gateway. GKO also supports the more recent [v4 API definition](apiv4definition.md) with its own CRD.
-=======
-The `ApiDefinition` custom resource represents the configuration for a v2 API on the Gravitee gateway. GKO also supports the more recent [v4 API definition](apiv4definition.md) with its own CRD.&#x20;
->>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 ## Create an `ApiDefinition`
 
