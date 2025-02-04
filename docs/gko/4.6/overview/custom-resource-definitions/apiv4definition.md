@@ -1,10 +1,10 @@
 # ApiV4Definition
 
-The `ApiV4Definition` custom resource represents the configuration for a v4 API on the Gravitee gateway. V4 APIs are the latest version of the Gravitee API definition which supports both synchronous and asynchronous APIs. GKO also supports the previous [v2 API definition](apidefinition.md) with a dedicated CRD.
+The `ApiV4Definition` custom resource represents the configuration for a v4 API on the Gravitee Gateway. v4 APIs are created from the latest version of the Gravitee API definition, which supports both synchronous and asynchronous APIs. GKO also supports the previous [v2 API definition](apidefinition.md) with a dedicated CRD.
 
 ## Creating an `ApiV4Definition`
 
-You can create the following types of a `ApiV4Definition` :
+You can create the following types of `ApiV4Definition` :
 
 * Proxy
 * Message
@@ -12,7 +12,7 @@ You can create the following types of a `ApiV4Definition` :
 
 ### Proxy
 
-With the Proxy `ApiV4Definition`, the definition accepts HTTP and TCP services. Fore example, REST API, SOAP service, and Websocket server. Those requests pass through the Gravitee gateway to a REST endpoint, which applies policies and plans that you have for the requests, and then returns the response.
+The Proxy `ApiV4Definition` accepts HTTP and TCP services such as REST APIs, SOAP, and WebSocket. Requests pass through the Gravitee Gateway to a REST endpoint, which applies your policies and plans to a request and then returns the response.
 
 The following example shows a Proxy `ApiV4Definition` custom resource definition:
 
@@ -62,7 +62,7 @@ spec:
 
 ### Message
 
-With the Message `ApiV4Definition`, the definition accepts HTTP and TCP requests. When the request passes through the Gateway, the Gateway sends the request to a Message endpoint. For example, Kafka or Solace. The Gateway returns the response corresponding to the endpoint that it was sent to.
+The Message `ApiV4Definition` accepts HTTP and TCP requests. When the request passes through the Gateway, the Gateway sends the request to a Message endpoint, such as Kafka or Solace, and then returns the response.
 
 The following example shows a Proxy `ApiV4Definition` custom resource definition:
 
@@ -139,11 +139,11 @@ spec:
 
 ```
 
-### Kafka native
+### Kafka Native
 
-With the Kafka Native `APIV4Definition`, The Gravitee Gateway acts like a Kafka server, which you can connect to using a any Kafka-client. After you send a Kafka request, the Gateway applies your policies and plans, connects to your upstream Kafka server, and then returns the response in the protocol that you requested.
+With the Kafka Native `APIV4Definition`, the Gravitee Gateway acts like a Kafka server, which you can connect to using a any Kafka client. After you send a Kafka request, the Gateway applies your policies and plans, connects to your upstream Kafka server, and then returns the response in the protocol that you requested.
 
-The following example shows a Proxy `ApiV4Definition` custom resource definition:
+The following example shows a Kafka Native `ApiV4Definition` custom resource definition:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -203,14 +203,15 @@ The following workflow is applied when a new `ApiV4Definition` resource is added
 4. The GKO compares the definition to the existing definition. If something has changed, the GKO pushes the definition to the Management API (if a `ManagementContext` resource is provided).
 5. The GKO deploys the API to the API Gateway.
 
-The `ApiV4Definition` resource has a `Processing Status` field that makes it possible to view the status of the resource in the cluster. The following `Processing Status` field values are possible:
+The `ApiV4Definition` resource has a `Processing Status` field used to view the status of the resource in the cluster. The following `Processing Status` field values are possible:
 
 <table><thead><tr><th width="143.5">Status</th><th>Description</th></tr></thead><tbody><tr><td>[None]</td><td>The API definition has been created but not yet processed.</td></tr><tr><td>Completed</td><td>The API definition has been created or updated successfully.</td></tr><tr><td>Reconciling</td><td>The operator has encountered a recoverable error. A retry will be performed every 5 seconds until the cluster retry limit is reached.</td></tr><tr><td>Failed</td><td>The operator has encountered an unrecoverable error. These are errors that require manual action to correct. No retry will be performed.</td></tr></tbody></table>
 
-
 Events are added to the resource as part of each action performed by the operator.
 
-For more information:
+{% hint style="info" %}
+**For more information**
 
 * The `ApiV4Definition` and `ApiDefinition` CRDs are available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/helm/gko/crds).
 * The `ApiV4Definition` and `ApiDefinition` CRD API references are documented [here](../../reference/api-reference.md).
+{% endhint %}

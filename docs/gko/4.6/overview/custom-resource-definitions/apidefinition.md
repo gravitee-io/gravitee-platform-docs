@@ -1,6 +1,6 @@
 # ApiDefinition
 
-The `ApiDefinition` custom resource represents the configuration for a v2 API on the Gravitee gateway. GKO also supports the more recent [v4 API definition](apiv4definition.md) with its own CRD.
+The `ApiDefinition` custom resource represents the configuration for a v2 API on the Gravitee Gateway. GKO also supports the more recent [v4 API definition](apiv4definition.md) with its own CRD.
 
 ## Create an `ApiDefinition`
 
@@ -76,7 +76,7 @@ The following workflow is applied when a new `ApiV4Definition` resource is added
 4. The GKO compares the definition to the existing definition. If something has changed, the GKO pushes the definition to the Management API (if a `ManagementContext` resource is provided).
 5. The GKO deploys the API to the API Gateway.
 
-The `ApiDefinition` resource has a `Processing Status` field that makes it possible to view the status of the resource in the cluster. The following `Processing Status` field values are possible:
+The `ApiDefinition` resource has a `Processing Status` field used to view the status of the resource in the cluster. The following `Processing Status` field values are possible:
 
 <table><thead><tr><th width="143.5">Status</th><th>Description</th></tr></thead><tbody><tr><td>[None]</td><td>The API definition has been created but not yet processed.</td></tr><tr><td>Completed</td><td>The API definition has been created or updated successfully.</td></tr><tr><td>Reconciling</td><td>The operator has encountered a recoverable error. A retry will be performed every 5 seconds until the cluster retry limit is reached.</td></tr><tr><td>Failed</td><td>The operator has encountered an unrecoverable error. These are errors that require manual action to correct. No retry will be performed.</td></tr></tbody></table>
 
@@ -86,7 +86,7 @@ Events are added to the resource as part of each action performed by the operato
 kubectl describe -n gravitee apidefinitions.gravitee.io basic-api-example
 ```
 
-Example output is shown below:
+Example output:
 
 ```bash
 Name:         basic-api-example
@@ -102,7 +102,7 @@ Events:
 
 ## Deleting your API
 
-The following executes a simple deletion of the API definition:
+The following command executes a simple deletion of the API definition:
 
 ```sh
 kubectl -n gravitee delete apidefinitions.gravitee.io basic-api-example
@@ -110,7 +110,9 @@ kubectl -n gravitee delete apidefinitions.gravitee.io basic-api-example
 
 The potential dependency of an `ApiDefinition` resource on a `ManagementContext` resource places restrictions on resource deletion. First, a check must be performed to determine whether there is an API associated with the particular `ManagementContext` resource. This check is conducted via [Finalizers](https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/).
 
-For more information:
+{% hint style="info" %}
+**For more information**
 
 * The `ApiV4Definition` and `ApiDefinition` CRDs are available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/helm/gko/crds).
 * The `ApiV4Definition` and `ApiDefinition` CRD API references are documented [here](../../reference/api-reference.md).
+{% endhint %}

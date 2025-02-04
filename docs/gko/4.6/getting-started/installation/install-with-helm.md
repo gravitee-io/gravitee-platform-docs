@@ -2,7 +2,7 @@
 
 ## Overview
 
-Helm is the preferred method for installing the operator.
+Helm is the preferred method for installing the Gravitee Kubernetes Operator.
 
 {% hint style="warning" %}
 Existing Gravitee Helm Charts do not support the creation of a TCP server on the Gateway. User customization of the Helm Charts is required for TCP proxy APIs.
@@ -10,7 +10,7 @@ Existing Gravitee Helm Charts do not support the creation of a TCP server on the
 
 ## Installation
 
-The steps to install the GKO on an existing Kubernetes cluster are described below. The Helm Chart is released with each new version of the operator, meaning that upgrading to the latest version consists of upgrading your Helm repository and Helm releases.
+The steps to install the GKO on an existing Kubernetes cluster are described below. The GKO Helm Chart is released with each new version of the operator, meaning that upgrading to the latest version consists of upgrading your Helm repository and Helm releases.
 
 ### Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
@@ -32,7 +32,7 @@ The steps to install the GKO on an existing Kubernetes cluster are described bel
 
 ## Upgrading the Operator <a href="#upgrading-the-operator" id="upgrading-the-operator"></a>
 
-Assuming that the repository has been aliased as `graviteeio` and that the release name is `graviteeio-gko`:
+The following commands assume that the repository has been aliased as `graviteeio` and that the release name is `graviteeio-gko`:
 
 ```bash
 $ helm repo update graviteeio
@@ -41,7 +41,7 @@ $ helm upgrade --install graviteeio-gko graviteeio/gko
 
 ## Configuration parameters <a href="#configuration-parameters" id="configuration-parameters"></a>
 
-The Gravitee Kubernetes Operator Helm Chart supports configuration of the following:
+The Gravitee Kubernetes Operator Helm Chart supports the configuration of the following:
 
 * [RBAC](install-with-helm.md#rbac)
 * [RBAC Proxy](install-with-helm.md#rbac-proxy)
@@ -70,7 +70,7 @@ If this is disabled, the Prometheus metrics endpoint will be exposed with no acc
 {% endtab %}
 
 {% tab title="Controller Manager" %}
-Use these parameters to configure the deployment and the ways in which the operator will interact with APIM and custom resources in your cluster.
+Use these parameters to configure the deployment, and the ways in which the operator will interact with APIM and custom resources in your cluster.
 
 | Name                                        | Description                                                                                  | Value                            |
 | ------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------- |
@@ -91,14 +91,14 @@ Use these parameters to configure the deployment and the ways in which the opera
 {% tab title="Ingress" %}
 Use the following parameters to configure the behavior of the ingress controller.
 
+<table><thead><tr><th width="229">Name</th><th width="271">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>ingress.templates.404.name</code></td><td>Name of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr><tr><td><code>ingress.templates.404.namespace</code></td><td>Namespace of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr></tbody></table>
+
 When storing templates in ConfigMaps, the ConfigMap should contain a `content` key and a `contentType` key, for example:
 
 ```yaml
 content: '{ "message": "Not Found" }'
 contentType: application/json
 ```
-
-<table><thead><tr><th width="229">Name</th><th width="271">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>ingress.templates.404.name</code></td><td>Name of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr><tr><td><code>ingress.templates.404.namespace</code></td><td>Namespace of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
 

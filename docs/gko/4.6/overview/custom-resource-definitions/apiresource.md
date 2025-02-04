@@ -1,10 +1,10 @@
 # ApiResource
 
-Resources are objects that allow you to define pointers to external resources such as authentication providers and caches that can then be referenced from an API definition's policies. Learn more about Gravitee resources in the [APIM user guide](https://documentation.gravitee.io/apim/guides/api-configuration/resources#resource-descriptions).
+Resources are objects that allow you to define pointers to external resources, such as authentication providers and caches, that can then be referenced from an API definition's policies. Learn more about Gravitee resources in the [APIM user guide](https://documentation.gravitee.io/apim/guides/api-configuration/resources#resource-descriptions).
 
 ## Create a reusable API resource
 
-You can use GKO to create reusable API resources such as caches or authentication providers once, then reuse them resources in multiple APIs. Subsequent updates to a shared resource will be automatically propagated to all APIs that reference that resource.
+You can use GKO to create API resources, such as caches or authentication providers, that can be reused in other APIs. Updates to a shared resource are automatically propagated to all APIs that reference that resource.
 
 Below is an example of an `ApiResource` cache resource:
 
@@ -24,7 +24,7 @@ spec:
       maxEntriesLocalHeap: 1000
 ```
 
-This other example shows a Redis cache resource:
+The following example shows a Redis cache resource:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -103,7 +103,7 @@ spec:
     enabled: true
 ```
 
-Resources can also be defined inline in API definitions. The following API reuses the `reusable-resource-cache-redis` resource defined above and defines an in-memory authentication provider inline:
+Resources can also be defined inline in API definitions. The following API reuses the `reusable-resource-cache-redis` resource defined above and defines an in-memory authentication provider resource inline:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -138,5 +138,5 @@ spec:
 ```
 
 {% hint style="info" %}
-If a resource defined inline contains a reference to a reusable resource (using the `ref` property), the reusable resource will take precedence over the inline configuration.
+If a resource defined inline contains a reference to a reusable resource (via the `ref` property), the reusable resource will take precedence over the inline configuration.
 {% endhint %}

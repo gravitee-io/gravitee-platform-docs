@@ -6,95 +6,101 @@ description: Connect GKO to your APIM installation
 
 ## Overview
 
-The `ManagementContext` custom resource is used to provide Gravitee Kubernetes Operator (GKO) with a method to connect to Gravitee API Management (APIM) through the management API. GKO uses the ManagementContext's parameters and credentials to communicate with a specific organization and environment in APIM. GKO uses this connection to complete the following actions:
+The `ManagementContext` custom resource is used to provide Gravitee Kubernetes Operator (GKO) with a method to connect to Gravitee API Management (APIM) through the Management API. GKO uses the management context's parameters and credentials to communicate with a specific organization and environment in APIM. GKO then uses this connection to complete the following actions:
 
-* To push API definitions managed by GKO to APIM for display in the API management console.
-* To push API definitions managed by GKO to APIM to be deployed on API Gateways or Gateway Bridge server that are configured to load their APIs from APIM's central database
-* To push API definitions managed by GKO to be published on the Gravitee Developer Portal
-* To push Applications managed by GKO to APIM
+* Push API definitions managed by GKO to APIM for display in the API Management Console
+* Push API definitions managed by GKO to APIM to be deployed on API Gateways or Gateway Bridge servers that are configured to load their APIs from APIM's central database
+* Push API definitions managed by GKO to be published on the Gravitee Developer Portal
+* Push Applications managed by GKO to APIM
 
-You can have any number of `ManagementContext` resources each pointing to different Gravitee API Management organizations and environments.
+You can have any number of `ManagementContext` resources, each pointing to different Gravitee API Management organizations and environments.
 
-ManagementContexts are referenced by name from `ApiV4Definitions`, `ApiDefinitions`, and `Applications`. This is how GKO knows with which APIM environment each of these resources should be synchronized.
+Management contexts are referenced by name from `ApiV4Definitions`, `ApiDefinitions`, and `Applications`. This is how GKO knows with which APIM environment each of these resources should be synchronized.
 
-The key parts of an management context are:
+The key parts of a management context are:
 
-* **baseURL:** this is the APIM management API's location
-* **environmentId**: the ID of the target environment
-* **organizationId**: the ID of the target organization
-* **auth**: the credentials GKO should use to authentication with the APIM management API
+* **baseURL:** The location of the APIM Management API
+* **environmentId**: The ID of the target environment
+* **organizationId**: The ID of the target organization
+* **auth**: The credentials GKO should use to authenticate with the APIM Management API
 
 ## Management context authentication
 
-In order for GKO to connect to your APIM control plane, it will need to authenticate itself against the APIM management API.
+For GKO to connect to your APIM control plane, it needs to authenticate itself against the APIM Management API.
 
-A Management Context custom resource can authenticate to your Management API instance in a few different ways: 
+A `ManagementContext` custom resource can authenticate to your Management API instance in a few different ways:
 
-* using a service account token (recommended)
-* using a user token
-* basic authentication with a user's personal credentials (username & password)
-* using a cloud token
+* Using a service account token (recommended)
+* Using a user token
+* Basic authentication with a user's personal credentials (username & password)
+* Using a cloud token
 
-Head to [this guide](../../guides/define-an-apim-service-account-for-gko.md) to learn how to create a dedicated service account and token for GKO.
+Refer to [this guide](../../guides/define-an-apim-service-account-for-gko.md) to learn how to create a dedicated service account and token for GKO.
 
 {% hint style="info" %}
 If both credentials and a bearer token are defined in your custom resource, the bearer token will take precedence.
 {% endhint %}
 
-Authentication credentials may either be added inline in the Management Context CRD or referenced from a Kubernetes Secret.
+Authentication credentials may either be added inline in the `ManagementContext` CRD or referenced from a Kubernetes Secret.
 
-## Create a Management Context
+## Create a `ManagementContext`
 
-The custom resource created in the following example below refers to a Management API instance exposed at `https://gravitee-api.acme.com`. It targets the `dev` environment of the `acme` organization using the `admin` account and basic authentication credentials defined in a Kubernetes Secret. To create this custom resource, complete the following steps:
+The custom resource created in the following example refers to a Management API instance exposed at `https://gravitee-api.acme.com`. It targets the `dev` environment of the `acme` organization, using the `admin` account and basic authentication credentials defined in a Kubernetes Secret. To create this custom resource, complete the following steps:
 
-1. Create a Secret to store the credentials:
+1.  Create a Secret to store the credentials:\
 
-```sh
-kubectl create secret generic management-context-credentials \
-  --from-literal=username=admin \
-  --from-literal=password=admin \
-  --namespace gravitee
-```
 
-2. Define a Management Context custom resource using either of the following methods:
+    ```sh
+    kubectl create secret generic management-context-credentials \
+      --from-literal=username=admin \
+      --from-literal=password=admin \
+      --namespace gravitee
+    ```
 
-a. Define a Management Context custom resource referencing the Secret:
 
-```yaml
-apiVersion: gravitee.io/v1alpha1
-kind: ManagementContext
-metadata:
-  name: dev-ctx
-  namespace: gravitee
-spec:
-  baseUrl: https://gravitee-api.acme.com
-  environmentId: dev
-  organizationId: acme
-  auth:
-    secretRef:
-      name: management-context-credentials
-```
+2. Define a `ManagementContext` custom resource using either of the following methods:
+   1.  Define a `ManagementContext` custom resource referencing the Secret:\
 
-b. If you are using the cloud token for authentication, you must define the Management Context custom resource referencing the Secret with the `cloud` property.
 
-```yaml
-apiVersion: gravitee.io/v1alpha1
-kind: ManagementContext
-metadata:
-  name: dev-ctx
-spec:
-  cloud:
-    secretRef:
-      name: apim-context-bearer-token
-```
+       ```yaml
+       apiVersion: gravitee.io/v1alpha1
+       kind: ManagementContext
+       metadata:
+         name: dev-ctx
+         namespace: gravitee
+       spec:
+         baseUrl: https://gravitee-api.acme.com
+         environmentId: dev
+         organizationId: acme
+         auth:
+           secretRef:
+             name: management-context-credentials
+       ```
 
-If no namespace has been specified for the Secret reference, the Management Context resource namespace is used to resolve the Secret.
+
+   2.  If you are using the cloud token for authentication, you must use the `cloud` property to define the `ManagementContext` custom resource referencing the Secret:\
+
+
+       ```yaml
+       apiVersion: gravitee.io/v1alpha1
+       kind: ManagementContext
+       metadata:
+         name: dev-ctx
+       spec:
+         cloud:
+           secretRef:
+             name: apim-context-bearer-token
+       ```
+
+If no namespace has been specified for the Secret reference, the `ManagementContext` resource namespace is used to resolve the Secret.
 
 {% hint style="info" %}
-To target another environment on the same API instance, add and configure another Management Context resource.
+To target another environment on the same API instance, add and configure another `ManagementContext` resource.
 {% endhint %}
 
-Although Kubernetes Secrets should be the preferred way to store credentials, you can also add credentials inline in the Management Context custom resource definition:
+### Storing credentials
+
+Although Kubernetes Secrets are the preferred way to store credentials, you can also add credentials inline in the `ManagementContext` custom resource definition:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -112,7 +118,7 @@ spec:
       password: admin
 ```
 
-The example below uses a `bearerToken` to authenticate the requests. Note that the token must have been generated for the account beforehand, as described [here](../../guides/define-an-apim-service-account-for-gko.md):
+The example below uses a `bearerToken` to authenticate requests. Note that the token must have been generated for the account beforehand, as described [here](../../guides/define-an-apim-service-account-for-gko.md).
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -128,7 +134,7 @@ spec:
     bearerToken: xxxx-yyyy-zzzz
 ```
 
-Alternatively, here is how to use a Kubernetes secret to store the token:
+Alternatively, here is how to use a Kubernetes Secret to store the token:
 
 ```sh
 kubectl create secret generic management-context-credentials \
@@ -151,9 +157,9 @@ spec:
       name: management-context-credentials
 ```
 
-## Reference a Management Context from an API or Application
+## Reference a `ManagementContext` from an API or Application
 
-`ApiV4Definition`, `ApiDefinition`, and `Application` CRDs use the same syntax to reference a ManagementContext, which is to include a contextRef attribute at the root of the spec:
+`ApiV4Definition`, `ApiDefinition`, and `Application` CRDs use the same syntax to reference a `ManagementContext`, which includes a `contextRef` attribute at the root of the spec:
 
 ```yaml
 spec:
@@ -162,7 +168,7 @@ spec:
     namespace: gravitee
 ```
 
-Below is a complete example of an ApiV4Definition that references a ManagementContext called `dev-ctx`.
+Below is a complete example of an `ApiV4Definition` that references a `ManagementContext` called `dev-ctx`:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -219,7 +225,9 @@ By default, the service account created for the Gateway does not have a cluster 
 Alternatively, you can configure the [Helm Chart](../../getting-started/installation/) to use a cluster role.
 {% endhint %}
 
-For more information:
+{% hint style="info" %}
+**For more information**
 
 * The `ManagementContext` CRD code is available on [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/api/v1alpha1/managementcontext_types.go).
 * The `ManagementContext` CRD API reference is documented [here](../../reference/api-reference.md).
+{% endhint %}
