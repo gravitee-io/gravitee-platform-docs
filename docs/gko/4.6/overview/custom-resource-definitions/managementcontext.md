@@ -28,11 +28,7 @@ The key parts of an management context are:
 
 In order for GKO to connect to your APIM control plane, it will need to authenticate itself against the APIM management API.
 
-<<<<<<< HEAD
-A Management Context custom resource can authenticate to your Management API instance in a few different ways:
-=======
-A Management Context custom resource can authenticate to your Management API instance in a few different ways: &#x20;
->>>>>>> parent of 87f43e23 (GitBook: No commit message)
+A Management Context custom resource can authenticate to your Management API instance in a few different ways: 
 
 * using a service account token (recommended)
 * using a user token
@@ -62,11 +58,7 @@ kubectl create secret generic management-context-credentials \
 
 2. Define a Management Context custom resource using either of the following methods:
 
-<<<<<<< HEAD
 a. Define a Management Context custom resource referencing the Secret:
-=======
-&#x20;  a. Define a Management Context custom resource referencing the Secret:
->>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -83,11 +75,7 @@ spec:
       name: management-context-credentials
 ```
 
-<<<<<<< HEAD
 b. If you are using the cloud token for authentication, you must define the Management Context custom resource referencing the Secret with the `cloud` property.
-=======
-&#x20;  b. If you are using the cloud token for authentication, you must define the Management Context custom resource referencing the Secret with the `cloud` property.
->>>>>>> parent of 87f43e23 (GitBook: No commit message)
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
