@@ -1,5 +1,15 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.8 - February 5, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Management context secret resolution fails when API is in another namespace [#10315](https://github.com/gravitee-io/issues/issues/10315)
+  * GKO Helm chart causes Argo CD reconciliation loop [#10306](https://github.com/gravitee-io/issues/issues/10306)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.7 - January 27, 2025
     
 <details>
