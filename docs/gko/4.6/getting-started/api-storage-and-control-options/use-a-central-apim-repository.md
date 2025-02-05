@@ -1,22 +1,20 @@
 # Use a central APIM repository
 
-The Gravitee platform can be set up such that GKO and the Gateway use the APIM repository (e.g. MongoDB database) as the source of configuration to which GKO sends APIs and deployment events (start/stop), and from which the API Gateway loads APIs and deployment events.
+The Gravitee platform can use the APIM repository (e.g., MongoDB database) to configure both GKO and the Gateway. In this setup, GKO sends APIs and deployment events (start/stop) to the repository, and the API Gateway loads APIs and deployment events from the repository.
 
-Having a central control plane in this way allows for flexible architectures, such as having multiple data planes running Gateways on different Kubernetes clusters, cloud platforms, or virtual machines, all loading their configuration from this central repository.
+A central control plane like this enables flexible architectures. For example, multiple data planes can run Gateways on different Kubernetes clusters, cloud platforms, or virtual machines, with all of them loading their configurations from this central repository.
 
-The requirements to achieve this are that:
+To achieve this requires that:
 
-* An APIM instance is required to act as a source of truth for the Gateways
-* The operator will synchronize API definitions that it manages with APIM, rather than creating local API definitions in ConfigMaps. This is achieved by setting the `local` flag of the API definition to `false` (default is `true`).
-* The API definition and Application CRDs must reference a Management Context that points to the APIM instance
+* An APIM instance acts as the source of truth for the Gateways.
+* The operator synchronizes the API definitions that it manages with APIM, rather than creating local API definitions in ConfigMaps. This is achieved by setting the `local` flag of the API definition to `false` (default is `true`).
+* The API definition and application CRDs reference a management context that points to the APIM instance.
 
 An example of the architecture enabled by these settings is illustrated by the diagram below.
 
-
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>One operator, multiple clusters/regions</p></figcaption></figure>
 
-
-Next are some detailed examples that illustrate what API definition resources should look like in order to support this deployment style.
+Below are some detailed examples that illustrate what API definition resources should look like to support this deployment style.
 
 ## ApiV4Definition example
 
@@ -40,9 +38,9 @@ spec:
   # [...]
 ```
 
-The **contextRef** attribute is pointing to a ManagementContext so that GKO knows which APIM instance to synchronize with.
+The `contextRef` attribute points to a `ManagementContext` so that GKO knows with which APIM instance to synchronize.
 
-The **definitionContext.syncFrom** attribute is set to `MANAGEMENT` (default is `KUBERNETES`) which tells GKO that this API will be entirely synced with the central APIM repository (both for API configuration as well as deployment events), and that the API should not be stored in a local ConfigMap.
+The `definitionContext.syncFrom` attribute is set to `MANAGEMENT` (default is `KUBERNETES`), which tells GKO that this API will be entirely synced with the central APIM repository (both for API configuration as well as deployment events), and that the API should not be stored in a local ConfigMap.
 
 ## ApiDefinition example
 
@@ -61,6 +59,6 @@ spec:
   # [...]
 ```
 
-Like with `ApiV4Definitions`, the **contextRef** attribute is pointing to a ManagementContext so that GKO knows which APIM instance to synchronize with.
+Like with `ApiV4Definitions`, the `contextRef` attribute points to a `ManagementContext` so that GKO knows with which APIM instance to synchronize.
 
-However the syntax for telling GKO whether or not to store APIs and deployment events in local ConfigMaps is different for `ApiDefinition`, which uses a boolean attribute called **local**. When set to `false` (default is `true`), it tells GKO not to use local ConfigMaps and instead to sync this API entirely with the APIM instance referenced from the ManagementContext.
+However, the `ApiDefinition` syntax for telling GKO whether or not to store APIs and deployment events in local ConfigMaps uses a boolean attribute called `local`. When set to `false` (default is `true`), it tells GKO not to use local ConfigMaps, and to instead sync this API entirely with the APIM instance referenced from the `ManagementContext`.
