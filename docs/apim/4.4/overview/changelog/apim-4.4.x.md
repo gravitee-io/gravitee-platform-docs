@@ -5,8 +5,9 @@ description: >-
 ---
 
 # APIM 4.4.x
- 
+
 ## Gravitee API Management 4.4.19 - January 31, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -18,7 +19,7 @@ description: >-
 **Console**
 
 * Missing "Add Member" Button in group settings [#10050](https://github.com/gravitee-io/issues/issues/10050)
-* Application updates remove the picture  [#10302](https://github.com/gravitee-io/issues/issues/10302)
+* Application updates remove the picture [#10302](https://github.com/gravitee-io/issues/issues/10302)
 
 **Portal**
 
@@ -30,16 +31,15 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.18 - January 24, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
 
 **Gateway**
 
-* Problem with request body size above 2MB when using V4 Engine [#10291](https://github.com/gravitee-io/issues/issues/10291)
+* Problem with request body size above 2MB on v2 APIs [#10291](https://github.com/gravitee-io/issues/issues/10291)
 
 **Console**
 
@@ -51,9 +51,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.17 - January 16, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -71,7 +70,7 @@ description: >-
 
 * Resource access is not allowed for a user with Publisher api role [#10032](https://github.com/gravitee-io/issues/issues/10032)
 * Sharding tags removed when API configuration updated [#10191](https://github.com/gravitee-io/issues/issues/10191)
-* API's member list cannot display more than 10 members  [#10212](https://github.com/gravitee-io/issues/issues/10212)
+* API's member list cannot display more than 10 members [#10212](https://github.com/gravitee-io/issues/issues/10212)
 * Changing flow selection (DEFAULT/Best Match) does not show deploy banner [#10235](https://github.com/gravitee-io/issues/issues/10235)
 * Analytics filters are not applied when the dashboard is changed [#10238](https://github.com/gravitee-io/issues/issues/10238)
 
@@ -91,16 +90,15 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.16 - December 20, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
 
 **Gateway**
 
-* A WEIGHTED_ROUND_ROBIN on a unique endpoint with weight set to 0 leads to gateway thread blocked [#10241](https://github.com/gravitee-io/issues/issues/10241)
+* A WEIGHTED\_ROUND\_ROBIN on a unique endpoint with weight set to 0 leads to gateway thread blocked [#10241](https://github.com/gravitee-io/issues/issues/10241)
 
 **Console**
 
@@ -108,14 +106,13 @@ description: >-
 
 **Other**
 
-* Warnings about Groovy classes  [#10219](https://github.com/gravitee-io/issues/issues/10219)
+* Warnings about Groovy classes [#10219](https://github.com/gravitee-io/issues/issues/10219)
 * API not deployed if OAuth 2.0 resource (Generic and AM) set with system proxy enabled [#10223](https://github.com/gravitee-io/issues/issues/10223)
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.15 - December 5, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -130,9 +127,9 @@ description: >-
 * Custom Api key is not resuable between multiple environments [#10131](https://github.com/gravitee-io/issues/issues/10131)
 * Page Size Drop Down cannot exceed 100 [#10145](https://github.com/gravitee-io/issues/issues/10145)
 * 500 error when listing API categories [#10158](https://github.com/gravitee-io/issues/issues/10158)
-* \[APIM]\[Portal] Static data access  [#10162](https://github.com/gravitee-io/issues/issues/10162)
+* \[APIM]\[Portal] Static data access [#10162](https://github.com/gravitee-io/issues/issues/10162)
 * Unable to find users with emails containing uppercase letters in Gravitee APIM Console and API requests [#10167](https://github.com/gravitee-io/issues/issues/10167)
-* Webhook notification for Subscription_Accepted event is missing "owner" details [#10187](https://github.com/gravitee-io/issues/issues/10187)
+* Webhook notification for Subscription\_Accepted event is missing "owner" details [#10187](https://github.com/gravitee-io/issues/issues/10187)
 * OpenAPI documentation "Show the URL to download the content" doesn't work [#9891](https://github.com/gravitee-io/issues/issues/9891)
 
 **Other**
@@ -149,22 +146,21 @@ description: >-
 
 **Management API**
 
-* Improve `/apis/{apiId}/import/swagger?definitionVersion=2.0.0` endpoint performances [#10117](https://github.com/gravitee-io/issues/issues/10117)
+*   Improve `/apis/{apiId}/import/swagger?definitionVersion=2.0.0` endpoint performances [#10117](https://github.com/gravitee-io/issues/issues/10117)
 
-  Note: Two new environment variables have been introduced to enhance the configuration. The first, `documentation.audit.max-content-size`, is designed to limit the size of the content saved in audits when a Page is created during an import. The second variable, `documentation.swagger.validate-safe-content`, determines whether the content of an imported OAS is validated for safety during the import process.
+    Note: Two new environment variables have been introduced to enhance the configuration. The first, `documentation.audit.max-content-size`, is designed to limit the size of the content saved in audits when a Page is created during an import. The second variable, `documentation.swagger.validate-safe-content`, determines whether the content of an imported OAS is validated for safety during the import process.
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.14 - November 21, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
 
 **Gateway**
 
-* SSE connections receives messages to the wrong API when connected to rabbitmq  [#10020](https://github.com/gravitee-io/issues/issues/10020)
+* SSE connections receives messages to the wrong API when connected to rabbitmq [#10020](https://github.com/gravitee-io/issues/issues/10020)
 
 **Management API**
 
@@ -191,9 +187,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.13 - November 5, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -220,9 +215,8 @@ description: >-
 
 </details>
 
-
-
 ## Gravitee API Management 4.4.12 - October 24, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -236,7 +230,7 @@ description: >-
 
 * Unable to delete Cors Allow-Origin URL [#9765](https://github.com/gravitee-io/issues/issues/9765)
 * Error on sharding tags page refresh [#10067](https://github.com/gravitee-io/issues/issues/10067)
-* Rollback from history removes groups of users from API  [#10074](https://github.com/gravitee-io/issues/issues/10074)
+* Rollback from history removes groups of users from API [#10074](https://github.com/gravitee-io/issues/issues/10074)
 * Upgrade nginx image to 1.27.2 [#10116](https://github.com/gravitee-io/issues/issues/10116)
 
 **Portal**
@@ -255,6 +249,7 @@ description: >-
 </details>
 
 ## Gravitee API Management 4.4.11 - October 10, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -271,7 +266,7 @@ description: >-
 
 * Missing braces in webhook notifier messages when special characters are present [#9856](https://github.com/gravitee-io/issues/issues/9856)
 * Debug mode not working when too many gateway started events [#9977](https://github.com/gravitee-io/issues/issues/9977)
-* Issue on permissions of the ORGANIZATION_USER role [#10040](https://github.com/gravitee-io/issues/issues/10040)
+* Issue on permissions of the ORGANIZATION\_USER role [#10040](https://github.com/gravitee-io/issues/issues/10040)
 * Upgrade fails from older version to 4.3.13 with SQL db [#10064](https://github.com/gravitee-io/issues/issues/10064)
 
 **Console**
@@ -285,8 +280,8 @@ description: >-
 
 **Helm Charts**
 
-* Add serviceAccount in helm chart  [#10057](https://github.com/gravitee-io/issues/issues/10057)
-* Helm Chart Issue  [#10091](https://github.com/gravitee-io/issues/issues/10091)
+* Add serviceAccount in helm chart [#10057](https://github.com/gravitee-io/issues/issues/10057)
+* Helm Chart Issue [#10091](https://github.com/gravitee-io/issues/issues/10091)
 
 **Other**
 
@@ -295,9 +290,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.10 - September 30, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -309,9 +303,9 @@ description: >-
 **Management API**
 
 * Scheduled requests for dynamic properties are run for each pod in a deployment [#9941](https://github.com/gravitee-io/issues/issues/9941)
-*  mgmt-api ERROR i.g.r.a.s.n.i.EmailNotifierServiceImpl - No emails extracted from \[] [#9965](https://github.com/gravitee-io/issues/issues/9965)
+* mgmt-api ERROR i.g.r.a.s.n.i.EmailNotifierServiceImpl - No emails extracted from \[] [#9965](https://github.com/gravitee-io/issues/issues/9965)
 * Dictionaries not deployed after migration from 3.20.x to 4.x [#10026](https://github.com/gravitee-io/issues/issues/10026)
-* Validation for unique names is MISSING in Categories  [#10053](https://github.com/gravitee-io/issues/issues/10053)
+* Validation for unique names is MISSING in Categories [#10053](https://github.com/gravitee-io/issues/issues/10053)
 
 **Console**
 
@@ -341,7 +335,7 @@ description: >-
 **Other**
 
 * \[gravitee-entrypoint-webhook] V4 Message API Webhook Timeout Behavior [#9750](https://github.com/gravitee-io/issues/issues/9750)
-* \[gravitee-policy-callout-http] Callout policy does not work as expected with fire&forget mode on v4 engine for v2 API [#9937](https://github.com/gravitee-io/issues/issues/9937)
+* \[gravitee-policy-callout-http] Callout policy does not work as expected with fire\&forget mode on v4 engine for v2 API [#9937](https://github.com/gravitee-io/issues/issues/9937)
 * Command creation failure in database when illegal character is used on a message header in a webhook API [#9979](https://github.com/gravitee-io/issues/issues/9979)
 * \[gravitee-policy-message-filtering] Solace Message Acknowledgement [#10010](https://github.com/gravitee-io/issues/issues/10010)
 * \[gravitee-policy-data-logging-masking] DLM policies will not allow the DataDog Reporter to forward logs to DataDog if a property is not found [#10044](https://github.com/gravitee-io/issues/issues/10044)
@@ -358,9 +352,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.9 - September 13, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -374,7 +367,7 @@ description: >-
 
 * Upgrade 4.2.5 -> 4.4.2 fails due to existing dashboards type column [#9893](https://github.com/gravitee-io/issues/issues/9893)
 * Version is always #1 in api history [#9950](https://github.com/gravitee-io/issues/issues/9950)
-* event_organizations and events_latest_organizations liquibase creation script can fail if the organization is linked to multiple environments. [#10011](https://github.com/gravitee-io/issues/issues/10011)
+* event\_organizations and events\_latest\_organizations liquibase creation script can fail if the organization is linked to multiple environments. [#10011](https://github.com/gravitee-io/issues/issues/10011)
 
 **Console**
 
@@ -402,9 +395,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.8 - August 30, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -425,9 +417,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.7 - August 23, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -438,32 +429,30 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.6 - August 21, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
 
 **Gateway**
 
-* gRPC APIs latency on remote gRPC backend with large response payloads  [#9949](https://github.com/gravitee-io/issues/issues/9949)
+* gRPC APIs latency on remote gRPC backend with large response payloads [#9949](https://github.com/gravitee-io/issues/issues/9949)
 
 **Console**
 
-* gRPC APIs latency on remote gRPC backend with large response payloads  [#9949](https://github.com/gravitee-io/issues/issues/9949)
+* gRPC APIs latency on remote gRPC backend with large response payloads [#9949](https://github.com/gravitee-io/issues/issues/9949)
 
 </details>
 
 {% hint style="warning" %}
-**Using Cloud?**&#x20;
+**Using Cloud?**
 
-Please skip this version and upgrade straight to 4.4.7 **if using Cloud.**&#x20;
+Please skip this version and upgrade straight to 4.4.7 **if using Cloud.**
 {% endhint %}
 
-
- 
 ## Gravitee API Management 4.4.5 - August 14, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -485,16 +474,15 @@ Please skip this version and upgrade straight to 4.4.7 **if using Cloud.**&#x20;
 
 </details>
 
-
- 
 ## Gravitee API Management 4.4.4 - August 1, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
 
 **Gateway**
 
-* Request timeout in JWT Plan  [#9911](https://github.com/gravitee-io/issues/issues/9911)
+* Request timeout in JWT Plan [#9911](https://github.com/gravitee-io/issues/issues/9911)
 * Request timeout when HTTP callout policy with system proxy
 
 **Management API**
@@ -508,20 +496,19 @@ Please skip this version and upgrade straight to 4.4.7 **if using Cloud.**&#x20;
 
 **Other**
 
-* Upgrade failed from 4.3.1 to 4.4.2  [#9901](https://github.com/gravitee-io/issues/issues/9901)
+* Upgrade failed from 4.3.1 to 4.4.2 [#9901](https://github.com/gravitee-io/issues/issues/9901)
 * APIM RPM installation overwrite portal configuration [#9914](https://github.com/gravitee-io/issues/issues/9914)
 
 </details>
 
 {% hint style="warning" %}
-**Using SQL database?**&#x20;
+**Using SQL database?**
 
-Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade straight to 4.4.2 **if using SQL database.**&#x20;
+Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade straight to 4.4.2 **if using SQL database.**
 {% endhint %}
 
-
-
 ## Gravitee API Management 4.4.3 - July 19, 2024
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -556,8 +543,6 @@ Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade
 * Paginated audit events loading to avoid memory issues [#9768](https://github.com/gravitee-io/issues/issues/9768)
 
 </details>
-
-
 
 ## Gravitee API Management 4.4.2 - July 5, 2024
 
@@ -608,8 +593,6 @@ Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade
 * Improve API synchronization state computation [#9852](https://github.com/gravitee-io/issues/issues/9852)
 
 </details>
-
-
 
 ## Gravitee API Management 4.4.1 - June 27, 2024
 
@@ -666,8 +649,6 @@ Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade
 * \[gravitee-policy-aws-lambda] Allow to dynamically configure AWS policy credentials [#9444](https://github.com/gravitee-io/issues/issues/9444)
 
 </details>
-
-
 
 ## Gravitee API Management 4.4.0 - June 27, 2024
 
