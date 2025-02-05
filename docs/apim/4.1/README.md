@@ -1,20 +1,5 @@
 # Introduction to Gravitee API Management (APIM)
 
-{% hint style="warning" %}
-**Gravitee APIM 4.1 Documentation**
-
-You are reading the documentation for Gravitee APIM 4.1.
-
-* Use the drop-down in the header to switch to other versions of 4.x.
-* Support for [prior versions](https://docs.gravitee.io/) will end on April 30, 2024.
-{% endhint %}
-
-{% hint style="warning" %}
-**Search field limitation**&#x20;
-
-You must navigate to a product's documentation before searching for related terms. For example, click on the Access Management header link before searching for an AM feature.
-{% endhint %}
-
 An API management solution allows an organization to securely and reliably expose its APIs to partners and developers, both internal and external, and offers numerous benefits and advantages. By unlocking the potential of data and services while facilitating the transformation to OpenAPI, an API management solution empowers a company to extend its digital platform, forge new communication channels, and attract new customers.
 
 A growing customer base brings new challenges, e.g., how to:
