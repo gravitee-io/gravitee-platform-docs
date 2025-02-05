@@ -3,26 +3,26 @@
 ## OVERVIEW
 
 * [Introduction](README.md)
-* [Custom resource definitions](overview/custom-resource-definitions/README.md)
+* [Custom Resource Definitions](overview/custom-resource-definitions/README.md)
   * [ManagementContext](overview/custom-resource-definitions/managementcontext.md)
   * [ApiV4Definition](overview/custom-resource-definitions/apiv4definition.md)
   * [ApiDefinition](overview/custom-resource-definitions/apidefinition.md)
   * [ApiResource](overview/custom-resource-definitions/apiresource.md)
   * [Application](overview/custom-resource-definitions/application.md)
   * [Subscription](overview/custom-resource-definitions/subscription.md)
-* [Example architecture](overview/example-architecture.md)
-* [Compatibility and limitations](overview/compatibility-and-limitations.md)
+* [Example Architecture](overview/example-architecture.md)
+* [Compatibility and Limitations](overview/compatibility-and-limitations.md)
 
 ## GETTING STARTED
 
-* [Quickstart guide](getting-started/quickstart-guide.md)
+* [Quickstart Guide](getting-started/quickstart-guide.md)
 * [Installation](getting-started/installation/README.md)
   * [Install with Helm](getting-started/installation/install-with-helm.md)
   * [Cluster vs Namespaced Install](getting-started/installation/cluster-vs-namespaced-install.md)
-* [API storage and control options](getting-started/api-storage-and-control-options/README.md)
+* [API Storage and Control Options](getting-started/api-storage-and-control-options/README.md)
   * [Use a central APIM repository](getting-started/api-storage-and-control-options/use-a-central-apim-repository.md)
   * [Configure the Gateway to load APIs from local ConfigMaps](getting-started/api-storage-and-control-options/configure-the-gateway-to-load-apis-from-local-configmaps.md)
-  * [Store APIs in local configMaps](getting-started/api-storage-and-control-options/store-apis-in-local-configmaps.md)
+  * [Store APIs in local ConfigMaps](getting-started/api-storage-and-control-options/store-apis-in-local-configmaps.md)
 
 ## GUIDES
 
