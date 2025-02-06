@@ -41,11 +41,11 @@
 
 ## REFERENCE
 
-* [API reference](reference/api-reference.md)
+* [API Reference](reference/api-reference.md)
 
 ## RELEASES & CHANGELOG
 
-* [Release notes](releases-and-changelog/release-notes/README.md)
+* [Release Notes](releases-and-changelog/release-notes/README.md)
   * [GKO 4.6](releases-and-changelog/release-notes/gko-4.6.md)
   * [GKO 4.5](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.5/releases-and-changelog/release-notes/gko-4.5)
   * [GKO 4.4](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/gko-4.4/releases-and-changelog/release-notes/gko-4.4)

@@ -6,11 +6,11 @@ description: Gravitee Kubernetes Operator 4.6 Release Notes.
 
 ## Kafka Proxy API support with GKO
 
-Gravitee API management 4.6 includes the introduction of the Gravitee Kafka Gateway, allowing you to natively expose the Kafka protocol to Kafka consumers and producers, while proxying an upstream Kafka cluster.
+Gravitee API Management 4.6 includes introduces the Gravitee Kafka Gateway, which allows you to natively expose the Kafka protocol to Kafka consumers and producers while proxying an upstream Kafka cluster.
 
-With GKO 4.6, we've added the ability to define Native Kafka APIs using the Gravitee Kubernetes Operator, so that you can create familiar APIOps automation pipelines to configure you native Kafka APIs.
+GKO 4.6 lets you use the Gravitee Kubernetes Operator to define native Kafka APIs, so that you can configure them by creating familiar APIOps automation pipelines.
 
-Practically speaking, Native Kafka APIs are just a new type of v4 API, alongside proxy and message APIs. Below is a simple example of a Native Kafka API defined using GKO's ApiV4Definition CRD:
+Practically speaking, native Kafka APIs are just a new type of v4 API, alongside proxy and message APIs. Below is a simple example of a Native Kafka API defined using GKO's `ApiV4Definition` CRD:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -57,11 +57,11 @@ Just like other API definitions managed by the Gravitee Kubernetes Operator, nat
 
 ## Manage JWT, OAuth, and mTLS subscriptions with GKO
 
-With 4.6, the operator now includes a new Subscription CRD. This allows you to create subscriptions to API plans in APIM. A subscription ties an Application to a specific plan from an API, thereby giving that application permission to consume the API.
+With 4.6, the operator includes a new `Subscription` CRD. This allows you to create subscriptions to API plans in APIM. A subscription ties an application to a specific API plan, thereby giving that application permission to consume the API.
 
-This significantly expands the scope of what you can do with GKO, thereby providing GitOps support across an even larger part of the API lifecycle. This will be particularly attractive for covering automated deployments that also need to enable consumption by applications as part of the automation.
+The `Subscription` CRD significantly expands the scope of what you can do with GKO by providing GitOps support across an even larger part of the API lifecycle. This is particularly attractive because it gives automated deployments the ability to consume applications as part of the automation.
 
-GKO will support three plan types: JWT, OAuth, and mTLS. API key is not supported at this time, but is likely to come in a future release.
+GKO supports three plan types: JWT, OAuth, and mTLS. API key is not supported at this time, but is likely to come in a future release.
 
 Below is an example instance of the new subscription custom resource definition:
 
@@ -77,39 +77,37 @@ spec:
     name: oauth-app
 ```
 
-This resources references:
+This resource references:
 
-* an **API** called `api-v4-jwt`, based on its Kubernetes metadata name
-* a **plan** called `jwt-plan`, based on the key that uniquely identifies the plan in the `api-v4-jwt` resource
-* an **application** called `oauth-app`, based on its Kubernetes metadata name
+* An **API** called `api-v4-jwt`, based on its Kubernetes metadata name
+* A **plan** called `jwt-plan`, based on the key that uniquely identifies the plan in the `api-v4-jwt` resource
+* An **application** called `oauth-app`, based on its Kubernetes metadata name
 
-One this resource is created, the subscription is considered active. When deleted, the subscription ends. In the future, we'll likely provide an **enabled** boolean flag that lets you easily toggle a subscription on and off without need to delete the resource completely.
+Once this resource is created, the subscription is considered active. When deleted, the subscription ends. In the future, we'll likely provide an `enabled` boolean flag that lets you easily toggle a subscription on and off without need to delete the resource completely.
 
-For more details on how this works, check out the accompanying release blog post and video that run through a complete example that uses Gravitee Access Management as the identity provider for issuing JWT tokens.
+For more details on how this works, check out the accompanying release blog post and video that run through a complete example and use Gravitee Access Management as the identity provider for issuing JWT tokens.
 
-The GKO GitHub repository also includes great [end-to-end guides](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples/usecase) for setting up JWT and mTLS subscriptions without needing an external identity provider.
+The GKO GitHub repository also includes great [end-to-end guides](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/examples/usecase) for setting up JWT and mTLS subscriptions without an external identity provider.
 
 ## Other improvements
 
-#### Continued improvements to the validation webhook
+#### Continued improvements to the validation Webhook
 
-Since 4.5, GKO includes a validation webhook that will perform syntactic and semantic checks on your Gravitee resources before creating them. The purpose of this is to fail fast and provide useful feedback, in order to improve the developer experience.
+Since 4.5, GKO includes a validation Webhook that performs syntactic and semantic checks on your Gravitee resources before creating them. This is to improve the developer experience by failing fast and providing useful feedback.
 
-With 4.6, validation rules have been added for the new Subscription CRD, for the new Native API type, and more have been added to existing CRDs.
+With 4.6, validation rules have been added for the new `Subscription` CRD and the new Native API type. More validation rules have been added to existing CRDs.
 
 **Add Failover parameters for V4 APIs**
 
 Failover configuration settings are now supported for PROXY and MESSAGE API types, with NATIVE support planned for a future release.
 
-#### Remove the field DisplayName from v2 and v4 APIs
+#### Remove the `DisplayName` field from v2 and v4 APIs
 
 The `DisplayName` field is no longer part of API exports, ensuring cleaner data handling.
 
-We looking forward to hearing your thoughts on this new release!
+#### **New GKO logging configuration options**
 
-**New GKO logging configuration options**
-
-In the GKO Helm chart, an additional block of parameters has been introduced to allow you to better configure logging:
+In the GKO Helm Chart, an additional block of parameters has been introduced to let you better configure logging:
 
 ```yaml
 manager:
@@ -128,4 +126,4 @@ manager:
       format: iso-8601
 ```
 
-Note that parameter **manager.logs.json** has been deprecated in favour of new **manager.logs.format.**
+Note that the parameter `manager.logs.json` has been deprecated in favor of the new parameter`manager.logs.format`**.**
