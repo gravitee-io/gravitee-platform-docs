@@ -2,9 +2,9 @@
 description: Access control for APIs in APIM
 ---
 
-# Manage API and Application Groups and Members
+# Manage API and application groups and members
 
-`ApiV4Definition`, `ApiDefinition`, and `Application` CRDs all support configuration of user permissions. This means that you can define the groups and members that can or cannot access a specific API or Application in APIM, and do this declaratively from a CRD.
+`ApiV4Definition`, `ApiDefinition`, and `Application` CRDs all support configuration of user permissions. This means that you can define the groups and members that can or cannot access a specific API or application in APIM, and do this declaratively from a CRD.
 
 ## Configuring Groups and Members
 

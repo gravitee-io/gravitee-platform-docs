@@ -28,10 +28,10 @@
 
 * [Manage JWT subscriptions with GKO](guides/manage-jwt-subscriptions-with-gko.md)
 * [Define an APIM service account for GKO](guides/define-an-apim-service-account-for-gko.md)
-* [Deploy APIs to a gateway](guides/deploy-apis-to-a-gateway.md)
-* [Publish APIs to the portal](guides/publish-apis-to-the-portal.md)
+* [Deploy APIs to a Gateway](guides/deploy-apis-to-a-gateway.md)
+* [Publish APIs to the Developer Portal](guides/publish-apis-to-the-portal.md)
 * [Manage API documentation pages](guides/manage-api-documentation-pages.md)
-* [Manage API and Application Groups and Members](guides/manage-api-groups-and-members.md)
+* [Manage API and application groups and members](guides/manage-api-groups-and-members.md)
 * [Export an API as a Kubernetes manifest](guides/export-an-api-as-a-kubernetes-manifest.md)
 * [Multi-environment architecture](guides/multi-environment-architecture.md)
 * [Create your own Helm charts](guides/create-your-own-helm-charts.md)

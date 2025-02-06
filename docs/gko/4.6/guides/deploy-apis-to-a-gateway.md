@@ -1,8 +1,8 @@
-# Deploy APIs to a gateway
+# Deploy APIs to a Gateway
 
-The **state** attribute of the `ApiV4Definition` and `ApiDefinition` CRDs determines whether or not an API should be in the `STARTED` or `STOPPED` state. By default, APIs **state** is set to `STARTED`.
+The `state` attribute of the `ApiV4Definition` and `ApiDefinition` CRDs determines if an API should be in the `STARTED` or `STOPPED` state. By default, an API's `state` is set to `STARTED`.
 
-You can make this state explicit in your API definition by setting the value of **state** to `TRUE` in your API configuration:
+To make this explicit, set the value of `state` to `TRUE` in the configuration for your API definition:
 
 ```yaml
 kind: ApiDefinition
@@ -26,7 +26,7 @@ spec:
             target: https://api.gravitee.io/echo
 ```
 
-To stop it (or just create an API definition in "stop mode"), set the `state` property value to `STOPPED`:
+To stop the API (or just create an API definition in "stop mode"), set the `state` property value to `STOPPED`:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
