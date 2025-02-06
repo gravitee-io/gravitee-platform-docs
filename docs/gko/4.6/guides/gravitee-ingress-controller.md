@@ -331,7 +331,7 @@ curl --insecure -v https://foo.com/httpbin
 
 ## Extend an ingress using an API definition template
 
-Policies allow you to apply custom behaviors to requests issued to a backend service. This can be achieved using an API definition labeled as a template. The subsections below describe how to extend an ingress using an API definition template and the `httpbin` service:
+Policies let you apply custom behaviors to requests issued to a backend service. You can do this with an API definition labeled as a template. The steps below describe how to extend an ingress using an API definition template and the `httpbin` service:
 
 1. [Create an API definition template](gravitee-ingress-controller.md#id-1.-create-an-api-definition-template)
 2. [Reference the template](gravitee-ingress-controller.md#id-2.-reference-the-template)
@@ -341,60 +341,63 @@ Policies allow you to apply custom behaviors to requests issued to a backend ser
 
 A template is an API definition with the `gravitee.io/template` label set to `true`. To create a template that defines a `cache` policy:
 
-1. Configure the `ingress-cache-template.yaml` file:
+1.  Configure the `ingress-cache-template.yaml` file:\
 
-{% code title="ingress-cache-template.yaml" %}
-````
-```yaml
-apiVersion: "gravitee.io/v1alpha1"
-kind: "ApiDefinition"
-metadata:
-  name: "ingress-cache-template"
-  annotations:
-    gravitee.io/template: "true"
-spec:
-  name: "ingress-cache-template"
-  version: "1"
-  description: "This template can be used to implement caching on your ingresses"
-  visibility: "PRIVATE"
-  resources:
-    - name: "simple-cache"
-      type: "cache"
-      enabled: true
-      configuration:
-        timeToIdleSeconds: 0
-        timeToLiveSeconds: 600
-        maxEntriesLocalHeap: 1000
-  flows:
-  - name: ""
-    path-operator:
-      path: "/"
-      operator: "STARTS_WITH"
-    condition: ""
-    consumers: []
-    methods: []
-    pre:
-    - name: "Cache"
-      description: ""
-      enabled: true
-      policy: "cache"
-      configuration:
-        timeToLiveSeconds: 600
-        cacheName: "simple-cache"
-        methods:
-        - "GET"
-        - "OPTIONS"
-        - "HEAD"
-        scope: "APPLICATION"
-    post: []
-    enabled: true
-  gravitee: "2.0.0"
-  flow_mode: "DEFAULT"
-```
-````
-{% endcode %}
 
-2.  Apply this template:
+    {% code title="ingress-cache-template.yaml" %}
+    ````
+    ```yaml
+    apiVersion: "gravitee.io/v1alpha1"
+    kind: "ApiDefinition"
+    metadata:
+      name: "ingress-cache-template"
+      annotations:
+        gravitee.io/template: "true"
+    spec:
+      name: "ingress-cache-template"
+      version: "1"
+      description: "This template can be used to implement caching on your ingresses"
+      visibility: "PRIVATE"
+      resources:
+        - name: "simple-cache"
+          type: "cache"
+          enabled: true
+          configuration:
+            timeToIdleSeconds: 0
+            timeToLiveSeconds: 600
+            maxEntriesLocalHeap: 1000
+      flows:
+      - name: ""
+        path-operator:
+          path: "/"
+          operator: "STARTS_WITH"
+        condition: ""
+        consumers: []
+        methods: []
+        pre:
+        - name: "Cache"
+          description: ""
+          enabled: true
+          policy: "cache"
+          configuration:
+            timeToLiveSeconds: 600
+            cacheName: "simple-cache"
+            methods:
+            - "GET"
+            - "OPTIONS"
+            - "HEAD"
+            scope: "APPLICATION"
+        post: []
+        enabled: true
+      gravitee: "2.0.0"
+      flow_mode: "DEFAULT"
+    ```
+    ````
+    {% endcode %}
+
+
+2.  Apply this template:\
+
 
     ```sh
     kubectl apply -f ingress-cache-template.yml
@@ -404,57 +407,64 @@ spec:
 
 To apply the template policies to requests issued to the `httpbin` ingress:
 
-1. Add the required label by annotating the ingress, using the `gravitee.io/template` as the key and the API definition template name as the value:
+1.  Add the required label by annotating the ingress. Use the `gravitee.io/template` as the key and the API definition template name as the value.\
 
-{% hint style="info" %}
-```
-The template must exist in the same Kubernetes namespace as the ingress.
-```
-{% endhint %}
 
-{% code title="httpbin-ingress.yaml" %}
-````
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: httpbin-ingress
-  annotations:
-    kubernetes.io/ingress.class: graviteeio
-    gravitee.io/template: ingress-cache-template
-spec:
-  rules:
-    - http:
-        paths:
-          - path: /httpbin
-            pathType: Prefix
-            backend:
-              service:
-                name: httpbin
-                port:
-                  number: 8000
-```
-````
-{% endcode %}
+    {% hint style="info" %}
+    The template must exist in the same Kubernetes namespace as the ingress.
+    {% endhint %}
 
-2. Apply this change:
 
-````
-```sh
-kubectl apply -f httpbin-ingress.yaml
-```
-````
+
+    {% code title="httpbin-ingress.yaml" %}
+    ````
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: httpbin-ingress
+      annotations:
+        kubernetes.io/ingress.class: graviteeio
+        gravitee.io/template: ingress-cache-template
+    spec:
+      rules:
+        - http:
+            paths:
+              - path: /httpbin
+                pathType: Prefix
+                backend:
+                  service:
+                    name: httpbin
+                    port:
+                      number: 8000
+    ```
+    ````
+    {% endcode %}
+
+
+2.  Apply this change:\
+
+
+    ````
+    ```sh
+    kubectl apply -f httpbin-ingress.yaml
+    ```
+    ````
 
 ### 3. Test your ingress
 
 To test that the `cache` policy is enforced on the `httpbin` ingress:
 
-1.  Request the `/headers` endpoint of `httpbin` and pass a timestamp as a header:
+1.  Request the `/headers` endpoint of `httpbin` and pass a timestamp as a header:\
+
 
     ```sh
     curl `https://graviteeio.example.com/httpbin/headers -H  "X-Date: $(date)"`
     ```
-2.  Resend this request to return the same value for the `X-Date` header until the 10-minute window of the `cache` policy has elapsed:
+
+
+2.  Resend the request to return the same value for the `X-Date` header until the 10-minute window of the `cache` policy has elapsed:\
+
 
     ```sh
     curl `https://graviteeio.example.com/httpbin/headers -H  "X-Date: $(date)"`
