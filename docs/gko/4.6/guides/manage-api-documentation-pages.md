@@ -11,7 +11,7 @@ The `ApiV4Definition` and `ApiDefinition` CRDs both allow documentation pages to
 For page types other than folders, the pages can either be [referenced from an external source](manage-api-documentation-pages.md#referencing-external-pages-with-fetchers), such a web page or Git repo, using a fetcher (recommended), or [defined inline](manage-api-documentation-pages.md#inline-pages) in the YAML manifest. Referencing from an external source is recommended for two main reasons:
 
 1. The YAML manifests can become unreadable with large inline documentation pages
-2. The [default max value size](https://etcd.io/docs/v3.5/dev-guide/limit/) of etcd is set to 1.5MiB, which could be surpassed with overly large manifests
+2. The [default max value size](https://etcd.io/docs/v3.5/dev-guide/limit/) of etcd is set to 1.5MB, which could be surpassed with overly large manifests
 
 Both v4 and v2 API CRDs share the same syntax for specifying documentation pages. This uses a `pages` attribute at the root of the spec:
 

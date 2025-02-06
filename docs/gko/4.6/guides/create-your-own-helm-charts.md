@@ -1,8 +1,8 @@
-# Create your own Helm charts
+# Create your own Helm Charts
 
 ## Overview
 
-Helm assists in the management of Kubernetes applications. In particular, Helm Charts facilitate the definition, installation, and upgrade of even the most complex Kubernetes applications. You can also use Helm to deploy your CRDs into your cluster and leverage all of the features that Helm provides (e.g., templating).
+Helm assists in the management of Kubernetes applications. In particular, Helm Charts facilitate the definition, installation, and upgrade of even the most complex Kubernetes applications. You can also use Helm to deploy your CRDs into your cluster and leverage all of the features that Helm offers (e.g., templating).
 
 ## Deploy CRDs with Helm
 
@@ -87,7 +87,7 @@ $ helm package .
 $ helm install sample-crds sample-crds-0.1.0.tgz
 ```
 
-For more information on Helm, see the [documentation](https://helm.sh/).
+For more information on Helm, see the [Helm documentation](https://helm.sh/).
 
 {% hint style="info" %}
 For a comprehensive example of the topics introduced in this section, see the [GKO repository guide](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/alpha/docs/guides/deploy-crd-with-helm).
