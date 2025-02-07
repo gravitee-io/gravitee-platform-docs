@@ -4,6 +4,10 @@ description: >-
   patch AM 4.5.x releases
 ---
 
+{% hint style="info" %}
+When managing deployments using Helm, please note that the default startup, liveness, and readiness probes now use the httpGet method by default to request the internal API on the `/_node/health` endpoint. As a result, the internal API listens on `0.0.0.0` to allow the kubelet to check the component's status. If you don't provide custom probe definitions and have explicitly defined either the `api.http.services.core.http.host` or the `gateway.http.services.core.http.host`, ensure the value is set to `0.0.0.0`; otherwise, the probes will fail.
+{% endhint %}
+
 # AM 4.5.x
 
 ## Gravitee Access Management 4.5.8 - January 31, 2025
