@@ -6,6 +6,12 @@ description: >-
 
 # APIM 4.6.x
  
+## Gravitee API Management 4.6.3 - February 7, 2025
+
+**Technical release**
+
+No fixes or features have been added.
+ 
 ## Gravitee API Management 4.6.2 - January 31, 2025
 <details>
 
