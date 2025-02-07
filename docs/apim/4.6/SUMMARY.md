@@ -216,7 +216,6 @@
 * [Assign Attributes](policies/assign-attributes.md)
 * [Assign Content](policies/assign-content.md)
 * [Assign Metrics](policies/assign-metrics-1.md)
-* [AVRO to JSON](policies/avro-to-json-1.md)
 * [AWS Lambda](policies/aws-lambda.md)
 * [Basic Authentication](policies/basic-authentication.md)
 * [Cache](policies/cache.md)
