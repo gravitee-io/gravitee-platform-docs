@@ -27,9 +27,9 @@ You can add more than one ACL in the same policy. The principle in Kafka is that
 
 ### Using Expressions in the Condition
 
-The expression language (EL) functionality in Gravitee can be used to define conditions on each ACL. This is an easy way to define ACLs for multiple applications, or to define dynamic conditions. Some exmaples are as follows:
+The expression language (EL) functionality in Gravitee can be used to define conditions on each ACL. This is an easy way to define ACLs for multiple applications, or to define dynamic conditions. Some examples are as follows:
 
-* To set the ACL for a specific application ID, set the condition to `{#context.attributes['application'] = 'abcd-1234'}`, where `'abcd-1234`' is the application ID. You can obtain this ID in the UI by checking the URL for the application.
+* To set the ACL for a specific application ID, set the condition to `{#context.attributes['application'] == 'abcd-1234'}`, where `'abcd-1234`' is the application ID. You can obtain this ID in the UI by checking the URL for the application.
 * To set the ACL based on a specific subscription for an API key plan, set the condition to `{#context.attributes['user-id'] == 'abcd-1234'}`, where `'abcd-1234'` is the subscription ID.
 * To set the ACL based on the claim in a JWT token, set the condition to e.g. `{#context.attributes['jwt.claims']['iss']}`, changing the `iss` to the desired claim.
 
