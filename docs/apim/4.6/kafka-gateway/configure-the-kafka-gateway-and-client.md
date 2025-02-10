@@ -2,7 +2,7 @@
 
 ## Overview
 
-Before you can use Gravitee to proxy n a Kafka cluster, you need to configure the Gravitee Kafka Gateway and a Kafka client. This article describes how to:
+Before you can use Gravitee to proxy in a Kafka cluster, you need to configure the Gravitee Kafka Gateway and a Kafka client. This article describes how to:
 
 * [Configure the Kafka Gateway](configure-the-kafka-gateway-and-client.md#configure-the-kafka-gateway)
 * [Configure a Kafka client](configure-the-kafka-gateway-and-client.md#configure-the-kafka-client)
@@ -11,7 +11,7 @@ Before you can use Gravitee to proxy n a Kafka cluster, you need to configure th
 ## Configure the Kafka Gateway
 
 {% hint style="info" %}
-Running the Kafka Gateway requires an Enterprise license with the Kafka Gateway feature included. This does not come by default with a Universe license; it must be purcahsed separately from Gravitee.
+Running the Kafka Gateway requires an Enterprise license with the Kafka Gateway feature included. This does not come by default with a Universe license; it must be purchased separately from Gravitee.
 {% endhint %}
 
 To run the Kafka Gateway, you enable the gateway server in \`gravitee.yml\`.  The full example of the configuration is defined below. The baseline required configuration is simply:
@@ -42,7 +42,7 @@ SNI routing is **required** to run the Kafka Gateway. As the gateway can run mul
 
 By default, clients talk to Kafka APIs by setting the bootstrap server as \`{api-specific-prefix}.{gateway-hostname}:9092\`. This is set in \`gravitee.yml\`, but for convenience, when developing APIs in the UI, you can set the default values appended to the hostname. You can also leave this value blank and respecify the full hostname in the API.
 
-In oreder to configure the APIM Console to use the Kafka domain and port values for your Organization:
+In order to configure the APIM Console to use the Kafka domain and port values for your Organization:
 
 1. Log in to your APIM Console.
 2. Select **Organization** from the bottom of the left nav.
