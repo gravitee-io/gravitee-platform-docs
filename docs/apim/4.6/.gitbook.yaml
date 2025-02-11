@@ -172,4 +172,5 @@ redirects:
  using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/custom-policies: policies/custom-policies.md
  policies/avro-to-json-1: policies/avro-to-json.md
  policies/avro-to-protobuf-1: policies/avro-to-protobuf.md
+ using-the-product/administration/authentication/azure-regions-for-saas-and-hybrid-deployments: administration/authentication/azure-entra-id.md
  
