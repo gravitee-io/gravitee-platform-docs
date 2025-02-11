@@ -4,15 +4,6 @@ description: What is Gravitee?
 
 # Introduction
 
-{% hint style="warning" %}
-**Gravitee 4.x Documentation**
-
-You are reading the documentation for Gravitee 4.0 and later!
-
-* You can find the [documentation for prior versions here](https://docs.gravitee.io/).
-* Support for prior versions will end on April 30, 2024.
-{% endhint %}
-
 Welcome to Gravitee’s official documentation. Gravitee is an open-source, event-native API management platform that helps you design, deploy, manage, and secure synchronous and asynchronous APIs throughout the entire lifecycle.
 
 The Gravitee platform is available in two distribution versions, Community Edition (CE) and Enterprise Edition (EE), and comprises five main products:
