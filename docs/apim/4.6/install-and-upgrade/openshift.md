@@ -11,10 +11,10 @@
 
 To install APIM within OpenShift, complete the following steps:
 
-* [#optional-configuring-the-serviceaccount-using-roles](openshift.md#optional-configuring-the-serviceaccount-using-roles "mention")
-* [#optional-configuring-the-configuration-types](openshift.md#optional-configuring-the-configuration-types "mention")
-* [#configuring-the-databases](openshift.md#configuring-the-databases "mention")
-* [#configuring-the-gravitee-parameters-and-values.yml-file](openshift.md#configuring-the-gravitee-parameters-and-values.yml-file "mention")
+* [#optional-configure-the-serviceaccount-using-roles](openshift.md#optional-configure-the-serviceaccount-using-roles "mention")
+* [#optional-configure-the-configuration-types](openshift.md#optional-configure-the-configuration-types "mention")
+* [#configure-the-databases](openshift.md#configure-the-databases "mention")
+* [#configure-the-gravitee-parameters](openshift.md#configure-the-gravitee-parameters "mention")
 * [#install-the-gravitee-helm-chart](openshift.md#install-the-gravitee-helm-chart "mention")
 
 ### (Optional) Configure the ServiceAccount using roles
