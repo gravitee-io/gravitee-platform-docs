@@ -24,7 +24,7 @@ If you currently use the Jaeger plugin, you must update your configuration to ta
 
 ```yaml
 services:
-      opentelmetry:  
+      opentelemetry:  
         enabled: true
         verbose: true
         exporter:
