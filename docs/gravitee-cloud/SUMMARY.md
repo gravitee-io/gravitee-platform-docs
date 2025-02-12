@@ -12,7 +12,7 @@
 ## Guides
 
 * [Hybrid](guides/hybrid.md)
-* [Cloud Hosted Gateways](guides/cloud-hosted-gateways.md)
+* [Gravitee Hosted Gateways](guides/gravitee-hosted-gateways.md)
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
 * [Promote APIs](guides/promote-apis.md)
