@@ -153,7 +153,7 @@
   * [AM 4.3](https://documentation.gravitee.io/am/4.3/releases-and-changelog/release-notes/am-4.3)
   * [AM 4.2](https://documentation.gravitee.io/am/4.2/releases-and-changelog/release-notes/am-4.2)
   * [AM 4.1](https://documentation.gravitee.io/am/4.1)
-  * [AM 4.0](https://documentation.gravitee.io/am/4.0/releases-and-changelog/changelog/am-4.0.x)
+  * [AM 4.0](https://documentation.gravitee.io/am/4.0/releases-and-changelog/release-notes/am-4.0)
 * [Changelog](releases-and-changelog/changelog/README.md)
   * [AM 4.6.x](releases-and-changelog/changelog/am-4.6.x.md)
   * [AM 4.5.x](https://documentation.gravitee.io/am/releases-and-changelog/changelog/am-4.5.x)
