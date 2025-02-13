@@ -36,41 +36,238 @@ This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be appli
 {% endhint %}
 
 {% tabs %}
-{% tab title="HTTP proxy API example" %}
-**Quota**
-
-Sample policy configuration:
+{% tab title="V2 API definition" %}
+This snippet of a V2 API definition includes a flow that chains all three rate limit policies.&#x20;
 
 ```json
-"quota": {
-    "limit": "1000",
-    "periodTime": 1,
-    "periodTimeUnit": "MONTHS"
-  }
+{
+  "name" : "Rate limited v2 API",
+  "flows" : [ 
+    {
+      "name" : "common-flow",
+      "enabled" : true,
+      "path-operator" : {
+        "path" : "/",
+        "operator" : "STARTS_WITH"
+      },
+      "pre" : [ 
+        {
+          "name" : "Rate Limit",
+          "description" : "ACME has rate limits on all APIs.",
+          "enabled" : true,
+          "policy" : "rate-limit",
+          "configuration" : {
+            "rate" : {
+              "periodTime" : 1,
+              "limit" : 10,
+              "periodTimeUnit" : "SECONDS"
+            }
+          }
+        }, {
+          "name" : "Quota",
+          "description" : "ACME uses quotas on all APIs.",
+          "enabled" : true,
+          "policy" : "quota",
+          "configuration" : {
+            "quota" : {
+              "periodTime" : 1,
+              "limit" : 10,
+              "periodTimeUnit" : "MONTHS"
+            }
+          }
+        }, {
+          "name" : "Spike Arrest",
+          "description" : "ACME uses spike arrest on all APIs.",
+          "enabled" : true,
+          "policy" : "spike-arrest",
+          "configuration" : {
+            "spike" : {
+              "periodTime" : 1,
+              "limit" : 10,
+              "periodTimeUnit" : "SECONDS"
+            }
+          }
+        } 
+      ]
+    } 
+  ],
+  ...
+}
 ```
+{% endtab %}
 
-**Rate Limit**
-
-Sample policy configuration:
+{% tab title="V4 API definition" %}
+This snippet of a V4 API definition includes a flow that chains all three rate limit policies.
 
 ```json
-"rate": {
-    "limit": "10",
-    "periodTime": 10,
-    "periodTimeUnit": "MINUTES"
+{
+  "api": {
+    "name": "Rate limited v4 API",
+    "flows": [
+      {
+        "name": "common-flow",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "EQUALS"
+          }
+        ],
+        "request": [
+          {
+            "name" : "Rate Limit",
+            "description" : "ACME has rate limits on all APIs.",
+            "enabled" : true,
+            "policy" : "rate-limit",
+            "configuration" : {
+              "rate" : {
+                "periodTime" : 1,
+                "limit" : 10,
+                "periodTimeUnit" : "SECONDS"
+              }
+            }
+          }, {
+            "name" : "Quota",
+            "description" : "ACME uses quotas on all APIs.",
+            "enabled" : true,
+            "policy" : "quota",
+            "configuration" : {
+              "quota" : {
+                "periodTime" : 1,
+                "limit" : 10,
+                "periodTimeUnit" : "MONTHS"
+              }
+            }
+          }, {
+            "name" : "Spike Arrest",
+            "description" : "ACME uses spike arrest on all APIs.",
+            "enabled" : true,
+            "policy" : "spike-arrest",
+            "configuration" : {
+              "spike" : {
+                "periodTime" : 1,
+                "limit" : 10,
+                "periodTimeUnit" : "SECONDS"
+              }
+            }
+          } 
+        ]
+      }
+    ],
+  ...
   }
+  ...
+}
 ```
+{% endtab %}
 
-**Spike Arrest**
+{% tab title="V2 API CRD" %}
+This snippet of a V2 API yaml manifest for the Gravitee Kubernetes Operator includes a flow that chains all three rate limit policies.
 
-Sample policy configuration:
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiDefinition"
+metadata:
+  name: "rate-limited-v2-gko-api"
+spec:
+  name: "Rate limited V2 GKO API"
+  flows:
+  - name: "common-flow"
+    path-operator:
+      path: "/"
+      operator: "STARTS_WITH"
+    enabled: true
+    pre:
+    - name: "Rate Limit"
+      description: "ACME has rate limits on all APIs."
+      enabled: true
+      policy: "rate-limit"
+      configuration:
+        async: false
+        addHeaders: false
+        rate:
+          useKeyOnly: false
+          periodTime: 1
+          limit: 10
+          periodTimeUnit: "SECONDS"
+          key: ""
+    - name: "Quota"
+      description: "ACME uses quotas on all APIs."
+      enabled: true
+      policy: "quota"
+      configuration:
+        async: false
+        addHeaders: true
+        quota:
+          useKeyOnly: false
+          periodTime: 1
+          limit: 10
+          periodTimeUnit: "MONTHS"
+          key: ""
+    - name: "Spike Arrest"
+      description: "ACME uses spike arrest on all APIs."
+      enabled: true
+      policy: "spike-arrest"
+      configuration:
+        async: false
+        addHeaders: false
+        spike:
+          useKeyOnly: false
+          periodTime: 1
+          limit: 10
+          periodTimeUnit: "SECONDS"
+          key: ""
+    ...
+```
+{% endtab %}
 
-```json
-"spike": {
-    "limit": "10",
-    "periodTime": 10,
-    "periodTimeUnit": "MINUTES"
-  }
+{% tab title="V4 API CRD" %}
+This snippet of a V4 API yaml manifest for the Gravitee Kubernetes Operator includes a flow that chains all three rate limit policies.
+
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiV4Definition"
+metadata:
+  name: "rate-limited-v4-gko-api"
+spec:
+  name: "Rate limited V4 GKO API"
+  flows:
+    - name: "common-flow"
+      enabled: true
+      selectors:
+      - type: "HTTP"
+        path: "/"
+        pathOperator: "EQUALS"
+      request:
+      - name: "Rate Limit"
+        description: "ACME has rate limits on all APIs."
+        enabled: true
+        policy: "rate-limit"
+        configuration:
+          rate:
+            periodTime: 1
+            limit: 10
+            periodTimeUnit: "SECONDS"
+      - name: "Quota"
+        description: "ACME uses quotas on all APIs."
+        enabled: true
+        policy: "quota"
+        configuration:
+          quota:
+            periodTime: 1
+            limit: 10
+            periodTimeUnit: "MONTHS"
+      - name: "Spike Arrest"
+        description: "ACME uses spike arrest on all APIs."
+        enabled: true
+        policy: "spike-arrest"
+        configuration:
+          spike:
+            periodTime: 1
+            limit: 10
+            periodTimeUnit: "SECONDS"
+    ...
 ```
 {% endtab %}
 {% endtabs %}
