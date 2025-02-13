@@ -173,4 +173,5 @@ redirects:
  policies/avro-to-json-1: policies/avro-to-json.md
  policies/avro-to-protobuf-1: policies/avro-to-protobuf.md
  using-the-product/administration/authentication/azure-regions-for-saas-and-hybrid-deployments: administration/authentication/azure-entra-id.md
+ v/4.0-5/releases-and-changelog/changelogs/apim-4.0.x-changelog: 4.0/releases-and-changelog/changelog/apim-4.0.x.md
  
