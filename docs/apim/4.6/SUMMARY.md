@@ -309,7 +309,10 @@
 * [Logging](gravitee-gateway/logging.md)
 * [OpenTelemetry](gravitee-gateway/opentelemetry.md)
 * [Reporters](gravitee-gateway/reporters/README.md)
-  * [Formats](gravitee-gateway/reporters/formats.md)
+  * [Elasticsearch Reporter](gravitee-gateway/reporters/elasticsearch-reporter.md)
+  * [File Reporter](gravitee-gateway/reporters/file-reporter.md)
+  * [TCP Reporter](gravitee-gateway/reporters/tcp-reporter.md)
+  * [Datadog Reporter](gravitee-gateway/reporters/datadog-reporter.md)
 * [Notifications](gravitee-gateway/notifications.md)
 * [Alerts](gravitee-gateway/alerts.md)
 
