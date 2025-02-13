@@ -45,7 +45,7 @@ I will be able to filter any messages according to subscriptions metadata `produ
     "enabled": true,
     "policy": "message-filtering",
     "configuration": {
-        "filter": "#jsonPath(#message.content, '$.productId') == '#subscription.metadata.productId'"
+        "filter": "{#jsonPath(#message.content, '$.productId') == '#subscription.metadata.productId'}"
     }
 }
 ```
