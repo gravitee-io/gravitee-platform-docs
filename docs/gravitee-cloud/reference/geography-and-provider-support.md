@@ -6,11 +6,11 @@ description: >-
 
 # Geography and provider support
 
-Gravitee Cloud allows allows you to choose where your API Management control plane will be hosted, as well as where your Gravitee hosted API gateways will run.\
-\
-This is important to ensure ensure your compliance requirements for data privacy, but as important when it comes to latency to ensure your Gravitee hosted API Gateway runs close to your end users and your upstream services published in the gateway.\
-\
-Gravitee Cloud offers the following geography and provider support right now. If you are interested in another geography or provider, Gravitee will introduce that for you.
+Gravitee Cloud allows you to choose where your API Management control plane is hosted, as well as where your Gravitee hosted API gateways run.
+
+This is important to ensure compliance with data privacy requirements, but it's equally important for minimizing latency, as it ensures your Gravitee-hosted API Gateway runs close to your end users and upstream services.
+
+Gravitee Cloud currently offers the following geography and provider support. If you’re interested in another geography or provider, Gravitee can introduce that for you.
 
 ### API Management Control Plane
 
