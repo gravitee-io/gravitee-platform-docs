@@ -184,40 +184,28 @@ spec:
       enabled: true
       policy: "rate-limit"
       configuration:
-        async: false
-        addHeaders: false
         rate:
-          useKeyOnly: false
           periodTime: 1
           limit: 10
           periodTimeUnit: "SECONDS"
-          key: ""
     - name: "Quota"
       description: "ACME uses quotas on all APIs."
       enabled: true
       policy: "quota"
       configuration:
-        async: false
-        addHeaders: true
         quota:
-          useKeyOnly: false
           periodTime: 1
           limit: 10
           periodTimeUnit: "MONTHS"
-          key: ""
     - name: "Spike Arrest"
       description: "ACME uses spike arrest on all APIs."
       enabled: true
       policy: "spike-arrest"
       configuration:
-        async: false
-        addHeaders: false
         spike:
-          useKeyOnly: false
           periodTime: 1
           limit: 10
           periodTimeUnit: "SECONDS"
-          key: ""
     ...
 ```
 {% endtab %}
