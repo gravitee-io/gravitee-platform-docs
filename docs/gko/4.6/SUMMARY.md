@@ -19,6 +19,7 @@
 * [Installation](getting-started/installation/README.md)
   * [Install with Helm](getting-started/installation/install-with-helm.md)
   * [Cluster vs Namespaced Install](getting-started/installation/cluster-vs-namespaced-install.md)
+  * [RBAC customization](getting-started/installation/rbac-customization.md)
 * [API Storage and Control Options](getting-started/api-storage-and-control-options/README.md)
   * [Use a central APIM repository](getting-started/api-storage-and-control-options/use-a-central-apim-repository.md)
   * [Configure the Gateway to load APIs from local ConfigMaps](getting-started/api-storage-and-control-options/configure-the-gateway-to-load-apis-from-local-configmaps.md)
