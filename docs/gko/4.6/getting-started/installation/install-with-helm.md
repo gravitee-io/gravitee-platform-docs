@@ -91,7 +91,7 @@ Use these parameters to configure the deployment, and the ways in which the oper
 {% tab title="Ingress" %}
 Use the following parameters to configure the behavior of the ingress controller.
 
-<table><thead><tr><th width="229">Name</th><th width="271">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>ingress.templates.404.name</code></td><td>Name of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr><tr><td><code>ingress.templates.404.namespace</code></td><td>Namespace of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr></tbody></table>
+<table><thead><tr><th width="229">Name</th><th width="271">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>ingress.templates.404.name</code></td><td>Name of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr><tr><td><code>ingress.templates.404.namespace</code></td><td>Namespace of the ConfigMap storing the HTTP 404 ingress response template.</td><td><code>""</code></td></tr><tr><td><code>ingress.controller.enabled</code></td><td>Indicates if the GKO ingress controller is enabled or not.</td><td><code>true</code></td></tr></tbody></table>
 
 When storing templates in ConfigMaps, the ConfigMap should contain a `content` key and a `contentType` key, for example:
 
