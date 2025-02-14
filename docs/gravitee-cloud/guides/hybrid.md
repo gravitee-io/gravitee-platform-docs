@@ -111,9 +111,9 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 {% tab title="Docker" %}
 ## Procedure
 
-a. Copy your Cloud Token and License Key.&#x20;
+1\. Copy your Cloud Token and License Key.&#x20;
 
-b. Run the following script:
+2\. Run the following script:
 
 ```bash
 docker run -d \
@@ -262,9 +262,45 @@ Install the Helm chart with the `values.yaml` file to a dedicated namespace usin
 helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim -f ./values.yaml
 ```
 {% endtab %}
+
+{% tab title="Linux/Windows" %}
+Below is a sample working configuration for the Binary/RPM use case. It configures both the proxy and Redis.
+
+```yaml
+management:
+  # HTTP TYPE FOR THE GRAVITEE CLOUD GATE
+  type: http 
+  # OPTIONAL PROXY CONFIG
+  # http:
+  #   proxy:
+  #     useSystemProxy: false
+  #     enabled: true
+  #     type: HTTP
+  #     host: proxy.example.com
+  #     port: 8080
+  #     username: proxy-username
+  #     password: proxy-password
+
+# CLOUD TOKEN TO SECURE CONNECTION TO THE CLOUD GATE
+cloud:
+  token: YOUR-CLOUD-TOKEN
+
+# REDIS TO STORE AND SHARE BEWTEEN GATEWAYS INSTANCES (HA)
+# THE RATE LIMIT / QUOTA COUNTERS AND CACHE DATA
+ratelimit:
+  type: none
+  # type: redis
+  # redis:
+  #   host: localhost
+  #   port: 6379
+  #   password:
+
+# LICENCE KEY B64 ENCODED
+license:
+  key: YOUR-LICENCE-KEY
+```
+{% endtab %}
 {% endtabs %}
-
-
 
 10. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
 
