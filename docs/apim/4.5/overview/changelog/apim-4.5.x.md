@@ -30,7 +30,11 @@ description: >-
 
 </details>
 
+{% hint style="warning" %}
+**Using Service Discovery?**
 
+When using Service Discovery the Gateway may not wait for pending connections to finish on API redeploy or API stop **if using Service Discovery.**
+{% endhint %}
  
 ## Gravitee API Management 4.5.8 - January 31, 2025
 <details>
