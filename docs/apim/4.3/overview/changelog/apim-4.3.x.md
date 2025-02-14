@@ -25,7 +25,11 @@ description: >-
 * Can't see Logs for JWT enabled API's in API Management portal (401 response only) [#10076](https://github.com/gravitee-io/issues/issues/10076)
 
 </details>
+{% hint style="warning" %}
+**Using Service Discovery?**
 
+When using Service Discovery the Gateway may not wait for pending connections to finish on API redeploy or API stop **if using Service Discovery.**
+{% endhint %}
 
  
 ## Gravitee API Management 4.3.23 - January 31, 2025
