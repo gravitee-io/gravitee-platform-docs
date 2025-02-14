@@ -6,6 +6,32 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.9 - February 14, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Webhook subscription failing to get messages from a Kafka topic [#10320](https://github.com/gravitee-io/issues/issues/10320)
+* Thread block while deploying APIs with very long read timeouts set in the Endpoints configuration [#10340](https://github.com/gravitee-io/issues/issues/10340)
+
+**Portal**
+
+* Public APIs not accessible to anonymous users through categories in the portal [#10274](https://github.com/gravitee-io/issues/issues/10274)
+
+**Helm Charts**
+
+* Typo in values.yaml and missing Helm chart mapping for gravitee.yml [#10343](https://github.com/gravitee-io/issues/issues/10343)
+
+**Other**
+
+* Can't see Logs for JWT enabled API's in API Management portal (401 response only) [#10076](https://github.com/gravitee-io/issues/issues/10076)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.5.8 - January 31, 2025
 <details>
 
