@@ -29,7 +29,7 @@
 
 * [Cloud API Reference](reference/cloud-api-reference.md)
 * [Release Notes](reference/release-notes.md)
-* [Geography and provider support](reference/geography-and-provider-support.md)
+* [Geography and Provider Support](reference/geography-and-provider-support.md)
 * [Service Level Agreement](reference/service-level-agreement.md)
 * [Upgrade policy](reference/upgrade-policy.md)
 
