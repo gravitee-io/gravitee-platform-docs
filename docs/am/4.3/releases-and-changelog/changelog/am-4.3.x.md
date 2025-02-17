@@ -10,6 +10,29 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.23 - February 17, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Update AM documentation and OpenAPI spec [#10299](https://github.com/gravitee-io/issues/issues/10299)
+* [CIBA] Http Authentication Device Notifier hide some scope [#10309](https://github.com/gravitee-io/issues/issues/10309)
+* No logs from InvalidGrantException in the Audits in the UI [#10313](https://github.com/gravitee-io/issues/issues/10313)
+* No logs from InvalidGrantException in the Audits in the UI [#10314](https://github.com/gravitee-io/issues/issues/10314)
+* Error with MFA (Stuck in a Loop) [#10317](https://github.com/gravitee-io/issues/issues/10317)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.3.22 - January 31, 2025
 
 <details>
