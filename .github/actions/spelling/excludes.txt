@@ -1,4 +1,5 @@
 # See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-excludes
+(?:^|/)yarn\.lock$
 (?:^|/)(?i)COPYRIGHT
 (?:^|/)(?i)LICEN[CS]E
 (?:^|/)3rdparty/
