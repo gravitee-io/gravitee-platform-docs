@@ -1,5 +1,14 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.20 - February 17, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * GKO v4 API CRD is missing the analytics tracing attribute [#10322](https://github.com/gravitee-io/issues/issues/10322)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.19 - February 5, 2025
 
 There is nothing new in version 4.4.19.
