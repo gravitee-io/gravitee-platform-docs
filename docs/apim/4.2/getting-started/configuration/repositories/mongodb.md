@@ -10,8 +10,8 @@ The MongoDB plugin is part of the default APIM distribution.
 
 ## Supported databases
 
-| Database | Version tested                |
-| -------- | ----------------------------- |
+| Database | Version tested                       |
+| -------- |--------------------------------------|
 | MongoDB  | 4.4.x / 5.0.x / 6.0.x / 7.0.x |
 
 {% hint style="info" %}
