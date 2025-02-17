@@ -1,5 +1,30 @@
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.4 - February 17, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * GKO v4 API CRD is missing the analytics tracing attribute [#10322](https://github.com/gravitee-io/issues/issues/10322)
+  * Operator is reconciling every secrets on startup [#10284](https://github.com/gravitee-io/issues/issues/10284)
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  * Allow to disable ingress controller in helm values [#10327](https://github.com/gravitee-io/issues/issues/10327)
+  * Make the operator able to run in cluster mode but only monitor a set of namespaces listed in helm values [#10297](https://github.com/gravitee-io/issues/issues/10297)
+</details>
+
+
+<details>
+<summary>Security</summary>
+
+  * Narrow down verbs allowed for the manager role regarding custom resources [#10328](https://github.com/gravitee-io/issues/issues/10328)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.6.3 - February 7, 2025
 
 There is nothing new in version 4.6.3.
