@@ -10,6 +10,7 @@
 (?:^|/)vendor/
 ignore$
 \.a$
+\.adoc$
 \.ai$
 \.all-contributorsrc$
 \.avi$
@@ -80,6 +81,8 @@ ignore$
 \.xlsx?$
 \.xpm$
 \.xz$
+\.yaml$
+\.yml$
 \.zip$
 ^\.github/actions/spelling/
 ^\Q.github/workflows/spelling.yml\E$
