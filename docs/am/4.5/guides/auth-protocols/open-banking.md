@@ -2,7 +2,7 @@
 
 ## Overview
 
-[FAPI 1.0: Baseline](https://openid.net/specs/openid-financial-api-part-1-1_0.html) & [FAPI 1.0: Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html) constitute the Financial-grade API (a.k.a OpenBanking). It is a highly secured OAuth profile that aims to provide specific implementation guidelines for security and interoperability.
+[FAPI 1.0: Baseline](https://openid.net/specs/openid-financial-api-part-1-1\_0.html) & [FAPI 1.0: Advanced](https://openid.net/specs/openid-financial-api-part-2-1\_0.html) constitute the Financial-grade API (a.k.a OpenBanking). It is a highly secured OAuth profile that aims to provide specific implementation guidelines for security and interoperability.
 
 ## Protocol
 
@@ -41,7 +41,7 @@ http:
 
 ## Client Registration
 
-In order to provide a client configuration compatible with FAPI, the client have to register using the [Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html) endpoint.
+In order to provide a client configuration compatible with FAPI, the client have to register using the [Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1\_0.html) endpoint.
 
 Here's an example of a payload for a client following the FAPI 1.0.
 

@@ -24,7 +24,7 @@ This step is specific to the provider you are using. To be able to connect Acces
 ### Create an OpenID identity provider in Gravitee AM <a href="#create-an-openid-identity-provider-in-gravitee-am" id="create-an-openid-identity-provider-in-gravitee-am"></a>
 
 1. Log in to AM Console.
-2. Click the plus icon ![](https://documentation.gravitee.io/~gitbook/image?url=https%3A%2F%2Fdocumentation.gravitee.io%2F%7Egitbook%2Fimage%3Furl%3Dhttps%253A%252F%252Fdocs.gravitee.io%252Fimages%252Ficons%252Fplus-icon.png%26width%3D300%26dpr%3D4%26quality%3D100%26sign%3Dd153b85e%26sv%3D1\&width=300\&dpr=4\&quality=100\&sign=db6a087e\&sv=1).
+2. Click the plus icon ![](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Fdocumentation.gravitee.io%2F%7Egitbook%2Fimage%3Furl%3Dhttps%253A%252F%252Fdocs.gravitee.io%252Fimages%252Ficons%252Fplus-icon.png%26width%3D300%26dpr%3D4%26quality%3D100%26sign%3Dd153b85e%26sv%3D1\&width=300\&dpr=4\&quality=100\&sign=db6a087e\&sv=1).
 3. Choose the **OpenID** identity provider type and click **Next**.
 
 Ensure you have the generated Client ID and Client Secret from the provider application to hand.

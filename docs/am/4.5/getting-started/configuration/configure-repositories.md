@@ -36,6 +36,10 @@ The following matrix shows the compatibility between scopes and implementations:
 
 The [MongoDB](https://www.mongodb.org/) repository is included with AM by default.
 
+{% hint style="info" %}
+AM has been tested using Mongo DB in version **4.4** up to **7.0**
+{% endhint %}
+
 ### Configuration
 
 <pre class="language-yaml"><code class="lang-yaml"># ===================================================================
@@ -110,8 +114,8 @@ However, some features may not be supported, or may exhibit unexpected behavior 
 
 You can deploy this repository plugin in AM to use the most common databases, including:
 
-* PostgreSQL 9.6+
-* MySQL 5.7+
+* PostgreSQL 11+
+* MySQL 8.0+
 * Microsoft SQL Server 2017-CU12+
 * MariaDB 10.3+
 
@@ -121,8 +125,8 @@ AM uses the JDBC and R2DBC drivers together, since AM uses [Liquibase](https://w
 
 | Database             | Version tested | JDBC Driver                                                                                                                           | R2DBC Driver                                                                                                                     |
 | -------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Postgresql           | 9.6            | [Download page](https://jdbc.postgresql.org/download/)                                                                                | [Download page](https://repo1.maven.org/maven2/org/postgresql/r2dbc-postgresql/1.0.2.RELEASE/r2dbc-postgresql-1.0.2.RELEASE.jar) |
-| MySQL                | 5.7            | [Download page](https://dev.mysql.com/downloads/connector/j/)                                                                         | [Download page](https://repo1.maven.org/maven2/io/asyncer/r2dbc-mysql/1.0.2/r2dbc-mysql-1.0.2.jar)                               |
+| Postgresql           | 11            | [Download page](https://jdbc.postgresql.org/download/)                                                                                | [Download page](https://repo1.maven.org/maven2/org/postgresql/r2dbc-postgresql/1.0.2.RELEASE/r2dbc-postgresql-1.0.2.RELEASE.jar) |
+| MySQL                | 8.0            | [Download page](https://dev.mysql.com/downloads/connector/j/)                                                                         | [Download page](https://repo1.maven.org/maven2/io/asyncer/r2dbc-mysql/1.0.2/r2dbc-mysql-1.0.2.jar)                               |
 | MariaDB              | 10.3           | [Download page](https://downloads.mariadb.org/connector-java/)                                                                        | [Download page](https://repo1.maven.org/maven2/org/mariadb/r2dbc-mariadb/1.1.3/r2dbc-mariadb-1.1.3.jar)                          |
 | Microsoft SQL Server | 2017-CU12      | [Download page](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) | [Download page](https://repo1.maven.org/maven2/io/r2dbc/r2dbc-mssql/1.0.0.RELEASE/r2dbc-mssql-1.0.0.RELEASE.jar)                 |
 

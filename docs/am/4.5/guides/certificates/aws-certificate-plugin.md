@@ -25,7 +25,7 @@ This secret will have to contains the following entries:
 
 1. Log in to AM Console.
 2. Click **Settings > Certificates**.
-3. Click the plus icon ![plus icon](https://documentation.gravitee.io/~gitbook/image?url=https%3A%2F%2Fdocs.gravitee.io%2Fimages%2Ficons%2Fplus-icon.png\&width=300\&dpr=4\&quality=100\&sign=d153b85e\&sv=1).
+3. Click the plus icon ![plus icon](https://documentation.gravitee.io/\~gitbook/image?url=https%3A%2F%2Fdocs.gravitee.io%2Fimages%2Ficons%2Fplus-icon.png\&width=300\&dpr=4\&quality=100\&sign=d153b85e\&sv=1).
 4. Choose the AWS certificate type and click **Next**.
 5. Give your certificate a name, then enter the details of AWS settings to retrieve the secret.
    1. secret name

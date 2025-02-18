@@ -123,7 +123,7 @@ To delete the duplicate users, complete the following steps :
 Complete these steps in a test environment first.
 {% endhint %}
 
-To view a migration script that can help you, go to [GitHub](https://github.com/gravitee-io/gravitee-access-management/blob/master/docs/upgrades/username_uniqueness/username_uniqueness.js). This script identifies duplicates and renames some of them according to the connection metadata for each profile. The mostly used profile is considered as the reference and other will be renamed with a "\_TO\_RENAME\_OR\_DELETE" sufix.
+To view a migration script that can help you, go to [GitHub](https://github.com/gravitee-io/gravitee-access-management/blob/master/docs/upgrades/username\_uniqueness/username\_uniqueness.js). This script identifies duplicates and renames some of them according to the connection metadata for each profile. The mostly used profile is considered as the reference and other will be renamed with a "\_TO\_RENAME\_OR\_DELETE" sufix.
 
 For safety, this script define at the beginning a boolean **dryRun** set to **true** to only display the script output and see the action that is applyed in case of duplicate. To effectively process the changes, you have to define this variable to **false**.
 
@@ -235,7 +235,7 @@ The procedure is the same as the one for the **users** table but need to be appl
 
 **Docker Images**
 
-To be compliant with [CIS\_Docker\_v1.3.1\_L1](https://www.tenable.com/audits/items/CIS_Docker_v1.3.1_L1_Docker_Linux.audit:bdcea17ac365110218526796ae3095b1) ,the docker images  use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
+To be compliant with [CIS\_Docker\_v1.3.1\_L1](https://www.tenable.com/audits/items/CIS\_Docker\_v1.3.1\_L1\_Docker\_Linux.audit:bdcea17ac365110218526796ae3095b1) ,the docker images  use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
 
 ```bash
 securityContext:
@@ -275,7 +275,7 @@ With this update, the following are enabled to improve security:
 
 **Theme and Branding**
 
-With this update, there is a  [**theme builder**](https://docs.gravitee.io/am/current/am_userguide_branding_theme_builder.html)**,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are  used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
+With this update, there is a  [**theme builder**](https://docs.gravitee.io/am/current/am\_userguide\_branding\_theme\_builder.html)**,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are  used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
 
 * css/access\_confirmation.css
 * css/forgot\_password.css
@@ -331,7 +331,7 @@ Gateway X-Frame-Option:
 **Bundle Community Edition and Enterprise Edition**
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
+Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am\_installguide\_migration.html#upgrade\_to\_3\_17\_2\_3\_17\_3\_3\_17\_4\_3\_18\_0\_3\_18\_1\_3\_18\_2\_3\_18\_3).
 {% endhint %}
 
 With this update, Gravitee provides a single bundle for the Access Management (AM) Community Edition (CE) and Enterprise Edition (EE). By default, this bundle or docker image provide CE features and they do not contain EE plugins. If you want to start AM EE with plugins that you paid for, you have to deploy the license key and EE plugin that you need.
@@ -402,7 +402,7 @@ To better match the recommendation asked by Apple to use biometric devices for W
 
 If you use webauthn JavaScript scripts in your custom HTML templates, we strongly advise you to use the v2 version started from the 3.18.0 version.
 
-For more information about the recommendation from Apple, go to [WebKit Bugzilla](https://bugs.webkit.org/show_bug.cgi?id=213595).
+For more information about the recommendation from Apple, go to [WebKit Bugzilla](https://bugs.webkit.org/show\_bug.cgi?id=213595).
 
 ```bash
 WebAuthn Register
@@ -445,7 +445,7 @@ If the use have consented to these, you can simply add those inputs as `hidden` 
     <input class="mdl-checkbox__input" type="hidden" th:value="on"  id="uc_ua" name="uc_ua">
 ```
 
-For more information about this change, see [Risk-based MFA](https://docs.gravitee.io/am/current/am_userguide_mfa_risk_based.html#user_activity_and_consent).
+For more information about this change, see [Risk-based MFA](https://docs.gravitee.io/am/current/am\_userguide\_mfa\_risk\_based.html#user\_activity\_and\_consent).
 
 {% hint style="info" %}
 From **3.18.6**, you can implicit user consent in **gravitee.yml** file on the gateway side. In the **consent** section of the yml file, variable **ip** and **user-agent** is introduced for collecting user consent implicitly.
@@ -454,7 +454,7 @@ From **3.18.6**, you can implicit user consent in **gravitee.yml** file on the g
 ### 3.17.2
 
 {% hint style="warning" %}
-Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am_installguide_migration.html#upgrade_to_3_17_2_3_17_3_3_17_4_3_18_0_3_18_1_3_18_2_3_18_3).
+Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regression introduced in the 3.17.2 version of AM. We strongly advise you to upgrade directly to the 3.17.5 or 3.18.4 minimum. For more details about this change, see [Upgrade to 3.18](https://docs.gravitee.io/am/current/am\_installguide\_migration.html#upgrade\_to\_3\_17\_2\_3\_17\_3\_3\_17\_4\_3\_18\_0\_3\_18\_1\_3\_18\_2\_3\_18\_3).
 {% endhint %}
 
 **Automatic redirection to External IDP**
@@ -467,7 +467,7 @@ With this update, the rules on external identity providers are evaluated also du
 
 **Allowed domain lists**
 
-Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see[Identifier-first Login Flow](https://docs.gravitee.io/am/current/am_userguide_login_identifier_first_login_flow.html)
+Due to the selection rule feature added in application identity providers, domain whitelists now operate after login and not after identifier-first login. For more information about this change, see[Identifier-first Login Flow](https://docs.gravitee.io/am/current/am\_userguide\_login\_identifier\_first\_login\_flow.html)
 
 **Application Identity Providers**
 
@@ -476,7 +476,7 @@ At application level, identity providers support the following actions:
 * Priority: When the end user tries to log in, the application will first try to log in with the highest priority identity provider.
 * Selection rule: When the end user tries to log in, the application will try to log in with the identity provider that matches the rule.
 
-For more information about this change, see [Application Identity Providers](https://docs.gravitee.io/am/current/am_userguide_client_identity_providers.html).
+For more information about this change, see [Application Identity Providers](https://docs.gravitee.io/am/current/am\_userguide\_client\_identity\_providers.html).
 
 Also, at management-api level, the schema changes to save the new application configuration:
 
@@ -506,7 +506,7 @@ Also, at management-api level, the schema changes to save the new application co
 }
 ```
 
-Finally, you can check the API reference. To check the APU reference, go to [Management API reference](https://docs.gravitee.io/am/current/am_devguide_management_api_documentation.html).
+Finally, you can check the API reference. To check the APU reference, go to [Management API reference](https://docs.gravitee.io/am/current/am\_devguide\_management\_api\_documentation.html).
 
 ### 3.15
 
