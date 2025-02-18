@@ -103,29 +103,13 @@ To configure a Twilio Verify resource, you must specify:
 3. From the Resources section of the inner left nav, select **Services**
 4.  Click the plus icon <img src="broken-reference" alt="" data-size="line"> at the bottom of the page&#x20;
 
-    <div align="left">
-
-    <figure><img src="../.gitbook/assets/resource_add.png" alt="" width="563"><figcaption><p>Add a resource</p></figcaption></figure>
-
-    </div>
+    <div align="left"><figure><img src="../.gitbook/assets/resource_add.png" alt="" width="563"><figcaption><p>Add a resource</p></figcaption></figure></div>
 5.  Select the resource type and click **Next**&#x20;
 
-    <div align="left">
-
-    <figure><img src="../.gitbook/assets/resource_select.png" alt="" width="563"><figcaption><p>Create a new HTTP Factor resource</p></figcaption></figure>
-
-    </div>
+    <div align="left"><figure><img src="../.gitbook/assets/resource_select.png" alt="" width="563"><figcaption><p>Create a new HTTP Factor resource</p></figcaption></figure></div>
 6.  Enter the resource configuration values (see [Resource Types](resources.md#resource-types)) and click **Create**&#x20;
 
-    <div align="left">
-
-    <figure><img src="../.gitbook/assets/resource_configure.png" alt="" width="563"><figcaption><p>Configuration for an HTTP Factor resource</p></figcaption></figure>
-
-    </div>
+    <div align="left"><figure><img src="../.gitbook/assets/resource_configure.png" alt="" width="563"><figcaption><p>Configuration for an HTTP Factor resource</p></figcaption></figure></div>
 7.  Your resource is now available for use in AM&#x20;
 
-    <div align="left">
-
-    <figure><img src="../.gitbook/assets/resource_available.png" alt="" width="563"><figcaption><p>The newly-created resource is now available</p></figcaption></figure>
-
-    </div>
+    <div align="left"><figure><img src="../.gitbook/assets/resource_available.png" alt="" width="563"><figcaption><p>The newly-created resource is now available</p></figcaption></figure></div>

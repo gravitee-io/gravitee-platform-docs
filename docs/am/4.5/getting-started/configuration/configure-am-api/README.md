@@ -443,7 +443,7 @@ The PBKDF2 algorithm accepts three properties:
 
 * **rounds**: The number of iterations (default: 600000)
 * **salt**: The length in bits of the salt value (default: 16)
-* **algorithm**: PBKDF2 with the specified pseudo-random function (default: PBKDF2WithHmacSHA256**)**
+* **algorithm**: PBKDF2 with the specified pseudo-random function (default: PBKDF2WithHmacSHA25&#x36;**)**
 
 The default values are those recommended by OWASP.
 

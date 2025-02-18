@@ -70,7 +70,6 @@ This page lists the available AM plugins and provides compatibility matrices wit
 | Plugin version | AM version |
 | -------------- | ---------- |
 | 1.x            | 4.0 +      |
-| 1.2.x          | 4.5 +      |
 | 2.x            | 4.5 +      |
 
 #### [gravitee-am-identityprovider-azure-ad](https://download.gravitee.io/#graviteeio-ee/am/plugins/idps/gravitee-am-identityprovider-azure-ad/)

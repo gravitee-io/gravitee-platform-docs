@@ -72,9 +72,9 @@ The same principle applies to any identity provider.
 
 ### OIDC scopes and claims
 
-According to the [OpenID Connect core specification](https://openid.net/specs/openid-connect-core-1\_0.html#ScopeClaims), using scopes such as `profile`, `phone`, `email` or `address` will retrieve sets of specific claims.\
+According to the [OpenID Connect core specification](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims), using scopes such as `profile`, `phone`, `email` or `address` will retrieve sets of specific claims.\
 For example, using the `profile` scope will return the following claims, if available: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`.\
-You can see their [definitions here](https://openid.net/specs/openid-connect-core-1\_0.html#StandardClaims).
+You can see their [definitions here](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims).
 
 ## Role mapper and dynamic OAuth2 scopes
 

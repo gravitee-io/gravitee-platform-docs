@@ -330,8 +330,8 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 1. To create secured connection between Kafka Reporter and Kafka Broker, configure your Kafka broker:
 2. As described in the following Kafka documentation, add to your broker configuration JAAS configuration:
 
-* [https://kafka.apache.org/documentation/#security\_sasl\_jaasconfig](https://kafka.apache.org/documentation/#security\_sasl\_jaasconfig)&#x20;
-* [https://kafka.apache.org/documentation/#security\_sasl\_brokerconfig](https://kafka.apache.org/documentation/#security\_sasl\_brokerconfig)
+* [https://kafka.apache.org/documentation/#security\_sasl\_jaasconfig](https://kafka.apache.org/documentation/#security_sasl_jaasconfig)&#x20;
+* [https://kafka.apache.org/documentation/#security\_sasl\_brokerconfig](https://kafka.apache.org/documentation/#security_sasl_brokerconfig)
 
 3. When your broker is correctly configured, add additional **Producer properties** to your Kafka Reporter:
 

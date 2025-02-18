@@ -3,7 +3,7 @@
 > A key concern when using passwords for authentication is password strength. A "strong" password policy makes it difficult or even improbable for one to guess the password through either manual or automated means.
 
 — OWASP\
-[_Authentication cheat sheet_](https://cheatsheetseries.owasp.org/cheatsheets/Authentication\_Cheat\_Sheet.html#implement-proper-password-strength-controls)
+[_Authentication cheat sheet_](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html#implement-proper-password-strength-controls)
 
 ## Configure a password policy
 
