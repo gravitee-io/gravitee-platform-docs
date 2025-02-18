@@ -46,12 +46,11 @@ For more information on each use case, check the following sections below:
 
 ### Kubernetes (plugin id: `kubernetes`)
 
-```yaml
-enabled: true
-kubeConfigFile: /opt/gravitee/config/kube-config.json
-timeoutMs: 3000
-namespace: default
-```
+<pre class="language-yaml"><code class="lang-yaml">enabled: true
+<strong># kubeConfigFile: /opt/gravitee/config/kube-config.json
+</strong># timeoutMs: 3000
+# namespace: default
+</code></pre>
 
 * No default assumptions are made regarding the location of `kubeConfigFile`. The absence of this file assumes that Gravitee is deployed in Kubernetes and the configuration is in-cluster.&#x20;
 * Namespace can be overridden in Secrets URLs via `?namespace=<name>`. If no namespace is provided, the namespace is assumed to be that of the cluster in which the platform is deployed. To fetch from the default namespace, it must be set explicitly, unless Gravitee is deployed in that namespace.
@@ -62,34 +61,47 @@ The legacy method of fetching data from Kubernetes Secrets in a Gravitee configu
 
 ### Hashicorp Vault (plugin id: `vault`)
 
+This plugin enables all possible option to access K/V engine of Vault. It can manage the following authentication methods:
+
+* Token
+* Userpass
+* App Role
+* Github
+* Certificate (mTLS)
+* Kubernetes (short and long lived tokens)
+
+Here is an example configuration:
+
 ```yaml
+# mandatory
 enabled: true
 host: 127.0.0.1      
 port: 8200
 # optional
-namespace: myapphcvns      # default: "default"
+namespace: default.        # default: "default"
 kvEngine: V2               # defaults to v2 can be "v1", no mixing supported
 readTimeoutSec: 2
 connectTimeoutSec: 3
-# required although can be disabled
+# required although can be disabled in Vault's dev mode
 ssl:
   enabled: false                        # not for production
   # format: "pemfile"                   # one of "pem", "pemfile", "truststore"
   # pem:                                # (only for "pem")
                                         # value is base64 with headers
   # file: /opt/gravitee/vault.pem       # for pemfile truststore files
+# mandatory
 auth:
-  method: token # one of "token", "github", "userpass", "approle", "cert" (mTLS)
-### github config
+  method: token # can also be "github", "userpass", "approle", "cert", "kubenetes"
+### token config
   config:
     token: [redacted]
 ### github config
     # token:
-    # path: <non standard github path>
+    # path: <optinal non standard github auth path>
 ### userpass config
     # username:
     # password:
-    # path: <non standard github path>
+    # path: <optinal non standard userpass auth path>
 ### approle
     # roleId:
     # secretId:
@@ -101,6 +113,17 @@ auth:
     ## for 'keystore' format
     # keyStore:      # file path
     # password:      # keystore password
+    # path: <optinal non standard cert auth path>
+### kubernetes
+    # role:
+    ## short-lived tokens (default)
+    # tokenFile:     # default: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+    ## Gravitee service account secret for long-lived tokens
+    ## Will supersedes short-lived when set
+    # tokenSecret:
+    #   name:
+    #   namespace:   # current Gravitee namespace if unset
+    # path: <optinal non standard kubernetes auth path>
 # for both watch and read
 retry:
   attempts: 2          # set '0' to disable
@@ -112,6 +135,8 @@ watch:
 ```
 
 ### AWS Secret Manager (plugin id: `aws`)
+
+Here is an example configuration:
 
 ```yaml
 enabled: true
@@ -126,14 +151,21 @@ auth:
     secretAccessKey: [redacted]
 ```
 
-If you are running Gravitee in EKS or EC2, you can use`"chain"`as the provider for authentication. See [https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-chain.html](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-chain.html) for more details.
+If you run Gravitee in EKS or EC2, you can use`"chain"`as the provider for authentication. For more information about using `"chain"`, see [Default credentials provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-chain.html).
 
-## Example for configuration&#x20;
+## Example configurations to enable secrets
 
-A specific location needs to be added to the configuration above to enable secrets. Here is an example:
+A specific location needs to be added to the configuration above to enable secrets. Here are examples for the following:
 
-{% tabs %}
-{% tab title="gravitee.yml" %}
+* gravitee.yml (all products)
+* Helm Charts (APIM)
+
+For more information about configuration-level secrets, see [configuration-level-secrets.md](configuration-level-secrets.md "mention").&#x20;
+
+### gravitee.yml (all products)
+
+Here is an example configuration for enabling secrets in your `gravitee.yml`file:
+
 ```yaml
 # configuration-level secret configuration
 secrets:
@@ -141,37 +173,34 @@ secrets:
   kubernetes:        
     # configuration
     enabled: true
-    kubeConfigFile: /opt/gravitee/config/kube-config.json
-    timeoutMs: 3000
-    namespace: default
+    # ...
 ```
-{% endtab %}
 
-{% tab title="Helm Charts" %}
+### Helm Charts (APIM)
+
+Here is an example configuration for enabling secrets in your `values.yml` file:
+
 ```yaml
-# for Management API
-api:
-  secrets:
-    kubernetes:
-      enabled: true
-      # ...
-      
-# for Gateway
-gateway:
-  secrets:
-    kubernetes:
-      enabled: true
-      # ...
+# Works for both APIs and Gateway
+secrets:
+  kubernetes:
+    enabled: true
+    # ...
 ```
-{% endtab %}
-{% endtabs %}
 
-Learn more about [configuration-level secrets](configuration-level-secrets.md).
+## Example configuration for v4 APIs (APIM Gateway)
 
-## Example for v4 APIs
+Here are examples for configuring secrets the following:
 
-{% tabs %}
-{% tab title="gravitee.yml" %}
+* gravitee.yml (all products)
+* Helm Charts (APIM)
+
+For more information about API-level secrets, see [api-level-secrets.md](../../configure-v4-apis/api-level-secrets.md "mention").
+
+### gravitee.yml
+
+Here is an example configuration for v4 APIs for a `gravitee.yml`file:
+
 ```yaml
 # api level secrets
 api:
@@ -181,27 +210,22 @@ api:
       - plugin: kubernetes
         configuration:
           enabled: true
-          kubeConfigFile: /opt/gravitee/config/kube-config.json
-          timeoutMs: 3000
-          namespace: default
+          # ...
 ```
-{% endtab %}
 
-{% tab title="Helm Charts" %}
+### Helm Charts
+
+Here is an example configuration for v4 APIs for your `values.yml` file:
+
 ```yaml
 # api-level secret configuration
-api:
-  secrets:
-    providers:
-      # list allow duplication, see dedicated section
-      - plugin: kubernetes
-        configuration:
-          enabled: true
-          kubeConfigFile: /opt/gravitee/config/kube-config.json
-          timeoutMs: 3000
-          namespace: default
+gateway:
+  api:
+    secrets:
+      providers:
+        # list allow plugin duplication, see dedicated section
+        - plugin: kubernetes
+          configuration:
+            enabled: true
+            # ...
 ```
-{% endtab %}
-{% endtabs %}
-
-Learn more about [API-level secrets](../../configure-v4-apis/api-level-secrets.md).
