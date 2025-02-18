@@ -23,7 +23,7 @@ With Namespaced Mode, GKO only listens to a single namespace or specific namespa
 
 The following diagram provides a visual breakdown of the resources GKO might need access to, along with the corresponding permissions required for each.
 
-<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption><p>GKO required permissions</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption><p>GKO required permissions</p></figcaption></figure>
 
 GKO needs access to the following resources:
 
