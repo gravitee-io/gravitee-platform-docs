@@ -18,21 +18,153 @@ To use OpenTelemetry, you must enable OpenTelemetry on your Gateway, and optiona
 
 {% hint style="warning" %}
 If you currently use the Jaeger plugin, you must update your configuration to target your OpenTelemetry endpoint.&#x20;
+
+`services.tracing.otel` is deprecated. You must use the following configurations.
 {% endhint %}
+
+### Simple configuration
 
 * To enable OpenTelemetry on your Gateway, add the following code to your `gravitee.yaml` file:
 
 ```yaml
 services:
-      opentelemetry:  
-        enabled: true
-        verbose: true
-        exporter:
-            endpoint: <OPENTELEMETRY_ENDPOINT>
-            protocol: 
+  opentelemetry:  
+    enabled: true
+    exporter:
+      endpoint: <OPENTELEMETRY_ENDPOINT>
 ```
 
-* Replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.
+* If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.&#x20;
+* If your endpoint URL uses `http://` or `grpc://` , you can use this configuration for a basic default configuration.
+
+### Advanced configuration
+
+With the following configuration, you can complete the following actions with OpenTelemetry:
+
+* Configure TLS and mTLS
+* Add extra attributes to all spans
+* Add headers to exporter requests
+* Set proxy configuration
+
+```yaml
+services:
+  opentelemetry:
+    enabled: true
+    # Will add technical informations spans
+    verbose: true
+    # Allow to add any extra attributes on all spans
+    extraAttributes:
+      deployment.environment.name: production
+    
+    exporter:
+      endpoint: https://localhost:5555
+      protocol: http/protobuf          # 'grpc' by default
+      compression: gzip                # 'none' by default (default)
+      # Key-value pairs used as headers of exporter requests
+      headers:
+        X-Custom-Header: value
+      # collector max time to process a batch of telemetry data
+      timeout: 10000 # default
+      
+      # proxy config (can reuse Gateway's)
+      proxy:
+        enable: true               # disabled by default
+        host: myproxy.acme.com
+        port: 1234
+        
+      # if endpoint URL uses scheme https:// the following is used
+      ssl:
+        trustAll: true                 # false by default
+        verifyHostname: false          # true by default
+        # for mTLS
+        keystore:
+          type: pem                    # supports 'pkcs12' and 'jks'
+          certs:
+            - /path/to/certificate.pem
+          keys:
+            - /path/to/private_key.pem
+        # CA certs
+        truststore:
+          type: pkcs12                 # supports 'pem' and 'jks'
+          path: /path/to/certs.p12
+          password: password
+
+```
+
+For more information about all the settings that you can configure for OpenTelemetry, go to this [GitHub README](https://github.com/gravitee-io/gravitee-node/tree/master/gravitee-node-opentelemetry).
+
+### Helm Charts
+
+1. To enable OpenTelemetry with Helm Charts, add the following configuration to your `values.yml`file:
+
+```yaml
+gateway:
+  services:
+    opentelemetry:
+      enabled: true
+      exporter:
+        endpoint: <OPENTELEMETRY_ENDPOINT>
+```
+
+* If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.&#x20;
+* If your endpoint URL uses `http://` or `grpc://` , you can use this configuration for a basic default configuration.
+
+2.  (Optional) For a more advanced configuration, add the following configuration to your `values.yaml`:\
+
+
+    With the following configuration, you can complete the following actions with OpenTelemetry:
+
+    * Configure TLS and mTLS
+    * Add extra attributes to all spans
+    * Add headers to exporter requests
+    * Set proxy configuration
+
+```yaml
+gateway:
+  services:
+    opentelemetry:
+      enabled: true
+      # Will add technical informations spans
+      verbose: true
+      # Allow to add any extra attributes on all spans
+      extraAttributes:
+        deployment.environment.name: production
+      
+      exporter:
+        endpoint: https://localhost:5555
+        protocol: http/protobuf          # 'grpc' by default
+        compression: gzip                # 'none' by default (default)
+        # Key-value pairs used as headers of exporter requests
+        headers:
+          X-Custom-Header: value
+        # collector max time to process a batch of telemetry data
+        timeout: 10000 # default
+        
+        # proxy config (can reuse Gateway's)
+        proxy:
+          enable: true               # disabled by default
+          host: myproxy.acme.com
+          port: 1234
+          
+        # if endpoint URL uses scheme https:// the following is used
+        ssl:
+          trustAll: true                 # false by default
+          verifyHostname: false          # true by default
+          # for mTLS
+          keystore:
+            type: pem                    # supports 'pkcs12' and 'jks'
+            certs:
+              - /path/to/certificate.pem
+            keys:
+              - /path/to/private_key.pem
+          # CA certs
+          truststore:
+            type: pkcs12                 # supports 'pem' and 'jks'
+            path: /path/to/certs.p12
+            password: password
+```
+
+For more information about all the settings that you can configure for OpenTelemetry, go to this [GitHub README](https://github.com/gravitee-io/gravitee-node/tree/master/gravitee-node-opentelemetry).
 
 ## Enabling OpenTelemetry for an API
 
