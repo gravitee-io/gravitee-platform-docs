@@ -6,6 +6,23 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.37 - February 17, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.1.36 - December 12, 2024
 
 <details>
