@@ -175,4 +175,9 @@ redirects:
  using-the-product/administration/authentication/azure-regions-for-saas-and-hybrid-deployments: administration/authentication/azure-entra-id.md
  v/4.0-5/releases-and-changelog/changelogs/apim-4.0.x-changelog: 4.0/releases-and-changelog/changelog/apim-4.0.x.md
  using-the-product/using-the-gravitee-api-management-components/general-configuration/shared-policy-groups/default-ai-flows-overview: policies/shared-policy-groups.md
+ overview/plugins-and-api-definitions/plugins/plugins: getting-started/plugins/README.md
+ overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/engine-comparisons: overview/execution-engine.md
+ installation-and-upgrades/installing-on-openshift: install-and-upgrade/openshift.md
+ installation-and-upgrades/installing-with-rpm-packages/installing-with-quick-full-stack-install: install-and-upgrade/rpm/quick-install.md
+ 
  
