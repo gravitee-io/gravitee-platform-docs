@@ -77,6 +77,12 @@ security:
           password: <bcrypt password>
 ```
 
+Furthermore, you can find an additional setting for controlling the built-in (memory) Admin account. By default, admin user will be added. If you want to remove the default admin, then set:
+
+```bash
+adminAccountEnable: false
+```
+
 ### User self-registration
 
 We recommend **disabling the capability for a user to self-register** for both the Console and the Developer Portal to rely on your company IdP to manage your user provisioning. This dramatically decreases the risk of an external user unexpectedly accessing your system:
