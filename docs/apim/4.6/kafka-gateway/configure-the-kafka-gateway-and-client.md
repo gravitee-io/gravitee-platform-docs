@@ -14,7 +14,7 @@ Before you can use Gravitee to proxy in a Kafka cluster, you need to configure t
 Running the Kafka Gateway requires an Enterprise license with the Kafka Gateway feature included. This does not come by default with a Universe license; it must be purchased separately from Gravitee.
 {% endhint %}
 
-To run the Kafka Gateway, you enable the gateway server in \`gravitee.yml\`.  The full example of the configuration is defined below. The baseline required configuration is simply:
+To run the Kafka Gateway, you enable the gateway server in `gravitee.yml`.  The full example of the configuration is defined below. The baseline required configuration is:
 
 ```yaml
 # Gateway Kafka server
@@ -32,15 +32,117 @@ kafka:
     defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
 ```
 
-The gateway domain is used as the core domain of the bootstrap server for client requests. Each Kafka API will use a different host prefix. Your client must trust the certificate provided by the gateway, and as there is a variable host in the proxy bootstrap server URL, you likely need to request a wildcard SAN for the certificate presented by the gateway.
+### Bootstrap Server Domain
 
-{% hint style="info" %}
-SNI routing is **required** to run the Kafka Gateway. As the gateway can run multiple Kafka APIs simultaneously, this is how the gateway determines which API proxy is the intended target of the client request. As SNI is part of the TLS protocol, the gateway **must** present a certificate that is trusted by the client.
-{% endhint %}
+* The gateway run multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}` , where `{apiHost}` is host prefix defined for each API.
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
+
+* To route to the correct API, the gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is a part of the TLS protocol. Therefore all client connections **must** happen over TLS (with at least `security.protocol=SSL` set in the Kafka client configuration).
+* The client **must** trust the certificate provided by the gateway. As there is a variable host in the proxy bootstrap server URL, you will likely need to request a wildcard SAN to use as the certificate presented by the gateway.
+* Using the default configuration, you will ideally need a wildcard DNS entry, so that you don't need a new DNS entry for every API. In this example, the DNS and wildcard certificate should be for `*.mycompany.org`.
+
+<details>
+
+<summary>What if I have restrictions on the domains I can use?</summary>
+
+If you have restrictions on the domain names you can use for APIs, you can override the default hostname by updating the gateway configuration. For example, instead of `{apiHost}.{defaultDomain}`  as the hostname, you can set the pattern to `my-bootstrap-{apiHost}.mycompany.org` by configuring the variables below:
+
+```yaml
+# Gateway Kafka server
+kafka:
+  enabled: true
+
+  routingMode: host # default is host. Only host is supported for now.
+  # Routing Host Mode
+  routingHostMode:
+    brokerPrefix: broker- # default is broker-
+    domainSeparator: - # Used to separate broker's name from api & defaultDomain. Default is '-'
+
+    # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
+    defaultDomain: mycompany.org # Should set according to the public wildcard DNS/Certificate. Default is empty
+    defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
+    
+    # Customize the host domain.
+    # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
+    bootstrapDomainPattern: my-bootstrap-{apiHost}.mycompany.org
+```
+
+Then, for two APIs, the client will connect to, e.g., `my-bootstrap-api1.mycompany.org:9092` and `my-bootstrap-api2.mycompany.org:9092`, as opposed to the default of `api1.mycompany.org:9092` and `api2.mycompany.org:9092`.
+
+</details>
+
+### Broker Mapping
+
+After the Kafka client connects to the API, the gateway (acting as the bootstrap server) returns the list of brokers in the upstream cluster.&#x20;
+
+<figure><img src="../.gitbook/assets/image (1).png" alt="" width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
+
+To properly provide the client with the list of brokers and the associated metadata about topics and partitions on those brokers, the gateway creates a one-to-one mapping between brokers in the upstream cluster and the brokers seen by the client.
+
+<figure><img src="../.gitbook/assets/image (3).png" alt="" width="563"><figcaption><p>The gateway returns the list of brokers back to the client, rewritten to use the gateway hostname.</p></figcaption></figure>
+
+The mapping combines the `brokerPrefix`, `brokerSeparator`, and `defaultDomain` variables, along with the API host prefix. The Kafka client must be able to route to `{brokerPrefix}-{brokerId}-{apiHost}.{defaultDomain}`, for as many brokers as there are in the Kafka cluster. Again, a wildcard DNS entry is preferred for this.
+
+<details>
+
+<summary>What if I have restrictions on the domains I can use?</summary>
+
+If you have restrictions on the domain names you can use for APIs, then as above you can override the broker domain pattern. The configuration becomes as follows (with `brokerDomainPattern` being the relevant option):
+
+```yaml
+# Gateway Kafka server
+kafka:
+  enabled: true
+
+  routingMode: host # default is host. Only host is supported for now.
+  # Routing Host Mode
+  routingHostMode:
+    brokerPrefix: broker- # default is broker-
+    domainSeparator: - # Used to separate broker's name from api & defaultDomain. Default is '-'
+
+    # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
+    defaultDomain: mycompany.org # Should set according to the public wildcard DNS/Certificate. Default is empty
+    defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
+    
+    # Customize the host domain.
+    # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
+    # {brokerId} is a placeholder that stand for the broker id
+    bootstrapDomainPattern: my-bootstrap-{apiHost}.mycompany.org
+    brokerDomainPattern: {apiHost}-broker-{brokerId}-test.mycompany.org
+```
+
+With this, if there are three brokers in the upstream cluster, the client must be able to route to `api1-broker-0-test.mycompany.org`,  `api1-broker-0-test.mycompany.org`, and `api1-broker-0-test.mycompany.org`, along with `my-bootstrap-api1.mycompany.org`.
+
+</details>
+
+<details>
+
+<summary>What if I don't have a valid DNS entry?</summary>
+
+If you do not have a valid DNS entry for your gateway because, for example, you're running the gateway on `localhost`, then you may need to update your `/etc/hosts` file. If running the gateway locally in Docker, and setting the `defaultDomain` to `kafka.local`, you can update your /etc/hosts file with the following entries:
+
+```
+127.0.0.1    localhost kafka.local api1.kafka.local
+::1          localhost broker-0-api1.kafka.local broker-1-api1.kafka.local broker-2-api1.kafka.local
+127.0.0.1    localhost broker-0-api1.kafka.local broker-1-api1.kafka.local broker-2-api1.kafka.local
+```
+
+If adding more APIs, you will need to add another API host to the first line and two more entries for each API to the IPs `::1` and `127.0.0.1`. With two APIs, this becomes:
+
+```
+127.0.0.1    localhost kafka.local api1.kafka.local api2.kafka.local
+::1          localhost broker-0-api1.kafka.local broker-1-api1.kafka.local broker-2-api1.kafka.local
+127.0.0.1    localhost broker-0-api1.kafka.local broker-1-api1.kafka.local broker-2-api1.kafka.local
+::1          localhost broker-0-api2.kafka.local broker-1-api2.kafka.local broker-2-api2.kafka.local
+127.0.0.1    localhost broker-0-api2.kafka.local broker-1-api2.kafka.local broker-2-api2.kafka.local
+```
+
+</details>
 
 ### Defining the Default Entrypoint Configuration
 
-By default, clients talk to Kafka APIs by setting the bootstrap server as \`{api-specific-prefix}.{gateway-hostname}:9092\`. This is set in \`gravitee.yml\`, but for convenience, when developing APIs in the UI, you can set the default values appended to the hostname. You can also leave this value blank and respecify the full hostname in the API.
+By default, clients talk to Kafka APIs by setting the bootstrap server as `{apiHost}.{defaultDomain}:{defaultPort}`. This is set in `gravitee.yml`, but for convenience, when developing APIs in the UI, you can set the default values appended to the hostname. You can also leave this value blank and respecify the full hostname in the API.
 
 In order to configure the APIM Console to use the Kafka domain and port values for your Organization:
 
@@ -131,9 +233,15 @@ kafka:
     brokerPrefix: broker- # default is broker-
     domainSeparator: - # Used to separate broker's name from api & defaultDomain. Default is '-'
 
-  # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
-   defaultDomain: mycompany.org # Should set according to the public wildcard DNS/Certificate. Default is empty
-   defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
+    # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
+    defaultDomain: mycompany.org # Should set according to the public wildcard DNS/Certificate. Default is empty
+    defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
+
+    # If necessary, customize the host domain.
+    # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
+    # {brokerId} is a placeholder that stand for the broker id
+    bootstrapDomainPattern: my-bootstrap-{apiHost}.mycompany.org
+    brokerDomainPattern: {apiHost}-broker-{brokerId}-test.mycompany.org
 
   # API-Key plan security configuration
   # These are the SASL mechanisms that API key plans support.
