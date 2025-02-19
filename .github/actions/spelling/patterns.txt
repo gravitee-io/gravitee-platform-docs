@@ -2,3 +2,9 @@
 ^<figure>.*
 `[^`]+`
 \{[\s\S]*?\}
+.*http.*
+\b(?:https?|ftp):\/\/\S+
+\{[\s\S]*?\}  # Matches JSON objects
+\[[\s\S]*?\]  # Matches JSON arrays
+^\s*[\w-]+:\s*.*$
+^\s*[\w-]+:\s*[|>][\s\S]*?$
