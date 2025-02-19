@@ -1,5 +1,9 @@
 # Logstash
 
+## Compatibility with Elasticsearch
+
+Support versions: Please refer to the [compatibility matrix with Elasticsearch](https://www.elastic.co/support/matrix#matrix_compatibility).
+
 ## Kubernetes
 
 1. Install Logstash. To install Logstash, go to either of the following websites:

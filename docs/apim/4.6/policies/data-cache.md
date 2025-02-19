@@ -4,44 +4,9 @@ hidden: true
 
 # Data Cache
 
-## Overview
-
-The Data Cache policy allows you to get, set, and expire arbitrary key-value pairs in a cache resource. You can use this policy to do things like:
-
-* Obtain an authentication token and store it in the cache before passing it to the HTTP callout policy, so that you don't have to obtain the token on every call.
-* Maintain state in the gateway to track the number of tokens passed to an upstream LLM proxied by the API.
-* Restrict the number of ongoing connections to an endpoint in order to protect a legacy backend from overload.
-
-## Basic Usage
-
 * First, you create a [cache resource](resources.md) for the policy to use.
 * You specify the cache key to use for getting, setting, or expiring. The key name is dynamic and can be set using expression language.
 * When using the `SET` operation, you specify the `value` to set in the cache. The value is also dynamic and supports expression language.
-
-## Manipulating Returned Values
-
-Suppose the cache key is named `my-key`. Then, when running the `GET` operation, the value will be accessible in the execution context via the `my-key` context attribute.
-
-For example, in the assign attributes policy, you can modify the value by using `{#context.attributes['my-key']}`. Note that you may need to cast the result to a different data type, as many caches store data in plain text. For example, to increment a value by 1 when it is obtained from Redis, use the expression:
-
-```java
-{new Integer(#context.attributes['my-key']) + 1}
-```
-
-## Handling Cache Misses
-
-When performing a `GET` operation, the policy will set a context attribute to `true` or `false` depending on whether the key was found in the cache or not. The name of the attribute is defined by the `Cache Miss Atrribute Key` field and defaults to `gravitee.policy.data-cache.cache-miss`. You can use this attribute as a condition in other policies. For example:
-
-* In the HTTP Callout policy, you can set the `Trigger condition` field to `{#gravitee.policy.data-cache.cache-miss}`, so as to only trigger the callout when a key is not found in the cache.
-* If you want to increment a counter or start at 1 if the value is not found in the cache, you can use the assign attributes policy and set the attribute as:
-
-```java
-{#context.attributes['gravitee.policy.data-cache.cache-miss'] ? 1 : new Integer(#context.attributes['my-key']) + 1}
-```
-
-## Dynamic Cache Key Names
-
-The name of the cache key is dynamic. For example, if you want to have a key in the cache for every application connecting to the API, then you can set the cache key to `{#context.attributes['application']}`. Later, if you perform a `GET` operation, you can manipulate the return value using `{#context.attributes[#context.attributes['application']}`.
 
 ## Example - Caching OAuth Token <a href="#user-content-phases" id="user-content-phases"></a>
 
@@ -229,6 +194,10 @@ request:
 | onRequest | onResponse | onMessageRequest | onMessageResponse |
 | --------- | ---------- | ---------------- | ----------------- |
 | X         | X          |                  |                   |
+
+### Description <a href="#user-content-description" id="user-content-description"></a>
+
+Policy to get/set arbitrary key-value pairs in the cache resource.
 
 ### Compatibility with APIM <a href="#user-content-compatibility-with-apim" id="user-content-compatibility-with-apim"></a>
 

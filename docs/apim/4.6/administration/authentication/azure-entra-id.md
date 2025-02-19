@@ -4,15 +4,6 @@
 
 This article aims to provide information on how to setup APIM authentication in the APIM Console UI to be able to use Azure Entra ID (formerly known as Azure AD) as an IDP.
 
-This table shows the Azure regions that Gravitee supports:
-
-| North America          | Europe                    |
-| ---------------------- | ------------------------- |
-| Washington - West US 2 | Paris - France Central    |
-|                        | Netherlands - West Europe |
-
-For more information about Azure regions, go to [Microsoft Datacenters](https://datacenters.microsoft.com/globe/explore/).&#x20;
-
 {% hint style="info" %}
 For now, these instructions only cover authentication, not the role mappings.
 {% endhint %}

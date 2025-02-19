@@ -32,7 +32,6 @@ The expression language (EL) functionality in Gravitee can be used to define con
 * To set the ACL for a specific application ID, set the condition to `{#context.attributes['application'] == 'abcd-1234'}`, where `'abcd-1234`' is the application ID. You can obtain this ID in the UI by checking the URL for the application.
 * To set the ACL based on a specific subscription for an API key plan, set the condition to `{#context.attributes['user-id'] == 'abcd-1234'}`, where `'abcd-1234'` is the subscription ID.
 * To set the ACL based on the claim in a JWT token, set the condition to e.g. `{#context.attributes['jwt.claims']['iss']}`, changing the `iss` to the desired claim.
-* To set the ACL based on a claim's value in an OAuth2 access token, set the condition to e.g. `{#jsonPath(#context.attributes['oauth.payload'], '$.custom_claim_1') == 'my value'}`, changing the `custom_claim_1` to the desired claim and `'my value'` to your desired value. &#x20;
 
 ### Using the Token Resource
 

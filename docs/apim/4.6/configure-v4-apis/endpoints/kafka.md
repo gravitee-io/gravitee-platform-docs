@@ -331,8 +331,7 @@ The Kafka endpoint can connect to [Azure Event Hubs](https://azure.microsoft.com
 * Set the JAAS configuration to the following, replacing`${CONNECTION_STRING}`with the value specified below. Do not change the username value. You can find more information about how to configure the connection string [here](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-get-connection-string).
 
 ```bash
-org.apache.kafka.common.security.plain.PlainLoginModule required \
-  username='$ConnectionString' password='${CONNECTION_STRING}
+org.apache.kafka.common.security.plain.PlainLoginModule required username='$ConnectionString' password='${CONNECTION_STRING}'
 ```
 
 * The connection string is of the form:
