@@ -54,7 +54,7 @@ services:
     verbose: true
     # Allow to add any extra attributes on all spans
     extraAttributes:
-      deployment.environment.name: production
+      - deployment.environment.name: production
     
     exporter:
       endpoint: https://localhost:5555
@@ -62,7 +62,7 @@ services:
       compression: gzip                # 'none' by default (default)
       # Key-value pairs used as headers of exporter requests
       headers:
-        X-Custom-Header: value
+        - X-Custom-Header: value
       # collector max time to process a batch of telemetry data
       timeout: 10000 # default
       
@@ -128,7 +128,7 @@ gateway:
       verbose: true
       # Allow to add any extra attributes on all spans
       extraAttributes:
-        deployment.environment.name: production
+        - deployment.environment.name: production
       
       exporter:
         endpoint: https://localhost:5555
@@ -136,7 +136,7 @@ gateway:
         compression: gzip                # 'none' by default (default)
         # Key-value pairs used as headers of exporter requests
         headers:
-          X-Custom-Header: value
+          - X-Custom-Header: value
         # collector max time to process a batch of telemetry data
         timeout: 10000 # default
         
