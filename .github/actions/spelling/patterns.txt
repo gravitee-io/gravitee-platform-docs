@@ -4,8 +4,8 @@
 # Ignores all strings that start with <figure>
 ^<figure>.*
 
-# Ignores any strings enclosed in backticks
-`[^`]+`
+# Ignores any strings enclosed in backticks, including spaces
+`[\s\S]*?`
 
 # Ignores multi-line code blocks enclosed in {}
 \{[\s\S]*?\}
@@ -30,3 +30,18 @@
 
 # Matches multi-line blocks using | or > syntax
 ^\s*[\w-]+:\s*[|>][\s\S]*?$
+
+# Ignores any strings that contain periods (.)
+.*\..*
+
+# Ignores domains (e.g., example.com, sub.domain.net, my-site.org)
+\b[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|io|co|info|biz|dev|ai|uk|us|ca|au|[a-z]{2,})\b
+
+# Ignores Unix/Linux & macOS-style environment variables ($VAR_NAME and ${VAR_NAME})
+\$\{?[A-Z_][A-Z0-9_]*\}?
+
+# Ignores Windows-style environment variables (%VAR_NAME%)
+%[A-Z_][A-Z0-9_]*%
+
+# Ignore multi-line code blocks in any language (e.g., yaml, json, ```bash, etc.)
+```[a-zA-Z0-9]*[\s\S]*?```
