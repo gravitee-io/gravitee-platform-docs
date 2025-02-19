@@ -18,13 +18,25 @@ Since AM 4.6.0, Bulk operations are partially supported with Users operations. G
 
 ## Custom attributes
 
-Gravitee AM supports a custom SCIM (system for cross-domain identity management) `User` extension that enables you to define extended attributes for your users.
+Gravitee AM supports a custom System for Cross-Domain Identity Management (SCIM) `User` extension. With this extension, you can define extended attributes for your users.
 
 {% hint style="info" %}
 Custom attributes are stored in the `additionalInformation` map of the user.
 {% endhint %}
 
 The custom `User` extension is identified using the following schema URI: `urn:ietf:params:scim:schemas:extension:custom:2.0:User`
+
+{% hint style="info" %}
+For users migrations from an alternative OIDC provider to Access Management, you can define the `lastPasswordReset` attribute. This attribute ensures that a password policy with password expiry requests a password reset according to the value provided during the migration. This attribute is accepted only during user creation.
+
+In the SCIM request, the `lastPasswordReset` attribute is expected to be a String using ISO-8601 representation to be aligned with other date attributes defined by the SCIM specification.
+
+As it is specific information,you must use the following Gravitee schema extension `"urn:ietf:params:scim:schemas:extension:custom:2.0:User"` . Here is an example:\
+\
+"urn:ietf:params:scim:schemas:extension:custom:2.0:User": {\
+&#x20;  "lastPasswordReset": "2024-10-27T04:56:22Z" \
+}
+{% endhint %}
 
 The following non-normative example shows how to create, update, and patch users by using the custom `User` extension in JSON format.
 
