@@ -179,5 +179,6 @@ redirects:
  overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/engine-comparisons: overview/execution-engine.md
  installation-and-upgrades/installing-on-openshift: install-and-upgrade/openshift.md
  installation-and-upgrades/installing-with-rpm-packages/installing-with-quick-full-stack-install: install-and-upgrade/rpm/quick-install.md
+ guides/administration/user-management-and-permissions: administration/user-management.md
  
  
