@@ -1,23 +1,12 @@
-# Introduction to Gravitee API Management (APIM)
+# gravitee-platform-docs
 
-{% hint style="warning" %}
-**Gravitee APIM 4.5 Documentation**
+The [Gravitee platform documentation](https://documentation.gravitee.io/platform-overview/) is intended for both business stakeholders and developers as an introduction to the core concepts and technologies comprising Gravitee’s best-in-class API management solution. Gravitee’s standalone and integrated products position customers to easily adopt and maintain complex API architectures and communication in a versatile and innovative ecosystem.
 
-You are reading the documentation for Gravitee APIM 4.5.
+The UX of the docs site is structured to promote intuitive navigation and an informative exploration of platform features and capabilities. The fundamental functionality of each Gravitee product is presented in the context of satisfying the business needs of real-world use cases. The complementary relationships between and extensibility of individual platform components demonstrate a centralized, comprehensive approach to API management that is compatible with a wide variety of customer roadmaps and infrastructures. Exhaustive implementation details organized into user guides and reference materials provide clarified guidance with which to harness the potential of Gravitee’s flexible, customizable, and sophisticated feature sets. 
 
-* Use the drop-down menu in the header to switch to other versions of 4.x.
-{% endhint %}
-
-{% hint style="warning" %}
-**Search field limitation**&#x20;
-
-You must navigate to a product's documentation before searching for related terms. For example, click on the Access Management header link before searching for an AM feature.
-{% endhint %}
-
-Gravitee API Management is a lightweight and performant management tool that accelerates and streamlines the governance and security of both synchronous and asynchronous APIs. It provides a centralized platform from which to measure and control API consumption, share and discover APIs, and manage the API lifecycle, versioning, and documentation.
-
-As a highly flexible and scalable solution, Gravitee APIM integrates with a customer's infrastructure and conforms to specific business needs. APIM is fully extensible using its own internal plugin system where customers can define their own policies and develop their own reporting systems.
-
-Select from the options below to learn more about APIM and get it up and running.
-
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td></td><td>APIM Architecture</td><td></td><td><a href="overview/apim-architecture/">apim-architecture</a></td></tr><tr><td></td><td>Plugins</td><td></td><td><a href="overview/plugins.md">plugins.md</a></td></tr><tr><td></td><td>Integrations</td><td></td><td><a href="overview/integrations.md">integrations.md</a></td></tr><tr><td></td><td>Open Source vs Enterprise Edition</td><td></td><td><a href="overview/gravitee-apim-enterprise-edition/">gravitee-apim-enterprise-edition</a></td></tr><tr><td></td><td>Install &#x26; Upgrade Guides</td><td></td><td><a href="getting-started/install-gravitee-api-management/">install-gravitee-api-management</a></td></tr></tbody></table>
+When browsing the docs, please pay special attention to the following:
+- **Hints:** This style element is reserved for clarifications or supplemental information to resolve ambiguity and provide additional context
+- **Cautions:** This style element is reserved for caveats and exceptions to draw attention to necessary criteria or dangerous assumptions
+- **Compatibility matrices:** Verify that specific documentation is applicable to particular Gravitee installations
+- **API definitions and phases:** Different versions of the Gravitee API definition support different features and functionality
+- **Links:** Links offer easy access to information that is related, prerequisite, or consequent to the current concept or component
