@@ -1,10 +1,62 @@
-^[!<figure>].*                       # Ignore strings starting with ! or <figure>
-`[\s\S]*?`                            # Ignore inline backtick-enclosed strings
-[\{\[][\s\S]*?[\}\]]                  # Ignore JSON objects/arrays and multi-line code blocks in {}
-```[a-zA-Z0-9]*[\s\S]*?```             # Ignore fenced code blocks (any language)
-.*(?:http|ftp)://\S+|.*http.*         # Ignore URLs and any string containing "http"
-.*\..*|\b[a-zA-Z0-9.-]+\.[a-z]{2,}\b  # Ignore strings with periods (includes domains)
-\$\{?[A-Z_][A-Z0-9_]*\}?|%[A-Z_][A-Z0-9_]*%  # Ignore environment variables ($VAR, ${VAR}, %VAR%)
-^\s*[\w-]+:\s*[|>]?\s*[\s\S]*$        # Ignore YAML key-value pairs & multi-line YAML blocks
-(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9_]+   # Ignore strings with both letters and numbers
-.*[_\-=\..].*                         # Ignore strings with underscores (_), dashes (-), equals (=), and file extensions
+# Ignores all strings that start with !
+^!.*
+
+# Ignores all strings that start with <figure>
+^<figure>.*
+
+# Ignores any strings enclosed in backticks, including spaces
+`[\s\S]*?`
+
+# Ignores multi-line code blocks enclosed in {}
+\{[\s\S]*?\}
+
+# Ignores multi-line code blocks enclosed between triple backticks
+```[\s\S]*?```
+
+# Ignores any string that contains "http"
+.*http.*
+
+# Ignores URLs of any kind (e.g., http, https, ftp, etc.)
+\b(?:https?|ftp):\/\/\S+
+
+# Matches JSON objects ({...} with newlines)
+\{[\s\S]*?\}
+
+# Matches JSON arrays ([...] with newlines)
+\[[\s\S]*?\]
+
+# Matches simple key-value pairs (key: value)
+^\s*[\w-]+:\s*.*$
+
+# Matches multi-line blocks using | or > syntax
+^\s*[\w-]+:\s*[|>][\s\S]*?$
+
+# Ignores any strings that contain periods (.)
+.*\..*
+
+# Ignores domains (e.g., example.com, sub.domain.net, my-site.org)
+\b[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|io|co|info|biz|dev|ai|uk|us|ca|au|[a-z]{2,})\b
+
+# Ignores Unix/Linux & macOS-style environment variables ($VAR_NAME and ${VAR_NAME})
+\$\{?[A-Z_][A-Z0-9_]*\}?
+
+# Ignores Windows-style environment variables (%VAR_NAME%)
+%[A-Z_][A-Z0-9_]*%
+
+# Ignore multi-line code blocks in any language (e.g., yaml, json, ```bash, etc.)
+```[a-zA-Z0-9]*[\s\S]*?```
+
+# Ignores strings that contain both letters and numbers
+(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9_]+
+
+# Ignores strings that contain underscores (_)
+.*_.*  
+
+# Ignore strings that contain dashes (-)
+.*-.*  
+
+# Ignore strings that contain equals signs (=)
+.*=.*  
+
+# Ignore strings that contain file extensions (e.g., example.txt, document.pdf, script.js)
+\b\S+\.\w{2,5}\b
