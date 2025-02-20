@@ -45,3 +45,18 @@
 
 # Ignore multi-line code blocks in any language (e.g., yaml, json, ```bash, etc.)
 ```[a-zA-Z0-9]*[\s\S]*?```
+
+# Ignores strings that contain both letters and numbers
+(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9_]+
+
+# Ignores strings that contain underscores (_)
+.*_.*  
+
+# Ignore strings that contain dashes (-)
+.*-.*  
+
+# Ignore strings that contain equals signs (=)
+.*=.*  
+
+# Ignore strings that contain file extensions (e.g., example.txt, document.pdf, script.js)
+\b\S+\.\w{2,5}\b
