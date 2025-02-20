@@ -60,3 +60,6 @@
 
 # Ignore strings that contain file extensions (e.g., example.txt, document.pdf, script.js)
 \b\S+\.\w{2,5}\b
+
+# Ignores everything on either side of an = when there are spaces around it
+\s*=\s*
