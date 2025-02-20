@@ -114,6 +114,6 @@ Starting from 4.5.0, a `repositories` section has been introduce to easily ident
 
 If you were using environment variable to provide database settings remember to:
 
-* adapt the variable name to includethe "repositories" keyword
+* adapt the variable name to include the "repositories" keyword
 * add the settings for the gateway scope
 {% endhint %}
