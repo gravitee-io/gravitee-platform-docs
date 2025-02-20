@@ -10,7 +10,7 @@ For now, these instructions only cover authentication, not for the roles mapping
 
 ## Prerequisites:
 
-* Azure Entra ID susbcription
+* Azure Entra ID subscription
 * An Application Registered in Entra ID to represent Gravitee APIM console
 * A running Gravitee APIM installations with access to Entra ID.
 * A User who can access the domain in Entra ID.

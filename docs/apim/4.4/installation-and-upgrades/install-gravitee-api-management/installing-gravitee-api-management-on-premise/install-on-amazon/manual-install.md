@@ -23,7 +23,7 @@ Gravitee supports only the Amazon Linux 2 image.
     * Port 8084
     * Port 8085
 
-### Installing the prerequisities for Gravitee API Management
+### Installing the prerequisites for Gravitee API Management
 
 To install the prerequisites for Gravitee API Management (APIM), complete the following steps:
 

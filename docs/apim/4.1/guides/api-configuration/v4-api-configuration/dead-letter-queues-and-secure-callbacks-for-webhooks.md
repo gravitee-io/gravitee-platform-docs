@@ -10,7 +10,7 @@ description: >-
 
 If using the Webhooks entrypoint, you can:
 
-* Set up dead letter queueus for undelivered message storage
+* Set up dead letter queues for undelivered message storage
 * Configure secure callbacks
 
 The dead letter queue (DLQ) functionality makes it possible to push undelivered messages to external storage. When configuring DLQ with the Webhooks entrypoint, you redirect all the messages that the Webhook rejects to another location, such as a Kafka topic.

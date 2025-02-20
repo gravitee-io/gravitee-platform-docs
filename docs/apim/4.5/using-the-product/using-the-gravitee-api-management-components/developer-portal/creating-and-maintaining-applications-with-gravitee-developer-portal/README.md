@@ -1,6 +1,6 @@
 # Creating and maintaining applications with Gravitee Developer Portal
 
-For more information about creating and maintaing applications, see the following articles:
+For more information about creating and maintaining applications, see the following articles:
 
 
 

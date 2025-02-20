@@ -43,7 +43,7 @@ Redis SSL keystore options (client certificate, Mutual TLS):
 <table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td>A path is required if certificate’s type is <code>jks</code> or <code>pkcs12</code></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr><tr><td>certificates</td><td></td><td>List of certificates with cert and key. Certificates are required if keystore’s type is <code>pem</code></td></tr></tbody></table>
 {% endtab %}
 
-{% tab title="SSL trustore" %}
+{% tab title="SSL truststore" %}
 Redis SSL truststore options:
 
 <table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr></tbody></table>

@@ -84,7 +84,7 @@ In addition to metrics, the gateway can send additional log messages about API e
 | --------------- | ---------------------------------------------------------------------------------------- |
 | apiId           | ID of the API                                                                            |
 | apiName         | Name of the API at the time of the request                                               |
-| cientIdentifier | Unique identifier for the client                                                         |
+|client Identifier | Unique identifier for the client                                                         |
 | connectorId     | ID of the connector from which the message originated (e.g. Mock, SSE, Webhook, Kafka)   |
 | connectorType   | Type of connector from which the message originated, either endpoint or entrypoint       |
 | correlationId   | Internal and unique ID to identify the Gravitee message                                  |

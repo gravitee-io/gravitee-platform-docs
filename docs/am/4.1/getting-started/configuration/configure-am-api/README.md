@@ -182,7 +182,7 @@ If a user role or a user password is updated, new values are applied on restart.
 
 ```yaml
 security:
-  # If true create on AM boostrap an inline identity provider with an admin user (login: admin)
+  # If true create on AM bootstrap an inline identity provider with an admin user (login: admin)
   # this is the legacy mode
   defaultAdmin: true
   ## authentication providers

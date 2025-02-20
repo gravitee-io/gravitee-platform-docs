@@ -16,7 +16,7 @@ Use this endpoint to publish and/or subscribe to events in Kafka via web-friendl
 * [Compatibility matrix](kafka.md#user-content-compatibility-matrix)
 * [Endpoint identifier](kafka.md#user-content-endpoint-identifier)
 * [Endpoint configuration](kafka.md#user-content-endpoint-configuration)
-* [Using SASL OAUTHBEARER](kafka.md#user-content-using-sasl-oathbearer)
+* [Using SASL OAUTHBEARER](kafka.md#user-content-using-sasl-oauthbearer)
 * [Using SASL\_AWS\_MSK\_IAM](kafka.md#user-content-using-sasl-aws\_msk\_iam)
 
 ## Quality Of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
@@ -107,7 +107,7 @@ The following is an example of how to consume messages:
 }
 ```
 
-## Using SASL OATHBEARER <a href="#user-content-using-sasl-oathbearer" id="user-content-using-sasl-oathbearer"></a>
+## Using SASL OAUTHBEARER <a href="#user-content-using-sasl-oauthbearer" id="user-content-using-sasl-oauthbearer"></a>
 
 To facilitate support for SASL OAUTHBEARER, this plugin includes a [login callback handler for token retrieval](https://docs.confluent.io/platform/current/kafka/authentication\_sasl/authentication\_sasl\_oauth.html#login-callback-handler-for-token-retrieval). This handler is configured using the following JAAS configuration:
 

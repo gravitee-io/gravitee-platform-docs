@@ -162,7 +162,7 @@ extraVolumes: |
 ```
 
 {% hint style="warning" %}
-External configuration files are  available for only the following Hellm Chart versions:
+External configuration files are  available for only the following Helm Chart versions:
 
 * AE Helm Charts 1.1.42 and later
 * AM Helm Charts 1.0.53 and later

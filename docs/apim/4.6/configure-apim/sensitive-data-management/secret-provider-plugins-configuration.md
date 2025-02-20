@@ -97,11 +97,11 @@ auth:
     token: [redacted]
 ### github config
     # token:
-    # path: <optinal non standard github auth path>
+    # path: <optional non standard github auth path>
 ### userpass config
     # username:
     # password:
-    # path: <optinal non standard userpass auth path>
+    # path: <optional non standard userpass auth path>
 ### approle
     # roleId:
     # secretId:
@@ -113,7 +113,7 @@ auth:
     ## for 'keystore' format
     # keyStore:      # file path
     # password:      # keystore password
-    # path: <optinal non standard cert auth path>
+    # path: <optional non standard cert auth path>
 ### kubernetes
     # role:
     ## short-lived tokens (default)
@@ -123,7 +123,7 @@ auth:
     # tokenSecret:
     #   name:
     #   namespace:   # current Gravitee namespace if unset
-    # path: <optinal non standard kubernetes auth path>
+    # path: <optional non standard kubernetes auth path>
 # for both watch and read
 retry:
   attempts: 2          # set '0' to disable

@@ -700,7 +700,7 @@ When you are done, select **Create.** Then, go back to the IdP page, and toggle 
 {% endtab %}
 {% endtabs %}
 
-### Test your Keycloak autentication
+### Test your Keycloak authentication
 
 You can easily test your Keycloak configuration by logging out of the Management Console, clearing your cookies, and then logging back in. Once on the log in screen, you should see a **Sign in with Keycloak** option.
 

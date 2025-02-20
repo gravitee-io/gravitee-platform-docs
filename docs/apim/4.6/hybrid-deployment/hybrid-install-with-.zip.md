@@ -127,7 +127,7 @@ services:
 api:
   properties:
     encryption:
-      secret: your-own-api-32-caracters-secret
+      secret: your-own-api-32-characters-secret
 
 alerts:
   alert-engine:

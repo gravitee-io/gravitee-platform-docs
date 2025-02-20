@@ -162,7 +162,7 @@ Refer to the following sections for additional details.
 * [Compatibility matrix](kafka.md#user-content-compatibility-matrix)
 * [Endpoint identifier](kafka.md#user-content-endpoint-identifier)
 * [Endpoint configuration](kafka.md#user-content-endpoint-configuration)
-* [Using SASL OAUTHBEARER](kafka.md#using-sasl-oathbearer)
+* [Using SASL OAUTHBEARER](kafka.md#using-sasl-oauthbearer)
 * [Using SASL\_AWS\_MSK\_IAM](kafka.md#user-content-using-sasl-aws_msk_iam)
 
 ### Quality Of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
@@ -255,7 +255,7 @@ The following is an example of how to consume messages:
 {% endtab %}
 {% endtabs %}
 
-### Using SASL OATHBEARER
+### Using SASL OAUTHBEARER
 
 To facilitate support for SASL OAUTHBEARER, this plugin includes a [login callback handler for token retrieval](https://docs.confluent.io/platform/current/kafka/authentication_sasl/authentication_sasl_oauth.html#login-callback-handler-for-token-retrieval). This handler is configured using the following JAAS configuration:
 

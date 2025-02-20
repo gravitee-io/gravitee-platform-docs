@@ -81,7 +81,7 @@ Previously, all the settings related to the repositories where define at the roo
 
 {% code lineNumbers="true" %}
 ```yaml
-mangement:
+management:
   type: mongodb
   mongodb: 
     uri: ...
@@ -96,7 +96,7 @@ oauth2:
 Starting from 4.5.0, a `repositories` section has been introduce to easily identify the settings related to the reposity layer.
 
 <pre class="language-yaml" data-line-numbers><code class="lang-yaml"><strong>repositories:
-</strong><strong>  mangement:
+</strong><strong>  management:
 </strong><strong>    type: mongodb
 </strong>    mongodb: 
       uri: ...
@@ -114,6 +114,6 @@ Starting from 4.5.0, a `repositories` section has been introduce to easily ident
 
 If you were using environment variable to provide database settings remember to:
 
-* adapt the variable name to includ the "repositories" keyword
+* adapt the variable name to includethe "repositories" keyword
 * add the settings for the gateway scope
 {% endhint %}

@@ -48,7 +48,7 @@ When creating a new API, configure this plugin with the following parameters:
     "apiVersion": "1.0",
     "definitionVersion": "4.0.0",
     "type": "async",
-    "description": "apiv4 with SSE entrpoint",
+    "description": "apiv4 with SSE entrypoint",
     "listeners": [
         {
             "type": "http",

@@ -425,7 +425,7 @@ Also, at management-api level, the schema changes to save the new application co
 }
 ```
 
-Finally, you can check the API reference. To check the APU reference, go to [Mangement API reference](https://docs.gravitee.io/am/current/am\_devguide\_management\_api\_documentation.html).
+Finally, you can check the API reference. To check the APU reference, go to [Management API reference](https://docs.gravitee.io/am/current/am\_devguide\_management\_api\_documentation.html).
 
 ### 3.15
 
@@ -477,7 +477,7 @@ More settings are related to a scope, the OAuth settings for an application have
 
 ### 3.10.6
 
-**Exstention Grants**
+**Extension Grants**
 
 Before v3.10.6, claims mapping for the extension grant worked only if you had user existence checks off. Starting from v3.10.6, this behavior has changed. If you use the extension grant with claims mapping and user existence enabled, you need to validate the content of generated tokens.
 

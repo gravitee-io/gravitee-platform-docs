@@ -18,7 +18,7 @@ Please read the following documentation to learn how to configure both.
 
 Gravitee.io Service discovery for HashiCorp Consul allows you to bind the backend endpoints of your API to a service managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service dynamically managed by HashiCorp Consul.
 
-#### Prerequisities
+#### prerequisites
 
 We will be using docker-compose to setup an integration between Gravitee APIM and HashiCorp Consul.
 

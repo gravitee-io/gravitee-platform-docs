@@ -18,7 +18,7 @@ The following sections describe how to:
 
 ## Configure HashiCorp Consul
 
-### Prerequisities
+### prerequisites
 
 * [Install Gravitee with `docker-compose`](../install-and-upgrade/docker/docker-compose.md)&#x20;
 

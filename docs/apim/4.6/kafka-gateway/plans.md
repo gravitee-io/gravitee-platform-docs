@@ -13,7 +13,7 @@ A **plan** provides a service and access layer on top of your API that specifies
 mTLS plans are not yet supported for Kafka APIs.
 {% endhint %}
 
-For Kafka APIs, these plans corespond directly to Kafka authentication methods:
+For Kafka APIs, these plans correspond directly to Kafka authentication methods:
 
 <table><thead><tr><th width="201">Plan</th><th>Corresponding Kafka Authentication</th></tr></thead><tbody><tr><td>Keyless (public)</td><td>PLAINTEXT</td></tr><tr><td>API Key</td><td>The API key is used as the password, and the md5 hash of the API key is used as the username, as part of the SASL/SSL with SASL PLAIN authentication method.</td></tr><tr><td>JWT</td><td>Equivalent to SASL/SSL with SASL OAUTHBEARER authentication, where the JWT is used as the OAuth token.</td></tr><tr><td>OAuth2</td><td>Equivalent to SASL/SSL with SASL OAUTHBEARER authentication.</td></tr></tbody></table>
 

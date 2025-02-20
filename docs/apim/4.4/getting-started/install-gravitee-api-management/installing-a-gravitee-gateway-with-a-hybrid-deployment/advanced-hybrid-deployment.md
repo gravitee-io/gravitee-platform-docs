@@ -28,7 +28,7 @@ Ensure that you add the Gravitee.io License file.
 {% endtab %}
 
 {% tab title="Docker" %}
-* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see[ Installing Gravitee API Mangement with Docker](../../../installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/).
+* Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see[ Installing Gravitee API Management with Docker](../../../installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/).
 * Download, and then mount the following plugins for the Gravitee Gateway:
   * Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
   * TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)
@@ -451,7 +451,7 @@ services:
       - gravitee_alerts_alertengine_ws_security_username=alert-engine-username
       - gravitee_alerts_alertengine_ws_security_password=alert-engine-password
       # --- SECRETS ---
-      - gravitee_api_properties_encryption_secret=your-own-api-32-caracters-secret
+      - gravitee_api_properties_encryption_secret=your-own-api-32-characters-secret
 
   redis:
     # https://hub.docker.com/_/redis?tab=tags
@@ -588,7 +588,7 @@ services:
 api:
   properties:
     encryption:
-      secret: your-own-api-32-caracters-secret
+      secret: your-own-api-32-characters-secret
 
 alerts:
   alert-engine:

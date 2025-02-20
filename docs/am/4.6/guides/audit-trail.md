@@ -10,7 +10,7 @@ Login and logout, user management and other administrative operations are stored
 
 ### View the audit log
 
-Audit logs in AM are splited in two parts: Organization audit logs and Domain audit logs
+Audit logs in AM are split into two parts: Organization audit logs and Domain audit logs
 
 ### Organization audit logs
 
@@ -341,7 +341,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 
 <figure><img src="../.gitbook/assets/Screenshot 2024-10-31 at 12.23.54.png" alt=""><figcaption><p>SASL/PLAIN configuration</p></figcaption></figure>
 
-**TLS/SSL encription**
+**TLS/SSL encryption**
 
 If Kafka broker is using SSL/TLS encryption, you must add additional steps to secure this connection.
 

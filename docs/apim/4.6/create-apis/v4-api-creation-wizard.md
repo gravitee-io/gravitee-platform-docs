@@ -599,7 +599,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
 2. Define your **JWKS resolver**. This defines how your JSON Web Key Set is retrieved. The options are:
    * GIVEN\_KEY
    * GATEWAY\_KEYS
-   * JWSK\_URL
+   * JWKS\_URL
 3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md).
 4. If your resolver is **JWKS\_URL**, set the **JWKS URL connect timeout**.
 5. If your resolver is **JWKS\_URL**, set the **JWKS URL request timeout**.
@@ -847,7 +847,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
 2. Define your **JWKS resolver**. This defines how your JSON Web Key Set is retrieved. The options are:
    * GIVEN\_KEY
    * GATEWAY\_KEYS
-   * JWSK\_URL
+   * JWKS\_URL
 3. Define your Resolver parameter. This field supports the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md).
 4. If your resolver is **JWKS\_URL**, set the **JWKS URL connect timeout**.
 5. If your resolver is **JWKS\_URL**, set the **JWKS URL request timeout**.

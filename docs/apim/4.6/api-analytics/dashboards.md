@@ -40,7 +40,7 @@ You can configure your Gravitee Dashboard by creating dashboard charts for three
     * Select a **Widget type** from the drop-down menu, e.g., **table**
     * Select a **Field** from the drop-down menu, e.g., **API**, or use a custom field
     * Choose the information to display for your selected field
-    * Clice **SAVE**
+    * Click **SAVE**
 8. (Optional) Click **ENABLE PREVIEW** to preview your new dashboard and widget
 
 ## View your dashboard

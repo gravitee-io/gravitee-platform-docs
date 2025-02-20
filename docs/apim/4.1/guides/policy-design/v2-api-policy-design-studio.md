@@ -183,7 +183,7 @@ Some policies support the addition of resources, which can be used for actions s
 
 * **Cache policy**: Specify a cache resource via the Cache or Cache Redis resources
 * **OAuth2 policy**: Specify a Generic OAuth2 Authorization Server resource or a Gravitee AM Authorization Server resource
-* **OpenID Connect - UserInfo:** Specify a Keycloak Adapter resource to use Keycloack as your OpenID Connect resource
+* **OpenID Connect - UserInfo:** Specify a Keycloak Adapter resource to use Keycloak as your OpenID Connect resource
 * **Serialization & deserialization policies**: Specify your Confluent Schema Registry to retrieve serialization and deserialization schemas from a Confluent Schema registry
   * Avro <> JSON policy
 * **HTTP signature policies**: Specify your HTTP Authentication Provider resource

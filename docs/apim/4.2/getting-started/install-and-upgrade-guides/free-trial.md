@@ -16,7 +16,7 @@ The enterprise trial can be accessed by registering with Gravitee Cockpit (GC), 
 
 To access the Enterprise trial, follow these steps:
 
-1. Navigate to [Gravite Cockpit to register.](https://cockpit.gravitee.io/)
+1. Navigate to [GraviteeCockpit to register.](https://cockpit.gravitee.io/)
 2. Fill out and submit the registration form.
 3. Walk through the setup guide to initialize your Enterprise trial. In the step shown below, make sure you select **Quick setup** to initiate an enterprise trial
 

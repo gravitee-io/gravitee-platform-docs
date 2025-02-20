@@ -319,7 +319,7 @@ You must provide the complete JSON body shown below to update the configuration.
 Gravitee comes with two Dashboards, each being configurable:
 
 * Home
-* API Stauts
+* API Status
 
 #### Home
 

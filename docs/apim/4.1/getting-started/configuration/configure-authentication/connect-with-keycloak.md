@@ -175,7 +175,7 @@ Configure Keycloak and Gravitee to map your own organization with available buil
 
     ![Keycloak console - Create client roles](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-04-client-add\_roles.png)
 
-#### Configure Keycloack users with appropiate roles
+#### Configure Keycloak users with appropriate roles
 
 ![Keycloak console - Add roles to user](https://docs.gravitee.io/images/apim/3.x/installation/authentication/keycloak\_mng-roles-05-users-add\_user\_client\_roles.png)
 

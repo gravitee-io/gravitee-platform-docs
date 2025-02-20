@@ -55,7 +55,7 @@ manager:
   scope:
     cluster: true # set to false so GKO will listen only to its own Namespace
 
-    # you can speicify namespaces that GKO is listening to 
+    # you can specify namespaces that GKO is listening to 
     # please bear in mind that if you set namespaces in here, then you need to keep the cluster scope as "true"
     namespaces: ["ns1", "ns2", "ns3"]
 

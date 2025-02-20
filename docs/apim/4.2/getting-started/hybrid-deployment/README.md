@@ -82,7 +82,7 @@ services:
             -  /path/to/cert
           keys:
             -  /path/to/key
-        trustore:
+        truststore:
           type: # can be jks / pem / pkcs12
           path:
           password:
@@ -131,7 +131,7 @@ management:
         type: # can be jks / pem / pkcs12
         path:
         password:
-      trustore:
+      truststore:
         type: # can be jks / pem / pkcs12
         path:
         password:

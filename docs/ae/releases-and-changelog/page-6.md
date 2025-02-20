@@ -401,7 +401,7 @@ _**Engine**_
 
 _**Websocket**_
 
-* Unexpected end-of-inputwas expecting closing quote for a string value for long trigger definitions
+* Unexpected end-of-input was expecting closing quote for a string value for long trigger definitions
 
 ### 1.2.5 (2020-09-25)
 

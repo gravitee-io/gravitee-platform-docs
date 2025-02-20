@@ -33,7 +33,7 @@ You can send triggers through a WebSocket connection, as shown in the Javascript
 
 To test this script:
 
-1. boostrap a javascript project with `npm init`
+1. bootstrap a javascript project with `npm init`
 2. add `ws` dependency with `npm install --save ws`
 3. create the `trigger.js` file with the content below.
 4. run that script with `node trigger.js`

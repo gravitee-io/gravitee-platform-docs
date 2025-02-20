@@ -102,7 +102,7 @@ sudo systemctl start nginx
 
 **Verification**
 
-To verify that you installed Nginx correctly, verify that Ngnix is listening on port 80 using tghe following command:
+To verify that you installed Nginx correctly, verify that Ngnix is listening on port 80 using the following command:
 
 ```bash
 sudo ss -lntp '( sport = 80 )'

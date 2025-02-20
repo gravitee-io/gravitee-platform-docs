@@ -40,7 +40,7 @@ Here are the breaking changes from versions 3.X of Gravitee.
 
 #### 3.2.0
 
-**Moved Probes configuartion**
+**Moved Probes configuration**
 
 Probes configuration was moved under deployment.
 

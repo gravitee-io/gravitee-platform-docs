@@ -4,7 +4,7 @@ The Gravitee Kubernetes Operator (GKO) is commonly used as one piece of a broade
 
 The purpose of this platform as a whole is:
 
-* to facilitate onboarding of new users by allowing them to start creating APIs in the Gravite Console GUI
+* to facilitate onboarding of new users by allowing them to start creating APIs in the GraviteeConsole GUI
 * to allow a transition from GUI-based design in development stages, to "as-code" APIs for staging and production environments
 * to allow for a central control plane to drive APIs and gateways on multiple distributed data planes, that could be running on different clouds / platforms / vendors
 * to facilitate the task of giving individual API publisher teams autonomy to self-serve from the API platform, while API governance teams establish guardrails.&#x20;

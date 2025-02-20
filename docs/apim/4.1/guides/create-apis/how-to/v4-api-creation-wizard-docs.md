@@ -15,7 +15,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 * Endpoints
 * Security
 * Documentation
-* Summray
+* Summary
 
 ## Step 1: API details
 

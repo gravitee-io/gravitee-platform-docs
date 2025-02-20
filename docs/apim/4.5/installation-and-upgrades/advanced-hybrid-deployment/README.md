@@ -738,7 +738,7 @@ services:
       - gravitee_alerts_alertengine_ws_security_username=alert-engine-username
       - gravitee_alerts_alertengine_ws_security_password=alert-engine-password
       # --- SECRETS ---
-      - gravitee_api_properties_encryption_secret=your-own-api-32-caracters-secret
+      - gravitee_api_properties_encryption_secret=your-own-api-32-characters-secret
 
   redis:
     # https://hub.docker.com/_/redis?tab=tags
@@ -869,7 +869,7 @@ services:
 api:
   properties:
     encryption:
-      secret: your-own-api-32-caracters-secret
+      secret: your-own-api-32-characters-secret
 
 alerts:
   alert-engine:

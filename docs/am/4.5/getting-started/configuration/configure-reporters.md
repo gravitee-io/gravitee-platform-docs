@@ -85,7 +85,7 @@ Kafka reporter sends all messages to separate partitions based on domain id or o
 
 <figure><img src="../../.gitbook/assets/kafka-config.png" alt=""><figcaption><p>Kafka plaintext security config</p></figcaption></figure>
 
-**TLS/SSL encription**
+**TLS/SSL encryption**
 
 If the Kafka broker is using SSL/TLS encryption, you must add additional steps to secure this connection.
 

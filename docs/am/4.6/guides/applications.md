@@ -115,7 +115,7 @@ There is another parameter called **Enable\Disable Open Dynamic Client Registrat
 ```sh
 # enable Dynamic Client Registration
 curl -X PATCH \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ "oidc": {
         "clientRegistrationSettings": { \
@@ -171,7 +171,7 @@ The following example creates a web application (`access_token` is kept on a bac
 ```sh
 # Register a new Relying Party (client)
 curl -X POST \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ \
         "redirect_uris": ["https://myDomain/callback"], \
@@ -193,7 +193,7 @@ As a SPA does not use a backend, we recommend you use the following implicit flo
 ```sh
 # Register a new Relying Party (client)
 curl -X POST \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ \
         "redirect_uris": ["https://myDomain/callback"], \
@@ -217,7 +217,7 @@ For this, you need to use a `client_credentials` flow:
 ```sh
 # Register a new Relying Party (client)
 curl -X POST \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ \
         "redirect_uris": [], \
@@ -242,7 +242,7 @@ For a mobile app, the `authorization_code` grant is recommended, in addition to 
 ```sh
 # Register a new Relying Party (client)
 curl -X POST \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ \
         "redirect_uris": ["com.mycompany.app://callback"], \
@@ -270,7 +270,7 @@ A new registration access token is generated each time the client is updated thr
 ```sh
 # Update a registered Relying Party (client)
 curl -X PATCH \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ "client_name": "myNewApplicationName"}' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register/:client_id
@@ -290,7 +290,7 @@ When you update a client, a new registration access token is generated each time
 ```sh
 # Renew the client secret of a registered Relying Party (client)
 curl -X POST \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   http://GRAVITEEIO-AM-GATEWAY-HOST/::domain/oidc/register/:client_id/renew_secret
 ```
 
@@ -309,7 +309,7 @@ You can also enable this feature using AM API:
 ```sh
 # Enable Allowed Scopes feature.
 curl -X PATCH \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ "oidc": {
         "clientRegistrationSettings": { \
@@ -329,7 +329,7 @@ You can also enable this feature using AM API:
 ```sh
 # Enable Default Scopes feature
 curl -X PATCH \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ "oidc": {
         "clientRegistrationSettings": { \
@@ -352,7 +352,7 @@ You can also enable this feature using AM API:
 ```sh
 # Force set of scopes on each client registration
 curl -X PATCH \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ "oidc": {
         "clientRegistrationSettings": { \
@@ -378,7 +378,7 @@ You can also enable this feature using AM API:
 ```sh
 # enable Dynamic Client Registration
 curl -X PATCH \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ "oidc": {
         "clientRegistrationSettings": { \
@@ -399,7 +399,7 @@ You can also enable this feature using AM API:
 ```sh
 # enable Dynamic Client Registration
 curl -X PATCH \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{"template":true}' \
   http://GRAVITEEIO-AM-MGT-API-HOST/management/domains/:domainId/clients/:clientId
@@ -418,7 +418,7 @@ You need to retrieve the `software_id` of the template, which is available under
 ```sh
 # Register a new Relying Party (client)
 curl -X POST \
-  -H 'Authorization: Bearer :acccessToken' \
+  -H 'Authorization: Bearer :accessToken' \
   -H 'Content-Type: application/json' \
   -d '{ \
         "software_id": "", \

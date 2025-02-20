@@ -1,6 +1,6 @@
 # I-K
 
-Here are the policies that fall betwenn I and K:
+Here are the policies that fall between I and K:
 
 * [interrupt.md](interrupt.md "mention")
 * [ip-filtering.md](ip-filtering.md "mention")

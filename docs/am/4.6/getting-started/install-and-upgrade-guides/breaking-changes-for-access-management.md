@@ -558,7 +558,7 @@ More settings are related to a scope, the OAuth settings for an application have
 
 ### 3.10.6
 
-**Exstention Grants**
+**Extension Grants**
 
 Before v3.10.6, claims mapping for the extension grant worked only if you had user existence checks off. Starting from v3.10.6, this behavior has changed. If you use the extension grant with claims mapping and user existence enabled, you need to validate the content of generated tokens.
 
