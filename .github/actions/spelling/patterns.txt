@@ -63,3 +63,9 @@
 
 # Ignores everything on either side of an = when there are spaces around it
 \s*=\s*
+
+# Matches everything on either side of an = when there are spaces on both sides, and the right-hand side can span multiple lines
+^\s*.*\s+=\s+([\s\S]*?)$
+
+# Ignores everything in a comment (starting with # and allowing spaces after it)
+#\s*.*$
