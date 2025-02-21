@@ -1,0 +1,40 @@
+name: Spellcheck Documentation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  spellcheck:
+    name: Run Spellcheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Codespell
+        run: pip install codespell
+
+      - name: Run Spellcheck
+        run: |
+          codespell \
+            --ignore-words-list=$(cat .github/spellcheck-ignore.txt | tr '\n' ',') \
+            --skip="*.html,*.css,*.json,*.yaml,*.yml,*.js,*.ts,*.py,*.java,*.sh,*.xml,*.lock" \
+            --ignore-regex="\b[A-Z][a-z]+[A-Z][a-z]*\b|\b[a-z]+(_[a-z]+)+\b|\b[A-Z]{2,}\b|`[^`]+`|```[\s\S]+?```" \
+            --quiet-level=2 \
+            --check-filenames \
+            --check-hidden \
+            --onlyin=docs/ \
+            --write-changes
+
+      - name: Fail on Misspelled Words
+        run: |
+          if git diff --exit-code; then
+            echo "No spelling errors found."
+          else
+            echo "Spelling errors detected!"
+            exit 1
+          fi
