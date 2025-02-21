@@ -503,7 +503,7 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
   * **Use Producer:** tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
   * **Use Consumer:** tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
   * **Use Producer and Consumer:** tell the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
-* **Authentication:** define the **userna**me and **password** for RabbitMQ authentication
+* **Authentication:** define the **username** and **password** for RabbitMQ authentication
 * **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
