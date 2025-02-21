@@ -1,62 +1,80 @@
-#!/bin/bash
+name: Spellcheck Documentation
 
-# Define input and output files
-SPELLCHECK_OUTPUT="spellcheck_report.txt"
-IGNORE_LIST="spellcheck_ignore.txt"
-EXCLUDE_PATTERNS="exclude-patterns.txt"
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-# Ensure the ignore list and exclude patterns file exist
-if [[ ! -f "$IGNORE_LIST" || ! -f "$EXCLUDE_PATTERNS" ]]; then
-    echo "Error: Required files spellcheck_ignore.txt or exclude-patterns.txt are missing."
-    exit 1
-fi
+jobs:
+  spellcheck:
+    name: Run Spellcheck
+    runs-on: ubuntu-latest
 
-# Clear previous report
-> "$SPELLCHECK_OUTPUT"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-# Run codespell and filter results
-codespell --ignore-words="$IGNORE_LIST" --quiet-level=2 --check-filenames | while IFS= read -r line; do
-    # Extract filename, line number, and misspelled word
-    FILE=$(echo "$line" | cut -d':' -f1)
-    LINE_NUM=$(echo "$line" | cut -d':' -f2)
-    WORD=$(echo "$line" | cut -d':' -f3-)
+      - name: Install Codespell
+        run: |
+          pip install codespell
 
-    # Ensure we have valid output before processing
-    if [[ -z "$FILE" || -z "$LINE_NUM" || -z "$WORD" ]]; then
-        continue
-    fi
+      - name: Run Spellcheck
+        run: |
+          # Define output file
+          SPELLCHECK_OUTPUT="spellcheck_report.txt"
+          IGNORE_LIST=".github/spellcheck_ignore.txt"
+          EXCLUDE_PATTERNS=".github/exclude-patterns.txt"
 
-    # Skip words that match exclusion patterns (code blocks, JSON, YAML, etc.)
-    if grep -q -E -f "$EXCLUDE_PATTERNS" <<< "$WORD"; then
-        continue
-    fi
+          # Ensure ignore files exist
+          if [[ ! -f "$IGNORE_LIST" || ! -f "$EXCLUDE_PATTERNS" ]]; then
+              echo "Error: Required files are missing."
+              exit 1
+          fi
 
-    # Ensure case sensitivity for words in normal text
-    if grep -Fxq "$WORD" "$IGNORE_LIST"; then
-        continue
-    fi
+          # Clear previous report
+          > "$SPELLCHECK_OUTPUT"
 
-    # Allow lowercase versions inside backticks or code blocks
-    if [[ "$WORD" =~ ^\`.*\`$ || "$WORD" =~ ^<code>.*</code>$ ]]; then
-        WORD_LOWER=$(echo "$WORD" | tr '[:upper:]' '[:lower:]')
-        if grep -Fxq "$WORD_LOWER" "$IGNORE_LIST"; then
-            continue
-        fi
-    fi
+          # Run codespell and process output
+          codespell --ignore-words="$IGNORE_LIST" --quiet-level=2 --check-filenames | while IFS= read -r line; do
+              FILE=$(echo "$line" | cut -d':' -f1)
+              LINE_NUM=$(echo "$line" | cut -d':' -f2)
+              WORD=$(echo "$line" | cut -d':' -f3-)
 
-    # Append file name only if it's not already in the output
-    if ! grep -Fxq "$FILE" "$SPELLCHECK_OUTPUT"; then
-        echo -e "\n$FILE" >> "$SPELLCHECK_OUTPUT"
-    fi
+              if [[ -z "$FILE" || -z "$LINE_NUM" || -z "$WORD" ]]; then
+                  continue
+              fi
 
-    # Append the misspelling with line number
-    echo "  Line $LINE_NUM: $WORD" >> "$SPELLCHECK_OUTPUT"
-done
+              # Skip words matching excluded patterns
+              if grep -q -E -f "$EXCLUDE_PATTERNS" <<< "$WORD"; then
+                  continue
+              fi
 
-# Check if spellcheck_report.txt contains data
-if [[ ! -s "$SPELLCHECK_OUTPUT" ]]; then
-    echo "No spelling errors found."
-    rm -f "$SPELLCHECK_OUTPUT" # Remove empty report
-else
-    echo "Spellcheck completed. Results saved in $SPELLCHECK_OUTPUT."
-fi
+              # Enforce case-sensitive checking in normal text
+              if grep -Fxq "$WORD" "$IGNORE_LIST"; then
+                  continue
+              fi
+
+              # Allow lowercase versions in code blocks or backticks
+              if [[ "$WORD" =~ ^\`.*\`$ || "$WORD" =~ ^<code>.*</code>$ ]]; then
+                  WORD_LOWER=$(echo "$WORD" | tr '[:upper:]' '[:lower:]')
+                  if grep -Fxq "$WORD_LOWER" "$IGNORE_LIST"; then
+                      continue
+                  fi
+              fi
+
+              # Write errors to file
+              if ! grep -Fxq "$FILE" "$SPELLCHECK_OUTPUT"; then
+                  echo -e "\n$FILE" >> "$SPELLCHECK_OUTPUT"
+              fi
+              echo "  Line $LINE_NUM: $WORD" >> "$SPELLCHECK_OUTPUT"
+          done
+
+      - name: Upload Spellcheck Report (if errors found)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spellcheck_report
+          path: spellcheck_report.txt
