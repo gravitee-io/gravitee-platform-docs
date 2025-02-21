@@ -27,8 +27,8 @@
 # Ignore variable names with underscores or camelCase notation
 (\b[a-zA-Z_][a-zA-Z0-9_]*_[a-zA-Z0-9_]*\b|\b[a-z]+[A-Z][a-zA-Z0-9]*\b)
 
-# Ignore predefined acronyms and terms from spellcheck-ignore.txt inside code blocks or backticks
-(?<=`|\bcode\b)(?i:\b(?:ACRONYM1|ACRONYM2|TERM1|TERM2)\b)(?=`|\b/code\b)
+# Ignore case-sensitive acronyms and terms from spellcheck-ignore.txt only inside code blocks or backticks
+(?<=`)(?i:\b(?:ACRONYM1|ACRONYM2|TERM1|TERM2)\b)(?=`)
 
 # Ignore numbers, hexadecimal values, and special symbols
 (\b\d+\b|0x[a-fA-F0-9]+\b|[^\w\s])
@@ -36,8 +36,8 @@
 # Ignore environment variables (all uppercase with underscores)
 (\b[A-Z0-9_]{2,}\b)
 
-# Ignore JSON-like structures
+# Ignore JSON-like structures (must start with a `{` and have key-value pairs)
 (^\s*{\s*"[^"]+"\s*:\s*.+?\s*}\s*$)
 
-# Ignore YAML-like key-value structures
+# Ignore YAML-like key-value structures (lines with "key: value")
 (^\s*[^:\n]+\s*:\s*.*$)
