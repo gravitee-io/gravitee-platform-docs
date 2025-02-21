@@ -1,0 +1,38 @@
+# Ignore fenced code blocks (triple backticks and content between them)
+(?s)```.*?```
+
+# Ignore inline code (text between single backticks)
+`[^`]+`
+
+# Ignore HTML tags and attributes
+<[^>]+>
+
+# Ignore CSS blocks
+(?s)<style.*?>.*?</style>
+
+# Ignore URLs and email addresses
+(?:https?|ftp)://[^\s]+|[\w\.-]+@[\w\.-]+\.\w+
+
+# Ignore image rendering syntax in AsciiDoc and Markdown
+(?:image:|!$begin:math:display$.*?$end:math:display$$begin:math:text$)[^\\s]+$end:math:text$
+
+# Ignore common file extensions and filenames
+\b\w+\.(adoc|md|txt|json|yml|yaml|xml|html|css|js|java|c|cpp|h|sh|log|ini|conf)\b
+
+# Ignore variable names (alphanumeric words with underscores)
+\b[a-zA-Z_][a-zA-Z0-9_]*\b
+
+# Ignore acronyms and terms from spellcheck_ignore.txt inside code blocks or backticks (allow lowercase variations)
+(?<=`|\bcode\b)(?i:\b(?:ACRONYM1|ACRONYM2|TERM1|TERM2)\b)(?=`|\b/code\b)
+
+# Ignore numbers, hexadecimal values, and special symbols
+\b\d+\b|0x[a-fA-F0-9]+\b|[^\w\s]
+
+# Ignore environment variables (typically all uppercase with underscores)
+\b[A-Z0-9_]{2,}\b
+
+# Ignore JSON code (detects key-value pairs, objects, arrays)
+(?s)^\s*{\s*"[^"]+"\s*:\s*.+?\s*}\s*$
+
+# Ignore YAML code (detects key-value pairs, lists, and block structures)
+(?s)^\s*[^:\n]+\s*:\s*.*$
