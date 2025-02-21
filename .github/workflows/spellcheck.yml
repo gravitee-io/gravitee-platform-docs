@@ -5,45 +5,44 @@ on:
     branches:
       - main
   pull_request:
+    branches:
+      - main
 
 jobs:
   spellcheck:
-    name: Run Spellcheck
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Install Codespell
         run: pip install codespell
 
-      - name: Generate Ignore Pattern
+      - name: Load spellcheck patterns
         run: |
-          # Read terms from ignore file, enforcing case sensitivity
-          IGNORE_LIST=$(cat .github/spellcheck-ignore.txt | paste -sd '|' -)
+          SPELLCHECK_PATTERN=""
+          while IFS= read -r line || [ -n "$line" ]; do
+            SPELLCHECK_PATTERN+="$line|"
+          done < .github/spellcheck-pattern.txt
+          SPELLCHECK_PATTERN="${SPELLCHECK_PATTERN%|}"  # Remove trailing "|"
+          printf "Using spellcheck pattern: %s\n" "$SPELLCHECK_PATTERN"
+          echo "SPELLCHECK_PATTERN=$SPELLCHECK_PATTERN" >> $GITHUB_ENV
 
-          # Save case-sensitive regex for valid terms
-          echo "\b($IGNORE_LIST)\b" > .github/spellcheck-pattern.txt
-
-          echo "Valid Case-Sensitive Terms: ($IGNORE_LIST)"
-
-      - name: Run Spellcheck and Save Output
+      - name: Run Spellcheck
         run: |
-          SPELLCHECK_PATTERN=$(cat .github/spellcheck-pattern.txt)
-
-          codespell \
-            --ignore-words-list="$(cat .github/spellcheck-ignore.txt | tr '\n' ',')" \
-            --skip '*.html,*.css,*.json,*.yaml,*.yml,*.js,*.ts,*.py,*.java,*.sh,*.xml,*.lock' \
-            --ignore-regex="`[^`]+`|```[\s\S]+?```|(?<=`)\b\w+\b(?=`)|(?<=```)[\s\S]+?(?=```)|\b$SPELLCHECK_PATTERN\b" \
-            --quiet-level=2 \
-            --check-filenames \
-            --check-hidden \
-            --onlyin=docs/ \
-            > spellcheck-report.txt || true
+          mkdir -p spellcheck-reports
+          codespell --ignore-words=.github/spellcheck_ignore.txt \
+                    --skip="*.json,*.xml,*.html,*.css,*.yml,*.yaml,*.csv,*.ts,*.js,*.py" \
+                    --regex "$SPELLCHECK_PATTERN" \
+                    --quiet-level=2 \
+                    --write-changes \
+                    --check-filenames \
+                    --check-hidden \
+                    > spellcheck-reports/spellcheck-results.txt || true
 
       - name: Upload Spellcheck Report
         uses: actions/upload-artifact@v4
         with:
-          name: Spellcheck Report
-          path: spellcheck-report.txt
+          name: spellcheck-results
+          path: spellcheck-reports/spellcheck-results.txt
