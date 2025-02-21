@@ -5,8 +5,6 @@ on:
     branches:
       - main
   pull_request:
-    branches:
-      - main
 
 jobs:
   spellcheck:
@@ -14,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Install Codespell
@@ -24,85 +22,44 @@ jobs:
         run: |
           set -e  # Exit on error
 
-          # Define paths
           SPELLCHECK_OUTPUT="spellcheck_report.txt"
-          IGNORE_LIST=".github/spellcheck-ignore.txt"
           EXCLUDE_PATTERNS=".github/exclude-patterns.txt"
+          IGNORE_LIST=".github/spellcheck-ignore.txt"
 
-          # Ensure required files exist
-          for FILE in "$IGNORE_LIST" "$EXCLUDE_PATTERNS"; do
-            if [[ ! -f "$FILE" ]]; then
-              echo "Error: Required file $FILE is missing."
-              exit 1
-            fi
-          done
-
-          # Clear any existing report
+          # Clear previous spellcheck output
           > "$SPELLCHECK_OUTPUT"
 
-          # Run Codespell without exiting on errors
-          codespell --ignore-words="$IGNORE_LIST" --quiet-level=2 --check-filenames --skip="*.json,*.yaml,*.yml" > temp_spelling_errors.txt || true
+          echo "Running Spellcheck..."
 
-          # DEBUG: Check if errors were detected
-          echo "DEBUG: Contents of temp_spelling_errors.txt:"
-          cat temp_spelling_errors.txt
+          # Run spellcheck and capture output
+          codespell --ignore-words-list=$(tr '\n' ',' < "$IGNORE_LIST") --quiet-level=2 --skip=$(cat "$EXCLUDE_PATTERNS") | tee temp_spellcheck.log
 
-          if [[ -s temp_spelling_errors.txt ]]; then
-            echo "Spellcheck Errors Found. Writing to $SPELLCHECK_OUTPUT..."
+          echo "Processing spellcheck results..."
 
-            CURRENT_FILE=""
-            
-            while IFS= read -r line; do
-              FILE=$(echo "$line" | cut -d':' -f1)
-              LINE_NUM=$(echo "$line" | cut -d':' -f2)
-              WORD=$(echo "$line" | cut -d':' -f3-)
-
-              if [[ -z "$FILE" || -z "$LINE_NUM" || -z "$WORD" ]]; then
-                continue
-              fi
-
-              # Skip words matching excluded patterns
-              if grep -q -F -f "$EXCLUDE_PATTERNS" <<< "$WORD"; then
-                echo "DEBUG: Skipping '$WORD' (matches exclude-patterns)"
-                continue
-              fi
-
-              # Enforce case-sensitive checking in normal text
-              if grep -Fxq "$WORD" "$IGNORE_LIST"; then
-                echo "DEBUG: Skipping '$WORD' (matches exact case in ignore list)"
-                continue
-              fi
-
-              # Allow lowercase versions inside backticks or code blocks
-              if echo "$WORD" | grep -q -E "^\`.*\`$"; then
-                WORD_LOWER=$(echo "$WORD" | tr '[:upper:]' '[:lower:]')
-                if grep -Fxq "$WORD_LOWER" "$IGNORE_LIST"; then
-                  echo "DEBUG: Skipping '$WORD' (allowed lowercase in code)"
-                  continue
-                fi
-              fi
-
-              # Print file name only once
-              if [[ "$CURRENT_FILE" != "$FILE" ]]; then
-                echo -e "\n$FILE" >> "$SPELLCHECK_OUTPUT"
-                CURRENT_FILE="$FILE"
-              fi
-
-              # Print error details
-              echo "  Line $LINE_NUM: $WORD" >> "$SPELLCHECK_OUTPUT"
-            done < temp_spelling_errors.txt
-
-            echo "Spellcheck Report Written: $SPELLCHECK_OUTPUT"
-          else
-            echo "No spelling errors detected."
+          # Ensure output file is only created if errors exist
+          if [[ ! -s temp_spellcheck.log ]]; then
+              echo "No spelling errors detected."
+              exit 0
           fi
 
-          # Cleanup
-          rm -f temp_spelling_errors.txt
+          # Process spellcheck output
+          while IFS= read -r line; do
+              FILE=$(echo "$line" | awk -F':' '{print $1}')
+              LINE_NUM=$(echo "$line" | awk -F':' '{print $2}')
+              ERROR_WORD=$(echo "$line" | awk -F':' '{print $3}')
 
-      - name: Upload Spellcheck Report (if errors found)
+              if [[ -n "$FILE" && -n "$LINE_NUM" && -n "$ERROR_WORD" ]]; then
+                  echo "$FILE" >> "$SPELLCHECK_OUTPUT"
+                  echo "  Line $LINE_NUM: $ERROR_WORD" >> "$SPELLCHECK_OUTPUT"
+                  echo "" >> "$SPELLCHECK_OUTPUT"
+              fi
+          done < temp_spellcheck.log
+
+          echo "Spellcheck report saved to $SPELLCHECK_OUTPUT"
+
+      - name: Upload Spellcheck Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: spellcheck_report
+          name: spellcheck-report
           path: spellcheck_report.txt
