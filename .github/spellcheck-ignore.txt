@@ -181,7 +181,7 @@ Redis
 Redoc
 regex
 roadmap
-RPMs
+RPM
 rulesets
 SaaS
 Salesforce
