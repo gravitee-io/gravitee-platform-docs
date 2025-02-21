@@ -18,59 +18,70 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Codespell
-        run: |
-          pip install codespell
+        run: pip install codespell
 
       - name: Run Spellcheck
         run: |
-          # Define output file
+          set -e  # Exit on failure, but handled properly below
+
+          # Define output files
           SPELLCHECK_OUTPUT="spellcheck_report.txt"
           IGNORE_LIST=".github/spellcheck_ignore.txt"
           EXCLUDE_PATTERNS=".github/exclude-patterns.txt"
 
-          # Ensure ignore files exist
-          if [[ ! -f "$IGNORE_LIST" || ! -f "$EXCLUDE_PATTERNS" ]]; then
-              echo "Error: Required files are missing."
+          # Ensure required files exist
+          for FILE in "$IGNORE_LIST" "$EXCLUDE_PATTERNS"; do
+            if [[ ! -f "$FILE" ]]; then
+              echo "Error: Required file $FILE is missing."
               exit 1
-          fi
+            fi
+          done
 
-          # Clear previous report
+          # Clear any existing report
           > "$SPELLCHECK_OUTPUT"
 
-          # Run codespell and process output
-          codespell --ignore-words="$IGNORE_LIST" --quiet-level=2 --check-filenames | while IFS= read -r line; do
+          # Run codespell and capture output
+          codespell --ignore-words="$IGNORE_LIST" --quiet-level=2 --check-filenames > temp_spelling_errors.txt || true
+
+          # Process the output and apply filtering
+          if [[ -s temp_spelling_errors.txt ]]; then
+            while IFS= read -r line; do
               FILE=$(echo "$line" | cut -d':' -f1)
               LINE_NUM=$(echo "$line" | cut -d':' -f2)
               WORD=$(echo "$line" | cut -d':' -f3-)
 
               if [[ -z "$FILE" || -z "$LINE_NUM" || -z "$WORD" ]]; then
-                  continue
+                continue
               fi
 
               # Skip words matching excluded patterns
               if grep -q -E -f "$EXCLUDE_PATTERNS" <<< "$WORD"; then
-                  continue
+                continue
               fi
 
               # Enforce case-sensitive checking in normal text
               if grep -Fxq "$WORD" "$IGNORE_LIST"; then
-                  continue
+                continue
               fi
 
-              # Allow lowercase versions in code blocks or backticks
+              # Allow lowercase versions inside backticks or code blocks
               if [[ "$WORD" =~ ^\`.*\`$ || "$WORD" =~ ^<code>.*</code>$ ]]; then
-                  WORD_LOWER=$(echo "$WORD" | tr '[:upper:]' '[:lower:]')
-                  if grep -Fxq "$WORD_LOWER" "$IGNORE_LIST"; then
-                      continue
-                  fi
+                WORD_LOWER=$(echo "$WORD" | tr '[:upper:]' '[:lower:]')
+                if grep -Fxq "$WORD_LOWER" "$IGNORE_LIST"; then
+                  continue
+                fi
               fi
 
-              # Write errors to file
+              # Write to report
               if ! grep -Fxq "$FILE" "$SPELLCHECK_OUTPUT"; then
-                  echo -e "\n$FILE" >> "$SPELLCHECK_OUTPUT"
+                echo -e "\n$FILE" >> "$SPELLCHECK_OUTPUT"
               fi
               echo "  Line $LINE_NUM: $WORD" >> "$SPELLCHECK_OUTPUT"
-          done
+            done < temp_spelling_errors.txt
+          fi
+
+          # Cleanup
+          rm -f temp_spelling_errors.txt
 
       - name: Upload Spellcheck Report (if errors found)
         if: always()
