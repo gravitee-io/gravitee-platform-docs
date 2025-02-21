@@ -42,25 +42,22 @@ jobs:
           echo "Processing spellcheck results..."
 
           # Ensure output file is only created if errors exist
-          if [[ ! -s temp_spellcheck.log ]]; then
+          if [[ -s temp_spellcheck.log ]]; then
+              while IFS= read -r line; do
+                  FILE=$(echo "$line" | awk -F':' '{print $1}')
+                  LINE_NUM=$(echo "$line" | awk -F':' '{print $2}')
+                  ERROR_WORD=$(echo "$line" | awk -F':' '{print $3}')
+
+                  if [[ -n "$FILE" && -n "$LINE_NUM" && -n "$ERROR_WORD" ]]; then
+                      echo "$FILE" >> "$SPELLCHECK_OUTPUT"
+                      echo "  Line $LINE_NUM: $ERROR_WORD" >> "$SPELLCHECK_OUTPUT"
+                      echo "" >> "$SPELLCHECK_OUTPUT"
+                  fi
+              done < temp_spellcheck.log
+              echo "Spellcheck report saved to $SPELLCHECK_OUTPUT"
+          else
               echo "No spelling errors detected."
-              exit 0
           fi
-
-          # Process spellcheck output
-          while IFS= read -r line; do
-              FILE=$(echo "$line" | awk -F':' '{print $1}')
-              LINE_NUM=$(echo "$line" | awk -F':' '{print $2}')
-              ERROR_WORD=$(echo "$line" | awk -F':' '{print $3}')
-
-              if [[ -n "$FILE" && -n "$LINE_NUM" && -n "$ERROR_WORD" ]]; then
-                  echo "$FILE" >> "$SPELLCHECK_OUTPUT"
-                  echo "  Line $LINE_NUM: $ERROR_WORD" >> "$SPELLCHECK_OUTPUT"
-                  echo "" >> "$SPELLCHECK_OUTPUT"
-              fi
-          done < temp_spellcheck.log
-
-          echo "Spellcheck report saved to $SPELLCHECK_OUTPUT"
 
       - name: Debugging: Print Spellcheck Report
         if: always()
