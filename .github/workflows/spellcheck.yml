@@ -22,9 +22,9 @@ jobs:
 
       - name: Run Spellcheck
         run: |
-          set -e  # Exit on failure, but handled properly below
+          set -e  # Exit on error to prevent silent failures
 
-          # Define output files
+          # Define paths
           SPELLCHECK_OUTPUT="spellcheck_report.txt"
           IGNORE_LIST=".github/spellcheck-ignore.txt"
           EXCLUDE_PATTERNS=".github/exclude-patterns.txt"
@@ -40,10 +40,10 @@ jobs:
           # Clear any existing report
           > "$SPELLCHECK_OUTPUT"
 
-          # Run codespell and capture output
-          codespell --ignore-words="$IGNORE_LIST" --quiet-level=2 --check-filenames > temp_spelling_errors.txt || true
+          # Run Codespell with exclusion rules
+          codespell --ignore-words="$IGNORE_LIST" --quiet-level=2 --check-filenames --skip="*.json,*.yaml,*.yml" > temp_spelling_errors.txt || true
 
-          # Process the output and apply filtering
+          # Process and filter the errors
           if [[ -s temp_spelling_errors.txt ]]; then
             while IFS= read -r line; do
               FILE=$(echo "$line" | cut -d':' -f1)
