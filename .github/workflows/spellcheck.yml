@@ -48,6 +48,10 @@ jobs:
           cat temp_spelling_errors.txt
 
           if [[ -s temp_spelling_errors.txt ]]; then
+            echo "Spellcheck Errors Found. Writing to $SPELLCHECK_OUTPUT..."
+
+            CURRENT_FILE=""
+            
             while IFS= read -r line; do
               FILE=$(echo "$line" | cut -d':' -f1)
               LINE_NUM=$(echo "$line" | cut -d':' -f2)
@@ -57,10 +61,7 @@ jobs:
                 continue
               fi
 
-              # DEBUG: Log detected misspellings
-              echo "DEBUG: Checking word '$WORD' in file '$FILE' at line $LINE_NUM"
-
-              # Skip words matching excluded patterns (using `-F` for fixed-string matching)
+              # Skip words matching excluded patterns
               if grep -q -F -f "$EXCLUDE_PATTERNS" <<< "$WORD"; then
                 echo "DEBUG: Skipping '$WORD' (matches exclude-patterns)"
                 continue
@@ -81,12 +82,19 @@ jobs:
                 fi
               fi
 
-              # Write to report
-              if ! grep -Fxq "$FILE" "$SPELLCHECK_OUTPUT"; then
+              # Print file name only once
+              if [[ "$CURRENT_FILE" != "$FILE" ]]; then
                 echo -e "\n$FILE" >> "$SPELLCHECK_OUTPUT"
+                CURRENT_FILE="$FILE"
               fi
+
+              # Print error details
               echo "  Line $LINE_NUM: $WORD" >> "$SPELLCHECK_OUTPUT"
             done < temp_spelling_errors.txt
+
+            echo "Spellcheck Report Written: $SPELLCHECK_OUTPUT"
+          else
+            echo "No spelling errors detected."
           fi
 
           # Cleanup
