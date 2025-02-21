@@ -26,7 +26,7 @@ jobs:
 
           # Define output files
           SPELLCHECK_OUTPUT="spellcheck_report.txt"
-          IGNORE_LIST=".github/spellcheck_ignore.txt"
+          IGNORE_LIST=".github/spellcheck-ignore.txt"
           EXCLUDE_PATTERNS=".github/exclude-patterns.txt"
 
           # Ensure required files exist
