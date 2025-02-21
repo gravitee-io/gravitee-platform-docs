@@ -1,0 +1,15 @@
+GitHub
+GraphQL
+Kubernetes
+MySQL
+Terraform
+API
+JWT
+OAuth
+OIDC
+AWS
+GCP
+CLI
+SDK
+HTML
+CSS
