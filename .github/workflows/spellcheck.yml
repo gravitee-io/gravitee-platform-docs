@@ -1,4 +1,4 @@
-name: Spellcheck Documentation
+name: Spellcheck and Auto-Suggest Fixes
 
 on:
   push:
@@ -10,36 +10,39 @@ on:
 
 jobs:
   spellcheck:
+    name: Run Spellcheck
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Install Dependencies
+      - name: Install Codespell
         run: pip install codespell
 
-      - name: Run Spellcheck and Save Report
+      - name: Run Spellcheck and Apply Fixes
         run: |
-          set -e  # Exit on error
+          codespell --ignore-words=.github/spellcheck-ignore.txt --write-changes --skip="*.json,*.yaml,*.yml,*.lock" > spellcheck_report.txt || true
 
-          # Run codespell with configured ignore list and filters
-          codespell --ignore-words=.github/spellcheck-ignore.txt \
-                    --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
-                    --quiet-level=2 > spellcheck_report.txt || true
-
-      - name: Debugging - Print Spellcheck Report
-        if: always()
+      - name: Check for Changes
+        id: check_changes
         run: |
-          if [ -s spellcheck_report.txt ]; then
-            cat spellcheck_report.txt
-          else
-            echo "No errors recorded."
-          fi
+          git diff --exit-code || echo "CHANGES_FOUND=true" >> $GITHUB_ENV
 
-      - name: Upload Spellcheck Report
-        if: always()
-        uses: actions/upload-artifact@v4  # Updated to v4
-        with:
-          name: spellcheck-report
-          path: spellcheck_report.txt
+      - name: Commit and Push Fixes
+        if: env.CHANGES_FOUND == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b spellcheck-fixes
+          git add .
+          git commit -m "Fix spelling errors"
+          git push origin spellcheck-fixes
+
+      - name: Create Pull Request
+        if: env.CHANGES_FOUND == 'true'
+        run: |
+          gh auth login --with-token <<< "${{ secrets.SPELLCHECK_TOKEN }}"
+          gh pr create --base main --head spellcheck-fixes --title "Automated Spellcheck Fixes" --body "This PR includes automatically generated spelling corrections."
