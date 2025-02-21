@@ -23,11 +23,10 @@ jobs:
         run: |
           set -e  # Exit on error
 
-          # Run spellcheck with exclusions and save to report
+          # Run spellcheck with exclusions and save output to a report file
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
-                    --quiet-level=2 \
-                    > spellcheck_report.txt || true
+                    --quiet-level=2 > spellcheck_report.txt || true
 
       - name: Debugging: Print Spellcheck Report
         if: always()
