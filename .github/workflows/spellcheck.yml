@@ -32,7 +32,12 @@ jobs:
           echo "Running Spellcheck..."
 
           # Run spellcheck and capture output
-          codespell --ignore-words-list=$(tr '\n' ',' < "$IGNORE_LIST") --quiet-level=2 --skip=$(cat "$EXCLUDE_PATTERNS") | tee temp_spellcheck.log
+          codespell --ignore-words-list=$(tr '\n' ',' < "$IGNORE_LIST") --quiet-level=2 --skip=$(cat "$EXCLUDE_PATTERNS") > temp_spellcheck.log || true
+
+          # Debugging: Show raw spellcheck output
+          echo "=== RAW SPELLCHECK OUTPUT ==="
+          cat temp_spellcheck.log || echo "No output found."
+          echo "=== END OF RAW OUTPUT ==="
 
           echo "Processing spellcheck results..."
 
@@ -56,6 +61,10 @@ jobs:
           done < temp_spellcheck.log
 
           echo "Spellcheck report saved to $SPELLCHECK_OUTPUT"
+
+      - name: Debugging: Print Spellcheck Report
+        if: always()
+        run: cat spellcheck_report.txt || echo "No errors recorded in spellcheck_report.txt."
 
       - name: Upload Spellcheck Report
         if: always()
