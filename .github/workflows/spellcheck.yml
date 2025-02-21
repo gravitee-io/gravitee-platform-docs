@@ -28,13 +28,16 @@ jobs:
 
           # Ensure required files exist
           touch "$SPELLCHECK_OUTPUT"
-          if [ ! -f "$EXCLUDE_PATTERNS" ]; then echo "" > "$EXCLUDE_PATTERNS"; fi
-          if [ ! -f "$IGNORE_LIST" ]; then echo "" > "$IGNORE_LIST"; fi
+          [[ -f "$EXCLUDE_PATTERNS" ]] || touch "$EXCLUDE_PATTERNS"
+          [[ -f "$IGNORE_LIST" ]] || touch "$IGNORE_LIST"
 
           echo "Running Spellcheck..."
 
-          # Run spellcheck and capture output
-          codespell --ignore-words-list="$(tr '\n' ',' < "$IGNORE_LIST")" \
+          # Generate ignore list from file
+          IGNORE_WORDS=$(tr '\n' ',' < "$IGNORE_LIST" | sed 's/,$//')
+
+          # Run spellcheck and capture output, ignoring defined patterns
+          codespell --ignore-words-list="$IGNORE_WORDS" \
                     --quiet-level=2 \
                     --skip="$(cat "$EXCLUDE_PATTERNS")" > temp_spellcheck.log || true
 
@@ -44,8 +47,11 @@ jobs:
 
           echo "Processing spellcheck results..."
 
-          # Only write to file if errors exist
+          # Ensure output file is written only if errors are found
           if [[ -s temp_spellcheck.log ]]; then
+              echo "Spellcheck Errors Found. Writing to $SPELLCHECK_OUTPUT..."
+              echo "" > "$SPELLCHECK_OUTPUT"
+
               while IFS= read -r line; do
                   FILE=$(echo "$line" | cut -d':' -f1)
                   LINE_NUM=$(echo "$line" | cut -d':' -f2)
@@ -57,6 +63,7 @@ jobs:
                       echo "" >> "$SPELLCHECK_OUTPUT"
                   fi
               done < temp_spellcheck.log
+
               echo "Spellcheck report saved to $SPELLCHECK_OUTPUT"
           else
               echo "No spelling errors detected."
