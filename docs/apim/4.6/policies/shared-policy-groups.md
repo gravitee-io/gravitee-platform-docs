@@ -30,7 +30,7 @@ The deployment of a shared policy group to the gateway is independent of the dep
 This choice cannot be changed later. To change the phase of the API execution that you want to execute on, you must add another policy.
 {% endhint %}
 
-5. In the **Add Shred Policy Group for API** window, provide the following information for your API:
+5. In the **Add Shared Policy Group for API** window, provide the following information for your API:
 
 * Name
 * Description
