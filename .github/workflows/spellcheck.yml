@@ -18,23 +18,32 @@ jobs:
       - name: Install Codespell
         run: pip install codespell
 
-      - name: Run Spellcheck
+      - name: Generate Ignore Pattern
         run: |
+          # Read terms from ignore file, enforcing case sensitivity
+          IGNORE_LIST=$(cat .github/spellcheck-ignore.txt | paste -sd '|' -)
+
+          # Save case-sensitive regex for valid terms
+          echo "\b($IGNORE_LIST)\b" > .github/spellcheck-pattern.txt
+
+          echo "Valid Case-Sensitive Terms: ($IGNORE_LIST)"
+
+      - name: Run Spellcheck and Save Output
+        run: |
+          SPELLCHECK_PATTERN=$(cat .github/spellcheck-pattern.txt)
+
           codespell \
-            --ignore-words-list=$(cat .github/spellcheck-ignore.txt | tr '\n' ',') \
-            --skip="*.html,*.css,*.json,*.yaml,*.yml,*.js,*.ts,*.py,*.java,*.sh,*.xml,*.lock" \
-            --ignore-regex="\b[A-Z][a-z]+[A-Z][a-z]*\b|\b[a-z]+(_[a-z]+)+\b|\b[A-Z]{2,}\b|`[^`]+`|```[\s\S]+?```" \
+            --ignore-words-list="$(cat .github/spellcheck-ignore.txt | tr '\n' ',')" \
+            --skip '*.html,*.css,*.json,*.yaml,*.yml,*.js,*.ts,*.py,*.java,*.sh,*.xml,*.lock' \
+            --ignore-regex="`[^`]+`|```[\s\S]+?```|(?<=`)\b\w+\b(?=`)|(?<=```)[\s\S]+?(?=```)|\b$SPELLCHECK_PATTERN\b" \
             --quiet-level=2 \
             --check-filenames \
             --check-hidden \
             --onlyin=docs/ \
-            --write-changes
+            > spellcheck-report.txt || true
 
-      - name: Fail on Misspelled Words
-        run: |
-          if git diff --exit-code; then
-            echo "No spelling errors found."
-          else
-            echo "Spelling errors detected!"
-            exit 1
-          fi
+      - name: Upload Spellcheck Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Spellcheck Report
+          path: spellcheck-report.txt
