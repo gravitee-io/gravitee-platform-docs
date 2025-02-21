@@ -16,19 +16,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install Spellchecker
+      - name: Install Dependencies
         run: pip install codespell
 
       - name: Run Spellcheck and Save Report
         run: |
           set -e  # Exit on error
 
-          # Run spellcheck with exclusions and save output to a report file
+          # Run codespell with configured ignore list and filters
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report.txt || true
 
-      - name: Debugging: Print Spellcheck Report
+      - name: Debugging - Print Spellcheck Report
         if: always()
         run: |
           if [ -s spellcheck_report.txt ]; then
