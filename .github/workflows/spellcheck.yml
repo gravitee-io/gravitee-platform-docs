@@ -19,27 +19,39 @@ jobs:
       - name: Install Codespell
         run: pip install codespell
 
-      - name: Load spellcheck patterns
+      - name: Prepare Case-Sensitive Ignore List
         run: |
-          SPELLCHECK_PATTERN=""
-          while IFS= read -r line || [ -n "$line" ]; do
-            SPELLCHECK_PATTERN+="$line|"
-          done < .github/spellcheck-pattern.txt
-          SPELLCHECK_PATTERN="${SPELLCHECK_PATTERN%|}"  # Remove trailing "|"
-          printf "Using spellcheck pattern: %s\n" "$SPELLCHECK_PATTERN"
-          echo "SPELLCHECK_PATTERN=$SPELLCHECK_PATTERN" >> $GITHUB_ENV
+          IGNORE_FILE=".github/spellcheck_ignore.txt"
+          TEMP_IGNORE_FILE="spellcheck_temp_ignore.txt"
+
+          if [ ! -f "$IGNORE_FILE" ]; then
+            echo "Warning: $IGNORE_FILE not found. Creating an empty ignore file."
+            touch "$IGNORE_FILE"
+          fi
+
+          # Add all terms from spellcheck_ignore.txt exactly as they appear
+          cat "$IGNORE_FILE" > "$TEMP_IGNORE_FILE"
+
+          # Convert all acronyms to lowercase for use in code blocks
+          awk '{print tolower($0)}' "$IGNORE_FILE" >> "$TEMP_IGNORE_FILE"
+
+          # Remove duplicates
+          sort -u "$TEMP_IGNORE_FILE" -o "$TEMP_IGNORE_FILE"
 
       - name: Run Spellcheck
         run: |
           mkdir -p spellcheck-reports
-          codespell --ignore-words=.github/spellcheck_ignore.txt \
+          OUTPUT_FILE="spellcheck-reports/spellcheck-results.txt"
+
+          # Run Codespell and capture flagged words + locations
+          codespell --ignore-words="spellcheck_temp_ignore.txt" \
                     --skip="*.json,*.xml,*.html,*.css,*.yml,*.yaml,*.csv,*.ts,*.js,*.py" \
-                    --regex "$SPELLCHECK_PATTERN" \
                     --quiet-level=2 \
-                    --write-changes \
                     --check-filenames \
                     --check-hidden \
-                    > spellcheck-reports/spellcheck-results.txt || true
+                    --write-changes \
+                    --exclude-file=".github/exclude-patterns.txt" \
+                    2>&1 | tee "$OUTPUT_FILE"
 
       - name: Upload Spellcheck Report
         uses: actions/upload-artifact@v4
