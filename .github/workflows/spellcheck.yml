@@ -23,7 +23,7 @@ jobs:
         run: |
           set -e  # Exit on error
 
-          # Run spellcheck, filtering based on exclude patterns and ignoring words in spellcheck-ignore.txt
+          # Run spellcheck with exclusions and save to report
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 \
