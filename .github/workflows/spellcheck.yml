@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Spellcheck
         run: |
-          set -e  # Exit on error to prevent silent failures
+          set -e  # Exit on error
 
           # Define paths
           SPELLCHECK_OUTPUT="spellcheck_report.txt"
@@ -65,7 +65,7 @@ jobs:
               fi
 
               # Allow lowercase versions inside backticks or code blocks
-              if [[ "$WORD" =~ ^\`.*\`$ || "$WORD" =~ ^<code>.*</code>$ ]]; then
+              if echo "$WORD" | grep -q -E "^\`.*\`$"; then
                 WORD_LOWER=$(echo "$WORD" | tr '[:upper:]' '[:lower:]')
                 if grep -Fxq "$WORD_LOWER" "$IGNORE_LIST"; then
                   continue
