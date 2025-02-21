@@ -1,60 +1,52 @@
-name: Spellcheck Documentation
+#!/bin/bash
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+# Define the output file for storing spelling errors
+SPELLCHECK_OUTPUT="spellcheck_report.txt"
+IGNORE_LIST="spellcheck_ignore.txt"
+EXCLUDE_PATTERNS="exclude-patterns.txt"
 
-jobs:
-  spellcheck:
-    runs-on: ubuntu-latest
+# Clear previous report if it exists
+> "$SPELLCHECK_OUTPUT"
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+# Run codespell on all relevant files and process the output
+codespell --ignore-words="$IGNORE_LIST" --quiet-level=2 --check-filenames --write-changes | while read -r line; do
+    # Extract filename, line number, and the misspelled word
+    FILE=$(echo "$line" | cut -d':' -f1)
+    LINE_NUM=$(echo "$line" | cut -d':' -f2)
+    WORD=$(echo "$line" | cut -d':' -f3-)
 
-      - name: Install Codespell
-        run: pip install codespell
+    # Only process lines that contain a filename, line number, and misspelling
+    if [[ -n "$FILE" && -n "$LINE_NUM" && -n "$WORD" ]]; then
+        # Skip lines that match exclusion patterns (code blocks, HTML, etc.)
+        if grep -q -E -f "$EXCLUDE_PATTERNS" <<< "$WORD"; then
+            continue
+        fi
 
-      - name: Prepare Case-Sensitive Ignore List
-        run: |
-          IGNORE_FILE=".github/spellcheck_ignore.txt"
-          TEMP_IGNORE_FILE="spellcheck_temp_ignore.txt"
+        # Ensure case sensitivity for words in normal text
+        if grep -Fxq "$WORD" "$IGNORE_LIST"; then
+            continue
+        fi
 
-          if [ ! -f "$IGNORE_FILE" ]; then
-            echo "Warning: $IGNORE_FILE not found. Creating an empty ignore file."
-            touch "$IGNORE_FILE"
-          fi
+        # Allow lowercase versions inside backticks or code blocks
+        if [[ "$WORD" =~ ^\`.*\`$ || "$WORD" =~ ^<code>.*</code>$ ]]; then
+            WORD_LOWER=$(echo "$WORD" | tr '[:upper:]' '[:lower:]')
+            if grep -Fxq "$WORD_LOWER" "$IGNORE_LIST"; then
+                continue
+            fi
+        fi
 
-          # Add all terms from spellcheck_ignore.txt exactly as they appear
-          cat "$IGNORE_FILE" > "$TEMP_IGNORE_FILE"
+        # If the filename is not yet in the output, add it with a blank line before it
+        if ! grep -Fxq "$FILE" "$SPELLCHECK_OUTPUT"; then
+            if [ -s "$SPELLCHECK_OUTPUT" ]; then
+                echo "" >> "$SPELLCHECK_OUTPUT"
+            fi
+            echo "$FILE" >> "$SPELLCHECK_OUTPUT"
+        fi
 
-          # Convert all acronyms to lowercase for use in code blocks
-          awk '{print tolower($0)}' "$IGNORE_FILE" >> "$TEMP_IGNORE_FILE"
+        # Append the misspelling and line number
+        echo "  Line $LINE_NUM: $WORD" >> "$SPELLCHECK_OUTPUT"
+    fi
+done
 
-          # Remove duplicates
-          sort -u "$TEMP_IGNORE_FILE" -o "$TEMP_IGNORE_FILE"
-
-      - name: Run Spellcheck
-        run: |
-          mkdir -p spellcheck-reports
-          OUTPUT_FILE="spellcheck-reports/spellcheck-results.txt"
-
-          # Run Codespell and capture flagged words + locations
-          codespell --ignore-words="spellcheck_temp_ignore.txt" \
-                    --skip="*.json,*.xml,*.html,*.css,*.yml,*.yaml,*.csv,*.ts,*.js,*.py" \
-                    --quiet-level=2 \
-                    --check-filenames \
-                    --check-hidden \
-                    --write-changes \
-                    --exclude-file=".github/exclude-patterns.txt" \
-                    2>&1 | tee "$OUTPUT_FILE"
-
-      - name: Upload Spellcheck Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: spellcheck-results
-          path: spellcheck-reports/spellcheck-results.txt
+# Print a message indicating completion
+echo "Spellcheck completed. Results saved in $SPELLCHECK_OUTPUT."
