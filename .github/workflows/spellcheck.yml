@@ -17,8 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Spellchecker
-        run: |
-          pip install codespell
+        run: pip install codespell
 
       - name: Run Spellcheck and Save Report
         run: |
@@ -28,7 +27,6 @@ jobs:
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 \
-                    --write-changes \
                     > spellcheck_report.txt || true
 
       - name: Debugging: Print Spellcheck Report
