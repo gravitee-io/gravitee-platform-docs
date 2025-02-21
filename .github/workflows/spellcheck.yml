@@ -40,10 +40,13 @@ jobs:
           # Clear any existing report
           > "$SPELLCHECK_OUTPUT"
 
-          # Run Codespell with exclusion rules
+          # Run Codespell without exiting on errors
           codespell --ignore-words="$IGNORE_LIST" --quiet-level=2 --check-filenames --skip="*.json,*.yaml,*.yml" > temp_spelling_errors.txt || true
 
-          # Process and filter the errors
+          # DEBUG: Check if errors were detected
+          echo "DEBUG: Contents of temp_spelling_errors.txt:"
+          cat temp_spelling_errors.txt
+
           if [[ -s temp_spelling_errors.txt ]]; then
             while IFS= read -r line; do
               FILE=$(echo "$line" | cut -d':' -f1)
@@ -54,13 +57,18 @@ jobs:
                 continue
               fi
 
-              # Skip words matching excluded patterns
-              if grep -q -E -f "$EXCLUDE_PATTERNS" <<< "$WORD"; then
+              # DEBUG: Log detected misspellings
+              echo "DEBUG: Checking word '$WORD' in file '$FILE' at line $LINE_NUM"
+
+              # Skip words matching excluded patterns (using `-F` for fixed-string matching)
+              if grep -q -F -f "$EXCLUDE_PATTERNS" <<< "$WORD"; then
+                echo "DEBUG: Skipping '$WORD' (matches exclude-patterns)"
                 continue
               fi
 
               # Enforce case-sensitive checking in normal text
               if grep -Fxq "$WORD" "$IGNORE_LIST"; then
+                echo "DEBUG: Skipping '$WORD' (matches exact case in ignore list)"
                 continue
               fi
 
@@ -68,6 +76,7 @@ jobs:
               if echo "$WORD" | grep -q -E "^\`.*\`$"; then
                 WORD_LOWER=$(echo "$WORD" | tr '[:upper:]' '[:lower:]')
                 if grep -Fxq "$WORD_LOWER" "$IGNORE_LIST"; then
+                  echo "DEBUG: Skipping '$WORD' (allowed lowercase in code)"
                   continue
                 fi
               fi
