@@ -459,7 +459,7 @@ Limitations will be addressed in future releases when the secret lifecycle is ma
 
 ### Policies
 
-<table><thead><tr><th width="216">Policy</th><th>Configuration Field</th></tr></thead><tbody><tr><td>HTTP Callout</td><td>URL, Header Values</td></tr><tr><td>Assign attribut</td><td>Attribute value</td></tr><tr><td>Transform headers</td><td>Header value</td></tr><tr><td>Transform query param</td><td>Param value</td></tr><tr><td>Traffic shadowing</td><td>URL, Header Values</td></tr><tr><td>Any other that supports EL</td><td></td></tr></tbody></table>
+<table><thead><tr><th width="216">Policy</th><th>Configuration Field</th></tr></thead><tbody><tr><td>HTTP Callout</td><td>URL, Header Values</td></tr><tr><td>Assign attribute</td><td>Attribute value</td></tr><tr><td>Transform headers</td><td>Header value</td></tr><tr><td>Transform query param</td><td>Param value</td></tr><tr><td>Traffic shadowing</td><td>URL, Header Values</td></tr><tr><td>Any other that supports EL</td><td></td></tr></tbody></table>
 
 ## Configuration reference
 
