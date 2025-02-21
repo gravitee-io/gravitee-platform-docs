@@ -257,7 +257,6 @@ portalnotifications
 postgre
 postgres
 postgresql
-prerequisites
 protobuf
 qualityrules
 queryparams
@@ -332,7 +331,6 @@ xslt
 xss
 yaml
 yml
-yourdomain
 zstd
 api
 apigee
@@ -342,7 +340,6 @@ asciidoc
 Authn
 aws
 changelogs
-configmaps
 cors
 crds
 csrf
@@ -486,3 +483,8 @@ mov
 idx
 flx
 oauthbearer
+cty
+eck
+idtyp
+userna
+wids
