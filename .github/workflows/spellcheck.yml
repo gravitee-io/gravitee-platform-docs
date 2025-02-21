@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Dependencies
         run: pip install codespell
@@ -39,7 +39,7 @@ jobs:
 
       - name: Upload Spellcheck Report
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Updated to v4
         with:
           name: spellcheck-report
           path: spellcheck_report.txt
