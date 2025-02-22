@@ -1,16 +1,13 @@
 name: Spellcheck Documentation
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
 
 permissions:
-  contents: write  # Required for creating a commit
-  pull-requests: write  # Required for creating a PR
+  contents: read  # Required for reading repository content
+  pull-requests: write  # Required for creating comments on PRs
 
 jobs:
   spellcheck:
@@ -32,57 +29,40 @@ jobs:
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report.txt || true
 
-      - name: Debugging - Print Spellcheck Report
+      - name: Print Spellcheck Report 📜
         if: always()
         run: |
+          echo "===== Spellcheck Report ====="
           if [ -s spellcheck_report.txt ]; then
             cat spellcheck_report.txt
           else
             echo "No spelling errors found."
           fi
+          echo "============================"
 
-      - name: Apply Suggestions Instead of Direct Fixes
-        run: |
-          CHANGES_MADE=0
-          while IFS= read -r line; do
-            file=$(echo "$line" | cut -d ':' -f 1)
-            line_number=$(echo "$line" | cut -d ':' -f 2)
-            original_word=$(echo "$line" | cut -d ' ' -f 2)
-            corrected_word=$(echo "$line" | cut -d ' ' -f 4)
-
-            if [ -f "$file" ]; then
-              # Apply corrections if the file exists
-              sed -i "${line_number}s/\b${original_word}\b/${corrected_word}/g" "$file" && CHANGES_MADE=1
-            fi
-          done < spellcheck_report.txt || true
-
-          if [ "$CHANGES_MADE" -eq 0 ]; then
-            echo "No changes were made to files. Exiting."
-            exit 0
-          fi
-
-      - name: Create Pull Request with Suggestions
+      - name: Post Inline Suggestions
+        if: always()
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -s spellcheck_report.txt ]; then
+            while IFS= read -r line; do
+              file=$(echo "$line" | cut -d ':' -f 1)
+              line_number=$(echo "$line" | cut -d ':' -f 2)
+              original_word=$(echo "$line" | cut -d ' ' -f 2)
+              corrected_word=$(echo "$line" | cut -d ' ' -f 4)
 
-          BRANCH_NAME="spellcheck-fixes-$(date +%s)"
-          git checkout -b $BRANCH_NAME
+              if [ -f "$file" ]; then
+                # Create a suggestion comment
+                suggestion="Suggestion:\n\`\`\`suggestion\n$(sed "${line_number}q;d" "$file" | sed "s/\b${original_word}\b/${corrected_word}/g")\n\`\`\`"
 
-          # Verify if any changes were made before committing
-          if [ -n "$(git status --porcelain)" ]; then
-            git add .
-            git commit -m "Spellcheck suggestions"
-            git push origin $BRANCH_NAME
-
-            # Create PR using GitHub CLI
-            gh pr create \
-              --base main \
-              --head $BRANCH_NAME \
-              --title "Spellcheck Fixes" \
-              --body "This PR contains spellcheck suggestions. Please review and approve or reject individual suggestions."
+                # Post the suggestion using GitHub's REST API
+                curl -s -H "Authorization: token $GITHUB_TOKEN" \
+                     -X POST \
+                     -d "$(jq -n --arg body "$suggestion" --arg path "$file" --argjson line $line_number '{body: $body, path: $path, line: $line, side: "RIGHT"}')" \
+                     "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/comments"
+              fi
+            done < spellcheck_report.txt
           else
-            echo "No changes detected. Skipping PR creation."
+            echo "No spelling errors found. No suggestions to post."
           fi
