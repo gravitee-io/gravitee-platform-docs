@@ -1,5 +1,5 @@
 ---
-description: This article covers criticial Gravitee API creation concepts
+description: This article covers critical Gravitee API creation concepts
 ---
 
 # Create APIs
