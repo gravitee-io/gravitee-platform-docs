@@ -79,11 +79,11 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 2. In the **Settings** tab, click **Certificates**.
 3.  Choose your certificate and click **SAVE**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply cerificate to application</p></figcaption></figure>
+    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply certificate to application</p></figcaption></figure>
 
 ### Certificate for Mutual TLS authentication
 
-Since AM 4.4.0, certificates section can manage client certificate for Mutual TLS authentication for some backend connection like the OpenID Connect Identity Provider. To mark a cetificate as usable for mTLS, you just have to check the "mTLS" usage in the configuration form of your certificate.
+Since AM 4.4.0, certificates section can manage client certificate for Mutual TLS authentication for some backend connection like the OpenID Connect Identity Provider. To mark a certificate as usable for mTLS, you just have to check the "mTLS" usage in the configuration form of your certificate.
 
 {% hint style="info" %}
 System certificates can't be used for mTLS authentication as they are self signed certificates generated internally by Access Management.
