@@ -112,8 +112,8 @@ jobs:
             corrected_word=$(echo "$line" | cut -d ' ' -f 4)
 
             if [ -f "$file" ]; then
-              # Add GitHub suggestion syntax
-              sed -i "${line_number}i <!-- @${{ github.actor }}: Suggested change -->\n\`\`\`suggestion\n${corrected_word}\n\`\`\`\n" "$file" && CHANGES_MADE=1
+              sed -i "${line_number}i <!-- @${{ github.actor }}: Suggested change -->\n\`\`\`suggestion\n${corrected_word}\n\`\`\`\n" "$file"
+              CHANGES_MADE=1
             fi
           done < spellcheck_report.txt || true
 
@@ -126,22 +126,21 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
+          set -e  # Exit on error
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           BRANCH_NAME="spellcheck-fixes-$(date +%s)"
-          git checkout -b $BRANCH_NAME
+          git checkout -b "$BRANCH_NAME"
 
-          # Verify if any changes were made before committing
           if [ -n "$(git status --porcelain)" ]; then
             git add .
             git commit -m "Spellcheck suggestions"
-            git push origin $BRANCH_NAME
+            git push origin "$BRANCH_NAME"
 
-            # Create PR using GitHub CLI
             gh pr create \
               --base main \
-              --head $BRANCH_NAME \
+              --head "$BRANCH_NAME" \
               --title "Spellcheck Fixes" \
               --body "This PR contains spellcheck suggestions. Please review and approve or reject individual suggestions."
           else
