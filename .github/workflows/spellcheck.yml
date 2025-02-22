@@ -33,6 +33,7 @@ jobs:
 
       - name: Run Spellcheck and Save Raw Report
         run: |
+          set -e  # Exit on error
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
@@ -144,3 +145,4 @@ jobs:
               --body "This PR contains spellcheck suggestions. Please review and approve or reject individual suggestions."
           else
             echo "No changes detected. Skipping PR creation."
+            exit 0
