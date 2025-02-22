@@ -42,50 +42,50 @@ jobs:
 
           # Process corrections with Python
           python3 <<EOF
-          import re
-          from fuzzywuzzy import process
+import re
+from fuzzywuzzy import process
 
-          # Load spellcheck ignore list with case sensitivity
-          ignore_list = {}
-          with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
-              for line in f:
-                  word = line.strip()
-                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
+# Load spellcheck ignore list with case sensitivity
+ignore_list = {}
+with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
+    for line in f:
+        word = line.strip()
+        ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
-          # Function to determine if an ignore list word should be used
-          def should_use_ignore_list(original, suggestion):
-              best_match, score = process.extractOne(original, ignore_list.keys())
+# Function to determine if an ignore list word should be used
+def should_use_ignore_list(original, suggestion):
+    best_match, score = process.extractOne(original, ignore_list.keys())
 
-              # Must be at least 90% similar to be considered a match
-              if score < 90:
-                  return False
+    # Must be at least 90% similar to be considered a match
+    if score < 90:
+        return False
 
-              # Reject if original contains best_match as a substring (e.g., "certifcate" vs "CE")
-              if best_match in original and len(original) > len(best_match):
-                  return False
+    # Reject if original contains best_match as a substring (e.g., "certifcate" vs "CE")
+    if best_match in original and len(original) > len(best_match):
+        return False
 
-              return True
+    return True
 
-          # Process spellcheck output
-          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
-              for line in infile:
-                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
-                  if match:
-                      file_path, line_number, original, suggestion = match.groups()
-                      corrected_word = suggestion
+# Process spellcheck output
+with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
+    for line in infile:
+        match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+        if match:
+            file_path, line_number, original, suggestion = match.groups()
+            corrected_word = suggestion
 
-                      # Apply correct capitalization from ignore list if appropriate
-                      if suggestion.lower() in ignore_list:
-                          corrected_word = ignore_list[suggestion.lower()]
+            # Apply correct capitalization from ignore list if appropriate
+            if suggestion.lower() in ignore_list:
+                corrected_word = ignore_list[suggestion.lower()]
 
-                      # If original word is very similar to an ignored word, prefer that correction
-                      elif should_use_ignore_list(original, suggestion):
-                          best_match, _ = process.extractOne(original, ignore_list.keys())
-                          corrected_word = ignore_list[best_match]
+            # If original word is very similar to an ignored word, prefer that correction
+            elif should_use_ignore_list(original, suggestion):
+                best_match, _ = process.extractOne(original, ignore_list.keys())
+                corrected_word = ignore_list[best_match]
 
-                      # Write final output
-                      outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
-          EOF
+            # Write final output
+            outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
+EOF
 
       - name: Print Spellcheck Report 📜
         if: always()
