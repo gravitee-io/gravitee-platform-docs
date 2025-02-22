@@ -1,8 +1,7 @@
-name: Spellcheck
+name: Spellcheck PR Suggestions
 
 on:
   pull_request:
-  push:
     branches:
       - main
 
@@ -12,63 +11,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          fetch-depth: 0
+          python-version: '3.x'
 
-      - name: Install spellchecker
-        run: sudo apt-get update && sudo apt-get install -y hunspell hunspell-en-us
+      - name: Install Spellchecker
+        run: pip install codespell
 
-      - name: Run spellcheck and save output
+      - name: Run Spellcheck and Collect Suggestions
+        id: spellcheck
         run: |
-          set -e  # Exit on error
-          mkdir -p spellcheck_output
-          find . -name "*.md" | while read -r file; do
-            echo "Checking $file..."
-            MISSPELLINGS=$(hunspell -l -d en_US "$file" | sort -u)
-            if [[ -n "$MISSPELLINGS" ]]; then
-              echo "Misspellings found in $file"
-              echo "$file" >> spellcheck_output/spellcheck_report.txt
-              echo "$MISSPELLINGS" >> spellcheck_output/spellcheck_report.txt
-              echo "" >> spellcheck_output/spellcheck_report.txt
-            fi
-          done
+          ERRORS=$(codespell --ignore-words spellcheck-ignore.txt --check-filenames --quiet-level=2 | tee spellcheck_suggestions.txt || true)
+          if [[ -s spellcheck_suggestions.txt ]]; then
+            echo "SPELLCHECK_FOUND=true" >> $GITHUB_ENV
+          else
+            echo "SPELLCHECK_FOUND=false" >> $GITHUB_ENV
+          fi
 
-      - name: Debugging: Print Spellcheck Report
-        if: always()
-        run: cat spellcheck_output/spellcheck_report.txt || echo "No errors recorded."
+      - name: Debug Spellcheck Output
+        if: env.SPELLCHECK_FOUND == 'true'
+        run: cat spellcheck_suggestions.txt
 
-      - name: Set up Git user
-        run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "github-actions@github.com"
-
-      - name: Apply fixes and create a PR
-        if: always()
+      - name: Post Suggestions as PR Comments
+        if: env.SPELLCHECK_FOUND == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
-          set -e  # Exit on error
-          BRANCH_NAME="spellcheck-fixes-$(date +%s)"
-          git checkout -b "$BRANCH_NAME"
+          while IFS= read -r line; do
+            FILE=$(echo "$line" | awk -F ':' '{print $1}')
+            LINE_NUM=$(echo "$line" | awk -F ':' '{print $2}')
+            WORD=$(echo "$line" | awk -F ':' '{print $3}')
+            SUGGESTION=$(echo "$line" | awk -F ':' '{print $4}')
+            
+            COMMENT_BODY="🚀 **Spellcheck Suggestion:**\n\n\`$WORD\` → \`$SUGGESTION\`\n\n📍 **File:** $FILE (Line $LINE_NUM)"
 
-          if [[ -f spellcheck_output/spellcheck_report.txt && -s spellcheck_output/spellcheck_report.txt ]]; then
-            while read -r file; do
-              if [[ -n "$file" && -f "$file" ]]; then
-                echo "Applying fixes to $file..."
-                hunspell -d en_US -l "$file" | while read -r word; do
-                  SUGGESTIONS=$(echo "$word" | hunspell -d en_US -a | grep -oP '(?<=: ).*')
-                  [[ -n "$SUGGESTIONS" ]] && sed -i "s/\b$word\b/${SUGGESTIONS%%,*}/g" "$file"
-                done
-              fi
-            done < <(grep -E '\.md$' spellcheck_output/spellcheck_report.txt)
+            gh pr comment "$PR_URL" --body "$COMMENT_BODY"
+          done < spellcheck_suggestions.txt
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
 
-            git add .
-            git commit -m "Automated spellcheck fixes"
-            git push origin "$BRANCH_NAME"
-
-            gh pr create --base main --head "$BRANCH_NAME" --title "Automated Spellcheck Fixes" --body "This PR contains automated spelling corrections found in the latest spellcheck run."
-          else
-            echo "No spellcheck issues found. Skipping PR creation."
-          fi
+      - name: Fail if Errors Found
+        if: env.SPELLCHECK_FOUND == 'true'
+        run: exit 1
