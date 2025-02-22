@@ -10,3 +10,5 @@ When browsing the documentation, please pay special attention to the following:
 - **Compatibility matrices:** Verify that specific documentation is applicable to particular Gravitee installations.
 - **API definitions and phases:** Different versions of the Gravitee API definition support different features and functionality.
 - **Links:** Links offer easy access to information that is related, prerequisite, or consequent to the current concept or component.
+
+Thank you!
