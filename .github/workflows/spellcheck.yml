@@ -18,13 +18,13 @@ jobs:
           fetch-depth: 0
 
       - name: Install spellchecker
-        run: sudo apt-get install -y hunspell hunspell-en-us
+        run: sudo apt-get update && sudo apt-get install -y hunspell hunspell-en-us
 
       - name: Run spellcheck and save output
         run: |
           set -e  # Exit on error
           mkdir -p spellcheck_output
-          find . -name "*.md" | while read file; do
+          find . -name "*.md" | while read -r file; do
             echo "Checking $file..."
             MISSPELLINGS=$(hunspell -l -d en_US "$file" | sort -u)
             if [[ -n "$MISSPELLINGS" ]]; then
@@ -53,18 +53,22 @@ jobs:
           BRANCH_NAME="spellcheck-fixes-$(date +%s)"
           git checkout -b "$BRANCH_NAME"
 
-          while read -r file; do
-            if [[ -n "$file" && -f "$file" ]]; then
-              echo "Applying fixes to $file..."
-              hunspell -d en_US -l "$file" | while read -r word; do
-                SUGGESTIONS=$(echo "$word" | hunspell -d en_US -a | grep -oP '(?<=: ).*')
-                [[ -n "$SUGGESTIONS" ]] && sed -i "s/$word/${SUGGESTIONS%%,*}/g" "$file"
-              done
-            fi
-          done < spellcheck_output/spellcheck_report.txt
+          if [[ -f spellcheck_output/spellcheck_report.txt && -s spellcheck_output/spellcheck_report.txt ]]; then
+            while read -r file; do
+              if [[ -n "$file" && -f "$file" ]]; then
+                echo "Applying fixes to $file..."
+                hunspell -d en_US -l "$file" | while read -r word; do
+                  SUGGESTIONS=$(echo "$word" | hunspell -d en_US -a | grep -oP '(?<=: ).*')
+                  [[ -n "$SUGGESTIONS" ]] && sed -i "s/\b$word\b/${SUGGESTIONS%%,*}/g" "$file"
+                done
+              fi
+            done < <(grep -E '\.md$' spellcheck_output/spellcheck_report.txt)
 
-          git add .
-          git commit -m "Automated spellcheck fixes"
-          git push origin "$BRANCH_NAME"
+            git add .
+            git commit -m "Automated spellcheck fixes"
+            git push origin "$BRANCH_NAME"
 
-          gh pr create --base main --head "$BRANCH_NAME" --title "Automated Spellcheck Fixes" --body "This PR contains automated spelling corrections found in the latest spellcheck run."
+            gh pr create --base main --head "$BRANCH_NAME" --title "Automated Spellcheck Fixes" --body "This PR contains automated spelling corrections found in the latest spellcheck run."
+          else
+            echo "No spellcheck issues found. Skipping PR creation."
+          fi
