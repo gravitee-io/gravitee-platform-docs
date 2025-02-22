@@ -9,7 +9,7 @@ on:
       - main
 
 permissions:
-  contents: write  # Required for creating commits
+  contents: write  # Required for committing fixes
   pull-requests: write  # Required for creating PRs
 
 jobs:
@@ -89,7 +89,7 @@ jobs:
       - name: Run Spellcheck Processing Script
         run: python3 process_spellcheck.py
 
-      - name: Print Spellcheck Report 📜
+      - name: Debugging - Print Spellcheck Report
         if: always()
         run: |
           echo "===== Spellcheck Report ====="
