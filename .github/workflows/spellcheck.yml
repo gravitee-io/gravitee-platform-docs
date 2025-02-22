@@ -33,14 +33,18 @@ jobs:
           while IFS= read -r line; do
             file=$(echo "$line" | cut -d ':' -f 1)
             line_number=$(echo "$line" | cut -d ':' -f 2)
-            original_word=$(echo "$line" | cut -d ' ' -f 2)
-            corrected_word=$(echo "$line" | cut -d ' ' -f 4)
+            original_word=$(echo "$line" | awk '{print $3}')
+            corrected_word=$(echo "$line" | awk '{print $5}')
+
+            # Ensure all required variables exist
+            if [[ -z "$file" || -z "$line_number" || -z "$original_word" || -z "$corrected_word" ]]; then
+              continue
+            fi
 
             # Use GitHub API to add suggestions
             curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
                  -H "Accept: application/vnd.github.v3+json" \
-                 https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/comments \
-                 -d @- <<EOF
+                 -d @- https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/comments <<EOF
             {
               "body": "Suggested change:\n\`\`\`suggestion\n$corrected_word\n\`\`\`",
               "commit_id": "${{ github.event.pull_request.head.sha }}",
