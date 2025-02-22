@@ -65,7 +65,8 @@ jobs:
             exit 0
           fi
 
-      - name: Create Pull Request with Suggestions
+      - name: Create Pull Request with Suggestions (Only on Push)
+        if: github.event_name == 'push'
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
