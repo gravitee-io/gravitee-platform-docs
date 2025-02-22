@@ -90,7 +90,7 @@ You can edit the shared policy group, complete the following steps:&#x20;
 
 ### View
 
-To view the version history of a shared policy group, click **Version History**. A list of the version will be displayed in reverse choronological order.
+To view the version history of a shared policy group, click **Version History**. A list of the version will be displayed in reverse chronological order.
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXeEUJqnB93yGrb2O9YQ4sy0F6yMD106fqwIRUe3wPq1dhQFxN9g7KDZIqqbjyr7bQJpVLdy7SINcFfk_-EDPnvbvEQ5fRm0v4fAOtxt78FbmxfN9WUJqf5rEZgJCHDkxsdy9tbKsMIUFSN0sfCuoo3_OQof?key=PrMp2J0zWBtqrsqO75zcMw" alt="Version of Transform Headers Demo screen"><figcaption><p>Version of Transform Headers Demo screen</p></figcaption></figure>
 

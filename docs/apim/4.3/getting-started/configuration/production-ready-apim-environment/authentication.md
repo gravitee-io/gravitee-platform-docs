@@ -2,7 +2,7 @@
 
 ## Overview
 
-This section discusses authentication as it relates to [identity providers](authentication.md#identity-providers), the [Deverloper Portal](authentication.md#developer-portal-authentication), and [users](authentication.md#users).
+This section discusses authentication as it relates to [identity providers](authentication.md#identity-providers), the [Developer Portal](authentication.md#developer-portal-authentication), and [users](authentication.md#users).
 
 ## Identity providers
 
