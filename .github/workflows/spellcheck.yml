@@ -9,8 +9,8 @@ on:
       - main
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: write  # Required for creating commits
+  pull-requests: write  # Required for creating PRs
 
 jobs:
   spellcheck:
@@ -25,10 +25,10 @@ jobs:
           pip install codespell
           pip install fuzzywuzzy[speedup]
 
-      - name: Download Spellcheck Ignore List
+      - name: Verify Spellcheck Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
-            echo "spellcheck-ignore.txt not found!" && exit 1
+            echo "Error: spellcheck-ignore.txt not found!" && exit 1
           fi
 
       - name: Run Spellcheck and Save Raw Report
@@ -89,18 +89,60 @@ jobs:
       - name: Run Spellcheck Processing Script
         run: python3 process_spellcheck.py
 
-      - name: Debugging - Print Spellcheck Report
+      - name: Print Spellcheck Report 📜
         if: always()
         run: |
+          echo "===== Spellcheck Report ====="
           if [ -s spellcheck_report.txt ]; then
             cat spellcheck_report.txt
           else
-            echo "No errors recorded."
+            echo "No spelling errors found."
+          fi
+          echo "============================"
+
+      - name: Apply Suggestions Instead of Direct Fixes
+        run: |
+          CHANGES_MADE=0
+          echo "Applying spellcheck suggestions..."
+
+          while IFS= read -r line; do
+            file=$(echo "$line" | cut -d ':' -f 1)
+            line_number=$(echo "$line" | cut -d ':' -f 2)
+            original_word=$(echo "$line" | cut -d ' ' -f 2)
+            corrected_word=$(echo "$line" | cut -d ' ' -f 4)
+
+            if [ -f "$file" ]; then
+              # Add GitHub suggestion syntax
+              sed -i "${line_number}i <!-- @${{ github.actor }}: Suggested change -->\n\`\`\`suggestion\n${corrected_word}\n\`\`\`\n" "$file" && CHANGES_MADE=1
+            fi
+          done < spellcheck_report.txt || true
+
+          if [ "$CHANGES_MADE" -eq 0 ]; then
+            echo "No changes were made to files. Exiting."
+            exit 0
           fi
 
-      - name: Upload Spellcheck Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: spellcheck-report
-          path: spellcheck_report.txt
+      - name: Create Pull Request with Suggestions
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          BRANCH_NAME="spellcheck-fixes-$(date +%s)"
+          git checkout -b $BRANCH_NAME
+
+          # Verify if any changes were made before committing
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "Spellcheck suggestions"
+            git push origin $BRANCH_NAME
+
+            # Create PR using GitHub CLI
+            gh pr create \
+              --base main \
+              --head $BRANCH_NAME \
+              --title "Spellcheck Fixes" \
+              --body "This PR contains spellcheck suggestions. Please review and approve or reject individual suggestions."
+          else
+            echo "No changes detected. Skipping PR creation."
