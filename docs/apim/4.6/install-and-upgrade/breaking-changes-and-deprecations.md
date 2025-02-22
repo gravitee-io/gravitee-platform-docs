@@ -84,6 +84,6 @@ Here is the deprecated functionality from 3.X of Gravitee
 
 #### 3.20.28
 
-**Depcrecated api | gateway | ui | portal.security context is removed**
+**Deprecated api | gateway | ui | portal.security context is removed**
 
 The deprecated api | gateway | ui | portal.security context has been removed.
