@@ -101,7 +101,7 @@ jobs:
           path: spellcheck_report.txt
           
       - name: Post Inline Suggestions
-        if: github.event_name == 'pull_request'
+        if: always()
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
@@ -114,38 +114,40 @@ jobs:
             while IFS= read -r line; do
               FILE=$(echo "$line" | cut -d ':' -f 1)
               LINE_NUMBER=$(echo "$line" | cut -d ':' -f 2)
-              ORIGINAL_WORD=$(echo "$line" | awk '{print $2}')
-              CORRECTED_WORD=$(echo "$line" | awk '{print $4}')
+              ORIGINAL_WORD=$(echo "$line" | cut -d ' ' -f 2)
+              CORRECTED_WORD=$(echo "$line" | cut -d ' ' -f 4)
 
               if [ -f "$FILE" ]; then
                 # Extract the original line from the file
                 ORIGINAL_LINE=$(sed -n "${LINE_NUMBER}p" "$FILE")
 
-                # Construct GitHub suggestion body (escaped properly)
-                SUGGESTION_BODY=$(jq -n --arg original "$ORIGINAL_LINE" --arg corrected "$(echo "$ORIGINAL_LINE" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")" --arg file "$FILE" --arg line "$LINE_NUMBER" \
-                  '{body: "#### Spelling Suggestion 📝\n```suggestion\n\($corrected)\n```\n*Suggested change in `\($file)`, line \($line)*"}')
+                # Ensure escaping of special characters in JSON payload
+                ESCAPED_ORIGINAL=$(echo "$ORIGINAL_LINE" | sed "s/\"/\\"/g")
+                ESCAPED_SUGGESTED=$(echo "$ESCAPED_ORIGINAL" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")
+
+                # Construct the GitHub suggestion
+                SUGGESTION_BODY=$(jq -n \
+                  --arg body "#### Spelling Suggestion 📝\n\`\`\`suggestion\n$ESCAPED_SUGGESTED\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*" \
+                  --arg commit_id "$COMMIT_ID" \
+                  --arg path "$FILE" \
+                  --argjson line "$LINE_NUMBER" \
+                  '{ body: $body, commit_id: $commit_id, path: $path, line: $line, side: "RIGHT" }')
 
                 # Post the suggestion using GitHub API
-                RESPONSE=$(curl -s -o response.json -w "%{http_code}" -X POST -H "Authorization: token $GITHUB_TOKEN" \
+                RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
                   -H "Accept: application/vnd.github.v3+json" \
-                  -d "$(jq -n \
-                        --argjson body "$SUGGESTION_BODY" \
-                        --arg commit_id "$COMMIT_ID" \
-                        --arg path "$FILE" \
-                        --argjson line "$LINE_NUMBER" \
-                        --arg side "RIGHT" \
-                        '{body: $body.body, commit_id: $commit_id, path: $path, line: $line, side: $side}')" \
-                  "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/comments")
+                  -d "$SUGGESTION_BODY" "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/comments")
 
-                if [ "$RESPONSE" -ne 201 ]; then
-                  echo "Failed to post suggestion. GitHub API Response:"
-                  cat response.json
+                # Check response for errors
+                if echo "$RESPONSE" | grep -q '"message": "Validation Failed"'; then
+                  echo "❌ Failed to post suggestion. GitHub API Response:"
+                  echo "$RESPONSE"
+                else
+                  echo "✅ Suggestion posted successfully for $FILE at line $LINE_NUMBER"
                 fi
+
+                sleep 1  # Prevent GitHub rate limiting
               fi
-            done < spellcheck_report.txt
-          else
-            echo "No spelling errors found."
-          fi
             done < spellcheck_report.txt
           else
             echo "No spelling errors found."
