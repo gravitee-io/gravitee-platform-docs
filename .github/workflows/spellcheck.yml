@@ -32,22 +32,18 @@ jobs:
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report.txt || true
 
-      - name: Print Spellcheck Report 📜
+      - name: Debugging - Print Spellcheck Report
         if: always()
         run: |
-          echo "===== Spellcheck Report ====="
           if [ -s spellcheck_report.txt ]; then
             cat spellcheck_report.txt
           else
             echo "No spelling errors found."
           fi
-          echo "============================"
 
       - name: Apply Suggestions Instead of Direct Fixes
         run: |
           CHANGES_MADE=0
-          echo "Applying spellcheck suggestions..."
-
           while IFS= read -r line; do
             file=$(echo "$line" | cut -d ':' -f 1)
             line_number=$(echo "$line" | cut -d ':' -f 2)
@@ -89,3 +85,4 @@ jobs:
               --body "This PR contains spellcheck suggestions. Please review and approve or reject individual suggestions."
           else
             echo "No changes detected. Skipping PR creation."
+          fi
