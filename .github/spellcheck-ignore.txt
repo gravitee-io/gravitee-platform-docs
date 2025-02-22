@@ -115,6 +115,7 @@ JWK
 JWKS
 JWS
 JWT
+Kafka
 Kerberos
 Keycloak
 keystore
