@@ -9,8 +9,8 @@ on:
       - main
 
 permissions:
-  contents: write  # Allows committing changes
-  pull-requests: write  # Allows creating PRs
+  contents: write
+  pull-requests: write
 
 jobs:
   spellcheck:
@@ -21,16 +21,73 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Dependencies
-        run: pip install codespell
+        run: |
+          pip install codespell
+          pip install fuzzywuzzy[speedup]
 
-      - name: Run Spellcheck and Save Report
+      - name: Download Spellcheck Ignore List
+        run: |
+          if [ ! -f .github/spellcheck-ignore.txt ]; then
+            echo "spellcheck-ignore.txt not found!" && exit 1
+          fi
+
+      - name: Run Spellcheck and Save Raw Report
         run: |
           set -e  # Exit on error
-
-          # Run codespell and capture results
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
-                    --quiet-level=2 > spellcheck_report.txt || true
+                    --quiet-level=2 > spellcheck_report_raw.txt || true
+
+      - name: Create Spellcheck Processing Script
+        run: |
+          cat << 'EOF' > process_spellcheck.py
+          import re
+          from fuzzywuzzy import process
+
+          # Load spellcheck ignore list with case sensitivity
+          ignore_list = {}
+          with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
+              for line in f:
+                  word = line.strip()
+                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
+
+          # Function to determine if an ignore list word should be used
+          def should_use_ignore_list(original, suggestion):
+              best_match, score = process.extractOne(original, ignore_list.keys())
+
+              # Must be at least 90% similar to be considered a match
+              if score < 90:
+                  return False
+
+              # Reject if original contains best_match as a substring
+              if best_match in original and len(original) > len(best_match):
+                  return False
+
+              return True
+
+          # Process spellcheck output
+          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
+              for line in infile:
+                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+                  if match:
+                      file_path, line_number, original, suggestion = match.groups()
+                      corrected_word = suggestion
+
+                      # Apply correct capitalization from ignore list if appropriate
+                      if suggestion.lower() in ignore_list:
+                          corrected_word = ignore_list[suggestion.lower()]
+
+                      # If original word is very similar to an ignored word, prefer that correction
+                      elif should_use_ignore_list(original, suggestion):
+                          best_match, _ = process.extractOne(original, ignore_list.keys())
+                          corrected_word = ignore_list[best_match]
+
+                      # Write final output
+                      outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
+          EOF
+
+      - name: Run Spellcheck Processing Script
+        run: python3 process_spellcheck.py
 
       - name: Debugging - Print Spellcheck Report
         if: always()
@@ -41,45 +98,9 @@ jobs:
             echo "No errors recorded."
           fi
 
-      - name: Apply Suggestions Instead of Direct Fixes
-        run: |
-          while IFS= read -r line; do
-            file=$(echo "$line" | cut -d ':' -f 1)
-            line_number=$(echo "$line" | cut -d ':' -f 2)
-            original_word=$(echo "$line" | cut -d ' ' -f 2)
-            corrected_word=$(echo "$line" | cut -d ' ' -f 4)
-
-            # Format the GitHub suggestion syntax
-            echo "::suggestion file=$file,line=$line_number::Replace '$original_word' with '$corrected_word'"
-          done < spellcheck_report.txt || true
-
-      - name: Create Pull Request with Suggestions
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          BRANCH_NAME="spellcheck-fixes-$(date +%s)"
-          git checkout -b $BRANCH_NAME
-
-          # Apply the spellcheck corrections
-          while IFS= read -r line; do
-            file=$(echo "$line" | cut -d ':' -f 1)
-            line_number=$(echo "$line" | cut -d ':' -f 2)
-            original_word=$(echo "$line" | cut -d ' ' -f 2)
-            corrected_word=$(echo "$line" | cut -d ' ' -f 4)
-
-            sed -i "${line_number}s/\b${original_word}\b/${corrected_word}/g" "$file"
-          done < spellcheck_report.txt || true
-
-          git add .
-          git commit -m "Spellcheck suggestions"
-          git push origin $BRANCH_NAME
-
-          # Create PR using GitHub CLI
-          gh pr create \
-            --base main \
-            --head $BRANCH_NAME \
-            --title "Spellcheck Fixes" \
-            --body "This PR contains spellcheck suggestions. Please review and approve or reject individual suggestions."
+      - name: Upload Spellcheck Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spellcheck-report
+          path: spellcheck_report.txt
