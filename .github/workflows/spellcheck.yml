@@ -21,7 +21,12 @@ jobs:
 
       - name: Preprocess Ignore List for Case Sensitivity
         run: |
-          # Convert spellcheck-ignore.txt into a sorted case-sensitive mapping
+          # Ensure spellcheck-ignore.txt exists
+          if [ ! -f .github/spellcheck-ignore.txt ]; then
+            echo "spellcheck-ignore.txt not found!" && exit 1
+          fi
+
+          # Create a mapping of lowercase words to correct case-sensitive words
           awk '{print tolower($0), $0}' .github/spellcheck-ignore.txt > .github/spellcheck-ignore-case-mapping.txt
 
       - name: Run Spellcheck and Apply Case-Sensitive Corrections
@@ -33,20 +38,31 @@ jobs:
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
 
-          # Process corrections to apply case-sensitive replacements
           touch spellcheck_report.txt
+
           while read -r line; do
             word=$(echo "$line" | awk '{print $1}')
             suggestion=$(echo "$line" | awk '{print $3}')
-            
-            # Find case-sensitive match in spellcheck-ignore.txt
-            corrected_case=$(grep -i -w "$suggestion" .github/spellcheck-ignore-case-mapping.txt | awk '{print $2}' | head -n 1)
 
-            # If a case-sensitive match is found, use it instead of dictionary-based correction
+            # Convert to lowercase for matching
+            lowercase_suggestion=$(echo "$suggestion" | tr '[:upper:]' '[:lower:]')
+
+            # Check if the suggested correction exists in spellcheck-ignore.txt with correct capitalization
+            corrected_case=$(grep -i -w "$lowercase_suggestion" .github/spellcheck-ignore-case-mapping.txt | awk '{print $2}' | head -n 1)
+
+            # If a case-sensitive match is found, replace it
             if [[ ! -z "$corrected_case" ]]; then
-              echo "$word → $corrected_case" >> spellcheck_report.txt
+              echo "$word ==> $corrected_case" >> spellcheck_report.txt
             else
-              echo "$line" >> spellcheck_report.txt
+              # If no exact match, check for close matches in spellcheck-ignore.txt
+              close_match=$(grep -i -w "$word" .github/spellcheck-ignore-case-mapping.txt | awk '{print $2}' | head -n 1)
+
+              if [[ ! -z "$close_match" ]]; then
+                echo "$word ==> $close_match (from ignore list, overriding dictionary)" >> spellcheck_report.txt
+              else
+                # Default to original suggestion if no better match found
+                echo "$line" >> spellcheck_report.txt
+              fi
             fi
           done < spellcheck_report_raw.txt
 
