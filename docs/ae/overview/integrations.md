@@ -130,7 +130,7 @@ const event = {
   "id": "event-id",
   "timestamp": Date.now(),
   "type": "my-source", // Same value as the Trigger `source` property
-  "context": { // context of your event, can be re-used in the notifier
+  "context": { // context of your event, can be reused in the notifier
       "node.host": "my-host",
       "node.environment": "my-env"
   },

@@ -419,7 +419,7 @@ handlers:
 
 ### Synchronization process
 
-If a configuration is updated on the AM Console, it needs to be propogated on the AM Gateway instances. To check for an update to a configuration, the AM gateway periodically checks the database to detect new events to synchronize the configuration state. You can configure the synchronization process in `services.sync` section of the `gravitee.yaml` file.
+If a configuration is updated on the AM Console, it needs to be propagated on the AM Gateway instances. To check for an update to a configuration, the AM gateway periodically checks the database to detect new events to synchronize the configuration state. You can configure the synchronization process in `services.sync` section of the `gravitee.yaml` file.
 
 In this section, you specify the frequency of the synchronization process using a cron expression. To save database access during user authentication,  the synchronization process enables the `permissions` option to load Groups and role definitions into the Gateway memory.&#x20;
 
@@ -442,7 +442,7 @@ To use this cache layer, first configure a cache implementation before enabling 
 {% hint style="info" %}
 The cache implementations available within AM are either `standalone` or `redis`.
 
-In development environment with a single AM Gateway you can use standalone without issue but for production environment (or any evironment with more than one AM Gateway) please use the redis implementation to share the cache between the gateways.
+In development environment with a single AM Gateway you can use standalone without issue but for production environment (or any environment with more than one AM Gateway) please use the redis implementation to share the cache between the gateways.
 {% endhint %}
 
 ```yaml

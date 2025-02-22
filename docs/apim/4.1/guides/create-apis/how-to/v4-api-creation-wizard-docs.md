@@ -222,7 +222,7 @@ The **MQTT 5.X** endpoint allows the Gateway to open up a persistent connection 
   * **Use Producer and Consumer**: tell the Gateway MQTT client to do both of the above
 * **Define the Server host**: define the serverHost for the MQTT broker that you are using as your endpoint
 * **Define the Server port**: define the serverPort for the MQTT broker that you are using as your endpoint
-* **Define Reconnect attempts:** this sets the number of reconnect attemps that the Gateway will initiate if there is any kind of disconnecton between the Gateway MQTT client and the MQTT broker; the maximum is 10
+* **Define Reconnect attempts:** this sets the number of reconnect attempts that the Gateway will initiate if there is any kind of disconnecton between the Gateway MQTT client and the MQTT broker; the maximum is 10
 * **Session expiry interval: t**his interval defines the period of time that the broker stores the session information of that particular MQTT client. When the session expiry interval is set to **0** or the CONNECT packet does not contain an expiry value, the session information is immediately removed from the broker as soon as the network connection of the client closes.
 * **Enable or disable Clean start:** toggle **Clean start** ON or OFF to enable the **cleanStart** tag. This tag tells the MQTT broker to discard any previous session data and the Gateway MQTT client will start with a fresh session upon connection
 * **Define initial security settings:** you will define more Gravitee Gateway-specific security settings later on, but this is where you will define your MQTT-specific authentication flow. Gravitee supports username and password using TLS. You will need to define:
