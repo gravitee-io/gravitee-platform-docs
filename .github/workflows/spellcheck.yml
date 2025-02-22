@@ -17,54 +17,57 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Dependencies
-        run: pip install codespell
-
-      - name: Preprocess Ignore List for Case Sensitivity
         run: |
-          # Ensure spellcheck-ignore.txt exists
+          pip install codespell
+          pip install fuzzywuzzy[speedup]
+
+      - name: Download Spellcheck Ignore List
+        run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
             echo "spellcheck-ignore.txt not found!" && exit 1
           fi
 
-          # Create a mapping of lowercase words to correct case-sensitive words
-          awk '{print tolower($0), $0}' .github/spellcheck-ignore.txt > .github/spellcheck-ignore-case-mapping.txt
-
-      - name: Run Spellcheck and Apply Case-Sensitive Corrections
+      - name: Run Spellcheck and Process Output
         run: |
           set -e  # Exit on error
 
-          # Run codespell and capture output
+          # Run codespell and save output
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
 
-          touch spellcheck_report.txt
+          # Process corrections with Python
+          python3 <<EOF
+          import re
+          from fuzzywuzzy import process
 
-          while read -r line; do
-            word=$(echo "$line" | awk '{print $1}')
-            suggestion=$(echo "$line" | awk '{print $3}')
+          # Load spellcheck ignore list with case sensitivity
+          ignore_list = {}
+          with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
+              for line in f:
+                  word = line.strip()
+                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
-            # Convert to lowercase for matching
-            lowercase_suggestion=$(echo "$suggestion" | tr '[:upper:]' '[:lower:]')
+          # Process spellcheck output
+          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
+              for line in infile:
+                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+                  if match:
+                      file_path, line_number, original, suggestion = match.groups()
+                      corrected_word = suggestion
 
-            # Check if the suggested correction exists in spellcheck-ignore.txt with correct capitalization
-            corrected_case=$(grep -i -w "$lowercase_suggestion" .github/spellcheck-ignore-case-mapping.txt | awk '{print $2}' | head -n 1)
+                      # Apply correct capitalization from ignore list
+                      if suggestion.lower() in ignore_list:
+                          corrected_word = ignore_list[suggestion.lower()]
 
-            # If a case-sensitive match is found, replace it
-            if [[ ! -z "$corrected_case" ]]; then
-              echo "$word ==> $corrected_case" >> spellcheck_report.txt
-            else
-              # If no exact match, check for close matches in spellcheck-ignore.txt
-              close_match=$(grep -i -w "$word" .github/spellcheck-ignore-case-mapping.txt | awk '{print $2}' | head -n 1)
+                      # If original word is similar to an ignored word, prefer that correction
+                      best_match, score = process.extractOne(original, ignore_list.keys())
+                      if score > 85:  # 85% similarity threshold
+                          corrected_word = ignore_list[best_match]
 
-              if [[ ! -z "$close_match" ]]; then
-                echo "$word ==> $close_match (from ignore list, overriding dictionary)" >> spellcheck_report.txt
-              else
-                # Default to original suggestion if no better match found
-                echo "$line" >> spellcheck_report.txt
-              fi
-            fi
-          done < spellcheck_report_raw.txt
+                      # Write final output
+                      outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
+          EOF
 
       - name: Debugging - Print Spellcheck Report
         if: always()
