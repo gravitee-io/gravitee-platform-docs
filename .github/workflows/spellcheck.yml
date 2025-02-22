@@ -19,14 +19,36 @@ jobs:
       - name: Install Dependencies
         run: pip install codespell
 
-      - name: Run Spellcheck and Save Report
+      - name: Preprocess Ignore List for Case Sensitivity
+        run: |
+          # Convert spellcheck-ignore.txt into a sorted case-sensitive mapping
+          awk '{print tolower($0), $0}' .github/spellcheck-ignore.txt > .github/spellcheck-ignore-case-mapping.txt
+
+      - name: Run Spellcheck and Apply Case-Sensitive Corrections
         run: |
           set -e  # Exit on error
 
-          # Run codespell with configured ignore list and filters
+          # Run codespell and capture output
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
-                    --quiet-level=2 > spellcheck_report.txt || true
+                    --quiet-level=2 > spellcheck_report_raw.txt || true
+
+          # Process corrections to apply case-sensitive replacements
+          touch spellcheck_report.txt
+          while read -r line; do
+            word=$(echo "$line" | awk '{print $1}')
+            suggestion=$(echo "$line" | awk '{print $3}')
+            
+            # Find case-sensitive match in spellcheck-ignore.txt
+            corrected_case=$(grep -i -w "$suggestion" .github/spellcheck-ignore-case-mapping.txt | awk '{print $2}' | head -n 1)
+
+            # If a case-sensitive match is found, use it instead of dictionary-based correction
+            if [[ ! -z "$corrected_case" ]]; then
+              echo "$word → $corrected_case" >> spellcheck_report.txt
+            else
+              echo "$line" >> spellcheck_report.txt
+            fi
+          done < spellcheck_report_raw.txt
 
       - name: Debugging - Print Spellcheck Report
         if: always()
@@ -39,7 +61,7 @@ jobs:
 
       - name: Upload Spellcheck Report
         if: always()
-        uses: actions/upload-artifact@v4  # Updated to v4
+        uses: actions/upload-artifact@v4
         with:
           name: spellcheck-report
           path: spellcheck_report.txt
