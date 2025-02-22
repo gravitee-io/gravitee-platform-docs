@@ -9,8 +9,8 @@ on:
       - main
 
 permissions:
-  contents: write  # Required for creating a commit
-  pull-requests: write  # Required for creating a PR
+  contents: write  # Required for creating commits
+  pull-requests: write  # Required for creating PRs
 
 jobs:
   spellcheck:
@@ -25,10 +25,10 @@ jobs:
           pip install codespell
           pip install fuzzywuzzy[speedup]
 
-      - name: Download Spellcheck Ignore List
+      - name: Verify Spellcheck Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
-            echo "spellcheck-ignore.txt not found!" && exit 1
+            echo "Error: spellcheck-ignore.txt not found!" && exit 1
           fi
 
       - name: Run Spellcheck and Process Output
