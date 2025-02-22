@@ -1,4 +1,4 @@
-# Contributing to the Gravitee API Management developement
+# Contributing to the Gravitee API Management development
 
 ## Overview
 

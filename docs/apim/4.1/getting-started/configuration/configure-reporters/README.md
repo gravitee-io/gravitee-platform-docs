@@ -98,7 +98,7 @@ The file reporter has the following configuration parameters:
 | `reconnectInterval`       | Time (in milliseconds) between socket connection attempts.                                                                                                            | 500           |
 | `retryTimeout`            | If the max reconnect attempts have been reached, this setting determines how long (in milliseconds) the reporter should wait before trying to connect again.          | 5000          |
 | `tls.enabled`             | Enable TLS                                                                                                                                                            | false         |
-| `tls.verifyClient`        | If true, client certificate will be sent for mutual TLS negotiation. When enabling this, providing a key-store is required so that mutual TLS negociation can happen. | false         |
+| `tls.verifyClient`        | If true, client certificate will be sent for mutual TLS negotiation. When enabling this, providing a key-store is required so that mutual TLS negotiation can happen. | false         |
 | `tls.keystore.type`       | The type of key-store to use (either PEM, JKS or PFX)                                                                                                                 | null          |
 | `tls.keystore.password`   | The password to use for the key-store (only for JKS and PFX types)                                                                                                    | null          |
 | `tls.keystore.certs`      | The list of certificates used, when type is PEM                                                                                                                       | null          |

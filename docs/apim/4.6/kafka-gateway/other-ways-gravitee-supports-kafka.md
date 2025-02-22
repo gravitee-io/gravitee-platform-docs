@@ -6,7 +6,7 @@ Gravitee supports connecting to Kafka either via **protocol mediation**, where c
 
 ## Kafka APIs vs other Gravitee APIs
 
-The following sections describe the similarities and differences between Kakfa APIs and other Gravitee API types that support Kafka communication: v4 Kafka message APIs, TCP proxy APIs, and Federated Kafka APIs. These comparisons highlight the appropriate use cases for Kafka APIs.
+The following sections describe the similarities and differences between Kafka APIs and other Gravitee API types that support Kafka communication: v4 Kafka message APIs, TCP proxy APIs, and Federated Kafka APIs. These comparisons highlight the appropriate use cases for Kafka APIs.
 
 ### Message APIs & TCP proxy APIs
 

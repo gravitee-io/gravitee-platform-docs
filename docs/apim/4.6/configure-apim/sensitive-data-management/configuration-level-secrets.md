@@ -58,7 +58,7 @@ This is custom syntax that does not follow RFC for **query parameters** but adhe
 The examples below show variations of this syntax as it applies to some of the plugins.
 
 {% tabs %}
-{% tab title="Kubenetes" %}
+{% tab title="Kubernetes" %}
 ```yaml
 ds:
   mongodb:
@@ -135,7 +135,7 @@ secret://kubernetes/giotls?
   keymap=certificate:frontend-tls-cert&keymap=private_key:frontend-tls-priv-key
 ```
 
-We expect the secret named `giotls` to contain two keys, `frontend-tls-cert` and `frontend-tls-key`, which are mapped to `certifcate` and `private_key`, respectively.
+We expect the secret named `giotls` to contain two keys, `frontend-tls-cert` and `frontend-tls-key`, which are mapped to `certificate` and `private_key`, respectively.
 {% endtab %}
 
 {% tab title="Key Store" %}
