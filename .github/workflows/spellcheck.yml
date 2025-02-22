@@ -46,36 +46,35 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
           if [ -s spellcheck_report.txt ]; then
-            PR_NUMBER=${{ github.event.pull_request.number }}
-            REPO=${{ github.repository }}
+            PR_NUMBER="${{ github.event.pull_request.number }}"
+            REPO="${{ github.repository }}"
 
             echo "Processing spellcheck suggestions..."
             while IFS= read -r line; do
               FILE=$(echo "$line" | cut -d ':' -f 1)
               LINE_NUMBER=$(echo "$line" | cut -d ':' -f 2)
-              ORIGINAL_WORD=$(echo "$line" | cut -d ' ' -f 2)
-              CORRECTED_WORD=$(echo "$line" | cut -d ' ' -f 4)
+              ORIGINAL_WORD=$(echo "$line" | awk '{print $2}')
+              CORRECTED_WORD=$(echo "$line" | awk '{print $4}')
 
               if [ -f "$FILE" ]; then
                 # Extract the original line from the file
-                ORIGINAL_LINE=$(sed "${LINE_NUMBER}q;d" "$FILE")
+                ORIGINAL_LINE=$(sed -n "${LINE_NUMBER}p" "$FILE")
 
-                # Construct the GitHub suggestion
-                SUGGESTION_BODY="#### Spelling Suggestion 📝\n\`\`\`suggestion\n$(echo "$ORIGINAL_LINE" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*"
+                # Construct the GitHub suggestion body properly formatted
+                SUGGESTION_BODY=$(printf "#### Spelling Suggestion 📝\n\`\`\`suggestion\n%s\n\`\`\`\n*Suggested change in \`%s\`, line %s*" \
+                  "$(echo "$ORIGINAL_LINE" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")" "$FILE" "$LINE_NUMBER")
 
                 # Post the suggestion to GitHub PR
                 curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" \
                   -H "Accept: application/vnd.github.v3+json" \
-                  https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/comments \
-                  -d @- <<EOF
-{
-  "body": "$SUGGESTION_BODY",
-  "commit_id": "${{ github.event.pull_request.head.sha }}",
-  "path": "$FILE",
-  "line": $LINE_NUMBER,
-  "side": "RIGHT"
-}
-EOF
+                  -d "$(jq -n \
+                        --arg body "$SUGGESTION_BODY" \
+                        --arg commit_id "${{ github.event.pull_request.head.sha }}" \
+                        --arg path "$FILE" \
+                        --argjson line "$LINE_NUMBER" \
+                        --arg side "RIGHT" \
+                        '{body: $body, commit_id: $commit_id, path: $path, line: $line, side: $side}')" \
+                  "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/comments"
 
               fi
             done < spellcheck_report.txt
