@@ -18,28 +18,88 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Dependencies
-        run: pip install codespell
+        run: |
+          pip install codespell
+          pip install fuzzywuzzy[speedup]
 
-      - name: Run Spellcheck and Save Report
+      - name: Download Spellcheck Ignore List
+        run: |
+          if [ ! -f .github/spellcheck-ignore.txt ]; then
+            echo "spellcheck-ignore.txt not found!" && exit 1
+          fi
+
+      - name: Run Spellcheck and Process Output
         run: |
           set -e  # Exit on error
 
-          # Run codespell and capture results
+          # Run codespell and save output
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
-                    --quiet-level=2 > spellcheck_report.txt || true
+                    --quiet-level=2 > spellcheck_report_raw.txt || true
 
-      - name: Print Spellcheck Report 📜
+          # Process corrections with Python
+          python3 <<EOF
+          import re
+          from fuzzywuzzy import process
+
+          # Load spellcheck ignore list with case sensitivity
+          ignore_list = {}
+          with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
+              for line in f:
+                  word = line.strip()
+                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
+
+          # Function to determine if an ignore list word should be used
+          def should_use_ignore_list(original, suggestion):
+              best_match, score = process.extractOne(original, ignore_list.keys())
+              
+              # Must be at least 90% similar to be considered a match
+              if score < 90:
+                  return False
+              
+              # Reject if original contains best_match as a substring (e.g., "certifcate" vs "CE")
+              if best_match in original and len(original) > len(best_match):
+                  return False
+
+              return True
+
+          # Process spellcheck output
+          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
+              for line in infile:
+                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+                  if match:
+                      file_path, line_number, original, suggestion = match.groups()
+                      corrected_word = suggestion
+
+                      # Apply correct capitalization from ignore list if appropriate
+                      if suggestion.lower() in ignore_list:
+                          corrected_word = ignore_list[suggestion.lower()]
+
+                      # If original word is very similar to an ignored word, prefer that correction
+                      elif should_use_ignore_list(original, suggestion):
+                          best_match, _ = process.extractOne(original, ignore_list.keys())
+                          corrected_word = ignore_list[best_match]
+
+                      # Write final output
+                      outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
+          EOF
+
+      - name: Debugging - Print Spellcheck Report
         if: always()
         run: |
-          echo "===== Spellcheck Report ====="
           if [ -s spellcheck_report.txt ]; then
             cat spellcheck_report.txt
           else
-            echo "No spelling errors found."
+            echo "No errors recorded."
           fi
-          echo "============================"
 
+      - name: Upload Spellcheck Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spellcheck-report
+          path: spellcheck_report.txt
+          
       - name: Post Inline Suggestions
         if: always()
         env:
