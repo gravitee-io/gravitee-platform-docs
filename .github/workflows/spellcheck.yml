@@ -102,14 +102,15 @@ jobs:
 
       - name: Apply Suggestions Instead of Direct Fixes
         run: |
+          set -e  # Exit on error
           CHANGES_MADE=0
           echo "Applying spellcheck suggestions..."
 
-          while IFS= read -r line; do
+          while IFS= read -r line || [ -n "$line" ]; do
             file=$(echo "$line" | cut -d ':' -f 1)
             line_number=$(echo "$line" | cut -d ':' -f 2)
-            original_word=$(echo "$line" | cut -d ' ' -f 2)
-            corrected_word=$(echo "$line" | cut -d ' ' -f 4)
+            original_word=$(echo "$line" | awk '{print $3}')
+            corrected_word=$(echo "$line" | awk '{print $5}')
 
             if [ -f "$file" ]; then
               sed -i "${line_number}i <!-- @${{ github.actor }}: Suggested change -->\n\`\`\`suggestion\n${corrected_word}\n\`\`\`\n" "$file"
