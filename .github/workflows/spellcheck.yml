@@ -46,23 +46,39 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
           if [ -s spellcheck_report.txt ]; then
+            PR_NUMBER=${{ github.event.pull_request.number }}
+            REPO=${{ github.repository }}
+
+            echo "Processing spellcheck suggestions..."
             while IFS= read -r line; do
-              file=$(echo "$line" | cut -d ':' -f 1)
-              line_number=$(echo "$line" | cut -d ':' -f 2)
-              original_word=$(echo "$line" | cut -d ' ' -f 2)
-              corrected_word=$(echo "$line" | cut -d ' ' -f 4)
+              FILE=$(echo "$line" | cut -d ':' -f 1)
+              LINE_NUMBER=$(echo "$line" | cut -d ':' -f 2)
+              ORIGINAL_WORD=$(echo "$line" | cut -d ' ' -f 2)
+              CORRECTED_WORD=$(echo "$line" | cut -d ' ' -f 4)
 
-              if [ -f "$file" ]; then
-                # Create a suggestion comment
-                suggestion="Suggestion:\n\`\`\`suggestion\n$(sed "${line_number}q;d" "$file" | sed "s/\b${original_word}\b/${corrected_word}/g")\n\`\`\`"
+              if [ -f "$FILE" ]; then
+                # Extract the original line from the file
+                ORIGINAL_LINE=$(sed "${LINE_NUMBER}q;d" "$FILE")
 
-                # Post the suggestion using GitHub's REST API
-                curl -s -H "Authorization: token $GITHUB_TOKEN" \
-                     -X POST \
-                     -d "$(jq -n --arg body "$suggestion" --arg path "$file" --argjson line $line_number '{body: $body, path: $path, line: $line, side: "RIGHT"}')" \
-                     "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/comments"
+                # Construct the GitHub suggestion
+                SUGGESTION_BODY="#### Spelling Suggestion 📝\n\`\`\`suggestion\n$(echo "$ORIGINAL_LINE" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*"
+
+                # Post the suggestion to GitHub PR
+                curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" \
+                  -H "Accept: application/vnd.github.v3+json" \
+                  https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/comments \
+                  -d @- <<EOF
+{
+  "body": "$SUGGESTION_BODY",
+  "commit_id": "${{ github.event.pull_request.head.sha }}",
+  "path": "$FILE",
+  "line": $LINE_NUMBER,
+  "side": "RIGHT"
+}
+EOF
+
               fi
             done < spellcheck_report.txt
           else
-            echo "No spelling errors found. No suggestions to post."
+            echo "No spelling errors found."
           fi
