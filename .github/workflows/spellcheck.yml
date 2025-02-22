@@ -5,9 +5,9 @@ on:
     branches:
       - main
 
-permissions:
-  contents: read  # Required for reading repository content
-  pull-requests: write  # Required for creating comments on PRs
+permissions: write-all
+  # contents: read  # Required for reading repository content
+  # pull-requests: write  # Required for creating comments on PRs
 
 jobs:
   spellcheck:
