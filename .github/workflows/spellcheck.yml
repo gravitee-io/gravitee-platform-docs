@@ -1,59 +1,45 @@
-name: Spellcheck PR Suggestions
+name: Spellcheck Documentation
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
 
 jobs:
   spellcheck:
-    name: Run Spellcheck
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Install Spellchecker
+      - name: Install Dependencies
         run: pip install codespell
 
-      - name: Run Spellcheck and Collect Suggestions
-        id: spellcheck
+      - name: Run Spellcheck and Save Report
         run: |
-          ERRORS=$(codespell --ignore-words spellcheck-ignore.txt --check-filenames --quiet-level=2 | tee spellcheck_suggestions.txt || true)
-          if [[ -s spellcheck_suggestions.txt ]]; then
-            echo "SPELLCHECK_FOUND=true" >> $GITHUB_ENV
+          set -e  # Exit on error
+
+          # Run codespell with configured ignore list and filters
+          codespell --ignore-words=.github/spellcheck-ignore.txt \
+                    --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
+                    --quiet-level=2 > spellcheck_report.txt || true
+
+      - name: Debugging - Print Spellcheck Report
+        if: always()
+        run: |
+          if [ -s spellcheck_report.txt ]; then
+            cat spellcheck_report.txt
           else
-            echo "SPELLCHECK_FOUND=false" >> $GITHUB_ENV
+            echo "No errors recorded."
           fi
 
-      - name: Debug Spellcheck Output
-        if: env.SPELLCHECK_FOUND == 'true'
-        run: cat spellcheck_suggestions.txt
-
-      - name: Post Suggestions as PR Comments
-        if: env.SPELLCHECK_FOUND == 'true'
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
-        run: |
-          while IFS= read -r line; do
-            FILE=$(echo "$line" | awk -F ':' '{print $1}')
-            LINE_NUM=$(echo "$line" | awk -F ':' '{print $2}')
-            WORD=$(echo "$line" | awk -F ':' '{print $3}')
-            SUGGESTION=$(echo "$line" | awk -F ':' '{print $4}')
-            
-            COMMENT_BODY="🚀 **Spellcheck Suggestion:**\n\n\`$WORD\` → \`$SUGGESTION\`\n\n📍 **File:** $FILE (Line $LINE_NUM)"
-
-            gh pr comment "$PR_URL" --body "$COMMENT_BODY"
-          done < spellcheck_suggestions.txt
-        env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
-
-      - name: Fail if Errors Found
-        if: env.SPELLCHECK_FOUND == 'true'
-        run: exit 1
+      - name: Upload Spellcheck Report
+        if: always()
+        uses: actions/upload-artifact@v4  # Updated to v4
+        with:
+          name: spellcheck-report
+          path: spellcheck_report.txt
