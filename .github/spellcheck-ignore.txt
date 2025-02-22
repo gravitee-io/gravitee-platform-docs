@@ -227,7 +227,7 @@ username
 UUID
 validator
 versioning
-Vert.x
+Vertx
 VMs
 VPM
 VPN
