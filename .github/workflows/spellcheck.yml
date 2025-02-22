@@ -1,10 +1,8 @@
-name: Spellcheck and Auto-Suggest Fixes
+name: Spellcheck
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
+  push:
     branches:
       - main
 
@@ -14,35 +12,59 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Install Codespell
-        run: pip install codespell
+      - name: Install spellchecker
+        run: sudo apt-get install -y hunspell hunspell-en-us
 
-      - name: Run Spellcheck and Apply Fixes
+      - name: Run spellcheck and save output
         run: |
-          codespell --ignore-words=.github/spellcheck-ignore.txt --write-changes --skip="*.json,*.yaml,*.yml,*.lock" > spellcheck_report.txt || true
+          set -e  # Exit on error
+          mkdir -p spellcheck_output
+          find . -name "*.md" | while read file; do
+            echo "Checking $file..."
+            MISSPELLINGS=$(hunspell -l -d en_US "$file" | sort -u)
+            if [[ -n "$MISSPELLINGS" ]]; then
+              echo "Misspellings found in $file"
+              echo "$file" >> spellcheck_output/spellcheck_report.txt
+              echo "$MISSPELLINGS" >> spellcheck_output/spellcheck_report.txt
+              echo "" >> spellcheck_output/spellcheck_report.txt
+            fi
+          done
 
-      - name: Check for Changes
-        id: check_changes
-        run: |
-          git diff --exit-code || echo "CHANGES_FOUND=true" >> $GITHUB_ENV
+      - name: Debugging: Print Spellcheck Report
+        if: always()
+        run: cat spellcheck_output/spellcheck_report.txt || echo "No errors recorded."
 
-      - name: Commit and Push Fixes
-        if: env.CHANGES_FOUND == 'true'
+      - name: Set up Git user
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b spellcheck-fixes
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions@github.com"
+
+      - name: Apply fixes and create a PR
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
+        run: |
+          set -e  # Exit on error
+          BRANCH_NAME="spellcheck-fixes-$(date +%s)"
+          git checkout -b "$BRANCH_NAME"
+
+          while read -r file; do
+            if [[ -n "$file" && -f "$file" ]]; then
+              echo "Applying fixes to $file..."
+              hunspell -d en_US -l "$file" | while read -r word; do
+                SUGGESTIONS=$(echo "$word" | hunspell -d en_US -a | grep -oP '(?<=: ).*')
+                [[ -n "$SUGGESTIONS" ]] && sed -i "s/$word/${SUGGESTIONS%%,*}/g" "$file"
+              done
+            fi
+          done < spellcheck_output/spellcheck_report.txt
+
           git add .
-          git commit -m "Fix spelling errors"
-          git push origin spellcheck-fixes
+          git commit -m "Automated spellcheck fixes"
+          git push origin "$BRANCH_NAME"
 
-      - name: Create Pull Request
-        if: env.CHANGES_FOUND == 'true'
-        run: |
-          gh auth login --with-token <<< "${{ secrets.SPELLCHECK_TOKEN }}"
-          gh pr create --base main --head spellcheck-fixes --title "Automated Spellcheck Fixes" --body "This PR includes automatically generated spelling corrections."
+          gh pr create --base main --head "$BRANCH_NAME" --title "Automated Spellcheck Fixes" --body "This PR contains automated spelling corrections found in the latest spellcheck run."
