@@ -38,57 +38,7 @@ jobs:
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
 
-      - name: Create Spellcheck Processing Script
-        run: |
-          cat << 'EOF' > process_spellcheck.py
-          import re
-          from fuzzywuzzy import process
-
-          ignore_list = {}
-          with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
-              for line in f:
-                  word = line.strip()
-                  ignore_list[word.lower()] = word
-
-          def should_use_ignore_list(original, suggestion):
-              best_match, score = process.extractOne(original, ignore_list.keys())
-              if score < 90:
-                  return False
-              if best_match in original and len(original) > len(best_match):
-                  return False
-              return True
-
-          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
-              for line in infile:
-                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
-                  if match:
-                      file_path, line_number, original, suggestion = match.groups()
-                      corrected_word = suggestion
-
-                      if suggestion.lower() in ignore_list:
-                          corrected_word = ignore_list[suggestion.lower()]
-                      elif should_use_ignore_list(original, suggestion):
-                          best_match, _ = process.extractOne(original, ignore_list.keys())
-                          corrected_word = ignore_list[best_match]
-
-                      outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
-          EOF
-
-      - name: Run Spellcheck Processing Script
-        run: python3 process_spellcheck.py
-
-      - name: Debugging - Print Spellcheck Report
-        if: always()
-        run: |
-          echo "===== Spellcheck Report ====="
-          if [ -s spellcheck_report.txt ]; then
-            cat spellcheck_report.txt
-          else
-            echo "No spelling errors found."
-          fi
-          echo "============================"
-
-      - name: Apply Suggestions Instead of Direct Fixes
+      - name: Apply Spellcheck Suggestions
         run: |
           set -e
           CHANGES_MADE=0
@@ -104,10 +54,9 @@ jobs:
               sed -i "${line_number}i <!-- @${{ github.actor }}: Suggested change -->\n\`\`\`suggestion\n${corrected_word}\n\`\`\`\n" "$file"
               CHANGES_MADE=1
             fi
-          done < spellcheck_report.txt || true
+          done < spellcheck_report.txt || true  # ✅ Only one done
 
           echo "Loop completed. Ensuring proper termination."
-          done
 
           if [ "$CHANGES_MADE" -eq 0 ]; then
             echo "No changes were made to files. Exiting."
