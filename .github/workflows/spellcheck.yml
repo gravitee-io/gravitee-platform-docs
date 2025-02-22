@@ -33,7 +33,6 @@ jobs:
 
       - name: Run Spellcheck and Save Raw Report
         run: |
-          set -e  # Exit on error
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
