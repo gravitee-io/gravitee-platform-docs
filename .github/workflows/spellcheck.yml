@@ -59,7 +59,7 @@ jobs:
               if score < 90:
                   return False
 
-              # Reject if original contains best_match as a substring
+              # Reject if original contains best_match as a substring (e.g., "certifcate" vs "CE")
               if best_match in original and len(original) > len(best_match):
                   return False
 
