@@ -52,7 +52,9 @@ jobs:
               "identity provider": ["identiy provider", "identify provider"],
               "access token": ["access toekn", "acess token"],
               "user authentication": ["user authentification", "user authenthication"],
-              "API gateway": ["API getway", "API gatway"]
+              "API gateway": ["API getway", "API gatway"],
+              "default reporter": ["defaul reporter"],
+              "default identity provider": ["defaul identity provider"]
           }
 
           # Function to check if a word is inside a code block, backticks, URL, or file reference
@@ -88,7 +90,7 @@ jobs:
                   for wrong_phrase in wrong_variants:
                       if wrong_phrase in line:
                           return line.replace(wrong_phrase, correct_phrase)
-              return line.replace(original, suggestion)
+              return line.replace(original, suggestion, 1)  # Replace only the first occurrence
 
           # Process spellcheck output and apply fixes
           with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
@@ -103,11 +105,11 @@ jobs:
                           content_lines = file.readlines()
                           context_line = content_lines[int(line_number) - 1].strip()
 
-                      # **Fix #1: Preserve case-sensitive ignored terms exactly**
-                      if original in ignore_list.values():
-                          corrected_word = original  # Use exact case from original text
+                      # Preserve case-sensitive ignored terms exactly
+                      if original.lower() in ignore_list and any(c.isupper() for c in original):
+                          corrected_word = ignore_list[original.lower()]
 
-                      # **Fix #2: Use English dictionary for weak matches**
+                      # Use English dictionary for weak matches
                       elif should_use_ignore_list(original, suggestion, context_line):
                           best_match, _ = process.extractOne(original, ignore_list.keys())
                           if not is_code_or_url_or_file(context_line) and not is_markdown_link(context_line, original):
@@ -115,11 +117,8 @@ jobs:
                           else:
                               corrected_word = best_match.lower()  # Keep it lowercase in URLs/links/files
 
-                      # **Fix #3: Apply context-based correction**
+                      # Apply context-based correction
                       corrected_line = apply_context_based_correction(context_line, original, corrected_word)
-
-                      # **Fix #4: Replace only the first occurrence of the word**
-                      corrected_line = re.sub(r'\b' + re.escape(original) + r'\b', corrected_word, corrected_line, count=1)
 
                       # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
