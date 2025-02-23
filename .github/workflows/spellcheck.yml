@@ -111,6 +111,12 @@ jobs:
             COMMIT_ID="${{ github.event.pull_request.head.sha }}"
 
             echo "Processing spellcheck suggestions..."
+            
+            # Fetch PR file diffs
+            PR_DIFF=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3.diff" \
+              "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/files")
+
             while IFS= read -r line || [[ -n "$line" ]]; do
               FILE=$(echo "$line" | cut -d ':' -f 1)
               LINE_NUMBER=$(echo "$line" | cut -d ':' -f 2)
@@ -121,20 +127,13 @@ jobs:
                 # Extract the original line from the file
                 ORIGINAL_LINE=$(sed -n "${LINE_NUMBER}p" "$FILE")
 
-                # Ensure escaping of special characters in JSON payload
-                ESCAPED_ORIGINAL=$(echo "$ORIGINAL_LINE" | sed 's/"/\\"/g')
-                ESCAPED_SUGGESTED=$(echo "$ESCAPED_ORIGINAL" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")
-
-                # Fetch PR diff to find correct `diff_hunk`
-                DIFF_HUNK=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
-                  -H "Accept: application/vnd.github.v3.diff" \
-                  "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/files" | 
-                  awk -v file="$FILE" -v line="$LINE_NUMBER" '
-                    $0 ~ "^diff --git" { in_file=0 }
-                    $0 ~ "^diff --git .* " file "$" { in_file=1 }
-                    in_file && $0 ~ "^@@ -" { hunk=$0 }
-                    in_file && $0 ~ "^[+-]" && NR == line+5 { print hunk; exit }
-                  ')
+                # Find the matching diff hunk from the PR diff
+                DIFF_HUNK=$(echo "$PR_DIFF" | awk -v file="$FILE" -v line="$LINE_NUMBER" '
+                  $0 ~ "^diff --git" { in_file=0 }
+                  $0 ~ "^diff --git .* " file "$" { in_file=1 }
+                  in_file && $0 ~ "^@@ -" { hunk=$0 }
+                  in_file && $0 ~ "^[+-]" && NR == line+5 { print hunk; exit }
+                ')
 
                 # Ensure diff_hunk was found
                 if [ -z "$DIFF_HUNK" ]; then
@@ -144,7 +143,7 @@ jobs:
 
                 # Construct the GitHub suggestion JSON payload
                 SUGGESTION_BODY=$(jq -n \
-                  --arg body "#### 📝 Spelling Suggestion\n\`\`\`suggestion\n$ESCAPED_SUGGESTED\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*" \
+                  --arg body "#### 📝 Spelling Suggestion\n\`\`\`suggestion\n$(echo "$ORIGINAL_LINE" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*" \
                   --arg commit_id "$COMMIT_ID" \
                   --arg path "$FILE" \
                   --argjson line "$LINE_NUMBER" \
