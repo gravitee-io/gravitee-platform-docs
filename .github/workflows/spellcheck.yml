@@ -67,11 +67,11 @@ jobs:
               if best_match in original and len(original) > len(best_match):
                   return False
 
-              # Enforce case-sensitive corrections for regular text, but NOT for file references/URLs
+              # Enforce case-sensitive corrections for regular text, but NOT for file references/URLs/links
               if not is_code_or_url_or_file(line) and not is_markdown_link(line, original):
                   return True if best_match in ignore_list else False
 
-              # Allow case-insensitive corrections for code blocks, backticks, and URLs
+              # Allow case-insensitive corrections for code blocks, backticks, URLs, and markdown links
               return best_match.lower() in ignore_list
 
           # Process spellcheck output and apply fixes
@@ -87,14 +87,20 @@ jobs:
                           content_lines = file.readlines()
                           context_line = content_lines[int(line_number) - 1].strip()
 
-                      # Apply correct capitalization from ignore list if appropriate
-                      if suggestion.lower() in ignore_list and not is_code_or_url_or_file(context_line) and not is_markdown_link(context_line, original):
-                          corrected_word = ignore_list[suggestion.lower()]
+                      # Apply correct capitalization from ignore list **ONLY if NOT inside a URL, markdown link, or file path**
+                      if suggestion.lower() in ignore_list:
+                          if not is_code_or_url_or_file(context_line) and not is_markdown_link(context_line, original):
+                              corrected_word = ignore_list[suggestion.lower()]
+                          else:
+                              corrected_word = suggestion.lower()  # Keep it lowercase in URLs/links/files
 
                       # If original word is very similar to an ignored word, prefer that correction
                       elif should_use_ignore_list(original, suggestion, context_line):
                           best_match, _ = process.extractOne(original, ignore_list.keys())
-                          corrected_word = ignore_list[best_match]
+                          if not is_code_or_url_or_file(context_line) and not is_markdown_link(context_line, original):
+                              corrected_word = ignore_list[best_match]
+                          else:
+                              corrected_word = best_match.lower()  # Keep it lowercase in URLs/links/files
 
                       # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
