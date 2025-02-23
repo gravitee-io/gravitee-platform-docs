@@ -47,9 +47,13 @@ jobs:
                   word = line.strip()
                   ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
-          # Function to check if a word is inside a code block, backticks, or a URL
-          def is_code_or_url(line):
+          # Function to check if a word is inside a code block, backticks, URL, or file reference
+          def is_code_or_url_or_file(line):
               return re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line)
+
+          # Function to check if a word is part of a Markdown link
+          def is_markdown_link(line, original):
+              return re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line)
 
           # Function to determine if an ignore list word should be used
           def should_use_ignore_list(original, suggestion, line):
@@ -63,8 +67,8 @@ jobs:
               if best_match in original and len(original) > len(best_match):
                   return False
 
-              # Enforce case-sensitive corrections for regular text
-              if not is_code_or_url(line):
+              # Enforce case-sensitive corrections for regular text, but NOT for file references/URLs
+              if not is_code_or_url_or_file(line) and not is_markdown_link(line, original):
                   return True if best_match in ignore_list else False
 
               # Allow case-insensitive corrections for code blocks, backticks, and URLs
@@ -84,7 +88,7 @@ jobs:
                           context_line = content_lines[int(line_number) - 1].strip()
 
                       # Apply correct capitalization from ignore list if appropriate
-                      if suggestion.lower() in ignore_list:
+                      if suggestion.lower() in ignore_list and not is_code_or_url_or_file(context_line) and not is_markdown_link(context_line, original):
                           corrected_word = ignore_list[suggestion.lower()]
 
                       # If original word is very similar to an ignored word, prefer that correction
