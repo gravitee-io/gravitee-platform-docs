@@ -4,10 +4,13 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
 
 permissions: 
-  contents: write
-  pull-requests: write
+  contents: write  # Required for committing changes if needed
+  pull-requests: write  # Required for creating PR suggestions
 
 jobs:
   spellcheck:
@@ -21,7 +24,7 @@ jobs:
         run: |
           pip install codespell
           pip install fuzzywuzzy[speedup]
-          pip install jq
+          sudo apt-get install -y jq
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
@@ -32,13 +35,13 @@ jobs:
       - name: Run Spellcheck and Process Output
         run: |
           set -e  # Exit on error
-          
-          # Run spellcheck on entire repo
+
+          # Run codespell and save output
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
 
-          # Process spellcheck output with Python
+          # Process corrections with Python
           python3 <<EOF
           import re
           from fuzzywuzzy import process
@@ -47,10 +50,11 @@ jobs:
           with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
               for line in f:
                   word = line.strip()
-                  ignore_list[word.lower()] = word  
+                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
           def should_use_ignore_list(original, suggestion):
               best_match, score = process.extractOne(original, ignore_list.keys())
+
               if score < 90:
                   return False
               if best_match in original and len(original) > len(best_match):
@@ -75,7 +79,12 @@ jobs:
 
       - name: Debugging - Print Spellcheck Report
         if: always()
-        run: cat spellcheck_report.txt || echo "No errors recorded."
+        run: |
+          if [ -s spellcheck_report.txt ]; then
+            cat spellcheck_report.txt
+          else
+            echo "No spelling errors found."
+          fi
 
       - name: Upload Spellcheck Report
         if: always()
@@ -118,8 +127,8 @@ jobs:
                 ')
 
                 if [[ -z "$DIFF_HUNK" ]]; then
-                  echo "⚠️ Warning: Could not find diff_hunk for $FILE at line $LINE_NUMBER. Posting suggestion without diff..."
-                  DIFF_HUNK="@@ -${LINE_NUMBER},1 +${LINE_NUMBER},1 @@"
+                  echo "⚠️ Warning: Could not find diff_hunk for $FILE at line $LINE_NUMBER. Skipping..."
+                  continue
                 fi
 
                 SUGGESTION_BODY=$(jq -n \
