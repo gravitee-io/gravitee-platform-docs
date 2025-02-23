@@ -1,11 +1,11 @@
-name: Manual Spellcheck Fixes
+name: Manual Spellcheck & Auto PR
 
 on:
-  workflow_dispatch:  # Manually triggered
+  workflow_dispatch:  # Runs only when manually triggered
 
 permissions:
-  contents: write  # Required for pushing fixes to a new branch
-  pull-requests: write  # Required for creating PRs
+  contents: write  # Needed to push changes to a new branch
+  pull-requests: write  # Needed to create a PR
 
 jobs:
   spellcheck:
@@ -26,11 +26,11 @@ jobs:
             echo "Error: spellcheck-ignore.txt not found!" && exit 1
           fi
 
-      - name: Run Spellcheck and Process Output
+      - name: Run Spellcheck and Apply Fixes
         run: |
           set -e  # Exit on error
 
-          # Run codespell and save output
+          # Run codespell on the full repo, save raw report, and prevent auto-fixes
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
@@ -70,7 +70,7 @@ jobs:
               # Allow case-insensitive corrections for code blocks, backticks, and URLs
               return best_match.lower() in ignore_list
 
-          # Process spellcheck output
+          # Process spellcheck output and apply fixes
           with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
               for line in infile:
                   match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
@@ -94,21 +94,20 @@ jobs:
 
                       # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
+
+                      # Apply fix while maintaining case rules
+                      content_lines[int(line_number) - 1] = content_lines[int(line_number) - 1].replace(original, corrected_word)
+                      with open(file_path, "w", encoding="utf-8") as file:
+                          file.writelines(content_lines)
           EOF
 
-      - name: Apply Spellcheck Fixes to Files
-        run: |
-          while IFS= read -r line || [[ -n "$line" ]]; do
-            file=$(echo "$line" | cut -d ':' -f 1)
-            line_number=$(echo "$line" | cut -d ':' -f 2)
-            original_word=$(echo "$line" | awk '{print $3}')
-            corrected_word=$(echo "$line" | awk '{print $5}')
-
-            if [[ -f "$file" ]]; then
-              # Apply fix while maintaining case rules
-              sed -i "${line_number}s/\b${original_word}\b/${corrected_word}/g" "$file"
-            fi
-          done < spellcheck_report.txt || true
+          # Check if any files were modified
+          if git status --porcelain | grep -q '^ M'; then
+            echo "Corrections applied. Preparing to create PR."
+          else
+            echo "No spelling corrections found. Exiting."
+            exit 0
+          fi
 
       - name: Create Pull Request with Corrections
         env:
