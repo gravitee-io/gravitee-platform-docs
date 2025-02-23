@@ -325,7 +325,7 @@ You may encounter issues while [running this Helm Chart on Apple Silicon M1](htt
 {% endtab %}
 
 {% tab title="PostgreSQL" %}
-To install a new PostgresSQL database via JDBC, first run the command below after updating the `username`, `password`, and `databasename` parameters:
+To install a new PostgreSQL database via JDBC, first run the command below after updating the `username`, `password`, and `databasename` parameters:
 
 ```sh
 helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
@@ -643,7 +643,7 @@ The following tables list the available configuration parameters for the Gravite
 | `alerts.options.keepAlive`                              | Keep the connection alive                                                | `true`                     |
 | `alerts.options.pipelining`                             | Enables event pipelining                                                 | `true`                     |
 | `alerts.options.tryCompression`                         | Enables event compression                                                | `true`                     |
-| `alerts.options.maxPoolSize`                            | Set the maximum numner of connection                                     | `50`                       |
+| `alerts.options.maxPoolSize`                            | Set the maximum number of connection                                     | `50`                       |
 | `alerts.options.bulkEventsSize`                         | Send events by packets                                                   | `100`                      |
 | `alerts.options.bulkEventsWait`                         | Duration for events to be ready to be sent                               | `100`                      |
 | `alerts.options.ssl.trustall`                           | Ssl trust all                                                            | `false`                    |
