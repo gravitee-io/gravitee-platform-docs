@@ -182,7 +182,7 @@ You need to repeat the following steps for each component (AM Gateway and AM API
         validationQuery:            # Query that will be executed to validate that a connection to the database is still alive.
         sslEnabled:                 # Enable SSL/TLS
         sslMode:                    # SSL Requirements
-        sslServerCert:              # Path to Server Certificate or CA certiticate (pem format)
+sslServerCert:              # Path to Server Certificate or CA certificate (pem format)
         tlsProtocol:                # version of TLS Protocole (TLSv1.2 or TLSv1.3)
         truststore:                 #
           path:                     # path to the truststore file (PCKS12 format)
@@ -204,7 +204,7 @@ According to the RDBMS, some SSL settings are useless or have different possible
                                         # require: Encryption, but no certificate and hostname validation
                                         # verify-ca: Encryption, certificates validation, BUT no hostname validation
                                         # verify-full: Encryption, certificate validation and hostname validation
-    sslServerCert: /path/to/cert.pem    # Path to Server Certificate or CA certiticate (pem format)
+sslServerCert: /path/to/cert.pem    # Path to Server Certificate or CA certificate (pem format)
 ```
 {% endcode %}
 
@@ -215,7 +215,7 @@ According to the RDBMS, some SSL settings are useless or have different possible
                                         # REQUIRED: Encryption, but no certificate and hostname validation
                                         # VERIFY_CA: Encryption, certificates validation, BUT no hostname validation
                                         # VERIFY_IDENTITY: Encryption, certificate validation and hostname validation
-    sslServerCert: /path/to/cert.pem    # Path to Server Certificate or CA certiticate (pem format)
+sslServerCert: /path/to/cert.pem    # Path to Server Certificate or CA certificate (pem format)
     tlsProtocol: TLSv1.2                # version of TLS Protocole (TLSv1.2 or TLSv1.3)
     truststore:                         #
       path: /path/to/ca.p12             # path to the truststore file (PCKS12 format)
@@ -230,7 +230,7 @@ According to the RDBMS, some SSL settings are useless or have different possible
                                         # ENABLE_TRUST: Encryption, but no certificate and hostname validation
                                         # ENABLE_WITHOUT_HOSTNAME_VERIFICATION: Encryption, certificates validation, BUT no hostname validation
                                         # ENABLE: Encryption, certificate validation and hostname validation
-    sslServerCert: /path/to/cert.pem    # Path to Server Certificate or CA certiticate (pem format)
+sslServerCert: /path/to/cert.pem    # Path to Server Certificate or CA certificate (pem format)
     tlsProtocol: TLSv1.2                # version of TLS Protocole (TLSv1.2 or TLSv1.3)
 ```
 {% endcode %}
