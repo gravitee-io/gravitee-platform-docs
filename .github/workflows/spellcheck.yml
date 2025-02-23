@@ -123,7 +123,7 @@ jobs:
               ORIGINAL_WORD=$(echo "$line" | awk '{print $3}')
               CORRECTED_WORD=$(echo "$line" | awk '{print $5}')
 
-              if [ -f "$FILE" ]; then
+              if [[ -f "$FILE" ]]; then
                 # Extract the original line from the file
                 ORIGINAL_LINE=$(sed -n "${LINE_NUMBER}p" "$FILE")
 
@@ -136,7 +136,7 @@ jobs:
                 ')
 
                 # Ensure diff_hunk was found
-                if [ -z "$DIFF_HUNK" ]; then
+                if [[ -z "$DIFF_HUNK" ]]; then
                   echo "⚠️ Warning: Could not find diff_hunk for $FILE at line $LINE_NUMBER. Skipping..."
                   continue
                 fi
