@@ -156,7 +156,7 @@ The following is the compatibility matrix for APIM and the `json-xml` policy:
 
 ### Nested objects
 
-To limit the processing time in case of nested object, a default max depth of nested object has been defined to 100. This default value can be overriden using the environment variable `gravitee_policy_jsonxml_maxdepth`.
+To limit the processing time in case of nested object, a default max depth of nested object has been defined to 100. This default value can be overridden using the environment variable `gravitee_policy_jsonxml_maxdepth`.
 
 ## Changelogs
 
