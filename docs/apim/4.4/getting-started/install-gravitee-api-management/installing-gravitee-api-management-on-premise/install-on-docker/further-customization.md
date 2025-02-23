@@ -45,7 +45,7 @@ Your Redis host and port may be different.
 {% tab title="Use Redis with Docker images" %}
 To use Redis with Docker images, complete the following steps:&#x20;
 
-1. In the command that you use to start the API Gateway, add the following environment vairables:
+1. In the command that you use to start the API Gateway, add the following environment variables:
 
 ```bash
   --env gravitee_ratelimit_type=redis \
