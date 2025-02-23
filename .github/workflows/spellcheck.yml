@@ -8,7 +8,7 @@ on:
     branches:
       - main
 
-permissions: 
+permissions:
   contents: write  # Required for committing changes if needed
   pull-requests: write  # Required for creating PR suggestions
 
@@ -36,10 +36,18 @@ jobs:
         run: |
           set -e  # Exit on error
 
-          # Run codespell and save output
-          codespell --ignore-words=.github/spellcheck-ignore.txt \
-                    --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
-                    --quiet-level=2 > spellcheck_report_raw.txt || true
+          # Run codespell on the full repo (for push events)
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            codespell --ignore-words=.github/spellcheck-ignore.txt \
+                      --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
+                      --quiet-level=2 > spellcheck_report_raw.txt || true
+          fi
+
+          # Run codespell on the PR diff (for pull_request events)
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            git fetch origin main
+            git diff origin/main --name-only | xargs -I {} codespell {} --ignore-words=.github/spellcheck-ignore.txt --quiet-level=2 > spellcheck_report_raw.txt || true
+          fi
 
           # Process corrections with Python
           python3 <<EOF
@@ -94,7 +102,7 @@ jobs:
           path: spellcheck_report.txt
           
       - name: Post Inline Suggestions
-        if: always()
+        if: github.event_name == 'pull_request'
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
@@ -127,30 +135,22 @@ jobs:
                 ')
 
                 if [[ -z "$DIFF_HUNK" ]]; then
-                  echo "⚠️ Warning: Could not find diff_hunk for $FILE at line $LINE_NUMBER. Skipping..."
+                  echo "⚠️ Warning: Could not find diff_hunk for $FILE at line $LINE_NUMBER. Posting normal comment instead..."
+                  curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
+                    -H "Accept: application/vnd.github.v3+json" \
+                    -d "{\"body\": \"**Spelling Suggestion**\\n\\n**File:** \`$FILE\`\\n**Line:** $LINE_NUMBER\\n\\n**$ORIGINAL_WORD** → **$CORRECTED_WORD**\"}" \
+                    "https://api.github.com/repos/$REPO/issues/$PR_NUMBER/comments"
                   continue
                 fi
 
-                SUGGESTION_BODY=$(jq -n \
-                  --arg body "#### 📝 Spelling Suggestion\n\`\`\`suggestion\n$(echo "$ORIGINAL_LINE" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*" \
-                  --arg commit_id "$COMMIT_ID" \
-                  --arg path "$FILE" \
-                  --argjson line "$LINE_NUMBER" \
-                  --arg diff_hunk "$DIFF_HUNK" \
-                  '{ body: $body, commit_id: $commit_id, path: $path, line: $line, side: "RIGHT", diff_hunk: $diff_hunk }')
+                SUGGESTION_BODY="#### 📝 Spelling Suggestion\n\`\`\`suggestion\n$(echo "$ORIGINAL_LINE" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*"
 
-                RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
+                curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
                   -H "Accept: application/vnd.github.v3+json" \
-                  -d "$SUGGESTION_BODY" "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/comments")
+                  -d "{\"body\": \"$SUGGESTION_BODY\", \"commit_id\": \"$COMMIT_ID\", \"path\": \"$FILE\", \"line\": $LINE_NUMBER, \"side\": \"RIGHT\", \"diff_hunk\": \"$DIFF_HUNK\"}" \
+                  "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/comments"
 
-                if echo "$RESPONSE" | grep -q '"message": "Validation Failed"'; then
-                  echo "❌ Failed to post suggestion. GitHub API Response:"
-                  echo "$RESPONSE"
-                else
-                  echo "✅ Suggestion posted successfully for $FILE at line $LINE_NUMBER"
-                fi
-
-                sleep 1  # Prevent GitHub rate limiting
+                sleep 1
               fi
             done < spellcheck_report.txt
           else
