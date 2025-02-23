@@ -1,9 +1,7 @@
-name: Spellcheck Documentation
+name: Manual Spellcheck Fixes
 
 on:
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:  # Manually triggered
 
 permissions:
   contents: write  # Required for pushing fixes to a new branch
