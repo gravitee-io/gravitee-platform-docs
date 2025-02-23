@@ -5,9 +5,9 @@ on:
     branches:
       - main
 
-permissions: write-all
-  # contents: read  # Required for reading repository content
-  # pull-requests: write  # Required for creating comments on PRs
+permissions: 
+  contents: write
+  pull-requests: write
 
 jobs:
   spellcheck:
@@ -21,49 +21,42 @@ jobs:
         run: |
           pip install codespell
           pip install fuzzywuzzy[speedup]
+          pip install jq
 
-      - name: Download Spellcheck Ignore List
+      - name: Verify Spellcheck Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
-            echo "spellcheck-ignore.txt not found!" && exit 1
+            echo "Error: spellcheck-ignore.txt not found!" && exit 1
           fi
 
       - name: Run Spellcheck and Process Output
         run: |
           set -e  # Exit on error
-
-          # Run codespell and save output
+          
+          # Run spellcheck on entire repo
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
 
-          # Process corrections with Python
+          # Process spellcheck output with Python
           python3 <<EOF
           import re
           from fuzzywuzzy import process
 
-          # Load spellcheck ignore list with case sensitivity
           ignore_list = {}
           with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
               for line in f:
                   word = line.strip()
-                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
+                  ignore_list[word.lower()] = word  
 
-          # Function to determine if an ignore list word should be used
           def should_use_ignore_list(original, suggestion):
               best_match, score = process.extractOne(original, ignore_list.keys())
-              
-              # Must be at least 90% similar to be considered a match
               if score < 90:
                   return False
-              
-              # Reject if original contains best_match as a substring (e.g., "certifcate" vs "CE")
               if best_match in original and len(original) > len(best_match):
                   return False
-
               return True
 
-          # Process spellcheck output
           with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
               for line in infile:
                   match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
@@ -71,27 +64,18 @@ jobs:
                       file_path, line_number, original, suggestion = match.groups()
                       corrected_word = suggestion
 
-                      # Apply correct capitalization from ignore list if appropriate
                       if suggestion.lower() in ignore_list:
                           corrected_word = ignore_list[suggestion.lower()]
-
-                      # If original word is very similar to an ignored word, prefer that correction
                       elif should_use_ignore_list(original, suggestion):
                           best_match, _ = process.extractOne(original, ignore_list.keys())
                           corrected_word = ignore_list[best_match]
 
-                      # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
           EOF
 
       - name: Debugging - Print Spellcheck Report
         if: always()
-        run: |
-          if [ -s spellcheck_report.txt ]; then
-            cat spellcheck_report.txt
-          else
-            echo "No errors recorded."
-          fi
+        run: cat spellcheck_report.txt || echo "No errors recorded."
 
       - name: Upload Spellcheck Report
         if: always()
@@ -124,10 +108,8 @@ jobs:
               CORRECTED_WORD=$(echo "$line" | awk '{print $5}')
 
               if [[ -f "$FILE" ]]; then
-                # Extract the original line from the file
                 ORIGINAL_LINE=$(sed -n "${LINE_NUMBER}p" "$FILE")
 
-                # Find the matching diff hunk from the PR diff
                 DIFF_HUNK=$(echo "$PR_DIFF" | awk -v file="$FILE" -v line="$LINE_NUMBER" '
                   $0 ~ "^diff --git" { in_file=0 }
                   $0 ~ "^diff --git .* " file "$" { in_file=1 }
@@ -135,13 +117,11 @@ jobs:
                   in_file && $0 ~ "^[+-]" && NR == line+5 { print hunk; exit }
                 ')
 
-                # Ensure diff_hunk was found
                 if [[ -z "$DIFF_HUNK" ]]; then
-                  echo "⚠️ Warning: Could not find diff_hunk for $FILE at line $LINE_NUMBER. Skipping..."
-                  continue
+                  echo "⚠️ Warning: Could not find diff_hunk for $FILE at line $LINE_NUMBER. Posting suggestion without diff..."
+                  DIFF_HUNK="@@ -${LINE_NUMBER},1 +${LINE_NUMBER},1 @@"
                 fi
 
-                # Construct the GitHub suggestion JSON payload
                 SUGGESTION_BODY=$(jq -n \
                   --arg body "#### 📝 Spelling Suggestion\n\`\`\`suggestion\n$(echo "$ORIGINAL_LINE" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*" \
                   --arg commit_id "$COMMIT_ID" \
@@ -150,12 +130,10 @@ jobs:
                   --arg diff_hunk "$DIFF_HUNK" \
                   '{ body: $body, commit_id: $commit_id, path: $path, line: $line, side: "RIGHT", diff_hunk: $diff_hunk }')
 
-                # Post the suggestion using GitHub API
                 RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
                   -H "Accept: application/vnd.github.v3+json" \
                   -d "$SUGGESTION_BODY" "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/comments")
 
-                # Check response for errors
                 if echo "$RESPONSE" | grep -q '"message": "Validation Failed"'; then
                   echo "❌ Failed to post suggestion. GitHub API Response:"
                   echo "$RESPONSE"
@@ -165,7 +143,7 @@ jobs:
 
                 sleep 1  # Prevent GitHub rate limiting
               fi
-            done
+            done < spellcheck_report.txt
           else
             echo "No spelling errors found."
           fi
