@@ -125,13 +125,31 @@ jobs:
                 ESCAPED_ORIGINAL=$(echo "$ORIGINAL_LINE" | sed 's/"/\\"/g')
                 ESCAPED_SUGGESTED=$(echo "$ESCAPED_ORIGINAL" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")
 
+                # Fetch PR diff to find correct `diff_hunk`
+                DIFF_HUNK=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+                  -H "Accept: application/vnd.github.v3.diff" \
+                  "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/files" | 
+                  awk -v file="$FILE" -v line="$LINE_NUMBER" '
+                    $0 ~ "^diff --git" { in_file=0 }
+                    $0 ~ "^diff --git .* " file "$" { in_file=1 }
+                    in_file && $0 ~ "^@@ -" { hunk=$0 }
+                    in_file && $0 ~ "^[+-]" && NR == line+5 { print hunk; exit }
+                  ')
+
+                # Ensure diff_hunk was found
+                if [ -z "$DIFF_HUNK" ]; then
+                  echo "⚠️ Warning: Could not find diff_hunk for $FILE at line $LINE_NUMBER. Skipping..."
+                  continue
+                fi
+
                 # Construct the GitHub suggestion JSON payload
                 SUGGESTION_BODY=$(jq -n \
                   --arg body "#### 📝 Spelling Suggestion\n\`\`\`suggestion\n$ESCAPED_SUGGESTED\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*" \
                   --arg commit_id "$COMMIT_ID" \
                   --arg path "$FILE" \
                   --argjson line "$LINE_NUMBER" \
-                  '{ body: $body, commit_id: $commit_id, path: $path, line: $line, side: "RIGHT" }')
+                  --arg diff_hunk "$DIFF_HUNK" \
+                  '{ body: $body, commit_id: $commit_id, path: $path, line: $line, side: "RIGHT", diff_hunk: $diff_hunk }')
 
                 # Post the suggestion using GitHub API
                 RESPONSE=$(curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
