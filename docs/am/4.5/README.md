@@ -23,7 +23,7 @@ Gravitee AM is composed of three main components:
 
 1. AM Gateway
 2. AM Management API
-3. APIM Managment UI
+3. APIM Management UI
 
 ### AM Gateway
 
