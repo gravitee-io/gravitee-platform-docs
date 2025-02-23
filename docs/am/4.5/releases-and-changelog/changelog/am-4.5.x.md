@@ -131,7 +131,7 @@ When managing deployments using Helm, please note that the default startup, live
 **Gateway**
 
 * SMSFactorProvider - Invalid phone number [#10193](https://github.com/gravitee-io/issues/issues/10193)
-* [4.5.1] Scope OpenID on client crendential and JWT bearer [#10196](https://github.com/gravitee-io/issues/issues/10196)
+* [4.5.1] Scope OpenID on client credential and JWT bearer [#10196](https://github.com/gravitee-io/issues/issues/10196)
 
 
 **Console**
@@ -340,6 +340,6 @@ If you were using environment variable to provide database settings remember to:
 
 ### Audits
 
-For kafka and File reporters, the `status` attibute has been deprecated for removal. The recommanded way to get access to the status is now the `outcome` structure which contains the `status` and a `message` fields. If you are using one of these reporter, please update your consumer to rely on the outcome structure
+For kafka and File reporters, the `status` attribute has been deprecated for removal. The recommended way to get access to the status is now the `outcome` structure which contains the `status` and a `message` fields. If you are using one of these reporter, please update your consumer to rely on the outcome structure
 
 </details>
