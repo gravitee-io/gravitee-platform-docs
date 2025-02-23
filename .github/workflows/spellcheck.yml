@@ -1,11 +1,13 @@
-name: Manual Spellcheck & Auto PR
+name: Spellcheck Documentation
 
 on:
-  workflow_dispatch:  # Runs only when manually triggered
+  pull_request:
+    branches:
+      - main
 
 permissions:
-  contents: write  # Needed to push changes to a new branch
-  pull-requests: write  # Needed to create a PR
+  contents: write  # Required for pushing fixes to a new branch
+  pull-requests: write  # Required for creating PRs
 
 jobs:
   spellcheck:
@@ -26,23 +28,89 @@ jobs:
             echo "Error: spellcheck-ignore.txt not found!" && exit 1
           fi
 
-      - name: Run Spellcheck and Apply Fixes
+      - name: Run Spellcheck and Process Output
         run: |
           set -e  # Exit on error
 
-          # Run codespell on the full repo and apply fixes
+          # Run codespell and save output
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
-                    --write-changes \
-                    --quiet-level=2 || true
+                    --quiet-level=2 > spellcheck_report_raw.txt || true
 
-          # Check if any files were modified
-          if git status --porcelain | grep -q '^ M'; then
-            echo "Corrections applied. Preparing to create PR."
-          else
-            echo "No spelling corrections found. Exiting."
-            exit 0
-          fi
+          # Process corrections with Python
+          python3 <<EOF
+          import re
+          from fuzzywuzzy import process
+
+          # Load spellcheck ignore list with case sensitivity
+          ignore_list = {}
+          with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
+              for line in f:
+                  word = line.strip()
+                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
+
+          # Function to check if a word is inside a code block, backticks, or a URL
+          def is_code_or_url(line):
+              return re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line)
+
+          # Function to determine if an ignore list word should be used
+          def should_use_ignore_list(original, suggestion, line):
+              best_match, score = process.extractOne(original, ignore_list.keys())
+              
+              # Must be at least 90% similar to be considered a match
+              if score < 90:
+                  return False
+              
+              # Reject if original contains best_match as a substring (e.g., "certifcate" vs "CE")
+              if best_match in original and len(original) > len(best_match):
+                  return False
+
+              # Enforce case-sensitive corrections for regular text
+              if not is_code_or_url(line):
+                  return True if best_match in ignore_list else False
+
+              # Allow case-insensitive corrections for code blocks, backticks, and URLs
+              return best_match.lower() in ignore_list
+
+          # Process spellcheck output
+          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
+              for line in infile:
+                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+                  if match:
+                      file_path, line_number, original, suggestion = match.groups()
+                      corrected_word = suggestion
+
+                      # Read the line content from the file
+                      with open(file_path, "r", encoding="utf-8") as file:
+                          content_lines = file.readlines()
+                          context_line = content_lines[int(line_number) - 1].strip()
+
+                      # Apply correct capitalization from ignore list if appropriate
+                      if suggestion.lower() in ignore_list:
+                          corrected_word = ignore_list[suggestion.lower()]
+
+                      # If original word is very similar to an ignored word, prefer that correction
+                      elif should_use_ignore_list(original, suggestion, context_line):
+                          best_match, _ = process.extractOne(original, ignore_list.keys())
+                          corrected_word = ignore_list[best_match]
+
+                      # Write final output
+                      outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
+          EOF
+
+      - name: Apply Spellcheck Fixes to Files
+        run: |
+          while IFS= read -r line || [[ -n "$line" ]]; do
+            file=$(echo "$line" | cut -d ':' -f 1)
+            line_number=$(echo "$line" | cut -d ':' -f 2)
+            original_word=$(echo "$line" | awk '{print $3}')
+            corrected_word=$(echo "$line" | awk '{print $5}')
+
+            if [[ -f "$file" ]]; then
+              # Apply fix while maintaining case rules
+              sed -i "${line_number}s/\b${original_word}\b/${corrected_word}/g" "$file"
+            fi
+          done < spellcheck_report.txt || true
 
       - name: Create Pull Request with Corrections
         env:
