@@ -125,7 +125,7 @@ To access the Developer Portal, select it from the top menu bar:
 {% hint style="info" %}
 **Accessing the Developer Portal**
 
-In the default docker installation, you won’t see this link. By default, the Developer Portal is running at `localhost:8085`. You can add this link by providing the URL of the Devloper Portal under **Settings > Settings > Scroll to Portal Section > Portal URL**. Make sure you scroll to the bottom and click **Save** after adding the URL.
+In the default docker installation, you won’t see this link. By default, the Developer Portal is running at `localhost:8085`. You can add this link by providing the URL of the Developer Portal under **Settings > Settings > Scroll to Portal Section > Portal URL**. Make sure you scroll to the bottom and click **Save** after adding the URL.
 {% endhint %}
 
 Inside the Developer Portal, select Application in the top nav and then select **+ Create an App**.
