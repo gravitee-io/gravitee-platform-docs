@@ -2,27 +2,33 @@
 
 ## Overview
 
-This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the **Kafka** endpoint and includes a [reference](kafka.md#reference) section.
+The Kafka endpoint **mediates the protocol** between the Kafka cluster and the client that connects over HTTP. The API runtime on the gateway includes an embedded Kafka client that can produce and consume directly to and from the cluster.
+
+{% hint style="info" %}
+You can also use the [Gravitee Kafka Gateway](broken-reference) to proxy a Kafka cluster using the Kafka native protocol (over TCP).
+{% endhint %}
+
+This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.
 
 ## Configuration
 
-The **Kafka** endpoint allows the Gateway to open up a persistent connection and/or call a backend Kafka broker via a Kafka client set up by the Gravitee Gateway. Entering a host/port pair (and a list of topics for a producer) is required. Modifying any other configuration parameters is optional.
+For the API to connect to the Kafka cluster, it is required to configure a bootstrap server list and, when consuming, a list of topics. You can [override the default configuration](kafka.md#user-content-dynamic-configuration) for the topics at runtime.
 
-### 1. **Bootstrap servers**
+### **Bootstrap servers**
 
-You must define a comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. This list only pertains to the initial hosts used to discover the full set of servers. The client will make use of all servers irrespective of which servers the list designates for bootstrapping.&#x20;
+You first define a comma-separated list of host/port pairs to use for establishing the initial connection to the Kafka cluster. This list is used to discover the full set of brokers in the cluster. The client will make use of all discovered brokers, irrespective of which servers are listed in the bootstrap server list.
 
-### **2.** Role
+### Producing, Consuming, or Both
 
-You can tell the Gravitee Gateway's Kafka client to act as a producer, a consumer, or both a producer and consumer. Choose **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
+You can configure the Kafka client to act as a producer, a consumer, or both a producer and consumer. Choose **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
 
-* **Use Producer:** Tells the Gateway Kafka client to be prepared to produce messages and send them to the Kafka broker that you define as your endpoint
-* **Use Consumer:** Tells the Gateway Kafka client to be prepared to consume messages from the Kafka broker that you define as your endpoint
-* **Use Producer and Consumer:** Tells the Gateway Kafka client to both **Use Producer** and **Use Consumer**
+* **Use Producer:** the gateway's Kafka client can only produce to the configured topic. Use this option if you want to only allow publishing data to the cluster. This can be used with the HTTP POST and Websocket entrypoints.
+* **Use Consumer:** the gateway's Kafka cluster can only consume messages from the configured topic list. Use this option if you want to allow only consuming data from the cluster. This can be used with the HTTP GET, Websocket, Webhook, and SSE entrypoints.
+* **Use Producer and Consumer:** clients can both consume from topics and produce messages to topics on the cluster.&#x20;
 
-### 3. Initial security settings
+### Endpoint security settings
 
-You will define more Gravitee Gateway-specific security settings later on, but this is where you define your Kafka-specific authentication flow. Gravitee supports **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, and **SSL** protocols.
+The API client will connect to the API proxy via a subscription to a plan, but first, you define the security properties when connecting from the gateway to the cluster. Here, you choose between **PLAINTEXT**, **SASL\_PLAINTEXT**, **SASL\_SSL**, and **SSL** protocols.
 
 {% tabs %}
 {% tab title="PLAINTEXT" %}
@@ -59,17 +65,17 @@ Define whichever of the following are relevant to your configuration.
 {% endtab %}
 {% endtabs %}
 
-### 4. Role settings
+### Producer and Consumer Settings
 
-If you chose **Use Producer** or **Use Producer and Consumer**, you need to define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker.&#x20;
+If you chose **Use Producer** or **Use Producer and Consumer**, you define the settings that the gateway's Kafka client will rely on for producing messages to your backend Kafka topic/broker.
 
-If you chose **Use Consumer** or **Use Producer and Consumer**, you need to define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker.
+If you chose **Use Consumer** or **Use Producer and Consumer**, you define the settings that the gateway's Kafka client will rely on for consuming messages from your backend Kafka topic/broker.
 
 {% tabs %}
 {% tab title="Producer" %}
 Define the following:
 
-1. **Topics:** The topic that the broker uses to filter messages for each connected client.
+1. **Topics:** The topic that the broker uses to produces messages to for each connected client.
 2. **Compression type:** Choose the compression type for all data generated by the producer. The options are **none**, **gzip**, **snappy**, **lz4**, or **zstd**. Anything else will throw an exception to the consumer.
 {% endtab %}
 
@@ -77,7 +83,7 @@ Define the following:
 Define the following:
 
 1. **Encode message Id:** Toggle this ON or OFF to encode message IDs in base64.
-2. **Auto offset reset:** Use the **Auto offset reset** drop-down menu to configure what happens when there is no initial offset in Kafka, or if the current offset no longer exists on the server:
+2. **Auto offset reset:** Use the **Auto offset reset** drop-down menu to configure what happens when there is no initial offset in Kafka for the consumer group, or if the current offset no longer exists:
    * **Earliest:** Automatically reset the offset to the earliest offset.
    * **Latest:** Automatically reset the offset to the latest offset.
    * **None:** Throw an exception to the consumer if no previous offset is found for the consumer's group.
@@ -90,15 +96,13 @@ Define the following:
 {% endtab %}
 {% endtabs %}
 
-## Implementation
+### Properties for Message Attributes
 
-### Common to subscribe and publish
+Each message within the gateway execution flow contains **metadata**, including the message key, topic, partition, and offset. To extract message metadata with EL, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
 
-Properties can be accessed from a Kafka cluster programmatically using [Gravitee Expression Language](../../getting-started/gravitee-expression-language.md) (EL). To extract message metadata with EL, use the syntax `{#message.metadata.[]}`, e.g., `{#message.metadata.key}`. Supported attributes are `key`, `topic`, `partition`, and `offset`.
+### Subscriber Data
 
-### Subscribe
-
-For each incoming request, the Kafka endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. Subscription relies on **ConsumerGroup**, **ClientId**, **Topic**, **AutoOffsetReset**, and **Offset selection**.
+For each incoming request, the Kafka endpoint retrieves information from the request to create a dedicated consumer that will persist until the request terminates. The subscription relies on **ConsumerGroup**, **ClientId**, **Topic**, **AutoOffsetReset**, and **Offset selection**.
 
 {% tabs %}
 {% tab title="ConsumerGroup" %}
@@ -118,9 +122,9 @@ The `auto-offset-reset` of the API is managed at the endpoint level and cannot b
 {% endtab %}
 
 {% tab title="Offset selection" %}
-By default, the consumer that is created will either resume from where it left off or use the `auto-offset-reset` configuration to position itself at the beginning or end of the topic.&#x20;
+By default, the consumer that is created will either resume from where it left off or use the `auto-offset-reset` configuration to position itself at the beginning or end of the topic.
 
-Offsets are determined by partitions, resulting in numerous possible mappings. To mitigate the inherent complexity of offset selection, Gravitee has introduced a mechanism to target a specific position on a Kafka topic.&#x20;
+Offsets are determined by partitions, resulting in numerous possible mappings. To mitigate the inherent complexity of offset selection, Gravitee has introduced a mechanism to target a specific position on a Kafka topic.
 
 Given a compatible entrypoint (SSE, HTTP GET), and by using At-Most-Once or At-Least-Once QoS, it is possible to specify a last event ID. The format is encoded by default and follows the pattern:
 
@@ -132,29 +136,200 @@ For example, `my-topic@1#0,2#0`.
 {% endtab %}
 {% endtabs %}
 
-### Publish
+### Partitioning on Publish
 
-A shared producer is created by the endpoint and reused for all requests with that same configuration. Publication relies on **ClientId**, **Topic**, and **Partitioning**.
+The only supported method for targeting a specific partition is to define a key and rely on the built-in partitioning mechanism. Kafka's default partitioner strategy uses the key to compute the associated partition: `hash(key) % nm of partition`.
+
+Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee does not support overriding this mechanism to manually set the partition.
+
+To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` can be set on the message, in an [Assign Attributes](../../policies/assign-attributes.md) policy in the Publish flow.
+
+A shared producer is created by the endpoint and reused for all requests with that same configuration. The producer configuration includes the **ClientId**, **Topic**, and **Partitioning**. The client ID is generated for the producer in the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`
+
+### Dynamic configuration <a href="#user-content-dynamic-configuration" id="user-content-dynamic-configuration"></a>
+
+The Kafka endpoint includes the dynamic configuration feature, meaning that you can:
+
+* Override any configuration parameters using an attribute (via the Assign Attribute policy). Your attribute needs to start with `gravitee.attributes.endpoint.kafka`, followed by the property you want to override.
+  * To override the topic, set `gravitee.attributes.endpoint.kafka.topics`.
+  * To override the consumer group, set `gravitee.attributes.endpoint.kafka.groupId`. By default,  the consumer group is derived from the subscription information passed with the client, as discussed above. You may need to set this attribute if you cannot create consumer groups in your cluster.
+  * To override the record key, set `gravitee.attributes.endpoint.kafka.recordKey.`
+* Use EL in any "String" type property. The following example shows how to use EL to populate the consumer autoOffsetReset property:
+
+```json
+{
+  "name": "default",
+  "type": "kafka",
+  "weight": 1,
+  "inheritConfiguration": false,
+  "configuration": {
+    "bootstrapServers": "kafka:9092"
+  },
+  "sharedConfigurationOverride": {
+    "consumer": {
+      "enabled": true,
+      "topics": [ "default_topic" ],
+      "autoOffsetReset": "{#request.headers['autoOffsetReset'][0]}"
+    }
+  }
+}
+```
+
+### Documentation for Specific Environments
+
+The following situations require special configuration.
+
+* SASL/OAUTHBEARER authentication
+* IAM Authentication for MSK
+* Azure Event Hubs
+
+The configuration for each case is as follows:
 
 {% tabs %}
-{% tab title="ClientId" %}
-The client ID is generated for the producer per the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`.
+{% tab title="SASL/OAUTHBEARER" %}
+To facilitate support for SASL/OAUTHBEARER, this plugin includes a [login callback handler for token retrieval](https://docs.confluent.io/platform/current/kafka/authentication_sasl/authentication_sasl_oauth.html#login-callback-handler-for-token-retrieval). This handler is configured using the following JAAS configuration:
+
+```bash
+"org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required access_token=\"<ACCESS_TOKEN>\";"
+```
+
+The access token can be provided using EL to retrieve it from a Gravitee context attribute:
+
+```json
+{
+  "name": "default",
+  "type": "kafka",
+  "weight": 1,
+  "inheritConfiguration": false,
+  "configuration": {
+    "bootstrapServers": "kafka:9092"
+  },
+  "sharedConfigurationOverride": {
+    "security" : {
+      "protocol" : "SASL_PLAINTEXT",
+      "sasl" : {
+        "saslMechanism" : "OAUTHBEARER",
+        "saslJaasConfig" : "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required access_token=\"{#context.attributes['gravitee.attribute.kafka.oauthbearer.token']}\";"
+      }
+    },
+    "producer" : {
+      "enabled" : true
+      "topics" : [ "demo" ],
+      "compressionType" : "none",
+    },
+    "consumer" : {
+      "enabled" : true,
+      "encodeMessageId" : true,
+      "topics" : [ "demo" ],
+      "autoOffsetReset" : "latest"
+    }
+  }
+}
+```
 {% endtab %}
 
-{% tab title="Topic" %}
-A topic is retrieved from the API configuration and can be overridden, either on the request for all messages or directly on the message, with the attribute `gravitee.attribute.kafka.topics`.
+{% tab title="IAM Authentication for MSK" %}
+The Kafka plugin includes the Amazon MSK Library for AWS Identity and Access Management, which enables you to use AWS IAM to connect to their Amazon MSK cluster.
+
+This mechanism is only available with the SASL\_SSL protocol. Once selected, you must provide a valid JAAS configuration. Different options are available depending on the AWS CLI credentials:
+
+* To use the default credential profile, the client can use the following JAAS configuration:
+
+```bash
+software.amazon.msk.auth.iam.IAMLoginModule required;
+```
+
+* To specify a particular credential profile as part of the client configuration (rather than through the environment variable AWS\_PROFILE), the client can pass the name of the profile in the JAAS configuration:
+
+```bash
+software.amazon.msk.auth.iam.IAMLoginModule required  awsProfileName="<Credential Profile Name>";
+```
+
+* As another way to configure a client to assume an IAM role and use the role’s temporary credentials, the IAM role’s ARN and, optionally, accessKey and secretKey can be passed in the JAAS configuration:
+
+```bash
+software.amazon.msk.auth.iam.IAMLoginModule required awsRoleArn="arn:aws:iam::123456789012:role/msk_client_role" awsRoleAccessKeyId="ACCESS_KEY"  awsRoleSecretAccessKey="SECRET";
+```
+
+More details can be found in the library’s [README](https://github.com/aws/aws-msk-iam-auth).
 {% endtab %}
 
-{% tab title="Partitioning" %}
-The only supported method for targeting a specific partition is to define a key and rely on the built-in partitioning mechanism. Kafka's default partitioner strategy uses the key to compute the associated partition: `hash(key) % nm of partition`.&#x20;
+{% tab title="Connecting to Azure Event Hubs" %}
+The Kafka endpoint can connect to [Azure Event Hubs](https://azure.microsoft.com/en-us/products/event-hubs) out of the box with no additional installation required. In order to connect:
 
-Repeated use of the same key on each message guarantees that messages are relegated to the same partition and order is maintained. Gravitee doesn't support overriding this mechanism to manually set the partition.&#x20;
+* Use the SASL\_SSL as the security protocol, with SASL mechanism `PLAIN`.
+* Set the JAAS configuration to the following, replacing`${CONNECTION_STRING}`with the value specified below. Do not change the username value. You can find more information about how to configure the connection string [here](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-get-connection-string).
 
-To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` must be added to the message.
+```bash
+org.apache.kafka.common.security.plain.PlainLoginModule required username='$ConnectionString' password='${CONNECTION_STRING}'
+```
+
+* The connection string is of the form:
+
+<pre><code><strong>'Endpoint=sb://${TOPIC_NAME}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=${SHARED_KEY}'
+</strong></code></pre>
+
+* The value of the connection string can be found by navigating to Settings > Shared access policies in the Azure UI, and clicking on the policy to get the information for that policy. Then, select the entry entitled `Connection string-primary key`.
+
+<figure><img src="../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
+
+* The bootstrap server name is in the format:
+
+```bash
+YOUR_NAMESPACE.servicebus.windows.net:9093
+```
 {% endtab %}
 {% endtabs %}
 
-## Reference
+### **Recovering Kafka messages**
+
+Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records. The Kafka enrypoint therefore supports the **at-least-one** or **at-most-one** QoS.
+
+As an example using SSE as an entrypoint, first define the QoS for the entrypoint:
+
+```json
+"entrypoints": [
+  {
+    "type": "sse",
+    "qos": "at-least-once",
+    "configuration": {
+      "heartbeatIntervalInMs": 5000,
+      "metadataAsComment": true,
+      "headersAsComment": true
+    }
+  }
+]
+```
+
+The offset information provided during the Gateway connection must be encoded in base64. It can be passed in plain text by setting the `encodeMessageId` to **false** in the consumer configuration of the Kafka plugin.
+
+The offset information has to respect the convention `<topicName>@<partition-id>#<offset>`.
+
+If the Kafka endpoint manages multiple topics or partitions, you can define multiple offsets using the following convention with a semicolon as the separator:
+
+```
+topic1@0#1
+topic1@0#1;anotherTopic@1#10
+```
+
+Next, initiate SSE consumption by providing the offsets via the `Last-Event-ID` header:
+
+```bash
+# generate the Last-Event-ID
+LAST_ID=$(echo -n "demo1@0#0" | base64)
+# Start the SSE event stream
+curl https://${GATEWAY_HOST}:8082/demo/sse/kafka-advanced/plaintext \ 
+    -H'Accept: text/event-stream' \
+    -H"Last-Event-ID: ${LAST_ID}" 
+```
+
+For the HTTP GET entrypoint, the offset can be provided using the `cursor` query parameter:
+
+```bash
+curl https://${GATEWAY_HOST}:8082/messages/get?cursor=${LAST_ID}
+```
+
+## Technical Reference
 
 Refer to the following sections for additional details.
 
@@ -162,8 +337,6 @@ Refer to the following sections for additional details.
 * [Compatibility matrix](kafka.md#user-content-compatibility-matrix)
 * [Endpoint identifier](kafka.md#user-content-endpoint-identifier)
 * [Endpoint configuration](kafka.md#user-content-endpoint-configuration)
-* [Using SASL OAUTHBEARER](kafka.md#using-sasl-oauthbearer)
-* [Using SASL\_AWS\_MSK\_IAM](kafka.md#user-content-using-sasl-aws_msk_iam)
 
 ### Quality Of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
 
@@ -255,166 +428,5 @@ The following is an example of how to consume messages:
 {% endtab %}
 {% endtabs %}
 
-### Using SASL OAUTHBEARER
 
-To facilitate support for SASL OAUTHBEARER, this plugin includes a [login callback handler for token retrieval](https://docs.confluent.io/platform/current/kafka/authentication_sasl/authentication_sasl_oauth.html#login-callback-handler-for-token-retrieval). This handler is configured using the following JAAS configuration:
 
-```bash
-"org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required access_token=\"<ACCESS_TOKEN>\";"
-```
-
-The access token can be provided using EL to retrieve it from a Gravitee context attribute:
-
-```json
-{
-  "name": "default",
-  "type": "kafka",
-  "weight": 1,
-  "inheritConfiguration": false,
-  "configuration": {
-    "bootstrapServers": "kafka:9092"
-  },
-  "sharedConfigurationOverride": {
-    "security" : {
-        "protocol" : "SASL_PLAINTEXT",
-        "sasl" : {
-          "saslMechanism" : "OAUTHBEARER",
-          "saslJaasConfig" : "org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required access_token=\"{#context.attributes['gravitee.attribute.kafka.oauthbearer.token']}\";"
-        }
-      },
-      "producer" : {
-        "enabled" : true
-        "topics" : [ "demo" ],
-        "compressionType" : "none",
-      },
-      "consumer" : {
-        "enabled" : true,
-        "encodeMessageId" : true,
-        "topics" : [ "demo" ],
-        "autoOffsetReset" : "latest"
-      }
-  }
-}
-```
-
-### Using SASL AWS\_MSK\_IAM <a href="#user-content-using-sasl-aws_msk_iam" id="user-content-using-sasl-aws_msk_iam"></a>
-
-The Kafka plugin includes the Amazon MSK Library for AWS Identity and Access Management, which enables you to use AWS IAM to connect to their Amazon MSK cluster.
-
-This mechanism is only available with the SASL\_SSL protocol. Once selected, you must provide a valid JAAS configuration. Different options are available depending on the AWS CLI credentials:
-
-* To use the default credential profile, the client can use the following JAAS configuration:
-
-```bash
-software.amazon.msk.auth.iam.IAMLoginModule required;
-```
-
-* To specify a particular credential profile as part of the client configuration (rather than through the environment variable AWS\_PROFILE), the client can pass the name of the profile in the JAAS configuration:
-
-```bash
-software.amazon.msk.auth.iam.IAMLoginModule required  awsProfileName="<Credential Profile Name>";
-```
-
-* As another way to configure a client to assume an IAM role and use the role’s temporary credentials, the IAM role’s ARN and, optionally, accessKey and secretKey can be passed in the JAAS configuration:
-
-```bash
-software.amazon.msk.auth.iam.IAMLoginModule required awsRoleArn="arn:aws:iam::123456789012:role/msk_client_role" awsRoleAccessKeyId="ACCESS_KEY"  awsRoleSecretAccessKey="SECRET";
-```
-
-More details can be found in the library’s [README](https://github.com/aws/aws-msk-iam-auth).
-
-### Connecting to Azure Event Hubs
-
-The Kafka endpoint can connect to [Azure Event Hubs](https://azure.microsoft.com/en-us/products/event-hubs) out of the box with no additional installation required.  In order to connect:
-
-* Use the SASL\_SSL as the security protocol, with SASL mechanism `PLAIN`.
-* Set the JAAS configuration to the following, replacing`${CONNECTION_STRING}`with the value specified below. Do not change the username value. You can find more information about how to configure the connection string [here](https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-get-connection-string).
-
-```bash
-org.apache.kafka.common.security.plain.PlainLoginModule required username='$ConnectionString' password='${CONNECTION_STRING}'
-```
-
-* The connection string is of the form:
-
-<pre><code><strong>'Endpoint=sb://${TOPIC_NAME}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=${SHARED_KEY}'
-</strong></code></pre>
-
-* The value of the connection string can be found by navigating to Settings > Shared access policies in the Azure UI, and clicking on the policy to get the information for that policy. Then, select the entry entitled `Connection string-primary key`.
-
-<figure><img src="../../.gitbook/assets/image (137).png" alt=""><figcaption></figcaption></figure>
-
-* The bootstrap server name is in the format:
-
-```bash
-YOUR_NAMESPACE.servicebus.windows.net:9093
-```
-
-### Dynamic configuration <a href="#user-content-dynamic-configuration" id="user-content-dynamic-configuration"></a>
-
-The Kafka endpoint includes the dynamic configuration feature, meaning that you can:
-
-* Override any configuration parameters using an attribute (via the Assign Attribute policy). Your attribute needs to start with `gravitee.attributes.endpoint.kafka`, followed by the property you want to override (e.g. `gravitee.attributes.endpoint.kafka.security.sasl.saslMechanism`). To override the topics property, add an Assign Attribute policy and set the attribute `gravitee.attributes.endpoint.kafka.consumer.topics` using a request header value or a query param, for example.
-* Use EL in any "String" type property. The following example shows how to use EL to populate the consumer autoOffsetReset property:
-
-```json
-{
-  "name": "default",
-  "type": "kafka",
-  "weight": 1,
-  "inheritConfiguration": false,
-  "configuration": {
-    "bootstrapServers": "kafka:9092"
-  },
-  "sharedConfigurationOverride": {
-    "consumer": {
-      "enabled": true,
-      "topics": [ "default_topic" ],
-      "autoOffsetReset": "{#request.headers['autoOffsetReset'][0]}"
-    }
-  }
-}
-```
-
-### **Recovering Kafka messages**
-
-Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.&#x20;
-
-As an example using SSE as an entrypoint, first define the QoS for the entrypoint:
-
-```
-"entrypoints": [
-        {
-            "type": "sse",
-            "qos": "at-least-once",
-            "configuration": {
-                "heartbeatIntervalInMs": 5000,
-                "metadataAsComment": true,
-                "headersAsComment": true
-            }
-        }
-    ]
-```
-
-The offset information provided during the Gateway connection must be encoded in base64. It can be passed in plain text by setting the `encodeMessageId` to **false** in the consumer configuration of the Kafka plugin.
-
-The offset information has to respect the convention `<topicName>@<partition-id>#<offset>`.
-
-If the Kafka endpoint manages multiple topics or partitions, you can define multiple offsets using the following convention with a semicolon as the separator:
-
-```
-topic1@0#1
-topic1@0#1;anotherTopic@1#10
-```
-
-Next, initiate SSE consumption by providing the offsets via the `Last-Event-ID` header:
-
-```bash
-# generate the Last-Event-ID
-LAST_ID=$(echo -n "demo1@0#0" | base64)
-# Start the SSE event stream
-curl http://localhost:8082/demo/sse/kafka-advanced/plaintext \n 
-    -H'Accept: text/event-stream' \n
-    -H"Last-Event-ID: ${LAST_ID}" 
-```
-
-For the HTTP-GET entrypoint, the offset must be provided using the `cursor` query parameter `curl http://localhost:8082/messages/get?cursor=${LAST_ID}`.
