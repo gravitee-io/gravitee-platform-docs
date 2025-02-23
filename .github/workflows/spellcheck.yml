@@ -111,23 +111,23 @@ jobs:
             COMMIT_ID="${{ github.event.pull_request.head.sha }}"
 
             echo "Processing spellcheck suggestions..."
-            while IFS= read -r line; do
+            while IFS= read -r line || [[ -n "$line" ]]; do
               FILE=$(echo "$line" | cut -d ':' -f 1)
               LINE_NUMBER=$(echo "$line" | cut -d ':' -f 2)
-              ORIGINAL_WORD=$(echo "$line" | cut -d ' ' -f 2)
-              CORRECTED_WORD=$(echo "$line" | cut -d ' ' -f 4)
+              ORIGINAL_WORD=$(echo "$line" | awk '{print $3}')
+              CORRECTED_WORD=$(echo "$line" | awk '{print $5}')
 
               if [ -f "$FILE" ]; then
                 # Extract the original line from the file
                 ORIGINAL_LINE=$(sed -n "${LINE_NUMBER}p" "$FILE")
 
                 # Ensure escaping of special characters in JSON payload
-                ESCAPED_ORIGINAL=$(echo "$ORIGINAL_LINE" | sed "s/\"/\\"/g")
+                ESCAPED_ORIGINAL=$(echo "$ORIGINAL_LINE" | sed 's/"/\\"/g')
                 ESCAPED_SUGGESTED=$(echo "$ESCAPED_ORIGINAL" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")
 
-                # Construct the GitHub suggestion
+                # Construct the GitHub suggestion JSON payload
                 SUGGESTION_BODY=$(jq -n \
-                  --arg body "#### Spelling Suggestion 📝\n\`\`\`suggestion\n$ESCAPED_SUGGESTED\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*" \
+                  --arg body "#### 📝 Spelling Suggestion\n\`\`\`suggestion\n$ESCAPED_SUGGESTED\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*" \
                   --arg commit_id "$COMMIT_ID" \
                   --arg path "$FILE" \
                   --argjson line "$LINE_NUMBER" \
@@ -148,6 +148,10 @@ jobs:
 
                 sleep 1  # Prevent GitHub rate limiting
               fi
+            done < spellcheck_report.txt
+          else
+            echo "No spelling errors found."
+          fi
             done < spellcheck_report.txt
           else
             echo "No spelling errors found."
