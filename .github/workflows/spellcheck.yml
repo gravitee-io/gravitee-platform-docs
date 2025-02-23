@@ -165,11 +165,7 @@ jobs:
 
                 sleep 1  # Prevent GitHub rate limiting
               fi
-            done < spellcheck_report.txt
-          else
-            echo "No spelling errors found."
-          fi
-            done < spellcheck_report.txt
+            done
           else
             echo "No spelling errors found."
           fi
