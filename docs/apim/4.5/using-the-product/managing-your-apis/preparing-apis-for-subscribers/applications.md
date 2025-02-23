@@ -234,7 +234,7 @@ For more information about these flows, see the [RFC](https://tools.ietf.org/htm
 
 An application is usually shared through a developer application and retrieves information such as API keys and API analytics. Initially, only the application’s creator can view and manage the application. By default, APIM includes three membership roles:
 
-<table><thead><tr><th width="228">Role</th><th>Description</th></tr></thead><tbody><tr><td><strong>Primary owner</strong></td><td>The creator of the applcation. Can perform all possible API actions.</td></tr><tr><td><strong>Owner</strong></td><td>A lighter version of the primary owner role. Can perform all possible actions except delete the application.</td></tr><tr><td><strong>User</strong></td><td>A person who can access the application in read-only mode and use it to subscribe to an API.</td></tr></tbody></table>
+<table><thead><tr><th width="228">Role</th><th>Description</th></tr></thead><tbody><tr><td><strong>Primary owner</strong></td><td>The creator of the application. Can perform all possible API actions.</td></tr><tr><td><strong>Owner</strong></td><td>A lighter version of the primary owner role. Can perform all possible actions except delete the application.</td></tr><tr><td><strong>User</strong></td><td>A person who can access the application in read-only mode and use it to subscribe to an API.</td></tr></tbody></table>
 
 {% hint style="info" %}
 Only users with the required permissions can manage application members. See [User Management and Permissions](../../administration/user-management-and-permissions.md).

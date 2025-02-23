@@ -101,7 +101,7 @@ For more information, please refer to our [Kubernetes Operator documentation](..
 
 ### Gravitee as ingress controller
 
-Another major update to the Gravitee Kubernetes Operator is its ability to act as an ingress controller. Now, you can use Gravitee as an ingress controller as opposed to using a third-party ingress controller, such as NGNIx or Traffik. This will result in less complexity and maintenance across the entirety of your infrastructure.
+Another major update to the Gravitee Kubernetes Operator is its ability to act as an ingress controller. Now, you can use Gravitee as an ingress controller as opposed to using a third-party ingress controller, such as nginx or Traffik. This will result in less complexity and maintenance across the entirety of your infrastructure.
 
 For more information please refer to our [Kubernetes Operator - Ingress Controller documentation](../../guides/gravitee-kubernetes-operator/gravitee-as-an-ingress-controller.md).
 
