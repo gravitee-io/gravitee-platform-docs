@@ -103,14 +103,11 @@ jobs:
                           content_lines = file.readlines()
                           context_line = content_lines[int(line_number) - 1].strip()
 
-                      # Apply correct capitalization from ignore list **ONLY if NOT inside a URL, markdown link, or file path**
-                      if suggestion.lower() in ignore_list:
-                          if not is_code_or_url_or_file(context_line) and not is_markdown_link(context_line, original):
-                              corrected_word = ignore_list[suggestion.lower()]
-                          else:
-                              corrected_word = suggestion.lower()  # Keep it lowercase in URLs/links/files
+                      # **Fix #1: Preserve case-sensitive ignored terms exactly**
+                      if original in ignore_list.values():
+                          corrected_word = original  # Use exact case from original text
 
-                      # If original word is very similar to an ignored word, prefer that correction
+                      # **Fix #2: Use English dictionary for weak matches**
                       elif should_use_ignore_list(original, suggestion, context_line):
                           best_match, _ = process.extractOne(original, ignore_list.keys())
                           if not is_code_or_url_or_file(context_line) and not is_markdown_link(context_line, original):
@@ -118,8 +115,11 @@ jobs:
                           else:
                               corrected_word = best_match.lower()  # Keep it lowercase in URLs/links/files
 
-                      # Apply context-based correction if applicable
+                      # **Fix #3: Apply context-based correction**
                       corrected_line = apply_context_based_correction(context_line, original, corrected_word)
+
+                      # **Fix #4: Replace only the first occurrence of the word**
+                      corrected_line = re.sub(r'\b' + re.escape(original) + r'\b', corrected_word, corrected_line, count=1)
 
                       # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
