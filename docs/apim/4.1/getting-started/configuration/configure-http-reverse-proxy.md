@@ -124,7 +124,7 @@ services:
 
 Add the location for each gravitee components, define :
 
-1. Managment API under Console UI
+1. Management API under Console UI
 2. Portal API under Portal UI
 
 Don’t forget to add the `sub_filter` directives according to the locations.

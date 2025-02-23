@@ -35,7 +35,7 @@ The Management Console now includes the [API Documentation](../../guides/api-con
 
 Folders can be added to organize the documentation structure, and pages of Markdown content can be created in any directory. You can choose the visibility of each folder and page:
 
-* **Public** entires are visible by anyone browsing the Developer Portal
+* **Public** entries are visible by anyone browsing the Developer Portal
 * **Private** entries are only visible to authenticated users
 
 The Documentation feature includes **Actions** associated with each folder or page entry to edit, delete, publish/unpublish, or reorder content.

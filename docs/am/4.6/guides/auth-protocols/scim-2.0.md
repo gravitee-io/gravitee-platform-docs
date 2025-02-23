@@ -13,7 +13,7 @@ SCIM is a standard that defines schema and protocols for identity management.
 It relies on REST APIs with endpoints exposing CRUD (Create, Read, Update, Delete) functionality for users and groups as well as search, discovery, and bulk features.
 
 {% hint style="warning" %}
-Since AM 4.6.0, Bulk operations are partially supported with Users operations. Goups are currently not manageable using Bulk operations.
+Since AM 4.6.0, Bulk operations are partially supported with Users operations. Groups are currently not manageable using Bulk operations.
 {% endhint %}
 
 ## Custom attributes
