@@ -165,7 +165,7 @@ With this mode enabled, consumers will be asked on their application's second su
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-2-portal.png" alt=""><figcaption><p>Subscribing in the Developer Portal</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption><p>Subscribing in the managment UI</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screen Shot 2023-03-16 at 11.44.51 AM.png" alt=""><figcaption><p>Subscribing in the management UI</p></figcaption></figure>
 
 This choice is _permanent_ for that application and consumers will not be able to switch between application API key types after the initial decision.
 
@@ -179,7 +179,7 @@ When disabling the shared API key mode in environment settings, applications tha
 
 Shared API key mode also has an important consequence you should be aware of before enabling. Because the shared API key may be used to call APIs that are owned by another group of API publishers, shared API keys cannot be edited from the API publisher subscription view. So while shared API keys are still readable by API publishers, renewal and revocation of shared API keys cannot be performed by the API publisher when a subscription has been made in shared API key mode.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-3.png" alt=""><figcaption><p>Shared API key adminstration limitations</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/plans-subscriptions/shared-api-key-3.png" alt=""><figcaption><p>Shared API key administration limitations</p></figcaption></figure>
 
 Instead, it is the responsibility of the application owner to perform such operations, and for this reason, shared API keys can only be revoked from the application owner subscription view in either the Management Console or the Developer Portal.
 

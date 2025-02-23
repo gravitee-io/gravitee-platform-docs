@@ -50,7 +50,7 @@ services:
       enabled: true
 ```
 
-The list of available labels can be found here: [Label](https://vertx.io/docs/apidocs/io/vertx/micrometer/Label.html)
+The list of available labels can be found here: [Label](https://Vertx.io/docs/apidocs/io/Vertx/micrometer/Label.html)
 
 {% hint style="warning" %}
 Enabling labels may result in a high cardinality in values, which can cause issues on the metrics backend (i.e. the gateway) and affect performance. So it must be used with care. In general, it is fine to enable labels when the set of possible values are bounded.
