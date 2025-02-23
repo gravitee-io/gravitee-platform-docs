@@ -47,6 +47,14 @@ jobs:
                   word = line.strip()
                   ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
+          # Common word pairs and phrases to check for context-based correction
+          common_phrases = {
+              "identity provider": ["identiy provider", "identify provider"],
+              "access token": ["access toekn", "acess token"],
+              "user authentication": ["user authentification", "user authenthication"],
+              "API gateway": ["API getway", "API gatway"]
+          }
+
           # Function to check if a word is inside a code block, backticks, URL, or file reference
           def is_code_or_url_or_file(line):
               return re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line)
@@ -73,6 +81,14 @@ jobs:
 
               # Allow case-insensitive corrections for code blocks, backticks, URLs, and markdown links
               return best_match.lower() in ignore_list
+
+          # Function to apply context-based correction
+          def apply_context_based_correction(line, original, suggestion):
+              for correct_phrase, wrong_variants in common_phrases.items():
+                  for wrong_phrase in wrong_variants:
+                      if wrong_phrase in line:
+                          return line.replace(wrong_phrase, correct_phrase)
+              return line.replace(original, suggestion)
 
           # Process spellcheck output and apply fixes
           with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
@@ -102,11 +118,14 @@ jobs:
                           else:
                               corrected_word = best_match.lower()  # Keep it lowercase in URLs/links/files
 
+                      # Apply context-based correction if applicable
+                      corrected_line = apply_context_based_correction(context_line, original, corrected_word)
+
                       # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
 
                       # Apply fix while maintaining case rules
-                      content_lines[int(line_number) - 1] = content_lines[int(line_number) - 1].replace(original, corrected_word)
+                      content_lines[int(line_number) - 1] = corrected_line + "\n"
                       with open(file_path, "w", encoding="utf-8") as file:
                           file.writelines(content_lines)
           EOF
