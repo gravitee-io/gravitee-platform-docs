@@ -19,6 +19,7 @@ jobs:
         run: |
           pip install codespell
           pip install fuzzywuzzy[speedup]
+          pip install nltk
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
@@ -38,7 +39,10 @@ jobs:
           # Process corrections with Python
           python3 <<EOF
           import re
+          import nltk
           from fuzzywuzzy import process
+          from nltk.tokenize import word_tokenize
+          nltk.download('punkt')
 
           # Load spellcheck ignore list with case sensitivity
           ignore_list = {}
@@ -109,16 +113,21 @@ jobs:
                       if original.lower() in ignore_list and any(c.isupper() for c in original):
                           corrected_word = ignore_list[original.lower()]
 
-                      # Use English dictionary for weak matches
-                      elif should_use_ignore_list(original, suggestion, context_line):
-                          best_match, _ = process.extractOne(original, ignore_list.keys())
-                          if not is_code_or_url_or_file(context_line) and not is_markdown_link(context_line, original):
-                              corrected_word = ignore_list[best_match]
-                          else:
-                              corrected_word = best_match.lower()  # Keep it lowercase in URLs/links/files
+                      # Tokenize line to avoid replacing partial words
+                      words = word_tokenize(context_line)
 
-                      # Apply context-based correction
-                      corrected_line = apply_context_based_correction(context_line, original, corrected_word)
+                      # Ensure weak matches use the English dictionary
+                      if not should_use_ignore_list(original, suggestion, context_line):
+                          corrected_word = suggestion  # Use dictionary match
+
+                      # Apply corrections **only** to the first exact word match, not substrings
+                      for i, word in enumerate(words):
+                          if word.lower() == original.lower():
+                              words[i] = corrected_word
+                              break
+
+                      # Rebuild corrected line
+                      corrected_line = " ".join(words)
 
                       # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
@@ -147,13 +156,11 @@ jobs:
           BRANCH_NAME="spellcheck-fixes-$(date +%s)"
           git checkout -b $BRANCH_NAME
 
-          # Commit the changes if there are any
           if [ -n "$(git status --porcelain)" ]; then
             git add .
             git commit -m "Spellcheck: Automatically fixed detected misspellings"
             git push origin $BRANCH_NAME
 
-            # Create PR using GitHub CLI
             gh pr create \
               --base main \
               --head $BRANCH_NAME \
