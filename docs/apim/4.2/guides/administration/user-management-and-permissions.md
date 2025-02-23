@@ -107,7 +107,7 @@ To create a role in Gravitee, select **+ Add a role** at your desired Scope. You
 * Give the role a description (optional)
 * Enable the role as a default role for new users by toggling **Default tole** ON or OFF
 
-After you define the above, you will set CRUD permissions. CRUD is an acronymn that stands for the four actions than can be granted:
+After you define the above, you will set CRUD permissions. CRUD is an acronym that stands for the four actions than can be granted:
 
 * **Create**
 * **Read**
@@ -120,7 +120,7 @@ After you define the above, you will set CRUD permissions. CRUD is an acronymn t
 If a user has full **CRUD** permissions, that means that they can create, read, update, and delete for a specific permission.
 {% endhint %}
 
-Once you are done selecting your permissions, select **Create** at the bottom of the page to oficially create your role.
+Once you are done selecting your permissions, select **Create** at the bottom of the page to officially create your role.
 
 #### Example: create a "Writer" role
 
