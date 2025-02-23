@@ -10,7 +10,7 @@ Imagine the scenario, you want to create thousands of users enable them to sign 
 
 Its however important to you that you create the users first temporary password, maybe its a constraint in you database. You then provide the username and password to the user.\
 \
-Now, its very important that the user takes control over the password so the temporary password isnt used forever.\
+Now, its very important that the user takes control over the password so the temporary password isn't used forever.\
 \
 For this purpose, you can now set a flag on the user profile that control if the users should be forced to update their password upon next login. So when provisioning users to Access Management, you simply set this flag to true and the user will be asked to update their password the first time they user their temporary password.
 
