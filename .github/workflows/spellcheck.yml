@@ -121,6 +121,11 @@ jobs:
                       # Apply context-based correction if applicable
                       corrected_line = apply_context_based_correction(context_line, original, corrected_word)
 
+                      # **PRINT DEBUGGING INFORMATION**
+                      print(f"🔍 Correction applied in {file_path}:{line_number}")
+                      print(f"   ➡ Original: {context_line}")
+                      print(f"   ➡ Fixed:    {corrected_line}\n")
+
                       # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
 
