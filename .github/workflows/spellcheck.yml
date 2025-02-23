@@ -1,16 +1,11 @@
-name: Spellcheck Documentation
+name: Manual Spellcheck & Auto PR
 
 on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+  workflow_dispatch:  # Runs only when manually triggered
 
 permissions:
-  contents: write  # Required for committing changes if needed
-  pull-requests: write  # Required for creating PR suggestions
+  contents: write  # Needed to push changes to a new branch
+  pull-requests: write  # Needed to create a PR
 
 jobs:
   spellcheck:
@@ -24,7 +19,6 @@ jobs:
         run: |
           pip install codespell
           pip install fuzzywuzzy[speedup]
-          sudo apt-get install -y jq
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
@@ -32,127 +26,46 @@ jobs:
             echo "Error: spellcheck-ignore.txt not found!" && exit 1
           fi
 
-      - name: Run Spellcheck and Process Output
+      - name: Run Spellcheck and Apply Fixes
         run: |
           set -e  # Exit on error
 
-          # Run codespell on the full repo (for push events)
-          if [[ "${{ github.event_name }}" == "push" ]]; then
-            codespell --ignore-words=.github/spellcheck-ignore.txt \
-                      --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
-                      --quiet-level=2 > spellcheck_report_raw.txt || true
-          fi
+          # Run codespell on the full repo and apply fixes
+          codespell --ignore-words=.github/spellcheck-ignore.txt \
+                    --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
+                    --write-changes \
+                    --quiet-level=2 || true
 
-          # Run codespell on the PR diff (for pull_request events)
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            git fetch origin main
-            git diff origin/main --name-only | xargs -I {} codespell {} --ignore-words=.github/spellcheck-ignore.txt --quiet-level=2 > spellcheck_report_raw.txt || true
-          fi
-
-          # Process corrections with Python
-          python3 <<EOF
-          import re
-          from fuzzywuzzy import process
-
-          ignore_list = {}
-          with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
-              for line in f:
-                  word = line.strip()
-                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
-
-          def should_use_ignore_list(original, suggestion):
-              best_match, score = process.extractOne(original, ignore_list.keys())
-
-              if score < 90:
-                  return False
-              if best_match in original and len(original) > len(best_match):
-                  return False
-              return True
-
-          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
-              for line in infile:
-                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
-                  if match:
-                      file_path, line_number, original, suggestion = match.groups()
-                      corrected_word = suggestion
-
-                      if suggestion.lower() in ignore_list:
-                          corrected_word = ignore_list[suggestion.lower()]
-                      elif should_use_ignore_list(original, suggestion):
-                          best_match, _ = process.extractOne(original, ignore_list.keys())
-                          corrected_word = ignore_list[best_match]
-
-                      outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
-          EOF
-
-      - name: Debugging - Print Spellcheck Report
-        if: always()
-        run: |
-          if [ -s spellcheck_report.txt ]; then
-            cat spellcheck_report.txt
+          # Check if any files were modified
+          if git status --porcelain | grep -q '^ M'; then
+            echo "Corrections applied. Preparing to create PR."
           else
-            echo "No spelling errors found."
+            echo "No spelling corrections found. Exiting."
+            exit 0
           fi
 
-      - name: Upload Spellcheck Report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: spellcheck-report
-          path: spellcheck_report.txt
-          
-      - name: Post Inline Suggestions
-        if: github.event_name == 'pull_request'
+      - name: Create Pull Request with Corrections
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
-          if [ -s spellcheck_report.txt ]; then
-            PR_NUMBER="${{ github.event.pull_request.number }}"
-            REPO="${{ github.repository }}"
-            COMMIT_ID="${{ github.event.pull_request.head.sha }}"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-            echo "Processing spellcheck suggestions..."
-            
-            # Fetch PR file diffs
-            PR_DIFF=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
-              -H "Accept: application/vnd.github.v3.diff" \
-              "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/files")
+          BRANCH_NAME="spellcheck-fixes-$(date +%s)"
+          git checkout -b $BRANCH_NAME
 
-            while IFS= read -r line || [[ -n "$line" ]]; do
-              FILE=$(echo "$line" | cut -d ':' -f 1)
-              LINE_NUMBER=$(echo "$line" | cut -d ':' -f 2)
-              ORIGINAL_WORD=$(echo "$line" | awk '{print $3}')
-              CORRECTED_WORD=$(echo "$line" | awk '{print $5}')
+          # Commit the changes if there are any
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "Spellcheck: Automatically fixed detected misspellings"
+            git push origin $BRANCH_NAME
 
-              if [[ -f "$FILE" ]]; then
-                ORIGINAL_LINE=$(sed -n "${LINE_NUMBER}p" "$FILE")
-
-                DIFF_HUNK=$(echo "$PR_DIFF" | awk -v file="$FILE" -v line="$LINE_NUMBER" '
-                  $0 ~ "^diff --git" { in_file=0 }
-                  $0 ~ "^diff --git .* " file "$" { in_file=1 }
-                  in_file && $0 ~ "^@@ -" { hunk=$0 }
-                  in_file && $0 ~ "^[+-]" && NR == line+5 { print hunk; exit }
-                ')
-
-                if [[ -z "$DIFF_HUNK" ]]; then
-                  echo "⚠️ Warning: Could not find diff_hunk for $FILE at line $LINE_NUMBER. Posting normal comment instead..."
-                  curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
-                    -H "Accept: application/vnd.github.v3+json" \
-                    -d "{\"body\": \"**Spelling Suggestion**\\n\\n**File:** \`$FILE\`\\n**Line:** $LINE_NUMBER\\n\\n**$ORIGINAL_WORD** → **$CORRECTED_WORD**\"}" \
-                    "https://api.github.com/repos/$REPO/issues/$PR_NUMBER/comments"
-                  continue
-                fi
-
-                SUGGESTION_BODY="#### 📝 Spelling Suggestion\n\`\`\`suggestion\n$(echo "$ORIGINAL_LINE" | sed "s/\b${ORIGINAL_WORD}\b/${CORRECTED_WORD}/g")\n\`\`\`\n*Suggested change in \`$FILE\`, line $LINE_NUMBER*"
-
-                curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" \
-                  -H "Accept: application/vnd.github.v3+json" \
-                  -d "{\"body\": \"$SUGGESTION_BODY\", \"commit_id\": \"$COMMIT_ID\", \"path\": \"$FILE\", \"line\": $LINE_NUMBER, \"side\": \"RIGHT\", \"diff_hunk\": \"$DIFF_HUNK\"}" \
-                  "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/comments"
-
-                sleep 1
-              fi
-            done < spellcheck_report.txt
+            # Create PR using GitHub CLI
+            gh pr create \
+              --base main \
+              --head $BRANCH_NAME \
+              --title "Spellcheck Fixes" \
+              --body "This PR contains automatically applied spelling corrections."
           else
-            echo "No spelling errors found."
+            echo "No changes detected. Skipping PR creation."
           fi
