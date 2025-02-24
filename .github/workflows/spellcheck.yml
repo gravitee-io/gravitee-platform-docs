@@ -20,7 +20,7 @@ jobs:
           pip install codespell
           pip install fuzzywuzzy[speedup]
           pip install nltk
-          python3 -c "import nltk; nltk.download('punkt'); nltk.data.path.append('/usr/local/nltk_data')"
+          python3 -c "import nltk; nltk.download('punkt'); nltk.data.path.append('/usr/share/nltk_data')"
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
@@ -44,9 +44,12 @@ jobs:
           from nltk.tokenize import sent_tokenize
           from fuzzywuzzy import process
 
-          # Ensure 'punkt' is available before using it
+          # ✅ Ensure 'punkt' is available
           nltk.download('punkt', quiet=True)
-          nltk.data.path.append('/usr/local/nltk_data')
+          nltk.data.path.append('/usr/share/nltk_data')
+
+          # ✅ Force loading the tokenizer to avoid lookup errors
+          _ = nltk.data.load('tokenizers/punkt/english.pickle')
 
           # Load spellcheck ignore list with case sensitivity
           ignore_list = {}
@@ -90,7 +93,7 @@ jobs:
                           content_lines = file.readlines()
                           context_line = content_lines[int(line_number) - 1].strip()
 
-                      # Tokenize the sentence for context-based correction
+                      # ✅ Tokenize the sentence for context-based correction
                       sentences = sent_tokenize(context_line)
                       relevant_sentence = next((s for s in sentences if original in s), context_line)
 
