@@ -79,6 +79,17 @@ jobs:
 
               return True
 
+          # Function to apply strict context-based correction rules
+          def apply_strict_context_correction(sentence, original, suggestion):
+              # Prioritize known common phrases first
+              for correct_phrase, wrong_variants in common_phrases.items():
+                  for wrong_phrase in wrong_variants:
+                      if wrong_phrase in sentence:
+                          return sentence.replace(wrong_phrase, correct_phrase)
+
+              # Replace the misspelled word with the correct word **only once**
+              return re.sub(r'\b' + re.escape(original) + r'\b', suggestion, sentence, count=1)
+
           # Process spellcheck output and apply fixes
           with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
               for line in infile:
@@ -97,28 +108,26 @@ jobs:
                       sentences = splitter.split(context_line)
                       relevant_sentence = next((s for s in sentences if original in s), context_line)
 
-                      # **Fix #1: Case-sensitive correction for ignore list terms**
+                      # **Fix #1: Enforce strict case-sensitive ignore list rules**
                       if original.lower() in ignore_list:
                           if is_code_or_url_or_file(relevant_sentence) or is_markdown_link(relevant_sentence, original):
                               corrected_word = original.lower()  # Keep lowercase in URLs, links, or file paths
                           else:
                               corrected_word = ignore_list[original.lower()]  # Use exact case from ignore list
 
-                      # **Fix #2: Reject weak matches and default to the English dictionary**
+                      # **Fix #2: Reject weak matches to ignore words**
                       elif should_use_ignore_list(original, suggestion, relevant_sentence):
                           best_match, _ = process.extractOne(original, ignore_list.keys())
                           corrected_word = ignore_list[best_match]
 
-                      # **Fix #3: Prioritize common phrases**
-                      for correct_phrase, wrong_variants in common_phrases.items():
-                          for wrong_phrase in wrong_variants:
-                              if wrong_phrase in relevant_sentence:
-                                  relevant_sentence = relevant_sentence.replace(wrong_phrase, correct_phrase)
+                      # **Fix #3: Strictly prevent weak ignore word matches**
+                      elif len(original) < 3 or len(original) < len(ignore_list.get(suggestion.lower(), "")) / 2:
+                          corrected_word = suggestion  # Use the English dictionary instead
 
-                      # **Fix #4: Apply corrections based on full sentence context**
-                      relevant_sentence = re.sub(r'\b' + re.escape(original) + r'\b', corrected_word, relevant_sentence, count=1)
+                      # **Fix #4: Apply strict context-based correction**
+                      relevant_sentence = apply_strict_context_correction(relevant_sentence, original, corrected_word)
 
-                      # **Fix #5: Ensure no extra punctuation is introduced**
+                      # **Fix #5: Strictly prevent punctuation modifications**
                       relevant_sentence = relevant_sentence.replace("..", ".").replace(",.", ".").replace(" ,", ",")
 
                       # Write final output
