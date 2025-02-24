@@ -33,7 +33,7 @@ jobs:
 
           # Run codespell and save output without applying fixes automatically
           codespell --ignore-words=.github/spellcheck-ignore.txt \
-                    --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html,spellcheck_report.txt,spellcheck_report_raw.txt" \
+                    --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
 
           # Process corrections with Python
@@ -116,12 +116,6 @@ jobs:
                   match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
                   if match:
                       file_path, line_number, original, suggestion = match.groups()
-
-                      # **Skip spellcheck report files to prevent unwanted modifications**
-                      if file_path in ["spellcheck_report.txt", "spellcheck_report_raw.txt"]:
-                          print(f"Skipping {file_path} to avoid modifying reports.")
-                          continue
-
                       corrected_word = suggestion
 
                   # Skip if the file does not exist
@@ -174,8 +168,8 @@ jobs:
                       file.writelines(content_lines)
           EOF
 
-          # Check if any files were modified, but exclude spellcheck reports
-          if git status --porcelain | grep -v -E 'spellcheck_report.txt|spellcheck_report_raw.txt' | grep -q '^ M'; then
+          # Check if any files were modified
+          if git status --porcelain | grep -q '^ M'; then
             echo "Corrections applied. Preparing to create PR."
           else
             echo "No spelling corrections found. Exiting."
@@ -192,20 +186,9 @@ jobs:
           BRANCH_NAME="spellcheck-fixes-$(date +%s)"
           git checkout -b $BRANCH_NAME
 
-          # Ensure spellcheck reports are ignored
-          echo "spellcheck_report.txt" >> .gitignore
-          echo "spellcheck_report_raw.txt" >> .gitignore
-          git rm -f --cached spellcheck_report.txt spellcheck_report_raw.txt || true
-
-          # Stage all changes except spellcheck reports
-          git add .
-          git reset spellcheck_report.txt spellcheck_report_raw.txt
-
-          # Commit only if there are changes
-          if git diff --staged --quiet; then
-            echo "No spelling corrections found. Exiting."
-            exit 0
-          else
+          # Commit the changes if there are any
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
             git commit -m "Spellcheck: Automatically fixed detected misspellings"
             git push origin $BRANCH_NAME
 
@@ -215,4 +198,6 @@ jobs:
               --head $BRANCH_NAME \
               --title "Spellcheck Fixes" \
               --body "This PR contains automatically applied spelling corrections."
+          else
+            echo "No changes detected. Skipping PR creation."
           fi
