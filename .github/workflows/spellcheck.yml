@@ -19,6 +19,8 @@ jobs:
         run: |
           pip install codespell
           pip install fuzzywuzzy[speedup]
+          pip install nltk
+          python3 -c "import nltk; nltk.download('punkt')"
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
@@ -30,7 +32,7 @@ jobs:
         run: |
           set -e  # Exit on error
 
-          # Run codespell to detect misspellings but do not auto-correct
+          # Run codespell and save output
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
@@ -38,6 +40,8 @@ jobs:
           # Process corrections with Python
           python3 <<EOF
           import re
+          import nltk
+          from nltk.tokenize import sent_tokenize
           from fuzzywuzzy import process
 
           # Load spellcheck ignore list with case sensitivity
@@ -47,47 +51,27 @@ jobs:
                   word = line.strip()
                   ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
-          # Common word pairs and phrases to check for context-based correction
-          common_phrases = {
-              "identity provider": ["identiy provider", "identify provider"],
-              "access token": ["access toekn", "acess token"],
-              "user authentication": ["user authentification", "user authenthication"],
-              "API gateway": ["API getway", "API gatway"]
-          }
-
           # Function to check if a word is inside a code block, backticks, URL, or file reference
           def is_code_or_url_or_file(line):
-              return bool(re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line))
+              return re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line)
 
           # Function to check if a word is part of a Markdown link
           def is_markdown_link(line, original):
-              return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
+              return re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line)
 
           # Function to determine if an ignore list word should be used
           def should_use_ignore_list(original, suggestion, line):
-              best_match, score = process.extractOne(original, ignore_list.keys(), scorer=lambda x, y: sum(c1 == c2 for c1, c2 in zip(x, y)))
-              
+              best_match, score = process.extractOne(original, ignore_list.keys())
+
               # Must be at least 90% similar to be considered a match
               if score < 90:
                   return False
 
-              # Reject if original contains best_match as a substring
+              # Reject if original contains best_match as a substring (e.g., "certifcate" vs "CE")
               if best_match in original and len(original) > len(best_match):
                   return False
 
-              # Enforce case-sensitive corrections for regular text, but lowercase for files/URLs
-              if not is_code_or_url_or_file(line) and not is_markdown_link(line, original):
-                  return best_match in ignore_list
-
-              return best_match.lower() in ignore_list
-
-          # Function to apply context-based correction
-          def apply_context_based_correction(line, original, suggestion):
-              for correct_phrase, wrong_variants in common_phrases.items():
-                  for wrong_phrase in wrong_variants:
-                      if wrong_phrase in line:
-                          return line.replace(wrong_phrase, correct_phrase)
-              return re.sub(r'\b' + re.escape(original) + r'\b', suggestion, line, count=1)
+              return True
 
           # Process spellcheck output and apply fixes
           with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
@@ -97,34 +81,38 @@ jobs:
                       file_path, line_number, original, suggestion = match.groups()
                       corrected_word = suggestion
 
-                      # Read the line content from the file
+                      # Read the full line from the file
                       with open(file_path, "r", encoding="utf-8") as file:
                           content_lines = file.readlines()
                           context_line = content_lines[int(line_number) - 1].strip()
 
-                      # Fix #1: Ensure case-sensitive corrections match exactly
+                      # Tokenize the sentence for context-based correction
+                      sentences = sent_tokenize(context_line)
+                      relevant_sentence = next((s for s in sentences if original in s), context_line)
+
+                      # **Fix #1: Case-sensitive correction for ignore list terms**
                       if original.lower() in ignore_list:
-                          corrected_word = ignore_list[original.lower()]
+                          if is_code_or_url_or_file(relevant_sentence) or is_markdown_link(relevant_sentence, original):
+                              corrected_word = original.lower()  # Keep lowercase in URLs, links, or file paths
+                          else:
+                              corrected_word = ignore_list[original.lower()]  # Use exact case from ignore list
 
-                      # Fix #2: Use English dictionary for weak matches
-                      elif should_use_ignore_list(original, suggestion, context_line):
+                      # **Fix #2: Reject weak matches and default to the English dictionary**
+                      elif should_use_ignore_list(original, suggestion, relevant_sentence):
                           best_match, _ = process.extractOne(original, ignore_list.keys())
-                          corrected_word = ignore_list[best_match] if not is_code_or_url_or_file(context_line) else best_match.lower()
+                          corrected_word = ignore_list[best_match]
 
-                      # Fix #3: Apply context-based correction
-                      corrected_line = apply_context_based_correction(context_line, original, corrected_word)
+                      # **Fix #3: Apply corrections based on full sentence**
+                      relevant_sentence = re.sub(r'\b' + re.escape(original) + r'\b', corrected_word, relevant_sentence, count=1)
 
-                      # Fix #4: Replace only the first occurrence of the word
-                      corrected_line = re.sub(r'\b' + re.escape(original) + r'\b', corrected_word, corrected_line, count=1)
-
-                      # Debugging Output
-                      print(f"🔍 Correction: {original} -> {corrected_word} in {file_path}:{line_number}")
+                      # **Fix #4: Ensure no extra punctuation is introduced**
+                      relevant_sentence = relevant_sentence.replace("..", ".").replace(",.", ".")
 
                       # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
 
                       # Apply fix while maintaining case rules
-                      content_lines[int(line_number) - 1] = corrected_line + "\n"
+                      content_lines[int(line_number) - 1] = relevant_sentence + "\n"
                       with open(file_path, "w", encoding="utf-8") as file:
                           file.writelines(content_lines)
           EOF
