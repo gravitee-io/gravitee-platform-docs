@@ -55,7 +55,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.check_changes.outputs.changes == 'true'
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.PAT_POLICY_BOT }}
           base: main
@@ -63,3 +63,4 @@ jobs:
           title: "Sync updated policy READMEs"
           body: "Automated update of policy README documentation."
           labels: "documentation, automated"
+          rebase: false
