@@ -176,14 +176,24 @@ jobs:
           BRANCH_NAME="spellcheck-fixes-$(date +%s)"
           git checkout -b $BRANCH_NAME
 
-          # Commit changes excluding spellcheck reports
-          git add --all ":!spellcheck_report.txt" ":!spellcheck_report_raw.txt"
-          git commit -m "Spellcheck: Automatically fixed detected misspellings"
-          git push origin $BRANCH_NAME
+          # Remove spellcheck reports from Git tracking if they exist
+          git rm --cached spellcheck_report.txt spellcheck_report_raw.txt || true
 
-          # Create PR using GitHub CLI
-          gh pr create \
-            --base main \
-            --head $BRANCH_NAME \
-            --title "Spellcheck Fixes" \
-            --body "This PR contains automatically applied spelling corrections."
+          # Add all changes except the spellcheck reports
+          git add .
+          git reset spellcheck_report.txt spellcheck_report_raw.txt
+
+          # Commit the changes if there are any
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Spellcheck: Automatically fixed detected misspellings"
+            git push origin $BRANCH_NAME
+
+            # Create PR using GitHub CLI
+            gh pr create \
+              --base main \
+              --head $BRANCH_NAME \
+              --title "Spellcheck Fixes" \
+              --body "This PR contains automatically applied spelling corrections."
+          else
+            echo "No changes detected. Skipping PR creation."
+          fi
