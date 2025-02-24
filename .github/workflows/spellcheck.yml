@@ -111,12 +111,11 @@ jobs:
               return re.sub(r'\b' + re.escape(original) + r'\b', suggestion, sentence, count=1)
 
           # Process spellcheck output and apply fixes
-          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
-              for line in infile:
-                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
-                  if match:
-                      file_path, line_number, original, suggestion = match.groups()
-                      corrected_word = suggestion
+          for line in spellcheck_output.splitlines():
+              match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+              if match:
+                  file_path, line_number, original, suggestion = match.groups()
+                  corrected_word = suggestion
 
                   # Skip if the file does not exist
                   if not os.path.isfile(file_path):
@@ -200,4 +199,5 @@ jobs:
               --body "This PR contains automatically applied spelling corrections."
           else
             echo "No changes detected. Skipping PR creation."
+            exit 0
           fi
