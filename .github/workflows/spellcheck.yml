@@ -31,6 +31,12 @@ jobs:
         run: |
           set -e  # Exit on error
 
+          # Run codespell and save output without applying fixes automatically
+          codespell --ignore-words=.github/spellcheck-ignore.txt \
+                    --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html,spellcheck_report.txt,spellcheck_report_raw.txt" \
+                    --quiet-level=2 > spellcheck_report_raw.txt || true
+
+          # Process corrections with Python
           # Run codespell directly in memory and process output with Python
           python3 <<EOF
           import re
@@ -105,11 +111,18 @@ jobs:
               return re.sub(r'\b' + re.escape(original) + r'\b', suggestion, sentence, count=1)
 
           # Process spellcheck output and apply fixes
-          for line in spellcheck_output.splitlines():
-              match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
-              if match:
-                  file_path, line_number, original, suggestion = match.groups()
-                  corrected_word = suggestion
+          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
+              for line in infile:
+                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+                  if match:
+                      file_path, line_number, original, suggestion = match.groups()
+
+                      # **Skip spellcheck report files to prevent unwanted modifications**
+                      if file_path in ["spellcheck_report.txt", "spellcheck_report_raw.txt"]:
+                          print(f"Skipping {file_path} to avoid modifying reports.")
+                          continue
+
+                      corrected_word = suggestion
 
                   # Skip if the file does not exist
                   if not os.path.isfile(file_path):
@@ -161,8 +174,8 @@ jobs:
                       file.writelines(content_lines)
           EOF
 
-          # Check if any files were modified
-          if git status --porcelain | grep -q '^ M'; then
+          # Check if any files were modified, but exclude spellcheck reports
+          if git status --porcelain | grep -v -E 'spellcheck_report.txt|spellcheck_report_raw.txt' | grep -q '^ M'; then
             echo "Corrections applied. Preparing to create PR."
           else
             echo "No spelling corrections found. Exiting."
@@ -179,19 +192,14 @@ jobs:
           BRANCH_NAME="spellcheck-fixes-$(date +%s)"
           git checkout -b $BRANCH_NAME
 
-          # Commit the changes if there are any
-          if [ -n "$(git status --porcelain)" ]; then
-            git add .
-            git commit -m "Spellcheck: Automatically fixed detected misspellings"
-            git push origin $BRANCH_NAME
+          # Commit changes excluding spellcheck reports
+          git add --all ":!spellcheck_report.txt" ":!spellcheck_report_raw.txt"
+          git commit -m "Spellcheck: Automatically fixed detected misspellings"
+          git push origin $BRANCH_NAME
 
-            # Create PR using GitHub CLI
-            gh pr create \
-              --base main \
-              --head $BRANCH_NAME \
-              --title "Spellcheck Fixes" \
-              --body "This PR contains automatically applied spelling corrections."
-          else
-            echo "No changes detected. Skipping PR creation."
-            exit 0
-          fi
+          # Create PR using GitHub CLI
+          gh pr create \
+            --base main \
+            --head $BRANCH_NAME \
+            --title "Spellcheck Fixes" \
+            --body "This PR contains automatically applied spelling corrections."
