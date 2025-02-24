@@ -5,5 +5,5 @@
 .idea
 .vscode
 *.iml
-spellcheck_report.txt
-spellcheck_report_raw.txt
+node_modules/
+package-lock.json
