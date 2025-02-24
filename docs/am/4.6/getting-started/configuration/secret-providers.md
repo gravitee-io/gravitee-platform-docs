@@ -216,7 +216,7 @@ secret://kubernetes/giotls?
   keymap=certificate:frontend-tls-cert&keymap=private_key:frontend-tls-priv-key
 ```
 
-Here, we expect the secret named `giotls` to contain two keys, `frontend-tls-cert` and `frontend-tls-key`, which are mapped to `certifcate` and `private_key`, respectively.
+Here, we expect the secret named `giotls` to contain two keys, `frontend-tls-cert` and `frontend-tls-key`, which are mapped to `certificate` and `private_key`, respectively.
 
 #### For Java KeyStore
 
@@ -259,6 +259,6 @@ secrets:
 
 Current limitations are summarized below:
 
-* Only the `http.ssl.keystore.secret` x.509 pairs (whether format is PEM ot KeyStore) can be watched and therefore hot-reloaded.
+* Only the `http.ssl.keystore.secret` x.509 pairs (whether format is PEM hotfixes KeyStore) can be watched and therefore hot-reloaded.
 * Only system environment variables and `gravitee.yml` properties can be resolved into secrets. A secret URL cannot be set via JVM properties, e.g., `-Dsystem.proxy.password=secret://kubernetes/giosecrets:proxypass` cannot be used. The parameters are passed directly to the platform without parsing and will not be detected by a `secret provider` plugin.
 * The `vault` plugin watches via polling because Vault events is an unstable feature.&#x20;
