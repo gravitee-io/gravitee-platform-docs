@@ -7,7 +7,7 @@ Gravitee Expression Language (EL) is used to query and manipulate object graphs 
 EL is an extended version of the [Spring Expression Language](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#expressions) (SpEL) that augments standard SpEL capabilities by providing additional object properties inside the expression language context. As an extension of SpEL, all capabilities detailed in the [SpEL documentation ](https://docs.spring.io/spring-framework/reference/core/expressions.html)are available in EL. However, Gravitee has implemented customizations that are detailed below.
 
 {% hint style="info" %}
-**Object properties**&#x20;
+**Object properties**
 
 Custom properties and attributes have special meanings in the Gravitee ecosystem:
 
@@ -62,7 +62,7 @@ Expressions can be used to assign lists, e.g., `{({'admin', 'writer'})}`
 
 1. The outer enclosing brackets start and end the EL expression
 2. The parentheses indicates an object is being instantiated
-3. The list comprises the inner brackets and enclosed values, e.g., `{'admin', 'writer'}`&#x20;
+3. The list comprises the inner brackets and enclosed values, e.g., `{'admin', 'writer'}`
 {% endtab %}
 
 {% tab title="Object properties" %}
@@ -78,7 +78,7 @@ EL allows you to reference certain values injected into the EL context as object
 {% endtab %}
 
 {% tab title="Attributes" %}
-The `attributes` object property contains attributes that are automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](broken-reference). However, attributes fall into one of two categories based on API type:
+The `attributes` object property contains attributes that are automatically created by the APIM Gateway during an API transaction or added during the execution phase through the [Assign Attributes policy](broken-reference/). However, attributes fall into one of two categories based on API type:
 
 * `{#context.attributes}`: Contains attributes associated with v2 APIs or v4 Proxy APIs. A v4 Proxy API is created using the **Proxy upstream protocol** method.
 * `{#message.attributes}`: Contains attributes associated with v4 Message APIs. These APIs are created using the **Introspect messages from event-driven backend** method.
@@ -99,10 +99,10 @@ EL supports various operators, such as arithmetic, logical, comparison, and tern
 EL provides a variety of built-in functions to manipulate and transform data in expressions. Examples of commonly used functions in Gravitee include:
 
 * String functions: `length(), substring(), replace()`
-* `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).&#x20;
+* `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).
 * `#xpath`: To evaluate an `xpath` on some provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) in the SpEL documentation.
 
-#### **`jsonPath` example**
+**`jsonPath` example**
 
 As an example of how `jsonPath` can be used with EL, suppose you have a JSON payload in the request body that contains the following data:
 
@@ -143,7 +143,7 @@ Using EL, you can access information about an API transaction through several ro
 {% tab title="Custom properties" %}
 As an API publisher, you can define [custom properties ](gravitee-expression-language.md#custom-properties)for your API. These properties are automatically injected into the expression language context and can be referenced during an API transaction from the `{#api.properties}` root-level object property.
 
-#### Examples
+**Examples**
 
 * Get the value of the property `my-property` defined in an API's custom properties using `{#api.properties['my-property']}`
 * Get the value of the property `my-secret` defined and encrypted in an API's custom properties using `{#api.properties['my-secret']}` to pass a secured property to your backend
@@ -158,7 +158,7 @@ When accessing an encrypted custom property, Gravitee's Gateway will automatical
 {% tab title="Dictionaries" %}
 [Dictionaries](https://docs.gravitee.io/apim/3.x/apim_installguide_configuration_dictionaries.html) work similarly to custom properties, but you need to specify the dictionary ID as well as the dictionary property name. Dictionary properties are simply key-value pairs that can be accessed from the `{#dictionaries}` root-level object property.
 
-#### Example
+**Example**
 
 Get the value of the dictionary property `dict-key` defined in dictionary `my-dictionary-id` using `{#dictionaries['my-dictionary-id']['dict-key']}`.
 {% endtab %}
@@ -166,7 +166,7 @@ Get the value of the dictionary property `dict-key` defined in dictionary `my-di
 {% tab title="Endpoints" %}
 When you define endpoints for your API, you need to give them a name that is a unique identifier across all endpoints of the API. This identifier can be used to get an endpoint reference (i.e., a URI) from the `{#endpoints}` root-level object property.
 
-#### Example
+**Example**
 
 When you create an API, a default endpoint is created that corresponds to the value you set for the backend property. This endpoint can be retrieved with EL by using the following syntax: `{#endpoints['default']}`.
 {% endtab %}
@@ -195,7 +195,7 @@ The object properties you can access from the `{#request}` root-level object pro
 
 When APIM Gateway handles an incoming API request, some object properties are automatically created or added during the execution phase through the Assign Attributes policy. These object properties are known as attributes. Attributes can be accessed from the `{#context.attributes}` root-level object property.
 
-Some policies (e.g., the OAuth2 policy) register other attributes in the request context. For more information, refer to the documentation for individual policies.&#x20;
+Some policies (e.g., the OAuth2 policy) register other attributes in the request context. For more information, refer to the documentation for individual policies.
 
 Request context attributes and examples are listed below.
 
@@ -226,7 +226,7 @@ Get the client HOST from the SSL session using `{#request.ssl.clientHost}`
 
 #### Principal objects <a href="#principal_object" id="principal_object"></a>
 
-The `client` and `server` objects are of type `Principal`. A `Principal` object represents the currently authenticated user who is making the request to the API and provides access to various user attributes such as username, email address, roles, and permissions.&#x20;
+The `client` and `server` objects are of type `Principal`. A `Principal` object represents the currently authenticated user who is making the request to the API and provides access to various user attributes such as username, email address, roles, and permissions.
 
 The `Principal` object is typically used with security policies such as OAuth2, JWT, or basic authentication to enforce access control and authorization rules on incoming requests. For example, a policy can check if the current user has a specific role or permission before allowing them to access a protected resource.
 
@@ -240,107 +240,8 @@ All attributes of the `Principal`object are flattened to be accessed directly wi
 
 {% tabs %}
 {% tab title="Table" %}
-<table><thead><tr><th width="218">Object Property</th><th width="154">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Principal</code> object's domain name attributes </td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>businessCategory</td><td>Business category</td><td>string</td><td>-</td></tr><tr><td>c</td><td>Country code</td><td>string</td><td>FR</td></tr><tr><td>cn</td><td>Common name</td><td>string</td><td>-</td></tr><tr><td>countryOfCitizenship</td><td>RFC 3039 CountryOfCitizenship</td><td>string</td><td>-</td></tr><tr><td>countryOfResidence</td><td>RFC 3039 CountryOfResidence</td><td>string</td><td>-</td></tr><tr><td>dateOfBirth</td><td>RFC 3039 RFC 3039 DateOfBirth</td><td>string</td><td>19830719000000Z</td></tr><tr><td>dc</td><td>Domain component</td><td>string</td><td>-</td></tr><tr><td>defined</td><td>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values.
-{% endtab %}
-
-{% tab title="Examples" %}
-#### Standard Object Properties
-
-* Get the client DN from the SSL session: `{#request.ssl.client.dn}`
-* Get the server organization from the SSL session: `{#request.ssl.server.o}`
-
-#### Arrays and boolean logic
-
-* Get all the organization units of the server from the SSL session:
-  * `{#request.ssl.server.attributes['ou'][0]}`
-  * `{#request.ssl.server.attributes['OU'][1]}`
-  * `{#request.ssl.server.attributes['Ou'][2]}`
-* Get a custom attribute of the client from the SSL session: `{#request.ssl.client.attributes['1.2.3.4'][0]}`
-* Determine if the SSL attributes of the client are set: `{#request.ssl.client.defined}`
+<table><thead><tr><th width="218">Object Property</th><th width="154">Description</th><th width="102">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributes</td><td>Retrieves all the <code>Principal</code> object's domain name attributes</td><td>key / value</td><td>"ou" → ["Test team", "Dev team"]</td></tr><tr><td>businessCategory</td><td>Business category</td><td>string</td><td>-</td></tr><tr><td>c</td><td>Country code</td><td>string</td><td>FR</td></tr><tr><td>cn</td><td>Common name</td><td>string</td><td>-</td></tr><tr><td>countryOfCitizenship</td><td>RFC 3039 CountryOfCitizenship</td><td>string</td><td>-</td></tr><tr><td>countryOfResidence</td><td>RFC 3039 CountryOfResidence</td><td>string</td><td>-</td></tr><tr><td>dateOfBirth</td><td>RFC 3039 RFC 3039 DateOfBirth</td><td>string</td><td>19830719000000Z</td></tr><tr><td>dc</td><td>Domain component</td><td>string</td><td>-</td></tr><tr><td>defined</td><td><p>Returns <code>true</code> if the <code>Principal</code> object is defined and contains values.</p><p><strong>Standard Object Properties</strong></p><ul><li>Get the client DN from the SSL session: <code>{#request.ssl.client.dn}</code></li><li>Get the server organization from the SSL session: <code>{#request.ssl.server.o}</code></li></ul><p><strong>Arrays and boolean logic</strong></p><ul><li><p>Get all the organization units of the server from the SSL session:</p><ul><li><code>{#request.ssl.server.attributes['ou'][0]}</code></li><li><code>{#request.ssl.server.attributes['OU'][1]}</code></li><li><code>{#request.ssl.server.attributes['Ou'][2]}</code></li></ul></li><li>Get a custom attribute of the client from the SSL session: <code>{#request.ssl.client.attributes['1.2.3.4'][0]}</code></li><li>Determine if the SSL attributes of the client are set: <code>{#request.ssl.client.defined}</code></li></ul><h3>Response</h3><p>The object properties you can access for API responses from the <code>{#response}</code> root-level object property are listed below.</p><div data-gb-custom-block data-tag="tabs"><div data-gb-custom-block data-tag="tab" data-title="Table"><table><thead><tr><th width="172">Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>content</td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>status</td><td>Status of the HTTP response</td><td>int</td><td>200</td></tr></tbody></table></div><div data-gb-custom-block data-tag="tab" data-title="Example"><p>Get the status of an HTTP response: <code>{#response.status}</code></p></div></div><h3>Message</h3><p>The object properties you can access for API messages from the <code>{#message}</code> root-level object property are listed below. A message (either sent or received) may also contain attributes that can be retrieved via <code>{#message.attributes[key]}</code>.</p><div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>The EL used for a message does not change based on phase. EL is executed on the message itself, so whether the message is sent in the subscribe or publish phase is irrelevant.</p></div><div data-gb-custom-block data-tag="tabs"><div data-gb-custom-block data-tag="tab" data-title="Table"><table><thead><tr><th width="172">Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributeNames</td><td>The names of the attributes</td><td>list / array</td><td>-</td></tr><tr><td>attributes</td><td>Attributes attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>content</td><td>Content of the message</td><td>string</td><td>-</td></tr><tr><td>contentLength</td><td>Size of the content</td><td>integer</td><td>-</td></tr><tr><td>error</td><td>Flag regarding the error state of the message</td><td>boolean</td><td>-</td></tr><tr><td>headers</td><td>Headers attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>id</td><td>ID of the message</td><td>string</td><td>-</td></tr><tr><td>metadata</td><td>Metadata attached to the message</td><td>key / value</td><td>-</td></tr></tbody></table></div><div data-gb-custom-block data-tag="tab" data-title="Examples"><ul><li>Get the value of the <code>Content-Type</code> header for a message using <code>{#message.headers['content-type']}</code></li><li>Get the size of a message using <code>{#message.contentLength}</code></li></ul></div></div><h3>Nodes</h3><p>A node is a component that represents an instance of the Gravitee Gateway. Each node runs a copy of the Gateway that is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services. The object properties you can access for nodes from the <code>{#node}</code> root-level object property are listed below.</p><div data-gb-custom-block data-tag="tabs"><div data-gb-custom-block data-tag="tab" data-title="Table"><table><thead><tr><th width="179">Object Property</th><th width="153">Description</th><th width="94">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Node ID</td><td>string</td><td>975de338-90ff-41ab-9de3-3890ff41ab62</td></tr><tr><td>shardingTags</td><td>Node sharding tag</td><td>array of string</td><td>[internal,external]</td></tr><tr><td>tenant</td><td>Node tenant</td><td>string</td><td>Europe</td></tr><tr><td>version</td><td>Node version</td><td>string</td><td>3.14.0</td></tr><tr><td>zone</td><td>Zone the node is grouped in</td><td>string</td><td>europe-west-2</td></tr></tbody></table></div><div data-gb-custom-block data-tag="tab" data-title="Example"><p>Get the version of a node : <code>{#node.version}</code></p></div></div><h3>Mixin</h3><p>In previous examples, we showed various ways to manipulate objects available in the EL context. You can also mix root-level object property usage to provide an increasingly dynamic configuration.</p><p>For example, to retrieve the value of an HTTP header where the name is based on an API custom property named <code>my-property</code>, use <code>{#request.headers[#api.properties['my-property']]}</code>.</p><h3>Policies</h3><p>You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a <strong>Condition</strong> section in the Policy Studio configuration.</p><p><img src="../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt="Assign attributes policy supports EL conditions" data-size="original"></p><h3>Conditions</h3><p>You can use the EL to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as <code>&#x26;&#x26;</code> or <code>||</code>, as shown in the example below:</p><p><code>{#request.headers['my-header'] != null &#x26;&#x26; #request.headers['my-header'][0] =="my-value"}</code></p><div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>Alternate equality check</strong></p><p>You can use the <code>equals()</code> method instead of <code>==</code>. When you use <code>.equals()</code>, it is recommended to put the string first to prevent an error. For example, if <code>#request.headers['my-header']</code> is <code>null</code> , then <code>'my-value'.equals(#request.headers['my-header'])</code>will prevent an error.</p></div><h3>Debugging</h3><p>In case of an error when using EL, an exception will be raised :</p><p><code>The template evaluation returns an error. Expression: {#context.error}</code></p><p>If debugging your expression is difficult, consider the following example for guidance:</p><p>Assume <code>{#request.content.length() >= 10}</code> is the conditional expression on a flow. When testing, you are expecting the condition to evaluate to <code>false</code> and stop the flow from executing, but the flow continues to function unexpectedly. To check the actual output of the <code>#request.content.length()</code> expression, use the Assign Attributes policy as shown in the arcade below.</p></td><td></td><td></td></tr><tr><td>Object Property</td><td>Description</td><td>Type</td><td>Example</td></tr><tr><td>content</td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>status</td><td>Status of the HTTP response</td><td>int</td><td>200</td></tr><tr><td>Object Property</td><td>Description</td><td>Type</td><td>Example</td></tr><tr><td>attributeNames</td><td>The names of the attributes</td><td>list / array</td><td>-</td></tr><tr><td>attributes</td><td>Attributes attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>content</td><td>Content of the message</td><td>string</td><td>-</td></tr><tr><td>contentLength</td><td>Size of the content</td><td>integer</td><td>-</td></tr><tr><td>error</td><td>Flag regarding the error state of the message</td><td>boolean</td><td>-</td></tr><tr><td>headers</td><td>Headers attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>id</td><td>ID of the message</td><td>string</td><td>-</td></tr><tr><td>metadata</td><td>Metadata attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>Object Property</td><td>Description</td><td>Type</td><td>Example</td></tr><tr><td>id</td><td>Node ID</td><td>string</td><td>975de338-90ff-41ab-9de3-3890ff41ab62</td></tr><tr><td>shardingTags</td><td>Node sharding tag</td><td>array of string</td><td>[internal,external]</td></tr><tr><td>tenant</td><td>Node tenant</td><td>string</td><td>Europe</td></tr><tr><td>version</td><td>Node version</td><td>string</td><td>3.14.0</td></tr><tr><td>zone</td><td>Zone the node is grouped in</td><td>string</td><td>europe-west-2</td></tr></tbody></table>
 {% endtab %}
 {% endtabs %}
-
-## Response
-
-The object properties you can access for API responses from the `{#response}` root-level object property are listed below.
-
-{% tabs %}
-{% tab title="Table" %}
-<table><thead><tr><th width="172">Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>content</td><td>Body content</td><td>string</td><td>-</td></tr><tr><td>headers</td><td>Headers</td><td>key / value</td><td>X-Custom → myvalue</td></tr><tr><td>status</td><td>Status of the HTTP response</td><td>int</td><td>200</td></tr></tbody></table>
-{% endtab %}
-
-{% tab title="Example" %}
-Get the status of an HTTP response: `{#response.status}`
-{% endtab %}
-{% endtabs %}
-
-## Message
-
-The object properties you can access for API messages from the `{#message}` root-level object property are listed below. A message (either sent or received) may also contain attributes that can be retrieved via `{#message.attributes[key]}`.
-
-{% hint style="info" %}
-The EL used for a message does not change based on phase. EL is executed on the message itself, so whether the message is sent in the subscribe or publish phase is irrelevant.
-{% endhint %}
-
-{% tabs %}
-{% tab title="Table" %}
-<table><thead><tr><th width="172">Object Property</th><th>Description</th><th width="125">Type</th><th>Example</th></tr></thead><tbody><tr><td>attributeNames</td><td>The names of the attributes</td><td>list / array</td><td>-</td></tr><tr><td>attributes</td><td>Attributes attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>content</td><td>Content of the message</td><td>string</td><td>-</td></tr><tr><td>contentLength</td><td>Size of the content</td><td>integer</td><td>-</td></tr><tr><td>error</td><td>Flag regarding the error state of the message</td><td>boolean</td><td>-</td></tr><tr><td>headers</td><td>Headers attached to the message</td><td>key / value</td><td>-</td></tr><tr><td>id</td><td>ID of the message</td><td>string</td><td>-</td></tr><tr><td>metadata</td><td>Metadata attached to the message</td><td>key / value</td><td>-</td></tr></tbody></table>
-{% endtab %}
-
-{% tab title="Examples" %}
-* Get the value of the `Content-Type` header for a message using `{#message.headers['content-type']}`
-* Get the size of a message using `{#message.contentLength}`
-{% endtab %}
-{% endtabs %}
-
-## Nodes
-
-A node is a component that represents an instance of the Gravitee Gateway. Each node runs a copy of the Gateway that is responsible for handling incoming requests, executing policies, and forwarding requests to the appropriate upstream services. The object properties you can access for nodes from the `{#node}` root-level object property are listed below.
-
-{% tabs %}
-{% tab title="Table" %}
-<table><thead><tr><th width="179">Object Property</th><th width="153">Description</th><th width="94">Type</th><th>Example</th></tr></thead><tbody><tr><td>id</td><td>Node ID</td><td>string</td><td>975de338-90ff-41ab-9de3-3890ff41ab62</td></tr><tr><td>shardingTags</td><td>Node sharding tag</td><td>array of string</td><td>[internal,external]</td></tr><tr><td>tenant</td><td>Node tenant</td><td>string</td><td>Europe</td></tr><tr><td>version</td><td>Node version</td><td>string</td><td>3.14.0</td></tr><tr><td>zone</td><td>Zone the node is grouped in</td><td>string</td><td>europe-west-2</td></tr></tbody></table>
-{% endtab %}
-
-{% tab title="Example" %}
-Get the version of a node : `{#node.version}`
-{% endtab %}
-{% endtabs %}
-
-## Mixin
-
-In previous examples, we showed various ways to manipulate objects available in the EL context. You can also mix root-level object property usage to provide an increasingly dynamic configuration.
-
-For example, to retrieve the value of an HTTP header where the name is based on an API custom property named `my-property`, use `{#request.headers[#api.properties['my-property']]}`.
-
-## Policies
-
-You can use the EL to update some aspects of policy configuration. The policy specifies if it supports EL or not by including a **Condition** section in the Policy Studio configuration.
-
-<figure><img src="../.gitbook/assets/Screenshot 2023-04-03 at 4.58.01 PM.png" alt=""><figcaption><p>Assign attributes policy supports EL conditions</p></figcaption></figure>
-
-## Conditions
-
-You can use the EL to set a condition of execution (see 'conditional policies and flows conditions') and it is possible to use logical operators such as `&&` or `||`, as shown in the example below:
-
-`{#request.headers['my-header'] != null && #request.headers['my-header'][0] =="my-value"}`
-
-{% hint style="info" %}
-**Alternate equality check**
-
-You can use the `equals()` method instead of `==`. When you use `.equals()`, it is recommended to put the string first to prevent an error. For example, if `#request.headers['my-header']` is `null` , then `'my-value'.equals(#request.headers['my-header'])`will prevent an error.
-{% endhint %}
-
-## Debugging
-
-In case of an error when using EL, an exception will be raised :
-
-`The template evaluation returns an error. Expression: {#context.error}`
-
-If debugging your expression is difficult, consider the following example for guidance:
-
-Assume `{#request.content.length() >= 10}` is the conditional expression on a flow. When testing, you are expecting the condition to evaluate to `false` and stop the flow from executing, but the flow continues to function unexpectedly. To check the actual output of the `#request.content.length()` expression, use the Assign Attributes policy as shown in the arcade below.
-
-{% @arcade/embed flowId="Q5mHqjjdv2gzuuVwLffu" url="https://app.arcade.software/share/Q5mHqjjdv2gzuuVwLffu" %}
 
 [^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.
