@@ -31,16 +31,21 @@ jobs:
           DOCS_PATH: 'docs/apim/4.6/policies/policy-reference'
         run: node sync-policy-readmes.js
 
+      - name: Clean unwanted files
+        run: |
+          rm -rf node_modules package-lock.json
+
       - name: Check for changes and push if needed
         id: check_changes
         run: |
           git config user.name "policy-bot"
           git config user.email "policy-bot@example.com"
+          BRANCH="policy-sync-$(date +'%Y%m%d%H%M%S')"
+          echo "branch=$BRANCH" >> $GITHUB_ENV
+          git checkout -b "$BRANCH"
+          # Only stage the docs changes
+          git add docs/apim/4.6/policies/policy-reference
           if [ -n "$(git status --porcelain)" ]; then
-            BRANCH="policy-sync-$(date +'%Y%m%d%H%M%S')"
-            echo "branch=$BRANCH" >> $GITHUB_ENV
-            git checkout -b "$BRANCH"
-            git add .
             git commit -m "Sync updated policy READMEs"
             git push origin "$BRANCH"
             echo "changes=true" >> $GITHUB_OUTPUT
@@ -58,4 +63,3 @@ jobs:
           title: "Sync updated policy READMEs"
           body: "Automated update of policy README documentation."
           labels: "documentation, automated"
-          rebase: false
