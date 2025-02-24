@@ -20,7 +20,7 @@ jobs:
           pip install codespell
           pip install fuzzywuzzy[speedup]
           pip install nltk
-          python3 -c "import nltk; nltk.download('punkt'); nltk.data.path.append('/usr/share/nltk_data')"
+          pip install sentence-splitter  # ✅ Replaces nltk.tokenize.sent_tokenize()
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
@@ -40,22 +40,8 @@ jobs:
           # Process corrections with Python
           python3 <<EOF
           import re
-          import nltk
-          from nltk.tokenize import sent_tokenize
+          from sentence_splitter import SentenceSplitter
           from fuzzywuzzy import process
-          import os
-
-          # ✅ Ensure 'punkt' is correctly installed
-          nltk.download('punkt', quiet=True)
-          
-          # ✅ Force correct data path setup
-          nltk.data.path.append('/usr/share/nltk_data')
-
-          # ✅ Override incorrect reference to punkt_tab
-          os.environ["NLTK_DATA"] = "/usr/share/nltk_data"
-
-          # ✅ Load tokenizer directly to ensure no incorrect lookup occurs
-          _ = nltk.data.load('tokenizers/punkt/english.pickle')
 
           # Load spellcheck ignore list with case sensitivity
           ignore_list = {}
@@ -99,8 +85,9 @@ jobs:
                           content_lines = file.readlines()
                           context_line = content_lines[int(line_number) - 1].strip()
 
-                      # ✅ Tokenize the sentence for context-based correction
-                      sentences = sent_tokenize(context_line)
+                      # ✅ Use sentence-splitter for robust sentence tokenization
+                      splitter = SentenceSplitter(language="en")
+                      sentences = splitter.split(context_line)
                       relevant_sentence = next((s for s in sentences if original in s), context_line)
 
                       # **Fix #1: Case-sensitive correction for ignore list terms**
