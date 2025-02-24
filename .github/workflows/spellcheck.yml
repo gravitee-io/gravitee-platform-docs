@@ -19,8 +19,7 @@ jobs:
         run: |
           pip install codespell
           pip install fuzzywuzzy[speedup]
-          pip install nltk
-          pip install sentence-splitter  # ✅ Replaces nltk.tokenize.sent_tokenize()
+          pip install sentence-splitter
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
@@ -32,7 +31,7 @@ jobs:
         run: |
           set -e  # Exit on error
 
-          # Run codespell and save output
+          # Run codespell and save output without applying fixes automatically
           codespell --ignore-words=.github/spellcheck-ignore.txt \
                     --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
                     --quiet-level=2 > spellcheck_report_raw.txt || true
@@ -50,13 +49,21 @@ jobs:
                   word = line.strip()
                   ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
+          # Common phrases to prioritize in spellcheck corrections
+          common_phrases = {
+              "identity provider": ["identiy provider", "identify provider"],
+              "access token": ["access toekn", "acess token"],
+              "user authentication": ["user authentification", "user authenthication"],
+              "API gateway": ["API getway", "API gatway"]
+          }
+
           # Function to check if a word is inside a code block, backticks, URL, or file reference
           def is_code_or_url_or_file(line):
-              return re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line)
+              return bool(re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line))
 
           # Function to check if a word is part of a Markdown link
           def is_markdown_link(line, original):
-              return re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line)
+              return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
 
           # Function to determine if an ignore list word should be used
           def should_use_ignore_list(original, suggestion, line):
@@ -85,7 +92,7 @@ jobs:
                           content_lines = file.readlines()
                           context_line = content_lines[int(line_number) - 1].strip()
 
-                      # ✅ Use sentence-splitter for robust sentence tokenization
+                      # ✅ Use sentence-splitter to analyze full sentence context
                       splitter = SentenceSplitter(language="en")
                       sentences = splitter.split(context_line)
                       relevant_sentence = next((s for s in sentences if original in s), context_line)
@@ -102,11 +109,17 @@ jobs:
                           best_match, _ = process.extractOne(original, ignore_list.keys())
                           corrected_word = ignore_list[best_match]
 
-                      # **Fix #3: Apply corrections based on full sentence**
+                      # **Fix #3: Prioritize common phrases**
+                      for correct_phrase, wrong_variants in common_phrases.items():
+                          for wrong_phrase in wrong_variants:
+                              if wrong_phrase in relevant_sentence:
+                                  relevant_sentence = relevant_sentence.replace(wrong_phrase, correct_phrase)
+
+                      # **Fix #4: Apply corrections based on full sentence context**
                       relevant_sentence = re.sub(r'\b' + re.escape(original) + r'\b', corrected_word, relevant_sentence, count=1)
 
-                      # **Fix #4: Ensure no extra punctuation is introduced**
-                      relevant_sentence = relevant_sentence.replace("..", ".").replace(",.", ".")
+                      # **Fix #5: Ensure no extra punctuation is introduced**
+                      relevant_sentence = relevant_sentence.replace("..", ".").replace(",.", ".").replace(" ,", ",")
 
                       # Write final output
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
