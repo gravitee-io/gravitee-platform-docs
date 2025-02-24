@@ -39,6 +39,7 @@ jobs:
           # Process corrections with Python
           python3 <<EOF
           import re
+          import os
           from sentence_splitter import SentenceSplitter
           from fuzzywuzzy import process
 
@@ -59,7 +60,7 @@ jobs:
 
           # Function to check if a word is inside a code block, backticks, URL, or file reference
           def is_code_or_url_or_file(line):
-              return bool(re.search(r'.*?|https?://\S+|www\.\S+|/[\w./-]+', line))
+              return bool(re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line))
 
           # Function to check if a word is part of a Markdown link
           def is_markdown_link(line, original):
@@ -98,10 +99,22 @@ jobs:
                       file_path, line_number, original, suggestion = match.groups()
                       corrected_word = suggestion
 
-                      # Read the full line from the file
+                      # Skip if the file does not exist
+                      if not os.path.isfile(file_path):
+                          print(f"Warning: File {file_path} not found. Skipping correction.")
+                          continue
+
+                      # Read the full line from the file safely
                       with open(file_path, "r", encoding="utf-8") as file:
                           content_lines = file.readlines()
-                          context_line = content_lines[int(line_number) - 1].strip()
+
+                      # Validate line number
+                      line_idx = int(line_number) - 1
+                      if line_idx < 0 or line_idx >= len(content_lines):
+                          print(f"Warning: Line number {line_number} out of range for file {file_path}. Skipping correction.")
+                          continue
+
+                      context_line = content_lines[line_idx].strip()
 
                       # ✅ Use sentence-splitter to analyze full sentence context
                       splitter = SentenceSplitter(language="en")
@@ -134,7 +147,7 @@ jobs:
                       outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
 
                       # Apply fix while maintaining case rules
-                      content_lines[int(line_number) - 1] = relevant_sentence + "\n"
+                      content_lines[line_idx] = relevant_sentence + "\n"
                       with open(file_path, "w", encoding="utf-8") as file:
                           file.writelines(content_lines)
           EOF
