@@ -58,3 +58,4 @@ jobs:
           title: "Sync updated policy READMEs"
           body: "Automated update of policy README documentation."
           labels: "documentation, automated"
+          rebase: false
