@@ -85,7 +85,7 @@ Gravitee API Management (APIM) comes with a JWT Policy to verify and decode toke
 
 
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply cerificate to application</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/am/current/graviteeio-am-userguide-certificate-app.png" alt=""><figcaption><p>Apply certificate to application</p></figcaption></figure>
 
 ### Custom certificates
 
