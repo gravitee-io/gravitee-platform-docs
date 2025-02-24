@@ -43,12 +43,18 @@ jobs:
           import nltk
           from nltk.tokenize import sent_tokenize
           from fuzzywuzzy import process
+          import os
 
-          # ✅ Ensure 'punkt' is available
+          # ✅ Ensure 'punkt' is correctly installed
           nltk.download('punkt', quiet=True)
+          
+          # ✅ Force correct data path setup
           nltk.data.path.append('/usr/share/nltk_data')
 
-          # ✅ Force loading the tokenizer to avoid lookup errors
+          # ✅ Override incorrect reference to punkt_tab
+          os.environ["NLTK_DATA"] = "/usr/share/nltk_data"
+
+          # ✅ Load tokenizer directly to ensure no incorrect lookup occurs
           _ = nltk.data.load('tokenizers/punkt/english.pickle')
 
           # Load spellcheck ignore list with case sensitivity
