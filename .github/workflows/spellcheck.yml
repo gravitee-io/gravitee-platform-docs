@@ -176,15 +176,20 @@ jobs:
           BRANCH_NAME="spellcheck-fixes-$(date +%s)"
           git checkout -b $BRANCH_NAME
 
-          # Remove spellcheck reports from Git tracking if they exist
-          git rm --cached spellcheck_report.txt spellcheck_report_raw.txt || true
+          # Ensure spellcheck reports are ignored
+          echo "spellcheck_report.txt" >> .gitignore
+          echo "spellcheck_report_raw.txt" >> .gitignore
+          git rm -f --cached spellcheck_report.txt spellcheck_report_raw.txt || true
 
-          # Add all changes except the spellcheck reports
+          # Stage all changes except spellcheck reports
           git add .
           git reset spellcheck_report.txt spellcheck_report_raw.txt
 
-          # Commit the changes if there are any
-          if [ -n "$(git status --porcelain)" ]; then
+          # Commit only if there are changes
+          if git diff --staged --quiet; then
+            echo "No spelling corrections found. Exiting."
+            exit 0
+          else
             git commit -m "Spellcheck: Automatically fixed detected misspellings"
             git push origin $BRANCH_NAME
 
@@ -194,6 +199,4 @@ jobs:
               --head $BRANCH_NAME \
               --title "Spellcheck Fixes" \
               --body "This PR contains automatically applied spelling corrections."
-          else
-            echo "No changes detected. Skipping PR creation."
           fi
