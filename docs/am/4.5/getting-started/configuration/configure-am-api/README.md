@@ -466,7 +466,7 @@ New in version 3.17
 
 Gravitee AM provides a notification mechanism to inform about certificates expiry. When enabled, domain primary owners and domain owners will receive a notification using the configured channel (UI or Email). These notifications will be triggered based on several conditions:
 
-* the frequence on which the certificates expiry dates are evaluate
+* the frequency on which the certificates expiry dates are evaluate
 * the number of days before the certificate expiry
 * the number of days to wait before a notification is going to be resent
 
@@ -565,7 +565,7 @@ AM API on first startup creates default identity provider in DB (MongoDB or JDBC
 domains:
   identities:
     default:
-      enbabled: false
+enabled: false
 ```
 
 ### Default Reporter
@@ -576,7 +576,7 @@ AM API on first startup creates default reporter in DB (MongoDB or JDBC) for aud
 domains:
   reporters:
     default:
-      enbabled: false
+enabled: false
 ```
 
 {% hint style="info" %}
