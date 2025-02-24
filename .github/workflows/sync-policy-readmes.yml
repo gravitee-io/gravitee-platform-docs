@@ -36,20 +36,21 @@ jobs:
         run: |
           git config user.name "policy-bot"
           git config user.email "policy-bot@example.com"
+          BRANCH="policy-sync-$(date +'%Y%m%d%H%M%S')"
+          echo "branch=$BRANCH" >> $GITHUB_ENV
+          git checkout -b "$BRANCH"
+          git add docs/apim/4.6/policies/policy-reference
           if [ -n "$(git status --porcelain)" ]; then
-            BRANCH="policy-sync-$(date +'%Y%m%d%H%M%S')"
-            echo "branch=$BRANCH" >> $GITHUB_ENV
-            git checkout -b $BRANCH
-            git add .
             git commit -m "Sync updated policy READMEs"
-            git push origin $BRANCH
-            echo "::set-output name=changes::true"
+            git push origin "$BRANCH"
+            echo "changes=true" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=changes::false"
+            echo "changes=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Create Pull Request
         if: steps.check_changes.outputs.changes == 'true'
+        continue-on-error: true
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PAT_POLICY_BOT }}
