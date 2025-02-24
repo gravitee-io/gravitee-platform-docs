@@ -20,7 +20,7 @@ jobs:
           pip install codespell
           pip install fuzzywuzzy[speedup]
           pip install nltk
-          python3 -c "import nltk; nltk.download('punkt')"
+          python3 -c "import nltk; nltk.download('punkt'); nltk.data.path.append('/usr/local/nltk_data')"
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
@@ -44,7 +44,9 @@ jobs:
           from nltk.tokenize import sent_tokenize
           from fuzzywuzzy import process
 
-          nltk.download('punkt', quiet=True)  # ✅ Ensure 'punkt' is downloaded correctly
+          # Ensure 'punkt' is available before using it
+          nltk.download('punkt', quiet=True)
+          nltk.data.path.append('/usr/local/nltk_data')
 
           # Load spellcheck ignore list with case sensitivity
           ignore_list = {}
