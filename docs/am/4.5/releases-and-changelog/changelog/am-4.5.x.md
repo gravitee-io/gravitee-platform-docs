@@ -288,7 +288,7 @@ The new gateway scope will manage entities which was previously managed by the `
 * RateLimit
 * VerifyAttempt
 
-If you managed to define two different, databases for the `management` and the `oauth2` scopes, please configure the `gateway` scope to target the same database as the `oauth2` scope as ScopeApproval are now managed by the `gateway` scope.
+If you managed to define two different databases for the `management` and the `oauth2` scopes, please configure the `gateway` scope to target the same database as the `oauth2` scope as ScopeApproval are now managed by the `gateway` scope.
 
 Previously, all the settings related to the repositories where define at the root level of the `gravitee.yaml` with the scope name as section name
 

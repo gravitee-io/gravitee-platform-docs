@@ -73,7 +73,7 @@ The new gateway scope will manage entities which was previously managed by the `
 {% endhint %}
 
 {% hint style="warning" %}
-If you managed to define two different, databases for the `management` and the `oauth2` scopes, please configure the `gateway` scope to target the same database as the `oauth2` scope as ScopeApproval are now managed by the `gateway` scope.
+If you managed to define two different databases for the `management` and the `oauth2` scopes, please configure the `gateway` scope to target the same database as the `oauth2` scope as ScopeApproval are now managed by the `gateway` scope.
 {% endhint %}
 
 {% hint style="danger" %}
