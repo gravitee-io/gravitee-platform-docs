@@ -44,6 +44,8 @@ jobs:
           from nltk.tokenize import sent_tokenize
           from fuzzywuzzy import process
 
+          nltk.download('punkt', quiet=True)  # ✅ Ensure 'punkt' is downloaded correctly
+
           # Load spellcheck ignore list with case sensitivity
           ignore_list = {}
           with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
