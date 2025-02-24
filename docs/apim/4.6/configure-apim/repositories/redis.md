@@ -34,26 +34,7 @@ Redis Sentinel options:
 {% tab title="SSL" %}
 Redis SSL options:
 
-<table><thead><tr><th width="140.66666666666666">Parameter</th><th width="146">Default</th><th>Description</th></tr></thead><tbody><tr><td>ssl</td><td>false</td><td></td></tr><tr><td>trustAll</td><td>true</td><td>Default value is true for backward compatibility but keep in mind that this is not a good practice and you should set to false and configure a truststore</td></tr><tr><td>tlsProtocols</td><td>See <a href="https://vertx.io/docs/vertx-core/java/#_configuring_tls_protocol_versions">Vert.x doc</a></td><td>List of TLS protocols to allow comma separated</td></tr><tr><td>tlsCiphers</td><td>See <a href="https://vertx.io/docs/vertx-core/java/#_configuring_tls_protocol_versions">Vert.x doc</a></td><td>List of TLS ciphers to allow comma separated</td></tr><tr><td>alpn</td><td>false</td><td></td></tr><tr><td>openssl</td><td>false</td><td>Used to rely on OpenSSL Engine instead of default JDK SSL Engine</td></tr><tr><td>keystore</td><td></td><td>Configuration for Mutual TLS.
-{% endtab %}
-
-{% tab title="SSL keystore" %}
-Redis SSL keystore options (client certificate, Mutual TLS):
-
-<table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td>A path is required if certificate’s type is <code>jks</code> or <code>pkcs12</code></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr><tr><td>certificates</td><td></td><td>List of certificates with cert and key. Certificates are required if keystore’s type is <code>pem</code></td></tr></tbody></table>
-{% endtab %}
-
-{% tab title="SSL truststore" %}
-Redis SSL truststore options:
-
-<table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr></tbody></table>
-{% endtab %}
-{% endtabs %}
-
-Below is the minimum configuration needed to get started with a Redis database.
-
-```yaml
-# ===================================================================
+<table><thead><tr><th width="140.66666666666666">Parameter</th><th width="146">Default</th><th>Description</th></tr></thead><tbody><tr><td>ssl</td><td>false</td><td></td></tr><tr><td>trustAll</td><td>true</td><td>Default value is true for backward compatibility but keep in mind that this is not a good practice and you should set to false and configure a truststore</td></tr><tr><td>tlsProtocols</td><td>See <a href="https://vertx.io/docs/vertx-core/java/#_configuring_tls_protocol_versions">Vert.x doc</a></td><td>List of TLS protocols to allow comma separated</td></tr><tr><td>tlsCiphers</td><td>See <a href="https://vertx.io/docs/vertx-core/java/#_configuring_tls_protocol_versions">Vert.x doc</a></td><td>List of TLS ciphers to allow comma separated</td></tr><tr><td>alpn</td><td>false</td><td></td></tr><tr><td>openssl</td><td>false</td><td>Used to rely on OpenSSL Engine instead of default JDK SSL Engine</td></tr><tr><td>keystore</td><td></td><td><p>Configuration for Mutual TLS.</p><p>Redis SSL keystore options (client certificate, Mutual TLS):</p><table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td>A path is required if certificate’s type is <code>jks</code> or <code>pkcs12</code></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr><tr><td>certificates</td><td></td><td>List of certificates with cert and key. Certificates are required if keystore’s type is <code>pem</code></td></tr></tbody></table><p>Redis SSL truststore options:</p><table><thead><tr><th width="168.66666666666666">Parameter</th><th width="90">Default</th><th>Description</th></tr></thead><tbody><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr></tbody></table><p>Below is the minimum configuration needed to get started with a Redis database.</p><pre class="language-yaml"><code class="lang-yaml"># ===================================================================
 # MINIMUM REDIS REPOSITORY PROPERTIES
 #
 # This is a minimal sample file declared connection to Redis
@@ -109,8 +90,6 @@ ratelimit:
       path: ${gravitee.home}/security/redis-truststore.jks
       password: secret
       alias:
-```
-
-{% hint style="info" %}
-If Redis Rate Limit repository is not accessible, the API call will fail. Do not forget to monitor your probe health-check to verify that Redis repository is healthy.
-{% endhint %}
+</code></pre><div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>If Redis Rate Limit repository is not accessible, the API call will fail. Do not forget to monitor your probe health-check to verify that Redis repository is healthy.</p></div></td></tr><tr><td>Parameter</td><td>Default</td><td>Description</td></tr><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td>A path is required if certificate’s type is <code>jks</code> or <code>pkcs12</code></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr><tr><td>certificates</td><td></td><td>List of certificates with cert and key. Certificates are required if keystore’s type is <code>pem</code></td></tr><tr><td>Parameter</td><td>Default</td><td>Description</td></tr><tr><td>type</td><td></td><td>Supports <code>jks</code>, <code>pem</code>, <code>pkcs12</code></td></tr><tr><td>path</td><td></td><td></td></tr><tr><td>password</td><td></td><td></td></tr><tr><td>alias</td><td></td><td></td></tr></tbody></table>
+{% endtab %}
+{% endtabs %}
