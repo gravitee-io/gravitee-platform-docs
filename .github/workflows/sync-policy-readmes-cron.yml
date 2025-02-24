@@ -1,4 +1,4 @@
-name: Sync Policy READMEs to Docs
+name: Sync Policy READMEs to Docs CRON
 
 on:
   workflow_dispatch:
