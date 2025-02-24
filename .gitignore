@@ -4,4 +4,5 @@
 .env.*
 .idea
 .vscode
-*.iml
+*.imlspellcheck_report.txt
+spellcheck_report_raw.txt
