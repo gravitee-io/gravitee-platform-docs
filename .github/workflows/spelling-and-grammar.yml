@@ -75,7 +75,8 @@ jobs:
 
           # Function to apply spellchecking
           def apply_spellcheck(sentence):
-              return " ".join([ignore_list.get(word.lower(), word) for word in sentence.split()])
+              words = sentence.split()
+              return " ".join([ignore_list.get(word.lower(), word) for word in words])
 
           # Function to apply grammar corrections safely
           def apply_grammar(sentence):
