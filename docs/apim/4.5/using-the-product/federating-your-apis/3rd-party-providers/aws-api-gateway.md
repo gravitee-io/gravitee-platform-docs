@@ -29,7 +29,7 @@ The AWS APIM federation agent will need the following configuration parameters i
   * either an access key and secret
   * or you can also use IAM role or instanceRole-based authentication
 
-To learn how to create an AWS access key for the agent, please follow [the guide provided by AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id\_credentials\_access-keys.html).
+To learn how to create an AWS access key for the agent, please follow [the guide provided by AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html).
 
 To learn how to use IAM role-based authentication, please reach out to your Gravitee customer service or account representative. We'll be able to provide you with AWS CloudFormation templates to help you set this up.
 
@@ -120,6 +120,7 @@ PolicyDocument:
           Action:
               - apigateway:GET
           Resource:
+              - arn:aws:apigateway:*::/restapis
               - arn:aws:apigateway:*::/restapis/*
               - arn:aws:apigateway:*::/restapis/*/stages/*
               - arn:aws:apigateway:*::/usageplans

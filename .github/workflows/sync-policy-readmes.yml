@@ -1,0 +1,60 @@
+name: Sync Policy READMEs to Docs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write       # Needed to push changes to a new branch
+  pull-requests: write  # Needed to create a PR
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout docs repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT_POLICY_BOT }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run sync script
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_POLICY_BOT }}
+          ORG_NAME: 'gravitee-io'
+          DOCS_PATH: 'docs/apim/4.6/policies/policy-reference'
+        run: node sync-policy-readmes.js
+
+      - name: Check for changes and push if needed
+        id: check_changes
+        run: |
+          git config user.name "policy-bot"
+          git config user.email "policy-bot@example.com"
+          BRANCH="policy-sync-$(date +'%Y%m%d%H%M%S')"
+          echo "branch=$BRANCH" >> $GITHUB_ENV
+          git checkout -b "$BRANCH"
+          git add docs/apim/4.6/policies/policy-reference
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Sync updated policy READMEs"
+            git push origin "$BRANCH"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.check_changes.outputs.changes == 'true'
+        continue-on-error: true
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PAT_POLICY_BOT }}
+          branch: ${{ env.branch }}
+          title: "Sync updated policy READMEs"
+          body: "Automated update of policy README documentation."
+          labels: "documentation, automated"

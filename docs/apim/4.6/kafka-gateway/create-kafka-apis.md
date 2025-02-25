@@ -29,7 +29,7 @@ The API creation wizard comprises several steps, each of which requires you to d
 
 ## API details
 
-Define a name, version number, and description for your API.&#x20;
+Define a name, version number, and description for your API.
 
 The name and version number are required, but we also recommend giving your API a description so that it is more easily understood and managed by internal users.
 
@@ -37,9 +37,9 @@ The name and version number are required, but we also recommend giving your API 
 
 ## Entrypoints
 
-When choosing how you want to expose your backend, you will be presented with three options: Proxy Generic Protocol, Protocol Mediation, and Kafka Protocol.&#x20;
+When choosing how you want to expose your backend, you will be presented with three options: Proxy Generic Protocol, Protocol Mediation, and Kafka Protocol.
 
-Select Kafka Protocol to create a Kafka API. Kafka APIs proxy the native Kafka protocol, with the Gravitee Gateway acting as a Kafka broker to Kafka clients.&#x20;
+Select Kafka Protocol to create a Kafka API. Kafka APIs proxy the native Kafka protocol, with the Gravitee Gateway acting as a Kafka broker to Kafka clients.
 
 <figure><img src="../.gitbook/assets/A1.png" alt=""><figcaption></figcaption></figure>
 
@@ -60,8 +60,8 @@ Of the following configuration settings, only entering a host/port pair is requi
    * **PLAINTEXT:** No further security config necessary.
    * **SASL\_PLAINTEXT:** Choose NON&#x45;**,** GSSAPI, OAUTHBEARER, OAUTHBEARER\_TOKEN, PLAIN, SCRAM\_SHA-256, or SCRAM-SHA-512
      * **NONE:** No further security config necessary.
-     * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.&#x20;
-     * **GSSAPI:** Enter the JAAS login context parameters.&#x20;
+     * **AWS\_MSK\_IAM:** Enter the JAAS login context parameters.
+     * **GSSAPI:** Enter the JAAS login context parameters.
      * **OAUTHBEARER:** Enter the OAuth token URL, client ID, client secret, and scopes to request when issuing a new token.
      * **OAUTHBEARER\_TOKEN:** Provide your custom token value.
      * **PLAIN:** Enter the username and password to connect to the broker.
@@ -94,7 +94,7 @@ Define a plan to secure, monitor, and transparently communicate information on h
 
 <figure><img src="../.gitbook/assets/A4.png" alt=""><figcaption></figcaption></figure>
 
-Gravitee automatically assigns each API a Default Keyless plan, which grants public access. Click **+ Add plan** to create additional plans.&#x20;
+Gravitee automatically assigns each API a Default Keyless plan, which grants public access. Click **+ Add plan** to create additional plans.
 
 {% hint style="warning" %}
 Kafka APIs cannot have published plans with conflicting authentication. In order to automatically deploy your API, add either a Keyless plan, which grants public access, or remove the Default Keyless plan and add one or more plans with authentication.
@@ -116,7 +116,7 @@ Individual plan configurations as they pertain to Kafka APIs are described in de
 
 Select **Keyless (public)** from the **+ Add plan** drop-down menu, then define general details and restrictions.
 
-### General
+#### General
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -133,7 +133,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 Select **API Key** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-### General
+#### General
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -143,10 +143,10 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-### Configuration
+#### Configuration
 
 * (Optional) Choose whether to propagate your API key to upstream APIs.
-* (Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.&#x20;
+* (Optional) Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 </details>
 
@@ -156,7 +156,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 
 Select **JWT** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-### General
+#### General
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -166,7 +166,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-### Configuration
+#### Configuration
 
 Only the **Signature** and **JWKS resolver** selections are required. Modifying the other configuration parameters is optional.
 
@@ -207,7 +207,7 @@ Only the **Signature** and **JWKS resolver** selections are required. Modifying 
 
 Select **OAuth2** from the **+ Add plan** drop-down menu, then define general details, configuration settings, and restrictions.
 
-### General
+#### General
 
 You must enter a value in the **Name** field. Modifying the other configuration parameters is optional.
 
@@ -217,7 +217,7 @@ You must enter a value in the **Name** field. Modifying the other configuration 
 4. **Subscriptions:** Choose whether to auto-validate subscriptions, require a message from a consumer during subscription, and/or present a message to the consumer upon subscription.
 5. **Access control:** Select any Groups within APIM that you do not want to have access to this API.
 
-### Configuration
+#### Configuration
 
 Only the **OAuth2 resource** and **Cache resource** fields are required. Modifying the other configuration parameters is optional.
 
@@ -226,7 +226,7 @@ Only the **OAuth2 resource** and **Cache resource** fields are required. Modifyi
 3. Choose whether to push the token endpoint payload into the oauth.payload context attribute.
 4. Choose whether to instruct your authentication method to check required scopes in order to access the resource. If you choose to check scopes, you must define your list of required scopes using the **Required scopes** module.
 5. Choose whether strict mode is enabled or disabled. If you choose **Strict**, scopes will be checked against the exact list you provided in the **Required scopes** section.
-6. Choose whether to permit authorization headers to target endpoints.&#x20;
+6. Choose whether to permit authorization headers to target endpoints.
 7. Use the [Gravitee Expression Language](../getting-started/gravitee-expression-language.md) to define additional selection rules. If you are managing multiple plans that share the same type, this will help the plan selection process.
 
 </details>
@@ -239,5 +239,5 @@ See [Documentation](../configure-v4-apis/documentation.md) to learn how to creat
 
 Review your API configuration and choose between the following:
 
-* **Save API:** Creates your API as a Gravitee artifact, but does not deploy it to the Gateway.&#x20;
+* **Save API:** Creates your API as a Gravitee artifact, but does not deploy it to the Gateway.
 * **Save & Deploy API:** Creates your API as a Gravitee artifact and deploys it to the Gateway.

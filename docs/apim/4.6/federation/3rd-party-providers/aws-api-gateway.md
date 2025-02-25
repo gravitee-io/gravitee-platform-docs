@@ -120,6 +120,7 @@ PolicyDocument:
           Action:
               - apigateway:GET
           Resource:
+              - arn:aws:apigateway:*::/restapis
               - arn:aws:apigateway:*::/restapis/*
               - arn:aws:apigateway:*::/restapis/*/stages/*
               - arn:aws:apigateway:*::/usageplans

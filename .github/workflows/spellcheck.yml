@@ -31,17 +31,30 @@ jobs:
         run: |
           set -e  # Exit on error
 
-          # Run codespell and save output without applying fixes automatically
-          codespell --ignore-words=.github/spellcheck-ignore.txt \
-                    --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html,spellcheck_report.txt,spellcheck_report_raw.txt" \
-                    --quiet-level=2 > spellcheck_report_raw.txt || true
-
-          # Process corrections with Python
+          # Run codespell directly in memory and process output with Python
           python3 <<EOF
           import re
           import os
+          import subprocess
           from sentence_splitter import SentenceSplitter
           from fuzzywuzzy import process
+
+          # Run codespell and capture output in memory (without saving to a file)
+          try:
+              result = subprocess.run([
+                  "codespell",
+                  "--ignore-words=.github/spellcheck-ignore.txt",
+                  "--skip=.git,*.lock,*.json,*.yaml,*.yml,*.css,*.html",
+                  "--quiet-level=2"
+              ], capture_output=True, text=True, check=False)
+              spellcheck_output = result.stdout.strip()
+          except Exception as e:
+              print(f"Error running codespell: {e}")
+              spellcheck_output = ""
+
+          if not spellcheck_output:
+              print("No spelling corrections found. Exiting.")
+              exit(0)
 
           # Load spellcheck ignore list with case sensitivity
           ignore_list = {}
@@ -92,74 +105,64 @@ jobs:
               return re.sub(r'\b' + re.escape(original) + r'\b', suggestion, sentence, count=1)
 
           # Process spellcheck output and apply fixes
-          with open("spellcheck_report_raw.txt", "r", encoding="utf-8") as infile, open("spellcheck_report.txt", "w", encoding="utf-8") as outfile:
-              for line in infile:
-                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
-                  if match:
-                      file_path, line_number, original, suggestion = match.groups()
+          for line in spellcheck_output.splitlines():
+              match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+              if match:
+                  file_path, line_number, original, suggestion = match.groups()
+                  corrected_word = suggestion
 
-                      # **Skip spellcheck report files to prevent unwanted modifications**
-                      if file_path in ["spellcheck_report.txt", "spellcheck_report_raw.txt"]:
-                          print(f"Skipping {file_path} to avoid modifying reports.")
-                          continue
+                  # Skip if the file does not exist
+                  if not os.path.isfile(file_path):
+                      print(f"Warning: File {file_path} not found. Skipping correction.")
+                      continue
 
-                      corrected_word = suggestion
+                  # Read the full line from the file safely
+                  with open(file_path, "r", encoding="utf-8") as file:
+                      content_lines = file.readlines()
 
-                      # Skip if the file does not exist
-                      if not os.path.isfile(file_path):
-                          print(f"Warning: File {file_path} not found. Skipping correction.")
-                          continue
+                  # Validate line number
+                  line_idx = int(line_number) - 1
+                  if line_idx < 0 or line_idx >= len(content_lines):
+                      print(f"Warning: Line number {line_number} out of range for file {file_path}. Skipping correction.")
+                      continue
 
-                      # Read the full line from the file safely
-                      with open(file_path, "r", encoding="utf-8") as file:
-                          content_lines = file.readlines()
+                  context_line = content_lines[line_idx].strip()
 
-                      # Validate line number
-                      line_idx = int(line_number) - 1
-                      if line_idx < 0 or line_idx >= len(content_lines):
-                          print(f"Warning: Line number {line_number} out of range for file {file_path}. Skipping correction.")
-                          continue
+                  # ✅ Use sentence-splitter to analyze full sentence context
+                  splitter = SentenceSplitter(language="en")
+                  sentences = splitter.split(context_line)
+                  relevant_sentence = next((s for s in sentences if original in s), context_line)
 
-                      context_line = content_lines[line_idx].strip()
+                  # **Fix #1: Enforce strict case-sensitive ignore list rules**
+                  if original.lower() in ignore_list:
+                      if is_code_or_url_or_file(relevant_sentence) or is_markdown_link(relevant_sentence, original):
+                          corrected_word = original.lower()  # Keep lowercase in URLs, links, or file paths
+                      else:
+                          corrected_word = ignore_list[original.lower()]  # Use exact case from ignore list
 
-                      # ✅ Use sentence-splitter to analyze full sentence context
-                      splitter = SentenceSplitter(language="en")
-                      sentences = splitter.split(context_line)
-                      relevant_sentence = next((s for s in sentences if original in s), context_line)
+                  # **Fix #2: Reject weak matches to ignore words**
+                  elif should_use_ignore_list(original, suggestion, relevant_sentence):
+                      best_match, _ = process.extractOne(original, ignore_list.keys())
+                      corrected_word = ignore_list[best_match]
 
-                      # **Fix #1: Enforce strict case-sensitive ignore list rules**
-                      if original.lower() in ignore_list:
-                          if is_code_or_url_or_file(relevant_sentence) or is_markdown_link(relevant_sentence, original):
-                              corrected_word = original.lower()  # Keep lowercase in URLs, links, or file paths
-                          else:
-                              corrected_word = ignore_list[original.lower()]  # Use exact case from ignore list
+                  # **Fix #3: Strictly prevent weak ignore word matches**
+                  elif len(original) < 3 or len(original) < len(ignore_list.get(suggestion.lower(), "")) / 2:
+                      corrected_word = suggestion  # Use the English dictionary instead
 
-                      # **Fix #2: Reject weak matches to ignore words**
-                      elif should_use_ignore_list(original, suggestion, relevant_sentence):
-                          best_match, _ = process.extractOne(original, ignore_list.keys())
-                          corrected_word = ignore_list[best_match]
+                  # **Fix #4: Apply strict context-based correction**
+                  relevant_sentence = apply_strict_context_correction(relevant_sentence, original, corrected_word)
 
-                      # **Fix #3: Strictly prevent weak ignore word matches**
-                      elif len(original) < 3 or len(original) < len(ignore_list.get(suggestion.lower(), "")) / 2:
-                          corrected_word = suggestion  # Use the English dictionary instead
+                  # **Fix #5: Strictly prevent punctuation modifications**
+                  relevant_sentence = relevant_sentence.replace("..", ".").replace(",.", ".").replace(" ,", ",")
 
-                      # **Fix #4: Apply strict context-based correction**
-                      relevant_sentence = apply_strict_context_correction(relevant_sentence, original, corrected_word)
-
-                      # **Fix #5: Strictly prevent punctuation modifications**
-                      relevant_sentence = relevant_sentence.replace("..", ".").replace(",.", ".").replace(" ,", ",")
-
-                      # Write final output
-                      outfile.write(f"{file_path}:{line_number}: {original} ==> {corrected_word}\n")
-
-                      # Apply fix while maintaining case rules
-                      content_lines[line_idx] = relevant_sentence + "\n"
-                      with open(file_path, "w", encoding="utf-8") as file:
-                          file.writelines(content_lines)
+                  # Apply fix while maintaining case rules
+                  content_lines[line_idx] = relevant_sentence + "\n"
+                  with open(file_path, "w", encoding="utf-8") as file:
+                      file.writelines(content_lines)
           EOF
 
-          # Check if any files were modified, but exclude spellcheck reports
-          if git status --porcelain | grep -v -E 'spellcheck_report.txt|spellcheck_report_raw.txt' | grep -q '^ M'; then
+          # Check if any files were modified
+          if git status --porcelain | grep -q '^ M'; then
             echo "Corrections applied. Preparing to create PR."
           else
             echo "No spelling corrections found. Exiting."
@@ -176,20 +179,9 @@ jobs:
           BRANCH_NAME="spellcheck-fixes-$(date +%s)"
           git checkout -b $BRANCH_NAME
 
-          # Ensure spellcheck reports are ignored
-          echo "spellcheck_report.txt" >> .gitignore
-          echo "spellcheck_report_raw.txt" >> .gitignore
-          git rm -f --cached spellcheck_report.txt spellcheck_report_raw.txt || true
-
-          # Stage all changes except spellcheck reports
-          git add .
-          git reset spellcheck_report.txt spellcheck_report_raw.txt
-
-          # Commit only if there are changes
-          if git diff --staged --quiet; then
-            echo "No spelling corrections found. Exiting."
-            exit 0
-          else
+          # Commit the changes if there are any
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
             git commit -m "Spellcheck: Automatically fixed detected misspellings"
             git push origin $BRANCH_NAME
 
@@ -199,4 +191,7 @@ jobs:
               --head $BRANCH_NAME \
               --title "Spellcheck Fixes" \
               --body "This PR contains automatically applied spelling corrections."
+          else
+            echo "No changes detected. Skipping PR creation."
+            exit 0
           fi
