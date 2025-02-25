@@ -55,7 +55,7 @@ jobs:
           def is_comment_in_code_block(line, inside_code_block):
               if re.match(r'^\s*```', line):  # Detects start/end of code blocks
                   return not inside_code_block, False
-              return inside_code_block, inside_code_block and re.match(r'^\s*(#|//|/\*)', line)
+              return inside_code_block, bool(inside_code_block and re.match(r'^\s*(#|//|/\*)', line))
 
           # Function to check if a word is inside a code block, backticks, URL, or file reference
           def is_code_or_url_or_file(line):
@@ -80,7 +80,9 @@ jobs:
                       "MORFOLOGIK_RULE_EN", "EN_COMPOUNDS", "EN_QUOTES", "UPPERCASE_SENTENCE_START",
                       "COMMA_WHICH", "EN_UNPAIRED_BRACKETS", "EN_A_VS_AN", "DUPLICATE_WORD"
                   ]:
-                      corrected_sentence = corrected_sentence[:match.offset] + match.replacements[0] + corrected_sentence[match.offset + len(match.context):]
+                      corrected_sentence = corrected_sentence.replace(
+                          match.context, match.replacements[0] if match.replacements else match.context
+                      )
               return corrected_sentence
 
           # Process each file and apply spelling & grammar corrections
