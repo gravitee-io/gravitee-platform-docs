@@ -38,10 +38,16 @@ jobs:
           ignore_list = {line.strip().lower(): line.strip() for line in open(".github/spellcheck-ignore.txt", "r", encoding="utf-8")}
           tool = language_tool_python.LanguageTool('en-US')
 
-          def is_comment(line, inside_code_block):
+          def is_comment(line, inside_code_block, inside_block_comment):
               if re.match(r'^\s*```', line):  
-                  return not inside_code_block, False
-              return inside_code_block, bool(re.match(r'^\s*(#|//|/\*|/\*\*)', line))
+                  return not inside_code_block, inside_block_comment, False
+              if inside_code_block:
+                  return inside_code_block, inside_block_comment, bool(re.match(r'^\s*(#|//|\*/|\*\*)', line))
+              if re.search(r'/\*', line):
+                  return inside_code_block, True, False
+              if re.search(r'\*/', line):
+                  return inside_code_block, False, False
+              return inside_code_block, inside_block_comment, False
 
           def is_code_or_url(line):
               return bool(re.search(r'https?://\S+|`.*?`|www\.\S+', line))
@@ -64,12 +70,12 @@ jobs:
                   if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
                       path = os.path.join(root, file)
                       lines = open(path, "r", encoding="utf-8").readlines()
-                      inside_code = False
+                      inside_code, inside_block_comment = False, False
                       with open(path, "w", encoding="utf-8") as f:
                           for line in lines:
                               orig = line.strip()
-                              inside_code, is_comment = is_comment(line, inside_code)
-                              if inside_code and not is_comment or not orig or is_code_or_url(orig):
+                              inside_code, inside_block_comment, is_comment = is_comment(line, inside_code, inside_block_comment)
+                              if inside_code and not is_comment or inside_block_comment or not orig or is_code_or_url(orig):
                                   f.write(line)
                                   continue
                               fixed = apply_spellcheck(orig)
