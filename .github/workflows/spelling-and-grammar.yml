@@ -55,7 +55,9 @@ jobs:
           def is_comment_in_code_block(line, inside_code_block):
               if re.match(r'^\s*```', line):  # Detects start/end of code blocks
                   return not inside_code_block, False
-              return inside_code_block, bool(inside_code_block and re.match(r'^\s*(#|//|/\*)', line))
+              if inside_code_block and re.match(r'^\s*(#|//|/\*)', line):
+                  return inside_code_block, True
+              return inside_code_block, False
 
           # Function to check if a word is inside a code block, backticks, URL, or file reference
           def is_code_or_url_or_file(line):
@@ -66,7 +68,7 @@ jobs:
               return bool(re.search(r'$begin:math:display$.*?$end:math:display$$begin:math:text$.*' + re.escape(original) + r'.*$end:math:text$', line))
 
           # Function to preserve spelling corrections before grammar check
-          def preserve_spelling(sentence, ignore_list):
+          def preserve_spelling(sentence):
               words = sentence.split()
               corrected_words = [ignore_list.get(word.lower(), word) for word in words]
               return " ".join(corrected_words)
@@ -79,9 +81,9 @@ jobs:
                   if match.ruleId in [
                       "MORFOLOGIK_RULE_EN", "EN_COMPOUNDS", "EN_QUOTES", "UPPERCASE_SENTENCE_START",
                       "COMMA_WHICH", "EN_UNPAIRED_BRACKETS", "EN_A_VS_AN", "DUPLICATE_WORD"
-                  ]:
+                  ] and match.replacements:
                       start, end = match.offset, match.offset + len(match.context)
-                      corrected_sentence = corrected_sentence[:start] + (match.replacements[0] if match.replacements else match.context) + corrected_sentence[end:]
+                      corrected_sentence = corrected_sentence[:start] + match.replacements[0] + corrected_sentence[end:]
               return corrected_sentence
 
           # Process each file and apply spelling & grammar corrections
@@ -112,7 +114,7 @@ jobs:
                               continue
 
                           # ✅ Apply spelling corrections using ignore list rules
-                          preserved_spelling_line = preserve_spelling(original_line, ignore_list)
+                          preserved_spelling_line = preserve_spelling(original_line)
 
                           # ✅ Apply grammar correction AFTER spelling correction
                           grammatically_corrected_line = apply_grammar_corrections(preserved_spelling_line)
