@@ -45,20 +45,23 @@ jobs:
           # Load LanguageTool
           try:
               tool = language_tool_python.LanguageTool('en-US')
-          except Exception:
-              print("Error: LanguageTool failed to initialize. Skipping grammar check.")
+          except Exception as e:
+              print("Error: LanguageTool failed to initialize:", str(e))
               tool = None
 
           # Function to check if a line is inside a code block or a comment
           def is_comment(line, inside_code_block, inside_block_comment):
               if re.match(r'^\s*```', line):  
                   return not inside_code_block, inside_block_comment, False
+              
               if inside_code_block:
                   return inside_code_block, inside_block_comment, bool(re.match(r'^\s*(#|//|\*|\*\*)', line))
-              if re.search(r'/\*', line):  # Start of multi-line block comment
+
+              if re.search(r'/\*', line):  # Start of block comment
                   return inside_code_block, True, False
-              if re.search(r'\*/', line):  # End of multi-line block comment
+              if re.search(r'\*/', line):  # End of block comment
                   return inside_code_block, False, False
+
               return inside_code_block, inside_block_comment, False
 
           # Function to check if a line contains a URL or a file path
@@ -78,6 +81,7 @@ jobs:
                   matches = tool.check(sentence)
               except Exception:
                   return sentence
+              
               corrections = []
               for match in matches:
                   if match.replacements and match.context.lower() not in ignore_list:
@@ -103,7 +107,7 @@ jobs:
                               inside_code, inside_block_comment, is_comment = is_comment(line, inside_code, inside_block_comment)
 
                               # Skip grammar correction for code but apply to comments
-                              if inside_code and not is_comment or inside_block_comment or not orig or is_code_or_url(orig):
+                              if (inside_code and not is_comment) or inside_block_comment or not orig or is_code_or_url(orig):
                                   f.write(line)
                                   continue
 
