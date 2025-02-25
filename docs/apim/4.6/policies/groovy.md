@@ -25,7 +25,7 @@ This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. 
 
 {% tabs %}
 {% tab title="HTTP proxy API example" %}
-#### onRequest / onResponse
+#### Example 1:  onRequest / onResponse
 
 The following example Groovy script is executed during the OnResponse phase to change HTTP headers:
 
@@ -34,20 +34,18 @@ response.headers.remove 'X-Powered-By'
 response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
 ```
 
-#### OnRequestContent / OnResponseContent
+#### Example 2:  OnRequestContent / OnResponseContent
 
 The following example shows you how to use the `groovy` policy to transform JSON content:
 
 **Input body content**
 
 ```json
-[
-    {
-        "age": 32,
-        "firstname": "John",
-        "lastname": "Doe"
-    }
-]
+{
+  "age": 32,
+  "firstname": "John",
+  "lastname": "Doe"
+}
 ```
 
 **Groovy script**
@@ -58,22 +56,20 @@ import groovy.json.JsonOutput
 
 def jsonSlurper = new JsonSlurper()
 def content = jsonSlurper.parseText(response.content)
-content[0].firstname = 'Hacked ' + content[0].firstname
-content[0].country = 'US'
+content.firstname = 'Hacked ' + content.firstname
+content.country = 'US'
 return JsonOutput.toJson(content)
 ```
 
 **Output body content**
 
 ```json
-[
-    {
-        "age": 32,
-        "firstname": "Hacked John",
-        "lastname": "Doe",
-        "country": "US"
-    }
-]
+{
+  "age": 32,
+  "firstname": "Hacked John",
+  "lastname": "Doe",
+  "country": "US"
+}
 ```
 {% endtab %}
 

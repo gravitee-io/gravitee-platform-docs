@@ -4,7 +4,6 @@
 .env.*
 .idea
 .vscode
-*.imlspellcheck_report.txt
-spellcheck_report_raw.txt
-spellcheck_report.txt
-spellcheck_report_raw.txt
+*.iml
+node_modules/
+package-lock.json
