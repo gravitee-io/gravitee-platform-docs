@@ -17,6 +17,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          sudo apt update && sudo apt install -y default-jre  # Install Java for LanguageTool
           pip install codespell
           pip install fuzzywuzzy[speedup]
           pip install sentence-splitter
@@ -50,11 +51,11 @@ jobs:
           # Load LanguageTool for grammar checking
           tool = language_tool_python.LanguageTool('en-US')
 
-          # Function to check if a line is a comment in a code block
+          # Function to check if a line is inside a code block or a comment
           def is_comment_in_code_block(line, inside_code_block):
-              if re.match(r'^\s*```', line):  # Detects the start/end of a code block
+              if re.match(r'^\s*```', line):  # Detects start/end of code blocks
                   return not inside_code_block, False
-              return inside_code_block, inside_code_block and re.match(r'^\s*#|//|/\*', line)
+              return inside_code_block, inside_code_block and re.match(r'^\s*(#|//|/\*)', line)
 
           # Function to check if a word is inside a code block, backticks, URL, or file reference
           def is_code_or_url_or_file(line):
@@ -64,8 +65,8 @@ jobs:
           def is_markdown_link(line, original):
               return bool(re.search(r'$begin:math:display$.*?$end:math:display$$begin:math:text$.*' + re.escape(original) + r'.*$end:math:text$', line))
 
-          # Function to lock in spelling corrections before grammar check
-          def preserve_spelling(sentence, original_words):
+          # Function to preserve spelling corrections before grammar check
+          def preserve_spelling(sentence, ignore_list):
               words = sentence.split()
               corrected_words = [ignore_list.get(word.lower(), word) for word in words]
               return " ".join(corrected_words)
@@ -110,7 +111,7 @@ jobs:
                               continue
 
                           # ✅ Apply spelling corrections using ignore list rules
-                          preserved_spelling_line = preserve_spelling(original_line, ignore_list.keys())
+                          preserved_spelling_line = preserve_spelling(original_line, ignore_list)
 
                           # ✅ Apply grammar correction AFTER spelling correction
                           grammatically_corrected_line = apply_grammar_corrections(preserved_spelling_line)
