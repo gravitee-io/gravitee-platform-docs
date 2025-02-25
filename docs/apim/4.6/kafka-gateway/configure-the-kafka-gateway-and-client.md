@@ -24,11 +24,11 @@ kafka:
   routingMode: host # default is host. Only host is supported for now.
   # Routing Host Mode
   routingHostMode:
-    brokerPrefix: broker- # default is broker-
-    domainSeparator: - # Used to separate broker's name from api & defaultDomain. Default is '-'
+    brokerPrefix: "broker-" # default is broker-
+    domainSeparator: "-" # Used to separate broker's name from api & defaultDomain. Default is '-'
 
     # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
-    defaultDomain: mycompany.org # Should set according to the public wildcard DNS/Certificate. Default is empty
+    defaultDomain: "mycompany.org" # Should set according to the public wildcard DNS/Certificate. Default is empty
     defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
 ```
 
@@ -56,16 +56,16 @@ kafka:
   routingMode: host # default is host. Only host is supported for now.
   # Routing Host Mode
   routingHostMode:
-    brokerPrefix: broker- # default is broker-
-    domainSeparator: - # Used to separate broker's name from api & defaultDomain. Default is '-'
+    brokerPrefix: "broker-" # default is broker-
+    domainSeparator: "-" # Used to separate broker's name from api & defaultDomain. Default is '-'
 
     # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
-    defaultDomain: mycompany.org # Should set according to the public wildcard DNS/Certificate. Default is empty
+    defaultDomain: "mycompany.org" # Should set according to the public wildcard DNS/Certificate. Default is empty
     defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
     
     # Customize the host domain.
     # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
-    bootstrapDomainPattern: my-bootstrap-{apiHost}.mycompany.org
+    bootstrapDomainPattern: "my-bootstrap-{apiHost}.mycompany.org"
 ```
 
 Then, for two APIs, the client will connect to, e.g., `my-bootstrap-api1.mycompany.org:9092` and `my-bootstrap-api2.mycompany.org:9092`, as opposed to the default of `api1.mycompany.org:9092` and `api2.mycompany.org:9092`.
@@ -98,18 +98,18 @@ kafka:
   routingMode: host # default is host. Only host is supported for now.
   # Routing Host Mode
   routingHostMode:
-    brokerPrefix: broker- # default is broker-
-    domainSeparator: - # Used to separate broker's name from api & defaultDomain. Default is '-'
+    brokerPrefix: "broker-" # default is broker-
+    domainSeparator: "-" # Used to separate broker's name from api & defaultDomain. Default is '-'
 
     # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
-    defaultDomain: mycompany.org # Should set according to the public wildcard DNS/Certificate. Default is empty
+    defaultDomain: "mycompany.org" # Should set according to the public wildcard DNS/Certificate. Default is empty
     defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
     
     # Customize the host domain.
     # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
     # {brokerId} is a placeholder that stand for the broker id
-    bootstrapDomainPattern: my-bootstrap-{apiHost}.mycompany.org
-    brokerDomainPattern: {apiHost}-broker-{brokerId}-test.mycompany.org
+    bootstrapDomainPattern: "my-bootstrap-{apiHost}.mycompany.org"
+    brokerDomainPattern: "{apiHost}-broker-{brokerId}-test.mycompany.org"
 ```
 
 With this, if there are three brokers in the upstream cluster, the client must be able to route to `api1-broker-0-test.mycompany.org`,  `api1-broker-0-test.mycompany.org`, and `api1-broker-0-test.mycompany.org`, along with `my-bootstrap-api1.mycompany.org`.
@@ -230,18 +230,18 @@ kafka:
   routingMode: host # default is host. Only host is supported for now.
   # Routing Host Mode
   routingHostMode:
-    brokerPrefix: broker- # default is broker-
-    domainSeparator: - # Used to separate broker's name from api & defaultDomain. Default is '-'
+    brokerPrefix: "broker-" # default is broker-
+    domainSeparator: "-" # Used to separate broker's name from api & defaultDomain. Default is '-'
 
     # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
-    defaultDomain: mycompany.org # Should set according to the public wildcard DNS/Certificate. Default is empty
+    defaultDomain: "mycompany.org" # Should set according to the public wildcard DNS/Certificate. Default is empty
     defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
 
     # If necessary, customize the host domain.
     # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
     # {brokerId} is a placeholder that stand for the broker id
-    bootstrapDomainPattern: my-bootstrap-{apiHost}.mycompany.org
-    brokerDomainPattern: {apiHost}-broker-{brokerId}-test.mycompany.org
+    bootstrapDomainPattern: "my-bootstrap-{apiHost}.mycompany.org"
+    brokerDomainPattern: "{apiHost}-broker-{brokerId}-test.mycompany.org"
 
   # API-Key plan security configuration
   # These are the SASL mechanisms that API key plans support.
