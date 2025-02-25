@@ -1,4 +1,4 @@
-name: Manual Spellcheck & AI Grammar Correction with Logging
+name: Manual Spellcheck & AI Grammar Correction with Code Comment Support
 
 on:
   workflow_dispatch:  # Runs only when manually triggered
@@ -6,11 +6,10 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  issues: write
 
 jobs:
   spellcheck_grammar_review:
-    runs-on: ubuntu-22.04  # ✅ Upgraded runner for better performance
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
@@ -18,20 +17,11 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y openjdk-11-jre  # ✅ Ensure Java is installed
-          echo "JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64" >> $GITHUB_ENV
-          export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-
-          pip install --no-cache-dir codespell
-          pip install --no-cache-dir fuzzywuzzy[speedup]
-          pip install --no-cache-dir sentence-splitter
-          pip install --no-cache-dir --upgrade lxml
-          pip install --no-cache-dir git+https://github.com/jxmorris12/language_tool_python.git
-          pip install --no-cache-dir transformers torch
-
-          echo "PYTHONPATH=$PYTHONPATH:$(python3 -c 'import site; print(site.getsitepackages()[0])')" >> $GITHUB_ENV
-          export PYTHONPATH=$PYTHONPATH:$(python3 -c 'import site; print(site.getsitepackages()[0])')
+          pip install codespell
+          pip install fuzzywuzzy[speedup]
+          pip install sentence-splitter
+          pip install --upgrade lxml
+          pip install git+https://github.com/jxmorris12/language_tool_python.git
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
@@ -39,7 +29,7 @@ jobs:
             echo "Error: spellcheck-ignore.txt not found!" && exit 1
           fi
 
-      - name: Run Spellcheck and AI Grammar Correction
+      - name: Run Spellcheck and Apply Fixes
         run: |
           set -e  # Exit on error
 
@@ -49,134 +39,114 @@ jobs:
           import language_tool_python
           from sentence_splitter import SentenceSplitter
           from fuzzywuzzy import process
-          from transformers import pipeline
 
-          # Load spellcheck ignore list
+          # Load spellcheck ignore list with case sensitivity
           ignore_list = {}
           with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
               for line in f:
                   word = line.strip()
-                  ignore_list[word.lower()] = word
+                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
           # Load LanguageTool for grammar checking
           tool = language_tool_python.LanguageTool('en-US')
 
-          # Load AI-based grammar correction model
-          grammar_corrector = pipeline("text2text-generation", model="t5-base", tokenizer="t5-base")
+          # Function to check if a line is a comment in a code block
+          def is_comment_in_code_block(line, inside_code_block):
+              if re.match(r'^\s*```', line):  # Detects the start/end of a code block
+                  return not inside_code_block, False
+              return inside_code_block, inside_code_block and re.match(r'^\s*#|//|/\*', line)
 
-          # Function to classify minor vs. major grammar issues
-          def classify_correction(original, corrected):
-              reason = ""
+          # Function to check if a word is inside a code block, backticks, URL, or file reference
+          def is_code_or_url_or_file(line):
+              return bool(re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line))
 
-              # If only small punctuation fixes (comma, period, etc.), auto-apply
-              if re.sub(r'[,.!?;:\-]', '', original) == re.sub(r'[,.!?;:\-]', '', corrected):
-                  reason = "Minor punctuation fix"
-                  return "auto", reason
-              
-              # If replacing a single word (e.g., verb tense correction), auto-apply
-              if len(original.split()) == len(corrected.split()):
-                  reason = "Minor verb tense or typo fix"
-                  return "auto", reason
+          # Function to check if a word is part of a Markdown link
+          def is_markdown_link(line, original):
+              return bool(re.search(r'$begin:math:display$.*?$end:math:display$$begin:math:text$.*' + re.escape(original) + r'.*$end:math:text$', line))
 
-              # If words are added, removed, or structure is changed, send for review
-              reason = "Sentence structure modified or words added/removed"
-              return "review", reason
+          # Function to lock in spelling corrections before grammar check
+          def preserve_spelling(sentence, original_words):
+              words = sentence.split()
+              corrected_words = [ignore_list.get(word.lower(), word) for word in words]
+              return " ".join(corrected_words)
 
-          # Store corrections for review and logs
-          review_corrections = []
-          auto_applied_corrections = []
-          correction_log = []
+          # Function to apply grammar corrections using LanguageTool
+          def apply_grammar_corrections(sentence):
+              matches = tool.check(sentence)
+              corrected_sentence = sentence
+              for match in matches:
+                  if match.ruleId in [
+                      "MORFOLOGIK_RULE_EN", "EN_COMPOUNDS", "EN_QUOTES", "UPPERCASE_SENTENCE_START",
+                      "COMMA_WHICH", "EN_UNPAIRED_BRACKETS", "EN_A_VS_AN", "DUPLICATE_WORD"
+                  ]:
+                      corrected_sentence = corrected_sentence[:match.offset] + match.replacements[0] + corrected_sentence[match.offset + len(match.context):]
+              return corrected_sentence
 
-          # Process files
+          # Process each file and apply spelling & grammar corrections
           for root, _, files in os.walk("."):
               for filename in files:
-                  if filename.endswith((".md", ".txt")) and "spellcheck_report" not in filename:
+                  if filename.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")) and "spellcheck_report" not in filename:
                       filepath = os.path.join(root, filename)
                       with open(filepath, "r", encoding="utf-8") as file:
                           lines = file.readlines()
 
                       corrected_lines = []
+                      inside_code_block = False
+
                       for line in lines:
                           original_line = line.strip()
 
-                          if not original_line:
+                          # Track whether inside a code block and if the line is a comment
+                          inside_code_block, is_comment = is_comment_in_code_block(line, inside_code_block)
+
+                          # Skip grammar correction for code but apply to comments
+                          if inside_code_block and not is_comment:
                               corrected_lines.append(line)
                               continue
 
-                          # AI-based grammar correction
-                          grammatically_corrected_line = grammar_corrector(
-                              f"fix grammar: {original_line}", max_length=100
-                          )[0]['generated_text']
-
-                          correction_type, reason = classify_correction(original_line, grammatically_corrected_line)
-
-                          log_entry = f"**File:** `{filepath}`  \n" \
-                                      f"**Original:** `{original_line}`  \n" \
-                                      f"**Suggested:** `{grammatically_corrected_line}`  \n" \
-                                      f"**Reason:** {reason}  \n"
-
-                          correction_log.append(log_entry)
-
-                          if correction_type == "review":
-                              review_corrections.append(log_entry)
-                          else:
-                              auto_applied_corrections.append(log_entry)
-                              corrected_lines.append(grammatically_corrected_line + "\n")
+                          # Skip empty lines and URLs
+                          if not original_line or is_code_or_url_or_file(original_line):
+                              corrected_lines.append(line)
                               continue
 
-                          corrected_lines.append(original_line + "\n")
+                          # ✅ Apply spelling corrections using ignore list rules
+                          preserved_spelling_line = preserve_spelling(original_line, ignore_list.keys())
 
-                      # Write back auto-applied corrections only
+                          # ✅ Apply grammar correction AFTER spelling correction
+                          grammatically_corrected_line = apply_grammar_corrections(preserved_spelling_line)
+
+                          # Ensure punctuation modifications are meaningful
+                          grammatically_corrected_line = grammatically_corrected_line.replace("..", ".").replace(",.", ".").replace(" ,", ",")
+
+                          corrected_lines.append(grammatically_corrected_line + "\n")
+
+                      # Write back corrected content
                       with open(filepath, "w", encoding="utf-8") as file:
                           file.writelines(corrected_lines)
-
-          # Save correction logs
-          with open("corrections_log.md", "w", encoding="utf-8") as f:
-              f.write("# Full Correction Log\n")
-              f.write("\n".join(correction_log))
-
-          with open("corrections_review.md", "w", encoding="utf-8") as f:
-              f.write("# Suggested Grammar Fixes Requiring Review\n")
-              if review_corrections:
-                  f.write("\n".join(review_corrections))
-              else:
-                  f.write("No major corrections requiring review.\n")
-
-          with open("auto_applied_corrections.md", "w", encoding="utf-8") as f:
-              f.write("# Automatically Applied Grammar Fixes\n")
-              if auto_applied_corrections:
-                  f.write("\n".join(auto_applied_corrections))
-              else:
-                  f.write("No automatic corrections applied.\n")
           EOF
 
-      - name: Create GitHub Issue for Review
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
-        run: |
-          if [ -s corrections_review.md ]; then
-            gh issue create --title "Review Major Grammar Fixes" \
-                            --body-file corrections_review.md \
-                            --label "review-needed"
-          else
-            echo "No major corrections found, skipping issue creation."
-
-      - name: Apply Approved Corrections & Create PR
+      - name: Create Pull Request with Corrections
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          BRANCH_NAME="spellcheck-grammar-ai-$(date +%s)"
+          BRANCH_NAME="spellcheck-grammar-fixes-$(date +%s)"
           git checkout -b $BRANCH_NAME
 
-          # Apply reviewed changes
-          git add .
-          git commit -m "Spellcheck & AI Grammar Fixes: Approved corrections applied"
-          git push origin $BRANCH_NAME
+          # Commit the changes if there are any
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "Spellcheck & Grammar Fixes: Automatically corrected detected issues"
+            git push origin $BRANCH_NAME
 
-          # Create PR
-          gh pr create --base main --head $BRANCH_NAME \
-                       --title "Spellcheck & AI Grammar Fixes (Approved)" \
-                       --body "This PR contains manually reviewed and approved spelling & grammar corrections."
+            # Create PR using GitHub CLI
+            gh pr create \
+              --base main \
+              --head $BRANCH_NAME \
+              --title "Spellcheck & Grammar Fixes" \
+              --body "This PR contains automatically applied spelling and grammar corrections."
+          else
+            echo "No changes detected. Skipping PR creation."
+          fi
