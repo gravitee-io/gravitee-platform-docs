@@ -34,18 +34,17 @@ jobs:
 
           python3 <<EOF
           import re, os, language_tool_python
-          
-          ignore_list = {line.strip().lower(): line.strip() for line in open(".github/spellcheck-ignore.txt", "r", encoding="utf-8")}
 
+          ignore_list = {line.strip().lower(): line.strip() for line in open(".github/spellcheck-ignore.txt", "r", encoding="utf-8")}
           tool = language_tool_python.LanguageTool('en-US')
 
           def is_comment(line, inside_code_block):
               if re.match(r'^\s*```', line):  
                   return not inside_code_block, False
-              return inside_code_block, bool(re.match(r'^\s*(#|//|/\*)', line))
+              return inside_code_block, bool(re.match(r'^\s*(#|//|/\*|/\*\*)', line))
 
           def is_code_or_url(line):
-              return bool(re.search(r'(?<!\w)https?://\S+|`.*?`|www\.\S+', line))
+              return bool(re.search(r'https?://\S+|`.*?`|www\.\S+', line))
 
           def apply_spellcheck(sentence):
               return " ".join([ignore_list.get(word.lower(), word) for word in sentence.split()])
@@ -55,7 +54,7 @@ jobs:
                   matches = tool.check(sentence)
               except Exception:
                   return sentence
-              corrections = [(m.offset, m.context, m.replacements[0]) for m in matches if m.replacements]
+              corrections = [(m.offset, m.context, m.replacements[0]) for m in matches if m.replacements and m.context.lower() not in ignore_list]
               for offset, original, replacement in sorted(corrections, key=lambda x: -x[0]):
                   sentence = sentence[:offset] + replacement + sentence[offset + len(original):]
               return sentence
