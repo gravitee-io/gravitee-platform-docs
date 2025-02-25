@@ -52,43 +52,34 @@ jobs:
           # Load LanguageTool for grammar checking
           tool = language_tool_python.LanguageTool('en-US')
 
-          # Function to detect code blocks and comments within code
+          # Function to detect comments inside code blocks
           def is_comment_in_code_block(line, inside_code_block):
               if re.match(r'^\s*```', line):  # Detects start/end of code blocks
                   return not inside_code_block, False
-              return inside_code_block, bool(inside_code_block and re.match(r'^\s*(#|//|/\*)', line))
+              return inside_code_block, inside_code_block and bool(re.match(r'^\s*(#|//|/\*)', line))
 
-          # Function to check if a line contains a URL, file path, or backticks (code)
+          # Function to detect URLs and file paths
           def is_code_or_url_or_file(line):
               return bool(re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line))
 
-          # Function to check if a word is part of a Markdown link
-          def is_markdown_link(line, original):
-              return bool(re.search(r'$begin:math:display$.*?$end:math:display$$begin:math:text$.*' + re.escape(original) + r'.*$end:math:text$', line))
-
-          # Function to preserve spelling corrections before grammar check
+          # Function to apply spelling corrections
           def preserve_spelling(sentence):
               words = sentence.split()
               corrected_words = [ignore_list.get(word.lower(), word) for word in words]
               return " ".join(corrected_words)
 
-          # Function to apply grammar corrections using LanguageTool
+          # Function to apply grammar corrections with structured handling
           def apply_grammar_corrections(sentence):
               matches = tool.check(sentence)
-              corrected_sentence = sentence
               for match in matches:
-                  if match.ruleId in [
-                      "MORFOLOGIK_RULE_EN", "EN_COMPOUNDS", "EN_QUOTES", "UPPERCASE_SENTENCE_START",
-                      "COMMA_WHICH", "EN_UNPAIRED_BRACKETS", "EN_A_VS_AN", "DUPLICATE_WORD"
-                  ] and match.replacements:
-                      start, end = match.offset, match.offset + len(match.context)
-                      corrected_sentence = corrected_sentence[:start] + match.replacements[0] + corrected_sentence[end:]
-              return corrected_sentence
+                  if match.replacements:
+                      sentence = sentence[:match.offset] + match.replacements[0] + sentence[match.offset + len(match.context):]
+              return sentence
 
           # Process each file and apply spelling & grammar corrections
           for root, _, files in os.walk("."):
               for filename in files:
-                  if filename.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")) and "spellcheck_report" not in filename:
+                  if filename.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
                       filepath = os.path.join(root, filename)
                       with open(filepath, "r", encoding="utf-8") as file:
                           lines = file.readlines()
@@ -98,32 +89,22 @@ jobs:
 
                       for line in lines:
                           original_line = line.strip()
-
-                          # Track whether inside a code block and if the line is a comment
                           inside_code_block, is_comment = is_comment_in_code_block(line, inside_code_block)
 
-                          # Skip grammar correction for code but apply to comments
                           if inside_code_block and not is_comment:
                               corrected_lines.append(line)
                               continue
 
-                          # Skip empty lines and URLs
                           if not original_line or is_code_or_url_or_file(original_line):
                               corrected_lines.append(line)
                               continue
 
-                          # ✅ Apply spelling corrections using ignore list rules
                           preserved_spelling_line = preserve_spelling(original_line)
-
-                          # ✅ Apply grammar correction AFTER spelling correction
                           grammatically_corrected_line = apply_grammar_corrections(preserved_spelling_line)
-
-                          # Ensure punctuation modifications are meaningful
                           grammatically_corrected_line = grammatically_corrected_line.replace("..", ".").replace(",.", ".").replace(" ,", ",")
 
                           corrected_lines.append(grammatically_corrected_line + "\n")
 
-                      # Write back corrected content
                       with open(filepath, "w", encoding="utf-8") as file:
                           file.writelines(corrected_lines)
           EOF
@@ -134,22 +115,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
           BRANCH_NAME="spellcheck-grammar-fixes-$(date +%s)"
           git checkout -b $BRANCH_NAME
-
-          # Commit the changes if there are any
-          if [ -n "$(git status --porcelain)" ]; then
-            git add .
-            git commit -m "Spellcheck & Grammar Fixes: Automatically corrected detected issues"
-            git push origin $BRANCH_NAME
-
-            # Create PR using GitHub CLI
-            gh pr create \
-              --base main \
-              --head $BRANCH_NAME \
-              --title "Spellcheck & Grammar Fixes" \
-              --body "This PR contains automatically applied spelling and grammar corrections."
-          else
-            echo "No changes detected. Skipping PR creation."
-          fi
+          git add .
+          git commit -m "Spellcheck & Grammar Fixes: Automatically corrected detected issues"
+          git push origin $BRANCH_NAME
+          gh pr create --base main --head $BRANCH_NAME --title "Spellcheck & Grammar Fixes" --body "This PR contains automatically applied spelling and grammar corrections."
