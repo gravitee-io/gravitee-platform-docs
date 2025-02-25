@@ -23,12 +23,15 @@ jobs:
           echo "JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64" >> $GITHUB_ENV
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
-          pip install codespell
-          pip install fuzzywuzzy[speedup]
-          pip install sentence-splitter
-          pip install --upgrade lxml
-          pip install git+https://github.com/jxmorris12/language_tool_python.git
-          pip install transformers torch
+          pip install --no-cache-dir codespell
+          pip install --no-cache-dir fuzzywuzzy[speedup]
+          pip install --no-cache-dir sentence-splitter
+          pip install --no-cache-dir --upgrade lxml
+          pip install --no-cache-dir git+https://github.com/jxmorris12/language_tool_python.git
+          pip install --no-cache-dir transformers torch
+
+          echo "PYTHONPATH=$PYTHONPATH:$(python3 -c 'import site; print(site.getsitepackages()[0])')" >> $GITHUB_ENV
+          export PYTHONPATH=$PYTHONPATH:$(python3 -c 'import site; print(site.getsitepackages()[0])')
 
       - name: Verify Spellcheck Ignore List Exists
         run: |
