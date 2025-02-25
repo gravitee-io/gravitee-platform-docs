@@ -56,7 +56,8 @@ import groovy.json.JsonOutput
 
 def jsonSlurper = new JsonSlurper()
 def content = jsonSlurper.parseText(response.content)
-content.result = 'Hacked ' + content.result
+content.firstname = 'Hacked ' + content.firstname
+content.country = 'US'
 return JsonOutput.toJson(content)
 ```
 
