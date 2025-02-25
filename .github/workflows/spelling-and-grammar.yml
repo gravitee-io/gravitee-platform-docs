@@ -42,41 +42,50 @@ jobs:
           from sentence_splitter import SentenceSplitter
           from fuzzywuzzy import process
 
-          # Load spellcheck ignore list with case sensitivity
+          # ✅ Load spellcheck ignore list with case sensitivity
           ignore_list = {}
           with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
               for line in f:
                   word = line.strip()
                   ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
-          # Load LanguageTool for grammar checking
+          # ✅ Load LanguageTool for grammar checking
           tool = language_tool_python.LanguageTool('en-US')
 
-          # Function to detect comments inside code blocks
+          # ✅ Function to detect code blocks & comments
           def is_comment_in_code_block(line, inside_code_block):
-              if re.match(r'^\s*```', line):  # Detects start/end of code blocks
+              if re.match(r'^\s*```', line):  
                   return not inside_code_block, False
-              return inside_code_block, inside_code_block and bool(re.match(r'^\s*(#|//|/\*)', line))
+              if inside_code_block and re.match(r'^\s*(#|//|/\*)', line):
+                  return inside_code_block, True
+              return inside_code_block, False
 
-          # Function to detect URLs and file paths
+          # ✅ Function to detect URLs and file paths
           def is_code_or_url_or_file(line):
-              return bool(re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line))
+              return bool(re.search(r'`.*?`|https?://\S+|www\.\S+|[\w./-]+', line))
 
-          # Function to apply spelling corrections
-          def preserve_spelling(sentence):
+          # ✅ Function to apply spelling corrections
+          def apply_spellcheck(sentence):
               words = sentence.split()
-              corrected_words = [ignore_list.get(word.lower(), word) for word in words]
-              return " ".join(corrected_words)
+              return " ".join([ignore_list.get(word.lower(), word) for word in words])
 
-          # Function to apply grammar corrections with structured handling
+          # ✅ Function to apply grammar corrections SAFELY
           def apply_grammar_corrections(sentence):
               matches = tool.check(sentence)
+              corrections = []
+              
+              # First, collect all replacements without modifying offsets
               for match in matches:
                   if match.replacements:
-                      sentence = sentence[:match.offset] + match.replacements[0] + sentence[match.offset + len(match.context):]
+                      corrections.append((match.offset, match.context, match.replacements[0]))
+              
+              # Apply corrections in reverse to prevent shifting offsets
+              for offset, original, replacement in sorted(corrections, key=lambda x: -x[0]):
+                  sentence = sentence[:offset] + replacement + sentence[offset + len(original):]
+              
               return sentence
 
-          # Process each file and apply spelling & grammar corrections
+          # ✅ Process each file and apply spelling & grammar corrections
           for root, _, files in os.walk("."):
               for filename in files:
                   if filename.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
@@ -91,20 +100,28 @@ jobs:
                           original_line = line.strip()
                           inside_code_block, is_comment = is_comment_in_code_block(line, inside_code_block)
 
+                          # ✅ Skip grammar correction for code but apply to comments
                           if inside_code_block and not is_comment:
                               corrected_lines.append(line)
                               continue
 
+                          # ✅ Skip empty lines and URLs
                           if not original_line or is_code_or_url_or_file(original_line):
                               corrected_lines.append(line)
                               continue
 
-                          preserved_spelling_line = preserve_spelling(original_line)
-                          grammatically_corrected_line = apply_grammar_corrections(preserved_spelling_line)
+                          # ✅ Apply spelling correction
+                          spellchecked_line = apply_spellcheck(original_line)
+
+                          # ✅ Apply grammar correction
+                          grammatically_corrected_line = apply_grammar_corrections(spellchecked_line)
+
+                          # ✅ Prevent unwanted punctuation issues
                           grammatically_corrected_line = grammatically_corrected_line.replace("..", ".").replace(",.", ".").replace(" ,", ",")
 
                           corrected_lines.append(grammatically_corrected_line + "\n")
 
+                      # ✅ Write corrected content back
                       with open(filepath, "w", encoding="utf-8") as file:
                           file.writelines(corrected_lines)
           EOF
