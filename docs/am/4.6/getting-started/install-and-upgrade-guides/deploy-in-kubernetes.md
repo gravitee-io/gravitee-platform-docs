@@ -631,7 +631,7 @@ jdbc:
   # URLs to download the drivers
   drivers:
     - https://jdbc.postgresql.org/download/postgresql-42.2.20.jar
-    - https://repo1.maven.org/maven2/org/postgresql/r2dbc-postgresql/1.0.2.RELEASE/r2dbc-postgresql-1.0.2.RELEASE.jar
+    - https://repo1.maven.org/maven2/org/postgresql/r2dbc-postgresql/1.0.7.RELEASE/r2dbc-postgresql-1.0.7.RELEASE.jar
   pool:
     acquireRetry:  1
     initialSize: 0

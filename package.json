@@ -1,0 +1,14 @@
+{
+  "name": "gravitee-policy-sync",
+  "version": "1.0.0",
+  "description": "Sync policy READMEs from Gravitee-io repos to the documentation repository.",
+  "main": "sync-policy-readmes.js",
+  "scripts": {
+    "start": "node sync-policy-readmes.js"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
