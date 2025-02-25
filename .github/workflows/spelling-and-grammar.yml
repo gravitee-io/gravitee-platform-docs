@@ -80,9 +80,8 @@ jobs:
                       "MORFOLOGIK_RULE_EN", "EN_COMPOUNDS", "EN_QUOTES", "UPPERCASE_SENTENCE_START",
                       "COMMA_WHICH", "EN_UNPAIRED_BRACKETS", "EN_A_VS_AN", "DUPLICATE_WORD"
                   ]:
-                      corrected_sentence = corrected_sentence.replace(
-                          match.context, match.replacements[0] if match.replacements else match.context
-                      )
+                      start, end = match.offset, match.offset + len(match.context)
+                      corrected_sentence = corrected_sentence[:start] + (match.replacements[0] if match.replacements else match.context) + corrected_sentence[end:]
               return corrected_sentence
 
           # Process each file and apply spelling & grammar corrections
