@@ -56,8 +56,8 @@ async function fetchReadme(repoName) {
   return buff.toString('utf-8');
 }
 
-// Extract the first Markdown header as the title
-function extractTitle(content) {
+// Extract the first Markdown header as the title, fallback to repoName if not found
+function extractTitle(content, repoName) {
   const lines = content.split('\n');
   for (const line of lines) {
     const match = line.match(/^#\s+(.*)/);
@@ -65,10 +65,11 @@ function extractTitle(content) {
       return match[1].trim();
     }
   }
-  return null;
+  // Fallback to the repo name if no header found
+  return repoName;
 }
 
-// Sanitize title to create a valid filename (e.g., replace spaces with underscores, remove special characters)
+// Sanitize title to create a valid filename (replace spaces with underscores, remove special characters)
 function sanitizeFilename(title) {
   return title
     .replace(/[^a-z0-9 \-_]/gi, '')  // remove unwanted characters
@@ -90,11 +91,8 @@ async function main() {
         console.warn(`Skipping repo "${repo.name}" due to missing README.`);
         continue;
       }
-      const title = extractTitle(readme);
-      if (!title) {
-        console.warn(`Skipping repo "${repo.name}" because no Markdown header (title) was found.`);
-        continue;
-      }
+      // Use the repo name as fallback if no markdown header is found.
+      const title = extractTitle(readme, repo.name);
       const filename = sanitizeFilename(title);
       const filepath = path.join(docsPath, filename);
       // Write or update the file with the README content

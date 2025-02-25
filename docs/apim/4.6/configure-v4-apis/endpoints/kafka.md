@@ -65,7 +65,7 @@ Define whichever of the following are relevant to your configuration.
 {% endtab %}
 {% endtabs %}
 
-### Producer and Consumer Settings
+## Producer and Consumer Settings
 
 If you chose **Use Producer** or **Use Producer and Consumer**, you define the settings that the gateway's Kafka client will rely on for producing messages to your backend Kafka topic/broker.
 
@@ -146,14 +146,19 @@ To set a key on a message, the attribute `gravitee.attribute.kafka.recordKey` ca
 
 A shared producer is created by the endpoint and reused for all requests with that same configuration. The producer configuration includes the **ClientId**, **Topic**, and **Partitioning**. The client ID is generated for the producer in the format `gio-apim-producer-<first part of uuid>`, e.g., `gio-apim-producer-a0eebc99`
 
-### Dynamic configuration <a href="#user-content-dynamic-configuration" id="user-content-dynamic-configuration"></a>
+## Dynamic configuration <a href="#user-content-dynamic-configuration" id="user-content-dynamic-configuration"></a>
 
-The Kafka endpoint includes the dynamic configuration feature, meaning that you can:
+The Kafka endpoint includes the dynamic configuration feature, meaning that you can override specific values at runtime. You can set overrides via the following attributes being set in the [Assign Attributes](../../policies/assign-attributes.md) policy:
 
-* Override any configuration parameters using an attribute (via the Assign Attribute policy). Your attribute needs to start with `gravitee.attributes.endpoint.kafka`, followed by the property you want to override.
-  * To override the topic, set `gravitee.attributes.endpoint.kafka.topics`.
-  * To override the consumer group, set `gravitee.attributes.endpoint.kafka.groupId`. By default,  the consumer group is derived from the subscription information passed with the client, as discussed above. You may need to set this attribute if you cannot create consumer groups in your cluster.
-  * To override the record key, set `gravitee.attributes.endpoint.kafka.recordKey.`
+* To override the topic on the producer, set `gravitee.attributes.endpoint.kafka.producer.topics`.
+* To override the topic on the consumer, set `gravitee.attributes.endpoint.kafka.consumer.topics`.
+* To override the consumer group, set `gravitee.attribute.endpoint.kafka.groupId`. By default,  the consumer group is derived from the subscription information passed with the client, as discussed above. You may need to set this attribute if you cannot create consumer groups in your cluster.
+* To override the record key, set `gravitee.attribute.endpoint.kafka.recordKey` .
+
+{% hint style="info" %}
+Older versions of Gravitee used the naming convention `gravitee.attribute.kafka.topic` for the dynamic topic override. This is still supported, but it is recommended to use the the specific attributes for the producer and consumer listed above.
+{% endhint %}
+
 * Use EL in any "String" type property. The following example shows how to use EL to populate the consumer autoOffsetReset property:
 
 ```json
@@ -175,7 +180,7 @@ The Kafka endpoint includes the dynamic configuration feature, meaning that you 
 }
 ```
 
-### Documentation for Specific Environments
+## Documentation for Specific Environments
 
 The following situations require special configuration.
 
@@ -281,7 +286,7 @@ YOUR_NAMESPACE.servicebus.windows.net:9093
 {% endtab %}
 {% endtabs %}
 
-### **Recovering Kafka messages**
+## **Recovering Kafka messages**
 
 Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records. The Kafka enrypoint therefore supports the **at-least-one** or **at-most-one** QoS.
 
@@ -348,13 +353,6 @@ Refer to the following sections for additional details.
 | -------------- | --------------- |
 | 1.x to 2.1.4   | 3.20.x to 4.0.4 |
 | 2.2.0 and up   | 4.0.5 to latest |
-
-{% hint style="warning" %}
-**Deprecation**
-
-* Gravitee context attribute `gravitee.attribute.kafka.topics` is deprecated and will be removed in future versions. Use `gravitee.attribute.kafka.producer.topics` or `gravitee.attribute.kafka.consumer.topics`.
-* Use `gravitee.attribute.kafka.producer.topics` as the message attribute to publish messages to a specific topic.
-{% endhint %}
 
 ### Endpoint identifier <a href="#user-content-endpoint-identifier" id="user-content-endpoint-identifier"></a>
 
