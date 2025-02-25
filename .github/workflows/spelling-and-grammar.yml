@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   spellcheck_grammar_review:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # ✅ Upgraded runner for better performance
 
     steps:
       - name: Checkout Repository
