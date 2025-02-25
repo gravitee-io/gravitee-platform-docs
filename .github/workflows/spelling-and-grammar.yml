@@ -1,7 +1,7 @@
 name: Manual Spellcheck & AI Grammar Correction with Code Comment Support
 
 on:
-  workflow_dispatch:  # Runs only when manually triggered
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -17,15 +17,12 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo apt update && sudo apt install -y default-jre  # Install Java for LanguageTool
+          sudo apt update && sudo apt install -y default-jre
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-          pip install codespell
-          pip install fuzzywuzzy[speedup]
-          pip install sentence-splitter
-          pip install --upgrade lxml
+          pip install codespell fuzzywuzzy[speedup] sentence-splitter --upgrade lxml
           pip install git+https://github.com/jxmorris12/language_tool_python.git
 
-      - name: Verify Spellcheck Ignore List Exists
+      - name: Verify Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
             echo "Error: spellcheck-ignore.txt not found!" && exit 1
@@ -33,108 +30,60 @@ jobs:
 
       - name: Run Spellcheck and Apply Fixes
         run: |
-          set -e  # Exit on error
+          set -e
 
           python3 <<EOF
-          import re
-          import os
-          import language_tool_python
-          from sentence_splitter import SentenceSplitter
-          from fuzzywuzzy import process
+          import re, os, language_tool_python
+          
+          ignore_list = {line.strip().lower(): line.strip() for line in open(".github/spellcheck-ignore.txt", "r", encoding="utf-8")}
 
-          # ✅ Load spellcheck ignore list with case sensitivity
-          ignore_list = {}
-          with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
-              for line in f:
-                  word = line.strip()
-                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
-
-          # ✅ Load LanguageTool for grammar checking
           tool = language_tool_python.LanguageTool('en-US')
 
-          # ✅ Function to detect code blocks & comments
-          def is_comment_in_code_block(line, inside_code_block):
+          def is_comment(line, inside_code_block):
               if re.match(r'^\s*```', line):  
                   return not inside_code_block, False
-              if inside_code_block and re.match(r'^\s*(#|//|/\*)', line):
-                  return inside_code_block, True
-              return inside_code_block, False
+              return inside_code_block, bool(re.match(r'^\s*(#|//|/\*)', line))
 
-          # ✅ Function to detect URLs and file paths
-          def is_code_or_url_or_file(line):
-              return bool(re.search(r'`.*?`|https?://\S+|www\.\S+|[\w./-]+', line))
+          def is_code_or_url(line):
+              return bool(re.search(r'(?<!\w)https?://\S+|`.*?`|www\.\S+', line))
 
-          # ✅ Function to apply spelling corrections
           def apply_spellcheck(sentence):
-              words = sentence.split()
-              return " ".join([ignore_list.get(word.lower(), word) for word in words])
+              return " ".join([ignore_list.get(word.lower(), word) for word in sentence.split()])
 
-          # ✅ Function to apply grammar corrections SAFELY
-          def apply_grammar_corrections(sentence):
-              matches = tool.check(sentence)
-              corrections = []
-              
-              # First, collect all replacements without modifying offsets
-              for match in matches:
-                  if match.replacements:
-                      corrections.append((match.offset, match.context, match.replacements[0]))
-              
-              # Apply corrections in reverse to prevent shifting offsets
+          def apply_grammar(sentence):
+              try:
+                  matches = tool.check(sentence)
+              except Exception:
+                  return sentence
+              corrections = [(m.offset, m.context, m.replacements[0]) for m in matches if m.replacements]
               for offset, original, replacement in sorted(corrections, key=lambda x: -x[0]):
                   sentence = sentence[:offset] + replacement + sentence[offset + len(original):]
-              
               return sentence
 
-          # ✅ Process each file and apply spelling & grammar corrections
           for root, _, files in os.walk("."):
-              for filename in files:
-                  if filename.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
-                      filepath = os.path.join(root, filename)
-                      with open(filepath, "r", encoding="utf-8") as file:
-                          lines = file.readlines()
-
-                      corrected_lines = []
-                      inside_code_block = False
-
-                      for line in lines:
-                          original_line = line.strip()
-                          inside_code_block, is_comment = is_comment_in_code_block(line, inside_code_block)
-
-                          # ✅ Skip grammar correction for code but apply to comments
-                          if inside_code_block and not is_comment:
-                              corrected_lines.append(line)
-                              continue
-
-                          # ✅ Skip empty lines and URLs
-                          if not original_line or is_code_or_url_or_file(original_line):
-                              corrected_lines.append(line)
-                              continue
-
-                          # ✅ Apply spelling correction
-                          spellchecked_line = apply_spellcheck(original_line)
-
-                          # ✅ Apply grammar correction
-                          grammatically_corrected_line = apply_grammar_corrections(spellchecked_line)
-
-                          # ✅ Prevent unwanted punctuation issues
-                          grammatically_corrected_line = grammatically_corrected_line.replace("..", ".").replace(",.", ".").replace(" ,", ",")
-
-                          corrected_lines.append(grammatically_corrected_line + "\n")
-
-                      # ✅ Write corrected content back
-                      with open(filepath, "w", encoding="utf-8") as file:
-                          file.writelines(corrected_lines)
+              for file in files:
+                  if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
+                      path = os.path.join(root, file)
+                      lines = open(path, "r", encoding="utf-8").readlines()
+                      inside_code = False
+                      with open(path, "w", encoding="utf-8") as f:
+                          for line in lines:
+                              orig = line.strip()
+                              inside_code, is_comment = is_comment(line, inside_code)
+                              if inside_code and not is_comment or not orig or is_code_or_url(orig):
+                                  f.write(line)
+                                  continue
+                              fixed = apply_spellcheck(orig)
+                              f.write(apply_grammar(fixed) + "\n")
           EOF
 
-      - name: Create Pull Request with Corrections
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
+      - name: Create PR if Changes Exist
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          BRANCH_NAME="spellcheck-grammar-fixes-$(date +%s)"
-          git checkout -b $BRANCH_NAME
+          if git diff --quiet; then exit 0; fi
+          git checkout -b spellcheck-grammar-fixes
           git add .
-          git commit -m "Spellcheck & Grammar Fixes: Automatically corrected detected issues"
-          git push origin $BRANCH_NAME
-          gh pr create --base main --head $BRANCH_NAME --title "Spellcheck & Grammar Fixes" --body "This PR contains automatically applied spelling and grammar corrections."
+          git commit -m "Spellcheck & Grammar Fixes"
+          git push origin spellcheck-grammar-fixes
+          gh pr create --base main --head spellcheck-grammar-fixes --title "Spellcheck & Grammar Fixes"
