@@ -1,0 +1,175 @@
+name: Manual Spellcheck & AI Grammar Correction with Logging
+
+on:
+  workflow_dispatch:  # Runs only when manually triggered
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  spellcheck_grammar_review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          pip install codespell
+          pip install fuzzywuzzy[speedup]
+          pip install sentence-splitter
+          pip install --upgrade lxml
+          pip install git+https://github.com/jxmorris12/language_tool_python.git
+          pip install transformers torch
+
+      - name: Verify Spellcheck Ignore List Exists
+        run: |
+          if [ ! -f .github/spellcheck-ignore.txt ]; then
+            echo "Error: spellcheck-ignore.txt not found!" && exit 1
+          fi
+
+      - name: Run Spellcheck and AI Grammar Correction
+        run: |
+          set -e  # Exit on error
+
+          python3 <<EOF
+          import re
+          import os
+          import language_tool_python
+          from sentence_splitter import SentenceSplitter
+          from fuzzywuzzy import process
+          from transformers import pipeline
+
+          # Load spellcheck ignore list
+          ignore_list = {}
+          with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
+              for line in f:
+                  word = line.strip()
+                  ignore_list[word.lower()] = word
+
+          # Load LanguageTool for grammar checking
+          tool = language_tool_python.LanguageTool('en-US')
+
+          # Load AI-based grammar correction model
+          grammar_corrector = pipeline("text2text-generation", model="t5-base", tokenizer="t5-base")
+
+          # Function to classify minor vs. major grammar issues
+          def classify_correction(original, corrected):
+              # Logging reasons
+              reason = ""
+
+              # If only small punctuation fixes (comma, period, etc.), auto-apply
+              if re.sub(r'[,.!?;:\-]', '', original) == re.sub(r'[,.!?;:\-]', '', corrected):
+                  reason = "Minor punctuation fix"
+                  return "auto", reason
+              
+              # If replacing a single word (e.g., verb tense correction), auto-apply
+              if len(original.split()) == len(corrected.split()):
+                  reason = "Minor verb tense or typo fix"
+                  return "auto", reason
+
+              # If words are added, removed, or structure is changed, send for review
+              reason = "Sentence structure modified or words added/removed"
+              return "review", reason
+
+          # Store corrections for review and logs
+          review_corrections = []
+          auto_applied_corrections = []
+          correction_log = []
+
+          # Process files
+          for root, _, files in os.walk("."):
+              for filename in files:
+                  if filename.endswith((".md", ".txt")) and "spellcheck_report" not in filename:
+                      filepath = os.path.join(root, filename)
+                      with open(filepath, "r", encoding="utf-8") as file:
+                          lines = file.readlines()
+
+                      corrected_lines = []
+                      for line in lines:
+                          original_line = line.strip()
+
+                          if not original_line:
+                              corrected_lines.append(line)
+                              continue
+
+                          # AI-based grammar correction
+                          grammatically_corrected_line = grammar_corrector(
+                              f"fix grammar: {original_line}", max_length=100
+                          )[0]['generated_text']
+
+                          correction_type, reason = classify_correction(original_line, grammatically_corrected_line)
+
+                          log_entry = f"**File:** `{filepath}`  \n" \
+                                      f"**Original:** `{original_line}`  \n" \
+                                      f"**Suggested:** `{grammatically_corrected_line}`  \n" \
+                                      f"**Reason:** {reason}  \n"
+
+                          correction_log.append(log_entry)
+
+                          if correction_type == "review":
+                              review_corrections.append(log_entry)
+                          else:
+                              auto_applied_corrections.append(log_entry)
+                              corrected_lines.append(grammatically_corrected_line + "\n")
+                              continue
+
+                          corrected_lines.append(original_line + "\n")
+
+                      # Write back auto-applied corrections only
+                      with open(filepath, "w", encoding="utf-8") as file:
+                          file.writelines(corrected_lines)
+
+          # Save correction logs
+          with open("corrections_log.md", "w", encoding="utf-8") as f:
+              f.write("# Full Correction Log\n")
+              f.write("\n".join(correction_log))
+
+          with open("corrections_review.md", "w", encoding="utf-8") as f:
+              f.write("# Suggested Grammar Fixes Requiring Review\n")
+              if review_corrections:
+                  f.write("\n".join(review_corrections))
+              else:
+                  f.write("No major corrections requiring review.\n")
+
+          with open("auto_applied_corrections.md", "w", encoding="utf-8") as f:
+              f.write("# Automatically Applied Grammar Fixes\n")
+              if auto_applied_corrections:
+                  f.write("\n".join(auto_applied_corrections))
+              else:
+                  f.write("No automatic corrections applied.\n")
+          EOF
+
+      - name: Create GitHub Issue for Review
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
+        run: |
+          if [ -s corrections_review.md ]; then
+            gh issue create --title "Review Major Grammar Fixes" \
+                            --body-file corrections_review.md \
+                            --label "review-needed"
+          else
+            echo "No major corrections found, skipping issue creation."
+
+      - name: Apply Approved Corrections & Create PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          BRANCH_NAME="spellcheck-grammar-ai-$(date +%s)"
+          git checkout -b $BRANCH_NAME
+
+          # Apply reviewed changes
+          git add .
+          git commit -m "Spellcheck & AI Grammar Fixes: Approved corrections applied"
+          git push origin $BRANCH_NAME
+
+          # Create PR
+          gh pr create --base main --head $BRANCH_NAME \
+                       --title "Spellcheck & AI Grammar Fixes (Approved)" \
+                       --body "This PR contains manually reviewed and approved spelling & grammar corrections."
