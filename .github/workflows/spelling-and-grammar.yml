@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   spellcheck_grammar_review:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # ✅ Upgraded runner for better performance
 
     steps:
       - name: Checkout Repository
@@ -18,6 +18,11 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jre  # ✅ Ensure Java is installed
+          echo "JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64" >> $GITHUB_ENV
+          export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
           pip install codespell
           pip install fuzzywuzzy[speedup]
           pip install sentence-splitter
@@ -58,7 +63,6 @@ jobs:
 
           # Function to classify minor vs. major grammar issues
           def classify_correction(original, corrected):
-              # Logging reasons
               reason = ""
 
               # If only small punctuation fixes (comma, period, etc.), auto-apply
