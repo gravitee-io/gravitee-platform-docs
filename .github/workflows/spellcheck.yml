@@ -1,14 +1,14 @@
-name: Manual Spellcheck & Auto PR
+name: Manual Spellcheck & AI Grammar Correction with Interactive Review
 
 on:
-  workflow_dispatch:  # Runs only when manually triggered
+  workflow_dispatch:
 
 permissions:
-  contents: write  # Needed to push changes to a new branch
-  pull-requests: write  # Needed to create a PR
+  contents: write
+  pull-requests: write
 
 jobs:
-  spellcheck:
+  spellcheck_review:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,181 +17,158 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install codespell
-          pip install fuzzywuzzy[speedup]
-          pip install sentence-splitter
+          sudo apt update && sudo apt install -y default-jre
+          export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+          pip install codespell fuzzywuzzy[speedup] sentence-splitter --upgrade lxml
+          pip install git+https://github.com/jxmorris12/language_tool_python.git
 
-      - name: Verify Spellcheck Ignore List Exists
+      - name: Verify Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
             echo "Error: spellcheck-ignore.txt not found!" && exit 1
           fi
 
-      - name: Run Spellcheck and Apply Fixes
+      - name: Run Spellcheck and Generate Review File
         run: |
-          set -e  # Exit on error
+          set -e
 
-          # Run codespell directly in memory and process output with Python
           python3 <<EOF
-          import re
-          import os
-          import subprocess
-          from sentence_splitter import SentenceSplitter
-          from fuzzywuzzy import process
+          import re, os, language_tool_python, subprocess
 
-          # Run codespell and capture output in memory (without saving to a file)
-          try:
-              result = subprocess.run([
-                  "codespell",
-                  "--ignore-words=.github/spellcheck-ignore.txt",
-                  "--skip=.git,*.lock,*.json,*.yaml,*.yml,*.css,*.html",
-                  "--quiet-level=2"
-              ], capture_output=True, text=True, check=False)
-              spellcheck_output = result.stdout.strip()
-          except Exception as e:
-              print(f"Error running codespell: {e}")
-              spellcheck_output = ""
-
-          if not spellcheck_output:
-              print("No spelling corrections found. Exiting.")
-              exit(0)
-
-          # Load spellcheck ignore list with case sensitivity
           ignore_list = {}
           with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
               for line in f:
                   word = line.strip()
-                  ignore_list[word.lower()] = word  # Store lowercase -> correct-case
+                  ignore_list[word.lower()] = word
 
-          # Common phrases to prioritize in spellcheck corrections
-          common_phrases = {
-              "identity provider": ["identiy provider", "identify provider"],
-              "access token": ["access toekn", "acess token"],
-              "user authentication": ["user authentification", "user authenthication"],
-              "API gateway": ["API getway", "API gatway"]
-          }
+          tool = language_tool_python.LanguageTool('en-US')
 
-          # Function to check if a word is inside a code block, backticks, URL, or file reference
-          def is_code_or_url_or_file(line):
-              return bool(re.search(r'`.*?`|https?://\S+|www\.\S+|/[\w./-]+', line))
+          def is_comment(line, inside_code_block, inside_block_comment):
+              if re.match(r'^\s*```', line):  
+                  return not inside_code_block, inside_block_comment, False
+              if inside_code_block:
+                  return inside_code_block, inside_block_comment, bool(re.match(r'^\s*(#|//|\*|\*\*)', line))
+              if re.search(r'/\*', line):  
+                  return inside_code_block, True, False
+              if re.search(r'\*/', line):  
+                  return inside_code_block, False, False
+              return inside_code_block, inside_block_comment, False
 
-          # Function to check if a word is part of a Markdown link
-          def is_markdown_link(line, original):
-              return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
+          def is_code_or_url(line):
+              return bool(re.search(r'https?://\S+|`.*?`|www\.\S+', line))
 
-          # Function to determine if an ignore list word should be used
-          def should_use_ignore_list(original, suggestion, line):
-              best_match, score = process.extractOne(original, ignore_list.keys())
+          def apply_spellcheck(sentence):
+              words = sentence.split()
+              return " ".join([ignore_list.get(word.lower(), word) for word in words])
 
-              # Must be at least 90% similar to be considered a match
-              if score < 90:
-                  return False
+          def apply_grammar(sentence):
+              try:
+                  matches = tool.check(sentence)
+              except Exception:
+                  return sentence
+              corrections = [(m.offset, m.context, m.replacements[0]) for m in matches if m.replacements and m.context.lower() not in ignore_list]
+              for offset, original, replacement in sorted(corrections, key=lambda x: -x[0]):
+                  if offset + len(original) <= len(sentence):
+                      sentence = sentence[:offset] + replacement + sentence[offset + len(original):]
+              return sentence
 
-              # Reject if original contains best_match as a substring (e.g., "certifcate" vs "CE")
-              if best_match in original and len(original) > len(best_match):
-                  return False
+          changes = []
+          modified_files = []
+          for root, _, files in os.walk("."):
+              for file in files:
+                  if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
+                      path = os.path.join(root, file)
+                      lines = open(path, "r", encoding="utf-8").readlines()
+                      inside_code, inside_block_comment = False, False
+                      new_lines = []
+                      for line in lines:
+                          orig = line.strip()
+                          inside_code, inside_block_comment, is_comment = is_comment(line, inside_code, inside_block_comment)
+                          if inside_code and not is_comment or inside_block_comment or not orig or is_code_or_url(orig):
+                              new_lines.append(line)
+                              continue
+                          fixed = apply_spellcheck(orig)
+                          corrected = apply_grammar(fixed)
+                          corrected = corrected.replace("..", ".").replace(",.", ".").replace(" ,", ",")
+                          if corrected != orig:
+                              changes.append((path, orig, corrected))
+                          new_lines.append(orig + "\n")
 
-              return True
+                      if new_lines != lines:
+                          with open(path, "w", encoding="utf-8") as f:
+                              f.writelines(new_lines)
+                          modified_files.append(path)
 
-          # Function to apply strict context-based correction rules
-          def apply_strict_context_correction(sentence, original, suggestion):
-              # Prioritize known common phrases first
-              for correct_phrase, wrong_variants in common_phrases.items():
-                  for wrong_phrase in wrong_variants:
-                      if wrong_phrase in sentence:
-                          return sentence.replace(wrong_phrase, correct_phrase)
+          if changes:
+              with open("spellcheck_review.md", "w", encoding="utf-8") as f:
+                  f.write("# Spellcheck & Grammar Fixes Review\n\n")
+                  for i, (file, original, corrected) in enumerate(changes):
+                      f.write(f"### Change {i+1}\n")
+                      f.write(f"**File:** `{file}`\n")
+                      f.write(f"**Original:** `{original}`\n")
+                      f.write(f"**Suggested:** `{corrected}`\n")
+                      f.write(f"Approve? (yes/no)\n\n")
 
-              # Replace the misspelled word with the correct word **only once**
-              return re.sub(r'\b' + re.escape(original) + r'\b', suggestion, sentence, count=1)
-
-          # Process spellcheck output and apply fixes
-          for line in spellcheck_output.splitlines():
-              match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
-              if match:
-                  file_path, line_number, original, suggestion = match.groups()
-                  corrected_word = suggestion
-
-                  # Skip if the file does not exist
-                  if not os.path.isfile(file_path):
-                      print(f"Warning: File {file_path} not found. Skipping correction.")
-                      continue
-
-                  # Read the full line from the file safely
-                  with open(file_path, "r", encoding="utf-8") as file:
-                      content_lines = file.readlines()
-
-                  # Validate line number
-                  line_idx = int(line_number) - 1
-                  if line_idx < 0 or line_idx >= len(content_lines):
-                      print(f"Warning: Line number {line_number} out of range for file {file_path}. Skipping correction.")
-                      continue
-
-                  context_line = content_lines[line_idx].strip()
-
-                  # ✅ Use sentence-splitter to analyze full sentence context
-                  splitter = SentenceSplitter(language="en")
-                  sentences = splitter.split(context_line)
-                  relevant_sentence = next((s for s in sentences if original in s), context_line)
-
-                  # **Fix #1: Enforce strict case-sensitive ignore list rules**
-                  if original.lower() in ignore_list:
-                      if is_code_or_url_or_file(relevant_sentence) or is_markdown_link(relevant_sentence, original):
-                          corrected_word = original.lower()  # Keep lowercase in URLs, links, or file paths
-                      else:
-                          corrected_word = ignore_list[original.lower()]  # Use exact case from ignore list
-
-                  # **Fix #2: Reject weak matches to ignore words**
-                  elif should_use_ignore_list(original, suggestion, relevant_sentence):
-                      best_match, _ = process.extractOne(original, ignore_list.keys())
-                      corrected_word = ignore_list[best_match]
-
-                  # **Fix #3: Strictly prevent weak ignore word matches**
-                  elif len(original) < 3 or len(original) < len(ignore_list.get(suggestion.lower(), "")) / 2:
-                      corrected_word = suggestion  # Use the English dictionary instead
-
-                  # **Fix #4: Apply strict context-based correction**
-                  relevant_sentence = apply_strict_context_correction(relevant_sentence, original, corrected_word)
-
-                  # **Fix #5: Strictly prevent punctuation modifications**
-                  relevant_sentence = relevant_sentence.replace("..", ".").replace(",.", ".").replace(" ,", ",")
-
-                  # Apply fix while maintaining case rules
-                  content_lines[line_idx] = relevant_sentence + "\n"
-                  with open(file_path, "w", encoding="utf-8") as file:
-                      file.writelines(content_lines)
           EOF
 
-          # Check if any files were modified
-          if git status --porcelain | grep -q '^ M'; then
-            echo "Corrections applied. Preparing to create PR."
-          else
-            echo "No spelling corrections found. Exiting."
-            exit 0
-          fi
+      - name: Upload Review File
+        uses: actions/upload-artifact@v3
+        with:
+          name: spellcheck-review
+          path: spellcheck_review.md
 
-      - name: Create Pull Request with Corrections
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
+      - name: Pause for Manual Review
+        run: |
+          echo "🔹 Go to GitHub Actions -> Artifacts -> spellcheck-review"
+          echo "🔹 Download the file and review the suggested changes."
+          echo "🔹 Edit the file: Replace 'yes' or 'no' for each suggestion."
+          echo "🔹 Re-upload the file for processing."
+
+      - name: Download Reviewed File
+        uses: actions/download-artifact@v3
+        with:
+          name: spellcheck-review
+          path: .
+
+      - name: Apply Only Approved Changes
+        run: |
+          set -e
+          python3 <<EOF
+          import os
+
+          if not os.path.exists("spellcheck_review.md"):
+              print("No review file found. Exiting.")
+              exit(1)
+
+          with open("spellcheck_review.md", "r", encoding="utf-8") as f:
+              lines = f.readlines()
+
+          approved_changes = []
+          for i in range(len(lines)):
+              if "Approve?" in lines[i] and "yes" in lines[i+1].lower():
+                  file_line = lines[i-2].strip().replace("**File:** `", "").replace("`", "")
+                  orig_line = lines[i-1].strip().replace("**Original:** `", "").replace("`", "")
+                  corr_line = lines[i].strip().replace("**Suggested:** `", "").replace("`", "")
+                  approved_changes.append((file_line, orig_line, corr_line))
+
+          for file, orig, corr in approved_changes:
+              with open(file, "r", encoding="utf-8") as f:
+                  contents = f.read()
+              contents = contents.replace(orig, corr)
+              with open(file, "w", encoding="utf-8") as f:
+                  f.write(contents)
+
+          EOF
+
+      - name: Commit & Push Approved Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b spellcheck-approved-fixes
+          git add .
+          git commit -m "Approved Spellcheck & Grammar Fixes"
+          git push origin spellcheck-approved-fixes
+          gh pr create --base main --head spellcheck-approved-fixes --title "Approved Spellcheck Fixes"
 
-          BRANCH_NAME="spellcheck-fixes-$(date +%s)"
-          git checkout -b $BRANCH_NAME
-
-          # Commit the changes if there are any
-          if [ -n "$(git status --porcelain)" ]; then
-            git add .
-            git commit -m "Spellcheck: Automatically fixed detected misspellings"
-            git push origin $BRANCH_NAME
-
-            # Create PR using GitHub CLI
-            gh pr create \
-              --base main \
-              --head $BRANCH_NAME \
-              --title "Spellcheck Fixes" \
-              --body "This PR contains automatically applied spelling corrections."
-          else
-            echo "No changes detected. Skipping PR creation."
-            exit 0
-          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
