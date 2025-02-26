@@ -24,8 +24,9 @@ metadata:
   namespace: gravitee
 spec:
   name: GKO Basic
-  version: 1.1
+  version: "1.1"
   description: Basic api managed by Gravitee Kubernetes Operator
+  state: STOPPED
   definitionContext:
     origin: KUBERNETES
     syncFrom: KUBERNETES
@@ -63,8 +64,9 @@ metadata:
   namespace: gravitee
 spec:
   name: GKO Basic
-  version: 1.1
+  version: "1.1"
   description: Basic api managed by Gravitee Kubernetes Operator
+  state: STOPPED
   proxy:
     virtual_hosts:
       - path: /k8s-basic
