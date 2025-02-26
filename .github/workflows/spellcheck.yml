@@ -127,7 +127,7 @@ jobs:
                       f.write(f"**File:** `{file}`\n")
                       f.write(f"**Original:** `{original}`\n")
                       f.write(f"**Suggested:** `{corrected}`\n")
-                      f.write(f"Approve? (yes/no)\n\n")
+                      f.write("Approve? (yes/no)\n\n")
 
           EOF
 
