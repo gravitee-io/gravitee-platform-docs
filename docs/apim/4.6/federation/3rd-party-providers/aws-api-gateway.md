@@ -8,13 +8,13 @@ In order to Federate AWS API Management APIs into Gravitee, you'll need permissi
 
 The minimum permissions required by the federation agent are described in the section called [Minimum AWS permissions required by the agent](aws-api-gateway.md#minimum-aws-permissions-required-by-the-agent).
 
-You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.&#x20;
+You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.
 
 For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
 
 ## 1. Create an AWS API Management integration in the Gravitee APIM Console
 
-Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new AWS API Management integration.&#x20;
+Head to the Gravitee APIM Console, open the Integrations section in the left menu, and create a new AWS API Management integration.
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
@@ -120,6 +120,7 @@ PolicyDocument:
           Action:
               - apigateway:GET
           Resource:
+              - arn:aws:apigateway:*::/restapis
               - arn:aws:apigateway:*::/restapis/*
               - arn:aws:apigateway:*::/restapis/*/stages/*
               - arn:aws:apigateway:*::/usageplans
