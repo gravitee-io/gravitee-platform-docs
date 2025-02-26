@@ -33,7 +33,7 @@ jobs:
           set -e
 
           python3 <<EOF
-          import re, os, language_tool_python, subprocess
+          import re, os, language_tool_python
 
           ignore_list = {}
           with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
@@ -73,31 +73,22 @@ jobs:
               return sentence
 
           changes = []
-          modified_files = []
           for root, _, files in os.walk("."):
               for file in files:
                   if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
                       path = os.path.join(root, file)
                       lines = open(path, "r", encoding="utf-8").readlines()
                       inside_code, inside_block_comment = False, False
-                      new_lines = []
                       for line in lines:
                           orig = line.strip()
                           inside_code, inside_block_comment, is_comment = is_comment(line, inside_code, inside_block_comment)
                           if inside_code and not is_comment or inside_block_comment or not orig or is_code_or_url(orig):
-                              new_lines.append(line)
                               continue
                           fixed = apply_spellcheck(orig)
                           corrected = apply_grammar(fixed)
                           corrected = corrected.replace("..", ".").replace(",.", ".").replace(" ,", ",")
                           if corrected != orig:
                               changes.append((path, orig, corrected))
-                          new_lines.append(orig + "\n")
-
-                      if new_lines != lines:
-                          with open(path, "w", encoding="utf-8") as f:
-                              f.writelines(new_lines)
-                          modified_files.append(path)
 
           if changes:
               with open("spellcheck_review.md", "w", encoding="utf-8") as f:
@@ -112,7 +103,7 @@ jobs:
           EOF
 
       - name: Upload Review File
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: spellcheck-review
           path: spellcheck_review.md
@@ -125,7 +116,7 @@ jobs:
           echo "🔹 Re-upload the file for processing."
 
       - name: Download Reviewed File
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: spellcheck-review
           path: .
