@@ -20,23 +20,41 @@ The following configuration deploys an `ApiDefinition` on a Gateway using a loca
 apiVersion: gravitee.io/v1alpha1
 kind: ApiV4Definition
 metadata:
-  name: local-api-example
-  namespace: gravitee
+  name: api-v4-local-example
 spec:
-  name: GKO Basic
-  version: "1.1"
-  description: Basic api managed by Gravitee Kubernetes Operator
-  state: STOPPED
+  name: "api-v4-local-example"
   definitionContext:
     origin: KUBERNETES
     syncFrom: KUBERNETES
-  proxy:
-    virtual_hosts:
-      - path: /k8s-basic
-    groups:
-      - endpoints:
-          - name: Default
+  description: "V4 API managed by Gravitee Kubernetes Operator"
+  version: "1.0"
+  type: PROXY
+  listeners:
+    - type: HTTP
+      paths:
+        - path: "/echo-v4-context"
+      entrypoints:
+        - type: http-proxy
+          qos: AUTO
+  endpointGroups:
+    - name: Default HTTP proxy group
+      type: http-proxy
+      endpoints:
+        - name: Default HTTP proxy
+          type: http-proxy
+          inheritConfiguration: false
+          configuration:
             target: https://api.gravitee.io/echo
+          secondary: false
+  flowExecution:
+    mode: DEFAULT
+    matchRequired: false
+  plans:
+    KeyLess:
+      name: "Free plan"
+      description: "This plan does not require any authentication"
+      security:
+        type: "KEY_LESS"
 ```
 
 The `definitionContext.syncFrom` attribute is set to `KUBERNETES` (the default value) to indicate that the API will be deployed only in the cluster where the custom resource is applied, and stored in a local ConfigMap.
