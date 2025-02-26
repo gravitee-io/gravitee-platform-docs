@@ -30,7 +30,7 @@ jobs:
       - name: Run Spellcheck and Apply Fixes
         run: |
           set -e  # Exit on error
-          
+
           # Run codespell directly in memory and process output with Python
           python3 <<EOF
           import re
