@@ -19,13 +19,8 @@ jobs:
         run: |
           sudo apt update && sudo apt install -y default-jre
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-
-          pip install codespell
-          pip install fuzzywuzzy[speedup]
-          pip install sentence-splitter
-          pip install --upgrade lxml
+          pip install codespell fuzzywuzzy[speedup] sentence-splitter --upgrade lxml
           pip install git+https://github.com/jxmorris12/language_tool_python.git
-          pip install transformers torch
 
       - name: Verify Ignore List Exists
         run: |
