@@ -30,13 +30,7 @@ jobs:
       - name: Run Spellcheck and Apply Fixes
         run: |
           set -e  # Exit on error
-
-          # Run codespell and save output without applying fixes automatically
-          codespell --ignore-words=.github/spellcheck-ignore.txt \
-                    --skip=".git,*.lock,*.json,*.yaml,*.yml,*.css,*.html" \
-                    --quiet-level=2 > spellcheck_report_raw.txt || true
-
-          # Process corrections with Python
+          
           # Run codespell directly in memory and process output with Python
           python3 <<EOF
           import re
