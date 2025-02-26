@@ -187,7 +187,7 @@ _**Upgrade**_
 
 _**Connector**_
 
-* fix: make sure connector reconnects after losing AE connection
+* fix: make sure connector reconnects after loosing AE connection
 
 ### 1.5.0 (2021-11-18)
 

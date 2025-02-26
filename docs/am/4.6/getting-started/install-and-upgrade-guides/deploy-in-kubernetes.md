@@ -619,7 +619,7 @@ mongo:
 
 ### RDBMS: Postgres
 
-{% code title="PostgreSQL configuration" overflow="wrap" %}
+{% code title="PostgresSQL configuration" overflow="wrap" %}
 ```yaml
 jdbc:
   driver: postgresql

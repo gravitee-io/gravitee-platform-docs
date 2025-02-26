@@ -2,7 +2,7 @@
 description: Bootstrap your developer environment
 ---
 
-# Contributing to the Gravitee API Management development
+# Contributing to the Gravitee API Management developement
 
 ## Overview
 
