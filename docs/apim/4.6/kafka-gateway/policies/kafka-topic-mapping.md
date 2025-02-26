@@ -14,6 +14,52 @@ You can configure the policy with the following options:
 | mappings.client | No       | The name provided on the client side that will be mapped in something else. | String |         |
 | mappings.broker | No       | The name that will be sent on the broker side. Supports EL expressions.     | String |         |
 
+### Examples <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
+
+The following example demonstrates how to expose a broker-side/internal topic name with a consumer-friendly client-side/external topic name
+
+Client-side name:  `organization-updates`
+
+Broker-side name: `internal.organization-updates-{orgId}`
+
+The `{orgId}` is dynamically replaced at runtime by extracting the `rf_org` custom claim value from the clients' OAuth2 access\_token - using Gravitee's Expression Language.
+
+<figure><img src="../../.gitbook/assets/image (153).png" alt=""><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure>
+
+Sample policy configuration:
+
+```
+{
+  "api": {
+    ...
+  },
+  "plans: [
+    {
+      "flows": [
+        {
+          ...
+          "interact": [
+            {
+              "name": "Kafka Topic Mapping",
+              "enabled": true,
+              "policy": "kafka-topic-mapping",
+              "configuration": {
+                "mappings": [
+                  {
+                    "client": "organization-updates",
+                    "broker": "integrator.organization-updates.{#jsonPath(#context.attributes['oauth.payload'], '$.rf_org')}"
+                   }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
 ### Supported Kafka ApiKeys <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 
 Legend:
