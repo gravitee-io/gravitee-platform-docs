@@ -425,6 +425,3 @@ The following is an example of how to consume messages:
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
