@@ -74,7 +74,7 @@ This flow demonstrates the use of the HTTP Callout policy to make an external ca
 {% tab title="V4 CRD API" %}
 This flow demonstrates the use of the HTTP Callout policy to make an external callout to the JsonPlaceholder API, retrieve key elements that are inserted in Context Variables, and chained with an Assign Content policy that maps the response to the consumer.
 
-```
+```yaml
 flows:
     - id: "0e919364-f985-4d4b-9193-64f9857d4b9b"
       path-operator:
