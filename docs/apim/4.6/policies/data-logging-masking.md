@@ -10,7 +10,7 @@ hidden: true
 | ---------------- | ----------------- |
 | X                | X                 |
 
-## Description <a href="#user-content-description" id="user-content-description"></a>
+## Overview <a href="#user-content-description" id="user-content-description"></a>
 
 **If you enable logging on APIs**, you can use the `data-logging-masking` policy to configure rules to conceal sensitive data. You can use `json-path`, `xml-path` or a regular expression to identify the information to hide.
 
@@ -27,6 +27,14 @@ Additional information:
   * _`EMAIL`_: use to pick up and hide email addresses (doesn’t support Unicode)
   * _`IP`_: use to pick up and hide IP addresses (supports IPv4 and IPv6 format)
   * _`Uri`_: use to catch and hide sensitive addresses (supports HTTP, HTTPS, FTP, mailto and file)
+
+## Examples
+
+{% hint style="warning" %}
+This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 TCP proxy APIs or v4 message APIs.
+{% endhint %}
+
+{% include "../.gitbook/includes/examples-table.md" %}
 
 ## Compatibility with APIM <a href="#user-content-compatibility-with-apim" id="user-content-compatibility-with-apim"></a>
 
