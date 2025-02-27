@@ -56,36 +56,31 @@ The following shows how to use the `javascript` policy to transform JSON content
 Assuming the request body below (input body content):
 
 ```json
-[
-    {
-        "age": 32,
-        "firstname": "John",
-        "lastname": "Doe"
-    }
-]
+{
+  "age": 32,
+  "firstname": "John",
+  "lastname": "Doe"
+}
 ```
 
 You can run the following JavaScript script:
 
 ```javascript
 var content = JSON.parse(response.content);
-content[0].firstname = 'Hacked ' + content[0].firstname;
-content[0].country = 'US';
-
+content.firstname = 'Hacked ' + content.firstname;
+content.country = 'US';
 JSON.stringify(content);
 ```
 
 And the request body being passed to the API will be (output body content):
 
 ```json
-[
-    {
-        "age": 32,
-        "firstname": "Hacked John",
-        "lastname": "Doe",
-        "country": "US"
-    }
-]
+{
+  "age": 32,
+  "firstname": "Hacked John",
+  "lastname": "Doe",
+  "country": "US"
+}
 ```
 
 **Example 3**
@@ -94,21 +89,19 @@ Assume that you sent the request body modified above to an **echo** API. You can
 
 ```javascript
 var content = JSON.parse(response.content);
-content[0].firstname = content[0].firstname.substring(7);
-delete content[0].country;
+content.firstname = content.firstname.substring(7);
+delete content.country;
 JSON.stringify(content);
 ```
 
 And the response message will be:
 
 ```json
-[
-    {
-        "age": 32,
-        "firstname": "John",
-        "lastname": "Doe"
-    }
-]
+{
+  "age": 32,
+  "firstname": "John",
+  "lastname": "Doe"
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -136,7 +129,7 @@ Some variables are automatically bound to the JavaScript script to allow users t
 
 <table><thead><tr><th width="172.5">Name</th><th>Description</th></tr></thead><tbody><tr><td><code>request</code></td><td>Inbound HTTP request</td></tr><tr><td><code>response</code></td><td>Outbound HTTP response</td></tr><tr><td><code>context</code></td><td><code>PolicyContext</code> used to access external components such as services and resources</td></tr><tr><td><code>result</code></td><td>JavaScript script result</td></tr></tbody></table>
 
-Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - internal server error`, but you can override this behavior with the following properties:
+Request or response processing can be interrupted by setting the result state to `FAILURE`. By default, it will throw a `500 - Internal server error`, but you can override this behavior with the following properties:
 
 * `code`: An HTTP status code
 * `error`: The error message
@@ -154,17 +147,24 @@ For example, you can transform request or response body content by applying a Ja
 When working with scripts on `OnRequestContent` or `OnResponseContent` phase, the last instruction of the script **must** be the new body content that would be returned by the policy.
 {% endhint %}
 
-### Dictionaries and Properties <a href="#user-content-dictionaries-properties" id="user-content-dictionaries-properties"></a>
+### Dictionaries, Properties, and Context Attributes <a href="#user-content-dictionaries-properties" id="user-content-dictionaries-properties"></a>
 
-Both dictionaries (defined at the environment level) and properties (defined at the API level) can be accessed from the JavaScript script using:
+Both dictionaries (defined at the environment level), properties (defined at the API level), and context attributes can be accessed from the JavaScript script using:
 
 * `context.dictionaries()` for dictionaries
 * `context.properties()` for properties
+* `context.attributes()` for context attributes
 
 Here is an example of how to set a request header based on a property:
 
 ```javascript
 request.headers.set('X-JavaScript-Policy', context.properties()['KEY_OF_MY_PROPERTY']);
+```
+
+Here is an example of reading a context attribute:
+
+```
+var myAttribute = context.attributes()['myContextAttributeName'];
 ```
 
 ### Options
