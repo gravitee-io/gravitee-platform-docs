@@ -39,9 +39,9 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [JSON to XML Transformation](../json-to-xml.md)
 * [JWS Validator](../jws-validator.md)
 * [JWT Validator](../jwt-validator.md)
-* Kafka ACL\*
-* [Kafka Quota](../../kafka-gateway/policies/kafka-quota.md)\*
-* [Kafka Topic Mapping](../kafka-topic-mapping.md)\*
+* [Kafka ACL](https://documentation.gravitee.io/apim/kafka-gateway/policies/kafka-acl)\*
+* [Kafka Quota](https://documentation.gravitee.io/apim/kafka-gateway/policies/kafka-quota)\*
+* [Kafka Topic Mapping](https://documentation.gravitee.io/apim/kafka-gateway/policies/kafka-topic-mapping)\*
 * [Keyless](../keyless.md)
 * [Latency](../latency.md)
 * [Maven Archetype](../maven-archetype.md)

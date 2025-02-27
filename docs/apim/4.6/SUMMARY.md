@@ -206,8 +206,6 @@
 * [GeoIP Filtering](policies/geoip-filtering.md)
 * [GraphQL Rate Limit](policies/graphql-rate-limit.md)
 * [InterOPS](policies/interops.md)
-* [Kafka Quota](policies/kafka-quota.md)
-* [Kafka Topic Mapping](policies/kafka-topic-mapping.md)
 * [OAS Validation](policies/oas-validation.md)
 * [Protobuf to JSON](policies/protobuf-to-json.md)
 * [WS Security Authentication](policies/ws-security-authentication.md)
