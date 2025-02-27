@@ -121,11 +121,9 @@ You can use the access token obtained in the previous section to make API calls.
 2. Provide your access token and get your secured API data.
 
 {% code overflow="wrap" %}
-````
-```sh
+```
 curl -X GET http://GRAVITEEIO-APIM-GATEWAY-HOST/echo -H 'Authorization: Bearer :access_token'
 ```
-````
 {% endcode %}
 
 {% hint style="info" %}
