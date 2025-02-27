@@ -28,7 +28,7 @@ This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. 
 {% endhint %}
 
 {% tabs %}
-{% tab title="HTTP proxy API example" %}
+{% tab title="V4 API Definition" %}
 You could use the Assign Content policy to inject a dictionary value and application into the request payload:
 
 ```json
@@ -39,7 +39,7 @@ You could use the Assign Content policy to inject a dictionary value and applica
 ```
 {% endtab %}
 
-{% tab title="Message API example" %}
+{% tab title="Message API Definition" %}
 You could use the Assign Content policy to inject a dictionary value and metadata into the message:
 
 ```json
@@ -47,6 +47,30 @@ You could use the Assign Content policy to inject a dictionary value and metadat
   "example": "${message.dictionaries['my-dictionary']['my-value']}",
   "metadata": "${message.attributes['metadata']}"
 }
+```
+{% endtab %}
+
+{% tab title="V4 Crd Example" %}
+You could use the Assign Content policy to inject a dictionary value and application into the request payload as a Custom Resource Definition using the GKO.
+
+```yaml
+      flows:
+      - id: "ee8deaea-1585-41e6-8dea-ea1585d1e6d6"
+        name: "Assign Content Policy"
+        enabled: true
+        selectors:
+        - type: "HTTP"
+          path: "/"
+          pathOperator: "STARTS_WITH"
+        response:
+        - name: "Assign content"
+          enabled: true
+          policy: "policy-assign-content"
+          configuration:
+            scope: "REQUEST"
+            body: "{\n    \"example\": \"${context.attributes['c_sqa_payload']}\"\
+              ,\n    \"application\": \"${context.attributes['application']}\"\n}"
+      mode: "STANDARD"
 ```
 {% endtab %}
 {% endtabs %}
