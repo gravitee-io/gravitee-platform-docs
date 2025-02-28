@@ -14,6 +14,7 @@ description: >-
 **Gateway**
 
 * APIM gateway - webhook subscription failure due to invalid characters in header [#10253](https://github.com/gravitee-io/issues/issues/10253)
+* Some OpenTelemetry settings do not work and README is misleading [#10253](https://github.com/gravitee-io/issues/issues/10356)
 
 **Management API**
 
