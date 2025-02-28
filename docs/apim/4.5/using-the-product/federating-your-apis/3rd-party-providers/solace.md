@@ -63,7 +63,7 @@ services:
       - gravitee_integration_providers_0_configuration_authToken=${SOLACE_AUTH_TOKEN}
       - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
       - gravitee_integration_providers_0_type=solace
-      - gravitee_integration_providers_0_configuration_url=${SOLACE_ENDPOINT:-https://api.solace.cloud/api/v2/architecture}
+      - gravitee_integration_providers_0_configuration_url=${SOLACE_ENDPOINT:-https://apim-production-api.solace.cloud/api/v2/apim}
       - gravitee_integration_providers_0_configuration_0_appDomains=${SOLACE_APPLICATION_0_DOMAIN:-}
 ```
 
