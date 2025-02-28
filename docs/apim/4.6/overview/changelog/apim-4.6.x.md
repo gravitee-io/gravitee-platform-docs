@@ -6,6 +6,49 @@ description: >-
 
 # APIM 4.6.x
  
+## Gravitee API Management 4.6.5 - February 28, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* APIM gateway - webhook subscription failure due to invalid characters in header [#10253](https://github.com/gravitee-io/issues/issues/10253)
+
+**Management API**
+
+* Application can not be updated when using JDBC DB [#10171](https://github.com/gravitee-io/issues/issues/10171)
+* Unnecessary Unicode characters in default data for new Shared Policy Groups [#10183](https://github.com/gravitee-io/issues/issues/10183)
+* UUID of groups associated to application does not show in paginated view [#10270](https://github.com/gravitee-io/issues/issues/10270)
+* Issue with Webhook notifications [#10293](https://github.com/gravitee-io/issues/issues/10293)
+* API Docs: 204 Status Code Missing for /memberships Endpoint [#10336](https://github.com/gravitee-io/issues/issues/10336)
+* API flows are duplicated when saved multiple times in the row  [#10355](https://github.com/gravitee-io/issues/issues/10355)
+
+**Console**
+
+* Enhance Rights Message in Management Portal [#10138](https://github.com/gravitee-io/issues/issues/10138)
+* Platform analytics shows incorrect result in status pie-chart [#10267](https://github.com/gravitee-io/issues/issues/10267)
+* Analytics logs exported as CSV are entirely on one line [#10350](https://github.com/gravitee-io/issues/issues/10350)
+* API flows are duplicated when saved multiple times in the row  [#10355](https://github.com/gravitee-io/issues/issues/10355)
+
+**Portal**
+
+* Application logs in portal - http status criteria not persisted after search validation [#10308](https://github.com/gravitee-io/issues/issues/10308)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Adapt service discovery to properly handle HTTP graceful shutdown after changes in AbstractHttpConnector [#10345](https://github.com/gravitee-io/issues/issues/10345)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.6.4 - February 14, 2025
 <details>
 
