@@ -2,7 +2,7 @@
 
 ## Before you begin
 
-* Gravitee API Management (APIM) Helm chart is compatible with only OpenShift versions 3.10 and later.
+* Gravitee API Management (APIM) Helm chart is compatible with OpenShift versions 3.10 and later.
 * You must install the following command line tools:
   * [Kubectl or OC](https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html#cli-installing-cli_cli-developer-commands)
   * [Helm](https://docs.openshift.com/container-platform/4.10/applications/working_with_helm_charts/installing-helm.html)
@@ -26,8 +26,8 @@ If you want to configure the ServiceAccount with more advanced settings, you mus
 You can configure your deployment for the following configuration types:
 
 * Development deployment
-* External configuration&#x20;
-* Shared configuration&#x20;
+* External configuration
+* Shared configuration
 
 The configuration types for OpenShift are the same configuration types for Kubernetes. For more information about the configuration types, see [#configuration-types](kubernetes.md#configuration-types "mention").
 
@@ -45,24 +45,23 @@ If you have already installed MongoDB, you do not need to install MongoDB again.
 
 * To install MongoDB with Helm, use the following command:
 
-```
+```sh
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
-
 helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
 ```
 
-**Configure the connection MongoBD**
+**Configure the connection MongoDB**
 
-To configure the connection to MongoDB, complete any of the following steps:
+**Step 1:** To configure the connection to MongoDB, complete either of the following steps:
 
-* Provide the MongoDB URI. For more information about the MongoDB URI, go to [Connection Strings](https://www.mongodb.com/docs/manual/reference/connection-string/).
+* **Option 1:** Provide the MongoDB URI. For more information about the MongoDB URI, go to [Connection Strings](https://www.mongodb.com/docs/manual/reference/connection-string/).
 
 | Parameter   | Description | Default |
 | ----------- | ----------- | ------- |
 | `mongo.uri` | Mongo URI   | `null`  |
 
-* Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:
+* **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:
 
 ```
 mongo:
@@ -78,7 +77,7 @@ mongo:
     password:
 ```
 
-* Define the following configuration options:
+**Step 2:** Define the following configuration options:
 
 | Parameter             | Description                                | Default                    |
 | --------------------- | ------------------------------------------ | -------------------------- |
@@ -112,7 +111,7 @@ You might encounter issues while running this Helm chart on Apple Silicon M1. If
 {% endtab %}
 
 {% tab title="PostgresSQL" %}
-&#x20;**(Optional) Install PostgresSQL**
+**(Optional) Install PostgresSQL**
 
 {% hint style="info" %}
 If you have already installed PostgresSQL, you do not need to install PostgresSQL again.
@@ -231,7 +230,7 @@ redis-apim-replicas-1   1/1     Running   0          68s
 redis-apim-replicas-2   1/1     Running   0          40s
 ```
 
-**Configure Redis**&#x20;
+**Configure Redis**
 
 To use Redis for rate limit policy, add the following information to the `values.yml` file:
 
@@ -289,10 +288,10 @@ The process for configuring the Gravitee components on OpenShift is the same pro
 
 #### Adjustments needed for OpenShift
 
-When you configure the values.yml file for OpenShift deployment, you must complete the following actions:
+When you configure your `values.yml` file for OpenShift deployment, you must complete the following actions:
 
 * Use the full host domain instead of paths for all components.
-* Override the security context to let OpenShift automatically define the `user-id` and `group-id`  you use to run the containers. Here is an example of the security context that has been overriden:&#x20;
+* Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of the security context that has been overriden:
 
 ```yaml
 securityContext:
@@ -306,7 +305,7 @@ securityContext:
         type: RuntimeDefault
 ```
 
-* For Openshift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`.  Here is an example of an `ingressClassName` defined as `none`:
+* For OpenShift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is an example of an `ingressClassName` defined as `none`:
 
 ```yaml
  api:
@@ -315,14 +314,14 @@ securityContext:
       ingressClassName: none
       path: /management
       hosts:
-        - api-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
+        - api-graviteeio.apps.openshift-test.xxxx.p1.openshiftapps.com
       annotations:
         route.openshift.io/termination: edge
 ```
 
 **Example**
 
-Here is an example of a standard values.yml file used to deploy APIM on OpenShift:
+Here is an example of a typical `values.yml` file used to deploy APIM on OpenShift:
 
 {% hint style="info" %}
 By setting `runAsUser` to `null`, OpenShift is forced to define the correct values when deploying the Helm chart.
@@ -330,20 +329,46 @@ By setting `runAsUser` to `null`, OpenShift is forced to define the correct valu
 
 {% code title="values.yml" %}
 ```yaml
+openshift:
+  enabled: true
+  
+# Configure access to your Config Database (e.g.: MongoDB)
+#mongo:
+#  uri: mongodb+srv://${gravitee_apim_mongodb_user}:${gravitee_apim_mongodb_pass}@${gravitee_apim_mongodb_host}/${gravitee_apim_mongodb_name}?retryWrites=true&w=majority&connectTimeoutMS=10000&socketTimeoutMS=10000&maxIdleTimeMS=30000
+
+# Configure access to your Analytics Database (e.g.: Elasticsearch)
+#es:
+#  enabled: true
+#  index: ${gravitee_apim_index_name}
+#  index_mode: ilm
+#  lifecycle:
+#    enabled: true
+#    policies:
+#      monitor: gravitee_monitor_default_1_days
+#      request: gravitee_request_default_90_days
+#      health: gravitee_health_default_30_days
+#      log: gravitee_log_default_7_days
+#  endpoints:
+#    - ${elastic_endpoint}
+#  security:
+#    enabled: true
+#    username: ${elastic_gravitee_user}
+#    password: ${elastic_gravitee_pass}
+
 api:
   ingress:
     management:
       ingressClassName: none
       path: /management
       hosts:
-        - api-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
+        - api-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
       annotations:
         route.openshift.io/termination: edge
     portal:
       ingressClassName: none
       path: /portal
       hosts:
-        - api-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
+        - api-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
       annotations:
         route.openshift.io/termination: edge
   deployment:
@@ -362,7 +387,7 @@ gateway:
     ingressClassName: none
     path: /
     hosts:
-      - gw-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
+      - gw-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
     annotations:
       route.openshift.io/termination: edge
   deployment:
@@ -381,7 +406,7 @@ portal:
     ingressClassName: none
     path: /
     hosts:
-      - portal-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
+      - portal-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
     annotations:
       route.openshift.io/termination: edge
   securityContext: null
@@ -401,7 +426,7 @@ ui:
     ingressClassName: none
     path: /
     hosts:
-      - console-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
+      - console-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
     annotations:
       route.openshift.io/termination: edge
   securityContext: null
@@ -420,18 +445,18 @@ ui:
 
 ### Install the Gravitee Helm Chart
 
-To install the Gravitee Helm Chart, complete the following steps:&#x20;
+To install the Gravitee Helm Chart, complete the following steps:
 
-1. &#x20;Add the Gravitee Helm chart repo using the following command:
+1. Add the Gravitee Helm chart repo using the following command:
 
-```
+```sh
 helm repo add graviteeio https://helm.gravitee.io
 ```
 
 2. Install the Helm chart to a dedicated namespace using the following command:
 
-```
-helm install -f values.yaml graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-api
+```sh
+helm install -f values.yaml graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
 ```
 
 {% hint style="info" %}
