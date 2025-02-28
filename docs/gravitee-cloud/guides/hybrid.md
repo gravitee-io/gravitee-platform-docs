@@ -30,13 +30,11 @@ US Cloud Gate: [https://us.cloudgate.gravitee.io/](https://us.cloudgate.gravitee
 EU Cloud Gate: [https://eu.cloudgate.gravitee.io/](https://eu.cloudgate.gravitee.io/)
 {% endhint %}
 
-
-
 Analytics are reported to a Cloud Account dedicated pipeline where Cloud Gate are produced to a Kafka topics, ingested in logstash, and finally stored in dedicated Elastisearch index that your Cloud Accounts API Management Control Plane consumes.
 
 All communication between the hybrid gateway and the Cloud Gate endpoints is encrypted using TLS.
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens. </p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens.</p></figcaption></figure>
 
 ### Cloud Gate Endpoints
 
@@ -49,7 +47,7 @@ Here are two key endpoints that your gateway interact with:
 
 To connect to the Cloud Gate, your gateway uses a **Cloud Token**, a signed JSON Web Token (JWT) that contains attributes (claims) related to your Cloud Account. This token provides the necessary authentication and authorization for your gateway to connect to the Cloud Control Plane.
 
-To issue Cloud Tokens directly on your Cloud Account, complete the steps in the Hybrid Gateway deployment setup guide.&#x20;
+To issue Cloud Tokens directly on your Cloud Account, complete the steps in the Hybrid Gateway deployment setup guide.
 
 The Cloud Token contains the following information:
 
@@ -68,13 +66,10 @@ The Cloud Token is used to establish a secure and authenticated connection with 
 
 ### Hybrid Gateway Wizard
 
-In this section, you can follow the steps to configure a Hybrid gateway to your Gravitee Cloud API Management control plane environments.\
-\
-For more information about running the Hybrid Gateway with Docker or Kubernetes, please see sub pages below this guide page. \
-
+In this section, you can follow the steps to configure a Hybrid Gateway, and connect it to your Gravitee Cloud API Management control plane environment.
 
 {% hint style="info" %}
-You can deploy, run, and connect hybrid gateways according to your preference. To configure the hybrid gateways to your preferences, ensure that you provide your Cloud Token and mount the license key.
+You can deploy, run, and connect hybrid gateways according to your preference. To configure the hybrid gateways to your preferences, ensure that you provide your Cloud Token and License key.
 {% endhint %}
 
 1. On your Gravitee Cloud Dashboard, navigate to **Gateways**, and then click **Deploy Gateway**.
@@ -94,14 +89,13 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
    \
    In Gravitee Cloud, the full resolved URL based on your gateway host is referred to as an Access Point.\
    \
-   By default, all URLs are enforcing HTTPS.\
-
+   By default, all URLs are enforcing HTTPS.
 6. To retrieve your Cloud Token and License key, Click **Generate Installation Details**
 
 <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>The Deploy Hybrid Gateway screen where you should enter the gateway host that you hybrid gateway will listen to.</p></figcaption></figure>
 
-7. Copy your Cloud Token, and then add it to your gateway deployment configuration.
-8. Copy your License, and then add it to your gateway deployment configuration.
+7. Copy your Cloud Token, and then add it to your gateway deployment configuration (as described in step 9).
+8. Copy your License, and then add it to your gateway deployment configuration (as described in step 9).
 
 <figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up with last step where you are able to copy your generated Cloud Token and your License.</p></figcaption></figure>
 
@@ -109,9 +103,9 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 
 {% tabs %}
 {% tab title="Docker" %}
-## Procedure
+### Procedure
 
-1\. Copy your Cloud Token and License Key.&#x20;
+1\. Copy your Cloud Token and License Key.
 
 2\. Run the following script:
 
@@ -125,11 +119,11 @@ docker run -d \
   graviteeio/apim-gateway:<CONTROL_PLANE_VERSION>
 ```
 
-* Replace \<cloud\_token> and \<license\_key> with the Cloud token and License Key from step a.&#x20;
+* Replace \<cloud\_token> and \<license\_key> with the Cloud token and License Key from steps 7 and 8.
 * Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud.
 
 {% hint style="info" %}
-**Rate Limiting**:  If you want to enable rate-limiting of APIs, please consult this documentation to configure your Hybrid Gateway to use Redis: [https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway#configure-the-rate-limit-repository](https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway#configure-the-rate-limit-repository)
+**Rate Limiting**: If you want to enable rate-limiting of APIs, please consult this documentation to configure your Hybrid Gateway to use a rate-limiting repository, such as Redis: [https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway#configure-the-rate-limit-repository](https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway#configure-the-rate-limit-repository)
 
 Example Docker Run command:
 
@@ -150,14 +144,14 @@ docker run -d \
 {% endtab %}
 
 {% tab title="Kubernetes (Helm)" %}
-## **Before you begin**
+### **Before you begin**
 
 You must install the following command line tools:
 
 * [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 * [Helm v3](https://helm.sh/docs/intro/install/)
 
-## Procedure
+### Procedure
 
 1. **Set up Helm**
 
@@ -249,12 +243,29 @@ license:
 ```
 
 * Replace \<CONTROL\_PLANE\_VERSION> with the current version of the Control Plane in Gravitee Cloud (e.g.: "4.5.4").
-* Replace \<cloud\_token>  with your Cloud Token.&#x20;
+* Replace \<cloud\_token> with your Cloud Token.
 * Replace the \<license\_key> with your License Key.
 
+{% hint style="info" %}
+**Rate Limiting**: If you want to enable rate-limiting of APIs, please consult this documentation to configure your Hybrid Gateway to use a rate-limiting repository, such as Redis: [https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway#configure-the-rate-limit-repository](https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway#configure-the-rate-limit-repository)
 
+Example additional configuration in your `values.yaml` file:
 
-3. **Run Helm install**
+<pre class="language-yaml"><code class="lang-yaml">gateway:
+<strong>    ...
+</strong>ratelimit:
+    type: redis
+    redis:
+        host: 'redis.mycompany'
+        port: 6379
+        password: 'mysecretpassword'
+        ssl: false
+redis:
+    download: true
+</code></pre>
+{% endhint %}
+
+* **Run Helm Install**
 
 Install the Helm chart with the `values.yaml` file to a dedicated namespace using the following command:
 
@@ -310,12 +321,11 @@ license:
 
 To verify that the gateway is running, make a GET request on the URL you have published the gateway on to make sure it is up and running.\
 \
-You will see a message like:
+You will see a default message like:
 
 ```
 No context-path matches the request URI.
 ```
 
 \
-You can now create and deploy APIs to your Hybrid Gateway.\
-\
+You can now create and deploy APIs to your Hybrid Gateway.
