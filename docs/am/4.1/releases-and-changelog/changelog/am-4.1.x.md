@@ -6,6 +6,39 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.38 - February 28, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Redirect URL not whitelisted [#10344](https://github.com/gravitee-io/issues/issues/10344)
+
+
+**Other**
+
+* Improve SMS OTP management [#10374](https://github.com/gravitee-io/issues/issues/10374)
+
+</details>
+
+
+
+## Gravitee Access Management 4.1.37 - February 17, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Other**
+
+* Improve Email OTP management
+
+</details>
+
+
+
 ## Gravitee Access Management 4.1.36 - December 12, 2024
 
 <details>
