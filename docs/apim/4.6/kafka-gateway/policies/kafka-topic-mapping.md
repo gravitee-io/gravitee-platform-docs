@@ -8,11 +8,7 @@ This policy allows you to map a topic to another topic. People using the Kafka C
 
 You can configure the policy with the following options:
 
-| Property        | Required | Description                                                                 | Type   | Default |
-| --------------- | -------- | --------------------------------------------------------------------------- | ------ | ------- |
-| mappings        | No       | A list of mappings between the client topic and the broker topic.           | Array  |         |
-| mappings.client | No       | The name provided on the client side that will be mapped in something else. | String |         |
-| mappings.broker | No       | The name that will be sent on the broker side. Supports EL expressions.     | String |         |
+<table><thead><tr><th width="183">Property</th><th>Required</th><th>Description</th><th>Type</th><th>Default</th></tr></thead><tbody><tr><td>mappings</td><td>No</td><td>A list of mappings between the client topic and the broker topic.</td><td>Array</td><td></td></tr><tr><td>mappings.client</td><td>No</td><td>The name provided on the client side that will be mapped in something else.</td><td>String</td><td></td></tr><tr><td>mappings.broker</td><td>No</td><td>The name that will be sent on the broker side. Supports EL expressions.</td><td>String</td><td></td></tr></tbody></table>
 
 ### Examples <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 
@@ -28,7 +24,8 @@ The `{orgId}` is dynamically replaced at runtime by extracting the `rf_org` cust
 
 Sample policy configuration:
 
-```
+{% code fullWidth="false" %}
+```json
 {
   "api": {
     ...
@@ -59,6 +56,7 @@ Sample policy configuration:
   ]
 }
 ```
+{% endcode %}
 
 ### Supported Kafka ApiKeys <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 
