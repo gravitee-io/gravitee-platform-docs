@@ -6,6 +6,33 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.3 - February 28, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Redirect URL not whitelisted [#10344](https://github.com/gravitee-io/issues/issues/10344)
+* Improve memory usage of Gateway [#10366](https://github.com/gravitee-io/issues/issues/10366)
+* Close all LifeCycleService when domain is undeployed [#10367](https://github.com/gravitee-io/issues/issues/10367)
+
+**Management API**
+
+* Remove default baseURL for loadPreAuthUserResource in HttpIdentityProvider [#10361](https://github.com/gravitee-io/issues/issues/10361)
+
+
+
+**Other**
+
+* Error with MFA (/resetPassword page) [#10341](https://github.com/gravitee-io/issues/issues/10341)
+* [AM][4.4.11] French language in email not working  [#10349](https://github.com/gravitee-io/issues/issues/10349)
+* Lors d'une redemande d'OPT, même OTP [#10374](https://github.com/gravitee-io/issues/issues/10374)
+
+</details>
+
+
 {% hint style="info" %}
 When managing deployments using Helm, please note that the default startup, liveness, and readiness probes now use the httpGet method by default to request the internal API on the `/_node/health` endpoint. As a result, the internal API listens on `0.0.0.0` to allow the kubelet to check the component's status. If you don't provide custom probe definitions and have explicitly defined either the `api.http.services.core.http.host` or the `gateway.http.services.core.http.host`, ensure the value is set to `0.0.0.0`; otherwise, the probes will fail.
 {% endhint %}
