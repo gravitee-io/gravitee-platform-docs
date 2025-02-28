@@ -10,6 +10,33 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.10 - February 28, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Redirect URL not whitelisted [#10344](https://github.com/gravitee-io/issues/issues/10344)
+* Improve memory usage of Gateway [#10366](https://github.com/gravitee-io/issues/issues/10366)
+* Close all LifeCycleService when domain is undeployed [#10367](https://github.com/gravitee-io/issues/issues/10367)
+
+**Management API**
+
+* Remove default baseURL for loadPreAuthUserResource in HttpIdentityProvider [#10361](https://github.com/gravitee-io/issues/issues/10361)
+
+
+
+**Other**
+
+* Error with MFA (/resetPassword page) [#10341](https://github.com/gravitee-io/issues/issues/10341)
+* [AM][4.4.11] French language in email not working  [#10349](https://github.com/gravitee-io/issues/issues/10349)
+* Lors d'une redemande d'OPT, même OTP [#10374](https://github.com/gravitee-io/issues/issues/10374)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.9 - February 17, 2025
 
 <details>
