@@ -1,45 +1,34 @@
 import os
-import json
 
-# ✅ Load reviewed corrections
-corrections_file = "corrections.json"
-
+corrections_file = ".github/corrections/corrections.txt"
 if not os.path.exists(corrections_file):
-    print("❌ No corrections file found. Make sure to review corrections first.")
+    print("❌ Error: No corrections file found. Please upload the reviewed corrections.")
     exit(1)
 
+approved_corrections = []
 with open(corrections_file, "r", encoding="utf-8") as f:
-    corrections = json.load(f)
+    lines = f.readlines()
 
-# ✅ Apply only approved corrections
-for correction in corrections:
-    file_path = correction["file"]
-    original = correction["original"]
-    suggested = correction["suggested"]
+for i in range(0, len(lines), 3):
+    original = lines[i].replace("**Original:** ", "").strip()
+    suggested = lines[i+1].replace("**Suggested:** ", "").strip()
+    approval = lines[i+2].strip().lower()
 
-    # Skip if the file no longer exists
-    if not os.path.exists(file_path):
-        print(f"⚠️ Skipping {file_path} (file not found)")
-        continue
+    if approval == "yes":
+        approved_corrections.append((original, suggested))
 
-    # Read the file content
-    with open(file_path, "r", encoding="utf-8") as f:
-        lines = f.readlines()
+# Apply changes
+for root, _, files in os.walk("."):
+    for file in files:
+        if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
+            path = os.path.join(root, file)
+            with open(path, "r", encoding="utf-8") as f:
+                content = f.read()
+            
+            for original, suggested in approved_corrections:
+                content = content.replace(original, suggested)
 
-    # Apply correction
-    modified_lines = []
-    change_applied = False
-    for line in lines:
-        if original in line and not change_applied:  # Ensure we only apply once
-            modified_lines.append(line.replace(original, suggested))
-            change_applied = True
-        else:
-            modified_lines.append(line)
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(content)
 
-    # Write back the modified content
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.writelines(modified_lines)
-
-    print(f"✅ Applied correction in {file_path}")
-
-print("🚀 All approved corrections have been applied successfully.")
+print(f"✅ Applied {len(approved_corrections)} approved corrections.")
