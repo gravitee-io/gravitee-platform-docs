@@ -2,35 +2,29 @@ import re
 import os
 import language_tool_python
 
-# ✅ Increased timeout for LanguageTool to 5 minutes (default was too short)
-tool = language_tool_python.LanguageTool('en-US', download_if_missing=True, timeout=300)
-
-# ✅ Debug: Print extraction process
-print("LanguageTool initialized successfully.")
-
-# ✅ Force fresh cache to avoid corrupted downloads
-os.system("rm -rf /home/runner/.cache/language_tool_python")
-
-# ✅ Load spellcheck ignore list
+# ✅ Load the ignore list
 ignore_list = {}
 with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
     for line in f:
         word = line.strip()
-        ignore_list[word.lower()] = word  # Store lowercase -> correct-case
+        ignore_list[word.lower()] = word  # Preserve case
 
-# ✅ Function to check if a line is a comment
+# ✅ Initialize LanguageTool (Fixed: Removed `download_if_missing`)
+tool = language_tool_python.LanguageTool('en-US', timeout=300)
+
+# ✅ Function to check if a line is inside a code block or a comment
 def is_comment(line, inside_code_block, inside_block_comment):
     if re.match(r'^\s*```', line):  
         return not inside_code_block, inside_block_comment, False
     if inside_code_block:
         return inside_code_block, inside_block_comment, bool(re.match(r'^\s*(#|//|\*)', line))
-    if re.search(r'/\*', line):  # Start of multi-line block comment
+    if re.search(r'/\*', line):  # Start of block comment
         return inside_code_block, True, False
-    if re.search(r'\*/', line):  # End of multi-line block comment
+    if re.search(r'\*/', line):  # End of block comment
         return inside_code_block, False, False
     return inside_code_block, inside_block_comment, False
 
-# ✅ Function to detect URLs or code-like content
+# ✅ Function to check if a line contains a URL or a file path
 def is_code_or_url(line):
     return bool(re.search(r'https?://\S+|`.*?`|www\.\S+', line))
 
@@ -39,33 +33,32 @@ def apply_spellcheck(sentence):
     words = sentence.split()
     return " ".join([ignore_list.get(word.lower(), word) for word in words])
 
-# ✅ Function to apply grammar correction with safe offset handling
+# ✅ Function to apply grammar corrections safely
 def apply_grammar(sentence):
     try:
         matches = tool.check(sentence)
     except Exception:
         return sentence
-    
     corrections = []
     for match in matches:
         if match.replacements and match.context.lower() not in ignore_list:
             corrections.append((match.offset, match.context, match.replacements[0]))
 
-    # ✅ Apply corrections in reverse order to avoid shifting offsets
+    # Apply corrections in reverse order to avoid offset issues
     for offset, original, replacement in sorted(corrections, key=lambda x: -x[0]):
         if offset + len(original) <= len(sentence):
             sentence = sentence[:offset] + replacement + sentence[offset + len(original):]
 
     return sentence
 
-# ✅ Process files for spellcheck & grammar
+# ✅ Process each file
 for root, _, files in os.walk("."):
     for file in files:
         if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
             path = os.path.join(root, file)
             lines = open(path, "r", encoding="utf-8").readlines()
             inside_code, inside_block_comment = False, False
-            with open(path, "w", encoding="utf-8") as f:
+            with open(".github/spellcheck_review.txt", "w", encoding="utf-8") as f:
                 for line in lines:
                     orig = line.strip()
                     inside_code, inside_block_comment, is_comment = is_comment(line, inside_code, inside_block_comment)
@@ -84,6 +77,8 @@ for root, _, files in os.walk("."):
                     # ✅ Prevent punctuation issues
                     corrected = corrected.replace("..", ".").replace(",.", ".").replace(" ,", ",")
 
-                    f.write(corrected + "\n")
+                    # ✅ Write corrections for review
+                    f.write(f"Original: {orig}\nSuggested: {corrected}\nApprove? (yes/no)\n\n")
 
-print("✅ Spellcheck and grammar review completed successfully.")
+# ✅ Close LanguageTool (Fixes cleanup issue)
+tool.close()
