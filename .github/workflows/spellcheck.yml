@@ -19,7 +19,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y default-jre
-          pip install codespell pyspellchecker gramma
+          pip install codespell pyspellchecker gingerit  # ✅ Replaced `gramma` with `gingerit`
 
       - name: Run Spellcheck and Generate Corrections
         run: |
