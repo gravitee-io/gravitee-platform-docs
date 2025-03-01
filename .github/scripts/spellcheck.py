@@ -1,40 +1,46 @@
-import re
 import os
+import re
 import language_tool_python
 
-# ✅ Load the ignore list
+# Load spellcheck ignore list
 ignore_list = {}
 with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
     for line in f:
         word = line.strip()
-        ignore_list[word.lower()] = word  # Preserve case
+        ignore_list[word.lower()] = word  # Store lowercase -> correct-case
 
-# ✅ Initialize LanguageTool (Fixed: Removed `download_if_missing`)
-tool = language_tool_python.LanguageTool('en-US', timeout=300)
+# Initialize LanguageTool (without timeout)
+try:
+    tool = language_tool_python.LanguageTool('en-US')
+except Exception as e:
+    print(f"Error initializing LanguageTool: {e}")
+    tool = None
 
-# ✅ Function to check if a line is inside a code block or a comment
+# Function to check if a line is inside a code block or a comment
 def is_comment(line, inside_code_block, inside_block_comment):
     if re.match(r'^\s*```', line):  
         return not inside_code_block, inside_block_comment, False
     if inside_code_block:
-        return inside_code_block, inside_block_comment, bool(re.match(r'^\s*(#|//|\*)', line))
-    if re.search(r'/\*', line):  # Start of block comment
+        return inside_code_block, inside_block_comment, bool(re.match(r'^\s*(#|//|\*|\*\*)', line))
+    if re.search(r'/\*', line):  # Start of multi-line block comment
         return inside_code_block, True, False
-    if re.search(r'\*/', line):  # End of block comment
+    if re.search(r'\*/', line):  # End of multi-line block comment
         return inside_code_block, False, False
     return inside_code_block, inside_block_comment, False
 
-# ✅ Function to check if a line contains a URL or a file path
+# Function to check if a line contains a URL or file path
 def is_code_or_url(line):
     return bool(re.search(r'https?://\S+|`.*?`|www\.\S+', line))
 
-# ✅ Function to apply spellchecking
+# Function to apply spellchecking
 def apply_spellcheck(sentence):
     words = sentence.split()
     return " ".join([ignore_list.get(word.lower(), word) for word in words])
 
-# ✅ Function to apply grammar corrections safely
+# Function to apply grammar corrections safely
 def apply_grammar(sentence):
+    if not tool:
+        return sentence
     try:
         matches = tool.check(sentence)
     except Exception:
@@ -51,34 +57,34 @@ def apply_grammar(sentence):
 
     return sentence
 
-# ✅ Process each file
+# Process each file
 for root, _, files in os.walk("."):
     for file in files:
         if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
             path = os.path.join(root, file)
             lines = open(path, "r", encoding="utf-8").readlines()
             inside_code, inside_block_comment = False, False
-            with open(".github/spellcheck_review.txt", "w", encoding="utf-8") as f:
+            with open(path, "w", encoding="utf-8") as f:
                 for line in lines:
                     orig = line.strip()
                     inside_code, inside_block_comment, is_comment = is_comment(line, inside_code, inside_block_comment)
 
-                    # ✅ Skip grammar correction for code but apply to comments
+                    # Skip grammar correction for code but apply to comments
                     if inside_code and not is_comment or inside_block_comment or not orig or is_code_or_url(orig):
                         f.write(line)
                         continue
 
-                    # ✅ Apply spellcheck
+                    # Apply spellcheck
                     fixed = apply_spellcheck(orig)
 
-                    # ✅ Apply grammar correction
+                    # Apply grammar correction
                     corrected = apply_grammar(fixed)
 
-                    # ✅ Prevent punctuation issues
+                    # Prevent punctuation issues
                     corrected = corrected.replace("..", ".").replace(",.", ".").replace(" ,", ",")
 
-                    # ✅ Write corrections for review
-                    f.write(f"Original: {orig}\nSuggested: {corrected}\nApprove? (yes/no)\n\n")
+                    f.write(corrected + "\n")
 
-# ✅ Close LanguageTool (Fixes cleanup issue)
-tool.close()
+# Ensure LanguageTool instance is properly closed
+if tool:
+    tool.close()
