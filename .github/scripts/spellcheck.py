@@ -2,15 +2,14 @@ import os
 import re
 import json
 from spellchecker import SpellChecker
-from gramma import Gramma
-import subprocess
+from gingerit.gingerit import GingerIt  # ✅ NEW: Use GingerIt for grammar
 
 # Load spellcheck ignore list
 ignore_list = {line.strip().lower(): line.strip() for line in open(".github/spellcheck-ignore.txt", "r", encoding="utf-8")}
 
 # ✅ Initialize spellchecker and grammar checker
 spell = SpellChecker()
-grammar_checker = Gramma()
+grammar_parser = GingerIt()  # ✅ NEW: Use GingerIt
 
 def is_comment(line, inside_code_block):
     """Detects whether a line is inside a code block or is a comment."""
@@ -29,9 +28,9 @@ def apply_spellcheck(sentence):
     return " ".join(corrected_words)
 
 def apply_grammar(sentence):
-    """Applies grammar correction using `gramma`."""
-    corrections = grammar_checker.correct(sentence)
-    return corrections["text"] if corrections["errors"] else sentence
+    """Applies grammar correction using GingerIt."""
+    corrected = grammar_parser.parse(sentence)  # ✅ Using GingerIt
+    return corrected["result"] if "result" in corrected else sentence
 
 # ✅ Process files
 corrections = []
