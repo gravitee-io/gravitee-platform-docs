@@ -1,4 +1,4 @@
-name: Manual Spellcheck & AI Grammar Correction with Code Comment Support
+name: Manual Spellcheck & AI Grammar Correction Review
 
 on:
   workflow_dispatch:
@@ -9,8 +9,7 @@ permissions:
 
 jobs:
   spellcheck_grammar_review:
-    runs-on: ubuntu-latest  # ✅ Uses standard runner
-
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -19,47 +18,66 @@ jobs:
         run: |
           sudo apt update && sudo apt install -y default-jre
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-          pip install --upgrade --force-reinstall language_tool_python codespell fuzzywuzzy[speedup] sentence-splitter lxml
+          pip install --upgrade pip
+          pip install codespell fuzzywuzzy[speedup] sentence-splitter lxml
+          pip install git+https://github.com/jxmorris12/language_tool_python.git
 
-      - name: Verify Ignore List Exists
-        run: |
-          if [ ! -f .github/spellcheck-ignore.txt ]; then
-            echo "Error: spellcheck-ignore.txt not found!" && exit 1
-          fi
-
-      - name: Run Spellcheck and Apply Fixes
-        run: timeout 10m python3 .github/scripts/spellcheck.py
+      - name: Run Spellcheck and Generate Corrections
+        run: python3 .github/scripts/spellcheck.py
 
       - name: Upload Corrections for Review
-        uses: actions/upload-artifact@v4  # ✅ Uses the latest version
+        uses: actions/upload-artifact@v4
         with:
-          name: spellcheck_review
-          path: .github/spellcheck_review.txt
-          retention-days: 3
+          name: corrections-file
+          path: corrections.txt
 
-      - name: Wait for Approval
-        run: |
-          echo "Download the artifact, review and modify as needed, then re-upload."
-          sleep 300  # Gives time for manual review (adjustable)
+  approve_corrections:
+    needs: spellcheck_grammar_review
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Download Reviewed Corrections
-        uses: actions/download-artifact@v4  # ✅ Uses the latest version
+      - name: Download Corrections File
+        uses: actions/download-artifact@v4
         with:
-          name: spellcheck_review
-          path: .github/
+          name: corrections-file
+          path: .
 
-      - name: Apply Approved Corrections
+      - name: Wait for User to Review & Reupload
+        run: echo "Please download, review, and re-upload corrections.txt"
+
+      - name: Upload Approved Corrections
+        uses: actions/upload-artifact@v4
+        with:
+          name: approved-corrections
+          path: corrections.txt
+
+  apply_corrections:
+    needs: approve_corrections
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Approved Corrections
+        uses: actions/download-artifact@v4
+        with:
+          name: approved-corrections
+          path: .
+
+      - name: Apply Approved Changes
         run: python3 .github/scripts/apply_corrections.py
 
-      - name: Create PR if Changes Exist
+      - name: Commit Approved Changes
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
+          if git diff --quiet; then exit 0; fi
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet; then exit 0; fi
           git checkout -b spellcheck-grammar-fixes
           git add .
-          git commit -m "Spellcheck & Grammar Fixes"
+          git commit -m "Applied Approved Spellcheck & Grammar Fixes"
           git push origin spellcheck-grammar-fixes
-          gh pr create --base main --head spellcheck-grammar-fixes --title "Spellcheck & Grammar Fixes"
+          gh pr create --base main --head spellcheck-grammar-fixes --title "Approved Spellcheck & Grammar Fixes"
