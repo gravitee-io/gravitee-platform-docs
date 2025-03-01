@@ -1,4 +1,4 @@
-name: Manual Spellcheck & AI Grammar Correction with Code Comment Support
+name: Manual Spellcheck & AI Grammar Review
 
 on:
   workflow_dispatch:
@@ -8,8 +8,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  spellcheck_grammar_review:
-    runs-on: ubuntu-22.04  # More powerful runner
+  spellcheck_review:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
@@ -19,37 +19,15 @@ jobs:
         run: |
           sudo apt update && sudo apt install -y default-jre
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-          python -m pip install --upgrade pip
-          python -m pip install codespell fuzzywuzzy[speedup] sentence-splitter --upgrade lxml
-          python -m pip install git+https://github.com/jxmorris12/language_tool_python.git
+          pip install codespell fuzzywuzzy[speedup] sentence-splitter --upgrade lxml
+          pip install git+https://github.com/jxmorris12/language_tool_python.git
 
-      - name: Debug Installed Python Packages
-        run: python -m pip list  # Confirm that all dependencies are installed
+      - name: Run Spellcheck & Grammar Review
+        run: timeout 6h python3 .github/scripts/spellcheck.py
 
-      - name: Pre-download & Extract LanguageTool
-        run: |
-          mkdir -p /home/runner/.cache/language_tool_python
-          wget -q -O /home/runner/.cache/language_tool_python/LanguageTool-6.5.zip https://www.languagetool.org/download/LanguageTool-6.5.zip
-          unzip -q -o /home/runner/.cache/language_tool_python/LanguageTool-6.5.zip -d /home/runner/.cache/language_tool_python/
-
-      - name: Verify Ignore List Exists
-        run: |
-          if [ ! -f .github/spellcheck-ignore.txt ]; then
-            echo "Error: spellcheck-ignore.txt not found!" && exit 1
-          fi
-
-      - name: Run Spellcheck and Apply Fixes
-        run: timeout 10m python3 .github/scripts/spellcheck.py
-
-      - name: Create PR if Changes Exist
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet; then exit 0; fi
-          git checkout -b spellcheck-grammar-fixes
-          git add .
-          git commit -m "Spellcheck & Grammar Fixes"
-          git push origin spellcheck-grammar-fixes
-          gh pr create --base main --head spellcheck-grammar-fixes --title "Spellcheck & Grammar Fixes"
+      - name: Upload Review File
+        uses: actions/upload-artifact@v4
+        with:
+          name: corrections-review
+          path: corrections_review.txt
+          retention-days: 7
