@@ -1,7 +1,16 @@
 import os
 import re
 import time
-import language_tool_python
+
+# ✅ Debugging to check environment
+print("🔍 Checking Python environment...")
+os.system("python -m pip list")
+
+try:
+    import language_tool_python
+except ImportError as e:
+    print(f"❌ ERROR: language_tool_python module not found: {e}")
+    exit(1)
 
 # ✅ Load the ignore list
 ignore_list = {}
