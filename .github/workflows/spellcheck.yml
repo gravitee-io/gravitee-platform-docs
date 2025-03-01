@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   spellcheck_grammar_review:
-    runs-on: ubuntu-latest  # Change from ubuntu-22.04-large to ubuntu-latest
+    runs-on: ubuntu-latest  # ✅ Uses the default available runner
 
     steps:
       - name: Checkout Repository
@@ -19,44 +19,37 @@ jobs:
         run: |
           sudo apt update && sudo apt install -y default-jre
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-          
-          # ✅ Force fresh LanguageTool download & extraction
-          rm -rf /home/runner/.cache/language_tool_python
-          
-          pip install codespell fuzzywuzzy[speedup] sentence-splitter --upgrade lxml
-          pip install git+https://github.com/jxmorris12/language_tool_python.git
+          pip install --upgrade --force-reinstall language_tool_python codespell fuzzywuzzy[speedup] sentence-splitter lxml
 
-      - name: Ensure Java is Installed & Debug
+      - name: Verify Ignore List Exists
         run: |
-          sudo apt install -y openjdk-11-jre
-          export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-          echo "Java version:"
-          java -version  # ✅ Debug Java setup
+          if [ ! -f .github/spellcheck-ignore.txt ]; then
+            echo "Error: spellcheck-ignore.txt not found!" && exit 1
+          fi
 
-      - name: Run Spellcheck and Approve Fixes
-        run: |
-          set -e  # Exit on error
-
-          echo "Start Extraction: $(date)"  # ✅ Debug extraction timing
-          
-          python3 .github/scripts/spellcheck.py  # ✅ Increased timeout for LanguageTool
-
-          echo "End Extraction: $(date)"  # ✅ Debug extraction timing
+      - name: Run Spellcheck and Apply Fixes
+        run: timeout 10m python3 .github/scripts/spellcheck.py
 
       - name: Upload Corrections for Review
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4  # ✅ Uses the latest version
         with:
           name: spellcheck_review
-          path: corrections_review.txt  # ✅ Keeps corrections available for manual approval
+          path: .github/spellcheck_review.txt
           retention-days: 3
 
-      - name: Review Corrections
+      - name: Wait for Approval
         run: |
-          echo "Download corrections for review from Artifacts"
-          echo "Manually approve/reject before committing changes."
+          echo "Download the artifact, review and modify as needed, then re-upload."
+          sleep 300  # Gives time for manual review (adjustable)
+
+      - name: Download Reviewed Corrections
+        uses: actions/download-artifact@v4  # ✅ Uses the latest version
+        with:
+          name: spellcheck_review
+          path: .github/
 
       - name: Apply Approved Corrections
-        run: python3 .github/scripts/apply_corrections.py  # ✅ Only applies reviewed changes
+        run: python3 .github/scripts/apply_corrections.py
 
       - name: Create PR if Changes Exist
         env:
@@ -64,12 +57,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          if git diff --quiet; then
-            echo "No changes detected. Skipping PR creation."
-            exit 0
-          fi
-          
+          if git diff --quiet; then exit 0; fi
           git checkout -b spellcheck-grammar-fixes
           git add .
           git commit -m "Spellcheck & Grammar Fixes"
