@@ -1,22 +1,42 @@
 import os
-import re
 
-# ✅ Read approved corrections
-corrections = []
-with open("corrections.txt", "r", encoding="utf-8") as f:
-    lines = f.readlines()
+corrections_file = "corrections.txt"
 
-for i in range(0, len(lines), 4):  # Each entry is 4 lines (Original, Suggested, Approval, Blank)
-    if i + 2 >= len(lines):  # Ensure there are enough lines to process
-        break
-    original = lines[i].strip().replace("Original: ", "")
-    suggested = lines[i + 1].strip().replace("Suggested: ", "")
-    decision = lines[i + 2].strip().lower()
+if not os.path.exists(corrections_file):
+    print("❌ Error: Corrections file not found. Ensure you've reviewed and uploaded the file.")
+    exit(1)
+
+# Read corrections from file
+with open(corrections_file, "r", encoding="utf-8") as f:
+    corrections = f.read().strip().split("\n\n")
+
+if not corrections:
+    print("✅ No corrections to apply.")
+    exit(0)
+
+approved_changes = {}
+
+# ✅ Process each correction
+for entry in corrections:
+    lines = entry.strip().split("\n")
+    if len(lines) < 2:
+        continue
+
+    original = lines[0].replace("Original: ", "").strip()
+    suggested = lines[1].replace("Suggested: ", "").strip()
+
+    # ✅ Allow manual approval
+    decision = ""
+    while decision not in ["yes", "no", "exit"]:
+        decision = input(f"Original: {original}\nSuggested: {suggested}\nApprove this change? (yes/no/exit): ").strip().lower()
 
     if decision == "yes":
-        corrections.append((original, suggested))
+        approved_changes[original] = suggested
+    elif decision == "exit":
+        print("⏸️ Review paused. You can re-run the script later.")
+        exit(0)
 
-# ✅ Apply approved corrections to files
+# ✅ Apply approved changes to all files
 for root, _, files in os.walk("."):
     for file in files:
         if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
@@ -25,14 +45,14 @@ for root, _, files in os.walk("."):
             with open(path, "r", encoding="utf-8") as f:
                 content = f.read()
 
-            modified_content = content
-            for original, suggested in corrections:
-                # Replace only full-word matches
-                modified_content = re.sub(rf'\b{re.escape(original)}\b', suggested, modified_content)
+            modified = False
+            for original, corrected in approved_changes.items():
+                if original in content:
+                    content = content.replace(original, corrected)
+                    modified = True
 
-            # Write back only if changes were made
-            if modified_content != content:
+            if modified:
                 with open(path, "w", encoding="utf-8") as f:
-                    f.write(modified_content)
+                    f.write(content)
 
 print("✅ Approved corrections applied successfully.")
