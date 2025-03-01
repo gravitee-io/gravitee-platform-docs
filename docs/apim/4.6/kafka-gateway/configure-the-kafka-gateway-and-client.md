@@ -14,7 +14,7 @@ Before you can use Gravitee to proxy in a Kafka cluster, you need to configure t
 Running the Kafka Gateway requires an Enterprise license with the Kafka Gateway feature included. This does not come by default with a Universe license; it must be purchased separately from Gravitee.
 {% endhint %}
 
-To run the Kafka Gateway, you enable the gateway server in `gravitee.yml`.  The full example of the configuration is defined below. The baseline required configuration is:
+To run the Kafka Gateway, enable the Gateway server in `gravitee.yml`.  The full example of the configuration is defined [below](configure-the-kafka-gateway-and-client.md#appendix-full-gateway-configuration). The baseline required configuration is:
 
 ```yaml
 # Gateway Kafka server
@@ -32,21 +32,21 @@ kafka:
     defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
 ```
 
-### Bootstrap Server Domain
+### Bootstrap server domain
 
-* The gateway run multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}` , where `{apiHost}` is host prefix defined for each API.
+* The Gateway runs multiple APIs on different **domains**. The Kafka client will connect to the API using the bootstrap server `{apiHost}.{defaultDomain}:{defaultPort}` , where `{apiHost}` is host prefix defined for each API.
 
 <figure><img src="../.gitbook/assets/image.png" alt="" width="555"><figcaption><p>The Kafka client routes to the correct API through the gateway using SNI routing.</p></figcaption></figure>
 
-* To route to the correct API, the gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is a part of the TLS protocol. Therefore all client connections **must** happen over TLS (with at least `security.protocol=SSL` set in the Kafka client configuration).
-* The client **must** trust the certificate provided by the gateway. As there is a variable host in the proxy bootstrap server URL, you will likely need to request a wildcard SAN to use as the certificate presented by the gateway.
+* To route to the correct API, the Gateway uses [SNI routing](https://en.wikipedia.org/wiki/Server_Name_Indication), which is part of the TLS protocol. Consequently, all client connections **must** happen over TLS (with at least `security.protocol=SSL` set in the Kafka client configuration).
+* The client **must** trust the certificate provided by the Gateway. To handle the variable host in the proxy bootstrap server URL, you will likely need to request a wildcard SAN to use as the certificate presented by the Gateway.
 * Using the default configuration, you will ideally need a wildcard DNS entry, so that you don't need a new DNS entry for every API. In this example, the DNS and wildcard certificate should be for `*.mycompany.org`.
 
 <details>
 
 <summary>What if I have restrictions on the domains I can use?</summary>
 
-If you have restrictions on the domain names you can use for APIs, you can override the default hostname by updating the gateway configuration. For example, instead of `{apiHost}.{defaultDomain}`  as the hostname, you can set the pattern to `my-bootstrap-{apiHost}.mycompany.org` by configuring the variables below:
+If you have restrictions on the domain names you can use for APIs, you can override the default hostname by updating the Gateway configuration. For example, instead of `{apiHost}.{defaultDomain}`  as the hostname, you can set the pattern to `my-bootstrap-{apiHost}.mycompany.org` by configuring the variables below:
 
 ```yaml
 # Gateway Kafka server
@@ -72,23 +72,23 @@ Then, for two APIs, the client will connect to, e.g., `my-bootstrap-api1.mycompa
 
 </details>
 
-### Broker Mapping
+### Broker mapping
 
-After the Kafka client connects to the API, the gateway (acting as the bootstrap server) returns the list of brokers in the upstream cluster.&#x20;
+After the Kafka client connects to the API, the Gateway (acting as the bootstrap server) returns the list of brokers in the upstream cluster.&#x20;
 
 <figure><img src="../.gitbook/assets/image (1).png" alt="" width="563"><figcaption><p>The proxy obtains the list of brokers from the upstream cluster.</p></figcaption></figure>
 
-To properly provide the client with the list of brokers and the associated metadata about topics and partitions on those brokers, the gateway creates a one-to-one mapping between brokers in the upstream cluster and the brokers seen by the client.
+To properly provide the client with the list of brokers and the associated metadata about topics and partitions on those brokers, the Gateway creates a one-to-one mapping between the brokers in the upstream cluster and the brokers seen by the client.
 
 <figure><img src="../.gitbook/assets/image (3).png" alt="" width="563"><figcaption><p>The gateway returns the list of brokers back to the client, rewritten to use the gateway hostname.</p></figcaption></figure>
 
-The mapping combines the `brokerPrefix`, `brokerSeparator`, and `defaultDomain` variables, along with the API host prefix. The Kafka client must be able to route to `{brokerPrefix}-{brokerId}-{apiHost}.{defaultDomain}`, for as many brokers as there are in the Kafka cluster. Again, a wildcard DNS entry is preferred for this.
+The mapping combines the `brokerPrefix`, `brokerSeparator`, and `defaultDomain` variables, along with the API host prefix. The Kafka client must be able to route to `{brokerPrefix}-{brokerId}-{apiHost}.{defaultDomain}`, for as many brokers as there are in the Kafka cluster. Again, a wildcard DNS entry is the preferred way to do this.
 
 <details>
 
 <summary>What if I have restrictions on the domains I can use?</summary>
 
-If you have restrictions on the domain names you can use for APIs, then as above you can override the broker domain pattern. The configuration becomes as follows (with `brokerDomainPattern` being the relevant option):
+If you have restrictions on the domain names you can use for APIs, then, as [above](configure-the-kafka-gateway-and-client.md#what-if-i-have-restrictions-on-the-domains-i-can-use), you can override the broker domain pattern. The configuration will then be as follows (with `brokerDomainPattern` being the relevant option):
 
 ```yaml
 # Gateway Kafka server
@@ -120,7 +120,9 @@ With this, if there are three brokers in the upstream cluster, the client must b
 
 <summary>What if I don't have a valid DNS entry?</summary>
 
-If you do not have a valid DNS entry for your gateway because, for example, you're running the gateway on `localhost`, then you may need to update your `/etc/hosts` file. If running the gateway locally in Docker, and setting the `defaultDomain` to `kafka.local`, you can update your /etc/hosts file with the following entries:
+If you do not have a valid DNS entry for your Gateway because, for example, you're running the Gateway on `localhost`, then you may need to update your `/etc/hosts` file.&#x20;
+
+If you are running the Gateway locally in Docker, and setting the `defaultDomain` to `kafka.local`, you can update your `/etc/hosts` file with the following entries:
 
 ```
 127.0.0.1    localhost kafka.local api1.kafka.local
@@ -128,7 +130,7 @@ If you do not have a valid DNS entry for your gateway because, for example, you'
 127.0.0.1    localhost broker-0-api1.kafka.local broker-1-api1.kafka.local broker-2-api1.kafka.local
 ```
 
-If adding more APIs, you will need to add another API host to the first line and two more entries for each API to the IPs `::1` and `127.0.0.1`. With two APIs, this becomes:
+To add more APIs, you will need to add another API host to the first line and two more entries for each API to the IPs `::1` and `127.0.0.1`. With two APIs, this becomes:
 
 ```
 127.0.0.1    localhost kafka.local api1.kafka.local api2.kafka.local
@@ -140,11 +142,11 @@ If adding more APIs, you will need to add another API host to the first line and
 
 </details>
 
-### Defining the Default Entrypoint Configuration
+### Defining the default entrypoint configuration
 
 By default, clients talk to Kafka APIs by setting the bootstrap server as `{apiHost}.{defaultDomain}:{defaultPort}`. This is set in `gravitee.yml`, but for convenience, when developing APIs in the UI, you can set the default values appended to the hostname. You can also leave this value blank and respecify the full hostname in the API.
 
-In order to configure the APIM Console to use the Kafka domain and port values for your Organization:
+To configure the APIM Console to use the Kafka domain and port values for your Organization:
 
 1. Log in to your APIM Console.
 2. Select **Organization** from the bottom of the left nav.
@@ -154,7 +156,7 @@ In order to configure the APIM Console to use the Kafka domain and port values f
 
     <figure><img src="../.gitbook/assets/1 KG 1.png" alt=""><figcaption></figcaption></figure>
 
-    This value then shows in the entrypoint page for your APIs.\
+    This value is then displayed on the entrypoint page of your APIs.\
 
 
     <figure><img src="../.gitbook/assets/1 KG 2.png" alt=""><figcaption></figcaption></figure>
@@ -167,7 +169,7 @@ To use the Kafka Gateway, you use a regular Kafka client. There are many impleme
 As of the 4.6.0 release, the Kafka Gateway requires the Kafka client to be version 3.0 or above.
 {% endhint %}
 
-The default client to talk to Kafka is packaged within the Kafka binary and is based on Java. To use this client, as a prerequisite, you will need to install a JRE. See the [Java documentation](https://www.java.com/en/) for more information.
+The default client to talk to Kafka is packaged within the Kafka binary and is based on Java. The prerequisite for using this client is a JRE. See the [Java documentation](https://www.java.com/en/) for more information on how to install a JRE.
 
 1. Download Kafka. Gravitee Kafka Gateway is compatible with the source code or either binary download of each supported Kafka release. For more information about downloading Kafka, go to [Kafka's download page](https://kafka.apache.org/downloads).
 2. Store the downloaded file structure in a secure place. The root folder will be your working directory when calling your Kafka API.
@@ -180,7 +182,7 @@ At this point, you can begin creating and deploying APIs to the Gravitee Kafka G
 
 ## Produce and consume messages
 
-You can use the Kafka Gateway and client to call your [Kafka API](create-kafka-apis.md) and, as a primary use case, produce or consume messages. Note that you can also proxy requests to create and manage topics, update partitions, and manage consumer groups.
+You can use the Kafka Gateway and client to call your [Kafka API](create-kafka-apis.md) and, as a primary use case, produce or consume messages. You can also proxy requests to create and manage topics, update partitions, and manage consumer groups.
 
 ### Prerequisites
 
@@ -196,7 +198,7 @@ When using [Gravitee Access Management (AM)](https://documentation.gravitee.io/a
 For plan, application, subscription, and resource information, see the following:
 
 * For information on how to create and manage plans, see [Plans](plans.md).
-* To learn how to create an application to a Gravitee plan, see [Applications](applications.md).
+* To learn how to create an application for a Gravitee plan, see [Applications](applications.md).
 * For more information on how subscriptions work in Gravitee, see [Subscriptions](subscriptions.md).
 * To learn how to create a resource, see [Resources](../policies/resources.md).
 
