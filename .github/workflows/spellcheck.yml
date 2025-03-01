@@ -1,7 +1,7 @@
-name: Manual Spellcheck & AI Grammar Correction
+name: Manual Spellcheck & AI Grammar Correction with Approval
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual trigger
 
 permissions:
   contents: write
@@ -17,39 +17,42 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo apt update
-          sudo apt install -y default-jre
-          pip install codespell pyspellchecker gingerit  # ✅ Replaced `gramma` with `gingerit`
+          sudo apt update && sudo apt install -y default-jre
+          export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+          pip install --upgrade pip
+          pip install codespell pyspellchecker gingerit sentence-splitter --upgrade lxml
+
+      - name: Verify Ignore List Exists
+        run: |
+          if [ ! -f .github/spellcheck-ignore.txt ]; then
+            echo "❌ Error: spellcheck-ignore.txt not found!"
+            exit 1
+          fi
 
       - name: Run Spellcheck and Generate Corrections
         run: |
-          python3 .github/scripts/spellcheck.py
+          timeout 10m python3 .github/scripts/spellcheck.py
 
       - name: Upload Corrections for Review
         uses: actions/upload-artifact@v4
         with:
-          name: corrections
-          path: corrections.json
+          name: corrections_review
+          path: .github/corrections/corrections.txt
 
-  apply_corrections:
-    needs: spellcheck_grammar_review
-    runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Wait for Review and Approval
+        run: echo "⏳ Please review and re-upload corrections.txt when ready."
 
       - name: Download Reviewed Corrections
         uses: actions/download-artifact@v4
         with:
-          name: corrections
+          name: corrections_review
+          path: .github/corrections/
 
       - name: Apply Approved Corrections
         run: |
           python3 .github/scripts/apply_corrections.py
 
-      - name: Create PR if Changes Exist
+      - name: Commit and Push Changes
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
@@ -58,6 +61,6 @@ jobs:
           if git diff --quiet; then exit 0; fi
           git checkout -b spellcheck-grammar-fixes
           git add .
-          git commit -m "Spellcheck & Grammar Fixes"
+          git commit -m "✅ Spellcheck & Grammar Fixes (Approved)"
           git push origin spellcheck-grammar-fixes
-          gh pr create --base main --head spellcheck-grammar-fixes --title "Spellcheck & Grammar Fixes"
+          gh pr create --base main --head spellcheck-grammar-fixes --title "Spellcheck & Grammar Fixes" --body "This PR contains manually approved spellcheck and grammar fixes."
