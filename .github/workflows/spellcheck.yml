@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   spellcheck_grammar_review:
-    runs-on: ubuntu-22.04  # Larger runner for more resources
+    runs-on: ubuntu-22.04  # More powerful runner
 
     steps:
       - name: Checkout Repository
@@ -19,8 +19,12 @@ jobs:
         run: |
           sudo apt update && sudo apt install -y default-jre
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-          pip install codespell fuzzywuzzy[speedup] sentence-splitter --upgrade lxml
-          pip install git+https://github.com/jxmorris12/language_tool_python.git
+          python -m pip install --upgrade pip
+          python -m pip install codespell fuzzywuzzy[speedup] sentence-splitter --upgrade lxml
+          python -m pip install git+https://github.com/jxmorris12/language_tool_python.git
+
+      - name: Debug Installed Python Packages
+        run: python -m pip list  # Confirm that all dependencies are installed
 
       - name: Pre-download & Extract LanguageTool
         run: |
