@@ -11,53 +11,33 @@ You can use the `assign-attributes` policy to set variables such as request attr
 
 You can use it to retrieve initial request attributes after `Transform headers` or `Transform query parameters` policies and reuse them in other policies (`Dynamic routing`, for example).
 
-Functional and implementation information for the `assign-attributes` policy is organized into the following sections:
+## Basic Usage
 
-* [Examples](assign-attributes.md#examples)
-* [Configuration](assign-attributes.md#configuration)
-* [Compatibility Matrix](assign-attributes.md#compatibility-matrix)
-* [Errors](assign-attributes.md#errors)
-* [Changelogs](assign-attributes.md#changelogs)
-
-## Examples
-
-{% hint style="warning" %}
-This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. It cannot be applied to v4 TCP proxy APIs.
-{% endhint %}
-
-{% tabs %}
-{% tab title="HTTP proxy API example" %}
-To inject an attribute that will dynamically determine if the content is in JSON format:
+With this policy, you can do things like inject an attribute that will dynamically determine if the content passed in the request is in JSON format:
 
 ```json
 "assign-attributes": {
-    "attributes": [
-        {
-            "name": "isJson,
-            "value": "'application/json'.equals(#request.headers['Content-Type'])"
-        }
-    ]
+  "attributes": [
+    {
+      "name": "isJson",
+      "value": "'application/json'.equals(#request.headers['Content-Type'])"
+    }
+  ]
 }
 ```
 
-To extract the request attribute and get the format of the content you can use the following syntax:
+You can the use the syntax `{#context.attributes['isJson']}`  in subsequent policies to extract the result.
 
-```json
-{#context.attributes['isJson']}
-```
-
-**Request objects**
-
-You can also be more general and inject complex objects into the context attributes:
+You can also inject complex objects into the context attributes:
 
 ```json
 "assign-attributes": {
-    "attributes": [
-        {
-            "name": "initialRequest,
-            "value": "{#request}"
-        }
-    ]
+  "attributes": [
+    {
+      "name": "initialRequest",
+      "value": "{#request}"
+    }
+  ]
 }
 ```
 
@@ -66,60 +46,152 @@ To extract request attributes and get the Content-Type header you can use the fo
 ```json
 {#context.attributes['initialRequest'].headers['Content-Type']}
 ```
+
+If you are using the policy in a message API, you can use the policy on the publish and subscribe phases to set attributes. You can access data at the message level with expressions like `{#message.headers['my-header'][0]}`. This can be used, for example, to set an attribute based on the message headers in a Kafka record.
+
+## Examples
+
+{% hint style="warning" %}
+This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. It cannot be applied to v4 TCP proxy APIs.
+{% endhint %}
+
+{% tabs %}
+{% tab title="V2 API definition" %}
+```json
+{
+  "name": "Assign Attributes v2",
+  "flows" : [
+    {
+      "id" : "93998bb2-2612-4dcb-998b-b226121dcb64",
+      "name" : "",
+      "path-operator" : {
+        "path" : "/",
+        "operator" : "STARTS_WITH"
+      },
+      "condition": "",
+      "consumers": [ ],
+      "methods": [ ],
+      "pre": [ 
+        {
+          "name" : "Assign attributes",
+          "description" : "",
+          "enabled" : true,
+          "policy" : "policy-assign-attributes",
+          "configuration" : {
+            "scope":"REQUEST",
+            "attributes": [
+              {
+                "name":"my-attribute",
+                "value":"{#request.headers['Content-Type']}"
+              }
+            ]
+          }
+        }
+      ],
+      "post" : [ ],
+      "enabled" : true
+    } 
+  ]
+  ...
+}
+```
 {% endtab %}
 
-{% tab title="Message API example" %}
-To inject an attribute that will dynamically determine if the content is in JSON format:
-
+{% tab title="V4 API definition" %}
 ```json
-"assign-attributes": {
-    "attributes": [
-        {
-            "name": "isJson,
-            "value": "'application/json'.equals(#message.headers['Content-Type'])"
-        }
-    ]
-}
+{
+  "api": {
+    "name": "Assign Attributes",    
+    "flows": [
+      {
+        "name": "",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "EQUALS",
+            "methods": []
+          }
+        ],
+        "request": [
+          {
+            "name": "Assign attributes",
+            "enabled": true,
+            "policy": "policy-assign-attributes",
+            "configuration": {
+              "scope": "REQUEST",
+              "attributes": [
+                {
+                  "name": "my-attribute",
+                  "value": "{#request.headers['Content-Type']}"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    ...
+  }
+  ...
+}    
 ```
+{% endtab %}
 
-To extract the message attribute and get the format of the content you can use the following syntax:
-
-```json
-{#message.attributes['isJson']}
+{% tab title="V2 API CRD" %}
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiDefinition"
+metadata:
+  name: "assign-attributes-v2-gko-api"
+spec:
+  name: "Assign Attributes V2 GKO API",
+  flows:
+  - name: "common-flow"
+    path-operator:
+      path: "/"
+      operator: "STARTS_WITH"
+    enabled: true
+    pre:
+    - name: "Assign attributes"
+      description: "Assign an attribute"
+      enabled: true
+      policy: "policy-assign-attributes"
+      configuration:
+        scope: "REQUEST"
+        attributes:
+        - name: "my-attribute"
+          value: "{#request.headers['Content-Type']}"
+...
 ```
+{% endtab %}
 
-**Message objects**
-
-You can also be more general and inject complex objects into the message attributes:
-
-```json
-"assign-attributes": {
-    "attributes": [
-        {
-            "name": "initialMessage,
-            "value": "{#message}"
-        }
-    ]
-}
-```
-
-To extract message attributes and get the Content-Type header you can use the following syntax:
-
-```json
-{#message.attributes['initialMessage'].headers['Content-Type']}
-```
-
-To assign an attribute to the content of a message:
-
-```json
-"assign-attributes": {
-    "attributes": [
-        {
-            "name": "messageContent,
-            "value": "{#message.content}"
-        }
-    ]
-}
+{% tab title="V4 API CRD" %}
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiV4Definition"
+metadata:
+  name: "assign-attributes-v4-gko-api"
+spec:
+  name: "Assign Attributes V4 GKO API"
+  flows:
+    - name: "common-flow"
+      enabled: true
+      selectors:
+      - type: "HTTP"
+        path: "/"
+        pathOperator: "EQUALS"
+      request:
+      - name: "Assign attributes"
+        enabled: true
+        policy: "policy-assign-attributes"
+        configuration:
+          scope: "REQUEST"
+          attributes:
+          - name: "my-attribute"
+            value: "{#request.headers['Content-Type']}"
+...
 ```
 {% endtab %}
 {% endtabs %}
