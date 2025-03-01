@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   spellcheck_grammar_review:
-    runs-on: ubuntu-latest  # ✅ Uses the default available runner
+    runs-on: ubuntu-latest  # ✅ Uses standard runner
 
     steps:
       - name: Checkout Repository
