@@ -1,88 +1,63 @@
 import re
 import os
 import language_tool_python
+import signal
 
-# ✅ Load spellcheck ignore list
-ignore_list = {}
-with open(".github/spellcheck-ignore.txt", "r", encoding="utf-8") as f:
-    for line in f:
-        word = line.strip()
-        ignore_list[word.lower()] = word
+# ✅ Load ignore list
+ignore_list = {line.strip().lower(): line.strip() for line in open(".github/spellcheck-ignore.txt", encoding="utf-8")}
 
-# ✅ Initialize LanguageTool with proper handling
+# ✅ Initialize LanguageTool with fail-safe
 try:
     tool = language_tool_python.LanguageTool('en-US')
 except Exception as e:
-    print(f"Error initializing LanguageTool: {e}")
+    print(f"⚠️ Error initializing LanguageTool: {e}")
     tool = None
 
-# ✅ Function to detect code blocks & comments
-def check_comment_status(line, inside_code_block, inside_block_comment):
-    if re.match(r'^\s*```', line):  
-        return not inside_code_block, inside_block_comment, False
-    if inside_code_block:
-        return inside_code_block, inside_block_comment, bool(re.match(r'^\s*(#|//|\*)', line))
-    if re.search(r'/\*', line):  # Start of multi-line block comment
-        return inside_code_block, True, False
-    if re.search(r'\*/', line):  # End of multi-line block comment
-        return inside_code_block, False, False
-    return inside_code_block, inside_block_comment, False
+timeout_log = ".github/spellcheck-timeouts.log"
 
-# ✅ Function to check if a line contains a URL or a file path
-def is_code_or_url(line):
-    return bool(re.search(r'https?://\S+|`.*?`|www\.\S+', line))
+def detect_comment(line, inside_code, inside_block):
+    if re.match(r'^\s*```', line):
+        return not inside_code, inside_block, False
+    if inside_code:
+        return inside_code, inside_block, bool(re.match(r'^\s*(#|//|\*)', line))
+    if re.search(r'/\*', line):
+        return inside_code, True, False
+    if re.search(r'\*/', line):
+        return inside_code, False, False
+    return inside_code, inside_block, False
 
-# ✅ Function to apply spellchecking
 def apply_spellcheck(sentence):
-    words = sentence.split()
-    return " ".join([ignore_list.get(word.lower(), word) for word in words])
+    return " ".join([ignore_list.get(word.lower(), word) for word in sentence.split()])
 
-# ✅ Function to apply grammar corrections safely
 def apply_grammar(sentence):
     if not tool:
         return sentence
+    def timeout_handler(signum, frame):
+        raise TimeoutError("LanguageTool check() took too long!")
+    signal.signal(signal.SIGALRM, timeout_handler)
+    signal.alarm(10)
     try:
         matches = tool.check(sentence)
-    except Exception:
+        signal.alarm(0)
+    except TimeoutError:
+        print(f"⚠️ Timeout: Skipping {sentence}")
+        with open(timeout_log, "a") as log:
+            log.write(sentence + "\n")
         return sentence
-    corrections = []
-    for match in matches:
-        if match.replacements and match.context.lower() not in ignore_list:
-            corrections.append((match.offset, match.context, match.replacements[0]))
-
-    # Apply corrections in reverse order to avoid offset issues
-    for offset, original, replacement in sorted(corrections, key=lambda x: -x[0]):
-        if offset + len(original) <= len(sentence):
-            sentence = sentence[:offset] + replacement + sentence[offset + len(original):]
-
     return sentence
 
-# ✅ Process each file
-with open("corrections.txt", "w", encoding="utf-8") as f:
-    for root, _, files in os.walk("."):
-        for file in files:
-            if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
-                path = os.path.join(root, file)
-                lines = open(path, "r", encoding="utf-8").readlines()
-                inside_code, inside_block_comment = False, False
+# ✅ Process files
+for root, _, files in os.walk("."):
+    for file in files:
+        if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
+            path = os.path.join(root, file)
+            lines = open(path, encoding="utf-8").readlines()
+            inside_code, inside_block = False, False
+            with open("corrections.txt", "w") as f:
                 for line in lines:
                     orig = line.strip()
-                    inside_code, inside_block_comment, is_comment = check_comment_status(line, inside_code, inside_block_comment)
-
-                    # ✅ Skip grammar correction for code but apply to comments
-                    if inside_code and not is_comment or inside_block_comment or not orig or is_code_or_url(orig):
+                    inside_code, inside_block, is_comment = detect_comment(line, inside_code, inside_block)
+                    if inside_code and not is_comment or inside_block or not orig:
                         continue
-
-                    # ✅ Apply spellcheck
-                    fixed = apply_spellcheck(orig)
-
-                    # ✅ Apply grammar correction
-                    corrected = apply_grammar(fixed)
-
-                    # ✅ Prevent punctuation issues
-                    corrected = corrected.replace("..", ".").replace(",.", ".").replace(" ,", ",")
-
-                    if corrected != orig:
-                        f.write(f"Original: {orig}\n")
-                        f.write(f"Suggested: {corrected}\n")
-                        f.write("Approve? (yes/no/exit): \n")
+                    corrected = apply_grammar(apply_spellcheck(orig))
+                    f.write(f"Original: {orig}\nSuggested: {corrected}\n\n")
