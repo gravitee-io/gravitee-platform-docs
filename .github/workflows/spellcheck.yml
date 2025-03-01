@@ -1,4 +1,4 @@
-name: Manual Spellcheck & AI Grammar Correction with Code Review
+name: Manual Spellcheck & AI Grammar Correction
 
 on:
   workflow_dispatch:
@@ -17,46 +17,47 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo apt update && sudo apt install -y default-jre
-          export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-          pip install codespell fuzzywuzzy[speedup] sentence-splitter --upgrade lxml
-          pip install git+https://github.com/jxmorris12/language_tool_python.git
-
-      - name: Verify Ignore List Exists
-        run: |
-          if [ ! -f .github/spellcheck-ignore.txt ]; then
-            echo "Error: spellcheck-ignore.txt not found!" && exit 1
-          fi
+          sudo apt update
+          sudo apt install -y default-jre
+          pip install codespell pyspellchecker gramma
 
       - name: Run Spellcheck and Generate Corrections
-        run: timeout 10m python3 .github/scripts/spellcheck.py
+        run: |
+          python3 .github/scripts/spellcheck.py
 
       - name: Upload Corrections for Review
         uses: actions/upload-artifact@v4
         with:
           name: corrections
-          path: corrections.txt
+          path: corrections.json
 
-      - name: Review Instructions
-        run: |
-          echo "✅ Download 'corrections.txt' from the artifacts tab."
-          echo "📝 Edit the file to accept/reject corrections, then re-upload."
-          echo "🚀 Resume workflow after review."
+  apply_corrections:
+    needs: spellcheck_grammar_review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
 
-      - name: Download Updated Corrections
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Reviewed Corrections
         uses: actions/download-artifact@v4
         with:
           name: corrections
 
       - name: Apply Approved Corrections
-        run: python3 .github/scripts/apply_corrections.py
+        run: |
+          python3 .github/scripts/apply_corrections.py
 
-      - name: Commit Changes
+      - name: Create PR if Changes Exist
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then exit 0; fi
+          git checkout -b spellcheck-grammar-fixes
           git add .
-          git commit -m "Applied approved spellcheck & grammar corrections"
-          git push origin main
+          git commit -m "Spellcheck & Grammar Fixes"
+          git push origin spellcheck-grammar-fixes
+          gh pr create --base main --head spellcheck-grammar-fixes --title "Spellcheck & Grammar Fixes"
