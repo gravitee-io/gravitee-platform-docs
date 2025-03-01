@@ -2,7 +2,7 @@ import os
 import re
 import language_tool_python
 
-# Load spellcheck ignore list
+# Load ignore list
 ignore_list = {}
 ignore_file = ".github/spellcheck-ignore.txt"
 if os.path.exists(ignore_file):
@@ -10,13 +10,6 @@ if os.path.exists(ignore_file):
         for line in f:
             word = line.strip()
             ignore_list[word.lower()] = word  # Preserve case
-
-# Load previously approved corrections
-review_file = "corrections_review.txt"
-approved_corrections = set()
-if os.path.exists(review_file):
-    with open(review_file, "r", encoding="utf-8") as f:
-        approved_corrections = {line.strip() for line in f}
 
 # Initialize LanguageTool
 tool = language_tool_python.LanguageTool('en-US')
@@ -38,51 +31,28 @@ def apply_grammar(sentence):
             sentence = sentence[:offset] + replacement + sentence[offset + len(original):]
     return sentence
 
-# Process each file and request approval for each correction
+# Collect corrections
+corrections = []
 for root, _, files in os.walk("."):
     for file in files:
         if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
             path = os.path.join(root, file)
             lines = open(path, "r", encoding="utf-8").readlines()
-            new_lines = []
 
             for line in lines:
                 orig = line.strip()
-                
-                # Skip URLs, code, or empty lines
                 if not orig or is_code_or_url(orig):
-                    new_lines.append(line)
                     continue
                 
-                # Apply spellcheck and grammar
                 spellchecked = apply_spellcheck(orig)
                 corrected = apply_grammar(spellchecked)
-                
-                # If there's a correction, prompt for approval
-                if corrected != orig and corrected not in approved_corrections:
-                    print(f"\nOriginal:  {orig}")
-                    print(f"Suggested: {corrected}")
-                    decision = input("Approve this change? (yes/no/exit): ").strip().lower()
-                    
-                    if decision == "yes":
-                        new_lines.append(corrected + "\n")
-                        approved_corrections.add(corrected)
-                    elif decision == "exit":
-                        print("Saving progress and exiting...")
-                        with open(review_file, "w", encoding="utf-8") as f:
-                            f.writelines([c + "\n" for c in approved_corrections])
-                        exit(0)
-                    else:
-                        new_lines.append(line)
-                else:
-                    new_lines.append(line)
 
-            # Write changes back
-            with open(path, "w", encoding="utf-8") as f:
-                f.writelines(new_lines)
+                if corrected != orig:
+                    corrections.append(f"File: {path}\nOriginal: {orig}\nSuggested: {corrected}\n\n")
 
-# Save approved corrections
+# Write all corrections to a file for manual review
+review_file = "corrections_review.txt"
 with open(review_file, "w", encoding="utf-8") as f:
-    f.writelines([c + "\n" for c in approved_corrections])
+    f.writelines(corrections)
 
-print("Review complete. All approved changes have been applied.")
+print(f"Corrections written to {review_file}. Review and upload back for approval.")
