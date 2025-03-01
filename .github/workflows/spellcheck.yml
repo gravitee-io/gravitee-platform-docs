@@ -15,15 +15,21 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Dependencies
+      - name: Setup Virtual Environment & Install Dependencies
         run: |
           sudo apt update && sudo apt install -y default-jre
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-          pip install --upgrade pip
-          pip install codespell pyspellchecker gingerit sentence-splitter --upgrade lxml
 
-          # ✅ Verify installation to prevent missing module errors
-          python3 -c "import gingerit" || { echo "❌ GingerIt failed to install!"; exit 1; }
+          # ✅ Create & activate virtual environment
+          python3 -m venv venv
+          source venv/bin/activate
+
+          # ✅ Install dependencies inside venv
+          python3 -m pip install --upgrade pip
+          python3 -m pip install codespell pyspellchecker gingerit sentence-splitter lxml
+
+          # ✅ Verify installation
+          python3 -c "import gingerit, pyspellchecker, sentence_splitter" || { echo '❌ Dependencies missing!'; exit 1; }
 
       - name: Verify Ignore List Exists
         run: |
@@ -34,6 +40,7 @@ jobs:
 
       - name: Run Spellcheck and Generate Corrections
         run: |
+          source venv/bin/activate
           timeout 10m python3 .github/scripts/spellcheck.py || { echo "❌ Spellcheck script failed!"; exit 1; }
 
       - name: Upload Corrections for Review
@@ -53,6 +60,7 @@ jobs:
 
       - name: Apply Approved Corrections
         run: |
+          source venv/bin/activate
           python3 .github/scripts/apply_corrections.py || { echo "❌ Failed to apply corrections!"; exit 1; }
 
       - name: Commit and Push Changes
