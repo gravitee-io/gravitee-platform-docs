@@ -22,6 +22,9 @@ jobs:
           pip install --upgrade pip
           pip install codespell pyspellchecker gingerit sentence-splitter --upgrade lxml
 
+          # ✅ Verify installation to prevent missing module errors
+          python3 -c "import gingerit" || { echo "❌ GingerIt failed to install!"; exit 1; }
+
       - name: Verify Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
@@ -31,7 +34,7 @@ jobs:
 
       - name: Run Spellcheck and Generate Corrections
         run: |
-          timeout 10m python3 .github/scripts/spellcheck.py
+          timeout 10m python3 .github/scripts/spellcheck.py || { echo "❌ Spellcheck script failed!"; exit 1; }
 
       - name: Upload Corrections for Review
         uses: actions/upload-artifact@v4
@@ -50,7 +53,7 @@ jobs:
 
       - name: Apply Approved Corrections
         run: |
-          python3 .github/scripts/apply_corrections.py
+          python3 .github/scripts/apply_corrections.py || { echo "❌ Failed to apply corrections!"; exit 1; }
 
       - name: Commit and Push Changes
         env:
