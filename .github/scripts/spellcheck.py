@@ -1,38 +1,34 @@
 import os
-import re
 import json
-from spellchecker import SpellChecker
-from gingerit.gingerit import GingerIt  # ✅ NEW: Use GingerIt for grammar
+import re
 
-# Load spellcheck ignore list
-ignore_list = {line.strip().lower(): line.strip() for line in open(".github/spellcheck-ignore.txt", "r", encoding="utf-8")}
+try:
+    from gingerit.gingerit import GingerIt
+except ImportError:
+    print("❌ Error: `gingerit` module is missing. Install it with `pip install gingerit`.")
+    exit(1)
 
-# ✅ Initialize spellchecker and grammar checker
-spell = SpellChecker()
-grammar_parser = GingerIt()  # ✅ NEW: Use GingerIt
+parser = GingerIt()
 
-def is_comment(line, inside_code_block):
-    """Detects whether a line is inside a code block or is a comment."""
-    if re.match(r'^\s*```', line):  
-        return not inside_code_block, False
-    return inside_code_block, bool(re.match(r'^\s*(#|//|\*)', line))
+# Load ignore list
+ignore_list = {}
+ignore_file = ".github/spellcheck-ignore.txt"
+if os.path.exists(ignore_file):
+    with open(ignore_file, "r", encoding="utf-8") as f:
+        ignore_list = {word.strip().lower(): word.strip() for word in f.readlines()}
 
 def is_code_or_url(line):
-    """Skips lines containing URLs, file paths, or inline code."""
     return bool(re.search(r'https?://\S+|`.*?`|www\.\S+', line))
 
-def apply_spellcheck(sentence):
-    """Applies spellcheck while preserving words in the ignore list."""
-    words = sentence.split()
-    corrected_words = [ignore_list.get(word.lower(), word) if word.lower() in ignore_list else spell.correction(word) or word for word in words]
-    return " ".join(corrected_words)
+def correct_grammar(sentence):
+    try:
+        result = parser.parse(sentence)
+        return result["result"] if "result" in result else sentence
+    except Exception:
+        print(f"⚠️ Warning: Timeout checking grammar for: {sentence}")
+        return sentence
 
-def apply_grammar(sentence):
-    """Applies grammar correction using GingerIt."""
-    corrected = grammar_parser.parse(sentence)  # ✅ Using GingerIt
-    return corrected["result"] if "result" in corrected else sentence
-
-# ✅ Process files
+# Process files
 corrections = []
 for root, _, files in os.walk("."):
     for file in files:
@@ -41,31 +37,22 @@ for root, _, files in os.walk("."):
             with open(path, "r", encoding="utf-8") as f:
                 lines = f.readlines()
 
-            inside_code = False
-            modified_lines = []
-            
             for line in lines:
-                orig = line.strip()
-                inside_code, is_comment = is_comment(line, inside_code)
-                
-                if inside_code and not is_comment or not orig or is_code_or_url(orig):
-                    modified_lines.append(line)
+                original = line.strip()
+                if not original or is_code_or_url(original):
                     continue
                 
-                # Apply spellcheck and grammar correction
-                spellchecked = apply_spellcheck(orig)
-                grammatically_corrected = apply_grammar(spellchecked)
+                corrected = correct_grammar(original)
+                if original != corrected:
+                    corrections.append({"original": original, "suggested": corrected})
 
-                if orig != grammatically_corrected:
-                    corrections.append({"original": orig, "suggested": grammatically_corrected, "file": path})
-                
-                modified_lines.append(grammatically_corrected + "\n")
+# Save corrections to file
+os.makedirs(".github/corrections", exist_ok=True)
+corrections_path = ".github/corrections/corrections.txt"
+with open(corrections_path, "w", encoding="utf-8") as f:
+    for correction in corrections:
+        f.write(f"**Original:** {correction['original']}\n")
+        f.write(f"**Suggested:** {correction['suggested']}\n")
+        f.write("Approve? (yes/no)\n\n")
 
-            with open(path, "w", encoding="utf-8") as f:
-                f.writelines(modified_lines)
-
-# ✅ Save corrections for review
-with open("corrections.json", "w", encoding="utf-8") as f:
-    json.dump(corrections, f, indent=4)
-
-print("✅ Spellcheck & Grammar Review Complete. Download `corrections.json` to review changes.")
+print(f"✅ {len(corrections)} corrections generated. Review in `corrections.txt` and upload the approved version.")
