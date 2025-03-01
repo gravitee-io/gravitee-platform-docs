@@ -30,7 +30,7 @@ except Exception as e:
     tool = None
 
 # ✅ Function to check if a line is inside a code block or a comment
-def is_comment(line, inside_code_block, inside_block_comment):
+def detect_comment(line, inside_code_block, inside_block_comment):
     if re.match(r'^\s*```', line):  
         return not inside_code_block, inside_block_comment, False
     if inside_code_block:
@@ -84,7 +84,7 @@ for root, _, files in os.walk("."):
             with open(path, "w", encoding="utf-8") as f:
                 for line in lines:
                     orig = line.strip()
-                    inside_code, inside_block_comment, is_comment = is_comment(line, inside_code, inside_block_comment)
+                    inside_code, inside_block_comment, is_comment = detect_comment(line, inside_code, inside_block_comment)
 
                     # ✅ Skip grammar correction for code but apply to comments
                     if inside_code and not is_comment or inside_block_comment or not orig or is_code_or_url(orig):
