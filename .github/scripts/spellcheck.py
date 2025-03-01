@@ -1,6 +1,6 @@
 import os
-import json
 import re
+import json
 
 try:
     from gingerit.gingerit import GingerIt
@@ -24,8 +24,8 @@ def correct_grammar(sentence):
     try:
         result = parser.parse(sentence)
         return result["result"] if "result" in result else sentence
-    except Exception:
-        print(f"⚠️ Warning: Timeout checking grammar for: {sentence}")
+    except Exception as e:
+        print(f"⚠️ Warning: Failed to check grammar for: {sentence}\nError: {e}")
         return sentence
 
 # Process files
