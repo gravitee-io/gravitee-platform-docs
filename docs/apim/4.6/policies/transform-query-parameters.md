@@ -31,21 +31,161 @@ This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be appli
 {% endhint %}
 
 {% tabs %}
-{% tab title="HTTP proxy API example" %}
-The example below shows how to add the ID of the incoming request to the outgoing request:
-
+{% tab title="v2 API definition" %}
 ```json
-"transform-queryparams": {
-    "addQueryParameters": [
+{
+  "name": "Transform query parameters v2 API",
+  "flows": [
+    {
+      "name": "common-flow",
+      "path-operator": {
+        "path": "/",
+        "operator": "STARTS_WITH"
+      },
+      "pre": [
         {
-            "name": "myParam",
-            "value": "{#request.id}"
+          "name": "Transform Query Parameters",
+          "description": "",
+          "enabled": true,
+          "policy": "transform-queryparams",
+          "configuration": {
+            "addQueryParameters": [
+              {
+                "name": "add-query-parameter",
+                "value": "added-value",
+                "appendToExistingArray": false
+              },
+              {
+                "name": "add-dynamic-query-parameter",
+                "value": "{#request.id}",
+                "appendToExistingArray": false
+              }
+            ],
+            "removeQueryParameters": [
+              "remove-query-parameter"
+            ]
+          }
         }
-    ],
-    "removeQueryParameters": [
-        "secretParam"
-    ]
+      ],
+      "post": [],
+      "enabled": true
+    }
+  ],
+  ...
 }
+```
+{% endtab %}
+
+{% tab title="v4 API definition" %}
+```json
+{
+  "api": {
+    "name": "Transform query parameters v4 proxy",
+    "flows": [
+      {
+        "name": "common-flow",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "EQUALS"
+          }
+        ],
+        "request": [
+          {
+            "name": "Transform Query Parameters",
+            "enabled": true,
+            "policy": "transform-queryparams",
+            "configuration": {
+              "addQueryParameters": [
+                {
+                  "name": "add-query-parameter",
+                  "value": "query-parameter-value",
+                  "appendToExistingArray": false
+                },
+                {
+                  "name": "add-dynamic-query-parameter",
+                  "value": "{#request.id}",
+                  "appendToExistingArray": false
+                }
+              ],
+              "removeQueryParameters": [
+                "remove-query-parameter"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    ...
+  }
+  ...
+}
+```
+{% endtab %}
+
+{% tab title="v2 API CRD" %}
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiDefinition"
+metadata:
+  name: "transform-query-parameters-v2-api"
+spec:
+  name: "Transform query parameters v2 API"
+  flows:
+  - name: "common-flow"
+    enabled: true
+    path-operator:
+      path: "/"
+      operator: "STARTS_WITH"
+    pre:
+    - name: "Transform Query Parameters"
+      enabled: true
+      policy: "transform-queryparams"
+      configuration:
+        addQueryParameters:
+        - name: "add-query-parameter"
+          value: "added-value"
+          appendToExistingArray: false
+        - name: "add-dynamic-query-parameter"
+          value: "{#request.id}"
+          appendToExistingArray: false
+        removeQueryParameters:
+        - "remove-query-parameter"
+  ...
+```
+{% endtab %}
+
+{% tab title="v4 API CRD" %}
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiV4Definition"
+metadata:
+  name: "transform-query-parameters-v4-proxy"
+spec:
+  name: "Transform query parameters v4 proxy"
+  flows:
+  - name: "common-flow"
+    enabled: true
+    selectors:
+    - type: "HTTP"
+      path: "/"
+      pathOperator: "EQUALS"
+    request:
+    - name: "Transform Query Parameters"
+      enabled: true
+      policy: "transform-queryparams"
+      configuration:
+        addQueryParameters:
+        - name: "add-query-parameter"
+          value: "query-parameter-value"
+          appendToExistingArray: false
+        - name: "add-dynamic-query-parameter"
+          value: "{#request.id}"
+          appendToExistingArray: false
+        removeQueryParameters:
+        - "remove-query-parameter"
 ```
 {% endtab %}
 {% endtabs %}
