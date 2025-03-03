@@ -93,7 +93,6 @@ The below snippet shows how you can add a header from the request’s payload:
     "name": "Transform headers v4 proxy",
     "flows": [
       {
-        "id": "322f05e8-b659-4fb0-af05-e8b6592fb017",
         "name": "common-flow",
         "enabled": true,
         "selectors": [
