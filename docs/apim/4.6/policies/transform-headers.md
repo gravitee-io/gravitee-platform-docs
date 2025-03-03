@@ -31,29 +31,47 @@ The policy configuration for a v2 API using the legacy execution engine must inc
 {% endhint %}
 
 {% tabs %}
-{% tab title="v2 API example" %}
-Sample policy configuration:
-
+{% tab title="v2 API definition" %}
 ```json
-"transform-headers": {
-    "addHeaders": [
+{
+  "name": "Transform headers v2 API",
+  "flows": [
+    {
+      "name": "common-flow",
+      "path-operator": {
+        "path": "/",
+        "operator": "STARTS_WITH"
+      },
+      "pre": [
         {
-            "name": "X-Gravitee-Request-Id",
-            "value": "{#request.id}"
+          "name": "Transform Headers",
+          "enabled": true,
+          "policy": "transform-headers",
+          "configuration": {
+            "scope": "REQUEST",
+            "whitelistHeaders": [
+              ""
+            ],
+            "addHeaders": [
+              {
+                "name": "added-header",
+                "value": "added-value"
+              }
+            ],
+            "removeHeaders": [
+              "removed-header"
+            ]
+          }
         }
-    ],
-    "removeHeaders": [
-        "X-Gravitee-TransactionId"
-    ],
-    "whitelistHeaders": [
-        "Content-Type",
-        "Content-Length"
-    ],
-    "scope": "REQUEST"
+      ],
+      "enabled": true
+    }
+  ],
+  ...
 }
 ```
 
-Add a header from the request’s payload:
+The below snippet shows how you can add a header from the request’s payload:
 
 ```json
 "transform-headers": {
@@ -68,73 +86,116 @@ Add a header from the request’s payload:
 ```
 {% endtab %}
 
-{% tab title="HTTP proxy API example" %}
-Sample policy configuration:
-
+{% tab title="v4 API definition" %}
 ```json
-"transform-headers": {
-    "addHeaders": [
-        {
-            "name": "X-Gravitee-Request-Id",
-            "value": "{#request.id}"
-        }
+{
+  "api": {
+    "name": "Transform headers v4 proxy",
+    "flows": [
+      {
+        "id": "322f05e8-b659-4fb0-af05-e8b6592fb017",
+        "name": "common-flow",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "EQUALS",
+            "methods": []
+          }
+        ],
+        "request": [
+          {
+            "name": "Transform Headers",
+            "enabled": true,
+            "policy": "transform-headers",
+            "configuration": {
+              "whitelistHeaders": [],
+              "addHeaders": [
+                {
+                  "name": "add-header",
+                  "value": "add-value"
+                },
+                {
+                  "name": "X-Gravitee-Request-Id",
+                  "value": "{#request.id}"
+                }
+              ],
+              "scope": "REQUEST",
+              "removeHeaders": [
+                "remove-header"
+              ]
+            }
+          }
+        ]
+      }
     ],
-    "removeHeaders": [
-        "X-Gravitee-TransactionId"
-    ],
-    "whitelistHeaders": [
-        "Content-Type",
-        "Content-Length"
-    ],
-}
-```
-
-Add a header from the request’s payload:
-
-```json
-"transform-headers": {
-    "addHeaders": [
-        {
-            "name": "X-Product-Id",
-            "value": "{#jsonPath(#request.content, '$.product.id')}"
-        }
-    ]
+    ...
+  }
+  ...
 }
 ```
 {% endtab %}
 
-{% tab title="Message API example" %}
-Sample policy configuration:
-
-```json
-"transform-headers": {
-    "addHeaders": [
-        {
-            "name": "X-Gravitee-Message-Id",
-            "value": "{#message.id}"
-        }
-    ],
-    "removeHeaders": [
-        "X-Gravitee-TransactionId"
-    ],
-    "whitelistHeaders": [
-        "Content-Type",
-        "Content-Length"
-    ],
-}
+{% tab title="v2 API CRD" %}
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiDefinition"
+metadata:
+  name: "transform-headers-v2-api"
+spec:
+  name: "Transform headers v2 API"
+  flows:
+  - name: "common-flow"
+    enabled: true
+    path-operator:
+      path: "/"
+      operator: "STARTS_WITH"
+    pre:
+    - name: "Transform Headers"
+      enabled: true
+      policy: "transform-headers"
+      configuration:
+        whitelistHeaders:
+        - ""
+        addHeaders:
+        - name: "added-header"
+          value: "added-value"
+        scope: "REQUEST"
+        removeHeaders:
+        - "removed-header"
 ```
+{% endtab %}
 
-Add a header from the message’s payload:
-
-```json
-"transform-headers": {
-    "addHeaders": [
-        {
-            "name": "X-Product-Id",
-            "value": "{#jsonPath(#message.content, '$.product.id')}"
-        }
-    ]
-}
+{% tab title="v4 API CRD" %}
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiV4Definition"
+metadata:
+  name: "transform-headers-v4-proxy"
+spec:
+  name: "Transform headers v4 proxy"
+  flows:
+  - name: "common-flow"
+    enabled: true
+    selectors:
+    - type: "HTTP"
+      path: "/"
+      pathOperator: "EQUALS"
+    request:
+    - name: "Transform Headers"
+      enabled: true
+      policy: "transform-headers"
+      configuration:
+        scope: "REQUEST"
+        whitelistHeaders: []
+        addHeaders:
+        - name: "add-header"
+          value: "add-value"
+        - name: "X-Gravitee-Request-Id"
+          value: "{#request.id}"
+        removeHeaders:
+        - "remove-header"
 ```
 {% endtab %}
 {% endtabs %}
