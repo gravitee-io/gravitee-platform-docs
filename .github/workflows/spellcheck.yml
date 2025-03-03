@@ -24,13 +24,16 @@ jobs:
           python3 -m venv venv
           source venv/bin/activate
 
-          # ✅ Install dependencies inside venv
-          python3 -m pip install --upgrade pip
-          python3 -m pip install codespell pyspellchecker gingerit sentence-splitter lxml
+          # ✅ Use the venv's Python explicitly
+          VENV_PYTHON="$(pwd)/venv/bin/python3"
 
-          # ✅ Verify installation
-          python3 -c "import gingerit, pyspellchecker, sentence_splitter" || { echo '❌ Dependencies missing!'; exit 1; }
+          # ✅ Install dependencies using venv Python
+          $VENV_PYTHON -m pip install --upgrade pip
+          $VENV_PYTHON -m pip install codespell pyspellchecker gingerit sentence-splitter lxml
 
+          # ✅ Verify installation (using venv's Python)
+          $VENV_PYTHON -c "import gingerit, pyspellchecker, sentence_splitter" || { echo '❌ Dependencies missing!'; exit 1; }
+          
       - name: Verify Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
