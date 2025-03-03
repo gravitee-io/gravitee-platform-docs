@@ -34,6 +34,8 @@ jobs:
           import re
           import os
           import subprocess
+          from fuzzywuzzy import process
+          from sentence_splitter import SentenceSplitter
 
           # Load ignore list with correct case preservation
           ignore_list = {}
@@ -42,9 +44,21 @@ jobs:
               with open(ignore_file, "r", encoding="utf-8") as f:
                   ignore_list = {word.strip().lower(): word.strip() for word in f.readlines()}
 
+          # Context phrases to prioritize in spellcheck corrections
+          context_phrases = {
+              "identity provider": ["identiy provider", "identify provider"],
+              "access token": ["access toekn", "acess token"],
+              "user authentication": ["user authentification", "user authenthication"],
+              "API gateway": ["API getway", "API gatway"]
+          }
+
           # Function to check if a word is inside a Markdown link
           def is_inside_markdown_link(line, original):
               return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
+
+          # Function to check if a word is in a title or hint block
+          def is_in_title_or_hint(line):
+              return bool(re.search(r'{% (tab title|hint style)=', line))
 
           # Run codespell and capture output
           result = subprocess.run([
@@ -79,9 +93,19 @@ jobs:
                       if is_inside_markdown_link(context_line, original):
                           continue
 
-                      # ✅ Use case-sensitive ignore word version if in regular text
-                      if original.lower() in ignore_list:
+                      # ✅ Use case-sensitive ignore word version in regular text, hints, and titles
+                      if original.lower() in ignore_list and (not is_in_title_or_hint(context_line)):
                           suggestion = ignore_list[original.lower()]
+
+                      # ✅ Context-aware spellchecking
+                      for correct_phrase, wrong_variants in context_phrases.items():
+                          for wrong_phrase in wrong_variants:
+                              if wrong_phrase in context_line:
+                                  suggestion = correct_phrase
+
+                      # ✅ Prevent punctuation modifications
+                      if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
+                          suggestion = suggestion.rstrip(",.;")
 
                       f.write(f"File: {file_path}, Line: {line_number}\n")
                       f.write(f"**Original:** {original}\n")
