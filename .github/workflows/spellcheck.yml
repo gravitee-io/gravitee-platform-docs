@@ -44,14 +44,6 @@ jobs:
               with open(ignore_file, "r", encoding="utf-8") as f:
                   ignore_list = {word.strip().lower(): word.strip() for word in f.readlines()}
 
-          # Context phrases to prioritize in spellcheck corrections
-          context_phrases = {
-              "identity provider": ["identiy provider", "identify provider"],
-              "access token": ["access toekn", "acess token"],
-              "user authentication": ["user authentification", "user authenthication"],
-              "API gateway": ["API getway", "API gatway"]
-          }
-
           # Function to check if a word is inside a Markdown link
           def is_inside_markdown_link(line, original):
               return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
@@ -94,31 +86,18 @@ jobs:
                           continue
 
                       # ✅ Ensure ignore words maintain exact case in valid regions
-                      if original.lower() in ignore_list:
-                          suggestion = ignore_list[original.lower()]
+                      best_match, score = process.extractOne(original, ignore_list.keys()) if ignore_list else (None, 0)
+                      if score >= 90:
+                          suggestion = ignore_list[best_match]  # Apply case-sensitive ignore word
 
-                      # ✅ Context-aware spellchecking: Fix only the misspelled word, not the full term
-                      for correct_phrase, wrong_variants in context_phrases.items():
-                          for wrong_phrase in wrong_variants:
-                              if wrong_phrase in context_line:
-                                  words = wrong_phrase.split()  # Split phrase into individual words
-                                  correct_words = correct_phrase.split()
-
-                                  # Correct only the specific word in context
-                                  corrected_parts = [
-                                      correct_words[i] if words[i] == original else words[i]
-                                      for i in range(len(words))
-                                  ]
-                                  suggestion = " ".join(corrected_parts)
-
-                      # ✅ Prevent punctuation modifications
-                      if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
-                          suggestion = suggestion.rstrip(",.;")
-
-                      f.write(f"File: {file_path}, Line: {line_number}\n")
-                      f.write(f"**Original:** {original}\n")
-                      f.write(f"**Suggested:** {suggestion}\n")
-                      f.write("Approve? (yes/no)\n\n")
+                      # ✅ Multiple correction suggestions for strong matches
+                      possible_suggestions = process.extract(original, [suggestion, *ignore_list.values()], limit=3)
+                      for candidate, confidence in possible_suggestions:
+                          if confidence >= 85:
+                              f.write(f"File: {file_path}, Line: {line_number}\n")
+                              f.write(f"**Original:** {original}\n")
+                              f.write(f"**Suggested:** {candidate}\n")
+                              f.write("Approve? (yes/no)\n\n")
 
           print(f"✅ {len(spellcheck_output.splitlines())} corrections generated. Review in `corrections.txt` and upload the approved version.")
           EOF
