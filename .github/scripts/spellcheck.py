@@ -1,14 +1,19 @@
 import os
 import re
 import json
+import sys
 
 try:
     from gingerit.gingerit import GingerIt
+    from pyspellchecker import SpellChecker
+    from sentence_splitter import SentenceSplitter
 except ImportError:
-    print("❌ Error: `gingerit` module is missing. Install it with `pip install gingerit`.")
-    exit(1)
+    print("❌ Error: Required modules not found. Ensure the virtual environment is activated.")
+    sys.exit(1)
 
 parser = GingerIt()
+spell = SpellChecker()
+splitter = SentenceSplitter(language='en')
 
 # Load ignore list
 ignore_list = {}
@@ -23,28 +28,31 @@ def is_code_or_url(line):
 def correct_grammar(sentence):
     try:
         result = parser.parse(sentence)
-        return result["result"] if "result" in result else sentence
+        return result.get("result", sentence)
     except Exception as e:
-        print(f"⚠️ Warning: Failed to check grammar for: {sentence}\nError: {e}")
-        return sentence
+        print(f"⚠️ Warning: Grammar check failed for: {sentence}\nError: {e}")
+        return sentence  # Return original if correction fails
 
 # Process files
 corrections = []
+valid_extensions = {".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts"}
 for root, _, files in os.walk("."):
     for file in files:
-        if file.endswith((".md", ".txt", ".py", ".js", ".java", ".cpp", ".ts")):
-            path = os.path.join(root, file)
-            with open(path, "r", encoding="utf-8") as f:
-                lines = f.readlines()
+        if not any(file.endswith(ext) for ext in valid_extensions):
+            continue  # Skip unknown files
 
-            for line in lines:
-                original = line.strip()
-                if not original or is_code_or_url(original):
-                    continue
-                
-                corrected = correct_grammar(original)
-                if original != corrected:
-                    corrections.append({"original": original, "suggested": corrected})
+        path = os.path.join(root, file)
+        with open(path, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        for line in lines:
+            original = line.strip()
+            if not original or is_code_or_url(original):
+                continue
+            
+            corrected = correct_grammar(original)
+            if original != corrected:
+                corrections.append({"original": original, "suggested": corrected})
 
 # Save corrections to file
 os.makedirs(".github/corrections", exist_ok=True)
