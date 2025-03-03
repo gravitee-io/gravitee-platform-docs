@@ -30,11 +30,21 @@ jobs:
         run: |
           set -e  # Exit on error
 
-          # Run codespell and capture output in memory
           python3 <<EOF
           import re
           import os
           import subprocess
+
+          # Load ignore list with correct case preservation
+          ignore_list = {}
+          ignore_file = ".github/spellcheck-ignore.txt"
+          if os.path.exists(ignore_file):
+              with open(ignore_file, "r", encoding="utf-8") as f:
+                  ignore_list = {word.strip().lower(): word.strip() for word in f.readlines()}
+
+          # Function to check if a word is inside a Markdown link
+          def is_inside_markdown_link(line, original):
+              return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
 
           # Run codespell and capture output
           result = subprocess.run([
@@ -53,12 +63,26 @@ jobs:
           # Save corrections for manual review
           os.makedirs(".github/corrections", exist_ok=True)
           corrections_path = ".github/corrections/corrections.txt"
-          
+
           with open(corrections_path, "w", encoding="utf-8") as f:
               for line in spellcheck_output.splitlines():
                   match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
                   if match:
                       file_path, line_number, original, suggestion = match.groups()
+
+                      # Read the full line for context
+                      with open(file_path, "r", encoding="utf-8") as file:
+                          lines = file.readlines()
+                      context_line = lines[int(line_number) - 1].strip() if 0 <= int(line_number) - 1 < len(lines) else ""
+
+                      # ✅ Ignore words inside Markdown links
+                      if is_inside_markdown_link(context_line, original):
+                          continue
+
+                      # ✅ Use case-sensitive ignore word version if in regular text
+                      if original.lower() in ignore_list:
+                          suggestion = ignore_list[original.lower()]
+
                       f.write(f"File: {file_path}, Line: {line_number}\n")
                       f.write(f"**Original:** {original}\n")
                       f.write(f"**Suggested:** {suggestion}\n")
