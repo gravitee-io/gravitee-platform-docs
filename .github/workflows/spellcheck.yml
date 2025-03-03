@@ -1,55 +1,71 @@
-name: Manual Spellcheck & AI Grammar Correction with Approval
+name: Manual Spellcheck Review & Approval
 
 on:
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:  # Runs only when manually triggered
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: write  # Needed to push changes after approval
 
 jobs:
-  spellcheck_grammar_review:
+  spellcheck_review:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Virtual Environment & Install Dependencies
+      - name: Install Dependencies
         run: |
-          sudo apt update && sudo apt install -y default-jre
-          export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+          pip install codespell
+          pip install fuzzywuzzy[speedup]
+          pip install sentence-splitter
 
-          # ✅ Create & activate virtual environment with Python 3.12
-          python3 -m venv venv
-          source venv/bin/activate
-
-          # ✅ Use the venv's Python explicitly
-          VENV_PYTHON="$(pwd)/venv/bin/python3"
-
-          # ✅ Upgrade pip
-          $VENV_PYTHON -m pip install --upgrade pip
-
-          # ✅ Install dependencies
-          $VENV_PYTHON -m pip install codespell pyspellchecker gingerit sentence-splitter lxml
-
-          # ✅ Verify installation
-          $VENV_PYTHON -c "import gingerit, pyspellchecker, sentence_splitter" || { echo '❌ Dependencies missing!'; exit 1; }
-
-          # ✅ Debugging: List installed packages
-          $VENV_PYTHON -m pip list
-
-      - name: Verify Ignore List Exists
+      - name: Verify Spellcheck Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
-            echo "❌ Error: spellcheck-ignore.txt not found!"
-            exit 1
+            echo "Error: spellcheck-ignore.txt not found!" && exit 1
           fi
 
       - name: Run Spellcheck and Generate Corrections
         run: |
-          source venv/bin/activate
-          $(pwd)/venv/bin/python3 .github/scripts/spellcheck.py || { echo "❌ Spellcheck script failed!"; exit 1; }
+          set -e  # Exit on error
+
+          # Run codespell and capture output in memory
+          python3 <<EOF
+          import re
+          import os
+          import subprocess
+
+          # Run codespell and capture output
+          result = subprocess.run([
+              "codespell",
+              "--ignore-words=.github/spellcheck-ignore.txt",
+              "--skip=.git,*.lock,*.json,*.yaml,*.yml,*.css,*.html",
+              "--quiet-level=2"
+          ], capture_output=True, text=True, check=False)
+
+          spellcheck_output = result.stdout.strip()
+
+          if not spellcheck_output:
+              print("✅ No spelling corrections found. Exiting.")
+              exit(0)
+
+          # Save corrections for manual review
+          os.makedirs(".github/corrections", exist_ok=True)
+          corrections_path = ".github/corrections/corrections.txt"
+          
+          with open(corrections_path, "w", encoding="utf-8") as f:
+              for line in spellcheck_output.splitlines():
+                  match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+                  if match:
+                      file_path, line_number, original, suggestion = match.groups()
+                      f.write(f"File: {file_path}, Line: {line_number}\n")
+                      f.write(f"**Original:** {original}\n")
+                      f.write(f"**Suggested:** {suggestion}\n")
+                      f.write("Approve? (yes/no)\n\n")
+
+          print(f"✅ {len(spellcheck_output.splitlines())} corrections generated. Review in `corrections.txt` and upload the approved version.")
+          EOF
 
       - name: Upload Corrections for Review
         uses: actions/upload-artifact@v4
@@ -58,7 +74,15 @@ jobs:
           path: .github/corrections/corrections.txt
 
       - name: Wait for Review and Approval
-        run: echo "⏳ Please review and re-upload corrections.txt when ready."
+        run: echo "⏳ Please review and approve the corrections. Re-upload `corrections.txt` when ready."
+
+  apply_approved_corrections:
+    needs: spellcheck_review
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
       - name: Download Reviewed Corrections
         uses: actions/download-artifact@v4
@@ -68,8 +92,7 @@ jobs:
 
       - name: Apply Approved Corrections
         run: |
-          source venv/bin/activate
-          $(pwd)/venv/bin/python3 .github/scripts/apply_corrections.py || { echo "❌ Failed to apply corrections!"; exit 1; }
+          python3 .github/scripts/apply_corrections.py || { echo "❌ Failed to apply corrections!"; exit 1; }
 
       - name: Commit and Push Changes
         env:
@@ -77,9 +100,15 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet; then exit 0; fi
-          git checkout -b spellcheck-grammar-fixes
+          
+          if git diff --quiet; then
+            echo "No changes detected after approval. Exiting."
+            exit 0
+          fi
+          
+          git checkout -b spellcheck-approved-fixes
           git add .
-          git commit -m "✅ Spellcheck & Grammar Fixes (Approved)"
-          git push origin spellcheck-grammar-fixes
-          gh pr create --base main --head spellcheck-grammar-fixes --title "Spellcheck & Grammar Fixes" --body "This PR contains manually approved spellcheck and grammar fixes."
+          git commit -m "✅ Spellcheck & Grammar Fixes (Manually Approved)"
+          git push origin spellcheck-approved-fixes
+
+          gh pr create --base main --head spellcheck-approved-fixes --title "Spellcheck & Grammar Fixes (Approved)" --body "This PR contains manually approved spellcheck and grammar fixes."
