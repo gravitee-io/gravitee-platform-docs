@@ -60,6 +60,10 @@ jobs:
           def is_in_title_or_hint(line):
               return bool(re.search(r'{% (tab title|hint style)=', line))
 
+          # Function to check if a match is a full-word match
+          def is_full_word_match(misspelled, correct):
+              return misspelled.lower() == correct.lower()  # Ensure full word match
+
           # Run codespell and capture output
           result = subprocess.run([
               "codespell",
@@ -93,16 +97,16 @@ jobs:
                       if is_inside_markdown_link(context_line, original):
                           continue
 
-                      # ✅ Use case-sensitive ignore words if 90% match
+                      # ✅ Ensure ignore words use exact case if they are a FULL word match and in a valid region
                       best_match, score = process.extractOne(original, ignore_list.keys()) if ignore_list else (None, 0)
-                      if score >= 90:
-                          suggestion = ignore_list[best_match]  # Replace with exact capitalization from ignore list
+                      if best_match and score >= 90 and is_full_word_match(original, best_match):
+                          suggestion = ignore_list[best_match]  # Use the exact capitalization from the ignore list
 
                       # ✅ Replace entire phrase if a context match is found
                       for correct_phrase, wrong_variants in context_phrases.items():
                           for wrong_phrase in wrong_variants:
                               if wrong_phrase in context_line:
-                                  suggestion = correct_phrase  # Replace entire phrase
+                                  suggestion = correct_phrase  # Replace the entire phrase, not just a word
 
                       # ✅ Prevent punctuation modifications
                       if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
