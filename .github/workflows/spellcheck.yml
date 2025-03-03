@@ -20,20 +20,25 @@ jobs:
           sudo apt update && sudo apt install -y default-jre
           export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
-          # ✅ Create & activate virtual environment
+          # ✅ Create & activate virtual environment with Python 3.12
           python3 -m venv venv
           source venv/bin/activate
 
           # ✅ Use the venv's Python explicitly
           VENV_PYTHON="$(pwd)/venv/bin/python3"
 
-          # ✅ Install dependencies using venv Python
+          # ✅ Upgrade pip
           $VENV_PYTHON -m pip install --upgrade pip
+
+          # ✅ Install dependencies
           $VENV_PYTHON -m pip install codespell pyspellchecker gingerit sentence-splitter lxml
 
-          # ✅ Verify installation (using venv's Python)
+          # ✅ Verify installation
           $VENV_PYTHON -c "import gingerit, pyspellchecker, sentence_splitter" || { echo '❌ Dependencies missing!'; exit 1; }
-          
+
+          # ✅ Debugging: List installed packages
+          $VENV_PYTHON -m pip list
+
       - name: Verify Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
@@ -44,7 +49,7 @@ jobs:
       - name: Run Spellcheck and Generate Corrections
         run: |
           source venv/bin/activate
-          python3 .github/scripts/spellcheck.py || { echo "❌ Spellcheck script failed!"; exit 1; }
+          $(pwd)/venv/bin/python3 .github/scripts/spellcheck.py || { echo "❌ Spellcheck script failed!"; exit 1; }
 
       - name: Upload Corrections for Review
         uses: actions/upload-artifact@v4
@@ -64,7 +69,7 @@ jobs:
       - name: Apply Approved Corrections
         run: |
           source venv/bin/activate
-          python3 .github/scripts/apply_corrections.py || { echo "❌ Failed to apply corrections!"; exit 1; }
+          $(pwd)/venv/bin/python3 .github/scripts/apply_corrections.py || { echo "❌ Failed to apply corrections!"; exit 1; }
 
       - name: Commit and Push Changes
         env:
