@@ -93,15 +93,21 @@ jobs:
                       if is_inside_markdown_link(context_line, original):
                           continue
 
-                      # ✅ Use case-sensitive ignore word version in regular text, hints, and titles
-                      if original.lower() in ignore_list and (not is_in_title_or_hint(context_line)):
+                      # ✅ Ensure ignore words are capitalized exactly as in the ignore list
+                      if original.lower() in ignore_list:
                           suggestion = ignore_list[original.lower()]
 
-                      # ✅ Context-aware spellchecking
+                      # ✅ Context-aware spellchecking: Fix only the misspelled word, not the full term
                       for correct_phrase, wrong_variants in context_phrases.items():
                           for wrong_phrase in wrong_variants:
                               if wrong_phrase in context_line:
-                                  suggestion = correct_phrase
+                                  words = wrong_phrase.split()  # Split to check word by word
+                                  correct_words = correct_phrase.split()
+                                  corrected_parts = [
+                                      correct_words[i] if words[i] == original else words[i]
+                                      for i in range(len(words))
+                                  ]
+                                  suggestion = " ".join(corrected_parts)
 
                       # ✅ Prevent punctuation modifications
                       if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
