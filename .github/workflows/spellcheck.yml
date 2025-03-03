@@ -44,6 +44,14 @@ jobs:
               with open(ignore_file, "r", encoding="utf-8") as f:
                   ignore_list = {word.strip().lower(): word.strip() for word in f.readlines()}
 
+          # Context phrases to prioritize in spellcheck corrections
+          context_phrases = {
+              "identity provider": ["identiy provider", "identify provider"],
+              "access token": ["access toekn", "acess token"],
+              "user authentication": ["user authentification", "user authenthication"],
+              "API gateway": ["API getway", "API gatway"]
+          }
+
           # Function to check if a word is inside a Markdown link
           def is_inside_markdown_link(line, original):
               return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
@@ -85,19 +93,25 @@ jobs:
                       if is_inside_markdown_link(context_line, original):
                           continue
 
-                      # ✅ Ensure ignore words maintain exact case in valid regions
+                      # ✅ Use case-sensitive ignore words if 90% match
                       best_match, score = process.extractOne(original, ignore_list.keys()) if ignore_list else (None, 0)
                       if score >= 90:
-                          suggestion = ignore_list[best_match]  # Apply case-sensitive ignore word
+                          suggestion = ignore_list[best_match]  # Replace with exact capitalization from ignore list
 
-                      # ✅ Multiple correction suggestions for strong matches
-                      possible_suggestions = process.extract(original, [suggestion, *ignore_list.values()], limit=3)
-                      for candidate, confidence in possible_suggestions:
-                          if confidence >= 85:
-                              f.write(f"File: {file_path}, Line: {line_number}\n")
-                              f.write(f"**Original:** {original}\n")
-                              f.write(f"**Suggested:** {candidate}\n")
-                              f.write("Approve? (yes/no)\n\n")
+                      # ✅ Replace entire phrase if a context match is found
+                      for correct_phrase, wrong_variants in context_phrases.items():
+                          for wrong_phrase in wrong_variants:
+                              if wrong_phrase in context_line:
+                                  suggestion = correct_phrase  # Replace entire phrase
+
+                      # ✅ Prevent punctuation modifications
+                      if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
+                          suggestion = suggestion.rstrip(",.;")
+
+                      f.write(f"File: {file_path}, Line: {line_number}\n")
+                      f.write(f"**Original:** {original}\n")
+                      f.write(f"**Suggested:** {suggestion}\n")
+                      f.write("Approve? (yes/no)\n\n")
 
           print(f"✅ {len(spellcheck_output.splitlines())} corrections generated. Review in `corrections.txt` and upload the approved version.")
           EOF
