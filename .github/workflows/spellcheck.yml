@@ -93,7 +93,7 @@ jobs:
                       if is_inside_markdown_link(context_line, original):
                           continue
 
-                      # ✅ Ensure ignore words are capitalized exactly as in the ignore list
+                      # ✅ Ensure ignore words maintain exact case in valid regions
                       if original.lower() in ignore_list:
                           suggestion = ignore_list[original.lower()]
 
@@ -101,8 +101,10 @@ jobs:
                       for correct_phrase, wrong_variants in context_phrases.items():
                           for wrong_phrase in wrong_variants:
                               if wrong_phrase in context_line:
-                                  words = wrong_phrase.split()  # Split to check word by word
+                                  words = wrong_phrase.split()  # Split phrase into individual words
                                   correct_words = correct_phrase.split()
+
+                                  # Correct only the specific word in context
                                   corrected_parts = [
                                       correct_words[i] if words[i] == original else words[i]
                                       for i in range(len(words))
