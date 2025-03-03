@@ -107,6 +107,10 @@ jobs:
                           if best_match and score >= 90 and is_full_word_match(original, best_match):
                               suggestion = ignore_list[best_match]  # Replace with exact capitalization from ignore list
 
+                      # ✅ If a correction is an ignore word but capitalization is wrong, fix it
+                      if suggestion.lower() in ignore_list and suggestion != ignore_list[suggestion.lower()]:
+                          suggestion = ignore_list[suggestion.lower()]  # Enforce correct capitalization
+
                       # ✅ Replace entire phrase if a context match is found
                       for correct_phrase, wrong_variants in context_phrases.items():
                           for wrong_phrase in wrong_variants:
