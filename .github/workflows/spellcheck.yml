@@ -97,16 +97,21 @@ jobs:
                       if is_inside_markdown_link(context_line, original):
                           continue
 
-                      # ✅ Ensure ignore words use exact case if they are a FULL word match and in a valid region
-                      best_match, score = process.extractOne(original, ignore_list.keys()) if ignore_list else (None, 0)
-                      if best_match and score >= 90 and is_full_word_match(original, best_match):
-                          suggestion = ignore_list[best_match]  # Use the exact capitalization from the ignore list
+                      # ✅ Always enforce exact case of ignore words in valid regions
+                      if original.lower() in ignore_list:
+                          suggestion = ignore_list[original.lower()]  # Replace with exact capitalization
+
+                      # ✅ Ensure 90% match rule only applies to full words
+                      else:
+                          best_match, score = process.extractOne(original, ignore_list.keys()) if ignore_list else (None, 0)
+                          if best_match and score >= 90 and is_full_word_match(original, best_match):
+                              suggestion = ignore_list[best_match]  # Replace with exact capitalization from ignore list
 
                       # ✅ Replace entire phrase if a context match is found
                       for correct_phrase, wrong_variants in context_phrases.items():
                           for wrong_phrase in wrong_variants:
                               if wrong_phrase in context_line:
-                                  suggestion = correct_phrase  # Replace the entire phrase, not just a word
+                                  suggestion = correct_phrase  # Replace entire phrase
 
                       # ✅ Prevent punctuation modifications
                       if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
