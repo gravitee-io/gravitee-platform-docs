@@ -1,7 +1,7 @@
 import os
 import sys
 
-corrections_file = ".github/corrections/corrections.txt"
+corrections_file = ".github/corrections/corrections_approved.txt"
 
 # Debug: Check if corrections file exists
 if not os.path.exists(corrections_file):
