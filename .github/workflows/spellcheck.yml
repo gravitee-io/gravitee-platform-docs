@@ -155,8 +155,6 @@ jobs:
       - name: Ensure the Correct File is Used
         run: |
           ls -lah .github/corrections/  # List contents
-          mv .github/corrections/corrections.txt .github/corrections/corrections_approved.txt
-          echo "✅ Renamed uploaded corrections file to 'corrections_approved.txt'"
 
       - name: Debug List Corrections Directory
         run: |
@@ -165,11 +163,11 @@ jobs:
 
       - name: Debug Print Corrections File
         run: |
-          echo "Printing corrections_approved.txt contents:"
-          if [ -f .github/corrections/corrections_approved.txt ]; then
-            cat .github/corrections/corrections_approved.txt
+          echo "Printing corrections.txt contents:"
+          if [ -f .github/corrections/corrections.txt ]; then
+            cat .github/corrections/corrections.txt
           else
-            echo "❌ corrections_approved.txt not found!"
+            echo "❌ corrections.txt not found!"
           fi
 
       - name: Apply Approved Corrections
