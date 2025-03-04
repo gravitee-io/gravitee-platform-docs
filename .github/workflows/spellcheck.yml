@@ -152,18 +152,24 @@ jobs:
           name: corrections_review
           path: .github/corrections/
 
-      - name: Debug List Corrections Director
+      - name: Ensure the Correct File is Used
+        run: |
+          ls -lah .github/corrections/  # List contents
+          mv .github/corrections/corrections.txt .github/corrections/corrections_approved.txt
+          echo "✅ Renamed uploaded corrections file to 'corrections_approved.txt'"
+
+      - name: Debug List Corrections Directory
         run: |
           echo "Listing .github/corrections/ directory contents:"
           ls -lah .github/corrections/
 
       - name: Debug Print Corrections File
         run: |
-          echo "Printing corrections.txt contents:"
-          if [ -f .github/corrections/corrections.txt ]; then
-            cat .github/corrections/corrections.txt
+          echo "Printing corrections_approved.txt contents:"
+          if [ -f .github/corrections/corrections_approved.txt ]; then
+            cat .github/corrections/corrections_approved.txt
           else
-            echo "❌ corrections.txt not found!"
+            echo "❌ corrections_approved.txt not found!"
           fi
 
       - name: Apply Approved Corrections
