@@ -12,13 +12,63 @@ You can configure the policy with the following options:
 
 ### Examples <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 
-The following example demonstrates how to expose a broker-side/internal topic name with a consumer-friendly client-side/external topic name
+The following examples demonstrate how to expose a broker-side (internal) topic name with a consumer-friendly client-side (external) topic name.
 
-Client-side name:  `organization-updates`
+#### Example 1: I want to map an internal topic name to something different (externally)
 
-Broker-side name: `internal.organization-updates-{orgId}`
+If you have a broker-side topic called `abcdef.topic.name.internal-only.some-id` , and you want to expose that as a consumer-friendly name, then configure the Kafka Topic Mapping policy as follows:
 
-The `{orgId}` is dynamically replaced at runtime by extracting the `rf_org` custom claim value from the clients' OAuth2 access\_token - using Gravitee's Expression Language.
+Client-side name: `myFriendlyTopicName`
+
+Broker-side name: `abcdef.topic.name.internal-only.some-id`
+
+<figure><img src="../../.gitbook/assets/image (158).png" alt="" width="375"><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure>
+
+Kafka clients will now be able to specify the mapped topic name (`myFriendlyTopicName`) in their connection configuration.  For example; `kafka-console-consumer.sh --bootstrap-server foo.kafka.local:9092 --consumer.config config/client.properties --topic myFriendlyTopicName`
+
+Sample policy configuration:
+
+{% code fullWidth="false" %}
+```json
+{
+  "api": {
+    ...
+  },
+  "plans: [
+    {
+      "flows": [
+        {
+          ...
+          "interact": [
+            {
+              "name": "Kafka Topic Mapping",
+              "enabled": true,
+              "policy": "kafka-topic-mapping",
+              "configuration": {
+                "mappings": [
+                  {
+                    "client": "myFriendlyTopicName",
+                    "broker": "abcdef.topic.name.internal-only.some-id"
+                   }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+{% endcode %}
+
+#### Example 3: I want to simplify multiple internal-only topic names as a single external-friendly topic name (with support from an OAuth2 provider)
+
+The broker-side (internal) topic name includes a customer-specific "organization id" that has been added to the topic name, e.g.: `internal.organization-updates.12345`.  In this example, the organization id ("`12345`") will now be included in their OAuth2 access\_token (supplied by the Identity Server).   &#x20;
+
+In the Kafka Topic Mapping policy, the broker-side topic name will be:  `internal.organization-updates.{orgId}`.  The `{orgId}` is dynamically replaced at runtime by extracting a custom claim value (e.g.: `rf_org`) value from the customers' OAuth2 access\_token - using Gravitee's Expression Language.
+
+We can now keep the client-side (external) topic name simple & generic:  `organization-updates`
 
 <figure><img src="../../.gitbook/assets/image (153).png" alt=""><figcaption><p>UI configuration of the Kafka Topic Mapping policy</p></figcaption></figure>
 
@@ -57,6 +107,12 @@ Sample policy configuration:
 }
 ```
 {% endcode %}
+
+### Important Notes <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
+
+When using the _Kafka Topic Mapping_ policy together with the _Kafka ACL_ policy, it is important to place the _Kafka ACL_ policy **before** the _Kafka Topic Mapping_ policy, as shown below:
+
+<figure><img src="../../.gitbook/assets/image (159).png" alt=""><figcaption><p>Screenshot of the Kafka ACL policy placed before the Kafka Topic Mapping policy</p></figcaption></figure>
 
 ### Supported Kafka ApiKeys <a href="#user-content-supported-kafka-apikeys" id="user-content-supported-kafka-apikeys"></a>
 

@@ -34,8 +34,6 @@ Additional information:
 This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 TCP proxy APIs or v4 message APIs.
 {% endhint %}
 
-{% include "../.gitbook/includes/examples-table.md" %}
-
 ## Compatibility with APIM <a href="#user-content-compatibility-with-apim" id="user-content-compatibility-with-apim"></a>
 
 | Plugin version | APIM version     |
