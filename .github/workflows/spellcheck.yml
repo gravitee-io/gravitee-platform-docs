@@ -152,6 +152,16 @@ jobs:
           name: corrections_review
           path: .github/corrections/
 
+      - name: Debug: List Corrections Directory
+        run: |
+          echo "Listing .github/corrections/ directory contents:"
+          ls -lah .github/corrections/
+
+      - name: Debug: Print Corrections File
+        run: |
+          echo "Printing corrections.txt contents:"
+          cat .github/corrections/corrections.txt || echo "❌ corrections.txt not found!"
+
       - name: Apply Approved Corrections
         run: |
           python3 .github/scripts/apply_corrections.py || { echo "❌ Failed to apply corrections!"; exit 1; }
