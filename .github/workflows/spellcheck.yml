@@ -152,15 +152,19 @@ jobs:
           name: corrections_review
           path: .github/corrections/
 
-      - name: Debug: List Corrections Directory
+      - name: Debug List Corrections Director
         run: |
           echo "Listing .github/corrections/ directory contents:"
           ls -lah .github/corrections/
 
-      - name: Debug: Print Corrections File
+      - name: Debug Print Corrections File
         run: |
           echo "Printing corrections.txt contents:"
-          cat .github/corrections/corrections.txt || echo "❌ corrections.txt not found!"
+          if [ -f .github/corrections/corrections.txt ]; then
+            cat .github/corrections/corrections.txt
+          else
+            echo "❌ corrections.txt not found!"
+          fi
 
       - name: Apply Approved Corrections
         run: |
