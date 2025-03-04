@@ -1,7 +1,8 @@
 import os
 import sys
 
-corrections_file = ".github/corrections/corrections_approved.txt"
+corrections_file = os.path.join(os.getcwd(), ".github/corrections/corrections.txt")
+print(f"📄 Looking for corrections file at: {corrections_file}")
 
 # Debug: Check if corrections file exists
 if not os.path.exists(corrections_file):
