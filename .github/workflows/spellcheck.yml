@@ -23,7 +23,8 @@ jobs:
       - name: Verify Spellcheck Ignore List Exists
         run: |
           if [ ! -f .github/spellcheck-ignore.txt ]; then
-            echo "Error: spellcheck-ignore.txt not found!" && exit 1
+            echo "❌ Error: spellcheck-ignore.txt not found!"
+            exit 1
           fi
 
       - name: Run Spellcheck and Generate Corrections
@@ -64,6 +65,14 @@ jobs:
           def is_full_word_match(misspelled, correct):
               return misspelled.lower() == correct.lower()  # Ensure full word match
 
+          # Define absolute path for corrections file
+          repo_root = os.path.abspath(os.getcwd())
+          corrections_dir = os.path.join(repo_root, ".github/corrections")
+          corrections_path = os.path.join(corrections_dir, "corrections.txt")
+
+          # Ensure corrections directory exists
+          os.makedirs(corrections_dir, exist_ok=True)
+
           # Run codespell and capture output
           result = subprocess.run([
               "codespell",
@@ -79,9 +88,6 @@ jobs:
               exit(0)
 
           # Save corrections for manual review
-          os.makedirs(".github/corrections", exist_ok=True)
-          corrections_path = ".github/corrections/corrections.txt"
-
           with open(corrections_path, "w", encoding="utf-8") as f:
               for line in spellcheck_output.splitlines():
                   match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
@@ -126,7 +132,7 @@ jobs:
                       f.write(f"**Suggested:** {suggestion}\n")
                       f.write("Approve? (yes/no)\n\n")
 
-          print(f"✅ {len(spellcheck_output.splitlines())} corrections generated. Review in `corrections.txt` and upload the approved version.")
+          print(f"✅ {len(spellcheck_output.splitlines())} corrections generated. Review in `{corrections_path}` and upload the approved version.")
           EOF
 
       - name: Upload Corrections for Review
@@ -146,29 +152,24 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Download Reviewed Corrections
-        uses: actions/download-artifact@v4
-        with:
-          name: corrections_review
-          path: .github/corrections/
-
-      - name: Ensure the Correct File is Used
+      - name: Verify Approved Corrections File Exists
         run: |
-          ls -lah .github/corrections/  # List contents
+          CORRECTIONS_FILE="${{ github.workspace }}/.github/corrections/corrections.txt"
+          if [ ! -f "$CORRECTIONS_FILE" ]; then
+            echo "❌ Error: Reviewed corrections file not found at $CORRECTIONS_FILE!"
+            exit 1
+          fi
+          echo "✅ Approved corrections file found: $CORRECTIONS_FILE"
 
       - name: Debug List Corrections Directory
         run: |
-          echo "Listing .github/corrections/ directory contents:"
+          echo "📂 Listing .github/corrections/ directory contents:"
           ls -lah .github/corrections/
 
       - name: Debug Print Corrections File
         run: |
-          echo "Printing corrections.txt contents:"
-          if [ -f .github/corrections/corrections.txt ]; then
-            cat .github/corrections/corrections.txt
-          else
-            echo "❌ corrections.txt not found!"
-          fi
+          echo "📄 Printing corrections.txt contents:"
+          cat .github/corrections/corrections.txt
 
       - name: Apply Approved Corrections
         run: |
@@ -182,7 +183,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
           if git diff --quiet; then
-            echo "No changes detected after approval. Exiting."
+            echo "✅ No changes detected after approval. Exiting."
             exit 0
           fi
           
