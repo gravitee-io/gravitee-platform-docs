@@ -1,12 +1,15 @@
 import os
 import sys
 
-corrections_file = os.path.join(os.getcwd(), ".github/corrections/corrections.txt")
-print(f"📄 Looking for corrections file at: {corrections_file}")
+# Define absolute path to corrections file
+repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+corrections_file = os.path.join(repo_root, ".github/corrections/corrections.txt")
 
 # Debug: Check if corrections file exists
+print(f"📄 Looking for corrections file at: {corrections_file}")
+
 if not os.path.exists(corrections_file):
-    print("❌ Error: No corrections file found. Please upload the reviewed corrections.")
+    print("❌ Error: Corrections file not found. Please upload the reviewed corrections.")
     sys.exit(1)
 
 # Debug: Print corrections file content
