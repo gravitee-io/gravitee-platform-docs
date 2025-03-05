@@ -2,7 +2,7 @@
 
 ## Overview
 
-AM API exposes a complete Restful API accessible to anyone wanting to script some part of the administration.
+The AM API exposes a complete Restful API accessible to anyone wanting to script some part of the administration.
 
 You can access the OpenAPI specification:
 
