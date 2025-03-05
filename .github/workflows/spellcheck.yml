@@ -152,24 +152,20 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Verify Approved Corrections File Exists
-        run: |
-          CORRECTIONS_FILE="${{ github.workspace }}/.github/corrections/corrections.txt"
-          if [ ! -f "$CORRECTIONS_FILE" ]; then
-            echo "❌ Error: Reviewed corrections file not found at $CORRECTIONS_FILE!"
-            exit 1
-          fi
-          echo "✅ Approved corrections file found: $CORRECTIONS_FILE"
-
       - name: Debug List Corrections Directory
         run: |
           echo "📂 Listing .github/corrections/ directory contents:"
           ls -lah .github/corrections/
 
-      - name: Debug Print Corrections File
+      - name: Debug Check File Path
         run: |
-          echo "📄 Printing corrections.txt contents:"
-          cat .github/corrections/corrections.txt
+          echo "Checking if corrections.txt exists..."
+          if [ -f "$GITHUB_WORKSPACE/.github/corrections/corrections.txt" ]; then
+            echo "✅ Found corrections.txt at $GITHUB_WORKSPACE/.github/corrections/corrections.txt"
+          else
+            echo "❌ Error: Reviewed corrections file NOT found at $GITHUB_WORKSPACE/.github/corrections/corrections.txt!"
+            exit 1
+          fi
 
       - name: Apply Approved Corrections
         run: |
