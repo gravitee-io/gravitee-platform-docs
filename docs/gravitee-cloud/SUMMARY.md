@@ -13,6 +13,7 @@
 
 * [Hybrid](guides/hybrid.md)
 * [Gravitee Hosted Gateways](guides/gravitee-hosted-gateways.md)
+* [Custom Domains](guides/custom-domains.md)
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
 * [Promote APIs](guides/promote-apis.md)
