@@ -1,0 +1,2009 @@
+File: ./docs/am/4.5/README.md, Line: 26
+**Original:** Managment
+**Suggested:** Management
+yes
+
+File: ./docs/am/4.5/releases-and-changelog/changelog/am-4.5.x.md, Line: 161
+**Original:** crendential
+**Suggested:** credential
+yes
+
+File: ./docs/am/4.5/releases-and-changelog/changelog/am-4.5.x.md, Line: 318
+**Original:** differente
+**Suggested:** different
+yes
+
+File: ./docs/am/4.5/releases-and-changelog/changelog/am-4.5.x.md, Line: 370
+**Original:** attibute
+**Suggested:** attribute
+yes
+
+File: ./docs/am/4.5/releases-and-changelog/changelog/am-4.5.x.md, Line: 370
+**Original:** recommanded
+**Suggested:** recommended
+yes
+
+File: ./docs/am/4.5/releases-and-changelog/release-notes/am-4.5.md, Line: 23
+**Original:** consummers
+**Suggested:** consumers
+yes
+
+File: ./docs/am/4.5/releases-and-changelog/release-notes/am-4.5.md, Line: 37
+**Original:** defaul
+**Suggested:** default
+yes
+
+File: ./docs/am/4.5/releases-and-changelog/release-notes/am-4.5.md, Line: 45
+**Original:** accross
+**Suggested:** across
+yes
+
+File: ./docs/am/4.5/releases-and-changelog/release-notes/am-4.5.md, Line: 76
+**Original:** differente
+**Suggested:** different
+yes
+
+File: ./docs/am/4.5/releases-and-changelog/release-notes/am-4.5.md, Line: 96
+**Original:** reposity
+**Suggested:** repository
+yes
+
+File: ./docs/am/4.5/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 126
+**Original:** sufix
+**Suggested:** suffix
+yes
+
+File: ./docs/am/4.5/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 128
+**Original:** applyed
+**Suggested:** applied
+yes
+
+File: ./docs/am/4.5/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 213
+**Original:** identiy
+**Suggested:** identity provider
+yes
+
+File: ./docs/am/4.5/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 553
+**Original:** attribtues
+**Suggested:** attributes
+yes
+
+File: ./docs/am/4.5/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 574
+**Original:** certicate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.5/getting-started/install-and-upgrade-guides/configure-gateway-resilience-mode.md, Line: 29
+**Original:** kakfa
+**Suggested:** Kafka
+yes
+
+File: ./docs/am/4.5/getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md, Line: 622
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/am/4.5/getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md, Line: 30
+**Original:** securty
+**Suggested:** security
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-repositories.md, Line: 33
+**Original:** informatio
+**Suggested:** information
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-repositories.md, Line: 189
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-repositories.md, Line: 211
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-repositories.md, Line: 222
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-repositories.md, Line: 237
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/secret-providers.md, Line: 219
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-am-gateway/README.md, Line: 422
+**Original:** propogated
+**Suggested:** propagated
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-am-gateway/README.md, Line: 445
+**Original:** evironment
+**Suggested:** environment
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-am-api/README.md, Line: 469
+**Original:** frequence
+**Suggested:** frequency
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-am-api/README.md, Line: 568
+**Original:** enbabled
+**Suggested:** enabled
+yes
+
+File: ./docs/am/4.5/getting-started/configuration/configure-am-api/README.md, Line: 579
+**Original:** enbabled
+**Suggested:** enabled
+yes
+
+File: ./docs/am/4.5/guides/certificates/README.md, Line: 84
+**Original:** cerificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.5/guides/certificates/README.md, Line: 88
+**Original:** cetificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.5/guides/user-management/users/password-options.md, Line: 13
+**Original:** isnt
+**Suggested:** isn't
+yes
+
+File: ./docs/am/4.5/guides/identity-providers/social-identity-providers/openid-connect.md, Line: 5
+**Original:** specificiation
+**Suggested:** specification
+yes
+
+File: ./docs/am/4.5/guides/identity-providers/social-identity-providers/openid-connect.md, Line: 36
+**Original:** sepcify
+**Suggested:** specify
+yes
+
+File: ./docs/am/4.5/guides/multi-factor-authentication/configure-mfa-for-an-application.md, Line: 9
+**Original:** succesfull
+**Suggested:** successful
+yes
+
+File: ./docs/am/4.5/guides/multi-factor-authentication/configure-mfa-for-an-application.md, Line: 43
+**Original:** Langauage
+**Suggested:** Language
+yes
+
+File: ./docs/am/4.5/guides/multi-factor-authentication/managing-factors/README.md, Line: 7
+**Original:** re-used
+**Suggested:** reused
+yes
+
+File: ./docs/am/4.3/README.md, Line: 26
+**Original:** Managment
+**Suggested:** Management
+yes
+
+File: ./docs/am/4.3/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 45
+**Original:** sufix
+**Suggested:** suffix
+yes
+
+File: ./docs/am/4.3/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 47
+**Original:** applyed
+**Suggested:** applied
+yes
+
+File: ./docs/am/4.3/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 132
+**Original:** identiy
+**Suggested:** identity provider
+yes
+
+File: ./docs/am/4.3/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 472
+**Original:** attribtues
+**Suggested:** attributes
+yes
+
+File: ./docs/am/4.3/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 493
+**Original:** certicate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.3/getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md, Line: 622
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/am/4.3/getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md, Line: 30
+**Original:** securty
+**Suggested:** security
+yes
+
+File: ./docs/am/4.3/getting-started/configuration/configure-repositories.md, Line: 185
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.3/getting-started/configuration/configure-repositories.md, Line: 207
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.3/getting-started/configuration/configure-repositories.md, Line: 218
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.3/getting-started/configuration/configure-repositories.md, Line: 233
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.3/getting-started/configuration/secret-providers.md, Line: 219
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.3/getting-started/configuration/configure-am-api/README.md, Line: 427
+**Original:** frequence
+**Suggested:** frequency
+yes
+
+File: ./docs/am/4.3/guides/certificates.md, Line: 82
+**Original:** cerificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.3/guides/multi-factor-authentication/configure-mfa-for-an-application.md, Line: 9
+**Original:** succesfull
+**Suggested:** successful
+yes
+
+File: ./docs/am/4.3/guides/multi-factor-authentication/configure-mfa-for-an-application.md, Line: 43
+**Original:** Langauage
+**Suggested:** Language
+yes
+
+File: ./docs/am/4.3/guides/multi-factor-authentication/managing-factors/README.md, Line: 7
+**Original:** re-used
+**Suggested:** reused
+yes
+
+File: ./docs/am/4.2/README.md, Line: 26
+**Original:** Managment
+**Suggested:** Management
+yes
+
+File: ./docs/am/4.2/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 45
+**Original:** sufix
+**Suggested:** suffix
+yes
+
+File: ./docs/am/4.2/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 47
+**Original:** applyed
+**Suggested:** applied
+yes
+
+File: ./docs/am/4.2/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 132
+**Original:** identiy
+**Suggested:** identity provider
+yes
+
+File: ./docs/am/4.2/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 472
+**Original:** attribtues
+**Suggested:** attributes
+yes
+
+File: ./docs/am/4.2/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 493
+**Original:** certicate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.2/getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md, Line: 622
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/am/4.2/getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md, Line: 30
+**Original:** securty
+**Suggested:** security
+yes
+
+File: ./docs/am/4.2/getting-started/configuration/configure-repositories.md, Line: 185
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.2/getting-started/configuration/configure-repositories.md, Line: 207
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.2/getting-started/configuration/configure-repositories.md, Line: 218
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.2/getting-started/configuration/configure-repositories.md, Line: 233
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.2/getting-started/configuration/secret-providers.md, Line: 219
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.2/getting-started/configuration/configure-am-api/README.md, Line: 427
+**Original:** frequence
+**Suggested:** frequency
+yes
+
+File: ./docs/am/4.2/guides/certificates.md, Line: 82
+**Original:** cerificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.1/README.md, Line: 26
+**Original:** Managment
+**Suggested:** Management
+yes
+
+File: ./docs/am/4.1/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 45
+**Original:** sufix
+**Suggested:** suffix
+yes
+
+File: ./docs/am/4.1/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 47
+**Original:** applyed
+**Suggested:** applied
+yes
+
+File: ./docs/am/4.1/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 132
+**Original:** identiy
+**Suggested:** identity provider
+yes
+
+File: ./docs/am/4.1/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 472
+**Original:** attribtues
+**Suggested:** attributes
+yes
+
+File: ./docs/am/4.1/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 493
+**Original:** certicate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.1/getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md, Line: 617
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/am/4.1/getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md, Line: 30
+**Original:** securty
+**Suggested:** security
+yes
+
+File: ./docs/am/4.1/getting-started/configuration/configure-repositories.md, Line: 185
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.1/getting-started/configuration/configure-repositories.md, Line: 207
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.1/getting-started/configuration/configure-repositories.md, Line: 218
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.1/getting-started/configuration/configure-repositories.md, Line: 233
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.1/getting-started/configuration/configure-am-api/README.md, Line: 360
+**Original:** frequence
+**Suggested:** frequency
+yes
+
+File: ./docs/am/4.1/guides/certificates.md, Line: 82
+**Original:** cerificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.0/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 45
+**Original:** sufix
+**Suggested:** suffix
+yes
+
+File: ./docs/am/4.0/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 47
+**Original:** applyed
+**Suggested:** applied
+yes
+
+File: ./docs/am/4.0/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 132
+**Original:** identiy
+**Suggested:** identity provider
+yes
+
+File: ./docs/am/4.0/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 472
+**Original:** attribtues
+**Suggested:** attributes
+yes
+
+File: ./docs/am/4.0/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 493
+**Original:** certicate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.0/getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md, Line: 617
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/am/4.0/getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md, Line: 34
+**Original:** securty
+**Suggested:** security
+yes
+
+File: ./docs/am/4.0/getting-started/configuration/configure-repositories.md, Line: 185
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.0/getting-started/configuration/configure-repositories.md, Line: 207
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.0/getting-started/configuration/configure-repositories.md, Line: 218
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.0/getting-started/configuration/configure-repositories.md, Line: 233
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.0/getting-started/configuration/configure-am-api/README.md, Line: 360
+**Original:** frequence
+**Suggested:** frequency
+yes
+
+File: ./docs/am/4.0/guides/certificates.md, Line: 88
+**Original:** cerificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.4/README.md, Line: 26
+**Original:** Managment
+**Suggested:** Management
+yes
+
+File: ./docs/am/4.4/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 45
+**Original:** sufix
+**Suggested:** suffix
+yes
+
+File: ./docs/am/4.4/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 47
+**Original:** applyed
+**Suggested:** applied
+yes
+
+File: ./docs/am/4.4/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 132
+**Original:** identiy
+**Suggested:** identity provider
+yes
+
+File: ./docs/am/4.4/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 472
+**Original:** attribtues
+**Suggested:** attributes
+yes
+
+File: ./docs/am/4.4/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 493
+**Original:** certicate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.4/getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md, Line: 622
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/am/4.4/getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md, Line: 30
+**Original:** securty
+**Suggested:** security
+yes
+
+File: ./docs/am/4.4/getting-started/configuration/configure-repositories.md, Line: 185
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.4/getting-started/configuration/configure-repositories.md, Line: 207
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.4/getting-started/configuration/configure-repositories.md, Line: 218
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.4/getting-started/configuration/configure-repositories.md, Line: 233
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.4/getting-started/configuration/secret-providers.md, Line: 219
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.4/getting-started/configuration/configure-am-api/README.md, Line: 427
+**Original:** frequence
+**Suggested:** frequency
+yes
+
+File: ./docs/am/4.4/guides/certificates.md, Line: 82
+**Original:** cerificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.4/guides/certificates.md, Line: 86
+**Original:** cetificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.4/guides/user-management/users/password-options.md, Line: 13
+**Original:** isnt
+**Suggested:** isn't
+yes
+
+File: ./docs/am/4.4/guides/identity-providers/social-identity-providers/openid-connect.md, Line: 5
+**Original:** specificiation
+**Suggested:** specification
+yes
+
+File: ./docs/am/4.4/guides/identity-providers/social-identity-providers/openid-connect.md, Line: 36
+**Original:** sepcify
+**Suggested:** specify
+yes
+
+File: ./docs/am/4.4/guides/multi-factor-authentication/configure-mfa-for-an-application.md, Line: 9
+**Original:** succesfull
+**Suggested:** successful
+yes
+
+File: ./docs/am/4.4/guides/multi-factor-authentication/configure-mfa-for-an-application.md, Line: 43
+**Original:** Langauage
+**Suggested:** Language
+yes
+
+File: ./docs/am/4.4/guides/multi-factor-authentication/managing-factors/README.md, Line: 7
+**Original:** re-used
+**Suggested:** reused
+yes
+
+File: ./docs/am/4.6/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 126
+**Original:** sufix
+**Suggested:** suffix
+yes
+
+File: ./docs/am/4.6/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 128
+**Original:** applyed
+**Suggested:** applied
+yes
+
+File: ./docs/am/4.6/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 213
+**Original:** identiy
+**Suggested:** identity provider
+yes
+
+File: ./docs/am/4.6/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 553
+**Original:** attribtues
+**Suggested:** attributes
+yes
+
+File: ./docs/am/4.6/getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md, Line: 574
+**Original:** certicate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.6/getting-started/install-and-upgrade-guides/configure-gateway-resilience-mode.md, Line: 29
+**Original:** kakfa
+**Suggested:** Kafka
+yes
+
+File: ./docs/am/4.6/getting-started/install-and-upgrade-guides/deploy-in-kubernetes.md, Line: 622
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/am/4.6/getting-started/tutorial-getting-started-with-am/set-up-your-first-application.md, Line: 30
+**Original:** securty
+**Suggested:** security
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-repositories.md, Line: 33
+**Original:** informatio
+**Suggested:** information
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-repositories.md, Line: 189
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-repositories.md, Line: 211
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-repositories.md, Line: 222
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-repositories.md, Line: 237
+**Original:** certiticate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/secret-providers.md, Line: 219
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-am-gateway/README.md, Line: 422
+**Original:** propogated
+**Suggested:** propagated
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-am-gateway/README.md, Line: 445
+**Original:** evironment
+**Suggested:** environment
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-am-api/README.md, Line: 469
+**Original:** frequence
+**Suggested:** frequency
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-am-api/README.md, Line: 568
+**Original:** enbabled
+**Suggested:** enabled
+yes
+
+File: ./docs/am/4.6/getting-started/configuration/configure-am-api/README.md, Line: 579
+**Original:** enbabled
+**Suggested:** enabled
+yes
+
+File: ./docs/am/4.6/guides/certificates/README.md, Line: 84
+**Original:** cerificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.6/guides/certificates/README.md, Line: 88
+**Original:** cetificate
+**Suggested:** certificate
+yes
+
+File: ./docs/am/4.6/guides/certificates/aws-cloudhsm-plugin.md, Line: 26
+**Original:** dowload
+**Suggested:** download
+yes
+
+File: ./docs/am/4.6/guides/user-management/users/password-options.md, Line: 13
+**Original:** isnt
+**Suggested:** isn't
+yes
+
+File: ./docs/am/4.6/guides/identity-providers/social-identity-providers/openid-connect.md, Line: 5
+**Original:** specificiation
+**Suggested:** specification
+yes
+
+File: ./docs/am/4.6/guides/identity-providers/social-identity-providers/openid-connect.md, Line: 36
+**Original:** sepcify
+**Suggested:** specify
+yes
+
+File: ./docs/am/4.6/guides/multi-factor-authentication/configure-mfa-for-an-application.md, Line: 9
+**Original:** succesfull
+**Suggested:** successful
+yes
+
+File: ./docs/am/4.6/guides/multi-factor-authentication/configure-mfa-for-an-application.md, Line: 43
+**Original:** Langauage
+**Suggested:** Language
+yes
+
+File: ./docs/am/4.6/guides/multi-factor-authentication/managing-factors/README.md, Line: 7
+**Original:** re-used
+**Suggested:** reused
+yes
+
+File: ./docs/am/4.6/guides/auth-protocols/scim-2.0.md, Line: 16
+**Original:** Goups
+**Suggested:** Groups
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/install-on-kubernetes.md, Line: 21
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/install-on-kubernetes.md, Line: 247
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/install-on-kubernetes.md, Line: 263
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/install-on-kubernetes.md, Line: 582
+**Original:** numner
+**Suggested:** number
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/install-with-.zip.md, Line: 154
+**Original:** te
+**Suggested:** the
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-on-openshift.md, Line: 112
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-on-openshift.md, Line: 113
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-on-openshift.md, Line: 116
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-on-openshift.md, Line: 116
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-on-openshift.md, Line: 119
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-on-openshift.md, Line: 140
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-on-openshift.md, Line: 149
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-on-openshift.md, Line: 297
+**Original:** overriden
+**Suggested:** overridden
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/install-on-docker/further-customization.md, Line: 48
+**Original:** vairables
+**Suggested:** variables
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md, Line: 81
+**Original:** Depcrecated
+**Suggested:** Deprecated
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide.md, Line: 77
+**Original:** followig
+**Suggested:** following
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-with-rpm-packages/installing-with-manual-install.md, Line: 105
+**Original:** Ngnix
+**Suggested:** nginx
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/installing-with-rpm-packages/installing-with-manual-install.md, Line: 115
+**Original:** respository
+**Suggested:** repository
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.5/installation-and-upgrades/advanced-hybrid-deployment/README.md, Line: 89
+**Original:** Samle
+**Suggested:** Sample
+yes
+
+File: ./docs/apim/4.5/overview/changelog/apim-4.5.x.md, Line: 209
+**Original:** resuable
+**Suggested:** reusable
+yes
+
+File: ./docs/apim/4.5/overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/README.md, Line: 33
+**Original:** comparions
+**Suggested:** comparisons
+yes
+
+File: ./docs/apim/4.5/community-and-support/contributing-to-the-gravitee-api-management-developement.md, Line: 1
+**Original:** developement
+**Suggested:** development
+yes
+
+File: ./docs/apim/4.5/community-and-support/community/contributing-to-the-gravitee-api-management-developement.md, Line: 1
+**Original:** developement
+**Suggested:** development
+yes
+
+File: ./docs/apim/4.5/using-the-product/most-common-use-cases/configure-dynamic-client-registration-with-apim.md, Line: 128
+**Original:** Devloper
+**Suggested:** Developer
+yes
+
+File: ./docs/apim/4.5/using-the-product/most-common-use-cases/configure-jwt-security-with-apim.md, Line: 70
+**Original:** Langauge
+**Suggested:** Language
+yes
+
+File: ./docs/apim/4.5/using-the-product/managing-your-apis/gravitee-expression-language.md, Line: 233
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.5/using-the-product/managing-your-apis/gravitee-expression-language.md, Line: 243
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/README.md, Line: 44
+**Original:** nam
+**Suggested:** name
+yes
+
+File: ./docs/apim/4.5/using-the-product/managing-your-apis/create-apis/README.md, Line: 2
+**Original:** criticial
+**Suggested:** critical
+yes
+
+File: ./docs/apim/4.5/using-the-product/managing-your-apis/create-apis/README.md, Line: 9
+**Original:** defintion
+**Suggested:** definition
+yes
+
+File: ./docs/apim/4.5/using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md, Line: 347
+**Original:** attemps
+**Suggested:** attempts
+yes
+
+File: ./docs/apim/4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-to-xml.md, Line: 159
+**Original:** overriden
+**Suggested:** overridden
+yes
+
+File: ./docs/apim/4.5/using-the-product/managing-your-apis/preparing-apis-for-subscribers/applications.md, Line: 237
+**Original:** applcation
+**Suggested:** application
+yes
+
+File: ./docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/secret-providers.md, Line: 219
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration/shared-policy-groups/viewing-version-history-of-the-shared-policy-group.md, Line: 5
+**Original:** choronological
+**Suggested:** chronological
+yes
+
+File: ./docs/apim/4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/README.md, Line: 3
+**Original:** infomation
+**Suggested:** information
+yes
+
+File: ./docs/apim/4.5/using-the-product/administration/authentication/social-providers.md, Line: 47
+**Original:** setttings
+**Suggested:** settings
+yes
+
+File: ./docs/apim/4.5/using-the-product/administration/authentication/social-providers.md, Line: 57
+**Original:** Confoguring
+**Suggested:** Configuring
+yes
+
+File: ./docs/apim/4.3/most-common-use-cases/configure-dynamic-client-registration-with-apim.md, Line: 118
+**Original:** Devloper
+**Suggested:** Developer
+yes
+
+File: ./docs/apim/4.3/most-common-use-cases/configure-jwt-security-with-apim.md, Line: 72
+**Original:** Langauge
+**Suggested:** Language
+yes
+
+File: ./docs/apim/4.3/overview/changelog/apim-4.3.x.md, Line: 336
+**Original:** collasped
+**Suggested:** collapsed
+yes
+
+File: ./docs/apim/4.3/overview/changelog/apim-4.3.x.md, Line: 487
+**Original:** Appplications
+**Suggested:** Applications
+yes
+
+File: ./docs/apim/4.3/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md, Line: 57
+**Original:** Depcrecated
+**Suggested:** Deprecated
+yes
+
+File: ./docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/README.md, Line: 29
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md, Line: 328
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md, Line: 646
+**Original:** numner
+**Suggested:** number
+yes
+
+File: ./docs/apim/4.3/getting-started/install-and-upgrade-guides/hybrid-deployment/hybrid-deployment-on-kubernetes.md, Line: 36
+**Original:** Samle
+**Suggested:** Sample
+yes
+
+File: ./docs/apim/4.3/getting-started/configuration/authentication.md, Line: 281
+**Original:** setttings
+**Suggested:** settings
+yes
+
+File: ./docs/apim/4.3/getting-started/configuration/authentication.md, Line: 291
+**Original:** Confoguring
+**Suggested:** Configuring
+yes
+
+File: ./docs/apim/4.3/getting-started/configuration/secret-providers.md, Line: 219
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/apim/4.3/getting-started/configuration/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.3/getting-started/configuration/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.3/getting-started/configuration/authentication/social-providers.md, Line: 47
+**Original:** setttings
+**Suggested:** settings
+yes
+
+File: ./docs/apim/4.3/getting-started/configuration/authentication/social-providers.md, Line: 57
+**Original:** Confoguring
+**Suggested:** Configuring
+yes
+
+File: ./docs/apim/4.3/guides/gravitee-expression-language.md, Line: 247
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.3/guides/gravitee-expression-language.md, Line: 257
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.3/guides/gravitee-expression-language.md, Line: 343
+**Original:** Yhe
+**Suggested:** The
+yes
+
+File: ./docs/apim/4.3/guides/api-exposure-plans-applications-and-subscriptions/applications.md, Line: 237
+**Original:** applcation
+**Suggested:** application
+yes
+
+File: ./docs/apim/4.3/guides/api-exposure-plans-applications-and-subscriptions/plans.md, Line: 168
+**Original:** managment
+**Suggested:** management
+yes
+
+File: ./docs/apim/4.3/guides/api-exposure-plans-applications-and-subscriptions/plans.md, Line: 182
+**Original:** adminstration
+**Suggested:** administration
+yes
+
+File: ./docs/apim/4.3/guides/create-apis/README.md, Line: 2
+**Original:** criticial
+**Suggested:** critical
+yes
+
+File: ./docs/apim/4.3/guides/create-apis/README.md, Line: 9
+**Original:** defintion
+**Suggested:** definition
+yes
+
+File: ./docs/apim/4.3/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md, Line: 335
+**Original:** attemps
+**Suggested:** attempts
+yes
+
+File: ./docs/apim/4.3/reference/policy-reference/json-to-xml.md, Line: 159
+**Original:** overriden
+**Suggested:** overridden
+yes
+
+File: ./docs/apim/4.2/overview/changelog/apim-4.2.x.md, Line: 223
+**Original:** collasped
+**Suggested:** collapsed
+yes
+
+File: ./docs/apim/4.2/overview/changelog/apim-4.2.x.md, Line: 371
+**Original:** Appplications
+**Suggested:** Applications
+yes
+
+File: ./docs/apim/4.2/overview/changelog/apim-4.2.x.md, Line: 727
+**Original:** dashbaord
+**Suggested:** dashboard
+yes
+
+File: ./docs/apim/4.2/overview/release-notes/apim-4.2.md, Line: 38
+**Original:** entires
+**Suggested:** entries
+yes
+
+File: ./docs/apim/4.2/overview/gravitee-api-definitions-and-execution-engines/message-flow-control.md, Line: 32
+**Original:** Susbcriber
+**Suggested:** Subscriber
+yes
+
+File: ./docs/apim/4.2/getting-started/install-and-upgrade-guides/breaking-changes-and-deprecated-functionality-for-api-management.md, Line: 57
+**Original:** Depcrecated
+**Suggested:** Deprecated
+yes
+
+File: ./docs/apim/4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/README.md, Line: 29
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md, Line: 334
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md, Line: 652
+**Original:** numner
+**Suggested:** number
+yes
+
+File: ./docs/apim/4.2/getting-started/configuration/authentication.md, Line: 281
+**Original:** setttings
+**Suggested:** settings
+yes
+
+File: ./docs/apim/4.2/getting-started/configuration/authentication.md, Line: 291
+**Original:** Confoguring
+**Suggested:** Configuring
+yes
+
+File: ./docs/apim/4.2/getting-started/configuration/secret-providers.md, Line: 219
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/apim/4.2/getting-started/configuration/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.2/getting-started/configuration/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.2/getting-started/configuration/reporters/README.md, Line: 101
+**Original:** negociation
+**Suggested:** negotiation
+yes
+
+File: ./docs/apim/4.2/getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md, Line: 36
+**Original:** Samle
+**Suggested:** Sample
+yes
+
+File: ./docs/apim/4.2/guides/gravitee-expression-language.md, Line: 245
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.2/guides/gravitee-expression-language.md, Line: 255
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.2/guides/api-exposure-plans-applications-and-subscriptions/applications.md, Line: 248
+**Original:** applcation
+**Suggested:** application
+yes
+
+File: ./docs/apim/4.2/guides/api-exposure-plans-applications-and-subscriptions/plans.md, Line: 168
+**Original:** managment
+**Suggested:** management
+yes
+
+File: ./docs/apim/4.2/guides/api-exposure-plans-applications-and-subscriptions/plans.md, Line: 182
+**Original:** adminstration
+**Suggested:** administration
+yes
+
+File: ./docs/apim/4.2/guides/api-configuration/v2-api-configuration/README.md, Line: 72
+**Original:** ciricular
+**Suggested:** circular
+yes
+
+File: ./docs/apim/4.2/guides/api-configuration/v2-api-configuration/service-discovery.md, Line: 33
+**Original:** addtional
+**Suggested:** additional
+yes
+
+File: ./docs/apim/4.2/guides/api-configuration/v4-api-configuration/documentation.md, Line: 72
+**Original:** delet
+**Suggested:** delete
+yes
+
+File: ./docs/apim/4.2/guides/create-apis/README.md, Line: 2
+**Original:** criticial
+**Suggested:** critical
+yes
+
+File: ./docs/apim/4.2/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md, Line: 272
+**Original:** attemps
+**Suggested:** attempts
+yes
+
+File: ./docs/apim/4.2/guides/policy-studio/v2-api-policy-studio.md, Line: 135
+**Original:** Encypted
+**Suggested:** Encrypted
+yes
+
+File: ./docs/apim/4.2/guides/policy-studio/v2-api-policy-studio.md, Line: 141
+**Original:** Dyanmic
+**Suggested:** Dynamic
+yes
+
+File: ./docs/apim/4.2/guides/api-measurement-tracking-and-analytics/README.md, Line: 36
+**Original:** anayltics
+**Suggested:** analytics
+yes
+
+File: ./docs/apim/4.2/guides/api-measurement-tracking-and-analytics/README.md, Line: 43
+**Original:** mangaging
+**Suggested:** managing
+yes
+
+File: ./docs/apim/4.2/guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md, Line: 19
+**Original:** anayltics
+**Suggested:** analytics
+yes
+
+File: ./docs/apim/4.2/guides/administration/administering-organizations-and-environments.md, Line: 28
+**Original:** Automatical
+**Suggested:** Automatically
+no
+
+File: ./docs/apim/4.2/guides/administration/user-management-and-permissions.md, Line: 110
+**Original:** acronymn
+**Suggested:** acronym
+yes
+
+File: ./docs/apim/4.2/guides/administration/user-management-and-permissions.md, Line: 123
+**Original:** oficially
+**Suggested:** officially
+yes
+
+File: ./docs/apim/4.2/reference/policy-reference/json-to-xml.md, Line: 159
+**Original:** overriden
+**Suggested:** overridden
+yes
+
+File: ./docs/apim/4.1/releases-and-changelog/changelog/apim-4.1.x.md, Line: 55
+**Original:** collasped
+**Suggested:** collapsed
+yes
+
+File: ./docs/apim/4.1/releases-and-changelog/changelog/apim-4.1.x.md, Line: 199
+**Original:** Appplications
+**Suggested:** Applications
+yes
+
+File: ./docs/apim/4.1/releases-and-changelog/changelog/apim-4.1.x.md, Line: 546
+**Original:** dashbaord
+**Suggested:** dashboard
+yes
+
+File: ./docs/apim/4.1/overview/gravitee-api-definitions-and-execution-engines/flow/message-flow-control.md, Line: 32
+**Original:** Susbcriber
+**Suggested:** Subscriber
+yes
+
+File: ./docs/apim/4.1/getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/message-proxy.md, Line: 37
+**Original:** messag
+**Suggested:** message
+yes
+
+File: ./docs/apim/4.1/getting-started/install-guides/breaking-changes-and-deprecated-functionality-for-api-management.md, Line: 57
+**Original:** Depcrecated
+**Suggested:** Deprecated
+yes
+
+File: ./docs/apim/4.1/getting-started/install-guides/install-on-kubernetes/README.md, Line: 29
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.1/getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md, Line: 329
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.1/getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md, Line: 647
+**Original:** numner
+**Suggested:** number
+yes
+
+File: ./docs/apim/4.1/getting-started/configuration/authentication-and-sso.md, Line: 281
+**Original:** setttings
+**Suggested:** settings
+yes
+
+File: ./docs/apim/4.1/getting-started/configuration/authentication-and-sso.md, Line: 291
+**Original:** Confoguring
+**Suggested:** Configuring
+yes
+
+File: ./docs/apim/4.1/getting-started/configuration/configure-http-reverse-proxy.md, Line: 127
+**Original:** Managment
+**Suggested:** Management
+yes
+
+File: ./docs/apim/4.1/getting-started/configuration/configure-reporters/README.md, Line: 101
+**Original:** negociation
+**Suggested:** negotiation
+yes
+
+File: ./docs/apim/4.1/getting-started/configuration/configure-repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.1/getting-started/configuration/configure-repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.1/getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md, Line: 36
+**Original:** Samle
+**Suggested:** Sample
+yes
+
+File: ./docs/apim/4.1/guides/gravitee-expression-language.md, Line: 242
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.1/guides/gravitee-expression-language.md, Line: 252
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.1/guides/api-exposure-plans-applications-and-subscriptions/plans-1.md, Line: 248
+**Original:** applcation
+**Suggested:** application
+yes
+
+File: ./docs/apim/4.1/guides/api-exposure-plans-applications-and-subscriptions/plans.md, Line: 168
+**Original:** managment
+**Suggested:** management
+yes
+
+File: ./docs/apim/4.1/guides/api-exposure-plans-applications-and-subscriptions/plans.md, Line: 182
+**Original:** adminstration
+**Suggested:** administration
+yes
+
+File: ./docs/apim/4.1/guides/api-configuration/README.md, Line: 11
+**Original:** defintion
+**Suggested:** definition
+yes
+
+File: ./docs/apim/4.1/guides/api-configuration/v2-api-configuration/README.md, Line: 72
+**Original:** ciricular
+**Suggested:** circular
+yes
+
+File: ./docs/apim/4.1/guides/api-configuration/v2-api-configuration/configure-service-discovery.md, Line: 33
+**Original:** addtional
+**Suggested:** additional
+yes
+
+File: ./docs/apim/4.1/guides/create-apis/README.md, Line: 2
+**Original:** criticial
+**Suggested:** critical
+yes
+
+File: ./docs/apim/4.1/guides/create-apis/how-to/v4-api-creation-wizard-docs.md, Line: 225
+**Original:** attemps
+**Suggested:** attempts
+yes
+
+File: ./docs/apim/4.1/guides/create-apis/how-to/v4-api-creation-wizard.md, Line: 348
+**Original:** attemps
+**Suggested:** attempts
+yes
+
+File: ./docs/apim/4.1/guides/api-measurement-tracking-and-analytics/README.md, Line: 36
+**Original:** anayltics
+**Suggested:** analytics
+yes
+
+File: ./docs/apim/4.1/guides/api-measurement-tracking-and-analytics/README.md, Line: 43
+**Original:** mangaging
+**Suggested:** managing
+yes
+
+File: ./docs/apim/4.1/guides/api-measurement-tracking-and-analytics/how-to.md, Line: 19
+**Original:** anayltics
+**Suggested:** analytics
+yes
+
+File: ./docs/apim/4.1/guides/api-performance-and-measurement/how-to.md, Line: 19
+**Original:** anayltics
+**Suggested:** analytics
+yes
+
+File: ./docs/apim/4.1/guides/administration/authentication-and-sso.md, Line: 285
+**Original:** setttings
+**Suggested:** settings
+yes
+
+File: ./docs/apim/4.1/guides/administration/authentication-and-sso.md, Line: 295
+**Original:** Confoguring
+**Suggested:** Configuring
+yes
+
+File: ./docs/apim/4.1/guides/administration/how-to.md, Line: 30
+**Original:** Automatical
+**Suggested:** Automatically
+no
+
+File: ./docs/apim/4.1/guides/administration/user-management-and-permissions.md, Line: 128
+**Original:** acronymn
+**Suggested:** acronym
+yes
+
+File: ./docs/apim/4.1/guides/administration/user-management-and-permissions.md, Line: 141
+**Original:** oficially
+**Suggested:** officially
+yes
+
+File: ./docs/apim/4.1/guides/policy-design/gravitee-expression-language.md, Line: 216
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.1/guides/policy-design/gravitee-expression-language.md, Line: 227
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.1/guides/policy-design/v2-api-policy-design-studio.md, Line: 137
+**Original:** Encypted
+**Suggested:** Encrypted
+yes
+
+File: ./docs/apim/4.1/guides/policy-design/v2-api-policy-design-studio.md, Line: 143
+**Original:** Dyanmic
+**Suggested:** Dynamic
+yes
+
+File: ./docs/apim/4.1/reference/policy-reference/groovy.md, Line: 178
+**Original:** build-in
+**Suggested:** built-in
+yes
+
+File: ./docs/apim/4.1/reference/policy-reference/json-to-xml.md, Line: 159
+**Original:** overriden
+**Suggested:** overridden
+yes
+
+File: ./docs/apim/4.0/releases-and-changelog/changelog/apim-4.0.x.md, Line: 20
+**Original:** Appplications
+**Suggested:** Applications
+yes
+
+File: ./docs/apim/4.0/releases-and-changelog/changelog/apim-4.0.x.md, Line: 352
+**Original:** dashbaord
+**Suggested:** dashboard
+yes
+
+File: ./docs/apim/4.0/releases-and-changelog/release-notes/apim-4.0.md, Line: 104
+**Original:** NGNIx
+**Suggested:** nginx
+yes
+
+File: ./docs/apim/4.0/getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/message-proxy.md, Line: 37
+**Original:** messag
+**Suggested:** message
+yes
+
+File: ./docs/apim/4.0/getting-started/install-and-upgrade-guides/breaking-changes-and-deprecated-functionality-for-api-management.md, Line: 57
+**Original:** Depcrecated
+**Suggested:** Deprecated
+yes
+
+File: ./docs/apim/4.0/getting-started/install-and-upgrade-guides/install-on-kubernetes/README.md, Line: 29
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.0/getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md, Line: 329
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.0/getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration.md, Line: 647
+**Original:** numner
+**Suggested:** number
+yes
+
+File: ./docs/apim/4.0/getting-started/configuration/configure-authentication.md, Line: 281
+**Original:** setttings
+**Suggested:** settings
+yes
+
+File: ./docs/apim/4.0/getting-started/configuration/configure-authentication.md, Line: 291
+**Original:** Confoguring
+**Suggested:** Configuring
+yes
+
+File: ./docs/apim/4.0/getting-started/configuration/configure-http-reverse-proxy.md, Line: 127
+**Original:** Managment
+**Suggested:** Management
+yes
+
+File: ./docs/apim/4.0/getting-started/configuration/configure-reporters/README.md, Line: 101
+**Original:** negociation
+**Suggested:** negotiation
+yes
+
+File: ./docs/apim/4.0/getting-started/configuration/configure-repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.0/getting-started/configuration/configure-repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.0/getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes.md, Line: 36
+**Original:** Samle
+**Suggested:** Sample
+yes
+
+File: ./docs/apim/4.0/guides/gravitee-expression-language.md, Line: 227
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.0/guides/gravitee-expression-language.md, Line: 237
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.0/guides/api-exposure-plans-applications-and-subscriptions/applications.md, Line: 248
+**Original:** applcation
+**Suggested:** application
+yes
+
+File: ./docs/apim/4.0/guides/api-exposure-plans-applications-and-subscriptions/plans.md, Line: 168
+**Original:** managment
+**Suggested:** management
+yes
+
+File: ./docs/apim/4.0/guides/api-exposure-plans-applications-and-subscriptions/plans.md, Line: 182
+**Original:** adminstration
+**Suggested:** administration
+yes
+
+File: ./docs/apim/4.0/guides/api-configuration/README.md, Line: 11
+**Original:** defintion
+**Suggested:** definition
+yes
+
+File: ./docs/apim/4.0/guides/api-configuration/v2-api-configuration/README.md, Line: 72
+**Original:** ciricular
+**Suggested:** circular
+yes
+
+File: ./docs/apim/4.0/guides/api-configuration/v2-api-configuration/configure-service-discovery.md, Line: 33
+**Original:** addtional
+**Suggested:** additional
+yes
+
+File: ./docs/apim/4.0/guides/create-apis/README.md, Line: 2
+**Original:** criticial
+**Suggested:** critical
+yes
+
+File: ./docs/apim/4.0/guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md, Line: 252
+**Original:** attemps
+**Suggested:** attempts
+yes
+
+File: ./docs/apim/4.0/guides/policy-studio/v2-api-policy-studio.md, Line: 137
+**Original:** Encypted
+**Suggested:** Encrypted
+yes
+
+File: ./docs/apim/4.0/guides/policy-studio/v2-api-policy-studio.md, Line: 143
+**Original:** Dyanmic
+**Suggested:** Dynamic
+yes
+
+File: ./docs/apim/4.0/guides/api-measurement-tracking-and-analytics/README.md, Line: 36
+**Original:** anayltics
+**Suggested:** analytics
+yes
+
+File: ./docs/apim/4.0/guides/api-measurement-tracking-and-analytics/README.md, Line: 43
+**Original:** mangaging
+**Suggested:** managing
+yes
+
+File: ./docs/apim/4.0/guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics.md, Line: 19
+**Original:** anayltics
+**Suggested:** analytics
+yes
+
+File: ./docs/apim/4.0/guides/administration/administering-organizations-and-environments.md, Line: 30
+**Original:** Automatical
+**Suggested:** Automatically
+no
+
+File: ./docs/apim/4.0/guides/administration/user-management-and-permissions.md, Line: 128
+**Original:** acronymn
+**Suggested:** acronym
+yes
+
+File: ./docs/apim/4.0/guides/administration/user-management-and-permissions.md, Line: 141
+**Original:** oficially
+**Suggested:** officially
+yes
+
+File: ./docs/apim/4.0/reference/policy-reference/groovy.md, Line: 178
+**Original:** build-in
+**Suggested:** built-in
+yes
+
+File: ./docs/apim/4.0/reference/policy-reference/json-to-xml.md, Line: 159
+**Original:** overriden
+**Suggested:** overridden
+yes
+
+File: ./docs/apim/4.4/SUMMARY.md, Line: 279
+**Original:** developement
+**Suggested:** development
+yes
+
+File: ./docs/apim/4.4/installation-and-upgrades/install-gravitee-api-management/installing-a-gravitee-gateway-with-a-hybrid-deployment/hybrid-deployment-on-kubernetes.md, Line: 40
+**Original:** Samle
+**Suggested:** Sample
+yes
+
+File: ./docs/apim/4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes.md, Line: 21
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes.md, Line: 241
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes.md, Line: 257
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes.md, Line: 576
+**Original:** numner
+**Suggested:** number
+yes
+
+File: ./docs/apim/4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-with-.zip.md, Line: 154
+**Original:** te
+**Suggested:** the
+yes
+
+File: ./docs/apim/4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-amazon/manual-install.md, Line: 225
+**Original:** indivdual
+**Suggested:** individual
+yes
+
+File: ./docs/apim/4.4/installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md, Line: 81
+**Original:** Depcrecated
+**Suggested:** Deprecated
+yes
+
+File: ./docs/apim/4.4/overview/changelog/apim-4.4.x.md, Line: 198
+**Original:** resuable
+**Suggested:** reusable
+yes
+
+File: ./docs/apim/4.4/overview/changelog/apim-4.4.x.md, Line: 384
+**Original:** collasped
+**Suggested:** collapsed
+yes
+
+File: ./docs/apim/4.4/overview/changelog/apim-4.4.x.md, Line: 600
+**Original:** Appplications
+**Suggested:** Applications
+yes
+
+File: ./docs/apim/4.4/getting-started/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/further-customization.md, Line: 48
+**Original:** vairables
+**Suggested:** variables
+yes
+
+File: ./docs/apim/4.4/community-and-support/developer-contributions.md, Line: 5
+**Original:** developement
+**Suggested:** development
+yes
+
+File: ./docs/apim/4.4/configuration/secret-providers.md, Line: 219
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/apim/4.4/configuration/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.4/configuration/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.4/configuration/authentication/social-providers.md, Line: 47
+**Original:** setttings
+**Suggested:** settings
+yes
+
+File: ./docs/apim/4.4/configuration/authentication/social-providers.md, Line: 57
+**Original:** Confoguring
+**Suggested:** Configuring
+yes
+
+File: ./docs/apim/4.4/using-the-product/most-common-use-cases/configure-dynamic-client-registration-with-apim.md, Line: 118
+**Original:** Devloper
+**Suggested:** Developer
+yes
+
+File: ./docs/apim/4.4/using-the-product/most-common-use-cases/configure-jwt-security-with-apim.md, Line: 70
+**Original:** Langauge
+**Suggested:** Language
+yes
+
+File: ./docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/README.md, Line: 3
+**Original:** cosists
+**Suggested:** consists
+yes
+
+File: ./docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/README.md, Line: 10
+**Original:** envvironment
+**Suggested:** environment
+yes
+
+File: ./docs/apim/4.4/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/publishing-and-managing-apis-with-the-gravitee-developer-portal/README.md, Line: 3
+**Original:** infomation
+**Suggested:** information
+yes
+
+File: ./docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/gravitee-expression-language.md, Line: 245
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/gravitee-expression-language.md, Line: 255
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/applications.md, Line: 237
+**Original:** applcation
+**Suggested:** application
+yes
+
+File: ./docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/README.md, Line: 2
+**Original:** criticial
+**Suggested:** critical
+yes
+
+File: ./docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/README.md, Line: 9
+**Original:** defintion
+**Suggested:** definition
+yes
+
+File: ./docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md, Line: 347
+**Original:** attemps
+**Suggested:** attempts
+yes
+
+File: ./docs/apim/4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/json-to-xml.md, Line: 159
+**Original:** overriden
+**Suggested:** overridden
+yes
+
+File: ./docs/apim/4.4/using-the-product/administration/README.md, Line: 3
+**Original:** adminstrative
+**Suggested:** administrative
+yes
+
+File: ./docs/apim/4.6/configure-apim/sensitive-data-management/configuration-level-secrets.md, Line: 61
+**Original:** Kubenetes
+**Suggested:** Kubernetes
+yes
+
+File: ./docs/apim/4.6/configure-apim/sensitive-data-management/configuration-level-secrets.md, Line: 138
+**Original:** certifcate
+**Suggested:** certificate
+yes
+
+File: ./docs/apim/4.6/configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md, Line: 59
+**Original:** kubenetes
+**Suggested:** Kubernetes
+yes
+
+File: ./docs/apim/4.6/configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md, Line: 94
+**Original:** kubenetes
+**Suggested:** Kubernetes
+yes
+
+File: ./docs/apim/4.6/configure-apim/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.6/configure-apim/repositories/redis.md, Line: 37
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/apim/4.6/getting-started/gravitee-expression-language.md, Line: 233
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.6/getting-started/gravitee-expression-language.md, Line: 243
+**Original:** Prinicipal
+**Suggested:** Principal
+yes
+
+File: ./docs/apim/4.6/getting-started/use-case-tutorials/configure-dcr.md, Line: 128
+**Original:** Devloper
+**Suggested:** Developer
+yes
+
+File: ./docs/apim/4.6/getting-started/use-case-tutorials/configure-jwt-security.md, Line: 70
+**Original:** Langauge
+**Suggested:** Language
+yes
+
+File: ./docs/apim/4.6/gravitee-gateway/opentelemetry.md, Line: 37
+**Original:** locahost
+**Suggested:** localhost
+yes
+
+File: ./docs/apim/4.6/gravitee-gateway/opentelemetry.md, Line: 53
+**Original:** informations
+**Suggested:** information
+yes
+
+File: ./docs/apim/4.6/gravitee-gateway/opentelemetry.md, Line: 109
+**Original:** locahost
+**Suggested:** localhost
+yes
+
+File: ./docs/apim/4.6/gravitee-gateway/opentelemetry.md, Line: 127
+**Original:** informations
+**Suggested:** information
+yes
+
+File: ./docs/apim/4.6/policies/data-cache.md, Line: 33
+**Original:** Atrribute
+**Suggested:** Attribute
+yes
+
+File: ./docs/apim/4.6/policies/json-to-xml.md, Line: 160
+**Original:** overriden
+**Suggested:** overridden
+yes
+
+File: ./docs/apim/4.6/policies/shared-policy-groups.md, Line: 93
+**Original:** choronological
+**Suggested:** chronological
+yes
+
+File: ./docs/apim/4.6/kafka-gateway/other-ways-gravitee-supports-kafka.md, Line: 9
+**Original:** Kakfa
+**Suggested:** Kafka
+yes
+
+File: ./docs/apim/4.6/administration/authentication/social-providers.md, Line: 47
+**Original:** setttings
+**Suggested:** settings
+yes
+
+File: ./docs/apim/4.6/administration/authentication/social-providers.md, Line: 57
+**Original:** Confoguring
+**Suggested:** Configuring
+yes
+
+File: ./docs/apim/4.6/hybrid-deployment/hybrid-install-with-kubernetes.md, Line: 40
+**Original:** Samle
+**Suggested:** Sample
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/breaking-changes-and-deprecations.md, Line: 87
+**Original:** Depcrecated
+**Suggested:** Deprecated
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/kubernetes.md, Line: 21
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/kubernetes.md, Line: 239
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/kubernetes.md, Line: 255
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/kubernetes.md, Line: 570
+**Original:** numner
+**Suggested:** number
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/openshift.md, Line: 113
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/openshift.md, Line: 114
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/openshift.md, Line: 117
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/openshift.md, Line: 117
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/openshift.md, Line: 120
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/openshift.md, Line: 141
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/openshift.md, Line: 148
+**Original:** PostgresSQL
+**Suggested:** PostgreSQL
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/openshift.md, Line: 294
+**Original:** overriden
+**Suggested:** overridden
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/docker/customize-your-installation.md, Line: 48
+**Original:** vairables
+**Suggested:** variables
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/rpm/manual-install.md, Line: 103
+**Original:** Ngnix
+**Suggested:** nginx
+yes
+
+File: ./docs/apim/4.6/install-and-upgrade/rpm/manual-install.md, Line: 113
+**Original:** respository
+**Suggested:** repository
+yes
+
+File: ./docs/gravitee-cloud/guides/gravitee-hosted-gateways.md, Line: 64
+**Original:** deplyed
+**Suggested:** deployed
+yes
+
+File: ./docs/ae/releases-and-changelog/page-6.md, Line: 142
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/ae/releases-and-changelog/page-6.md, Line: 190
+**Original:** loosing
+**Suggested:** losing
+yes
+
+File: ./docs/ae/releases-and-changelog/page-6.md, Line: 413
+**Original:** vertx
+**Suggested:** Vertx
+yes
+
+File: ./docs/ae/overview/integrations.md, Line: 133
+**Original:** re-used
+**Suggested:** reused
+yes
+
+File: ./docs/platform-overview/before-you-begin/glossary.md, Line: 173
+**Original:** Kakfa
+**Suggested:** Kafka
+yes
+
+File: ./docs/gko/4.6/getting-started/installation/rbac-customization.md, Line: 42
+**Original:** Fo
+**Suggested:** Of
+no
