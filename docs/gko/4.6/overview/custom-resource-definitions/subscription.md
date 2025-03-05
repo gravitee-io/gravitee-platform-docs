@@ -8,6 +8,12 @@ GKO supports three of the four Gravitee subscription types: JWT, OAuth, and mTLS
 
 For GKO to be able to create a subscription, the corresponding application and API must also be managed by GKO using the dedicated CRDs.
 
+
+
+{% hint style="info" %}
+GKO-managed subscriptions only work when GKO is configured to sync APIs with a Gravitee API management control plane (i.e. local=false for v2 APIs, or syncFrom=MANAGEMENT for v4 APIs). See [api-storage-and-control-options](../../getting-started/api-storage-and-control-options/ "mention") for more information about these configuration options.
+{% endhint %}
+
 ## Example subscription with GKO
 
 The example below is based on three prerequisites:

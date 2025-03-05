@@ -10,6 +10,10 @@ description: >-
 
 This is a step-by-step guide for how to manage JWT subscriptions with GKO. It **does not** rely on an external identity provider, such as Gravitee Access Management, Ping Federate, or Auth0. Instead, it shows you how to create your own public and private key pair that you can use to sign and verify JWT tokens.
 
+{% hint style="info" %}
+GKO-managed subscriptions only work when GKO is configured to sync APIs with a Gravitee API management control plane (i.e. local=false for v2 APIs, or syncFrom=MANAGEMENT for v4 APIs). See [api-storage-and-control-options](../getting-started/api-storage-and-control-options/ "mention") for more information about these configuration options.
+{% endhint %}
+
 ## Before you begin
 
 * You must have Gravitee Kubernetes Operator running on your system.
