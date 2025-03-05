@@ -2,13 +2,13 @@
 
 ## Overview
 
+{% hint style="info" %}
+The OpenAPI specs for other versions of AM are available in the documentation for that version.&#x20;
+{% endhint %}
+
 The AM API exposes a complete Restful API accessible to anyone wanting to script some part of the administration.
 
-You can access the OpenAPI specification:
-
-* 4.2 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/management-api/4.2/openapi.yaml)
-* 4.1 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/management-api/4.1/openapi.yaml)
-* 4.0 — [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-docs/master/am/current/management-api/4.0/swagger.json)
+* To access the OpenAPI spec for AM 4.5, go to [OpenAPI spec](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.5.x/docs/mapi/openapi.yaml).
 
 ## Authorization
 
