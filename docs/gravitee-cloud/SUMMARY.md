@@ -11,6 +11,11 @@
 
 ## Guides
 
+* [Custom Domains](guides/custom-domains/README.md)
+  * [Setting a custom domain](guides/custom-domains/setting-a-custom-domain.md)
+  * [Resetting a custom domain](guides/custom-domains/resetting-a-custom-domain.md)
+  * [Updating a custom domain](guides/custom-domains/updating-a-custom-domain.md)
+  * [SSL Certificate Management](guides/custom-domains/ssl-certificate-management.md)
 * [Hybrid](guides/hybrid.md)
 * [Gravitee Hosted Gateways](guides/gravitee-hosted-gateways.md)
 * [Configure Single Sign On](guides/configure-sso.md)
