@@ -569,6 +569,14 @@ Gravitee 4.3 now captures audit logs for client authentications and MFA events s
 
 <summary>Breaking changes</summary>
 
+## OpenID scope for client_credentials
+
 The `openid` scope is now forbidden for client_credentials flow as this not related to user authentication. 
+
+## Multi-Factor Authentication
+
+The MFA feature evolves to be more flexible. This evolution comes with new data strutures as part of the Application settings.
+
+If you are using the Management REST API to provision your applications, please note that the `factors` attribute in the Application bean is now deprecated. All factors need to be declared in the MFASettings structure. You can see the structure description [here](https://github.com/gravitee-io/gravitee-access-management/blob/4.3.0/gravitee-am-model/src/main/java/io/gravitee/am/model/MFASettings.java).
 
 </details>

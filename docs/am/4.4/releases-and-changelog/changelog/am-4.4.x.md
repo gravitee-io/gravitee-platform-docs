@@ -494,3 +494,16 @@ Email address can be configured as optional for user profile linked to a domain.
 If you are using MongoDB or RDBMS identity providers, you have the opportunity to configure the number of rounds for the hashing algorithm used on the user password.
 
 </details>
+
+<details>
+
+<summary>Breaking Changes</summary>
+
+## Password Policies
+
+Password Policies evolved to apply policies at IdentityProvider level.
+If you are using Management REST API to provision the security domains, please note that the legacy data structure present into the Domain settings is now a dedicated resource with a new Endpoint on the REST API.
+ 
+To create a policy at domain level, the endpoint to use is the createPasswordPolicy described in [OpenAPI specification](https://raw.githubusercontent.com/gravitee-io/gravitee-access-management/4.4.x/docs/mapi/openapi.yaml)
+
+</details>
