@@ -117,11 +117,16 @@ jobs:
                       if suggestion.lower() in ignore_list and suggestion != ignore_list[suggestion.lower()]:
                           suggestion = ignore_list[suggestion.lower()]  # Enforce correct capitalization
 
-                      # ✅ Replace entire phrase if a context match is found
+                      # ✅ Replace only the misspelled word in the phrase, not the entire phrase
                       for correct_phrase, wrong_variants in context_phrases.items():
                           for wrong_phrase in wrong_variants:
                               if wrong_phrase in context_line:
-                                  suggestion = correct_phrase  # Replace entire phrase
+                                  # Get the corrected word (not the full phrase)
+                                  corrected_word = correct_phrase.split()[0]  # Extract only the correct word
+                                  wrong_word = wrong_phrase.split()[0]  # Extract only the wrong word
+
+                                  # Replace only the incorrect word in the context line
+                                  suggestion = context_line.replace(wrong_word, corrected_word, 1)  # Replace first occurrence only
 
                       # ✅ Prevent punctuation modifications
                       if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
