@@ -1,0 +1,151 @@
+name: Automated Spellcheck & PR Creation
+
+on:
+  workflow_dispatch:  # Runs only when manually triggered
+
+permissions:
+  contents: write  # Needed to push changes after approval
+
+jobs:
+  spellcheck_and_apply:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          pip install codespell
+          pip install fuzzywuzzy[speedup]
+          pip install sentence-splitter
+
+      - name: Verify Spellcheck Ignore List Exists
+        run: |
+          if [ ! -f .github/spellcheck-ignore.txt ]; then
+            echo "❌ Error: spellcheck-ignore.txt not found!"
+            exit 1
+          fi
+
+      - name: Run Spellcheck and Apply Corrections
+        run: |
+          set -e  # Exit on error
+
+          python3 <<EOF
+          import re
+          import os
+          import subprocess
+          from fuzzywuzzy import process
+          from sentence_splitter import SentenceSplitter
+
+          # Load ignore list with correct case preservation
+          ignore_list = {}
+          ignore_file = ".github/spellcheck-ignore.txt"
+          if os.path.exists(ignore_file):
+              with open(ignore_file, "r", encoding="utf-8") as f:
+                  ignore_list = {word.strip().lower(): word.strip() for word in f.readlines()}
+
+          # Context phrases to prioritize in spellcheck corrections
+          context_phrases = {
+              "identity provider": ["identiy provider", "identify provider"],
+              "access token": ["access toekn", "acess token"],
+              "user authentication": ["user authentification", "user authenthication"],
+              "API gateway": ["API getway", "API gatway"]
+          }
+
+          # Function to check if a word is inside a Markdown link
+          def is_inside_markdown_link(line, original):
+              return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
+
+          # Function to check if a word is in a title or hint block
+          def is_in_title_or_hint(line):
+              return bool(re.search(r'{% (tab title|hint style)=', line))
+
+          # Function to check if a match is a full-word match
+          def is_full_word_match(misspelled, correct):
+              return misspelled.lower() == correct.lower()  # Ensure full word match
+
+          # Run codespell and capture output
+          result = subprocess.run([
+              "codespell",
+              "--ignore-words=.github/spellcheck-ignore.txt",
+              "--skip=.git,*.lock,*.json,*.yaml,*.yml,*.css,*.html",
+              "--quiet-level=2"
+          ], capture_output=True, text=True, check=False)
+
+          spellcheck_output = result.stdout.strip()
+
+          if not spellcheck_output:
+              print("✅ No spelling corrections found. Exiting.")
+              exit(0)
+
+          # Process and apply corrections directly
+          for line in spellcheck_output.splitlines():
+              match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
+              if match:
+                  file_path, line_number, original, suggestion = match.groups()
+
+                  # Read the full line for context
+                  with open(file_path, "r", encoding="utf-8") as file:
+                      lines = file.readlines()
+                  context_line = lines[int(line_number) - 1].strip() if 0 <= int(line_number) - 1 < len(lines) else ""
+
+                  # ✅ Ignore words inside Markdown links
+                  if is_inside_markdown_link(context_line, original):
+                      continue
+
+                  # ✅ Always enforce exact case of ignore words in valid regions
+                  if original.lower() in ignore_list:
+                      suggestion = ignore_list[original.lower()]  # Replace with exact capitalization
+
+                  # ✅ Ensure 90% match rule only applies to full words
+                  else:
+                      best_match, score = process.extractOne(original, ignore_list.keys()) if ignore_list else (None, 0)
+                      if best_match and score >= 90 and is_full_word_match(original, best_match):
+                          suggestion = ignore_list[best_match]  # Replace with exact capitalization from ignore list
+
+                  # ✅ If a correction is an ignore word but capitalization is wrong, fix it
+                  if suggestion.lower() in ignore_list and suggestion != ignore_list[suggestion.lower()]:
+                      suggestion = ignore_list[suggestion.lower()]  # Enforce correct capitalization
+
+                  # ✅ Replace entire phrase if a context match is found
+                  for correct_phrase, wrong_variants in context_phrases.items():
+                      for wrong_phrase in wrong_variants:
+                          if wrong_phrase in context_line:
+                              suggestion = correct_phrase  # Replace entire phrase
+
+                  # ✅ Prevent punctuation modifications
+                  if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
+                      suggestion = suggestion.rstrip(",.;")
+
+                  # Apply correction in the file
+                  with open(file_path, "r", encoding="utf-8") as f:
+                      content = f.read()
+
+                  if original in content:
+                      updated_content = content.replace(original, suggestion)
+                      with open(file_path, "w", encoding="utf-8") as f:
+                          f.write(updated_content)
+                      print(f"✅ Corrected '{original}' to '{suggestion}' in {file_path}")
+
+          print("✅ All corrections applied successfully.")
+          EOF
+
+      - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_ACTIONS }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if git diff --quiet; then
+            echo "✅ No changes detected after spellcheck. Exiting."
+            exit 0
+          fi
+          
+          git checkout -b spellcheck-auto-fixes
+          git add .
+          git commit -m "✅ Automated Spellcheck & Grammar Fixes"
+          git push origin spellcheck-auto-fixes
+
+          gh pr create --base main --head spellcheck-auto-fixes --title "Automated Spellcheck & Grammar Fixes" --body "This PR contains automated spellcheck and grammar fixes."
