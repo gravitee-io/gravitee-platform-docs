@@ -116,18 +116,23 @@ jobs:
                       # ✅ If a correction is an ignore word but capitalization is wrong, fix it
                       if suggestion.lower() in ignore_list and suggestion != ignore_list[suggestion.lower()]:
                           suggestion = ignore_list[suggestion.lower()]  # Enforce correct capitalization
-
-                      # ✅ Replace only the misspelled word in the phrase, not the entire phrase
+                      
+                      # ✅ Replace only the misspelled word inside the phrase, NOT the whole phrase
                       for correct_phrase, wrong_variants in context_phrases.items():
                           for wrong_phrase in wrong_variants:
                               if wrong_phrase in context_line:
-                                  words_in_correct_phrase = correct_phrase.split()  # List of words in correct phrase
-                                  words_in_wrong_phrase = wrong_phrase.split()  # List of words in wrong phrase
+                                  wrong_words = wrong_phrase.split()  # ['identiy', 'provider']
+                                  correct_words = correct_phrase.split()  # ['identity', 'provider']
 
-                                  for w_idx, wrong_word in enumerate(words_in_wrong_phrase):
-                                      if wrong_word in context_line:  # Check if this exact word is in the line
-                                          # Replace the incorrect word with the correct word (keeping surrounding words unchanged)
-                                          suggestion = context_line.replace(wrong_word, words_in_correct_phrase[w_idx], 1)
+                                  updated_words = []
+                                  for w_idx, word in enumerate(wrong_words):
+                                      if word in context_line:
+                                          # Replace only the incorrect word
+                                          updated_words.append(correct_words[w_idx])
+                                      else:
+                                          updated_words.append(word)
+
+                              suggestion = context_line.replace(wrong_phrase, " ".join(updated_words), 1)
                       
                       # ✅ Prevent punctuation modifications
                       if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
