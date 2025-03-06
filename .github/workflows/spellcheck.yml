@@ -125,14 +125,15 @@ jobs:
                                   correct_words = correct_phrase.split()  # ['identity', 'provider']
 
                                   updated_words = []
-                                  for w_idx, word in enumerate(wrong_words):
-                                      if word in context_line:
-                                          # Replace only the incorrect word
-                                          updated_words.append(correct_words[w_idx])
+                                  for w_idx in range(len(wrong_words)):
+                                      if w_idx < len(correct_words) and wrong_words[w_idx] in context_line:
+                                          updated_words.append(correct_words[w_idx])  # Replace incorrect word
                                       else:
-                                          updated_words.append(word)
+                                          updated_words.append(wrong_words[w_idx])  # Keep correct words unchanged
 
-                              suggestion = context_line.replace(wrong_phrase, " ".join(updated_words), 1)
+                                  # Make sure to replace only once in the context line
+                                  corrected_phrase = " ".join(updated_words)
+                                  suggestion = context_line.replace(wrong_phrase, corrected_phrase, 1)
                       
                       # ✅ Prevent punctuation modifications
                       if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
