@@ -1,5 +1,15 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.10 - March 6, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * V4 API deletion happens without waiting for the plan to be deleted [#10376](https://github.com/gravitee-io/issues/issues/10376)
+  * Remove releaseTimestamp annotation from manager deployment [#10358](https://github.com/gravitee-io/issues/issues/10358)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.9 - February 17, 2025
     
 <details>
