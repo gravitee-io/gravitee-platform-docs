@@ -146,15 +146,18 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           if git diff --quiet; then
             echo "✅ No changes detected after spellcheck. Exiting."
             exit 0
           fi
-          
+
           git checkout -b spellcheck-auto-fixes
           git add .
           git commit -m "✅ Automated Spellcheck & Grammar Fixes"
-          git push origin spellcheck-auto-fixes
+
+          # ⏬ NEW: Ensure local branch is up to date before pushing
+          git pull --rebase origin spellcheck-auto-fixes || echo "No existing remote branch, continuing..."
+          git push origin spellcheck-auto-fixes --force  # Force push to update remote branch
 
           gh pr create --base main --head spellcheck-auto-fixes --title "Automated Spellcheck & Grammar Fixes" --body "This PR contains automated spellcheck and grammar fixes."
