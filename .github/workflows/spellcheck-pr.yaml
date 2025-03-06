@@ -53,7 +53,7 @@ jobs:
               "API gateway": ["API getway", "API gatway"]
           }
 
-          # Function to check if a word is inside a Markdown link
+          # Function to check if a word is inside a Markdown link (corrects only link text, not URL)
           def is_inside_markdown_link(line, original):
               return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
 
@@ -90,8 +90,8 @@ jobs:
                       lines = file.readlines()
                   context_line = lines[int(line_number) - 1].strip() if 0 <= int(line_number) - 1 < len(lines) else ""
 
-                  # ✅ Ignore words inside Markdown links
-                  if is_inside_markdown_link(context_line, original):
+                  # ✅ Ignore corrections inside Markdown URLs
+                  if re.search(r"\[.*?\]\(.*" + re.escape(original) + r".*\)", context_line):
                       continue
 
                   # ✅ Always enforce exact case of ignore words in valid regions
@@ -109,32 +109,33 @@ jobs:
                       suggestion = ignore_list[suggestion.lower()]  # Enforce correct capitalization
 
                   # ✅ Ensure only the incorrect word is replaced, NOT the full phrase
-                      for correct_phrase, wrong_variants in context_phrases.items():
-                          for wrong_phrase in wrong_variants:
-                              if wrong_phrase in context_line:
-                                  # Split phrases into word lists
-                                  correct_words = correct_phrase.split()  # ["identity", "provider"]
-                                  wrong_words = wrong_phrase.split()      # ["identiy", "provider"]
-                      
-                                  # Find the word that is incorrect
-                                  for i in range(len(wrong_words)):
-                                      if wrong_words[i] == original:  # Only replace the exact incorrect word
-                                          suggestion = correct_words[i]  # Get the correct word at the same position
-                                          break
+                  for correct_phrase, wrong_variants in context_phrases.items():
+                      for wrong_phrase in wrong_variants:
+                          if wrong_phrase in context_line:
+                              correct_words = correct_phrase.split()  # ["identity", "provider"]
+                              wrong_words = wrong_phrase.split()      # ["identiy", "provider"]
+
+                              for i in range(len(wrong_words)):
+                                  if wrong_words[i] == original:  # Only replace the exact incorrect word
+                                      suggestion = correct_words[i]  # Get the correct word at the same position
+                                      break
 
                   # ✅ Prevent punctuation modifications
                   if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
                       suggestion = suggestion.rstrip(",.;")
 
-                  # Apply correction in the file
-                  with open(file_path, "r", encoding="utf-8") as f:
-                      content = f.read()
+                  # Apply correction only to the first instance in a line
+                  def replace_first_instance(text, old, new):
+                      return re.sub(r"\b" + re.escape(old) + r"\b", new, text, count=1)
 
-                  if original in content:
-                      updated_content = content.replace(original, suggestion)
+                  updated_line = replace_first_instance(context_line, original, suggestion)
+
+                  # Replace only if there is a valid correction
+                  if updated_line != context_line:
+                      lines[int(line_number) - 1] = updated_line + "\n"
                       with open(file_path, "w", encoding="utf-8") as f:
-                          f.write(updated_content)
-                      print(f"✅ Corrected '{original}' to '{suggestion}' in {file_path}")
+                          f.writelines(lines)
+                      print(f"✅ Corrected '{original}' to '{suggestion}' in {file_path} (line {line_number})")
 
           print("✅ All corrections applied successfully.")
           EOF
