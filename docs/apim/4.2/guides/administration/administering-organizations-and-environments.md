@@ -25,7 +25,7 @@ You'll be brought the **Settings** page, where you can define:
   * Whether or not to activate:
     * Support
       * User registration
-      * Automatical validation of registration requests
+* Automatically validation of registration requests
 * **Schedulers**: here you can configure how often Gravitee would check for new Tasks or Notifications. When a new task/notification is detected, a small indicator will appear in your user's icon, on the top right-hand side part of the screen. An example of a task is when someone requests access to an API of which the current user is one of the approvers so their task will be either accept or reject access to an API. An example of Notification is when an API owner uses the Messages feature to send a message to all the subscribers of an API.
 * **CORS settings**: configure Organization-wide CORS settings. You can configure the following:
   * Allow-origin: the origin parameter specifies a URI that may access the resource. Scheme, domain and port are part of the _same-origin_ definition.

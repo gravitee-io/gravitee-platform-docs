@@ -110,14 +110,14 @@ You might encounter issues while running this Helm chart on Apple Silicon M1. If
 {% endhint %}
 {% endtab %}
 
-{% tab title="PostgresSQL" %}
-**(Optional) Install PostgresSQL**
+{% tab title="PostgreSQL" %}
+**(Optional) Install PostgreSQL**
 
 {% hint style="info" %}
-If you have already installed PostgresSQL, you do not need to install PostgresSQL again.
+If you have already installed PostgreSQL, you do not need to install PostgreSQL again.
 {% endhint %}
 
-To install a new PostgresSQL database, complete the following steps:
+To install a new PostgreSQL database, complete the following steps:
 
 1. Update the `username`, `password`, and `databasename` parameters.
 2. Run the following commands:
@@ -138,14 +138,14 @@ Verify that the PostgreSQL pod works using the following command:
 kubectl get pods
 ```
 
-If the PostgresSQL is running correctly, you see an output similar to the following expected output:
+If the PostgreSQL is running correctly, you see an output similar to the following expected output:
 
 ```
 NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE
 postgres-apim-postgresql-0                1/1     Running      0           98s
 ```
 
-**Configure PostgresSQL**
+**Configure PostgreSQL**
 
 * Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:
 
@@ -291,7 +291,7 @@ The process for configuring the Gravitee components on OpenShift is the same pro
 When you configure your `values.yml` file for OpenShift deployment, you must complete the following actions:
 
 * Use the full host domain instead of paths for all components.
-* Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of the security context that has been overriden:
+* Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of the security context that has been overridden:
 
 ```yaml
 securityContext:

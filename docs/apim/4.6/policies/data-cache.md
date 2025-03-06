@@ -30,7 +30,7 @@ For example, in the assign attributes policy, you can modify the value by using 
 
 ## Handling Cache Misses <a href="#user-content-phases" id="user-content-phases"></a>
 
-When performing a `GET` operation, the policy will set a context attribute to `true` or `false` depending on whether the key was found in the cache or not. The name of the attribute is defined by the `Cache Miss Atrribute Key` field and defaults to `gravitee.policy.data-cache.cache-miss`. You can use this attribute as a condition in other policies. For example:
+When performing a `GET` operation, the policy will set a context attribute to `true` or `false` depending on whether the key was found in the cache or not. The name of the attribute is defined by the `Cache Miss Attribute Key` field and defaults to `gravitee.policy.data-cache.cache-miss`. You can use this attribute as a condition in other policies. For example:
 
 * In the HTTP Callout policy, you can set the `Trigger condition` field to `{#gravitee.policy.data-cache.cache-miss}`, so as to only trigger the callout when a key is not found in the cache.
 * If you want to increment a counter or start at 1 if the value is not found in the cache, you can use the assign attributes policy and set the attribute as:

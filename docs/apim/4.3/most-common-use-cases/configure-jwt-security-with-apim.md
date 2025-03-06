@@ -69,7 +69,7 @@ A JWKS URL must be provided by your IdP of choice. Copy the endpoint and return 
 
 <figure><img src="https://europe1.discourse-cdn.com/business20/uploads/graviteeforum/optimized/2X/3/3e06b462925189359605f8d189ca576edb38e397_2_690x338.png" alt=""><figcaption></figcaption></figure>
 
-Scroll down and also toggle on **Extract JWT Claims**. This essentially makes all the claims associated with the token available through Gravitee’s Expression Langauge (EL). This is useful for configuring additional policies such as Role-based Access Control.
+Scroll down and also toggle on **Extract JWT Claims**. This essentially makes all the claims associated with the token available through Gravitee’s Expression Language (EL). This is useful for configuring additional policies such as Role-based Access Control.
 
 For this quick tutorial, everything else can be left as default. Scroll to the bottom of the page and select **Next** to be taken to the **Restrictions** page where you can add rate limiting, quotas, or resource filtering as part of the plan creation process. If desired, these restrictions can also be added later in the Policy Studio.
 
