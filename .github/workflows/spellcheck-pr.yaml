@@ -108,11 +108,19 @@ jobs:
                   if suggestion.lower() in ignore_list and suggestion != ignore_list[suggestion.lower()]:
                       suggestion = ignore_list[suggestion.lower()]  # Enforce correct capitalization
 
-                  # ✅ Replace entire phrase if a context match is found
-                  for correct_phrase, wrong_variants in context_phrases.items():
-                      for wrong_phrase in wrong_variants:
-                          if wrong_phrase in context_line:
-                              suggestion = correct_phrase  # Replace entire phrase
+                  # ✅ Ensure only the incorrect word is replaced, NOT the full phrase
+                      for correct_phrase, wrong_variants in context_phrases.items():
+                          for wrong_phrase in wrong_variants:
+                              if wrong_phrase in context_line:
+                                  # Split phrases into word lists
+                                  correct_words = correct_phrase.split()  # ["identity", "provider"]
+                                  wrong_words = wrong_phrase.split()      # ["identiy", "provider"]
+                      
+                                  # Find the word that is incorrect
+                                  for i in range(len(wrong_words)):
+                                      if wrong_words[i] == original:  # Only replace the exact incorrect word
+                                          suggestion = correct_words[i]  # Get the correct word at the same position
+                                          break
 
                   # ✅ Prevent punctuation modifications
                   if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
