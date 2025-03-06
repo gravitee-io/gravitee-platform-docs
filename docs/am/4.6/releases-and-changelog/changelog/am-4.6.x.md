@@ -8,6 +8,11 @@ description: >-
 
 ## Gravitee Access Management 4.6.3 - February 28, 2025
 
+{% hint style="warning" %}
+This version contains a regression introduced by [#10344](https://github.com/gravitee-io/issues/issues/10344).
+Please do not install this version if you are using Access Management to authenticate users on mobile applications.
+{% endhint %}
+
 <details>
 
 <summary>Bug fixes</summary>
