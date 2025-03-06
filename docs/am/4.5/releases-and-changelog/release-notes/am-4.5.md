@@ -17,13 +17,13 @@ Reporters have been improved in this new version of Access Management.
 First of all you are now able to create additional reporter at organization level as you can already do at domain level. Those additional reporters can be configured as "global" in order to collect audits events coming from all the domains linked to this organization.
 
 {% hint style="info" %}
-Events for domain creation and domain deletion are now published in the organization reporters.&#x20;
+Events for domain creation and domain deletion are now published in the organization reporters.
 {% endhint %}
 
 Second, the kafka reporter has been improved to manage Schema Registry. If configured, you consummers will have access to the audit schema for validation.
 
 {% hint style="danger" %}
-The audit message published to Kafka and the file reporter has been updated to include a new embedded object named 'outcome.' This object contains two fields, 'status' and 'message,' to provide the same level of detail as the default reporter.&#x20;
+The audit message published to Kafka and the file reporter has been updated to include a new embedded object named 'outcome.' This object contains two fields, 'status' and 'message,' to provide the same level of detail as the default reporter.
 
 With the introduction of the 'outcome,' the 'status' field has been marked as deprecated for removal, as the 'outcome' status contains the same value. Please ensure you adapt your ingestion process accordingly if necessary.
 {% endhint %}
@@ -44,8 +44,10 @@ Identity Providers now provide a [Group Mapper](../../guides/identity-providers/
 
 For all domains created from AM 4.5.0 the `sub` claim will not represent the user internalID as it was the case previously. The sub value is now an opaque value computed based on the user externalId and the identity provider identifier. Even if this value is opaque, it will remain the same for a given user accross multiple token generations as per the requirement of the OIDC specification. Domains create from AM 4.5.0 also introduce a new claim named `gis` when the tokens are linked to a user profile. This claim is used internally by AM to identify a user.
 
+The `sub` value is now an opaque value computed based on the user externalId and the identity provider identifier. Even if this value is opaque, it remains the same for a given user across multiple token generations as per the requirement of the OIDC specification.
+
 {% hint style="warning" %}
-the `gis` claim shouldn't be used or stored by external system as it make sense only within AM.
+The `gis` claim should not be used or stored by external system as it make sense only within AM.
 {% endhint %}
 
 {% hint style="success" %}
@@ -60,12 +62,12 @@ In addition of the user profile, AM gateway now have the capability to load role
 
 ## Repositories
 
-A new repository scope named `gateway` has been introduced in AM 4.5.0.&#x20;
+A new repository scope named `gateway` has been introduced in AM 4.5.0.
 
 {% hint style="info" %}
 The new gateway scope will manage entities which was previously managed by the `oauth2` scope and the `management` scope:
 
-* ScopeApproval&#x20;
+* ScopeApproval
 * AuthenticationFlowContext
 * LoginAttempts
 * RateLimit
