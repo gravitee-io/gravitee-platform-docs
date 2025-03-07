@@ -25,7 +25,7 @@ This policy was designed to work with at least version 4.4.0 of API Management (
 ## Examples
 
 {% hint style="warning" %}
-You can apply this policy to only v2 APIs and v4 HTTP proxy APIs. You cannot apply this policy to v4 message APIs or v4 TCP proxy APIs.
+You can apply this policy to only v4 HTTP proxy APIs. You cannot apply this policy to v4 message APIs, v4 TCP proxy APIs or v2 APIs.
 {% endhint %}
 
 {% tabs %}
