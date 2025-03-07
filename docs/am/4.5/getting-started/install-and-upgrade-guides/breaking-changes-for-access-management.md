@@ -125,7 +125,7 @@ Complete these steps in a test environment first.
 
 To view a migration script that can help you, go to [GitHub](https://github.com/gravitee-io/gravitee-access-management/blob/master/docs/upgrades/username\_uniqueness/username\_uniqueness.js). This script identifies duplicates and renames some of them according to the connection metadata for each profile. The mostly used profile is considered as the reference and other will be renamed with a "\_TO\_RENAME\_OR\_DELETE" sufix.
 
-For safety, this script define at the beginning a boolean **dryRun** set to **true** to only display the script output and see the action that is applyed in case of duplicate. To effectively process the changes, you have to define this variable to **false**.
+For safety, this script define at the beginning a boolean **dryRun** set to **true** to only display the script output and see the action that is applied in case of duplicate. To effectively process the changes, you have to define this variable to **false**.
 
 We strongly recommend executing this script in a test environment first. Backup the database before executing in the production environment.
 
@@ -210,7 +210,7 @@ select id, external_id, username, source, logins_count, logget_at, created_at fr
 "yyyyyyyy-bbbb-cccc-bc0b-7bef9bec6af4" "yyyyyyyy-ef9b-4c6a-bc0b-7bef9bec6af4"	"duplicateuser"  "idpinternal" '0' '2023-10-11 13:18:20.555' '2023-10-11 13:18:20.555'
 ```
 
-2. Second search for the identiy provider linked to the user.
+2. Second search for the identity provider linked to the user.
 
 ```bash
 select id, type, name, configuration from identities where id = 'idpinternal';
@@ -550,7 +550,7 @@ Pior to this update, the application OAuth settings contained multiple collectio
 }
 ```
 
-More settings are related to a scope, the OAuth settings for an application have to be refactored to provide a single list — `scopeSettings` — containing objects with scope settings. **This object has the following attribtues**:
+More settings are related to a scope, the OAuth settings for an application have to be refactored to provide a single list — `scopeSettings` — containing objects with scope settings. **This object has the following attributes**:
 
 * **scope**: the scope name.
 * **defautlScope**: boolean to defined this scope as a default one if the authorize request doesn’t specify a list of scopes.
@@ -571,5 +571,5 @@ The `use` attribute is defined for JWK exposed through the `jwks_uri` endpoint. 
 You can define this value when you configure the domain certificates ( **Settings > domains > mydomain > certiciates**.).
 
 {% hint style="warning" %}
-if the `use` attribute isn’t defined, `sig` is used as default. If one of your certicate is currently used to decrypt/encrypt a JWT, update your certificates configurations .
+if the `use` attribute isn’t defined, `sig` is used as default. If one of your certificate is currently used to decrypt/encrypt a JWT, update your certificates configurations .
 {% endhint %}
