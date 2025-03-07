@@ -39,7 +39,7 @@ GKO needs access to the following resources:
 
 ## Default RBAC Settings in GKO
 
-1. GET, UPDATE, WATCH, and LIST access to all our CRDs in the whole cluster. We assume that users install a single instance of GKO in one namespace; but they deploy their CRDs in several namespaces. Fo example, you might have DEV, TEST, PROD environments, or you have different namespaces for each team. So, GKO needs to have access to the resources in all these namespaces. If you watch only specific namespaces, the RBAC adjusts accordingly, and GKO has access only to the CRDs in those specified namespaces.
+1. GET, UPDATE, WATCH, and LIST access to all our CRDs in the whole cluster. We assume that users install a single instance of GKO in one namespace; but they deploy their CRDs in several namespaces. Of example, you might have DEV, TEST, PROD environments, or you have different namespaces for each team. So, GKO needs to have access to the resources in all these namespaces. If you watch only specific namespaces, the RBAC adjusts accordingly, and GKO has access only to the CRDs in those specified namespaces.
 2. GET, UPDATE, WATCH, and LIST access to all Secrets and ConfigMaps in the whole cluster. GKO needs this access for the following reasons:
    1. We assume that people use GKO templating in different namespaces, and GKO needs to have access to these two resources.&#x20;
    2. if you want to apply the CRDs locally without relying on Management Context and mAPI console, GKO also need to CREATE/DELETE ConfigMaps .

@@ -132,13 +132,13 @@ api:
 The secret must be **32 bytes in length.**
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.45.12 AM.png" alt=""><figcaption><p>Encypted API property</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.45.12 AM.png" alt=""><figcaption><p>Encrypted API property</p></figcaption></figure>
 
 ### **Dynamic properties**
 
 You can also configure dynamic properties by clicking **CONFIGURE DYNAMIC PROPERTIES**. Dynamic properties are fetched from a remote server on a regular schedule and subsequently updated according to the details you specify.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.15.36 AM.png" alt=""><figcaption><p>Dyanmic properties configuration screen</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2023-06-12 at 7.15.36 AM.png" alt=""><figcaption><p>Dynamic properties configuration screen</p></figcaption></figure>
 
 To configure dynamic properties:
 

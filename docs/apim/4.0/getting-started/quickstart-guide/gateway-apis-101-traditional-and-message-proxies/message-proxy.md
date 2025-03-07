@@ -34,7 +34,7 @@ The next step is configuring how the Gateway will communicate with clients and b
 
 ### Entrypoints&#x20;
 
-Unlike traditional proxies, messag proxies perform protocol mediation between the Gateway entrypoints and endpoints.&#x20;
+Unlike traditional proxies, message proxies perform protocol mediation between the Gateway entrypoints and endpoints.&#x20;
 
 This allows you to expose your message brokers using one or more web-friendly protocols, based on your requirements and those of your API consumers.  Each protocol you select has its own set of configuration options.
 

@@ -195,7 +195,7 @@ When using Service Discovery the Gateway may not wait for pending connections to
 
 **Management API**
 
-* Custom Api key is not resuable between multiple environments [#10131](https://github.com/gravitee-io/issues/issues/10131)
+* Custom Api key is not reusable between multiple environments [#10131](https://github.com/gravitee-io/issues/issues/10131)
 * Page Size Drop Down cannot exceed 100 [#10145](https://github.com/gravitee-io/issues/issues/10145)
 * 500 error when listing API categories [#10158](https://github.com/gravitee-io/issues/issues/10158)
 * \[APIM]\[Portal] Static data access [#10162](https://github.com/gravitee-io/issues/issues/10162)
@@ -381,7 +381,7 @@ When using Service Discovery the Gateway may not wait for pending connections to
 **Console**
 
 * Info page of API does not refresh when duplicating the API [#9790](https://github.com/gravitee-io/issues/issues/9790)
-* Display issue with lateral collasped menu [#9792](https://github.com/gravitee-io/issues/issues/9792)
+* Display issue with lateral collapsed menu [#9792](https://github.com/gravitee-io/issues/issues/9792)
 * API History shows warning for all policies [#9866](https://github.com/gravitee-io/issues/issues/9866)
 * \[APIM] Read only Health check configuration [#9902](https://github.com/gravitee-io/issues/issues/9902)
 * API Category endpoint does not work [#9906](https://github.com/gravitee-io/issues/issues/9906)
@@ -597,7 +597,7 @@ Due to known bugs in 4.4.0 and 4.4.1, please skip these two versions and upgrade
 
 **Console**
 
-* Non idempotent operation when creating APIs/Appplications/Users [#9688](https://github.com/gravitee-io/issues/issues/9688)
+* Non idempotent operation when creating APIs/Applications/Users [#9688](https://github.com/gravitee-io/issues/issues/9688)
 
 **Helm Charts**
 

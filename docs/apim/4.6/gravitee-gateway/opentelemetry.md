@@ -34,7 +34,7 @@ services:
       endpoint: <OPENTELEMETRY_ENDPOINT>
 ```
 
-* If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.&#x20;
+* If unset default endpoint is `http://localhost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.&#x20;
 * If your endpoint URL uses `http://` or `grpc://` , you can use this configuration for a basic default configuration.
 
 ### Advanced configuration
@@ -50,7 +50,7 @@ With the following configuration, you can complete the following actions with Op
 services:
   opentelemetry:
     enabled: true
-    # Will add technical informations spans
+    # Will add technical information spans
     verbose: true
     # Allow to add any extra attributes on all spans
     extraAttributes:
@@ -106,7 +106,7 @@ gateway:
         endpoint: <OPENTELEMETRY_ENDPOINT>
 ```
 
-* If unset default endpoint is `http://locahost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.&#x20;
+* If unset default endpoint is `http://localhost:4317`, replace \<OPENTELMETRY\_ENDPOINT> with the endpoint that you use for OpenTelemetry.&#x20;
 * If your endpoint URL uses `http://` or `grpc://` , you can use this configuration for a basic default configuration.
 
 2.  (Optional) For a more advanced configuration, add the following configuration to your `values.yaml`:\
@@ -124,7 +124,7 @@ gateway:
   services:
     opentelemetry:
       enabled: true
-      # Will add technical informations spans
+      # Will add technical information spans
       verbose: true
       # Allow to add any extra attributes on all spans
       extraAttributes:
