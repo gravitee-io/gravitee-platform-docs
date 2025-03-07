@@ -127,7 +127,7 @@ jobs:
 
                   # ✅ Preserve indentation and replace only the first instance in a line
                   def replace_first_instance(text, old, new):
-                      pattern = r"(^\s*)(\b" + re.escape(old) + r"\b)"
+                      pattern = r"(\s*)(\b" + re.escape(old) + r"\b)"
                       return re.sub(pattern, r"\1" + new, text, count=1)
 
                   updated_line = replace_first_instance(context_line, original, suggestion)
@@ -154,10 +154,7 @@ jobs:
             exit 0
           fi
 
-          TIMESTAMP=$(date +%s)
-          BRANCH_NAME="spellcheck-auto-fixes-$TIMESTAMP"
-          git checkout -b $BRANCH_NAME
-          # git checkout -b spellcheck-auto-fixes
+          git checkout -b spellcheck-auto-fixes
           git add .
           git commit -m "✅ Automated Spellcheck & Grammar Fixes"
 
