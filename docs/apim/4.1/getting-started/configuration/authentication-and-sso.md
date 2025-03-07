@@ -288,7 +288,7 @@ If you configure the provider in the configuration file and then change the valu
 
 {% tabs %}
 {% tab title="gravitee.yaml file" %}
-Confoguring GitHub authentication via the `gravitee.yaml` file is easy. Simply update the following section of the `gravitee.yaml` file with your GitHub OAuth2 app credentials that [you retrieved above](authentication-and-sso.md#retrieve-your-oauth2-credentials).
+Configuring GitHub authentication via the `gravitee.yaml` file is easy. Simply update the following section of the `gravitee.yaml` file with your GitHub OAuth2 app credentials that [you retrieved above](authentication-and-sso.md#retrieve-your-oauth2-credentials).
 
 ```
 security:

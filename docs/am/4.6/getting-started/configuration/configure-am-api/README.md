@@ -565,7 +565,7 @@ AM API on first startup creates default identity provider in DB (MongoDB or JDBC
 domains:
   identities:
     default:
-      enbabled: false
+      enabled: false
 ```
 
 ### Default Reporter
@@ -576,7 +576,7 @@ AM API on first startup creates default reporter in DB (MongoDB or JDBC) for aud
 domains:
   reporters:
     default:
-      enbabled: false
+      enabled: false
 ```
 
 {% hint style="info" %}
