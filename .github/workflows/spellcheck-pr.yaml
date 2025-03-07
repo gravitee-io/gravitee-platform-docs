@@ -84,11 +84,12 @@ jobs:
               match = re.match(r"(.*):(\d+): (\S+) ==> (\S+)", line)
               if match:
                   file_path, line_number, original, suggestion = match.groups()
+                  line_number = int(line_number) - 1  # Adjust to zero-based index
 
-                  # Read the full line for context
+                  # Read the full line for context (with safety check)
                   with open(file_path, "r", encoding="utf-8") as file:
                       lines = file.readlines()
-                  context_line = lines[int(line_number) - 1].strip() if 0 <= int(line_number) - 1 < len(lines) else ""
+                  context_line = lines[line_number] if 0 <= line_number < len(lines) else ""
 
                   # ✅ Ignore corrections inside Markdown URLs
                   if re.search(r"\[.*?\]\(.*" + re.escape(original) + r".*\)", context_line):
@@ -124,18 +125,19 @@ jobs:
                   if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
                       suggestion = suggestion.rstrip(",.;")
 
-                  # Apply correction only to the first instance in a line
+                  # ✅ Preserve indentation and replace only the first instance in a line
                   def replace_first_instance(text, old, new):
-                      return re.sub(r"\b" + re.escape(old) + r"\b", new, text, count=1)
+                      pattern = r"(^\s*)(\b" + re.escape(old) + r"\b)"
+                      return re.sub(pattern, r"\1" + new, text, count=1)
 
                   updated_line = replace_first_instance(context_line, original, suggestion)
 
                   # Replace only if there is a valid correction
                   if updated_line != context_line:
-                      lines[int(line_number) - 1] = updated_line + "\n"
+                      lines[line_number] = updated_line  # Maintain the original indentation
                       with open(file_path, "w", encoding="utf-8") as f:
                           f.writelines(lines)
-                      print(f"✅ Corrected '{original}' to '{suggestion}' in {file_path} (line {line_number})")
+                      print(f"✅ Corrected '{original}' to '{suggestion}' in {file_path} (line {line_number + 1})")
 
           print("✅ All corrections applied successfully.")
           EOF
