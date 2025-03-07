@@ -27,7 +27,7 @@ You only need to create a new security domain for an application when you do not
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-domain.png" alt=""><figcaption><p>Create a security domain</p></figcaption></figure>
 3.  Give your security domain a **Name** and a **Description** and click **CREATE**.
 
-    <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-domain2.png" alt=""><figcaption><p>Define your securty domain</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/am/current/quickstart-create-domain2.png" alt=""><figcaption><p>Define your security domain</p></figcaption></figure>
 4.  Select the **click here** link on the banner to enable the domain.
 
     <figure><img src="https://docs.gravitee.io/images/am/current/quickstart-enable-domain.png" alt=""><figcaption><p>Banner to enable domain</p></figcaption></figure>

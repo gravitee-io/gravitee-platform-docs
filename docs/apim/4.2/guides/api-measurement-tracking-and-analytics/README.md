@@ -33,14 +33,14 @@ The "Dashboard" in Gravitee is made up of several modules:
 
 * **The "Home" board module:** This is your "Metrics and analytics homepage." You can configure this page to show chosen charts, filter chart data based on time range, and configure how regularly the charts should be refreshed.
 * **The "API Status" module:** this module shows you status and availability of your APIs across time. You can filter which APIs to view and what for time range you want to view API status and availability.
-* **The "Analytics" module:** the analytics module is where you can see and slightly configure all of the various dashboards, charts, etc. that refer to your Gravitee API analytics. You can build multiple anayltics dashboards and view them all from this page. Your "Home board" will be pulling charts from these various dashboards.
+* **The "Analytics" module:** the analytics module is where you can see and slightly configure all of the various dashboards, charts, etc. that refer to your Gravitee API analytics. You can build multiple analytics dashboards and view them all from this page. Your "Home board" will be pulling charts from these various dashboards.
 * **The "Alerts" module:** this module is for keeping track of all API alerts over a given amount of time.
 {% endtab %}
 {% endtabs %}
 
 ### The APIs menu
 
-While there is less "measurement" here, the APIs menu is crucial for being able to track information per each API that you are mangaging in Gravitee. Check out the interactive UI exploration or the text descriptions of the API menu to learn more.
+While there is less "measurement" here, the APIs menu is crucial for being able to track information per each API that you are managing in Gravitee. Check out the interactive UI exploration or the text descriptions of the API menu to learn more.
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}

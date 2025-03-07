@@ -56,7 +56,7 @@ For more information on each use case, check the following sections below:
 * Namespace can be overridden in Secrets URLs via `?namespace=<name>`. If no namespace is provided, the namespace is assumed to be that of the cluster in which the platform is deployed. To fetch from the default namespace, it must be set explicitly, unless Gravitee is deployed in that namespace.
 
 {% hint style="warning" %}
-The legacy method of fetching data from Kubernetes Secrets in a Gravitee configuration with syntax `kubernetes://secrets/...` remains available, but is deprecated and should be replaced by `secret://kubenetes/...` .
+The legacy method of fetching data from Kubernetes Secrets in a Gravitee configuration with syntax `kubernetes://secrets/...` remains available, but is deprecated and should be replaced by `secret://Kubernetes/...` .
 {% endhint %}
 
 ### Hashicorp Vault (plugin id: `vault`)
@@ -91,7 +91,7 @@ ssl:
   # file: /opt/gravitee/vault.pem       # for pemfile truststore files
 # mandatory
 auth:
-  method: token # can also be "github", "userpass", "approle", "cert", "kubenetes"
+method: token # can also be "github", "userpass", "approle", "cert", "Kubernetes"
 ### token config
   config:
     token: [redacted]

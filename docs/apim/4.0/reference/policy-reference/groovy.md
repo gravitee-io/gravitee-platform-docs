@@ -175,7 +175,7 @@ groovy:
 {% hint style="info" %}
 **`DateTimeFormatter`**
 
-The `DateTimeFormatter` class is already part of the build-in whitelist.
+The `DateTimeFormatter` class is already part of the built-in whitelist.
 {% endhint %}
 
 {% hint style="danger" %}

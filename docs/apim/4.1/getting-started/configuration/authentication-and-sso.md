@@ -278,7 +278,7 @@ From here, you should be able to see your Client ID and Client secret.
 
 ### Configure GitHub authentication in Gravitee
 
-Once you're done creating your GitHub OAuth application, you can configure your setttings in Gravitee. You can do this either via the Gravitee APIM UI or the `gravitee.yaml` file. Either way, the configuration is stored in the database. This means that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file). Please see the tabs below to see how to configure GitHub authentication via the APIM UI and the `gravitee.yaml` file.
+Once you're done creating your GitHub OAuth application, you can configure your settings in Gravitee. You can do this either via the Gravitee APIM UI or the `gravitee.yaml` file. Either way, the configuration is stored in the database. This means that APIM starts using your new configuration as soon as you select **Save** (if configuring in APIM Console) or restart the APIM API (if configuring in the configuration file). Please see the tabs below to see how to configure GitHub authentication via the APIM UI and the `gravitee.yaml` file.
 
 {% hint style="warning" %}
 **Values can be overwritten**
@@ -288,7 +288,7 @@ If you configure the provider in the configuration file and then change the valu
 
 {% tabs %}
 {% tab title="gravitee.yaml file" %}
-Confoguring GitHub authentication via the `gravitee.yaml` file is easy. Simply update the following section of the `gravitee.yaml` file with your GitHub OAuth2 app credentials that [you retrieved above](authentication-and-sso.md#retrieve-your-oauth2-credentials).
+Configuring GitHub authentication via the `gravitee.yaml` file is easy. Simply update the following section of the `gravitee.yaml` file with your GitHub OAuth2 app credentials that [you retrieved above](authentication-and-sso.md#retrieve-your-oauth2-credentials).
 
 ```
 security:
