@@ -23,7 +23,7 @@ Before configuring the plugin within AM:
 
 ### Overview
 
-The Cloud HSM plugin is available on [dowload.gravitee.io](https://download.gravitee.io/#graviteeio-ee/plugins/certificates/gravitee-am-certificate-hsm-aws/). Download the version you want and deploy it into the plugins directories of the Management API and the Gateway.
+The Cloud HSM plugin is available on [download.gravitee.io](https://download.gravitee.io/#graviteeio-ee/plugins/certificates/gravitee-am-certificate-hsm-aws/). Download the version you want and deploy it into the plugins directories of the Management API and the Gateway.
 
 {% hint style="warning" %}
 In addition to the plugin, you need a CloudHSM JCE Provider, which is not licensed under Apache. You must install the [JCE Provider](https://docs.aws.amazon.com/cloudhsm/latest/userguide/java-library-install_5.html) that embeds a native library specific to your processor architecture to get the correct JAR file.

@@ -163,7 +163,7 @@ Please do not install this version if you are using Access Management to authent
 **Gateway**
 
 * SMSFactorProvider - Invalid phone number [#10193](https://github.com/gravitee-io/issues/issues/10193)
-* [4.5.1] Scope OpenID on client crendential and JWT bearer [#10196](https://github.com/gravitee-io/issues/issues/10196)
+* [4.5.1] Scope OpenID on client credential and JWT bearer [#10196](https://github.com/gravitee-io/issues/issues/10196)
 
 
 **Console**
@@ -320,7 +320,7 @@ The new gateway scope will manage entities which was previously managed by the `
 * RateLimit
 * VerifyAttempt
 
-If you managed to define two differente databases for the `management` and the `oauth2` scopes, please configure the `gateway` scope to target the same database as the `oauth2` scope as ScopeApproval are now managed by the `gateway` scope. If you want to dedicate a database for the gateway scope you will have to migrate the scope\_approvals collection to the new database.
+If you managed to define two different databases for the `management` and the `oauth2` scopes, please configure the `gateway` scope to target the same database as the `oauth2` scope as ScopeApproval are now managed by the `gateway` scope. If you want to dedicate a database for the gateway scope you will have to migrate the scope\_approvals collection to the new database.
 
 Previously, all the settings related to the repositories where define at the root level of the `gravitee.yaml` with the scope name as section name
 
@@ -372,6 +372,6 @@ If you were using environment variable to provide database settings remember to:
 
 ### Audits
 
-For kafka and File reporters, the `status` attibute has been deprecated for removal. The recommanded way to get access to the status is now the `outcome` structure which contains the `status` and a `message` fields. If you are using one of these reporter, please update your consumer to rely on the outcome structure
+For kafka and File reporters, the `status` attribute has been deprecated for removal. The recommended way to get access to the status is now the `outcome` structure which contains the `status` and a `message` fields. If you are using one of these reporter, please update your consumer to rely on the outcome structure
 
 </details>

@@ -33,7 +33,7 @@ You can find everything you need to deploy this hybrid architecture in [Gravitee
 
 Before you deploy APIM, ensure the two GCP clusters exist and that Helm is installed on both clusters:
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_k8s_clusters.png" alt=""><figcaption><p>Samle K8 clusters</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_k8s_clusters.png" alt=""><figcaption><p>Sample K8 clusters</p></figcaption></figure>
 
 {% hint style="warning" %}
 The following examples use the names in the illustration above, but you can name your clusters whatever you like and replace the names with your own.

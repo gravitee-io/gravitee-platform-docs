@@ -296,8 +296,8 @@
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
-  * [Contributing to the Gravitee API Management developement](community-and-support/community/contributing-to-the-gravitee-api-management-developement.md)
-* [Contributing to the Gravitee API Management developement](community-and-support/contributing-to-the-gravitee-api-management-developement.md)
+  * [Contributing to the Gravitee API Management development](community-and-support/community/contributing-to-the-gravitee-api-management-developement.md)
+* [Contributing to the Gravitee API Management development](community-and-support/contributing-to-the-gravitee-api-management-developement.md)
 
 ## Reference
 
