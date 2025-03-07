@@ -154,7 +154,10 @@ jobs:
             exit 0
           fi
 
-          git checkout -b spellcheck-auto-fixes
+          TIMESTAMP=$(date +%s)
+          BRANCH_NAME="spellcheck-auto-fixes-$TIMESTAMP"
+          git checkout -b $BRANCH_NAME
+          # git checkout -b spellcheck-auto-fixes
           git add .
           git commit -m "✅ Automated Spellcheck & Grammar Fixes"
 
