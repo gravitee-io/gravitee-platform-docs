@@ -245,7 +245,7 @@ By default, APIM includes three membership roles:
 
 | Role              | Description                                                                                                                               |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Primary owner** | When an application is created, the primary owner is the creator of the applcation. Primary owner can do all possible actions for an API. |
+| **Primary owner** | When an application is created, the primary owner is the creator of the application. Primary owner can do all possible actions for an API. |
 | **Owner**         | Owner is a lightest version of the primary owner role. Owner can do all possible actions except delete the application.                   |
 | **User**          | A user is a person who can access the application in read only mode and use the application to subscribe to an API.                       |
 
