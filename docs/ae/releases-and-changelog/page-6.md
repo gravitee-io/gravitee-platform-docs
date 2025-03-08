@@ -139,7 +139,7 @@ _**Upgrade**_
 
 _**General**_
 
-* upgrade gravitee-node.version to add required rx vertx bean
+* upgrade gravitee-node.version to add required rx Vertx bean
 
 ### 1.5.6 (2022-02-17)
 
@@ -187,7 +187,7 @@ _**Upgrade**_
 
 _**Connector**_
 
-* fix: make sure connector reconnects after loosing AE connection
+* fix: make sure connector reconnects after losing AE connection
 
 ### 1.5.0 (2021-11-18)
 
@@ -410,7 +410,7 @@ _**Websocket**_
 _**General**_
 
 * Add configuration schema on the notifier email
-* Downgrade parent version from 19 to 17.1 to get the correct version of vertx
+* Downgrade parent version from 19 to 17.1 to get the correct version of Vertx
 
 ### 1.2.4 (2020-09-23)
 

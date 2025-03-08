@@ -61,4 +61,4 @@ Once the gateways are deployed, you will see them as an entry in the Gateways se
 
 Once you deploy the gateways, navigate to the API Management Console UI to create, deploy and start consuming APIs.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>API Management Developer Portal with an API deplyed on a Cloud hosted Gateway. Notice the dedicated access URL for your API.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>API Management Developer Portal with an API deployed on a Cloud hosted Gateway. Notice the dedicated access URL for your API.</p></figcaption></figure>

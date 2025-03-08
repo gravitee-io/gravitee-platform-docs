@@ -26,7 +26,7 @@ The GKO can also be installed with Helm and allows you to manage your APIs in a 
 * APIM Management Console
 * APIM Developer Portal
 * APIM Gateway
-* MongoDB replica set or PostgresSQL (optional dependency)
+* MongoDB replica set or PostgreSQL (optional dependency)
 * Elasticsearch Cluster (optional dependency)
 
 The GKO Helm chart is currently installed as a separate component from the standard APIM cluster.

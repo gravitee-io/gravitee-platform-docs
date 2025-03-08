@@ -206,7 +206,7 @@ When using Service Discovery the Gateway may not wait for pending connections to
 
 **Management API**
 
-* Custom Api key is not resuable between multiple environments [#10131](https://github.com/gravitee-io/issues/issues/10131)
+* Custom Api key is not reusable between multiple environments [#10131](https://github.com/gravitee-io/issues/issues/10131)
 * Page Size Drop Down cannot exceed 100 [#10145](https://github.com/gravitee-io/issues/issues/10145)
 * \[APIM]\[Portal] Static data access  [#10162](https://github.com/gravitee-io/issues/issues/10162)
 * Unable to find users with emails containing uppercase letters in Gravitee APIM Console and API requests [#10167](https://github.com/gravitee-io/issues/issues/10167)

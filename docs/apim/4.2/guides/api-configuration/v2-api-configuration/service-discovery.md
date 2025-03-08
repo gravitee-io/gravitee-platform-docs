@@ -30,7 +30,7 @@ The first step is to install a Consul server. Consul agents that run in server m
 
 Read the [official Consul documentation](https://www.consul.io/docs/install) to see how to install a Consul server.
 
-To get started, edit the _docker-compose.yml_ used to install Gravitee and declare an addtional service for Consul server as follows:
+To get started, edit the _docker-compose.yml_ used to install Gravitee and declare an additional service for Consul server as follows:
 
 ```
 consul-server:

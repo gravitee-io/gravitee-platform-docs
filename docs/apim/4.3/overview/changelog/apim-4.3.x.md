@@ -333,7 +333,7 @@ When using Service Discovery the Gateway may not wait for pending connections to
 **Console**
 
 * Info page of API does not refresh when duplicating the API [#9790](https://github.com/gravitee-io/issues/issues/9790)
-* Display issue with lateral collasped menu [#9792](https://github.com/gravitee-io/issues/issues/9792)
+* Display issue with lateral collapsed menu [#9792](https://github.com/gravitee-io/issues/issues/9792)
 * API History shows warning for all policies [#9866](https://github.com/gravitee-io/issues/issues/9866)
 * \[APIM] Read only Health check configuration [#9902](https://github.com/gravitee-io/issues/issues/9902)
 * API Category endpoint does not work [#9906](https://github.com/gravitee-io/issues/issues/9906)
@@ -484,7 +484,7 @@ When using Service Discovery the Gateway may not wait for pending connections to
 
 **Console**
 
-* Non idempotent operation when creating APIs/Appplications/Users [#9688](https://github.com/gravitee-io/issues/issues/9688)
+* Non idempotent operation when creating APIs/Applications/Users [#9688](https://github.com/gravitee-io/issues/issues/9688)
 
 **Helm Charts**
 

@@ -26,7 +26,7 @@ As the gateway relies on the control plane for many capabilities, in relisience 
 
 * If identity providers are not backed by the Control Plan (social providers, LDAP, ...) login works.
 * WebAuhtn will not be usable as the credentials are currently under the `management` repository scope.
-* Audits sent to the default reporter will be lost. To fix this issue, alternative reporters can be configured. For example, kakfa reporter.
+* Audits sent to the default reporter will be lost. To fix this issue, alternative reporters can be configured. For example, Kafka reporter.
 * If tokens are generated for an end user, introspection will work without Control Plan access only if the user profile remains in the User cache. If the user is missing from the cache, instrospect will reject the token.
 * Tokens delivered when Control Plan is down may not be possible to revoke.
 * Refresh token works as far as the user is present into the cache. If the cache does not contain the user profile, refreshing the token fails.
