@@ -41,7 +41,7 @@ After you've configured your endpoints, you can modify or delete existing endpoi
 <figure><img src="../../../../../.gitbook/assets/endpoint groups v4 message api backend.png" alt=""><figcaption><p>Edit endpoint groups</p></figcaption></figure>
 
 * **Modify:** To modify an endpoint group, click **Edit** to the right of the group name.
-* **Delete:** To delete an endpoint group, click **Delete** to the right of the group nam&#x65;**.** You will be prompted to confirm deletion of the endpoint group. If only one endpoint group exists, you will not have the option to delete it.
+* **Delete:** To delete an endpoint group, click **Delete** to the right of the group name&#x65;**.** You will be prompted to confirm deletion of the endpoint group. If only one endpoint group exists, you will not have the option to delete it.
 * **Add:** To add a new endpoint group, click **Add endpoint group** at the bottom of the page and configure the group's default values. Only one type of endpoint group can be created at a time. By default, the new endpoint group will contain an endpoint that automatically inherits the group's default configuration.
 
 When you are done, make sure to redeploy the API for your changes to take effect.

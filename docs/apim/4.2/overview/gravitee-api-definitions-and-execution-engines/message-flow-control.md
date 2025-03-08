@@ -29,7 +29,7 @@ Flow control provides a standardized way for the subscriber to dynamically ask t
 The concept of flow control originates with the Reactive Foundation. Flow control is implemented by many libraries, including `RxJava`, which is the basis for the Gravitee Gateway.
 {% endhint %}
 
-<figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/E0BAD8zoCKHTwBmzeMK6jZfB.png" alt=""><figcaption><p>Susbcriber request</p></figcaption></figure>
+<figure><img src="https://slabstatic.com/prod/uploads/6lql0jy7/posts/images/E0BAD8zoCKHTwBmzeMK6jZfB.png" alt=""><figcaption><p>Subscriber request</p></figcaption></figure>
 
 ## Flow control in Gravitee APIM Gateway
 
