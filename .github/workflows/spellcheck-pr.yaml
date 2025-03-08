@@ -55,19 +55,15 @@ jobs:
 
           # Function to check if a word is inside a Markdown link (corrects only link text, not URL)
           def is_inside_markdown_link(line, original):
-              """
-              Checks if the word appears inside a Markdown or HTML link, and ensures
-              that only the link text (not the URL) is corrected.
-              """
               # Detect Markdown-style links: [text](https://example.com)
-              markdown_link_pattern = r'\[([^\]]*' + re.escape(original) + r'[^\]]*)\]\(([^)]*)\)'
-          
-              # Detect HTML-style links: <a href="https://example.com">text</a>
-              html_link_pattern = r'<a\s+href="[^"]*">([^<]*' + re.escape(original) + r'[^<]*)</a>'
-          
-              # Check if the original word appears in the link text of either format
-              return bool(re.search(markdown_link_pattern, line) or re.search(html_link_pattern, line))
+              return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
+              # markdown_link_pattern = r'\[([^\]]*' + re.escape(original) + r'[^\]]*)\]\(([^)]*)\)'
 
+          # Function to check if a word is inside an html link (corrects only link text, not URL)
+          def is_inside_html_link(line, original):
+              # Detect HTML-style links: <a href="https://example.com">text</a>
+              return bool(re.search(r'<a\s+href="[^"]*">([^<]*' + re.escape(original) + r'[^<]*)</a>', line))
+          
           # Function to check if a word is in a title or hint block
           def is_in_title_or_hint(line):
               return bool(re.search(r'{% (tab title|hint style)=', line))
@@ -102,8 +98,12 @@ jobs:
                       lines = file.readlines()
                   context_line = lines[line_number] if 0 <= line_number < len(lines) else ""
 
-                  # ✅ Ignore corrections inside Markdown or HTML URLs
-                  if is_inside_markdown_link(context_line, original):
+                  # ✅ Ignore corrections inside Markdown URLs
+                  if re.search(r"\[.*?\]\(.*" + re.escape(original) + r".*\)", context_line):
+                      continue
+
+                  # ✅ Ignore corrections inside html URLs
+                  if re.search(r'<a\s+href="[^"]*">([^<]*' + re.escape(original) + r'[^<]*)</a>', context_line):
                       continue
 
                   # ✅ Always enforce exact case of ignore words in valid regions
