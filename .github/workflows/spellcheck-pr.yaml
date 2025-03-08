@@ -99,11 +99,11 @@ jobs:
                   context_line = lines[line_number] if 0 <= line_number < len(lines) else ""
 
                   # ✅ Ignore corrections inside Markdown URLs
-                  if re.search(r"\[.*?\]\(.*" + re.escape(original) + r".*\)", context_line):
+                  if is_inside_markdown_link(context_line, original):
                       continue
 
                   # ✅ Ignore corrections inside html URLs
-                  if re.search(r'<a\s+href="[^"]*">([^<]*' + re.escape(original) + r'[^<]*)</a>', context_line):
+                  if is_inside_html_link(context_line, original):
                       continue
 
                   # ✅ Always enforce exact case of ignore words in valid regions
