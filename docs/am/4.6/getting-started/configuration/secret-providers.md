@@ -216,7 +216,7 @@ secret://kubernetes/giotls?
   keymap=certificate:frontend-tls-cert&keymap=private_key:frontend-tls-priv-key
 ```
 
-Here, we expect the secret named `giotls` to contain two keys, `frontend-tls-cert` and `frontend-tls-key`, which are mapped to `certifcate` and `private_key`, respectively.
+Here, we expect the secret named `giotls` to contain two keys, `frontend-tls-cert` and `frontend-tls-key`, which are mapped to `certificate` and `private_key`, respectively.
 
 #### For Java KeyStore
 
