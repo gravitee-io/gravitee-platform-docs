@@ -1,5 +1,16 @@
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.5 - March 6, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * V4 API deletion happens without waiting for the plan to be deleted [#10376](https://github.com/gravitee-io/issues/issues/10376)
+  * RBAC for config map should not be required when local mode is never used [#10371](https://github.com/gravitee-io/issues/issues/10371)
+  * Remove releaseTimestamp annotation from manager deployment [#10358](https://github.com/gravitee-io/issues/issues/10358)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.6.4 - February 17, 2025
 
 ### Deprecations warning
