@@ -20,9 +20,12 @@
 
 ## Gravitee Kubernetes Operator 4.4.19 - February 5, 2025
 
-There is nothing new in version 4.4.19.
+    
+<details>
+<summary>Bug fixes</summary>
 
-> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+  * API v2 CRD export generates bad format for headers [#10288](https://github.com/gravitee-io/issues/issues/10288)
+</details>
 
 
 ## Gravitee Kubernetes Operator 4.4.18 - January 27, 2025

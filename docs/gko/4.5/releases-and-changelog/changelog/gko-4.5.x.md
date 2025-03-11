@@ -43,6 +43,7 @@
 
   * Management context secret resolution fails when API is in another namespace [#10315](https://github.com/gravitee-io/issues/issues/10315)
   * GKO Helm chart causes Argo CD reconciliation loop [#10306](https://github.com/gravitee-io/issues/issues/10306)
+  * API v2 CRD export generates bad format for headers [#10288](https://github.com/gravitee-io/issues/issues/10288)
 </details>
 
 
