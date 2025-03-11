@@ -1,5 +1,14 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.21 - March 6, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * V4 API deletion happens without waiting for the plan to be deleted [#10376](https://github.com/gravitee-io/issues/issues/10376)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.20 - February 17, 2025
     
 <details>
