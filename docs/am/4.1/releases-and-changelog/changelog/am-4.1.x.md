@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.39 - March 11, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Fix regression on redirect URL [#10404](https://github.com/gravitee-io/issues/issues/10404)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.1.38 - February 28, 2025
 
 {% hint style="warning" %}
