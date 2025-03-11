@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.4 - March 11, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* RememberDevice issue with uBlock [#10388](https://github.com/gravitee-io/issues/issues/10388)
+* Fix regression on redirect URL [#10404](https://github.com/gravitee-io/issues/issues/10404)
+
+
+
+
+
+**Other**
+
+* Improve how MongoDB connections are manage [#10381](https://github.com/gravitee-io/issues/issues/10381)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.3 - February 28, 2025
 
 {% hint style="warning" %}
