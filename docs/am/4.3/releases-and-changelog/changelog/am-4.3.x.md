@@ -10,6 +10,26 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.25 - March 11, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* RememberDevice issue with uBlock [#10388](https://github.com/gravitee-io/issues/issues/10388)
+* Fix regression on redirect URL [#10404](https://github.com/gravitee-io/issues/issues/10404)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.3.24 - February 28, 2025
 
 {% hint style="warning" %}
