@@ -2,7 +2,7 @@
 
 ## Overview
 
-Following this quickstart guide is the fastest way to start working with the Gravitee Kubernetes Operator (GKO). The sections below describe how to:
+Following this quickstart guide or the video tutorial is the fastest way to start working with the Gravitee Kubernetes Operator (GKO). These resources describe how to complete the following actions:
 
 * [Install GKO](quickstart-guide.md#deploy-the-gko)
 * [Create a Management Context](quickstart-guide.md#create-a-managementcontext)
@@ -14,6 +14,10 @@ In this guide, we assume that Gravitee API Management is acting as the control p
 
 * A running instance of Gravitee API Management. It doesn't matter where this is running, so long as you have access to credentials that can be used to connect GKO to this APIM instance.
 * A Kubernetes cluster on which to install GKO.
+
+## Video tutorial: Installing GKO
+
+{% embed url="https://youtu.be/QBAJ1xjDLyM?feature=shared" %}
 
 ## Install GKO
 
