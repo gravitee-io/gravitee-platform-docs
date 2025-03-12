@@ -136,10 +136,14 @@ jobs:
                   if suggestion.endswith((",", ".", ";")) and not original.endswith((",", ".", ";")):
                       suggestion = suggestion.rstrip(",.;")
 
-                  # ✅ Preserve indentation and replace only the first instance in a line
+                  # ✅ Preserve indentation and replace only words with space/punctuation on at least one side
                   def replace_first_instance(text, old, new):
-                      pattern = r"(\s*)(\b" + re.escape(old) + r"\b)"
-                      return re.sub(pattern, r"\1" + new, text, count=1)
+                      pattern = r"(?<=\s|^)" + re.escape(old) + r"(?=\s|$)"
+                      return re.sub(pattern, new, text, count=1)
+                  # ✅ Preserve indentation and replace only the first instance in a line
+                  # def replace_first_instance(text, old, new):
+                      # pattern = r"(\s*)(\b" + re.escape(old) + r"\b)"
+                      # return re.sub(pattern, r"\1" + new, text, count=1)
 
                   updated_line = replace_first_instance(context_line, original, suggestion)
 
