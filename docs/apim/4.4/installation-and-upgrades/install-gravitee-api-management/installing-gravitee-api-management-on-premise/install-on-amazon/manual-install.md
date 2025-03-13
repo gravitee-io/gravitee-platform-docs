@@ -222,7 +222,7 @@ Gravitee API Management uses ElasticSearch as the default reporting and analytic
 To install Gravitee's API Management (APIM), you can use two installation methods:&#x20;
 
 * [Installing the full API Management stack. ](manual-install.md#installing-the-full-api-management-stack)You install all of the API Management components.
-* [Installing the indivdual API Management components](manual-install.md#installing-the-individual-apim-components). You install only the API Management components that you want for your environment.
+* [Installing the individual API Management components](manual-install.md#installing-the-individual-apim-components). You install only the API Management components that you want for your environment.
 
 ## Installing the full API Management stack
 

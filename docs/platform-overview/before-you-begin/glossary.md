@@ -170,7 +170,7 @@ Although often used synonymously, an event is different from a message. A messag
 
 **JSON Web Key Set (JWKS):** A JSON object representing a set of JWKs. The JSON object must contain a `keys` member, which is an array of JWKs.
 
-**Log:** An immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature. Apache Kakfa, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based.
+**Log:** An immutable, append-only data structure. Multiple consumers can read from the same log due to their persistent nature. Apache Kafka, Apache Pulsar, AWS Kinesis, and Azure Event Hubs are all log-based.
 
 **Network communication model:** A design or architecture to accomplish communication between different systems.
 

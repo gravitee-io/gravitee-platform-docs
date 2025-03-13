@@ -50,7 +50,7 @@ With the following configuration, you can complete the following actions with Op
 services:
   opentelemetry:
     enabled: true
-    # Will add technical informations spans
+    # Will add technical information spans
     verbose: true
     # Allow to add any extra attributes on all spans
     extraAttributes:
@@ -124,7 +124,7 @@ gateway:
   services:
     opentelemetry:
       enabled: true
-      # Will add technical informations spans
+      # Will add technical information spans
       verbose: true
       # Allow to add any extra attributes on all spans
       extraAttributes:

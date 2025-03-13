@@ -340,7 +340,7 @@ EL can use particular fields within the body configuration of a response templat
 * To access the request and its content: `{#request.headers['my-header'][0]}`
 * To access the error:
   * `{#error.statusCode}`: The status code returned by the error
-  * `{#error.key}`: Yhe key used to select the response template
+  * `{#error.key}`: The key used to select the response template
   * `{#error.message}`: The message failure
 *   To access the parameters of the failure (values can be null), e.g., the AWS Lambda policy uses `region` and `error` parameters:
 
