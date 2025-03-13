@@ -151,7 +151,7 @@ The `.zip` and `.tar.gz` packages are entirely self-contained. By default, all f
 | lib       | Libraries (Gravitee.io libraries and third party libraries) |
 | logs      | Log file location                                           |
 | plugins   | Plugin file location                                        |
-| data      | the                                                          |
+| data      | Search engine metadata                                      |
 | templates | API templates                                               |
 {% endtab %}
 
