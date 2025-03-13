@@ -57,12 +57,6 @@ jobs:
           def is_inside_markdown_link(line, original):
               # Detect Markdown-style links: [text](https://example.com)
               return bool(re.search(r'\[.*?\]\(.*' + re.escape(original) + r'.*\)', line))
-              # markdown_link_pattern = r'\[([^\]]*' + re.escape(original) + r'[^\]]*)\]\(([^)]*)\)'
-
-          # Function to check if a word is inside an html link (corrects only link text, not URL)
-          # def is_inside_html_link(line, original):
-              # Detect HTML-style links: <a href="https://example.com">text</a>
-              # return bool(re.search(r'<a\s+href="[^"]*">([^<]*' + re.escape(original) + r'[^<]*)</a>', line))
           
           # Function to check if a word is in a title or hint block
           def is_in_title_or_hint(line):
@@ -151,10 +145,6 @@ jobs:
                   
                       # Otherwise, proceed with replacement
                       return re.sub(pattern, r"\1" + new, text, count=1)
-                  # ✅ Preserve indentation and replace only the first instance in a line
-                  # def replace_first_instance(text, old, new):
-                      # pattern = r"(\s*)(\b" + re.escape(old) + r"\b)"
-                      # return re.sub(pattern, r"\1" + new, text, count=1)
 
                   updated_line = replace_first_instance(context_line, original, suggestion)
 
