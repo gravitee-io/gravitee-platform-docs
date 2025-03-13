@@ -1,12 +1,12 @@
 ---
-description: This article covers criticial Gravitee API creation concepts
+description: This article covers critical Gravitee API creation concepts
 ---
 
 # Create APIs
 
 ## Introduction
 
-API consumers call or subscribe to Gateway APIs to the retrieve data, functionality, etc., exposed by backend APIs. Gravitee supports two types of Gateway APIs: v2 and v4. These are based on the Gravitee v2 API defintion and Gravitee v4 API definition, respectively.&#x20;
+API consumers call or subscribe to Gateway APIs to the retrieve data, functionality, etc., exposed by backend APIs. Gravitee supports two types of Gateway APIs: v2 and v4. These are based on the Gravitee v2 API definition and Gravitee v4 API definition, respectively.&#x20;
 
 {% hint style="info" %}
 Future efforts and innovation will focus on the v4 API definition., but v2 API documentation will be available while the v2 API definition is supported.

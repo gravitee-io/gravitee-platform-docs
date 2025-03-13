@@ -86,7 +86,7 @@ In this example, the deployment consists of the following components:
 * Ensure the two GCP clusters exist.
 * Ensure that Helm is installed on the GCP clusters.
 
-<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_k8s_clusters.png" alt=""><figcaption><p>Samle K8 clusters</p></figcaption></figure>
+<figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_k8s_clusters.png" alt=""><figcaption><p>Sample K8 clusters</p></figcaption></figure>
 
 {% hint style="warning" %}
 The following Hybrid architecture example use the following names:

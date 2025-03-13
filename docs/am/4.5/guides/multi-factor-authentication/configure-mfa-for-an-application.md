@@ -6,7 +6,7 @@ Multi-factor authentication behaviour is configured on application level in Acce
 
 Gravitee Access Management MFA is built to let you tailor exactly which factor each user type should be able to use, and if the user should be proposed enroll a factor or forced to always be challenged for each login.
 
-Below you will be able to understand how all five configurable sections of MFA works. Note that not all sections are mandatory to fulfill a succesfull MFA rollout to your users. It completely depends on what you are trying to achieve.&#x20;
+Below you will be able to understand how all five configurable sections of MFA works. Note that not all sections are mandatory to fulfill a successful MFA rollout to your users. It completely depends on what you are trying to achieve.&#x20;
 
 Each section is complemented with a flow chart showing the sections part in the overall MFA flow evaluation.&#x20;
 
@@ -40,7 +40,7 @@ If you want to control which factor users can use, you can leverage the factor S
 
 For example, maybe you run a global service and offer national identity MFA methods to your users. By settings selections rules for factors, users will only see the factors they actually can use. This enhances UX for the end users.
 
-The selection rule supports Expression Langauage (EL) and allows you to make decisions based on the end users profile attributes.
+The selection rule supports Expression Language (EL) and allows you to make decisions based on the end users profile attributes.
 
 1.  Click on Selection Rule icon for one factor&#x20;
 

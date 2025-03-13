@@ -349,7 +349,7 @@ description: >-
 **Console**
 
 * No longer possible to compare "published" and "to deploy" status [#9491](https://github.com/gravitee-io/issues/issues/9491)
-* Re: Error when clicking on top failed API in platform dashbaord [#9498](https://github.com/gravitee-io/issues/issues/9498)
+* Re: Error when clicking on top failed API in platform dashboard [#9498](https://github.com/gravitee-io/issues/issues/9498)
 * Remove last user in group shows error [#9517](https://github.com/gravitee-io/issues/issues/9517)
 
 **Portal**
