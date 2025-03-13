@@ -74,7 +74,7 @@ Existing v4 APIs need to be updated and reconfigured accordingly.
 * The file synchronization feature known as `localregistry` has been removed.
 * Subscriptions with `type: SUBSCRIPTION` have been renamed to `type: PUSH`. By default, Plans have a new field called `mode` that is set to `STANDARD`. For all Push plans, you must set this field to `PUSH`.
   * A [mongo script](https://github.com/gravitee-io/gravitee-api-management/tree/master/gravitee-apim-repository/gravitee-apim-repository-mongodb/src/main/resources/scripts/4.0.0) is available to migrate the data in MongoDB.
-* Jupiter mode has been replaced with the v4 emulation engine. This replacement has the followig implications:
+* Jupiter mode has been replaced with the v4 emulation engine. This replacement has the following implications:
   * `jupiterModeEnabled` configuration has been removed and can no longer be disabled.
   * By default, any v2 API created or imported emulates v4 Engine.
   * All new requests use the new `HttpProtocolVerticle` introduced with the v4 engine. The legacy `ReactorVerticle` has been removed.

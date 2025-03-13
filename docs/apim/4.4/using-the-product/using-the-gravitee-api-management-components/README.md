@@ -1,6 +1,6 @@
 # Using the Gravitee API Management components
 
-Gravitee API Management (APIM) cosists of the following four components:&#x20;
+Gravitee API Management (APIM) consists of the following four components:&#x20;
 
 * Gravitee API Management Console&#x20;
 * Gravitee API Management Gateway&#x20;

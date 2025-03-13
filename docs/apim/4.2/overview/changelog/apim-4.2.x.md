@@ -220,7 +220,7 @@ description: >-
 
 **Console**
 
-* Display issue with lateral collasped menu [#9792](https://github.com/gravitee-io/issues/issues/9792)
+* Display issue with lateral collapsed menu [#9792](https://github.com/gravitee-io/issues/issues/9792)
 * API History shows warning for all policies [#9866](https://github.com/gravitee-io/issues/issues/9866)
 * \[APIM] Read only Health check configuration [#9902](https://github.com/gravitee-io/issues/issues/9902)
 * API Category endpoint does not work [#9906](https://github.com/gravitee-io/issues/issues/9906)
@@ -724,7 +724,7 @@ description: >-
 **Console**
 
 * No longer possible to compare "published" and "to deploy" status [#9491](https://github.com/gravitee-io/issues/issues/9491)
-* Re: Error when clicking on top failed API in platform dashbaord [#9498](https://github.com/gravitee-io/issues/issues/9498)
+* Re: Error when clicking on top failed API in platform dashboard [#9498](https://github.com/gravitee-io/issues/issues/9498)
 * Remove last user in group shows error [#9517](https://github.com/gravitee-io/issues/issues/9517)
 * \[endpoints] updating name or deleting group used as DLQ prevent updating API [#9535](https://github.com/gravitee-io/issues/issues/9535)
 * \[endpoints] creating an endpoint group should display endpoint configuration [#9582](https://github.com/gravitee-io/issues/issues/9582)

@@ -114,10 +114,10 @@ You might encounter issues while running this Helm chart on Apple Silicon M1. If
 **(Optional) Install PostgresSQL**
 
 {% hint style="info" %}
-If you have already installed PostgresSQL, you do not need to install PostgresSQL again.
+If you have already installed PostgresSQL, you do not need to install PostgreSQL again.
 {% endhint %}
 
-To install a new PostgresSQL database, complete the following steps:
+To install a new PostgreSQL database, complete the following steps:
 
 1. Update the `username`, `password`, and `databasename` parameters.
 2. Run the following commands:
@@ -138,7 +138,7 @@ Verify that the PostgreSQL pod works using the following command:
 kubectl get pods
 ```
 
-If the PostgresSQL is running correctly, you see an output similar to the following expected output:
+If the PostgreSQL is running correctly, you see an output similar to the following expected output:
 
 ```
 NAME                                      READY   UP-TO-DATE   AVAILABLE   AGE

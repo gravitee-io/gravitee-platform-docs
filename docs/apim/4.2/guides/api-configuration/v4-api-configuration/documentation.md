@@ -69,7 +69,7 @@ You have the option to save the page with or without publishing it to the Develo
 
 ## Editing
 
-To edit or delet folders or pages, or to change the documentation structure, use the icons in the **Actions** section of an entry. All edits are immediately shown in the Developer Portal.
+To edit or delete folders or pages, or to change the documentation structure, use the icons in the **Actions** section of an entry. All edits are immediately shown in the Developer Portal.
 
 <figure><img src="../../../.gitbook/assets/docs_editing.png" alt=""><figcaption><p>Select from Actions to edit</p></figcaption></figure>
 

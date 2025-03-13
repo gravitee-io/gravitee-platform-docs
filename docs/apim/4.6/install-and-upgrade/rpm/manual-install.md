@@ -100,7 +100,7 @@ sudo systemctl start nginx
 
 **Verification**
 
-To verify that you installed Nginx correctly, verify that Ngnix is listening on port 80 using the following command:
+To verify that you installed Nginx correctly, verify that nginx is listening on port 80 using the following command:
 
 ```bash
 sudo ss -lntp '( sport = 80 )'
@@ -110,7 +110,7 @@ sudo ss -lntp '( sport = 80 )'
 
 In some cases, you may need to manually add the Nginx repository to yum.&#x20;
 
-To manually add the Nginx respository to YUM, create a file called `/etc/yum.repos.d/nginx.repo` using the following command:
+To manually add the Nginx repository to YUM, create a file called `/etc/yum.repos.d/nginx.repo` using the following command:
 
 ```sh
 export OS_TYPE=rhel # types listed at https://nginx.org/packages/

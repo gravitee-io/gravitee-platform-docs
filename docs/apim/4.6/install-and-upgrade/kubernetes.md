@@ -18,7 +18,7 @@ The APIM Helm chart deploys the following components:
 * APIM Management Console
 * APIM Developer Portal
 * APIM Gateway
-* MongoDB replica set or PostgresSQL
+* MongoDB replica set or PostgreSQL
 * Elasticsearch Cluster
 
 ## Installing Gravitee API Management
@@ -236,7 +236,7 @@ You may encounter issues while running this Helm chart on Apple Silicon M1. If y
 {% endtab %}
 
 {% tab title="PostgreSQL" %}
-To install a new PostgresSQL database using JDBC, complete the following steps:
+To install a new PostgreSQL database using JDBC, complete the following steps:
 
 1. Update the `username`, `password`, and `databasename` parameters
 2. Run the following command:
@@ -252,7 +252,7 @@ helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
 kubectl get pods
 ```
 
-If the PostgresSQL is running correctly, you see an output similar to the following output:
+If the PostgreSQL is running correctly, you see an output similar to the following output:
 
 {% code title="Expected output" %}
 ```
@@ -567,7 +567,7 @@ The following tables lists the available configuration parameters for these comp
 | `alerts.options.keepAlive`                              | Keep the connection alive                                                | `true`                     |
 | `alerts.options.pipelining`                             | Enables event pipelining                                                 | `true`                     |
 | `alerts.options.tryCompression`                         | Enables event compression                                                | `true`                     |
-| `alerts.options.maxPoolSize`                            | Set the maximum numner of connection                                     | `50`                       |
+| `alerts.options.maxPoolSize`                            | Set the maximum number of connection                                     | `50`                       |
 | `alerts.options.bulkEventsSize`                         | Send events by packets                                                   | `100`                      |
 | `alerts.options.bulkEventsWait`                         | Duration for events to be ready to be sent                               | `100`                      |
 | `alerts.options.ssl.trustall`                           | Ssl trust all                                                            | `false`                    |
