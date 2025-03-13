@@ -138,8 +138,19 @@ jobs:
 
                   # ✅ Preserve indentation and replace only words that are standalone
                   def replace_first_instance(text, old, new):
-                      pattern = r"(\s|^)" + re.escape(old) + r"(\s|$)"
-                      return re.sub(pattern, r"\1" + new + r"\2", text, count=1)
+                      pattern = r"(\s*)(\b" + re.escape(old) + r"\b)"
+                      
+                      # Function to check if the word has non-space characters on BOTH sides
+                      def is_surrounded_by_non_space(text, old):
+                          match = re.search(r"(?<!\s)" + re.escape(old) + r"(?!\s)", text)
+                          return bool(match)
+                  
+                      # If the word has non-space characters on both sides, don't replace
+                      if is_surrounded_by_non_space(text, old):
+                          return text  # Return unchanged
+                  
+                      # Otherwise, proceed with replacement
+                      return re.sub(pattern, r"\1" + new, text, count=1)
                   # ✅ Preserve indentation and replace only the first instance in a line
                   # def replace_first_instance(text, old, new):
                       # pattern = r"(\s*)(\b" + re.escape(old) + r"\b)"
