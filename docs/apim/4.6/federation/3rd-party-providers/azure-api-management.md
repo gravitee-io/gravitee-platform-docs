@@ -131,7 +131,7 @@ Copy and save the following into a Docker Compose file called `docker-compose.ya
 ```yaml
 services:
   integration-agent:
-    image: graviteeio/federation-agent-azure-api-management:1.0.0
+    image: graviteeio/federation-agent-azure-api-management:latest
     restart: always
     environment:
       # Gravitee-specific configuration

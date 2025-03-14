@@ -57,7 +57,7 @@ Copy and save the following into a Docker Compose file called `docker-compose.ya
 ```yaml
 services:
   integration-agent:
-    image: graviteeio/federation-agent-ibm-api-connect:1.0.0
+    image: graviteeio/federation-agent-ibm-api-connect:latest
     restart: always
     environment:
       - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
