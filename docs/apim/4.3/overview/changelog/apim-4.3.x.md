@@ -6,6 +6,49 @@ description: >-
 
 # APIM 4.3.x
  
+## Gravitee API Management 4.3.26 - March 14, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Memory leak with cached policy instances [#10370](https://github.com/gravitee-io/issues/issues/10370)
+
+**Management API**
+
+* Regex Threat Protection Policy Does Not Handle Multiline Payloads [#10260](https://github.com/gravitee-io/issues/issues/10260)
+
+**Console**
+
+* Text in API documentation does not breakline vertically within container [#10198](https://github.com/gravitee-io/issues/issues/10198)
+* Documentation Read permission does not allow users to view document content [#10217](https://github.com/gravitee-io/issues/issues/10217)
+
+**Portal**
+
+* Text in API documentation does not breakline vertically within container [#10198](https://github.com/gravitee-io/issues/issues/10198)
+* Table of content on right side should be wrapped. [#10290](https://github.com/gravitee-io/issues/issues/10290)
+* New Developer Portal - Changes to Header and Footer Not being applied [#10319](https://github.com/gravitee-io/issues/issues/10319)
+
+**Other**
+
+* Absolute links in gravitee-apim-console-webui (ignoring <base href...>) [#10394](https://github.com/gravitee-io/issues/issues/10394)
+* 500 error on jwt plan when using  "Emulate v4 engine" and gateway keys configuration [#10420](https://github.com/gravitee-io/issues/issues/10420)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* Remove Associations from Groups maintenance if not authorized [#9832](https://github.com/gravitee-io/issues/issues/9832)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.3.25 - February 28, 2025
 <details>
 
