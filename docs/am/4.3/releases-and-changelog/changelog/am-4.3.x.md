@@ -10,6 +10,26 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.26 - March 17, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* MFA Challenge policy doesn't work when multiple redirect_uri are declared [#10407](https://github.com/gravitee-io/issues/issues/10407)
+* Authentication fails when MFA Challenge policy is used [#10421](https://github.com/gravitee-io/issues/issues/10421)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.3.25 - March 11, 2025
 
 <details>
