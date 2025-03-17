@@ -17,11 +17,13 @@ description: >-
 
 **Management API**
 
+* User is not able to login using OIDC [#10262](https://github.com/gravitee-io/issues/issues/10262)
 * Regex Threat Protection Policy Does Not Handle Multiline Payloads [#10260](https://github.com/gravitee-io/issues/issues/10260)
 * Error for V4 API logs when analytics is disabled [#10347](https://github.com/gravitee-io/issues/issues/10347)
 
 **Console**
 
+* User is not able to login using OIDC [#10262](https://github.com/gravitee-io/issues/issues/10262)
 * Text in API documentation does not breakline vertically within container [#10198](https://github.com/gravitee-io/issues/issues/10198)
 * Documentation Read permission does not allow users to view document content [#10217](https://github.com/gravitee-io/issues/issues/10217)
 * Error for V4 API logs when analytics is disabled [#10347](https://github.com/gravitee-io/issues/issues/10347)
