@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.40 - March 17, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* MFA Challenge policy doesn't work when multiple redirect_uri are declared [#10407](https://github.com/gravitee-io/issues/issues/10407)
+* Authentication fails when MFA Challenge policy is used [#10421](https://github.com/gravitee-io/issues/issues/10421)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.1.39 - March 11, 2025
 
 <details>
