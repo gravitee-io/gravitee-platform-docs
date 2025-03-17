@@ -14,6 +14,7 @@ description: >-
 **Gateway**
 
 * Memory leak with cached policy instances [#10370](https://github.com/gravitee-io/issues/issues/10370)
+* Missing SNI causes kafka gateway crash [#10422](https://github.com/gravitee-io/issues/issues/10422)
 
 **Management API**
 
