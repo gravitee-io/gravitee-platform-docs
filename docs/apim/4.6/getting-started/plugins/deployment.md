@@ -20,9 +20,13 @@ When APIM starts, all plugin zip files are read from the list of plugin director
 This operation is completed asynchronously for performance benefits.
 {% endhint %}
 
-If duplicates are found (same type and ID), the most recent file is kept regardless of the plugin's version. This allows for easily overriding plugins.
+If duplicate plugins are found (same type and ID), the plugin with the most recent update date on the file system is loaded, regardless of its version. This ensures that newer plugin zip files automatically take precedence over older ones.
 
-Plugin override circumvents the need to remove plugins to use a newer version, which is a huge benefit for Kubernetes deployments via Gravitee's Helm Chart. This also benefits plugin developers, as they can pack and copy an updated plugin without having to script the removal of the old version.
+\
+This behavior is particularly useful when deploying with Helm with the `additionalPlugins` capability. Since plugins added through this method are downloaded and placed in the `/plugin-ext` folder, they always have a more recent update date than the plugins bundled within APIM. As a result, they are the ones effectively loaded.
+
+\
+This mechanism simplifies plugin management by eliminating the need to manually remove older versions. It is especially beneficial for Kubernetes-based deployments and plugin developers, as they can update a plugin by simply copying the new file without additional scripting for removal.
 
 ### Phase 2: Load plugins
 
