@@ -1,5 +1,14 @@
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.6 - March 17, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Object status and metadata meta should be ignored when compiling template strings [#10410](https://github.com/gravitee-io/issues/issues/10410)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.6.5 - March 6, 2025
     
 <details>
