@@ -46,6 +46,7 @@
   * [Secure and Expose gRPC Services](getting-started/use-case-tutorials/secure-and-expose-grpc-services.md)
   * [Expose SOAP Webservices as REST APIs](getting-started/use-case-tutorials/expose-soap-webservices-as-rest-apis.md)
   * [Create and Publish an API Using the Management API](getting-started/use-case-tutorials/create-and-publish-an-api-using-the-management-api.md)
+  * [Connect to an endpoint using SSE](getting-started/use-case-tutorials/connect-to-an-endpoint-using-sse.md)
 
 ## Install and upgrade
 
