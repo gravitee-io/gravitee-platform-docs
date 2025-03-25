@@ -9,7 +9,7 @@ hidden: true
 
 You can use the `policy-assign-content` policy to change or transform the content of the request body or response body.
 
-The `body` configuration value of this policy is compatible with plain text, Gravitee Expression Language and the [Freemarker](https://freemarker.apache.org/) template engine, which allows you to apply complex transformations, such as transforming from XML to JSON and vice versa.
+The `body` configuration value of this policy is compatible with plain text, Gravitee Expression Language, and the [Freemarker](https://freemarker.apache.org/) template engine, which allows you to apply complex transformations, such as transforming from XML to JSON and vice versa.
 
 You can also access multiple objects from the template context, such as the request and response bodies, dictionaries, context attributes and more, as shown in the usage examples below.
 
@@ -33,7 +33,7 @@ A typical usage would be to simply overwrite the original request payload with s
 
 ### Replace original payload with dynamic values
 
-You can use the Assign Content policy to include a request header, context attribute, or a dictionary value into the request payload:
+You can use the Assign Content policy to inject a request header, context attribute, or a dictionary value into the request payload:
 
 ```ftl
 {
@@ -47,7 +47,7 @@ You can use the Assign Content policy to include a request header, context attri
 Notice the use of `${}` instead of `#{}`.  This is needed for compatibility with the Freemarker template engine.
 {% endhint %}
 
-For V4-Message APIs, you can use the Assign Content policy to include the metadata into the message:
+For v4 message APIs, you can use the Assign Content policy to inject the metadata into the message:
 
 ```ftl
 {
@@ -57,9 +57,9 @@ For V4-Message APIs, you can use the Assign Content policy to include the metada
 
 ### Append to existing content
 
-You can simply append the existing payload with new content, using Freemaker again. &#x20;
+You can append new content to the existing payload using Freemaker. &#x20;
 
-In the following example the original JSON payload (`request.content`) is added into a new JSON attribute (`result`), as well as other new content (`requestId` and `requestCost`):
+In the following example, the original JSON payload (`request.content`) is injected into a new JSON attribute (`result`), as well as other new content (`requestId` and `requestCost`):
 
 <table data-full-width="true"><thead><tr><th width="289.85546875">Original request payload</th><th width="275.41015625">Assign Content (Freemarker) configuration</th><th width="419.8828125">Final response payload</th></tr></thead><tbody><tr><td><pre class="language-json"><code class="lang-json">[
   {
@@ -128,9 +128,9 @@ In the following example the original JSON payload (`request.content`) is added 
 
 ### Rewrite or transform the payload
 
-You may want to return only selective data from the response, or re-write the final response payload.
+You may want to return only selective data from the response, or rewrite the final response payload.
 
-In this scenario, the response from the backend service includes a JSON array with multiple airport runways.  Only runways that match `"runwayStatus": "OPEN"` should be returned.
+In this scenario, the response from the backend service includes a JSON array with multiple airport runways. Only runways that match `"runwayStatus": "OPEN"` should be returned.
 
 {% code title="Response payload from backend service: " %}
 ```json
@@ -163,7 +163,7 @@ In this scenario, the response from the backend service includes a JSON array wi
 ```
 {% endcode %}
 
-To transform this content we will use [Freemarker](https://freemarker.apache.org/) code, as shown below:
+This content is transformed using [Freemarker](https://freemarker.apache.org/) code, as shown below:
 
 {% code lineNumbers="true" %}
 ```ftl
@@ -184,17 +184,17 @@ To transform this content we will use [Freemarker](https://freemarker.apache.org
 
 Let's walk through the above Freemarker code, line by line:
 
-_Line 1:_  Assign the `response.content` value to a variable called `body` , and evaluate it into a JSON object.
+**Line 1:**  Assign the `response.content` value to a variable called `body` , and evaluate it into a JSON object.
 
-_Line 2:_  Using the root (`body`) array, iterate through each item (`runwayItem`).
+**Line 2:**  Using the root (`body`) array, iterate through each item (`runwayItem`).
 
-_Line 3:_  Using a standard `if` statement, check if the `runway` attribute equals "`OPEN`".
+**Line 3:** Using a standard `if` statement, check if the `runway` attribute equals `OPEN`.
 
-_Line 4 and 5:_  Start our final response with a JSON array (using square brackets for the array, and curly brackets for each array object).
+**Lines 4 and 5:**  Start the final response with a JSON array (using square brackets for the array, and curly brackets for each array object).
 
-_Line 6:_  Get all items within this unique `runwayItem` object and loop through each of them, using `key` as the index/iterator.
+**Line 6:**  Get all items within this unique `runwayItem` object and loop through each of them, using `key` as the index/iterator.
 
-_Line 7:_  As above, simply output all key/value pairs to the final response.
+**Line 7:**  Output all key/value pairs to the final response.
 
 <figure><img src="../.gitbook/assets/image (176).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
@@ -228,8 +228,8 @@ This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. 
 {% endhint %}
 
 {% tabs %}
-{% tab title="V4 API definition" %}
-This snippet of a V4-HTTP API definition includes a flow that uses the `policy-assign-content` policy in the response phase to write a custom response back to the client:
+{% tab title="v4 API definition" %}
+This snippet of a v4 HTTP proxy API definition includes a flow that uses the `policy-assign-content` policy in the response phase to write a custom response back to the client:
 
 <pre class="language-json"><code class="lang-json">{
   "api": {
@@ -264,7 +264,7 @@ This snippet of a V4-HTTP API definition includes a flow that uses the `policy-a
 
 
 
-This snippet of a V4-Message API definition includes a flow that uses the `policy-assign-content` policy in the publish phase to simply re-write the message (that will be sent onto the backend event broker):
+This snippet of a v4 message API definition includes a flow that uses the `policy-assign-content` policy in the publish phase to simply rewrite the message that will be sent onto the backend event broker:
 
 <pre class="language-json"><code class="lang-json">{
   "api": {
@@ -301,8 +301,8 @@ This snippet of a V4-Message API definition includes a flow that uses the `polic
 </code></pre>
 {% endtab %}
 
-{% tab title="V4 API CRD" %}
-Below is a snippet of a V4 API YAML manifest for the Gravitee Kubernetes Operator. It includes a flow that uses the `policy-assign-content` policy in the request phase to re-write the incoming message.
+{% tab title="v4 API CRD" %}
+Below is a snippet of a v4 API YAML manifest for the Gravitee Kubernetes Operator. It includes a flow that uses the `policy-assign-content` policy in the request phase to rewrite the incoming message.
 
 ```yaml
 apiVersion: "gravitee.io/v1alpha1"

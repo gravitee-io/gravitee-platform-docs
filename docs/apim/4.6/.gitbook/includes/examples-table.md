@@ -4,67 +4,96 @@ title: Examples Table
 
 {% tabs %}
 {% tab title="V4 API definition" %}
-This snippet of a V4 API definition includes a flow that uses the JSON-to-JSON Transform policy (in the response phase) to rename the '\_id' to 'userId' key and remove the '\_\_v' field.
+This snippet of a V4 API definition includes a flow that contains a Data Masking policy.
 
 <pre class="language-json"><code class="lang-json">{
   "api": {
-    "definitionVersion": "V4",
-    "type": "PROXY",
-    "name": "JSON Transformation Example v4 API",
+    "name": "Data Masking v4 API",
 <strong>    "flows" : [ {
-</strong>          "name" : "JSON Transformation",
+</strong>          "id" : "e8d01c12-7fc8-4d57-901c-127fc8bd5766",
+          "name" : "Data-masking",
           "enabled" : true,
           "selectors" : [ {
             "type" : "HTTP",
-            "path" : "/",
-            "pathOperator" : "STARTS_WITH"
+            "path" : "/get",
+            "pathOperator" : "EQUALS",
+            "methods" : [ ]
           } ],
-          "request" : [],
-          "response" : [ {
-            "name" : "JSON to JSON Transformation",
-            "description": "Rename '_id' to 'userId', and remove '__v' field.",
+          "request" : [ {
+            "name" : "Data Logging Masking",
             "enabled" : true,
-            "policy" : "json-to-json",
+            "policy" : "policy-data-logging-masking",
             "configuration" : {
-                "overrideContentType": true,
-                "scope": "REQUEST",
-                "specification": "[\n  {\n    \"operation\": \"shift\",\n    \"spec\": {\n      \"_id\": \"userId\",\n      \"*\": {\n        \"$\": \"&#x26;1\"\n      }\n    }\n  },\n  {\n    \"operation\": \"remove\",\n    \"spec\": {\n      \"__v\": \"\"\n    }\n  }\n]"
+              "headerRules" : [ {
+                "path" : "reqHeaderToHide",
+                "replacer" : "*"
+              } ],
+              "scope" : "REQUEST_CONTENT",
+              "bodyRules" : [ ]
             }
           } ],
-          "subscribe": [],
-          "publish": []
+          "response" : [ {
+            "name" : "Data Logging Masking",
+            "enabled" : true,
+            "policy" : "policy-data-logging-masking",
+            "configuration" : {
+              "headerRules" : [ {
+                "path" : "reqHeaderToHide",
+                "replacer" : "*"
+              } ],
+              "scope" : "RESPONSE_CONTENT",
+              "bodyRules" : [ ]
+            }
+          } ],
+```
   ...
-  } ],
+  }
   ...
 }
 </code></pre>
 {% endtab %}
 
 {% tab title="V4 API CRD" %}
-This snippet of a V4 API yaml manifest (for the Gravitee Kubernetes Operator) includes a flow that uses the JSON-to-JSON Transform policy (in the response phase) to rename the '\_id' to 'userId' key and remove the '\_\_v' field.
+This snippet of a V4 API yaml manifest for the Gravitee Kubernetes Operator includes a flow that contains a Data Masking policy.
 
-```yaml
+````yaml
 apiVersion: "gravitee.io/v1alpha1"
 kind: "ApiV4Definition"
 metadata:
-  name: "json-transformation-example-v4-gko-api"
+  name: "data-masking-v4-gko-api"
 spec:
-  name: "JSON Transformation Example V4 GKO API"
+  name: "Data Masked V4 GKO API"
   flows:
-    name: "Common Flow"
+    - id: "e8d01c12-7fc8-4d57-901c-127fc8bd5766"
+    name: "Data-masking"
     enabled: true
     selectors:
     - type: "HTTP"
-      path: "/"
-      pathOperator: "STARTS_WITH"
-    response:
-    - name: "JSON to JSON Transformation"
+      path: "/get"
+      pathOperator: "EQUALS"
+    request:
+    - name: "Data Logging Masking"
       enabled: true
-      policy: "json-to-json"
+      policy: "policy-data-logging-masking"
       configuration:
-        overrideContentType: true
-        specification: "[\n  {\n    \"operation\": \"shift\",\n    \"spec\": {\n      \"_id\": \"userId\",\n      \"*\": {\n        \"$\": \"&1\"\n      }\n    }\n  },\n  {\n    \"operation\": \"remove\",\n    \"spec\": {\n      \"__v\": \"\"\n    }\n  }\n]"      
-    ...
+        headerRules:
+        - path: "reqHeaderToHide"
+          replacer: "*"
+        scope: "REQUEST_CONTENT"
+        bodyRules: []
+    response:
+    - name: "Data Logging Masking"
+      enabled: true
+      policy: "policy-data-logging-masking"
+      configuration:
+        headerRules:
+        - path: "reqHeaderToHide"
+          replacer: "*"
+        scope: "RESPONSE_CONTENT"
+        bodyRules: []
 ```
+        
+    ...
+````
 {% endtab %}
 {% endtabs %}
