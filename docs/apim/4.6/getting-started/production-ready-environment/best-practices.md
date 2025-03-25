@@ -158,20 +158,30 @@ services:
 {% endtab %}
 
 {% tab title="Kubernetes (Helm)" %}
-To configure JVM memory sizing with Kubernetes `values.yaml`, complete the following steps:
+When deploying containers within Kubernetes, it is typical to configure the JVM and resources together.  Best practise, or _rule of thumb_, is to configure the JVM to be 75% of the defined resources.  If you define `resources.limits.memory: 1536Mi`, then `GIO_MAX_MEM` should be `1024m`.
+
+To configure resources and JVM memory sizing with Kubernetes `values.yaml`, complete the following steps:
 
 1. For the specific Gravitee component you want to configure, for example, gateway, management-api, management-ui, or portal-ui, etc, add the `GIO_MIN_MEM` and `GIO_MAX_MEM` lines within the components' `env` section.&#x20;
 
-Here is an example of configuring JVM of the API Gateway:
+Here is an example of configuring resources and JVM of the API Gateway:
 
 {% code title="values.yaml" %}
 ```yaml
 api-management:
   gateway:
     ...
+    resources:
+      limits:
+        cpu: 1
+        memory: 1536Mi      
+      requests:
+        cpu: 500m
+        memory: 1024Mi
+    ...
     env:
       - name: GIO_MIN_MEM
-        value: 512m
+        value: 1024m
       - name: GIO_MAX_MEM
         value: 1024m
       ...
