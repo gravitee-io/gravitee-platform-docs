@@ -10,6 +10,19 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.22 - March 24, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+* Upgrade the SAML IdentityProvider plugin
+
+
+</details>
+
+
 ## Gravitee Access Management 4.4.21 - March 17, 2025
 
 <details>
