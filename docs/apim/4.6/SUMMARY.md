@@ -173,6 +173,7 @@
   * [Kafka Quota](kafka-gateway/policies/kafka-quota.md)
 * [Applications](kafka-gateway/applications.md)
 * [Subscriptions](kafka-gateway/subscriptions.md)
+* [Expression Language](kafka-gateway/expression-language.md)
 * [Other ways Gravitee supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
 
 ## Federation
