@@ -7,25 +7,23 @@ hidden: true
 
 ## Overview
 
-You can use the `json-to-json` policy to apply a transformation (or mapping) on the request and/or response and/or message content.
+You can use the `json-to-json` policy to apply a transformation (or mapping) on the request, response, and/or message content.
 
-This policy is based on the [JOLT](https://github.com/bazaarvoice/jolt) library.
-
-In APIM, you need to provide the JOLT specification in the policy configuration.
+This policy is based on the [JOLT](https://github.com/bazaarvoice/jolt) library. In APIM, you need to provide the JOLT specification in the policy configuration.
 
 {% hint style="info" %}
 You can use the Gravitee Expression Language (EL) in the JOLT specification.
 {% endhint %}
 
-At request/response level, the policy will do nothing if the processed request/response does not contain JSON. This policy checks the `Content-Type` header before applying any transformation.
+At the request/response level, the policy does nothing if the processed request/response does not contain JSON. This policy checks the `Content-Type` header before applying any transformation.
 
-At message level, the policy will do nothing if the processed message has no content. It means that the message will be re-emitted as is.
+At message level, the policy does nothing if the processed message has no content. This means that the message will be sent again as is.
 
 ## Basic Usage
 
 ### Append a new attribute to existing content
 
-If you want to append a new attribute and value to the existing content, then use the JOLT operation `default`, as shown below:
+If you want to append a new attribute and value to the existing content, use the JOLT operation `default`, as shown below:
 
 <table data-full-width="false"><thead><tr><th width="217.8359375">Starting Content</th><th width="213.203125">Desired Content</th><th>JOLT Specification</th></tr></thead><tbody><tr><td><pre class="language-json"><code class="lang-json">{
   "_id": "57762",
@@ -52,7 +50,7 @@ If you want to append a new attribute and value to the existing content, then us
 ]
 </code></pre></td></tr></tbody></table>
 
-Gravitee _Expression Language_ is also supported, so you can dynamically inject values (such as a `X-myHeader` header value), as shown below:
+Gravitee Expression Language is also supported, so you can dynamically inject values (such as a `X-myHeader` header value), as shown below:
 
 <table data-full-width="false"><thead><tr><th width="217.8359375">Starting Content</th><th width="213.203125">Desired Content</th><th>JOLT Specification</th></tr></thead><tbody><tr><td><pre class="language-json"><code class="lang-json">{
   "_id": "57762",
@@ -81,7 +79,7 @@ Gravitee _Expression Language_ is also supported, so you can dynamically inject 
 
 ### Rename a specific attribute
 
-If you want to rename an existing attribute, then use the JOLT operation `shift`, as shown below:
+If you want to rename an existing attribute, use the JOLT operation `shift`, as shown below:
 
 <table data-full-width="false"><thead><tr><th width="217.8359375">Starting Content</th><th width="213.203125">Desired Content</th><th>JOLT Specification</th></tr></thead><tbody><tr><td><pre class="language-json"><code class="lang-json">{
   "_id": "57762",
@@ -106,7 +104,7 @@ If you want to rename an existing attribute, then use the JOLT operation `shift`
 
 ### Remove an attribute, and rename another attribute
 
-If you want to remove an attribute, and rename another, then use the `shift` and `remove` JOLT operations together, as shown below:
+If you want to remove one attribute and rename another, use the `shift` and `remove` JOLT operations together, as shown below:
 
 <table data-full-width="false"><thead><tr><th width="217.8359375">Starting Content</th><th width="213.203125">Desired Content</th><th>JOLT Specification</th></tr></thead><tbody><tr><td><pre class="language-json"><code class="lang-json">{
   "_id": "57762",
@@ -138,13 +136,11 @@ If you want to remove an attribute, and rename another, then use the `shift` and
 
 ## Transformation
 
-And now for something a little more complex.  You may want to trim down the response payload by only including certain fields.  In this scenario, you can rewrite the response using the JOLT operation `shift`, as shown below.
+As a more complex use case, you may want to trim down the response payload by only including certain fields. In this scenario, you can rewrite the response using the JOLT operation `shift`, as shown below.
 
-`name` needs to change to `accountHolder`
-
-Under each account, we only want the `id`, `name`, and `metadata` fields.
-
-`metadata` needs to remain unchanged.
+* `name` needs to change to `accountHolder`
+* Each account should include only the `id`, `name`, and `metadata` fields
+* `metadata` needs to remain unchanged
 
 <table data-full-width="true"><thead><tr><th width="289.85546875">Starting Content</th><th width="275.41015625">Desired Content</th><th width="419.8828125">JOLT Specification</th></tr></thead><tbody><tr><td><pre class="language-json"><code class="lang-json">{
   "item": {
@@ -265,15 +261,82 @@ Under each account, we only want the `id`, `name`, and `metadata` fields.
 
 ## Examples
 
+
+
 {% hint style="warning" %}
 This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 Message APIs. It cannot be applied to v4 TCP proxy APIs.
 {% endhint %}
 
-{% include "../.gitbook/includes/examples-table.md" %}
+{% tabs %}
+{% tab title="v4 API definition" %}
+This snippet of a v4 API definition includes a flow that uses the `json-to-json` policy in the response phase to rename the `_id` key to `userId` and remove the `__v` field.
+
+<pre class="language-json"><code class="lang-json">{
+  "api": {
+    "definitionVersion": "V4",
+    "type": "PROXY",
+    "name": "JSON Transformation Example v4 API",
+<strong>    "flows" : [ {
+</strong>          "name" : "JSON Transformation",
+          "enabled" : true,
+          "selectors" : [ {
+            "type" : "HTTP",
+            "path" : "/",
+            "pathOperator" : "STARTS_WITH"
+          } ],
+          "request" : [],
+          "response" : [ {
+            "name" : "JSON to JSON Transformation",
+            "description": "Rename '_id' to 'userId', and remove '__v' field.",
+            "enabled" : true,
+            "policy" : "json-to-json",
+            "configuration" : {
+                "overrideContentType": true,
+                "scope": "REQUEST",
+                "specification": "[\n  {\n    \"operation\": \"shift\",\n    \"spec\": {\n      \"_id\": \"userId\",\n      \"*\": {\n        \"$\": \"&#x26;1\"\n      }\n    }\n  },\n  {\n    \"operation\": \"remove\",\n    \"spec\": {\n      \"__v\": \"\"\n    }\n  }\n]"
+            }
+          } ],
+          "subscribe": [],
+          "publish": []
+  ...
+  } ],
+  ...
+}
+</code></pre>
+{% endtab %}
+
+{% tab title="v4 API CRD" %}
+Below is a snippet of a v4 API YAML manifest for the Gravitee Kubernetes Operator. It includes a flow that uses the `json-to-json` policy in the response phase to rename the `_id` key to `userId` and remove the `__v` field.
+
+```yaml
+apiVersion: "gravitee.io/v1alpha1"
+kind: "ApiV4Definition"
+metadata:
+  name: "json-transformation-example-v4-gko-api"
+spec:
+  name: "JSON Transformation Example V4 GKO API"
+  flows:
+    name: "Common Flow"
+    enabled: true
+    selectors:
+    - type: "HTTP"
+      path: "/"
+      pathOperator: "STARTS_WITH"
+    response:
+    - name: "JSON to JSON Transformation"
+      enabled: true
+      policy: "json-to-json"
+      configuration:
+        overrideContentType: true
+        specification: "[\n  {\n    \"operation\": \"shift\",\n    \"spec\": {\n      \"_id\": \"userId\",\n      \"*\": {\n        \"$\": \"&1\"\n      }\n    }\n  },\n  {\n    \"operation\": \"remove\",\n    \"spec\": {\n      \"__v\": \"\"\n    }\n  }\n]"      
+    ...
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration
 
-Sample policy configuration is shown below:
+A sample policy configuration is shown below:
 
 {% code title="Sample Configuration" %}
 ```json
@@ -296,7 +359,7 @@ The phases checked below are supported by the `json-to-json` policy:
 
 The `json-to-json` policy can be configured with the following options:
 
-<table><thead><tr><th width="210">Property</th><th width="165">Required</th><th width="238">Description</th><th width="83">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td><em>(only needed for legacy execution engine)</em></td><td>The execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>REQUEST</code></td></tr><tr><td>specification</td><td>X</td><td><p>The <a href="http://jolt-demo.appspot.com/">JOLT</a> specification to apply on a given content.</p><p>Can contain EL.</p></td><td>string</td><td></td></tr><tr><td>overrideContentType</td><td></td><td>Override the Content-Type to <code>application/json</code></td><td>string</td><td><code>true</code></td></tr></tbody></table>
+<table><thead><tr><th width="210">Property</th><th width="165">Required</th><th width="238">Description</th><th width="83">Type</th><th>Default</th></tr></thead><tbody><tr><td>scope</td><td>(only needed for legacy execution engine)</td><td>The execution scope (<code>request</code> or <code>response</code>)</td><td>string</td><td><code>REQUEST</code></td></tr><tr><td>specification</td><td>X</td><td><p>The <a href="http://jolt-demo.appspot.com/">JOLT</a> specification to apply on a given content.</p><p>Can contain EL.</p></td><td>string</td><td></td></tr><tr><td>overrideContentType</td><td></td><td>Override the Content-Type to <code>application/json</code></td><td>string</td><td><code>true</code></td></tr></tbody></table>
 
 ## Compatibility matrix
 
@@ -306,13 +369,15 @@ The following is the compatibility matrix for APIM and the `json-to-json` policy
 
 ## Errors
 
-You can use the _response template_ feature to override the default responses provided by the policy. These templates must be defined at the API level (see the API -> Configuration -> **Response Templates** option in the API menu).
+{% hint style="info" %}
+You can use the Response Template feature to override the default responses provided by the policy. These templates must be defined at the API level. They can be configured in the APIM Console by selecting **Entrypoints** from the API menu and clicking the **Response Templates** tab.
+{% endhint %}
 
-Reactive execution engine:
+Errors generated by the reactive execution engine:
 
 <table data-full-width="false"><thead><tr><th width="98.5">Code</th><th width="302">Error template key</th><th>Description</th></tr></thead><tbody><tr><td><code>500</code></td><td>INVALID_JSON_TRANSFORMATION</td><td>Unable to apply JOLT transformation to payload</td></tr></tbody></table>
 
-Legacy execution engine:
+Errors generated by the legacy execution engine:
 
 <table data-full-width="false"><thead><tr><th width="171">Code</th><th width="387">Message</th></tr></thead><tbody><tr><td><code>500</code></td><td>Bad specification file or transformation cannot be executed properly</td></tr></tbody></table>
 
