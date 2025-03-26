@@ -4,96 +4,67 @@ title: Examples Table
 
 {% tabs %}
 {% tab title="V4 API definition" %}
-This snippet of a V4 API definition includes a flow that contains a Data Masking policy.
+This snippet of a V4 API definition includes a flow that uses the JSON-to-JSON Transform policy (in the response phase) to rename the '\_id' to 'userId' key and remove the '\_\_v' field.
 
 <pre class="language-json"><code class="lang-json">{
   "api": {
-    "name": "Data Masking v4 API",
+    "definitionVersion": "V4",
+    "type": "PROXY",
+    "name": "JSON Transformation Example v4 API",
 <strong>    "flows" : [ {
-</strong>          "id" : "e8d01c12-7fc8-4d57-901c-127fc8bd5766",
-          "name" : "Data-masking",
+</strong>          "name" : "JSON Transformation",
           "enabled" : true,
           "selectors" : [ {
             "type" : "HTTP",
-            "path" : "/get",
-            "pathOperator" : "EQUALS",
-            "methods" : [ ]
+            "path" : "/",
+            "pathOperator" : "STARTS_WITH"
           } ],
-          "request" : [ {
-            "name" : "Data Logging Masking",
-            "enabled" : true,
-            "policy" : "policy-data-logging-masking",
-            "configuration" : {
-              "headerRules" : [ {
-                "path" : "reqHeaderToHide",
-                "replacer" : "*"
-              } ],
-              "scope" : "REQUEST_CONTENT",
-              "bodyRules" : [ ]
-            }
-          } ],
+          "request" : [],
           "response" : [ {
-            "name" : "Data Logging Masking",
+            "name" : "JSON to JSON Transformation",
+            "description": "Rename '_id' to 'userId', and remove '__v' field.",
             "enabled" : true,
-            "policy" : "policy-data-logging-masking",
+            "policy" : "json-to-json",
             "configuration" : {
-              "headerRules" : [ {
-                "path" : "reqHeaderToHide",
-                "replacer" : "*"
-              } ],
-              "scope" : "RESPONSE_CONTENT",
-              "bodyRules" : [ ]
+                "overrideContentType": true,
+                "scope": "REQUEST",
+                "specification": "[\n  {\n    \"operation\": \"shift\",\n    \"spec\": {\n      \"_id\": \"userId\",\n      \"*\": {\n        \"$\": \"&#x26;1\"\n      }\n    }\n  },\n  {\n    \"operation\": \"remove\",\n    \"spec\": {\n      \"__v\": \"\"\n    }\n  }\n]"
             }
           } ],
-```
+          "subscribe": [],
+          "publish": []
   ...
-  }
+  } ],
   ...
 }
 </code></pre>
 {% endtab %}
 
 {% tab title="V4 API CRD" %}
-This snippet of a V4 API yaml manifest for the Gravitee Kubernetes Operator includes a flow that contains a Data Masking policy.
+This snippet of a V4 API yaml manifest (for the Gravitee Kubernetes Operator) includes a flow that uses the JSON-to-JSON Transform policy (in the response phase) to rename the '\_id' to 'userId' key and remove the '\_\_v' field.
 
-````yaml
+```yaml
 apiVersion: "gravitee.io/v1alpha1"
 kind: "ApiV4Definition"
 metadata:
-  name: "data-masking-v4-gko-api"
+  name: "json-transformation-example-v4-gko-api"
 spec:
-  name: "Data Masked V4 GKO API"
+  name: "JSON Transformation Example V4 GKO API"
   flows:
-    - id: "e8d01c12-7fc8-4d57-901c-127fc8bd5766"
-    name: "Data-masking"
+    name: "Common Flow"
     enabled: true
     selectors:
     - type: "HTTP"
-      path: "/get"
-      pathOperator: "EQUALS"
-    request:
-    - name: "Data Logging Masking"
-      enabled: true
-      policy: "policy-data-logging-masking"
-      configuration:
-        headerRules:
-        - path: "reqHeaderToHide"
-          replacer: "*"
-        scope: "REQUEST_CONTENT"
-        bodyRules: []
+      path: "/"
+      pathOperator: "STARTS_WITH"
     response:
-    - name: "Data Logging Masking"
+    - name: "JSON to JSON Transformation"
       enabled: true
-      policy: "policy-data-logging-masking"
+      policy: "json-to-json"
       configuration:
-        headerRules:
-        - path: "reqHeaderToHide"
-          replacer: "*"
-        scope: "RESPONSE_CONTENT"
-        bodyRules: []
-```
-        
+        overrideContentType: true
+        specification: "[\n  {\n    \"operation\": \"shift\",\n    \"spec\": {\n      \"_id\": \"userId\",\n      \"*\": {\n        \"$\": \"&1\"\n      }\n    }\n  },\n  {\n    \"operation\": \"remove\",\n    \"spec\": {\n      \"__v\": \"\"\n    }\n  }\n]"      
     ...
-````
+```
 {% endtab %}
 {% endtabs %}
