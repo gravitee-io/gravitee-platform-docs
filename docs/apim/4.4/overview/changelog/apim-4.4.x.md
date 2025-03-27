@@ -6,6 +6,36 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.23 - March 27, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway fails to initialize API endpoints using dictionary values after restart [#10348](https://github.com/gravitee-io/issues/issues/10348)
+* Attributes referencing properties and request headers are not populated after large call volumes when v4 emulation is enabled [#10368](https://github.com/gravitee-io/issues/issues/10368)
+* Kafka connector showing messages flowing but not appearing on client side [#10433](https://github.com/gravitee-io/issues/issues/10433)
+
+**Management API**
+
+* Shared API key doesn't always bind to subscriptions when concurrent requests are made [#10146](https://github.com/gravitee-io/issues/issues/10146)
+* Attribute not allowed: \[a]\[download] in API Documentation main page [#10338](https://github.com/gravitee-io/issues/issues/10338)
+* Gateway fails to initialize API endpoints using dictionary values after restart [#10348](https://github.com/gravitee-io/issues/issues/10348)
+* Renewed api key is "available" on closed subscription  [#10396](https://github.com/gravitee-io/issues/issues/10396)
+* API flows are duplicated when called multiple times in row with the management API  [#10408](https://github.com/gravitee-io/issues/issues/10408)
+* Import of an API does not ignore unknown access control groups that are present in another environment [#10414](https://github.com/gravitee-io/issues/issues/10414)
+
+**Console**
+
+* Shared API key doesn't always bind to subscriptions when concurrent requests are made [#10146](https://github.com/gravitee-io/issues/issues/10146)
+* In logs, the "users" column is no more available  [#10311](https://github.com/gravitee-io/issues/issues/10311)
+* When restoring an archived application, the page is neither refreshed nor redirected [#10397](https://github.com/gravitee-io/issues/issues/10397)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.22 - March 14, 2025
 <details>
 
