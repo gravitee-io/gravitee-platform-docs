@@ -8,6 +8,10 @@ This article aims to provide information on how to setup APIM authentication in 
 For now, these instructions only cover authentication, not the role mappings.
 {% endhint %}
 
+{% hint style="info" %}
+For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation about the [JWT Plan](../../expose-apis/plans/jwt.md).
+{% endhint %}
+
 ## Prerequisites:
 
 * Azure Entra ID subscription

@@ -6,6 +6,10 @@ OAuth 2.0 is an open standard that applications can use to provide client applic
 
 The OAuth2 authentication type checks access token validity during request processing using token introspection. If the access token is valid, the request is allowed to proceed. If not, the process stops and rejects the request.
 
+{% hint style="info" %}
+When an Identity Provider does not fully support the [OAuth2](oauth2.md) standard, you can use Gravitee's [JWT Plan](jwt.md).
+{% endhint %}
+
 ## Configuration
 
 To configure an OAuth2 plan, you must first create an [OAuth2 client resource](../../policies/resources.md) that represents your OAuth 2.0 authorization server.

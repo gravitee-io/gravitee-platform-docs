@@ -4,6 +4,12 @@
 
 A JSON Web Token (JWT) is an open method for representing claims securely between two parties. It is digitally signed using an HMAC shared key or RSA public/private key pair. The JWT authentication type ensures that a JWT issued by a third party is valid by verifying its signature and expiration date. Only applications with approved JWTs can access APIs associated with a JWT plan.
 
+{% hint style="info" %}
+When an Identity Provider does not fully support the [OAuth2](oauth2.md) standard, use the JWT Plan .
+
+For example, Azure Entra ID does not provide a token introspection endpoint. So, you must use the JWT Plan with the JWKS\_URL resolver like `https://login.microsoft.com/{tenant_id}/discovery/v2.0/keys` to introspect, validate, and extract token custom claims.
+{% endhint %}
+
 ## Configuration&#x20;
 
 APIM uses client IDs to recognize applications that have subscribed to a JWT plan. The inbound JWT payload must include the `client_id` claim to establish a connection between the JWT and the APIM application subscription.
