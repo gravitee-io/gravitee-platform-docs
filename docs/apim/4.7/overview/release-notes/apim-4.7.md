@@ -107,3 +107,58 @@ The AWS Lambda policy can now be applied to v2 APIs, v4 HTTP proxy APIs, and v4 
 ## Kafka ACL policy supports expression patterns
 
 You can now specify an expression pattern on the Group, Topic, or Transactional ID resources to create a dynamic ACL that can match complicated conditions. To set the ACL to match an expression pattern, you can use wildcards.
+
+| Functionality                                                     | Supported in v2 proxy APIs | Supported for v4 proxy APIs | Supported for v4 message APIs |
+| ----------------------------------------------------------------- | -------------------------- | --------------------------- | ----------------------------- |
+| User Permissions                                                  | ✅                          | ✅                           | ✅                             |
+| Properties                                                        | ✅                          | ✅                           | ✅                             |
+| Resources                                                         | ✅                          | ✅                           | ✅                             |
+| Notifications                                                     | ✅                          | ✅                           | ✅                             |
+| Categories                                                        | ✅                          | ✅                           | ✅                             |
+| Audit Logs                                                        | ✅                          | ✅                           | ✅                             |
+| Response Templates                                                | ✅                          | ✅                           | ✅                             |
+| CORS                                                              | ✅                          | ✅                           | ✅                             |
+| Virtual Hosts                                                     | ✅                          | ✅                           | ✅                             |
+| Failover                                                          | ✅                          | ✅                           | ⚠️ Depends on use case        |
+| Health Check                                                      | ✅                          | ✅                           | 🚫                            |
+| Health Check Dashboard                                            | ✅                          | ✅                           | 🚫                            |
+| Service Discovery                                                 | ✅                          | 🚫                          | 🚫                            |
+| Improved Policy Studio                                            | 🚫                         | ✅                           | ✅                             |
+| Debug Mode                                                        | ✅                          | 🚫                          | 🚫                            |
+| Plans                                                             | ✅                          | ✅                           | ✅                             |
+| Subscriptions                                                     | ✅                          | ✅                           | ✅                             |
+| Messages / Broadcasts                                             | ✅                          | ✅                           | ✅                             |
+| Documentation - Markdown                                          | ✅                          | ✅                           | ✅                             |
+| Documentation - OAS                                               | ✅                          | ✅                           | ✅                             |
+| Documentation - AsyncAPI                                          | ✅                          | ✅                           | ✅                             |
+| Documentation - AsciiDoc                                          | ✅                          | ✅                           | ✅                             |
+| Documentation - Home Page                                         | ✅                          | ✅                           | ✅                             |
+| Documentation - Metadata                                          | ✅                          | ✅                           | ✅                             |
+| Documentation - Translations                                      | ✅                          | 🚫                          | 🚫                            |
+| Documentation - Group Access Control                              | ✅                          | ✅                           | ✅                             |
+| Documentation - Role Access Control                               | ✅                          | 🚫                          | 🚫                            |
+| Documentation - Swagger vs. Redoc Control                         | ✅                          | ✅                           | ✅                             |
+| Documentation - Try It Configuration                              | ✅                          | ✅                           | ✅                             |
+| Documentation - Nested Folder Creation                            | ✅                          | ✅                           | ✅                             |
+| Terms & Conditions on a Plan                                      | ✅                          | ✅                           | ✅                             |
+| Tenants                                                           | ✅                          | ✅                           | ✅                             |
+| Sharding Tags                                                     | ✅                          | ✅                           | ✅                             |
+| Deployment History                                                | ✅                          | ✅                           | ✅                             |
+| Rollback                                                          | ✅                          | ✅                           | ✅                             |
+| Compare API to Previous Versions                                  | ✅                          | ✅                           | ✅                             |
+| Analytics                                                         | ✅                          | ⚠️ WIP                      | ⚠️ WIP                        |
+| Custom Dashboards                                                 | ✅                          | 🚫                          | 🚫                            |
+| Path Mappings                                                     | ✅                          | 🚫                          | 🚫                            |
+| Logs                                                              | ✅                          | ✅                           | ✅                             |
+| API Quality                                                       | ✅                          | ⚠️ Replaced by API score    | ⚠️ Replaced by API score      |
+| API Review                                                        | ✅                          | ✅                           | ✅                             |
+| Export API as Gravitee def (+options)                             | ✅                          | ✅                           | ✅                             |
+| Export API as GKO spec                                            | ✅                          | ✅                           | ✅                             |
+| Import API from Gravitee def (+options)                           | ✅                          | ✅                           | ✅                             |
+| Import API from OAS                                               | ✅                          | ✅                           | NA                            |
+| Import API from OAS and automatically add policies for validation | ✅                          | ✅                           | <p>NA</p><p><br></p>          |
+| Import API from WSDL                                              | ✅                          | 🚫                          | NA                            |
+| Add docs page on import of API from OAS                           | ✅                          | ✅                           | NA                            |
+| APIs show in platform-level dashboards                            | ✅                          | ✅                           | ✅                             |
+| APIs show in platform-level analytics                             | ✅                          | ✅                           | ✅                             |
+| API Alerts                                                        | ✅                          | ✅                           | ✅                             |
