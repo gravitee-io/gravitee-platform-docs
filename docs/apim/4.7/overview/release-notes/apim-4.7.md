@@ -108,6 +108,8 @@ The AWS Lambda policy can now be applied to v2 APIs, v4 HTTP proxy APIs, and v4 
 
 You can now specify an expression pattern on the Group, Topic, or Transactional ID resources to create a dynamic ACL that can match complicated conditions. To set the ACL to match an expression pattern, you can use wildcards.
 
+## Updates to the APIM v2-v4 Comparison Matrix&#x20;
+
 | Functionality                                                     | Supported in v2 proxy APIs | Supported for v4 proxy APIs | Supported for v4 message APIs |
 | ----------------------------------------------------------------- | -------------------------- | --------------------------- | ----------------------------- |
 | User Permissions                                                  | ✅                          | ✅                           | ✅                             |
