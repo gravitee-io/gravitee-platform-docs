@@ -4,8 +4,10 @@ The Gravitee Kubernetes Operator (GKO) comes with several custom resource defini
 
 * [`ManagementContext`](managementcontext.md)
 * [`ApiV4Definition`](apiv4definition.md) and [`ApiDefinition`](apidefinition.md)
-* [`ApiResource`](apiresource.md)
 * [`Application`](application.md)
+* [`ApiResource`](apiresource.md)
+* [`Subscription`](subscription.md)
+* [`Group`](group.md)
 
 {% hint style="info" %}
 Sample CRDs are available in the GKO GitHub [repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/4.5.x/examples).
