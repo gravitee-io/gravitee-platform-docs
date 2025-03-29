@@ -6,13 +6,10 @@ In Gravitee 4.7, we have released the following improvements and enhancements:
 * Updates to the Kafka Gateway and the new Developer Portal.
 * Enhancements to webhook subscriptions.
 * Added support for adding documentation to your APIs in Asciidoc format.&#x20;
-* The addition of secret manager support for the RabbitMQ endpoint, the Solace endpoint, and the LDAP resource.
-* The addition of Secret Manager support for the LDAP resource.
+* The addition of secret manager support for the Solace endpoint.
+* The addition of secret manager support for the LDAP resource.
 * Tenant support is extended to v4 APIs.
 * Improvements to the import logic for v2 and v4 APIs.
-* Improvements to the IBM API Connect federation agent.
-* New Mulesoft federation agent.
-* Updates to the API Score tech preview.
 * Added support for custom headers in the IP Filtering and GeoIP Filtering policies.
 * Added support for v4 APIs to the AWS Lambda policy.
 * Added support for expression patterns to the Kafka ACL policy.
@@ -51,9 +48,8 @@ You can now view and update the details of a Push plan subscription to a webhook
 
 ## Secret Support
 
-In Gravitee APIM 4.4, we introduced secret managers to obscure sensitive information in the Gravitee Gateway configuration file. In Gravitee APIM 4.6, we extended this capability to API-Level configuration. In Gravitee 4.7, we have extended this capability again to the following endpoints and resources:
+In Gravitee APIM 4.4, we introduced secret managers to obscure sensitive information in the Gravitee Gateway configuration file. In Gravitee APIM 4.6, we extended this capability to API-Level configuration. In Gravitee 4.7, we have extended this capability again to the following endpoints and resources:&#x20;
 
-* RabbitMQ endpoint&#x20;
 * Solace endpoint&#x20;
 * The LDAP resource
 
@@ -71,26 +67,6 @@ With Gravitee 4.7, you can add documentation in Asciidoc format, in addition to 
 [Tenants](https://documentation.gravitee.io/apim/gravitee-gateway/tenants#id-9c4f) are a way to leverage Gravitee's multi-endpoint capability, i.e., the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
 
 Previously, support for tenants was restricted to v2 APIs. With Gravitee 4.7, tenants capabilities have been extended to v4 APIs.
-
-## IBM API Connect Federation agent
-
-With Gravitee 4.7, we have improved the capabilities of the IBM API Connect agent. With the agent you can now complete the following actions:
-
-* When you configure the agent, you can use the `IBM_INSTANCE_TYPE=[cloud|cloud-reserved-instance|self-hosted]` to define your instance type. With the instance type `cloud-reserved-instance`, you pass only the API Key.&#x20;
-* When you configure the agent, you can filter the catalogs that you ingest from.
-* You can configure the agent to ingest APIs from Azure. Auto-approve is set to false on the API products using the `SUBSCRIPTION_APPROVAL_TYPE: [MANUAL|AUTOMATIC|ALL]` parameter. The default is `ALL`.&#x20;
-
-## New Mulesoft Federation agent
-
-With Gravitee 4.7, you can now ingest APIs from Mulesoft API Management to centrally catalog Mulesoft APIs alongside all your other Gravitee and Federated APIs. The Mulesoft federation agent discovers Mulesoft APIs that are published to Mulesoft Exchange.  Subscription support is coming soon.&#x20;
-
-## Updates to the API Score tech preview
-
-With the Gravitee 4.7 release, we’ve continued to improve the API Score technical preview. API Score now supports all Gravitee API types. When you evaluate an API’s score, any relevant piece of information about your API’s design and settings are sent to the scoring service. This includes the Gravitee API definition itself, which contains information like the API's plans, policies, entrypoints, endpoints, labels, categories, etc. Any OpenAPI or AsyncAPI doc pages attached to your APIs are also used for scoring. You can write custom rulesets against any of these assets, including support for custom JavaScript functions.&#x20;
-
-<figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXehDMsEV_VvIiBSrQp5YFBJnc4ti4BRU1tk3WTlQ-OFFckp9oKe3p3Vld8nhdtRQfWaaO27ij90nNqizB0BO8VFk-uRkdez6oUV2GuXkx2zVUzbTqbxgbQrgE_zmyJ9UWDe5gnRJQ?key=nM4vYrO1fYVCMxtagJYjXnLY" alt=""><figcaption></figcaption></figure>
-
-API Score now also includes an in-app toggle to opt-in to using API Score. You can find it in your APIM Settings > API Quality menu.&#x20;
 
 ## Custom IP header support
 
