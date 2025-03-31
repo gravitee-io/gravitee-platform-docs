@@ -314,7 +314,6 @@
 ***
 
 * [Enabling API Score](enabling-api-score.md)
-* [Dashboards](dashboards.md)
 
 ## Gravitee Gateway
 
