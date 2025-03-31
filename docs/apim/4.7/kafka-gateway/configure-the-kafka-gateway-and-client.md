@@ -232,58 +232,30 @@ kafka:
   routingMode: host # default is host. Only host is supported for now.
   # Routing Host Mode
   routingHostMode:
-    brokerPrefix: "broker-" # default is broker-
-    domainSeparator: "-" # Used to separate broker's name from api & defaultDomain. Default is '-'
+    brokerPrefix: broker-          # default is broker-
+    domainSeparator: -             # Used to separate broker's name from api & defaultDomain. Default is '-'
 
     # The default domain where the Kafka APIs are exposed. ex: `myapi` will be exposed as `myapi.mycompany.org`
-    defaultDomain: "mycompany.org" # Should set according to the public wildcard DNS/Certificate. Default is empty
-    defaultPort: 9092 # Default public port for Kafka APIs. Default is 9092
+    defaultDomain: mycompany.org   # Should set according to the public wildcard DNS/Certificate. Default is empty
+    defaultPort:   9092            # Default public port for Kafka APIs. Default is 9092
 
-    # If necessary, customize the host domain.
-    # {apiHost} is a placeholder that will be replaced at runtime, when the API is deployed, by the API Host Prefix.
-    # {brokerId} is a placeholder that stand for the broker id
-    bootstrapDomainPattern: "my-bootstrap-{apiHost}.mycompany.org"
-    brokerDomainPattern: "{apiHost}-broker-{brokerId}-test.mycompany.org"
+    # With the upper default configuration, the Gravitee Kafka gateway yields bootstrap and broker domains to be as follows:
+    # bootstrapDomainPattern: {apiHost}.mycompany.org
+    # brokerDomainPattern: broker-{brokerId}-{apiHost}.mycompany.org
+    # Where:
+    # {apiHost}  is a placeholder that will be replaced when the API is deployed, by the API Host Prefix.
+    # {brokerId} is a placeholder that stands for the broker id
 
-  # API-Key plan security configuration
-  # These are the SASL mechanisms that API key plans support.
-  api-key:
-    securityMechanisms: PLAIN, SCRAM-SHA-256, SCRAM-SHA-512
-
-  # Kafka Network settings
-  port: 9092
-  host: 0.0.0.0
-  idleTimeout: 0
-  tcpKeepAlive: true
-  instances: 0
-  requestTimeout: 35_000 # default is 35_000 ms
-
-  # TCP REQUIRES TLS to be set up properly
-  secured: true
-  ssl:
-    # TCP REQUIRES SNI to be setup to match APIs
-    sni: true
-    clientAuth: none # Supports none, request, required
-    tlsProtocols: TLSv1.2, TLSv1.3
-    tlsCiphers: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
-    keystore:
-      type: jks # Supports jks, pem, pkcs12, self-signed
-      path: ${gravitee.home}/security/keystore.jks # A path is required if certificate's type is jks or pkcs12
-      certificates: # Certificates are required if keystore's type is pem
-        - cert: ${gravitee.home}/security/mycompany.org.pem
-          key: ${gravitee.home}/security/mycompany.org.key
-        - cert: ${gravitee.home}/security/mycompany.com.pem
-          key: ${gravitee.home}/security/mycompany.com.key
-      password: secret
-      watch: true # Watch for any updates on the keystore and reload it. Default is true.
-    truststore:
-      type: jks # Supports jks, pem, pkcs12, pem-folder (for the latter watch supports added/updated/removed files)
-      path: ${gravitee.home}/security/truststore.jks
-      password: secret
-      watch: true # Watch for any updates on the keystore/pem and reload it. Default is true.
-    openssl: false # Used to rely on OpenSSL Engine instead of default JDK SSL Engine
-
-  haproxy: # Support for https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt
-    proxyProtocol: false
-    proxyProtocolTimeout: 10000
+    # It can be overridden to fit your DNS configuration.
+    # Doing so requires BOTH patterns to be set, as well as 'defaultPort'. Please note that 'defaultDomain', 'brokerPrefix' and 'domainSeparator' are not used in that case, hence optional.
+    # Example:
+    #   defaultPort: 9092
+    #   bootstrapDomainPattern: bootstrap-{apiHost}.mycompany.org
+    #   brokerDomainPattern: {apiHost}-broker{brokerId}.mycompany.org
+    #
+    #   This configuration yields domains that must target the Gravitee Kafka gateway:
+    #      bootstrap-myapi.mycompany.org
+    #      myapi-broker0.mycompany.org
+    #      myapi-broker1.mycompany.org
+    #      ...
 ```
