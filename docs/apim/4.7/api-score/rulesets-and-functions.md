@@ -81,19 +81,19 @@ To import custom rulesets, complete the following steps:
 
 1. From your homepage, click **API Score**.
 
-<figure><img src=".gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
 
 2. Click **Rulesets & Functions.**
 
-<figure><img src=".gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
 
 2. Click **Import.**
 
-<figure><img src=".gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
 
 2. In **Asset Format**, choose the format for your ruleset.&#x20;
 
-<figure><img src=".gitbook/assets/image (214).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (214).png" alt=""><figcaption></figcaption></figure>
 
 3. In **Ruleset Information**, type the name of your ruleset.
 4. (Optional) Type a description for your ruleset.
@@ -109,17 +109,17 @@ Once you've uploaded a ruleset, you can edit its name and description. If you wa
 
 1. From the homepage, click **API Score**.&#x20;
 
-<figure><img src=".gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
 
 2. Click **Rulesets & Functions**
 
-<figure><img src=".gitbook/assets/image (216).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (216).png" alt=""><figcaption></figcaption></figure>
 
 2. In **Rulesets**, navigate to the ruleset that you want to edit.&#x20;
 3. Click the ruleset.&#x20;
 4. Click **Edit**. You can now edit the ruleset.
 
-<figure><img src=".gitbook/assets/image (217).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (217).png" alt=""><figcaption></figcaption></figure>
 
 ## Functions
 

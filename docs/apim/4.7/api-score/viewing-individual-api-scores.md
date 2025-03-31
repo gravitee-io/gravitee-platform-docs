@@ -29,7 +29,7 @@ You can filter your API score details to highlight certain issues using the tabs
 
 * To filter your APIs issues by category, click the issue category you want to view.&#x20;
 
-<figure><img src=".gitbook/assets/image (208).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (208).png" alt=""><figcaption></figcaption></figure>
 
 #### Filtering using the search function
 
@@ -41,7 +41,7 @@ You can use the search function to search for a issue. You can search with the i
 
 To filter using the search function, type your search query into the **Search** field. The table is filtered as you type.&#x20;
 
-<figure><img src=".gitbook/assets/image (209).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (209).png" alt=""><figcaption></figcaption></figure>
 
 ### Issue details
 
@@ -52,4 +52,4 @@ You can view the individual details in the table on the API score page. The tabl
 * Recommendation. This column shows how you might fix the issue.&#x20;
 * Path. This column shows location of the issue.
 
-<figure><img src=".gitbook/assets/image (210).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (210).png" alt=""><figcaption></figcaption></figure>

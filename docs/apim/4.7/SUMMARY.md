@@ -305,14 +305,15 @@
 ## API Score
 
 * [Overview](api-score/overview.md)
+* [Dashboard](api-score/dashboard.md)
+* [Viewing individual API Scores](api-score/viewing-individual-api-scores.md)
+* [Rulesets and functions](api-score/rulesets-and-functions.md)
+* [Types of assets](api-score/types-of-assets.md)
 
 ***
 
 * [Enabling API Score](enabling-api-score.md)
 * [Dashboards](dashboards.md)
-* [Viewing individual API Scores](viewing-individual-api-scores.md)
-* [Rulesets and functions](rulesets-and-functions.md)
-* [Types of assets](types-of-assets.md)
 
 ## Gravitee Gateway
 
