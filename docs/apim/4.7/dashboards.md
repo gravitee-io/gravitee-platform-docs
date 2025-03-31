@@ -1,4 +1,4 @@
-# Dashboard
+# Dashboards
 
 {% hint style="warning" %}
 API Score is a technology preview. This feature is not recommended for production environments.&#x20;

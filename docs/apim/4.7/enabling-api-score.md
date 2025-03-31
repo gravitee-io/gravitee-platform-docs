@@ -12,12 +12,12 @@ Note that API Score is only available in Gravitee Cloud, or if your self-hosted 
 
 1. From the homepage, click **Settings**.&#x20;
 
-<figure><img src="../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
 
 In the **Portal s**ection, click **API Quality**.
 
-<figure><img src="../.gitbook/assets/image (203).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (203).png" alt=""><figcaption></figcaption></figure>
 
 3. In the **API Score** section, turn on **Enable API Score**.&#x20;
 
-<figure><img src="../.gitbook/assets/image (204).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (204).png" alt=""><figcaption></figcaption></figure>

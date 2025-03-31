@@ -305,11 +305,11 @@
 ## API Score
 
 * [Overview](api-score/overview.md)
-* [Enabling API Score](api-score/enabling-api-score.md)
 
 ***
 
-* [Dashboard](dashboard.md)
+* [Enabling API Score](enabling-api-score.md)
+* [Dashboards](dashboards.md)
 * [Viewing individual API Scores](viewing-individual-api-scores.md)
 * [Rulesets and functions](rulesets-and-functions.md)
 * [Types of assets](types-of-assets.md)
