@@ -11,6 +11,7 @@
   * [Application](overview/custom-resource-definitions/application.md)
   * [Subscription](overview/custom-resource-definitions/subscription.md)
   * [Group](overview/custom-resource-definitions/group.md)
+  * [SharedPolicyGroup](overview/custom-resource-definitions/sharedpolicygroup.md)
 * [Example Architecture](overview/example-architecture.md)
 * [Compatibility and Limitations](overview/compatibility-and-limitations.md)
 
