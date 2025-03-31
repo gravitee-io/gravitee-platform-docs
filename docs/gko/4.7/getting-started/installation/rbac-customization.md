@@ -115,7 +115,10 @@ rbac:
 
 ## Customizing RBAC Manually
 
-You can customize RBAC with Gravitee's RBAC templates. To learn more about Gravitee's templates, go to [GitHub](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/helm/gko/templates/rbac).
+You can customize RBAC with Gravitee's RBAC templates. To learn more about Gravitee's templates, go to Gravitee's following GitHub repository:
+
+* If you are deploying to a single namespace, go to the [manager-role.yaml](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/manager-role.yaml).&#x20;
+* If you are deploying to multiple namespaces, go to [manager-cluster-role.yaml](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/manager-cluster-role.yaml).
 
 Here is a summary of what is needed for GKO to work properly:
 
@@ -278,64 +281,6 @@ rules:
       - gravitee.io
     resources:
       - subscriptions
-  - verbs:
-      - update
-    apiGroups:
-      - gravitee.io
-    resources:
-      - subscriptions/finalizers
-  - verbs:
-      - get
-      - patch
-      - update
-    apiGroups:
-      - gravitee.io
-    resources:
-      - subscriptions/status
-  - verbs:
-      - get
-      - list
-      - update
-      - watch
-    apiGroups:
-      - gravitee.io
-    resources:
-      - groups
-  - verbs:
-      - update
-    apiGroups:
-      - gravitee.io
-    resources:
-      - groups/finalizers
-  - verbs:
-      - get
-      - update
-    apiGroups:
-      - gravitee.io
-    resources:
-      - groups/status
-  - verbs:
-      - get
-      - list
-      - update
-      - watch
-    apiGroups:
-      - gravitee.io
-    resources:
-      - sharedpolicygroups
-  - verbs:
-      - update
-    apiGroups:
-      - gravitee.io
-    resources:
-      - sharedpolicygroups/finalizers
-  - verbs:
-      - get
-      - update
-    apiGroups:
-      - gravitee.io
-    resources:
-      - sharedpolicygroups/status
 ```
 
 * GKO ClusterRole to GET, CREATE, PATCH our CRDs, only if you want GKO to apply the updated versions of our CRDs on "helm upgrades". If you want to do this manually, there is no reason to provide this access.
@@ -379,7 +324,7 @@ rules:
 
 ### GKO Admission/Mutation Webhooks
 
-* **ClusterRole is required** for Admission/Mutation webhooks.
+* **ClusterRole is required** for Admission/Mutation webhooks. For more information about GKO Admission/Mutation Webhooks, go to [admission-webhook-cluster-role.yaml in our GitHub repository.](https://github.com/gravitee-io/gravitee-kubernetes-operator/blob/master/helm/gko/templates/rbac/admission-webhook-cluster-role.yaml)
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
