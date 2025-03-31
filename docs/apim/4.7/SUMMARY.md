@@ -311,10 +311,6 @@
 * [Rulesets and functions](api-score/rulesets-and-functions.md)
 * [Types of assets](api-score/types-of-assets.md)
 
-***
-
-* [Enabling API Score](enabling-api-score.md)
-
 ## Gravitee Gateway
 
 * [Internal API](gravitee-gateway/internal-api.md)
