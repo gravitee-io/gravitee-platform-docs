@@ -158,7 +158,7 @@ services:
 {% endtab %}
 
 {% tab title="Kubernetes (Helm)" %}
-When deploying containers within Kubernetes, it is typical to configure the JVM and resources together.  Best practise, or _rule of thumb_, is to configure the JVM to be 75% of the defined resources.  If you define `resources.limits.memory: 1536Mi`, then `GIO_MAX_MEM` should be `1024m`.
+When deploying containers within Kubernetes, it is typical to configure the JVM and resources together.  Best practise, or _rule of thumb_, is to configure the JVM to be 75% of the defined resources.  If you define `resources.limits.memory: 1536Mi`, then `GIO_MAX_MEM` should be `1152m`.
 
 To configure resources and JVM memory sizing with Kubernetes `values.yaml`, complete the following steps:
 
@@ -181,9 +181,9 @@ api-management:
     ...
     env:
       - name: GIO_MIN_MEM
-        value: 1024m
+        value: 1152m
       - name: GIO_MAX_MEM
-        value: 1024m
+        value: 1152m
       ...
 ```
 {% endcode %}
