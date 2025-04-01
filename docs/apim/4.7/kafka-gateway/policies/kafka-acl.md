@@ -57,3 +57,154 @@ For example, when using a clustered processing framework like [Apache Spark](htt
 ### Transactional ID resource
 
 The `Transactional ID` resource is used when producers encounter application restarts, and is necessary for exactly-once semantics. For more information, see the [Confluent documentation](https://docs.confluent.io/platform/current/security/authorization/acls/overview.html#resources).
+
+## In combination with the Kafka Topic Mapping policy
+
+When using the Kafka ACL policy together with the [Kafka Topic Mapping](kafka-topic-mapping.md) policy, order is important. If topic mapping occurs before ACL, the ACL policy must use the broker-side name of the topic mapping. Conversely, if ACL occurs before topic mapping, the ACL policy must use the mapped name, which is the client-side name of the topic mapping.
+
+The following examples show how you can place the topic mapping and ACL policies in relation to one another to achieve specific results.
+
+### Example 1: I want to execute the ACL policy after topic mapping
+
+An API Gateway enforces Kafka ACL rules to control access to topics. However, if ACL checks happen before topic mapping, requests may be rejected because the client-side topic name isn't recognized.
+
+To ensure that ACL rules are applied correctly, the ACL policy should be executed after the Topic Mapping policy so that it evaluates the actual broker-side topic.
+
+{% tabs %}
+{% tab title="Using the APIM Console" %}
+This shows how to implement the example above using the APIM Console.
+
+Kafka Topic Mapping configuration:
+
+<figure><img src="../../.gitbook/assets/00 3.png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+
+Kafka ACL configuration:
+
+<figure><img src="../../.gitbook/assets/00 5.png" alt=""><figcaption><p>Kafka ACL policy configuration UI</p></figcaption></figure>
+
+Here is how the policies should be ordered in the policy chain:
+
+<figure><img src="../../.gitbook/assets/00 ta.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="v4 API definition" %}
+This shows how to implement the example above in a v4 API definition:
+
+```json
+{
+  "api": {
+    ...
+  },
+  "plans: [    
+    {
+      "flows": [
+        {
+          "interact": [
+            {
+              "name": "Kafka Topic Mapping",
+              "enabled": true,
+              "policy": "kafka-topic-mapping",
+              "configuration": {
+                "mappings": [
+                  {
+                    "client": "orders",
+                    "broker": "internal.orders.processing.12345"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "Kafka ACL Policy",
+              "enabled": true,
+              "policy": "kafka-acl",
+              "configuration": {
+                "authorizedTopics": [
+                  "internal.orders.processing.12345"
+                ],
+                "authorizationType": "READ"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+### Example 2: I want to enforce ACL before topic mapping with wildcard permissions
+
+Suppose a security-first organization requires Kafka ACL rules to be enforced before topic mapping, but some applications need wildcard-based access control to produce or consume messages from any topic that matches a pattern.
+
+In this scenario, the ACL policy must be able to handle wildcard rules for groups of topics. In addition, topics must be mapped after authorization so that consumers don’t need to know internal topic names.
+
+With this configuration:
+
+* ACL ensures users can access only `internal.orders.*` topics.
+* Topic mapping consolidates all internal topics into a single `orders` topic for external consumers.
+
+{% tabs %}
+{% tab title="Using the APIM Console" %}
+This shows how to implement the example above using the APIM Console.
+
+ACL configuration:
+
+<figure><img src="../../.gitbook/assets/00 6.png" alt=""><figcaption></figcaption></figure>
+
+Topic mapping configuration:
+
+<figure><img src="../../.gitbook/assets/00 4.png" alt=""><figcaption></figcaption></figure>
+
+Here is how the policies should be ordered in the policy chain:
+
+<figure><img src="../../.gitbook/assets/00 at.png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="v4 API definition" %}
+This shows how to implement the example above in a v4 API definition:
+
+```json
+{
+  "api": {
+    ...
+  },
+  "plans: [    
+    {
+      "flows": [
+        {
+          "interact": [
+            {
+              "name": "Kafka ACL Policy",
+              "enabled": true,
+              "policy": "kafka-acl",
+              "configuration": {
+                "authorizedTopics": [
+                  "internal.orders.*"
+                ],
+                "authorizationType": "READ_WRITE"
+              }
+            },
+            {
+              "name": "Kafka Topic Mapping",
+              "enabled": true,
+              "policy": "kafka-topic-mapping",
+              "configuration": {
+                "mappings": [
+                  {
+                    "client": "orders",
+                    "broker": "internal.orders.global"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+{% endtab %}
+{% endtabs %}
