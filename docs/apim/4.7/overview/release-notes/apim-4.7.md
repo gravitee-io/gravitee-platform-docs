@@ -9,6 +9,7 @@ In Gravitee 4.7, we have released the following improvements and enhancements:
 * The addition of secret manager support for the Solace endpoint.
 * The addition of secret manager support for the LDAP resource.
 * Tenant support is extended to v4 APIs.
+* Updates to the API Score tech preview.
 * Improvements to the import logic for v2 and v4 APIs.
 * Added support for custom headers in the IP Filtering and GeoIP Filtering policies.
 * Added support for v4 APIs to the AWS Lambda policy.
@@ -67,6 +68,14 @@ With Gravitee 4.7, you can add documentation in Asciidoc format, in addition to 
 [Tenants](https://documentation.gravitee.io/apim/gravitee-gateway/tenants#id-9c4f) are a way to leverage Gravitee's multi-endpoint capability, i.e., the ability to specify multiple upstream systems per single API. Gravitee allows you to assign endpoints and Gateways to specific tenants to control the endpoints to which requests are proxied.
 
 Previously, support for tenants was restricted to v2 APIs. With Gravitee 4.7, tenants capabilities have been extended to v4 APIs.
+
+## Updates to the API Score tech preview
+
+With the Gravitee 4.7 release, we’ve continued to improve the API Score technical preview. API Score now supports all Gravitee API types. When you evaluate an API’s score, any relevant piece of information about your API’s design and settings are sent to the scoring service. This includes the Gravitee API definition itself, which contains information like the API's plans, policies, entrypoints, endpoints, labels, categories, etc. Any OpenAPI or AsyncAPI doc pages attached to your APIs are also used for scoring. You can write custom rulesets against any of these assets, including support for custom JavaScript functions.
+
+<figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXfVRMUSlED01ci-1f9JV7Og9T-8cNWMv8fFkfJp9Jugbz9a79TwlSZCqF4GOd2nZUG7QwnNriUDN4U2DhDW3-1Kid4lDuBAk828r912hVaFYYTr2N6Lqw2w9wwSDcZxIcpuGe3SoQ?key=kGCzwXf48ynu65fxkJ8hb2GH" alt=""><figcaption></figcaption></figure>
+
+API Score now also includes an in-app toggle to opt-in to using API Score. You can find it in your APIM Settings > API Quality menu.
 
 ## Custom IP header support
 
