@@ -176,21 +176,26 @@
 * [Subscriptions](kafka-gateway/subscriptions.md)
 * [Other ways Gravitee supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
 
-## Federation
+## Governance
 
-* [Overview](federation/overview.md)
-* [Integrations](federation/integrations.md)
-* [Discovery](federation/discovery.md)
-* [Federated APIs](federation/federated-apis.md)
-* [Federation Agent Service Account](federation/federation-agent-service-account.md)
-* [3rd-Party Providers](federation/3rd-party-providers/README.md)
-  * [AWS API Gateway](federation/3rd-party-providers/aws-api-gateway.md)
-  * [Solace](federation/3rd-party-providers/solace.md)
-  * [IBM API Connect](federation/3rd-party-providers/ibm-api-connect.md)
-  * [Azure API Management](federation/3rd-party-providers/azure-api-management.md)
-  * [Confluent Platform](federation/3rd-party-providers/confluent-platform.md)
-  * [Apigee X](federation/3rd-party-providers/apigee-x.md)
-  * [Mulesoft Anypoint](federation/3rd-party-providers/mulesoft-anypoint.md)
+* [Federation](governance/federation/README.md)
+  * [Integrations](governance/federation/integrations.md)
+  * [Discovery](governance/federation/discovery.md)
+  * [Federated APIs](governance/federation/federated-apis.md)
+  * [Federation Agent Service Account](governance/federation/federation-agent-service-account.md)
+  * [3rd-Party Providers](governance/federation/3rd-party-providers/README.md)
+    * [AWS API Gateway](governance/federation/3rd-party-providers/aws-api-gateway.md)
+    * [Solace](governance/federation/3rd-party-providers/solace.md)
+    * [IBM API Connect](governance/federation/3rd-party-providers/ibm-api-connect.md)
+    * [Azure API Management](governance/federation/3rd-party-providers/azure-api-management.md)
+    * [Confluent Platform](governance/federation/3rd-party-providers/confluent-platform.md)
+    * [Apigee X](governance/federation/3rd-party-providers/apigee-x.md)
+    * [Mulesoft Anypoint](governance/federation/3rd-party-providers/mulesoft-anypoint.md)
+* [API Score](governance/api-score/README.md)
+  * [Enable API Score](governance/api-score/enable-api-score.md)
+  * [View API Scores](governance/api-score/view-api-scores.md)
+  * [Rulesets and Functions](governance/api-score/rulesets-and-functions.md)
+  * [Types of Assets](governance/api-score/types-of-assets.md)
 
 ## Policies
 
@@ -302,15 +307,6 @@
 * [Dashboards](api-analytics/dashboards.md)
 * [API Quality](api-analytics/api-quality.md)
 * [Audit Trail](api-analytics/audit-trail.md)
-
-## API Score
-
-* [Overview](api-score/overview.md)
-* [Dashboard](api-score/dashboard.md)
-* [Enabling API Score](api-score/enabling-api-score.md)
-* [Viewing individual API Scores](api-score/viewing-individual-api-scores.md)
-* [Rulesets and functions](api-score/rulesets-and-functions.md)
-* [Types of assets](api-score/types-of-assets.md)
 
 ## Gravitee Gateway
 

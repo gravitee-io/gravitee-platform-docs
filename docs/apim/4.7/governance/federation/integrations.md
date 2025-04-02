@@ -16,14 +16,14 @@ To create an integration, the user selects an integration type and provides basi
 2. Select **Integrations** from the left nav
 3.  Click **Create Integration**&#x20;
 
-    <figure><img src="../.gitbook/assets/integration_create.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/integration_create.png" alt=""><figcaption></figcaption></figure>
 4. Choose an integration provider
 5.  Enter general information for the integration&#x20;
 
-    <figure><img src="../.gitbook/assets/integration_general info.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/integration_general info.png" alt=""><figcaption></figcaption></figure>
 6.  Click **Create Integration**&#x20;
 
-    <figure><img src="../.gitbook/assets/integration_overview.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/integration_overview.png" alt=""><figcaption></figcaption></figure>
 
 ### View or edit an integration
 
@@ -35,10 +35,10 @@ To view or edit an integration:
 2. Select **Integrations** from the left nav
 3.  Click on the integration you're interested in&#x20;
 
-    <figure><img src="../.gitbook/assets/integration_edit 2.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/integration_edit 2.png" alt=""><figcaption></figcaption></figure>
 4.  From the inner left nav, select **Overview** to run discovery and edit discovered APIs, or select **Configuration** to edit the general information or delete the integration (if no federated APIs are linked to it)&#x20;
 
-    <figure><img src="../.gitbook/assets/integration_edit 3.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/integration_edit 3.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -60,7 +60,7 @@ To delete an integration:
 4. Select **Configuration** from the inner left nav
 5.  In the **Danger Zone** section, click **Delete Integration**&#x20;
 
-    <figure><img src="../.gitbook/assets/integration delete.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/integration delete.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -89,6 +89,6 @@ By default, user roles have the following permissions:
 
 A federation agent is an executable (e.g., `docker-compose` and configuration files) that integrates with a 3rd-party provider and communicates with an integration defined in Gravitee. For an integration to function, its associated agent to be properly configured and deployed. Agents are necessary because the Gravitee control plane (APIM Console and Management API) may not have direct network access to the 3rd-party provider’s management API. You may also simply prefer to not provide Gravitee with credentials to access your platforms, particularly if the Gravitee control plane is SaaS.
 
-<figure><img src="../.gitbook/assets/federation agent diagram.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/federation agent diagram.png" alt=""><figcaption></figcaption></figure>
 
 Follow the steps below to set up and run a local instance of a federation agent that connects to a 3rd-party provider.
