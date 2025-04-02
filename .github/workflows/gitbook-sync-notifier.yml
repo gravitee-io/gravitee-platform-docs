@@ -23,7 +23,7 @@ jobs:
         if: steps.check.outputs.skip == 'false'
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          payload: >
+          payload: |
             {
               "text": ":book: *GitBook Sync Detected!*",
               "blocks": [
@@ -31,7 +31,8 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Your repository `${{ github.repository }}` was updated on *main* via *GitBook*.\n\n*By:* `${{ github.actor }}`\n*Commit:* <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>\n*Message:* `${{ github.event.head_commit.message }}"` 
+                    "text": "Your repository `${{ github.repository }}` was updated on *main* via *GitBook*.\n\n*By:* `${{ github.actor }}`\n*Commit:* <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>\n*Message:* `${{ github.event.head_commit.message }}`
+                    "
                   }
                 }
               ]
