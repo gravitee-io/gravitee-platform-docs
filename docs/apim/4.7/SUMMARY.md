@@ -115,6 +115,7 @@
 
 * [Overview](create-apis/overview.md)
 * [Import APIs](create-apis/import-apis.md)
+* [Search for APIs in the Console](create-apis/search-for-apis-in-the-console.md)
 * [v2 and v4 API Comparison](create-apis/v2-and-v4-api-comparison.md)
 * [v2 API Creation Wizard](create-apis/v2-api-creation-wizard.md)
 * [v4 API Creation Wizard](create-apis/v4-api-creation-wizard.md)
