@@ -24,14 +24,11 @@ Below are some examples of resources that are not managed by GKO. Not all of the
 
 GKO does not manage any **environment-level** objects such as:
 
-* Shared Policy Groups (coming soon)
 * APIM dictionaries (coming soon)
-* APIM environment user management (coming soon)
 * Platform-level common policies
 * Developer Portal themes
 
 GKO does not manage other **Gravitee components** such as:
 
-* Gravitee Gateway
 * Gravitee Access Management
 * Gravitee Alert Engine
