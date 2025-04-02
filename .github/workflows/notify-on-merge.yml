@@ -1,0 +1,33 @@
+name: Notify Slack on Merge to Main
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  notify-slack:
+    # Only run if PR was merged AND the base branch is main
+    if: >
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Slack notification
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload: >
+            {
+              "text": ":tada: *Pull request merged to `main`!*",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*<${{ github.event.pull_request.html_url }}|${{ github.event.pull_request.title }}>* was merged to *main* by *${{ github.actor }}*"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
