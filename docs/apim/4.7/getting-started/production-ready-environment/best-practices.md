@@ -134,11 +134,19 @@ The following table shows baseline hardware recommendations for a self-hosted de
 
 You can specify the JVM memory sizing for each of the Gravitee nodes.
 
+{% hint style="warning" %}
+* `GIO_MIN_MEM` is the same as `Xms` and `GIO_MAX_MEM` is the same as `Xmx` .
+* To avoid resizing during normal JVM operations, set the same value for both the `GIO_MIN_MEM` and the `GIO_MAX_MEM` .&#x20;
+{% endhint %}
+
 {% tabs %}
 {% tab title="Docker Compose" %}
 To configure JVM memory sizing with `docker compose`, complete the following steps:
 
-1. For the specific Gravitee component that you want to configure, for example, gateway, management-api, management-ui, or portal-ui, etc, add the `GIO_MIN_MEM` and `GIO_MAX_MEM` lines within the `environment` section.  Here is an example of configuring JVM of the API Gateway:
+1. In your `docker-compose.yml` file, navigate to the Gravitee component that you want to configure. For example, `gateway`.
+2. In the `environment` section, add the `GIO_MIN_MEM` and the `GIO_MAX_MEM` lines with the value of the JVM heap size. Ensure that both these values are the same to avoid resizing during normal operations.&#x20;
+
+Here is an example configuration of the JVM for the Gravitee API Gateway.
 
 {% code title="docker-compose.yml" %}
 ```yaml
@@ -147,28 +155,39 @@ services:
     ...
     environment:
       - GIO_MIN_MEM=512m
-      - GIO_MAX_MEM=1024m
+      - GIO_MAX_MEM=512m
       ...
 ```
 {% endcode %}
 
-**Note:** During bootstrap, which occurs when the Gravitee component starts up, the `GIO_MIN_MEM`and `GIO_MAX_MEM` variables are injected into the JAVA\_OPTS .
+**Note:** During bootstrap, which occurs when the Gravitee component starts up, the `GIO_MIN_MEM`and `GIO_MAX_MEM` variables are injected into the `JAVA_OPTS`.
 
-2. Run `docker compose up -d` to restart the container(s) with this new configuration.
+2. Run `docker compose up -d` to restart your containers with this new configuration.
 {% endtab %}
 
 {% tab title="Kubernetes (Helm)" %}
-When deploying containers within Kubernetes, it is typical to configure the JVM and resources together.  Best practise, or _rule of thumb_, is to configure the JVM to be 75% of the defined resources.  If you define `resources.limits.memory: 1536Mi`, then `GIO_MAX_MEM` should be `1152m`.
+When deploying containers within Kubernetes, it is typical to configure the JVM and resources together. The best practice is to configure the JVM to be 75% of the defined resources.  If you define `resources.limits.memory: 1536Mi`, then `GIO_MAX_MEM` should be `1152m`.
 
-To configure resources and JVM memory sizing with Kubernetes `values.yaml`, complete the following steps:
+To configure resources and JVM memory sizing with Kubernetes, complete the following steps:
 
-1. For the specific Gravitee component you want to configure, for example, gateway, management-api, management-ui, or portal-ui, etc, add the `GIO_MIN_MEM` and `GIO_MAX_MEM` lines within the components' `env` section.&#x20;
+1. In your `values.yaml` file, navigate to the Gravitee component that you want to configure. For example, `gateway`.
+2. In the `env` section, add the following lines:
+
+```yaml
+    ...
+    env:
+      - name: GIO_MIN_MEM
+        value: <value>m
+      - name: GIO_MAX_MEM
+        value: <value>m
+      ...
+```
+
+* Replace `<value>` with the value of your heap size. Ensure that this value is the same to avoid resizing during normal operations.
 
 Here is an example of configuring resources and JVM of the API Gateway:
 
-{% code title="values.yaml" %}
-```yaml
-api-management:
+<pre class="language-yaml" data-title="values.yaml"><code class="lang-yaml">api-management:
   gateway:
     ...
     resources:
@@ -178,19 +197,18 @@ api-management:
       requests:
         cpu: 500m
         memory: 1024Mi
-    ...
-    env:
+<strong>    ...
+</strong>    env:
       - name: GIO_MIN_MEM
         value: 1152m
       - name: GIO_MAX_MEM
         value: 1152m
       ...
-```
-{% endcode %}
+</code></pre>
 
-**Note:** During bootstrap, which occurs when the Gravitee component starts up, the GIO\_MIN\_MEM and GIO\_MAX\_MEM variables are injected into the JAVA\_OPTS .
+**Note:** During bootstrap, which occurs when the Gravitee component starts up, the `GIO_MIN_MEM` and `GIO_MAX_MEM` variables are injected into the `JAVA_OPTS` .
 
-2. Redeploy the values.yaml file with your specific command `helm upgrade [release] [chart] -f values.yml` (e.g.: `helm upgrade gravitee-apim graviteeio/apim -f values.yml`) to apply the updated configuration.
+2. To apply the updated configuration, redeploy the values.yaml file with your specific command `helm upgrade [release] [chart] -f values.yml` . For example, `helm upgrade gravitee-apim graviteeio/apim -f values.yml`
 {% endtab %}
 {% endtabs %}
 
