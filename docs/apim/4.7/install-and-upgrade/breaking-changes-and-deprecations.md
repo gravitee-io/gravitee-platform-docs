@@ -14,6 +14,14 @@ Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of G
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+#### 4.7.0
+
+**Azure API Management update**
+
+There is a new parameter for ingesting Azure APIs. To ingest Azure APIs, you must set `gravitee_integration_providers_0_configuration_subscriptionApprovalType` in your `docker-compose.yaml` and set the `SUBSCRIPTION_APPROVAL_TYPE`  in your `.env` file to `AUTOMATIC` , `MANUAL` or `ALL` .
+
+To keep the previous behavior of Azure API Management, set the `SUBSCRIPTION_APPROVAL_TYPE` to `AUTOMATIC` .
+
 #### 4.6.0
 
 **OpenTracing replaced by OpenTelemetry**
