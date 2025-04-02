@@ -190,6 +190,7 @@
   * [Azure API Management](federation/3rd-party-providers/azure-api-management.md)
   * [Confluent Platform](federation/3rd-party-providers/confluent-platform.md)
   * [Apigee X](federation/3rd-party-providers/apigee-x.md)
+  * [Mulesoft Anypoint](federation/3rd-party-providers/mulesoft-anypoint.md)
 
 ## Policies
 
