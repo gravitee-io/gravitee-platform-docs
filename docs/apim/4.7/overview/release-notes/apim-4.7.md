@@ -5,6 +5,7 @@ In Gravitee 4.7, we have released the following improvements and enhancements:
 * Deprecation notice - APIM Standalone components.
 * Updates to the Kafka Gateway and the new Developer Portal.
 * Enhancements to webhook subscriptions.
+* Enhancements to the Datadog reporter.
 * Added support for adding documentation to your APIs in Asciidoc format.&#x20;
 * The addition of secret manager support for the Solace endpoint.
 * The addition of secret manager support for the LDAP resource.
@@ -46,6 +47,14 @@ You can now view and update the details of a Push plan subscription to a webhook
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXexoLATr3nNdeN_nodhAlqWH2KRAkLz2v8c_g7_JmYS0bZE4olsiyZAO14KhJW5Da6KPV4rZj72RuKDXEFxxzG5J5x2G8AbqHRY3TX2nsRt37bRnCSIZzx8j0WNVtIERFLGA0paVA?key=vUeNGTqhmI_vGeq3U0sGHTvz" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXeCyY0vnVMQc6HJeT9-N-8WemthFeTRnxUdUT3FJ3jsM7fc3eoajclDe_xoruv0DtGKGqIZnoQwFsTcgE0lyTTuOLgrRV99PgxdVFFG5vQFqpNfN4Q-Y7y8NJr9VP-xYVTFUkhHPg?key=vUeNGTqhmI_vGeq3U0sGHTvz" alt=""><figcaption></figcaption></figure>
+
+## Updates to the Datadog Reporter
+
+In Gravitee 4.7, we've released a new version of the Datadog reporter with the following enhancements:
+
+* Improved back pressure support to avoid reporter failure.
+* New metric `gravitee.apim.api_request_count` (number of requests made to an API) available with these tags : NodeId, NodeHost, Api, ApiName, Status.
+* Logs are now sent in JSON format by default to allow Datadog to parse its content. Since the content is parsed, each field can be used in Datadog Log Explorer to filter. If for example, you want to filter on the clientRequest URI `/my_api_uri` with a 200 response status, you can use this search filter: `@clientRequest.uri:"/my_api_uri" @clientResponse.status:200`
 
 ## Secret Support
 
