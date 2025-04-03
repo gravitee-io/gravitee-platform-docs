@@ -4,7 +4,7 @@ The `Group` custom resource allows to create a group in a given APIM environment
 
 ## Create a `Group`
 
-Because groups are only relevants for a given APIM environment, group resource *must* reference an existing management context object.
+Because groups are only relevant for a given APIM environment, group resource *must* reference an existing management context object.
 
 The example below shows a simple `Group` custom resource definition:
 

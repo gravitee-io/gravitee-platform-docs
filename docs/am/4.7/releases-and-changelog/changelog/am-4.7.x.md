@@ -20,7 +20,7 @@ On the console interface, an administrator can now see if the password set durin
 
 ## Generic OpenID provider improvement
 
-The Generic OpenID Identity Provider is able to support the `response_type` parameter. An adminitration can select `fragment` or `query` to match the supported `response_type` expected by the provider.
+The Generic OpenID Identity Provider is able to support the `response_type` parameter. An administration can select `fragment` or `query` to match the supported `response_type` expected by the provider.
 
 ## CIBA Http Notifier
 

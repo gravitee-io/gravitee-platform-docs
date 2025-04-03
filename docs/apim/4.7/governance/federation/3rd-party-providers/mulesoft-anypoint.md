@@ -10,7 +10,7 @@ Mulesoft Anypoint Platform is Mulesoft's API Management Solution
 
 Head to the Gravitee APIM Console, open the Integrations section in the left menu, and then create a new Mulesoft integration.&#x20;
 
-Once you have created the integration, copy the integration ID. The intergration ID is visible on the integration overview tab. You will use this ID later.
+Once you have created the integration, copy the integration ID. The integration ID is visible on the integration overview tab. You will use this ID later.
 
 <figure><img src="../../../.gitbook/assets/image (222).png" alt=""><figcaption></figcaption></figure>
 
