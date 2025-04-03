@@ -54,6 +54,10 @@ helm install my-release -f values.yaml gravitee
 ```
 {% endhint %}
 
+{% hint style="info" %}
+You can find the full Gravitee configuration file `values.yaml` here: [https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml)
+{% endhint %}
+
 ## Configuring the application settings
 
 By default, the Helm chart creates a ServiceAccount that enables Gravitee API Management (APIM) to connect to the Kubernetes API. This connection allows Kubernetes ConfigMaps and Secrets to initialize Gravitee settings.
@@ -87,7 +91,7 @@ Here is the minimum `values-light.yml` configuration required by a development d
 * To deploy the development deployment, change the `domain` value, and then run the following command:
 
 {% hint style="warning" %}
-Do not use `values-light.yml` in production.
+The below example is sufficient for a trial or evaluation environment, but do not use this`value-light.yml` in production. You should review the available configuration options before implementing into production.
 {% endhint %}
 
 <pre><code><strong>helm install gravitee-apim graviteeio/apim -f values-light.yml
