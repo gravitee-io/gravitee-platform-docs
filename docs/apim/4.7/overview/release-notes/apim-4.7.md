@@ -79,6 +79,14 @@ With Gravitee 4.7, you can add documentation in Asciidoc format, in addition to 
 
 Previously, support for tenants was restricted to v2 APIs. With Gravitee 4.7, tenants capabilities have been extended to v4 APIs.
 
+## IBM API Connect Federation agent
+
+With Gravitee 4.7, we have improved the capabilities of the IBM Connect agent. With the agent, you can now complete the following actions:
+
+* When you configure the agent, you can use the `IBM_INSTANCE_TYPE=[cloud|cloud-reserved-instance|self-hosted]` to define your instance type. With the `cloud-reserved-instance` instance type, you pass only the API Key.
+* When you configure the agent, you can filter the catalogs that you ingest from.
+* You can configure the agent to ingest APIs from Azure. Auto-approve is set to false on the API products using the `SUBSCRIPTION_APPROVAL_TYPE: [MANUAL|AUTOMATIC|ALL]` parameter. The default is `ALL` .
+
 ## New Mulesoft Federation Agent
 
 With Gravitee 4.7, you can now ingest APIs from Mulesoft API Management to centrally catalog Mulesoft APIs alongside all of your other Gravitee and Federated APIs. The Mulesoft federation agent discovers Mulesoft APIs that are published to Mulesoft Exchange. Subscription support is coming soon.
