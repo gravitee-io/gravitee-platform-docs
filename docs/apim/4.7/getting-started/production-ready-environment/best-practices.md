@@ -166,7 +166,11 @@ services:
 {% endtab %}
 
 {% tab title="Kubernetes (Helm)" %}
-When deploying containers within Kubernetes, it is typical to configure the JVM and resources together. The best practice is to configure the JVM to be 75% of the defined resources.  If you define `resources.limits.memory: 1536Mi`, then `GIO_MAX_MEM` should be `1152m`.
+When deploying containers within Kubernetes, it is typical to configure the JVM and resources at the same time. The best practice is to configure the JVM to be 70% of the defined resources.  If you define `resources.limits.memory: 1024Mi` and define `resources.requests.memory:1024Mi`, then `GIO_MIN_MEM` and `GIO_MAX_MEM` should be `716m`.
+
+{% hint style="info" %}
+We recommend that you set the same value for `resources.limits.memory` and `resources.requests.memory`
+{% endhint %}
 
 To configure resources and JVM memory sizing with Kubernetes, complete the following steps:
 
@@ -183,7 +187,7 @@ To configure resources and JVM memory sizing with Kubernetes, complete the follo
       ...
 ```
 
-* Replace `<value>` with the value of your heap size. Ensure that this value is the same to avoid resizing during normal operations.
+* Replace `<value>` with the value of your heap size. To avoid resizing during normal operations, ensure that this value is the same for the `GIO_MIN_MEM` and the `GIO_MAX_MEM` .
 
 Here is an example of configuring resources and JVM of the API Gateway:
 
@@ -193,7 +197,7 @@ Here is an example of configuring resources and JVM of the API Gateway:
     resources:
       limits:
         cpu: 1
-        memory: 1536Mi      
+        memory: 1024Mi      
       requests:
         cpu: 500m
         memory: 1024Mi
