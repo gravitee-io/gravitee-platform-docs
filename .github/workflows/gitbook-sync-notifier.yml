@@ -1,0 +1,40 @@
+name: Notify Slack on GitBook Sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify-if-gitbook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if update is from a pull request
+        id: check
+        run: |
+          MESSAGE="${{ github.event.head_commit.message }}"
+          if [[ "$MESSAGE" == Merge\ pull\ request* ]]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Send Slack notification (GitBook only)
+        if: steps.check.outputs.skip == 'false'
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload: |
+            {
+              "text": ":book: *GitBook Sync Detected!*",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Your repository `${{ github.repository }}` was updated on *main* via *GitBook*.\n\n*By:* `${{ github.actor }}`\n*Commit:* <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>\n*Message:* `${{ github.event.head_commit.message }}`"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

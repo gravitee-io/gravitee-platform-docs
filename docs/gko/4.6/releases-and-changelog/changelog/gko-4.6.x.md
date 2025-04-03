@@ -1,5 +1,22 @@
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.7 - March 28, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * GKO fails to start with specific namespace given at Helm install [#10426](https://github.com/gravitee-io/issues/issues/10426)
+  * Severe error when deploying Native v4 API [#10406](https://github.com/gravitee-io/issues/issues/10406)
+</details>
+
+
+<details>
+<summary>Security</summary>
+
+  * update module github.com/golang-jwt/jwt/v5 to v5.2.2 [#10452](https://github.com/gravitee-io/issues/issues/10452)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.6.6 - March 17, 2025
     
 <details>
