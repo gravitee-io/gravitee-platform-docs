@@ -31,8 +31,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Your repository `${{ github.repository }}` was updated on *main* via *GitBook*.\n\n*By:* `${{ github.actor }}`\n*Commit:* <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>\n*Message:* `${{ github.event.head_commit.message }}`
-                    "
+                    "text": "Your repository `${{ github.repository }}` was updated on *main* via *GitBook*.\n\n*By:* `${{ github.actor }}`\n*Commit:* <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>\n*Message:* `${{ github.event.head_commit.message }}`"
                   }
                 }
               ]
