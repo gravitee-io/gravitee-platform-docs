@@ -61,6 +61,7 @@ In Gravitee 4.7, we've released a new version of the Datadog reporter with the f
 In Gravitee APIM 4.4, we introduced secret managers to obscure sensitive information in the Gravitee Gateway configuration file. In Gravitee APIM 4.6, we extended this capability to API-Level configuration. In Gravitee 4.7, we have extended this capability again to the following endpoints and resources:&#x20;
 
 * Solace endpoint&#x20;
+* RabbitMQ endpoint
 * The LDAP resource
 
 ## Asciidoc documentation
