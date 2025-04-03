@@ -13,11 +13,17 @@ jobs:
         id: check
         run: |
           MESSAGE="${{ github.event.head_commit.message }}"
-          if [[ "$MESSAGE" == Merge\ pull\ request* ]]; then
+          if [[ "$MESSAGE" =~ ^Merge\ pull\ request ]]; then
             echo "skip=true" >> $GITHUB_OUTPUT
           else
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Get list of changed files
+        if: steps.check.outputs.skip == 'false'
+        id: files
+        run: |
+          echo "files=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | tr '\n' ',' | sed 's/,$//')" >> $GITHUB_OUTPUT
 
       - name: Send Slack notification (GitBook only)
         if: steps.check.outputs.skip == 'false'
@@ -31,7 +37,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Your repository `${{ github.repository }}` was updated on *main* via *GitBook*.\n\n*By:* `${{ github.actor }}`\n*Commit:* <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>\n*Message:* `${{ github.event.head_commit.message }}`"
+                    "text": "*Repository:* `${{ github.repository }}`\n*Branch:* `main`\n*Author:* `${{ github.event.head_commit.author.name }}`\n*Commit:* <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>\n*Message:* `${{ github.event.head_commit.message }}`\n*Changed files:* `${{ steps.files.outputs.files }}`
                   }
                 }
               ]
