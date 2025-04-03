@@ -79,6 +79,10 @@ With Gravitee 4.7, you can add documentation in Asciidoc format, in addition to 
 
 Previously, support for tenants was restricted to v2 APIs. With Gravitee 4.7, tenants capabilities have been extended to v4 APIs.
 
+## New Mulesoft Federation Agent
+
+With Gravitee 4.7, you can now ingest APIs from Mulesoft API Management to centrally catalog Mulesoft APIs alongside all of your other Gravitee and Federated APIs. The Mulesoft federation agent discovers Mulesoft APIs that are published to Mulesoft Exchange. Subscription support is coming soon.
+
 ## Updates to the API Score tech preview
 
 With the Gravitee 4.7 release, we’ve continued to improve the API Score technical preview. API Score now supports all Gravitee API types. When you evaluate an API’s score, any relevant piece of information about your API’s design and settings are sent to the scoring service. This includes the Gravitee API definition itself, which contains information like the API's plans, policies, entrypoints, endpoints, labels, categories, etc. Any OpenAPI or AsyncAPI doc pages attached to your APIs are also used for scoring. You can write custom rulesets against any of these assets, including support for custom JavaScript functions.
