@@ -99,7 +99,7 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 
 <figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up with last step where you are able to copy your generated Cloud Token and your License.</p></figcaption></figure>
 
-9. Install the Gravitee APIM Gateway. To install the APIM Gateway, complete any of the following sub-steps:
+9. Install the Gravitee APIM Gateway. To install the APIM Gateway, complete any of the following sub-steps: &#x20;
 
 {% tabs %}
 {% tab title="Docker" %}
@@ -271,6 +271,104 @@ Install the Helm chart with the `values.yaml` file to a dedicated namespace usin
 
 ```bash
 helm install graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim -f ./values.yaml
+```
+{% endtab %}
+
+{% tab title="OpenShift" %}
+{% hint style="info" %}
+To deploy APIM with OpenShift, you must be running **OpenShift version 3.10 or later**. This is required because the Gravitee Helm Chart only supports Ingress standard objects. It does not support the specific OpenShift Routes.
+{% endhint %}
+
+When deploying APIM within OpenShift, you must:&#x20;
+
+* Use the full host domain instead of paths for all components. Ingress paths are not sufficiently supported by OpenShift.
+* Override the security context to let OpenShift automatically define the `user-id` and `group-id` with which to run containers.
+* Set the `ingressClassName` to "none" for OpenShift to automatically create Routes from Ingress.
+
+Below is a standard `values.yaml` to deploy the Gravitee APIM Gateway into OpenShift:
+
+```yaml
+gateway:
+  replicaCount: 1
+  image:
+    repository: graviteeio/apim-gateway
+    tag: 4.6.7
+    pullPolicy: IfNotPresent
+  autoscaling:
+    enabled: false
+  podAnnotations:
+    prometheus.io/path: /_node/metrics/prometheus
+    prometheus.io/port: "18082"
+    prometheus.io/scrape: "true"
+  env:
+    - name: gravitee_cloud_token
+      value: "${your-cloud-token}"
+  services:
+    metrics:
+      enabled: true
+      prometheus:
+        enabled: true
+    core:
+      http:
+          enabled: true
+    sync:
+      kubernetes:
+        enabled: false
+    bridge:
+      enabled: false
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1024Mi
+    requests:
+      cpu: 200m
+      memory: 1024Mi
+  ingress:
+    ingressClassName: none
+    path: /
+    hosts:
+      - gw-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
+    annotations:
+      route.openshift.io/termination: edge
+  securityContext: null
+  deployment:
+    securityContext:
+      runAsUser: null
+      runAsGroup: null
+      runAsNonRoot: true
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop: ["ALL"]
+      seccompProfile:
+        type: RuntimeDefault
+  reporters:
+    file:
+      enabled: false
+  terminationGracePeriod: 50
+  gracefulShutdown:
+    delay: 20
+    unit: SECONDS
+
+api:
+    enabled: false
+
+ratelimit:
+    type: none
+
+portal:
+    enabled: false
+
+ui:
+    enabled: false
+
+alerts:
+    enabled: false
+
+es:
+    enabled: false
+
+license:
+    key: "${your-license-key}"
 ```
 {% endtab %}
 
