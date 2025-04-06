@@ -23,24 +23,38 @@ jobs:
         if: steps.check.outputs.skip == 'false'
         id: files
         run: |
-          echo "files=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | tr '\n' ',' | sed 's/,$//')" >> $GITHUB_OUTPUT
+          FILES=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | paste -sd ', ' -)
+          echo "files=$FILES" >> $GITHUB_OUTPUT
 
-      - name: Send Slack notification (GitBook only)
+      - name: Build Slack payload
         if: steps.check.outputs.skip == 'false'
-        uses: slackapi/slack-github-action@v1.24.0
-        with:
-          payload: |
-            {
-              "text": ":book: *GitBook Sync Detected!*",
-              "blocks": [
+        id: payload
+        run: |
+          PAYLOAD=$(jq -n \
+            --arg repo "${{ github.repository }}" \
+            --arg branch "main" \
+            --arg author "${{ github.event.head_commit.author.name }}" \
+            --arg sha "${{ github.sha }}" \
+            --arg message "${{ github.event.head_commit.message }}" \
+            --arg files "${{ steps.files.outputs.files }}" \
+            '{
+              text: ":book: GitBook Sync Detected!",
+              blocks: [
                 {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*Repository:* `${{ github.repository }}`\n*Branch:* `main`\n*Author:* `${{ github.event.head_commit.author.name }}`\n*Commit:* <https://github.com/${{ github.repository }}/commit/${{ github.sha }}|${{ github.sha }}>\n*Message:* `${{ github.event.head_commit.message }}`\n*Changed files:* `${{ steps.files.outputs.files }}`"
+                  type: "section",
+                  text: {
+                    type: "mrkdwn",
+                    text: "*Repository:* `\($repo)`\n*Branch:* `\($branch)`\n*Author:* `\($author)`\n*Commit:* <https://github.com/\($repo)/commit/\($sha)|\($sha)>\n*Message:* \($message)\n*Changed files:* \($files)"
                   }
                 }
               ]
-            }
+            }')
+          echo "payload=$PAYLOAD" >> $GITHUB_OUTPUT
+
+      - name: Send Slack notification
+        if: steps.check.outputs.skip == 'false'
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload: ${{ steps.payload.outputs.payload }}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
