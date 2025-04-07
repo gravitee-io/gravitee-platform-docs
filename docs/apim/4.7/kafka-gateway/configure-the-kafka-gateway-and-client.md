@@ -241,8 +241,8 @@ kafka:
     defaultPort:   9092            # Default public port for Kafka APIs. Default is 9092
 
     # With the upper default configuration, the Gravitee Kafka gateway yields bootstrap and broker domains to be as follows:
-    # bootstrapDomainPattern: {apiHost}.mycompany.org
-    # brokerDomainPattern: broker-{brokerId}-{apiHost}.mycompany.org
+    bootstrapDomainPattern: {apiHost}.mycompany.org
+    brokerDomainPattern: broker-{brokerId}-{apiHost}.mycompany.org
     # Where:
     # {apiHost}  is a placeholder that will be replaced when the API is deployed, by the API Host Prefix.
     # {brokerId} is a placeholder that stands for the broker id
@@ -259,4 +259,5 @@ kafka:
     #      myapi-broker0.mycompany.org
     #      myapi-broker1.mycompany.org
     #      ...
+  
 ```
