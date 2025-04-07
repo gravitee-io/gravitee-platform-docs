@@ -6,12 +6,11 @@ description: Learn how to import APIs onto your Gravitee Gateway
 
 ## Introduction
 
-Gravitee supports importing APIs as:
+Gravitee supports importing APIs as either Gravitee API definitions or OpenAPI specifications. To import an API, the API file must be in YML, YAML, or JSON format.&#x20;
 
-* Files (YML, YAML, JSON, WSDL, XML)
-* Swagger/OpenAPI spec (URL)
-* API definition (URL)
-* WSDL (URL)
+Every API includes a context path, virtual host(s), or host(s). These values must be unique across all APIs in your environment. A unique custom API ID can be specified in the definition.&#x20;
+
+All items from the import bundle are imported, for example, groups, members, pages, plans, and metadata.
 
 Additional information that applies to importing an OpenAPI specification can be found [below](import-apis.md#importing-an-openapi-spec).
 
@@ -19,28 +18,43 @@ Additional information that applies to importing an OpenAPI specification can be
 
 To import your API:
 
-1. Log in to your API Console
-2. Select **APIs** from the left nav
-3.  Select **+ Add API**&#x20;
+1. Log in to your API Console.
+2. Select **APIs** from the left nav.
+3. Select **+ Add API**.
+4.  In the **Create New API** tile, click **Import v4 API**.\
 
-    <figure><img src="../.gitbook/assets/import_add api.png" alt=""><figcaption></figcaption></figure>
-4.  In the **Import an API definition** tile, click **Import**&#x20;
 
-    <figure><img src="../.gitbook/assets/import_import.png" alt=""><figcaption></figcaption></figure>
-5. Choose and configure an import option:
-   * **Upload a file:** Import a YML, YAML, JSON, WSDL, or XML file
-   * **Swagger / OpenAPI:**&#x20;
-     * Provide a **Swagger descriptor URL**
-     * **Create documentation:** Overwrites existing documentation or create it if it does not exist
-     * **Create the path mapping for analytics:** Overwrites all of the path-mappings
-     * **Create policies on paths:** Overwrites all of the policies. Policies that you can create upon import include **JSON Validation**, **Mock**, **Request Validation**, **REST to SOAP**, and **XML Validation**.
-   * **API definition:** Provide a URL that links to your API definition
-   * **WSDL:**&#x20;
-     * Provide a **WSDL descriptor URL**
-     * **Create documentation:** Overwrites existing documentation or create it if it does not exist
-     * **Create the path mapping for analytics:** Overwrites all of the path-mappings
-     * **Create policies on paths:** Overwrites all of the policies. Policies that you can create upon import include **JSON Validation**, **Mock**, **Request Validation**, **REST to SOAP**, and **XML Validation**.
-6. Click **Import**
+    <figure><img src="../.gitbook/assets/00 import 1.png" alt=""><figcaption></figcaption></figure>
+
+    This loads the options for importing your API.\
+
+
+    <figure><img src="../.gitbook/assets/00 import 2.png" alt=""><figcaption></figcaption></figure>
+5. Choose an **API format**. You can select either **Gravitee definition** or **OpenAPI specification**.
+6.  Choose a **File source**.&#x20;
+
+    {% hint style="info" %}
+    **Local file** is currently the only supported **File source**.
+    {% endhint %}
+
+
+7. Drag and drop your API file into the **File** panel. Supported file formats are YML, YAML, and JSON.
+8. If you selected **OpenAPI specification** as the API format, you can choose to enable the following:
+   *   **Create documentation page from spec.** This creates an API documentation page from the imported OpenAPI specification.&#x20;
+
+       {% hint style="info" %}
+       This page is published automatically, but can be unpublished from the **API Documentation** page in the Console.
+       {% endhint %}
+
+
+   *   **Add OpenAPI Specification Validation:** This adds an [OpenAPI Specification Validation policy](../policies/oas-validation.md) to the imported API.
+
+       {% hint style="info" %}
+       All options are initially enabled, but can be disabled by editing the policy configuration.
+       {% endhint %}
+
+
+9. Click **Import**
 
 {% hint style="success" %}
 Once you've imported your API, it will be created as a private API and you will be brought to the API menu and details page.
@@ -48,11 +62,18 @@ Once you've imported your API, it will be created as a private API and you will 
 
 ## Importing an OpenAPI spec
 
+{% hint style="info" %}
+Gravitee v4 native APIs, for example, Kafka APIs, are currently not supported via OpenAPI spec import.
+{% endhint %}
+
 ### **Context-path resolution**
 
-| Spec version                            | Definition                                                                                                                                                                                  | Example                                                                                                                                                                                                         | Context-path |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| Swagger (V2)                            | `basePath` field, if it exists.                                                                                                                                                             | <pre><code>{
+#### Swagger (V2)
+
+**Example 1:** The definition below uses the `basePath` field for context-path resolution.  The value of the `basePath` field is the context-path, for example, `/v2`.
+
+```json
+{
   "swagger": "2.0",
   "info": {
     "description": "...",
@@ -63,8 +84,12 @@ Once you've imported your API, it will be created as a private API and you will 
   "basePath": "/v2",
   ...
 }
-</code></pre> | /v2          |
-| If not, lowercase trimmed `info.title`. | <pre><code>{
+```
+
+**Example 2:** Instead of the `basePath` field, the lowercase trimmed `info.title` can be used for context-path resolution. In the following example, "Swagger Petstore" maps to the context-path `/swaggerpetstore`.
+
+```json
+{
   "swagger": "2.0",
   "info": {
     "description": "...",
@@ -75,8 +100,14 @@ Once you've imported your API, it will be created as a private API and you will 
 
   ...
 }
-</code></pre> | /swaggerpetstore                                                                                                                                                                                                |              |
-| OpenAPI (V3)                            | <p>Path of the first <code>servers.url</code>, if it exists, without "/".<br></p>                                                                                                           | <pre><code>openapi: "3.0.0"
+```
+
+#### OpenAPI (V3)
+
+**Example 1:** If it exists without `/`, the path of the first `servers.url` can be used for context-path resolution, like in the following example. The value of the context-path follows the URL and starts with `/`, for example, `/v1`.
+
+```json
+openapi: "3.0.0"
 info:
   version: 1.0.0
   title: Swagger Petstore
@@ -86,8 +117,12 @@ servers:
   - url: http://petstore.swagger.io/v1
 paths:
 ...
-</code></pre>                                  | /v1          |
-| If not, lowercase trimmed `info.title`. | <pre><code>openapi: "3.0.0"
+```
+
+**Example 2:** Instead of the `servers.url` path, the lowercase trimmed `info.title` can be used for context-path resolution. In the following example, "Swagger Petstore" maps to the context-path `/swaggerpetstore`.
+
+```json
+openapi: "3.0.0"
 info:
   version: 1.0.0
   title: Swagger Petstore
@@ -97,7 +132,7 @@ servers:
   - url: http://petstore.swagger.io/
 paths:
   ...
-</code></pre>              | /swaggerpetstore                                                                                                                                                                                                |              |
+```
 
 ### Vendor Extensions
 
