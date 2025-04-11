@@ -10,6 +10,31 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.3.x
 
+## Gravitee Access Management 4.3.27 - April 11, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Problem with API management console application creation/update and DCR [#10232](https://github.com/gravitee-io/issues/issues/10232)
+* Login button remains disabled when using a password manager [#10411](https://github.com/gravitee-io/issues/issues/10411)
+* Unable to use id_token when configuring Azure though OpenId form [#10453](https://github.com/gravitee-io/issues/issues/10453)
+
+**Management API**
+
+* Prevent Ogranization IDP selection to send null [#10444](https://github.com/gravitee-io/issues/issues/10444)
+
+
+
+**Other**
+
+* [AM][4.5.11] Error when character "ë" in a token [#10418](https://github.com/gravitee-io/issues/issues/10418)
+
+</details>
+
+
 ## Gravitee Access Management 4.3.26 - March 17, 2025
 
 <details>
