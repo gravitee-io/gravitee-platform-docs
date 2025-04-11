@@ -27,16 +27,22 @@ jobs:
           echo "files=$FILES" >> $GITHUB_OUTPUT
 
       - name: Build Slack payload
-        if: steps.check.outputs.skip == 'false'
-        id: payload
         run: |
-          PAYLOAD=$(jq -n \
+          FILE_LIST=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }})
+          FORMATTED=""
+          while read -r FILE; do
+            LINK="• <https://github.com/${{ github.repository }}/blob/main/$FILE|$FILE>"
+            FORMATTED="$FORMATTED$LINK\n"
+          done <<< "$FILE_LIST"
+          FORMATTED=$(echo -e "$FORMATTED" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+
+          jq -n \
             --arg repo "${{ github.repository }}" \
             --arg branch "main" \
             --arg author "${{ github.event.head_commit.author.name }}" \
             --arg sha "${{ github.sha }}" \
             --arg message "${{ github.event.head_commit.message }}" \
-            --arg files "${{ steps.files.outputs.files }}" \
+            --arg files "$FORMATTED" \
             '{
               text: ":book: GitBook Sync Detected!",
               blocks: [
@@ -44,17 +50,15 @@ jobs:
                   type: "section",
                   text: {
                     type: "mrkdwn",
-                    text: "*Repository:* `\($repo)`\n*Branch:* `\($branch)`\n*Author:* `\($author)`\n*Commit:* <https://github.com/\($repo)/commit/\($sha)|\($sha)>\n*Message:* \($message)\n*Changed files:* \($files)"
+                    text: "*Repository:* `\($repo)`\n*Branch:* `\($branch)`\n*Author:* `\($author)`\n*Commit:* <https://github.com/\($repo)/commit/\($sha)|\($sha)>\n*Message:* \($message)\n*Changed files:*\n\($files)"
                   }
                 }
               ]
-            }')
-          echo "payload=$PAYLOAD" >> $GITHUB_OUTPUT
+            }' > payload.json
 
       - name: Send Slack notification
-        if: steps.check.outputs.skip == 'false'
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          payload: ${{ steps.payload.outputs.payload }}
+          payload-file-path: payload.json
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
