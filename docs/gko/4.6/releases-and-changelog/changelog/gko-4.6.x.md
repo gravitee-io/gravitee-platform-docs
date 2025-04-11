@@ -1,5 +1,14 @@
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.8 - April 8, 2025
+    
+<details>
+<summary>Improvements</summary>
+
+  * Allow to set `hostNetwork` flag in manager deployment [#10478](https://github.com/gravitee-io/issues/issues/10478)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.6.7 - March 28, 2025
     
 <details>
