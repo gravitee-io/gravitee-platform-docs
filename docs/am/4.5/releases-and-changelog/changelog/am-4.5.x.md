@@ -10,6 +10,43 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.13 - April 11, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Problem with API management console application creation/update and DCR [#10232](https://github.com/gravitee-io/issues/issues/10232)
+* Login button remains disabled when using a password manager [#10411](https://github.com/gravitee-io/issues/issues/10411)
+* Setting max consecutive letters to 0 in password policies using mapi displays unnecessary password requirement [#10416](https://github.com/gravitee-io/issues/issues/10416)
+* Unable to use id_token when configuring Azure though OpenId form [#10453](https://github.com/gravitee-io/issues/issues/10453)
+* Using of Redis on Production and Crash situation [#10454](https://github.com/gravitee-io/issues/issues/10454)
+* Error handling error=session_expired in Login Form [#10460](https://github.com/gravitee-io/issues/issues/10460)
+* EL for language entries not resolving correctly [#10465](https://github.com/gravitee-io/issues/issues/10465)
+* Resilient mode is failing  [#10474](https://github.com/gravitee-io/issues/issues/10474)
+
+**Management API**
+
+* Prevent Ogranization IDP selection to send null [#10444](https://github.com/gravitee-io/issues/issues/10444)
+* Fix audit log on user login failed [#10463](https://github.com/gravitee-io/issues/issues/10463)
+
+
+
+**Other**
+
+* Unable to save Group Mapper for Social IDP at organization level in AM UI [#10403](https://github.com/gravitee-io/issues/issues/10403)
+* Error in /ciba/authenticate/callback [#10412](https://github.com/gravitee-io/issues/issues/10412)
+* MinLength value can be greater than maxLength value in a password policy when using the mapi [#10417](https://github.com/gravitee-io/issues/issues/10417)
+* [AM][4.5.11] Error when character "ë" in a token [#10418](https://github.com/gravitee-io/issues/issues/10418)
+* Cant update SAML SP certifacte in UI application SAML tab  [#10442](https://github.com/gravitee-io/issues/issues/10442)
+* Group Mapper not apply with JDBC [#10445](https://github.com/gravitee-io/issues/issues/10445)
+* Management API does not check if user exists on domain when added to a group on creation of the group [#10468](https://github.com/gravitee-io/issues/issues/10468)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.12 - March 17, 2025
 
 <details>
