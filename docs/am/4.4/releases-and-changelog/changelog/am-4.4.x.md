@@ -10,6 +10,37 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.23 - April 11, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Problem with API management console application creation/update and DCR [#10232](https://github.com/gravitee-io/issues/issues/10232)
+* Login button remains disabled when using a password manager [#10411](https://github.com/gravitee-io/issues/issues/10411)
+* Setting max consecutive letters to 0 in password policies using mapi displays unnecessary password requirement [#10416](https://github.com/gravitee-io/issues/issues/10416)
+* Unable to use id_token when configuring Azure though OpenId form [#10453](https://github.com/gravitee-io/issues/issues/10453)
+* Error handling error=session_expired in Login Form [#10460](https://github.com/gravitee-io/issues/issues/10460)
+
+**Management API**
+
+* Prevent Ogranization IDP selection to send null [#10444](https://github.com/gravitee-io/issues/issues/10444)
+* Fix audit log on user login failed [#10463](https://github.com/gravitee-io/issues/issues/10463)
+
+
+
+**Other**
+
+* Error in /ciba/authenticate/callback [#10412](https://github.com/gravitee-io/issues/issues/10412)
+* MinLength value can be greater than maxLength value in a password policy when using the mapi [#10417](https://github.com/gravitee-io/issues/issues/10417)
+* [AM][4.5.11] Error when character "ë" in a token [#10418](https://github.com/gravitee-io/issues/issues/10418)
+* Management API does not check if user exists on domain when added to a group on creation of the group [#10468](https://github.com/gravitee-io/issues/issues/10468)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.22 - March 24, 2025
 
 <details>
