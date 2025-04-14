@@ -1,5 +1,14 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.14 - April 14, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * v4 APIs created via GKO not displayed in assigned Category [#10448](https://github.com/gravitee-io/issues/issues/10448)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.13 - April 8, 2025
     
 <details>
