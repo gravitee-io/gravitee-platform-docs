@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.7 - April 15, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+**Management API**
+
+* MFA "Remember Device" error when using CAS IDP [#10493](https://github.com/gravitee-io/issues/issues/10493)
+
+**Other**
+
+* JDBC pool parameters are incorrectly indented in the Helm chart [#10482](https://github.com/gravitee-io/issues/issues/10482)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.6 - April 11, 2025
 
 <details>
