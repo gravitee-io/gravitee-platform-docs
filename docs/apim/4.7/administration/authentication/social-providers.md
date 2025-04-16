@@ -1,20 +1,6 @@
 # Social Providers
 
-## Overview
-
-The following sections describe how to configure:
-
-* [GitHub authentication](social-providers.md#github-authentication)
-* [Google authentication](social-providers.md#google-authentication)
-
 ## GitHub authentication
-
-Gravitee supports GitHub authentication. This section describes how to:
-
-* [Create a GitHub OAuth application](social-providers.md#create-a-github-oauth-application)
-* [Retrieve your OAuth2 credentials](social-providers.md#retrieve-your-oauth2-credentials)
-* [Configure the Gravitee APIM and GitHub connection](social-providers.md#configure-github-authentication-in-gravitee)
-* [Test your GitHub authentication flow](social-providers.md#test-your-new-github-authentication-flow)
 
 ### Create a GitHub OAuth application
 
@@ -98,12 +84,6 @@ You can easily test your GitHub configuration by logging out of the Management C
 Select this, and enter in your credentials. You should then be met with an **Authorize Gravitee** page. Here, select **Authorize**. You should then be brought to the Gravitee API Management Console.
 
 ## Google authentication
-
-Gravitee supports Google authentication. This section describes how to:
-
-* [Create a Google OAuth client](social-providers.md#create-a-google-oauth-client)
-* [Configure the Gravitee APIM and Google connection](social-providers.md#configure-gravitee-apim-and-google-connection)
-* [Test your Google authentication flow](social-providers.md#test-your-new-google-authentication-flow)
 
 ### Create a Google OAuth client
 

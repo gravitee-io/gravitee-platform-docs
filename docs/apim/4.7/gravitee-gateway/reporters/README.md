@@ -10,7 +10,27 @@ ElasticSearch is the default reporter for gateway runtime data and is required f
 If you want to monitor the **server** logs from the gateway or the management API, you can use an agent for your observability platform (e.g. the [Datadog agent](https://docs.datadoghq.com/agent/?tab=Linux)) to tail the server logs. If you want to monitor the server metrics from your Gravitee infrastructure (e.g. CPU and memory usage), you can instrument the server directly or use the Prometheus endpoint for the Gravitee component.
 {% endhint %}
 
+You can configure various aspects of reporters, such as reporting monitoring data, request metrics, and health checks. All reporters are enabled by default. To stop a reporter, you need to add the property `enabled: false`:
+
+```yaml
+reporters:
+  elasticsearch:
+    endpoints:
+      - http://localhost:9200
+#    index: gravitee
+#    bulk:
+#       actions: 500           # Number of requests action before flush
+#       flush_interval: 1      # Flush interval in seconds
+#    security:
+#       username:
+#       password:
+```
+
 This page documents the available reporters and the metrics and logs captured by each reporter, in a generic format. The configuration for each reporter and the format of the metrics in those reporting systems are covered in their own pages.
+
+{% hint style="warning" %}
+Configuration details for the Elasticsearch reporter are available in the [Elasticsearch Repository](../../configure-apim/repositories/#elasticsearch) documentation.
+{% endhint %}
 
 ## Available Reporters
 

@@ -1,15 +1,8 @@
 # Applications
 
-## Introduction
+## Overview
 
 To access Gravitee APIs, consumers must register an application and subscribe to a published API plan. Applications act on behalf of the user to request tokens, provide user identity information, and retrieve protected resources from remote services and APIs.
-
-This page contains the following sections:
-
-* [Prerequisites](applications.md#prerequisites)
-* [Default application configuration](applications.md#default-application-configuration)
-* [DCR application configuration](applications.md#dcr-application-configuration)
-* [Manage applications](applications.md#manage-applications)
 
 ## Prerequisites
 

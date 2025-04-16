@@ -2,12 +2,9 @@
 
 ## Overview
 
-OpenID Connect is an authentication protocol built on top of the OAuth 2.0 framework that provides identity verification capabilities for web and mobile applications. It enables users to authenticate with an identity provider and obtain an identity token, which can be used to access protected resources on a web application.
+OpenID Connect (OIDC) is an authentication protocol built on top of the OAuth 2.0 framework that provides identity verification capabilities for web and mobile applications. It enables users to authenticate with an identity provider and obtain an identity token, which can be used to access protected resources on a web application.
 
-Gravitee offers support for OpenID Connect authentication. This section includes set up instructions for:
-
-* [General OpenID Connect authentication](openid-connect.md#openid-connect-authentication)
-* [Keycloak as OpenId Connect authentication](openid-connect.md#keycloak-authentication)
+Gravitee offers support for OpenID Connect authentication. This article includes set up instructions for general OIDC authentication and using Keycloak for OIDC.
 
 ## OpenID Connect authentication
 

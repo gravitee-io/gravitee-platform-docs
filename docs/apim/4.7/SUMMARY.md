@@ -312,7 +312,7 @@
 
 ## Gravitee Gateway
 
-* [Internal API](gravitee-gateway/internal-api.md)
+* [Gateway Internal API](gravitee-gateway/gateway-internal-api.md)
 * [Dictionaries](gravitee-gateway/dictionaries.md)
 * [Tenants](gravitee-gateway/tenants.md)
 * [Sharding Tags](gravitee-gateway/sharding-tags.md)
@@ -328,7 +328,7 @@
 
 ## Management API
 
-* [Internal API](management-api/internal-api.md)
+* [MAPI Internal API](management-api/mapi-internal-api.md)
 * [Security](management-api/security.md)
 * [Management Settings](management-api/management-settings.md)
 * [User Settings](management-api/user-settings.md)

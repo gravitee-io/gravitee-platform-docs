@@ -5,7 +5,7 @@
 This article aims to provide information on how to setup APIM authentication in the APIM Console UI to be able to use Azure Entra ID (formerly known as Azure AD) as an IDP.
 
 {% hint style="info" %}
-For now, these instructions only cover authentication, not the role mappings.
+These instructions currently only cover authentication, not the role mappings.
 {% endhint %}
 
 {% hint style="info" %}

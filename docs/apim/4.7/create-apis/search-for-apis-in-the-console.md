@@ -13,9 +13,9 @@ From this page you can complete the following actions:
 
 <figure><img src="../.gitbook/assets/image (224).png" alt=""><figcaption><p>Example screenshot of the API menu (in the Gravitee API Management Console)</p></figcaption></figure>
 
-## Searching APIs
+## Search for APIs
 
-It can be challenging to browse through a long list of APIs to find a specific API.  You can use the search box to filter and find your API.
+It can be challenging to browse through a long list of APIs to find a specific API. You can use the search box to filter and find your API.
 
 <figure><img src="../.gitbook/assets/image (225).png" alt=""><figcaption><p>Search APIs</p></figcaption></figure>
 
@@ -34,7 +34,7 @@ Here is the list of API fields that you can use as search filters:
 
 ### Search Examples
 
-Here are some examples of what you can enter in the search bar to filter the results:
+Here are some examples of what you can enter into the search bar to filter the results:
 
 * For a label: `labels:NewLabel`
 * For an API that matches a given name and a given description: `name:"Butterfly*" & description:"This*"`

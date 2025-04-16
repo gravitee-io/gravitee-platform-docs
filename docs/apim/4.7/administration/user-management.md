@@ -1,12 +1,8 @@
 # User Management
 
-## Introduction
+## Overview
 
 This article describes how to set up and manage Gravitee roles, scopes, permissions, users, and user groups.
-
-* [Roles](user-management.md#roles)
-* [Permissions](user-management.md#permissions)
-* [Users and user groups](user-management.md#users-and-user-groups)
 
 ## Roles
 

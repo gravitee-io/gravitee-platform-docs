@@ -1,12 +1,36 @@
 # Organizations and Environments
 
-## Organizations
+## Overview
 
-In Gravitee, an Organization represents a logical portion of a company that shares unique characteristics and/or serves a specific business purpose, e.g., a region or business unit.&#x20;
+In Gravitee, an **Organization** represents a logical portion of a company that shares unique characteristics and/or serves a specific business purpose, e.g., a region or business unit.&#x20;
 
 Organizations are defined to maximize resources and capabilities. In the context of an APIM installation, an organization is the level at which shared Environment configurations are managed, such as users, roles, identity providers, and notification templates. A single Organization can include multiple Environments.
 
-### Configure your Organization
+An **Environment** acts as the workspace within which users can manage their APIs, applications, and subscriptions. Each Environment manages its own categories, groups, documentation pages, and quality rules. Examples include:
+
+* Technical Environments such as DEV / TEST / PRODUCTION
+* Functional Environments such as PRIVATE APIS / PUBLIC APIS / PARTNERSHIP
+
+{% hint style="info" %}
+Connect Gravitee API Management to [Gravitee Cloud](https://documentation.gravitee.io/gravitee-cloud) to manage Environments
+{% endhint %}
+
+## Configuration
+
+You can configure organizations and environments using their `hrids` on APIM Gateway instances either at the system property level or with `gravitee.yml`.
+
+Only APIs and dictionaries belonging to the configured organizations and environments will be loaded.
+
+If only the `organizations` configuration is set, then all environments belonging to these organizations are used. If only the `environments` configuration is set, then all environments matching the setting will be used, regardless of their organization. If both `organizations` and `environments` are set, all environments matching the setting and belonging to these organizations will be used. If none of these fields is set, then all organizations and environments are used.
+
+The example below configures deployment only for `dev` and `integration` environments for `mycompany` organization.
+
+```
+organizations: mycompany
+environments: dev,integration
+```
+
+### Using the Console
 
 To access your Organization settings:&#x20;
 
@@ -82,15 +106,4 @@ As a part of Organization administration, Gravitee offers multiple ways to manag
 
 {% hint style="warning" %}
 This should _not_ be confused with [Gravitee Access Management](https://documentation.gravitee.io/am), which is a full-featured Identity and Access Management solution used to control access to applications and APIs.
-{% endhint %}
-
-## Environments
-
-In Gravitee, an Environment acts as the workspace within which users can manage their APIs, applications, and subscriptions. Each Environment manages its own categories, groups, documentation pages, and quality rules. Examples include:
-
-* Technical Environments such as DEV / TEST / PRODUCTION
-* Functional Environments such as PRIVATE APIS / PUBLIC APIS / PARTNERSHIP
-
-{% hint style="info" %}
-Connect Gravitee API Management to [Gravitee Cloud](https://documentation.gravitee.io/gravitee-cloud) to manage Environments
 {% endhint %}

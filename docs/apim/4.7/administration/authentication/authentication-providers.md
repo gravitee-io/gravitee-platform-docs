@@ -2,11 +2,7 @@
 
 ## Overview
 
-The following sections describe how to configure:
-
-* [In-memory users](authentication-providers.md#in-memory-users)
-* [LDAP authentication](authentication-providers.md#ldap-authentication)
-* [APIM data source authentication](authentication-providers.md#apim-data-source-authentication)
+The following sections describe how to configure in-memory users, LDAP authentication, and APIM data source authentication.
 
 ## In-memory users
 
