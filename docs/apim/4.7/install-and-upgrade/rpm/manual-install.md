@@ -1,11 +1,13 @@
 # Manual install
 
+{% hint style="warning" %}
+RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](../.zip.md).
+{% endhint %}
+
 ## Prerequisites
 
-{% hint style="warning" %}
-* RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](../.zip.md).
-* If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition licensing, see [Enterprise Edition](../../overview/enterprise-edition.md).
-{% endhint %}
+* Starting with Gravitee version 4.7, JDK 21 is mandatory.
+* If you're running the Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition licensing, see [Enterprise Edition](../../overview/enterprise-edition.md).
 
 ### Prerequisites for installing Gravitee APIM on an Amazon instance
 
