@@ -1,5 +1,22 @@
 # APIM 4.7.x
  
+## Gravitee API Management 4.7.3 - April 17, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Bug in io.gravitee.connector.http.HttpConnection.java exceptionHandler [#10439](https://github.com/gravitee-io/issues/issues/10439)
+
+**Console**
+
+* Logs filter display Unpublished plan [#10480](https://github.com/gravitee-io/issues/issues/10480)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.7.2 - April 11, 2025
 <details>
 
