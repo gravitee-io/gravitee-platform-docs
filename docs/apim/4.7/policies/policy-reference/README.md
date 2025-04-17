@@ -32,7 +32,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [InterOPS](../interops.md)\*
 * [Interrupt](../interrupt.md)
 * [IP Filtering](../ip-filtering.md)
-* [JavaScript](../javascript-1.md)
+* [JavaScript](../javascript.md)
 * [JSON Threat Protection](../json-threat-protection.md)
 * [JSON to JSON Transformation](../json-to-json.md)
 * [JSON Validation](../json-validation.md)
