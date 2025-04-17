@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Rate Limit policy
 hidden: true
 ---
 
@@ -20,14 +19,6 @@ To dynamically set the custom key, it can be defined using Gravitee Expression L
 {% hint style="warning" %}
 An arbitrary custom key can be incorrectly defined via Gravitee Expression Language and potentially bypass the constraints of this mechanism to impact the quota of a different user. Users must assess this risk when using custom keys.
 {% endhint %}
-
-Functional and implementation information for the `rate-limit` policies are organized into the following sections:
-
-* [Examples](rate-limit.md#examples)
-* [Configuration](rate-limit.md#configuration)
-* [Compatibility Matrix](rate-limit.md#compatibility-matrix)
-* [Errors](rate-limit.md#errors)
-* [Changelogs](rate-limit.md#changelogs)
 
 ## Examples
 

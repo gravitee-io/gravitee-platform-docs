@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the SSL Enforcement policy
 hidden: true
 ---
 
@@ -17,14 +16,6 @@ This policy is mainly used in plan configuration to allow access to consumers fo
 
 * In session: This is the default behavior. The client certificate is accessible through the TLS session, which must remain active during the certificate request. If the session is terminated, the certificate will not be visible.
 * In header: A reverse proxy (e.g., NGINX, Apache) passes the client certificate using a specified header. This option requires the user to specify which header contains the certificate, which is base64-encoded.
-
-Functional and implementation information for the `ssl-enforcement` policy is organized into the following sections:
-
-* [Examples](ssl-enforcement.md#examples)
-* [Configuration](ssl-enforcement.md#configuration)
-* [Compatibility Matrix](ssl-enforcement.md#compatibility-matrix)
-* [Errors](ssl-enforcement.md#errors)
-* [Changelogs](ssl-enforcement.md#changelogs)
 
 ## Examples
 

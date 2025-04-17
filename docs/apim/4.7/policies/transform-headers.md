@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Transform Headers policy
 hidden: true
 ---
 
@@ -12,13 +11,6 @@ You can use the `transform-headers` policy to override HTTP headers in incoming 
 * Adding to or updating the list of headers
 * Removing headers individually
 * Defining a whitelist == Compatibility with APIM
-
-Functional and implementation information for the `transform-headers` policy is organized into the following sections:
-
-* [Examples](transform-headers.md#examples)
-* [Configuration](transform-headers.md#configuration)
-* [Compatibility Matrix](transform-headers.md#compatibility-matrix)
-* [Changelogs](transform-headers.md#changelogs)
 
 ## Examples
 

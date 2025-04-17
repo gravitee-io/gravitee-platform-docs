@@ -55,10 +55,6 @@ You can configure tenants to specify which users can proxy requests to this endp
 
 Refer to the following sections for additional details.
 
-* [Compatibility matrix](azure-service-bus.md#user-content-compatibility-matrix)
-* [Endpoint identifier](azure-service-bus.md#user-content-endpoint-identifier)
-* [Endpoint configuration](azure-service-bus.md#user-content-endpoint-configuration)
-
 ### Compatibility matrix <a href="#user-content-compatibility-matrix" id="user-content-compatibility-matrix"></a>
 
 | Plugin version | APIM version |

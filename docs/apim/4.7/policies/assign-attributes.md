@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Assign Attributes policy
 hidden: true
 ---
 

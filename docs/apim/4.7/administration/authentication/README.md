@@ -1,13 +1,4 @@
----
-description: >-
-  This article focuses on how to configure SSO and authentication methods for
-  accessing the Gravitee platform using Gravitee Access Management, Google,
-  Github, Azure AD, and Keycloak
----
-
 # Authentication
-
-## Introduction
 
 Gravitee API Management (APIM) natively support several types of authentication methods to allow users to securely access APIM. For more information about configuring each authentication method  using the `gravitee.yaml` file or the Gravitee API Management Console, see the following articles:
 

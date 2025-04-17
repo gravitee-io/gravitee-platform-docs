@@ -1,11 +1,11 @@
 # Docker Images
 
-## Before you begin
+## Prerequisites
 
 * You must install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
 * If you are using the Enterprise Edition (EE) of Gravitee, ensure that you have a licensing key. If you do not know your licensing key, see the [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
 
-## Installing Gravitee APIM
+## Install Gravitee APIM
 
 1. Use the following command to create a directory structure in which to persist data and store plugins:
 

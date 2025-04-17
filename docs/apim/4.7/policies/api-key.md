@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the API Key policy
 hidden: true
 ---
 
@@ -10,14 +9,6 @@ hidden: true
 You can use the `api-key` policy to enforce API key checks during request processing, allowing only apps with approved API keys to access your APIs.
 
 This policy ensures that API keys are valid, have not been revoked or expired and are approved to consume the specific resources associated with your API.
-
-Functional and implementation information for the `api-key` policy is organized into the following sections:
-
-* [Examples](api-key.md#examples)
-* [Configuration](api-key.md#configuration)
-* [Compatibility Matrix](api-key.md#compatibility-matrix)
-* [Errors](api-key.md#errors)
-* [Changelogs](api-key.md#changelogs)
 
 ## Examples
 

@@ -2,12 +2,7 @@
 
 ## Overview
 
-Administrators have the option to modify the layout and theme of the Developer Portal to customize how APIs are presented to API consumers. The following sections describe which elements can be modified and provide instructions:
-
-* [API Sidebar](layout-and-theme.md#api-sidebar)
-* [API Catalog](layout-and-theme.md#api-catalog)
-* [Custom navigation](layout-and-theme.md#custom-navigation)
-* [Theming](layout-and-theme.md#theming)
+Administrators have the option to modify the layout and theme of the Developer Portal to customize how APIs are presented to API consumers. The following sections describe which elements can be modified and provide instructions.
 
 ## API Sidebar
 

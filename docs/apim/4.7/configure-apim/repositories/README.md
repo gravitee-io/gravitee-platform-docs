@@ -1,10 +1,6 @@
----
-description: This article introduces how to configure various repositories
----
-
 # Repositories
 
-## Introduction
+## Overview
 
 Gravitee uses repositories to store different types of data. They are configured in `gravitee.yml`, where each repository can correspond to a particular scope. For example, management data can be stored in MongoDB, rate limiting data in Redis, and analytics data in ElasticSearch.
 

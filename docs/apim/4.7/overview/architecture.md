@@ -1,5 +1,7 @@
 # Architecture
 
+## Overview
+
 Gravitee offers three different API Management architecture schemes: [self-hosted](architecture.md#self-hosted-architecture), [hybrid](architecture.md#hybrid-architecture), and [Gravitee-managed](architecture.md#gravitee-managed-architecture).
 
 Each architecture relies on a specific set of Gravitee components. Some components are common to all architectures while others are architecture-specific. The following table compares the component types and management of self-hosted and hybrid architectures.

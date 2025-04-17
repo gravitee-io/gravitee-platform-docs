@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the OpenID Connect UserInfo policy
 hidden: true
 ---
 
@@ -12,12 +11,6 @@ Use the `openid-userinfo` policy to get the OpenId Connect user info from an OAu
 {% hint style="info" %}
 The request will fail with a 401 status if the policy’s Oauth2 resource is misconfigured or not defined at all. To troubleshoot this, check the `WWW_Authenticate` header for more information.
 {% endhint %}
-
-Functional and implementation information for the `openid-userinfo` policy is organized into the following sections:
-
-* [Examples](openid-connect-userinfo.md#examples)
-* [Configuration](openid-connect-userinfo.md#configuration)
-* [Changelogs](openid-connect-userinfo.md#changelogs)
 
 ## Examples
 

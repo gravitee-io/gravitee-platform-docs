@@ -4,11 +4,7 @@
 
 This tutorial will quickly showcase how to configure Dynamic Client Registration (DCR) with APIM and Gravitee Access Management (AM).
 
-{% hint style="info" %}
-**DCR Background**
-
 [DCR](https://www.rfc-editor.org/rfc/rfc7591) is a protocol that allows OAuth client applications to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. DCR allows API consumers to register applications with an OAuth server from Gravitee’s Developer Portal or Management Console. This outsources the issuer and management of application credentials to a third party, allowing for additional configuration options and compatibility with various OIDC features provided by the identity provider.
-{% endhint %}
 
 ## Prerequisites <a href="#prerequisites-3" id="prerequisites-3"></a>
 
@@ -49,8 +45,6 @@ You must also select an **Initial Access Token Provider**, and we will be using 
 Leave this page open and open up AM to see how to retrieve the discovery endpoint and credentials.
 
 ## AM Setup <a href="#am-setup-7" id="am-setup-7"></a>
-
-Now let’s configure AM.
 
 ### 1. Set security domain
 

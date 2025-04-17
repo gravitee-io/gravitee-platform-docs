@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Generate JWT policy
 hidden: true
 ---
 
@@ -10,14 +9,6 @@ hidden: true
 You use the `generate-JWT` policy to generate a signed JWT with a configurable set of claims. This JWT can subsequently be forwarded to backend targets, or used in some other way.
 
 When a signed JWT is generated, it is put in the `jwt.generated` attribute of the request execution context.
-
-Functional and implementation information for the `generate-JWT` policy is organized into the following sections:
-
-* [Examples](generate-jwt.md#examples)
-* [Configuration](generate-jwt.md#configuration)
-* [Compatibility Matrix](generate-jwt.md#compatibility-matrix)
-* [Errors](generate-jwt.md#errors)
-* [Changelogs](generate-jwt.md#changelogs)
 
 ## Examples
 

@@ -1,9 +1,3 @@
----
-description: >-
-  This page provides the technical details of the Gravitee.io AM Authorization
-  Server
----
-
 # Gravitee.io AM Authorization Server
 
 ## Overview

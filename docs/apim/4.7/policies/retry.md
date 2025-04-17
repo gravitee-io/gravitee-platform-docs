@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Retry policy
 hidden: true
 ---
 
@@ -14,14 +13,6 @@ If the retry takes too long, relative to the `timeout` value, the request stops 
 {% hint style="info" %}
 To replay a request with a payload, the Gateway stores it in memory. We recommend you avoid applying it to requests with a large payload.
 {% endhint %}
-
-Functional and implementation information for the `retry` policy is organized into the following sections:
-
-* [Examples](retry.md#examples)
-* [Configuration](retry.md#configuration)
-* [Compatibility Matrix](retry.md#compatibility-matrix)
-* [Errors](retry.md#errors)
-* [Changelogs](retry.md#changelogs)
 
 ## Examples
 

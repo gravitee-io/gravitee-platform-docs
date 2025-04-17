@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the JWT policy
 hidden: true
 ---
 
@@ -19,14 +18,6 @@ A JWT is composed of three parts: A header, a payload and a signature. Each must
 * The header contains attributes indicating the algorithm used to sign the token.
 * The payload contains information inserted by the AS (Authorization Server), such as the expiration date and UID of the user.
 * The third and last part is the signature (for more details, see the RFC).
-
-Functional and implementation information for the `jwt` policy is organized into the following sections:
-
-* [Examples](jwt-validator.md#examples)
-* [Configuration](jwt-validator.md#configuration)
-* [Compatibility Matrix](jwt-validator.md#compatibility-matrix)
-* [Errors](jwt-validator.md#errors)
-* [Changelogs](jwt-validator.md#changelogs)
 
 ## Examples
 

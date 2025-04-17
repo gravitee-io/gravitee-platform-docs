@@ -1,12 +1,6 @@
----
-description: >-
-  This article walks through how to create APIs using the Gravitee v2 API
-  definition
----
-
 # v2 API Creation Wizard
 
-## Introduction
+## Overview
 
 In Gravitee, your API definition is a JSON representation of your Gateway API. The v2 API definition supports HTTP-based APIs and the legacy version of the Policy Studio. This article describes how to create APIs in Gravitee using the v2 API creation wizard.
 

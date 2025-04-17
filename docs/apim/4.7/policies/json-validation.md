@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the JSON Validation policy
 hidden: true
 ---
 
@@ -8,14 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `json-validation` policy to validate JSON payloads. This policy uses [JSON Schema Validator](https://github.com/java-json-tools/json-schema-validator). It returns `400 BAD REQUEST` when request validation fails and `500 INTERNAL ERROR` when response validation fails, with a custom error message body. It can inject processing report messages into request metrics for analytics.
-
-Functional and implementation information for the `json-validation` policy is organized into the following sections:
-
-* [Examples](json-validation.md#examples)
-* [Configuration](json-validation.md#configuration)
-* [Compatibility Matrix](json-validation.md#compatibility-matrix)
-* [Errors](json-validation.md#errors)
-* [Changelogs](json-validation.md#changelogs)
 
 ## Examples
 

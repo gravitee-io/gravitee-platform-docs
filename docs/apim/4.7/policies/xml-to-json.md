@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the XML to JSON policy
 hidden: true
 ---
 
@@ -8,14 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `xml-json` policy to transform XML content into JSON content.
-
-Functional and implementation information for the `xml-json` policy is organized into the following sections:
-
-* [Examples](xml-to-json.md#examples)
-* [Configuration](xml-to-json.md#configuration)
-* [Compatibility Matrix](xml-to-json.md#compatibility-matrix)
-* [Errors](xml-to-json.md#errors)
-* [Changelogs](xml-to-json.md#changelogs)
 
 ## Examples
 

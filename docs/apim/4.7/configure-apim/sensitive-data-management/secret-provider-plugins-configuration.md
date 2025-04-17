@@ -1,17 +1,10 @@
----
-description: >-
-  Gravitee's secret managers integrations rely on the secret-provider plugin
-  type. This page lets you know how to configure these plugins for all use
-  cases.
----
-
 # Secret Provider Plugins Configuration
 
-## Introduction
+## Overview
 
 Secrets managers provide a secure and convenient way to encrypt, store, manage, and retrieve secrets and other sensitive data such as tokens, API keys, passwords, and certificates. Using secret managers, it's possible to enforce consistent security policies, ensure resources and digital credentials can only be accessed by authenticated and authorized users, and instantly connect systems to accomplish automated tasks.
 
-Gravitee offers an [integration](../../getting-started/integrations.md#secret-managers-integration) with secrets managers to obscure secrets and avoid clear text credentials stored in files or databases.
+Gravitee offers an [integration](../../getting-started/integrations.md#secret-managers-integration) with secrets managers to obscure secrets and avoid clear text credentials stored in files or databases. Gravitee's secret managers integrations rely on the secret-provider plugin type.
 
 [Configuration-level secrets](configuration-level-secrets.md) allow you to obscure secrets in `gravitee.yml`, Helm Charts, and environment variables.
 

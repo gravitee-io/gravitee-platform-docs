@@ -2,11 +2,7 @@
 
 ## Overview
 
-Before you can use Gravitee to proxy in a Kafka cluster, you need to configure the Gravitee Kafka Gateway and a Kafka client. This article describes how to:
-
-* [Configure the Kafka Gateway](configure-the-kafka-gateway-and-client.md#configure-the-kafka-gateway)
-* [Configure a Kafka client](configure-the-kafka-gateway-and-client.md#configure-the-kafka-client)
-* [Produce and consume messages](configure-the-kafka-gateway-and-client.md#produce-and-consume-messages)
+Before you can use Gravitee to proxy in a Kafka cluster, you need to configure the Gravitee Kafka Gateway and a Kafka client.
 
 ## Configure the Kafka Gateway
 
@@ -142,7 +138,7 @@ To add more APIs, you will need to add another API host to the first line and tw
 
 </details>
 
-### Defining the default entrypoint configuration
+### Define the default entrypoint configuration
 
 By default, clients talk to Kafka APIs by setting the bootstrap server as `{apiHost}.{defaultDomain}:{defaultPort}`. This is set in `gravitee.yml`, but for convenience, when developing APIs in the UI, you can set the default values appended to the hostname. You can also leave this value blank and respecify the full hostname in the API.
 

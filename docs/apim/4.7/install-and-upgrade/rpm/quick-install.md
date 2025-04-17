@@ -5,13 +5,11 @@
 * If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition licensing, see [Enterprise Edition](../../overview/enterprise-edition.md).
 {% endhint %}
 
-1. To install Gravitee's APIM stack, use the following command:
+To install Gravitee's APIM stack, use the following command:
 
 ```bash
 curl -L https://bit.ly/install-apim-4x | bash
 ```
-
-**Verification**
 
 To verify that you installed Gravitee APIM correctly, send four API calls using the following commands on the machine hosting APIM:
 

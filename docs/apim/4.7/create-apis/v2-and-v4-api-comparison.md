@@ -2,11 +2,7 @@
 
 ## Overview
 
-When creating Gravitee APIs, keep in mind that v2 APIs and v4 APIs have some differences in functionality. The following table shows the differences for the following API types:
-
-* v2 proxy APIs
-* v4 proxy APIs
-* v4 message APIs
+When creating Gravitee APIs, keep in mind that there are differences in how v2 APIs and v4 APIs function and what they support.&#x20;
 
 ## Differences in importing v2 and v4 APIs
 

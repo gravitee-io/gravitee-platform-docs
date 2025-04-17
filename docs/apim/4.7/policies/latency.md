@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Latency policy
 hidden: true
 ---
 
@@ -13,14 +12,6 @@ This policy is particularly useful in two scenarios:
 
 * Testing: adding latency allows you to test client applications when APIs are slow to respond.
 * Monetization: a longer latency can be added to free plans to encourage clients to move to a better (or paid) plan.
-
-Functional and implementation information for the `latency` policy is organized into the following sections:
-
-* [Examples](latency.md#examples)
-* [Configuration](latency.md#configuration)
-* [Compatibility Matrix](latency.md#compatibility-matrix)
-* [Errors](latency.md#errors)
-* [Changelogs](latency.md#changelogs)
 
 ## Examples
 

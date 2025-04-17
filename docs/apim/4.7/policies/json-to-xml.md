@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the JSON to XML policy
 hidden: true
 ---
 
@@ -8,14 +7,6 @@ hidden: true
 ## Overview
 
 The `json-xml` policy transforms JSON payloads to XML before either sending the payload to the backend system or returning it to the client.
-
-Functional and implementation information for the `json-xml` policy is organized into the following sections:
-
-* [Examples](json-to-xml.md#examples)
-* [Configuration](json-to-xml.md#configuration)
-* [Compatibility Matrix](json-to-xml.md#compatibility-matrix)
-* [Errors](json-to-xml.md#errors)
-* [Changelogs](json-to-xml.md#changelogs)
 
 ## Examples
 

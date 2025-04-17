@@ -1,14 +1,8 @@
----
-description: >-
-  This article walks through how to configure Quality of Service for Gravitee v4
-  APIs
----
-
 # Quality of Service
 
-## Introduction
+## Overview
 
-Quality of Service (QoS) defines the guaranteed level of message delivery of an asynchronous APIs or event broker. While higher Quality of Service corresponds to more reliable message delivery, this could lead to lower system performance. Different QoS are available for every entrypoint/endpoint combination.
+Quality of Service (QoS) defines the guaranteed level of message delivery of an asynchronous APIs or event broker. While higher Quality of Service corresponds to more reliable message delivery, this could lead to lower system performance. Different QoS are available for every entrypoint/endpoint combination. This article describes how to configure Quality of Service for Gravitee v4 APIs.
 
 ## QoS levels
 

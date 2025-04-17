@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the JSON Web Signature policy
 hidden: true
 ---
 
@@ -14,14 +13,6 @@ JWT in JWS format enables secure content to be shared across security domains. T
 * JWS (JSON Web Signature) standard RFC: [https://tools.ietf.org/html/rfc7515](https://tools.ietf.org/html/rfc7515)
 * JOSE Header standard RFC: [https://tools.ietf.org/html/rfc7515#section-4](https://tools.ietf.org/html/rfc7515#section-4)
 * JWT (JSON Web Token) standard RFC: [https://tools.ietf.org/html/rfc7519](https://tools.ietf.org/html/rfc7519)
-
-Functional and implementation information for the `jws-validator` policy is organized into the following sections:
-
-* [Examples](jws-validator.md#examples)
-* [Configuration](jws-validator.md#configuration)
-* [Compatibility matrix](jws-validator.md#compatibility-matrix)
-* [Errors](jws-validator.md#errors)
-* [Changelogs](jws-validator.md#changelogs)
 
 ## Examples
 

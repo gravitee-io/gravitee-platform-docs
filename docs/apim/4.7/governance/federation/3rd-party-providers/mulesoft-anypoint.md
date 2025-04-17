@@ -1,31 +1,33 @@
 # Mulesoft Anypoint
 
+## Overview
+
 Mulesoft Anypoint Platform is Mulesoft's API Management Solution
 
 ## Prerequisites
 
-* To start with the Mulesoft Federation Agent, you need access to the Mulesoft Anypoint Platform with permissions to manage and create Connected Apps.
+To start with the Mulesoft Federation Agent, you need access to the Mulesoft Anypoint Platform with permissions to manage and create Connected Apps.
 
 ## 1. Create a Mulesoft integration in the Gravitee APIM Console
 
-Head to the Gravitee APIM Console, open the Integrations section in the left menu, and then create a new Mulesoft integration.&#x20;
+Head to the Gravitee APIM Console, open the Integrations section in the left menu, and then create a new Mulesoft integration.
 
 Once you have created the integration, copy the integration ID. The integration ID is visible on the integration overview tab. You will use this ID later.
 
 <figure><img src="../../../.gitbook/assets/image (222).png" alt=""><figcaption></figcaption></figure>
 
-## &#x20;2. Configure the Mulesoft agent
+## 2. Configure the Mulesoft agent
 
 The Gravitee Mulesoft federation agent needs the following configuration parameters to connect to your Mulesoft Anypoint account:
 
 * The Connected App Client ID and Client Secret
-* Mulesoft Root Organization ID&#x20;
+* Mulesoft Root Organization ID
 
-#### How to Generate a Connected App&#x20;
+#### How to Generate a Connected App
 
 To generate a Connected App, navigate to Mulesoft's Access Management service. In the left menu, find the **Connected Apps** tab.
 
-&#x20;Clicking on **Connected Apps** tab shows a **Create App** button to create a new application.
+Clicking on **Connected Apps** tab shows a **Create App** button to create a new application.
 
 The recommended approach is to create an app that acts on its own behalf.
 
@@ -39,7 +41,7 @@ Once you have created the app, you should see the **clientID** and **clientSecre
 
 In case of any issues, you can refer to this documentation for more information: [MuleSoft Documentation on Creating Connected Apps](https://docs.mulesoft.com/access-management/creating-connected-apps-dev).
 
-#### Mulesoft Root Organization ID&#x20;
+#### Mulesoft Root Organization ID
 
 To get the Mulesoft Root organization ID you need to navigate to Anypoint Platform → Access Management → Business Groups → Root Business Group → Settings tab → Business Group ID.
 
@@ -117,7 +119,7 @@ In the Gravitee API Management console, after refreshing, you should now see the
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 
-### Limitations
+## Limitations
 
 The agent limits the size of the OpenAPI document to 1 000 000B (about 1MB). APIs with documentation in excess of this limit are ingested without documentation and generate a message in the agent logs:
 

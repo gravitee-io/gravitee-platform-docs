@@ -1,9 +1,3 @@
----
-description: >-
-  The Management API empowers organizations to manage Gravitee components
-  programmatically.
----
-
 # Management API Reference
 
 ## Overview

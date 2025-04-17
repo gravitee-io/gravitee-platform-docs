@@ -1,10 +1,10 @@
 # Rate Limit REST APIs
 
-### Overview <a href="#overview" id="overview"></a>
+## Overview <a href="#overview" id="overview"></a>
 
 This tutorial explores various use cases where rate limiting plays a critical role in enhancing the security, performance, and reliability of your REST APIs.
 
-### Prerequisites <a href="#prerequisites" id="prerequisites"></a>
+## Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
 Before proceeding with this tutorial, be sure you're familiar with the following:
 
@@ -12,7 +12,7 @@ Before proceeding with this tutorial, be sure you're familiar with the following
 * **Gravitee** [**policies**](broken-reference)**:** Rules or logic that the Gateway can execute during the request or response of an API call, e.g., to enhance security, ensure reliability, or enable API monetization.
 * **Gravitee APIs:** Refer to our API creation wizards for step-by-step guides to create APIs using the Gravitee [v2](../../create-apis/v2-api-creation-wizard.md) and [v4](../../create-apis/v4-api-creation-wizard.md) API definitions.
 
-### Introduction to Gravitee rate limiting <a href="#introduction-to-gravitee-rate-limiting" id="introduction-to-gravitee-rate-limiting"></a>
+## Introduction to Gravitee rate limiting <a href="#introduction-to-gravitee-rate-limiting" id="introduction-to-gravitee-rate-limiting"></a>
 
 Rate limiting policies limit and/or throttle the number of API requests over a set time period. Rate limits can be enacted as a security measure to prevent abuse and ensure fair usage of the API. They can be applied differently depending on the type of request, consumer authentication status, or usage history.
 
@@ -24,23 +24,23 @@ Gravitee supports three rate-limiting policies:
 
 In summary, quota limits the total amount of usage over a period, while rate limit controls the rate at which requests can be made within that period. Both are important for managing API usage and ensuring fair access to resources. Spike arrest handles sudden spikes in traffic to ensure the stability and reliability of the API.
 
-### Use case: Rate limits based on consumer plan <a href="#use-case-rate-limits-based-on-consumer-plan" id="use-case-rate-limits-based-on-consumer-plan"></a>
+## Use case: Rate limits based on consumer plan <a href="#use-case-rate-limits-based-on-consumer-plan" id="use-case-rate-limits-based-on-consumer-plan"></a>
 
 This use case is an example of how to enforce a rate limiting policy on a Gravitee REST API.
 
-#### **Scenario and objective** <a href="#scenario-and-objective" id="scenario-and-objective"></a>
+### **Scenario and objective** <a href="#scenario-and-objective" id="scenario-and-objective"></a>
 
 A cloud storage service offers an API that developers can use to access and manage the files hosted on its platform. There are three tiers of service, represented by silver, gold, and platinum plans, which correspond to different levels of consumer access. The goal is to facilitate secure, fair usage of the API while providing a differentiated experience through the unique rate-limiting of each tier.
 
 This use case explores enabling different Quota policies for each tier and also applying a Rate Limit policy to all tiers to ensure that consumer requests do not overwhelm the backend server.
 
-#### **Users** <a href="#users" id="users"></a>
+### **Users** <a href="#users" id="users"></a>
 
 * **Silver Tier:** The cloud storage service wants to encourage free, limited use of their API. Users subscribed to this plan will be assigned the lowest quota level.
 * **Gold Tier:** This plan allows API consumers to call the API more than the free, limited plan. Subscribers will be subject to a higher quota.
 * **Platinum Tier:** Users subscribed to the paid plan are granted the highest rate limit compared to other tiers. This incentivizes users to upgrade to a premium plan while still ensuring fair usage across all user groups.
 
-#### Step 1: Add a Quota policy for each user group <a href="#step-1-add-a-quota-policy-for-each-user-group" id="step-1-add-a-quota-policy-for-each-user-group"></a>
+### Step 1: Add a Quota policy for each user group <a href="#step-1-add-a-quota-policy-for-each-user-group" id="step-1-add-a-quota-policy-for-each-user-group"></a>
 
 For each user group defined above, an individual plan should be established. This example uses the API Key plan.
 
@@ -56,11 +56,11 @@ To add a Quota policy to each plan of this API:
 
 <figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 
-#### Step 2: Add a Quota policy for each user group <a href="#step-2-add-a-quota-policy-for-each-user-group" id="step-2-add-a-quota-policy-for-each-user-group"></a>
+### Step 2: Add a Quota policy for each user group <a href="#step-2-add-a-quota-policy-for-each-user-group" id="step-2-add-a-quota-policy-for-each-user-group"></a>
 
 Add differentiated Quota policies to each plan per the instructions below.
 
-**Silver Tier plan**
+#### **Silver Tier plan**
 
 1. Select the **+** icon next to the API Key (SILVER) plan
 2. Modify the flow name, operator, path, methods, and conditions as desired (leaving name and path blank will apply default values)
@@ -93,17 +93,17 @@ Add differentiated Quota policies to each plan per the instructions below.
 
 <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
-**Gold Tier plan**
+#### **Gold Tier plan**
 
 Follow the steps laid out in the Silver Tier Plan, but enter 1000 for the value of **Max requests (static)**.
 
-**Platinum Tier plan**
+#### **Platinum Tier plan**
 
 Follow the steps laid out in the Silver Tier Plan, but enter 20,000 for the value of **Max requests (static)**.
 
 Congratulations! You have successfully added differentiated Quota policies to each of your consumer plans.
 
-#### **Step 3: Add Rate Limit policy via Common flows** <a href="#step-3-add-rate-limit-policy-via-common-flows" id="step-3-add-rate-limit-policy-via-common-flows"></a>
+### **Step 3: Add Rate Limit policy via Common flows** <a href="#step-3-add-rate-limit-policy-via-common-flows" id="step-3-add-rate-limit-policy-via-common-flows"></a>
 
 To ensure all API consumers, regardless of their plan, do not overwhelm the API, let's add a rate limiting policy to all user groups via **Common flows**.
 
@@ -138,7 +138,7 @@ To ensure all API consumers, regardless of their plan, do not overwhelm the API,
 
 <figure><img src="../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
 
-#### **Step 4: Add Spike Arrest policy via Common flows** <a href="#step-4-add-spike-arrest-policy-via-common-flows" id="step-4-add-spike-arrest-policy-via-common-flows"></a>
+### **Step 4: Add Spike Arrest policy via Common flows** <a href="#step-4-add-spike-arrest-policy-via-common-flows" id="step-4-add-spike-arrest-policy-via-common-flows"></a>
 
 Now, let's mitigate traffic spikes and maintain quality of service for all consumers by adding a Spike Arrest policy to **Common flows**.
 
@@ -169,7 +169,7 @@ Now, let's mitigate traffic spikes and maintain quality of service for all consu
 
 Congratulations! You have successfully added a Spike Arrest policy that applies to all API consumers.
 
-### Short cut to add select rate limiting policies <a href="#short-cut-to-add-select-rate-limiting-policies" id="short-cut-to-add-select-rate-limiting-policies"></a>
+## Shortcut to add select rate limiting policies <a href="#short-cut-to-add-select-rate-limiting-policies" id="short-cut-to-add-select-rate-limiting-policies"></a>
 
 Rate limiting policies can also be added during the API creation process. Let's demonstrate this by adding three API Key plans.
 

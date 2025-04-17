@@ -1,10 +1,8 @@
----
-description: >-
-  Gravitee provides several options to protect sensitive information. This page
-  lists them and provide guidance for when to apply them.
----
-
 # Sensitive Data Management
+
+## Overview
+
+Gravitee provides several options to protect sensitive information. This page lists them and provide guidance for when to apply them.
 
 ## Secret managers integration
 

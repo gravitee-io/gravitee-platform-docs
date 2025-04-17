@@ -1,8 +1,8 @@
----
-description: Redis can be used by Gravitee for both caching and rate-limiting of your APIs.
----
-
 # Redis
+
+## Overview
+
+Redis can be used by Gravitee for both caching and rate-limiting of your APIs.
 
 ## Kubernetes
 

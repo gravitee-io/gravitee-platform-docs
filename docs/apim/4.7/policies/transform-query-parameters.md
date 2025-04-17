@@ -1,7 +1,4 @@
 ---
-description: >-
-  This page provides the technical details of the Transform Query Parameters
-  policy
 hidden: true
 ---
 
@@ -16,13 +13,6 @@ You can use the `transformqueryparams` policy to override incoming HTTP request 
 * Removing query parameters individually
 
 The query parameter values of the incoming request are accessible via the `{#request.params['query_parameter_name']}` construct.
-
-Functional and implementation information for the `transformqueryparams` policy is organized into the following sections:
-
-* [Examples](transform-query-parameters.md#examples)
-* [Configuration](transform-query-parameters.md#configuration)
-* [Compatibility Matrix](transform-query-parameters.md#compatibility-matrix)
-* [Changelogs](transform-query-parameters.md#changelogs)
 
 ## Examples
 

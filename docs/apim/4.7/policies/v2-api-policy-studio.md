@@ -1,9 +1,3 @@
----
-description: >-
-  This article describes how to design and enforce policy flows using the legacy
-  v2 Policy Studio
----
-
 # v2 API Policy Studio
 
 {% hint style="warning" %}
@@ -12,7 +6,7 @@ description: >-
 The v2 Policy Studio can only be used to design flows for APIs using the v2 API definition and does not support applying policies at the message level or for pub/sub use cases. Instead, please refer to the [v4 Policy Studio](v4-api-policy-studio.md) documentation.
 {% endhint %}
 
-## Introduction
+## Overview
 
 The v2 Policy Studio consists of the following sections:
 

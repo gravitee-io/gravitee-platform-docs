@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Dynamic Routing policy
 hidden: true
 ---
 
@@ -13,14 +12,6 @@ Another typical use case is defining routing similar to the following:
 
 * Requests from `http://gateway/apis/store/12/info` are redirected to `http://backend_store12/info`
 * Requests from `http://gateway/apis/store/45/info` are redirected to `http://backend_store45/info`
-
-Functional and implementation information for the `dynamic-routing` policy is organized into the following sections:
-
-* [Examples](dynamic-routing.md#examples)
-* [Configuration](dynamic-routing.md#configuration)
-* [Compatibility Matrix](dynamic-routing.md#compatibility-matrix)
-* [Errors](dynamic-routing.md#errors)
-* [Changelogs](dynamic-routing.md#changelogs)
 
 ## Examples
 

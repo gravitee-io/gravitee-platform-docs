@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Protobuf to JSON policy
 hidden: true
 ---
 
@@ -21,11 +20,6 @@ To serialize data in Protobuf, you need a [schema](https://protobuf.dev/overview
 
 * Inline in the policy configuration
 * With a schema registry
-
-Functional and implementation information for the `protobuf-json` policy is organized into the following sections:
-
-* [Configuration](protobuf-to-json-1.md#configuration)
-* [Errors](protobuf-to-json-1.md#errors)
 
 ## Configuration
 

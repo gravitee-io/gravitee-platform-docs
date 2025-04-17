@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Request Validation policy
 hidden: true
 ---
 
@@ -8,14 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `request-validation` policy to validate an incoming HTTP request according to defined rules. A rule is defined for an input value. This input value supports Expression Language expressions and is validated against constraint rules. By default, if none of the rules can be validated, the policy returns a `400` status code.
-
-Functional and implementation information for the `request-validation` policy is organized into the following sections:
-
-* [Examples](request-validation.md#examples)
-* [Configuration](request-validation.md#configuration)
-* [Compatibility Matrix](request-validation.md#compatibility-matrix)
-* [Errors](request-validation.md#errors)
-* [Changelogs](request-validation.md#changelogs)
 
 ## Examples
 

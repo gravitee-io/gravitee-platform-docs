@@ -2,11 +2,7 @@
 
 ## Overview
 
-The **Consumers** section lets you manage how your API is consumed through one of the following:
-
-* [Plans](consumers.md#plans)
-* [Subscriptions](consumers.md#subscriptions)
-* [Broadcasts](consumers.md#broadcasts)
+The **Consumers** section lets you manage how your API is consumed through plans, subscriptions, or broadcasts.
 
 ## Plans
 

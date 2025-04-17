@@ -1,6 +1,6 @@
 # Plans
 
-## Introduction
+## Overview
 
 To expose your API to internal or external consumers, it must have at least one plan. A plan provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor it to an application. Gravitee offers the following types of plans: Keyless, API Key, OAuth2, JWT, Push, and mTLS.
 
@@ -13,12 +13,6 @@ Example access scenarios APIM can manage with plans include:
 <div align="center"><figure><img src="../../.gitbook/assets/plan-diagram.png" alt="" width="375"><figcaption><p>High-level plan diagram</p></figcaption></figure></div>
 
 Each plan must include at least one security type by which subscribers can be authenticated. A security type is a policy integrated directly into a plan. Once a plan is created, the security type can not be changed. However, you can add additional security at the API or plan level with policies.
-
-The sections below describe:
-
-* [How to create a plan](./#create-a-plan)
-* [Plan stages](./#plan-stages)
-* [Plan selection rules](./#plan-selection-rules)
 
 ## Create a plan
 

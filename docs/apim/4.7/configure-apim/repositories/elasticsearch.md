@@ -1,7 +1,3 @@
----
-description: This article explains how to configure an Elasticsearch repository
----
-
 # ElasticSearch
 
 ## Overview

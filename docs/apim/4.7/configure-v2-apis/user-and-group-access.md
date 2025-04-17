@@ -1,16 +1,8 @@
----
-description: This article describes how to configure user and group access to your APIs
----
-
 # User and Group Access
 
-## Introduction
+## Overview
 
-The sections below detail how to manage user and group access to individual APIs:
-
-* [Add members to an API](user-and-group-access.md#add-members-to-an-api)
-* [Add groups to an API](user-and-group-access.md#add-groups-to-an-api)
-* [Transfer API ownership](user-and-group-access.md#transfer-api-ownership)
+This article describes how to configure user and group access to your APIs.
 
 {% hint style="info" %}
 See [User Management](../administration/user-management.md) to learn more about user and group creation and administration.

@@ -4,6 +4,8 @@
 API Score is a technology preview. This feature is not recommended for production environments.&#x20;
 {% endhint %}
 
+## Overview
+
 API Score is Gravitee’s automated governance capability. It lets you score your APIs based on criteria like security, documentation, and consistency. As a static tool, API Score evaluates how your APIs are configured and designed, but does not perform tests on the data plane.&#x20;
 
 The API Score feature uses rulesets to score APIs. Gravitee provides default rulesets, but you can also create your own custom rulesets.&#x20;

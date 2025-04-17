@@ -1,5 +1,7 @@
 # Distributed Sync Process
 
+## Overview
+
 This article covers the distributed sync process for the Gravitee Gateway, including the motivation for its creation, an overview of how it works, and what it means for APIM developers.&#x20;
 
 {% hint style="warning" %}

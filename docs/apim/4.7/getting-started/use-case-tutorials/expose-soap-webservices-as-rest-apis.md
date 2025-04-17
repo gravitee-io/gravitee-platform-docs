@@ -1,12 +1,6 @@
----
-description: >-
-  This page explains how you expose SOAP webservices for REST-based client-side
-  consumption using SOAP (XML) to REST (JSON) payload (using Gravitee Policies).
----
-
 # Expose SOAP Webservices as REST APIs
 
-## Introduction
+## Overview
 
 You can use Gravitee to transform a SOAP-based endpoint, and then expose the endpoint as a REST (JSON) service.
 

@@ -28,7 +28,7 @@ In this example, the deployment consists of the following components:
 * ElasticSearch. ElasticSearch is deployed in the Management cluster.
 * Redis. Redis manages the rate limits and quota counters within the Gateway cluster.
 
-## Deploying a Hybrid architecture with Helm
+## Deploy a Hybrid architecture with Helm
 
 * To deploy a Hybrid architecture with Kubernetes, go to [Gravitee's Helm charts](https://helm.gravitee.io/).
 

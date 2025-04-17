@@ -4,12 +4,12 @@
 You cannot install Gravitee API Management (APIM) with custom plugins using this installation method. To install custom plugins, see the [Docker Compose](docker-compose.md) installation guide.
 {% endhint %}
 
-## Before you begin
+## Prerequisites
 
 * You must install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
 * If you are deploying the Enterprise Edition of Gravitee, ensure that you have your license key. For more information about license keys, see [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
 
-## Installing Gravitee API Management
+## Install Gravitee API Management
 
 1.  Download the `docker-compose.yml` file as `docker-compose-apim.yml` using the following command:
 

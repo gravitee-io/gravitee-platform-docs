@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the REST to SOAP policy
 hidden: true
 ---
 
@@ -8,13 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `rest-to-soap` policy to expose SOAP backend service as a REST API. The policy will pass the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
-
-Functional and implementation information for the `rest-to-soap` policy is organized into the following sections:
-
-* [Examples](rest-to-soap.md#examples)
-* [Configuration](rest-to-soap.md#configuration)
-* [Compatibility Matrix](rest-to-soap.md#compatibility-matrix)
-* [Changelogs](rest-to-soap.md#changelogs)
 
 ## Examples
 

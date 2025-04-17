@@ -2,18 +2,7 @@
 
 ## Overview
 
-The following sections summarize resource descriptions, configuration parameters, and configuration examples. Gravitee resources include:
-
-* [Cache](resources.md#cache)
-* [Cache Redis](resources.md#cache-redis)
-* [OAuth2 Gravitee AM Authorization Server](resources.md#oauth2-gravitee-am-authorization-server)
-* [OAuth2 Generic Authorization Server](resources.md#oauth2-generic-authorization-server)
-* [Confluent Schema Registry](resources.md#confluent-schema-registry)
-* [Keycloak Adapter](resources.md#keycloak-adapter)
-* [Content Provider Inline Resource](resources.md#content-provider-inline-resource)
-* [HTTP Authentication Provider](resources.md#http-authentication-provider)
-* [Inline Authentication Provider](resources.md#inline-authentication-provider)
-* [LDAP Authentication Provider](resources.md#ldap-authentication-provider)
+The following sections summarize resource descriptions, configuration parameters, and configuration examples.
 
 ## Create a resource
 

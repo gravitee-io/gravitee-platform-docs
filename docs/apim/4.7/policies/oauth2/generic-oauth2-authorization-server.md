@@ -1,9 +1,3 @@
----
-description: >-
-  This page provides the technical details of the Generic OAuth2 Authorization
-  Server
----
-
 # Generic OAuth2 Authorization Server
 
 ## Overview

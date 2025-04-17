@@ -1,24 +1,14 @@
----
-description: >-
-  This article describes how to configure service discovery using the HashiCorp
-  Consul solution
----
-
 # Service Discovery
 
-## Introduction
+## Overview
 
 Gravitee service discovery for HashiCorp Consul allows you to bind the backend endpoints of your API to a service dynamically managed by HashiCorp Consul so that API requests are always routed to the proper, healthy backend service. By integrating the Gateway with HashiCorp Consul, dynamic load-balancer configuration changes are pulled directly from Consul’s service discovery registry.
 
-The following sections describe how to:
-
-* [Configure HashiCorp Consul](service-discovery.md#configure-hashicorp-consul)
-* [Establish secondary endpoints](service-discovery.md#secondary-endpoints)
-* [Verify service discovery and traffic routing](service-discovery.md#verification)
+This article describes how to configure service discovery using the HashiCorp Consul solution.
 
 ## Configure HashiCorp Consul
 
-### prerequisites
+### Prerequisites
 
 * [Install Gravitee with `docker-compose`](../install-and-upgrade/docker/docker-compose.md)
 

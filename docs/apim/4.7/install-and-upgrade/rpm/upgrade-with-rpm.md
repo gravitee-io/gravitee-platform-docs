@@ -1,10 +1,8 @@
----
-description: >-
-  This page describes you upgrade your API Management if you installed your API
-  Management with RPM packages
----
-
 # Upgrade with RPM
+
+## Overview
+
+This page describes you upgrade your API Management if you installed your API Management with RPM packages
 
 For versions 4.1.4 of Gravitee and above, you can upgrade and restart Gravitee API Management (APIM) to perform an rpm upgrade of the APIM components.
 

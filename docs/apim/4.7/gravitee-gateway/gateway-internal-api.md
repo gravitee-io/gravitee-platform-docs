@@ -1,10 +1,6 @@
----
-description: Learn how to configure the internal Gateway API
----
-
 # Gateway Internal API
 
-## Introduction
+## Overview
 
 The Gravitee APIM Gateway component includes its own internal API for monitoring and retrieving technical information about the component.
 

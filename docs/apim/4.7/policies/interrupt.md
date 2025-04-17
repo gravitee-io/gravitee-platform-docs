@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Interrupt policy
 hidden: true
 ---
 
@@ -14,14 +13,6 @@ Breaking the request processing means that no more policies will be executed and
 By default, the policy will return a response payload to the consumer which contains the `message`.
 
 If you want to override this standard response from the policy, you can define an `errorKey` which will be then be used to define a Response Template.
-
-Functional and implementation information for the `Interrupt` policy is organized into the following sections:
-
-* [Examples](interrupt.md#examples)
-* [Configuration](interrupt.md#configuration)
-* [Compatibility Matrix](interrupt.md#compatibility-matrix)
-* [Errors](interrupt.md#errors)
-* [Changelogs](interrupt.md#changelogs)
 
 ## Examples
 

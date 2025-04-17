@@ -1,7 +1,3 @@
----
-description: This page discusses secrets in a Gravitee configuration
----
-
 # Configuration-Level Secrets
 
 ## Overview

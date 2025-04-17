@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Keyless policy
 hidden: true
 ---
 
@@ -13,14 +12,6 @@ It sets multiple attributes during policy execution, as follows:
 
 * `application`: Anonymous application value, which is equal to `1`.
 * `user-id`: Internet Protocol (IP) address of the client or last proxy that sent the request.
-
-Functional and implementation information for the `keyless` policy is organized into the following sections:
-
-* [Examples](keyless.md#examples)
-* [Configuration](keyless.md#configuration)
-* [Compatibility Matrix](keyless.md#compatibility-matrix)
-* [Errors](keyless.md#errors)
-* [Changelogs](keyless.md#changelogs)
 
 ## Examples
 

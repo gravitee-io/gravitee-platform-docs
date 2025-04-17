@@ -1,12 +1,6 @@
----
-description: >-
-  This article describes how to configure sharding tags when customizing
-  deployments via your API proxy settings
----
-
 # Sharding Tags
 
-## Introduction
+## Overview
 
 Sharding tags allow you to “tag” Gateways with a keyword and deploy an API to a Gateway with a certain tag. You can apply sharding on APIM Gateway instances either at the system property level or with `gravitee.yml`.&#x20;
 

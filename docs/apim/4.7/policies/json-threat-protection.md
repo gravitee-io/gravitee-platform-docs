@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the JSON Threat Protection policy
 hidden: true
 ---
 
@@ -8,13 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `json-threat-protection` policy to validate a JSON request body by specifying limits for various JSON structures (such as arrays, field names and string values). When an invalid request is detected (meaning the limit is reached), the request will be considered a threat and rejected with a `400 BAD REQUEST`.
-
-Functional and implementation information for the `json-threat-protection` policy is organized into the following sections:
-
-* [Examples](json-threat-protection.md#examples)
-* [Configuration](json-threat-protection.md#configuration)
-* [Errors](json-threat-protection.md#errors)
-* [Changelogs](json-threat-protection.md#changelogs)
 
 ## Examples
 

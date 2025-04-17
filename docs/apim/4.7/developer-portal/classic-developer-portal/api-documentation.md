@@ -10,13 +10,6 @@ Site-wide documentation is separate from API documentation, which can be added t
 
 <figure><img src="../../.gitbook/assets/Screenshot 2023-06-05 at 10.24.20 AM.png" alt=""><figcaption><p>Developer Portal documentation page</p></figcaption></figure>
 
-The following sections discuss how to:
-
-* [Create documentation](api-documentation.md#create-documentation)
-* [Generate content](api-documentation.md#generate-content)
-* [Import multiple pages](api-documentation.md#import-multiple-pages)
-* [Page management](api-documentation.md#page-management)
-
 ## Create documentation
 
 To create documentation:

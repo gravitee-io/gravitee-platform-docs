@@ -2,11 +2,7 @@
 
 ## Overview
 
-This article describes logging at both the Gateway and API level and how to expose metrics to Prometheus.
-
-* [Gateway-level logging](logging.md#gateway-level-logging)
-* [API-level logging](logging.md#api-level-logging)
-* [Expose metrics to Prometheus](logging.md#expose-metrics-to-prometheus)
+This article describes logging at both the Gateway and API levels and how to expose metrics to Prometheus.
 
 ## Gateway-level logging
 

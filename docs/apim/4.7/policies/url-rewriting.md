@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the URL Rewriting policy
 hidden: true
 ---
 
@@ -8,13 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `url-rewriting` policy to rewrite URLs from an HTTP response header or response body.
-
-Functional and implementation information for the `url-rewriting` policy is organized into the following sections:
-
-* [Examples](url-rewriting.md#examples)
-* [Configuration](url-rewriting.md#configuration)
-* [Compatibility Matrix](url-rewriting.md#compatibility-matrix)
-* [Changelogs](url-rewriting.md#changelogs)
 
 ## Examples
 

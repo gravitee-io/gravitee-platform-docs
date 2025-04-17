@@ -1,16 +1,12 @@
 # Secure and Expose gRPC Services
 
-## Introduction
+## Overview
 
 This article demonstrates how to use Gravitee as a centralized location to secure and manage your gRPC APIs.
 
 gRPC is well-suited for use cases that require real-time performance and treat an API like a JAVA class method that is instead executing on a remote server. A gRPC API relies on a [Protocol Buffers](https://protobuf.dev/overview) definition to serve an application and can use either Protocol Buffers or JSON for the message exchange format. What matters to Gravitee is that gRPC runs on HTTP/2 protocol, so you can easily create an HTTP proxy.
 
 The following examples explain how to create a gRPC proxy API on top of an existing gRPC service, secure it with plans, document it, publish it in a Developer Portal, deploy it in a Gateway, and monitor its activity and logs. For these examples, we’ll be using [a simple set of sample gRPC services](https://hub.docker.com/r/jgiovaresco/apim-samples) and a default deployment of Gravitee API Management running in local Docker containers.&#x20;
-
-* [Example 1: Create a gRPC proxy API in Gravitee APIM](secure-and-expose-grpc-services.md#example-1-create-a-grpc-proxy-api-in-gravitee-apim)
-* [Example 2: Create multiple gRPC services](secure-and-expose-grpc-services.md#example-2-create-multiple-grpc-services)
-* [Example 3: Secure your gRPC call with an API Key](secure-and-expose-grpc-services.md#example-3-secure-your-grpc-call-with-an-api-key)
 
 ## Prerequisites
 

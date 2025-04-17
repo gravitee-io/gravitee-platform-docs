@@ -1,10 +1,6 @@
----
-description: Learn how to import APIs onto your Gravitee Gateway
----
-
 # Import APIs
 
-## Introduction
+## Overview
 
 Gravitee supports importing APIs as either Gravitee API definitions or OpenAPI specifications. To import an API, the API file must be in YML, YAML, or JSON format.&#x20;
 

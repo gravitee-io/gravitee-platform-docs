@@ -1,6 +1,6 @@
 # Integrations
 
-## Introduction
+## Overview
 
 Integrations are components that allow users to connect Gravitee to 3rd-party API gateways or event brokers to discover, then import, APIs and other assets. [Integrations](integrations.md#integration-management) are managed and configured through the Gravitee APIM Console.&#x20;
 

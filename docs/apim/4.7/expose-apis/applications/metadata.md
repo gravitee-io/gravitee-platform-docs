@@ -1,7 +1,5 @@
 # Metadata
 
-## Overview
-
 Select the **Metadata** section to view and filter application metadata. To create metadata for your application, click **+** **Add Application Metadata**.
 
 <figure><img src="../../.gitbook/assets/1 meta 1.png" alt=""><figcaption></figcaption></figure>

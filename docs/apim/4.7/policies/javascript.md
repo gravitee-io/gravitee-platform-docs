@@ -8,13 +8,6 @@ hidden: true
 
 You can use this policy to run [Javascript](http://www.javascript.com/) scripts at every stage of Gateway processing.
 
-Functional and implementation information for the `javascript` policy is organized into the following sections:
-
-* [Examples](javascripts-1.md#examples)
-* [Configuration](javascripts-1.md#configuration)
-* [Errors](javascripts-1.md#errors)
-* [Changelogs](javascripts-1.md#changelogs)
-
 ## Examples
 
 {% hint style="warning" %}
@@ -215,7 +208,3 @@ Note that the `metrics` object changes in the different processing phases. Some 
 ## Errors
 
 <table data-full-width="false"><thead><tr><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td><code>500</code></td><td>The JavaScript script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr></tbody></table>
-
-## Changelogs
-
-{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-javascript/blob/master/CHANGELOG.md" %}

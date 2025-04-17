@@ -1,7 +1,3 @@
----
-description: This section describes user management in the Developer Portal
----
-
 # Manage Users
 
 ## Overview

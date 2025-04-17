@@ -118,7 +118,7 @@ This `docker-compose.yml` contains multiple services:&#x20;
 * The TCP reporter, Logstash: Centralizes logs from the Gateway(s), processes them, and forwards them to an S3 bucket in the control plane. These logs are then stored for persistence and can be used by Elasticsearch to enable log analytics and monitoring.
 * Optional: To set up rate limiting at the Gateway level, you need to declare a Redis service.
 
-## Before you begin
+## Prerequisites
 
 {% hint style="warning" %}
 The following sections of this article assume you are using the `docker-compose.yml` above, with some modifications.

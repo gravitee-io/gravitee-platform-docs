@@ -4,13 +4,13 @@ hidden: true
 
 # Maven Archetype
 
-### Get started <a href="#user-content-get-started" id="user-content-get-started"></a>
+## Get started <a href="#user-content-get-started" id="user-content-get-started"></a>
 
 A Policy is a step in the Request/Response Gateway proxy chain. A Policy acts as a **proxy controller** by guaranteeing if a given business rule is fulfilled during the Request/Response processing.
 
 Archetype is already registered into the [OSS repositories](http://central.sonatype.org/pages/ossrh-guide.html). Don’t forget to activate them in your Maven settings.
 
-### Policy generation <a href="#user-content-policy-generation" id="user-content-policy-generation"></a>
+## Policy generation <a href="#user-content-policy-generation" id="user-content-policy-generation"></a>
 
 Suppose you want to create a Policy that control if request contains the `X-Foo` header. Let’s name it the **Foo header check policy**. Then you could generate your Policy like this:
 
@@ -66,15 +66,15 @@ Hereafter a description about the different generated files:
 | plugin.properties                      | The Policy descriptor file                                        |
 | FooHeaderCheckPolicyTest.java          | The Policy unit test Java class                                   |
 
-#### pom.xml <a href="#user-content-pom-xml" id="user-content-pom-xml"></a>
+### pom.xml <a href="#user-content-pom-xml" id="user-content-pom-xml"></a>
 
 Each Policy (and more generally any Gravitee projects) is [Maven](https://maven.apache.org/) managed. Thus, a Policy project is described by using the Maven [Project Object Model](https://maven.apache.org/pom.html) file.
 
-#### README.adoc <a href="#user-content-readme-adoc" id="user-content-readme-adoc"></a>
+### README.adoc <a href="#user-content-readme-adoc" id="user-content-readme-adoc"></a>
 
 Each Policy should have a dedicated `README.adoc` file to document it. The `README.adoc` file should contain everything related to the use of your Policy: **What is its functionality? How can use it? How can configure it?**
 
-#### policy-assembly.xml <a href="#user-content-policy-assembly-xml" id="user-content-policy-assembly-xml"></a>
+### policy-assembly.xml <a href="#user-content-policy-assembly-xml" id="user-content-policy-assembly-xml"></a>
 
 A Policy is just a kind of Gravitee Plugin.
 
@@ -98,7 +98,7 @@ Hereafter a description about the different generated files:
 | `lib/`                                       | Where the external dependencies are stored (from the \[Maven POM file dependencies]\([https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)) |
 | `schemas/`                                   | Where the JSON configuration schemas are stored                                                                                                                                                                                                                        |
 
-**JSON Configuration schemas**
+## **JSON Configuration schemas**
 
 Policy configuration is described inside one or several [Java Bean](http://docs.oracle.com/javase/tutorial/javabeans/) classes (see the FooHeaderCheckPolicyConfiguration.java example).
 
@@ -134,7 +134,7 @@ The example below shows some of the supported JSON schema fields:
 }
 ```
 
-#### FooHeaderCheckPolicyConfiguration.java <a href="#user-content-fooheadercheckpolicyconfiguration-java" id="user-content-fooheadercheckpolicyconfiguration-java"></a>
+### FooHeaderCheckPolicyConfiguration.java <a href="#user-content-fooheadercheckpolicyconfiguration-java" id="user-content-fooheadercheckpolicyconfiguration-java"></a>
 
 The Policy configuration class.
 
@@ -144,7 +144,7 @@ During the package phase, Policy configuration is compiled into JSON Configurati
 
 Policy configuration is finally injected to the Policy class instance at runtime and then can be used during implementation.
 
-#### FooHeaderCheckPolicy.java <a href="#user-content-fooheadercheckpolicy-java" id="user-content-fooheadercheckpolicy-java"></a>
+### FooHeaderCheckPolicy.java <a href="#user-content-fooheadercheckpolicy-java" id="user-content-fooheadercheckpolicy-java"></a>
 
 The main Policy class. Contains business code that implements the Policy.
 
@@ -154,7 +154,7 @@ A Policy can be applied on several parts of the proxy chain:
 * The Response phase
 * Both of them
 
-**Apply Policy on the Request phase**
+## **Apply Policy on the Request phase**
 
 A Policy can be applied to the proxy Request phase by just implementing a method dealing with the `io.gravitee.gateway.api.policy.annotations.OnRequest` annotation. For instance:
 
@@ -171,7 +171,7 @@ public void onRequest(Request request, Response response, PolicyChain policyChai
 
 > The `PolicyChain` **must always be called to end an on Request processing**. Be ware to make a call to the `PolicyChain=doNext()` or `PolicyChain=failWith()` to correctly end the **on Request** processing.
 
-**Apply Policy on the Response phase**
+## **Apply Policy on the Response phase**
 
 A Policy can be applied to the proxy Response phase by just implementing a method dealing with the `io.gravitee.gateway.api.policy.annotations.OnResponse` annotation. For instance:
 
@@ -200,11 +200,11 @@ private static boolean isASuccessfulResponse(Response response) {
 
 > The `PolicyChain` **must always be called to end an on Response processing**. Be ware to make a call to the `PolicyChain=doNext()` or `PolicyChain=failWith()` to correctly end the **on Response** processing.
 
-**Apply Policy on both of Request and Response phases**
+## **Apply Policy on both of Request and Response phases**
 
 A Policy is not restricted to only one Gateway proxy phase. It can be applied on both of the Request and Response phases by just using the both annotations in the same class.
 
-**Provided parameters**
+## **Provided parameters**
 
 The annotated methods can declare several parameters (but not necessary all of them) which will be automatically provided by the Gateway at runtime. Available provided parameters are:
 
@@ -215,7 +215,7 @@ The annotated methods can declare several parameters (but not necessary all of t
 | `io.gravitee.gateway.api.policy.PolicyChain`   | Yes       | The current Policy chain that gives control to the Policy to continue (`doNext`) or reject (`failWith`) the current chain.        |
 | `io.gravitee.gateway.api.policy.PolicyContext` | No        | The Policy context that can be used to get contextualized objects (API store, …​).                                                |
 
-#### plugin.properties <a href="#user-content-plugin-properties" id="user-content-plugin-properties"></a>
+## plugin.properties <a href="#user-content-plugin-properties" id="user-content-plugin-properties"></a>
 
 As said, a Policy is a kind of Gravitee Plugin.
 
@@ -234,18 +234,18 @@ Each Plugin is described by the **plugin.properties** descriptor which declare t
 
 > A Policy is enabled when declared into the API definition. To do so, the Policy identifier is used to, as its name indicate, identify the Policy. Thus, **be ware to correctly choose the Policy identifier** from the beginning. It could be hard to rename it later if there are many of API definitions linked to it.
 
-**Custom Icons**
+### **Custom Icons**
 
 In order to add a custom icon to your plugin, as displayed in Design Studio, you should:
 
 1. Include an image file (svg preferred) in the top level of your plugin
 2. Update the `plugin.properties` file and set `icon=your_file.svg`
 
-#### FooHeaderCheckPolicyTest.java <a href="#user-content-fooheadercheckpolicytest-java" id="user-content-fooheadercheckpolicytest-java"></a>
+### FooHeaderCheckPolicyTest.java <a href="#user-content-fooheadercheckpolicytest-java" id="user-content-fooheadercheckpolicytest-java"></a>
 
 The [JUnit](http://junit.org/) unit test class for this Policy.
 
-### Tip <a href="#user-content-tip" id="user-content-tip"></a>
+## Tip <a href="#user-content-tip" id="user-content-tip"></a>
 
 Choose a short but clearly name for your Policy, **without precise the Policy suffix**. The `gravitee-policy-maven-archetype` will add it automatically.
 

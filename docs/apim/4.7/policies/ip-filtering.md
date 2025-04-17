@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the IP Filtering policy
 hidden: true
 ---
 
@@ -22,14 +21,6 @@ Whitelist mode excludes all IP addresses except the addresses included in the wh
 The blacklist takes precedence, so if an IP address is included in both lists, the policy rejects the request.
 
 You can specify a host to be resolved and checked against the remote IP.
-
-Functional and implementation information for the `ip-filtering` policy is organized into the following sections:
-
-* [Examples](ip-filtering.md#examples)
-* [Configuration](ip-filtering.md#configuration)
-* [Compatibility Matrix](ip-filtering.md#compatibility-matrix)
-* [Errors](ip-filtering.md#errors)
-* [Changelogs](ip-filtering.md#changelogs)
 
 ## Examples
 

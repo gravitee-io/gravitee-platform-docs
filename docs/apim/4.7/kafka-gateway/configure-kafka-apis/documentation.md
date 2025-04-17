@@ -2,11 +2,7 @@
 
 ## Overview
 
-In the **Documentation** section, you can click on the following headers to create pages that will appear in the Developer Portal and inform API consumers how to use your API:
-
-* [Main Pages](documentation.md#main-pages)
-* [Documentation Pages](documentation.md#documentation-pages)
-* [Metadata](documentation.md#metadata)
+In the **Documentation** section, you can create pages that will appear in the Developer Portal and inform API consumers how to use your API.
 
 ## Main Pages
 

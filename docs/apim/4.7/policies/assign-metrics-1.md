@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Assign Metrics policy
 hidden: true
 ---
 
@@ -14,12 +13,6 @@ hidden: true
 You can use the `assign-metrics` policy to push extra metrics in addition to the natively provided request metrics.
 
 These metrics can then be used from analytics dashboards to create custom widgets and, optionally, apply aggregations based on their value.
-
-Functional and implementation information for the `assign-metrics` policy is organized into the following sections:
-
-* [Examples](assign-metrics-1.md#examples)
-* [Configuration](assign-metrics-1.md#configuration)
-* [Compatibility Matrix](assign-metrics-1.md#compatibility-matrix)
 
 ## Examples
 

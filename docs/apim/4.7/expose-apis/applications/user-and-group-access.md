@@ -2,15 +2,11 @@
 
 ## Overview
 
-The **User and group access** section allows you to manage user and group access to individual applications via the following headers:
-
-* [Members](user-and-group-access.md#members)
-* [Groups](user-and-group-access.md#groups)
-* [Transfer ownership](user-and-group-access.md#transfer-ownership)
+The **User and group access** section allows you to manage user and group access to individual applications.
 
 ## Members
 
-Under the **Members** tab you can add users or groups as members of you application and define their roles to manage and perform tasks and operations.
+Under the **Members** tab, you can add users or groups as members of you application and define their roles to manage and perform tasks and operations.
 
 <figure><img src="../../.gitbook/assets/1 group.png" alt=""><figcaption></figcaption></figure>
 
@@ -27,7 +23,7 @@ Selecting a group gives all members of that group access to your application.
 
 ## Transfer ownership
 
-Under the **Transfer ownership** tab you can grant complete application access to an application member or other user.&#x20;
+Under the **Transfer ownership** tab, you can grant complete application access to an application member or other user.&#x20;
 
 Click **Application member** and use the drop-down menu to select a user who is already a member of your application.&#x20;
 

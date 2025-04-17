@@ -1,5 +1,7 @@
 # Overview
 
+## Policies
+
 Gravitee policies are customizable rules or logic the Gateway executes during an API transaction. A policy modifies the behavior of the request or response handled by the APIM Gateway and ensures that a given business rule is fulfilled during request/response processing.&#x20;
 
 Policies generally fall into the categories of security, transformation, restrictions, performance, routing, or monitoring & testing. Although the implementation details of each policy are unique, they share a common installation and deployment, and they are compatible with subsets of request/response phases.&#x20;

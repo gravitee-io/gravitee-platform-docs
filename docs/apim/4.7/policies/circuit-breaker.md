@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Circuit Breaker policy
 hidden: true
 ---
 
@@ -12,13 +11,6 @@ This policy allows switching to another backend or making the call fail with a `
 It is possible to configure errors and latency threshold rates to open the circuit breaker.
 
 Implementation is based on Resilience4j. Refer to [their documentation](https://resilience4j.readme.io/docs/circuitbreaker) for more information.
-
-Functional and implementation information for the `circuit-breaker` policy is organized into the following sections:
-
-* [Examples](circuit-breaker.md#examples)
-* [Configuration](circuit-breaker.md#configuration)
-* [Compatibility Matrix](circuit-breaker.md#compatibility-matrix)
-* [Changelogs](circuit-breaker.md#changelogs)
 
 ## Examples
 

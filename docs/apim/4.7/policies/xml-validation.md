@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the XML Validation policy
 hidden: true
 ---
 
@@ -8,13 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `xml-validation` policy to validate XML using an XSD schema. This policy uses `javax.xml`. A 400 BAD REQUEST error is received with a custom error message body when validation fails. Injects processing report messages into request metrics for analytics.
-
-Functional and implementation information for the `xml-validation` policy is organized into the following sections:
-
-* [Examples](xml-validation.md#examples)
-* [Configuration](xml-validation.md#configuration)
-* [Compatibility Matrix](xml-validation.md#compatibility-matrix)
-* [Errors](xml-validation.md#errors)
 
 ## Examples
 

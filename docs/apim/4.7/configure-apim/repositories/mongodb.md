@@ -1,7 +1,3 @@
----
-description: This article explains how to configure a MongoDB repository
----
-
 # MongoDB
 
 ## Overview

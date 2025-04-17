@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Traffic Shadowing policy
 hidden: true
 ---
 
@@ -8,13 +7,6 @@ hidden: true
 ## Overview
 
 Traffic shadowing allows to asynchronously copy the traffic to another service. By using this policy, the requests are duplicated and sent to the target. The target is an endpoint defined at the API level. The request can be enriched with additional headers.
-
-Functional and implementation information for the `traffic-shadowing` policy is organized into the following sections:
-
-* [Examples](traffic-shadowing.md#examples)
-* [Configuration](traffic-shadowing.md#configuration)
-* [Compatibility Matrix](traffic-shadowing.md#compatibility-matrix)
-* [Changelogs](traffic-shadowing.md#changelogs)
 
 ## Examples
 

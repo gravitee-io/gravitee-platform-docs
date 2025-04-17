@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Javascript policy
 hidden: true
 ---
 
@@ -216,3 +215,7 @@ Note that the `metrics` object changes in the different processing phases. Some 
 ## Errors
 
 <table data-full-width="false"><thead><tr><th width="171">HTTP status code</th><th width="387">Message</th></tr></thead><tbody><tr><td><code>500</code></td><td>The JavaScript script cannot be parsed/compiled or executed (mainly due to a syntax error)</td></tr></tbody></table>
+
+## Changelogs
+
+{% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-javascript/blob/master/CHANGELOG.md" %}

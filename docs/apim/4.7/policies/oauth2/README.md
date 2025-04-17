@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the OAuth2 policy
 hidden: true
 ---
 
@@ -17,14 +16,6 @@ The access token must be supplied in the `Authorization` HTTP request header:
 $ curl -H "Authorization: Bearer |accessToken|" \
            http://gateway/api/resource
 ```
-
-Functional and implementation information for the `oauth2` policy is organized into the following sections:
-
-* [Examples](./#examples)
-* [Configuration](./#configuration)
-* [Compatibility Matrix](./#compatibility-matrix)
-* [Errors](./#errors)
-* [Changelogs](./#changelogs)
 
 ## Examples
 

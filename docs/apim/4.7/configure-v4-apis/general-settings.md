@@ -2,7 +2,7 @@
 
 ## Overview
 
-Every v4 API in Gravitee has general settings that can be viewed and altered on the **Configuration** page.
+Every v4 API in Gravitee has general settings that can be viewed and modified on the **Configuration** page.
 
 {% hint style="info" %}
 The settings configuration is the same for both v2 and v4 APIs, with the exception of the API Quality section. As of Gravitee APIM 4.3, only v2 APIs support the API Quality feature.

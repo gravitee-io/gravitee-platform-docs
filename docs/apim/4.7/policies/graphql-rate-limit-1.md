@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the GraphQL Rate Limit policy
 hidden: true
 ---
 
@@ -14,13 +13,6 @@ hidden: true
 The GraphQL Rate Limit policy provides basic rate limiting for GraphQL queries.
 
 Unlike a traditional rate-limiting policy, where a weight of 1 is applied to every incoming request, the `graphql-rate-limit` policy calculates the cost of the GraphQL query and considers this cost to be the weight.
-
-Functional and implementation information for the `graphql-rate-limit` policy is organized into the following sections:
-
-* [Examples](graphql-rate-limit-1.md#examples)
-* [Configuration](graphql-rate-limit-1.md#configuration)
-* [Compatibility Matrix](graphql-rate-limit-1.md#compatibility-matrix)
-* [Errors](graphql-rate-limit-1.md#errors)
 
 ## Examples
 

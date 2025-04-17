@@ -4,13 +4,13 @@ description: This article describes how to create documentation for v2 APIs
 
 # Documentation
 
-## Introduction
+## Overview
 
 With the APIM Console, you can create API documentation, import API documentation, and add API metadata. Gravitee supports ASCIIDOC, AsyncAPI spec, OpenAPI spec, Swagger, and Markdown formats.
 
 You can add the documentation through the API Management (APIM) Console to inform API consumers how to use an API. If the API and documentation are both published to the Developer Portal, the documentation appears in the Portal.
 
-## Importing documentation files
+## Import documentation files
 
 To import documentation:
 
@@ -42,7 +42,7 @@ To import documentation:
      * At the bottom of the configuration page, click **Choose File**.
      * After you select your file, click **SAVE**.
 
-## Creating API documentation
+## Create API documentation
 
 1. SIgn in to your APIM Console
 2. From the left nav, select **APIs**&#x20;

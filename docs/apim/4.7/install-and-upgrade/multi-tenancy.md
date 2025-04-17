@@ -1,7 +1,3 @@
----
-description: This page discusses how to deploy APIM and Cloud together in multi-tenant mode
----
-
 # Multi-tenancy
 
 {% hint style="warning" %}
@@ -22,12 +18,7 @@ Changes to the management of Gravitee Organizations and Environments and to the 
 The isolation scheme of data and features between the logical hierarchical structures of APIM enables a multi-tenant Developer Portal.
 {% endhint %}
 
-The following sections describe:
-
-* [How to set up multi-tenancy](multi-tenancy.md#how-to-set-up-multi-tenancy)
-* [Access points](multi-tenancy.md#access-points)
-* [Constraints of multi-tenancy mode](multi-tenancy.md#constraints-of-multi-tenancy-mode)
-* [A typical multi-tenant setup](multi-tenancy.md#a-typical-multi-tenant-setup)
+This page discusses how to deploy APIM and Cloud together in multi-tenant mode.
 
 {% hint style="info" %}
 For information on how to run a `standalone` (not multi-tenant) installation with APIM, refer to the [Upgrade Guide](upgrade-guide.md)

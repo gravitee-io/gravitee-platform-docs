@@ -1,12 +1,8 @@
----
-description: This page provides a high-level overview of the v4 engine
----
-
 # Execution Engine
 
 ## Overview
 
-To execute Gateway APIs and policy flows, the Gateway relies on a runtime environment referred to as the execution engine. The reactive execution engine is based on a modern and fully reactive architecture. It enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. Added features include native support for pub/sub (publish-subscribe) design and the capability to enforce policies at the message level.&#x20;
+To execute Gateway APIs and policy flows, the Gateway relies on a runtime environment referred to as the execution engine. The reactive execution engine is used for v4 APIs. It is based on a modern and fully reactive architecture that enables an improved execution flow for synchronous APIs and supports event-driven policy execution for asynchronous APIs. Added features include native support for pub/sub (publish-subscribe) design and the capability to enforce policies at the message level.&#x20;
 
 {% hint style="warning" %}
 v2 Gateway APIs can run in [emulation mode](execution-engine.md#v2-gateway-api-emulation-mode) to take advantage of certain execution flow improvements of the reactive engine.&#x20;

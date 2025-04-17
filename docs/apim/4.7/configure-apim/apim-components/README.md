@@ -1,10 +1,6 @@
----
-description: Learn how to configure various Gravitee API Management components
----
-
 # APIM Components
 
-## Introduction
+## Overview
 
 Gravitee APIM consists of four components: Gateway, Management API, APIM Console, and Developer Portal. APIM components can be configured using:
 

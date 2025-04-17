@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Regex Threat Protection policy
 hidden: true
 ---
 
@@ -12,14 +11,6 @@ hidden: true
 ## Overview
 
 You can use the `regex-threat-protection` policy to extract information from a request (headers, path, query parameters, body payload) and evaluate that content against pre-defined regular expressions. If any content matches the specified regular expression, the request is considered a threat and rejected with a 400 BAD REQUEST. The policy injects processing report messages into request metrics for analytics.
-
-Functional and implementation information for the `regex-threat-protection` policy is organized into the following sections:
-
-* [Examples](regex-threat-protection.md#examples)
-* [Configuration](regex-threat-protection.md#configuration)
-* [Compatibility Matrix](regex-threat-protection.md#compatibility-matrix)
-* [Errors](regex-threat-protection.md#errors)
-* [Changelogs](regex-threat-protection.md#changelogs)
 
 ## Examples
 

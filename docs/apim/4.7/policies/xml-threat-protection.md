@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the XML Threat Protection policy
 hidden: true
 ---
 
@@ -8,14 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `xml-threat-protection` policy to validate an XML request body by applying limits on XML structures such as elements, entities, attributes and string values. When an invalid request is detected (meaning the limit is reached), the request will be considered a threat and rejected with a 400 BAD REQUEST.
-
-Functional and implementation information for the `xml-threat-protection` policy is organized into the following sections:
-
-* [Examples](xml-threat-protection.md#examples)
-* [Configuration](xml-threat-protection.md#configuration)
-* [Compatibility Matrix](xml-threat-protection.md#compatibility-matrix)
-* [Errors](xml-threat-protection.md#errors)
-* [Changelogs](xml-threat-protection.md#changelogs)
 
 ## Examples
 

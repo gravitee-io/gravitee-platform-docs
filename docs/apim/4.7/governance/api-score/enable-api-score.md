@@ -4,6 +4,8 @@
 API Score is a technology preview. This feature is not recommended for production environments.
 {% endhint %}
 
+## Overview
+
 {% hint style="info" %}
 This guide applies to Gravitee API Management version 4.7 and above. To enable API Score on Gravitee 4.5 or 4.6, please reach out to Gravitee support.
 {% endhint %}

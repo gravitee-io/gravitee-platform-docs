@@ -1,13 +1,10 @@
----
-description: >-
-  This article focuses on how to configure users' roles/groups/custom claims -
-  from your Identity Provider - into Roles and Groups in Gravitee API
-  Management.
----
-
 # Roles and Groups Mapping
 
-After you have configured your chosen Identity Provider(s) in Gravitee API Management, you may want to start automatically mapping these user accounts into specific roles and groups within Gravitee.
+## Overview
+
+After you have configured your chosen Identity Provider(s) in Gravitee API Management, you may want to start automatically mapping these user accounts into specific roles and groups within Gravitee. This article focuses on how to configure users' roles/groups/custom claims from your Identity Provider into Roles and Groups in Gravitee API Management.
+
+## Configuration
 
 After adding your Identity Provider, two new items will appear within your Identity Provider configuration; **Groups Mapping** and **Roles Mapping** (as shown below).
 

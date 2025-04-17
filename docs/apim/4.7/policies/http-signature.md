@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the HTTP Signature policy
 hidden: true
 ---
 
@@ -8,14 +7,6 @@ hidden: true
 ## Overview
 
 HTTP Signature is a kind of authentication method which is adding a new level of security. By using this policy, the consumer is enforced to send a _signature_ which is used to identify the request temporarily and ensure that the request is really coming from the requesting consumer, using a secret key.
-
-Functional and implementation information for the `http-signature` policy is organized into the following sections:
-
-* [Examples](http-signature.md#examples)
-* [Configuration](http-signature.md#configuration)
-* [Compatibility Matrix](http-signature.md#compatibility-matrix)
-* [Errors](http-signature.md#errors)
-* [Changelogs](http-signature.md#changelogs)
 
 ## Examples
 

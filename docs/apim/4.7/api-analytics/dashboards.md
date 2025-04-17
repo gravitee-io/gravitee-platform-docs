@@ -1,9 +1,3 @@
----
-description: >-
-  Learn how to build your Dashboard and various analytics options for APIs and
-  applications
----
-
 # Dashboards
 
 ## Overview <a href="#the-dashboard" id="the-dashboard"></a>

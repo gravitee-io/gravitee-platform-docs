@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the HTML to JSON policy
 hidden: true
 ---
 
@@ -10,13 +9,6 @@ hidden: true
 You use the `html-json` transformation policy to transform the response content.
 
 This policy is based on the [jsoup](https://jsoup.org/) HTML parser. In APIM, all you need to do is provide your JSON field names with the associated selectors.
-
-Functional and implementation information for the `html-json` policy is organized into the following sections:
-
-* [Examples](html-to-json.md#examples)
-* [Configuration](html-to-json.md#configuration)
-* [Compatibility Matrix](html-to-json.md#compatibility-matrix)
-* [Changelogs](html-to-json.md#changelogs)
 
 ## Examples
 

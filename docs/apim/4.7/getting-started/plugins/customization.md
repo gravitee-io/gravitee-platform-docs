@@ -1,12 +1,8 @@
----
-description: Learn how to build and deploy your own plugins
----
-
 # Customization
 
 ## Overview
 
-Gravitee API Management (APIM) plugins extend and customize component behavior to meet your strategic needs. Each APIM distribution includes a default set of plugins. You can also deploy additional Gravitee-maintained and third-party plugins from the plugin marketplace.
+Gravitee API Management (APIM) plugins extend and customize component behavior to meet your strategic needs. Each APIM distribution includes a default set of plugins. You can also deploy additional Gravitee-maintained and third-party plugins from the plugin marketplace. This article describes how to build and deploy your own custom plugins.
 
 ## Common structure
 

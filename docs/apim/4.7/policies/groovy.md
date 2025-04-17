@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Groovy policy
 hidden: true
 ---
 
@@ -8,14 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `groovy` policy to run [Groovy](http://www.groovy-lang.org/) scripts at any stage of request processing through the Gateway.
-
-Functional and implementation information for the `groovy` policy is organized into the following sections:
-
-* [Examples](groovy.md#examples)
-* [Configuration](groovy.md#configuration)
-* [Compatibility Matrix](groovy.md#compatibility-matrix)
-* [Errors](groovy.md#errors)
-* [Changelogs](groovy.md#changelogs)
 
 ## Examples
 

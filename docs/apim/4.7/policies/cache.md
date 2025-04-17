@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Cache policy
 hidden: true
 ---
 
@@ -18,13 +17,6 @@ Consumers can bypass the cache by adding a `cache=BY_PASS` query parameter or by
 
 If no cache resource is defined for the policy, or it is not well configured, the API will not be deployed. The resource name is specified in the policy configuration `cacheName`.
 {% endhint %}
-
-Functional and implementation information for the `cache` policy is organized into the following sections:
-
-* [Examples](cache.md#examples)
-* [Configuration](cache.md#configuration)
-* [Compatibility Matrix](cache.md#compatibility-matrix)
-* [Changelogs](cache.md#changelogs)
 
 ## Examples
 

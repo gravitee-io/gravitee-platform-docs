@@ -142,11 +142,6 @@ By default, there is no expiry. The value can be configured in the API definitio
 
 Refer to the following sections for additional details.
 
-* [Compatibility matrix](mqtt5.md#user-content-compatibility-matrix)
-* [Endpoint identifier](mqtt5.md#user-content-endpoint-identifier)
-* [Endpoint configuration](mqtt5.md#user-content-endpoint-configuration)
-* [Supplemental information](mqtt5.md#user-content-a-word-on)
-
 ### Compatibility matrix <a href="#user-content-compatibility-matrix" id="user-content-compatibility-matrix"></a>
 
 | Plugin version | APIM version    |

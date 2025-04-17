@@ -1,6 +1,6 @@
 # Create Kafka APIs
 
-## Introduction
+## Overview
 
 Gravitee Kafka APIs apply Gravitee API Management (APIM) capabilities directly to the Kafka protocol. Kafka APIs are based on the Gravitee [v4 API definition](../create-apis/overview.md#gravitee-v4-apis). A Gravitee API definition is a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, and to create plans for your Gravitee APIs and their transactions. You can create Kafka APIs through the API creation wizard UI, or via the [management API](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/ySqSVpDHfKA0fNml1fVO/).
 
@@ -18,14 +18,7 @@ The API definitions for Kafka APIs can be generated using the APIM Console's API
 
 <figure><img src="../.gitbook/assets/image (139).png" alt=""><figcaption></figcaption></figure>
 
-The API creation wizard comprises several steps, each of which requires you to define certain sets of information:
-
-* [API details](create-kafka-apis.md#step-1-api-details)
-* [Entrypoints](create-kafka-apis.md#step-2-entrypoints)
-* [Endpoints](create-kafka-apis.md#step-3-endpoints)
-* [Security](create-kafka-apis.md#step-4-security)
-* [Documentation](create-kafka-apis.md#step-5-documentation)
-* [Summary](create-kafka-apis.md#step-6-summary)
+The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
 ## API details
 

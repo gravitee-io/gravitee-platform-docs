@@ -333,11 +333,6 @@ curl https://${GATEWAY_HOST}:8082/messages/get?cursor=${LAST_ID}
 
 Refer to the following sections for additional details.
 
-* [Quality of Service](kafka.md#user-content-quality-of-service)
-* [Compatibility matrix](kafka.md#user-content-compatibility-matrix)
-* [Endpoint identifier](kafka.md#user-content-endpoint-identifier)
-* [Endpoint configuration](kafka.md#user-content-endpoint-configuration)
-
 ### Quality Of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
 
 <table><thead><tr><th width="159.99999999999997">QoS</th><th width="131">Delivery</th><th>Description</th></tr></thead><tbody><tr><td>None</td><td>Unwarranted</td><td>Improve throughput by removing auto commit</td></tr><tr><td>Balanced</td><td>0, 1 or n</td><td>Used well-knowing consumer group and offsets mechanism to balance between performances and quality</td></tr><tr><td>At-Best</td><td>0, 1 or n</td><td>Almost the same as <em>Balanced</em> but doing our best to delivery message once only but depending on entrypoint could rely on extra features to ensure which was the last message sent.</td></tr><tr><td>At-Most-Once</td><td>0 or 1</td><td>Depending on the entrypoint, this level could introduce performance degradation by forcing consumer to commit each message to ensure messages are sent 0 or 1 time.</td></tr><tr><td>At-Least-Once</td><td>1 or n</td><td>Depending on the entrypoint, this level could introduce performance degradation by forcing consumer to acknowledge each message to ensure messages are sent 1 or multiple times.</td></tr></tbody></table>
@@ -427,6 +422,3 @@ The following is an example of how to consume messages:
 ```
 {% endtab %}
 {% endtabs %}
-
-
-

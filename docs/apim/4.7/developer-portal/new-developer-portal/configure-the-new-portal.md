@@ -1,10 +1,10 @@
 # Configure the New Portal
 
-## Overview
-
 {% hint style="warning" %}
 This feature is in tech preview.&#x20;
 {% endhint %}
+
+## Overview
 
 Gravitee allows you to run either the classic or new Developer Portal, depending on your preference. You can configure Gravitee to use the new Developer Portal by enabling a setting. Gravitee launches the classic Developer Portal by default, but you can set the default to the new Developer Portal using environment variables.&#x20;
 

@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Mock policy
 hidden: true
 ---
 
@@ -18,13 +17,6 @@ The `mock` policy will **not** cause the other policies to be skipped, regardles
 {% endhint %}
 
 When defining the response body content, you can use [Gravitee Expression Language (EL)](../../4.6/guides/gravitee-expression-language.md) to provide a dynamic mock response.
-
-Functional and implementation information for the `mock` policy is organized into the following sections:
-
-* [Examples](mock.md#examples)
-* [Configuration](mock.md#configuration)
-* [Compatibility Matrix](mock.md#compatibility-matrix)
-* [Changelogs](mock.md#changelogs)
 
 ## Examples
 

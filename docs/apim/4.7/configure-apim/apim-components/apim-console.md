@@ -1,12 +1,6 @@
----
-description: >-
-  This article walks through how to configure the Gravitee API Management
-  Console
----
-
 # APIM Console
 
-## Introduction
+## Overview
 
 The Gravitee APIM console is a graphical user interface to configure gateways, create APIs, design policies, and publish documentation. Every action in the APIM Management Console is tied to a REST API that can be accessed outside of the interface.
 

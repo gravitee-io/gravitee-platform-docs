@@ -1,20 +1,14 @@
----
-description: >-
-  This page describes the breaking changes and the deprecated functionality that
-  may occur when upgrading Gravitee API Management
----
-
 # Breaking Changes and Deprecations
 
-## Breaking changes
+## Overview
 
-Here are the breaking changes for versions 4.X of Gravitee and versions 3.X of Gravitee
+This page describes the breaking changes and the deprecated functionality that may occur when upgrading Gravitee API Management. Here are the breaking changes for versions 4.x of Gravitee and versions 3.X of Gravitee
 
-### Breaking changes from 4.X
+## Breaking changes from 4.x
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
-#### 4.7.0
+### 4.7.0
 
 **Hazelcast**
 
@@ -30,13 +24,13 @@ There is a new parameter for ingesting Azure APIs. To ingest Azure APIs, you mus
 
 To keep the previous behavior of Azure API Management, set the `SUBSCRIPTION_APPROVAL_TYPE` to `AUTOMATIC` .
 
-#### 4.6.0
+### 4.6.0
 
 **OpenTracing replaced by OpenTelemetry**
 
 OpenTracing has been replaced by OpenTelemetry. If you use OpenTracing with the Jaeger plugin, you must update your configuration to target your OpenTelemetry endpoint.
 
-#### 4.4.0
+### 4.4.0
 
 **gateway.management.http.trustall update**
 
@@ -50,17 +44,17 @@ gateway|api.services.bridge.ssl.clientAuth no longer use a boolean value. Possib
 * `required`. Backward compatibility is maintained, true means required
 * `request`.
 
-#### 4.0.27
+### 4.0.27
 
 **ssl-redirect option changed to default**
 
 In gateway ingress controller, the ssl-redirect option was changed from "false" to default. For more information about this change, go to [Server-side HTTPS enforcement through redirect](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#server-side-https-enforcement-through-redirect).
 
-### Breaking changes from 3.X
+## Breaking changes from 3.X
 
 Here are the breaking changes from versions 3.X of Gravitee.
 
-#### 3.2.0
+### 3.2.0
 
 **Moved Probes configuration**
 
@@ -74,31 +68,27 @@ Changed probe default configuration. For more information about the change to th
 
 Under gateway.readinessProbe, the apiSync parameter was removed.
 
-#### 3.1.55
+### 3.1.55
 
 **Use of smtp.properties.starttlsEnable**
 
 Use smtp.properties.starttls.enable instead of smtp.properties.starttlsEnable.
 
-## Deprecated functionality
-
-Here is the deprecated functionality for 4.X versions of Gravitee and 3.X version of Gravitee.
-
-### Deprecated functionality 4.X
+## Deprecated functionality from 4.x
 
 Here is the deprecated functionality from 4.X of Gravitee
 
-#### 4.4.0
+### 4.4.0
 
 **gateway.management.http.username deprecation**
 
 To allow JWT auth to be configured, gateway.management.http.username and password have been deprecated to allow JWT auth to be configured. For more information about the deprecation, go to [Changelog](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/CHANGELOG.md).
 
-### Deprecated functionality 3.X
+## Deprecated functionality from 3.X
 
 Here is the deprecated functionality from 3.X of Gravitee
 
-#### 3.20.28
+### 3.20.28
 
 **Deprecated api | gateway | ui | portal.security context is removed**
 

@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Data Logging Masking policy
 hidden: true
 ---
 
@@ -16,12 +15,6 @@ If you enable logging on APIs, you can use the `data-logging-masking` policy to 
 {% hint style="info" %}
 The `data-logging-masking` policy must be the last to run. Don’t forget to add it in final position on both the request and the response.
 {% endhint %}
-
-Functional and implementation information for the `data-logging-masking` policy is organized into the following sections:
-
-* [Examples](data-logging-masking-1.md#examples)
-* [Configuration](data-logging-masking-1.md#configuration)
-* [Compatibility Matrix](data-logging-masking-1.md#compatibility-matrix)
 
 ## Examples
 

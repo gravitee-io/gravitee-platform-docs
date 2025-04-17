@@ -1,7 +1,3 @@
----
-description: Learn how to consume secured APIs
----
-
 # Applications
 
 ## Overview

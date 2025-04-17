@@ -1,9 +1,5 @@
 # Authentication
 
-## Overview
-
-This section discusses authentication as it relates to [identity providers](authentication.md#identity-providers), the [Deverloper Portal](authentication.md#developer-portal-authentication), and [users](authentication.md#users).
-
 ## Identity providers
 
 **We highly recommend using your own corporate identity provider** (must be OAuth2/OIDC-compliant) to delegate authentication to your Management Console and Portal. You have several choices:

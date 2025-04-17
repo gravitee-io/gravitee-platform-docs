@@ -1,7 +1,3 @@
----
-description: This page describes how to create and edit an application
----
-
 # Create an Application
 
 ## Overview

@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Cloud Events policy
 hidden: true
 ---
 
@@ -12,12 +11,6 @@ You can use the `cloud-events` policy to create a cloud-events `JSON` object fro
 This policy relies on the specification [https://cloudevents.io](https://cloudevents.io/) and uses [https://github.com/cloudevents/sdk-java](https://github.com/cloudevents/sdk-java) library.
 
 In APIM, you need to provide the cloud-events information in the policy configuration.
-
-Functional and implementation information for the `cloud-events` policy is organized into the following sections:
-
-* [Examples](cloud-events.md#examples)
-* [Configuration](cloud-events.md#user-content-configuration)
-* [Errors](cloud-events.md#user-content-errors)
 
 ## Examples
 

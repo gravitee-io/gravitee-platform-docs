@@ -1,9 +1,3 @@
----
-description: >-
-  This article consists of generalized considerations for achieving high
-  availability in a production deployment
----
-
 # Best Practices
 
 ## Overview

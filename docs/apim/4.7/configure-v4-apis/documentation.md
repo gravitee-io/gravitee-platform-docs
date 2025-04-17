@@ -8,15 +8,6 @@ As of Gravitee 4.3, the APIM Documentation feature is only available for v4 APIs
 
 Documentation can be added via the APIM Management Console to inform API consumers how to use an API. If the API and documentation are both published to the Developer Portal, the documentation will appear in the Portal for consumers to discover.
 
-The sections below describe how to:
-
-* [Add documentation](documentation.md#add-documentation)
-* [Add metadata](documentation.md#add-metadata)
-* [Edit documentation](documentation.md#editing)
-* [Link pages](documentation.md#link-pages)
-* [View documentation](documentation.md#view-documentation)
-* [Send messages](documentation.md#send-messages)
-
 ## Add documentation
 
 To add documentation to an API:

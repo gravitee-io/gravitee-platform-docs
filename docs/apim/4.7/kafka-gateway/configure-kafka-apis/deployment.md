@@ -2,10 +2,7 @@
 
 ## Overview
 
-In the **Deployment** section, you can manage sharding tags and track changes to your API from the following headers:
-
-* [Configuration](deployment.md#configuration)
-* [Deployment History](deployment.md#deployment-history)
+In the **Deployment** section, you can manage sharding tags and track changes to your API.
 
 ## Configuration
 

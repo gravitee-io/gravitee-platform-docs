@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the XSLT policy
 hidden: true
 ---
 
@@ -16,13 +15,6 @@ You can use the `xslt` policy to apply an XSL transformation to an incoming XML 
 This policy is based on the [Saxon](https://sourceforge.net/projects/saxon/) library.
 
 By default, a DOCTYPE declaration will cause an error. This is for security. If you want to allow it, you can set `policy.xslt.secure-processing` to `false` in the Gateway configuration file (`gravitee.yml`).
-
-Functional and implementation information for the `xslt` policy is organized into the following sections:
-
-* [Examples](xslt-1.md#examples)
-* [Configuration](xslt-1.md#configuration)
-* [Compatibility Matrix](xslt-1.md#compatibility-matrix)
-* [Errors](xslt-1.md#errors)
 
 ## Examples
 

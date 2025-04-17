@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Metrics Reporter policy
 hidden: true
 ---
 
@@ -8,12 +7,6 @@ hidden: true
 ## Overview
 
 The `metrics-reporter` policy allows you to push the request metrics to a custom endpoint. Running this policy ensures that the complete response has already been sent to the initial consumer.
-
-Functional and implementation information for the `metrics-reporter` policy is organized into the following sections:
-
-* [Examples](metrics-reporter.md#examples)
-* [Configuration](metrics-reporter.md#configuration)
-* [Changelogs](metrics-reporter.md#changelogs)
 
 ## Examples
 

@@ -11,17 +11,9 @@ This example uses the Gravitee Echo API to set up an HTTP proxy API. The Gravite
 * The `Enable API Review` option ensures that someone other than the API creator reviews and approves an API before the API creator publishes the API to a Gateway or the Developer Portal.
 {% endhint %}
 
-To create, deploy, and publish your API to the Developer Portal, you must complete the following steps:
+To create, deploy, and publish your API to the Developer Portal, you must complete the steps outlined in this article.
 
-* [Obtain a Personal Access Token](create-and-publish-an-api-using-the-management-api.md#obtaining-a-personal-access-token)
-* [Create the API definition in JSON](create-and-publish-an-api-using-the-management-api.md#create-the-api-definition-in-json)
-* [Create API via a mAPI call](create-and-publish-an-api-using-the-management-api.md#creating-the-api-via-a-mapi-call)
-* [Create a plan for the API](create-and-publish-an-api-using-the-management-api.md#create-a-plan-for-the-api)
-* [Publish the plan](create-and-publish-an-api-using-the-management-api.md#publish-the-plan)
-* [Start the API](create-and-publish-an-api-using-the-management-api.md#start-the-api)
-* [(Optional) Publish the API to the developer portal](create-and-publish-an-api-using-the-management-api.md#optional-publish-the-api-to-the-developer-portal)
-
-## Obtain a Personal Access Token
+## 1. Obtain a Personal Access Token
 
 To authenticate with the Management API (mAPI), you must provide a set of credentials or a Personal Access Token (PAT). &#x20;
 
@@ -42,7 +34,7 @@ export PERSONAL_ACCESS_TOKEN="kd2l91mL01110F..."
 export MANAGEMENT_API_URL="localhost:8083"
 ```
 
-## Create the API definition in JSON
+## 2. Create the API definition in JSON
 
 You can create the API definition manually for your API in JSON.&#x20;
 
@@ -99,7 +91,7 @@ If you craft the API definition manually, complete the following step:
 }
 ```
 
-## Create the API with a mAPI call
+## 3. Create the API with a mAPI call
 
 1. Run the the following `curl` command to create the API from the JSON definition:
 
@@ -125,7 +117,7 @@ In future calls, you can set this `id` as an environment variable like the follo
 export API_ID="54593ae4-0e2e-41fe-993a-e40e2ee1fe61"
 ```
 
-## Create a plan for the API
+## 4. Create a plan for the API
 
 Your API must have at least one Security/Consumer [Plan](broken-reference) associated with it before it can be deployed to a Gateway. For more information about Plans, see [Broken link](broken-reference "mention"). The following procedure explains how to create a `KEYLESS` plan.
 
@@ -151,7 +143,7 @@ In future calls, you can set this `id` as an environment variable like the follo
 export PLAN_ID="211jf90-dk211kl-9313-j9119-3k21t6leel19"
 ```
 
-## Publish the plan
+## 5. Publish the plan
 
 {% hint style="info" %}
 You must publish the Plan in accordance with the API lifecycle management guidelines.
@@ -168,7 +160,7 @@ https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/D
 
 If you published your plan successfully, you receive a `HTTP 200 OK` status.
 
-## Start the API
+## 6. Start the API
 
 To start the API using the mAPI, use the following command:
 
@@ -182,7 +174,7 @@ If the API starts successfully, you receive a `HTTP 204 No Content` status. &#x2
 
 You can now view your API in your Gravitee API Management Console. The API has the `KEYLESS` Plan published. Also, the API is deployed to the Gateway.
 
-## (Optional) Publish the API to the Developer Portal
+## 7. (Optional) Publish the API to the Developer Portal
 
 If you  want to publish your API to the Developer Portal, you must modify its configuration. To modify the APIs configuration, complete the following steps:&#x20;
 

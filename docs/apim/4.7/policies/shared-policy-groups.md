@@ -1,10 +1,10 @@
 # Shared Policy Groups
 
-## Overview
-
 {% hint style="warning" %}
 Shared policy groups only work with the Gravitee v4 API definition.
 {% endhint %}
+
+## Overview
 
 With shared policy groups, you can define a collection of policies in a central location and use them across multiple APIs. Also, you can complete the following actions:
 

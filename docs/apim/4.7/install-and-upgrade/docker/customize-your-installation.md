@@ -4,7 +4,7 @@ description: This page explains how to customize your Gravitee API Management on
 
 # Customize your Installation
 
-## Installing additional plugins
+## Install additional plugins
 
 * To add an additional plugin, copy the plugin archive that is contained in a `.zip` folder into the `plugins-ext` folder.
 
@@ -21,7 +21,7 @@ For more information about plugin deployment, see [Deployment](../../getting-sta
 Some plugins need to be installed on both the API Gateway and the Management API. Installation details are provided in a specific plugin’s documentation.
 {% endhint %}
 
-## Using Redis as the datastore for rate-limiting counters
+## Use Redis as the datastore for rate-limiting counters
 
 {% tabs %}
 {% tab title="Use Redis with docker-compose" %}
@@ -61,7 +61,7 @@ Your Redis host and port may be different.
 {% endtab %}
 {% endtabs %}
 
-## Using the JDBC connection as the datastore for management
+## Use the JDBC connection as the datastore for management
 
 ### Prerequisites
 

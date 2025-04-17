@@ -8,7 +8,7 @@ You'll also need to be running Gravitee API Management version 4.5 or above, wit
 
 For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
 
-### Spinning up a test Confluent Platform environment
+### Spin up a test Confluent Platform environment
 
 Confluent provides a demo project that you can easily be run locally.
 

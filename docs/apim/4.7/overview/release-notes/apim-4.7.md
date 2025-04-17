@@ -1,5 +1,7 @@
 # APIM 4.7
 
+## Overview
+
 In Gravitee 4.7, we have released the following improvements and enhancements:
 
 * Deprecation notice - APIM Standalone components.

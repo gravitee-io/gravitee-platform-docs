@@ -1,22 +1,8 @@
----
-description: >-
-  This article explores the additional features included in the enterprise
-  Gravitee API Management solution.
----
-
 # Enterprise Edition
 
-## Introduction
+## Overview
 
 Gravitee offers open source and enterprise versions of its API Management (APIM) distribution package. The Gravitee APIM Enterprise Edition requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing). It is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
-
-Refer to the sections below to learn about what's included in the Gravitee APIM Enterprise Edition:
-
-* [Enterprise features](enterprise-edition.md#enterprise-features)
-* [Enterprise plugins](enterprise-edition.md#enterprise-plugins)
-* [Advanced API monitoring](enterprise-edition.md#advanced-api-monitoring)
-* [Advanced environment management](enterprise-edition.md#advanced-environment-management)
-* [Hosting options](enterprise-edition.md#hosting-options)
 
 {% hint style="info" %}
 Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee).

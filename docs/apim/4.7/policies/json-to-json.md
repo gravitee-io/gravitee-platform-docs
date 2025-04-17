@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the JSON to JSON policy
 hidden: true
 ---
 

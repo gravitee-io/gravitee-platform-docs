@@ -1,16 +1,12 @@
----
-description: Configuration and syntax to access secrets within v4 APIs.
----
-
 # API-Level Secrets
 
 ## Overview
 
 You can configure secrets managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](../getting-started/gravitee-expression-language.md "mention").
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about these plugins, see [integrations.md](../getting-started/integrations.md "mention").
+Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about secret provider plugins, see [integrations.md](../getting-started/integrations.md "mention").
 
-This article explains the syntax for resolving secrets in v4 APIs and configuring secret managers with `secret-provider` plugins.
+This article explains the syntax used to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="warning" %}
 To learn more about Gravitee [Enterprise Edition](../overview/enterprise-edition.md) and what is included in various enterprise packages, please:

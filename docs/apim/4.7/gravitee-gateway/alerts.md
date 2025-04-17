@@ -4,7 +4,13 @@
 The following documentation is only relevant if you have Gravitee Alert Engine enabled, which is an Enterprise-only capability. To enable the following alerting capabilities, please [contact us](https://www.gravitee.io/contact-us) or reach out to your CSM.
 {% endhint %}
 
-When configuring platform settings, you can also set up alerting conditions for the Gateway. To configure alerts, select **Alerts** from the left nav of your APIM console. If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
+## Overview
+
+When configuring platform settings, you can also set up alerting conditions for the Gateway.&#x20;
+
+## Configuration
+
+To configure alerts, select **Alerts** from the left nav of your APIM console. If you already have alerts configured, you'll see the configured alerts. If not, you'll see a blank alerts menu and a **+** icon.
 
 <figure><img src="../.gitbook/assets/alerts.png" alt=""><figcaption><p>Alerts</p></figcaption></figure>
 
@@ -82,11 +88,11 @@ If you want to choose Webhook as your notification channel, you will need to def
 {% endtab %}
 {% endtabs %}
 
-### Example alerts
+## Example alerts
 
 To assist with alert configuration, sample alert templates useful to many teams are shown below.
 
-#### Alerts for when limits are reached
+### Alerts for when limits are reached
 
 {% tabs %}
 {% tab title="Response time limit" %}
@@ -108,7 +114,7 @@ To configure an alert for reaching the quota limit on requests:
 {% endtab %}
 {% endtabs %}
 
-#### Alerts based on errors or low usage
+### Alerts based on errors or low usage
 
 {% tabs %}
 {% tab title="Invalid API key" %}

@@ -1,10 +1,10 @@
 # OpenTelemetry
 
-## Overview
-
-{% hint style="info" %}
+{% hint style="warning" %}
 OpenTelemetry replaces OpenTracing. For more information about OpenTracing, see [OpenTracing](https://app.gitbook.com/s/i9IyjWJmsUdoilz8Mqms/using-the-product/using-the-gravitee-api-management-components/general-configuration/opentracing "mention").
 {% endhint %}
+
+## Overview
 
 Gravitee's OpenTelemetry solution allows you to trace every request handled by the API Management (APIM) Gateway. A request refers to the input object as defined by OpenTelemetry, which can be an HTTP request or other objects like a message or Kafka record. The OpenTelemetry framework supports standardized observability, meaning that you can export your Gravitee traces to any telemetry tool. For example, Jaegar.
 

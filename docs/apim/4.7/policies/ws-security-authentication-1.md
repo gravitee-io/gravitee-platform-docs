@@ -1,7 +1,4 @@
 ---
-description: >-
-  This page provides the technical details of the WS Security Authentication
-  policy
 hidden: true
 ---
 
@@ -23,13 +20,6 @@ To use the policy in an API, you need to:
 {% hint style="info" %}
 LDAP, inline and http resources are not part of the default APIM configuration, so you must download these resource plugins [here](https://download.gravitee.io/#graviteeio-apim/plugins/resources/).
 {% endhint %}
-
-Functional and implementation information for the `wssecurity-authentication` policy is organized into the following sections:
-
-* [Examples](ws-security-authentication-1.md#examples)
-* [Configuration](ws-security-authentication-1.md#configuration)
-* [Compatibility Matrix](ws-security-authentication-1.md#compatibility-matrix)
-* [Errors](ws-security-authentication-1.md#errors)
 
 ## Examples
 

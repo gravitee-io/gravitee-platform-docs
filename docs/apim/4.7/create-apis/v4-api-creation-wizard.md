@@ -1,10 +1,6 @@
----
-description: This article walks through how to use the Gravitee v4 API creation wizard
----
-
 # v4 API Creation Wizard
 
-## Introduction
+## Overview
 
 The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. To access the v4 API creation wizard:
 
@@ -14,14 +10,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 
 <figure><img src="../.gitbook/assets/image (140).png" alt=""><figcaption></figcaption></figure>
 
-The API creation wizard comprises several steps, each of which requires you to define certain sets of information:
-
-* [API details](v4-api-creation-wizard.md#step-1-api-details)
-* [Entrypoints](v4-api-creation-wizard.md#step-2-entrypoints)
-* [Endpoints](v4-api-creation-wizard.md#step-3-endpoints)
-* [Security](v4-api-creation-wizard.md#step-4-security)
-* [Documentation](v4-api-creation-wizard.md#step-5-documentation)
-* [Summary](v4-api-creation-wizard.md#step-6-summary)
+The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
 ## API details
 

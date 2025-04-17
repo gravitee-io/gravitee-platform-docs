@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Basic Authentication policy
 hidden: true
 ---
 
@@ -17,13 +16,6 @@ To use the policy in an API, you need to:
 {% hint style="info" %}
 LDAP, inline, and HTTP resources are not part of the default APIM configuration. You must first configure an LDAP, inline, or HTTP resource for APIM.
 {% endhint %}
-
-Functional and implementation information for the `basic-authentication` policy is organized into the following sections:
-
-* [Examples](basic-authentication.md#examples)
-* [Configuration](basic-authentication.md#configuration)
-* [Compatibility Matrix](basic-authentication.md#compatibility-matrix)
-* [Changelogs](basic-authentication.md#changelogs)
 
 ## Examples
 

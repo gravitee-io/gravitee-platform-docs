@@ -25,11 +25,6 @@ If you chose **Webhook** as an entrypoint, you can modify the following configur
 
 This Advanced version of the Webhook plugin adds enterprise features to the OSS version of the Webhook entrypoint, including Dead Letter Queue and secured callback. Refer to the following sections for additional details.
 
-* [Quality of Service](webhook.md#user-content-quality-of-service)
-* [Compatibility matrix](webhook.md#compatibility-matrix)
-* [Entrypoint identifier](webhook.md#user-content-plugin-identifier)
-* [Entrypoint configuration](webhook.md#user-content-configuration)
-
 ### Quality of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
 
 The Advanced version of the Webhook plugin offers improved QoS. In the Console, use the drop-down menu to choose between the available options. QoS compatibility is detailed [here](../quality-of-service.md).

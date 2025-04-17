@@ -2,14 +2,7 @@
 
 ## Overview
 
-The **Configuration** section allows you to manage and customize the following high-level settings:
-
-* [General](configuration.md#general)
-* [User Permissions](configuration.md#user-permissions)&#x20;
-* [Properties](configuration.md#properties)
-* [Resources](configuration.md#resources)
-* [Notifications](configuration.md#notifications)
-* [Audit Logs](configuration.md#audit-logs)
+The **Configuration** section allows you to manage and customize high-level settings.
 
 ## General
 

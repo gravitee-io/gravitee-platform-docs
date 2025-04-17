@@ -1,6 +1,6 @@
 # OpenShift
 
-## Before you begin
+## Prerequisites
 
 * Gravitee API Management (APIM) Helm chart is compatible with OpenShift versions 3.10 and later.
 * You must install the following command line tools:

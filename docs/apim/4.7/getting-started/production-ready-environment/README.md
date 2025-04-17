@@ -1,9 +1,3 @@
----
-description: >-
-  These configuration settings and recommendations are critical to the security
-  of your production environment
----
-
 # Production-ready Environment
 
 ## Overview

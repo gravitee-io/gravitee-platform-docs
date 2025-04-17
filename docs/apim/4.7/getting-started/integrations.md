@@ -1,9 +1,3 @@
----
-description: >-
-  Learn more about how Gravitee integrates with your larger technological
-  ecosystem
----
-
 # Integrations
 
 ## Overview

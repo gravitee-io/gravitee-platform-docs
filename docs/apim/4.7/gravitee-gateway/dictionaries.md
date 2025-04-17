@@ -1,12 +1,6 @@
----
-description: >-
-  This article describes how to configure dictionaries in Gravitee API
-  Management
----
-
 # Dictionaries
 
-## Introduction
+## Overview
 
 While API publishers can create properties for their own APIs, dictionaries provide a way to manage properties independent of individual APIs, making it possible to apply them across APIs and maintain them globally with a different user profile, such as an administrator.
 

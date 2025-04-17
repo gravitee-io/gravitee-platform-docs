@@ -10,11 +10,6 @@ A subscription is a successful contract between an API publisher and an API cons
 APIs with Keyless plans do not require the API consumer to create an application or submit a subscription request because no authorization is required to access the backend API.
 {% endhint %}
 
-This page includes information on how to:
-
-* [Create subscriptions](subscriptions.md#create-subscriptions)
-* [Manage subscriptions](subscriptions.md#manage-subscriptions)
-
 ## Create subscriptions
 
 API consumers can subscribe to APIs with published plans during the application creation process, or after the application is created. The APIM Console offers two ways to create a subscription using an existing application:

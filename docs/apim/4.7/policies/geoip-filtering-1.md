@@ -19,13 +19,6 @@ You can use the `geoip-filtering` policy to control access to your API by filter
 
 Whitelist mode excludes all IP addresses except the addresses included in the whitelist.
 
-Functional and implementation information for the `geoip-filtering` policy is organized into the following sections:
-
-* [Examples](geoip-filtering-1.md#examples)
-* [Configuration](geoip-filtering-1.md#configuration)
-* [Compatibility Matrix](geoip-filtering-1.md#compatibility-matrix)
-* [Errors](geoip-filtering-1.md#errors)
-
 ## Examples
 
 {% hint style="warning" %}

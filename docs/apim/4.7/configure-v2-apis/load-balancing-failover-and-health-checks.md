@@ -1,9 +1,3 @@
----
-description: >-
-  This section focuses on configuring load-balancing, failover, and
-  health-checks as Gravitee backend services
----
-
 # Load-balancing, Failover, and Health-checks
 
 ## Overview

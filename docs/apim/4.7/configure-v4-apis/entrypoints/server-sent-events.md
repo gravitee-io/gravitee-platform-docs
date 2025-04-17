@@ -17,11 +17,6 @@ If you chose **SSE** as an entrypoint, you can modify the following configuratio
 
 This Advanced version of the SSE plugin adds enterprise features to the OSS version of the SSE entrypoint. Refer to the following sections for additional details.
 
-* [Quality of Service](server-sent-events.md#user-content-quality-of-service)
-* [Compatibility matrix](server-sent-events.md#compatibility-matrix)
-* [Entrypoint identifier](server-sent-events.md#user-content-plugin-identifier)
-* [Entrypoint configuration](server-sent-events.md#user-content-configuration)
-
 ### Quality of Service <a href="#user-content-quality-of-service" id="user-content-quality-of-service"></a>
 
 The Advanced version of the SSE plugin offers improved QoS.

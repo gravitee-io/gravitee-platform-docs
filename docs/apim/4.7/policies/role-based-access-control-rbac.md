@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the RBAC policy
 hidden: true
 ---
 
@@ -15,14 +14,6 @@ You can use the `role-based-access-control` policy (RBAC policy) to control acce
 
 * Allow only incoming requests with roles exactly matching the configured roles (strict mode)
 * Allow incoming requests with at least one role matching the configured roles
-
-Functional and implementation information for the `role-based-access-control` policy is organized into the following sections:
-
-* [Examples](role-based-access-control-rbac.md#examples)
-* [Configuration](role-based-access-control-rbac.md#configuration)
-* [Compatibility Matrix](role-based-access-control-rbac.md#compatibility-matrix)
-* [Errors](role-based-access-control-rbac.md#errors)
-* [Changelogs](role-based-access-control-rbac.md#changelogs)
 
 ## Examples
 

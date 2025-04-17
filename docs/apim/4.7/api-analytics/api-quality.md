@@ -1,9 +1,3 @@
----
-description: >-
-  This article focuses on how to use the API Quality feature to govern your APIs
-  and ensure that only high-quality APIs enter production
----
-
 # API Quality
 
 {% hint style="warning" %}

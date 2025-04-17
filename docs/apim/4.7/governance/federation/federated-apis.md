@@ -2,14 +2,7 @@
 
 ## Overview
 
-Federated APIs join proxy and message APIs as one of the three main types of v4 Gravitee APIs. Federated APIs are created based on assets discovered by integrations with 3rd-party API gateway or event broker providers. This page discusses:
-
-* [Creating federated APIs](federated-apis.md#creating-federated-apis)
-* [Publishing federated APIs](federated-apis.md#publishing-federated-apis)
-* [Federated API documentation](federated-apis.md#federated-api-documentation)
-* [Federated API plans, applications, and subscriptions](federated-apis.md#federated-api-plans-applications-and-subscriptions)
-* [Configuring federated APIs](federated-apis.md#configuring-federated-apis)
-* [Deleting federated APIs](federated-apis.md#deleting-federated-apis)
+Federated APIs join proxy and message APIs as one of the three main types of v4 Gravitee APIs. Federated APIs are created based on assets discovered by integrations with 3rd-party API gateway or event broker providers.&#x20;
 
 {% hint style="info" %}
 **Federated API feature limitations**
@@ -20,7 +13,7 @@ The data plane of a federated API is managed by the underlying 3rd-party provide
 * Cannot be started, stopped, or deployed to the Gravitee API Gateway
 {% endhint %}
 
-## Creating federated APIs
+## Create federated APIs
 
 Gravitee Federated APIs cannot be created manually, they can only be discovered and ingested by the [Discovery](discovery.md) process.
 
@@ -32,7 +25,7 @@ If you open one, you'll be able to view that API's details, add additional docum
 When Gravitee APIs are created from integrations, 3rd-party provider API attributes are mapped into Gravitee API attributes. Which attributes are available and how they are imported depends on the provider. See the [provider documentation](3rd-party-providers/) for more information.
 {% endhint %}
 
-## Configuring federated APIs
+## Configure federated APIs
 
 Compared to traditional Gravitee v2 and v4 APIs, the configuration options available to federated APIs are limited. However, the APIM Console offers a subset of identical configuration pages and capabilities regardless of API type.
 
@@ -95,7 +88,7 @@ By default, the page is published with private visibility.
 
 Refer to the Developer Portal documentation for information on how to create and manage API documentation.
 
-## Publishing federated APIs to the Developer Portal
+## Publish federated APIs to the Developer Portal
 
 APIs federated from multiple vendors can be published in a single Gravitee Developer Portal. This acts as a centralized location from which API consumers can access documentation and subscriptions. By default, federated APIs imported from an integration are not published to the portal.
 
@@ -142,7 +135,7 @@ Depending on the subscription configuration, the application will either auto-va
 * For more information on how to create and manage subscriptions in APIM, see [Subscriptions](../../expose-apis/subscriptions.md).
 {% endhint %}
 
-## Deleting federated APIs
+## Delete federated APIs
 
 Deleting a federated API will close or delete all objects inside of it such as plans, documentation pages, and subscriptions.
 

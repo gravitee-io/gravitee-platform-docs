@@ -1,15 +1,5 @@
 # Settings
 
-## Overview
-
-This page discusses other configuration settings that fall into the following categories:
-
-* [Property encryption](settings.md#property-encryption)
-* [Documentation sanitizer](settings.md#documentation-sanitizer)
-* [Notifiers](settings.md#notifiers)
-* [Default APIM settings](settings.md#default-apim-settings)
-* [Portal & Console default Nginx security config](settings.md#portal-and-console-default-nginx-security-config)
-
 ## Property encryption
 
 Gravitee allows attaching properties to an API and offers the capability to store encrypted property values. **You must change the default encryption secret** with a custom secret that can't be determined easily. You must consider the following when changing the secret:

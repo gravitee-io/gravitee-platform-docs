@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Message Filtering policy
 hidden: true
 ---
 
@@ -12,12 +11,6 @@ hidden: true
 ## Overview
 
 The `message-filtering` policy enables the API publisher to create and enforce a filter that controls which messages are streamed to the subscriber/consumer, given a defined set of criteria.
-
-Functional and implementation information for the `message-filtering` policy is organized into the following sections:
-
-* [Examples](message-filtering.md#examples)
-* [Configuration](message-filtering.md#configuration)
-* [Changelogs](message-filtering.md#changelogs)
 
 ## Examples
 

@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Override HTTP Method policy
 hidden: true
 ---
 
@@ -14,14 +13,6 @@ This feature requires [Gravitee's Enterprise Edition](../../4.6/overview/gravite
 You can use the `override-http-method` policy to override the HTTP method provided by the initial consumer with a new configured value when the inbound request is sent to the backend API.
 
 This policy does not act on messages and only applies to the request phase of API flows.
-
-Functional and implementation information for the `override-http-method` policy is organized into the following sections:
-
-* [Examples](override-http-method.md#examples)
-* [Configuration](override-http-method.md#configuration)
-* [Compatibility Matrix](override-http-method.md#compatibility-matrix)
-* [Errors](override-http-method.md#errors)
-* [Changelogs](override-http-method.md#changelogs)
 
 ## Examples
 

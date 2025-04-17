@@ -1,13 +1,13 @@
 # Manual install
 
-## Before you begin
+## Prerequisites
 
 {% hint style="warning" %}
 * RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](../.zip.md).
 * If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition licensing, see [Enterprise Edition](../../overview/enterprise-edition.md).
 {% endhint %}
 
-### Prerequisites for installing Graviitee APIM on an Amazon instance
+### Prerequisites for installing Gravitee APIM on an Amazon instance
 
 <details>
 
@@ -24,7 +24,7 @@ You can run Gravitee APIM on Amazon EC2 instances. However, if you run Gravitee 
 
 </details>
 
-### Creating a Gravitee YUM repository
+### Create a Gravitee YUM repository
 
 Many enterprise Linux instances use the package manager `yum`. If you use an enterprise Linux-compatible operating system, you can create a YUM repository for Gravitee containing the APIM components.
 
@@ -321,7 +321,7 @@ sudo journalctl --unit graviteeio-apim-rest-api --since  "2020-01-30 12:13:14"
 
 </details>
 
-### **Verification**
+## **Verification**
 
 To verify that you installed Gravitee APIM correctly, send four API calls using the following commands on the machine hosting APIM:
 

@@ -1,7 +1,5 @@
 # Notifications
 
-## Overview
-
 The **Notification settings** section allows you to configure your own Developer Portal notifications using Portal, Email or Webhook notifiers.
 
 <figure><img src="../../.gitbook/assets/1 not 1.png" alt=""><figcaption></figcaption></figure>

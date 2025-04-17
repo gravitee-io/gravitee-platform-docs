@@ -1,9 +1,3 @@
----
-description: >-
-  This article describes how to design and enforce flows using the v4 Policy
-  Studio
----
-
 # v4 API Policy Studio
 
 {% hint style="info" %}
@@ -12,7 +6,7 @@ description: >-
 The v4 Policy Studio can only be used to design flows for APIs using the v4 API definition and supports applying policies at the message level or for pub/sub use cases. The v4 Policy Studio does not currently support Gravitee Debug mode.
 {% endhint %}
 
-## Introduction
+## Overview
 
 Gravitee defines a flow as the method to control where, and under what conditions, policies act on an API transaction. The v4 Policy Studio is a no-code tool used to create and manage flows. The details of its purpose and functionality are described in the following sections:
 

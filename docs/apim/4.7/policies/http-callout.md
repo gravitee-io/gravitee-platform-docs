@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the HTTP Callout policy
 hidden: true
 ---
 
@@ -12,14 +11,6 @@ You can use the `callout-http` policy to invoke an HTTP(S) URL and place a subse
 This can be useful if you need some data from an external service and want to inject it during request processing.
 
 The result of the callout is placed in a variable called `calloutResponse` and is only available during policy execution. If no variable is configured, the result of the callout is no longer available.
-
-Functional and implementation information for the `callout-http` policy is organized into the following sections:
-
-* [Examples](http-callout.md#examples)
-* [Configuration](http-callout.md#configuration)
-* [Compatibility Matrix](http-callout.md#compatibility-matrix)
-* [Errors](http-callout.md#errors)
-* [Changelogs](http-callout.md#changelogs)
 
 ## Examples
 

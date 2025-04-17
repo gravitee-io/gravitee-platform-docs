@@ -1,6 +1,6 @@
 # Plans
 
-## Introduction
+## Overview
 
 A **plan** provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor it to an application. To expose your Kafka API to internal or external consumers, it must have at least one plan. Gravitee offers the following types of plans for Kafka APIs:
 

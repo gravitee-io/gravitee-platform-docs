@@ -1,12 +1,5 @@
 # Protections
 
-## Overview
-
-This page discusses the following:
-
-* [Brute-force protection](protections.md#brute-force-protection)
-* [Browser protection](protections.md#browser-protection)
-
 ## Brute-force protection
 
 ### ReCaptcha

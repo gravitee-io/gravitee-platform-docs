@@ -132,7 +132,7 @@ GRAVITEE_HTTP_SSL_TLSPROTOCOLS=TLSv1.0,TLSv1.1,TLSv1.2
     });
     ```
 
-## Updating Cloud connection
+## Updating the Cloud connection
 
 APIM 4.2 brings improved management of multi-tenancy mode, where one APIM installation now tends to multiple tenants on either the Organization on Environment level.\
 \

@@ -1,5 +1,4 @@
 ---
-description: This page provides the technical details of the Request Content Limit policy
 hidden: true
 ---
 
@@ -8,14 +7,6 @@ hidden: true
 ## Overview
 
 You can use the `request-content-limit` policy to specify a maximum request content length allowed. This limit is compared to the content length header of the request.
-
-Functional and implementation information for the `request-content-limit` policy is organized into the following sections:
-
-* [Examples](request-content-limit.md#examples)
-* [Configuration](request-content-limit.md#configuration)
-* [Compatibility Matrix](request-content-limit.md#compatibility-matrix)
-* [Errors](request-content-limit.md#errors)
-* [Changelogs](request-content-limit.md#changelogs)
 
 ## Examples
 

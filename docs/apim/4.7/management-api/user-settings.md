@@ -1,7 +1,5 @@
 # User Settings
 
-## Configuration
-
 You can configure various user options:
 
 * `user.login.defaultApplication`: `boolean` (default: `true`): Creates a new application for all new users

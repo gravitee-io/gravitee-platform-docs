@@ -1,5 +1,7 @@
 # Solace
 
+## Overview
+
 Solace is an advanced event broker that enables an event mesh architecture.
 
 ## Prerequisites

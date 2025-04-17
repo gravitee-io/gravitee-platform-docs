@@ -1,12 +1,6 @@
----
-description: >-
-  Configure the Gravitee APIM Management API with environment variables, system
-  properties, and the gravitee.yaml file
----
-
 # Management API
 
-## Introduction
+## Overview
 
 This guide will walk through how to configure your general Gravitee APIM Management API settings using the `gravitee.yaml` file. As detailed in [APIM Components](./#configuring-apim-components), you can override these settings by using system properties or environment variables.
 
@@ -17,16 +11,6 @@ The `gravitee.yaml` file, found in `GRAVITEE_HOME/config/`, is the default way t
 
 YAML (`yml`) format is sensitive to indentation. Ensure you include the correct number of spaces and use spaces instead of tabs.
 {% endhint %}
-
-With the `gravitee.yaml` file, you can configure the following:
-
-* [HTTP Server](management-api.md#configure-http-server)
-* [Management and Portal APIs](management-api.md#configure-the-management-and-portal-apis)
-* [CORS](management-api.md#cors-configuration)
-* [Management repository](management-api.md#configure-the-management-repository)
-* [Analytics repository](management-api.md#configure-the-analytics-repository)
-* [SMTP](management-api.md#smtp-configuration)
-* [Default `gravitee.yaml` file](management-api.md#default-gravitee.yaml-config-file)
 
 ## Configure HTTP server
 

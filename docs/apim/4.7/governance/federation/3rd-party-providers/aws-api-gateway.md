@@ -1,5 +1,7 @@
 # AWS API Gateway
 
+## Overview
+
 AWS API Gateway is AWS's built-in API management solution and is commonly used to expose services running in the AWS cloud to the public internet.
 
 ## Prerequisites

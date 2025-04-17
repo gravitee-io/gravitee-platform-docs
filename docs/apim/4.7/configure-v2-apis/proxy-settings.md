@@ -1,10 +1,6 @@
----
-description: This article describes how to configure v2 API proxy settings
----
-
 # Proxy Settings
 
-## Introduction
+## Overview
 
 To configure the **Proxy** settings for a v2 API:
 

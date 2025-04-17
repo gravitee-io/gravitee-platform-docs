@@ -1,7 +1,4 @@
 ---
-description: >-
-  This page provides the technical details of the Custom Query Parameters Parser
-  policy
 hidden: true
 ---
 
@@ -13,13 +10,6 @@ You can use the `custom-query-parameters-parser` policy to:
 
 * Set variables such as request attributes and other execution context attributes
 * Change the way query parameters are extracted
-
-Functional and implementation information for the `custom-query-parameters-parser` policy is organized into the following sections:
-
-* [Configuration](custom-query-parameters-parser.md#configuration)
-* [Compatibility Matrix](custom-query-parameters-parser.md#compatibility-matrix)
-* [Errors](custom-query-parameters-parser.md#errors)
-* [Changelogs](custom-query-parameters-parser.md#changelogs)
 
 {% hint style="warning" %}
 This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
