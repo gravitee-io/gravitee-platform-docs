@@ -10,10 +10,10 @@ You can use this policy to run [Javascript](http://www.javascript.com/) scripts 
 
 Functional and implementation information for the `javascript` policy is organized into the following sections:
 
-* [Examples](javascript-1.md#examples)
-* [Configuration](javascript-1.md#configuration)
-* [Errors](javascript-1.md#errors)
-* [Changelogs](javascript-1.md#changelogs)
+* [Examples](javascripts-1.md#examples)
+* [Configuration](javascripts-1.md#configuration)
+* [Errors](javascripts-1.md#errors)
+* [Changelogs](javascripts-1.md#changelogs)
 
 ## Examples
 
