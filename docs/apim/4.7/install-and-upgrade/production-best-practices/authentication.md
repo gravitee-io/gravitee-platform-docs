@@ -28,6 +28,19 @@ The Developer Portal configuration can be fine-tuned to satisfy your needs. Addi
 
 ## Users
 
+### Roles, permissions, and groups
+
+Gravitee offers the ability to fine-tune a permissions list and the concept of roles, which can be used to **restrict user access to only what is required**.
+
+Some good practices to establish:
+
+* Use groups and permissions to restrict a given user's access to only a necessary subset of APIs.
+* Ensure each user only has the necessary permissions (e.g., assign the API\_PUBLISHER role instead of ADMIN).
+* Assign permissions to a group instead of each user individually.
+* Automatically associate a group with each new API or application to facilitate permission management.
+
+You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
+
 ### Default users
 
 Some default users are created for you during installation. These users are mainly there to discover the platform's capabilities with respect to roles and permissions.

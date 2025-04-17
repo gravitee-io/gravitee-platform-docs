@@ -1,14 +1,14 @@
-# Best Practices
+# Production Sizing Guidelines
 
 ## Overview
 
-High-level best practices and sizing recommendations for a production deployment of Gravitee API Management (APIM) are discussed in the sections below.
+Sizing recommendations for a production deployment of Gravitee API Management (APIM) are discussed in the sections below.
 
 {% hint style="info" %}
 For more detailed guidance specific to your deployment, [book a demo](https://www.gravitee.io/demo) with our solutions engineering team.
 {% endhint %}
 
-## Production best practices <a href="#production-best-practices" id="production-best-practices"></a>
+## High availability recommendations <a href="#production-best-practices" id="production-best-practices"></a>
 
 High availability focuses on increasing resilience and uptime. Reduction of both scheduled and unscheduled downtime relies on the implementation of 3 principles:
 
@@ -30,7 +30,7 @@ In Active/Active mode, both instances of the component are actively processing r
 
 Alternatively, Active/Passive mode involves designating one instance as active while the other remains in standby mode, ready to take over operations if the active instance fails. In this setup, the passive instance remains idle until it is needed, thereby conserving resources. Automatic failover mechanisms are employed to detect failures in the active instance and seamlessly transition operations to the passive instance without causing service disruptions.
 
-<figure><img src="../../.gitbook/assets/deployments and capacity.png" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/deployments and capacity.png" alt=""><figcaption><p>Load balancer</p></figcaption></figure>
 
 {% hint style="info" %}
 **VM installation**
@@ -63,7 +63,7 @@ Monitoring the health and performance of Gravitee APIM Gateways and Management A
 
 **Gateway Internal API Endpoints**
 
-The[ Gateway internal API](../../gravitee-gateway/gateway-internal-api.md) and [Management API Internal API](../../management-api/mapi-internal-api.md) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
+The[ Gateway internal API](../gravitee-gateway/gateway-internal-api.md) and [Management API Internal API](../management-api/mapi-internal-api.md) provide a set of RESTful endpoints that enable administrators to retrieve vital information about the node status, configuration, health, and monitoring data.
 
 **Mock Policy for Active Health Checks**
 
@@ -71,7 +71,7 @@ Utilizing an API with a [Mock policy](broken-reference) enables administrators t
 
 **Prometheus Metrics**
 
-[Integration with Prometheus](../../gravitee-gateway/logging.md#expose-metrics-to-prometheus) allows administrators to expose and collect metrics related to Gravitee APIM Gateways, including Vert.x 4 metrics. By accessing the `/_node/metrics/prometheus` endpoint on the internal API, administrators can retrieve detailed metrics with customizable labels, enabling them to monitor system performance and identify trends over time.
+[Integration with Prometheus](../gravitee-gateway/logging.md#expose-metrics-to-prometheus) allows administrators to expose and collect metrics related to Gravitee APIM Gateways, including Vert.x 4 metrics. By accessing the `/_node/metrics/prometheus` endpoint on the internal API, administrators can retrieve detailed metrics with customizable labels, enabling them to monitor system performance and identify trends over time.
 
 **OpenTracing with Jaeger**
 
@@ -96,7 +96,7 @@ Storage concerns reside at the analytics database level and depend on:
 * API rate (RPS: Requests Per Second)
 * API payload sizes
 
-To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](../../gravitee-gateway/logging.md#modify-logging-information) on all API requests and responses.
+To avoid generating excessive data and reducing Gateway capacity, refrain from [activating the advanced logs](../gravitee-gateway/logging.md#modify-logging-information) on all API requests and responses.
 
 For example, if you have activated the advanced logs on requests and responses with an average (requests + responses) payload size of 10kB and at 10 RPS, then retaining the logs for 6 months will require 1.5 TB of storage.
 {% endtab %}
@@ -124,7 +124,7 @@ The following table shows baseline hardware recommendations for a self-hosted de
 
 <table><thead><tr><th width="239">Component</th><th width="156" align="center">vCPU</th><th width="165" align="center">RAM (GB)</th><th align="center">Disk (GB)</th></tr></thead><tbody><tr><td><strong>Dev Portal + REST API</strong> (Dev Portal only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Console + REST API</strong> (Console only)</td><td align="center">1</td><td align="center">2</td><td align="center">20</td></tr><tr><td><strong>Dev Portal + Console + REST API</strong></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr><tr><td><strong>API Gateway instance</strong><br>Production best practice (HA) is 2 nodes.</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Alert Engine instance</strong><br>Production best practice (HA) is 2 nodes</td><td align="center">0.25 - 4</td><td align="center">512 MB - 8</td><td align="center">20</td></tr><tr><td><strong>Analytics DB instance (ElasticSearch)</strong><br><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/setup.html">Production best practice is 3 nodes</a>.<br><a href="https://www.elastic.co/guide/en/elasticsearch/guide/master/hardware.html">Official hardware recommendations</a>.</td><td align="center">1 - 8</td><td align="center"> 2 - 8 or more</td><td align="center">20 + 0.5 per million requests for default metrics</td></tr><tr><td><strong>Config DB instance</strong> (MongoDB or JDBC DB)<br><a href="https://www.mongodb.com/docs/manual/administration/production-notes">Production best practice is 3 nodes</a></td><td align="center">1</td><td align="center">2</td><td align="center">30</td></tr><tr><td><strong>Rate Limit DB instance</strong> (Redis)<br><a href="https://docs.redis.com/latest/rs/installing-upgrading/hardware-requirements/#productionenvironment">Production best practice is 3 nodes</a></td><td align="center">2</td><td align="center">4</td><td align="center">20</td></tr></tbody></table>
 
-## Gravitee JVM Memory Sizing <a href="#gravitee-jvm-memory-sizing" id="gravitee-jvm-memory-sizing"></a>
+## Gravitee JVM memory sizing <a href="#gravitee-jvm-memory-sizing" id="gravitee-jvm-memory-sizing"></a>
 
 You can specify the JVM memory sizing for each of the Gravitee nodes.
 
@@ -209,34 +209,3 @@ Here is an example of configuring resources and JVM of the API Gateway:
 2. To apply the updated configuration, redeploy the values.yaml file with your specific command `helm upgrade [release] [chart] -f values.yml` . For example, `helm upgrade gravitee-apim graviteeio/apim -f values.yml`
 {% endtab %}
 {% endtabs %}
-
-## Roles, permissions, and groups
-
-Gravitee offers the ability to fine-tune a permissions list and the concept of roles, which can be used to **restrict user access to only what is required**.
-
-Some good practices to establish:
-
-* Use groups and permissions to restrict a given user's access to only a necessary subset of APIs.
-* Ensure each user only has the necessary permissions (e.g., assign the API\_PUBLISHER role instead of ADMIN).
-* Assign permissions to a group instead of each user individually.
-* Automatically associate a group with each new API or application to facilitate permission management.
-
-You can find detail on roles, groups, and permissions in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/administration/user-management-and-permissions).
-
-## API review & quality
-
-You can **enable API review and quality** to avoid public exposure to the Developer Portal that is unexpected and lacks strong security requirements, or if you want a member of a Quality team to review API designs prior to deploying the API and making it accessible to API consumers. This can seamlessly establish a robust API strategy.
-
-You can find more information about API review and quality in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature).
-
-## API design
-
-There is no "rule of thumb" when it comes to designing and exposing your APIs, as this always depends on the business requirements. However, consider the following to avoid mistakes and open unexpected security breaches:
-
-* Enable and configure CORS at the API level. This ensures the best level of security when APIs are consumed by browser-based applications. See [details here](https://documentation.gravitee.io/apim/guides/api-configuration/v2-api-configuration/configure-cors#configure-cors).
-* Avoid exposing an API without security (i.e., using a keyless plan) when possible. Always prefer stronger security solutions such as JWT or OAuth2.
-* Disable auto-validation of API subscriptions. Instead, manually validate each subscription to ensure that you are familiar with your API consumers.
-* Require the API consumer to enter a comment when subscribing to an API. This is a simple way to understand the motivation for a subscription and helps detect malicious attempts to access an API.
-* Regularly review subscriptions and revoke those that are no longer used.
-
-More information on how to manage API subscriptions is detailed in the [Gravitee documentation](https://documentation.gravitee.io/apim/guides/api-exposure-plans-applications-and-subscriptions/subscriptions).
