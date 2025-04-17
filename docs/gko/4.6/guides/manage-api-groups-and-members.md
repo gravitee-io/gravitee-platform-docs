@@ -30,13 +30,3 @@ Generally speaking, if a group or member referenced from an API or application d
 {% hint style="info" %}
 For APIs managed by GKO, you will not be able to add or modify groups or members manually from the API Management Console.
 {% endhint %}
-
-## Limitations
-
-For APIs and applications managed by GKO, the source of truth for groups and members should exclusively be what is defined in the CRD.
-
-However, in the Gravitee API Management Console, there are environment-level settings that can be used to automatically assign groups to every new API or application that is created. These settings are shown in the screenshot below.
-
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
-It is not recommend to use or to rely on these features for APIs or applications managed by GKO. If used, these automatic groups will be added when an API is first created by the operator, but will be removed when subsequent changes are applied.
