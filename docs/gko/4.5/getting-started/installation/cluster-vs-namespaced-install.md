@@ -20,6 +20,8 @@ The Gravitee Kubernetes Operator can be set up to listen to a single namespace i
 
 To achieve this architecture, the `manager.scope.cluster` value must be set to `false` during the Helm install. Role names are computed from the service account name, so each install must set a dedicated service account name for each operator using the `serviceAccount.name` Helm value.
 
+To ensure the webhook configuration used by each namespaced operator is unique and accessible only to the service account defined using the `serviceAccount.name` value, set `manager.webhook.configuration.useAutoUniqueNames` to `true`.
+
 An overview of this architecture is described by the diagram below.
 
 <figure><img src="../../.gitbook/assets/k8s namespaced mode.png" alt=""><figcaption><p>Multiple operators, each listening to its own namespace</p></figcaption></figure>
