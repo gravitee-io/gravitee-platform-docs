@@ -4,7 +4,6 @@
 
 * [Introduction to APIM](README.md)
 * [Architecture](overview/architecture.md)
-* [Execution Engine](overview/execution-engine.md)
 * [Enterprise Edition](overview/enterprise-edition.md)
 * [Release Notes](overview/release-notes/README.md)
   * [APIM 4.7](overview/release-notes/apim-4.7.md)
@@ -122,10 +121,11 @@
 
 ## Create APIs
 
-* [Overview](create-apis/overview.md)
+* [Gravitee API Definitions](create-apis/overview/README.md)
+  * [v2 and v4 API Comparison](create-apis/overview/v2-and-v4-api-comparison.md)
+  * [Execution Engine](create-apis/overview/execution-engine.md)
 * [Import APIs](create-apis/import-apis.md)
 * [Search for APIs in the Console](create-apis/search-for-apis-in-the-console.md)
-* [v2 and v4 API Comparison](create-apis/v2-and-v4-api-comparison.md)
 * [v2 API Creation Wizard](create-apis/v2-api-creation-wizard.md)
 * [v4 API Creation Wizard](create-apis/v4-api-creation-wizard.md)
 

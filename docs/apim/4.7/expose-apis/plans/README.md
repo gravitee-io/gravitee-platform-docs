@@ -107,7 +107,7 @@ To close a plan, click on the 'x' icon:
 APIM automatically routes each API request to the correct plan. The plan selection workflow parses all published plans in the following order: **JWT**, **OAuth2**, **API Key**, **Keyless**.&#x20;
 
 {% hint style="warning" %}
-This workflow only applies to [v4 APIs and v2 APIs in emulation mode](../../overview/execution-engine.md#v2-gateway-api-emulation-mode).
+This workflow only applies to [v4 APIs and v2 APIs in emulation mode](../../create-apis/overview/execution-engine.md#v2-gateway-api-emulation-mode).
 {% endhint %}
 
 The parsing rules for each plan type are detailed below:
