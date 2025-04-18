@@ -2,9 +2,32 @@
 
 ## Introduction
 
-The changelog is the best place for in-depth overviews of what's new in Gravitee major and minor releases.
+The changelog provides in-depth overviews of what's new in Gravitee major, minor, and patch releases.
 
 ## Alert Engine changelog
+
+### 2.2.1 (2025-04-14)
+
+_**General**_
+
+* fix: remove deprecated hazelcast-kubernetes dependency
+* fix: upgrade hazelcast configuration
+
+### 2.2.0 (2025-02-24)
+
+_**General**_
+
+* docker image: run the engine with gravitee user rather than root
+* docker image: build image for linux/arm64 and linux/amd64
+* update dependencies version
+* rework CI to avoid usage of external but dedicated AE orb and add some cleanup + build perf-test docker images
+
+### 2.1.6 (2024-06-24)
+
+_**General**_
+
+* fix: resolve relaxing count reset on dampening
+* fix: do not reach the channel address on notification when resolving properties for APIM and AM
 
 ### 2.1.5 (2023-08-18)
 
