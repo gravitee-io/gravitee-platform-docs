@@ -253,7 +253,6 @@
 * [Interrupt](policies/interrupt.md)
 * [IP Filtering](policies/ip-filtering.md)
 * [Javascript](policies/javascript.md)
-* [Javascript](policies/javascripts.md)
 * [JSON to JSON](policies/json-to-json.md)
 * [JSON to XML](policies/json-to-xml.md)
 * [JSON Threat Protection](policies/json-threat-protection.md)
