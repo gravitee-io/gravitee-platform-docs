@@ -154,6 +154,12 @@ To pre-register a user:
 To delete a user from your Organization, select the **Delete user** icon from the table on the **Users** page:
 
 <figure><img src="../.gitbook/assets/user_delete.png" alt=""><figcaption><p>Delete a user</p></figcaption></figure>
+
+A user can only be deleted if they are not the Primary Owner of a Gravitee user group, application, or API. If the user is the Primary Owner of any of these Gravitee objects, the trash can icon will not appear until the object is transferred or deleted.
+
+{% hint style="info" %}
+When a user is created in Gravitee, a default application is created for that user.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Create and manage user groups" %}
