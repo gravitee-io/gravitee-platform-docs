@@ -7,8 +7,8 @@ on:
 
 jobs:
   notify-if-gitbook:
-    # Only run if commit author is GitBook bot
-    if: github.event.head_commit.author.name == 'gitbook-com[bot]'
+    # Only run if commit author is GitBook
+    if: github.event.head_commit.author.name == 'gitbook-com'
     runs-on: ubuntu-latest
 
     steps:
