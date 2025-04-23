@@ -74,6 +74,7 @@
     * [Notifiers](install-and-upgrade/production-best-practices/settings/notifiers.md)
     * [Default Nginx security config](install-and-upgrade/production-best-practices/settings/default-nginx-security-config.md)
 * [Upgrade Guide](install-and-upgrade/upgrade-guide.md)
+* [Certificate Renewal Guide](install-and-upgrade/certificate-renewal-guide.md)
 * [Breaking Changes and Deprecations](install-and-upgrade/breaking-changes-and-deprecations.md)
 
 ## Hybrid Deployment
