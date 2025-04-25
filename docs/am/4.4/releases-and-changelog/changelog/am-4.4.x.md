@@ -10,6 +10,25 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.24 - April 25, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* MFA "Remember Device" error when using CAS IDP [#10493](https://github.com/gravitee-io/issues/issues/10493)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.4.23 - April 11, 2025
 
 <details>
