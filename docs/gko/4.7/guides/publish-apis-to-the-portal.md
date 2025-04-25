@@ -1,12 +1,12 @@
 # Publish APIs to the Developer Portal
 
-Whether APIs managed by GKO are published to the Gravitee Developer Portal is controlled by an attribute called `lifecycle_state` that is common to both `ApiV4Definition` and `ApiDefinition` CRDs.
+Whether APIs managed by GKO are published to the Gravitee Developer Portal is controlled by an attribute called `lifecycleState` that is common to both `ApiV4Definition` and `ApiDefinition` CRDs.
 
 These CRDs are also used to determine which [categories](publish-apis-to-the-portal.md#setting-a-category-for-an-api) an API should belong to. Categories help consumers navigate through large numbers of APIs on the Developer Portal.
 
 ## Publish an API to the Portal
 
-By default, APIs are not published to the Developer Portal. To publish an API, set the `lifecycle_state` property value to `PUBLISHED`:
+By default, APIs are not published to the Developer Portal. To publish an API, set the `lifecycleState` property value to `PUBLISHED`:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -20,7 +20,7 @@ spec:
     name: "management-context-1"
   version: 1.0.0
   description: Basic api managed by Gravitee Kubernetes Operator
-  lifecycle_state: PUBLISHED
+  lifecycleState: PUBLISHED
   local: false
   proxy:
     virtual_hosts:
@@ -31,7 +31,7 @@ spec:
             target: https://api.gravitee.io/echo
 ```
 
-To unpublish the API, change the `lifecycle_state` property value to `UNPUBLISHED`.
+To unpublish the API, change the `lifecycleState` property value to `UNPUBLISHED`.
 
 ## Setting a category for an API
 
