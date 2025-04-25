@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.2 - April 25, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* MFA "Remember Device" error when using CAS IDP [#10493](https://github.com/gravitee-io/issues/issues/10493)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.7.1 - April 11, 2025
 
 <details>
