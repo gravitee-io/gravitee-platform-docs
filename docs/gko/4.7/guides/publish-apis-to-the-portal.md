@@ -1,12 +1,14 @@
 # Publish APIs to the Developer Portal
 
-Whether APIs managed by GKO are published to the Gravitee Developer Portal is controlled by an attribute called `lifecycleState` that is common to both `ApiV4Definition` and `ApiDefinition` CRDs.
+Whether APIs managed by GKO are published to the Gravitee Developer Portal is controlled by an attribute called `lifecycle_state` in V2, `lifecycleState` in V4 CRDs.
 
 These CRDs are also used to determine which [categories](publish-apis-to-the-portal.md#setting-a-category-for-an-api) an API should belong to. Categories help consumers navigate through large numbers of APIs on the Developer Portal.
 
 ## Publish an API to the Portal
 
-By default, APIs are not published to the Developer Portal. To publish an API, set the `lifecycleState` property value to `PUBLISHED`:
+By default, APIs are not published to the Developer Portal. To publish an API, set the `lifecycle_state` property value in V2 and `lifecycleState` in V4 property value to `PUBLISHED`:
+
+V2 example:
 
 ```yaml
 apiVersion: gravitee.io/v1alpha1
@@ -20,7 +22,7 @@ spec:
     name: "management-context-1"
   version: 1.0.0
   description: Basic api managed by Gravitee Kubernetes Operator
-  lifecycleState: PUBLISHED
+  lifecycle_state: PUBLISHED
   local: false
   proxy:
     virtual_hosts:
@@ -31,7 +33,48 @@ spec:
             target: https://api.gravitee.io/echo
 ```
 
-To unpublish the API, change the `lifecycleState` property value to `UNPUBLISHED`.
+V4 example:
+
+```yaml
+apiVersion: gravitee.io/v1alpha1
+kind: ApiV4Definition
+metadata:
+  name: api-v4
+spec:
+  name: "api-v4"
+  description: "API v4 managed by Gravitee Kubernetes Operator"
+  version: "1.0"
+  lifecycleState: PUBLISHED
+  type: PROXY
+  listeners:
+    - type: HTTP
+      paths:
+        - path: "/echo-v4"
+      entrypoints:
+        - type: http-proxy
+          qos: AUTO
+  endpointGroups:
+    - name: Default HTTP proxy group
+      type: http-proxy
+      endpoints:
+        - name: Default HTTP proxy
+          type: http-proxy
+          inheritConfiguration: false
+          configuration:
+            target: https://api.gravitee.io/echo
+          secondary: false
+  flowExecution:
+    mode: DEFAULT
+    matchRequired: false
+  plans:
+    KeyLess:
+      name: "Free plan"
+      description: "This plan does not require any authentication"
+      security:
+        type: "KEY_LESS"
+```
+
+To unpublish the API, change the `lifecycle_state` property value in V2 and the `lifecycleState` property value in V4 to `UNPUBLISHED`.
 
 ## Setting a category for an API
 
