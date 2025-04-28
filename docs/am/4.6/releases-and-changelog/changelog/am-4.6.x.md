@@ -6,6 +6,20 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.8 - April 28, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+**Other**
+
+* GIS claim can be overridden with custom claim [#10472](https://github.com/gravitee-io/issues/issues/10472)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.7 - April 15, 2025
 
 <details>

@@ -18,7 +18,9 @@ description: >-
 
 
 
+**Other**
 
+* GIS claim can be overridden with custom claim [#10472](https://github.com/gravitee-io/issues/issues/10472)
 
 
 
