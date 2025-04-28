@@ -21,11 +21,9 @@ When managing deployments using Helm, please note that the default startup, live
 * MFA "Remember Device" error when using CAS IDP [#10493](https://github.com/gravitee-io/issues/issues/10493)
 
 
-
-
-
 **Other**
 
+* GIS claim can be overridden with custom claim [#10472](https://github.com/gravitee-io/issues/issues/10472)
 * JDBC pool parameters are incorrectly indented in the Helm chart [#10482](https://github.com/gravitee-io/issues/issues/10482)
 
 </details>
