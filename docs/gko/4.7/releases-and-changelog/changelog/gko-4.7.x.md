@@ -1,5 +1,16 @@
 # GKO 4.7.x
 
+## Gravitee Kubernetes Operator 4.7.4 - April 28, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * auto-assigned groups are not added to applications [#10513](https://github.com/gravitee-io/issues/issues/10513)
+  * Unable to remove kubernetes secret used as template for an APIV4 [#10510](https://github.com/gravitee-io/issues/issues/10510)
+  * Change in Config Maps or Secrets used for templating are not reflected in targeted resources [#10498](https://github.com/gravitee-io/issues/issues/10498)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.7.3 - April 17, 2025
     
 <details>
