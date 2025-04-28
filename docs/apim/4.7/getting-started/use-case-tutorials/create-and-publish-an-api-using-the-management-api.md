@@ -25,9 +25,9 @@ To generate a PAT, complete the following steps:
 4. Click your username, and then scroll to `Tokens`.
 5. Click `Generate a personal token`.  This (bearer) token is used in the `Authorization` header when you make requests to the Management API.
 
-<figure><img src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXevKrd-eEwy0weN9zG1LDc-gb00Q6Et0vnp3rSVq0BWgIqN5CuMXoGBPU6VDPCHrU2SnWoQZQoU1E7LC_qsdAWpI-1bqhti2QawjPQ3v343WGCUhrItm2daeniAdeF5FlK_w-4I-fm5UAJ4q4u6b-7YG_hf?key=ct5dl3MgXSqTMSd4JX9ipQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/80012A8E-12F7-4DF9-8D1B-ADE8A35DF5B0.jpeg" alt=""><figcaption></figcaption></figure>
 
-6. &#x20;Set the Personal Access Token and management API base URL to environment variables by using values appropriate for your environment:
+1. &#x20;Set the Personal Access Token and management API base URL to environment variables by using values appropriate for your environment:
 
 ```bash
 export PERSONAL_ACCESS_TOKEN="kd2l91mL01110F..."
