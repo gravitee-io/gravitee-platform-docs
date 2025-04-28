@@ -1,5 +1,16 @@
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.10 - April 28, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Unable to remove kubernetes secret used as template for an APIV4 [#10510](https://github.com/gravitee-io/issues/issues/10510)
+  * Installing several operators in multiple namespaces is not possible due to webhook conflict [#10499](https://github.com/gravitee-io/issues/issues/10499)
+  * Change in Config Maps or Secrets used for templating are not reflected in targeted resources [#10498](https://github.com/gravitee-io/issues/issues/10498)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.6.9 - April 14, 2025
     
 <details>
