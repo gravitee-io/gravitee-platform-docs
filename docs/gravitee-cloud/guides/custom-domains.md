@@ -44,7 +44,7 @@ Depending on Google CA load, the issue of the certificate may take some time. Yo
 
 ## Verification
 
-Once both CNAME and SSL certificate has been verified, you may now make API requests using the new custom domain. The Access URL shown in Developer Portal will also&#x20;
+Once both CNAME and SSL certificate has been verified, you may now make API requests using the new custom domain.&#x20;
 
 <figure><img src="../.gitbook/assets/image (43).png" alt=""><figcaption><p>Gravitee Hosted Gateway details page. Note that the Gateway URL is the custom domain configured.</p></figcaption></figure>
 
