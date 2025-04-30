@@ -6,6 +6,43 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.15 - April 25, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Bug in io.gravitee.connector.http.HttpConnection.java exceptionHandler [#10439](https://github.com/gravitee-io/issues/issues/10439)
+
+**Management API**
+
+* Global Alert configuration page does not refresh properly after change [#10436](https://github.com/gravitee-io/issues/issues/10436)
+* Issue with Policy Execution Order [#10486](https://github.com/gravitee-io/issues/issues/10486)
+
+**Console**
+
+* API Traffic Settings page is not visible for V4 Message APIs due to permission issue for default roles [#10386](https://github.com/gravitee-io/issues/issues/10386)
+* Logs filter display Unpublished plan [#10480](https://github.com/gravitee-io/issues/issues/10480)
+
+**Portal**
+
+* Portal-Next shows all Unpublished apis  [#10505](https://github.com/gravitee-io/issues/issues/10505)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Type of application is removed after update\[ApplicationType \[null] cannot be found]. [#10359](https://github.com/gravitee-io/issues/issues/10359)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.5.14 - April 11, 2025
 <details>
 

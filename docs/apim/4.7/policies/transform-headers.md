@@ -10,7 +10,8 @@ You can use the `transform-headers` policy to override HTTP headers in incoming 
 
 * Adding to or updating the list of headers
 * Removing headers individually
-* Defining a whitelist == Compatibility with APIM
+* Defining a whitelist
+* Converting HTTP-based headers into Message Headers (specifically for publishing messages to Event Brokers using Protocol Mediation)
 
 ## Examples
 
