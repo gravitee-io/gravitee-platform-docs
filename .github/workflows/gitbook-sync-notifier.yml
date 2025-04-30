@@ -1,4 +1,4 @@
-name: Notify Slack on GitBook Sync
+name: notify-if-not-pr
 
 on:
   push:
@@ -6,15 +6,29 @@ on:
       - main
 
 jobs:
-  notify-if-not-pr:
+  notify:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Set up job
+        run: echo "Setting up job"
+
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          repository: gravitee-io/gravitee-platform-docs
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ssh-strict: true
+          persist-credentials: true
+          clean: true
+          sparse-checkout-cone-mode: true
+          fetch-depth: 2    # <-- Updated here
+          fetch-tags: false
+          lfs: false
+          submodules: false
+          set-safe-directory: true
 
       - name: Check if this is a PR merge
-        id: check_pr
+        id: pr-check
         run: |
           MESSAGE="${{ github.event.head_commit.message }}"
           if [[ "$MESSAGE" =~ ^Merge\ pull\ request ]]; then
@@ -26,14 +40,12 @@ jobs:
           fi
 
       - name: Build Slack payload
-        if: steps.check_pr.outputs.send == 'true'
+        if: steps.pr-check.outputs.send == 'true'
         id: payload
         run: |
-          # Get SHA and previous SHA
           CURRENT_SHA="${{ github.sha }}"
           PREVIOUS_SHA=$(git rev-parse "$CURRENT_SHA^1")
 
-          # Get only docs/ files from the diff
           FILE_LIST=$(git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '^docs/' || true)
 
           if [[ -z "$FILE_LIST" ]]; then
@@ -42,21 +54,19 @@ jobs:
             exit 0
           fi
 
-          # Build bullet list of links
           FILE_BLOCKS=""
           while read -r FILE; do
-            LINK="• <https://github.com/${{ github.repository }}/blob/main/$FILE|$FILE>"
+            LINK="• <https://github.com/gravitee-io/gravitee-platform-docs/blob/main/$FILE|$FILE>"
             FILE_BLOCKS="${FILE_BLOCKS}${LINK}\n"
           done <<< "$FILE_LIST"
 
           echo -e "$FILE_BLOCKS" > formatted_files.txt
 
-          # Generate diff link
-          DIFF_URL="https://github.com/${{ github.repository }}/compare/$PREVIOUS_SHA...$CURRENT_SHA"
+          DIFF_URL="https://github.com/gravitee-io/gravitee-platform-docs/compare/$PREVIOUS_SHA...$CURRENT_SHA"
 
           jq -n \
             --rawfile files formatted_files.txt \
-            --arg repo "${{ github.repository }}" \
+            --arg repo "gravitee-io/gravitee-platform-docs" \
             --arg branch "main" \
             --arg author "${{ github.event.head_commit.author.name }}" \
             --arg sha "$CURRENT_SHA" \
@@ -84,3 +94,9 @@ jobs:
           payload-file-path: payload.json
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Post Checkout code
+        run: echo "Code checkout complete"
+
+      - name: Complete job
+        run: echo "Job done"
