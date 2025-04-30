@@ -1,5 +1,14 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.15 - April 28, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Installing several operators in multiple namespaces is not possible due to webhook conflict [#10499](https://github.com/gravitee-io/issues/issues/10499)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.14 - April 14, 2025
     
 <details>
