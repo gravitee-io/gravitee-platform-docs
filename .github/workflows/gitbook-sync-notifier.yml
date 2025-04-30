@@ -19,20 +19,21 @@ jobs:
           MESSAGE="${{ github.event.head_commit.message }}"
           if [[ "$MESSAGE" =~ ^Merge\ pull\ request ]]; then
             echo "This is a PR merge. Skipping."
-            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "send=false" >> $GITHUB_OUTPUT
           else
             echo "This is NOT a PR merge. Proceeding."
-            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "send=true" >> $GITHUB_OUTPUT
           fi
 
       - name: Build Slack payload
-        if: steps.check.outputs.skip == 'false'
+        if: steps.check.outputs.send == 'true'
+        id: payload
         run: |
-          # Get only files under docs/
-          FILE_LIST=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep '^docs/' || true)
+          FILE_LIST=$(git show --pretty="" --name-only ${{ github.sha }} | grep '^docs/' || true)
 
           if [[ -z "$FILE_LIST" ]]; then
-            echo "No docs/ files changed. Exiting quietly."
+            echo "No docs/ files changed. Skipping notification."
+            echo "send=false" >> $GITHUB_OUTPUT
             exit 0
           fi
 
@@ -64,9 +65,10 @@ jobs:
                 }
               ]
             }' > payload.json
+          echo "send=true" >> $GITHUB_OUTPUT
 
       - name: Send Slack notification
-        if: steps.check.outputs.skip == 'false'
+        if: steps.payload.outputs.send == 'true'
         uses: slackapi/slack-github-action@v1.24.0
         with:
           payload-file-path: payload.json
