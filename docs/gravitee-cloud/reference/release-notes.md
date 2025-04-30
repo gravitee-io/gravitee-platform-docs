@@ -2,6 +2,20 @@
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:&#x20;
 
+## April 2025
+
+<details>
+
+<summary>29th April</summary>
+
+You can now configure Custom Domains for Gravitee-hosted Gateways and the Developer Portal. This feature lets you personalize your infrastructure URLs with your own domain names to provide a consistent branded experience across your entire API ecosystem.
+
+To set up a Custom Domain, select the Gravitee-hosted Gateway you want to personalize from your Dashboard, and then enter your information in the Custom Domain section. You can easily reset your Custom Domain configuration if needed.
+
+For more information, see the [Custom Domains](../guides/custom-domains.md) documentation.
+
+</details>
+
 ## November 2024
 
 <details>
