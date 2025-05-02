@@ -48,7 +48,7 @@ jobs:
 
           echo "PREVIOUS_SHA: $PREVIOUS_SHA"
           echo "CURRENT_SHA: $CURRENT_SHA"
-
+          echo "Changed files:"
           FILE_LIST=$(git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '^docs/' || true)
 
           if [[ -z "$FILE_LIST" ]]; then
@@ -57,18 +57,30 @@ jobs:
             exit 0
           fi
 
+          echo "$FILE_LIST"
+
           FILE_LINKS=""
           while read -r FILE; do
             LINK="• https://github.com/gravitee-io/gravitee-platform-docs/blob/main/$FILE"
             FILE_LINKS="${FILE_LINKS}${LINK}\n"
           done <<< "$FILE_LIST"
 
+          echo -e "$FILE_LINKS" > formatted_files.txt
+          echo -e "Files changed:\n$FILE_LINKS"
+
           DIFF_URL="https://github.com/gravitee-io/gravitee-platform-docs/compare/$PREVIOUS_SHA...$CURRENT_SHA"
-          COMMIT_URL="https://github.com/gravitee-io/gravitee-platform-docs/commit/$CURRENT_SHA"
 
-          echo -e ":book: GitBook Sync Detected!\nRepository: gravitee-io/gravitee-platform-docs\nBranch: main\nAuthor: ${{ github.actor }}\nCommit: $COMMIT_URL\nMessage: ${{ github.event.head_commit.message }}\nDiff: $DIFF_URL\nChanged files:\n$FILE_LINKS" > slack_message.txt
-
-          jq -Rs '{ text: . }' slack_message.txt > payload.json
+          jq -n \
+            --rawfile files formatted_files.txt \
+            --arg repo "gravitee-io/gravitee-platform-docs" \
+            --arg branch "main" \
+            --arg author "${{ github.actor }}" \
+            --arg sha "$CURRENT_SHA" \
+            --arg message "${{ github.event.head_commit.message }}" \
+            --arg diff "$DIFF_URL" \
+            '{
+              text: ":book: GitBook Sync Detected!\n*Repository:* \($repo)\n*Branch:* \($branch)\n*Author:* \($author)\n*Commit:* https://github.com/\($repo)/commit/\($sha)\n*Message:* \($message)\n*Diff:* \($diff)\n*Changed files:*\n\($files)"
+            }' > payload.json
 
       - name: Send Slack notification
         if: env.send == 'true'
