@@ -1,0 +1,101 @@
+name: Notify Slack on Merge to Main
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  notify-slack:
+    # Only run if PR was merged AND the base branch is main
+    if: >
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Set up job
+        run: echo "Setting up job"
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          repository: gravitee-io/gravitee-platform-docs
+          fetch-depth: 0
+          ssh-strict: true
+          persist-credentials: true
+          clean: true
+          sparse-checkout-cone-mode: true
+          fetch-tags: false
+          lfs: false
+          submodules: false
+          set-safe-directory: true
+
+      - name: Check if this is a PR merge
+        id: pr-check
+        run: |
+          MESSAGE="${{ github.event.head_commit.message }}"
+          if [[ "$MESSAGE" =~ ^Merge\ pull\ request ]]; then
+            echo "This is a PR merge. Proceeding."
+            echo "send=true" >> "$GITHUB_ENV"
+          else
+            echo "This is NOT a PR merge. Skipping."
+            echo "send=false" >> "$GITHUB_ENV"
+          fi
+
+      - name: Build Slack payload
+        if: env.send == 'true'
+        id: payload
+        run: |
+          CURRENT_SHA="${{ github.sha }}"
+          PREVIOUS_SHA=$(git rev-parse "$CURRENT_SHA^1")
+
+          echo "PREVIOUS_SHA: $PREVIOUS_SHA"
+          echo "CURRENT_SHA: $CURRENT_SHA"
+          echo "Changed files:"
+          FILE_LIST=$(git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '^docs/' || true)
+
+          if [[ -z "$FILE_LIST" ]]; then
+            echo "No docs/ files changed. Skipping notification."
+            echo "send=false" >> "$GITHUB_ENV"
+            exit 0
+          fi
+
+          echo "$FILE_LIST"
+
+          FILE_LINKS=""
+          while read -r FILE; do
+            LINK="• https://github.com/gravitee-io/gravitee-platform-docs/blob/main/$FILE"
+            FILE_LINKS="${FILE_LINKS}${LINK}\n"
+          done <<< "$FILE_LIST"
+
+          echo -e "$FILE_LINKS" > formatted_files.txt
+          echo -e "Files changed:\n$FILE_LINKS"
+
+          DIFF_URL="https://github.com/gravitee-io/gravitee-platform-docs/compare/$PREVIOUS_SHA...$CURRENT_SHA"
+
+          jq -n \
+            --rawfile files formatted_files.txt \
+            --arg repo "gravitee-io/gravitee-platform-docs" \
+            --arg branch "main" \
+            --arg author "${{ github.actor }}" \
+            --arg sha "$CURRENT_SHA" \
+            --arg message "${{ github.event.head_commit.message }}" \
+            --arg diff "$DIFF_URL" \
+            '{
+              text: ":book: GitBook Sync Detected!\n*Repository:* \($repo)\n*Branch:* \($branch)\n*Author:* \($author)\n*Commit:* https://github.com/\($repo)/commit/\($sha)\n*Message:* \($message)\n*Diff:* \($diff)\n*Changed files:*\n\($files)"
+            }' > payload.json
+
+      - name: Send Slack notification
+        if: env.send == 'true'
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload-file-path: payload.json
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Post Checkout code
+        run: echo "Code checkout complete"
+
+      - name: Complete job
+        run: echo "Job done"
