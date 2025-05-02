@@ -83,7 +83,7 @@ jobs:
             --arg message "${{ github.event.head_commit.message }}" \
             --arg diff "$DIFF_URL" \
             '{
-              text: ":book: GitBook Sync Detected!\n*Repository:* \($repo)\n*Branch:* \($branch)\n*Author:* \($author)\n*Commit:* https://github.com/\($repo)/commit/\($sha)\n*Message:* \($message)\n*Diff:* \($diff)\n*Changed files:*\n\($files)"
+              text: ":tada: PR Merge Detected!\n*Repository:* \($repo)\n*Branch:* \($branch)\n*Author:* \($author)\n*Commit:* https://github.com/\($repo)/commit/\($sha)\n*Message:* \($message)\n*Diff:* \($diff)\n*Changed files:*\n\($files)"
             }' > payload.json
 
       - name: Send Slack notification
