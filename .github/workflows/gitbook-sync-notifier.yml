@@ -68,7 +68,7 @@ jobs:
 
           echo -e ":book: GitBook Sync Detected!\nRepository: gravitee-io/gravitee-platform-docs\nBranch: main\nAuthor: ${{ github.actor }}\nCommit: $COMMIT_URL\nMessage: ${{ github.event.head_commit.message }}\nDiff: $DIFF_URL\nChanged files:\n$FILE_LINKS" > slack_message.txt
 
-          jq -Rs --slurpfile msg slack_message.txt '{ text: $msg[0] }' slack_message.txt > payload.json
+          jq -Rs '{ text: . }' slack_message.txt > payload.json
 
       - name: Send Slack notification
         if: env.send == 'true'
