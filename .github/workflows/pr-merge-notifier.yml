@@ -31,20 +31,7 @@ jobs:
           submodules: false
           set-safe-directory: true
 
-      - name: Check if this is a PR merge
-        id: pr-check
-        run: |
-          MESSAGE="${{ github.event.head_commit.message }}"
-          if [[ "$MESSAGE" =~ ^Merge\ pull\ request ]]; then
-            echo "This is a PR merge. Proceeding."
-            echo "send=true" >> "$GITHUB_ENV"
-          else
-            echo "This is NOT a PR merge. Skipping."
-            echo "send=false" >> "$GITHUB_ENV"
-          fi
-
       - name: Build Slack payload
-        if: env.send == 'true'
         id: payload
         run: |
           CURRENT_SHA="${{ github.sha }}"
