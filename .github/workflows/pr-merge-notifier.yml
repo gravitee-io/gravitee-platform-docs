@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 2  # To get previous commit
+          fetch-depth: 0  # To get previous commit
 
       - name: Build Slack payload
         id: payload
