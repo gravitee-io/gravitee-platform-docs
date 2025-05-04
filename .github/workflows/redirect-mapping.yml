@@ -22,17 +22,10 @@ jobs:
         run: pip install scikit-learn pandas
 
       - name: Run redirect script
-        run: |
-          python .github/scripts/generate_redirects.py
+        run: python .github/scripts/generate_redirects.py
 
       - name: Upload redirect outputs
         uses: actions/upload-artifact@v3
         with:
           name: redirect-outputs
-          path: |
-            content_based_redirects_*.csv
-            content_based_redirects_all.json
-            _redirects
-            nginx_redirects.conf
-            cloudflare_redirects.json
-            content_based_redirect_summary.md
+          path: redirect_outputs/
