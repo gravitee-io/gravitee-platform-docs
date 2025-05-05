@@ -49,7 +49,7 @@ jobs:
           echo "PREVIOUS_SHA: $PREVIOUS_SHA"
           echo "CURRENT_SHA: $CURRENT_SHA"
           echo "Changed files:"
-          FILE_LIST=$(git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '^docs/' || true)
+          FILE_LIST=$(git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '^docs/.*\.md$' || true)
 
           if [[ -z "$FILE_LIST" ]]; then
             echo "No docs/ files changed. Skipping notification."
