@@ -22,7 +22,7 @@ The TCP reporter has the following configuration parameters:
 | `tls.keystore.keys`       | The list of keys used, when type is PEM                                                                                                                               | null          |
 | `tls.truststore.type`     | The type of trust-store to use (either PEM, JKS or PFX)                                                                                                               | null          |
 | `tls.truststore.password` | The password to use for the trust-store (only for JKS and PFX types)                                                                                                  | null          |
-| `tls.keystore.certs`      | The list of certificates to trust, when type is PEM                                                                                                                   | null          |
+| `tls.truststore.certs`    | The list of certificates to trust, when type is PEM                                                                                                                   | null          |
 
 ## Example
 
