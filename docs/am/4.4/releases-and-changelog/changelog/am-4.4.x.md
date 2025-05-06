@@ -21,13 +21,11 @@ When managing deployments using Helm, please note that the default startup, live
 * Filter audit type  [#10518](https://github.com/gravitee-io/issues/issues/10518)
 
 
-
-
-
 **Other**
 
 * Fail to enable the AM gateway service on SUSE [#10402](https://github.com/gravitee-io/issues/issues/10402)
 * Use Gravitee GPG Key to sign RPM package [#10504](https://github.com/gravitee-io/issues/issues/10504)
+* Support of FranceConnect API V2
 
 </details>
 
