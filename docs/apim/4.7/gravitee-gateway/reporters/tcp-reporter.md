@@ -18,7 +18,6 @@ The TCP reporter has the following configuration parameters:
 | `tls.verifyClient`        | If true, client certificate will be sent for mutual TLS negotiation. When enabling this, providing a key-store is required so that mutual TLS negotiation can happen. | false         |
 | `tls.keystore.type`       | The type of key-store to use (either PEM, JKS or PFX)                                                                                                                 | null          |
 | `tls.keystore.password`   | The password to use for the key-store (only for JKS and PFX types)                                                                                                    | null          |
-| `tls.keystore.certs`      | The list of certificates used, when type is PEM                                                                                                                       | null          |
 | `tls.keystore.keys`       | The list of keys used, when type is PEM                                                                                                                               | null          |
 | `tls.truststore.type`     | The type of trust-store to use (either PEM, JKS or PFX)                                                                                                               | null          |
 | `tls.truststore.password` | The password to use for the trust-store (only for JKS and PFX types)                                                                                                  | null          |
