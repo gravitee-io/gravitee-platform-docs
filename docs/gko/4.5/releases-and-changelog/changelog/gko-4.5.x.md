@@ -5,7 +5,7 @@
 <details>
 <summary>Bug fixes</summary>
 
-  * mAPI throws exception an Application is created using GKO with empty pictureUrl [#10531](https://github.com/gravitee-io/issues/issues/10531)
+  * mAPI throws an exception when an Application is created using GKO with empty pictureUrl [#10531](https://github.com/gravitee-io/issues/issues/10531)
 </details>
 
 
