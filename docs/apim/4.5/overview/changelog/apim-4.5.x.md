@@ -6,6 +6,43 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.16 - May 2, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Problems with HTTP code 502 because of keepalive
+
+**Management API**
+
+*  Rollback does not work for the v4 emulation button [#10190](https://github.com/gravitee-io/issues/issues/10190)
+* Application search does not work if search term pattern matches _id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
+
+**Console**
+
+* Settings-> Groups : 'Allows invitation via user search' is NOT working as expected [#10485](https://github.com/gravitee-io/issues/issues/10485)
+* Application search does not work if search term pattern matches _id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
+
+**Other**
+
+* Response time different between log file and UI [#10301](https://github.com/gravitee-io/issues/issues/10301)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Use Gravitee GPG Key to sign RPM package [#10450](https://github.com/gravitee-io/issues/issues/10450)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.5.15 - April 25, 2025
 <details>
 

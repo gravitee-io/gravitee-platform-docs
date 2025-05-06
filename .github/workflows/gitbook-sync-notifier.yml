@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: gravitee-io/gravitee-platform-docs
-          fetch-depth: 0  # Ensure full history for correct SHA diffing
+          fetch-depth: 0
           ssh-strict: true
           persist-credentials: true
           clean: true
@@ -44,14 +44,12 @@ jobs:
         id: payload
         run: |
           CURRENT_SHA="${{ github.sha }}"
-          PREVIOUS_SHA=$(git rev-parse "$CURRENT_SHA^1" 2>/dev/null || git rev-list --max-parents=0 HEAD)
+          PREVIOUS_SHA=$(git rev-parse "$CURRENT_SHA^1")
 
           echo "PREVIOUS_SHA: $PREVIOUS_SHA"
           echo "CURRENT_SHA: $CURRENT_SHA"
           echo "Changed files:"
-          git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA"
-
-          FILE_LIST=$(git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '^docs/' || true)
+          FILE_LIST=$(git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '^docs/.*\.md$' || true)
 
           if [[ -z "$FILE_LIST" ]]; then
             echo "No docs/ files changed. Skipping notification."
@@ -59,13 +57,16 @@ jobs:
             exit 0
           fi
 
-          FILE_BLOCKS=""
+          echo "$FILE_LIST"
+
+          FILE_LINKS=""
           while read -r FILE; do
-            LINK="• <https://github.com/gravitee-io/gravitee-platform-docs/blob/main/$FILE|$FILE>"
-            FILE_BLOCKS="${FILE_BLOCKS}${LINK}\n"
+            LINK="• https://github.com/gravitee-io/gravitee-platform-docs/blob/main/$FILE"
+            FILE_LINKS="${FILE_LINKS}${LINK}\n"
           done <<< "$FILE_LIST"
 
-          echo -e "$FILE_BLOCKS" > formatted_files.txt
+          echo -e "$FILE_LINKS" > formatted_files.txt
+          echo -e "Files changed:\n$FILE_LINKS"
 
           DIFF_URL="https://github.com/gravitee-io/gravitee-platform-docs/compare/$PREVIOUS_SHA...$CURRENT_SHA"
 
@@ -78,16 +79,7 @@ jobs:
             --arg message "${{ github.event.head_commit.message }}" \
             --arg diff "$DIFF_URL" \
             '{
-              text: ":book: GitBook Sync Detected!",
-              blocks: [
-                {
-                  type: "section",
-                  text: {
-                    type: "mrkdwn",
-                    text: "*Repository:* `\($repo)`\n*Branch:* `\($branch)`\n*Author:* `\($author)`\n*Commit:* <https://github.com/\($repo)/commit/\($sha)|\($sha)>\n*Message:* \($message)\n*Diff:* <\($diff)|View changes>\n*Changed files:*\n\($files)"
-                  }
-                }
-              ]
+              text: ":book: GitBook Sync Detected!\n*Repository:* \($repo)\n*Branch:* \($branch)\n*Author:* \($author)\n*Commit:* https://github.com/\($repo)/commit/\($sha)\n*Message:* \($message)\n*Diff:* \($diff)\n*Changed files:*\n\($files)"
             }' > payload.json
 
       - name: Send Slack notification

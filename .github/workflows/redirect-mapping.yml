@@ -1,0 +1,31 @@
+name: Generate Redirect Mappings
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'docs/apim/**.md'
+
+jobs:
+  build-redirects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install scikit-learn pandas
+
+      - name: Run redirect script
+        run: python .github/scripts/generate_redirects.py
+
+      - name: Upload redirect outputs
+        uses: actions/upload-artifact@v3
+        with:
+          name: redirect-outputs
+          path: redirect_outputs/
