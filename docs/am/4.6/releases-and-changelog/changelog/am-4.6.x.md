@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.9 - May 6, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Filter audit type  [#10518](https://github.com/gravitee-io/issues/issues/10518)
+
+
+
+**Other**
+
+* Fail to enable the AM gateway service on SUSE [#10402](https://github.com/gravitee-io/issues/issues/10402)
+* Support of FranceConnect API V2
+
+</details>
+
+
 ## Gravitee Access Management 4.6.8 - April 28, 2025
 
 <details>
