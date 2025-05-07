@@ -18,23 +18,24 @@ First, you must configure the package management system (`yum`).
     [graviteeio]
     name=graviteeio
     baseurl=https://packagecloud.io/graviteeio/rpms/el/7/$basearch
-    gpgcheck=0
+    gpgcheck=1
+    repo_gpgcheck=1
     enabled=1
-    gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey
+    gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey,https://packagecloud.io/graviteeio/rpms/gpgkey/graviteeio-rpms-319791EF7A93C060.pub.gpg
     sslverify=1
     sslcacert=/etc/pki/tls/certs/ca-bundle.crt
     metadata_expire=300
     ```
-2.  Enable GPG signature handling, which is required by some of our `rpm` packages:
 
-    ```sh
-    sudo yum install pygpgme yum-utils
-    ```
-3.  Before continuing, you may need to refresh your local cache:
+{% hint style="info" %}
+Since AM 4.6.9, RPM packages are signed with GPG. To verify the packages, use the `gpgcheck=1` configuration.
+{% endhint %}
 
-    ```sh
-    sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
-    ```
+2. Before continuing, you may need to refresh your local cache:
+
+```sh
+sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
+```
 
 Your repository is now ready to use.
 
