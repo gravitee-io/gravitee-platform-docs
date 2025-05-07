@@ -23,21 +23,21 @@ To establish access to Gravitee’s repository using `yum`, complete the followi
     sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
     [graviteeio]
     name=graviteeio
-    baseurl=https://packagecloud.io/graviteeio/rpms/el/7/\$basearch
-    gpgcheck=0
+    gpgcheck=1
+    repo_gpgcheck=1
     enabled=1
-    gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey
+    gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey,https://packagecloud.io/graviteeio/rpms/gpgkey/graviteeio-rpms-319791EF7A93C060.pub.gpg
     sslverify=1
     sslcacert=/etc/pki/tls/certs/ca-bundle.crt
     metadata_expire=300
     EOF
     ```
-2.  Enable GPG signature handling using the following command. This command installs the packages that enable GPG signature handling:
 
-    ```sh
-    sudo yum install pygpgme yum-utils -y
-    ```
-3. Refresh the local cache using the following command:
+{% hint style="info" %}
+Since APIM 4.4.27, RPM packages are signed with GPG. To verify the packages, use the `gpgcheck=1` configuration.
+{% endhint %}
+
+2. Refresh the local cache using the following command:
 
 {% code overflow="wrap" %}
 ````
