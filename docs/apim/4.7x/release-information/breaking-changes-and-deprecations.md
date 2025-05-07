@@ -54,7 +54,7 @@ In gateway ingress controller, the ssl-redirect option was changed from "false" 
 
 #### EE plugins
 
-Particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](open-source-vs-enterprise-edition.md) for additional information.
+Particular plugins are only available to enterprise customers. [See Gravitee APIM Enterprise Edition](../introduction/open-source-vs-enterprise-edition.md) for additional information.
 
 #### Running APIM
 
