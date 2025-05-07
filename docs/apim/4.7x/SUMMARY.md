@@ -94,7 +94,7 @@
       * [Authentication Providers](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md)
       * [Social Providers](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers.md)
       * [OpenID Connect](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect.md)
-      * [Azure Entra ID](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/azure-entra-id.md)
+      * [Microsoft Entra ID](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/azure-entra-id.md)
       * [Roles and Groups Mapping](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/roles-and-groups-mapping.md)
     * [User Management](configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md)
     * [Applications](configure-and-manage-the-platform/manage-organizations-and-environments/applications.md)
