@@ -50,7 +50,7 @@ EOF
 ```
 
 {% hint style="info" %}
-Since APIM 4.7.5, RPM packages are signed with GPG. To verify the packages, use the `gpgcheck=1` configuration.
+Since APIM 4.6.11, RPM packages are signed with GPG. To verify the packages, use the `gpgcheck=1` configuration.
 {% endhint %}
 
 3. Refresh the local cache using the following command:
