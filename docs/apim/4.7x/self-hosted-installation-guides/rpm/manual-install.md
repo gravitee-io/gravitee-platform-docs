@@ -41,28 +41,25 @@ sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
 [graviteeio]
 name=graviteeio
 baseurl=https://packagecloud.io/graviteeio/rpms/el/7/\$basearch
-gpgcheck=0
+gpgcheck=1
+repo_gpgcheck=1
 enabled=1
-gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey
+gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey,https://packagecloud.io/graviteeio/rpms/gpgkey/graviteeio-rpms-319791EF7A93C060.pub.gpg
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
 EOF
 ```
 
-2. Enable GPG signature handling by installing the following packages using the following command:
+{% hint style="info" %}
+Since APIM 4.7.5, RPM packages are signed with GPG. To verify the packages, use the `gpgcheck=1` configuration.
+{% endhint %}
+
+2. Refresh the local cache using the following command:
 
 ```sh
-sudo yum install pygpgme yum-utils -y
+sudo yum --quiet makecache --assumeyes --disablerepo='*' --enablerepo='graviteeio'
 ```
-
-3. Refresh the local cache using the following command:
-
-{% code overflow="wrap" %}
-```sh
-sudo yum -q makecache -y --disablerepo='*' --enablerepo='graviteeio'
-```
-{% endcode %}
 
 </details>
 
@@ -136,21 +133,27 @@ The above commands to install and start Nginx will now run using this repository
 
 <details>
 
-<summary>Install Java 17</summary>
+<summary>Install Java 21</summary>
 
-To install Java 17, use either of the following commands depending on your Operating System:
+To install Java 17, use either of the following commands depending on your operating system:
 
-* If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java using the following command:
+*   If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java using the following command:\
 
-```sh
-sudo amazon-linux-extras enable java-openjdk17
-```
 
-* If you are running APIM on any other Operating System, Install Java using the following the command:
+    ```sh
+    sudo amazon-linux-extras enable java-openjdk21
+    ```
 
-```sh
-sudo yum install java-17-openjdk -y
-```
+
+
+-   If you are running APIM on any other operating system, install Java using the following the command:\
+
+
+    ```sh
+    sudo yum install java-21-openjdk -y
+    ```
+
+
 
 **Verification**
 
