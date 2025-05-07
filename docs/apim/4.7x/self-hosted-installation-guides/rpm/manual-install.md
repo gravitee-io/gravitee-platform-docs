@@ -135,7 +135,7 @@ The above commands to install and start Nginx will now run using this repository
 
 <summary>Install Java 21</summary>
 
-To install Java 17, use either of the following commands depending on your operating system:
+To install Java 21, use either of the following commands depending on your operating system:
 
 *   If you are running Gravitee APIM on an Amazon Linux, enable the repository that contains Java using the following command:\
 
