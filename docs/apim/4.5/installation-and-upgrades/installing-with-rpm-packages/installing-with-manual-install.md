@@ -3,17 +3,15 @@
 ## Before you begin
 
 {% hint style="warning" %}
-
-
 * RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](../install-with-.zip.md).
-* If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition Licensing Licensing, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)&#x20;
+* If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition Licensing Licensing, see [Enterprise Edition Licensing.](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing)
 {% endhint %}
 
-### Prerequisites for installing Graviitee APIM on an Amazon instance&#x20;
+### Prerequisites for installing Graviitee APIM on an Amazon instance
 
 <details>
 
-<summary>Prerequisites for installing Gravitee APIM on an Amazon instance </summary>
+<summary>Prerequisites for installing Gravitee APIM on an Amazon instance</summary>
 
 **NOTE:** Gravitee supports only the Amazon Linux 2 image.
 
@@ -40,21 +38,21 @@ Many enterprise Linux instances use the package manager `yum`. If you use an ent
 sudo tee -a /etc/yum.repos.d/graviteeio.repo <<EOF
 [graviteeio]
 name=graviteeio
-baseurl=https://packagecloud.io/graviteeio/rpms/el/7/\$basearch
-gpgcheck=0
+gpgcheck=1
+repo_gpgcheck=1
 enabled=1
-gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey
+gpgkey=https://packagecloud.io/graviteeio/rpms/gpgkey,https://packagecloud.io/graviteeio/rpms/gpgkey/graviteeio-rpms-319791EF7A93C060.pub.gpg
 sslverify=1
 sslcacert=/etc/pki/tls/certs/ca-bundle.crt
 metadata_expire=300
 EOF
 ```
 
-2. &#x20;Enable GPG signature handling by installing the following packages using the following command:
+Notice that since APIM 4.5.16, RPM packages are signed with GPG and can be verified. (`gpgcheck=1`)
 
-```sh
-sudo yum install pygpgme yum-utils -y
-```
+{% hint style="info" %}
+Since APIM 4.5.16, RPM packages are signed with GPG. To verify the packages, use the `gpgcheck=1` configuration.
+{% endhint %}
 
 3. Refresh the local cache using the following command:
 
@@ -108,9 +106,9 @@ To verify that you installed Nginx correctly, verify that nginx is listening on 
 sudo ss -lntp '( sport = 80 )'
 ```
 
-#### (Optional) Manually Adding Nginx Repository to YUM
+**(Optional) Manually Adding Nginx Repository to YUM**
 
-In some cases, you may need to manually add the Nginx repository to yum.&#x20;
+In some cases, you may need to manually add the Nginx repository to yum.
 
 To manually add the Nginx repository to YUM, create a file called `/etc/yum.repos.d/nginx.repo` using the following command:
 
@@ -136,7 +134,7 @@ The above commands to install and start Nginx will now run using this repository
 
 <details>
 
-<summary>Installing  Java 17</summary>
+<summary>Installing Java 17</summary>
 
 To install Java 17, use either of the following commands depending on your Operating System:
 
@@ -166,7 +164,7 @@ java -version
 
 <summary>Install MongoDB</summary>
 
-Gravitee API Management uses MongoDB as its default repository to store global configurations.&#x20;
+Gravitee API Management uses MongoDB as its default repository to store global configurations.
 
 1. To install MongoDB, use the following command:
 
@@ -195,7 +193,7 @@ sudo systemctl start mongod
 sudo ss -lntp '( sport = 27017 )'
 ```
 
-#### Manually Adding MongoDB Repository to YUM
+**Manually Adding MongoDB Repository to YUM**
 
 In some cases, you may need to manually add the MongoDB repository to yum. To manually add MongoDB repository to YUM, create a file called `/etc/yum.repos.d/mongodb-org-7.0.repo` using the following command:
 
@@ -226,7 +224,7 @@ The above commands to install and start MongoDB will now run using this reposito
 
 <summary>Install ElasticSearch</summary>
 
-Gravitee API Management uses ElasticSearch as the default reporting and analytics repository.&#x20;
+Gravitee API Management uses ElasticSearch as the default reporting and analytics repository.
 
 1. To install ElasticSearch, use the following command:
 
@@ -255,9 +253,9 @@ sudo systemctl start elasticsearch.service
 sudo ss -lntp '( sport = 9200 )'
 ```
 
-#### Manually Adding ElasticSearch Repository to YUM
+**Manually Adding ElasticSearch Repository to YUM**
 
-In some cases, you may need to manually add the ElasticSearch repository to yum.&#x20;
+In some cases, you may need to manually add the ElasticSearch repository to yum.
 
 * To manually add ElasticSearch repository to YUM, create a file called `/etc/yum.repos.d/elasticsearch.repo` using the following command:
 
@@ -282,7 +280,7 @@ The above commands to install and start ElasticSearch will now run using this re
 
 <summary>Install Gravitee API Management components</summary>
 
-Depending on your environment's configuration, you can install only the APIM components that you want for your environment.&#x20;
+Depending on your environment's configuration, you can install only the APIM components that you want for your environment.
 
 1. You can install the components that you want for your environment by using any combination of the following commands:
 
