@@ -26,7 +26,7 @@ jobs:
           DIFF_URL="https://github.com/${{ github.repository }}/compare/$PREVIOUS_SHA...$CURRENT_SHA"
           COMMIT_URL="https://github.com/${{ github.repository }}/commit/$CURRENT_SHA"
 
-          FILE_LIST=$(git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA")
+          FILE_LIST=$(git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '\.md$' || true)
           FILE_LINKS=""
           while read -r FILE; do
             LINK="• https://github.com/${{ github.repository }}/blob/main/$FILE"
