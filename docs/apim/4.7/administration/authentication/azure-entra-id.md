@@ -8,14 +8,14 @@ This article provides information about setting up APIM authentication in the AP
 For documentation about securing your APIs with OAuth2 and Entra ID, see the documentation on the [JWT Plan](../../expose-apis/plans/jwt.md).
 {% endhint %}
 
-## Prerequisites:
+## Prerequisites
 
 * Microsoft Entra ID subscription
 * An administrator who can access the domain in Entra ID
 * An Application Registration in Entra ID to allow Gravitee to integrate with Entra ID and retrieve user profiles
 * A Gravitee APIM installation with network access to Entra ID
 
-## Application Creation in Entra ID
+## Create an application in Entra ID
 
 1. &#x20;Create an application in Entra ID. Complete the following steps to fulfill the minimum setup requirements:
    1. In the Entra ID menu, click **App registrations**.
