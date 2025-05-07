@@ -115,7 +115,7 @@
   * [Authentication Providers](administration/authentication/authentication-providers.md)
   * [Social Providers](administration/authentication/social-providers.md)
   * [OpenID Connect](administration/authentication/openid-connect.md)
-  * [Azure Entra ID](administration/authentication/azure-entra-id.md)
+  * [Microsoft Entra ID](administration/authentication/azure-entra-id.md)
   * [Roles and Groups Mapping](administration/authentication/roles-and-groups-mapping.md)
 * [User Management](administration/user-management.md)
 * [Applications](administration/applications.md)
