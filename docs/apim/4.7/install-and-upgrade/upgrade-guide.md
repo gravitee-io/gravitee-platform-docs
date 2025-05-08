@@ -22,7 +22,9 @@ Particular plugins are only available to enterprise customers. [See Gravitee API
 
 ## Running APIM
 
-* APIM requires a minimum of JDK 17.
+* Depending on your version of APIM, you must run the following versions of Java:
+  * For versions 4.6 and before, APIM requies at least Java17.
+  * For version for 4.7 and later, APIM requires at least Java21.&#x20;
 * There are no longer enterprise tags (i.e., suffixed by `-ee`).
 * Cluster managers are available as plugins. Hazelcast Cluster Manager has been removed from the default distribution.
 * TLS 1.0 and TLS 1.1 protocols are disabled by default. You can enable these protocols with the proper TCP SSL configuration of the Gateway:
