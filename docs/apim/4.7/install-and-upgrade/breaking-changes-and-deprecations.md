@@ -12,7 +12,7 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 **Minimum Java requirements updated to Java21**
 
-The minimum version of Java that is required is Java21. If you use prior versions of Java, upgrade Java to Java21.
+The minimum version of Java that is required is Java21. If you use a prior version of Java, upgrade Java to Java21.
 
 **Hazelcast**
 
