@@ -6,6 +6,29 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.17 - May 9, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* CompositeByteBuf is creating a high volume of logs [#10539](https://github.com/gravitee-io/issues/issues/10539)
+
+**Console**
+
+* Local link to internal section dose not work in documenation [#10180](https://github.com/gravitee-io/issues/issues/10180)
+* APIM API Throwing HTTP 500 On a Specific Returned Page [#10372](https://github.com/gravitee-io/issues/issues/10372)
+* UX problem in condition alerting threshold [#10514](https://github.com/gravitee-io/issues/issues/10514)
+
+**Other**
+
+* Schema registry resource URL not fully taken into account [#10530](https://github.com/gravitee-io/issues/issues/10530)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.5.16 - May 2, 2025
 <details>
 
