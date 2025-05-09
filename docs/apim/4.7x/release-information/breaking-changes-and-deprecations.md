@@ -10,6 +10,10 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 ### 4.7.0
 
+**Minimum Java requirements updated to Java21**
+
+The minimum version of Java that is required is Java21. If you use a prior version of Java, upgrade Java to Java21.
+
 **Hazelcast**
 
 During a rolling upgrade in Kubernetes, if a pod with the version about to be replaced is still running, mAPI throws these warnings:
