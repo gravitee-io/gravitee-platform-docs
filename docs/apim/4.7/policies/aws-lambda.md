@@ -10,6 +10,8 @@ The AWS Lambda policy can be used to request a Lambda instead of or in addition 
 
 By default, the lambda is called in addition to the backend, meaning the consumer will not receive the response from Lambda.
 
+A lambda can be defined through IAM roles instead of providing a client secret. If the client ID and secret are left blank, the policy will use the machine identification.
+
 ## Examples
 
 {% hint style="warning" %}
