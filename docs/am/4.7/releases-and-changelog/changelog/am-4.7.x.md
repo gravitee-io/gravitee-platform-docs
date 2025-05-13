@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.4 - May 13, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Email notification fails when user doesn't have firstName [#10536](https://github.com/gravitee-io/issues/issues/10536)
+
+
+
+**Other**
+
+* Reporter Upgrader is using a syntax not supported by DocumentDB [#10528](https://github.com/gravitee-io/issues/issues/10528)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.3 - May 6, 2025
 
 <details>
