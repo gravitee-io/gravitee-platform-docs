@@ -10,6 +10,26 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.26 - May 13, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Users and Groups metadata not displayed for /members enpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
+* Email notification fails when user doesn't have firstName [#10536](https://github.com/gravitee-io/issues/issues/10536)
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.4.25 - May 6, 2025
 
 <details>
