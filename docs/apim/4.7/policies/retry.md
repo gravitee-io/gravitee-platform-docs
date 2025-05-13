@@ -17,7 +17,9 @@ To replay a request with a payload, the Gateway stores it in memory. We recommen
 ## Examples
 
 {% hint style="warning" %}
-This policy can only be applied to v2 APIs. It cannot be applied to v4 message APIs or v4 proxy APIs.
+This policy can only be applied to v2 APIs. It cannot be applied to v4 APIs.
+
+By default, the v4 emulation engine is enabled for v2 APIs. To apply the Retry policy, you must ensure the v4 emulation engine is disabled.
 {% endhint %}
 
 {% tabs %}

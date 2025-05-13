@@ -80,7 +80,7 @@ To configure sharding tags, complete the following steps:
    3.  (Optional) From the **Restricted groups** drop-down menu, select the groups that you want to be able to deploy to this tag.\
 
 
-       <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**.
 
 ### Add sharding tags to your APIs
@@ -92,7 +92,7 @@ To configure sharding tags, complete the following steps:
 2.  In the **APIs** screen, select the API to which you want to add a sharding tag.\
 
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 3.  In the **APIs** menu, click **Deployment**.\
 
 

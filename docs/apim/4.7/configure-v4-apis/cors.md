@@ -1,10 +1,14 @@
 # CORS
 
+{% hint style="warning" %}
+As of Gravitee 4.0, users without the `GATEWAY_DEFINITION:UPDATE` permission cannot modify the CORS settings for a v4 API.
+{% endhint %}
+
 ## Overview
 
 CORS is a mechanism that allows resources on a web page to be requested from another domain. For background information on CORS, take a look at the [CORS specification](https://www.w3.org/TR/cors). This article will focus on how to configure CORS for your API.
 
-{% hint style="warning" %}
+{% hint style="info" %}
 WebSocket entrypoints do not support CORS. CORS will not be applied if an API does not contain at least one of the following entrypoints: HTTP GET, HTTP POST, HTTP Proxy, or SSE.
 {% endhint %}
 

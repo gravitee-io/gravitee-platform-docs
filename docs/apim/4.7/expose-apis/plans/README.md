@@ -2,7 +2,7 @@
 
 ## Overview
 
-To expose your API to internal or external consumers, it must have at least one plan. A plan provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor it to an application. Gravitee offers the following types of plans: Keyless, API Key, OAuth2, JWT, Push, and mTLS.
+To expose your API to internal or external consumers, it must have at least one plan. A plan provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor it to an application. Gravitee offers the following types of plans: Keyless, Basic Authentication, API Key, OAuth2, JWT, Push (Webhooks), and Mutual TLS (mTLS).
 
 Example access scenarios APIM can manage with plans include:
 
@@ -32,11 +32,11 @@ To create a plan:
     * **Name:** Enter a name for your plan
     * **Description:** Enter a description of your plan
     * **Characteristics:** Define labels used to tag your plan
-    * **Page of General Conditions:** Select a published [Documentation](broken-reference) page whose terms must be accepted by the user to finalize the subscription process
+    * **Page of General Conditions:** If you want to enforce subscribers to review a Terms of Conditions (or another similar page), then select a published [Documentation](broken-reference) page whose terms must be accepted by the user to finalize the subscription process
     * Toggle **Auto validate subscription** ON to accept all subscriptions to a plan without the API publisher's approval
     * Toggle **Consumer must provide a comment when subscribing to the plan** ON to require an explanation for the subscription request, with the option to leave a **Custom message to display to consumer**
-    * **Sharding tags:** Selectively deploy the plan to particular APIs using available [sharding tags](../../gravitee-gateway/sharding-tags.md)
-    * **Groups excluded:** Prevent specified [user groups](../../administration/user-management.md) from accessing your plan
+    * **Sharding tags:** Selectively deploy the plan to particular API Gateways using available [sharding tags](../../gravitee-gateway/sharding-tags.md)
+    * **Groups excluded:** Prevent specified [user groups](../../administration/user-management.md) from accessing this plan
 7. Click **Next**
 8.  Define the security configuration details appropriate to and required by your selected security type, e.g., OAuth2. See [OAuth2](oauth2.md), [JWT](jwt.md), [API Key](api-key.md), [Keyless](keyless.md), or [Push](push.md) for more information.
 

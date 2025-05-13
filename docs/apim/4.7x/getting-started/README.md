@@ -4,6 +4,8 @@
 
 Set up Gravitee quickly and easily with Gravitee Cloud's 14-day **free** trial.&#x20;
 
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Cloud free trial</td><td><a href="https://eu-auth.cloud.gravitee.io/cloud/register?response_type=code&#x26;client_id=fd45d898-e621-4b12-85d8-98e621ab1237&#x26;state=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;redirect_uri=https%3A%2F%2Feu.cloud.gravitee.io&#x26;scope=openid+profile+email+offline_access&#x26;code_challenge=RawzckmLjFNOvDqrZUPumHbMzXRcIjRRbZFmWlbjLoA&#x26;code_challenge_method=S256&#x26;nonce=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;createUser=true&#x26;hubspotutk=169d02e0ddc1d02ed3202bcac0869f20">https://eu-auth.cloud.gravitee.io/cloud/register?response_type=code&#x26;client_id=fd45d898-e621-4b12-85d8-98e621ab1237&#x26;state=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;redirect_uri=https%3A%2F%2Feu.cloud.gravitee.io&#x26;scope=openid+profile+email+offline_access&#x26;code_challenge=RawzckmLjFNOvDqrZUPumHbMzXRcIjRRbZFmWlbjLoA&#x26;code_challenge_method=S256&#x26;nonce=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;createUser=true&#x26;hubspotutk=169d02e0ddc1d02ed3202bcac0869f20</a></td></tr></tbody></table>
+
 ## Other ways to get Gravitee
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Install with Docker</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>Hybrid deployment with Docker</td><td></td></tr></tbody></table>
@@ -14,21 +16,46 @@ Set up Gravitee quickly and easily with Gravitee Cloud's 14-day **free** trial.&
 
 If you are not familiar with Gravitee, the easiest way to get Gravitee is with Gravitee Cloud.&#x20;
 
-With this deployment, Gravitee hosts both your Control plane and your Data plane. For more information about Gravitee Cloud, see [Broken link](broken-reference "mention")
+With this deployment, Gravitee hosts both your Control plane and your Data plane. For more information about Gravitee Cloud, see [Cloud.](https://documentation.gravitee.io/gravitee-cloud) Here are the Key benefits of Gravitee's Cloud solution.
 
-* \[Key features and benefits of Cloud to be entered here].
+* **Cloud Hosted Gateways**. Automatically scales and manages gateways, which reduces operational overhead.
+* **Hybrid Deployment Model**. Keeps sensitive data within your infrastructure, which enhances security.
+* **Multi-Tenancy Support**. Allows isolated environments and organizations within a single platform, which improves manageability.
+* **Centralized API Management Console**. Provides a single place to manage and secure all APIs, which simplifies control.
+* **Support for Sync & Async APIs**. Manages both REST and event-driven APIs in one solution, which unifies API governance.
+* **Advanced Alerting and Monitoring**. Detects and responds to API issues with real-time alerts, which improves reliability.
+* **Enterprise-Grade Access Management**. Controls user access with robust security and identity tools, which strengthens protection.
+* **Flexible Hosting Options**. Offers cloud, self-hosted, and hybrid deployment choices, which increases deployment flexibility.
 
 ### Hybrid
 
-With this deployment, Gravitee hosts the Control plane and you host the Data plane. For more information about Hybrid Deployment, see [Broken link](broken-reference "mention")
+With this deployment, Gravitee hosts the Control plane and you host the Data plane. For more information about Hybrid Deployment, see [hybrid-installation-and-configuration-guides](../hybrid-installation-and-configuration-guides/ "mention").
 
-* \[Key features and benefits of a Hybrid Deployment to be entered here].
+* **SaaS Control Plane with Self-Hosted Data Plane**. Combines Gravitee's cloud-managed control plane with your self-hosted gateways, which provides centralized management while maintaining control over API traffic. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
+* **Bridge Gateway Architecture**. Utilizes a bridge gateway to connect the control plane with on-premises gateways, which enables secure communication without exposing internal databases. [documentation.gravitee.io](https://documentation.gravitee.io/apim/4.1/getting-started/hybrid-deployment?utm_source=chatgpt.com)
+* **Cloud Gate and Cloud Tokens**. Employs secure endpoints and tokens for synchronization and analytics reporting, which ensures encrypted and authenticated interactions between components. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
+* **Data Residency and Compliance**. Keeps sensitive data within your infrastructure, which helps meet data residency requirements and enhances security. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
+* **Reduced Latency**. Processes API requests closer to your services, which minimizes latency and improves performance. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
+* **Full Control over Traffic**. Routes all API traffic through your infrastructure, which allows complete oversight of routing, monitoring, and security enforcement. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
+* **Scalability and Flexibility**. Provides the ability to scale gateways according to your needs, which offers flexibility in handling varying workloads. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
+* **Customization and Integration**. Integrates with your existing systems, which allows customization to meet specific organizational requirements. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
+* **Secure Communication**. Ensures all interactions between components are encrypted using TLS, which protects data in transit. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
+* **Centralized Analytics and Monitoring**. Aggregates analytics and logs in the cloud control plane, which provides a unified view for monitoring and analysis. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
 
 ### Self-hosted
 
-Control plane and Data Plane self-hosted / installed by you. For more information about self-hosted installations, see [Broken link](broken-reference "mention").
+Control plane and Data Plane self-hosted / installed by you. For more information about self-hosted installations, see [self-hosted-installation-guides](../self-hosted-installation-guides/ "mention").
 
-* \[Key features and benefits of a self-hosted deployment to be entered here].
+* **Flexible Deployment Options**. Supports various installation methods, including Docker, Kubernetes, RPM packages, and ZIP files, which allows you to choose the best fit for your infrastructure. [documentation.gravitee.io+1documentation.gravitee.io+1](https://documentation.gravitee.io/apim/4.3/getting-started/install-and-upgrade-guides?utm_source=chatgpt.com)
+* **Full Control Over Infrastructure**. Enables you to manage and configure all components within your own environment, which ensures compliance with internal policies and regulations. [documentation.gravitee.io](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee?utm_source=chatgpt.com)
+* **Customizable Architecture**. Allows integration with existing systems and customization of components, which provides flexibility to meet specific organizational needs.
+* **Enhanced Security**. Keeps all data and traffic within your own network, which reduces exposure to external threats and enhances data protection. [documentation.gravitee.io](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee?utm_source=chatgpt.com)
+* **Scalability**. Offers the ability to scale components horizontally or vertically, which accommodates growing API traffic and user demands.
+* **Multi-Tenancy Support**. Supports multiple organizations and environments within a single installation, which enables efficient resource utilization and management. [documentation.gravitee.io](https://documentation.gravitee.io/apim/install-and-upgrade/multi-tenancy?utm_source=chatgpt.com)
+* **Plugin Extensibility**. Provides a plugin system to extend functionality, which allows for the addition of custom policies, connectors, and more. [documentation.gravitee.io](https://documentation.gravitee.io/apim/4.1?utm_source=chatgpt.com)
+* **Comprehensive Monitoring and Analytics**. Integrates with tools like Elasticsearch and Logstash, which facilitates detailed monitoring and analysis of API usage and performance.
+* **Enterprise Support Options**. Offers enterprise-grade support packages, which provide access to expert assistance and service level agreements. [documentation.gravitee.io](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee?utm_source=chatgpt.com)
+* **Open Source and Enterprise Editions**. Available in both open-source and enterprise versions, which allows you to choose based on your feature requirements and budget.
 
 ## Community Edition versus Enterprise Edition
 
