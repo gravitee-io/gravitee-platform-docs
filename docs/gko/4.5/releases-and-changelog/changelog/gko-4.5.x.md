@@ -1,5 +1,14 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.17 - May 14, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Management Context Could not be resolved in Webhook when GKO deployed on multiple namespaces [#10562](https://github.com/gravitee-io/issues/issues/10562)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.16 - May 6, 2025
     
 <details>
