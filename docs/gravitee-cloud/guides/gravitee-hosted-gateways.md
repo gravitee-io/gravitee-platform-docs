@@ -4,7 +4,7 @@ description: >-
   Gravitee Cloud Control Plane of API Management.
 ---
 
-# Cloud Hosted Gateways
+# Gravitee Hosted Gateways
 
 ## Introduction
 
@@ -26,30 +26,30 @@ You do not have to scale your gateways. Gravitee scales your gateways and manage
 
 1. Navigate to your Gravitee Cloud Dashboard, and then in the Gateways section, select **Deploy Gateway** .
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Gravitee Cloud Dashboard with no gateways deployed yet.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Gravitee Cloud Dashboard with no gateways deployed yet.</p></figcaption></figure>
 
 2. In the **Choose Gateway Deployment Method** pop-up window, Select **Gravitee Hosted Gateway**.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Gateway deployment screen with Cloud hosted gateways or Hybrid gateways as option.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Gateway deployment screen with Cloud hosted gateways or Hybrid gateways as option.</p></figcaption></figure>
 
-3. Select the environments that you want Cloud hosted gateways to, and then click **Deploy**.&#x20;
+3. Select the environments that you want Cloud hosted gateways to, and then click **Deploy**.
 
 {% hint style="info" %}
 * Environment dedicated Cloud hosted gateways are deployed even if you select more than one environment. Cloud hosted gateways are never shared between your environments.
 * Deploying a Cloud hosted gateway will take around 5 minutes.
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Gateway deployment screen where you select environments that you want Cloud hosted gateways for.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Gateway deployment screen where you select environments that you want Cloud hosted gateways for.</p></figcaption></figure>
 
 After you deploy a gateway, you are taken to your Gravitee Cloud Dashboard, where you see that your Cloud hosted gateways are being deployed.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>Gravitee Cloud Dashboard with a Cloud hosted gateway being deployed.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Gravitee Cloud Dashboard with a Cloud hosted gateway being deployed.</p></figcaption></figure>
 
 ## Verification
 
 Once the gateways are deployed, you will see them as an entry in the Gateways section.
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Gravitee Cloud Dashboard with a Cloud hosted gateway deployed.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Gravitee Cloud Dashboard with a Cloud hosted gateway deployed.</p></figcaption></figure>
 
 ## Viewing the details of a gateway
 
