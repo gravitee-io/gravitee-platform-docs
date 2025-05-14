@@ -1,5 +1,17 @@
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.11 - May 14, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Management Context Could not be resolved in Webhook when GKO deployed on multiple namespaces [#10562](https://github.com/gravitee-io/issues/issues/10562)
+  * Unable to delete APIs using GKO templating [#10554](https://github.com/gravitee-io/issues/issues/10554)
+  * API Policies show disabled in the UI for V4 API's created via the GKO operator. [#10543](https://github.com/gravitee-io/issues/issues/10543)
+  * mAPI throws exception an Application is created using GKO with empty pictureUrl [#10531](https://github.com/gravitee-io/issues/issues/10531)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.6.10 - April 28, 2025
     
 <details>
