@@ -17,7 +17,7 @@ Once you add an environment, you cannot delete the environment.
 1.  From the **Dashboard**, navigate to the **Environments** section, and then click **New Environment**.\
 
 
-    <figure><img src="../.gitbook/assets/96D4800D-DB14-4C69-BBA0-83E17A946B88.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/CE7BEA5B-F918-4BAE-90C7-59A680A0BF39_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Create New Environment** pop-up window, enter the name of your environment. The Human Readable ID (HRID) is automatically generated.\
 
 
@@ -57,3 +57,5 @@ Once you add an environment, you cannot delete the environment.
 
 
     <figure><img src="../.gitbook/assets/99B1FD8B-4644-4BD6-A06B-EB6BC09D44DE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

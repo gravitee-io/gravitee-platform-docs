@@ -78,7 +78,7 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 
 2. In the **Choose Gateway Deployment Method** pop-up window, select **Hybrid Gateway**.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Gravitee Cloud Gateway deployment selection with both Gravitee Hosted Gateways (full SaaS) and Hybrid Gateways as options.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>Gravitee Cloud Gateway deployment selection with both Gravitee Hosted Gateways (full SaaS) and Hybrid Gateways as options.</p></figcaption></figure>
 
 3. From the **Platform** dropdown menu, select your preferred platform. This choice changes only the link reference to documentation
 4. Select the Gravitee Cloud API Management Environment that you wish to connect the Hybrid gateway to.

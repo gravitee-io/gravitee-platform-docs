@@ -30,7 +30,7 @@ You do not have to scale your gateways. Gravitee scales your gateways and manage
 
 2. In the **Choose Gateway Deployment Method** pop-up window, Select **Gravitee Hosted Gateway**.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Gateway deployment screen with Cloud hosted gateways or Hybrid gateways as option.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Gateway deployment screen with Cloud hosted gateways or Hybrid gateways as option.</p></figcaption></figure>
 
 3. Select the environments that you want Cloud hosted gateways to, and then click **Deploy**.
 
