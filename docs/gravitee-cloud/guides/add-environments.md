@@ -1,7 +1,7 @@
 # Add Environments
 
 {% hint style="warning" %}
-* Once you add an environment, you cannot delete the environment.
+Once you add an environment, you cannot delete the environment.
 {% endhint %}
 
 ## Prerequisites&#x20;
