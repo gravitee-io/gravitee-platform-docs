@@ -6,7 +6,7 @@ Once you add an environment, you cannot delete the environment.
 
 ## Prerequisites&#x20;
 
-* You must increase the number of environments linked to your account. To increase the number of environments, contact your Technical Account Manager or use [Gravitee's contact form](https://www.gravitee.io/contact-us).&#x20;
+* You must link additional environments to your account. To link additional environments, contact your Technical Account Manager or use [Gravitee's contact form](https://www.gravitee.io/contact-us).&#x20;
 
 ## Add an Environment
 

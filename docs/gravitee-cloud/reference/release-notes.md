@@ -10,7 +10,7 @@ This section contains an overview of the new features in Gravitee Cloud's releas
 
 ## Adding Environments
 
-You can now request more environments to map out your exact organization with Gravitee Cloud. For more information about adding environments to your account, contact Gravitee. To learn more about how to add a new environment after you contacted Gravitee, see [add-environments.md](../guides/add-environments.md "mention").
+You can now request more environments in Gravitee Cloud to map out your specific organization. For more information about linking additional environments to your account, contact Gravitee. To learn more about how to add a new environment after it is linked, see [add-environments.md](../guides/add-environments.md "mention").
 
 </details>
 
