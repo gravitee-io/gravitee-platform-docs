@@ -101,7 +101,7 @@ You can pass the full JSON definition in the data (`-d`) argument of the `curl` 
 {% endhint %}
 
 ```sh
-curl -H "Authorization: ${PERSONAL_ACCESS_TOKEN}" \
+curl -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}" \
      -H "Content-Type:application/json;charset=UTF-8" \
      -X POST \
      -d @my-api.json \

@@ -1,0 +1,77 @@
+name: GitBook Significant Changes Notifier
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get list of changed markdown files
+        id: changed_files
+        run: |
+          CURRENT_SHA=$(git rev-parse HEAD)
+          PREVIOUS_SHA=$(git rev-parse HEAD^1)
+          echo "CURRENT_SHA=$CURRENT_SHA" >> $GITHUB_ENV
+          echo "PREVIOUS_SHA=$PREVIOUS_SHA" >> $GITHUB_ENV
+          FILE_LIST=$(git diff --name-status "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '^A\|^M' | awk '{print $2}' | grep '^docs/.*\.md$' || true)
+          echo "$FILE_LIST" > files.txt
+
+      - name: Evaluate significant changes
+        id: evaluate
+        run: |
+          significant_files=""
+          while read -r file; do
+            if [[ -f "$file" ]]; then
+              status=$(git diff --name-status "$PREVIOUS_SHA" "$CURRENT_SHA" | grep "$file" | awk '{print $1}')
+              if [[ "$status" == "A" ]]; then
+                significant_files+="$file\n"
+              elif [[ "$status" == "M" ]]; then
+                diff_content=$(git diff "$PREVIOUS_SHA" "$CURRENT_SHA" -- "$file")
+                word_count=$(echo "$diff_content" | grep '^\+' | grep -v '^+++\|^+++' | sed 's/^+//' | wc -w)
+                image_count=$(echo "$diff_content" | grep '^\+' | grep -v '^+++\|^+++' | grep -cE '!\[.*\]\(.*\)')
+                if (( word_count >= 100 || image_count >= 3 )); then
+                  significant_files+="$file\n"
+                fi
+              fi
+            fi
+          done < files.txt
+          echo -e "$significant_files" > significant_files.txt
+          if [[ ! -s significant_files.txt ]]; then
+            echo "No significant changes. Skipping."
+            echo "run_notification=false" >> $GITHUB_ENV
+          else
+            echo "run_notification=true" >> $GITHUB_ENV
+          fi
+
+      - name: Generate summaries
+        if: env.run_notification == 'true'
+        id: summarize
+        run: |
+          summaries=""
+          while read -r file; do
+            title=$(grep -m 1 '^#' "$file" | sed 's/^# *//')
+            link="https://github.com/${{ github.repository }}/blob/main/$file"
+            new_content=$(git diff "$PREVIOUS_SHA" "$CURRENT_SHA" -- "$file" | grep '^\+' | grep -v '^+++\|^+++' | sed 's/^+//')
+            summary=$(echo "$new_content" | npx summarize-md)
+            summaries+="$title\n$link\n$summary\n\n"
+          done < significant_files.txt
+          echo -e "$summaries" > slack_message.txt
+
+      - name: Send to Slack
+        if: env.run_notification == 'true'
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          payload-file-path: slack_message.txt
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

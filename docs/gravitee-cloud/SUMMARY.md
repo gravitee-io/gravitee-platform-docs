@@ -17,6 +17,7 @@
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
 * [Promote APIs](guides/promote-apis.md)
+* [Add Environments](guides/add-environments.md)
 
 ## SELF-HOSTED
 
