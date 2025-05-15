@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Add Environments
 
 {% hint style="warning" %}
