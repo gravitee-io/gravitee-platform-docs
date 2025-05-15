@@ -17,7 +17,7 @@
 
 **Console**
 
-* Local link to internal section dose not work in documenation [#10180](https://github.com/gravitee-io/issues/issues/10180)
+* Local link to internal section dose not work in documentation [#10180](https://github.com/gravitee-io/issues/issues/10180)
 * APIM API Throwing HTTP 500 On a Specific Returned Page [#10372](https://github.com/gravitee-io/issues/issues/10372)
 * Settings-> Groups : 'Allows invitation via user search' is NOT working as expected [#10485](https://github.com/gravitee-io/issues/issues/10485)
 * Application search does not work if search term pattern matches _id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
@@ -135,7 +135,7 @@
 
 **Gateway**
 
-* Gateway stops synching apis after failling to connect to jdbc datasource [#10441](https://github.com/gravitee-io/issues/issues/10441)
+* Gateway stops syncing apis after failing to connect to jdbc datasource [#10441](https://github.com/gravitee-io/issues/issues/10441)
 
 **Management API**
 

@@ -91,7 +91,7 @@ description: >-
 * Error in /ciba/authenticate/callback [#10412](https://github.com/gravitee-io/issues/issues/10412)
 * MinLength value can be greater than maxLength value in a password policy when using the mapi [#10417](https://github.com/gravitee-io/issues/issues/10417)
 * [AM][4.5.11] Error when character "ë" in a token [#10418](https://github.com/gravitee-io/issues/issues/10418)
-* Cant update SAML SP certifacte in UI application SAML tab  [#10442](https://github.com/gravitee-io/issues/issues/10442)
+* Can't update SAML SP certificate in UI application SAML tab  [#10442](https://github.com/gravitee-io/issues/issues/10442)
 * Group Mapper not apply with JDBC [#10445](https://github.com/gravitee-io/issues/issues/10445)
 * Management API does not check if user exists on domain when added to a group on creation of the group [#10468](https://github.com/gravitee-io/issues/issues/10468)
 
