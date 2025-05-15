@@ -54,8 +54,10 @@ Once you add an environment, you cannot delete the environment.
 ## Change the Environment section layout&#x20;
 
 *   To change the Environment section from the tile view to a list view, click the **list button**. \
+    \
 
 
     <figure><img src="../.gitbook/assets/99B1FD8B-4644-4BD6-A06B-EB6BC09D44DE_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/24DC25BD-272D-499D-8071-F1915F2D471B_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+
