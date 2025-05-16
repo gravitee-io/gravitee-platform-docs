@@ -1,75 +1,47 @@
-name: GitBook Significant Changes Notifier
+name: Markdown Diff Notifier
 
 on:
   push:
     branches:
       - main
 
-permissions:
-  contents: read
-
 jobs:
-  notify:
+  notify-significant-changes:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
-      - name: Get list of changed markdown files
-        id: changed_files
+      - name: Set SHAs
         run: |
-          CURRENT_SHA=$(git rev-parse HEAD)
-          PREVIOUS_SHA=$(git rev-parse HEAD^1)
-          echo "CURRENT_SHA=$CURRENT_SHA" >> $GITHUB_ENV
-          echo "PREVIOUS_SHA=$PREVIOUS_SHA" >> $GITHUB_ENV
-          FILE_LIST=$(git diff --name-status "$PREVIOUS_SHA" "$CURRENT_SHA" | grep '^A\|^M' | awk '{print $2}' | grep '^docs/.*\.md$' || true)
-          echo "$FILE_LIST" > files.txt
+          echo "PREVIOUS_SHA=$(git rev-parse HEAD^1)" >> "$GITHUB_ENV"
+          echo "CURRENT_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
 
-      - name: Evaluate significant changes
-        id: evaluate
+      - name: Decode embedded summarizer script
+        env:
+          SCRIPT_B64: ${{ secrets.MARKDOWN_SUMMARIZER_SCRIPT }}
+        run: echo "aW1wb3J0IHN5cwppbXBvcnQgb3MKaW1wb3J0IGRpZmZsaWIKaW1wb3J0IHJlCmltcG9ydCBqc29uCmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aApmcm9tIG1hcmtkb3duIGltcG9ydCBtYXJrZG93bgpmcm9tIGJzNCBpbXBvcnQgQmVhdXRpZnVsU291cAoKZGVmIGV4dHJhY3RfdGl0bGUobWRfY29udGVudCk6CiAgICBmb3IgbGluZSBpbiBtZF9jb250ZW50LnNwbGl0bGluZXMoKToKICAgICAgICBpZiBsaW5lLnN0cmlwKCkuc3RhcnRzd2l0aCgnIycpOgogICAgICAgICAgICByZXR1cm4gbGluZS5zdHJpcCgpLmxzdHJpcCgnIycpLnN0cmlwKCkKICAgIHJldHVybiAiVW50aXRsZWQiCgpkZWYgd29yZF9jb3VudCh0ZXh0KToKICAgIHJldHVybiBsZW4ocmUuZmluZGFsbChyJ1x3KycsIHRleHQpKQoKZGVmIGltYWdlX2NvdW50KG1kX2NvbnRlbnQpOgogICAgcmV0dXJuIGxlbihyZS5maW5kYWxsKHInIVxbLio/XF1cKC4qP1wpJywgbWRfY29udGVudCkpCgpkZWYgc3VtbWFyaXplX2RpZmYob2xkLCBuZXcpOgogICAgb2xkX3dvcmRzID0gd29yZF9jb3VudChvbGQpCiAgICBuZXdfd29yZHMgPSB3b3JkX2NvdW50KG5ldykKICAgIHdjX2RpZmYgPSBhYnMobmV3X3dvcmRzIC0gb2xkX3dvcmRzKQoKICAgIG9sZF9pbWdzID0gaW1hZ2VfY291bnQob2xkKQogICAgbmV3X2ltZ3MgPSBpbWFnZV9jb3VudChuZXcpCiAgICBpbWdfZGlmZiA9IGFicyhuZXdfaW1ncyAtIG9sZF9pbWdzKQoKICAgIG5ld19saW5lcyA9IG5ldy5zcGxpdGxpbmVzKCkKICAgIGRpZmYgPSBsaXN0KGRpZmZsaWIudW5pZmllZF9kaWZmKG9sZC5zcGxpdGxpbmVzKCksIG5ld19saW5lcywgbGluZXRlcm09JycpKQogICAgYWRkZWRfbGluZXMgPSBbbGluZVsxOl0uc3RyaXAoKSBmb3IgbGluZSBpbiBkaWZmIGlmIGxpbmUuc3RhcnRzd2l0aCgnKycpIGFuZCBub3QgbGluZS5zdGFydHN3aXRoKCcrKysnKV0KCiAgICBzdW1tYXJ5X3RleHQgPSAnICcuam9pbihhZGRlZF9saW5lcykKICAgIHN1bW1hcnlfaHRtbCA9IG1hcmtkb3duKHN1bW1hcnlfdGV4dCkKICAgIHN1bW1hcnkgPSBCZWF1dGlmdWxTb3VwKHN1bW1hcnlfaHRtbCwgImh0bWwucGFyc2VyIikuZ2V0X3RleHQoKQogICAgc3VtbWFyeSA9IHJlLnN1YihyJ1xzKycsICcgJywgc3VtbWFyeSkuc3RyaXAoKQogICAgaWYgbGVuKHN1bW1hcnkpID4gNDAwOgogICAgICAgIHN1bW1hcnkgPSBzdW1tYXJ5WzozOTddICsgJy4uLicKICAgIAogICAgcmV0dXJuIHsKICAgICAgICAic2lnbmlmaWNhbnQiOiB3Y19kaWZmID49IDEwMCBvciBpbWdfZGlmZiA+PSAzLAogICAgICAgICJzdW1tYXJ5Ijogc3VtbWFyeQogICAgfQoKZGVmIG1haW4oKToKICAgIGJhc2VfZGlyID0gUGF0aChzeXMuYXJndlsxXSkKICAgIHNoYV9iZWZvcmUgPSBzeXMuYXJndlsyXQogICAgc2hhX2FmdGVyID0gc3lzLmFyZ3ZbM10KICAgIHJlcG9fdXJsID0gc3lzLmFyZ3ZbNF0KCiAgICBvcy5zeXN0ZW0oZidnaXQgY2hlY2tvdXQge3NoYV9iZWZvcmV9JykKICAgIG9sZF9maWxlcyA9IHtmIGZvciBmIGluIGJhc2VfZGlyLnJnbG9iKCIqLm1kIil9CgogICAgb3Muc3lzdGVtKGYnZ2l0IGNoZWNrb3V0IHtzaGFfYWZ0ZXJ9JykKICAgIG5ld19maWxlcyA9IHtmIGZvciBmIGluIGJhc2VfZGlyLnJnbG9iKCIqLm1kIil9CgogICAgYWRkZWQgPSBuZXdfZmlsZXMgLSBvbGRfZmlsZXMKICAgIGV4aXN0aW5nID0gbmV3X2ZpbGVzICYgb2xkX2ZpbGVzCgogICAgcmVzdWx0cyA9IFtdCgogICAgZm9yIGYgaW4gYWRkZWQ6CiAgICAgICAgY29udGVudCA9IGYucmVhZF90ZXh0KGVuY29kaW5nPSJ1dGYtOCIpCiAgICAgICAgaWYgd29yZF9jb3VudChjb250ZW50KSA+PSAxMDAgb3IgaW1hZ2VfY291bnQoY29udGVudCkgPj0gMzoKICAgICAgICAgICAgcmVzdWx0cy5hcHBlbmQoewogICAgICAgICAgICAgICAgInRpdGxlIjogZXh0cmFjdF90aXRsZShjb250ZW50KSwKICAgICAgICAgICAgICAgICJsaW5rIjogZiJ7cmVwb191cmx9L2Jsb2IvbWFpbi97Zi5yZWxhdGl2ZV90byhiYXNlX2Rpcil9IiwKICAgICAgICAgICAgICAgICJzdW1tYXJ5IjogQmVhdXRpZnVsU291cChtYXJrZG93bihjb250ZW50KSwgImh0bWwucGFyc2VyIikuZ2V0X3RleHQoKVs6NDAwXS5zdHJpcCgpCiAgICAgICAgICAgIH0pCgogICAgZm9yIGYgaW4gZXhpc3Rpbmc6CiAgICAgICAgb2xkX2NvbnRlbnQgPSBvcy5wb3BlbihmJ2dpdCBzaG93IHtzaGFfYmVmb3JlfTp7Zn0nKS5yZWFkKCkKICAgICAgICBuZXdfY29udGVudCA9IGYucmVhZF90ZXh0KGVuY29kaW5nPSJ1dGYtOCIpCiAgICAgICAgZGlmZiA9IHN1bW1hcml6ZV9kaWZmKG9sZF9jb250ZW50LCBuZXdfY29udGVudCkKICAgICAgICBpZiBkaWZmWyJzaWduaWZpY2FudCJdOgogICAgICAgICAgICByZXN1bHRzLmFwcGVuZCh7CiAgICAgICAgICAgICAgICAidGl0bGUiOiBleHRyYWN0X3RpdGxlKG5ld19jb250ZW50KSwKICAgICAgICAgICAgICAgICJsaW5rIjogZiJ7cmVwb191cmx9L2Jsb2IvbWFpbi97Zi5yZWxhdGl2ZV90byhiYXNlX2Rpcil9IiwKICAgICAgICAgICAgICAgICJzdW1tYXJ5IjogZGlmZlsic3VtbWFyeSJdCiAgICAgICAgICAgIH0pCgogICAgcHJpbnQoanNvbi5kdW1wcyhyZXN1bHRzLCBpbmRlbnQ9MikpCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgbWFpbigpCg==" | base64 -d > summarize_diffs.py
+
+      - name: Run summarizer script
         run: |
-          significant_files=""
-          while read -r file; do
-            if [[ -f "$file" ]]; then
-              status=$(git diff --name-status "$PREVIOUS_SHA" "$CURRENT_SHA" | grep "$file" | awk '{print $1}')
-              if [[ "$status" == "A" ]]; then
-                significant_files+="$file\n"
-              elif [[ "$status" == "M" ]]; then
-                diff_content=$(git diff "$PREVIOUS_SHA" "$CURRENT_SHA" -- "$file")
-                word_count=$(echo "$diff_content" | grep '^\+' | grep -v '^+++\|^+++' | sed 's/^+//' | wc -w)
-                image_count=$(echo "$diff_content" | grep '^\+' | grep -v '^+++\|^+++' | grep -cE '!\[.*\]\(.*\)')
-                if (( word_count >= 100 || image_count >= 3 )); then
-                  significant_files+="$file\n"
-                fi
-              fi
-            fi
-          done < files.txt
-          echo -e "$significant_files" > significant_files.txt
-          if [[ ! -s significant_files.txt ]]; then
-            echo "No significant changes. Skipping."
-            echo "run_notification=false" >> $GITHUB_ENV
+          python3 summarize_diffs.py "$(pwd)/docs" "$PREVIOUS_SHA" "$CURRENT_SHA" "https://github.com/${{ github.repository }}" > changes.json
+
+      - name: Create Slack message from changes
+        id: format
+        run: |
+          jq -r '.[] | "\n*\(.title)*\n<\(.link)>\n\(.summary)"' changes.json > slack_message.txt
+          if [ ! -s slack_message.txt ]; then
+            echo "No significant changes. Skipping notification."
+            echo "send=false" >> "$GITHUB_ENV"
           else
-            echo "run_notification=true" >> $GITHUB_ENV
+            echo "send=true" >> "$GITHUB_ENV"
           fi
 
-      - name: Generate summaries
-        if: env.run_notification == 'true'
-        id: summarize
-        run: |
-          summaries=""
-          while read -r file; do
-            title=$(grep -m 1 '^#' "$file" | sed 's/^# *//')
-            link="https://github.com/${{ github.repository }}/blob/main/$file"
-            new_content=$(git diff "$PREVIOUS_SHA" "$CURRENT_SHA" -- "$file" | grep '^\+' | grep -v '^+++\|^+++' | sed 's/^+//')
-            summary=$(echo "$new_content" | npx summarize-md)
-            summaries+="$title\n$link\n$summary\n\n"
-          done < significant_files.txt
-          echo -e "$summaries" > slack_message.txt
-
       - name: Send to Slack
-        if: env.run_notification == 'true'
+        if: env.send == 'true'
         uses: slackapi/slack-github-action@v1.24.0
         with:
           payload-file-path: slack_message.txt
