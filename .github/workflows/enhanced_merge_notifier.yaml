@@ -1,4 +1,4 @@
-name: Markdown Diff Notifier
+name: Enhanced Docs Change Notifier
 
 on:
   push:
@@ -6,25 +6,21 @@ on:
       - main
 
 jobs:
-  notify-significant-changes:
+  notify-on-significant-docs-change:
     runs-on: ubuntu-latest
-    steps:
+    if: github.repository == 'your-org/your-repo-name'
 
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
-      - name: Set SHAs
-        run: |
-          echo "PREVIOUS_SHA=$(git rev-parse HEAD^1)" >> "$GITHUB_ENV"
-          echo "CURRENT_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
-
       - name: Decode summarization script from secret
         run: echo "$MARKDOWN_SUMMARIZER_SCRIPT" | base64 -d > summarize_diffs.py
         env:
           MARKDOWN_SUMMARIZER_SCRIPT: ${{ secrets.MARKDOWN_SUMMARIZER_SCRIPT }}
-      
+
       - name: Validate summarization script
         run: |
           if [ ! -s summarize_diffs.py ]; then
@@ -33,26 +29,28 @@ jobs:
           else
             echo "✅ summarize_diffs.py successfully created."
           fi
-          
-      - name: Run summarizer script
-        run: |
-          python3 summarize_diffs.py "$(pwd)/docs" "$PREVIOUS_SHA" "$CURRENT_SHA" "https://github.com/${{ github.repository }}" > changes.json
 
-      - name: Create Slack message from changes
-        id: format
+      - name: Run summarizer and collect results
+        id: summarize
         run: |
-          jq -r '.[] | "\n*\(.title)*\n<\(.link)>\n\(.summary)"' changes.json > slack_message.txt
-          if [ ! -s slack_message.txt ]; then
-            echo "No significant changes. Skipping notification."
+          python summarize_diffs.py . ${{ github.event.before }} ${{ github.sha }} https://github.com/${{ github.repository }} > summary.json
+
+      - name: Check if significant changes found
+        id: check
+        run: |
+          if [ ! -s summary.json ] || [ "$(jq length summary.json)" -eq 0 ]; then
+            echo "No significant .md changes detected."
             echo "send=false" >> "$GITHUB_ENV"
           else
             echo "send=true" >> "$GITHUB_ENV"
           fi
 
-      - name: Send to Slack
+      - name: Format and send Slack message
         if: env.send == 'true'
-        uses: slackapi/slack-github-action@v1.24.0
-        with:
-          payload-file-path: slack_message.txt
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          jq -r '.[] | "\n*\(.title)*\n<\(.link)|View page>\n\(.summary)\n"' summary.json > slack_message.txt
+          jq -Rs '{ text: . }' slack_message.txt > payload.json
+
+          curl -X POST -H 'Content-type: application/json' \
+            --data @payload.json \
+            ${{ secrets.SLACK_WEBHOOK_URL }}
