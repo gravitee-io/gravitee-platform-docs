@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # AWS EKS
 
 {% hint style="info" %}

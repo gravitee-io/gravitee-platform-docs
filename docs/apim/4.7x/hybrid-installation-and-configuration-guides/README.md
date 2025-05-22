@@ -6,7 +6,16 @@ Hybrid installations use a mix of self-hosted and cloud components to provide fl
 
 A typical Gravitee hybrid installation consists of a SaaS Control Plane and a self-hosted Data Plane. The Control Plane is a Cloud installation that is hosted by Gravitee. Gravitee currently supports both the Classic Cloud and Next-Gen Cloud. The Data Plane is a self-hosted installation that consists of the Gravitee Gateway, Redis, and, for Gravitee Classic Cloud, a log management solution.
 
-If you are using Gravitee Cloud, you can enable multi-tenancy. Gravitee multi-tenancy describes a configuration in which features and data are isolated between tenants. This allows you to register multiple APIM environments and installations, manage environment hierarchies, and promote APIs across higher and lower environments.
+A hybrid installation combines the ease of operations of a Cloud-hosted control plane with the power and security of self-hosted Gateways to provide the following benefits:
+
+* **Data Residency and Compliance.** You can keep sensitive data within your infrastructure. You can also ensure that data remains in the location where the resource owner resides, which helps you comply with data residency regulations.
+* **Reduced latency**: By hosting the Gateway within your own infrastructure, API requests are processed closer to your services, which minimizes latency and enhances performance.
+* **Full control over traffic**: All API traffic flows through your infrastructure, which provides you with complete control over routing, monitoring, and enforcing security policies - outside of the policies executed on the Gateway runtime.
+* **Scalability and flexibility**: You have full control over the scaling of the Gateway.
+* **Customization and integration**: Integrate with your existing infrastructure and customize the deployment to meet your organization’s specific security, monitoring, or logging requirements.
+* **Security**: Sensitive API traffic does not need to leave your infrastructure, reducing exposure to potential threats and vulnerabilities. Additionally, you can enforce your organization's security measures directly, at the Data Plane level.
+
+If you are using Gravitee Cloud, you can enable multi-tenancy. Gravitee multi-tenancy describes a configuration in which features and data are isolated between tenants. This allows you to register multiple APIM environments and installations, manage environment hierarchies, and promote APIs across higher and lower environments.&#x20;
 
 ## Classic Cloud vs Next-Gen Cloud
 

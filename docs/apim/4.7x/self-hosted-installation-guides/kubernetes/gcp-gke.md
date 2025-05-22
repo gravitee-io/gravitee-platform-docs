@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # GCP GKE
 
 {% hint style="info" %}
