@@ -10,6 +10,20 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.2.x
 
+## Gravitee Access Management 4.2.30 - May 23, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+* PeerCertificate not interpreted properly when it provided by header [#5915](https://github.com/gravitee-io/gravitee-access-management/pull/5915)
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.2.29 - January 16, 2025
 
 <details>
