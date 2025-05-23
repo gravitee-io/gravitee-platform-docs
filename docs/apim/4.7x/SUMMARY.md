@@ -336,6 +336,7 @@
   * [APIs](management-api-reference-1/apis.md)
   * [API documentation](management-api-reference-1/api-documentation.md)
   * [API Members](management-api-reference-1/api-members.md)
+  * [APIs](management-api-reference-1/apis-1.md)
 * [Release Information](release-information/README.md)
   * [Release Notes](release-information/release-notes/README.md)
     * [APIM 4.7](release-information/release-notes/apim-4.7.md)
