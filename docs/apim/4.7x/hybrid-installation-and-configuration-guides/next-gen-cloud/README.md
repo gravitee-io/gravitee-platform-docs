@@ -2,13 +2,7 @@
 
 ## Overview
 
-The minimum requirements for a Next-Gen Cloud deployment are the Gravitee Gateway and Redis. While Redis is technically optional, it's necessary for the following:&#x20;
-
-* Rate Limit, Quota, and Spike Arrest policies. Redis is used to store counters. In high availability deployments where traffic is split between Gateways, Redis enables rate-limiting synchronization via a shared execution context.
-* Caching. Subsequent calls can use previous responses that are cached.
-* Distributed sync process. If the connection is lost between the Control and Data Planes, Redis can store the latest Control Plane configuration, which allows the Gateway to continue running.
-
-To avoid updates to the Gateway configuration and redeployment, Redis should be configured prior to starting the Gateway. Redis is configured differently depending on the deployment method used for the installation. Each installation guides includes configurations for both the Gateway and Redis.
+The minimum requirements for a Next-Gen Cloud deployment are the Gravitee Gateway and Redis. For more information on Redis, see [#self-hosted-data-plane-components](../#self-hosted-data-plane-components "mention").
 
 ## Prepare your installation
 
@@ -21,7 +15,7 @@ The following installation steps are common to all supported deployment methods.
 3.  Select **Dashboard** from the menu, and then click **Deploy Gateway**.\
 
 
-    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 1 copy (1).png" alt=""><figcaption></figcaption></figure>
 4.  In the **Choose Gateway Deployment Method** modal, select **Hybrid Gateway**.\
 
 
@@ -29,29 +23,27 @@ The following installation steps are common to all supported deployment methods.
 5.  On the **Deploy Hybrid Gateway** screen, select the Environment to which you'd like to deploy the Gateway. For example, **Development**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 2 copy.png" alt=""><figcaption></figcaption></figure>
 6.  Under **Provide your Access Point URLs**, enter the URL of either the load balancer or the machine on which you'd like to install the Gateway.\
 
 
-    <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 3 copy.png" alt=""><figcaption></figcaption></figure>
 7.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure. \
 
 
-    <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/00 4 copy.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Your have prepared your installation for deployment.
 {% endhint %}
 
-## Deploy your installation
+## Deployment methods
 
 To deploy your Gravitee Gateway, choose from the following technology stacks and deployment methods.
 
 {% hint style="warning" %}
 Deployment methods that are not linked to documentation are still fully supported. For more information, contact us.
 {% endhint %}
-
-###
 
 ### Docker
 
