@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.5 - May 28, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* URL coding of user name seems to be broken [#10469](https://github.com/gravitee-io/issues/issues/10469)
+* When username contains space the token generation fails [#10569](https://github.com/gravitee-io/issues/issues/10569)
+* PeerCertificate not interpreted properly when it provided by header [#10586](https://github.com/gravitee-io/issues/issues/10586)
+
+
+
+
+
+**Other**
+
+* Access Gateway - X-Request header usage [#10552](https://github.com/gravitee-io/issues/issues/10552)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.4 - May 13, 2025
 
 <details>
