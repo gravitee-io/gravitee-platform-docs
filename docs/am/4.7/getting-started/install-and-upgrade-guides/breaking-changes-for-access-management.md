@@ -4,7 +4,7 @@ description: >-
   Gravitee Access Management
 ---
 
-# Breaking changes for Access Management
+# Breaking changes and deprecations
 
 ## Breaking changes from 4.X
 
@@ -599,3 +599,19 @@ You can define this value when you configure the domain certificates ( **Setting
 {% hint style="warning" %}
 If one of your certificate is currently used to decrypt/encrypt a JWT, update your certificates configurations .
 {% endhint %}
+
+## Deprecated functionality from 4.x <a href="#deprecated-functionality-from-4.x" id="deprecated-functionality-from-4.x"></a>
+
+Here is the deprecated functionality from 4.X of Gravitee Access Management
+
+### 4.9.0 <a href="#id-4.9.0" id="id-4.9.0"></a>
+
+The legacy flag to allow `openid` scope for Client Credentials flow will be removed.
+
+```
+legacy:
+    openid:
+        accept_openid_for_service_app: true
+```
+
+The `openid` scope is used for OpenID Connect flows where a user authenticates and retrieves an id\_token. Access Management will return error in case `openid` scope is provided when Client Credentials scope is used.

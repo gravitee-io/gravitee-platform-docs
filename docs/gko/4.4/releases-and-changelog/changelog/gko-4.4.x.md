@@ -1,5 +1,14 @@
 # GKO 4.4.x
 
+## Gravitee Kubernetes Operator 4.4.28 - May 14, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * mAPI throws exception an Application is created using GKO with empty pictureUrl [#10531](https://github.com/gravitee-io/issues/issues/10531)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.4.27 - May 6, 2025
     
 <details>

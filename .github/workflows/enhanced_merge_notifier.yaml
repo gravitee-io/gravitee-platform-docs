@@ -1,0 +1,56 @@
+name: Enhanced Docs Change Notifier
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify-on-significant-docs-change:
+    runs-on: ubuntu-latest
+    if: github.repository == 'your-org/your-repo-name'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Decode summarization script from secret
+        run: echo "$MARKDOWN_SUMMARIZER_SCRIPT" | base64 -d > summarize_diffs.py
+        env:
+          MARKDOWN_SUMMARIZER_SCRIPT: ${{ secrets.MARKDOWN_SUMMARIZER_SCRIPT }}
+
+      - name: Validate summarization script
+        run: |
+          if [ ! -s summarize_diffs.py ]; then
+            echo "❌ Error: summarize_diffs.py was not created properly from secret."
+            exit 1
+          else
+            echo "✅ summarize_diffs.py successfully created."
+          fi
+
+      - name: Run summarizer and collect results
+        id: summarize
+        run: |
+          python summarize_diffs.py . ${{ github.event.before }} ${{ github.sha }} https://github.com/${{ github.repository }} > summary.json
+
+      - name: Check if significant changes found
+        id: check
+        run: |
+          if [ ! -s summary.json ] || [ "$(jq length summary.json)" -eq 0 ]; then
+            echo "No significant .md changes detected."
+            echo "send=false" >> "$GITHUB_ENV"
+          else
+            echo "send=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Format and send Slack message
+        if: env.send == 'true'
+        run: |
+          jq -r '.[] | "\n*\(.title)*\n<\(.link)|View page>\n\(.summary)\n"' summary.json > slack_message.txt
+          jq -Rs '{ text: . }' slack_message.txt > payload.json
+
+          curl -X POST -H 'Content-type: application/json' \
+            --data @payload.json \
+            ${{ secrets.SLACK_DOCS_WEBHOOK_URL }}

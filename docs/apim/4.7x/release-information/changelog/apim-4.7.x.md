@@ -60,7 +60,7 @@
 
 **Gateway**
 
-* Gateway stops synching apis after failling to connect to jdbc datasource [#10441](https://github.com/gravitee-io/issues/issues/10441)
+* Gateway stops syncing apis after failing to connect to jdbc datasource [#10441](https://github.com/gravitee-io/issues/issues/10441)
 
 **Management API**
 

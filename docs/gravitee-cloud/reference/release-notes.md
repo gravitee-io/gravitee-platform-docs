@@ -2,6 +2,18 @@
 
 This section contains an overview of the new features in Gravitee Cloud's releases. For information about the releases, see the following articles:&#x20;
 
+## May 2025
+
+<details>
+
+<summary>15th May</summary>
+
+## Adding Environments
+
+You can now request more environments in Gravitee Cloud to map out your specific organization. For more information about linking additional environments to your account, contact Gravitee. To learn more about how to add a new environment after it is linked, see [add-environments.md](../guides/add-environments.md "mention").
+
+</details>
+
 ## April 2025
 
 <details>

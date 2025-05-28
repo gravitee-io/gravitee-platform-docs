@@ -26,7 +26,7 @@
   * [4.7 Upgrade Guide](getting-started/install-and-upgrade-guides/4.7-upgrade-guide.md)
   * [Configure Gateway Resilience Mode](getting-started/install-and-upgrade-guides/configure-gateway-resilience-mode.md)
   * [Configure Multiple Data Planes](getting-started/install-and-upgrade-guides/configure-multiple-data-planes.md)
-  * [Breaking changes for Access Management](getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md)
+  * [Breaking changes and deprecations](getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md)
 * [Configuration](getting-started/configuration/README.md)
   * [AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)

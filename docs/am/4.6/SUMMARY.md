@@ -23,7 +23,7 @@
   * [Configure a Production-ready AM Environment](getting-started/install-and-upgrade-guides/configure-a-production-ready-am-environment.md)
   * [4.5 Upgrade Guide](getting-started/install-and-upgrade-guides/upgrade-guide.md)
   * [Configure Gateway Resilience Mode](getting-started/install-and-upgrade-guides/configure-gateway-resilience-mode.md)
-  * [Breaking changes for Access Management](getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md)
+  * [Breaking changes and deprecations](getting-started/install-and-upgrade-guides/breaking-changes-for-access-management.md)
 * [Configuration](getting-started/configuration/README.md)
   * [AM Gateway](getting-started/configuration/configure-am-gateway/README.md)
     * [Internal API](getting-started/configuration/configure-am-gateway/internal-api.md)

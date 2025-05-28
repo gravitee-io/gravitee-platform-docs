@@ -10,6 +10,49 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.27 - May 28, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* URL coding of user name seems to be broken [#10469](https://github.com/gravitee-io/issues/issues/10469)
+* When username contains space the token generation fails [#10569](https://github.com/gravitee-io/issues/issues/10569)
+* PeerCertificate not interpreted properly when it provided by header [#10586](https://github.com/gravitee-io/issues/issues/10586)
+
+
+
+
+
+**Other**
+
+* Access Gateway - X-Request header usage [#10552](https://github.com/gravitee-io/issues/issues/10552)
+
+</details>
+
+
+## Gravitee Access Management 4.4.26 - May 13, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Users and Groups metadata not displayed for /members enpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
+* Email notification fails when user doesn't have firstName [#10536](https://github.com/gravitee-io/issues/issues/10536)
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.4.25 - May 6, 2025
 
 <details>

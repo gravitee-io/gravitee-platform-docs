@@ -206,6 +206,10 @@ services:
 
 ### Configure labels
 
+{% hint style="warning" %}
+Enabling labels may result in a high cardinality in values, which can cause issues on the metrics backend (i.e., the Gateway) and affect performance. In general, enabling labels does not impact performance when the set of possible values is bounded.
+{% endhint %}
+
 Labels are used to provide dimensionality to a metric. For example, metrics related to a HTTP request have an `http_path` label that allows them to query timeseries for a specific path, or any other operation.
 
 You can specify which labels to use in the configuration file:
@@ -218,18 +222,11 @@ services:
       - local
       - http_method
       - http_code
-      - http_path
     prometheus:
       enabled: true
 ```
 
-The list of available labels can be found [here](https://vertx.io/docs/apidocs/io/vertx/micrometer/Label.html).
-
-{% hint style="info" %}
-Enabling labels may result in a high cardinality in values, which can cause issues on the metrics backend (i.e., the Gateway) and affect performance. In general, enabling labels will not impact performance when the set of possible values is bounded.
-{% endhint %}
-
-Default values are `local`, `http_method` and `http_code`.
+Default values are `local`, `http_method` and `http_code`. For a full list of labels, see [Enum Label](https://vertx.io/docs/apidocs/io/vertx/micrometer/Label.html).
 
 Vert.x 4 is used by default. We have introduced a new field in the Prometheus configuration to enable the use of Vert.x 3 label names. To use old labels, set `version` to `3.10`:
 
