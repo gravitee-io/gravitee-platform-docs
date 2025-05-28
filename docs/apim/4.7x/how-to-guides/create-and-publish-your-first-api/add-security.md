@@ -19,7 +19,7 @@ To add an API Key plan, complete the following steps:
 7. Delete the default keyless plan. To delete the default keyless plan, navigate to **Default Keyless (UNSECURED)**, and then click the X.&#x20;
 8. Click **Validate plans.**
 9. In the Review your **API configuration screen**,  click **Save & Deploy API**.
-10. Call the API. You recieve a 404 HTTP response, which shows that the API Key plan is in place.&#x20;
+10. Call the API. You receive a 404 HTTP response, which shows that the API Key plan is in place.&#x20;
 
 ## Get the API Key
 

@@ -17,7 +17,7 @@ description: >-
 
 **Console**
 
-* Local link to internal section dose not work in documenation [#10180](https://github.com/gravitee-io/issues/issues/10180)
+* Local link to internal section dose not work in documentation [#10180](https://github.com/gravitee-io/issues/issues/10180)
 * APIM API Throwing HTTP 500 On a Specific Returned Page [#10372](https://github.com/gravitee-io/issues/issues/10372)
 * UX problem in condition alerting threshold [#10514](https://github.com/gravitee-io/issues/issues/10514)
 
@@ -144,7 +144,7 @@ description: >-
 
 **Gateway**
 
-* Gateway stops synching apis after failling to connect to jdbc datasource [#10441](https://github.com/gravitee-io/issues/issues/10441)
+* Gateway stops syncing apis after failing to connect to jdbc datasource [#10441](https://github.com/gravitee-io/issues/issues/10441)
 
 **Management API**
 

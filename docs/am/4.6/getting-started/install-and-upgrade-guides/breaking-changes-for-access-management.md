@@ -4,7 +4,7 @@ description: >-
   Gravitee Access Management
 ---
 
-# Breaking changes for Access Management
+# Breaking changes and deprecations
 
 ## Breaking changes from 4.X
 
@@ -14,7 +14,7 @@ Here are the breaking changes from versions 4.X of Gravitee.
 
 **Redirect Uris**
 
-When you create or update an application, `redirect_uris` is required with the following types:&#x20;
+When you create or update an application, `redirect_uris` is required with the following types:
 
 * WEB
 * NATIVE
@@ -24,7 +24,7 @@ When you create or update an application, `redirect_uris` is required with the f
 
 Before this update, the `sub` claim represented the user internalID.
 
-With this update, the `sub` value is an opaque value, which is based on the user externalId and the identity provider identifier. As per the requirement of the OIDC specification, even if this value is opaque, it remains the same for a user across multiple token generations.&#x20;
+With this update, the `sub` value is an opaque value, which is based on the user externalId and the identity provider identifier. As per the requirement of the OIDC specification, even if this value is opaque, it remains the same for a user across multiple token generations.
 
 {% hint style="info" %}
 For all domains that you created in previous versions, the `sub` claim remains the user internalId.
@@ -34,7 +34,7 @@ For all domains that you created in previous versions, the `sub` claim remains t
 
 Before this update, the following entities were managed by the `oauth2` scope and the `management` scope:
 
-* ScopeApproval&#x20;
+* ScopeApproval
 * AuthenticationFlowContext
 * LoginAttempts
 * RateLimit
@@ -56,7 +56,7 @@ oauth2:
 ```
 {% endcode %}
 
-With this update, there is a new repository scope named `gateway`, which manages these entities instead of the `oauth2` scope and the `management` scope. As the `gateway` scope manages the ScopeApproval, if you defined two different databases for the `management` and the `oauth2` scope, configure the `gateway` to target the same database as `oauth2`.&#x20;
+With this update, there is a new repository scope named `gateway`, which manages these entities instead of the `oauth2` scope and the `management` scope. As the `gateway` scope manages the ScopeApproval, if you defined two different databases for the `management` and the `oauth2` scope, configure the `gateway` to target the same database as `oauth2`.
 
 Also, a `repositories` section has been introduced to identify the settings related to the repository layer:
 
@@ -87,8 +87,6 @@ If you use the environment variable to provide database settings, complete the f
   `GRAVITEE_MANAGEMENT_TYPE=... => GRAVITEE_REPOSITORIES_MANAGEMENT_TYPE=...`
 * add the settings for the gateway scope\
   `GRAVITEE_GATEWAY_TYPE=... => GRAVITEE_REPOSITORIES_GATEWAY_TYPE=...`
-
-
 {% endhint %}
 
 ### 4.0.0
@@ -109,7 +107,7 @@ Here are the breaking changes from versions 3.X of Gravitee.
 
 **Rename or Remove users with duplicate user name**
 
-&#x20;In the **users** collection/table in AM version 3.21.6 / 3.20.11 / 3.19.17, there is a unique constraint on the `username` field. This constraint fixes the [AM-680](https://github.com/gravitee-io/issues/issues/9117) bug to avoid users with the same user name within an identity provider (IDP). Users with same user name are not active users, and it is not possible to log in using these user’s details. As a result, you may experience issues while upgrading Access Management (AM) from any previous version to 3.21.6 in case the **users** collection/table already has more than one user with the same user name in the `username` field. For the relational database, there could be a unique constraint error in the management API log and for the MongoDB ,the application may not start as MongoDB  does not apply the unique constraint due to duplicate data. To start the application, you need to rename or delete the duplicate users from both the **users** collection/table and the corresponding identity provider collection/table.
+In the **users** collection/table in AM version 3.21.6 / 3.20.11 / 3.19.17, there is a unique constraint on the `username` field. This constraint fixes the [AM-680](https://github.com/gravitee-io/issues/issues/9117) bug to avoid users with the same user name within an identity provider (IDP). Users with same user name are not active users, and it is not possible to log in using these user’s details. As a result, you may experience issues while upgrading Access Management (AM) from any previous version to 3.21.6 in case the **users** collection/table already has more than one user with the same user name in the `username` field. For the relational database, there could be a unique constraint error in the management API log and for the MongoDB ,the application may not start as MongoDB does not apply the unique constraint due to duplicate data. To start the application, you need to rename or delete the duplicate users from both the **users** collection/table and the corresponding identity provider collection/table.
 
 To delete the duplicate users, complete the following steps :
 
@@ -154,8 +152,6 @@ If a username cannot be duplicate, there is an error into the logs referencing t
 {% hint style="info" %}
 * In case of liquibase script error, the management API may fail to start and the **databasechangeloglock** has the `locked` column set to true. Once the duplicate is managed manually, the `locked` columns have to be updated to false to make the liquibase execution possible. You can update the lock using this query : `UPDATE DATABASECHANGELOGLOCK SET LOCKED=0`
 * After the migration, make sure that the **idp\_users\_xxx** tables contains a unique index in the username column. If there is no index, create this index.
-
-
 {% endhint %}
 
 Here are two types of User entry errors:
@@ -235,7 +231,7 @@ The procedure is the same as the one for the **users** table but need to be appl
 
 **Docker Images**
 
-To be compliant with [CIS\_Docker\_v1.3.1\_L1](https://www.tenable.com/audits/items/CIS_Docker_v1.3.1_L1_Docker_Linux.audit:bdcea17ac365110218526796ae3095b1) ,the docker images  use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
+To be compliant with [CIS\_Docker\_v1.3.1\_L1](https://www.tenable.com/audits/items/CIS_Docker_v1.3.1_L1_Docker_Linux.audit:bdcea17ac365110218526796ae3095b1) ,the docker images use the `graviteeio` user. This change means that if you use the official images and deploy them on your k8s installation, nothing changes. If you build your own Dockerfile from Gravitee images, you must provide the correct rights according to your modifications. If you deploy on `openshift`, you have to add the following configuration:
 
 ```bash
 securityContext:
@@ -266,16 +262,16 @@ Some of the plugins are still in alpha. They will soon be released after Access 
 With this update, the following are enabled to improve security:
 
 * CSP directives
-* &#x20;X-XSS-Protection header
-* X-Frame-Options header&#x20;
+* X-XSS-Protection header
+* X-Frame-Options header
 
-&#x20;Analyze your deployment needs to adapt the default values that we put in place.
+Analyze your deployment needs to adapt the default values that we put in place.
 
 ### 3.19
 
 **Theme and Branding**
 
-With this update, there is a  [**theme builder**](https://docs.gravitee.io/am/current/am_userguide_branding_theme_builder.html)**,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are  used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
+With this update, there is a [**theme builder**](https://docs.gravitee.io/am/current/am_userguide_branding_theme_builder.html)**,** which enables Access Management (AM) users to create unique AM templates. The theme builder has new assets that are used by the default forms and emails of AM. All the assets provided before AM 3.19 are still served by the Gateway to render the old form templates. Those assets are deprecated and will be removed in a future version. Here is a list of deprecated assets:
 
 * css/access\_confirmation.css
 * css/forgot\_password.css
@@ -431,14 +427,14 @@ The User IP and User-Agent used for audit logs require the user to consent to ex
 * `uc_geoip` : consent for IP and geolocation
 * `uc_ua` : consent for User Agent
 
-You can use the following code:&#x20;
+You can use the following code:
 
 ```bash
  <input class="mdl-checkbox__input" type="checkbox" th:checked="${uc_geoip}" id="uc_geoip" name="uc_geoip">
     <input class="mdl-checkbox__input" type="checkbox" th:checked="${uc_ua}" id="uc_ua" name="uc_ua">
 ```
 
-If the use have consented to these, you can simply add those inputs as `hidden` form fields. Here is an example:&#x20;
+If the use have consented to these, you can simply add those inputs as `hidden` form fields. Here is an example:
 
 ```bash
  <input class="mdl-checkbox__input" type="hidden" th:value="on"  id="uc_geoip" name="uc_geoip">
@@ -459,7 +455,7 @@ Access Management versions from 3.17.2 to 3.17.4 haven been impacted by a regres
 
 **Automatic redirection to External IDP**
 
-Access Management 3.17.0 introduced the selection rules on application identity providers. These rules are used in accordance with the identifier-first login feature to redirect to the identity provider based on the defined rule and the user input.&#x20;
+Access Management 3.17.0 introduced the selection rules on application identity providers. These rules are used in accordance with the identifier-first login feature to redirect to the identity provider based on the defined rule and the user input.
 
 With this update, the rules on external identity providers are evaluated also during the get login page to redirect quickly to the relevant provider and save a user interaction.
 
@@ -518,7 +514,7 @@ With this update, you have to explicitly request the `full_profile` scope claim 
 
 **Identity Provider / RoleMappers**
 
-RoleMappers attached to an identity provider allow the attribution of a role dynamically based on a matching rule.&#x20;
+RoleMappers attached to an identity provider allow the attribution of a role dynamically based on a matching rule.
 
 Prior to this update, these dynamic roles were stored in the same location as the manually assigned roles, and we could not determine whether a Role was attributed using RoleMapper or manually using the portal.
 
@@ -573,3 +569,19 @@ You can define this value when you configure the domain certificates ( **Setting
 {% hint style="warning" %}
 if the `use` attribute isn’t defined, `sig` is used as default. If one of your certificate is currently used to decrypt/encrypt a JWT, update your certificates configurations .
 {% endhint %}
+
+## Deprecated functionality from 4.x
+
+Here is the deprecated functionality from 4.X of Gravitee Access Management
+
+### 4.9.0
+
+The legacy flag to allow `openid` scope for Client Credentials flow will be removed.
+
+```
+legacy:
+    openid:
+        accept_openid_for_service_app: true
+```
+
+The `openid` scope is used for OpenID Connect flows where a user authenticates and retrieves an id\_token. Access Management will return error in case `openid` scope is provided when Client Credentials scope is used.

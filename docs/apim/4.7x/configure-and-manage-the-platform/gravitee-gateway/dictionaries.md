@@ -37,7 +37,7 @@ Select **Add**, and then **Save Properties** when you are done defining your key
 
 ### Create a dynamic dictionary
 
-To create a manual dictionary, choose **Dynamic** as the **Type**. **Trigger** and **Provider** sections will then appear.
+To create a dynamic dictionary, choose **Dynamic** as the **Type**. **Trigger** and **Provider** sections will then appear.
 
 {% tabs %}
 {% tab title="Define trigger settings" %}

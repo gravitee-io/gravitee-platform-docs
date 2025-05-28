@@ -6,6 +6,51 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.11 - May 28, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* URL coding of user name seems to be broken [#10469](https://github.com/gravitee-io/issues/issues/10469)
+* When username contains space the token generation fails [#10569](https://github.com/gravitee-io/issues/issues/10569)
+* PeerCertificate not interpreted properly when it provided by header [#10586](https://github.com/gravitee-io/issues/issues/10586)
+
+
+
+
+
+**Other**
+
+* Access Gateway - X-Request header usage [#10552](https://github.com/gravitee-io/issues/issues/10552)
+
+</details>
+
+
+## Gravitee Access Management 4.6.10 - May 13, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Users and Groups metadata not displayed for /members enpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
+* Email notification fails when user doesn't have firstName [#10536](https://github.com/gravitee-io/issues/issues/10536)
+
+
+
+**Other**
+
+* Reporter Upgrader is using a syntax not supported by DocumentDB [#10528](https://github.com/gravitee-io/issues/issues/10528)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.9 - May 6, 2025
 
 <details>
@@ -91,7 +136,7 @@ description: >-
 * Error in /ciba/authenticate/callback [#10412](https://github.com/gravitee-io/issues/issues/10412)
 * MinLength value can be greater than maxLength value in a password policy when using the mapi [#10417](https://github.com/gravitee-io/issues/issues/10417)
 * [AM][4.5.11] Error when character "ë" in a token [#10418](https://github.com/gravitee-io/issues/issues/10418)
-* Cant update SAML SP certifacte in UI application SAML tab  [#10442](https://github.com/gravitee-io/issues/issues/10442)
+* Can't update SAML SP certificate in UI application SAML tab  [#10442](https://github.com/gravitee-io/issues/issues/10442)
 * Group Mapper not apply with JDBC [#10445](https://github.com/gravitee-io/issues/issues/10445)
 * Management API does not check if user exists on domain when added to a group on creation of the group [#10468](https://github.com/gravitee-io/issues/issues/10468)
 
