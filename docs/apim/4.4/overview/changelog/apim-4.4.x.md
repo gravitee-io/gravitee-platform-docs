@@ -6,6 +6,57 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.29 - May 28, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Dictionaries are unable to be created with the same name across environments or organizations. [#10537](https://github.com/gravitee-io/issues/issues/10537)
+* Status code 0 in Analytics when V4 emulation engine is activated [#10579](https://github.com/gravitee-io/issues/issues/10579)
+
+**Management API**
+
+* Intermittent errors when using request content and fire & forget in HTTP callout policy [#10424](https://github.com/gravitee-io/issues/issues/10424)
+* Http Callout policy does not work with V4 emulation and Fire and forget [#10494](https://github.com/gravitee-io/issues/issues/10494)
+* Tenant name verification issue [#10517](https://github.com/gravitee-io/issues/issues/10517)
+* Alert filter doesn't show list of APIs in selection box. [#10532](https://github.com/gravitee-io/issues/issues/10532)
+* Improve error logs in upgrader [#10535](https://github.com/gravitee-io/issues/issues/10535)
+* Dictionaries are unable to be created with the same name across environments or organizations. [#10537](https://github.com/gravitee-io/issues/issues/10537)
+* Management transfer_ownership API is allowing multiple primary owners on applications  [#10572](https://github.com/gravitee-io/issues/issues/10572)
+* Remove System.out.println statement [#10583](https://github.com/gravitee-io/issues/issues/10583)
+
+**Console**
+
+* Tenant name verification issue [#10517](https://github.com/gravitee-io/issues/issues/10517)
+* Alert filter doesn't show list of APIs in selection box. [#10532](https://github.com/gravitee-io/issues/issues/10532)
+* Groups page fails to load when too many groups exist because no pagination [#10538](https://github.com/gravitee-io/issues/issues/10538)
+* Group management for APIs broken [#10542](https://github.com/gravitee-io/issues/issues/10542)
+* Application filter 'not equals to' operator is unusable [#10546](https://github.com/gravitee-io/issues/issues/10546)
+
+**Helm Charts**
+
+* Fix Elasticsearch dependency configuration of replicas in APIM helm chart [#10541](https://github.com/gravitee-io/issues/issues/10541)
+
+**Other**
+
+* Unable to launch Lambda with lambda Policy [#10570](https://github.com/gravitee-io/issues/issues/10570)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* \[UI] Add text to indicate max image size allowed [#10561](https://github.com/gravitee-io/issues/issues/10561)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.28 - May 9, 2025
 <details>
 
