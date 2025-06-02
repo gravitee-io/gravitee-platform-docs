@@ -265,7 +265,7 @@ To configure the Alert Engine, you must provide the Alert Engine credentials in 
 Please reach out to your Technical Account Manager for the Alert Engine credentials if you don't have them already.
 {% endhint %}
 
-## Initiating the connection
+## Initiate the connection
 
 Once the services are started, connect to the APIM Console of the environment you linked the hybrid Gateway(s) with. You should see them appear as having started in the Gateways menu.
 
