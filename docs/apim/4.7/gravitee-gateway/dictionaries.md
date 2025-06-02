@@ -1,5 +1,30 @@
 # Dictionaries
 
+{% hint style="warning" %}
+**Changes to Gravitee Dictionaries in Version 4.7.6**
+
+Starting from version 4.7.6, you can use dictionaries in a [Multi-tenancy](../install-and-upgrade/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
+
+- create dictionaries with the same name in different environments
+- promote APIs between environments without renaming dictionaries
+- recreate or update a dictionary in a new environment independently
+
+**Enabling Multi-tenant Dictionary Support**
+
+Before you enable multi-tenant mode for dictionaries, complete the following steps to prevent disruptions:
+
+1. Verify that no dictionaries are shared across environments. Ensure each environment already contains its own copy of every required dictionary.
+2. Recreate any missing dictionaries. If an environment does not have a required dictionary - create it first, otherwise once multi-tenant support is enabled that dictionary is not found and the API fails.
+
+Once each environment has its complete set of dictionaries enable multi-tenant mode by updating your configuration in the gateway:
+
+```yaml
+dictionaries:
+  multi-tenant:
+    enabled: true
+```
+{% endhint %}
+
 ## Overview
 
 While API publishers can create properties for their own APIs, dictionaries provide a way to manage properties independent of individual APIs, making it possible to apply them across APIs and maintain them globally with a different user profile, such as an administrator.
@@ -7,6 +32,7 @@ While API publishers can create properties for their own APIs, dictionaries prov
 Dictionary properties are based on key-value pairs. You can create two types of dictionaries: manual and dynamic.
 
 Dictionaries need to be deployed to the API Gateway before you can use them. You can see the date and time the dictionary was last deployed in the dictionary list:
+
 
 <figure><img src="../.gitbook/assets/image (103).png" alt=""><figcaption></figcaption></figure>
 
