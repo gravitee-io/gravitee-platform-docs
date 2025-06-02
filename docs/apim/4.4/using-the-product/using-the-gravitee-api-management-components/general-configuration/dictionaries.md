@@ -4,6 +4,31 @@ description: >-
   Management
 ---
 
+{% hint style="warning" %}
+**Changes to Gravitee Dictionaries in Version 4.4.29**
+
+Starting from version 4.4.29, you can use dictionaries in a [Multi-tenancy](../../../installation-and-upgrades/install-gravitee-api-management/multi-tenancy.md) setup. With this new capability, you can complete the following actions:
+
+- create dictionaries with the same name in different environments
+- promote APIs between environments without renaming dictionaries
+- recreate or update a dictionary in a new environment independently
+
+**Enabling Multi-tenant Dictionary Support**
+
+Before you enable multi-tenant mode for dictionaries, complete the following steps to prevent disruptions:
+
+1. Verify that no dictionaries are shared across environments. Ensure each environment already contains its own copy of every required dictionary.
+2. Recreate any missing dictionaries. If an environment does not have a required dictionary - create it first, otherwise once multi-tenant support is enabled that dictionary is not found and the API fails.
+
+Once each environment has its complete set of dictionaries enable multi-tenant mode by updating your configuration in the gateway:
+
+```yaml
+dictionaries:
+  multi-tenant:
+    enabled: true
+```
+{% endhint %}
+
 # Configuring the Dictionaries in Gravitee API Management Gateway
 
 ## Introduction
