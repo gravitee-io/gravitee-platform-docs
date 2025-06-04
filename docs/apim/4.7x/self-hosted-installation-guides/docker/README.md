@@ -1,8 +1,9 @@
 # Docker
 
-You can use the following deployment methods to install Gravitee API Management (APIM) with Docker:
+## Deployment methods
 
-<table data-view="cards"><thead><tr><th data-type="content-ref"></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><a href="../../getting-started/local-install-with-docker.md">local-install-with-docker.md</a></td><td>Quickly install Docker without any additional plugins</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><a href="docker-compose.md">docker-compose.md</a></td><td>Add additional plugins and control the location of the persistent data             </td><td><a href="docker-compose.md">docker-compose.md</a></td></tr><tr><td><a href="docker-cli.md">docker-cli.md</a></td><td>Create all the components for the installation using the command line        </td><td><a href="docker-cli.md">docker-cli.md</a></td></tr></tbody></table>
+* [docker-compose.md](docker-compose.md "mention")
+* [docker-cli.md](docker-cli.md "mention")
 
 ## Architecture of Gravitee API Management with Docker
 

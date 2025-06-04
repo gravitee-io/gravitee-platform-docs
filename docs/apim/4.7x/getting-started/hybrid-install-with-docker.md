@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Hybrid Install with Docker
 
 ## Prerequisites

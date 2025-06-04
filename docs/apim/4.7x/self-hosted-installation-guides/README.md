@@ -8,31 +8,27 @@ Self-hosted architecture refers a scheme where all Gravitee API Management compo
 
 Gravitee APIM can be installed using the following technology stacks and deployment methods.
 
-{% hint style="warning" %}
-Deployment methods that are not linked to documentation are still fully supported. For more information, contact us.
-{% endhint %}
-
 ### Docker
 
-* Docker Compose
+* [docker-compose.md](docker/docker-compose.md "mention")
 * Docker CLI
 
 ### Kubernetes
 
-* Vanilla Kubernetes
+* [kubernetes](kubernetes/ "mention")
 * AWS EKS
 * Azure AKS
 * GCP GKE
-* OpenShift
+* [openshift.md](kubernetes/openshift.md "mention")
 
 ### Linux
 
-* RPM
-* .ZIP
+* [rpm](rpm/ "mention")
+* [.zip.md](.zip.md "mention")
 
 ### Windows
 
-* .ZIP
+* [.zip.md](.zip.md "mention")
 
 ## Architecture
 

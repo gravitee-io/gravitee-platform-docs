@@ -1,5 +1,51 @@
 # Hybrid Installation & Configuration Guides
 
+## Deployment Methods
+
+### Next-Gen Cloud
+
+* Docker Compose&#x20;
+* [docker-cli.md](next-gen-cloud/docker/docker-cli.md "mention")
+
+#### Kubernetes
+
+* [vanilla-kubernetes.md](next-gen-cloud/kubernetes/vanilla-kubernetes.md "mention")
+* AWS EKS
+* Azure AKS
+* GCP EKS
+* [openshift.md](next-gen-cloud/kubernetes/openshift.md "mention")
+
+#### RPM
+
+* [rpm.md](next-gen-cloud/rpm.md "mention")
+
+#### .ZIP
+
+* [.zip.md](next-gen-cloud/.zip.md "mention")
+
+### Classic cloud
+
+#### Docker
+
+* [docker-compose.md](classic-cloud/docker/docker-compose.md "mention")
+* Docker CLI
+
+#### Kubernetes
+
+* Vanilla Kubernetes&#x20;
+* AWS EKS
+* Azure AKS
+* [gcp-gke.md](classic-cloud/kubernetes/gcp-gke.md "mention")
+* OpenShift
+
+#### RPM&#x20;
+
+* RPM
+
+#### .ZIP
+
+* [.zip.md](classic-cloud/.zip.md "mention")
+
 ## Overview
 
 Hybrid installations use a mix of self-hosted and cloud components to provide flexibility when defining your architecture and deployment. In a Gravitee hybrid installation, the Gravitee platform is split into two deployments that can be hosted independently but must communicate over a network.

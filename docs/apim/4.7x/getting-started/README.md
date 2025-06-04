@@ -6,17 +6,17 @@ Set up Gravitee quickly and easily with Gravitee Cloud's 14-day **free** trial.&
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Cloud free trial</td><td><a href="https://eu-auth.cloud.gravitee.io/cloud/register?response_type=code&#x26;client_id=fd45d898-e621-4b12-85d8-98e621ab1237&#x26;state=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;redirect_uri=https%3A%2F%2Feu.cloud.gravitee.io&#x26;scope=openid+profile+email+offline_access&#x26;code_challenge=RawzckmLjFNOvDqrZUPumHbMzXRcIjRRbZFmWlbjLoA&#x26;code_challenge_method=S256&#x26;nonce=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;createUser=true&#x26;hubspotutk=169d02e0ddc1d02ed3202bcac0869f20">https://eu-auth.cloud.gravitee.io/cloud/register?response_type=code&#x26;client_id=fd45d898-e621-4b12-85d8-98e621ab1237&#x26;state=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;redirect_uri=https%3A%2F%2Feu.cloud.gravitee.io&#x26;scope=openid+profile+email+offline_access&#x26;code_challenge=RawzckmLjFNOvDqrZUPumHbMzXRcIjRRbZFmWlbjLoA&#x26;code_challenge_method=S256&#x26;nonce=aFNXUER4ZTJLeVA3cUhZblVpNnI1a0dqT0lFT3Qtd1ZjN0xUMGgyQVU2ZU1Q&#x26;createUser=true&#x26;hubspotutk=169d02e0ddc1d02ed3202bcac0869f20</a></td></tr></tbody></table>
 
-## Other ways to get Gravitee
+Install the OSS version of Gravitee locally with Docker.
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Install with Docker</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td>Hybrid deployment with Docker</td><td></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Install with Docker</td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
 
 ## Deployment Options
 
 ### Cloud
 
-If you are not familiar with Gravitee, the easiest way to get Gravitee is with Gravitee Cloud.&#x20;
+If you are not familiar with Gravitee, the easiest way to get Gravitee is with Gravitee Cloud. Gravitee Cloud is a simple and secure method of running the Gravitee API Management (APIM). With the Control Plane hosted by Gravitee, you can count on consistent availability, cutting-edge features, and innovations from the Gravitee team. For more information about Gravitee Cloud, see [Cloud.](https://documentation.gravitee.io/gravitee-cloud)&#x20;
 
-With this deployment, Gravitee hosts both your Control plane and your Data plane. For more information about Gravitee Cloud, see [Cloud.](https://documentation.gravitee.io/gravitee-cloud) Here are the Key benefits of Gravitee's Cloud solution.
+Here are the Key benefits of Gravitee's Cloud solution:
 
 * **Cloud Hosted Gateways**. Automatically scales and manages gateways, which reduces operational overhead.
 * **Hybrid Deployment Model**. Keeps sensitive data within your infrastructure, which enhances security.
@@ -29,7 +29,7 @@ With this deployment, Gravitee hosts both your Control plane and your Data plane
 
 ### Hybrid
 
-With this deployment, Gravitee hosts the Control plane and you host the Data plane. For more information about Hybrid Deployment, see [hybrid-installation-and-configuration-guides](../hybrid-installation-and-configuration-guides/ "mention").
+With this deployment, Gravitee hosts the Control plane and you host the Data plane. For more information about Hybrid Deployment, see [hybrid-installation-and-configuration-guides](../hybrid-installation-and-configuration-guides/ "mention"). Here are the key benefits of a Hybrid deployment:
 
 * **SaaS Control Plane with Self-Hosted Data Plane**. Combines Gravitee's cloud-managed control plane with your self-hosted gateways, which provides centralized management while maintaining control over API traffic. [documentation.gravitee.io](https://documentation.gravitee.io/gravitee-cloud/guides/hybrid?utm_source=chatgpt.com)
 * **Bridge Gateway Architecture**. Utilizes a bridge gateway to connect the control plane with on-premises gateways, which enables secure communication without exposing internal databases. [documentation.gravitee.io](https://documentation.gravitee.io/apim/4.1/getting-started/hybrid-deployment?utm_source=chatgpt.com)
