@@ -4,7 +4,7 @@
 
 Hybrid installations use a mix of self-hosted and cloud components to provide flexibility when defining your architecture and deployment. A Gravitee hybrid installation consists of a SaaS control plane and a self-hosted data plane.
 
-In this deployment, a bridge gateway acts as the control plane and the Gravitee Gateway acts as the data plane. The Bridge exposes HTTP services that bridge HTTP calls to the underlying repositories, e.g., MongoDB and JDBC. The Gravitee Gateway is a standard API Management (APIM) Gateway. You must replace the default repository plugin with the bridge repository plugin.
+In this deployment, a bridge gateway acts as the control plane and the Gravitee Gateway acts as the data plane. The Bridge exposes HTTP services that bridge HTTP calls to the underlying repositories. For example, MongoDB and JDBC. The Gravitee Gateway is a standard API Management (APIM) Gateway. You must replace the default repository plugin with the bridge repository plugin.
 
 ## Hybrid Gateway components
 
