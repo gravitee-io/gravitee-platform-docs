@@ -25,7 +25,7 @@ With this policy, you can do things like inject an attribute that will dynamical
 }
 ```
 
-You can the use the syntax `{#context.attributes['isJson']}`  in subsequent policies to extract the result.
+You can use the syntax `{#context.attributes['isJson']}` in subsequent policies to extract the result.
 
 You can also inject complex objects into the context attributes:
 
