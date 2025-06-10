@@ -2,6 +2,7 @@
 
 * [TEMPLATE for How-To Articles](README.md)
 * [GUIDELINES for How-To Articles](guidelines-for-how-to-articles.md)
+* [Hybrid Cloud reg and gateway deploy](hybrid-cloud-reg-and-gateway-deploy.md)
 * [Introduction](<README (1).md>)
   * [Core Concepts](introduction/core-concepts.md)
   * [Open Source vs Enterprise Edition](introduction/open-source-vs-enterprise-edition.md)

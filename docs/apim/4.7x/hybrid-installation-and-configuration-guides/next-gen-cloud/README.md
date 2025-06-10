@@ -19,7 +19,7 @@ The following installation steps are common to all supported deployment methods.
 4.  In the **Choose Gateway Deployment Method** modal, select **Hybrid Gateway**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 5.  On the **Deploy Hybrid Gateway** screen, select the Environment to which you'd like to deploy the Gateway. For example, **Development**.\
 
 
