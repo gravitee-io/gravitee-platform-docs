@@ -19,7 +19,7 @@ You can deploy, run, and connect hybrid gateways according to your preference. T
 3. From the **Platform** dropdown menu, select your preferred platform. This choice changes only the link reference to documentation
 4. Select the Gravitee Cloud API Management Environment that you wish to connect the Hybrid gateway to.
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up guide with selection of platform and environment.</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (270).png" alt=""><figcaption><p>Gravitee Cloud Hybrid Gateway set up guide with selection of platform and environment.</p></figcaption></figure>
 
 5. In the **Access Point** field, type the name of your host or hosts that your Hybrid gateway will is accessible through. You configured this host in your load balancer or ingress where you run the gateway.\
    \

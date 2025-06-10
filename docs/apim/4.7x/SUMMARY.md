@@ -1,6 +1,6 @@
 # Table of contents
 
-* [TEMPLATE for How-To Articles](README.md)
+* [Next-Gen Cloud - Hybrid Gateway Install on Kubernetes](README.md)
 * [GUIDELINES for How-To Articles](guidelines-for-how-to-articles.md)
 * [Hybrid Cloud reg and gateway deploy](hybrid-cloud-reg-and-gateway-deploy.md)
 * [Introduction](<README (1).md>)
