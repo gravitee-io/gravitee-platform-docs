@@ -1,13 +1,8 @@
 # Next-Gen Cloud - Hybrid Gateway Install on Kubernetes
 
-{% hint style="info" %}
-**Gravitee Cloud is recommended for new installations to reduce deployment complexity.**\
-Let Gravitee run the control plane and database for you. With Gravitee Cloud, you only need to run the data planes. To register for a Gravitee Cloud account, go to the [Gravitee Cloud registration page](https://cloud.gravitee.io/).
-{% endhint %}
-
 ## Overview
 
-This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud. In this context, the Hybrid Gateway is hosted on-premise.
+This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud. A Gravitee Hybrid Gateway is self-hosted, meaning it is installed and maintained by the customer. Self-hosted software can run in any environment the customer controls, whether on-prem, in a private cloud, or even in a public cloud such as AWS, Azure, or GCP.
 
 ## Prerequisites
 
@@ -23,51 +18,10 @@ Before you install a Hybrid Gateway, complete the following steps:
 
 To install the Gravitee Gateway, complete the following steps:
 
-1. [#prepare-gravitee-cloud-for-your-new-hybrid-gateway](./#prepare-gravitee-cloud-for-your-new-hybrid-gateway "mention")
+1. [#prepare-your-installation](hybrid-installation-and-configuration-guides/next-gen-cloud/#prepare-your-installation "mention")
 2. [#install-redis](./#install-redis "mention")
 3. [#prepare-your-gravitee-values.yaml-file-for-helm](./#prepare-your-gravitee-values.yaml-file-for-helm "mention")
 4. [#install-with-helm](./#install-with-helm "mention")
-
-### Prepare Gravitee Cloud for your new Hybrid Gateway
-
-1.  Log in to [Gravitee Cloud](https://cloud.gravitee.io/).\
-
-
-    <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-2.  From your Gravitee Cloud Dashboard, navigate to **Gateways**, and then click **Deploy Gateway**.\
-
-
-    <figure><img src=".gitbook/assets/image (264).png" alt=""><figcaption></figcaption></figure>
-3.  In the **Choose Gateway Deployment Method** pop-up window, select **Hybrid Gateway**.\
-
-
-    <figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
-4.  Select the **environment** to connect to your Hybrid Gateway.\
-
-
-    <figure><img src=".gitbook/assets/image (266).png" alt=""><figcaption></figcaption></figure>
-5.  In **URLs & Domains**, enter the names of the HTTP domains through which you can access your Hybrid Gateway. By default, all URLs enforce HTTPS.\
-
-
-    {% hint style="info" %}
-    You must configure these HTTP domains/hostnames in your load balancer or ingress where you run the Gateway.
-    {% endhint %}
-
-
-
-    <figure><img src=".gitbook/assets/image (265).png" alt=""><figcaption></figcaption></figure>
-6.  To retrieve your Cloud Token and License key, click **Generate Installation Details**.\
-
-
-    <figure><img src=".gitbook/assets/image (267).png" alt=""><figcaption></figcaption></figure>
-7.  Copy your **Cloud Token** and **License Key** and store them for later.\
-
-
-    <figure><img src=".gitbook/assets/image (269).png" alt=""><figcaption></figcaption></figure>
-8.  Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured Gateway.\
-
-
-    <figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ### Install Redis
 
@@ -281,6 +235,10 @@ To uninstall the Gravitee Hybrid Gateway, use the following command:
 
 ## Verification
 
+From the Gravitee Cloud Dashboard, you can see your configured Gateway.
+
+<figure><img src=".gitbook/assets/00 5 copy.png" alt=""><figcaption></figcaption></figure>
+
 To verify that your Gateway is up and running, complete the following steps:
 
 1. [#validate-the-pods](./#validate-the-pods "mention")
@@ -372,7 +330,7 @@ To verify that your Gateway is up and running, complete the following steps:
 
 ### Validate the Gateway URL
 
-1.  To validate the Gateway URL, use `curl` to make a GET request to the Gateway URL:\
+1.  To validate the Gateway URL, make a GET request to the URL on which you have published the Gateway:\
 
 
     ```bash
@@ -387,9 +345,13 @@ To verify that your Gateway is up and running, complete the following steps:
     No context-path matches the request URI.
     ```
 
+{% hint style="success" %}
+You can now create and deploy APIs to your Hybrid Gateway.
+{% endhint %}
+
 ## Next steps
 
-You can now create and deploy APIs to your Hybrid Gateway. To learn how to add native Kafka capabilities to a Gravitee Gateway, see [configure-the-kafka-client-and-gateway.md](kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
+To learn how to add native Kafka capabilities to a Gravitee Gateway, see [configure-the-kafka-client-and-gateway.md](kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
 
 {% hint style="warning" %}
 To access your Gravitee Gateway from outside of your Kubernetes cluster, you must implement a load balancer or ingress.

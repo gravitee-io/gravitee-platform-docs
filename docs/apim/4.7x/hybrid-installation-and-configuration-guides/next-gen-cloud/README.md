@@ -8,27 +8,33 @@ The minimum requirements for a Next-Gen Cloud deployment are the Gravitee Gatewa
 
 The following installation steps are common to all supported deployment methods.&#x20;
 
-1. Send your Solutions Engineer the following details:
-   * The email address of each user who needs an account.&#x20;
-   * The region you have selected to host your Gravitee Cloud control.
-2. Log in to Gravitee Cloud with the credentials provided by your Solutions Engineer. Each user is sent a an email with a login link.
-3.  Select **Dashboard** from the menu, and then click **Deploy Gateway**.\
+1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).\
+
+
+    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+2.  Select **Dashboard** from the menu, and then click **Deploy Gateway**.\
 
 
     <figure><img src="../../.gitbook/assets/00 1 copy (1).png" alt=""><figcaption></figcaption></figure>
-4.  In the **Choose Gateway Deployment Method** modal, select **Hybrid Gateway**.\
+3.  In the **Choose Gateway Deployment Method** modal, select **Hybrid Gateway**.\
 
 
     <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
-5.  On the **Deploy Hybrid Gateway** screen, select the Environment to which you'd like to deploy the Gateway. For example, **Development**.\
+4.  On the **Deploy Hybrid Gateway** screen, select the Environment to which you'd like to deploy the Gateway. For example, **Development**.\
 
 
     <figure><img src="../../.gitbook/assets/00 2 copy.png" alt=""><figcaption></figcaption></figure>
-6.  Under **Provide your Access Point URLs**, enter the URL of either the load balancer or the machine on which you'd like to install the Gateway.\
+5.  In **URLs & Domains**, enter the names of the HTTP domains through which you can access your Hybrid Gateway. By default, all URLs enforce HTTPS.\
 
 
-    <figure><img src="../../.gitbook/assets/00 3 copy.png" alt=""><figcaption></figcaption></figure>
-7.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure. \
+    {% hint style="info" %}
+    You must configure these HTTP domains/hostnames in your load balancer or ingress where you run the Gateway.
+    {% endhint %}
+
+
+
+    <figure><img src="../../.gitbook/assets/image (265).png" alt=""><figcaption></figcaption></figure>
+6.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure. \
 
 
     <figure><img src="../../.gitbook/assets/00 4 copy.png" alt=""><figcaption></figcaption></figure>
