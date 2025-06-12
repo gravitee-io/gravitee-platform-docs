@@ -2,6 +2,11 @@
 
 ## Overview
 
+{% hint style="info" %}
+**Gravitee Cloud is recommended for new installations to reduce deployment complexity.**\
+Let Gravitee run the control plane and database for you. With Gravitee Cloud, you only need to run the data planes. To register for a Gravitee Cloud account, go to the [Gravitee Cloud registration page](https://cloud.gravitee.io/).
+{% endhint %}
+
 Self-hosted architecture refers a scheme where all Gravitee API Management components are hosted by the user on-prem and/or in a private cloud. Gravitee Cloud and API Designer are optional Gravitee-managed components that can be connected to a self-hosted API Management installation.
 
 ## Deployment methods

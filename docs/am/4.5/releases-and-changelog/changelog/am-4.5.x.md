@@ -10,6 +10,27 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.18 - June 9, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Improve user login logs [#10588](https://github.com/gravitee-io/issues/issues/10588)
+
+
+
+**Other**
+
+* OpenAPI spec for listDomains is not correct [#10591](https://github.com/gravitee-io/issues/issues/10591)
+* [R2DBC] version 1.0.2 of SQLServer driver not working [#10565](https://github.com/gravitee-io/issues/issues/10565)
+
+
+</details>
+
+
 ## Gravitee Access Management 4.5.17 - May 28, 2025
 
 <details>

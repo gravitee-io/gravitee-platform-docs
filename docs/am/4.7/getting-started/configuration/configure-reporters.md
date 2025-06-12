@@ -24,7 +24,7 @@ File reporters are configurable in the `gravitee.yml` file `reporter` section wi
 ```yaml
 reporters:
   file:
-    #directory:  # directory where the files are created (this directory must exist): default value = ${gravitee.home}/audit-logs/
+    #directory:  # directory where the files are created (this directory must exist): default value = ${gravitee.home}/metrics/
     #output: JSON # JSON, ELASTICSEARCH, MESSAGE_PACK, CSV
 ```
 
