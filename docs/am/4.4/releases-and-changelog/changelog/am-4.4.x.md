@@ -58,7 +58,7 @@ When managing deployments using Helm, please note that the default startup, live
 
 **Management API**
 
-* Users and Groups metadata not displayed for /members enpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
+* Users and Groups metadata not displayed for /members endpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
 * Email notification fails when user doesn't have firstName [#10536](https://github.com/gravitee-io/issues/issues/10536)
 
 
