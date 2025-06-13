@@ -11,8 +11,8 @@ Before you install a Hybrid Gateway, complete the following steps:
 * Install `helm`.
 * Install `kubectl`.
 * Ensure you have access to Gravitee Cloud, with permissions to install new Gateways.
-* Ensure you have access to the on-premise Kubernetes cluster where you want to install the Gateway.
-* Ensure the on-premise target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
+* Ensure you have access to the self-hosted Kubernetes cluster where you want to install the Gateway.
+* Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 
 ## Install the Gateway
 
