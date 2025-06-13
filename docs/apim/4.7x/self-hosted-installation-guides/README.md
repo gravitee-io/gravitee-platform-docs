@@ -28,7 +28,7 @@ Gravitee APIM can be installed using the following technology stacks and deploym
 
 ### Linux
 
-* [rpm](rpm/ "mention")
+* [Broken link](broken-reference "mention")
 * [.zip.md](.zip.md "mention")
 
 ### Windows

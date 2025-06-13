@@ -1,4 +1,4 @@
-# Install APIM with RPM packages
+# RPM
 
 ## Overview
 
@@ -14,12 +14,12 @@ Before you install APIM with RPM packages, complete the following steps:
 
 To install APIM with RPM packages, complete the following steps:
 
-* [#create-a-yum-repository](manual-install.md#create-a-yum-repository "mention")
-* [#install-nginx](manual-install.md#install-nginx "mention")
-* [#install-java-21](manual-install.md#install-java-21 "mention")
-* [#install-mongodb](manual-install.md#install-mongodb "mention")
-* [#install-elasticsearch](manual-install.md#install-elasticsearch "mention")
-* [#install-and-start-gravitee-api-management-components](manual-install.md#install-and-start-gravitee-api-management-components "mention")
+* [#create-a-yum-repository](./#create-a-yum-repository "mention")
+* [#install-nginx](./#install-nginx "mention")
+* [#install-java-21](./#install-java-21 "mention")
+* [#install-mongodb](./#install-mongodb "mention")
+* [#install-elasticsearch](./#install-elasticsearch "mention")
+* [#install-and-start-gravitee-api-management-components](./#install-and-start-gravitee-api-management-components "mention")
 
 ### Create a YUM repository
 
