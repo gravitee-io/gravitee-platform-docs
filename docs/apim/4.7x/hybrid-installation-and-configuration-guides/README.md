@@ -48,9 +48,13 @@
 
 ## Overview
 
-Hybrid installations use a mix of self-hosted and cloud components to provide flexibility when defining your architecture and deployment. In a Gravitee hybrid installation, the Gravitee platform is split into two deployments that can be hosted independently but must communicate over a network.
+Hybrid installations use a mix of self-hosted and cloud components to provide flexibility when defining your architecture and deployment. In a Gravitee hybrid installation, the Gravitee platform is split into two deployments that can be hosted independently but must communicate over a network.&#x20;
 
-A typical Gravitee hybrid installation consists of a SaaS Control Plane and a self-hosted Data Plane. The Control Plane is a Cloud installation that is hosted by Gravitee. Gravitee currently supports both the Classic Cloud and Next-Gen Cloud. The Data Plane is a self-hosted installation that consists of the Gravitee Gateway, Redis, and, for Gravitee Classic Cloud, a log management solution.
+A typical Gravitee hybrid installation consists of a SaaS Control Plane and a self-hosted Data Plane. The Control Plane is a Cloud installation that is hosted by Gravitee. Gravitee currently supports both the Classic Cloud and Next-Gen Cloud. The Data Plane is a self-hosted installation that consists of the Gravitee Gateway, Redis, and, for Gravitee Classic Cloud, a log management solution.&#x20;
+
+{% hint style="info" %}
+Self-hosted software is installed and maintained by the customer and can run in any environment the customer controls, whether on-prem, in a private cloud, or even in a public cloud such as AWS, Azure, or GCP.
+{% endhint %}
 
 A hybrid installation combines the ease of operations of a Cloud-hosted control plane with the power and security of self-hosted Gateways to provide the following benefits:
 
