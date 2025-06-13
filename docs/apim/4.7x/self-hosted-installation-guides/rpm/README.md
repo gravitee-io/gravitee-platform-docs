@@ -1,5 +1,5 @@
 # RPM
 
 * ## Deployment Methods
-* [quick-install.md](quick-install.md "mention")
+* [Broken link](broken-reference "mention")
 * [manual-install.md](manual-install.md "mention")
