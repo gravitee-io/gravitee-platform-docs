@@ -1,57 +1,87 @@
 # RPM
 
+## Overview
+
+This guide explains how to install the Gravitee Hybrid Gateway using either the RPM package or ZIP archive. This installation type is suitable for Linux distributions and flexible deployments.
+
 ## Prerequisites
 
-Follow the instructions to [#prepare-your-installation](./#prepare-your-installation "mention").
+Before you install a Hybrid Gateway, complete the following steps:
 
-## Install the Gateway
+* Ensure that Java 17 is available in the `$PATH`.
+* Ensure that you have outbound internet access to Gravitee Cloud Gate (`eu.cloudgate.gravitee.io` or `us.cloudgate.gravitee.io`) over HTTPS (443).
+* Install Redis.
+* Complete the steps in [#prepare-your-installation](./#prepare-your-installation "mention").
 
-Below is a sample working configuration for the RPM use case. It configures both the proxy and Redis.
+## Install Gravitee APIM
 
-```yaml
-management:
-  # HTTP TYPE FOR THE GRAVITEE CLOUD GATE
-  type: http 
-  # OPTIONAL PROXY CONFIG
-  # http:
-  #   proxy:
-  #     useSystemProxy: false
-  #     enabled: true
-  #     type: HTTP
-  #     host: proxy.example.com
-  #     port: 8080
-  #     username: proxy-username
-  #     password: proxy-password
+1.  Install the RPM package using the following command. This installs the Gateway at `/opt/graviteeio-apim-gateway`.\
 
-# CLOUD TOKEN TO SECURE CONNECTION TO THE CLOUD GATE
-cloud:
-  token: YOUR-CLOUD-TOKEN
 
-# REDIS TO STORE AND SHARE BETWEEN GATEWAYS INSTANCES (HA)
-# THE RATE LIMIT / QUOTA COUNTERS AND CACHE DATA
-ratelimit:
-  type: none
-  # type: redis
-  # redis:
-  #   host: localhost
-  #   port: 6379
-  #   password:
+    ```bash
+    sudo rpm -i https://download.gravitee.io/gateway/4.x/rpm/graviteeio-apim-gateway-latest.rpm
+    ```
 
-# LICENCE KEY B64 ENCODED
-license:
-  key: YOUR-LICENCE-KEY
-```
+
+2. Configure the Gateway section of your `gravitee.yml` file:
+   1.  To access your `gravitee.yml` file, use the following command:\
+
+
+       ```bash
+       sudo vi /opt/graviteeio-apim-gateway/config/gravitee.yml
+       ```
+
+
+   2.  Use the following configuration in the Gateway section of `gravitee.yml`:\
+
+
+       ```yaml
+       management:
+         type: http
+
+       cloud:
+         token: <YOUR-CLOUD-TOKEN>
+
+       ratelimit:
+         type: none
+          redis:
+            host: localhost
+            port: 6379
+
+       license:
+         key: <YOUR-LICENSE-KEY>
+       ```
+
+
+
+       * Replace `<YOUR-CLOUD-TOKEN>` with your Cloud Token.&#x20;
+       * Replace `<YOUR-LICENSE-KEY>` with your License Key.\
+
+3.  Start the Gateway using the following command: \
+
+
+    ```bash
+    sudo systemctl start graviteeio-apim-gateway
+    ```
+
+
+4.  (Optional) To enable the service on boot, use the following command: \
+
+
+    ```bash
+    sudo systemctl enable graviteeio-apim-gateway
+    ```
 
 ## Verification
 
-From the Gravitee Cloud Dashboard, you can see your configured Gateway.
+To verify that the installation was successful, complete the following steps:
 
-<figure><img src="../../.gitbook/assets/00 5 copy.png" alt=""><figcaption></figcaption></figure>
+1.  &#x20;Open the logs for the installation using the following command:\
 
-To verify that the Gateway is running, make a GET request to the URL on which you have published the Gateway. The output is a default message similar to:
 
-```
-No context-path matches the request URI.
-```
+    ```bash
+    sudo tail -f /opt/graviteeio-apim-gateway/logs/gravitee.log
+    ```
 
-You can now create and deploy APIs to your hybrid Gateway.
+
+2. Navigate to the `/sync` and `/reports` endpoints. If these endpoints have synced successfully, your installation is correct.
