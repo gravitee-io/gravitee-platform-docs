@@ -47,8 +47,8 @@
 * [API Reference](reference/api-reference.md)
 
 ## RELEASES & CHANGELOG
-
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+<!-- RELEASE_NOTE_ROLL_OUT -->
   * [GKO 4.7](releases-and-changelog/release-notes/gko-4.7.md)
   * [GKO 4.6](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/releases-and-changelog/release-notes/gko-4.6)
   * [GKO 4.5](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.5/releases-and-changelog/release-notes/gko-4.5)
