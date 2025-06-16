@@ -1,18 +1,30 @@
 # Developer Portal
 
-The Developer Portal is a web application that provides a simplified, user-friendly interface tailored to the API consumption process. It acts as a centralized catalog where internal and external API consumers can find and subscribe to APIs that are developed, managed, and deployed by API publishers.
+The **Gravitee Developer Portal** is a user-friendly web application designed to streamline the API consumption process. It is a centralized hub where both internal and external API consumers can discover, explore, and subscribe to APIs.
 
-Gravitee offers two implementations of the Developer Portal:&#x20;
+## Key features
 
-* The classic Developer Portal, which is highly configurable using JavaScript
-* The new Developer Portal, which can be customized exclusively via the UI, without any code
+* **API discovery and exploration:** Browse and search through a catalog of available APIs that contains comprehensive documentation and usage guidelines.
+* **Interactive testing**: Test API endpoints directly within the Portal to understand their behavior and responses.
+* **Subscription management**: Easily subscribe to APIs, manage your subscriptions, and obtain the necessary access credentials.
+* **Application management**: Create and manage applications that consume APIs, monitor usage through an analytics dashboard and API logs, and analyze performance metrics.
+* **Full customization capabilities:** The Portal is fully customizable, where its appearance can be tailored to match company branding. Logos, colors, fonts, and layout elements can be adjusted to deliver a consistent and branded developer experience.
 
-The classic Developer Portal provides a solid foundation for the scope and treatment of information, both functionally and conceptually. It is designed to be customizable primarily through code and offers significant flexibility in how it can be configured.
+## Developer Portal implementations
 
-The new Developer Portal uses a modern set of component libraries and UI frameworks to provide a robust off-the-shelf solution. Customization of the new Developer Portal does not require any code. Instead, changes to colors, logos, and fonts can easily be configured using only the UI.
+Gravitee offers the following two implementations of the Developer Portal:
 
-While most features in either Developer Portal are also available in the Management Console (see the [API Exposure guide](broken-reference)), each Portal serves as the single location where users can perform a variety of actions:
+### [Classic Developer Portal](classic-developer-portal/) (Stable & Fully Featured)
 
-* API consumers can easily discover and explore APIs, read documentation, test API endpoints, and manage API subscriptions.&#x20;
-* API publishers can manage access to APIs, create API documentation, generate API keys, and view API analytics.&#x20;
-* Administrators can customize the look and feel of the Developer Portal to deliver an on-brand experience to external API consumers.&#x20;
+The **Classic Developer Portal** (recommended) is Gravitee’s mature and most feature-rich Portal offering. It provides a robust, stable experience for organizations looking to deliver a production-ready API catalog or marketplace.
+
+### [New Developer Portal](new-developer-portal/) (Tech Preview – Modern UX)
+
+The **New Developer Portal**, introduced as a Tech Preview in APIM 4.4 (Enterprise Edition only), is Gravitee’s next-generation Portal that focuses on an updated user experience and modern UI components. It is designed to deliver a visually engaging, intuitive, and faster developer experience.
+
+Key characteristics:
+
+* A modern, appealing UI based on refreshed design principles and reusable UI components.
+* Advanced navigation features for catalog pages, such as infinite scrolling, to easily browse large API catalogs.
+* Improvements to theming and customization flow, with simplified overrides for styles, fonts, and layout.
+* Built with a future-ready architecture to enable faster iteration and new feature rollouts.

@@ -6,6 +6,44 @@ description: >-
 
 # APIM 4.4.x
  
+## Gravitee API Management 4.4.30 - June 13, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Custom metrics with a value of 1 appear as a question mark in Analytics [#10564](https://github.com/gravitee-io/issues/issues/10564)
+* Specific API logging configuration causes warning messages [#10577](https://github.com/gravitee-io/issues/issues/10577)
+* On API groups update, if the groups field is null it should keep its current value [#10581](https://github.com/gravitee-io/issues/issues/10581)
+* Extra / is added in Context path in V4 API [#10606](https://github.com/gravitee-io/issues/issues/10606)
+
+**Console**
+
+* Groups are removed from V4 APIs when no changes are saved [#10590](https://github.com/gravitee-io/issues/issues/10590)
+
+**Helm Charts**
+
+* \[Helm] Management API configuration has wrong default logs path [#10524](https://github.com/gravitee-io/issues/issues/10524)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Memory handling in gravitee entrypoint. [#10600](https://github.com/gravitee-io/issues/issues/10600)
+
+**Management API**
+
+* Memory handling in gravitee entrypoint. [#10600](https://github.com/gravitee-io/issues/issues/10600)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.4.29 - May 28, 2025
 <details>
 

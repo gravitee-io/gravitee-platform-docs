@@ -29,7 +29,7 @@
 * Groups page fails to load when too many groups exist because no pagination [#10538](https://github.com/gravitee-io/issues/issues/10538)
 * Group management for APIs broken [#10542](https://github.com/gravitee-io/issues/issues/10542)
 * Application filter 'not equals to' operator is unusable [#10546](https://github.com/gravitee-io/issues/issues/10546)
-* \[Console] Add endpoint group creates an infinit loop [#10584](https://github.com/gravitee-io/issues/issues/10584)
+* \[Console] Add endpoint group creates an infinite loop [#10584](https://github.com/gravitee-io/issues/issues/10584)
 
 **Helm Charts**
 

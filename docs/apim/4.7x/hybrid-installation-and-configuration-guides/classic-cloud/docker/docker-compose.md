@@ -122,7 +122,7 @@ The following sections of this article assume you are using the `docker-compose.
 * Ensure the version of your Gravitee Cloud environment corresponds to the Gateway version used by your `docker-compose.yml`, e.g., `image: graviteeio/apim-gateway:4.4.4` in the sample `docker-compose.yml`.
 * Ensure the Logstash and Redis versions used by your `docker-compose.yml` are supported by Gravitee:
   * For supported version of Redis, refer to [Supported databases](../../../prepare-a-production-environment/repositories/redis.md#supported-databases).
-  * For supported version of Logstash, refer to [Compatibility with Elasticsearch](../configure-logstash.md#compatibility-with-elasticsearch).
+  * For supported version of Logstash, refer to [Compatibility with Elasticsearch](broken-reference).
   * For the installed version of Elasticsearch on the control plane, which Logstash will interact with via an S3 bucket, please reach out to your Technical Account Manager.
 
 ## **Gateway service configuration**&#x20;
@@ -173,6 +173,13 @@ Please reach out to your Technical Account Manager for the Bridge Gateway creden
 {% endhint %}
 
 ## **Logstash service configuration**
+
+You can configure Logstash to send data to ElasticSearch.
+
+{% hint style="info" %}
+* For support versions, refer to the [compatibility matrix with Elasticsearch](https://www.elastic.co/support/matrix#matrix_compatibility).
+* For more information about configuring Logstash, see [Creating a Logstash Pipeline](https://www.elastic.co/docs/reference/logstash/creating-logstash-pipeline) in the Elastic documentation.
+{% endhint %}
 
 To connect Logstash to the S3 bucket as shown in the [architecture diagram](docker-compose.md#architecture), you need to link the Docker Compose service to a configuration file called `logstash.conf` so it knows which S3 bucket to connect to. This link is done via the `volumes` command in the `docker-compose.yml`:&#x20;
 
@@ -230,6 +237,36 @@ output {
 Please reach out to your Technical Account Manager for the S3 credentials  if you don't have them already.
 {% endhint %}
 
+## Fluentd service configuration
+
+As an alternative to Logstash, you can install Fluentd. To install Fluentd, build a Docker image by copying the following files:
+
+{% code title="Dockerfile" lineNumbers="true" %}
+```
+FROM fluent/fluentd:v1.16.2-1.0
+USER root
+RUN ["gem", "install", "fluent-plugin-s3"]
+USER fluent
+```
+{% endcode %}
+
+{% code title="docker-compose.yaml" lineNumbers="true" %}
+```yaml
+version: '3'
+
+services:
+  fluentd:
+    image: fluentd:s3
+    container_name: gio_apim_fluentd
+    hostname: fluentd
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./fluentd_conf:/fluentd/etc
+```
+{% endcode %}
+
 ## **Redis service configuration (optional)**
 
 To activate Redis, you need to generate a password and include it in your `docker-compose.yml`, in both the environment part of the Gateway configuration and the Redis service section:&#x20;
@@ -265,7 +302,7 @@ To configure the Alert Engine, you must provide the Alert Engine credentials in 
 Please reach out to your Technical Account Manager for the Alert Engine credentials if you don't have them already.
 {% endhint %}
 
-## Initiating the connection
+## Initiate the connection
 
 Once the services are started, connect to the APIM Console of the environment you linked the hybrid Gateway(s) with. You should see them appear as having started in the Gateways menu.
 

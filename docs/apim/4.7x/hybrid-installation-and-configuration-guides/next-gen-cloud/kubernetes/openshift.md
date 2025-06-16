@@ -1,8 +1,14 @@
 # OpenShift
 
+## Overview
+
+This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud using OpenShift.
+
 ## Prerequisites
 
-Follow the instructions to [#prepare-your-installation](../#prepare-your-installation "mention").
+Before you install a Hybrid Gateway, complete the following steps:
+
+* [#prepare-your-installation](../#prepare-your-installation "mention").
 
 ## Install the Gateway
 

@@ -10,6 +10,21 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.28 - June 9, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+**Other**
+
+* OpenAPI spec for listDomains is not correct [#10591](https://github.com/gravitee-io/issues/issues/10591)
+* [R2DBC] version 1.0.2 of SQLServer driver not working [#10565](https://github.com/gravitee-io/issues/issues/10565)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.27 - May 28, 2025
 
 <details>
@@ -43,7 +58,7 @@ When managing deployments using Helm, please note that the default startup, live
 
 **Management API**
 
-* Users and Groups metadata not displayed for /members enpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
+* Users and Groups metadata not displayed for /members endpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
 * Email notification fails when user doesn't have firstName [#10536](https://github.com/gravitee-io/issues/issues/10536)
 
 

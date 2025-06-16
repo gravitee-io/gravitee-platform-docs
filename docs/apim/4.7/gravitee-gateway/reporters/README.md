@@ -4,7 +4,7 @@
 
 Reporters are designed to record a variety of events occurring in the Gravitee API Management (APIM) Gateway and output them to a new source in their order of occurrence. Reporters take the **application** **data** from the Gravitee gateway, capturing metrics and logs about proxied requests, and offload them to a system of your choice. Reporters are a critical part of creating a production-grade monitoring system for your API traffic in Gravitee.
 
-ElasticSearch is the default reporter for gateway runtime data and is required for visualizing runtime analytics in the Gravitee UI. You can also use reporters to feed other visualization tools, e.g. for those based on Elastic (Kibana), or for systems like Datadog.
+ElasticSearch is the default reporter for gateway runtime data and is required for visualizing runtime analytics in the Gravitee UI. You can also use reporters to feed other visualization tools, e.g. for those based on Elastic (Kibana), or for systems like Grafana and Datadog.
 
 {% hint style="info" %}
 If you want to monitor the **server** logs from the gateway or the management API, you can use an agent for your observability platform (e.g. the [Datadog agent](https://docs.datadoghq.com/agent/?tab=Linux)) to tail the server logs. If you want to monitor the server metrics from your Gravitee infrastructure (e.g. CPU and memory usage), you can instrument the server directly or use the Prometheus endpoint for the Gravitee component.

@@ -6,6 +6,31 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.12 - June 9, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Improve user login logs [#10588](https://github.com/gravitee-io/issues/issues/10588)
+
+
+
+**Console**
+
+* HTTP Callout policy has misaligned text boxes [#10551](https://github.com/gravitee-io/issues/issues/10551)
+
+**Other**
+
+* OpenAPI spec for listDomains is not correct [#10591](https://github.com/gravitee-io/issues/issues/10591)
+* [R2DBC] version 1.0.2 of SQLServer driver not working [#10565](https://github.com/gravitee-io/issues/issues/10565)
+
+
+</details>
+
+
 ## Gravitee Access Management 4.6.11 - May 28, 2025
 
 <details>
@@ -39,7 +64,7 @@ description: >-
 
 **Management API**
 
-* Users and Groups metadata not displayed for /members enpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
+* Users and Groups metadata not displayed for /members endpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
 * Email notification fails when user doesn't have firstName [#10536](https://github.com/gravitee-io/issues/issues/10536)
 
 
