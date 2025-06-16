@@ -1,5 +1,14 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.19 - June 16, 2025
+    
+<details>
+<summary>Improvements</summary>
+
+  * Allow to specify custom annotations and labels on manager deployment / pod [#10613](https://github.com/gravitee-io/issues/issues/10613)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.18 - June 5, 2025
 
 There is nothing new in version 4.5.18.
