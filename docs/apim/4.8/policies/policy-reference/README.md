@@ -28,6 +28,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Groovy](../groovy.md)
 * [HTML to JSON Transformation](../html-to-json.md)
 * [HTTP Callout](../http-callout.md)
+* HTTP Redirect
 * [HTTP Signature](../http-signature.md)
 * [InterOPS](../interops.md)\*
 * [Interrupt](../interrupt.md)
