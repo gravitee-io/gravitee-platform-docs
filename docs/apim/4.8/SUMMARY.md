@@ -165,6 +165,17 @@
 * [User and Group Access](configure-v2-apis/user-and-group-access.md)
 * [Documentation](configure-v2-apis/documentation.md)
 
+## Agent Mesh
+
+* [Overview](agent-mesh/overview.md)
+
+***
+
+* [Create an A2A Proxy](create-an-a2a-proxy.md)
+* [Add an Agent to your Agent Catalog](add-an-agent-to-your-agent-catalog.md)
+* [Convert your APIs to MCP Servers](convert-your-apis-to-mcp-servers.md)
+* [Add Tools to your MCP Server](add-tools-to-your-mcp-server.md)
+
 ## Kafka Gateway
 
 * [Overview](kafka-gateway/overview.md)
