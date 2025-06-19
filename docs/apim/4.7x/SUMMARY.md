@@ -171,6 +171,7 @@
       * [Groovy](create-and-configure-apis/apply-policies/policy-reference/groovy.md)
       * [HTML to JSON](create-and-configure-apis/apply-policies/policy-reference/html-to-json.md)
       * [HTTP Callout](create-and-configure-apis/apply-policies/policy-reference/http-callout.md)
+      * [HTTP Redirect](create-and-configure-apis/apply-policies/policy-reference/http-redirect.md)
       * [HTTP Signature](create-and-configure-apis/apply-policies/policy-reference/http-signature.md)
       * [InterOPS](create-and-configure-apis/apply-policies/policy-reference/interops.md)
       * [Interrupt](create-and-configure-apis/apply-policies/policy-reference/interrupt.md)
