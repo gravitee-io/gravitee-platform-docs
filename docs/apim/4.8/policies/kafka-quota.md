@@ -1,10 +1,14 @@
+---
+hidden: true
+---
+
 # Kafka Quota
 
 ## Overview <a href="#user-content-description" id="user-content-description"></a>
 
 The Gravitee Kafka Policy Quota is a policy designed to enforce quotas on Kafka messages. It allows you to define limits on the amount of data that can be produced or consumed by a Kafka client. This policy can be used to protect your Kafka cluster from being overwhelmed by a single client.
 
-<figure><img src="../../../.gitbook/assets/image (180).png" alt=""><figcaption><p>Kafka Quota Policy UI</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (180).png" alt=""><figcaption><p>Kafka Quota Policy UI</p></figcaption></figure>
 
 ## Phases <a href="#user-content-phases" id="user-content-phases"></a>
 
