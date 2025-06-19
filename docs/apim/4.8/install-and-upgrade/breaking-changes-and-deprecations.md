@@ -16,6 +16,14 @@ The APIM standalone components that were available to download from [Gravitee.io
 
 You can use the full distribution .ZIP file instead. To download the full distribution .ZIP file, go to [Gravitee.io downloads - apim/distributions](https://download.gravitee.io/#graviteeio-apim/distributions/).
 
+**Lucene update 10**
+
+Lucene has been upgraded to 10. Before starting the Management API (mAPI), you must clean the `/data` directory in your `GRAVITEE_HOME` containing Lucene working files. Otherwise, the mAPI does not start. There is no impact. When mAPI restarts, it re-indexes.&#x20;
+
+**Custom plugin development**&#x20;
+
+If a plugin is referencing `io.gravitee.gateway.reactor.ReactableApi`, it needs to be recompiled with APIM 4.8 dependencies because `ReactableApi` it is now an interface rather than an abstract class. Without recompilation, the plugin throws a `java.lang.IncompatibleClassChangeError` .
+
 #### 4.7.0
 
 **Hazelcast**
