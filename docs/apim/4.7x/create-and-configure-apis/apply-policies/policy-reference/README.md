@@ -6,6 +6,8 @@ The following policies can be applied to Gravitee APIs.
 Policies marked with an asterisk require an Enterprise Edition license.
 {% endhint %}
 
+* [AI - Prompt Guard Rails](ai-prompt-guard-rails.md)\*
+* [AI - Prompt Token Tracking](ai-prompt-token-tracking.md)\*
 * [API Key](api-key.md)
 * [Assign Attributes](assign-attributes.md)
 * [Assign Content](assign-content.md)
@@ -28,6 +30,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Groovy](groovy.md)
 * [HTML to JSON Transformation](html-to-json.md)
 * [HTTP Callout](http-callout.md)
+* [HTTP Redirect](http-redirect.md)
 * [HTTP Signature](http-signature.md)
 * [InterOPS](interops.md)\*
 * [Interrupt](interrupt.md)
@@ -39,9 +42,12 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [JSON Validation](json-validation.md)
 * [JWS Validator](jws-validator.md)
 * [JWT Validator](jwt-validator.md)
-* [Kafka ACL](../../../kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies/kafka-acl.md)\*
-* [Kafka Quota](../../../kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies/kafka-quota.md)\*
-* [Kafka Topic Mapping](../../../kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/policies/kafka-topic-mapping.md)\*
+* [Kafka ACL](kafka-acl.md)\*
+* [Kafka Message Filtering](kafka-message-filtering.md)\*
+* [Kafka Offloading](kafka-offloading.md)\*
+* [Kafka Quota](kafka-quota.md)\*
+* [Kafka Topic Mapping](kafka-topic-mapping.md)\*
+* [Kafka Transform Key](kafka-transform-key.md)\*
 * [Keyless](keyless.md)
 * [Latency](latency.md)
 * [Maven Archetype](maven-archetype.md)
