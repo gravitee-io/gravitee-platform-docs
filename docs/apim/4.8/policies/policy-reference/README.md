@@ -30,7 +30,7 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [Groovy](../groovy.md)
 * [HTML to JSON Transformation](../html-to-json.md)
 * [HTTP Callout](../http-callout.md)
-* HTTP Redirect
+* [HTTP Redirect](../http-redirect.md)
 * [HTTP Signature](../http-signature.md)
 * [InterOPS](../interops.md)\*
 * [Interrupt](../interrupt.md)
@@ -43,8 +43,11 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [JWS Validator](../jws-validator.md)
 * [JWT Validator](../jwt-validator.md)
 * [Kafka ACL](../kafka-acl.md)\*
+* [Kafka Message Filtering](../kafka-message-filtering.md)\*
+* [Kafka Offloading](../kafka-offloading.md)\*
 * [Kafka Quota](../kafka-quota.md)\*
 * [Kafka Topic Mapping](../kafka-topic-mapping.md)\*
+* [Kafka Transform Key](../kafka-transform-key.md)\*
 * [Keyless](../keyless.md)
 * [Latency](../latency.md)
 * [Maven Archetype](../maven-archetype.md)
