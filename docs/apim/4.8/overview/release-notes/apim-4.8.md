@@ -138,7 +138,6 @@
 * Addressed an issue where searching users in the add members dialog was not disabled when the maximum allowed invitation limit was reached for a group.
 * Fixed a bug where the default API and application roles were not initialized correctly for group members when adding them.
 * Resolved an issue where the use of CORS methods in the API v2 debug mode was not disabled.
-* Fixed a bug related to the Bitnami/Elasticsearch replicaCount in the values.yaml file for GKO.
 * Addressed an issue where the threshold value disappeared when switching the threshold type on the alert screen.
 * Fixed a bug where the admin could not change API and application roles in the group when permitted.
 * Resolved an issue where APIs federation versions were not displayed correctly in the federation pages.
