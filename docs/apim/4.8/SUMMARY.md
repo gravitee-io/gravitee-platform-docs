@@ -175,7 +175,6 @@
 * [Create an A2A Proxy](create-an-a2a-proxy.md)
 * [Add Agents to your Agent Catalog](add-agents-to-your-agent-catalog.md)
 * [Convert your APIs to MCP Servers](convert-your-apis-to-mcp-servers.md)
-* [Add Tools to your MCP Server](add-tools-to-your-mcp-server.md)
 
 ## Kafka Gateway
 
