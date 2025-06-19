@@ -144,4 +144,3 @@
 * Fixed a bug where empty application pictures were ignored.
 * Addressed an issue where 502 errors occurred when keepalive was activated with the v4 emulation engine.
 * Fixed a bug where the calculation of the classic portal preview URL was incorrect when not in classic mode.
-* Fixed a bug where the end-to-end test 9334 was not working as expected.
