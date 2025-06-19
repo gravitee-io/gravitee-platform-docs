@@ -266,6 +266,7 @@
 * [Groovy](policies/groovy.md)
 * [HTML to JSON](policies/html-to-json.md)
 * [HTTP Callout](policies/http-callout.md)
+* [HTTP Redirect](policies/http-redirect.md)
 * [HTTP Signature](policies/http-signature.md)
 * [Interrupt](policies/interrupt.md)
 * [IP Filtering](policies/ip-filtering.md)
