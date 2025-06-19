@@ -2,10 +2,14 @@
 
 The following policies can be applied to Gravitee APIs.
 
+*
+
 {% hint style="warning" %}
 Policies marked with an asterisk require an Enterprise Edition license.
 {% endhint %}
 
+* [AI - Prompt Guard Rails](../ai-prompt-guard-rails.md)
+* [AI - Prompt Token Tracking](../ai-prompt-token-tracking.md)
 * [API Key](../api-key.md)
 * [Assign Attributes](../assign-attributes.md)
 * [Assign Content](../assign-content.md)

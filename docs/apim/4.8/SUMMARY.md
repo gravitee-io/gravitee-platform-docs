@@ -229,6 +229,8 @@
 * [Custom Policies](policies/custom-policies.md)
 * [Policy Reference](policies/policy-reference/README.md)
   * [Test](policies/policy-reference/test.md)
+* [AI - Prompt Token Tracking](policies/ai-prompt-token-tracking.md)
+* [AI - Prompt Guard rails](policies/ai-prompt-guard-rails.md)
 * [Kafka ACL](policies/kafka-acl.md)
 * [Kafka Topic Mapping](policies/kafka-topic-mapping.md)
 * [Kafka Quota](policies/kafka-quota.md)
