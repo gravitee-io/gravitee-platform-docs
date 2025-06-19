@@ -128,10 +128,10 @@
 
 ### Fixes
 
-* Resolved an issue where custom API keys were not applied correctly when creating subscriptions via API plans.&#x20;
+* Resolved an issue where custom API keys were not applied correctly when creating subscriptions API plans.&#x20;
 * Fixed a bug where APIs were not properly undeployed and disabled during updates.
 * Addressed an error that occurred when attempting to extract the context path for Native APIs.
-* Resolved an issue where updating a plan with an excluded group that doesn't exist would not throw a bad request exception.
+* Resolved an issue where updating a plan with an excluded group that does not exist would not throw a bad request exception.
 * Fixed a bug where the validation process for excluded groups on v4 APIs did not throw a "Group Not Found" exception if no matching group was found.
 * Resolved an issue where the export functionality for members, metadata, and plans of APIs v4 was not working correctly.
 * Fixed a bug where the group selection logic did not display only the groups the user is a member of when the setting to add at least one group is enabled.
@@ -144,5 +144,4 @@
 * Fixed a bug where empty application pictures were ignored.
 * Addressed an issue where 502 errors occurred when keepalive was activated with the v4 emulation engine.
 * Fixed a bug where the calculation of the classic portal preview URL was incorrect when not in classic mode.
-* Resolved an issue where the ApplicationServiceImplTest.buildSearchCriteria() method was not working correctly.
 * Fixed a bug where the end-to-end test 9334 was not working as expected.
