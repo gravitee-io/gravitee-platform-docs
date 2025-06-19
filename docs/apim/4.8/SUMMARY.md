@@ -169,9 +169,6 @@
 ## Agent Mesh
 
 * [Overview](agent-mesh/overview.md)
-
-***
-
 * [Create an A2A Proxy](create-an-a2a-proxy.md)
 * [Add Agents to your Agent Catalog](add-agents-to-your-agent-catalog.md)
 * [Convert your APIs to MCP Servers](convert-your-apis-to-mcp-servers.md)
