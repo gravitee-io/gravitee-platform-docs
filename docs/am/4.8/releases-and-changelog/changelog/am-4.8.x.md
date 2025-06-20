@@ -6,9 +6,7 @@ description: >-
 
 # AM 4.8.x
 
-## AM 4.8.x
-
-#### Gravitee Access Management 4.8 - June 30, 2025 <a href="#gravitee-access-management-4.5-october-10-2024" id="gravitee-access-management-4.5-october-10-2024"></a>
+#### Gravitee Access Management 4.8 - June 20, 2025 <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
 
 <details>
 
