@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.7 - June 20, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Multiple OAuth parameters are added to URLs when multiple MFA challenges are sent [#10610](https://github.com/gravitee-io/issues/issues/10610)
+* Certificate implementation for AWS CloudHSM doesn't scale  [#10615](https://github.com/gravitee-io/issues/issues/10615)
+
+**Management API**
+
+* Users cannot view the accessPoint field in the domain audit logs if they do not have a domain role permission [#10602](https://github.com/gravitee-io/issues/issues/10602)
+
+**Console**
+
+* Policies not saving and being applied [#10633](https://github.com/gravitee-io/issues/issues/10633)
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.7.6 - June 9, 2025
 
 <details>
