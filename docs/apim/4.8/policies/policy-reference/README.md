@@ -43,7 +43,6 @@ Policies marked with an asterisk require an Enterprise Edition license.
 * [JWS Validator](../jws-validator.md)
 * [JWT Validator](../jwt-validator.md)
 * [Kafka ACL](../kafka-acl.md)\*
-* [Kafka Message Filtering](../kafka-message-filtering.md)\*
 * [Kafka Offloading](../kafka-offloading.md)\*
 * [Kafka Quota](../kafka-quota.md)\*
 * [Kafka Topic Mapping](../kafka-topic-mapping.md)\*

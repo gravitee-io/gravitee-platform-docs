@@ -231,7 +231,6 @@
 * [Kafka Topic Mapping](policies/kafka-topic-mapping.md)
 * [Kafka Quota](policies/kafka-quota.md)
 * [Kafka Offloading](policies/kafka-offloading.md)
-* [Kafka Message Filtering](policies/kafka-message-filtering.md)
 * [Kafka Transform Key](policies/kafka-transform-key.md)
 * [Assign Metrics](policies/assign-metrics.md)
 * [Avro to JSON](policies/avro-to-json.md)

@@ -41,10 +41,9 @@
 
 #### **Kafka Gateway**
 
-* Added three new policies for your Native API:
+* Added two new policies for your Native API:
   * Transform Key policy. This policy adds a custom Kafka message key to your messages so that you can customize partitioning and perform general actions. For example, ordering the transactions.
   * Offloading policy. This Policy lets you configure the delegation of Kafka message content to storage.&#x20;
-  * Message filtering policy (subscribe phase only). This policy allows fine-grained control over which Kafka messages should be delivered to consumers based on configurable filter expressions.
 
 ### Updates
 
