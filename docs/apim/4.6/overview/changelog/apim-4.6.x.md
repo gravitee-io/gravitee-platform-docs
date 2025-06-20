@@ -5,8 +5,39 @@ description: >-
 ---
 
 # APIM 4.6.x
- 
+
+## Gravitee API Management 4.6.14 - June 20, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Debug mode adding extra slash on endpoint [#10438](https://github.com/gravitee-io/issues/issues/10438)
+
+**Management API**
+
+* Error on import v4 definition [#10593](https://github.com/gravitee-io/issues/issues/10593)
+* Error on Portal admin login when subscription has null API [#10618](https://github.com/gravitee-io/issues/issues/10618)
+
+**Console**
+
+* No error message raised while deleting folder [#10608](https://github.com/gravitee-io/issues/issues/10608)
+
+**Helm Charts**
+
+* Multi-Tenant dictionaries: align values.yml and gravitee.yml [#10627](https://github.com/gravitee-io/issues/issues/10627)
+
+**Other**
+
+* Problem IP Filtering / Host resolving [#10592](https://github.com/gravitee-io/issues/issues/10592)
+* Solace webhook subscription 500 internal server error [#10622](https://github.com/gravitee-io/issues/issues/10622)
+
+</details>
+
 ## Gravitee API Management 4.6.13 - June 13, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -44,9 +75,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.12 - May 28, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -64,7 +94,7 @@ description: >-
 * Alert filter doesn't show list of APIs in selection box. [#10532](https://github.com/gravitee-io/issues/issues/10532)
 * Improve error logs in upgrader [#10535](https://github.com/gravitee-io/issues/issues/10535)
 * Dictionaries are unable to be created with the same name across environments or organizations. [#10537](https://github.com/gravitee-io/issues/issues/10537)
-* Management transfer_ownership API is allowing multiple primary owners on applications  [#10572](https://github.com/gravitee-io/issues/issues/10572)
+* Management transfer\_ownership API is allowing multiple primary owners on applications [#10572](https://github.com/gravitee-io/issues/issues/10572)
 * Remove System.out.println statement [#10583](https://github.com/gravitee-io/issues/issues/10583)
 
 **Console**
@@ -96,9 +126,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.11 - May 9, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -110,15 +139,15 @@ description: >-
 
 **Management API**
 
-*  Rollback does not work for the v4 emulation button [#10190](https://github.com/gravitee-io/issues/issues/10190)
-* Application search does not work if search term pattern matches _id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
+* Rollback does not work for the v4 emulation button [#10190](https://github.com/gravitee-io/issues/issues/10190)
+* Application search does not work if search term pattern matches \_id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
 
 **Console**
 
 * Local link to internal section dose not work in documentation [#10180](https://github.com/gravitee-io/issues/issues/10180)
 * APIM API Throwing HTTP 500 On a Specific Returned Page [#10372](https://github.com/gravitee-io/issues/issues/10372)
 * Settings-> Groups : 'Allows invitation via user search' is NOT working as expected [#10485](https://github.com/gravitee-io/issues/issues/10485)
-* Application search does not work if search term pattern matches _id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
+* Application search does not work if search term pattern matches \_id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
 * UX problem in condition alerting threshold [#10514](https://github.com/gravitee-io/issues/issues/10514)
 
 **Other**
@@ -138,9 +167,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.10 - April 25, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -161,7 +189,7 @@ description: >-
 
 **Portal**
 
-* Portal-Next shows all Unpublished apis  [#10505](https://github.com/gravitee-io/issues/issues/10505)
+* Portal-Next shows all Unpublished apis [#10505](https://github.com/gravitee-io/issues/issues/10505)
 
 </details>
 
@@ -175,9 +203,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.9 - April 11, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -193,7 +220,7 @@ description: >-
 * Failed association of groups to APIs [#10211](https://github.com/gravitee-io/issues/issues/10211)
 * Custom API Key not taken into account when created through API Plan [#10324](https://github.com/gravitee-io/issues/issues/10324)
 * Prevent Primary Owner removal when updating application's membership via cURL [#10382](https://github.com/gravitee-io/issues/issues/10382)
-* v4 api : Unable to manage groups for all api types  [#10471](https://github.com/gravitee-io/issues/issues/10471)
+* v4 api : Unable to manage groups for all api types [#10471](https://github.com/gravitee-io/issues/issues/10471)
 * Adding an unknown group id to excluded groups on a plan in v4 apis removes all excluded groups and prevents exports of the API [#10473](https://github.com/gravitee-io/issues/issues/10473)
 
 **Console**
@@ -212,9 +239,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.8 - April 4, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -245,9 +271,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.7 - March 27, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -261,15 +286,15 @@ description: >-
 
 * Shared API key doesn't always bind to subscriptions when concurrent requests are made [#10146](https://github.com/gravitee-io/issues/issues/10146)
 * Attribute not allowed: \[a]\[download] in API Documentation main page [#10338](https://github.com/gravitee-io/issues/issues/10338)
-* Renewed api key is "available" on closed subscription  [#10396](https://github.com/gravitee-io/issues/issues/10396)
-* API flows are duplicated when called multiple times in row with the management API  [#10408](https://github.com/gravitee-io/issues/issues/10408)
+* Renewed api key is "available" on closed subscription [#10396](https://github.com/gravitee-io/issues/issues/10396)
+* API flows are duplicated when called multiple times in row with the management API [#10408](https://github.com/gravitee-io/issues/issues/10408)
 * Import of an API does not ignore unknown access control groups that are present in another environment [#10414](https://github.com/gravitee-io/issues/issues/10414)
 * Cannot list applications on Portal UI when group is removed from console [#10419](https://github.com/gravitee-io/issues/issues/10419)
 
 **Console**
 
 * Shared API key doesn't always bind to subscriptions when concurrent requests are made [#10146](https://github.com/gravitee-io/issues/issues/10146)
-* In logs, the "users" column is no more available  [#10311](https://github.com/gravitee-io/issues/issues/10311)
+* In logs, the "users" column is no more available [#10311](https://github.com/gravitee-io/issues/issues/10311)
 * When restoring an archived application, the page is neither refreshed nor redirected [#10397](https://github.com/gravitee-io/issues/issues/10397)
 
 **Portal**
@@ -278,9 +303,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.6 - March 14, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -306,7 +330,7 @@ description: >-
 * Shared policy group edits cause audit errors [#10316](https://github.com/gravitee-io/issues/issues/10316)
 * Error for V4 API logs when analytics is disabled [#10347](https://github.com/gravitee-io/issues/issues/10347)
 * IPv6 crashes UI container if IPv6 is not enabled in environment [#10392](https://github.com/gravitee-io/issues/issues/10392)
-* Absolute links in gravitee-apim-console-webui (ignoring <base href...>) [#10394](https://github.com/gravitee-io/issues/issues/10394)
+* Absolute links in gravitee-apim-console-webui (ignoring ) [#10394](https://github.com/gravitee-io/issues/issues/10394)
 
 **Portal**
 
@@ -319,7 +343,7 @@ description: >-
 
 * JSON validation policy causes the message not to be published [#10323](https://github.com/gravitee-io/issues/issues/10323)
 * Impossible to edit / save a V4 Kafka Gateway API using Postgres as the Management DB [#10393](https://github.com/gravitee-io/issues/issues/10393)
-* 500 error on jwt plan when using  "Emulate v4 engine" and gateway keys configuration [#10420](https://github.com/gravitee-io/issues/issues/10420)
+* 500 error on jwt plan when using "Emulate v4 engine" and gateway keys configuration [#10420](https://github.com/gravitee-io/issues/issues/10420)
 
 </details>
 
@@ -333,9 +357,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.5 - February 28, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -352,14 +375,14 @@ description: >-
 * UUID of groups associated to application does not show in paginated view [#10270](https://github.com/gravitee-io/issues/issues/10270)
 * Issue with Webhook notifications [#10293](https://github.com/gravitee-io/issues/issues/10293)
 * API Docs: 204 Status Code Missing for /memberships Endpoint [#10336](https://github.com/gravitee-io/issues/issues/10336)
-* API flows are duplicated when saved multiple times in the row  [#10355](https://github.com/gravitee-io/issues/issues/10355)
+* API flows are duplicated when saved multiple times in the row [#10355](https://github.com/gravitee-io/issues/issues/10355)
 
 **Console**
 
 * Enhance Rights Message in Management Portal [#10138](https://github.com/gravitee-io/issues/issues/10138)
 * Platform analytics shows incorrect result in status pie-chart [#10267](https://github.com/gravitee-io/issues/issues/10267)
 * Analytics logs exported as CSV are entirely on one line [#10350](https://github.com/gravitee-io/issues/issues/10350)
-* API flows are duplicated when saved multiple times in the row  [#10355](https://github.com/gravitee-io/issues/issues/10355)
+* API flows are duplicated when saved multiple times in the row [#10355](https://github.com/gravitee-io/issues/issues/10355)
 
 **Portal**
 
@@ -377,9 +400,8 @@ description: >-
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.4 - February 14, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -430,8 +452,9 @@ When using Service Discovery the Gateway may not wait for pending connections to
 **Technical release**
 
 No fixes or features have been added.
- 
+
 ## Gravitee API Management 4.6.2 - January 31, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -444,7 +467,7 @@ No fixes or features have been added.
 **Console**
 
 * Missing "Add Member" Button in group settings [#10050](https://github.com/gravitee-io/issues/issues/10050)
-* Application updates remove the picture  [#10302](https://github.com/gravitee-io/issues/issues/10302)
+* Application updates remove the picture [#10302](https://github.com/gravitee-io/issues/issues/10302)
 
 **Portal**
 
@@ -462,9 +485,8 @@ No fixes or features have been added.
 
 </details>
 
-
- 
 ## Gravitee API Management 4.6.1 - January 24, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -480,6 +502,3 @@ No fixes or features have been added.
 * Path mapping does not work with hyphen [#10289](https://github.com/gravitee-io/issues/issues/10289)
 
 </details>
-
-
-
