@@ -64,7 +64,7 @@ This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be appli
           "name" : "Resource filtering",
           "description" : "Allow access to all paths",
           "enabled" : true,
-          "policy" : "policy-assign-attributes",
+          "policy" : "policy-resource-filtering",
           "configuration" : {
              "whitelist": [
               {
