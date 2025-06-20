@@ -1,5 +1,31 @@
 # APIM 4.7.x
  
+## Gravitee API Management 4.7.8 - June 20, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Debug mode adding extra slash on endpoint [#10438](https://github.com/gravitee-io/issues/issues/10438)
+
+**Console**
+
+* No error message raised while deleting folder [#10608](https://github.com/gravitee-io/issues/issues/10608)
+
+**Helm Charts**
+
+* Multi-Tenant dictionaries: align values.yml and gravitee.yml [#10627](https://github.com/gravitee-io/issues/issues/10627)
+
+**Other**
+
+* Problem IP Filtering / Host resolving [#10592](https://github.com/gravitee-io/issues/issues/10592)
+* Solace webhook subscription 500 internal server error [#10622](https://github.com/gravitee-io/issues/issues/10622)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.7.6 - May 28, 2025
 <details>
 
