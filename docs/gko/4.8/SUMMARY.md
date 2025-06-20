@@ -12,6 +12,7 @@
   * [Subscription](overview/custom-resource-definitions/subscription.md)
   * [Group](overview/custom-resource-definitions/group.md)
   * [SharedPolicyGroup](overview/custom-resource-definitions/sharedpolicygroup.md)
+  * [GatewayClassParameters](overview/custom-resource-definitions/gatewayclassparameters.md)
   * [KafkaRoute](overview/custom-resource-definitions/kafkaroute.md)
 * [Example Architecture](overview/example-architecture.md)
 * [Compatibility and Limitations](overview/compatibility-and-limitations.md)
