@@ -23,7 +23,7 @@ An arbitrary custom key can be incorrectly defined via Gravitee Expression Langu
 ## Examples
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 TCP proxy APIs or v4 message APIs.
+This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. It cannot be applied to v4 TCP proxy APIs.
 {% endhint %}
 
 {% tabs %}
