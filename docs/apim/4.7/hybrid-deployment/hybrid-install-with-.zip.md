@@ -79,7 +79,7 @@ ratelimit:
     password: redis-password
 
 cache:
-  type: ehcache
+  type: standalone
 
 reporters:
   elasticsearch:
