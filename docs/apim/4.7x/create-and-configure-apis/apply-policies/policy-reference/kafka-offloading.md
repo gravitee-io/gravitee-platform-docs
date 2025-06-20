@@ -2,7 +2,7 @@
 
 ## Overview
 
-With the Kafka Offloading policy, you can configure the delegation of Kafka message content to storage. You have the option to activate message offloading based on the content size of the message. This policy is particularly useful for lightening the load on Kafka and optimizing processing performance.
+With the Kafka Offloading policy, you can configure the delegation of Kafka message content to storage. You have the option to activate message offloading based on the content size of the message. This policy is particularly useful for decreasing the load on Kafka and optimizing processing performance.
 
 {% hint style="info" %}
 * This policy is not included by default in the APIM product and must be installed manually.\
