@@ -28,10 +28,7 @@ spec:
         spec:
           containers:
           - name: gateway
-            image: graviteeio/apim-gateway
-          securityContext:
-            runAsNonRoot: true
-            runAsUser: 1001
+            image: graviteeio/apim-gateway:4.8.0
 ```
 
 This configuration enables Kafka support in the Gravitee Gateway by setting the Kafka feature to enabled and referencing a Kubernetes Secret that contains a valid license through the licenseRef field.
@@ -40,7 +37,7 @@ It also customizes the Gateway's Kubernetes deployment by specifying the contain
 
 ### Gravitee Configuration
 
-At the heart of the configuration is the ``gravitee section, which controls Gravitee specific features
+The ``gravitee section controls Gravitee specific features and allows you to configure and customize our implementation of the Kubernetes Gateway API.
 
 #### License Reference
 
@@ -66,6 +63,20 @@ However, this does not include:
   - Configuring listeners, as they are automatically built from your Gateway specification.
   - Disabling Kubernetes sync, since it is required for your routes to be deployed to the Gateway.
   - Connecting your Gateway to a management repository, because Gateway API gateways are designed to sync their configuration directly from your Kubernetes cluster.
+
+#### Configuring Kubernetes Components
+
+Within the kubernetes block of the GatewayClassParameters spec, the `deployment` and `service` sections allow you to fine-tune how the Gravitee Gateway runs within your Kubernetes cluster by customizing core Kubernetes resources:
+
+##### Deployment
+
+You can modify pod labels and annotations, adjust the number of replicas to control scaling, specify update strategies for rolling updates, and override the pod template to customize container specs, security settings, or environment variables. This gives you flexible control over how the Gateway pods are deployed and managed.
+
+The template.spec field under the Kubernetes deployment section uses the standard Kubernetes Pod template specification, and its contents will be merged using a [strategic merge patch](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/) with Gravitee's default deployment configuration. This allows you to override only the parts you need, such as the container image or security settings, without redefining the entire deployment.
+
+##### Service
+
+You can customize the Kubernetes Service that exposes the Gateway by adding labels and annotations, choosing the service type (the default type is `LoadBalancer`), configuring the external traffic policy, and specifying the load balancer class. These settings influence how the Gateway is accessed both inside and outside the cluster.
 
 {% hint style="info" %}
 **For more information**
