@@ -33,11 +33,11 @@ spec:
 
 This configuration enables Kafka support in the Gravitee Gateway by setting the Kafka feature to enabled and referencing a Kubernetes Secret that contains a valid license through the licenseRef field.
 
-It also customizes the Gateway's Kubernetes deployment by specifying the container image to use and enforcing a security context that runs the container as a non-root user.
+Also, it customizes the Gateway's Kubernetes deployment by specifying the container image to use and enforcing a security context that runs the container as a non-root user.
 
 ### Gravitee Configuration
 
-The ``gravitee section controls Gravitee specific features and allows you to configure and customize our implementation of the Kubernetes Gateway API.
+The `gravitee` section controls Gravitee specific features and allows you to configure and customize our implementation of the Kubernetes Gateway API.
 
 #### License Reference
 
@@ -50,7 +50,7 @@ The kafka block enables Kafka traffic routing in the Gateway. By default, Kafka 
 When enabled, you can also configure:
 
   - Broker Domain Pattern: Defines how broker hostnames are constructed. Defaults to `broker-{brokerId}-{apiHost}`.
-  - Bootstrap Domain Pattern: Defines the hostname for Kafka bootstrap connections. Defaults to ``{apiHost}.
+  - Bootstrap Domain Pattern: Defines the hostname for Kafka bootstrap connections. Defaults to `{apiHost}`.
 
 You can find details about these configurations options in our [documentation](https://documentation.gravitee.io/apim/kafka-gateway/configure-the-kafka-gateway-and-client).
 
@@ -58,9 +58,9 @@ You can find details about these configurations options in our [documentation](h
 
 An optional yaml field allows you to provide custom gateway configuration, giving you control over additional configuration blocks available in the gateway [settings](https://documentation.gravitee.io/apim/configure-apim/apim-components/gravitee-gateway).
 
-However, this does not include:
+However, this does not allow you to configure:
 
-  - Configuring listeners, as they are automatically built from your Gateway specification.
+  - Listeners, as they are automatically built from your Gateway specification.
   - Disabling Kubernetes sync, since it is required for your routes to be deployed to the Gateway.
   - Connecting your Gateway to a management repository, because Gateway API gateways are designed to sync their configuration directly from your Kubernetes cluster.
 
