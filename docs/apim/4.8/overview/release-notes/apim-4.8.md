@@ -1,6 +1,6 @@
 # APIM 4.8
 
-## Release Date: 2025/06/19
+## Release Date: 2025/06/20
 
 ## Highlights
 
@@ -17,7 +17,7 @@
 
 * **Support for the Classic Developer Portal reduced:** Gravitee continues to implement fixes for the Classic Developer Portal; but there are no new features planned for the Classic Developer Portal.
 * **Deprecated APIM Standalone components:** The APIM standalone components that were available to download from [Gravitee.io downloads - apim/components](https://download.gravitee.io/#graviteeio-apim/components/) are no longer available or supported. You can use the full distribution .ZIP file instead. To download the full distribution .ZIP file, go to [Gravitee.io downloads - apim/distributions](https://download.gravitee.io/#graviteeio-apim/distributions/).
-* **Removal of v1 APIs:** Starting from 4.9, v1 APIs are not supported by APIM.
+* **Removal of v1 APIs:** Starting from 4.9, v1 APIs are not supported by APIM. User must migrate the v1 APIs to either v2 or v4 APIs.
 * **Lucene update 10:** Lucene has been upgraded to 10. Before starting the Management API (mAPI), you must clean the `/data` directory in your `GRAVITEE_HOME` containing Lucene working files. Otherwise, the mAPI does not start. When mAPI restarts, it re-indexes.&#x20;
 * **Custom plugin development:** If a plugin is referencing `io.gravitee.gateway.reactor.ReactableApi`, it needs to be recompiled with APIM 4.8 dependencies because `ReactableApi` it is now an interface rather than an abstract class. Without recompilation, the plugin throws a `java.lang.IncompatibleClassChangeError` .
 
