@@ -6,6 +6,37 @@ description: >-
 
 # APIM 4.6.x
  
+## Gravitee API Management 4.6.14 - June 20, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Debug mode adding extra slash on endpoint [#10438](https://github.com/gravitee-io/issues/issues/10438)
+
+**Management API**
+
+* Error on import v4 definition [#10593](https://github.com/gravitee-io/issues/issues/10593)
+* Error on Portal admin login when subscription has null API [#10618](https://github.com/gravitee-io/issues/issues/10618)
+
+**Console**
+
+* No error message raised while deleting folder [#10608](https://github.com/gravitee-io/issues/issues/10608)
+
+**Helm Charts**
+
+* Multi-Tenant dictionaries: align values.yml and gravitee.yml [#10627](https://github.com/gravitee-io/issues/issues/10627)
+
+**Other**
+
+* Problem IP Filtering / Host resolving [#10592](https://github.com/gravitee-io/issues/issues/10592)
+* Solace webhook subscription 500 internal server error [#10622](https://github.com/gravitee-io/issues/issues/10622)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.6.12 - May 28, 2025
 <details>
 
