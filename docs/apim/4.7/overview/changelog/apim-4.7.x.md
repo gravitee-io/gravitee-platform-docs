@@ -1,6 +1,32 @@
 # APIM 4.7.x
- 
+
+## Gravitee API Management 4.7.8 - June 20, 2025
+
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Debug mode adding extra slash on endpoint [#10438](https://github.com/gravitee-io/issues/issues/10438)
+
+**Console**
+
+* No error message raised while deleting folder [#10608](https://github.com/gravitee-io/issues/issues/10608)
+
+**Helm Charts**
+
+* Multi-Tenant dictionaries: align values.yml and gravitee.yml [#10627](https://github.com/gravitee-io/issues/issues/10627)
+
+**Other**
+
+* Problem IP Filtering / Host resolving [#10592](https://github.com/gravitee-io/issues/issues/10592)
+* Solace webhook subscription 500 internal server error [#10622](https://github.com/gravitee-io/issues/issues/10622)
+
+</details>
+
 ## Gravitee API Management 4.7.7 - June 13, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -38,9 +64,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.6 - May 28, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -59,7 +84,7 @@
 * Improve error logs in upgrader [#10535](https://github.com/gravitee-io/issues/issues/10535)
 * Dictionaries are unable to be created with the same name across environments or organizations. [#10537](https://github.com/gravitee-io/issues/issues/10537)
 * Alert is getting triggered, we are seeing it in the history tab, but we cannot see the alert in webhook. [#10550](https://github.com/gravitee-io/issues/issues/10550)
-* Management transfer_ownership API is allowing multiple primary owners on applications  [#10572](https://github.com/gravitee-io/issues/issues/10572)
+* Management transfer\_ownership API is allowing multiple primary owners on applications [#10572](https://github.com/gravitee-io/issues/issues/10572)
 * Remove System.out.println statement [#10583](https://github.com/gravitee-io/issues/issues/10583)
 
 **Console**
@@ -87,9 +112,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.5 - May 9, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -101,15 +125,15 @@
 
 **Management API**
 
-*  Rollback does not work for the v4 emulation button [#10190](https://github.com/gravitee-io/issues/issues/10190)
-* Application search does not work if search term pattern matches _id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
+* Rollback does not work for the v4 emulation button [#10190](https://github.com/gravitee-io/issues/issues/10190)
+* Application search does not work if search term pattern matches \_id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
 
 **Console**
 
 * Local link to internal section dose not work in documentation [#10180](https://github.com/gravitee-io/issues/issues/10180)
 * APIM API Throwing HTTP 500 On a Specific Returned Page [#10372](https://github.com/gravitee-io/issues/issues/10372)
 * Settings-> Groups : 'Allows invitation via user search' is NOT working as expected [#10485](https://github.com/gravitee-io/issues/issues/10485)
-* Application search does not work if search term pattern matches _id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
+* Application search does not work if search term pattern matches \_id pattern [#10487](https://github.com/gravitee-io/issues/issues/10487)
 * UX problem in condition alerting threshold [#10514](https://github.com/gravitee-io/issues/issues/10514)
 
 **Other**
@@ -129,9 +153,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.4 - April 25, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -147,7 +170,7 @@
 
 **Portal**
 
-* Portal-Next shows all Unpublished apis  [#10505](https://github.com/gravitee-io/issues/issues/10505)
+* Portal-Next shows all Unpublished apis [#10505](https://github.com/gravitee-io/issues/issues/10505)
 
 </details>
 
@@ -161,9 +184,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.3 - April 17, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -178,9 +200,8 @@
 
 </details>
 
-
- 
 ## Gravitee API Management 4.7.2 - April 11, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -197,7 +218,7 @@
 * Custom API Key not taken into account when created through API Plan [#10324](https://github.com/gravitee-io/issues/issues/10324)
 * Prevent Primary Owner removal when updating application's membership via cURL [#10382](https://github.com/gravitee-io/issues/issues/10382)
 * Data export inconsistencies in APIv4 (members, metadata, and plans) [#10459](https://github.com/gravitee-io/issues/issues/10459)
-* v4 api : Unable to manage groups for all api types  [#10471](https://github.com/gravitee-io/issues/issues/10471)
+* v4 api : Unable to manage groups for all api types [#10471](https://github.com/gravitee-io/issues/issues/10471)
 * Adding an unknown group id to excluded groups on a plan in v4 apis removes all excluded groups and prevents exports of the API [#10473](https://github.com/gravitee-io/issues/issues/10473)
 
 **Console**
@@ -215,9 +236,8 @@
 
 </details>
 
-
-
 ## Gravitee API Management 4.7.1 - April 4, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -248,5 +268,3 @@
 * Groups not automatically added to new applications when they should be [#10470](https://github.com/gravitee-io/issues/issues/10470)
 
 </details>
-
-
