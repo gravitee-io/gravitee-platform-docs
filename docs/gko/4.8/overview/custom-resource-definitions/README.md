@@ -8,6 +8,10 @@ The Gravitee Kubernetes Operator (GKO) comes with several custom resource defini
 * [`ApiResource`](apiresource.md)
 * [`Subscription`](subscription.md)
 * [`Group`](group.md)
+* [`SharedPolicyGroup`](sharedpolicygroup.md)
+* [`Notification`](notification.md)
+* [`GatewayClassParameters`](gatewayclassparameters.md)
+* [`KafkaRoute`](kafkaroute.md)
 
 {% hint style="info" %}
 Sample CRDs are available in the GKO GitHub [repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/4.5.x/examples).
