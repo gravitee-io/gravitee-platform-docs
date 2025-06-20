@@ -460,11 +460,9 @@ applications:
       algorithm: PBKDF2WithHmacSHA256
 ```
 
-### Configure notifications on certificates expiry
+### Configure notifications on certificates and client secret expiry
 
-New in version 3.17
-
-Gravitee AM provides a notification mechanism to inform about certificates expiry. When enabled, domain primary owners and domain owners will receive a notification using the configured channel (UI or Email). These notifications will be triggered based on several conditions:
+Gravitee AM provides a notification mechanism to inform about certificates and client secrets expiry. When enabled, domain primary owners and domain owners will receive a notification using the configured channel (UI or Email). These notifications will be triggered based on several conditions:
 
 * the frequency on which the certificates expiry dates are evaluate
 * the number of days before the certificate expiry
@@ -480,26 +478,41 @@ services:
     enabled: true
     tryAvoidDuplicateNotification: false
 
-  # Rules about certificate expiry notifications.
-  # Require the platform notifier service.
-  certificate:
-    enabled: true
-    # frequency on which the notifier mechanism will test
-    # if new notifications need to be send
-    # default: 0 0 5 * * * (every day at 5am)
-    cronExpression: 0 0 5 * * *
-    # send notification if certificate is going to expire in less than 20 days,
-    # then send again the notification 15 days before the expiry, then 10...
-    expiryThresholds: 20,15,10,5,1
-    # Subject of the email send by the email notifier
-    expiryEmailSubject: Certificate will expire soon
+    # Rules about certificate expiry notifications.
+    # Require the platform notifier service.
+    certificate:
+      enabled: true
+      # frequency on which the notifier mechanism will test
+      # if new notifications need to be send
+      # default: 0 0 5 * * * (every day at 5am)
+      cronExpression: 0 0 5 * * *
+      # send notification if certificate is going to expire in less than 20 days,
+      # then send again the notification 15 days before the expiry, then 10...
+      expiryThresholds: 20,15,10,5,1
+      # Subject of the email send by the email notifier
+      expiryEmailSubject: Certificate will expire soon
+      
+    # Rules about client's secrets expiry notifications. 
+    # Require the platform notifier service.
+    client-secret:
+      enabled: true
+      # frequency on which the notifier mechanism will test
+      # if new notifications need to be send
+      # default: 0 0 5 * * * (every day at 5am)
+      cronExpression: 0 0 5 * * *
+      # send notification if client secret is going to expire in less than 20 days,
+      # then 15 days before...
+      expiryThresholds: 20,15,10,5,1
+      expiryEmailSubject: Client secret will expire soon
 ```
 {% endcode %}
 
-In addition of the configuration for services, the notification channels have to be defined. Currently, there are two channel :
+In addition of the configuration for services, the notification channels have to be defined. Currently, there are four channels :
 
 * email: If enable, a notification will be sent by email using the smtp settings defined in this section.
 * ui: If enable, a notification icon will be available on top of the console UI to inform about new notifications.
+* log: If enable, an application log will be generated.
+* kafka: If enable, a notification will be sent to a kafka topic defined in this section
 
 ```yaml
 notifiers:
@@ -516,9 +529,72 @@ notifiers:
     #sslKeyStorePassword: changeme
   ui:
     enabled: true
+  log:
+    enabled: true
+  kafka:
+    enabled: true
+    bootstrapServers: "broker:9292"
+    topic: am-notification
+    acks: 1
+    username: myuser
+    password: ........
+    schemaRegistryUrl: https://myregistry/
+    additionalProperties:
+      - name: "batch.size"
+        value: 100
 ```
 
 ![graviteeio am installationguide certificates ui](https://docs.gravitee.io/images/am/current/graviteeio-am-installationguide-certificates-ui.png)
+
+#### Email Notifier
+
+The email notifier expects SMTP server settings.
+
+<table><thead><tr><th width="374"> setting name </th><th>description</th></tr></thead><tbody><tr><td>host</td><td>SMTP server host name</td></tr><tr><td>port</td><td>SMTP server port</td></tr><tr><td>username</td><td>The username used to authenticate on the SMTP server</td></tr><tr><td>password</td><td>The password used to authenticate on the SMTP server</td></tr><tr><td>from</td><td>The email "from" value used in the sent email</td></tr><tr><td>startTLSEnabled</td><td>Boolean value to use startTls (false by default)</td></tr><tr><td>sslTrustAll</td><td>Boolean value to trust all servers when SSL is used (false by default)</td></tr><tr><td>sslKeyStore</td><td>Path to the SSL keystore</td></tr><tr><td>sslKeyStorePassword</td><td>Password to access the keystore</td></tr></tbody></table>
+
+```yaml
+notifiers:
+  email:
+    enabled: true
+    host: smtp.my.domain
+    port: 587
+    username: user@my.domain
+    password: password
+    from: noreply@my.domain
+    startTLSEnabled: false
+    sslTrustAll: false
+    #sslKeyStore: /path/to/keystore
+    #sslKeyStorePassword: changeme
+```
+
+#### Kafka Notifier
+
+The Kafka notifier must have settings configured to connect to the Kafka broker.
+
+| setting name         | description                                                                                             |
+| -------------------- | ------------------------------------------------------------------------------------------------------- |
+| bootstrapServers     | The comma-separated list of Kafka brokers used as the contact point                                     |
+| topic                | The Kafka topic to which the notification record is sent                                                |
+| acks                 | The number of acknowledgments the notifier requires (valid values : \[all, -1, 0, 1])                   |
+| username             | The username used by JAAS setting `org.apache.kafka.common.security.plain.PlainLoginModule` (optional)  |
+| password             | The password used by JAAS  setting `org.apache.kafka.common.security.plain.PlainLoginModule` (optional) |
+| schemaRegistryUrl    | The URL of the schemaRegistry (optional)                                                                |
+| additionalProperties | The list of key/value pairs to provide additional settings to the Kafka producer                        |
+
+```yaml
+notifiers:
+  kafka:
+    enabled: true
+    bootstrapServers: "broker:9292"
+    topic: am-notification
+    acks: 1
+    username: myuser
+    password: ........
+    schemaRegistryUrl: https://myregistry/
+    additionalProperties:
+      - name: "batch.size"
+        value: 100
+```
 
 ## Configure load balancing
 
