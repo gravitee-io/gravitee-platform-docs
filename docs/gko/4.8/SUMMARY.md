@@ -10,6 +10,10 @@
   * [ApiResource](overview/custom-resource-definitions/apiresource.md)
   * [Application](overview/custom-resource-definitions/application.md)
   * [Subscription](overview/custom-resource-definitions/subscription.md)
+  * [Group](overview/custom-resource-definitions/group.md)
+  * [SharedPolicyGroup](overview/custom-resource-definitions/sharedpolicygroup.md)
+  * [GatewayClassParameters](overview/custom-resource-definitions/gatewayclassparameters.md)
+  * [KafkaRoute](overview/custom-resource-definitions/kafkaroute.md)
 * [Example Architecture](overview/example-architecture.md)
 * [Compatibility and Limitations](overview/compatibility-and-limitations.md)
 
@@ -47,14 +51,18 @@
 ## RELEASES & CHANGELOG
 
 * [Release Notes](releases-and-changelog/release-notes/README.md)
+<!-- ROLLOUT_RELEASE_NOTE -->
+  * [GKO 4.7](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/releases-and-changelog/release-notes/gko-4.7)
   * [GKO 4.6](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.6/releases-and-changelog/release-notes/gko-4.6)
   * [GKO 4.5](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.5/releases-and-changelog/release-notes/gko-4.5)
-  * [GKO 4.4](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/gko-4.4/releases-and-changelog/release-notes/gko-4.4)
+  * [GKO 4.4](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.4/releases-and-changelog/release-notes/gko-4.4)
   * [GKO 4.3](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.3/releases-and-changelog/release-notes/gko-4.3)
 * [Changelog](releases-and-changelog/changelog/README.md)
+  <!-- ROLLOUT_CHANGELOG -->
+  * [GKO 4.7.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.7/releases-and-changelog/changelog/gko-4.7.x)
   * [GKO 4.6.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.6/releases-and-changelog/changelog/gko-4.6.x)
   * [GKO 4.5.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.5/releases-and-changelog/changelog/gko-4.5.x)
-  * [GKO 4.4.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.4/releases-and-changelog/changelog/gko-4.4.x)
+  * [GKO 4.4.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/gko-4.4/releases-and-changelog/changelog/gko-4.4.x)
   * [GKO 4.3.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.3/releases-and-changelog/changelog/gko-4.3.x)
 
 ## COMMUNITY & SUPPORT
