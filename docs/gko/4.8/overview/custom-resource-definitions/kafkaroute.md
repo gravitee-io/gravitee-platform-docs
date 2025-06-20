@@ -112,6 +112,8 @@ kubectl create secret generic gravitee-license \
 
 > This command creates a secret named `gravitee-license` in the default namespace, containing the license.key file content. Ensure the namespace matches the one referenced in your `GatewayClassParameters`.
 
+Additionally, to enable Kafka traffic, Kafka support **must** be explicitly enabled in the `GatewayClassParameters` resource by setting the `gravitee.kafka.enabled` property to true.
+
 ### The Gateway resource
 
 To be able to route Kafka trafic your gateway resource **must** define a TLS listener that declares the gravitee.io KafkaRoute as a supported kind.
@@ -136,9 +138,9 @@ Here, the listener is set to accept traffic on any subdomain of kafka.example.de
 
 Applying these resources will create all the components needed for the gateway to accept Kafka traffic on port 9092 (routing connections to `demo.kafka.example.dev` through the KafkaRoute to the `my-cluster-kafka-bootstrap` service), as well as HTTP traffic on ports 80 and 443.
 
-### Adding access controls to the Kafka route throug the AccessControl filter
+### Adding access controls to the Kafka Route through the ACL Filter
 
-The KafkaRoute resource includes an AccessControl filter that lets you define fine-grained ACLs (Access Control Lists) on Kafka cluster resources proxied by the Gateway. You can specify permissions for topics, clusters, consumer groups, and transactional IDs.
+The KafkaRoute resource includes an ACL Filter that lets you define fine-grained ACLs (Access Control Lists) on Kafka cluster resources proxied by the Gateway. You can specify permissions for topics, clusters, consumer groups, and transactional IDs.
 
 {% code lineNumbers="true" %}
 ```yaml
@@ -154,24 +156,24 @@ spec:
       namespace: default
   hostname: demo.kafka.example.dev
   filters:
-  - type: AccessControl
-    accessControl:
-    rules:
-    - resources:
-      - type: Topic
-        match:
-          type: Exact
-          value: demo
-        operations:
-          - Read
-          - Write
-          - Create
-      - type: Group
-        match:
-          type: Exact
-          value: demo-consumer-group
-        operations:
-          - Read
+  - type: ACL
+    acl:
+      rules:
+        - resources:
+          - type: Topic
+            match:
+              type: Exact
+              value: demo
+            operations:
+              - Read
+              - Write
+              - Create
+          - type: Group
+            match:
+              type: Exact
+              value: demo-consumer-group
+            operations:
+              - Read
   backendRefs:
     - group: ""
       kind: Service
