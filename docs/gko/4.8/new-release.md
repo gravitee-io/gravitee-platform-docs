@@ -1,1 +1,1 @@
-placeholder for the 4.7 release
+placeholder for the 4.8 release
