@@ -2,7 +2,7 @@
 
 ## Overview
 
-Gravitee offers open source and enterprise versions of its API Management (APIM) distribution package. The Gravitee APIM Enterprise Edition requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing). It is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
+Gravitee offers open source (OSS) and Enterprise Edition (EE) versions of its API Management (APIM) distribution package. The Gravitee APIM Enterprise Edition requires a [license](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing). It is available as three different packages, each offering a different level of access to enterprise features and capabilities. For more information, please refer to our [pricing page](https://www.gravitee.io/pricing).
 
 {% hint style="info" %}
 Gravitee's platform extends beyond API Management. For information on enterprise versions of other products, please refer to the [platform overview](https://documentation.gravitee.io/platform-overview/gravitee-essentials/gravitee-offerings-ce-vs-ee).
@@ -109,5 +109,3 @@ Gravitee EE is an investment in deployment flexibility, and, optionally, the abi
 * **Self-hosted deployments**: Install and host APIM within your own private cloud/environment.
 * **Gravitee-managed deployments**: Gravitee hosts and manages all APIM components within its own cloud environment.
 * **Hybrid deployment**: Gravitee hosts and manages some APIM components within its cloud environment while you manage others within your private cloud/environment.
-
-For more information on each, please refer to our [Architecture](broken-reference) documentation.

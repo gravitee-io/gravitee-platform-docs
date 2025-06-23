@@ -8,7 +8,7 @@ The configuration and management of the platform is split into the following thr
 
 ## Gravitee Gateway&#x20;
 
-To learn about configuring your Gravitee Gateway, see the following articles:
+To learn how to configure your Gravitee Gateway, see the following articles:
 
 <table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Services</td><td><a href="gravitee-gateway/services.md">services.md</a></td></tr><tr><td>Dictionaries </td><td><a href="gravitee-gateway/dictionaries.md">dictionaries.md</a></td></tr><tr><td>Alerts</td><td><a href="gravitee-gateway/alerts.md">alerts.md</a></td></tr><tr><td>Notifications </td><td><a href="gravitee-gateway/notifications.md">notifications.md</a></td></tr><tr><td>Gateway Internal API</td><td><a href="gravitee-gateway/gateway-internal-api.md">gateway-internal-api.md</a></td></tr><tr><td>Sharding tags</td><td><a href="gravitee-gateway/sharding-tags.md">sharding-tags.md</a></td></tr><tr><td>Tenants</td><td><a href="gravitee-gateway/tenants.md">tenants.md</a></td></tr><tr><td>Header IDs</td><td><a href="gravitee-gateway/header-ids.md">header-ids.md</a></td></tr></tbody></table>
 
