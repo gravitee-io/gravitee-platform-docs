@@ -4,7 +4,7 @@
 * [Hybrid Cloud reg and gateway deploy](hybrid-cloud-reg-and-gateway-deploy.md)
 * [Introduction](<README (1).md>)
   * [Core Concepts](introduction/core-concepts.md)
-  * [Open Source vs Enterprise Edition](introduction/open-source-vs-enterprise-edition.md)
+  * [APIM Enterprise Edition](introduction/open-source-vs-enterprise-edition.md)
   * [Integrations](introduction/integrations.md)
   * [Community](introduction/community/README.md)
     * [Community Forum](introduction/community/community-forum.md)
