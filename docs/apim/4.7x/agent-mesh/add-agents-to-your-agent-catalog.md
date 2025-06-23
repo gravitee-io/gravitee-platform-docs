@@ -6,7 +6,7 @@ This guide explains how to add an agent to your Agent Catalog.
 
 ## Prerequisites
 
-* You must have an Enterprise Edition license. For more information about an Enterprise License, see [open-source-vs-enterprise-edition.md](../introduction/open-source-vs-enterprise-edition.md "mention").&#x20;
+* You must have an Enterprise Edition license. For more information about an Enterprise License, see [apim-enterprise-edition.md](../introduction/apim-enterprise-edition.md "mention").&#x20;
 * You must enable Federation. For more information about enabling Federation, see [federation](../govern-apis/federation/ "mention").
 
 ## Create an A2A protocol integration&#x20;

@@ -102,7 +102,7 @@ To modify the flow mode:
 ## Debug mode
 
 {% hint style="warning" %}
-Debug mode is an [Enterprise Edition](../../introduction/open-source-vs-enterprise-edition.md) capability
+Debug mode is an [Enterprise Edition](../../introduction/apim-enterprise-edition.md) capability
 {% endhint %}
 
 {% hint style="info" %}

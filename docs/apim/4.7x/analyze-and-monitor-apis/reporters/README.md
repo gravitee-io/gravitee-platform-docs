@@ -39,7 +39,7 @@ The following reporters are currently compatible with APIM:
 <table><thead><tr><th width="151">Type</th><th data-type="checkbox">Bundled in Distribution</th><th data-type="checkbox">Default</th><th data-type="checkbox">Enterprise only</th></tr></thead><tbody><tr><td>Elasticsearch</td><td>true</td><td>true</td><td>false</td></tr><tr><td>File</td><td>true</td><td>false</td><td>false</td></tr><tr><td>TCP</td><td>true</td><td>false</td><td>true</td></tr><tr><td>Datadog</td><td>false</td><td>false</td><td>true</td></tr></tbody></table>
 
 {% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](../../introduction/open-source-vs-enterprise-edition.md) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](../../introduction/apim-enterprise-edition.md) and what's included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -354,7 +354,7 @@ When using e.g. the File Reporter with Elasticsearch format, here is a sample of
 The reporters are configured in the `gravitee.yml`configuration file for the **gateway**. Each reporter has its own unique configuration. Consult the documentation for each reporter for details on how to configure it. Elasticsearch is used by default.
 
 {% hint style="info" %}
-If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../customize-plugins/) guide to learn more.
+If you wish to use a reporter not included in the default distribution, you must first add the reporter as a plugin. Refer to the [Plugins](../../plugins/) guide to learn more.
 {% endhint %}
 
 Each reporter has a section for configuring field exclusions and, depending on reporter type, field inclusion. Each log and metric section above has a naming convention for how it appears in field inclusion and exclusion lists, which is as follows:

@@ -10,7 +10,7 @@ This guide explains how to create a Gravitee A2A Proxy.
 
 ## Prerequisites&#x20;
 
-* You must have the Enterprise Edition of Gravitee. For more information about Gravitee Enterprise Edition, see [open-source-vs-enterprise-edition.md](../introduction/open-source-vs-enterprise-edition.md "mention").
+* You must have the Enterprise Edition of Gravitee. For more information about Gravitee Enterprise Edition, see [apim-enterprise-edition.md](../introduction/apim-enterprise-edition.md "mention").
 
 ## Create an A2A proxy
 

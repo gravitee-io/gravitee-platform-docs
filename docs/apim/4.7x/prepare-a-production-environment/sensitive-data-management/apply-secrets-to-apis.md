@@ -9,7 +9,7 @@ Secret provider plugins extend the operable range of secret managers to resolve 
 This article explains the syntax used to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](../../introduction/open-source-vs-enterprise-edition.md) and what is included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](../../introduction/apim-enterprise-edition.md) and what is included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)

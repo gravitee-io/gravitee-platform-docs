@@ -2,7 +2,7 @@
 
 ## Download and install
 
-To configure the Datadog Reporter, download the reporter plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/). Once you’ve downloaded the .ZIP file, you can add it to the Gateway in the same way as [other plugins](../../customize-plugins/). Typically, you’ll install plugins in the `/plugins` directory of your installation. As with other reporters, the Datadog Reporter plugin only needs to be installed on the Gateway, not the Management API.
+To configure the Datadog Reporter, download the reporter plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/). Once you’ve downloaded the .ZIP file, you can add it to the Gateway in the same way as [other plugins](../../plugins/). Typically, you’ll install plugins in the `/plugins` directory of your installation. As with other reporters, the Datadog Reporter plugin only needs to be installed on the Gateway, not the Management API.
 
 {% hint style="info" %}
 If you want to collect system metrics and logs from the Management API service, use the [Datadog Agent](https://docs.datadoghq.com/agent/?tab=Linux) to tail the Management API logs, or collect them from stdout.

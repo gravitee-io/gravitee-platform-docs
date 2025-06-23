@@ -70,7 +70,7 @@ The configuration details for each proxy entrypoint selection are discussed belo
 {% hint style="warning" %}
 **Enterprise only**
 
-The ability to create APIs with message API entrypoints is an [Enterprise Edition](../../introduction/open-source-vs-enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
+The ability to create APIs with message API entrypoints is an [Enterprise Edition](../../introduction/apim-enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -294,7 +294,7 @@ If **Use proxy for client connections** is selected, you'll need to define the f
 {% hint style="warning" %}
 **Enterprise only**
 
-The ability to create APIs with message API endpoints is an [Enterprise Edition](../../introduction/open-source-vs-enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
+The ability to create APIs with message API endpoints is an [Enterprise Edition](../../introduction/apim-enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)

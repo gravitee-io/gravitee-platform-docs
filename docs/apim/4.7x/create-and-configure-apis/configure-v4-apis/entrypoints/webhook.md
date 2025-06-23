@@ -20,7 +20,7 @@ If you chose **Webhook** as an entrypoint, you can modify the following configur
 ## Advanced Webhook plugin
 
 {% hint style="warning" %}
-**This feature requires Gravitee's** [**Enterprise Edition**](../../../introduction/open-source-vs-enterprise-edition.md)**.**
+**This feature requires Gravitee's** [**Enterprise Edition**](../../../introduction/apim-enterprise-edition.md)**.**
 {% endhint %}
 
 This Advanced version of the Webhook plugin adds enterprise features to the OSS version of the Webhook entrypoint, including Dead Letter Queue and secured callback. Refer to the following sections for additional details.
