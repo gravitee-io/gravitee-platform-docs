@@ -1,8 +1,9 @@
 # Gateway API - GatewayClassParameters (Experimental)
 
-⚠️ Disclaimer
 
+{% hint style="warning" %}
 GatewayClassParameters support is experimental and subject to change in future releases as our implementation of the Gateway API evolves.
+{% endhint %}
 
 ## Overview
 
