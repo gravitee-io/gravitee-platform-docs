@@ -10,9 +10,11 @@ The Gateway API controller is disabled in the Kubernetes Operator by default. To
 
 The KafkaRoute custom resource leverages the [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/) to let you declaratively define how Kafka traffic is routed through your Kubernetes cluster.
 
-This allows you to deploy gateways and manage traffic through them using a unified, well-defined API, just as the Gateway API already does with HTTPRoute resources.
+This lets you deploy Gateways and manage their traffic using a unified, well-defined API, just like the Gateway API does with HTTPRoute resources.
 
-> The KafkaRoute resource depends on licensed runtime features. To enable this functionality, please visit our [website](https://www.gravitee.io/try-gravitee) to request a valid license.
+{% hint style="info" %}
+The KafkaRoute resource depends on licensed runtime features. To enable this functionality, please visit our [website](https://www.gravitee.io/try-gravitee) to request a valid license.
+{% endhint %}
 
 ## Example
 
@@ -182,7 +184,7 @@ spec:
       port: 9092
 ```
 
-In this example, the AccessControl filter grants `read`, `write`, and `create` permissions on the `demo` topic, and `read` permission on the `demo-consumer-group` consumer group. Any attempt to access other topics or groups not listed in the ACL will be denied.
+In this example, the AccessControl filter grants `read`, `write`, and `create` permissions on the `demo` topic, and `read` permission on the `demo-consumer-group` consumer group. Any attempt to access other topics or groups not listed in the ACL is denied.
 
 {% hint style="info" %}
 **For more information**
