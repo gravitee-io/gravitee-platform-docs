@@ -51,10 +51,3 @@ Added comprehensive notification capabilities for GKO-managed resources:
   Prometheus integration can be enabled and customized via Helm values, including automatic generation of `ServiceMonitor` and `PodMonitor` resources.
 
   Refer our [monitoring quickstart](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/master/docs/guides/monitoring) for more detailed setup instructions.
-
-- **Custom Volumes for Operator Manager**
-    
-    You can now customize the Operator manager deployment by specifying additional volumes and volume mounts directly in Helm values. This enables mounting secrets, config maps, or other persistent storage needed by the manager.
-
-    Refer to our [Helm Documentation](https://artifacthub.io/packages/helm/graviteeio/gko) for setup instructions.
-  
