@@ -1,5 +1,12 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.20 - June 24, 2025
+
+There is nothing new in version 4.5.20.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+
+
 ## Gravitee Kubernetes Operator 4.5.19 - June 16, 2025
     
 <details>
