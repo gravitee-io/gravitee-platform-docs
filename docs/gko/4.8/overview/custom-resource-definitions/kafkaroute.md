@@ -1,14 +1,14 @@
 # Gateway API - KafkaRoute (Experimental)
 
-⚠️ Disclaimer
-
+{% hint style="warning" %}
 KafkaRoute and ACLFilter support is experimental and subject to change in future releases as our implementation of the Gateway API evolves.
+{% endhint %}
 
-The Gateway API controller is disabled by default in the Kubernetes Operator. To enable it, set the Helm value `gatewayAPI.controller.enabled` to true when installing or upgrading with Helm.
+The Gateway API controller is disabled in the Kubernetes Operator by default. To enable it, set the Helm value `gatewayAPI.controller.enabled` to `true` when installing or upgrading with Helm.
 
 ## Overview
 
-The KafkaRoute custom resource is designed to let you declaratively define how Kafka traffic is routed through your Kubernetes cluster by leveraging the [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/).
+The KafkaRoute custom resource leverages the [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/) to let you declaratively define how Kafka traffic is routed through your Kubernetes cluster.
 
 This allows you to deploy gateways and manage traffic through them using a unified, well-defined API, just as the Gateway API already does with HTTPRoute resources.
 
@@ -102,7 +102,7 @@ spec:
       port: 9092
 ```
 
-Before deploying this configuration, you must create a Kubernetes Secret containing your Gravitee license file. This license is required to enable Kafka protocol support within the Gravitee Gateway. The license **must** be accessible through a secret data key named `license.key`.
+Before deploying this configuration, you must create a Kubernetes Secret containing your Gravitee license file. This license is required to enable Kafka protocol support within the Gravitee Gateway. The license must be accessible through a secret data key named `license.key`.
 
 ```sh
 kubectl create secret generic gravitee-license \
@@ -116,7 +116,7 @@ Additionally, to enable Kafka traffic, Kafka support **must** be explicitly enab
 
 ### The Gateway resource
 
-To be able to route Kafka trafic your gateway resource **must** define a TLS listener that declares the gravitee.io KafkaRoute as a supported kind.
+To route Kafka traffic, your Gateway resource must define a TLS listener that declares the gravitee.io KafkaRoute as a supported kind.
 
 ```yaml
 name: kafka
@@ -134,9 +134,9 @@ kinds:
     kind: KafkaRoute
 ```
 
-Here, the listener is set to accept traffic on any subdomain of kafka.example.dev using a wildcard. If you use cert-manager to create certificates, the `cert-manager.io/common-name` annotation on your Gateway **must** also be set to `*.kafka.example.dev`. This tells cert-manager to create a certificate matching that domain, stored in the `kafka-server` secret referenced in the listener’s TLS configuration.
+Here, the listener is set to accept traffic on any subdomain of kafka.example.dev using a wildcard. If you use cert-manager to create certificates, the `cert-manager.io/common-name` annotation on your Gateway must also be set to `*.kafka.example.dev`. This tells cert-manager to create a certificate matching that domain, stored in the `kafka-server` secret referenced in the listener’s TLS configuration.
 
-Applying these resources will create all the components needed for the gateway to accept Kafka traffic on port 9092 (routing connections to `demo.kafka.example.dev` through the KafkaRoute to the `my-cluster-kafka-bootstrap` service), as well as HTTP traffic on ports 80 and 443.
+Applying these resources creates all the components needed for the Gateway to accept Kafka traffic on port 9092 (routing connections to `demo.kafka.example.dev` through the KafkaRoute to the `my-cluster-kafka-bootstrap` service), as well as HTTP traffic on ports 80 and 443.
 
 ### Adding access controls to the Kafka Route through the ACL Filter
 
