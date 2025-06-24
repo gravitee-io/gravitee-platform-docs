@@ -26,6 +26,6 @@ The **Agent Catalog** is a centralized catalog of all the AI agents built across
 
 With Gravitee Agent Tool Server, you can convert v4 proxy APIs to MCP Tools and expose them.
 
-Gravitee can convert any v4 proxy API running on the Gravitee Gateway into an MCP (Multi-Channel Protocol) server for easy consumption by AI agents. With MCP enabled, v4 proxy APIs can communicate using a single standardized interface.
+Gravitee can convert any v4 proxy API running on the Gravitee Gateway into an MCP (Model Context Protocol) server for easy consumption by AI agents. With MCP enabled, v4 proxy APIs can communicate using a single standardized interface.
 
 AI agents use the MCP protocol to discover and invoke an API's available methods, or tools. To expose the MCP protocol to consuming AI agents, an MCP entrypoint is added to an existing v4 proxy API. Next, the MCP entrypoint is enabled, and the API's OpenAPI definition is used to generate the MCP server. Each operation in the OpenAPI spec is converted into an MCP tool definition that an agent can understand.
