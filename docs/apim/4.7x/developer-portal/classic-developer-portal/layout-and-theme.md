@@ -202,7 +202,7 @@ To change the font for your Developer Portal, complete the following steps:
 1.  From the dashboard, click **Settings**.\
 
 
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (3).jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the Settings menu, navigate to the Portal section, and then click **Theme**. \
 
 
