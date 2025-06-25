@@ -1,12 +1,13 @@
 # Groovy
 
 ## Overview
+
 You can use the `groovy` policy to execute Groovy scripts at any stage of request processing within the Gateway.
 
 This policy is applicable to the following API types:
 
 * v2 APIs
-* v4 HTTP proxy APIs 
+* v4 HTTP proxy APIs
 * v4 message APIs
 
 **Note:** The Groovy policy is not supported by v4 TCP or Native APIs.
@@ -16,36 +17,31 @@ Several variables are automatically bound to the Groovy script. These let you re
 ### Request/response
 
 | Variable   | Description                                                                 |
-|------------|-----------------------------------------------------------------------------|
+| ---------- | --------------------------------------------------------------------------- |
 | `request`  | Inbound HTTP request                                                        |
-| `response` | Outbound HTTP response                                                      | 
-| `message`  | Message transiting the Gateway                                              | 
+| `response` | Outbound HTTP response                                                      |
+| `message`  | Message transiting the Gateway                                              |
 | `context`  | Context usable to access external components such as services and resources |
-| `result`   | Object to return to alter the outcome of the request/response      |
+| `result`   | Object to return to alter the outcome of the request/response               |
 
-See the [Usage](#usage) section for object attributes and methods.
+See the [Usage](groovy.md#usage) section for object attributes and methods.
 
 ### Content
 
-| Variable           | Description                      |
-|--------------------|----------------------------------|
-| `request.content`  | When "Read content" is enabled   |
-| `response.content` | When "Read content" is enabled   |
-| `message.content`  | Always available                 |
-
-
-
-
+| Variable           | Description                    |
+| ------------------ | ------------------------------ |
+| `request.content`  | When "Read content" is enabled |
+| `response.content` | When "Read content" is enabled |
+| `message.content`  | Always available               |
 
 ## Usage
 
 ### Change the outcome of a proxy API
 
-
 To change the outcome of the request or response to access the `result` object, use the following properties in your script:
 
 | Attribute | Type               | Description                    |
-|-----------|--------------------|--------------------------------|
+| --------- | ------------------ | ------------------------------ |
 | `state`   | PolicyResult.State | To indicate a failure          |
 | `code`    | integer            | An HTTP status code            |
 | `error`   | string             | The error message              |
@@ -114,76 +110,75 @@ return JsonOutput.toJson(content)
 
 `request.<property>`
 
-| Property           | Type                         | Mutable | Description                                                                                                                                              |
-|--------------------|------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `content`          | `String`                     |         | Body of the request.                                                                                                                                     |
-| `transactionId`    | `String`                     |         | Unique identifier for the transaction.                                                                                                                   |
-| `clientIdentifier` | `String`                     |         | Identifies the client that made the request.                                                                                                             |
-| `uri`              | `String`                     |         | The complete request URI.                                                                                                                                |
-| `host`             | `String`                     |         | Host from the incoming request.                                                                                                                          |
-| `originalHost`     | `String`                     |         | Host as originally received before any internal rewriting.                                                                                               |
-| `contextPath`      | `String`                     |         | API context path.                                                                                                                                         |
-| `pathInfo`         | `String`                     |         | Path beyond the context path.                                                                                                                             |
-| `path`             | `String`                     |         | The full path component of the request URI.                                                                                                              |
-| `parameters`       | `Map<String, <List<String>>` | ✅️      | Query parameters as a multi-value map. For methods, refer to [Multimap methods](#multimap-methods).                                                           |
-| `pathParameters`   | `Map<String, <List<String>>` |         | Parameters extracted from path templates. For methods, refer to [Multimap methods](#multimap-methods). Note that altering method are useless in this context. |
-| `headers`          | `Map<String, String>`        | ✅       | HTTP headers. For methods, refer to [Headers methods](#headers-methods).                                                                                     |
-| `method`           | `HttpMethod` (enum)          |         | HTTP method used in the request (e.g., GET, POST).                                                                                                       |
-| `scheme`           | `String`                     |         | The scheme (HTTP or HTTPS) used by the request.                                                                                                          |
-| `version`          | `HttpVersion` (enum)         |         | HTTP protocol version: `HTTP_1_0`,  `HTTP_1_1`,  `HTTP_2`.                                                                                               |
-| `timestamp`        | `long`                       |         | Epoch timestamp of when the request was received.                                                                                                        |
-| `remoteAddress`    | `String`                     |         | IP address of the client.                                                                                                                                 |
-| `localAddress`     | `String`                     |         | Local IP address of the server handling the request.                                                                                                          |
+| Property           | Type                         | Mutable | Description                                                                                                                                                            |
+| ------------------ | ---------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `content`          | `String`                     |         | Body of the request.                                                                                                                                                   |
+| `transactionId`    | `String`                     |         | Unique identifier for the transaction.                                                                                                                                 |
+| `clientIdentifier` | `String`                     |         | Identifies the client that made the request.                                                                                                                           |
+| `uri`              | `String`                     |         | The complete request URI.                                                                                                                                              |
+| `host`             | `String`                     |         | Host from the incoming request.                                                                                                                                        |
+| `originalHost`     | `String`                     |         | Host as originally received before any internal rewriting.                                                                                                             |
+| `contextPath`      | `String`                     |         | API context path.                                                                                                                                                      |
+| `pathInfo`         | `String`                     |         | Path beyond the context path.                                                                                                                                          |
+| `path`             | `String`                     |         | The full path component of the request URI.                                                                                                                            |
+| `parameters`       | `Map<String, <List<String>>` | ✅️      | Query parameters as a multi-value map. For methods, refer to [Multimap methods](groovy.md#multimap-methods).                                                           |
+| `pathParameters`   | `Map<String, <List<String>>` |         | Parameters extracted from path templates. For methods, refer to [Multimap methods](groovy.md#multimap-methods). Note that altering method are useless in this context. |
+| `headers`          | `Map<String, String>`        | ✅       | HTTP headers. For methods, refer to [Headers methods](groovy.md#headers-methods).                                                                                      |
+| `method`           | `HttpMethod` (enum)          |         | HTTP method used in the request (e.g., GET, POST).                                                                                                                     |
+| `scheme`           | `String`                     |         | The scheme (HTTP or HTTPS) used by the request.                                                                                                                        |
+| `version`          | `HttpVersion` (enum)         |         | HTTP protocol version: `HTTP_1_0`, `HTTP_1_1`, `HTTP_2`.                                                                                                               |
+| `timestamp`        | `long`                       |         | Epoch timestamp of when the request was received.                                                                                                                      |
+| `remoteAddress`    | `String`                     |         | IP address of the client.                                                                                                                                              |
+| `localAddress`     | `String`                     |         | Local IP address of the server handling the request.                                                                                                                   |
 
 ### Response
 
 `response.<property>`
 
-| Property  | Type                  | Mutable | Description                                                                                       |
-|-----------|-----------------------|---------|---------------------------------------------------------------------------------------------------|
-| `content` | `String`              |         | Body of the response.                                                                              |
-| `status`  | `int`                 |         | Response status code.                                                                              |
-| `reason`  | `String`              |         | Reason for the status.                                                                              |
-| `headers` | `Map<String, String>` | ✅       | HTTP headers wrapped in a bindable object. For methods, refer to [Headers methods](#headers-methods). |
-
-
+| Property  | Type                  | Mutable | Description                                                                                                    |
+| --------- | --------------------- | ------- | -------------------------------------------------------------------------------------------------------------- |
+| `content` | `String`              |         | Body of the response.                                                                                          |
+| `status`  | `int`                 |         | Response status code.                                                                                          |
+| `reason`  | `String`              |         | Reason for the status.                                                                                         |
+| `headers` | `Map<String, String>` | ✅       | HTTP headers wrapped in a bindable object. For methods, refer to [Headers methods](groovy.md#headers-methods). |
 
 ### Message
+
 `message.<property>`
 
-| Property              | Type                | Mutable | Description                                                              |
-|-----------------------|---------------------|---------|--------------------------------------------------------------------------|
-| `correlationId`       | String              |         | Correlation ID to track the message.                                      |
-| `parentCorrelationId` | String              |         | Parent correlation ID.                                                    |
-| `timestamp`           | long                |         | Epoch (ms) timestamp.                                                     |
-| `error`               | boolean             |         | Message is an error message.                                              |
-| `metadata`            | Map<String, Object> | ✅       | Message metadata. Dependent on the messaging system.                        |
-| `headers`             | Map<String, String> | ✅       | Message headers. For methods, refer to [Headers methods](#headers-methods).  |
-| `content`             | String              |         | Message body as a string.                                                 |
-| `contentAsBase64`     | String              |         | Message body bytes as a basic base64 string.                                |
-| `contentAsByteArray`  | byte[]              |         | Message body bytes.                                                       |
-| `attributes`          | Map<String, Object> | ✅       | Message attributes wrapped in a bindable object. For methods, see below. |
+| Property              | Type                 | Mutable | Description                                                                          |
+| --------------------- | -------------------- | ------- | ------------------------------------------------------------------------------------ |
+| `correlationId`       | String               |         | Correlation ID to track the message.                                                 |
+| `parentCorrelationId` | String               |         | Parent correlation ID.                                                               |
+| `timestamp`           | long                 |         | Epoch (ms) timestamp.                                                                |
+| `error`               | boolean              |         | Message is an error message.                                                         |
+| `metadata`            | Map\<String, Object> | ✅       | Message metadata. Dependent on the messaging system.                                 |
+| `headers`             | Map\<String, String> | ✅       | Message headers. For methods, refer to [Headers methods](groovy.md#headers-methods). |
+| `content`             | String               |         | Message body as a string.                                                            |
+| `contentAsBase64`     | String               |         | Message body bytes as a basic base64 string.                                         |
+| `contentAsByteArray`  | byte\[]              |         | Message body bytes.                                                                  |
+| `attributes`          | Map\<String, Object> | ✅       | Message attributes wrapped in a bindable object. For methods, see below.             |
 
 **Message attributes methods**
 
 `message.attributes.<method>`
 
-| Method          | Arguments (type) | Return type   | Description                                |
-|-----------------|------------------|---------------|--------------------------------------------|
-| `remove`        | key (`Object`)   |               | Remove an attribute.                       |
-| `containsKey`   | key (`Object`)   | `boolean`     | Check if an attribute exists.               |
+| Method          | Arguments (type) | Return type   | Description                                        |
+| --------------- | ---------------- | ------------- | -------------------------------------------------- |
+| `remove`        | key (`Object`)   |               | Remove an attribute.                               |
+| `containsKey`   | key (`Object`)   | `boolean`     | Check if an attribute exists.                      |
 | `containsValue` | key (`Object`)   | `boolean`     | Check if one of the attributes contains the value. |
-| `empty`         |                  | `boolean`     | `true` when the attribute exists.           |
-| `size`          |                  | `int`         | Return an attribute count.                  |
-| `keySet`        |                  | `Set<String>` | All attribute names.                        |
+| `empty`         |                  | `boolean`     | `true` when the attribute exists.                  |
+| `size`          |                  | `int`         | Return an attribute count.                         |
+| `keySet`        |                  | `Set<String>` | All attribute names.                               |
 
 ### Context
 
-| Property          | Type                | Mutable | Description                  | 
-|-------------------|---------------------|---------|------------------------------|
-| `attributes`      | Map<String, Object> | ✅       | Context attributes as a map. |
-| `attributeNames`  | Set<String>         |         | All attribute names.         |
-| `attributeAsList` | List<Object>        |         | All attribute values.         |
+| Property          | Type                 | Mutable | Description                  |
+| ----------------- | -------------------- | ------- | ---------------------------- |
+| `attributes`      | Map\<String, Object> | ✅       | Context attributes as a map. |
+| `attributeNames`  | Set                  |         | All attribute names.         |
+| `attributeAsList` | List                 |         | All attribute values.        |
 
 **Context attributes methods**
 
@@ -193,19 +188,17 @@ Use a prefix to get an attribute or verify that it exists.
 
 For example, `context.attributes.'my-specific-attribute'` returns an attribute map entry with the key `gravitee.attribute.my-specific-attribute`.
 
-Refer to the Gravitee documentation for available attributes. 
+Refer to the Gravitee documentation for available attributes.
 
 **Note: This rule only applies when reading an attribute. You must explicitly add `gravitee.attribute.<key>` to alter an attribute.**
 
-
-| Method        | Arguments (type)                | Return type | Description                                                                                                                                  |
-|---------------|---------------------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| Method        | Arguments (type)                | Return type | Description                                                                                                                                   |
+| ------------- | ------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | `get`         | key (`Object`)                  | `Object`    | Get a Gravitee attribute starting with `gravitee.attribute.`. Works with Groovy `context.attributes.'key'` syntax using the same prefix rule. |
-| `containsKey` | key (`Object`)                  | `boolean`   | Check if a Gravitee attribute starting with `gravitee.attribute.` exists.                                                                       |
-| `put`         | key (`String`) value (`Object`) |             | Equivalent of `context.attributes.'key' = value`.                                                                                            |
+| `containsKey` | key (`Object`)                  | `boolean`   | Check if a Gravitee attribute starting with `gravitee.attribute.` exists.                                                                     |
+| `put`         | key (`String`) value (`Object`) |             | Equivalent of `context.attributes.'key' = value`.                                                                                             |
 
 Other methods of `java.util.Map` are accessible, such as `remove` and `size`.
-
 
 ### Common objects
 
@@ -213,15 +206,14 @@ Other methods of `java.util.Map` are accessible, such as `remove` and `size`.
 
 Applicable to `request.headers`, `response.headers`, `message.headers`.
 
-| Method          | Arguments (type) | Return type    | Description               |
-|-----------------|------------------|----------------|---------------------------|
-| `remove`        | key (`Object`)   |                | Remove a header.          |
-| `containsKey`   | key (`Object`)   | `boolean`      | Check if a header exists.  |
-| `clear`         |                  |                | Remove all headers.         |
-| `empty`         |                  | `boolean`      | `true` when header exists. |
-| `size`          |                  | `int`          | Return header count.      |
-| `keySet`        |                  | `Set<String>`  | All header names.         |
-
+| Method        | Arguments (type) | Return type   | Description                |
+| ------------- | ---------------- | ------------- | -------------------------- |
+| `remove`      | key (`Object`)   |               | Remove a header.           |
+| `containsKey` | key (`Object`)   | `boolean`     | Check if a header exists.  |
+| `clear`       |                  |               | Remove all headers.        |
+| `empty`       |                  | `boolean`     | `true` when header exists. |
+| `size`        |                  | `int`         | Return header count.       |
+| `keySet`      |                  | `Set<String>` | All header names.          |
 
 #### Multimap methods
 
@@ -233,20 +225,17 @@ All methods of the Gravitee [MultiValueMap](https://github.com/gravitee-io/gravi
 
 All `java.util.Map` are also available.
 
-
-
-
 ## Errors
-These templates are defined at the API level, in the "Entrypoint" section for v4 APIs, or in "Response Templates" for v2 APIs.
+
+These templates are defined at the API level, in the "Entrypoint" section for v4 APIs, or in "Response Templates" for v2 APIs.\
 The error keys sent by this policy are as follows:
 
-| Key |
-| ---  |
-| GROOVY_EXECUTION_FAILURE |
-
-
+| Key                        |
+| -------------------------- |
+| GROOVY\_EXECUTION\_FAILURE |
 
 ## Phases
+
 The `groovy` policy can be applied to the following API types and flow phases.
 
 ### Compatible API types
@@ -262,17 +251,18 @@ The `groovy` policy can be applied to the following API types and flow phases.
 * Subscribe
 
 ## Compatibility matrix
+
 Strikethrough text indicates that a version is deprecated.
 
-| Plugin version| APIM |
-| --- | ---  |
-|3.x|4.6.x and above |
-|2.x|4.5.x and below |
-
-
+| Plugin version | APIM            |
+| -------------- | --------------- |
+| 3.x            | 4.6.x and above |
+| 2.x            | 4.5.x and below |
 
 ## Configuration
+
 ### Gateway configuration
+
 ### Whitelist sandbox
 
 The `groovy` policy includes a native sandbox feature, which lets you safely run Groovy scripts. The sandbox is based on a predefined list of allowed methods, fields, constructors, and annotations.
@@ -283,15 +273,15 @@ This whitelist should address the majority of possible use cases. If you have sp
 
 * `groovy.whitelist.mode`: `append` or `replace`. This lets you append whitelisted definitions to the built-in list, or completely replace it. We recommend selecting `append` to avoid unintended behaviors.
 * `groovy.whitelist.list`: This lets you declare other methods, constructors, fields, or annotations in the whitelist.
-    * Start with `method` to allow a specific method (complete signature)
-    * Start with `class` to allow a complete class. All methods, constructors, and fields of the class are then accessible.
-    * Start with `new` to allow a specific constructor (complete signature)
-    * Start with `field` to allow access to a specific field of a class
-    * Start with `annotation` to allow use of a specific annotation
-
+  * Start with `method` to allow a specific method (complete signature)
+  * Start with `class` to allow a complete class. All methods, constructors, and fields of the class are then accessible.
+  * Start with `new` to allow a specific constructor (complete signature)
+  * Start with `field` to allow access to a specific field of a class
+  * Start with `annotation` to allow use of a specific annotation
 
 gravitee.yml
-```YAML
+
+```yaml
 groovy:
   whitelist:
     mode: append
@@ -299,8 +289,10 @@ groovy:
       - method com.acme.common.Strings toTitleCase java.lang.String
       - class com.acme.common.Strings
 ```
+
 Environment variables (Helm)
-```YAML
+
+```yaml
 gateway:
   env:
     - name: GRAVITEE_GROOVY_WHITELIST_MODE
@@ -315,23 +307,20 @@ gateway:
 
 Exercise care when using classes or methods. In some cases, giving access to all methods of a class may make unwanted methods accessible via transitivity and risk security breaches.
 
-
 ### Configuration options
 
+####
 
-#### 
-| Name <br>`json name`  | Type <br>`constraint`  | Mandatory  | Default  | Description  |
-|:----------------------|:-----------------------|:----------:|:---------|:-------------|
-| Override content<br>`overrideContent`| boolean|  | | Enable to override the content of the request or response with the value returned by your script.|
-| Read content<br>`readContent`| boolean|  | | Enable if your script needs to access the content of the HTTP request or response in your script.|
-| Script<br>`script`| string|  | | Groovy script to evaluate.|
-
-
-
+| <p>Name<br><code>json name</code></p>                   | <p>Type<br><code>constraint</code></p> | Mandatory | Default | Description                                                                                       |
+| ------------------------------------------------------- | -------------------------------------- | :-------: | ------- | ------------------------------------------------------------------------------------------------- |
+| <p>Override content<br><code>overrideContent</code></p> | boolean                                |           |         | Enable to override the content of the request or response with the value returned by your script. |
+| <p>Read content<br><code>readContent</code></p>         | boolean                                |           |         | Enable if your script needs to access the content of the HTTP request or response in your script. |
+| <p>Script<br><code>script</code></p>                    | string                                 |           |         | Groovy script to evaluate.                                                                        |
 
 ## Examples
 
-*Proxy API on Request phase*
+_Proxy API on Request phase_
+
 ```json
 {
   "api": {
@@ -368,7 +357,9 @@ Exercise care when using classes or methods. In some cases, giving access to all
 }
 
 ```
-*Message API CRD*
+
+_Message API CRD_
+
 ```yaml
 apiVersion: "gravitee.io/v1alpha1"
 kind: "ApiV4Definition"
@@ -395,7 +386,6 @@ spec:
                   response.headers.'X-Gravitee-Gateway-Version' = '0.14.0'
 
 ```
-
 
 ## Changelogs
 

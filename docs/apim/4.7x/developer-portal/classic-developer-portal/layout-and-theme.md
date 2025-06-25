@@ -193,7 +193,54 @@ The top menu includes the following options:
 
 ### Basic customization
 
-<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default.</td></tr></tbody></table>
+<table><thead><tr><th width="157.5">Property</th><th>Use case</th></tr></thead><tbody><tr><td>Images</td><td>Show logos. Optional logo is used for the homepage and the footer. Using the default logo overrides the optional logo.</td></tr><tr><td>Homepage</td><td>Add a Homepage background image.</td></tr><tr><td>Colors</td><td>Define primary, neutral, and font colors.</td></tr><tr><td>Fonts</td><td>Choose font family and sizes. Medium sizes are used by default. For more information about Fonts, see <a data-mention href="broken-reference">Broken link</a></td></tr></tbody></table>
+
+#### Fonts
+
+To change the font for your Developer Portal, complete the following steps:
+
+1.  From the dashboard, click **Settings**.\
+
+
+    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+2.  In the Settings menu, navigate to the Portal section, and then click **Theme**. \
+
+
+    <figure><img src="../../.gitbook/assets/6F371DAF-0579-4E18-9F96-A50558F86954_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+3.  In the Theme menu, click **Fonts**.\
+
+
+    <figure><img src="../../.gitbook/assets/CC1CE981-BDBD-47C2-A33D-49E0F03C5F4A.jpeg" alt=""><figcaption></figcaption></figure>
+4. Navigate to the **Family** field, and then click the down arrow.
+5. From the Fonts drop-down menu, select the font that you want to apply to your Developer Portal. For a full list of the fonts available for your Developer Portal, see [#available-fonts](layout-and-theme.md#available-fonts "mention")
+
+#### Available fonts
+
+{% hint style="info" %}
+Each bullet point represents a group of fonts. APIM implements the first font in the list that your system supports. For example, if your system does not support **Times** or **serif** but supports **'Times New Roman'** and **'Liberation Serif'**, APIM implements **'Times New Roman'**.
+{% endhint %}
+
+**Serif fonts**
+
+* Georgia, "DejaVu Serif", Norasi, serif
+* Times, 'Times New Roman', 'Liberation Serif', FreeSerif, serif
+
+**Sans-serif fonts**
+
+* Arial, Helvetica, 'Liberation Sans', FreeSans, sans-serif
+* "DM Sans", sans-serif
+* Impact, Arial Black, sans-serif
+* 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', 'Luxi Sans', sans-serif
+* "Montserrat", sans-serif
+* Tahoma, Geneva, Kalimati, sans-serif
+* 'Trebuchet MS', Arial, Helvetica, sans-serif
+* Verdana, DejaVu Sans, Bitstream Vera Sans, Geneva, sans-serif
+
+**Monospace fonts**
+
+* Courier, 'Courier New', FreeMono, 'Liberation Mono', monospace
+* "DM Mono", monospace
+* Monaco, 'DejaVu Sans Mono', 'Lucida Console', 'Andale Mono', monospace'
 
 ### Advanced customization
 
