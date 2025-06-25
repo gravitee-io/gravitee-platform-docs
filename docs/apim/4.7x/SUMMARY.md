@@ -255,6 +255,7 @@
     * [Configure the New Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
     * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
     * [Application Logs](developer-portal/new-developer-portal/application-logs.md)
+    * [Configure Webhook Subscriptions](developer-portal/new-developer-portal/configure-webhook-subscriptions.md)
 * [Govern APIs](govern-apis/README.md)
   * [Federation](govern-apis/federation/README.md)
     * [Integrations](govern-apis/federation/integrations.md)
