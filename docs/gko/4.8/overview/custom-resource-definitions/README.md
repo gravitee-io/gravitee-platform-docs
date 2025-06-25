@@ -14,7 +14,7 @@ The Gravitee Kubernetes Operator (GKO) comes with several custom resource defini
 * [`KafkaRoute`](kafkaroute.md)
 
 {% hint style="info" %}
-Sample CRDs are available in the GKO GitHub [repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/4.5.x/examples).
+Sample CRDs are available in the GKO GitHub [repository](https://github.com/gravitee-io/gravitee-kubernetes-operator/tree/4.8.x/examples).
 {% endhint %}
 
 The `ApiV4Definition` and `ApiDefinition` custom resources are used to define individual APIs that run on the Gateway. APIs are the most important resource that GKO manages. `ApiV4Definition` is used to define v4 Gravitee APIs. It supports both traditional proxy APIs and event APIs and was introduced in GKO 4.4. `ApiDefinition` is used to define v2 Gravitee APIs.
