@@ -293,6 +293,8 @@
   * [Convert your APIs to MCP Servers](agent-mesh/convert-your-apis-to-mcp-servers.md)
 * [Kafka Gateway](kafka-gateway/README.md)
   * [Configure the Kafka Client & Gateway](kafka-gateway/configure-the-kafka-client-and-gateway.md)
+  * [Deploy a Kafka Gateway with Gravitee Cloud](kafka-gateway/deploy-a-kafka-gateway-with-gravitee-cloud.md)
+  * [Produce and Consume Kafka Messages with Gravitee Cloud](kafka-gateway/produce-and-consume-kafka-messages-with-gravitee-cloud.md)
   * [Create & Configure Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/README.md)
     * [Create Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md)
     * [Configure Kafka APIs](kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md)
