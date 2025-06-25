@@ -103,6 +103,7 @@ spec:
       namespace: default
       port: 9092
 ```
+{% endcode %}
 
 Before deploying this configuration, you must create a Kubernetes Secret containing your Gravitee license file. This license is required to enable Kafka protocol support within the Gravitee Gateway. The license must be accessible through a secret data key named `license.key`.
 

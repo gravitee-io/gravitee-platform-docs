@@ -31,6 +31,7 @@ spec:
           - name: gateway
             image: graviteeio/apim-gateway:4.8.0
 ```
+{% endcode %}
 
 This configuration enables Kafka support in the Gravitee Gateway by setting the Kafka feature to enabled and referencing a Kubernetes Secret that contains a valid license through the licenseRef field.
 
