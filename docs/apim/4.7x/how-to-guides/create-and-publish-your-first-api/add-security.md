@@ -11,7 +11,7 @@ To add an API Key plan, complete the following steps:
 5.  In the API Key authentication configuration screen, click **next**.&#x20;
 
     <figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
-6.  Click **Add plan**. \\
+6.  Click **Add plan**.&#x20;
 
     <figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 7. Delete the default keyless plan. To delete the default keyless plan, navigate to **Default Keyless (UNSECURED)**, and then click the X.
