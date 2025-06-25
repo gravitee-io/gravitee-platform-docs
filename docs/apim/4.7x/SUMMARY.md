@@ -144,6 +144,7 @@
   * [Apply Policies](create-and-configure-apis/apply-policies/README.md)
     * [v4 API Policy Studio](create-and-configure-apis/apply-policies/v4-api-policy-studio.md)
     * [v2 API Policy Studio](create-and-configure-apis/apply-policies/v2-api-policy-studio.md)
+    * [Debug Mode](create-and-configure-apis/apply-policies/debug-mode.md)
     * [Shared Policy Groups](create-and-configure-apis/apply-policies/shared-policy-groups.md)
     * [Resources](create-and-configure-apis/apply-policies/resources.md)
     * [Custom Policies](create-and-configure-apis/apply-policies/custom-policies.md)
