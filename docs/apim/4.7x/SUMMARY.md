@@ -307,6 +307,7 @@
   * [Applications](kafka-gateway/applications.md)
   * [Subscriptions](kafka-gateway/subscriptions.md)
   * [Other Ways Gravitee Supports Kafka](kafka-gateway/other-ways-gravitee-supports-kafka.md)
+  * [Expose metrics to Prometheus](kafka-gateway/expose-metrics-to-prometheus.md)
 * [Prepare a Production Environment](prepare-a-production-environment/README.md)
   * [Gateway Resource Sizing](prepare-a-production-environment/gateway-resource-sizing-guidelines.md)
   * [Production Best Practices](prepare-a-production-environment/production-best-practices/README.md)
