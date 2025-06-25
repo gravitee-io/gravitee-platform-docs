@@ -5,21 +5,19 @@
 To add an API Key plan, complete the following steps:
 
 1. Select **APIs** from the APIM Console nav and click on your API.
-2. Click **+ Add plan**, then select **API key**.&#x20;
+2. Click **+ Add plan**, then select **API key**.
 3. Name your API plan and toggle **Auto validate subscription** to ON.
-4. Click **Next**.&#x20;
-5.  In the API Key authentication configuration screen, click **next**. \
-
+4. Click **Next**.
+5.  In the API Key authentication configuration screen, click **next**.&#x20;
 
     <figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
-6.  Click **Add plan**. \
-
+6.  Click **Add plan**. \\
 
     <figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
-7. Delete the default keyless plan. To delete the default keyless plan, navigate to **Default Keyless (UNSECURED)**, and then click the X.&#x20;
+7. Delete the default keyless plan. To delete the default keyless plan, navigate to **Default Keyless (UNSECURED)**, and then click the X.
 8. Click **Validate plans.**
-9. In the Review your **API configuration screen**,  click **Save & Deploy API**.
-10. Call the API. You receive a 404 HTTP response, which shows that the API Key plan is in place.&#x20;
+9. In the Review your **API configuration screen**, click **Save & Deploy API**.
+10. Call the API. You receive a 404 HTTP response, which shows that the API Key plan is in place.
 
 ## Get the API Key
 
@@ -34,11 +32,11 @@ To test your API security, complete the following steps:
 <figure><img src="../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 
 3. In the **Application creation** screen, add the following information:
-   * Name&#x20;
-   * Description&#x20;
+   * Name
+   * Description
 4. In the **Security** section, click **Simple**.
 5. Click **Create**.
-6. In your Application's menu, click **Subscriptions**.&#x20;
+6. In your Application's menu, click **Subscriptions**.
 
 <figure><img src="../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 
@@ -53,4 +51,4 @@ To test your API security, complete the following steps:
 
 ## Test your API Key
 
-* In the header,  X-Gravitee-api-key - pass in the API key as an Auth header. It returns a 200 HTTP Response.
+* In the header, X-Gravitee-api-key - pass in the API key as an Auth header. It returns a 200 HTTP Response.
