@@ -17,6 +17,7 @@
     * [Docker](hybrid-installation-and-configuration-guides/next-gen-cloud/docker/README.md)
       * [Docker Compose](hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose.md)
       * [Docker CLI](hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli.md)
+      * [Docker Compose](hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose-1.md)
     * [Kubernetes](hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/README.md)
       * [Vanilla Kubernetes](hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes.md)
       * [AWS EKS](hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/aws-eks.md)

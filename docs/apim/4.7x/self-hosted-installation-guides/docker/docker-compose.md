@@ -2,12 +2,14 @@
 
 ## Overview
 
-When you install Gravitee API Management (APIM) with Docker Compose, you can install custom plugins and control the location of the persistent data.
+This guide explains how to install Gravitee API Management (APIM) with Docker Compose. When you install APIM with Docker Compose, you can install custom plugins and control the location of the persistent data.
 
 ## Prerequisites
 
-* You must install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
-* If you are deploying the Enterprise Edition of Gravitee, ensure that you have your license key. For more information about license keys, see [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
+Before you install APIM, complete the following steps:
+
+* Install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
+* For Gravitee Enterprise Edition deployments, ensure that you have your license key. For more information about license keys, see [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
 
 ## Install Gravitee APIM&#x20;
 
