@@ -1,5 +1,8 @@
 # GKO 4.7.x
 
+4.7.9-alpha was not created in Jira. Assuming no changelog should be generated.
+
+
 ## Gravitee Kubernetes Operator 4.7.7 - June 16, 2025
     
 <details>
