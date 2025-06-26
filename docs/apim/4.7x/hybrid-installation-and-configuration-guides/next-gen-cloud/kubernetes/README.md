@@ -1,6 +1,10 @@
 # Kubernetes
 
+{% include "../../../.gitbook/includes/prepare-installation.md" %}
+
 ## Deployment Methods
+
+{% include "../../../.gitbook/includes/hybrid-installation-support.md" %}
 
 * [vanilla-kubernetes.md](vanilla-kubernetes.md "mention")
 * AWS EKS
