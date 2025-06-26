@@ -27,7 +27,7 @@ This guide explains how to add an agent to your Agent Catalog.
 5.  Click **Create Integration**.\
 
 
-    <figure><img src="../.gitbook/assets/image (271).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (271) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Your Integration appears in the **Integrations** screen.
@@ -55,7 +55,7 @@ The configuration screen displays the agent card for the Agent.&#x20;
 1.  From the **Dashboard**, click **Integrations**. \
 
 
-    <figure><img src="../.gitbook/assets/image (272).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (272) (1).png" alt=""><figcaption></figcaption></figure>
 2.  From the **Integrations page**, click your A2A integration.\
 
 

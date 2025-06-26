@@ -47,7 +47,7 @@ Debug mode cannot test the following policies and features:
 8.  Click **Send**. You are shown a timeline of the order of the flows and policies. \
 
 
-    <figure><img src="../../.gitbook/assets/image (276).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (276) (1).png" alt=""><figcaption></figcaption></figure>
 9.  Select a step in the timeline to compare its inputs and outputs. \
 
 

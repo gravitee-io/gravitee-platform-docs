@@ -38,7 +38,7 @@ To verify that the Kafka Gateway deployed correctly, complete the following step
 *   From the **Dashboard**, navigate to the **Gateways** section, and then confirm that the Gateway row entries are not greyed out and the Gateway name is an active link.\
 
 
-    <figure><img src="../.gitbook/assets/image (277).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (277) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 If the Gateway was not deployed correctly, the Gateway row entries are greyed out and the Gateway name is an inactive link.

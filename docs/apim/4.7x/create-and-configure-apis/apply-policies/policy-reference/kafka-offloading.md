@@ -17,7 +17,7 @@ With the Kafka Offloading policy, you can configure the delegation of Kafka mess
     * Provide the **Azure connection string**.
     * Specify the **container name**.
 
-    <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 2.  In the Policy Studio, configure the policy with the following information:
 
     * Select the **"Event Messages"** tab for your API.
