@@ -36,6 +36,10 @@ As it is specific information,you must use the following Gravitee schema extensi
 "urn:ietf:params:scim:schemas:extension:custom:2.0:User": {\
 "lastPasswordReset": "2024-10-27T04:56:22Z"\
 }
+
+You can also define two boolean parameters: `preRegistration` and `forceResetPassword`.\
+When `preRegistration` is set to `true`, the user receives an email prompting them to confirm their profile and set a password.\
+When `forceResetPassword` is set to `true`, the user is required to reset their password following their next successful login.
 {% endhint %}
 
 The following non-normative example shows how to create, update, and patch users by using the custom `User` extension in JSON format.
