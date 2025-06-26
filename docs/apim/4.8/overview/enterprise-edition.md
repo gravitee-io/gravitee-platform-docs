@@ -100,7 +100,7 @@ Not technically a part of the Access Management product, Gravitee offers a stand
 
 ## Advanced environment management
 
-Gravitee APIM EE includes [Gravitee C](https://documentation.gravitee.io/gravitee-cloud)[loud](https://documentation.gravitee.io/gravitee-cloud), used to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
+Gravitee APIM EE includes [Gravitee Cloud](https://documentation.gravitee.io/gravitee-cloud), used to register multiple APIM environments and installations. This allows you to manage environment hierarchies and promote APIs across higher and lower environments.
 
 ## Hosting options
 
