@@ -1,7 +1,7 @@
 # Debug Mode
 
 {% hint style="warning" %}
-Debug mode is an Enterprise-only capability. For more information about Gravitee Enterprise Edition, see [apim-enterprise-edition.md](../../introduction/apim-enterprise-edition.md "mention").
+Debug mode is an Enterprise-only capability. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../../introduction/enterprise-edition.md "mention").
 {% endhint %}
 
 ## Overview

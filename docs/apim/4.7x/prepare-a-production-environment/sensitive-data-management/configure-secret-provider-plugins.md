@@ -15,7 +15,7 @@ Functionally, the secrets managers integrations are handled by`secret-provider` 
 This capability is available in Gravitee Gateway and API Management for both Access Management and APIM.
 
 {% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](../../introduction/apim-enterprise-edition.md) and what's included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](../../introduction/enterprise-edition.md) and what's included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)

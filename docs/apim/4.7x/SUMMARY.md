@@ -4,7 +4,7 @@
 * [Hybrid Cloud reg and gateway deploy](hybrid-cloud-reg-and-gateway-deploy.md)
 * [Introduction](introduction/README.md)
   * [Core Concepts](introduction/core-concepts.md)
-  * [APIM Enterprise Edition](introduction/apim-enterprise-edition.md)
+  * [Enterprise Edition](introduction/enterprise-edition.md)
   * [Integrations](introduction/integrations.md)
   * [Community Forum](introduction/community-forum.md)
   * [Contribute to APIM](introduction/contribute-to-apim.md)
