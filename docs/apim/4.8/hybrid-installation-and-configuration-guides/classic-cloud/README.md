@@ -4,7 +4,7 @@
 
 Gravitee APIM can be installed using the following technology stacks and deployment methods.
 
-{% include "../../.gitbook/includes/hybrid-installation-support.md" %}
+{% include "../../../4.7x/.gitbook/includes/hybrid-installation-support.md" %}
 
 ### Docker
 
@@ -52,6 +52,6 @@ The following table lists the Bridge versions supported by each Gateway version.
 
 ## Architecture
 
-<img src="../../.gitbook/assets/file.excalidraw (18).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
+<img src="../../.gitbook/assets/file.excalidraw (19).svg" alt="Hybrid deployment architecture" class="gitbook-drawing">
 
 <figure><img src="../../.gitbook/assets/image (173).png" alt="Diagram showing the hybrid architecture"><figcaption><p>Hybrid architecture connections</p></figcaption></figure>

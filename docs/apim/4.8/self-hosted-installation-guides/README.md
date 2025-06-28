@@ -41,13 +41,13 @@ The following diagrams illustrate the component management, design, and virtual 
 
 ### Self-hosted component management
 
-<img src="../.gitbook/assets/file.excalidraw (21).svg" alt="" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (22).svg" alt="" class="gitbook-drawing">
 
 ### Self-hosted architecture diagram
 
-<img src="../.gitbook/assets/file.excalidraw (20).svg" alt="Self-hosted architecture" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (21).svg" alt="Self-hosted architecture" class="gitbook-drawing">
 
 ### Self-hosted VM installation: LAN + DMZ deployment
 
-<img src="../.gitbook/assets/file.excalidraw (19).svg" alt="Self-hosted architecture LAN + DMZ" class="gitbook-drawing">
+<img src="../.gitbook/assets/file.excalidraw (20).svg" alt="Self-hosted architecture LAN + DMZ" class="gitbook-drawing">
 
