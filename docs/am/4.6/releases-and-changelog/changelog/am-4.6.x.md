@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.14 - June 25, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Add token sub claim from JWT token in the TOKEN_CREATED event [#10638](https://github.com/gravitee-io/issues/issues/10638)
+
+
+
+
+
+**Other**
+
+* [FC] update the sandbox urls [#10636](https://github.com/gravitee-io/issues/issues/10636)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.13 - June 20, 2025
 
 <details>
