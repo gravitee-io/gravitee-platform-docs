@@ -14,7 +14,7 @@ APIs with Keyless plans do not require the API consumer to create an application
 
 API consumers can subscribe to APIs with published plans during the application creation process, or after the application is created. The APIM Console offers two ways to create a subscription using an existing application:
 
-* To create a subscription from within your API, follow [these](configure-kafka-apis/consumers.md#create-a-subscription) instructions.
+* To create a subscription from within your API, follow [these](create-and-configure-kafka-apis/configure-kafka-apis/consumers.md#create-a-subscription) instructions.
 * To create a subscription from an existing application, follow the instructions below.
   1. Log in to your APIM Console
   2. Select **Applications** from the left nav
@@ -35,7 +35,7 @@ API consumers can subscribe to APIs with published plans during the application 
 When creating a plan, you can enable subscription auto-validation to immediately approve subscription requests. If **Auto validate subscription** is disabled, the API publisher must approve all subscription requests.
 
 {% hint style="info" %}
-To be notified of subscription validation tasks, enable [Notifications](../gravitee-gateway/notifications.md)
+To be notified of subscription validation tasks, enable [Notifications](../configure-and-manage-the-platform/gravitee-gateway/notifications.md)
 {% endhint %}
 
 To manage subscriptions in APIM Console:

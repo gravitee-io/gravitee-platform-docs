@@ -8,7 +8,7 @@ This guide explains how to expose the Gravitee Gateway's internal API metrics to
 
 * Administrative access to your Gateway instance to edit the `gravitee.yml` file.
 * A Prometheus server with write access to your `prometheus.yml` file.
-* A Kafka API. For more information about creating a Kafka API, see [create-kafka-apis.md](create-kafka-apis.md "mention").
+* A Kafka API. For more information about creating a Kafka API, see [create-kafka-apis.md](create-and-configure-kafka-apis/create-kafka-apis.md "mention").
 
 ## Expose metrics to Prometheus
 

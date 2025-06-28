@@ -1,4 +1,4 @@
-# Other ways Gravitee supports Kafka
+# Other Ways Gravitee Supports Kafka
 
 ## Overview
 

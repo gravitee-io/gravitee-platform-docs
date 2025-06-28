@@ -9,7 +9,7 @@
 1.  From the Developer Portal's catalog, navigate to the webhook that you want to configure.\
 
 
-    <figure><img src="../../.gitbook/assets/image (250).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (299).png" alt=""><figcaption></figcaption></figure>
 2.  Click **Learn More**.\
 
 
@@ -36,7 +36,7 @@
     6. (Optional) In the **SSL** section, enable **Verify host** and **Trust all**. \
 
 
-    <figure><img src="../../.gitbook/assets/image (251).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (300).png" alt=""><figcaption></figcaption></figure>
 7.  Click **Next**.\
 
 
@@ -45,10 +45,10 @@
 9.  Click **Subscribe**.\
 
 
-    <figure><img src="../../.gitbook/assets/11C5B4EE-F95D-4A58-A9FC-51BD9FF03EC1.jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/11C5B4EE-F95D-4A58-A9FC-51BD9FF03EC1 (1).jpeg" alt=""><figcaption></figcaption></figure>
 
 ## Verification&#x20;
 
 Once you subscribe to an API, the Developer Portal displays the description details. For example:
 
-<figure><img src="../../.gitbook/assets/image (252).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (301).png" alt=""><figcaption></figcaption></figure>

@@ -1,6 +1,8 @@
 # Convert your APIs to MCP Servers
 
-{% include "../.gitbook/includes/v4-proxy-only-feature.md" %}
+{% hint style="warning" %}
+This feature only works with v4 proxy APIs.
+{% endhint %}
 
 ## Overview
 
@@ -8,7 +10,7 @@ This guide explains how to convert an API into an MCP server.
 
 ## Prerequisites
 
-* Create a v4 proxy API. For more information about creating a v4 proxy API, see [v4-api-creation-wizard.md](../create-apis/v4-api-creation-wizard.md "mention").
+* Create a v4 proxy API. For more information about creating a v4 proxy API, see [v4-api-creation-wizard.md](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md "mention").
 * An OpenAPI Specification to generate the MCP tools definition.&#x20;
 
 ## Deploy your API as an MCP Server
@@ -33,15 +35,15 @@ This guide explains how to convert an API into an MCP server.
 6.  Click **+ Generate Tools from OpenAPI**.\
 
 
-    <figure><img src="../.gitbook/assets/2AA002A5-4D84-419D-8340-7600F9A9C5CD_1_201_a (2).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/2AA002A5-4D84-419D-8340-7600F9A9C5CD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 7.  In the **Generate Tools from OpenAPI** pop-up window, add your OpenAPI specification, and then click **Regenerate Tools**.\
 
 
-    <figure><img src="../.gitbook/assets/FF3E9B42-CABD-400C-9C01-45D59D1239ED_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/FF3E9B42-CABD-400C-9C01-45D59D1239ED_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 8.  Click **Create**.\
 
 
-    <figure><img src="../.gitbook/assets/624D7AEF-49B6-433E-9340-501DD3D348ED_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/624D7AEF-49B6-433E-9340-501DD3D348ED_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 9.  Click **Deploy API**.\
 
 

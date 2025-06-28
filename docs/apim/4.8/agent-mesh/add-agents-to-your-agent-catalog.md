@@ -6,8 +6,8 @@ This guide explains how to add an agent to your Agent Catalog.
 
 ## Prerequisites
 
-* You must have an Enterprise Edition license. For more information about an Enterprise License, see [enterprise-edition.md](../overview/enterprise-edition.md "mention").&#x20;
-* You must enable Federation. For more information about enabling Federation, see [federation](../governance/federation/ "mention").
+* You must have an Enterprise Edition license. For more information about an Enterprise License, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").&#x20;
+* You must enable Federation. For more information about enabling Federation, see [federation](../govern-apis/federation/ "mention").
 
 ## Create an A2A protocol integration&#x20;
 
@@ -27,7 +27,7 @@ This guide explains how to add an agent to your Agent Catalog.
 5.  Click **Create Integration**.\
 
 
-    <figure><img src="../.gitbook/assets/image (264).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (282).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Your Integration appears in the **Integrations** screen.
@@ -55,7 +55,7 @@ The configuration screen displays the agent card for the Agent.&#x20;
 1.  From the **Dashboard**, click **Integrations**. \
 
 
-    <figure><img src="../.gitbook/assets/image (265).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (283).png" alt=""><figcaption></figcaption></figure>
 2.  From the **Integrations page**, click your A2A integration.\
 
 
@@ -75,7 +75,7 @@ The configuration screen displays the agent card for the Agent.&#x20;
 6.  Click **Overview**.\
 
 
-    <figure><img src="../.gitbook/assets/54891E06-44E2-4728-84F8-6BA6D33CC6E4_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/54891E06-44E2-4728-84F8-6BA6D33CC6E4_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 7.  Click **Discover**. The Agent appears in the **Agents** section.\
 
 

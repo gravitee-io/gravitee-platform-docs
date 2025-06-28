@@ -24,7 +24,7 @@ In the New Developer Portal catalog, you can search for an API based on an assoc
 6.  Use the **Category View Mode** drop-down menu to select **Tabs (Default)** or **Tiles**.\
 
 
-    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (297).png" alt=""><figcaption></figcaption></figure>
 
 ### Verification
 
@@ -63,7 +63,7 @@ To select fonts for the New Developer Portal, complete the following steps:
 6.  From the **Font** drop-down menu, select a new font. For a list of available fonts, see [#available-fonts](layout-and-theme.md#available-fonts "mention").\
 
 
-    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (298).png" alt=""><figcaption></figcaption></figure>
 
 ### Available Fonts
 
@@ -106,7 +106,7 @@ You can add custom CSS to your Developer Portal's theme with the CSS editor. To 
 1.  From the homepage, click **Settings**.\
 
 
-    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (3).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/76D66FB4-4D8E-467D-AADE-543FC7813158_1_201_a (2).jpeg" alt=""><figcaption></figcaption></figure>
 2.  In the **Settings** menu, navigate to the **Portal** section, and then click **Settings**.\
 
 

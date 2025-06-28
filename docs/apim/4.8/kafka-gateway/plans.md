@@ -4,10 +4,10 @@
 
 A **plan** provides a service and access layer on top of your API that specifies access limits, subscription validation modes, and other configurations to tailor it to an application. To expose your Kafka API to internal or external consumers, it must have at least one plan. Gravitee offers the following types of plans for Kafka APIs:
 
-* **Keyless.** For more information about the keyless plan, see [keyless.md](../expose-apis/plans/keyless.md "mention").
-* **API Key.** For more information about the API Key plan, see [api-key.md](../expose-apis/plans/api-key.md "mention").
-* **OAuth2.** For more information about the OAuth2 plan, see [oauth2.md](../expose-apis/plans/oauth2.md "mention").
-* **JWT.** For more information about the JWT plan, see [jwt.md](../expose-apis/plans/jwt.md "mention").
+* **Keyless.** For more information about the keyless plan, see [keyless.md](../secure-and-expose-apis/plans/keyless.md "mention").
+* **API Key.** For more information about the API Key plan, see [api-key.md](../secure-and-expose-apis/plans/api-key.md "mention").
+* **OAuth2.** For more information about the OAuth2 plan, see [oauth2.md](../secure-and-expose-apis/plans/oauth2.md "mention").
+* **JWT.** For more information about the JWT plan, see [jwt.md](../secure-and-expose-apis/plans/jwt.md "mention").
 
 {% hint style="info" %}
 mTLS plans are not yet supported for Kafka APIs.
@@ -32,7 +32,7 @@ A plan can exist in one of four stages:
 * DEPRECATED. A deprecated plan won’t be available on the Developer Portal and API consumers won’t be able to subscribe to it. This cannot be undone. Existing subscriptions are not impacted, giving current API consumers time to migrate without breaking their application.
 * CLOSED. Once a plan is closed, all associated subscriptions are closed. API consumers subscribed to this plan won’t be able to use the API. This cannot be undone.
 
-Depending on the stage it's in, a plan can be edited, published, deprecated, or closed. See [this](configure-kafka-apis/consumers.md#plans) documentation for specific instructions.
+Depending on the stage it's in, a plan can be edited, published, deprecated, or closed. See [this](create-and-configure-kafka-apis/configure-kafka-apis/consumers.md#plans) documentation for specific instructions.
 
 ### Edit a plan
 

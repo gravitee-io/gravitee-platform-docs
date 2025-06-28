@@ -1,7 +1,7 @@
 # Create an A2A Proxy
 
 {% hint style="warning" %}
-This features works with only v4 message APIs.
+This feature only works with v4 message APIs.
 {% endhint %}
 
 ## Overview
@@ -10,7 +10,7 @@ This guide explains how to create a Gravitee A2A Proxy.
 
 ## Prerequisites&#x20;
 
-* You must have the Enterprise Edition of Gravitee. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../overview/enterprise-edition.md "mention").
+* You must have the Enterprise Edition of Gravitee. For more information about Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
 
 ## Create an A2A proxy
 
@@ -37,7 +37,7 @@ This guide explains how to create a Gravitee A2A Proxy.
 6.  Click **Select my API architecture**. \
 
 
-    <figure><img src="../.gitbook/assets/0CCBFFE7-216B-4568-99AC-BAA064FFF12E_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/0CCBFFE7-216B-4568-99AC-BAA064FFF12E_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 7. In the **Configure your API entrypoints** screen, enter the following details:
    1. The **Context-path** for the entrypoint.
    2. (Optional) Define the interval at which heartbeats are sent to the client.&#x20;
