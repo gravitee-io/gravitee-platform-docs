@@ -1,4 +1,4 @@
-# Load-balancing, Failover, and Health-checks
+# Load-balancing, Failover, & Health-checks
 
 ## Overview
 

@@ -9,7 +9,7 @@ Gravitee offers the following features for API governance:
 
 To learn more about Federation, see the following articles:&#x20;
 
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Intergrations</td><td><a href="../introduction/integrations.md">integrations.md</a></td></tr><tr><td>Discovery</td><td><a href="federation/discovery.md">discovery.md</a></td></tr><tr><td>Federated APIs</td><td><a href="federation/federated-apis.md">federated-apis.md</a></td></tr><tr><td>Federation Agent Service Account</td><td><a href="federation/federation-agent-service-account.md">federation-agent-service-account.md</a></td></tr><tr><td>3rd-Party Providers</td><td><a href="federation/3rd-party-providers/">3rd-party-providers</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Intergrations</td><td><a href="../readme/integrations.md">integrations.md</a></td></tr><tr><td>Discovery</td><td><a href="federation/discovery.md">discovery.md</a></td></tr><tr><td>Federated APIs</td><td><a href="federation/federated-apis.md">federated-apis.md</a></td></tr><tr><td>Federation Agent Service Account</td><td><a href="federation/federation-agent-service-account.md">federation-agent-service-account.md</a></td></tr><tr><td>3rd-Party Providers</td><td><a href="federation/3rd-party-providers/">3rd-party-providers</a></td></tr></tbody></table>
 
 ## API Score
 

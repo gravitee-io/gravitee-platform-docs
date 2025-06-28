@@ -132,7 +132,7 @@ To confirm that your Hybrid installation is working, complete the following step
 1.  Sign in to Gravitee Cloud.\
 
 
-    <figure><img src="../../../.gitbook/assets/image (280) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (306).png" alt=""><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section. Your new Hybrid Gateway appears here.\
 
 

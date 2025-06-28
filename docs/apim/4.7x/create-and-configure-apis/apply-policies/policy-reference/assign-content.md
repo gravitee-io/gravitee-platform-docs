@@ -24,7 +24,7 @@ A typical usage would be to simply overwrite the original request payload with s
 }
 ```
 
-<figure><img src="../../../.gitbook/assets/image (222).png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (223).png" alt="" width="375"><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 ### Replace original payload with dynamic values
 
@@ -191,7 +191,7 @@ Let's walk through the above Freemarker code, line by line:
 
 **Line 7:**  Output all key/value pairs to the final response.
 
-<figure><img src="../../../.gitbook/assets/image (221).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (222).png" alt=""><figcaption><p>Assign Content policy configuration UI</p></figcaption></figure>
 
 {% code title="Final response payload (sent onto client):" %}
 ```json

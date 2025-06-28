@@ -7,35 +7,35 @@ To create your first API, complete the following steps:
 1.  Log in to your APIM Console and select **APIs** from the menu.\
 
 
-    <figure><img src="../../.gitbook/assets/image (209).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (210).png" alt=""><figcaption></figcaption></figure>
 2.  Click **+ Add API**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (210).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Create New API** section, click **Create V4 API**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
 4.  Enter your API's name and version number and click **Validate my API details**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
 5.  Select **Proxy Generic Protocol** and click **Select my API architecture**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (214).png" alt=""><figcaption></figcaption></figure>
 6.  Select **HTTP Proxy** and click **Select my entrypoints**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (214).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
 7.  Set a unique **Context-path** and click **Validate my entrypoints**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 8.  Set the target URL for the HTTP proxy and click **Validate my endpoints**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 9. By default, Gravitee adds a **Default keyless plan (UNSECURED)** to your API. Click **Validate my plans**.&#x20;
 10. Click **Save & Deploy**.
 

@@ -1,4 +1,4 @@
-# Default Nginx security config
+# Default Nginx Security Config
 
 The APIM Console uses this default config:
 

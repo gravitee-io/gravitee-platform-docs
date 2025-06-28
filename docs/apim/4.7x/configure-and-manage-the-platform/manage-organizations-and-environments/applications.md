@@ -40,7 +40,7 @@ user:
 ## DCR application configuration
 
 {% hint style="warning" %}
-Dynamic Client Registration is an [Enterprise Edition](../../introduction/enterprise-edition.md) capability
+Dynamic Client Registration is an [Enterprise Edition](../../readme/enterprise-edition.md) capability
 {% endhint %}
 
 The DCR protocol allows an OAuth client application to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. Using DCR, API consumers can register applications via the Developer Portal or APIM Console. This outsources the issuer and management of application credentials to a third party, enabling additional configuration options and compatibility with IdP OIDC features.

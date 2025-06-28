@@ -1,11 +1,11 @@
 # Table of contents
 
 * [Introduction](README.md)
-  * [Core Concepts](introduction/core-concepts.md)
-  * [Enterprise Edition](introduction/enterprise-edition.md)
-  * [Integrations](introduction/integrations.md)
-  * [Community Forum](introduction/community-forum.md)
-  * [Contribute to APIM](introduction/contribute-to-apim.md)
+  * [Core Concepts](readme/core-concepts.md)
+  * [Enterprise Edition](readme/enterprise-edition.md)
+  * [Integrations](readme/integrations.md)
+  * [Community Forum](readme/community-forum.md)
+  * [Contribute to APIM](readme/contribute-to-apim.md)
 * [Getting Started](getting-started/README.md)
   * [Next-Gen Cloud Free Trial](https://eu.cloud.gravitee.io/)
   * [Local Install with Docker](getting-started/local-install-with-docker.md)
