@@ -11,10 +11,10 @@ Gravitee offers integrations with various secret managers. If you are storing se
 We provide the follow integrations:&#x20;
 
 * Kubernetes&#x20;
-* HashiCorp Vault ([Enterprise Edition](../../introduction/apim-enterprise-edition.md))
-* AWS Secrets Manager ([Enterprise Edition](../../introduction/apim-enterprise-edition.md))
+* HashiCorp Vault ([Enterprise Edition](../../readme/enterprise-edition.md))
+* AWS Secrets Manager ([Enterprise Edition](../../readme/enterprise-edition.md))
 
-For more information about secret manager integrations, see the [Integrations](../../introduction/integrations.md).
+For more information about secret manager integrations, see the [Integrations](../../readme/integrations.md).
 
 When you use secret managers, you use Gravitee's `secret-provider` plugins to configure access, and then you can reference the secrets in different locations.&#x20;
 

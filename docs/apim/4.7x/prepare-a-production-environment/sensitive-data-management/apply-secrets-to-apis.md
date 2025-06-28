@@ -4,12 +4,12 @@
 
 You can configure secrets managers to work with your APIs. You can use secrets to hide information in any field that supports Gravitee Expression Language. For more information about Gravitee Expression Language, see [gravitee-expression-language.md](../../gravitee-expression-language.md "mention").
 
-Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about secret provider plugins, see [integrations.md](../../introduction/integrations.md "mention").
+Secret provider plugins extend the operable range of secret managers to resolve secrets on startup and resolve secrets in APIs. For more information about secret provider plugins, see [integrations.md](../../readme/integrations.md "mention").
 
 This article explains the syntax used to resolve secrets in v4 APIs and configure secret managers.
 
 {% hint style="warning" %}
-To learn more about Gravitee [Enterprise Edition](../../introduction/apim-enterprise-edition.md) and what is included in various enterprise packages, please:
+To learn more about Gravitee [Enterprise Edition](../../readme/enterprise-edition.md) and what is included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -17,7 +17,7 @@ To learn more about Gravitee [Enterprise Edition](../../introduction/apim-enterp
 
 ## Prerequisites to enable this feature
 
-1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](broken-reference): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../introduction/integrations.md#secret-managers-integration).
+1. You must configure one of the following secret managers in your `gravitee.yml` file or using the equivalent [environment variable](broken-reference): Kubernetes, Amazon Secret Manager, or Hashicorp Vault. For more information about these secret managers, see [Integrations](../../readme/integrations.md#secret-managers-integration).
 2. Reference those secrets in your API definitions with a specialized syntax.
 
 ## Configuring Gravitee to access secret managers
@@ -321,7 +321,7 @@ You can see here that the definition does not contain a clear text secret. This 
 
 Here is an example of referencing a secret when you configure a Redis Cache resource:
 
-<figure><img src="../../.gitbook/assets/image (179).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (180).png" alt=""><figcaption></figcaption></figure>
 
 ### Native Kafka endpoint API example
 

@@ -60,7 +60,7 @@ In a self-hosted deployment, both the Control Plane and Data Plane are installed
 ## Community Edition versus Enterprise Edition
 
 {% hint style="info" %}
-For a detailed description of Gravitee Enterprise Edition, see [apim-enterprise-edition.md](../introduction/apim-enterprise-edition.md "mention").
+For a detailed description of Gravitee Enterprise Edition, see [enterprise-edition.md](../readme/enterprise-edition.md "mention").
 {% endhint %}
 
 The Gravitee distribution is available as both Open-Source (OSS) and Enterprise Edition (EE). Here is a table that shows the high-level differences between OSS and EE:

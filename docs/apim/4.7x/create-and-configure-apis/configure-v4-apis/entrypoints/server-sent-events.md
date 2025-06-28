@@ -12,7 +12,7 @@ If you chose **SSE** as an entrypoint, you can modify the following configuratio
 ## Advanced SSE plugin
 
 {% hint style="warning" %}
-**This feature requires Gravitee's** [**Enterprise Edition**](../../../introduction/apim-enterprise-edition.md)**.**
+**This feature requires Gravitee's** [**Enterprise Edition**](../../../readme/enterprise-edition.md)**.**
 {% endhint %}
 
 This Advanced version of the SSE plugin adds enterprise features to the OSS version of the SSE entrypoint. Refer to the following sections for additional details.

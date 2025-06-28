@@ -1,4 +1,4 @@
-# Customize Plugins
+# Plugins
 
 ## Overview
 

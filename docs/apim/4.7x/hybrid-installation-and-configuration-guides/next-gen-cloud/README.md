@@ -11,7 +11,7 @@ The following installation steps are common to all supported deployment methods.
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).\
 
 
-    <figure><img src="../../.gitbook/assets/image (262).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (272).png" alt=""><figcaption></figcaption></figure>
 2.  Select **Dashboard** from the menu, and then click **Deploy Gateway**.\
 
 
@@ -19,7 +19,7 @@ The following installation steps are common to all supported deployment methods.
 3.  In the **Choose Gateway Deployment Method** modal, select **Hybrid Gateway**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (266).png" alt=""><figcaption></figcaption></figure>
 4.  On the **Deploy Hybrid Gateway** screen, select the Environment to which you'd like to deploy the Gateway. For example, **Development**.\
 
 
@@ -33,7 +33,7 @@ The following installation steps are common to all supported deployment methods.
 
 
 
-    <figure><img src="../../.gitbook/assets/image (265).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (276).png" alt=""><figcaption></figcaption></figure>
 6.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure. \
 
 
@@ -92,7 +92,7 @@ Analytics are reported to a dedicated Cloud Account pipeline. Data is produced t
 
 All communication between the hybrid Gateway and the Cloud Gate endpoints uses TLS encryption.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens.</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (270).png" alt=""><figcaption><p>Overview of a Gravitee Cloud deployment in Azure with a hybrid gateway connecting to the Gravitee Cloud API Management Control Plane using the Cloud Gate and Cloud Tokens.</p></figcaption></figure>
 
 ### Cloud Gate Endpoints
 

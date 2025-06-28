@@ -1,5 +1,7 @@
 # Kafka Message Filtering
 
+[Kafka Message Filtering](https://download.gravitee.io/#graviteeio-ee/apim/plugins/policies/gravitee-policy-kafka-message-filtering/): Lets you filter Kafka messages before they are propagated.
+
 ## Overview
 
 You can use the `kafka-message-filtering` policy to filter the messages before they are propagated.

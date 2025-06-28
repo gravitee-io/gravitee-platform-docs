@@ -80,7 +80,7 @@ To configure sharding tags, complete the following steps:
    3.  (Optional) From the **Restricted groups** drop-down menu, select the groups that you want to be able to deploy to this tag.\
 
 
-       <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**.
 
 ### Add sharding tags to your APIs
@@ -92,7 +92,7 @@ To configure sharding tags, complete the following steps:
 2.  In the **APIs** screen, select the API to which you want to add a sharding tag.\
 
 
-    <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 3.  In the **APIs** menu, click **Deployment**.\
 
 
@@ -101,7 +101,7 @@ To configure sharding tags, complete the following steps:
 5.  From the **Sharding tags** drop-down menu, select the sharding tag that you want to add to the API.\
 
 
-    <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 6.  In the **You have unsaved changes** pop-up, click **Save**.\
 
 
@@ -159,11 +159,11 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 1.  In the **Dashboard**, click **Organization**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 2.  In the **Organization** menu, click **Entrypoints & Sharding Tags**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 3.  Navigate to **Entrypoint Mappings**, and then click **+ Add a mapping**. \
 
 
@@ -180,7 +180,7 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 2)  In the **Entrypoint url** field, enter your entrypoint URL. \
 
 
-    <div align="left"><figure><img src="../../.gitbook/assets/image (5) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/image (6).png" alt="" width="375"><figcaption></figcaption></figure></div>
 3) Click **Ok.**
 {% endtab %}
 
@@ -189,7 +189,7 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 2.  In the **Default TCP port** field, type the number of your TCP port. \
 
 
-    <div align="left"><figure><img src="../../.gitbook/assets/image (6) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/image (7).png" alt="" width="375"><figcaption></figcaption></figure></div>
 3. Click **Ok**.
 {% endtab %}
 
@@ -199,7 +199,7 @@ For example, to tell Gravitee API Manager to apply the “internal test” tag t
 3.  In the **Default Kafka port** field, type your default Kafka port. \
 
 
-    <div align="left"><figure><img src="../../.gitbook/assets/image (7) (1).png" alt="" width="375"><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../.gitbook/assets/image (8).png" alt="" width="375"><figcaption></figcaption></figure></div>
 4. Click **Ok**.&#x20;
 {% endtab %}
 {% endtabs %}

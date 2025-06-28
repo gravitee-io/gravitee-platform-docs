@@ -8,7 +8,7 @@ The v4 API creation wizard makes it easy to create new Gateway APIs from scratch
 2. Click on **APIs** in the left nav
 3. In the Create New API , click on **Create V4 API**.
 
-<figure><img src="../../.gitbook/assets/image (176).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (177).png" alt=""><figcaption></figcaption></figure>
 
 The API creation wizard comprises several steps, each of which requires you to define certain sets of information.
 
@@ -70,7 +70,7 @@ The configuration details for each proxy entrypoint selection are discussed belo
 {% hint style="warning" %}
 **Enterprise only**
 
-The ability to create APIs with message API entrypoints is an [Enterprise Edition](../../introduction/apim-enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
+The ability to create APIs with message API entrypoints is an [Enterprise Edition](../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
@@ -294,7 +294,7 @@ If **Use proxy for client connections** is selected, you'll need to define the f
 {% hint style="warning" %}
 **Enterprise only**
 
-The ability to create APIs with message API endpoints is an [Enterprise Edition](../../introduction/apim-enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
+The ability to create APIs with message API endpoints is an [Enterprise Edition](../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise and what's included in various enterprise packages:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)

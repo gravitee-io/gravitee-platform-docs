@@ -102,7 +102,7 @@ You can use the Kafka Topic Mapping policy to create a new topic mapping with a 
 {% tab title="Using the APIM Console" %}
 This shows how to implement the example above using the APIM Console:
 
-<figure><img src="../../../.gitbook/assets/image (194).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (195).png" alt=""><figcaption><p>Kafka Topic Mapping policy configuration UI</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="v4 API definition" %}

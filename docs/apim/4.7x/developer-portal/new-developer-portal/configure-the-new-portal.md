@@ -16,15 +16,15 @@ To configure Gravitee to use the new Developer Portal:
 2.  From the home page, click **Settings**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (235).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (236).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Portal** section of the settings menu, click **Settings**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (236).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (237).png" alt=""><figcaption></figcaption></figure>
 4.  Navigate to the **New Developer Portal** section, and then turn on the **Enable the New Developer Portal** toggle.\
 
 
-    <figure><img src="../../.gitbook/assets/image (237).png" alt=""><figcaption><p>New Developer Portal section</p></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (238).png" alt=""><figcaption><p>New Developer Portal section</p></figcaption></figure>
 
 To verify that the new theme is enabled, click the **Open Website** button. The new Developer Portal should launch.&#x20;
 

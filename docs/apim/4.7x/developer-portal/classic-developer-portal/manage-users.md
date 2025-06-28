@@ -67,4 +67,4 @@ All users can be viewed in the Management Console by anyone with administrator p
 
 As an administrator, you can click on an entry for user details and to apply administrative policies. Additionally, admins can pre-register users by clicking the **Add user** button on the top right of the page.
 
-<figure><img src="../../.gitbook/assets/image (131).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (132).png" alt=""><figcaption><p>Management Console user overview</p></figcaption></figure>

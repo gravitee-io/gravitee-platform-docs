@@ -22,7 +22,7 @@ Policies cannot currently be applied to v4 TCP proxy APIs
 
 ## Installation and deployment
 
-Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition policy plugins](../../introduction/apim-enterprise-edition.md#enterprise-plugins) are available for download [here](https://download.gravitee.io/).
+Each version of Gravitee API Management (APIM) includes a number of policies in the default distribution. [Gravitee Enterprise Edition policy plugins](../../readme/enterprise-edition.md#enterprise-plugins) are available for download [here](https://download.gravitee.io/).
 
 To use a different version of the policy or add a custom policy, you can follow the deployment instructions below.
 

@@ -13,7 +13,7 @@ High-level API Score statistics are shown on the **API Score** page. To get to y
 3.  In the menu, click **API Score**. \
 
 
-    <figure><img src="../../.gitbook/assets/image (243).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (244).png" alt=""><figcaption></figcaption></figure>
 
 The **Overview** and **APIs** sections of the **API Score** page provide you with high-level metrics to understand the quality of your APIs. These metrics are:
 
@@ -25,11 +25,11 @@ The **Overview** and **APIs** sections of the **API Score** page provide you wit
 
 The **Overview** section shows these metrics across all of your APIs.
 
-<figure><img src="../../.gitbook/assets/image (241).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (242).png" alt=""><figcaption></figcaption></figure>
 
 The **APIs** section contains a list of your APIs to show these metrics for each API individually.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (242).png" alt=""><figcaption><p>Example API score dashboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (243).png" alt=""><figcaption><p>Example API score dashboard</p></figcaption></figure>
 
 ## Individual API Score details
 

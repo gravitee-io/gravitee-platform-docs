@@ -7,7 +7,7 @@ This guide describes how to establish a Server-Sent Events (SSE) channel connect
 ## Prerequisites
 
 {% hint style="warning" %}
-The SSE entrypoint is part of the Event-native [Enterprise Edition](../../introduction/apim-enterprise-edition.md) package. To learn more about the Enterprise Edition and get the SSE plugin, contact us at [contact@graviteesource.com](mailto:contact@graviteesource.com).
+The SSE entrypoint is part of the Event-native [Enterprise Edition](../../readme/enterprise-edition.md) package. To learn more about the Enterprise Edition and get the SSE plugin, contact us at [contact@graviteesource.com](mailto:contact@graviteesource.com).
 {% endhint %}
 
 Ensure that the SSE plugin is installed in your Gateway.
@@ -54,7 +54,7 @@ Identify the endpoint from which you are going to consume messages. For testing 
 2.  Select **APIs** from the nav and click **+ Add API**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (210).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Create New API** section, click **Create V4 API.**\
 
 
@@ -64,7 +64,7 @@ Identify the endpoint from which you are going to consume messages. For testing 
 
 
 
-    <figure><img src="../../.gitbook/assets/image (211).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (212).png" alt=""><figcaption></figcaption></figure>
 4.  Enter your API's name and version number, then click **Validate my API details**.\
 
 
@@ -72,11 +72,11 @@ Identify the endpoint from which you are going to consume messages. For testing 
 5.  Select **Proxy Generic Protocol** and click **Select my API architecture**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (213).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (214).png" alt=""><figcaption></figcaption></figure>
 6.  Select **HTTP Proxy** and click **Select my entrypoints**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (214).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (215).png" alt=""><figcaption></figcaption></figure>
 7.  Set a unique **Context-path**, for example, `/sseconsumer`, then click **Validate my entrypoints**.\
 
 
@@ -150,7 +150,7 @@ Now you have all the information you need to configure Postman to call your API.
 6.  Where it says **Enter a channel name**, enter the name of the channel you used in Postman as the value for the key-value pair, e.g., `ssechannel`. \
 
 
-    <figure><img src="../../.gitbook/assets/image (202).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (203).png" alt=""><figcaption></figcaption></figure>
 7.  Enter a message in the **Message data** field for your channel.\
 
 

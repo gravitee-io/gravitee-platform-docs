@@ -173,7 +173,7 @@ The Confluent Schema Registry resource fetches serialization/deserialization dat
 {% hint style="warning" %}
 **Enterprise only**
 
-As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource is an [Enterprise Edition](../../introduction/apim-enterprise-edition.md) capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
+As of Gravitee 4.0, the ability to use Confluent Schema Registry as a resource is an [Enterprise Edition](../../readme/enterprise-edition.md) capability. To learn more about Gravitee Enterprise, and what's included in various enterprise packages, please:
 
 * [Book a demo](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/rYZ7tzkLjFVST6ex6Jid/)
 * [Check out the pricing page](https://www.gravitee.io/pricing)
