@@ -158,7 +158,7 @@ Gravitee offers a standalone, enterprise-grade API monitoring solution called Al
 
 ## Gravitee Cloud
 
-Gravitee APIM EE includes [Gravitee C](https://documentation.gravitee.io/gravitee-cloud)[loud](https://documentation.gravitee.io/gravitee-cloud). Gravitee Cloud lets you register multiple APIM environments and installations, manage environment hierarchies, and promote APIs across higher and lower environments.
+Gravitee APIM EE includes [Gravitee Cloud](https://documentation.gravitee.io/gravitee-cloud). Gravitee Cloud lets you register multiple APIM environments and installations, manage environment hierarchies, and promote APIs across higher and lower environments.
 
 ## Hosting options
 
