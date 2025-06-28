@@ -302,3 +302,4 @@ redirects:
  4.7/policies/xslt-1: 4.8/create-and-configure-apis/apply-policies/policy-reference/xslt.md
  4.7/readme: 4.8/README.md
  4.7/summary: 4.8/SUMMARY.md
+ 4.8/agent-mesh/overview: 4.8/agent-mesh/README.md
