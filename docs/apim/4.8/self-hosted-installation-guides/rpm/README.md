@@ -179,4 +179,4 @@ sudo ss -lntp "( sport = 27017 )"
 The services may take a few minutes to initialize.
 {% endhint %}
 
-{% include "../../../4.7x/.gitbook/includes/verify-console-and-portal-access.md" %}
+{% include "../../.gitbook/includes/verify-console-and-portal-access.md" %}
