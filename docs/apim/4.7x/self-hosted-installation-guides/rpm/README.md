@@ -58,7 +58,7 @@ To install APIM with RPM packages, complete the following steps:
        ```
 
 
-   *   Manually add Ngnix to your repository using the following commands:\
+   *   Manually add nginx to your repository using the following commands:\
 
 
        ```bash

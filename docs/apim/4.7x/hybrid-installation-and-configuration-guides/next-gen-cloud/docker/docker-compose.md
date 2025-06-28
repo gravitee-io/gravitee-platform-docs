@@ -35,7 +35,7 @@ By the end of this guide, your Gravitee Data Plane will be up and running, ready
 Before you deploy the Data Plane with Docker Compose, complete the following steps:
 
 * Install Docker. You must have access to the default [Docker Hub registry](https://hub.docker.com/) to pull the official Gravitee images.
-* Obtain a Gravitee Cloud Accoun&#x74;**.** To register for a Gravitee Cloud account, go to [the Gravitee Cloud sign in page](http://cloud.gravitee.io/signup), and then click register.
+* Obtain a Gravitee Cloud Account&#x74;**.** To register for a Gravitee Cloud account, go to [the Gravitee Cloud sign in page](http://cloud.gravitee.io/signup), and then click register.
 * [#prepare-your-installation](../#prepare-your-installation "mention") to obtain a Cloud Token and License Key.
 
 ## Install Gravitee APIM
