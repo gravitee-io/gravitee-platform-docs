@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Docker Compose
 
 ## Overview
