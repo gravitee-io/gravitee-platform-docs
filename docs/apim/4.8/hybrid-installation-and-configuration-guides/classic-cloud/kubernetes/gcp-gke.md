@@ -15,22 +15,22 @@ You must be familiar with the following topics:
 In this example, we demonstrate how to deploy a Gravitee Gateway (APIM) in two different GCP regions. Also, we demonstrate how to deploy Gravitee APIM in the follow two different K8s clusters:
 
 * A **Management cluster** that runs the following components:
-  * The management API
+  * The Management API
   * The two APIM UI components
-  * A bridge gateway
-* A **Gateway cluster** that runs the APIM gateway.
+  * A Bridge Gateway
+* A **Gateway cluster** that runs the APIM Gateway.
 
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_deployment_k8s.png" alt=""><figcaption><p>Kubernetes hybrid deployment architecture diagram</p></figcaption></figure>
 
 In this example, the deployment consists of the following components:
 
-* MongoDB. MongoDB manages all the management data. For example, API definitions, subscriptions, and API keys.
-* ElasticSearch. ElasticSearch is deployed in the Management cluster.
-* Redis. Redis manages the rate limits and quota counters within the Gateway cluster.
+* **MongoDB.** MongoDB manages all the management data. For example, API definitions, subscriptions, and API keys.
+* **ElasticSearch.** ElasticSearch is deployed in the Management cluster.
+* **Redis.** Redis manages the rate limits and quota counters within the Gateway cluster.
 
-## Deploy a Hybrid architecture with Helm
+## Deploy a hybrid architecture with Helm
 
-* To deploy a Hybrid architecture with Kubernetes, go to [Gravitee's Helm charts](https://helm.gravitee.io/).
+* To deploy a hybrid architecture with Kubernetes, go to [Gravitee's Helm charts](https://helm.gravitee.io/).
 
 ### Before you begin
 
@@ -40,45 +40,45 @@ In this example, the deployment consists of the following components:
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/installation/hybrid/hybrid_k8s_clusters.png" alt=""><figcaption><p>Sample K8 clusters</p></figcaption></figure>
 
 {% hint style="warning" %}
-The following Hybrid architecture example use the following names:
+The following hybrid architecture example uses these names:
 
 * hybrid-gw-eu
 * hybrid-mgmt-eu
 
-You can replace these names with the name of your clusters.
+You can replace these with the names of your clusters.
 {% endhint %}
 
-### Deploying the management cluster
+### Deploy the Management cluster
 
-1. Initialize the cluster with some prerequisites using the following commands:
+1.  Initialize the cluster, including prerequisites, using the following commands:
 
-{% code overflow="wrap" %}
-```sh
-$ gcloud container clusters get-credentials hybrid-mgmt-eu --zone=europe-west1-b
+    {% code overflow="wrap" %}
+    ```sh
+    $ gcloud container clusters get-credentials hybrid-mgmt-eu --zone=europe-west1-b
 
-// Create namespace
-$ kubectl create namespace graviteeio
+    // Create namespace
+    $ kubectl create namespace graviteeio
 
-// Nginx ingress controller is required for Gravitee APIM chart
-$ helm install --name nginx-ingress --namespace graviteeio stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true
+    // Nginx ingress controller is required for Gravitee APIM chart
+    $ helm install --name nginx-ingress --namespace graviteeio stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true
 
-// Add Gravitee Helm repository
-$ helm repo add graviteeio https://helm.gravitee.io
-```
-{% endcode %}
+    // Add Gravitee Helm repository
+    $ helm repo add graviteeio https://helm.gravitee.io
+    ```
+    {% endcode %}
+2.  Deploy the APIM instance using the following command. APIM contains the follow components:
 
-2. Deploy the management APIM instance using the following command. The management APIM contains the follow components:
-   * The Management Console
-   * The Developer Portal
-   * Management API
-   * The Bridge Gateway
+    * The Management Console
+    * The Developer Portal
+    * Management API
+    * The Bridge Gateway
 
-```sh
-$ helm install — name graviteeio-apim3 — namespace graviteeio \
- -f values-bridge-http-server.yaml \
- -f values-hybrid-management-eu.yaml \
- graviteeio/apim3
-```
+    ```sh
+    $ helm install — name graviteeio-apim3 — namespace graviteeio \
+     -f values-bridge-http-server.yaml \
+     -f values-hybrid-management-eu.yaml \
+     graviteeio/apim3
+    ```
 
 When you install the `values-hybrid-management-eu.yaml`, the file looks like this example:
 
