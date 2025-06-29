@@ -15,25 +15,18 @@ Before you install a Hybrid Gateway, complete the following steps:
 
 ## Install Gravitee APIM
 
-1.  Install the RPM package using the following command. This installs the Gateway at `/opt/graviteeio-apim-gateway`.\
-
+1.  Install the RPM package using the following command. This installs the Gateway at `/opt/graviteeio-apim-gateway`.
 
     ```bash
     sudo rpm -i https://download.gravitee.io/gateway/4.x/rpm/graviteeio-apim-gateway-latest.rpm
     ```
-
-
 2. Configure the Gateway section of your `gravitee.yml` file:
-   1.  To access your `gravitee.yml` file, use the following command:\
-
+   1.  To access your `gravitee.yml` file, use the following command:
 
        ```bash
        sudo vi /opt/graviteeio-apim-gateway/config/gravitee.yml
        ```
-
-
-   2.  Use the following configuration in the Gateway section of `gravitee.yml`:\
-
+   2.  Use the following configuration in the Gateway section of `gravitee.yml`:
 
        ```yaml
        management:
@@ -52,21 +45,14 @@ Before you install a Hybrid Gateway, complete the following steps:
          key: <YOUR-LICENSE-KEY>
        ```
 
-
-
        * Replace `<YOUR-CLOUD-TOKEN>` with your Cloud Token.&#x20;
-       * Replace `<YOUR-LICENSE-KEY>` with your License Key.\
-
-3.  Start the Gateway using the following command: \
-
+       * Replace `<YOUR-LICENSE-KEY>` with your License Key.
+3.  Start the Gateway using the following command:&#x20;
 
     ```bash
     sudo systemctl start graviteeio-apim-gateway
     ```
-
-
-4.  (Optional) To enable the service on boot, use the following command: \
-
+4.  (Optional) To enable the service on boot, use the following command:&#x20;
 
     ```bash
     sudo systemctl enable graviteeio-apim-gateway
@@ -76,12 +62,9 @@ Before you install a Hybrid Gateway, complete the following steps:
 
 To verify that the installation was successful, complete the following steps:
 
-1.  &#x20;Open the logs for the installation using the following command:\
-
+1.  &#x20;Open the logs for the installation using the following command:
 
     ```bash
     sudo tail -f /opt/graviteeio-apim-gateway/logs/gravitee.log
     ```
-
-
 2. Navigate to the `/sync` and `/reports` endpoints. If these endpoints have synced successfully, your installation is correct.

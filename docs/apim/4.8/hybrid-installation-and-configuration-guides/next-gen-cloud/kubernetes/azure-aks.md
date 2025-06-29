@@ -33,16 +33,12 @@ To install the Gravitee Gateway, complete the following steps:
 
 To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis).
 
-1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:  \
-
+1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:&#x20;
 
     ```bash
     helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis --create-namespace --namespace gravitee-apim
     ```
-
-
-2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:\
-
+2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:
 
     ```sh
     Pulled: registry-1.docker.io/bitnamicharts/redis:21.2.1
@@ -68,10 +64,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     To get your password run:
         export REDIS_PASSWORD=$(kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d)
     ```
-
-
-3.  Use the following command to output the Redis password. Save this password for future use.\
-
+3.  Use the following command to output the Redis password. Save this password for future use.
 
     ```bash
     kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d
@@ -79,10 +72,8 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 ### Prepare your Gravitee `values.yaml` file for Helm
 
-1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new Hybrid Gateway.\
+1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new Hybrid Gateway.
 
-
-    {% code title="values.yaml" %}
     ```yaml
     #This is the license key provided in your Gravitee Cloud account 
     #example: Ic5OXgAAACAAAAACAAAADAAAAAhhbGVydC1lbmdpbmVpbmNsdWRlZAAAABsAAAACAAAABwAAAAhjb21wYW55R3Jhdml0ZWUAAAAxAAAAAgAAAAUAAAAgZW1haWxwbGF0Zm9ybS10ZWFtQGdyYXZpdGVlc291cmNlLmNvbQAAABoAAAALAAAACmV4cGlyeURhdGUAAAGhUXU7/wAAACAAAAACAAAACAAAAAxmZWF0dXJlc2FsZXJ0LWVuZ2luZQAAACEAAAAMAAAACWxpY2Vuc2VJZJTWw5qIQT4bEYqYFx9wSH4AAAEcAAAAAQAAABAAAAEAbGljZW5zZVNpZ25hdHVyZULCHNcIqMuFwEMkSCgE4Q/42YSVluW/vvMtaHZWJ5Xoh3rsWEjCMg8Ku2cTKuSP7FzR/b8GVedDJqxf+o2n8B/LV+WwzZjOAi09EBfLmTLOzzXFNp1KRDk3G4rrKznJ1Kqz9EXjyNAiT/c7en3om6Lx0A4BscZtu6k6i1pAnfHhotJkHMIdNkDqSU4fkyAH6FS+NYcLEcudaeeRr2Th/Dvyn0py7xOUNicgXdBjEXJXMF2vxyNkm0kML4ADG12++dZyG2kgGYg5+A8UdABGxCvIfNsl9uVuP2F5ACr8Uc73HytKpIaZqz71RMxQDuJtRzmkkGxHajJJeZWQZXtLdBoAAAARAAAAAgAAAAUAAAAAcGFja3MAAAAiAAAAAgAAAA8AAAAHc2lnbmF0dXJhfgzanZXN0U0hBLTI1NgAAABgAAAACAAAABAAAAAh0aWVydW5pdmVyc2U=
@@ -223,37 +214,27 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     redis:
         download: true
     ```
-    {% endcode %}
-
-
 2. Make the following modifications to your `values.yaml` file:
    * Replace `<cloud_token>` with your Cloud Token.
    * Replace `<license_key>` with your License Key.
    * Replace `<redis_hostname>` with your extracted Redis hostname.
    * Replace `<redis_password>` with your extracted Redis password.
-   * Replace \<hosts> with  the host information you put in the Gravitee cloud gateway setup
+   * Replace \<hosts> with the host information you put in the Gravitee cloud gateway setup
 3. Save your Gravitee `values.yaml` file.
 
 ### Install with Helm
 
-1.  Add the Gravitee Helm chart repo to your Kubernetes environment using the following command: \
-
+1.  Add the Gravitee Helm chart repo to your Kubernetes environment using the following command:&#x20;
 
     ```bash
     helm repo add graviteeio https://helm.gravitee.io
     ```
-
-
-2.  Install the Helm chart with the Gravitee `values.yaml` file into a dedicated namespace using the following command: \
-
+2.  Install the Helm chart with the Gravitee `values.yaml` file into a dedicated namespace using the following command:&#x20;
 
     ```bash
     helm install graviteeio-apim-gateway graviteeio/apim --namespace gravitee-apim -f ./values.yaml
     ```
-
-
-3.  Verify the installation was successful. The command output should be similar to the following: \
-
+3.  Verify the installation was successful. The command output should be similar to the following:&#x20;
 
     ```bash
     NAME: graviteeio-apim-gateway
@@ -289,16 +270,12 @@ To verify that your Gateway is up and running, complete the following steps:
 
 ### Validate the pods
 
-1.  To query the pod status, use the following command: \
-
+1.  To query the pod status, use the following command:&#x20;
 
     ```bash
     > kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
-
-
-2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts. \
-
+2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.&#x20;
 
     ```sh
     NAME                                               READY   STATUS    RESTARTS   AGE
@@ -307,33 +284,23 @@ To verify that your Gateway is up and running, complete the following steps:
 
 ### Validate the Gateway logs
 
-1.  &#x20;To list all the pods in your deployment, use the following command: \
-
+1.  To list all the pods in your deployment, use the following command:&#x20;
 
     ```bash
     > kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
-
-
-2.  In the output, find the name of the pod from which to obtain logs. For example, `graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9`. \
-
+2.  In the output, find the name of the pod from which to obtain logs. For example, `graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9`.&#x20;
 
     ```sh
     NAME                                               READY   STATUS    RESTARTS   AGE
     graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9   1/1     Running   0          6m17s
     ```
-
-
-3.  To obtain the logs from this specific pod, use the following command: \
-
+3.  To obtain the logs from this specific pod, use the following command:&#x20;
 
     ```bash
     kubectl logs --namespace=gravitee-apim graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9
     ```
-
-
-4.  Review the log file.  The following sample output shows the important log entries.  \
-
+4.  Review the log file. The following sample output shows the important log entries.&#x20;
 
     ```sh
     =========================================================================
@@ -372,16 +339,12 @@ To verify that your Gateway is up and running, complete the following steps:
 
 ### Validate the Gateway URL
 
-1.  To validate the Gateway URL, make a GET request to the URL on which you have published the Gateway:\
-
+1.  To validate the Gateway URL, make a GET request to the URL on which you have published the Gateway:
 
     ```bash
     curl http://{my_gateway_url:port}/
     ```
-
-
-2.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.\
-
+2.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.
 
     ```sh
     No context-path matches the request URI.
