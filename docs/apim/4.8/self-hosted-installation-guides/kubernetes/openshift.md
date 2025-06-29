@@ -43,13 +43,14 @@ To deploy OpenShift, you must configure the MongoDB database. Also, you can conf
 If you have already installed MongoDB, you do not need to install MongoDB again.
 {% endhint %}
 
-* To install MongoDB with Helm, use the following command:
+*   To install MongoDB with Helm, use the following command:\
 
-```sh
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm repo update
-helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
-```
+
+    ```sh
+    helm repo add bitnami https://charts.bitnami.com/bitnami
+    helm repo update
+    helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
+    ```
 
 **Configure the connection MongoDB**
 
@@ -61,21 +62,22 @@ helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
 | ----------- | ----------- | ------- |
 | `mongo.uri` | Mongo URI   | `null`  |
 
-* **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:
+*   **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:\
 
-```
-mongo:
-  servers: |
-    - host: mongo1
-      port: 27017
-    - host: mongo2
-      port: 27017
-  dbname: gravitee
-  auth:
-    enabled: false
-    username:
-    password:
-```
+
+    ```
+    mongo:
+      servers: |
+        - host: mongo1
+          port: 27017
+        - host: mongo2
+          port: 27017
+      dbname: gravitee
+      auth:
+        enabled: false
+        username:
+        password:
+    ```
 
 **Step 2:** Define the following configuration options:
 
@@ -99,7 +101,7 @@ mongo:
 
 **Mongo replica set**
 
-Use the mongodb-replicaset for only testing purposes and running locally.
+Use the mongodb-replicaset only for testing purposes and running locally.
 
 | Parameter                        | Description                           | Default |
 | -------------------------------- | ------------------------------------- | ------- |
@@ -120,15 +122,16 @@ If you have already installed PostgreSQL, you do not need to install PostgreSQL 
 To install a new PostgreSQL database, complete the following steps:
 
 1. Update the `username`, `password`, and `databasename` parameters.
-2. Run the following commands:
+2.  Run the following commands:\
 
-```
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm repo update
 
-helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
---set postgresqlDatabase=graviteeapim postgres-apim bitnami/postgresql
-```
+    ```
+    helm repo add bitnami https://charts.bitnami.com/bitnami
+    helm repo update
+
+    helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
+    --set postgresqlDatabase=graviteeapim postgres-apim bitnami/postgresql
+    ```
 
 **Verification**
 
@@ -147,17 +150,18 @@ postgres-apim-postgresql-0                1/1     Running      0           98s
 
 **Configure PostgreSQL**
 
-* Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:
+*   Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:\
 
-```
-jdbc:
-  driver: https://jdbc.postgresql.org/download/postgresql-42.2.23.jar
-  url: jdbc:postgresql://postgres-apim-postgresql:5432/graviteeapim
-  username: postgres
-  password: P@ssw0rd
-management:
-  type: jdbc
-```
+
+    ```
+    jdbc:
+      driver: https://jdbc.postgresql.org/download/postgresql-42.2.23.jar
+      url: jdbc:postgresql://postgres-apim-postgresql:5432/graviteeapim
+      username: postgres
+      password: P@ssw0rd
+    management:
+      type: jdbc
+    ```
 {% endtab %}
 
 {% tab title="ElasticSearch" %}
@@ -291,33 +295,34 @@ The process for configuring the Gravitee components on OpenShift is the same pro
 When you configure your `values.yml` file for OpenShift deployment, you must complete the following actions:
 
 * Use the full host domain instead of paths for all components.
-* Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of the security context that has been overridden:
+*   Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of security context that has been overridden:\
 
-```yaml
-securityContext:
-      runAsUser: null
-      runAsGroup: null
-      runAsNonRoot: true
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop: ["ALL"]
-      seccompProfile:
-        type: RuntimeDefault
-```
 
-* For OpenShift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is an example of an `ingressClassName` defined as `none`:
+    ```yaml
+    securityContext:
+          runAsUser: null
+          runAsGroup: null
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+          seccompProfile:
+            type: RuntimeDefault
+    ```
+*   For OpenShift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is an example of an `ingressClassName` defined as `none`:\
 
-```yaml
- api:
-  ingress:
-    management:
-      ingressClassName: none
-      path: /management
-      hosts:
-        - api-graviteeio.apps.openshift-test.xxxx.p1.openshiftapps.com
-      annotations:
-        route.openshift.io/termination: edge
-```
+
+    ```yaml
+     api:
+      ingress:
+        management:
+          ingressClassName: none
+          path: /management
+          hosts:
+            - api-graviteeio.apps.openshift-test.xxxx.p1.openshiftapps.com
+          annotations:
+            route.openshift.io/termination: edge
+    ```
 
 **Example**
 
@@ -447,18 +452,17 @@ ui:
 
 To install the Gravitee Helm Chart, complete the following steps:
 
-1. Add the Gravitee Helm chart repo using the following command:
+1.  Add the Gravitee Helm chart repo using the following command:
 
-```sh
-helm repo add graviteeio https://helm.gravitee.io
-```
+    ```sh
+    helm repo add graviteeio https://helm.gravitee.io
+    ```
+2.  Install the Helm chart to a dedicated namespace using the following command:
 
-2. Install the Helm chart to a dedicated namespace using the following command:
-
-```sh
-helm install -f values.yaml graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
-```
+    ```sh
+    helm install -f values.yaml graviteeio-apim4x graviteeio/apim --create-namespace --namespace gravitee-apim
+    ```
 
 {% hint style="info" %}
-`values.yaml` file refers to the values.yaml file that you prepared in the [#configure-the-gravitee-parameters-and-values.yml-file](openshift.md#configure-the-gravitee-parameters-and-values.yml-file "mention") section.
+`values.yaml` refers to the file that you prepared in the [#configure-the-gravitee-parameters-and-values.yml-file](openshift.md#configure-the-gravitee-parameters-and-values.yml-file "mention") section.
 {% endhint %}
