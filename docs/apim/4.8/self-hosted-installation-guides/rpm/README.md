@@ -121,11 +121,11 @@ To install APIM with RPM packages, complete the following steps:
        gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
        EOF
        ```
-2. Verify that you installed MongoDB correctly using the following command:
+2.  Verify that you installed MongoDB correctly using the following command:
 
-```bash
-sudo ss -lntp "( sport = 27017 )"
-```
+    ```bash
+    sudo ss -lntp "( sport = 27017 )"
+    ```
 
 ### Install Elasticsearch
 
