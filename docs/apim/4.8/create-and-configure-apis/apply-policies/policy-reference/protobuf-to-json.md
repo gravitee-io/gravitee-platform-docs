@@ -20,7 +20,7 @@ To serialize data in Protobuf, you need a [schema](https://protobuf.dev/overview
 ## Configuration
 
 {% hint style="warning" %}
-This policy can be applied to v2 APIs, v4 HTTP proxy APIs, and v4 message APIs. It cannot be applied to v4 TCP proxy APIs.
+This policy can be applied to v2 APIs, v4 HTTP proxy APIs, v4 message APIs, and Kafka Native APIs. It cannot be applied to v4 TCP proxy APIs.
 {% endhint %}
 
 ### Phases
