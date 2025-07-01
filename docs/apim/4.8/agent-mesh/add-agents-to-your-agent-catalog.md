@@ -1,8 +1,25 @@
-# Add Agents to your Agent Catalog
+# Discover and Catalog AI Agents (A2A)
 
 ## Overview
 
-This guide explains how to add an agent to your Agent Catalog.
+This guide explains how to add agents to your centralized **Agent Catalog** by importing or discovering their **Agent Cards,** even if those agents are not directly exposed through the Gravitee Gateway.
+
+As enterprises begin adopting multiple platforms and frameworks to build, deploy, and run AI agents, the landscape quickly becomes fragmented. **Agents are often developed in isolation and spread across teams, clouds, or vendors, which leads to silos that limit collaboration, reuse, and governance.**
+
+Much like APIs and event streams, **AI agents are becoming critical building blocks** in modern enterprise architectures. They expose powerful capabilities, data processing, automation, and decisioning that can be shared across use cases, but without visibility, these assets remain underutilized.
+
+A centralized Agent Catalog solves this problem.
+
+By discovering and cataloging agents, along with their metadata, capabilities, and interfaces, you lay the foundation for governance and reuse. Whether an agent is public, private, or platform-bound, registering its Agent Card gives platform teams control over what exists, what’s trusted, and how it's accessed.
+
+This delivers two key benefits:
+
+* **Governance:** Gain visibility into the agents operating in your ecosystem, enforce ownership, and apply standards related to security, compliance, and quality.
+* **Developer Experience:** Enable developers and AI engineers to easily **discover** and **build on existing agents**, reducing duplication and accelerating time to value.
+
+Even agents not exposed via the Gravitee Gateway can be made discoverable through the Agent Catalog. This lets you manage agents alongside synchronous and asynchronous APIs, giving your developers one place to find and consume what they need, regardless of where it runs.
+
+In this guide, you'll learn how to import AI agents from their Agent Cards, enrich them with metadata, and make them available for internal or external discovery. It’s the first step toward unlocking a federated, governable ecosystem of AI agents at scale.
 
 ## Prerequisites
 

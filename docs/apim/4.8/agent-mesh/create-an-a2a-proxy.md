@@ -1,4 +1,4 @@
-# Create an A2A Proxy
+# Set Up an AI Agent (A2A) Proxy
 
 {% hint style="warning" %}
 This feature only works with v4 message APIs.
@@ -6,7 +6,21 @@ This feature only works with v4 message APIs.
 
 ## Overview
 
-This guide explains how to create a Gravitee A2A Proxy.
+{% hint style="info" %}
+What is A2A?
+
+* The Agent-to-Agent (A2A) protocol enables standardized communication between AI agents across different platforms and frameworks.&#x20;
+* A2A operates through a structured client-server model, where a "client" agent creates and communicates tasks and a "remote" agent processes those tasks to provide information or execute actions.
+* A2A enables dynamic, multimodal communication between different agents functioning as peers. It's how agents collaborate, delegate, and manage shared tasks.
+{% endhint %}
+
+As organizations begin to adopt AI agents across various platforms and ecosystems, a new challenge emerges to securely connect, coordinate, and control communication between autonomous agents.&#x20;
+
+Gravitee’s A2A (Agent-to-Agent) Proxy addresses this challenge by **enabling structured, secure, and observable interactions between agents**, no matter where or how they’re running.
+
+Much like any other type of API, A2A interactions benefit from being discoverable, consumable, secured, and governed via Gravitee.&#x20;
+
+Truly intelligent agents need access to both synchronous (request-response) and asynchronous (event-driven) APIs to operate effectively. Gravitee’s A2A Proxy supports both, enabling agents to communicate and react in real time or over streaming protocols and empowering use cases from real-time decisioning to autonomous workflows.
 
 ## Prerequisites&#x20;
 

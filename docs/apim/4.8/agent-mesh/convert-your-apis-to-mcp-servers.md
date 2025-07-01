@@ -1,4 +1,4 @@
-# Convert your APIs to MCP Servers
+# Expose Your APIs as AI-Ready Tools with MCP
 
 {% hint style="warning" %}
 This feature only works with v4 proxy APIs.
@@ -6,12 +6,21 @@ This feature only works with v4 proxy APIs.
 
 ## Overview
 
-This guide explains how to convert an API into an MCP server.
+{% hint style="info" %}
+**What is MCP?**\
+The Model Context Protocol (MCP) is an emerging standard that enables AI agents to understand and interact with external tools and APIs. It defines a common interface for describing operations, authentication, and capabilities, which bridges the gap between LLMs and real-world services (APIs).
+{% endhint %}
+
+**Effortlessly transform your existing RESTful APIs into powerful, AI-ready tools for AI agents, without writing a single line of new code.** With just your OpenAPI Specification (OAS) as input, Gravitee automatically interprets and exposes your API operations as structured, actionable tools through the embedded MCP server running at the Gateway level.
+
+This seamless process **allows AI agents to discover and invoke your APIs intelligently**, enabling use cases like automation, data analysis, and decision-making in AI-driven environments. There's no need for custom wrappers or additional configuration; your documented API becomes instantly accessible to AI agents.
+
+In this guide, you’ll learn how to publish and expose your API operations through the Gravitee MCP server, making your APIs discoverable and usable by AI agents while preserving governance, observability, and control.
 
 ## Prerequisites
 
-* Create a v4 proxy API. For more information about creating a v4 proxy API, see [v4-api-creation-wizard.md](../create-and-configure-apis/create-apis/v4-api-creation-wizard.md "mention").
-* An OpenAPI Specification to generate the MCP tools definition.&#x20;
+* Create a v4 proxy API. For more information about creating a v4 proxy API, see .
+* The OpenAPI Specification describing your API, to generate the MCP tools definition.&#x20;
 
 ## Deploy your API as an MCP Server
 
