@@ -10,6 +10,69 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.20 - July 1, 2025
+
+<details>
+
+<summary>What's new !</summary>
+
+**What's new!**
+
+* Cookie Based remember device: it is now possible to use a new DeviceIdentifier plugin based on cookie instead of fingerprint.
+
+{% hint style="info" %}
+If the page templates have been customized, it is necessary to include the JavaScript scripts related to this new plugin.
+For login, reset_password, registration and registration_confirmation, please add:
+
+```
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{assets/js/device-type-v1.js}"></script>
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:attr="nonce=${script_inline_nonce}">
+    const deviceId = "[[${cookieDeviceIdentifier}]]" ;
+
+    $(document).ready(function () {
+        $("#form").append('<input type="hidden" name="deviceId" value="' + deviceId + '"/>')
+        $("#form").append('<input type="hidden" name="deviceType" value="' + retrievePlatform(window.navigator) + '"/>');
+    });
+</script>
+````
+
+For webauthn_login, please add :
+```
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{../assets/js/device-type-v1.js}"></script>
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:attr="nonce=${script_inline_nonce}">
+    const deviceId = "[[${cookieDeviceIdentifier}]]" ;
+
+    $(document).ready(function () {
+        $("#login").append('<input type="hidden" name="deviceId" value="' + deviceId + '"/>')
+        $("#login").append('<input type="hidden" name="deviceType" value="' + retrievePlatform(window.navigator) + '"/>');
+    });
+</script>
+```
+
+If FingerprintJS Community edition is currently used, you can use the cookie management for this plugin by enabling the new configuration option.
+{% endhint %}
+
+</details>
+
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+**Other**
+
+* add liquibase logger in INFO by default [#10567](https://github.com/gravitee-io/issues/issues/10567)
+* Improve users search queries from database in am management UI/API. [#10573](https://github.com/gravitee-io/issues/issues/10573)
+* [FC] update the sandbox urls [#10636](https://github.com/gravitee-io/issues/issues/10636)
+
+{% hint style="info" %}
+ In [#10573](https://github.com/gravitee-io/issues/issues/10573) a new configuration option is introduced to disable case-insensitive search in MongoDB. Starting from AM 4.9.0, searches will become case-sensitive by default. If you are currently experiencing search performance issues, you can disable case-insensitive search by setting the legacy.mongodb.regexCaseInsensitive property to false in the gravitee.yaml file, or by using the environment variable gravitee_legacy_mongodb_regexCaseInsensitive=false
+{% endhint %}
+
+</details>
+
+
 ## Gravitee Access Management 4.5.19 - June 20, 2025
 
 <details>
