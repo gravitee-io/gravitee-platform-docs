@@ -328,7 +328,6 @@
     * [ElasticSearch](prepare-a-production-environment/repositories/elasticsearch.md)
     * [JDBC](prepare-a-production-environment/repositories/jdbc.md)
     * [Redis](prepare-a-production-environment/repositories/redis.md)
-    * [Distributed Sync Process](prepare-a-production-environment/repositories/distributed-sync-process.md)
   * [Configure your HTTP Server](prepare-a-production-environment/configure-your-http-server.md)
   * [Sensitive Data Management](prepare-a-production-environment/sensitive-data-management/README.md)
     * [Configure Secrets](prepare-a-production-environment/sensitive-data-management/configure-secrets.md)
