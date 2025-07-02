@@ -26,7 +26,7 @@ redirects:
  4.7/configure-apim/apim-components/management-api: 4.8/configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration.md
  4.7/configure-apim/apim-components/readme: README.md
  4.7/configure-apim/cache: 4.8/prepare-a-production-environment/cache.md
- 4.7/configure-apim/distributed-sync-process: 4.8/prepare-a-production-environment/repositories/distributed-sync-process.md
+ 4.7/configure-apim/distributed-sync-process: 4.8/README.md
  4.7/configure-apim/environment-properties: README.md
  4.7/configure-apim/repositories/elasticsearch: 4.8/prepare-a-production-environment/repositories/elasticsearch.md
  4.7/configure-apim/repositories/jdbc: 4.8/prepare-a-production-environment/repositories/jdbc.md
@@ -324,7 +324,7 @@ redirects:
  configure-apim/apim-components/management-api: configure-and-manage-the-platform/manage-organizations-and-environments/cors-configuration.md
  configure-apim/apim-components/readme: README.md
  configure-apim/cache: prepare-a-production-environment/cache.md
- configure-apim/distributed-sync-process: prepare-a-production-environment/repositories/distributed-sync-process.md
+ configure-apim/distributed-sync-process: README.md
  configure-apim/environment-properties: README.md
  configure-apim/repositories/elasticsearch: prepare-a-production-environment/repositories/elasticsearch.md
  configure-apim/repositories/jdbc: prepare-a-production-environment/repositories/jdbc.md
