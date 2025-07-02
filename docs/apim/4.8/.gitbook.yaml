@@ -605,5 +605,6 @@ redirects:
  policies/kafka-transform-key: create-and-configure-apis/apply-policies/policy-reference/kafka-transform-key.md
  overview/release-notes/apim-4.8: release-information/release-notes/apim-4.8.md
  policies/debug-mode: create-and-configure-apis/apply-policies/debug-mode.md
+ prepare-a-production-environment/repositories/distributed-sync-process: README.md
 
  
