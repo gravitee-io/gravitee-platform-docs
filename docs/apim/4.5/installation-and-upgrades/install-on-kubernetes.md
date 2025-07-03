@@ -639,6 +639,7 @@ federation:
 When this flag is set to enabled, it has the following impacts:
 
 * APIM cluster mode is activated. Federation can work correctly in a highly available APIM deployment.  Also, Hazelcast is configured and runs in memory as a library inside APIM.
+* The default ingress used is the host used for the management API. Here is the default path: `/integration-controller`. The default ingress can be overridden n the federation ingress section with a dedicated host for the integration controller.
 
 If you run a single replica of APIM, you can deactivate cluster mode by specifying the following environment variables and values:
 
