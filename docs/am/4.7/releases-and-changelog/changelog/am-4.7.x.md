@@ -6,6 +6,75 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.8 - July 4, 2025
+
+<details>
+
+<summary>What's new !</summary>
+
+**What's new!**
+
+* Cookie Based remember device: it is now possible to use a new DeviceIdentifier plugin based on cookie instead of fingerprint.
+
+{% hint style="info" %}
+If the page templates have been customized, it is necessary to include the JavaScript scripts related to this new plugin.
+For login, reset_password, registration and registration_confirmation, please add:
+
+```
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{assets/js/device-type-v1.js}"></script>
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:attr="nonce=${script_inline_nonce}">
+    const deviceId = "[[${cookieDeviceIdentifier}]]" ;
+
+    $(document).ready(function () {
+        $("#form").append('<input type="hidden" name="deviceId" value="' + deviceId + '"/>')
+        $("#form").append('<input type="hidden" name="deviceType" value="' + retrievePlatform(window.navigator) + '"/>');
+    });
+</script>
+````
+
+For webauthn_login, please add :
+```
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{../assets/js/device-type-v1.js}"></script>
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:attr="nonce=${script_inline_nonce}">
+    const deviceId = "[[${cookieDeviceIdentifier}]]" ;
+
+    $(document).ready(function () {
+        $("#login").append('<input type="hidden" name="deviceId" value="' + deviceId + '"/>')
+        $("#login").append('<input type="hidden" name="deviceType" value="' + retrievePlatform(window.navigator) + '"/>');
+    });
+</script>
+```
+
+If FingerprintJS Community edition is currently used, you can use the cookie management for this plugin by enabling the new configuration option.
+{% endhint %}
+
+</details>
+
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Add token sub claim from JWT token in the TOKEN_CREATED event [#10638](https://github.com/gravitee-io/issues/issues/10638)
+* Manage Multiple AndroidKey Root CA [#10658](https://github.com/gravitee-io/issues/issues/10658)
+
+**Management API**
+
+* DomainOwner cannot access domain settings [#10624](https://github.com/gravitee-io/issues/issues/10624)
+
+
+
+**Other**
+
+* add liquibase logger in INFO by default [#10567](https://github.com/gravitee-io/issues/issues/10567)
+* Improve users search queries from database in am management UI/API. [#10573](https://github.com/gravitee-io/issues/issues/10573)
+* [FC] update the sandbox urls [#10636](https://github.com/gravitee-io/issues/issues/10636)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.7 - June 20, 2025
 
 <details>
