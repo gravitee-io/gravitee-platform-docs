@@ -10,6 +10,27 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.30 - July 4, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Manage Multiple AndroidKey Root CA [#10658](https://github.com/gravitee-io/issues/issues/10658)
+
+
+
+
+
+**Other**
+
+* [FC] update the sandbox urls [#10636](https://github.com/gravitee-io/issues/issues/10636)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.29 - June 20, 2025
 
 <details>
