@@ -6,6 +6,25 @@ description: >-
 
 # AM 4.1.x
 
+## Gravitee Access Management 4.1.41 - July 4, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Manage Multiple AndroidKey Root CA [#10658](https://github.com/gravitee-io/issues/issues/10658)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.1.40 - March 17, 2025
 
 <details>
