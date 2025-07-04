@@ -6,6 +6,51 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.21 - July 4, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Subscriptions in the subscriptions tab of an application seem to only show the first 10 item [#10529](https://github.com/gravitee-io/issues/issues/10529)
+* Users with both group inheritance and individual access to applications are limited in which applications to which they can subscribe [#10601](https://github.com/gravitee-io/issues/issues/10601)
+* Using jsonPath in Assign Attributes policy prevents sending transformed body in HTTP Callout policy
+
+**Console**
+
+* Triggered alerts do not send notification [#10440](https://github.com/gravitee-io/issues/issues/10440)
+* Wrong display when adding a user to a group [#10558](https://github.com/gravitee-io/issues/issues/10558)
+* Prevent API Modification for Unauthorized API Users [#10594](https://github.com/gravitee-io/issues/issues/10594)
+
+**Portal**
+
+* Subscriptions in the subscriptions tab of an application seem to only show the first 10 item [#10529](https://github.com/gravitee-io/issues/issues/10529)
+
+**Other**
+
+* Unable to add a group to an existing user using console [#10378](https://github.com/gravitee-io/issues/issues/10378)
+* Console : Categories Page doesn't show updated image for any category [#10523](https://github.com/gravitee-io/issues/issues/10523)
+* Primary owner Group should not be removed from an API  [#10580](https://github.com/gravitee-io/issues/issues/10580)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Gateway**
+
+* Enable multi-tenant support for Dictionaries by default [#10637](https://github.com/gravitee-io/issues/issues/10637)
+
+**Other**
+
+* Increase character limit of condition field in flow_selectors table [#10560](https://github.com/gravitee-io/issues/issues/10560)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.5.20 - June 20, 2025
 <details>
 
