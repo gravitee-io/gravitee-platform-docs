@@ -6,6 +6,43 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.1 - July 4, 2025
+
+<details>
+
+<summary>What's new !</summary>
+
+=**What's new!**
+
+* Cookie Based remember device
+
+</details>
+
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Add token sub claim from JWT token in the TOKEN_CREATED event [#10638](https://github.com/gravitee-io/issues/issues/10638)
+* Manage Multiple AndroidKey Root CA [#10658](https://github.com/gravitee-io/issues/issues/10658)
+
+**Management API**
+
+* DomainOwner cannot access domain settings [#10624](https://github.com/gravitee-io/issues/issues/10624)
+
+
+
+**Other**
+
+* add liquibase logger in INFO by default [#10567](https://github.com/gravitee-io/issues/issues/10567)
+* Improve users search queries from database in am management UI/API. [#10573](https://github.com/gravitee-io/issues/issues/10573)
+* [FC] update the sandbox urls [#10636](https://github.com/gravitee-io/issues/issues/10636)
+
+</details>
+
+
 #### Gravitee Access Management 4.8 - June 20, 2025 <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
 
 <details>
