@@ -13,8 +13,6 @@ This page shows the Service Level Agreements (SLAs) and service regulation compl
 
 ### Data retention and backup <a href="#data-retention-and-backup" id="data-retention-and-backup"></a>
 
-Comment
-
 * **Data retention:** Data retention on API analytics data, and audit logs, as specified in your subscription.
 * **Database backups**: Every 1 minute.
 * **Analytics data backups**: Every 30 minutes.
