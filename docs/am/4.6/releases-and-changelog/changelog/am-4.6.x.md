@@ -6,6 +6,63 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.15 - July 4, 2025
+
+<details>
+
+<summary>What's new !</summary>
+
+**What's new!**
+
+* Cookie Based remember device: it is now possible to use a new DeviceIdentifier plugin based on cookie instead of fingerprint.
+
+{% hint style="info" %}
+If the page templates have been customized, it is necessary to include the JavaScript scripts related to this new plugin.
+For login, reset_password, registration and registration_confirmation, please add:
+
+```
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{assets/js/device-type-v1.js}"></script>
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:attr="nonce=${script_inline_nonce}">
+    const deviceId = "[[${cookieDeviceIdentifier}]]" ;
+
+    $(document).ready(function () {
+        $("#form").append('<input type="hidden" name="deviceId" value="' + deviceId + '"/>')
+        $("#form").append('<input type="hidden" name="deviceType" value="' + retrievePlatform(window.navigator) + '"/>');
+    });
+</script>
+````
+
+For webauthn_login, please add :
+```
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{../assets/js/device-type-v1.js}"></script>
+<script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:attr="nonce=${script_inline_nonce}">
+    const deviceId = "[[${cookieDeviceIdentifier}]]" ;
+
+    $(document).ready(function () {
+        $("#login").append('<input type="hidden" name="deviceId" value="' + deviceId + '"/>')
+        $("#login").append('<input type="hidden" name="deviceType" value="' + retrievePlatform(window.navigator) + '"/>');
+    });
+</script>
+```
+
+If FingerprintJS Community edition is currently used, you can use the cookie management for this plugin by enabling the new configuration option.
+{% endhint %}
+
+</details>
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Manage Multiple AndroidKey Root CA [#10658](https://github.com/gravitee-io/issues/issues/10658)
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.6.14 - June 25, 2025
 
 <details>
