@@ -105,7 +105,6 @@
 * [Sensitive Data Management](configure-apim/sensitive-data-management/README.md)
   * [Secret Provider Plugins Configuration](configure-apim/sensitive-data-management/secret-provider-plugins-configuration.md)
   * [Configuration-Level Secrets](configure-apim/sensitive-data-management/configuration-level-secrets.md)
-* [Distributed Sync Process](configure-apim/distributed-sync-process.md)
 
 ## Administration
 
