@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # APIM 4.8.x
 
 ## Gravitee API Management 4.8.1 - July 7, 2025
@@ -35,8 +31,8 @@ hidden: true
 
 * Unable to add a group to an existing user using console [#10378](https://github.com/gravitee-io/issues/issues/10378)
 * Console : Categories Page doesn't show updated image for any category [#10523](https://github.com/gravitee-io/issues/issues/10523)
-* Primary owner Group should not be removed from an API  [#10580](https://github.com/gravitee-io/issues/issues/10580)
-* Custom policy depending on gravitee-resource-oauth2-provider-generic  [#10620](https://github.com/gravitee-io/issues/issues/10620)
+* Primary owner Group should not be removed from an API [#10580](https://github.com/gravitee-io/issues/issues/10580)
+* Custom policy depending on gravitee-resource-oauth2-provider-generic [#10620](https://github.com/gravitee-io/issues/issues/10620)
 * Portal Theme Settings : UNABLE to change Theme color [#10647](https://github.com/gravitee-io/issues/issues/10647)
 
 </details>
@@ -51,6 +47,6 @@ hidden: true
 
 **Other**
 
-* Increase character limit of condition field in flow_selectors table [#10560](https://github.com/gravitee-io/issues/issues/10560)
+* Increase character limit of condition field in flow\_selectors table [#10560](https://github.com/gravitee-io/issues/issues/10560)
 
 </details>
