@@ -280,4 +280,4 @@ redirects:
  policies/xslt-1: policies/xslt-1.md
  readme: README.md
  summary: SUMMARY.md
- 4.7/configure-apim/distributed-sync-process: README.md
+ 4.7/configure-apim/distributed-sync-process: 4.7/README.md
