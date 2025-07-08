@@ -50,13 +50,12 @@ services:
       - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
       - gravitee_integration_connector_ws_headers_0_name=Authorization
       - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
-      - gravitee_integration_providers_0_configuration_accessKeyId=${AWS_ACCESS_KEY_ID}
-      - gravitee_integration_providers_0_configuration_region=${AWS_REGION}
-      - gravitee_integration_providers_0_configuration_secretAccessKey=${AWS_SECRET_ACCESS_KEY}
-      - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
       - gravitee_integration_providers_0_type=aws-api-gateway
-      - gravitee_integration_providers_0_configuration_0_stage=${AWS_0_STAGE:-}
-      - gravitee_integration_providers_0_configuration_1_stage=${AWS_1_STAGE:-}
+      - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
+      - gravitee_integration_providers_0_configuration_accessKeyId=${AWS_ACCESS_KEY_ID}
+      - gravitee_integration_providers_0_configuration_secretAccessKey=${AWS_SECRET_ACCESS_KEY}
+      - gravitee_integration_providers_0_configuration_region=${AWS_REGION}
+      - gravitee_integration_providers_0_configuration_acceptApiWithoutUsagePlan=${ACCEPT_API_WITHOUT_USAGE_PLAN:-false}
 ```
 
 Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](aws-api-gateway.md#id-2.-configure-the-azure-federation-agent).
@@ -84,15 +83,13 @@ WS_ORG_ID=[organization-id]
 # AWS Region, example: us-west-2
 AWS_REGION=[your-aws-region]
 
-# AWS stage filter, optional
-# AWS_0_STAGE=prod
-# AWS_1_STAGE=dev
-
 # AWS Credentials. 
 # Optional if you're using IAM Role-based authentication
 AWS_ACCESS_KEY_ID=[your-key-id]
 AWS_SECRET_ACCESS_KEY=[your-access-key]
 
+# Discover APIs without usage plan (default: false)
+#ACCEPT_API_WITHOUT_USAGE_PLAN=true
 ```
 
 Run the following command to make sure you've got the latest available docker image:
@@ -141,3 +138,11 @@ PolicyDocument:
           Resource:
               - arn:aws:apigateway:*::/apikeys/*
 ```
+
+## Discover AWS APIs that are not part of a usage plan
+
+By default, the AWS agent only discovers REST APIs that are attached to a usage plan in AWS. To ingest REST APIs that are not attached to a usage plan, use the `acceptApiWithoutUsagePlan` parameter.
+
+{% hint style="info" %}
+If you ingest an API that is attached to a usage plan, Gravitee creates a plan for that API. If you detach an API from a usage plan, the plan that is created is not automatically removed, and you must remove the plan manually.&#x20;
+{% endhint %}
