@@ -26,7 +26,6 @@ redirects:
  configure-apim/apim-components/management-api: configure-apim/apim-components/management-api.md
  configure-apim/apim-components/readme: configure-apim/apim-components/README.md
  configure-apim/cache: configure-apim/cache.md
- configure-apim/distributed-sync-process: configure-apim/distributed-sync-process.md
  configure-apim/environment-properties: configure-apim/environment-properties.md
  configure-apim/repositories/elasticsearch: configure-apim/repositories/elasticsearch.md
  configure-apim/repositories/jdbc: configure-apim/repositories/jdbc.md
@@ -281,3 +280,4 @@ redirects:
  policies/xslt-1: policies/xslt-1.md
  readme: README.md
  summary: SUMMARY.md
+ configure-apim/distributed-sync-process: README.md
