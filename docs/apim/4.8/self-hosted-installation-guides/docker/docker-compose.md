@@ -70,7 +70,7 @@ Before you install APIM, complete the following steps:
     {% hint style="info" %}
     Replace `/path/to/your/license.key` with the actual path to your Gravitee license file. You must name your license file  `license.key` and it must be located in the same directory as your `docker-compose-apim.yml` file.
     {% endhint %}
-4. In your current directory, create a file called `docker-compose-apim.yml`.&#x20;
+4. In your current root directory, create a file called `docker-compose-apim.yml`.&#x20;
 5.  Add the following configuration to your `docker-compose-apim.yml` file, and then save the file:  \
 
 
