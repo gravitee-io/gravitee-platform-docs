@@ -150,7 +150,7 @@ Before you install APIM, complete the following steps:
           - gravitee_ratelimit_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
           - gravitee_reporters_elasticsearch_endpoints_0=http://elasticsearch:9200
           - gravitee_plugins_path_0=/opt/graviteeio-gateway/plugins
-          - gravitee_plugins_path_1=/opt/graviteeio-gateway/plugin
+          - gravitee_plugins_path_1=/opt/graviteeio-gateway/plugins-ext
         networks:
           - storage
           - frontend
