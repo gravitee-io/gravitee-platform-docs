@@ -58,7 +58,7 @@ Before you install APIM, complete the following steps:
          └── data
     ```
     {% endcode %}
-3.  (**Enterprise Edition only**) Place your license key file in the current directory:\
+3.  (**Enterprise Edition only**) Place your license key file in the current root directory:\
 
 
     ```bash
