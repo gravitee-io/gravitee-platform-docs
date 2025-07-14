@@ -100,7 +100,7 @@ Before you install APIM, complete the following steps:
 
     services:
       mongodb:
-        image: mongo:6.0
+        image: mongo:7.0
         container_name: gio_apim_mongodb
         restart: always
         volumes:
@@ -236,16 +236,67 @@ Gravitee API Management may take a few minutes to initialize.
 
 ## Enable Federation
 
-[Federation](../../govern-apis/federation/) is disabled by default. To enable Federation, complete the following steps:
+[Federation](../../govern-apis/federation/) is disabled by default for security and performance reasons. You will enable it by adding environment variables to your existing Docker Compose configuration. If you plan to run multiple APIM instances for high availability, you will also configure cluster mode using Hazelcast to ensure data synchronization across all instances.
+
+To enable Federation, complete the following steps:
 
 * [#enable-federation-with-docker-compose](docker-compose.md#enable-federation-with-docker-compose "mention")
 * If you are running multiple replicas of APIM for high availability, [#set-up-cluster-mode](docker-compose.md#set-up-cluster-mode "mention")
 
 ### Enable Federation with Docker Compose
 
-Federation must be explicitly activated. To activate Federation, complete the following steps:
+Enable Federation by adding the `GRAVITEE_INTEGRATION_ENABLED` environment variable to both the gateway and management API services in your existing `docker-compose-apim.yml` file.
 
-* Set the following environment variable to `true` (default is `false`): `GRAVITEE_INTEGRATION_ENABLED = true`
+The Federation feature requires activation on both services because the gateway handles API traffic routing while the management API processes integration configurations and synchronization.
+
+Open your existing `docker-compose-apim.yml` file and locate the `gateway` service section and add the Federation environment variable. Add the following line to the `environment` section.
+
+The `GRAVITEE_INTEGRATION_ENABLED=true` setting activates the Federation endpoints in the gateway and management API services.&#x20;
+
+```yaml
+  gateway:
+    image: graviteeio/apim-gateway:latest
+    container_name: gio_apim_gateway
+    restart: always
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongodb
+      - elasticsearch
+    volumes:
+      - ./gravitee/apim-gateway/logs:/opt/graviteeio-gateway/logs
+      - ./gravitee/apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
+      - ./license.key:/opt/graviteeio-gateway/license/license.key
+    environment:
+      - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
+      - gravitee_ratelimit_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
+      - gravitee_reporters_elasticsearch_endpoints_0=http://elasticsearch:9200
+      - gravitee_plugins_path_0=/opt/graviteeio-gateway/plugins
+      - gravitee_plugins_path_1=/opt/graviteeio-gateway/plugin
+      - GRAVITEE_INTEGRATION_ENABLED=true # activates federation 
+
+  management_api:
+    image: graviteeio/apim-management-api:latest
+    container_name: gio_apim_management_api
+    restart: always
+    ports:
+      - "8083:8083"
+    links:
+      - mongodb
+      - elasticsearch
+    depends_on:
+      - mongodb
+      - elasticsearch
+    volumes:
+      - ./license.key:/opt/graviteeio-management-api/license/license.key
+    environment:
+      - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
+      - gravitee_analytics_elasticsearch_endpoints_0=http://elasticsearch:9200
+      - gravitee_installation_standalone_portal_url=http://localhost:8085
+      - GRAVITEE_INTEGRATION_ENABLED=true # activates federation 
+```
+
+
 
 ### Set up cluster mode
 
