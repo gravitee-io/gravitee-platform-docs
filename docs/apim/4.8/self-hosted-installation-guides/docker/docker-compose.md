@@ -247,9 +247,9 @@ To enable Federation, complete the following steps:
 
 Enable Federation by adding the `GRAVITEE_INTEGRATION_ENABLED` environment variable to both the gateway and management API services in your existing `docker-compose-apim.yml` file.
 
-The Federation feature requires activation on both services because the gateway handles API traffic routing while the management API processes integration configurations and synchronization.
 
-Open your existing `docker-compose-apim.yml` file and locate the `gateway` service section and add the Federation environment variable. Add the following line to the `environment` section.
+
+Open your existing `docker-compose-apim.yml` file and locate both the `gateway` and `management_api` service sections and add the Federation environment variable to each. Add `GRAVITEE_INTEGRATION_ENABLED=true` to the `environment` section of both services:
 
 The `GRAVITEE_INTEGRATION_ENABLED=true` setting activates the Federation endpoints in the gateway and management API services.&#x20;
 
