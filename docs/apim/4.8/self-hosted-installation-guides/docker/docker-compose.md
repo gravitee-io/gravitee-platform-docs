@@ -100,7 +100,7 @@ Before you install APIM, complete the following steps:
 
     services:
       mongodb:
-        image: mongo:latest 
+        image: mongo:6.0
         container_name: gio_apim_mongodb
         restart: always
         volumes:
