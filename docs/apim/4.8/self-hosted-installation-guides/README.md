@@ -16,7 +16,7 @@ Gravitee APIM can be installed using the following technology stacks and deploym
 ### Docker
 
 * [docker-compose.md](docker/docker-compose.md "mention")
-* Docker CLI
+* [docker-cli.md](docker/docker-cli.md "mention")
 
 ### Kubernetes
 

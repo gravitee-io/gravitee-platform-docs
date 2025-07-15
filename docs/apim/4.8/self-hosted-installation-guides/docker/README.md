@@ -2,7 +2,7 @@
 
 ## Deployment methods
 
-* Docker Compose
+* [docker-compose.md](docker-compose.md "mention")
 * [docker-cli.md](docker-cli.md "mention")
 
 ## Architecture of Gravitee API Management with Docker
