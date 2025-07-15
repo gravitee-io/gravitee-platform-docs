@@ -1,5 +1,14 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.21 - July 15, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Promotion between multiple clusters fails because of plan IDs dupplication [#10641](https://github.com/gravitee-io/issues/issues/10641)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.20 - June 24, 2025
 
 There is nothing new in version 4.5.20.
