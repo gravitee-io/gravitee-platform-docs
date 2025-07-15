@@ -5,6 +5,6 @@
 <details>
 <summary>Bug fixes</summary>
 
-  * Promotion between multiple clusters fails because of plan IDs dupplication [#10641](https://github.com/gravitee-io/issues/issues/10641)
+  * Promotion between multiple clusters fails because of plan IDs duplication [#10641](https://github.com/gravitee-io/issues/issues/10641)
 </details>
 
