@@ -1,5 +1,14 @@
 # GKO 4.7.x
 
+## Gravitee Kubernetes Operator 4.7.9 - July 15, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Promotion between multiple clusters fails because of plan IDs dupplication [#10641](https://github.com/gravitee-io/issues/issues/10641)
+</details>
+
+
 4.7.9-alpha was not created in Jira. Assuming no changelog should be generated.
 
 ## Gravitee Kubernetes Operator 4.7.8 - June 24, 2025
