@@ -232,7 +232,7 @@ Gravitee API Management may take a few minutes to initialize.
 
 ## Enable Federation
 
-[Federation](../../govern-apis/federation/) is disabled by default for security and performance reasons. You will enable it by adding environment variables to your existing Docker Compose configuration. If you plan to run multiple APIM instances for high availability, you will also configure cluster mode using Hazelcast to ensure data synchronization across all instances.
+[Federation](../../govern-apis/federation/) is disabled by default for security and performance reasons. You can enable Federation by adding environment variables to your existing Docker Compose configuration. If you plan to run multiple APIM instances for high availability, configure cluster mode using Hazelcast to ensure data synchronization across all instances.
 
 To enable Federation, complete the following steps:
 
@@ -241,66 +241,74 @@ To enable Federation, complete the following steps:
 
 ### Enable Federation with Docker Compose
 
-Enable Federation by adding the `GRAVITEE_INTEGRATION_ENABLED` environment variable to both the gateway and management API services in your existing `docker-compose-apim.yml` file.
+To use Federation, you need to add an environment variable to the Gateway and Management API sections of your `docker-compose-apim.yml` file, and then restart these services.
 
-Open your existing `docker-compose-apim.yml` file and locate both the `gateway` and `management_api` service sections and add the Federation environment variable to each. Add `GRAVITEE_INTEGRATION_ENABLED=true` to the `environment` section of both services:
+To enable Federation, complete the following steps:
 
-The `GRAVITEE_INTEGRATION_ENABLED=true` setting activates the Federation endpoints in the gateway and management API services.&#x20;
+1. Open your existing `docker-compose-apim.yml` file and locate the `gateway` and `management_api` service sections.
+2.  Add the Federation environment variable `GRAVITEE_INTEGRATION_ENABLED=true` to the `environment` section of each service. This activates the Federation endpoints in the Gateway and Management API services. \
 
-```yaml
-  gateway:
-    image: graviteeio/apim-gateway:latest
-    container_name: gio_apim_gateway
-    restart: always
-    ports:
-      - "8082:8082"
-    depends_on:
-      - mongodb
-      - elasticsearch
-    volumes:
-      - ./gravitee/apim-gateway/logs:/opt/graviteeio-gateway/logs
-      - ./gravitee/apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
-      - ./license.key:/opt/graviteeio-gateway/license/license.key
-    environment:
-      - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
-      - gravitee_ratelimit_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
-      - gravitee_reporters_elasticsearch_endpoints_0=http://elasticsearch:9200
-      - gravitee_plugins_path_0=/opt/graviteeio-gateway/plugins
-      - gravitee_plugins_path_1=/opt/graviteeio-gateway/plugin
-      - GRAVITEE_INTEGRATION_ENABLED=true # activates federation 
 
-  management_api:
-    image: graviteeio/apim-management-api:latest
-    container_name: gio_apim_management_api
-    restart: always
-    ports:
-      - "8083:8083"
-    links:
-      - mongodb
-      - elasticsearch
-    depends_on:
-      - mongodb
-      - elasticsearch
-    volumes:
-      - ./license.key:/opt/graviteeio-management-api/license/license.key
-    environment:
-      - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
-      - gravitee_analytics_elasticsearch_endpoints_0=http://elasticsearch:9200
-      - gravitee_installation_standalone_portal_url=http://localhost:8085
-      - GRAVITEE_INTEGRATION_ENABLED=true # activates federation 
-```
+    ```yaml
+      gateway:
+        image: graviteeio/apim-gateway:latest
+        container_name: gio_apim_gateway
+        restart: always
+        ports:
+          - "8082:8082"
+        depends_on:
+          - mongodb
+          - elasticsearch
+        volumes:
+          - ./gravitee/apim-gateway/logs:/opt/graviteeio-gateway/logs
+          - ./gravitee/apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
+          - ./license.key:/opt/graviteeio-gateway/license/license.key
+        environment:
+          - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
+          - gravitee_ratelimit_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
+          - gravitee_reporters_elasticsearch_endpoints_0=http://elasticsearch:9200
+          - gravitee_plugins_path_0=/opt/graviteeio-gateway/plugins
+          - gravitee_plugins_path_1=/opt/graviteeio-gateway/plugin
+          - GRAVITEE_INTEGRATION_ENABLED=true # activates federation 
 
-Restart your APIM services because Docker containers read environment variables only during container startup. The running containers cannot detect the new `GRAVITEE_INTEGRATION_ENABLED` setting without a restart.
+      management_api:
+        image: graviteeio/apim-management-api:latest
+        container_name: gio_apim_management_api
+        restart: always
+        ports:
+          - "8083:8083"
+        links:
+          - mongodb
+          - elasticsearch
+        depends_on:
+          - mongodb
+          - elasticsearch
+        volumes:
+          - ./license.key:/opt/graviteeio-management-api/license/license.key
+        environment:
+          - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
+          - gravitee_analytics_elasticsearch_endpoints_0=http://elasticsearch:9200
+          - gravitee_installation_standalone_portal_url=http://localhost:8085
+          - GRAVITEE_INTEGRATION_ENABLED=true # activates federation 
+    ```
+3.  Restart your APIM services. \
 
-```bash
-docker compose -f docker-compose-apim.yml down
-```
 
-Start the services with the updated Federation configuration:
+    {% hint style="info" %}
+    Docker containers read environment variables only during container startup. The running containers cannot detect the new `GRAVITEE_INTEGRATION_ENABLED` setting without a restart.
+    {% endhint %}
 
-```
-docker compose -f docker-compose-apim.yml up -d
-```
+
+
+    ```bash
+    docker compose -f docker-compose-apim.yml down
+    ```
+4.  Start the services with the updated Federation configuration.\
+
+
+    ```bash
+    docker compose -f docker-compose-apim.yml up -d
+    ```
 
 ### Set up cluster mode
 
@@ -311,11 +319,13 @@ If APIM is running with high availability, you need to set up cluster mode. To s
 
     ```yaml
     GRAVITEE_CLUSTER_TYPE = hazelcast
-    GRAVITEE_CLUSTER_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast.xml
+    GRAVITEE_CLUSTER_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast-cluster.xml
     GRAVITEE_CACHE_TYPE = hazelcast
-    GRAVITEE_CACHE_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast.xml
+    GRAVITEE_CACHE_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast-cache.xml
     ```
-2.  Open the example `hazelcast.xml` configuration file that is included in the distribution, and then modify the following sections as needed:\
+2.  Mount a volume with the `hazelcast-cluster.xml` configuration file. This configures Hazelcast to support APIM cluster mode.\
+    \
+    Here is an example `hazelcast-cluster.xml` configuration file. You may need to customize the values for `join` in the `network` section:\
 
 
     ```xml
@@ -333,26 +343,19 @@ If APIM is running with high availability, you need to set up cluster mode. To s
            <property name="hazelcast.logging.type">slf4j</property>
        </properties>
 
-
-       <queue name="integration-cluster-command-*">
-           <backup-count>0</backup-count>
-           <async-backup-count>1</async-backup-count>
-       </queue>
-
-
-       <map name="integration-controller-primary-channel-candidate">
-           <backup-count>0</backup-count>
-           <async-backup-count>1</async-backup-count>
-       </map>
-
+       <queue name="integration-*">
+            <backup-count>0</backup-count>
+            <async-backup-count>1</async-backup-count>
+            <empty-queue-ttl>300</empty-queue-ttl>
+        </queue>
 
        <cp-subsystem>
            <cp-member-count>0</cp-member-count>
        </cp-subsystem>
 
-
        <network>
            <!-- CUSTOMIZE THIS JOIN SECTION --> 
+           <port>5701</port>
            <join>
                 <auto-detection/>
                 <multicast enabled="false"/>
@@ -363,7 +366,43 @@ If APIM is running with high availability, you need to set up cluster mode. To s
        </network>
     </hazelcast>
     ```
-3. Mount a volume with the `hazelcast.xml` configuration file. This is used to configure Hazelcast, which can then run as a library inside the APIM container.
-4. Add the following plugins to APIM. They are not included by default.
+3.  Mount a volume with the `hazelcast-cache.xml` configuration file. This configures the Hazelcast cluster that is used by APIM's caching system.\
+    \
+    Here is an example `hazelcast-cache.xml` configuration file. You may need to customize the values for `join` in the `network` section:\
+
+
+    ```xml
+    ?xml version="1.0" encoding="UTF-8"?>
+        <hazelcast xmlns="http://www.hazelcast.com/schema/config"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.hazelcast.com/schema/config
+                   http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd">
+            <cluster-name>graviteeio-apim-cache</cluster-name>
+            <properties>
+                <property name="hazelcast.discovery.enabled">true</property>
+                <property name="hazelcast.max.wait.seconds.before.join">3</property>
+                <property name="hazelcast.member.list.publish.interval.seconds">5</property>
+                <property name="hazelcast.socket.client.bind.any">false</property>
+                <property name="hazelcast.logging.type">slf4j</property>
+            </properties>
+
+            <map name="integration-*">
+                <backup-count>0</backup-count>
+                <async-backup-count>1</async-backup-count>
+            </map>
+
+            <cp-subsystem>
+                <cp-member-count>0</cp-member-count>
+            </cp-subsystem>
+
+            <network>
+                <port>5702</port>
+                <join>
+                    <multicast enabled="false"/>
+                    <tcp-ip enabled="true">       </join>
+            </network>
+        </hazelcast>
+    ```
+4. Add the following plugins to APIM:
    * [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip ](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
    * [https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip)
