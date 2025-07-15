@@ -73,6 +73,7 @@
     * [Connect to an Endpoint Using SSE](how-to-guides/use-case-tutorials/connect-to-an-endpoint-using-sse.md)
 * [Configure & Manage the Platform](configure-and-manage-the-platform/README.md)
   * [Gravitee Gateway](configure-and-manage-the-platform/gravitee-gateway/README.md)
+    * [Proxy](configure-and-manage-the-platform/gravitee-gateway/proxy.md)
     * [Services](configure-and-manage-the-platform/gravitee-gateway/services.md)
     * [Dictionaries](configure-and-manage-the-platform/gravitee-gateway/dictionaries.md)
     * [Alerts](configure-and-manage-the-platform/gravitee-gateway/alerts.md)
