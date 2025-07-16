@@ -62,7 +62,7 @@ You can now, in a simple self-serve, manned deploy self-hosted hybrid gateways t
 \
 Configuration will be synced securely from Cloud Gate components, and transactional analytics data will be sent from the gateway to your dedicated analytics index. So it can be viewed in detail in the API Management Control Plane Dashboard.\
 \
-Read more about the feature [here](../guides/hybrid.md).
+Read more about the feature [here](broken-reference).
 
 </details>
 
