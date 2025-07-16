@@ -4,6 +4,8 @@
 
 This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud using Kubernetes.
 
+By completing this guide, you will deploy a Redis cache for performance optimization, configure a hybrid gateway that maintains secure connectivity with Gravitee Cloud, and validate that your installation correctly. You will understand how Kubernetes services, load balancers, and network configuration work together to create a robust API gateway foundation that can scale to handle enterprise workloads.
+
 ## Prerequisites
 
 Before you install a Hybrid Gateway, complete the following steps:
@@ -66,121 +68,124 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 ### Prepare your Gravitee `values.yaml` file for Helm
 
-1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new Hybrid Gateway.
+1. Copy the following Gravitee `values.yaml` file. This is the base configuration for your new Hybrid Gateway. The `values.yaml` configuration file contains all parameters that define how your hybrid gateway operates, connects to Gravitee Cloud, and integrates with supporting services like Redis. This configuration file represents the bridge between your local Kubernetes infrastructure and the cloud-based management platform.
 
-    {% code title="values.yaml" %}
-    ```yaml
-    #This is the license key provided in your Gravitee Cloud account 
-    #example: Ic5OXgAAACAAAAACAAAADAAAAAhhbGVydC1lbmdpbmVpbmNsdWRlZAAAABsAAAACAAAABwAAAAhjb21wYW55R3Jhdml0ZWUAAAAxAAAAAgAAAAUAAAAgZW1haWxwbGF0Zm9ybS10ZWFtQGdyYXZpdGVlc291cmNlLmNvbQAAABoAAAALAAAACmV4cGlyeURhdGUAAAGhUXU7/wAAACAAAAACAAAACAAAAAxmZWF0dXJlc2FsZXJ0LWVuZ2luZQAAACEAAAAMAAAACWxpY2Vuc2VJZJTWw5qIQT4bEYqYFx9wSH4AAAEcAAAAAQAAABAAAAEAbGljZW5zZVNpZ25hdHVyZULCHNcIqMuFwEMkSCgE4Q/42YSVluW/vvMtaHZWJ5Xoh3rsWEjCMg8Ku2cTKuSP7FzR/b8GVedDJqxf+o2n8B/LV+WwzZjOAi09EBfLmTLOzzXFNp1KRDk3G4rrKznJ1Kqz9EXjyNAiT/c7en3om6Lx0A4BscZtu6k6i1pAnfHhotJkHMIdNkDqSU4fkyAH6FS+NYcLEcudaeeRr2Th/Dvyn0py7xOUNicgXdBjEXJXMF2vxyNkm0kML4ADG12++dZyG2kgGYg5+A8UdABGxCvIfNsl9uVuP2F5ACr8Uc73HytKpIaZqz71RMxQDuJtRzmkkGxHajJJeZWQZXtLdBoAAAARAAAAAgAAAAUAAAAAcGFja3MAAAAiAAAAAgAAAA8AAAAHc2lnbmF0dXJhfgzanZXN0U0hBLTI1NgAAABgAAAACAAAABAAAAAh0aWVydW5pdmVyc2U=
-    license:
-        key: "<license_key>"
-    #This section controls the Management API component deployment of Gravitee. 
-    #It is disabled for a hybrid gateway installation
-    api:
+{% code title="values.yaml" %}
+```yaml
+#This is the license key provided in your Gravitee Cloud account 
+#example: Ic5OXgAAACAAAAACAAAADAAAAAhhbGVydC1lbmdpbmVpbmNsdWRlZAAAABsAAAACAAAABwAAAAhjb21wYW55R3Jhdml0ZWUAAAAxAAAAAgAAAAUAAAAgZW1haWxwbGF0Zm9ybS10ZWFtQGdyYXZpdGVlc291cmNlLmNvbQAAABoAAAALAAAACmV4cGlyeURhdGUAAAGhUXU7/wAAACAAAAACAAAACAAAAAxmZWF0dXJlc2FsZXJ0LWVuZ2luZQAAACEAAAAMAAAACWxpY2Vuc2VJZJTWw5qIQT4bEYqYFx9wSH4AAAEcAAAAAQAAABAAAAEAbGljZW5zZVNpZ25hdHVyZULCHNcIqMuFwEMkSCgE4Q/42YSVluW/vvMtaHZWJ5Xoh3rsWEjCMg8Ku2cTKuSP7FzR/b8GVedDJqxf+o2n8B/LV+WwzZjOAi09EBfLmTLOzzXFNp1KRDk3G4rrKznJ1Kqz9EXjyNAiT/c7en3om6Lx0A4BscZtu6k6i1pAnfHhotJkHMIdNkDqSU4fkyAH6FS+NYcLEcudaeeRr2Th/Dvyn0py7xOUNicgXdBjEXJXMF2vxyNkm0kML4ADG12++dZyG2kgGYg5+A8UdABGxCvIfNsl9uVuP2F5ACr8Uc73HytKpIaZqz71RMxQDuJtRzmkkGxHajJJeZWQZXtLdBoAAAARAAAAAgAAAAUAAAAAcGFja3MAAAAiAAAAAgAAAA8AAAAHc2lnbmF0dXJhfgzanZXN0U0hBLTI1NgAAABgAAAACAAAABAAAAAh0aWVydW5pdmVyc2U=
+license:
+    key: "<license_key>"
+#This section controls the Management API component deployment of Gravitee. 
+#It is disabled for a hybrid gateway installation
+api:
+    enabled: false
+#This section controls the Developer Portal API component deployment of Gravitee. 
+#It is disabled for a hybrid gateway installation
+portal:
+    enabled: false
+#This section controls the API Management Console component deployment of Gravitee. 
+#It is disabled for a hybrid gateway installation
+ui:
+    enabled: false
+#This section controls the Alert Engine component deployment of Gravitee. 
+#It is disabled for a hybrid gateway installation
+alerts:
+    enabled: false
+#This section controls the Analytics Database component deployment of Gravitee based on ElasticSearch. 
+#It is disabled for a hybrid gateway installation
+es:
+    enabled: false
+    
+#This section has multiple parameters to configure the API Gateway deployment  
+gateway:
+    replicaCount: 1 #number of replicas of the pod
+    image:
+        repository: graviteeio/apim-gateway
+        # tag: 4.7.6 #The gateway version to install. It has to align with the control plane of your Gravitee Cloud
+        pullPolicy: IfNotPresent
+    autoscaling:
         enabled: false
-    #This section controls the Developer Portal API component deployment of Gravitee. 
-    #It is disabled for a hybrid gateway installation
-    portal:
-        enabled: false
-    #This section controls the API Management Console component deployment of Gravitee. 
-    #It is disabled for a hybrid gateway installation
-    ui:
-        enabled: false
-    #This section controls the Alert Engine component deployment of Gravitee. 
-    #It is disabled for a hybrid gateway installation
-    alerts:
-        enabled: false
-    #This section controls the Analytics Database component deployment of Gravitee based on ElasticSearch. 
-    #It is disabled for a hybrid gateway installation
-    es:
-        enabled: false
-        
-    #This section has multiple parameters to configure the API Gateway deployment  
-    gateway:
-        replicaCount: 1 #number of replicas of the pod
-        image:
-            repository: graviteeio/apim-gateway
-            # tag: 4.7.6 #The gateway version to install. It has to align with the control plane of your Gravitee Cloud
-            pullPolicy: IfNotPresent
-        autoscaling:
-            enabled: false
-        podAnnotations:
-            prometheus.io/path: /_node/metrics/prometheus
-            prometheus.io/port: "18082"
-            prometheus.io/scrape: "true"
-        #Sets environment variables.  
-        env:
-            #Gravitee Cloud Token. This is the value gathered in your Gravitee Cloud Account when you install a new Hybrid Gateway.
-            - name: gravitee_cloud_token
-              value: "<cloud_token>"
-        
-        #Configure the API Gateway internal API. 
-        services:
-            #The following sections enables the exposure of metrics to Prometheus. 
-            metrics:
+    podAnnotations:
+        prometheus.io/path: /_node/metrics/prometheus
+        prometheus.io/port: "18082"
+        prometheus.io/scrape: "true"
+    #Sets environment variables.  
+    env:
+        #Gravitee Cloud Token. This is the value gathered in your Gravitee Cloud Account when you install a new Hybrid Gateway.
+        - name: gravitee_cloud_token
+          value: "<cloud_token>"
+    
+    #Configure the API Gateway internal API. 
+    services:
+        #The following sections enables the exposure of metrics to Prometheus. 
+        metrics:
+            enabled: true
+            prometheus:
                 enabled: true
-                prometheus:
-                    enabled: true
 
-            #This enables the Gravitee APIM Gateway internal API for monitoring and retrieving technical information about the component.
-            core:
-                http:
-                    enabled: true
-            sync:
-                kubernetes:
-                    enabled: false
-            #disables bridge mode. unnecessary for a hybrid gateway.
-            bridge:
+        #This enables the Gravitee APIM Gateway internal API for monitoring and retrieving technical information about the component.
+        core:
+            http:
+                enabled: true
+        sync:
+            kubernetes:
                 enabled: false
-        service:
-            type: LoadBalancer
-            externalPort: 8082
-            loadBalancerIP: 127.0.0.1
-        ingress:
+        #disables bridge mode. unnecessary for a hybrid gateway.
+        bridge:
             enabled: false
-        resources:
-            limits:
-                cpu: 500m
-                memory: 1024Mi
-            requests:
-                cpu: 200m
-                memory: 512Mi
-        deployment:
-            revisionHistoryLimit: 1
-            strategy:
-                type: RollingUpdate
-                rollingUpdate:
-                    maxUnavailable: 0
-        #Reporter configuration section.
-        #no additional reporter enabled for the hybrid gateway outside of the default Cloud Gateway reporter
-        reporters:
-            file:
-                enabled: false
-        terminationGracePeriod: 50
-        gracefulShutdown:
-            delay: 20
-            unit: SECONDS
-        ratelimit:
-            redis:
-                host: "<redis_hostname>"
-                port: 6379
-                password: "<redis_password>"
-                ssl: false
-            
+    service:
+        type: LoadBalancer
+        externalPort: 8082
+        loadBalancerIP: 127.0.0.1
+    ingress:
+        enabled: false
+    resources:
+        limits:
+            cpu: 500m
+            memory: 1024Mi
+        requests:
+            cpu: 200m
+            memory: 512Mi
+    deployment:
+        revisionHistoryLimit: 1
+        strategy:
+            type: RollingUpdate
+            rollingUpdate:
+                maxUnavailable: 0
+    #Reporter configuration section.
+    #no additional reporter enabled for the hybrid gateway outside of the default Cloud Gateway reporter
+    reporters:
+        file:
+            enabled: false
+    terminationGracePeriod: 50
+    gracefulShutdown:
+        delay: 20
+        unit: SECONDS
     ratelimit:
-        type: redis
-            
-    # Auto-download the Gravitee Redis plugin
-    redis:
-        download: true
-    ```
-    {% endcode %}
-2. Make the following modifications to your `values.yaml` file:
-   * Replace `<cloud_token>` with your Cloud Token.
-   * Replace `<license_key>` with your License Key.
+        redis:
+            host: "<redis_hostname>"
+            port: 6379
+            password: "<redis_password>"
+            ssl: false
+        
+ratelimit:
+    type: redis
+        
+# Auto-download the Gravitee Redis plugin
+redis:
+    download: true
+```
+{% endcode %}
+
+1. Make the following modifications to your `values.yaml` file:
+   * Replace `<cloud_token>` with your cloud token generated  when creating your hybrid gateway
+   * Replace `<license_key>` with your license key from Gravitee cloud organization settings.&#x20;
    * Replace `<redis_hostname>` with your extracted Redis hostname.
-   * Replace `<redis_password>` with your extracted Redis password.
-3. Save your Gravitee `values.yaml` file.
+   * Replace `<redis_password>` with your extracted Redis password gotten from the Redis installation.&#x20;
+2. Save your Gravitee `values.yaml` file.
+
+* The service configuration uses LoadBalancer type with loadBalancerIP set to `127.0.0.1`, which creates a local endpoint accessible at `localhost:8082`. This configuration enables testing and development while providing a foundation that you can adapt for production deployments with external load balancers, ingress controllers, or service mesh integration.
 
 ### Install with Helm
 
@@ -212,7 +217,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 To uninstall the Gravitee Hybrid Gateway, use the following command:
 
 ```bash
-> helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
+helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 ```
 {% endhint %}
 
@@ -233,7 +238,7 @@ To verify that your Gateway is up and running, complete the following steps:
 1.  To query the pod status, use the following command:
 
     ```bash
-    > kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
+    kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
 2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.&#x20;
 
@@ -247,7 +252,7 @@ To verify that your Gateway is up and running, complete the following steps:
 1.  To list all the pods in your deployment, use the following command:
 
     ```bash
-    > kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
+    kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
 2.  In the output, find the name of the pod from which to obtain logs. For example, `graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9`.&#x20;
 
@@ -296,6 +301,21 @@ To verify that your Gateway is up and running, complete the following steps:
     ...
     14:02:04.324 [gio.sync-deployer-0] [] INFO  i.g.g.p.o.m.DefaultOrganizationManager - Register organization ReactableOrganization(definition=Organization{id='[redacted]', name='Organization'}, enabled=true, deployedAt=Sat Oct 19 17:08:22 GMT 2024)
     ```
+5. Verify service configuration:
+
+```bash
+kubectl get services -n gravitee-apim
+```
+
+In the output, your service should show TYPE `LoadBalancer` with EXTERNAL-IP `localhost` and PORT `8082`.
+
+```
+NAME                              TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+gravitee-apim-redis-headless      ClusterIP      None            <none>        6379/TCP         20m
+gravitee-apim-redis-master        ClusterIP      10.110.172.36   <none>        6379/TCP         20m
+gravitee-apim-redis-replicas      ClusterIP      10.96.207.194   <none>        6379/TCP         20m
+graviteeio-apim-gateway-gateway   LoadBalancer   10.107.188.66   localhost     8082:32738/TCP   5m
+```
 
 ### Validate the Gateway URL
 
@@ -313,6 +333,10 @@ To verify that your Gateway is up and running, complete the following steps:
 {% hint style="success" %}
 You can now create and deploy APIs to your Hybrid Gateway.
 {% endhint %}
+
+
+
+
 
 ## Next steps
 
