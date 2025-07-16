@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sharding tags allow you to “tag” Gateways with a keyword and deploy an API to a Gateway with a certain tag. You can apply sharding on APIM Gateway instances either at the system property level or with `gravitee.yml`.&#x20;
+Sharding tags allow you to “tag” Gateways with a keyword and deploy specific APIs to a specific Gateway with a certain tag. You can apply _sharding tags_ on APIM Gateway instances either at the system property level, with Helm `values.yaml` or with `gravitee.yml`.&#x20;
 
 Gateways can be tagged with one or more sharding tags. Additionally, the `!` symbol can be placed before the tag name to specify exclusion rules.&#x20;
 
@@ -14,17 +14,17 @@ API deployment is impacted by how tags are applied to APIs and Gateways.
 
 ### Rules
 
-* Tagged Gateway instances will never deploy tagless APIs.
-* Tagless Gateway instances will deploy every API, regardless of how the APIs are tagged.
-* An API defined with a specific tag will only be deployed on a Gateway that has been assigned that tag.
+* Tagged Gateway instances never deploy tagless APIs.
+* Tagless Gateway instances retrieve and deploy every API, regardless of how the APIs are tagged.
+* An API defined with a specific tag is only deployed on a Gateway that has been assigned that tag.
 
 ### Examples
 
-* A tagless API will not be deployed on a Gateway tagged with `x`.
-* An API tagged with `x` will be deployed on a tagless Gateway.
-* A tagless API will be deployed on a tagless Gateway.
-* An API defined with tag `x` will be deployed on a Gateway that has been assigned tag `x`.
-* An API defined with tag `x` will be deployed on a Gateway that has been assigned tag `!y`. The tag `!y` means that the Gateway has been assigned every tag but `y`.
+* A tagless API is not be deployed on a Gateway tagged with `x`.
+* An API tagged with `x` is deployed on a tagless Gateway.
+* A tag-less API will be deployed on a tagless Gateway.
+* An API defined with tag `x` is deployed on a Gateway that has been assigned tag `x`.
+* An API defined with tag `x` is deployed on a Gateway that has been assigned tag `!y`. The tag `!y` means that the Gateway has been assigned every tag but `y`.
 
 ## Configure sharding tags for your internal and external Gateways
 
@@ -32,25 +32,25 @@ If you have an architecture that includes both DMZ Gateways and internal corpora
 
 <figure><img src="../../.gitbook/assets/Example architecture (3).png" alt=""><figcaption></figcaption></figure>
 
-Before sharding tags can be defined in your APIM Console, you must modify `gravitee.yaml` to assign a tag to a Gateway. For example:
+Before sharding tags can be defined in your APIM Console, you must define the configuration to assign a tag to a Gateway. For example:
 
 ```
 DMZ Gateways: 
-tags: ‘external’
+  tags: 'external'
 ```
 
 ```
 Internal Network Gateways:
-tags: ‘internal’
+  tags: 'internal'
 ```
 
 You can also exclude Gateways from tags. For example, the following sharding tag definition configures a Gateway to host APIs that are not dedicated to partners:
 
 ```
-tags: ‘product,store,!partner’
+  tags: 'product,store,!partner'
 ```
 
-Once Gateways have been tagged, these sharding tags must be defined within API Manager.
+Once Gateways have been tagged, you must define these sharding tags must within API Manager. To navigate to the **Entrypoint & Sharding Tags**, click **Organization**, and then click **Entrypoint & Sharding Tags**.
 
 ## Configure sharding tags for your APIs
 
@@ -58,7 +58,7 @@ To configure sharding tags, complete the following steps:
 
 * [#create-a-tag-in-the-apim-console](sharding-tags.md#create-a-tag-in-the-apim-console "mention")
 * [#add-sharding-tags-to-your-apis](sharding-tags.md#add-sharding-tags-to-your-apis "mention")
-* [#add-the-tag-id-to-gravitee.yml-or-with-environment-variables](sharding-tags.md#add-the-tag-id-to-gravitee.yml-or-with-environment-variables "mention")
+* [#add-the-tag-id-to-values.yaml-gravitee.yml-or-with-environment-variables](sharding-tags.md#add-the-tag-id-to-values.yaml-gravitee.yml-or-with-environment-variables "mention")
 
 ### Create a tag in the APIM Console
 
@@ -82,6 +82,10 @@ To configure sharding tags, complete the following steps:
 
        <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**.
+
+{% hint style="info" %}
+Take note of the generated 'id', as this may differ from your 'name' (due to the use of underscores or hypens).
+{% endhint %}
 
 ### Add sharding tags to your APIs
 
@@ -107,15 +111,31 @@ To configure sharding tags, complete the following steps:
 
     <figure><img src="../../.gitbook/assets/8D761E18-837A-412F-9F06-5863D7AC4C33.jpeg" alt=""><figcaption></figcaption></figure>
 
-### Add the tag ID to `gravitee.yml` or with environment variables
+### Add the tag ID to `values.yaml`, `gravitee.yml` or with environment variables
 
 1. Find the ID for your sharding tag(s). To find the ID of your sharding tag(s), complete the following substeps:
    1. From the **Dashboard**, click **Organization**.
    2. In the **Organization** menu, click **Entrypoints & Sharding Tags**.
    3. Navigate to the **Sharding Tags** section. The ID of your sharding tag is in the **ID** column.
-2. Add the ID of your sharding tag(s) to either your `gravitee.yml` file or as environment variables by completing the set of following steps that matches your preference:
+2. Add the ID of your sharding tag or tags to either your Helm `values.yaml`, `gravitee.yml` file or as environment variables by completing the set of following steps that match your comfiguration:
 
 {% tabs %}
+{% tab title="Helm values.yaml" %}
+In your `values.yaml` file, add the following configuration:
+
+{% code title="values.yaml" lineNumbers="true" %}
+```yaml
+# Sharding tags configuration
+# Allows to define inclusion/exclusion sharding tags to only deploy a part of APIs. To exclude just prefix the tag with '!'.
+gateway:
+  sharding_tags: <tag1>, <tag2>, !<tag3>
+```
+{% endcode %}
+
+* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag IDs.&#x20;
+* To exclude a tag from a Gateway configuration, add an exclamation mark (!) before the tag.
+{% endtab %}
+
 {% tab title="gravitee.yml" %}
 In your `gravitee.yml` file, add the following configuration:
 
@@ -123,38 +143,53 @@ In your `gravitee.yml` file, add the following configuration:
 ```yaml
 # Sharding tags configuration
 # Allows to define inclusion/exclusion sharding tags to only deploy a part of APIs. To exclude just prefix the tag with '!'.
-#tags: <tag 1>, <tag 2>, !<tag 3>
+#tags: <tag1>, <tag2>, !<tag3>
 ```
 {% endcode %}
 
-* Uncomment `#tags: <tag 1>, <tag 2>, !<tag 3>`.
-* Replace `<tag 1>, <tag 2>, !<tag3>` with a comma-separated list of your sharding tag IDs.&#x20;
+* Uncomment `#tags: <tag1>, <tag2>, !<tag3>`.
+* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag IDs.&#x20;
 * To exclude a tag from a Gateway configuration, add an exclamation mark (!) before the tag.
 {% endtab %}
 
-{% tab title="environment variables" %}
+{% tab title="Environment variables" %}
 Add the following environment variable:
 
 {% code lineNumbers="true" %}
 ```bash
-gravitee_tags=<tag 1>,<tag 2>,!<tag3>
+gravitee_tags=<tag1>,<tag2>,!<tag3>
 ```
 {% endcode %}
 
-* Replace `<tag 1>, <tag 2>, !<tag3>` with a comma-separated list of your sharding tag IDs.&#x20;
+* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag IDs.&#x20;
+* To exclude a tag from a Gateway configuration, add an exclamation mark (!) before the tag.
+{% endtab %}
+
+{% tab title="Docker Compose" %}
+In your `docker-compose.yml` file, add the following _environment variable_ configuration:
+
+{% code title="docker-compose.yml" lineNumbers="true" %}
+```yaml
+# Sharding tags configuration
+# Allows to define inclusion/exclusion sharding tags to only deploy a part of APIs. To exclude just prefix the tag with '!'.
+gateway:
+  environment:
+    - tags=<tag1>, <tag2>, !<tag3>
+```
+{% endcode %}
+
+* Replace `<tag1>, <tag2>, !<tag3>` with a comma-separated list of your sharding tag IDs.&#x20;
 * To exclude a tag from a Gateway configuration, add an exclamation mark (!) before the tag.
 {% endtab %}
 {% endtabs %}
 
+
+
 ## Map entrypoints to sharding tags
 
-You can also map different entrypoint URLs to specific sharding tags in the Developer Portal. The Portal displays available entrypoints based on an API's tag(s).
+You can also map different entrypoint URLs to specific sharding tags (for auto-generating the display of full URLS in the Developer Portal. The Portal displays available entrypoints based on an API's tag(s).
 
-{% hint style="info" %}
-The following process applies to both v2 and v4 APIs.&#x20;
-{% endhint %}
-
-For example, to tell Gravitee API Manager to apply the “internal test” tag to all APIs tagged with this entrypoint:
+For example, to configure Gravitee API Manager to apply the “internal test” tag to all APIs tagged with this entrypoint:
 
 1.  In the **Dashboard**, click **Organization**.\
 
