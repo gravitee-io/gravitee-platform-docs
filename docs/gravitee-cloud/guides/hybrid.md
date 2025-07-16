@@ -288,11 +288,14 @@ When deploying APIM within OpenShift, you must:&#x20;
 Below is a standard `values.yaml` to deploy the Gravitee APIM Gateway into OpenShift:
 
 ```yaml
+openshift:
+  enabled: true
+  
 gateway:
   replicaCount: 1
   image:
     repository: graviteeio/apim-gateway
-    tag: 4.6.7
+    tag: 4.8.1
     pullPolicy: IfNotPresent
   autoscaling:
     enabled: false
@@ -327,7 +330,7 @@ gateway:
     ingressClassName: none
     path: /
     hosts:
-      - gw-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
+      - ${gateway_hostname}.xxxx.xx.openshiftapps.com
     annotations:
       route.openshift.io/termination: edge
   securityContext: null
@@ -410,6 +413,12 @@ license:
 ```
 {% endtab %}
 {% endtabs %}
+
+* Replace `${your-cloud-token}` with your Cloud Token from Gravitee Cloud
+* Replace `${gateway_hostname}` with your specific hostname for the Gravitee Gateway
+* Replace `${your-license-key}` with your Gravitee License from Gravitee Cloud
+
+
 
 10. Click **Return to Overview**. In the **Gateways** section of the **Overview** page, you can see your configured gateway.
 
