@@ -174,7 +174,7 @@ In your `docker-compose.yml` file, add the following _environment variable_ conf
 # Allows to define inclusion/exclusion sharding tags to only deploy a part of APIs. To exclude just prefix the tag with '!'.
 gateway:
   environment:
-    - tags=<tag1>, <tag2>, !<tag3>
+    - gravitee_tags=<tag1>, <tag2>, !<tag3>
 ```
 {% endcode %}
 
