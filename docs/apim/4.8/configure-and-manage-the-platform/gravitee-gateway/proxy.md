@@ -37,7 +37,11 @@ gateway:
 
 ### Configure a proxy for sending Gateway metrics & logs to the Control Plane
 
-If your Hybrid Gateway requires a proxy to connect to the Gravitee Cloud Control Plane, you must also define the following proxy configuration for the Cloud Reporter plugin. This plugin sends Gateway metrics and logs up to the control plane.
+If your Hybrid Gateway requires a proxy to connect to the Gravitee Cloud Control Plane, you must also define the following proxy configuration for the Cloud Reporter plugin. This plugin sends Gateway metrics and logs up to the control plane. You can define the proxy configuration in your Helm `values.yaml` , environment variables or with Docker Compose:&#x20;
+
+{% tabs %}
+{% tab title="Helm values.yaml" %}
+In your `values.yaml` file, add the following configuration:
 
 ```yaml
 gateway:
@@ -52,3 +56,33 @@ gateway:
           # username: proxy
           # password: secret
 ```
+{% endtab %}
+
+{% tab title="Environment variables" %}
+Add the following environment variables:
+
+```
+gravitee_cloud_client_proxy_enabled=true
+gravitee_cloud_client_proxy_type=HTTP
+gravitee_cloud_client_proxy_host=proxy.example.com
+gravitee_cloud_client_proxy_port=8080
+```
+{% endtab %}
+
+{% tab title="Docker Compose" %}
+Add the following environment variables to your `docker-compose.yml` file:
+
+```
+gateway:
+  env:
+    - name: gravitee_cloud_client_proxy_enabled
+      value: "true"
+    - name: gravitee_cloud_client_proxy_type
+      value: "HTTP"
+    - name: gravitee_cloud_client_proxy_host
+      value: "proxy.example.com"
+    - name: gravitee_cloud_client_proxy_port
+      value: "8080"
+```
+{% endtab %}
+{% endtabs %}
