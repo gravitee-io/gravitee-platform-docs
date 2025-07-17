@@ -32,7 +32,6 @@
       * [AWS EKS](hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/aws-eks.md)
       * [Azure AKS](hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/azure-aks.md)
       * [GCP GKE](hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/gcp-gke.md)
-      * [OpenShift](hybrid-installation-and-configuration-guides/classic-cloud/kubernetes/openshift.md)
     * [RPM](hybrid-installation-and-configuration-guides/classic-cloud/rpm.md)
     * [.ZIP](hybrid-installation-and-configuration-guides/classic-cloud/.zip.md)
     * [Cloud Certificate Renewal](hybrid-installation-and-configuration-guides/classic-cloud/cloud-certificate-renewal.md)
