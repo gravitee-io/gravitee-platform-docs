@@ -255,5 +255,19 @@ kafka:
     #      myapi-broker0.mycompany.org
     #      myapi-broker1.mycompany.org
     #      ...
+    
+  # SSL configuration
+  #ssl:
+  #  keystore:
+       # Supports either JKS or PEM
+  #    type: JKS
+  #    path: /opt/graviteeio-gateway/ssl/server.keystore.jks
+  #    password: secret
+       # or
+  #    type: PEM
+  #    secret: secret://kubernetes/my-certificate
+  #    watch: true
+  #  openssl: true
+    
   
 ```
