@@ -1,5 +1,6 @@
 ---
 hidden: true
+noIndex: true
 ---
 
 # Produce and Consume Kafka Messages with Gravitee Cloud
