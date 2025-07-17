@@ -3,7 +3,7 @@
 ## Prerequisites
 
 * Gravitee API Management (APIM) Helm chart is compatible with OpenShift versions 3.10 and later.
-* You must install the following command line tools:
+* Install the following command line tools:
   * [Kubectl or OC](https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html#cli-installing-cli_cli-developer-commands)
   * [Helm](https://docs.openshift.com/container-platform/4.10/applications/working_with_helm_charts/installing-helm.html)
 
@@ -19,7 +19,7 @@ To install APIM within OpenShift, complete the following steps:
 
 ### (Optional) Configure the ServiceAccount using roles
 
-If you want to configure the ServiceAccount with more advanced settings, you must use Roles. For more information about using roles, go to go to [Using RBAC to define and apply permissions RBAC overview](https://docs.openshift.com/container-platform/4.8/authentication/using-rbac.html).
+If you want to configure the ServiceAccount with more advanced settings, you must use Roles. For more information about Roles, go to [Using RBAC to define and apply permissions RBAC overview](https://docs.openshift.com/container-platform/4.8/authentication/using-rbac.html).
 
 ### (Optional) Configure the configuration types
 
@@ -29,11 +29,11 @@ You can configure your deployment for the following configuration types:
 * External configuration
 * Shared configuration
 
-The configuration types for OpenShift are the same configuration types for Kubernetes. For more information about the configuration types, see [Broken link](broken-reference "mention").
+The configuration types for OpenShift are the same configuration types for Kubernetes. For more information about the configuration types, see [#configuration-types](vanilla-kubernetes.md#configuration-types "mention").
 
 ### Configure the databases
 
-To deploy OpenShift, you must configure the MongoDB database. Also, you can configure other databases if you need them.
+To deploy OpenShift, you must configure the MongoDB database. Also, you can configure PostgresSQL, ElasticSearch, and Redis if you need them.
 
 {% tabs %}
 {% tab title="MongoDB" %}
@@ -288,7 +288,7 @@ You can configure the following Gravitee components:
 * Gravitee Gateway
 * Alert Engine
 
-The process for configuring the Gravitee components on OpenShift is the same process as configuring the Gravitee components on Kubernetes with some adjustments. To configure the Gravitee components, see [Broken link](broken-reference "mention").
+The process for configuring the Gravitee components on OpenShift is the same process as configuring the Gravitee components on Kubernetes with some adjustments. To configure the Gravitee components, see [#gravitee-parameters](vanilla-kubernetes.md#gravitee-parameters "mention").
 
 #### Adjustments needed for OpenShift
 
@@ -298,11 +298,18 @@ When you configure your `values.yml` file for OpenShift deployment, you must com
 *   Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of security context that has been overridden:\
 
 
+    {% hint style="warning" %}
+    * Currently only UID randomization is supported. We do not support random GID.
+    {% endhint %}
+
+
+
     ```yaml
-    securityContext:
+    api:  
+      deployment:  
+        securityContext:
           runAsUser: null
-          runAsGroup: null
-          runAsNonRoot: true
+          runAsGroup: 1000
           allowPrivilegeEscalation: false
           capabilities:
             drop: ["ALL"]
@@ -324,22 +331,82 @@ When you configure your `values.yml` file for OpenShift deployment, you must com
             route.openshift.io/termination: edge
     ```
 
+#### Disable logging to file inside container&#x20;
+
+* To disable logging to file inside the container, add the following configuration to your `values.yaml` file:
+
+```yaml
+api:
+  logging:
+    file:
+      enabled: false
+
+gateway:
+  logging:
+    file:
+      enabled: false
+```
+
+#### **Configure additional truststore for the Gateway**
+
+* To configure an additional truststore for the Gateway, navigate to `gateway.ssl` , and then add the following configuration:
+
+```
+gateway:
+  ssl:
+    enabled: true  # SSL must be enabled to use truststore
+    truststore:
+      type: jks # Supports jks, pem, 
+      path: ${gravitee.home}/security/truststore.jks
+      password: secret
+```
+
+{% hint style="info" %}
+**Note**:
+
+* The `ssl.enabled` must be set to `true` to use truststore configuration
+* The path uses `${gravitee.home}` as the base directory
+* Here are the supported truststore types:
+  * jks
+  * pem
+  * pkcs12
+* You need to mount the truststore file as a ConfigMap or a Secret
+{% endhint %}
+
+Here is an example of mounting truststore as a Secret:
+
+```
+gateway:
+  extraVolumes: |
+    - name: truststore
+      secret:
+        secretName: gateway-truststore-secret
+  extraVolumeMounts: |
+    - name: truststore
+      mountPath: /opt/graviteeio-gateway/security
+      readOnly: true
+```
+
+For more information about HTTP proxy configuration, see [proxy.md](../../configure-and-manage-the-platform/gravitee-gateway/proxy.md "mention").
+
 **Example**
 
-Here is an example of a typical `values.yml` file used to deploy APIM on OpenShift:
+Here is an example  `values.yml` file that deploys APIM on OpenShift:
 
 {% hint style="info" %}
 By setting `runAsUser` to `null`, OpenShift is forced to define the correct values when deploying the Helm chart.
 {% endhint %}
 
-{% code title="values.yml" %}
-```yaml
-openshift:
-  enabled: true
+<pre class="language-yaml" data-title="values.yml"><code class="lang-yaml">apim:
+ apim:
+  managedServiceAccount: true
+  
+<strong>openshift:
+</strong>  enabled: true
   
 # Configure access to your Config Database (e.g.: MongoDB)
 #mongo:
-#  uri: mongodb+srv://${gravitee_apim_mongodb_user}:${gravitee_apim_mongodb_pass}@${gravitee_apim_mongodb_host}/${gravitee_apim_mongodb_name}?retryWrites=true&w=majority&connectTimeoutMS=10000&socketTimeoutMS=10000&maxIdleTimeMS=30000
+#  uri: mongodb+srv://${gravitee_apim_mongodb_user}:${gravitee_apim_mongodb_pass}@${gravitee_apim_mongodb_host}/${gravitee_apim_mongodb_name}?retryWrites=true&#x26;w=majority&#x26;connectTimeoutMS=10000&#x26;socketTimeoutMS=10000&#x26;maxIdleTimeMS=30000
 
 # Configure access to your Analytics Database (e.g.: Elasticsearch)
 #es:
@@ -361,26 +428,27 @@ openshift:
 #    password: ${elastic_gravitee_pass}
 
 api:
+  #federation:
+  #  enabled: true // set initContainer securityContext if using federation
   ingress:
     management:
       ingressClassName: none
       path: /management
       hosts:
-        - api-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
+        - api-changeme.openshiftapps.com
       annotations:
         route.openshift.io/termination: edge
     portal:
       ingressClassName: none
       path: /portal
       hosts:
-        - api-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
+        - api-graviteeio.apps.openshift-test.l8e4.p1.openshiftapps.com
       annotations:
         route.openshift.io/termination: edge
   deployment:
     securityContext:
       runAsUser: null
       runAsGroup: 1000
-      runAsNonRoot: true
       allowPrivilegeEscalation: false
       capabilities:
         drop: ["ALL"]
@@ -392,14 +460,13 @@ gateway:
     ingressClassName: none
     path: /
     hosts:
-      - gw-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
+      - gw-changeme.openshiftapps.com
     annotations:
       route.openshift.io/termination: edge
   deployment:
     securityContext:
       runAsUser: null
       runAsGroup: 1000
-      runAsNonRoot: true
       allowPrivilegeEscalation: false
       capabilities:
         drop: ["ALL"]
@@ -411,15 +478,13 @@ portal:
     ingressClassName: none
     path: /
     hosts:
-      - portal-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
+      - portal-changeme.openshiftapps.com
     annotations:
       route.openshift.io/termination: edge
-  securityContext: null
   deployment:
     securityContext:
       runAsUser: null
       runAsGroup: null
-      runAsNonRoot: true
       allowPrivilegeEscalation: false
       capabilities:
         drop: ["ALL"]
@@ -431,22 +496,29 @@ ui:
     ingressClassName: none
     path: /
     hosts:
-      - console-graviteeio.apps.openshift-test.xxxx.xx.openshiftapps.com
+      - ui-changeme.openshiftapps.com
     annotations:
       route.openshift.io/termination: edge
-  securityContext: null
   deployment:
     securityContext:
       runAsUser: null
       runAsGroup: null
-      runAsNonRoot: true
       allowPrivilegeEscalation: false
       capabilities:
         drop: ["ALL"]
       seccompProfile:
         type: RuntimeDefault
-```
-{% endcode %}
+
+#initContainers:
+#  securityContext:
+#    runAsUser: null
+#    runAsGroup: 1000
+#    allowPrivilegeEscalation: false
+#    capabilities:
+#      drop: ["ALL"]
+#    seccompProfile:
+#      type: RuntimeDefault
+</code></pre>
 
 ### Install the Gravitee Helm Chart
 
@@ -464,5 +536,5 @@ To install the Gravitee Helm Chart, complete the following steps:
     ```
 
 {% hint style="info" %}
-`values.yaml` refers to the file that you prepared in the [#configure-the-gravitee-parameters-and-values.yml-file](openshift.md#configure-the-gravitee-parameters-and-values.yml-file "mention") section.
+`values.yaml` is the file that you prepared in the [#configure-the-gravitee-parameters-and-values.yml-file](openshift.md#configure-the-gravitee-parameters-and-values.yml-file "mention") section.
 {% endhint %}
