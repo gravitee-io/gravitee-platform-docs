@@ -10,6 +10,25 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.4.x
 
+## Gravitee Access Management 4.4.31 - July 18, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Idon't see the audit logs in Gravitee AM for Login Activity  [#10663](https://github.com/gravitee-io/issues/issues/10663)
+
+</details>
+
+
 ## Gravitee Access Management 4.4.30 - July 4, 2025
 
 <details>
