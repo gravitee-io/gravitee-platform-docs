@@ -1,4 +1,33 @@
 # APIM 4.8.x
+ 
+## Gravitee API Management 4.8.2 - July 18, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Traceparent HTTP header is not available in the policy chain [#10511](https://github.com/gravitee-io/issues/issues/10511)
+* Kafka TLS keystore loaded too many times [#10646](https://github.com/gravitee-io/issues/issues/10646)
+
+**Management API**
+
+* Wrong count in the analytics of API v4 [#10604](https://github.com/gravitee-io/issues/issues/10604)
+* Entrypoint cannot be found error when using tags [#10667](https://github.com/gravitee-io/issues/issues/10667)
+
+**Console**
+
+* Identity provider roles mapping UI bug [#10503](https://github.com/gravitee-io/issues/issues/10503)
+* Instances of calling the groups endpoint on create V2 API page time out when a large number of groups exist [#10603](https://github.com/gravitee-io/issues/issues/10603)
+
+**Other**
+
+* Mock policy is not generated if the openAPI spec data uses a type of string and format of date-time [#10619](https://github.com/gravitee-io/issues/issues/10619)
+* \[Kafka Offloading Policy] Large Payloads Support [#10674](https://github.com/gravitee-io/issues/issues/10674)
+
+</details>
+
+
 
 ## Gravitee API Management 4.8.1 - July 7, 2025
 
