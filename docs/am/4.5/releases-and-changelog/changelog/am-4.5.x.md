@@ -10,6 +10,27 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.22 - July 18, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* GET /domain/users with parameter size=0 brings back all users [#10661](https://github.com/gravitee-io/issues/issues/10661)
+
+
+
+**Other**
+
+* Intermittent remote JWK set read time out [#10669](https://github.com/gravitee-io/issues/issues/10669)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.21 - July 4, 2025
 
 <details>
