@@ -398,7 +398,6 @@ By setting `runAsUser` to `null`, OpenShift is forced to define the correct valu
 {% endhint %}
 
 <pre class="language-yaml" data-title="values.yml"><code class="lang-yaml">apim:
- apim:
   managedServiceAccount: true
   
 <strong>openshift:
