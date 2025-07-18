@@ -6,6 +6,29 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.2 - July 18, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* GET /domain/users with parameter size=0 brings back all users [#10661](https://github.com/gravitee-io/issues/issues/10661)
+
+
+
+**Other**
+
+* Deadlock during accessing authorization code [#10614](https://github.com/gravitee-io/issues/issues/10614)
+* Intermittent remote JWK set read time out [#10669](https://github.com/gravitee-io/issues/issues/10669)
+* Allow AM to receive a JWT from an IDP rather than just JSON [#10673](https://github.com/gravitee-io/issues/issues/10673)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.1 - July 4, 2025
 
 <details>
