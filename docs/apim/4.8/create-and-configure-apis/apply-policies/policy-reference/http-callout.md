@@ -2,14 +2,13 @@
 
 ## Overview
 
-You can use the `callout-http` policy to invoke an HTTP(S) URL and place a subset, or all, of the content in\
-one or more variables of the request execution context.
+You can use the `callout-http` policy to invoke an HTTP(S) URL and place a subset, or all, of the content in one or more variables of the request execution context.
 
-This can be useful if you need some data from an external service and want to inject it during request\
-processing.
+This can be useful if you need some data from an external service and want to inject it during request processing.
 
-The result of the callout is placed in a variable called `calloutResponse` and is only available during policy\
-execution. If no variable is configured the result of the callout is no longer available.
+The result of the callout is placed in a variable called `calloutResponse` and is only available during policy execution. If no variable is configured the result of the callout is no longer available.
+
+The CalloutHttpPolicy includes comprehensive OpenTelemetry tracing support using the V4 API, allowing you to monitor and debug HTTP callout operations with detailed span information. The tracing integration is automatically enabled when OpenTelemetry tracing is configured in your Gravitee environment and enabled in API context.
 
 ## Errors
 
@@ -32,8 +31,8 @@ The `policy-http-callout` policy can be applied to the following API types and f
 
 ### Supported flow phases:
 
-* Request
-* Response
+* `Request`
+* `Response`
 
 ## Compatibility matrix
 
@@ -41,7 +40,8 @@ Strikethrough text indicates that a version is deprecated.
 
 | Plugin version       | APIM                 |
 | -------------------- | -------------------- |
-| 4.x                  | 4.4.x to latest      |
+| 5.x                  | 4.6.x to latest      |
+| 4.x                  | 4.4.x to 4.5.x       |
 | 3.x                  | 4.0.x to 4.3.x       |
 | ~~2.x~~              | ~~3.18.x to 3.20.x~~ |
 | ~~1.15.x and upper~~ | ~~3.15.x to 3.17.x~~ |
@@ -71,8 +71,6 @@ system:
 ```
 
 ### Configuration options
-
-####
 
 | <p>Name<br><code>json name</code></p>                    | <p>Type<br><code>constraint</code></p> | Mandatory | Default                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | -------------------------------------------------------- | -------------------------------------- | :-------: | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
