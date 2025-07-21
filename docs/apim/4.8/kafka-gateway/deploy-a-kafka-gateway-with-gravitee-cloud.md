@@ -39,7 +39,3 @@ To verify that the Kafka Gateway deployed correctly, complete the following step
 {% hint style="info" %}
 If the Gateway was not deployed correctly, the Gateway row entries are greyed out and the Gateway name is an inactive link.
 {% endhint %}
-
-## Next steps
-
-* [Broken link](broken-reference "mention").
