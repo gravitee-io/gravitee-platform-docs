@@ -8,6 +8,7 @@
   * [Enterprise Edition Installation](gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-installation.md)
   * [Enterprise Edition Licensing](gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing.md)
 * [Release Types](gravitee-platform/release-types-and-support-model.md)
+* [Release schedule](gravitee-platform/release-schedule.md)
 * [Support Model](gravitee-platform/support-model/README.md)
   * [Support for v1 APIs](gravitee-platform/support-model/support-for-v1-apis.md)
 
@@ -24,7 +25,7 @@
 * [Enterprise Support](community/enterprise-support.md)
 * [Community](community/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
-  * [Roadmap & Feedback](https://app.productboard.com/?redirect\_to=https://gravitee.productboard.com/portal/3-internal-gravitee-io-roadmap/tabs/6aa173be-1ba7-4984-b790-4c920e09e6b0)
+  * [Roadmap & Feedback](https://app.productboard.com/?redirect_to=https://gravitee.productboard.com/portal/3-internal-gravitee-io-roadmap/tabs/6aa173be-1ba7-4984-b790-4c920e09e6b0)
   * [Announcement & Events](https://community.gravitee.io/c/announcements/5)
 
 ## Contribute
