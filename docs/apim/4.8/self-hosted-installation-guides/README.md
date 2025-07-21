@@ -37,17 +37,20 @@ Gravitee APIM can be installed using the following technology stacks and deploym
 
 ## Architecture
 
-The following diagrams illustrate the component management, design, and virtual machine internal/external access deployment of a self-hosted architecture.
+The following diagrams illustrate the component management and design of a self-hosted architecture.
 
 ### Self-hosted component management
 
-<img src="../.gitbook/assets/file.excalidraw (22).svg" alt="" class="gitbook-drawing">
+<figure><img src="../.gitbook/assets/image (316).png" alt=""><figcaption></figcaption></figure>
+
+Self-hosted component management means that the customer hosts and manages both the Control Plane(s) and Data Plane(s). &#x20;
+
+To support a multi-environment configuration, the self-hosted Control Plane must be connected to Gravitee Cloud.
 
 ### Self-hosted architecture diagram
 
-<img src="../.gitbook/assets/file.excalidraw (21).svg" alt="Self-hosted architecture" class="gitbook-drawing">
+<figure><img src="../.gitbook/assets/image (317).png" alt=""><figcaption></figcaption></figure>
 
-### Self-hosted VM installation: LAN + DMZ deployment
+In a typical self-hosted architecture, the customer manages both the Data Plane and the Control Plane. The Management Control Plane consists of API Management (mAPI), and, optionally, Gravitee Alert Engine and Gravitee Access Management.
 
-<img src="../.gitbook/assets/file.excalidraw (20).svg" alt="Self-hosted architecture LAN + DMZ" class="gitbook-drawing">
-
+The API Gateways communicate directly with the self-hosted Management API to synchronize API configurations, and, optionally, publish metrics and logs data.
