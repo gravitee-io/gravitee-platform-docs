@@ -1,7 +1,3 @@
----
-noIndex: true
----
-
 # Deploy a Kafka Gateway with Gravitee Cloud
 
 ## Overview
