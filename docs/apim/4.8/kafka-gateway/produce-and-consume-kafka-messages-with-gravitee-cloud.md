@@ -1,7 +1,3 @@
----
-noIndex: true
----
-
 # Produce and Consume Kafka Messages with Gravitee Cloud
 
 ## Overview
