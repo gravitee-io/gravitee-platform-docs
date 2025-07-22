@@ -43,7 +43,7 @@ docker run -d \
 
 From the Gravitee Cloud Dashboard, you can see your configured Gateway.
 
-<figure><img src="../../../.gitbook/assets/00 5 copy.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/docker-cli-configured-hybrid-gateway.png" alt=""><figcaption></figcaption></figure>
 
 To verify that the Gateway is running, make a GET request to the URL on which you have published the Gateway. The output is a default message similar to:
 
