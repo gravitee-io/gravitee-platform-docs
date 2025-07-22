@@ -53,7 +53,6 @@
    3. Click **Entrypoints**.&#x20;
    4. Copy the context-path from the **Context-path** field.&#x20;
 3. In your browser, enter the target URL and the context path for your API in the following format: `gateway_URL/context_path` . For example, `https://jsonplaceholder.typicode.com/myfirstapi` .  You receive an empty response.
-4.
 
 ## Next steps:
 
