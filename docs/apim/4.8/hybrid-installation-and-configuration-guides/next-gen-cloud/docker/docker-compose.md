@@ -11,11 +11,7 @@ description: >-
 Gravitee Next Gen Cloud supports hybrid deployments, which provides you with the flexibility to run components within your own infrastructure while Gravitee hosts and manages other components. In a hybrid setup, the platform is split into the following two planes:
 
 * **Control Plane**: Fully managed by Gravitee in the cloud, responsible for API design, publishing, configuration, analytics, and lifecycle management.
-*   **Data Plane**: Deployed and managed by you, close to your backend services, responsible for executing traffic policies, enforcing security, and routing API traffic.\
-    \
-
-
-    <figure><img src="../../../.gitbook/assets/Screenshot 2025-07-22 at 12.02.37.png" alt=""><figcaption></figcaption></figure>
+* **Data Plane**: Deployed and managed by you, close to your backend services, responsible for executing traffic policies, enforcing security, and routing API traffic.
 
 <img src="../../../.gitbook/assets/file.excalidraw.svg" alt="" class="gitbook-drawing">
 
