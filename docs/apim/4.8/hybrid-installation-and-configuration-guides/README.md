@@ -4,14 +4,14 @@
 
 ### Next-Gen Cloud
 
-* Docker Compose&#x20;
+* [docker-compose.md](next-gen-cloud/docker/docker-compose.md "mention")
 * [docker-cli.md](next-gen-cloud/docker/docker-cli.md "mention")
 
 #### Kubernetes
 
 * [vanilla-kubernetes.md](next-gen-cloud/kubernetes/vanilla-kubernetes.md "mention")
 * AWS EKS
-* Azure AKS
+* [azure-aks.md](next-gen-cloud/kubernetes/azure-aks.md "mention")
 * GCP EKS
 * [openshift.md](next-gen-cloud/kubernetes/openshift.md "mention")
 
