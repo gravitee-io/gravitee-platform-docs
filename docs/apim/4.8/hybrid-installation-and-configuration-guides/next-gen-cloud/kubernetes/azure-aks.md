@@ -14,8 +14,8 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 
 Before you install a Hybrid Gateway, complete the following steps:
 
-* Install `helm`.
-* Install `kubectl`.
+* Install [helm](https://helm.sh/docs/intro/install/).
+* Install [kubectl](https://kubernetes.io/docs/tasks/tools/).&#x20;
 * Ensure you have access to Gravitee Cloud, with permissions to install new Gateways.
 * Ensure you have access to the AKS cluster where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
@@ -273,7 +273,7 @@ To verify that your Gateway is up and running, complete the following steps:
 1.  To query the pod status, use the following command:&#x20;
 
     ```bash
-    > kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
+    kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
 2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.&#x20;
 
@@ -287,7 +287,7 @@ To verify that your Gateway is up and running, complete the following steps:
 1.  To list all the pods in your deployment, use the following command:&#x20;
 
     ```bash
-    > kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
+    kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
 2.  In the output, find the name of the pod from which to obtain logs. For example, `graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9`.&#x20;
 
