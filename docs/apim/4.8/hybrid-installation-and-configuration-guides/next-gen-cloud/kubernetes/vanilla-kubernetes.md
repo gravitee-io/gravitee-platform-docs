@@ -18,6 +18,7 @@ Before you install a Hybrid Gateway, complete the following steps:
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install the Gateway
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
+* No prior Kubernetes experience required, concepts will be explained as introduced
 
 ## Install the Gateway
 
