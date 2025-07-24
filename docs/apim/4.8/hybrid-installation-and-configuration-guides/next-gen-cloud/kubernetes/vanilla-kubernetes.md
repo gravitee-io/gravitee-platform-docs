@@ -4,6 +4,8 @@
 
 This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud using Kubernetes.
 
+A hybrid gateway architecture uses a mix of self-hosted and cloud components. The Control Plane (hosted by Gravitee Cloud) provides centralized management and monitoring, while the Data Plane (your self-hosted gateway) processes API traffic locally within your infrastructure. This approach combines the security and control of on-premises deployment with the operational convenience of cloud-based management.
+
 By completing this guide, you will deploy a Redis cache for performance optimization, configure a hybrid gateway that maintains secure connectivity with Gravitee Cloud, and validate that your installation correctly. You will understand how Kubernetes services, load balancers, and network configuration work together to create a robust API gateway foundation that can scale to handle enterprise workloads.
 
 ## Prerequisites
