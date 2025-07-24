@@ -408,6 +408,12 @@ curl http://127.0.0.1:8082/
 You can now create and deploy APIs to your Hybrid Gateway.
 {% endhint %}
 
+### Conclusion
+
+In this guide, you have successfully deployed a Gravitee Hybrid Gateway on Kubernetes with Redis caching support. Your gateway now maintains secure connectivity with Gravitee Cloud while processing API traffic locally.
+
+You configured a complete Kubernetes application using Helm charts, learned about pods, services, and namespaces, and established the foundation for enterprise API management
+
 ## Next steps
 
 * Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
