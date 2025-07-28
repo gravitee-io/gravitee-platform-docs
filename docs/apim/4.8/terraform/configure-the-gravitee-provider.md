@@ -14,9 +14,7 @@ Before you configure your provider, ensure you have the following:
 
 * The host and port for your Management API
 * Credentials:
-  * Service account [define-an-apim-service-account-for-terraform.md](define-an-apim-service-account-for-terraform.md "mention") \
-    or
-  * Gravitee Cloud Token
+  * Service account [define-an-apim-service-account-for-terraform.md](define-an-apim-service-account-for-terraform.md "mention")&#x20;
 * (Optional) For a multi-tenant setup:
   * Organization ID&#x20;
   * Environment ID&#x20;
