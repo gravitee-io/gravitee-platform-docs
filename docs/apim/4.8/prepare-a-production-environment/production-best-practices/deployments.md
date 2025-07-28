@@ -2,11 +2,14 @@
 
 ## Console and Portal APIs
 
-Gravitee APIM Management API allows the simultaneous exposure of both Console and Developer Portal REST APIs. This enables quick setup when discovering the platform.
+Gravitee APIM Management API lets you simultaneously expose the APIM Console and Developer Portal REST APIs. This speeds up configuration for new users discovering the platform.
 
-If the Console and Developer Portal are not intended to be used by the same category of users, it is **recommended to deploy them on distinct instances**.
+If the Console and Developer Portal are not intended for the same category of users, we recommend that you deploy them on separate APIM instances, where the Console API is only enabled for instances dedicated to the Console and the Developer Portal API is only enabled for instances dedicated to the Developer Portal.&#x20;
 
-You can deploy instances dedicated to the Management Console with the Portal API disabled on one side:
+In the `gravitee.yaml` file of instances dedicated to the Management Console:
+
+* Enable the `console` parameter by setting `enabled = true`.
+* Disable the `portal` parameter by setting `enabled = false`.
 
 ```yaml
 http:
@@ -17,7 +20,10 @@ http:
       enabled: false
 ```
 
-On the other side, you can deploy another dedicated couple of instances for the Developer Portal by disabling the Console API:
+In the `gravitee.yaml` file of instances dedicated to the Developer Portal:
+
+* Enable the `console` parameter by setting `enabled = false`.
+* Disable the `portal` parameter by setting `enabled = true`.
 
 ```yaml
 http:
@@ -28,15 +34,17 @@ http:
       enabled: true
 ```
 
-The Console REST API will remain inaccessible to the outside world if you decide to make your Developer Portal reachable from outside of your company. However, Gravitee recommends that you do not expose your Console or Developer Portal publicly if there is no particular business requirement.&#x20;
+With this configuration, the Console REST API remains publicly inaccessible even if you decide to expose your Developer Portal.
 
-Refer to the [Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#configure-the-management-and-portal-apis) for more information about Console and Portal APIs.
+{% hint style="info" %}
+For security, do not publicly expose either your Console or Developer Portal unless there is a compelling business requirement.&#x20;
+{% endhint %}
 
 ## Enable HTTPS
 
-Whatever solution you rely on, **make sure your REST APIs are only reachable over HTTPS** to protect against man-in-the-middle attacks.
+To protect against man-in-the-middle attacks, ensure that your REST APIs are only reachable over HTTPS.
 
-There are several ways to configure TLS depending on your type of installation. One way is to let Gravitee manage the TLS connection directly by configuring it:
+Methods to configure TLS depend on installation type. To let Gravitee manage the TLS connection directly, use the following configuration for the `jetty` section of `your gravitee.yaml` file:
 
 ```yaml
 jetty:
@@ -48,4 +56,23 @@ jetty:
       password: <keystore_secret>
 ```
 
-You can find additional details regarding HTTPS support for REST APIs in the[ Gravitee documentation](https://documentation.gravitee.io/apim/getting-started/configuration/configure-apim-management-api/internal-api#enable-https-support).
+## Analytics
+
+We recommend that you disable logging for APIs in a production environment. Logging impacts API performance. Also, to store the data in the Gateway memory, the heap pressure on the Gateway must increase, which can lead to a Gateway crash.&#x20;
+
+If you need to enable logging in your production environment, complete the following step:
+
+* In your `gravitee.yml` file, navigate to the `reporters` section, and then set the `max_size` to `256KB`. The default value is `-1`, which indicates no limit.&#x20;
+
+Here is an example configuration:
+
+```yaml
+reporters:
+  logging configuration
+logging:
+  max_size: 256KB # max size per API log content respectively : client-request, client-response, proxy-request and proxy-response in MB (-1 means no limit)
+```
+
+{% hint style="info" %}
+For hybrid Gateways that are connected to Gravitee Cloud, `max_size` is automatically set to 256KB unless the customer specifies a lower value.
+{% endhint %}
