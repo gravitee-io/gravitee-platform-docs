@@ -68,9 +68,9 @@ Here is an example configuration:
 
 ```yaml
 reporters:
-  logging configuration
-logging:
-  max_size: 256KB # max size per API log content respectively : client-request, client-response, proxy-request and proxy-response in MB (-1 means no limit)
+# logging configuration
+  logging:
+    max_size: 256KB # max size per API log content respectively : client-request, client-response, proxy-request and proxy-response in MB (-1 means no limit)
 ```
 
 {% hint style="info" %}
