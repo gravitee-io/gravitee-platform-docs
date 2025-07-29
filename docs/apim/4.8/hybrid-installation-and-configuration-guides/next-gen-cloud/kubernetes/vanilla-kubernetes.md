@@ -423,6 +423,7 @@ You configured a complete Kubernetes application using Helm charts, learned abou
 
 ## Next steps
 
+* Access your API Management Console. Log into your [Gravitee Cloud Dashboard](https://cloud.gravitee.io/) and navigate to your environment. Click on **APIM Console** to open the management interface where you can create and manage your APIs.
 * Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
 
