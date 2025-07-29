@@ -209,6 +209,11 @@ The `values.yaml` configuration file serves as the bridge between your local Kub
     * Replace `<license_key>` with your license key generated  when you completed the steps in [#prepare-your-installation](../#prepare-your-installation "mention").  &#x20;
     * Replace `<redis_hostname>` with your extracted Redis hostname. Replace with `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local`
     * Replace `<redis_password>` with your extracted Redis password gotten from the Redis installation.&#x20;
+
+    {% hint style="warning" %}
+    Redis Connection Errors: If you see `URISyntaxException: Malformed escape pair` errors, your Redis password likely contains special characters like `%`, `@`, or `#`. URL-encode these characters (e.g., `%` becomes `%25`) in your `values.yaml` file.
+    {% endhint %}
+
     *   Specify the gateway version: Uncomment and set the `tag` field in the `image` section to match your Gravitee Cloud control plane version. You can find your control plane version by logging into your Gravitee Cloud dashboard and checking the version displayed in the platform overview section. For example, if your Gravitee Cloud shows version `4.8.2`, update the configuration from `# tag: 4.7.6` to `tag: 4.8.2`. This ensures compatibility between your hybrid gateway and the cloud management platform.\
 
 
