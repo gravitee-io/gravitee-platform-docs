@@ -2,23 +2,18 @@
 
 ## Overview
 
-This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud using Kubernetes.
-
-A hybrid gateway architecture uses a mix of self-hosted and cloud components. The Control Plane (hosted by Gravitee Cloud) provides centralized management and monitoring, while the Data Plane (your self-hosted gateway) processes API traffic locally within your infrastructure. This approach combines the security and control of on-premises deployment with the operational convenience of cloud-based management.
-
-By completing this guide, you will deploy a Redis cache for performance optimization, configure a hybrid gateway that maintains secure connectivity with Gravitee Cloud, and validate that your installation correctly. You will understand how Kubernetes services, load balancers, and network configuration work together to create a robust API gateway foundation that can scale to handle enterprise workloads.
+This guide explains how to install a Hybrid Gateway and connect it to Gravitee Next-Gen Cloud using Kubernetes.
 
 ## Prerequisites
 
 Before you install a Hybrid Gateway, complete the following steps:
 
-* Install [helm](https://helm.sh/docs/intro/install/)
-* Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
-* Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways
-* Ensure you have access to the self-hosted Kubernetes cluster where you want to install the Gateway
-* Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443
+* Install [helm](https://helm.sh/docs/intro/install/).
+* Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
+* Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
+* Ensure you have access to the self-hosted Kubernetes cluster where you want to install the Gateway.
+* Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
-* No prior Kubernetes experience required, concepts will be explained as introduced
 
 ## Install the Gateway
 
@@ -30,18 +25,14 @@ To install the Gravitee Gateway, complete the following steps:
 
 ### Install Redis
 
-Redis provides caching and rate limiting capabilities that enable your gateway to perform efficiently under load while maintaining state consistency across multiple gateway instances. Redis serves as the high-performance, in-memory data store that enables your gateway to track rate limiting counters, cache frequently accessed data, and maintain session information across multiple requests. This distributed cache infrastructure supports the horizontal scaling required for enterprise deployments, which ensures consistent performance.
+To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis).
 
-1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:
+1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:&#x20;
 
     ```bash
     helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis --create-namespace --namespace gravitee-apim
     ```
-
-For more information about Redis installation options, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis)
-
-2.  Extract the Redis hostname from the command output, and then save it. The following example output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:\
-
+2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:
 
     ```sh
     Pulled: registry-1.docker.io/bitnamicharts/redis:21.2.1
@@ -67,34 +58,33 @@ For more information about Redis installation options, see [Bitnami package for 
     To get your password run:
         export REDIS_PASSWORD=$(kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d)
     ```
-3.  Output the Redis password using the following command, and then save the password:\
-
+3.  Use the following command to output the Redis password. Save this password for future use.
 
     ```bash
     kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d
+
     ```
-4.  Verify that your Redis deployment succeeded by checking pod status using the following command:\
+4.  To verify that your Redis deployment succeeded, check pod status using the following command:
 
-
-    ```sh
+    ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-apim-redis
     ```
 
-The command generates the following output:&#x20;
+    The command generates the following output:&#x20;
 
-```sh
-NAME                            READY   STATUS    RESTARTS   AGE
-gravitee-apim-redis-master-0    1/1     Running   0          2m
-gravitee-apim-redis-replicas-0  1/1     Running   0          2m
-gravitee-apim-redis-replicas-1  1/1     Running   0          2m
-```
+    ```sh
+    NAME                            READY   STATUS    RESTARTS   AGE
+    gravitee-apim-redis-master-0    1/1     Running   0          2m
+    gravitee-apim-redis-replicas-0  1/1     Running   0          2m
+    gravitee-apim-redis-replicas-1  1/1     Running   0          2m
+    gravitee-apim-redis-replicas-2  1/1     Running   0          2m
+    ```
 
-### Prepare your Gravitee `values.yaml` file for Helm
+### Prepare `values.yaml` for Helm
 
-The `values.yaml` configuration file serves as the bridge between your local Kubernetes infrastructure and Gravitee Cloud, containing all parameters that define how your hybrid gateway operates.&#x20;
+To prepare your Gravitee `values.yaml` file for Helm, complete the following steps:
 
-1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new Hybrid Gateway. The `values.yaml` configuration file contains all parameters that define how your hybrid gateway operates, connects to Gravitee Cloud, and integrates with supporting services like Redis. The following configuration file represents the bridge between your local Kubernetes infrastructure and the cloud-based management platform: \
-
+1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new hybrid Gateway.
 
     {% code title="values.yaml" %}
     ```yaml
@@ -128,7 +118,7 @@ The `values.yaml` configuration file serves as the bridge between your local Kub
         replicaCount: 1 #number of replicas of the pod
         image:
             repository: graviteeio/apim-gateway
-            # tag: 4.7.6 #The gateway version to install. It has to align with the control plane of your Gravitee Cloud
+            tag: 4.7.6 #The gateway version to install. It has to align with the control plane of your Gravitee Cloud
             pullPolicy: IfNotPresent
         autoscaling:
             enabled: false
@@ -203,36 +193,50 @@ The `values.yaml` configuration file serves as the bridge between your local Kub
         download: true
     ```
     {% endcode %}
-2.  Make the following modifications to your `values.yaml` file:
+2. Make the following modifications to your `values.yaml` file:
+   * Replace `<cloud_token>` with your Cloud Token.
+   * Replace `<license_key>` with your License Key.
+   * Replace `<redis_hostname>` with your extracted Redis hostname.
+   *   Replace `<redis_password>` with your extracted Redis password.
 
-    * Replace `<cloud_token>` with your cloud token generated  when you completed the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
-    * Replace `<license_key>` with your license key generated  when you completed the steps in [#prepare-your-installation](../#prepare-your-installation "mention").  &#x20;
-    * Replace `<redis_hostname>` with your extracted Redis hostname. Replace with `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local`
-    * Replace `<redis_password>` with your extracted Redis password gotten from the Redis installation.&#x20;
-
-    {% hint style="warning" %}
-    Redis Connection Errors: If you see `URISyntaxException: Malformed escape pair` errors, your Redis password likely contains special characters like `%`, `@`, or `#`. URL-encode these characters (e.g., `%` becomes `%25`, `@` becomes `%40`, `#` becomes `%23`, `&` becomes `%26`, `+` becomes `%2B`) in your `values.yaml` file.
-    {% endhint %}
-
-
-
-    *   Specify the gateway version: Uncomment and set the `tag` field in the `image` section to match your Gravitee Cloud control plane version. You can find your control plane version by logging into your Gravitee Cloud dashboard and checking the version displayed in the platform overview section. For example, if your Gravitee Cloud shows version `4.8.2`, update the configuration from `# tag: 4.7.6` to `tag: 4.8.2`. This ensures compatibility between your hybrid gateway and the cloud management platform.\
+       {% hint style="warning" %}
+       **Special characters:** If your Redis password contains special characters such as `%` or `#`, you need to URL-encode characters in your `values.yaml` file. For example, `%` becomes `%25`, `@` becomes `%40`, `#` becomes `%23`, `&` becomes `%26`, and `+` becomes `%2B`. Failure to URL-encode special characters results in `URISyntaxException: Malformed escape pair` errors when you install the Gravitee Gateway.
+       {% endhint %}
+   *   Set the `tag` field in the `image` section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.  \
 
 
-        <figure><img src="../../../.gitbook/assets/gateway-cloud-version.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../../.gitbook/assets/gateway-cloud-version.png" alt=""><figcaption></figcaption></figure>
 
 
 
-    * The service configuration uses LoadBalancer type with loadBalancerIP set to `127.0.0.1`, which creates a local endpoint accessible at `localhost:8082`. This configuration enables testing and development which provides a foundation that you can adapt for production deployments with external load balancers, ingress controllers, or service mesh integration.
-    * Resource allocation: The configured limits prevent excessive cluster resource consumption while ensuring adequate performance for API processing. These values support moderate traffic volumes and can be adjusted based on your expected load patterns and available cluster capacity.
-    * Deployment strategy: The RollingUpdate strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.
-3. Save your Gravitee `values.yaml` file in the same directory where you run the Helm installation command.
+       {% hint style="info" %}
+       The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.
+       {% endhint %}
+3. Save your Gravitee `values.yaml` file in your working directory.
+
+<details>
+
+<summary>Explanations of key predefined <code>values.yaml</code> parameter settings</summary>
+
+#### Service configuration
+
+The `LoadBalancer` type with `loadBalancerIP` set to `127.0.0.1` creates a local endpoint accessible at `localhost:8082`. This environment is suitable for test or development. You can modify this configuration for production deployments that use external load balancers, ingress controllers, or service mesh integration.
+
+#### Resource allocation
+
+The configured limits prevent excessive cluster resource consumption, but ensure adequate performance for API processing. These values support moderate traffic volumes and can be adjusted based on your expected load patterns and available cluster capacity.
+
+#### Deployment strategy
+
+The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.
+
+</details>
 
 ### Install with Helm
 
-The Helm installation process converts your configuration into running Kubernetes resources that provide API gateway functionality, which maintains secure connectivity with Gravitee Cloud.
+To install your Gravitee Gateway with Helm, complete the following steps:
 
-1.  Add the Gravitee Helm chart repository to your Kubernetes environment using the following command:
+1.  From your working directory, add the Gravitee Helm chart repository to your Kubernetes environment using the following command:
 
     ```bash
     helm repo add graviteeio https://helm.gravitee.io
@@ -242,31 +246,22 @@ The Helm installation process converts your configuration into running Kubernete
     ```bash
     helm install graviteeio-apim-gateway graviteeio/apim --namespace gravitee-apim -f ./values.yaml
     ```
+3.  Verify the installation was successful. The command output should be similar to the following:
 
-This command creates all Kubernetes resources for your gateway deployment, which includes the following resources:
-
-* Deployment objects that manage your gateway pods
-* Service objects that provide network connectivity
-* ConfigMap objects that store non-sensitive configuration data
-* Secret objects that securely store authentication credentials
-* ServiceAccount objects that provide appropriate cluster permissions
-
-3. Verify the installation was successful. The command output should be similar to the following:
-
-```sh
-NAME: graviteeio-apim-gateway
-LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
-NAMESPACE: gravitee-apim
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-NOTES:
-1. Watch all containers come up.
-  $ kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway -w
-```
+    ```sh
+    NAME: graviteeio-apim-gateway
+    LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
+    NAMESPACE: gravitee-apim
+    STATUS: deployed
+    REVISION: 1
+    TEST SUITE: None
+    NOTES:
+    1. Watch all containers come up.
+      $ kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway -w
+    ```
 
 {% hint style="info" %}
-To uninstall the Gravitee Hybrid Gateway, use the following command:
+To uninstall the Gravitee hybrid Gateway, use the following command:
 
 ```bash
 helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
@@ -275,8 +270,9 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 ## Verification
 
-From the Gravitee Cloud Dashboard, your gateway appears in the **Gateways** section of the **Dashboard**.\
+Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
+<figure><img src="../../../.gitbook/assets/00 5 copy.png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 
@@ -286,16 +282,16 @@ To verify that your Gateway is up and running, complete the following steps:
 
 ### Validate the pods
 
-1.  To query the pod status, use the following command:
+A healthy Gateway pod displays the `Running` status with `1/1` ready containers and zero or minimal restart counts. The pod startup process includes license validation, Cloud Token authentication, and Redis connectivity verification.
+
+To validate your pods, complete the following steps:
+
+1.  Use the following command to query the pod status:
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
-
-A healthy gateway pod displays `Running` status with `1/1` ready containers and zero or minimal restart counts. The pod startup process includes license validation, cloud token authentication, and Redis connectivity verification.
-
-2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts. \
-
+2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.&#x20;
 
     ```sh
     NAME                                               READY   STATUS    RESTARTS   AGE
@@ -303,6 +299,8 @@ A healthy gateway pod displays `Running` status with `1/1` ready containers and 
     ```
 
 ### Validate the Gateway logs
+
+To validate the Gateway logs, complete the following steps:
 
 1.  List all the pods in your deployment using the following command:
 
@@ -315,14 +313,11 @@ A healthy gateway pod displays `Running` status with `1/1` ready containers and 
     NAME                                               READY   STATUS    RESTARTS   AGE
     graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9   1/1     Running   0          6m17s
     ```
-3.  To obtain the logs from a specific pod, use the following command:\
-
+3.  To obtain the logs from a specific pod, use the following command. Replace `<NAME_OF_THE_POD>` with your pod name.
 
     ```bash
     kubectl logs --namespace=gravitee-apim <NAME_OF_THE_POD>
     ```
-
-    * Replace `<NAME_OF_THE_POD>` with the name of the pod from step 2.
 4.  Review the log file. The following example output shows the important log entries:&#x20;
 
     ```sh
@@ -359,28 +354,32 @@ A healthy gateway pod displays `Running` status with `1/1` ready containers and 
     ...
     14:02:04.324 [gio.sync-deployer-0] [] INFO  i.g.g.p.o.m.DefaultOrganizationManager - Register organization ReactableOrganization(definition=Organization{id='[redacted]', name='Organization'}, enabled=true, deployedAt=Sat Oct 19 17:08:22 GMT 2024)
     ```
-5.  Verify service configuration:
+5.  To verify service configuration, run the following command:
 
     ```bash
     kubectl get services -n gravitee-apim
     ```
 
-In the output, your service should show TYPE `LoadBalancer` with EXTERNAL-IP `localhost` and PORT `8082`.
+    The output should show TYPE `LoadBalancer` with EXTERNAL-IP `localhost` and PORT `8082`.
 
-```bash
-NAME                              TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-gravitee-apim-redis-headless      ClusterIP      None            <none>        6379/TCP         20m
-gravitee-apim-redis-master        ClusterIP      10.110.172.36   <none>        6379/TCP         20m
-gravitee-apim-redis-replicas      ClusterIP      10.96.207.194   <none>        6379/TCP         20m
-graviteeio-apim-gateway-gateway   LoadBalancer   10.107.188.66   localhost     8082:32738/TCP   5m
-```
+    ```bash
+    NAME                              TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+    gravitee-apim-redis-headless      ClusterIP      None            <none>        6379/TCP         20m
+    gravitee-apim-redis-master        ClusterIP      10.110.172.36   <none>        6379/TCP         20m
+    gravitee-apim-redis-replicas      ClusterIP      10.96.207.194   <none>        6379/TCP         20m
+    graviteeio-apim-gateway-gateway   LoadBalancer   10.107.188.66   localhost     8082:32738/TCP   5m
+    ```
 
 ### Validate the Gateway URL
 
-1.  To validate the Gateway URL, make a GET request to the URL where you published the Gateway:
+Your Gateway URL is determined by the networking settings you specify in the `service` section of your `values.yaml` file. This guide creates a `LoadBalancer` service that exposes your Gateway on your local machine at IP address 127.0.0.1 and port 8082, which is equivalent to port 8082 of localhost.
+
+To validate the Gateway URL, complete the following steps:
+
+1.  Make a GET request to the URL where you published the Gateway:
 
     ```bash
-    curl http://{my_gateway_url:port}/
+    curl http://localhost:8082/ # alternatively, you can use http://127.0.0.1:8082/
     ```
 2.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.
 
@@ -388,42 +387,16 @@ graviteeio-apim-gateway-gateway   LoadBalancer   10.107.188.66   localhost     8
     No context-path matches the request URI.
     ```
 
-In your hybrid gateway setup, the gateway URL is determined by your LoadBalancer service configuration. When you configured your `values.yaml` file, you specified these particular networking settings:
-
-```
-service:
-    type: LoadBalancer
-    externalPort: 8082
-    loadBalancerIP: 127.0.0.1
-```
-
-This configuration creates a LoadBalancer service that exposes your gateway on your local machine at IP address 127.0.0.1, which is the same as localhost, on port 8082. This means your gateway URL becomes `http://localhost:8082/` or equivalently `http://127.0.0.1:8082/`.
-
-For this specific installation, test the gateway URL using either of these commands:
-
-```
-curl http://localhost:8082/
-```
-
-Or&#x20;
-
-```
-curl http://127.0.0.1:8082/
-```
-
 {% hint style="success" %}
 You can now create and deploy APIs to your Hybrid Gateway.
 {% endhint %}
 
-### Conclusion
-
-In this guide, you have successfully deployed a Gravitee Hybrid Gateway on Kubernetes with Redis caching support. Your gateway now maintains secure connectivity with Gravitee Cloud while processing API traffic locally.
-
-You configured a complete Kubernetes application using Helm charts, learned about pods, services, and namespaces, and established the foundation for enterprise API management
-
 ## Next steps
 
-* Access your API Management Console. Log into your [Gravitee Cloud Dashboard](https://cloud.gravitee.io/) and navigate to your environment. Click on **APIM Console** to open the management interface where you can create and manage your APIs.
+* Access your API Management Console. To access your Console, complete the following steps:
+  1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
+  2. From the Dashboard, navigate to the Environment where you created your Gateway.
+  3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
 * Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
 * Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
 
