@@ -211,7 +211,7 @@ The `values.yaml` configuration file serves as the bridge between your local Kub
     * Replace `<redis_password>` with your extracted Redis password gotten from the Redis installation.&#x20;
 
     {% hint style="warning" %}
-    Redis Connection Errors: If you see `URISyntaxException: Malformed escape pair` errors, your Redis password likely contains special characters like `%`, `@`, or `#`. URL-encode these characters (e.g., `%` becomes `%25` , `@` becomes `%40` ,`#` becomes `%23` , `&` becomes `%26` , `+` becomes `%28` )   in your `values.yaml` file.
+    Redis Connection Errors: If you see `URISyntaxException: Malformed escape pair` errors, your Redis password likely contains special characters like `%`, `@`, or `#`. URL-encode these characters (e.g., `%` becomes `%25`, `@` becomes `%40`, `#` becomes `%23`, `&` becomes `%26`, `+` becomes `%2B`) in your `values.yaml` file.
     {% endhint %}
 
 
