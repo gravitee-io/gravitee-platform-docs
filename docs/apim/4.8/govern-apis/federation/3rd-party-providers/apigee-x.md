@@ -82,6 +82,8 @@ services:
       - gravitee_integration_providers_0_configuration_developerUsername=${APIGEE_DEV_USERNAME}
       - gravitee_integration_providers_0_configuration_serviceAccountKeyInline=${SERVICE_ACCOUNT_KEY_INLINE}
       - gravitee_integration_providers_0_type=apigee
+      # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+      # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 
 This Docker Compose file proposes both ways of passing the service account key (either inline or from a file), but you'll need to make sure to only set one of the associated variables in the **.env** file.
@@ -102,6 +104,9 @@ INTEGRATION_ID=[your-integration-id]
 
 # APIM organization ID, example: DEFAULT
 WS_ORG_ID=[organization-id]
+
+# If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+# GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
 # Optionally specify a specific version of the agent, default will be latest
 # AGENT_VERSION=1.1.0

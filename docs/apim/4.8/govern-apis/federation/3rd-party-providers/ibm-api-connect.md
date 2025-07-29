@@ -64,6 +64,8 @@ services:
       - gravitee_integration_connector_ws_headers_0_name=Authorization
       - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
       - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
+      # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+      # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
       - gravitee_integration_providers_0_type=ibm-api-connect
       # authentication
       - gravitee_integration_providers_0_configuration_apiKey=${API_KEY}
@@ -103,6 +105,9 @@ INTEGRATION_ID=[your-integration-id]
 
 # APIM organization ID, example: DEFAULT
 WS_ORG_ID=[organization-id]
+
+# If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+# GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
 # Optionally specify a specific version of the agent, default will be latest
 # AGENT_VERSION=1.3.0

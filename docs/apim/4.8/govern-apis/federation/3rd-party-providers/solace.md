@@ -62,11 +62,13 @@ services:
       - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
       - gravitee_integration_connector_ws_headers_0_name=Authorization
       - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
-      - gravitee_integration_providers_0_configuration_authToken=${SOLACE_AUTH_TOKEN}
       - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
       - gravitee_integration_providers_0_type=solace
+      - gravitee_integration_providers_0_configuration_authToken=${SOLACE_AUTH_TOKEN}
       - gravitee_integration_providers_0_configuration_url=${SOLACE_ENDPOINT:-https://apim-production-api.solace.cloud/api/v2/apim}
       - gravitee_integration_providers_0_configuration_0_appDomains=${SOLACE_APPLICATION_0_DOMAIN:-}
+      # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+      # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 
 Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](solace.md#id-2.-configure-the-azure-federation-agent).
@@ -85,6 +87,9 @@ INTEGRATION_ID=[your-integration-id]
 
 # APIM organization ID, example: DEFAULT
 WS_ORG_ID=[organization-id]
+
+# If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+# GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
 # Optionally specify a specific version of the agent, default will be latest
 # AGENT_VERSION=1.1.0
