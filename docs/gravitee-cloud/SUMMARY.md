@@ -16,6 +16,7 @@
 * [Custom Domains](guides/custom-domains.md)
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
+* [Cloud Tokens](guides/cloud-tokens.md)
 * [Promote APIs](guides/promote-apis.md)
 * [Add Environments](guides/add-environments.md)
 
