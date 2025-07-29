@@ -67,6 +67,8 @@ services:
       - gravitee_integration_providers_0_configuration_clientId=${CLIENT_ID}
       - gravitee_integration_providers_0_configuration_clientSecret=${CLIENT_SECRET}
       - gravitee_integration_providers_0_configuration_rootOrganizationId=${MULESOFT_ROOT_ORG_ID}
+      # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+      # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 
 Next, create a file named `.env` in the same directory. We will use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](mulesoft-anypoint.md#id-2.-configure-the-mulesoft-agent).
@@ -85,6 +87,9 @@ INTEGRATION_ID=[your-integration-id]
 
 # APIM organization ID, example: DEFAULT
 WS_ORG_ID=[organization-id]
+
+# If you are using Gravitee Next-Gen Cloud, then you also need to include a Cloud Token for Federation Agent (https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud#cloud-token)
+# GRAVITEE_CLOUD_TOKEN=[your-cloud-token-for-federation-agent]
 
 # Optionally specify a specific version of the agent, default will be latest
 # AGENT_VERSION=1.3.0
