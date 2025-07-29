@@ -13,7 +13,7 @@ If you are installing the Gravitee Gateway via Helm, add the following entry in 
 ```yaml
 gateway:
   additionalPlugins:
-    - https://download.gravitee.io/graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/gravitee-reporter-datadog-4.3.0.zip
+    - https://download.gravitee.io/graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/gravitee-reporter-datadog-5.0.0.zip
 ```
 
 ## Configuration
