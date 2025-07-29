@@ -70,9 +70,11 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d
     ```
 
-### Prepare your Gravitee `values.yaml` file for Helm
+### Prepare `values.yaml` for Helm
 
-1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new Hybrid Gateway.
+To prepare your Gravitee `values.yaml` file for Helm, complete the following steps:
+
+1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new hybrid Gateway.
 
     ```yaml
     #This is the license key provided in your Gravitee Cloud account 
@@ -218,13 +220,20 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
    * Replace `<cloud_token>` with your Cloud Token.
    * Replace `<license_key>` with your License Key.
    * Replace `<redis_hostname>` with your extracted Redis hostname.
-   * Replace `<redis_password>` with your extracted Redis password.
-   * Replace \<hosts> with the host information you put in the Gravitee cloud gateway setup
-3. Save your Gravitee `values.yaml` file.
+   *   Replace `<redis_password>` with your extracted Redis password.
+
+       {% hint style="warning" %}
+       **Special characters:** If your Redis password contains special characters such as `%` or `#`, you need to URL-encode characters in your `values.yaml` file. For example, `%` becomes `%25`, `@` becomes `%40`, `#` becomes `%23`, `&` becomes `%26`, and `+` becomes `%2B`. Failure to URL-encode special characters results in `URISyntaxException: Malformed escape pair` errors when you install the Gravitee Gateway.
+       {% endhint %}
+   * Replace `<hosts>` with the host information you entered in the Gravitee \
+     Cloud Gateway setup.
+3. Save your Gravitee `values.yaml` file in your working directory.
 
 ### Install with Helm
 
-1.  Add the Gravitee Helm chart repo to your Kubernetes environment using the following command:&#x20;
+To install your Gravitee Gateway with Helm, complete the following steps:
+
+1.  From your working directory, add the Gravitee Helm chart repository to your Kubernetes environment using the following command:&#x20;
 
     ```bash
     helm repo add graviteeio https://helm.gravitee.io
@@ -249,7 +258,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     ```
 
 {% hint style="info" %}
-To uninstall the Gravitee Hybrid Gateway, use the following command:
+To uninstall the Gravitee hybrid Gateway, use the following command:
 
 ```bash
 > helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
@@ -258,8 +267,7 @@ To uninstall the Gravitee Hybrid Gateway, use the following command:
 
 ## Verification
 
-From the Gravitee Cloud Dashboard, you can see your configured Gateway.\
-
+Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
 <figure><img src="../../../.gitbook/assets/00 5 copy.png" alt=""><figcaption></figcaption></figure>
 
@@ -271,7 +279,11 @@ To verify that your Gateway is up and running, complete the following steps:
 
 ### Validate the pods
 
-1.  To query the pod status, use the following command:&#x20;
+A healthy Gateway pod displays the `Running` status with `1/1` ready containers and zero or minimal restart counts. The pod startup process includes license validation, Cloud Token authentication, and Redis connectivity verification.
+
+To validate your pods, complete the following steps:
+
+1.  Use the following command to query the pod status:&#x20;
 
     ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
@@ -285,6 +297,8 @@ To verify that your Gateway is up and running, complete the following steps:
 
 ### Validate the Gateway logs
 
+To validate the Gateway logs, complete the following steps:
+
 1.  To list all the pods in your deployment, use the following command:&#x20;
 
     ```bash
@@ -296,12 +310,12 @@ To verify that your Gateway is up and running, complete the following steps:
     NAME                                               READY   STATUS    RESTARTS   AGE
     graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9   1/1     Running   0          6m17s
     ```
-3.  To obtain the logs from this specific pod, use the following command:&#x20;
+3.  To obtain the logs from this specific pod, use the following command. Replace `<NAME_OF_THE_POD>` with your pod name.
 
     ```bash
-    kubectl logs --namespace=gravitee-apim graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9
+    kubectl logs --namespace=gravitee-apim <NAME_OF_THE_POD>
     ```
-4.  Review the log file. The following sample output shows the important log entries.&#x20;
+4.  Review the log file. The following example output shows the important log entries.&#x20;
 
     ```sh
     =========================================================================
@@ -340,7 +354,11 @@ To verify that your Gateway is up and running, complete the following steps:
 
 ### Validate the Gateway URL
 
-1.  To validate the Gateway URL, make a GET request to the URL on which you have published the Gateway:
+Your Gateway URL is determined by the networking settings you specify in the `service` section of your `values.yaml` file.
+
+To validate the Gateway URL, complete the following steps:
+
+1.  Make a GET request to the URL on which you have published the Gateway:
 
     ```bash
     curl http://{my_gateway_url:port}/
@@ -352,12 +370,17 @@ To verify that your Gateway is up and running, complete the following steps:
     ```
 
 {% hint style="success" %}
-You can now create and deploy APIs to your Hybrid Gateway.
+You can now create and deploy APIs to your hybrid Gateway.
 {% endhint %}
 
 ## Next steps
 
-To learn how to add native Kafka capabilities to a Gravitee Gateway, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
+* Access your API Management Console. To access your Console, complete the following steps:
+  1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
+  2. From the Dashboard, navigate to the Environment where you created your Gateway.
+  3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
+* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
 
 {% hint style="warning" %}
 To access your Gravitee Gateway from outside of your Kubernetes cluster, you must implement a load balancer or ingress.

@@ -48,19 +48,17 @@
 
 ## Overview
 
-Hybrid installations use a mix of self-hosted and cloud components to give you flexibility as you define your architecture and deployment. In a Gravitee hybrid installation, the Gravitee platform is split into two deployments that can be hosted independently but must communicate over a network.&#x20;
+A hybrid Gateway architecture uses a mix of self-hosted and cloud components. The Gravitee platform is split into two deployments that can be hosted independently, but must communicate over a network. The Control Plane provides centralized management and monitoring, while the Data Plane processes API traffic locally within your infrastructure.
 
-A typical Gravitee hybrid installation consists of a SaaS Control Plane and a self-hosted Data Plane.&#x20;
-
-The Control Plane is a Cloud installation that is hosted by Gravitee. Gravitee currently supports both the Classic Cloud and Next-Gen Cloud.&#x20;
-
-The Data Plane is a self-hosted installation that consists of the Gravitee Gateway, Redis, and, for Gravitee Classic Cloud, a log management solution.&#x20;
+In a typical Gravitee hybrid installation, the Control Plane is hosted by Gravitee Cloud while the Data Plane is self-hosted. Gravitee supports both Gravitee Classic Cloud and Gravitee Next-Gen Cloud, which are compared in [#classic-cloud-vs-next-gen-cloud](./#classic-cloud-vs-next-gen-cloud "mention"). The Data Plane hosted by the customer consists of the Gravitee Gateway, Redis, and, for Gravitee Classic Cloud, a log management solution.&#x20;
 
 {% hint style="info" %}
 Self-hosted software is installed and maintained by the customer and can run in any environment the customer controls, whether on-prem, in a private cloud, or even in a public cloud such as AWS, Azure, or GCP.
 {% endhint %}
 
-A hybrid installation combines the ease of operations of a Cloud-hosted Control Plane with the power and security of self-hosted Gateways. This provides the following benefits:
+### Features and benefits
+
+A hybrid installation combines the security and control of self-hosted deployment with the operational convenience of cloud-based management. This provides the following benefits:
 
 * **Data residency and compliance.** You can ensure that data remains in the location where the resource owner resides. This facilitates compliance with data residency regulations.
 * **Reduced latency.** A Gateway hosted within your own infrastructure processes API requests closer to your services. This minimizes latency and enhances performance.
@@ -68,6 +66,8 @@ A hybrid installation combines the ease of operations of a Cloud-hosted Control 
 * **Scalability and flexibility.** You have full control over your Gateway's scaling.
 * **Customization and integration**: You can integrate with your existing infrastructure. You can also customize your deployment to meet specific security, monitoring, or logging requirements.
 * **Security.** You can confine sensitive API traffic to your infrastructure to reduce potential exposure to threats and vulnerabilities. You can also directly enforce your organization's security measures at the Data Plane level.
+
+### Multi-tenancy
 
 If you are using Gravitee Cloud, you can enable multi-tenancy. Gravitee multi-tenancy describes a configuration in which features and data are isolated between tenants. This lets you register multiple APIM environments and installations, manage environment hierarchies, and promote APIs across higher and lower environments.&#x20;
 
@@ -88,11 +88,11 @@ The following table indicates which Gravitee products are currently supported by
 The tables below list the Data Plane and Control Plane components that are part of a Gravitee hybrid deployment.
 
 {% tabs %}
-{% tab title="SaaS control plane components" %}
+{% tab title="SaaS Control Plane components" %}
 <table><thead><tr><th width="225.37383177570098" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Console<br>(for API producers)</td><td>A web UI that provides easy access to key APIM Management API services. API publishers can use it to publish APIs. Administrators can configure global platform settings and specific portal settings.</td></tr><tr><td align="center">Management API</td><td>A RESTful API that exposes services to manage and configure the APIM Console and APIM Developer Portal.<br>All exposed services are restricted by authentication and authorization rules.</td></tr><tr><td align="center">Developer Portal<br>(for API consumers)</td><td>A web UI that provides easy access to key APIM API services. API consumers can manage their applications and discover, try out, and subscribe to published APIs.</td></tr><tr><td align="center"><p>[Optional]</p><p>APIM SaaS API Gateways</p></td><td>The APIM Gateway is the core component of the APIM platform. It behaves like a reverse proxy and has the ability to apply <a href="../../4.6/hybrid-deployment/broken-reference/">policies</a> (rules or logic) to both the request and response phases of an API transaction to transform, secure, and monitor traffic.</td></tr><tr><td align="center">Bridge API gateway</td><td>Exposes HTTP services that bridge HTTP calls to the underlying repository, which can be any of Gravitee's supported repositories.</td></tr><tr><td align="center">Config Database</td><td>Contains all the APIM platform management data, such as API definitions, users, applications, and plans.</td></tr><tr><td align="center">Analytics Database ( + S3 Bucket)</td><td>Contains analytics and logs data.  <br>The S3 Bucket is only needed for Classic Cloud.</td></tr><tr><td align="center">Gravitee Cloud</td><td>A centralized, multi-organization, multi-environment tool for managing all your Gravitee API Management and Access Management installations in a single place.</td></tr><tr><td align="center">[Optional]<br>API Designer</td><td>Drag-and-drop, low-code, graphical API designer to design your APIs (Swagger/OAS) and deploy mocked &#x26; documented APIs for quick testing.</td></tr><tr><td align="center">[Optional]<br>Alert Engine</td><td>Provides efficient and flexible APIM/AM platform monitoring, including advanced alerting and notifications sent through preferred channels, e.g., email, Slack, via Webhooks. Alert Engine does not require any external components or a database. Events trigger it to send notifications per pre-configured conditions.</td></tr><tr><td align="center">[Optional]<br>Access Management</td><td>Offers a centralized authentication and authorization service to deliver secure access to your applications and APIs from any device.</td></tr></tbody></table>
 {% endtab %}
 
-{% tab title="Self-hosted data plane components" %}
+{% tab title="Self-hosted Data Plane components" %}
 <table><thead><tr><th width="172.18918918918916" align="center">Component</th><th>Description</th></tr></thead><tbody><tr><td align="center">APIM Gateway</td><td>The APIM Gateway is the core component of the APIM platform. It behaves like a reverse proxy and has the ability to apply <a href="../../4.6/hybrid-deployment/broken-reference/">policies</a> (rules or logic) to both the request and response phases of an API transaction to transform, secure, and monitor traffic.</td></tr><tr><td align="center">Redis</td><td><p>While the Gateway works without Redis, Redis is necessary for:</p><ul><li>Rate Limit, Quota, and Spike Arrest policies. Redis is used to store counters. In high availability deployments where traffic is split between Gateways, Redis enables rate-limiting synchronization via a shared execution context.</li></ul><ul><li>Caching. Subsequent calls can use previous responses that are cached.</li></ul></td></tr><tr><td align="center">Logstash</td><td>[Classic Cloud only] Collects and sends local Gateway logs and metrics to the Gravitee APIM SaaS control plane. </td></tr></tbody></table>
 
 {% hint style="warning" %}
@@ -102,6 +102,12 @@ To avoid updates to the Gateway configuration and redeployment, Redis, Logstash,
 These components are configured differently depending on the deployment method. Each installation guide includes configurations for both the Gateway and Redis. Logstash and Fluentd configurations are also included for Classic Cloud installations.
 {% endtab %}
 {% endtabs %}
+
+### Redis
+
+In a typical Gravitee hybrid deployment, Redis is one of the self-hosted Data Plane components installed and maintained by the customer.&#x20;
+
+Redis provides caching and rate limiting capabilities that enable your Gateway to perform efficiently under load while maintaining state consistency across multiple Gateway instances. Redis serves as the high-performance, in-memory data store that enables your Gateway to track rate limiting counters, cache frequently accessed data, and maintain session information across multiple requests. This distributed cache infrastructure supports the horizontal scaling required for enterprise deployments, which ensures consistent performance.
 
 ## Architecture
 
