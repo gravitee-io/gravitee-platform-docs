@@ -19,15 +19,15 @@ Before you install a Hybrid Gateway, complete the following steps:
 * Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
 * Ensure you have access to the AKS cluster where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
+* Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
 ## Install the Gateway
 
 To install the Gravitee Gateway, complete the following steps:
 
-1. [#prepare-your-installation](../#prepare-your-installation "mention")
-2. [#install-redis](azure-aks.md#install-redis "mention")
-3. [#prepare-your-gravitee-values.yaml-file-for-helm](azure-aks.md#prepare-your-gravitee-values.yaml-file-for-helm "mention")
-4. [#install-with-helm](azure-aks.md#install-with-helm "mention")
+1. [#install-redis](azure-aks.md#install-redis "mention")
+2. [#prepare-your-gravitee-values.yaml-file-for-helm](azure-aks.md#prepare-your-gravitee-values.yaml-file-for-helm "mention")
+3. [#install-with-helm](azure-aks.md#install-with-helm "mention")
 
 ### Install Redis
 
