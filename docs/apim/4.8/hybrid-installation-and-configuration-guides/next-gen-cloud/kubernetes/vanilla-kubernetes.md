@@ -20,7 +20,7 @@ Before you install a Hybrid Gateway, complete the following steps:
 To install the Gravitee Gateway, complete the following steps:
 
 1. [#install-redis](vanilla-kubernetes.md#install-redis "mention")
-2. [#prepare-your-gravitee-values.yaml-file-for-helm](vanilla-kubernetes.md#prepare-your-gravitee-values.yaml-file-for-helm "mention")
+2. [#prepare-values.yaml-for-helm](vanilla-kubernetes.md#prepare-values.yaml-for-helm "mention")
 3. [#install-with-helm](vanilla-kubernetes.md#install-with-helm "mention")
 
 ### Install Redis
