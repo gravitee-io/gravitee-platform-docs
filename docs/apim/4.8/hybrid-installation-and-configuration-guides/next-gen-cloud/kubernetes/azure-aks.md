@@ -86,7 +86,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     gravitee-apim-redis-replicas-2 1/1    Running   0          2m
 ```
 
-#### Prepare `values.yaml` for Helm
+### Prepare `values.yaml` for Helm
 
 To prepare your Gravitee `values.yaml` file for Helm, complete the following steps:
 
