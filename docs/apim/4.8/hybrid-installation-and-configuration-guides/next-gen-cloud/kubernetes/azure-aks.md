@@ -267,8 +267,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 ## Verification
 
-Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.\
-
+Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
 <figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (2).png" alt=""><figcaption></figcaption></figure>
 
