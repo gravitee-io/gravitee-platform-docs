@@ -267,9 +267,10 @@ To uninstall the Gravitee hybrid Gateway, use the following command:
 
 ## Verification
 
-Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
+Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.\
 
-<figure><img src="../../../.gitbook/assets/00 5 copy.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (2).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 
