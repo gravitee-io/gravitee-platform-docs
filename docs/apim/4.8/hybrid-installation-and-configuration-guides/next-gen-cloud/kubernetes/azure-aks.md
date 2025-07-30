@@ -16,6 +16,7 @@ Before you install a Hybrid Gateway, complete the following steps:
 
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/).&#x20;
+* Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
 * Ensure you have access to the AKS cluster where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
@@ -69,8 +70,23 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     ```bash
     kubectl get secret --namespace gravitee-apim gravitee-apim-redis -o jsonpath="{.data.redis-password}" | base64 -d
     ```
+4.  To verify that your Redis deployment succeeded, check pod status using the following command:
 
-### Prepare `values.yaml` for Helm
+    ```bash
+    kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-apim-redis
+    ```
+
+&#x20;       The command generates the following output:
+
+```
+    NAME                          READY   STATUS    RESTARTS   AGE
+    gravitee-apim-redis-master-0  1/1     Running   0          2m
+    gravitee-apim-redis-replicas-0 1/1    Running   0          2m
+    gravitee-apim-redis-replicas-1 1/1    Running   0          2m
+    gravitee-apim-redis-replicas-2 1/1    Running   0          2m
+```
+
+#### Prepare `values.yaml` for Helm
 
 To prepare your Gravitee `values.yaml` file for Helm, complete the following steps:
 
@@ -227,7 +243,42 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
        {% endhint %}
    * Replace `<hosts>` with the host information you entered in the Gravitee \
      Cloud Gateway setup.
+   *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.\
+
+
+       <figure><img src="../../../.gitbook/assets/nextgen-cloud-gateway-tag.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.
+{% endhint %}
+
 3. Save your Gravitee `values.yaml` file in your working directory.
+
+<details>
+
+<summary>Explanations of key predefined <code>values.yaml</code> parameter settings</summary>
+
+#### **Service configuration**&#x20;
+
+This uses Azure's native load balancing through the ingress controller, providing SSL termination, path-based routing.&#x20;
+
+**Ingress configuration**&#x20;
+
+The ingress is enabled with `NGINX` as the controller class, creating an external endpoint through Azure's load balancer. The hosts field must match at least one of the hosts configured in your Gravitee Cloud setup, and multiple hostnames are supported for multi-domain deployments.
+
+**Gateway version**&#x20;
+
+The tag field is commented out by default, allowing the Helm chart to use its default version. You can uncomment and specify a version when you need to ensure compatibility with a specific Gravitee Cloud control plane version or when performing controlled upgrades.
+
+**Resource allocation**&#x20;
+
+The configured limits prevent excessive cluster resource consumption while ensuring adequate performance for API processing. You can adjust these based on your expected load patterns and available node pool capacity.
+
+**Deployment strategy**&#x20;
+
+The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.&#x20;
+
+</details>
 
 ### Install with Helm
 
