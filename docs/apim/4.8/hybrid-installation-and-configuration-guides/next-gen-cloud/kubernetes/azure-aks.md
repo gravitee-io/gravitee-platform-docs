@@ -261,7 +261,7 @@ To install your Gravitee Gateway with Helm, complete the following steps:
 To uninstall the Gravitee hybrid Gateway, use the following command:
 
 ```bash
-> helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
+helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 ```
 {% endhint %}
 
