@@ -26,7 +26,7 @@ Before you install a Hybrid Gateway, complete the following steps:
 To install the Gravitee Gateway, complete the following steps:
 
 1. [#install-redis](azure-aks.md#install-redis "mention")
-2. [#prepare-your-gravitee-values.yaml-file-for-helm](azure-aks.md#prepare-your-gravitee-values.yaml-file-for-helm "mention")
+2. [#prepare-values.yaml-for-helm](azure-aks.md#prepare-values.yaml-for-helm "mention")
 3. [#install-with-helm](azure-aks.md#install-with-helm "mention")
 
 ### Install Redis
