@@ -64,7 +64,7 @@ spec:
 
 ## The `ApiDefinition` lifecycle
 
-The following workflow is applied when a new `ApiV4Definition` resource is added to the cluster:
+The following workflow is applied when a new `ApiDefinition` resource is added to the cluster:
 
 1. The GKO listens for `ApiDefinition` resources.
 2. The GKO performs required changes, such as automatically computing IDs or CrossIDs (for APIs or plans).
