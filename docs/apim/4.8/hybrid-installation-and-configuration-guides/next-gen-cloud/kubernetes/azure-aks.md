@@ -268,7 +268,7 @@ The ingress is enabled with `NGINX` as the controller class, creating an externa
 
 **Gateway version**&#x20;
 
-The tag field is commented out by default, allowing the Helm chart to use its default version. You can uncomment and specify a version when you need to ensure compatibility with a specific Gravitee Cloud control plane version or when performing controlled upgrades.
+The `tag` field is commented out by default, allowing the Helm chart to use its default version. You can uncomment and specify a version when you need to ensure compatibility with a specific Gravitee Cloud control plane version or when performing controlled upgrades.
 
 **Resource allocation**&#x20;
 
