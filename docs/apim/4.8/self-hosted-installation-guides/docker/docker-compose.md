@@ -169,6 +169,8 @@ Before you install APIM, complete the following steps:
           - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
           - gravitee_analytics_elasticsearch_endpoints_0=http://elasticsearch:9200
           - gravitee_installation_standalone_portal_url=http://localhost:8085
+          - gravitee_plugins_path_0=/opt/graviteeio-management-api/plugins
+          - gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext
         networks:
           - storage
           - frontend
@@ -200,8 +202,6 @@ Before you install APIM, complete the following steps:
           - ./apim-portal-ui/logs:/var/log/nginx
         environment:
           - PORTAL_API_URL=http://localhost:8083/portal/environments/DEFAULT
-          - gravitee_plugins_path_0=/opt/graviteeio-management-api/plugins
-          - gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext
         networks:
           - frontend
     ```
