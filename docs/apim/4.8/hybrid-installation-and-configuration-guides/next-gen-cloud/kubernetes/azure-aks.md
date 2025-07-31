@@ -335,7 +335,8 @@ To verify that your Gateway is up and running, complete the following steps:
 
 1. [#validate-the-pods](azure-aks.md#validate-the-pods "mention")
 2. [#validate-the-gateway-logs](azure-aks.md#validate-the-gateway-logs "mention")
-3. [#validate-the-gateway-url](azure-aks.md#validate-the-gateway-url "mention")
+3. [#validate-the-ingress-configuration](azure-aks.md#validate-the-ingress-configuration "mention")
+4. [#validate-the-gateway-url](azure-aks.md#validate-the-gateway-url "mention")
 
 ### Validate the pods
 
@@ -410,6 +411,27 @@ To validate the Gateway logs, complete the following steps:
     14:02:03.923 [vert.x-eventloop-thread-0] [] INFO  i.g.g.r.s.vertx.HttpProtocolVerticle - HTTP server [http] ready to accept requests on port 8082
     ...
     14:02:04.324 [gio.sync-deployer-0] [] INFO  i.g.g.p.o.m.DefaultOrganizationManager - Register organization ReactableOrganization(definition=Organization{id='[redacted]', name='Organization'}, enabled=true, deployedAt=Sat Oct 19 17:08:22 GMT 2024)
+    ```
+
+### Validate the ingress configuration
+
+1.  Check the ingress configuration
+
+    ```
+    kubectl get ingress -n gravitee-apim
+    ```
+
+&#x20;      The output will show your configured host and the ingress controller's address
+
+```
+NAME                              CLASS   HOSTS                           ADDRESS         PORTS   AGE
+graviteeio-apim-gateway-gateway   nginx   xxxxxxx.xxx.xxx.xxx.xxx    xxx.xxx.xxx.xxx      80      24m
+```
+
+2.  Get the external IP of your ingress controller:&#x20;
+
+    ```
+    kubectl get service -n ingress-nginx
     ```
 
 ### Validate the Gateway URL
