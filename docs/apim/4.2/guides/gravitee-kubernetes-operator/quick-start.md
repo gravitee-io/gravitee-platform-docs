@@ -24,8 +24,8 @@ To deploy the GKO on the cluster of your current Kubernetes context, run the fol
 
 {% code overflow="wrap" %}
 ```sh
-$ helm repo add graviteeio https://helm.gravitee.io
-$ helm install graviteeio-gko graviteeio/gko
+helm repo add graviteeio https://helm.gravitee.io
+helm install graviteeio-gko graviteeio/gko
 ```
 {% endcode %}
 
