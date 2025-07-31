@@ -18,9 +18,9 @@ gateway:
 
 ## Configuration
 
-To configure the Datadog Reporter on a Gateway, enable the `reporters` section in `gravitee.yml`. This will look something like:
+To configure the Datadog Reporter on a Gateway, enable the `reporters` section in your Helm `values.yaml` or  `gravitee.yml`. This will look something like:
 
-{% code title="Minimum Datadog Reporter configuration" %}
+{% code title="Datadog Reporter configuration" %}
 ```yaml
 reporters:
   datadog:
@@ -34,6 +34,32 @@ reporters:
       #token: "YOUR_TOKEN"
       #username: "YOUR_USERNAME"
       #password: "YOUR_PASSWORD"
+    #http:
+    #  proxy:
+    #    type: HTTP #HTTP, SOCK4, SOCK5
+    #    https:
+    #      host: localhost
+    #      port: 3128
+    #      username: user
+    #      password: secret
+    #bulk: # configuration for the processor
+    #  flush_interval: 5
+    #  log:
+    #    size: 5
+    #  metric:
+    #    size: 20
+    #customTags: >
+    #  s1.company.com:9092,
+    #  s2.company.com:9092,
+    #  s3.company.com:9092
+    #log: # (Following mapping section is also available for other types: node, health-check, log, v4-log, v4-metrics, v4-message-metrics, v4-message-log)
+    #  exclude: # Can be a wildcard (ie '*') to exclude all fields (supports json path)
+    #    - clientRequest
+    #    - clientResponse
+    #    - proxyRequest
+    #request: # (Following mapping section is also available for other types: node, health-check, log)
+    #  exclude: # Can be a wildcard (ie '*') to exclude all fields (supports json path)
+    #    - apiResponseTimeMs
 ```
 {% endcode %}
 
@@ -142,6 +168,9 @@ reporters:
       exclude:
         - "*"
     log:
+      exclude:
+        - "*"
+    health-check:
       exclude:
         - "*"
 ```
