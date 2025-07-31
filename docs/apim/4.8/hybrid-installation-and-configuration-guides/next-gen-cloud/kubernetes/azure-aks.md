@@ -175,6 +175,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
           enabled: true
           pathType: Prefix
           path: /
+          # update this with your ingress ClassName
           ingressClassName: ""
           # Used to create an Ingress record.
           # Multiple hostnames supported
@@ -236,11 +237,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
    * Replace `<cloud_token>` with your Cloud Token.
    * Replace `<license_key>` with your License Key.
    * Replace `<redis_hostname>` with your extracted Redis hostname.
-   *   Replace `<redis_password>` with your extracted Redis password.
-
-       {% hint style="warning" %}
-       **Special characters:** If your Redis password contains special characters such as `%` or `#`, you need to URL-encode characters in your `values.yaml` file. For example, `%` becomes `%25`, `@` becomes `%40`, `#` becomes `%23`, `&` becomes `%26`, and `+` becomes `%2B`. Failure to URL-encode special characters results in `URISyntaxException: Malformed escape pair` errors when you install the Gravitee Gateway.
-       {% endhint %}
+   * Replace `<redis_password>` with your extracted Redis password.
    * Replace `<hosts>` with the host information you entered in the Gravitee \
      Cloud Gateway setup.
    *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.\
@@ -307,6 +304,18 @@ To install your Gravitee Gateway with Helm, complete the following steps:
     1. Watch all containers come up.
       $ kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway -w
     ```
+4.  Verify the installation by checking pod status:
+
+    ```
+    kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
+    ```
+
+&#x20;       The command generates the following output:
+
+```
+NAME                                              READY   STATUS    RESTARTS   AGE
+graviteeio-apim-gateway-gateway-b6fd75949-rjsr4   1/1     Running   0          2m15s
+```
 
 {% hint style="info" %}
 To uninstall the Gravitee hybrid Gateway, use the following command:
