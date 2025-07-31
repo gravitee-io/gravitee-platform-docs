@@ -44,7 +44,7 @@ Toggle **Display end user on API Logging (in case of OAuth2/JWT plan)** to inclu
 
 {% tab title="Message Sampling" %}
 {% hint style="info" %}
-Sampling is used to avoid excessive resource consumption and is only relevant to v4 message APIs.
+V4-Message APIs only:  Message sampling is used to avoid excessive resource consumption and is only relevant to V4-Message APIs.
 {% endhint %}
 
 Set the defaults and limits of the possible sampling configurations.
