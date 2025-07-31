@@ -25,8 +25,8 @@ The GKO deployment process is the same for both remote and local Kubernetes clus
 
 {% code overflow="wrap" %}
 ```sh
-$ helm repo add graviteeio https://helm.gravitee.io
-$ helm install graviteeio-gko graviteeio/gko
+helm repo add graviteeio https://helm.gravitee.io
+helm install graviteeio-gko graviteeio/gko
 ```
 {% endcode %}
 
