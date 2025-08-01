@@ -2,5 +2,4 @@
 title: Untitled
 ---
 
-* ```
-  ```
+*
