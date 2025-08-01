@@ -8,7 +8,7 @@ You can use Gravitee's Terraform provider to create and manage Gravitee's Terraf
 
 This guide demonstrates Gravitee's Terraform capabilities with a working example.&#x20;
 
-You will find in the [terraform regsitry documentation](https://registry.terraform.io/providers/gravitee-io/apim) schema details.
+You will find in the [terraform registry documentation](https://registry.terraform.io/providers/gravitee-io/apim) schema details.
 
 ## Prerequisites
 

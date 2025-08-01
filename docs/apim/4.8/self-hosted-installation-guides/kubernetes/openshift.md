@@ -33,7 +33,7 @@ The configuration types for OpenShift are the same configuration types for Kuber
 
 ### Configure the databases
 
-To deploy OpenShift, you must configure the MongoDB database. Also, you can configure PostgresSQL, ElasticSearch, and Redis if you need them.
+To deploy OpenShift, you must configure the MongoDB database. Also, you can configure PostgreSQL, ElasticSearch, and Redis if you need them.
 
 {% tabs %}
 {% tab title="MongoDB" %}
