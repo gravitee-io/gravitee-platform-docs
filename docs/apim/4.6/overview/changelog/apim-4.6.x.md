@@ -6,6 +6,40 @@ description: >-
 
 # APIM 4.6.x
  
+## Gravitee API Management 4.6.17 - August 1, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Heap memory possible leakage due to missing equals and hashcode methods on all fields. [#10701](https://github.com/gravitee-io/issues/issues/10701)
+
+**Management API**
+
+* Groups Mappings do not work if no Default Role is selected to API and Application [#10271](https://github.com/gravitee-io/issues/issues/10271)
+* Sharding Tag Persists on API preview After Deletion [#10626](https://github.com/gravitee-io/issues/issues/10626)
+* Unable to search by label for v4 APIs [#10671](https://github.com/gravitee-io/issues/issues/10671)
+* If we send null for the groups field the value should not be updated in DB in any scenario (PO is a user, PO is a group, etc) [#10686](https://github.com/gravitee-io/issues/issues/10686)
+
+**Console**
+
+* The error key CLIENT_ABORTED_DURING_RESPONSE_ERROR is not present in the console UI. [#10683](https://github.com/gravitee-io/issues/issues/10683)
+
+**Portal**
+
+*  Portal Try it Out feature taking a long time to load [#10595](https://github.com/gravitee-io/issues/issues/10595)
+* Openapi contracts with binary examples can not be read by the dev portal  [#10639](https://github.com/gravitee-io/issues/issues/10639)
+
+**Other**
+
+* JDBC Error in Gravitee when querying large number of applications using IN clause  [#10496](https://github.com/gravitee-io/issues/issues/10496)
+* Console : Image Not Fitting Avatar Due to Aspect Ratio [#10649](https://github.com/gravitee-io/issues/issues/10649)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.6.16 - July 18, 2025
 <details>
 
