@@ -475,15 +475,10 @@ You can now create and deploy APIs to your hybrid Gateway.
 
 ### Next steps&#x20;
 
-* \
-  Access your API Management Console. To access your Console, complete the following steps:
+* Access your API Management Console. To access your Console, complete the following steps:
   1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
   2. From the Dashboard, navigate to the Environment where you created your Gateway.
   3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
-* Create your first API. For more information about creating your first API, see [https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/OQkblpdNLEUvSEIYDRHp/\~/diff/\~/changes/265/how-to-guides/create-and-publish-your-first-api](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/OQkblpdNLEUvSEIYDRHp/~/diff/~/changes/265/how-to-guides/create-and-publish-your-first-api "mention").
-* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/OQkblpdNLEUvSEIYDRHp/\~/diff/\~/changes/265/kafka-gateway/configure-the-kafka-client-and-gateway](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/OQkblpdNLEUvSEIYDRHp/~/diff/~/changes/265/kafka-gateway/configure-the-kafka-client-and-gateway "mention").
-
-
-
-
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention")
+* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention")
 
