@@ -248,8 +248,7 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
    * Replace `<license_key>` with your License Key.
    * Replace `<redis_hostname>` with your extracted Redis hostname.
    * Replace `<redis_password>` with your extracted Redis password.
-   * Replace `<hosts>` with the host information you entered in the Gravitee \
-     Cloud Gateway setup.
+   * Replace `<hosts>` with the host information you entered in the Gravitee Cloud Gateway setup.
    *   Set the `tag` field in the Gateway image section to the value displayed in the Overview section of your Gravitee Cloud Dashboard. \
 
 
@@ -258,6 +257,233 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
 {% hint style="info" %}
 The `tag` field specifies the version of your Gravitee Gateway. Your Gateway version must match your Gravitee Cloud Control Plane version to ensure compatibility between your hybrid Gateway and the Cloud Management platform.
 {% endhint %}
+
+3. Save your Gravitee `values.yaml` file in your working directory.&#x20;
+
+<details>
+
+<summary>Explanations of key predefined <code>values.yaml</code> parameter settings</summary>
+
+**Service configuration**&#x20;
+
+This uses AWS's native load balancing through the AWS Load Balancer Controller, providing SSL termination and path-based routing through Application Load Balancer (ALB).
+
+**Ingress configuration**&#x20;
+
+The ingress is enabled with ALB (Application Load Balancer) as the controller class, creating an external endpoint through AWS's load balancer. The hosts field must match at least one of the hosts configured in your Gravitee Cloud setup, and multiple hostnames are supported for multi-domain deployments.
+
+**Gateway version**&#x20;
+
+The `tag` field is commented out by default, allowing the Helm chart to use its default version. You can uncomment and specify a version when you need to ensure compatibility with a specific Gravitee Cloud control plane version or when performing controlled upgrades.
+
+**Resource allocation**&#x20;
+
+The configured limits prevent excessive cluster resource consumption while ensuring adequate performance for API processing. You can adjust these based on your expected load patterns and available node group capacity.
+
+**Deployment strategy**&#x20;
+
+The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.
+
+</details>
+
+### Install with Helm&#x20;
+
+To install your Gravitee Gateway with Helm, complete the following steps:
+
+1.  From your working directory, add the Gravitee Helm chart repository to your Kubernetes environment using the following command:&#x20;
+
+    ```bash
+    helm repo add graviteeio https://helm.gravitee.io
+    ```
+2.  Install the Helm chart with the Gravitee `values.yaml` file into a dedicated namespace using the following command:&#x20;
+
+    ```bash
+    helm install graviteeio-apim-gateway graviteeio/apim --namespace gravitee-apim -f ./values.yaml
+    ```
+3.  Verify the installation was successful. The command output should be similar to the following:&#x20;
+
+    ```bash
+    NAME: graviteeio-apim-gateway
+    LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
+    NAMESPACE: gravitee-apim
+    STATUS: deployed
+    REVISION: 1
+    TEST SUITE: None
+    NOTES:
+    1. Watch all containers come up.
+      $ kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway -w
+    ```
+4.  Verify the installation by checking pod status:
+
+    ```
+    kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
+    ```
+
+&#x20;       The command generates the following output:
+
+```
+NAME                                              READY   STATUS    RESTARTS   AGE
+graviteeio-apim-gateway-gateway-b6fd75949-rjsr4   1/1     Running   0          2m15s
+```
+
+{% hint style="info" %}
+To uninstall the Gravitee hybrid Gateway, use the following command:
+
+```bash
+helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
+```
+{% endhint %}
+
+### Verification&#x20;
+
+Your Gateway appears in the Gateways section of your [Gravitee Cloud](https://cloud.gravitee.io/) Dashboard.
+
+<figure><img src="../../../.gitbook/assets/image (318).png" alt=""><figcaption></figcaption></figure>
+
+To verify that your Gateway is up and running, complete the following steps:
+
+1. [#validate-the-pods](aws-eks.md#validate-the-pods "mention")
+2. [#validate-the-gateway-logs](aws-eks.md#validate-the-gateway-logs "mention")
+3. [#validate-the-ingress-configuration](aws-eks.md#validate-the-ingress-configuration "mention")
+4. [#validate-the-gateway-url](aws-eks.md#validate-the-gateway-url "mention")
+
+
+
+### Validate the pods&#x20;
+
+A healthy Gateway pod displays the `Running` status with `1/1` ready containers and zero or minimal restart counts. The pod startup process includes license validation, Cloud Token authentication, and Redis connectivity verification.
+
+To validate your pods, complete the following steps:
+
+1.  Use the following command to query the pod status:&#x20;
+
+    ```bash
+    kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
+    ```
+2.  Verify that the deployment was successful. The output should show that a Gravitee Gateway is ready and running with no restarts.&#x20;
+
+    ```sh
+    NAME                                               READY   STATUS    RESTARTS   AGE
+    graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9   1/1     Running   0          6m17s
+    ```
+
+
+
+### Validate the Gateway logs&#x20;
+
+To validate the Gateway logs, complete the following steps:
+
+1.  To list all the pods in your deployment, use the following command:
+
+    ```bash
+    kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
+    ```
+2.  In the output, find the name of the pod from which to obtain logs. For example, `graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9`.
+
+    ```bash
+    NAME                                               READY   STATUS    RESTARTS   AGE
+    graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9   1/1     Running   0          6m17s
+    ```
+
+
+3.  To obtain the logs from this specific pod, use the following command. Replace `<NAME_OF_THE_POD>` with your pod name.
+
+    ```bash
+    kubectl logs --namespace=gravitee-apim <NAME_OF_THE_POD>
+    ```
+
+
+4.  Review the log file. The following example output shows the important log entries.
+
+    ```
+    =========================================================================
+      Gravitee.IO Standalone Runtime Bootstrap Environment
+      GRAVITEE_HOME: /opt/graviteeio-gateway
+      GRAVITEE_OPTS: 
+      JAVA: /opt/java/openjdk/bin/java
+      JAVA_OPTS:  -Xms256m -Xmx256m -Djava.awt.headless=true -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding=UTF-8
+      CLASSPATH: /opt/graviteeio-gateway/lib/gravitee-apim-gateway-standalone-bootstrap-<version>.jar
+    =========================================================================
+    14:01:39.318 [graviteeio-node] [] INFO  i.g.n.c.spring.SpringBasedContainer - Starting Boot phase.
+    ...
+    14:01:43.140 [graviteeio-node] [] INFO  i.g.n.license.LicenseLoaderService - License information: 
+    	expiryDate: YYYY-MM-DD HH:MM:SS.mmm
+    	features: alert-engine
+    	tier: universe
+    	alert-engine: included
+    	company: Gravitee
+    	signatureDigest: SHA-256
+    	licenseId: [redacted]
+    	packs: 
+    	email: [redacted]
+    	licenseSignature: [redacted]
+    14:01:43.215 [graviteeio-node] [] INFO  i.g.common.service.AbstractService - Initializing service io.gravitee.plugin.core.internal.BootPluginEventListener
+    14:01:43.338 [graviteeio-node] [] INFO  i.g.p.c.internal.PluginRegistryImpl - Loading plugins from /opt/graviteeio-gateway/plugins
+    ...
+    14:01:53.322 [graviteeio-node] [] INFO  i.g.node.container.AbstractContainer - Starting Gravitee.io - API Gateway...
+    14:01:53.323 [graviteeio-node] [] INFO  i.g.node.container.AbstractNode - Gravitee.io - API Gateway is now starting...
+    ...
+    14:02:03.816 [graviteeio-node] [] INFO  i.g.node.container.AbstractNode - Gravitee.io - API Gateway id[95cb1eb8-ba65-42ad-8b1e-b8ba65b2adf7] version[4.7.6] pid[1] build[1093365#b33db62e676fad748d3ad09e3cbc139394b6da7a] jvm[Eclipse Adoptium/OpenJDK 64-Bit Server VM/21.0.7+6-LTS] started in 10400 ms.
+    ...
+    14:02:03.923 [vert.x-eventloop-thread-0] [] INFO  i.g.g.r.s.vertx.HttpProtocolVerticle - HTTP server [http] ready to accept requests on port 8082
+    ...
+    14:02:04.324 [gio.sync-deployer-0] [] INFO  i.g.g.p.o.m.DefaultOrganizationManager - Register organization ReactableOrganization(definition=Organization{id='[redacted]', name='Organization'}, enabled=true, deployedAt=Sat Oct 19 17:08:22 GMT 2024)
+    ```
+
+### Validate the ingress configuration&#x20;
+
+1.  Check the ingress configuration:
+
+    ```sh
+    kubectl get ingress -n gravitee-apim
+    ```
+
+&#x20;       The output will show your configured host and the AWS Load Balancer address:
+
+```bash
+NAME                              CLASS   HOSTS                           ADDRESS                                                              PORTS   AGE
+graviteeio-apim-gateway-gateway   alb     xxxxxxx.xxx.xxx.xxx.xxx         k8s-xxxxxxx-xxx-xxxxxxxxxx-xxxxxxxxxx.us-west-2.elb.amazonaws.com   80, 443      24m
+```
+
+2.  Get the external address of your AWS Load Balancer:\
+
+
+    ```
+    kubectl get service -n kube-system
+    ```
+
+### Validate the Gateway URL
+
+Your Gateway URL is determined by the networking settings you specify in the `ingress` section of your `values.yaml` file.
+
+To validate the Gateway URL, complete the following steps:
+
+1.  Make a GET request to the URL on which you have published the Gateway:
+
+    ```bash
+    curl http://{my_gateway_url:port}/
+    ```
+2.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.
+
+    ```bash
+    No context-path matches the request URI.
+    ```
+
+{% hint style="success" %}
+You can now create and deploy APIs to your hybrid Gateway.
+{% endhint %}
+
+### Next steps&#x20;
+
+* \
+  Access your API Management Console. To access your Console, complete the following steps:
+  1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
+  2. From the Dashboard, navigate to the Environment where you created your Gateway.
+  3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
+* Create your first API. For more information about creating your first API, see [https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/OQkblpdNLEUvSEIYDRHp/\~/diff/\~/changes/265/how-to-guides/create-and-publish-your-first-api](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/OQkblpdNLEUvSEIYDRHp/~/diff/~/changes/265/how-to-guides/create-and-publish-your-first-api "mention").
+* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/OQkblpdNLEUvSEIYDRHp/\~/diff/\~/changes/265/kafka-gateway/configure-the-kafka-client-and-gateway](https://app.gitbook.com/o/8qli0UVuPJ39JJdq9ebZ/s/OQkblpdNLEUvSEIYDRHp/~/diff/~/changes/265/kafka-gateway/configure-the-kafka-client-and-gateway "mention").
+
+
 
 
 
