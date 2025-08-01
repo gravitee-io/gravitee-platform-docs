@@ -10,6 +10,32 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.23 - August 1, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Duplicate Key collection errors caused by the mongo Audit Reporter [#10670](https://github.com/gravitee-io/issues/issues/10670)
+
+
+
+
+
+**Other**
+
+* Missing indexes on Devices table [#10677](https://github.com/gravitee-io/issues/issues/10677)
+* Can't get dynamic roles for the user [#10679](https://github.com/gravitee-io/issues/issues/10679)
+* When an Access token is missing from the authorization endpoint and only an ID Token is returned, any token is stored in user profile [#10680](https://github.com/gravitee-io/issues/issues/10680)
+* NoSuchMethodError after JwkSourceresolver update [#10696](https://github.com/gravitee-io/issues/issues/10696)
+* France Connect V2 - Problem when disconnecting France Connect [#10697](https://github.com/gravitee-io/issues/issues/10697)
+* access and refresh token purging schedule. [#10703](https://github.com/gravitee-io/issues/issues/10703)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.22 - July 18, 2025
 
 <details>
