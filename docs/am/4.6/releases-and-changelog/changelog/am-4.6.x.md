@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.17 - August 1, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Missing indexes on Devices table [#10677](https://github.com/gravitee-io/issues/issues/10677)
+* Can't get dynamic roles for the user [#10679](https://github.com/gravitee-io/issues/issues/10679)
+* When an Access token is missing from the authorization endpoint and only an ID Token is returned, any token is stored in user profile [#10680](https://github.com/gravitee-io/issues/issues/10680)
+* NoSuchMethodError after JwkSourceresolver update [#10696](https://github.com/gravitee-io/issues/issues/10696)
+* France Connect V2 - Problem when disconnecting France Connect [#10697](https://github.com/gravitee-io/issues/issues/10697)
+* access and refresh token purging schedule. [#10703](https://github.com/gravitee-io/issues/issues/10703)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.16 - July 18, 2025
 
 <details>
