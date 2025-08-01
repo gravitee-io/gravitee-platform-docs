@@ -434,6 +434,19 @@ graviteeio-apim-gateway-gateway   nginx   xxxxxxx.xxx.xxx.xxx.xxx    xxx.xxx.xxx
     kubectl get service -n ingress-nginx
     ```
 
+### Validate the ingress configuration
+
+1.  Check the ingress configuration:&#x20;
+
+    ```bash
+    kubectl get ingress -n gravitee-apim
+    ```
+2.  Get the external IP of your ingress controller:&#x20;
+
+    ```bash
+    kubectl get service -n ingress-nginx
+    ```
+
 ### Validate the Gateway URL
 
 Your Gateway URL is determined by the networking settings you specify in the `service` section of your `values.yaml` file.
