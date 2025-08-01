@@ -84,7 +84,7 @@ To configure sharding tags, complete the following steps:
 5. Click **Ok**. The sharding tag now appears in the list of **Sharding Tags**.
 
 {% hint style="info" %}
-Take note of the generated 'id', as this may differ from your 'name' (due to the use of underscores or hypens).
+Take note of the generated 'id', as this may differ from your 'name' (due to the use of underscores or hyphens).
 {% endhint %}
 
 ### Add sharding tags to your APIs
@@ -120,7 +120,7 @@ Take note of the generated 'id', as this may differ from your 'name' (due to the
    1. From the **Dashboard**, click **Organization**.
    2. In the **Organization** menu, click **Entrypoints & Sharding Tags**.
    3. Navigate to the **Sharding Tags** section. The ID of your sharding tag is in the **ID** column.
-2. Add the ID of your sharding tag or tags to either your Helm `values.yaml`, `gravitee.yml` file or as environment variables by completing the set of following steps that match your comfiguration:
+2. Add the ID of your sharding tag or tags to either your Helm `values.yaml`, `gravitee.yml` file or as environment variables by completing the set of following steps that match your configuration:
 
 {% tabs %}
 {% tab title="Helm values.yaml" %}
