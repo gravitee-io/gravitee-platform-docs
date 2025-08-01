@@ -79,3 +79,171 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     ```
 
 &#x20;       The command generates the following output:
+
+```bash
+NAME                              READY   STATUS    RESTARTS   AGE
+gravitee-apim-redis-master-0      1/1     Running   0          2m
+gravitee-apim-redis-replicas-0    1/1     Running   0          2m
+gravitee-apim-redis-replicas-1    1/1     Running   0          2m
+gravitee-apim-redis-replicas-2    1/1     Running   0          2m
+```
+
+### Prepare `values.yaml` for Helm
+
+To prepare your Gravitee values.yaml file for Helm, complete the following steps:
+
+1.  Copy the following Gravitee values.yaml file. This is the base configuration for your new hybrid Gateway.\
+
+
+    ```yaml
+    #This is the license key provided in your Gravitee Cloud account 
+    license:
+        key: "<license key>"
+
+    #This section controls the Management API component deployment of Gravitee. 
+    #It is disabled for a hybrid gateway installation
+    api:
+        enabled: false
+
+    #This section controls the Developer Portal API component deployment of Gravitee. 
+    #It is disabled for a hybrid gateway installation
+    portal:
+        enabled: false
+
+    #This section controls the API Management Console component deployment of Gravitee. 
+    #It is disabled for a hybrid gateway installation
+    ui:
+        enabled: false
+
+    #This section controls the Alert Engine component deployment of Gravitee. 
+    #It is disabled for a hybrid gateway installation
+    alerts:
+        enabled: false
+
+    #This section controls the Analytics Database component deployment of Gravitee based on ElasticSearch. 
+    #It is disabled for a hybrid gateway installation
+    es:
+        enabled: false
+        
+    #This section has multiple parameters to configure the API Gateway deployment  
+    gateway:
+        replicaCount: 1 #number of replicas of the pod
+        image:
+            repository: graviteeio/apim-gateway
+            #The gateway version to install. 
+            #It has to align with the control plane of your Gravitee Cloud
+            #use it if you need to force the version of the gateway
+            # tag: 4.7.6 
+            pullPolicy: IfNotPresent
+        autoscaling:
+            enabled: false
+        podAnnotations:
+            prometheus.io/path: /_node/metrics/prometheus
+            prometheus.io/port: "18082"
+            prometheus.io/scrape: "true"
+        #Sets environment variables.  
+        env:
+            #Gravitee Cloud Token. 
+            #This is the value gathered in your Gravitee Cloud Account when you install a new Hybrid Gateway.
+            - name: gravitee_cloud_token
+              value: "<gravitee cloud token>"
+        
+        #Configure the API Gateway internal API. 
+        services:
+            #The following sections enables the exposure of metrics to Prometheus. 
+            metrics:
+                enabled: true
+                prometheus:
+                    enabled: true
+            #This enables the Gravitee APIM Gateway internal API for monitoring and retrieving technical information about the component.
+            core:
+                http:
+                    enabled: true
+            sync:
+                kubernetes:
+                    enabled: false
+            #disables bridge mode. unnecessary for a hybrid gateway.
+            bridge:
+                enabled: false
+
+        # Uncomment and configure if you need LoadBalancer service
+        # service:
+        #     type: LoadBalancer
+        #     externalPort: 8082
+        #     annotations:
+        #         service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+        #         service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+
+        #ingress setup for AWS
+        #This will setup the ingress rule for the gateway using AWS Load Balancer Controller
+        ingress:
+          enabled: true
+          pathType: Prefix
+          path: /
+          # AWS Load Balancer Controller ingress class
+          ingressClassName: "alb"
+          # Used to create an Ingress record.
+          # Multiple hostnames supported
+          #the hosts setting should match at least one of the hosts you setup in Gravitee Cloud for the gateway you are deploying
+          #example: apigw.eks.example.com
+          hosts:
+            - <hosts>
+          annotations:
+            # AWS Load Balancer Controller annotations
+            alb.ingress.kubernetes.io/scheme: internet-facing
+            alb.ingress.kubernetes.io/target-type: ip
+            alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+            # Uncomment for SSL redirect
+            # alb.ingress.kubernetes.io/ssl-redirect: '443'
+            # Uncomment to specify SSL certificate ARN
+            # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/certificate-id
+          # Uncomment for TLS configuration
+          #tls:
+          #  - hosts:
+          #      - apigw.eks.example.com
+          #    secretName: gravitee-tls-secret
+
+        resources:
+            limits:
+                cpu: 500m
+                memory: 1024Mi
+            requests:
+                cpu: 200m
+                memory: 512Mi
+        deployment:
+            revisionHistoryLimit: 1
+            strategy:
+                type: RollingUpdate
+                rollingUpdate:
+                    maxUnavailable: 0
+        #Reporter configuration section.
+        #no additional reporter enabled for the hybrid gateway outside of the default Cloud Gateway reporter
+        reporters:
+            file:
+                enabled: false
+        terminationGracePeriod: 50
+        gracefulShutdown:
+            delay: 20
+            unit: SECONDS
+        ratelimit:
+            #redis setup for the rate limit database
+            redis:
+                host: "<redis host>"
+                port: 6379
+                password: "<redis password>"
+                ssl: false
+            
+    ratelimit:
+        type: redis
+            
+    # Auto-download the Gravitee Redis plugin
+    redis:
+        download: true
+    ```
+
+
+
+
+
+
+
