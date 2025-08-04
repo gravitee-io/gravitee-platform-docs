@@ -111,9 +111,10 @@ To confirm that your Hybrid installation is working, complete the following step
 
 ### Ensure that the Gateway is registered in Gravitee Cloud
 
-1.  Sign in to Gravitee Cloud.
+1.  Sign in to Gravitee Cloud.\
 
-    <figure><img src="../../../.gitbook/assets/image (306).png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../../../.gitbook/assets/cloud-ssign-in-page.png" alt=""><figcaption></figcaption></figure>
 2.  From the **Dashboard**, navigate to the **Gateways** section. Your new Hybrid Gateway appears here.
 
     <figure><img src="../../../.gitbook/assets/0023A006-6B47-468B-923B-AA823EF40368_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
