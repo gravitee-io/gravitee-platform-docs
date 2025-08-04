@@ -11,19 +11,19 @@ The following installation steps are common to all supported deployment methods.
 1.  Sign in to [Gravitee Cloud](https://cloud.gravitee.io/).\
 
 
-    <figure><img src="../../.gitbook/assets/image (272).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/sign-in-to-gravitee-cloud.png" alt=""><figcaption></figcaption></figure>
 2.  Select **Dashboard** from the menu, and then click **Deploy Gateway**.\
 
 
-    <figure><img src="../../.gitbook/assets/00 1 copy (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/dashboard-deploy-gateway.png" alt=""><figcaption></figcaption></figure>
 3.  In the **Choose Gateway Deployment Method** modal, select **Hybrid Gateway**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (266).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-hybrid-gateway.png" alt=""><figcaption></figcaption></figure>
 4.  On the **Deploy Hybrid Gateway** screen, select the Environment to which you'd like to deploy the Gateway. For example, **Development**.\
 
 
-    <figure><img src="../../.gitbook/assets/00 2 copy.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/select-environment.png" alt=""><figcaption></figcaption></figure>
 5.  In **URLs & Domains**, enter the names of the HTTP domains through which you can access your Hybrid Gateway. By default, all URLs enforce HTTPS.\
 
 
@@ -33,11 +33,11 @@ The following installation steps are common to all supported deployment methods.
 
 
 
-    <figure><img src="../../.gitbook/assets/image (276).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/deploy-your-gateway (2).png" alt=""><figcaption></figcaption></figure>
 6.  Click **Generate Installation Details** to generate your Cloud Token and License Key. Copy your Cloud Token and License Key and save them somewhere secure. \
 
 
-    <figure><img src="../../.gitbook/assets/00 4 copy.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/generate-installation-details.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
 Your have prepared your installation for deployment.
