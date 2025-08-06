@@ -18,7 +18,7 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 * Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 * Configure AWS CLI with appropriate credentials: `aws configure`
 * Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
-* Ensure you have access to the EKS cluster where you want to install the Gateway.
+* Ensure you have access to the [EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html#_step_2_create_cluster) where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
