@@ -18,7 +18,7 @@ Before you install a Hybrid Gateway, complete the following steps:
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/).&#x20;
 * Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
-* Ensure you have access to the AKS cluster where you want to install the Gateway.
+* Ensure you have access to the [AKS cluster](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli) where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
