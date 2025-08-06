@@ -22,6 +22,59 @@ Before you install a Hybrid Gateway, complete the following steps:
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
+### Create AKS Cluster&#x20;
+
+If you don't have an existing AKS cluster, create one by following these steps:
+
+1.  Login to Azure
+
+    ```bash
+    # Login to your Azure account
+    az login
+    ```
+2.  Create Resource Group
+
+    ```bash
+    # Create a resource group
+    # Replace <resource-group-name> with your desired name (e.g., "my-resource-rg")
+    # Replace <location> with your preferred Azure region (e.g., "eastus", "westeurope", "southeastasia")
+    az group create --name <resource-group-name> --location <location>
+    ```
+3.  Create AKS Cluster
+
+    ```bash
+    # Create AKS cluster
+    # Replace placeholders with your desired values:
+    # <resource-group-name>: Same as above (e.g., "my-resource-rg")
+    # <cluster-name>: Your cluster name (e.g., "my-aks-cluster")
+    # <node-count>: Number of nodes (e.g., 2 for testing, 3+ for production)
+    # <node-vm-size>: VM size (e.g., "Standard_B2s" for testing, "Standard_D2s_v3" for production)
+
+    az aks create \
+      --resource-group <resource-group-name> \
+      --name <cluster-name> \
+      --node-count <node-count> \
+      --node-vm-size <node-vm-size> \
+      --generate-ssh-keys \
+      --network-plugin azure \
+      --enable-managed-identity
+    ```
+
+{% hint style="info" %}
+This process takes 5-10 minutes to complete.
+{% endhint %}
+
+4.  Connect kubectl to AKS Cluster&#x20;
+
+    ```bash
+    # Get credentials to connect kubectl to your cluster
+    # Replace with your actual resource group and cluster names
+    az aks get-credentials --resource-group <resource-group-name> --name <cluster-name>
+
+    # Verify connection by listing nodes
+    kubectl get nodes
+    ```
+
 ## Install the Gateway
 
 To install the Gravitee Gateway, complete the following steps:
