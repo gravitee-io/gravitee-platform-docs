@@ -423,20 +423,22 @@ To validate the Gateway logs, complete the following steps:
 
 1.  Check the ingress configuration
 
-    ```
+    ```bash
     kubectl get ingress -n gravitee-apim
     ```
 
-&#x20;      The output will show your configured host and the ingress controller's address
+    \
+    The output will show your configured host and the ingress controller's address
 
-```
-NAME                              CLASS   HOSTS                           ADDRESS         PORTS   AGE
-graviteeio-apim-gateway-gateway   nginx   xxxxxxx.xxx.xxx.xxx.xxx    xxx.xxx.xxx.xxx      80      24m
-```
+    ```bash
+    NAME                              CLASS   HOSTS                           ADDRESS         PORTS   AGE
+    graviteeio-apim-gateway-gateway   nginx   xxxxxxx.xxx.xxx.xxx.xxx    xxx.xxx.xxx.xxx      80      24m
+    ```
+
 
 2.  Get the external IP of your ingress controller:&#x20;
 
-    ```
+    ```bash
     kubectl get service -n ingress-nginx
     ```
 
