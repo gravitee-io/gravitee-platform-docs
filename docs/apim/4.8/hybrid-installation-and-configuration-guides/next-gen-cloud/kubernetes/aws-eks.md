@@ -78,15 +78,16 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-apim-redis
     ```
 
-&#x20;       The command generates the following output:
+    \
+    &#x20;The command generates the following output:
 
-```bash
-NAME                              READY   STATUS    RESTARTS   AGE
-gravitee-apim-redis-master-0      1/1     Running   0          2m
-gravitee-apim-redis-replicas-0    1/1     Running   0          2m
-gravitee-apim-redis-replicas-1    1/1     Running   0          2m
-gravitee-apim-redis-replicas-2    1/1     Running   0          2m
-```
+    ```bash
+    NAME                              READY   STATUS    RESTARTS   AGE
+    gravitee-apim-redis-master-0      1/1     Running   0          2m
+    gravitee-apim-redis-replicas-0    1/1     Running   0          2m
+    gravitee-apim-redis-replicas-1    1/1     Running   0          2m
+    gravitee-apim-redis-replicas-2    1/1     Running   0          2m
+    ```
 
 ### Prepare `values.yaml` for Helm
 
