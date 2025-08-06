@@ -307,18 +307,21 @@ To install your Gravitee Gateway with Helm, complete the following steps:
     1. Watch all containers come up.
       $ kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway -w
     ```
-4.  Verify the installation by checking pod status:
+4.  Verify the installation by checking pod status:\
 
-    ```
+
+    ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
 
-&#x20;       The command generates the following output:
+    \
+    The command generates the following output:\
 
-```
-NAME                                              READY   STATUS    RESTARTS   AGE
-graviteeio-apim-gateway-gateway-b6fd75949-rjsr4   1/1     Running   0          2m15s
-```
+
+    ```bash
+    NAME                                              READY   STATUS    RESTARTS   AGE
+    graviteeio-apim-gateway-gateway-b6fd75949-rjsr4   1/1     Running   0          2m15s
+    ```
 
 {% hint style="info" %}
 To uninstall the Gravitee hybrid Gateway, use the following command:

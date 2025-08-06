@@ -8,11 +8,11 @@ AWS API Gateway is AWS's built-in API management solution and is commonly used t
 
 In order to Federate AWS API Management APIs into Gravitee, you'll need permission to access the AWS API Management console, or you'll at least need access to somebody who does so that they can provide you with credentials that the agent will use to authenticate against AWS.
 
-The minimum permissions required by the federation agent are described in the section called [Minimum AWS permissions required by the agent](./#minimum-aws-permissions-required-by-the-agent).
+The minimum permissions required by the federation agent are described in the section called [Minimum AWS permissions required by the agent](aws-api-gateway.md#minimum-aws-permissions-required-by-the-agent).
 
 You'll also need to be running Gravitee API Management version 4.4 or above, with an enterprise license.
 
-For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../../federation-agent-service-account.md) for the federation agent.
+For the federation agent to authenticate with Gravitee API Management, you'll also need an access token. Head to our dedicated guide on [how to create a service account and an access token](../federation-agent-service-account.md) for the federation agent.
 
 ## 1. Create an AWS API Management integration in the Gravitee APIM Console
 
@@ -20,7 +20,7 @@ Head to the Gravitee APIM Console, open the Integrations section in the left men
 
 Once you've created the integration, copy the integration ID that will be visible on the integration overview tab, you'll use this later:
 
-<figure><img src="../../../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
 
 ## 2. Configure the AWS APIM federation agent
 
@@ -60,7 +60,7 @@ services:
       # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 
-Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](./#id-2.-configure-the-azure-federation-agent).
+Next, create a file named `.env` in the same directory. We'll use it to set the required Docker Compose variables. Fill the values in this file from those you obtained in [step 2](aws-api-gateway.md#id-2.-configure-the-azure-federation-agent).
 
 ```bash
 ## GRAVITEE PARAMETERS ##
@@ -111,7 +111,7 @@ docker compose up -d
 
 In the Gravitee API Management console, after refreshing, you should now see the agent's status set to `Connected:`
 
-<figure><img src="../../../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
 
 If your **Agent Connection** still shows as `Disconnected`, then please inspect the agent's container logs. There you should find error logs that will help you troubleshoot.
 
