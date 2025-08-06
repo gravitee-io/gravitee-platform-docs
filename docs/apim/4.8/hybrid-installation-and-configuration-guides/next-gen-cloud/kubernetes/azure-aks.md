@@ -29,13 +29,11 @@ If you don't have an existing AKS cluster, create one by following these steps:
 1.  Login to Azure
 
     ```bash
-    # Login to your Azure account
     az login
     ```
 2.  Create Resource Group
 
     ```bash
-    # Create a resource group
     # Replace <resource-group-name> with your desired name (e.g., "my-resource-rg")
     # Replace <location> with your preferred Azure region (e.g., "eastus", "westeurope", "southeastasia")
     az group create --name <resource-group-name> --location <location>
@@ -43,7 +41,6 @@ If you don't have an existing AKS cluster, create one by following these steps:
 3.  Create AKS Cluster
 
     ```bash
-    # Create AKS cluster
     # Replace placeholders with your desired values:
     # <resource-group-name>: Same as above (e.g., "my-resource-rg")
     # <cluster-name>: Your cluster name (e.g., "my-aks-cluster")
