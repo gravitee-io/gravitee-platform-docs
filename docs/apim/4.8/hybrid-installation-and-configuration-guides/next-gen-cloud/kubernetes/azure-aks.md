@@ -26,19 +26,19 @@ Before you install a Hybrid Gateway, complete the following steps:
 
 If you don't have an existing AKS cluster, create one by following these steps:
 
-1.  Login to Azure
+1.  Login to Azure:
 
     ```bash
     az login
     ```
-2.  Create Resource Group
+2.  Create Resource Group:
 
     ```bash
     # Replace <resource-group-name> with your desired name (e.g., "my-resource-rg")
     # Replace <location> with your preferred Azure region (e.g., "eastus", "westeurope", "southeastasia")
     az group create --name <resource-group-name> --location <location>
     ```
-3.  Create AKS Cluster
+3.  Create AKS Cluster:
 
     ```bash
     # Replace placeholders with your desired values:
@@ -61,7 +61,7 @@ If you don't have an existing AKS cluster, create one by following these steps:
 This process takes 5-10 minutes to complete.
 {% endhint %}
 
-4.  Connect kubectl to AKS Cluster&#x20;
+4.  Connect kubectl to AKS Cluster:&#x20;
 
     ```bash
     # Get credentials to connect kubectl to your cluster
@@ -76,9 +76,30 @@ This process takes 5-10 minutes to complete.
 
 To install the Gravitee Gateway, complete the following steps:
 
-1. [#install-redis](azure-aks.md#install-redis "mention")
-2. [#prepare-values.yaml-for-helm](azure-aks.md#prepare-values.yaml-for-helm "mention")
-3. [#install-with-helm](azure-aks.md#install-with-helm "mention")
+1. [#install-nginx-ingress-controller](azure-aks.md#install-nginx-ingress-controller "mention")
+2. [#install-redis](azure-aks.md#install-redis "mention")
+3. [#prepare-values.yaml-for-helm](azure-aks.md#prepare-values.yaml-for-helm "mention")
+4. [#install-with-helm](azure-aks.md#install-with-helm "mention")
+
+### Install NGINX Ingress Controller&#x20;
+
+The gateway requires an ingress controller to handle external traffic.
+
+1.  Add the NGINX Helm repository using the following command:&#x20;
+
+    ```bash
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+    helm repo update
+    ```
+2.  Install the NGINX ingress controller:&#x20;
+
+    ```bash
+    helm install ingress-nginx ingress-nginx/ingress-nginx \
+      --create-namespace \
+      --namespace ingress-nginx \
+      --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-path"=/healthz
+    ```
 
 ### Install Redis
 
@@ -228,8 +249,8 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
           enabled: true
           pathType: Prefix
           path: /
-          # update this with your ingress ClassName
-          ingressClassName: ""
+          # update this with your ingress ClassName,replace it with nginx if you are using it
+          ingressClassName: "nginx"
           # Used to create an Ingress record.
           # Multiple hostnames supported
           # - hosts:
