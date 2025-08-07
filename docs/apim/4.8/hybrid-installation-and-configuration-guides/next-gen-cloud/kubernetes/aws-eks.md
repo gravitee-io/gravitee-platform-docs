@@ -15,14 +15,131 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-* Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-* Configure AWS CLI with appropriate credentials: `aws configure`
+* Install [eksctl](https://eksctl.io/installation/)
+* Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and configure it with appropriate credentials using the command: `aws configure`
 * Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
 * Ensure you have access to the [EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html#_step_2_create_cluster) where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
+### Create EKS Cluster&#x20;
 
+If you don't have an existing EKS cluster, create one by following these steps:
+
+1.  Login to AWS:&#x20;
+
+    ```bash
+    # Configure AWS CLI with your credentials
+
+    aws configure
+    ```
+2.  Create EKS Cluster:
+
+    ```bash
+    # Replace placeholders with your desired values:
+    # <cluster-name>: Your cluster name (e.g., "gravitee-eks-cluster")
+    # <region>: AWS region (e.g., "eu-west-2", "us-east-1", "ap-southeast-1")
+    # <node-count>: Number of nodes (e.g., 2 for testing, 3+ for production)
+    # <node-type>: Instance type (e.g., "t3.medium" for testing, "t3.large" for production)
+
+    eksctl create cluster \
+      --name <cluster-name> \
+      --region <region> \
+      --nodes <node-count> \
+      --node-type <node-type> \
+      --with-oidc \
+      --managed
+    ```
+3.  Connect kubectl to EKS cluster:
+
+    ```bash
+    # Replace with your actual cluster name and region
+    aws eks update-kubeconfig --name <cluster-name> --region <region>
+
+    # Verify connection by listing nodes
+    kubectl get nodes
+    ```
+
+### Install EBS CSI Driver&#x20;
+
+The EBS CSI driver is required for persistent volumes.&#x20;
+
+1.  Install the EBS driver with `kubectl`&#x20;
+
+    ```bash
+    kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.35"
+    ```
+2.  Verify if it's running with:&#x20;
+
+    ```bash
+    kubectl get pods -n kube-system | grep ebs-csi
+    ```
+
+
+
+### Install AWS Load Balancer Controller
+
+1.  Download IAM Policy with the following command:\
+
+
+    ```bash
+    curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.13.0/docs/install/iam_policy.json
+    ```
+2.  Create IAM Policy with the following command:
+
+    ```bash
+    # Replace <region> with your AWS region (e.g., "eu-west-2", "us-east-1")
+    # Note: If you get "AccessDenied" error, ask your AWS admin to run this command
+
+    aws iam create-policy \
+        --policy-name AWSLoadBalancerControllerIAMPolicy \
+        --policy-document file://iam_policy.json \
+        --region <region>
+    ```
+
+
+
+3.  Create IAM Service Account with the following command:&#x20;
+
+    ```bash
+    # Replace these values:
+    # <cluster-name>: Your EKS cluster name (same as created above)
+    # <region>: Your AWS region (same as above)
+
+    eksctl create iamserviceaccount \
+      --cluster=<cluster-name> \
+      --namespace=kube-system \
+      --name=aws-load-balancer-controller \
+      --role-name AmazonEKSLoadBalancerControllerRole \
+      --attach-policy-arn=arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):policy/AWSLoadBalancerControllerIAMPolicy \
+      --region=<region> \
+      --approve
+    ```
+4.  Install the Controller with Helm:
+
+    ```bash
+    # Add the EKS Helm repository
+    helm repo add eks https://aws.github.io/eks-charts
+    helm repo update
+
+    # Install the controller
+    # Replace these values:
+    # <cluster-name>: Your EKS cluster name
+    # <region>: Your AWS region
+
+    helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+      -n kube-system \
+      --set clusterName=<cluster-name> \
+      --set serviceAccount.create=false \
+      --set serviceAccount.name=aws-load-balancer-controller \
+      --set region=<region>
+    ```
+5.  Verify installation:
+
+    ```bash
+    # Check if pods are running
+    kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller
+    ```
 
 ### Install the Gateway&#x20;
 
@@ -316,16 +433,19 @@ To install your Gravitee Gateway with Helm, complete the following steps:
     ```
 4.  Verify the installation by checking pod status:
 
-    ```
+    ```bash
     kubectl get pods --namespace=gravitee-apim -l app.kubernetes.io/instance=graviteeio-apim-gateway
     ```
 
-&#x20;       The command generates the following output:
+    \
+    The command generates the following output:&#x20;
 
-```
-NAME                                              READY   STATUS    RESTARTS   AGE
-graviteeio-apim-gateway-gateway-b6fd75949-rjsr4   1/1     Running   0          2m15s
-```
+    ```bash
+    NAME                                              READY   STATUS    RESTARTS   AGE
+    graviteeio-apim-gateway-gateway-b6fd75949-rjsr4   1/1     Running   0          2m15s
+    ```
+
+
 
 {% hint style="info" %}
 To uninstall the Gravitee hybrid Gateway, use the following command:
@@ -435,16 +555,19 @@ To validate the Gateway logs, complete the following steps:
 
 1.  Check the ingress configuration:
 
-    ```sh
+    ```
     kubectl get ingress -n gravitee-apim
     ```
 
-&#x20;       The output will show your configured host and the AWS Load Balancer address:
+    \
+    The output will show your configured host and the AWS Load Balancer address: \
 
-```bash
-NAME                              CLASS   HOSTS                           ADDRESS                                                              PORTS   AGE
-graviteeio-apim-gateway-gateway   alb     xxxxxxx.xxx.xxx.xxx.xxx         k8s-xxxxxxx-xxx-xxxxxxxxxx-xxxxxxxxxx.us-west-2.elb.amazonaws.com   80, 443      24m
-```
+
+    ```
+    NAME                              CLASS   HOSTS                           ADDRESS                                                              PORTS   AGE
+    graviteeio-apim-gateway-gateway   alb     xxxxxxx.xxx.xxx.xxx.xxx         k8s-xxxxxxx-xxx-xxxxxxxxxx-xxxxxxxxxx.us-west-2.elb.amazonaws.com   80, 443      24m
+    ```
+
 
 2.  Get the external address of your AWS Load Balancer:\
 
