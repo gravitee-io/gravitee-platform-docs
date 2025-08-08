@@ -15,7 +15,7 @@
 4.  Enter your API's name and version number, and then click **Validate my API details**. For example, My first API and version 1.\
 
 
-    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 5.  Select **HTTP Proxy**, and then click **Select my entrypoints**\
 
 
