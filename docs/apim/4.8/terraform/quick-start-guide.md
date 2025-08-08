@@ -2,13 +2,15 @@
 
 ## Overview
 
-Terraform lets you manage APIs and other entities via configuration instead of through manual updates in the APIM Console. This lets you automate and version changes to your APIM instance for an Infrastructure as Code (IaC) experience.&#x20;
+Terraform lets you manage APIs and other entities via configuration instead of through manual updates in the APIM Console. This lets you automate and version changes to your APIM instance for an Infrastructure as Code (IaC) experience.
 
-You can use Gravitee's Terraform provider to create and manage Gravitee's Terraform resources. The role of the provider is to apply your resources and synchronize them with the Control Plane.&#x20;
+You can use Gravitee's Terraform provider to create and manage Gravitee's Terraform resources. The role of the provider is to apply your resources and synchronize them with the Control Plane.
 
-This guide demonstrates Gravitee's Terraform capabilities with a working example.&#x20;
+This guide demonstrates Gravitee's Terraform capabilities with a working example.
 
-You will find in the [terraform registry documentation](https://registry.terraform.io/providers/gravitee-io/apim) schema details.
+{% hint style="info" %}
+For schema details, refer to the [Terraform registry documentation](https://registry.terraform.io/providers/gravitee-io/apim).
+{% endhint %}
 
 ## Prerequisites
 
@@ -23,7 +25,7 @@ Before you can use Terraform with Gravitee, you must install Terraform, have a r
 To install the Gravitee Terraform provider, complete the following steps:
 
 1. Create a directory.
-2.  Create a Terraform `provider.tf` configuration file with the following content.&#x20;
+2.  Create a Terraform `provider.tf` configuration file with the following content.
 
     * Replace `<mAPI host and port>` with the host and port pair corresponding your Management API. For example, `http://localhost:8083/automation`.
     * Replace xxx with the bearer token you generated in [define-an-apim-service-account-for-terraform.md](define-an-apim-service-account-for-terraform.md "mention").
@@ -42,14 +44,12 @@ To install the Gravitee Terraform provider, complete the following steps:
       bearer_auth = "xxx"
     }
     ```
-3.  To start Terraform, run the following command:\
-
+3.  To start Terraform, run the following command:
 
     ```bash
     terraform init
     ```
-4.  Create a resource configuration file in the same directory called `api.tf` with the following content. This instructs Terraform to add a v4 HTTP proxy API with a Keyless plan to your APIM instance.\
-
+4.  Create a resource configuration file in the same directory called `api.tf` with the following content. This instructs Terraform to add a v4 HTTP proxy API with a Keyless plan to your APIM instance.
 
     ```hcl
     resource "apim_apiv4" "quick-start-api" {
@@ -128,8 +128,7 @@ To install the Gravitee Terraform provider, complete the following steps:
     }
 
     ```
-5.  To apply the v4 API resource, run the following command:\
-
+5.  To apply the v4 API resource, run the following command:
 
     ```bash
     terraform apply
