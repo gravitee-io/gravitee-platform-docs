@@ -1,8 +1,3 @@
----
-hidden: true
-noIndex: true
----
-
 # AWS EKS
 
 This is a step-by-step guide to install a self-hosted gateway on your EKS cluster connecting to Gravitee Cloud (Next-Gen).
@@ -74,8 +69,8 @@ The EBS CSI driver is required for persistent volumes.&#x20;
     eksctl create iamserviceaccount \
       --name ebs-csi-controller-sa \
       --namespace kube-system \
-      --cluster gravitee-eks-cluster \
-      --region eu-west-2 \
+      --cluster <cluster-name> \
+      --region <region> \
       --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
       --approve \
       --override-existing-serviceaccounts
@@ -117,9 +112,13 @@ The EBS CSI driver is required for persistent volumes.&#x20;
     kubectl get storageclass
     ```
 
+{% hint style="warning" %}
+Without a default storage class, Kubernetes cannot dynamically provision persistent volumes. Redis and other stateful components will fail to start, causing the entire Gravitee deployment to fail.
+{% endhint %}
+
 ### Install AWS Load Balancer Controller
 
-1.  Create the IAM Policy file in `iam_policy.json` with`DescribeListenerAttributes` using: \
+1.  Create the IAM Policy file in `iam_policy.json` with `DescribeListenerAttributes` permission using: \
 
 
     ```json
@@ -327,7 +326,7 @@ The EBS CSI driver is required for persistent volumes.&#x20;
     # <region>: Your AWS region (same as above)
 
     eksctl create iamserviceaccount \
-      --cluster=gravitee-eks-cluster \
+      --cluster=<cluster-name> \
       --namespace=kube-system \
       --name=aws-load-balancer-controller \
       --role-name AmazonEKSLoadBalancerControllerRole \
@@ -567,7 +566,7 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
         ratelimit:
             #redis setup for the rate limit database
             redis:
-                host: "<redis host>"
+                host: "<redis hostname>"
                 port: 6379
                 password: "<redis password>"
                 ssl: false
