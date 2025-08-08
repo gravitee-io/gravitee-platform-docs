@@ -304,3 +304,13 @@ You can easily test your Keycloak configuration by logging out of the Management
 2. Define the password.
 3. Here, you can define information, passwords, roles, etc. for specific user types, such as user or admin.
 4. Define the roles.
+
+## Okta
+
+The steps to set up Okta as an OpenID Connect authentication provider are similar to those described in [#keycloak-authentication](openid-connect.md#keycloak-authentication "mention"). The following screen shot shows an example configuration:
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+## Next Steps
+
+Now that you have configured your OIDC Authentication Provider, you can add [Roles and Groups Mappings](roles-and-groups-mapping.md) to automatically map new users to Gravitee-specific roles and groups.
