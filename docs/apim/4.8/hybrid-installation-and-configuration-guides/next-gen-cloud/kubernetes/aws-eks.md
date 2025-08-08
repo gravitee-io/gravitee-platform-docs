@@ -30,7 +30,6 @@ If you don't have an existing EKS cluster, create one by following these steps:
 
     ```bash
     # Configure AWS CLI with your credentials
-
     aws configure
     ```
 2.  Create EKS Cluster:
@@ -69,21 +68,245 @@ The EBS CSI driver is required for persistent volumes.&#x20;
     ```bash
     kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.35"
     ```
-2.  Verify if it's running with:&#x20;
+2.  Create IAM service account for EBS CSI driver using the following command:
+
+    ```bash
+    eksctl create iamserviceaccount \
+      --name ebs-csi-controller-sa \
+      --namespace kube-system \
+      --cluster gravitee-eks-cluster \
+      --region eu-west-2 \
+      --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+      --approve \
+      --override-existing-serviceaccounts
+
+    ```
+3.  Restart EBS CSI controller to pick up permissions:
+
+    ```bash
+    kubectl rollout restart deployment ebs-csi-controller -n kube-system
+    ```
+4.  Verify if it's running with:&#x20;
 
     ```bash
     kubectl get pods -n kube-system | grep ebs-csi
     ```
 
+### Create Default Storage Class
 
+1.  Create an optimized storage class and apply the storage class using `kubectl apply -f storageclass.yaml` \
+
+
+    ```yaml
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: gp3
+      annotations:
+        storageclass.kubernetes.io/is-default-class: "true"
+    provisioner: ebs.csi.aws.com
+    parameters:
+      type: gp3
+      fsType: ext4
+    volumeBindingMode: Immediate
+    allowVolumeExpansion: true
+    ```
+2.  Verify storage class:
+
+    ```bash
+    kubectl get storageclass
+    ```
 
 ### Install AWS Load Balancer Controller
 
-1.  Download IAM Policy with the following command:\
+1.  Create the IAM Policy file in `iam_policy.json` with`DescribeListenerAttributes` using: \
 
 
-    ```bash
-    curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.13.0/docs/install/iam_policy.json
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "iam:CreateServiceLinkedRole"
+                ],
+                "Resource": "*",
+                "Condition": {
+                    "StringEquals": {
+                        "iam:AWSServiceName": "elasticloadbalancing.amazonaws.com"
+                    }
+                }
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:DescribeAccountAttributes",
+                    "ec2:DescribeAddresses",
+                    "ec2:DescribeAvailabilityZones",
+                    "ec2:DescribeInternetGateways",
+                    "ec2:DescribeVpcs",
+                    "ec2:DescribeVpcPeeringConnections",
+                    "ec2:DescribeSubnets",
+                    "ec2:DescribeSecurityGroups",
+                    "ec2:DescribeInstances",
+                    "ec2:DescribeNetworkInterfaces",
+                    "ec2:DescribeTags",
+                    "ec2:GetCoipPoolUsage",
+                    "ec2:DescribeCoipPools",
+                    "elasticloadbalancing:DescribeLoadBalancers",
+                    "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                    "elasticloadbalancing:DescribeListeners",
+                    "elasticloadbalancing:DescribeListenerAttributes",
+                    "elasticloadbalancing:DescribeListenerCertificates",
+                    "elasticloadbalancing:DescribeSSLPolicies",
+                    "elasticloadbalancing:DescribeRules",
+                    "elasticloadbalancing:DescribeTargetGroups",
+                    "elasticloadbalancing:DescribeTargetGroupAttributes",
+                    "elasticloadbalancing:DescribeTargetHealth",
+                    "elasticloadbalancing:DescribeTags",
+                    "elasticloadbalancing:DescribeTrustStores"
+                ],
+                "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "cognito-idp:DescribeUserPoolClient",
+                    "acm:ListCertificates",
+                    "acm:DescribeCertificate",
+                    "iam:ListServerCertificates",
+                    "iam:GetServerCertificate",
+                    "waf-regional:GetWebACL",
+                    "waf-regional:GetWebACLForResource",
+                    "waf-regional:AssociateWebACL",
+                    "waf-regional:DisassociateWebACL",
+                    "wafv2:GetWebACL",
+                    "wafv2:GetWebACLForResource",
+                    "wafv2:AssociateWebACL",
+                    "wafv2:DisassociateWebACL",
+                    "shield:GetSubscriptionState",
+                    "shield:DescribeProtection",
+                    "shield:CreateProtection",
+                    "shield:DeleteProtection"
+                ],
+                "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:AuthorizeSecurityGroupIngress",
+                    "ec2:RevokeSecurityGroupIngress",
+                    "ec2:CreateSecurityGroup"
+                ],
+                "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:CreateTags"
+                ],
+                "Resource": "arn:aws:ec2:*:*:security-group/*",
+                "Condition": {
+                    "StringEquals": {
+                        "ec2:CreateAction": "CreateSecurityGroup"
+                    },
+                    "Null": {
+                        "aws:RequestTag/elbv2.k8s.aws/cluster": "false"
+                    }
+                }
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:CreateTags",
+                    "ec2:DeleteTags"
+                ],
+                "Resource": "arn:aws:ec2:*:*:security-group/*",
+                "Condition": {
+                    "Null": {
+                        "aws:RequestTag/elbv2.k8s.aws/cluster": "true",
+                        "aws:ResourceTag/elbv2.k8s.aws/cluster": "false"
+                    }
+                }
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:AuthorizeSecurityGroupIngress",
+                    "ec2:RevokeSecurityGroupIngress",
+                    "ec2:DeleteSecurityGroup"
+                ],
+                "Resource": "*",
+                "Condition": {
+                    "Null": {
+                        "aws:ResourceTag/elbv2.k8s.aws/cluster": "false"
+                    }
+                }
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "elasticloadbalancing:CreateLoadBalancer",
+                    "elasticloadbalancing:CreateTargetGroup"
+                ],
+                "Resource": "*",
+                "Condition": {
+                    "Null": {
+                        "aws:RequestTag/elbv2.k8s.aws/cluster": "false"
+                    }
+                }
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "elasticloadbalancing:CreateListener",
+                    "elasticloadbalancing:DeleteListener",
+                    "elasticloadbalancing:CreateRule",
+                    "elasticloadbalancing:DeleteRule",
+                    "elasticloadbalancing:ModifyListener",
+                    "elasticloadbalancing:AddListenerCertificates",
+                    "elasticloadbalancing:RemoveListenerCertificates",
+                    "elasticloadbalancing:ModifyRule"
+                ],
+                "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "elasticloadbalancing:AddTags",
+                    "elasticloadbalancing:RemoveTags"
+                ],
+                "Resource": [
+                    "arn:aws:elasticloadbalancing:*:*:targetgroup/*/*",
+                    "arn:aws:elasticloadbalancing:*:*:loadbalancer/net/*/*",
+                    "arn:aws:elasticloadbalancing:*:*:loadbalancer/app/*/*",
+                    "arn:aws:elasticloadbalancing:*:*:listener/net/*/*/*",
+                    "arn:aws:elasticloadbalancing:*:*:listener/app/*/*/*",
+                    "arn:aws:elasticloadbalancing:*:*:listener-rule/net/*/*/*",
+                    "arn:aws:elasticloadbalancing:*:*:listener-rule/app/*/*/*"
+                ]
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                    "elasticloadbalancing:SetIpAddressType",
+                    "elasticloadbalancing:SetSecurityGroups",
+                    "elasticloadbalancing:SetSubnets",
+                    "elasticloadbalancing:DeleteLoadBalancer",
+                    "elasticloadbalancing:ModifyTargetGroup",
+                    "elasticloadbalancing:ModifyTargetGroupAttributes",
+                    "elasticloadbalancing:DeleteTargetGroup",
+                    "elasticloadbalancing:RegisterTargets",
+                    "elasticloadbalancing:DeregisterTargets",
+                    "elasticloadbalancing:SetWebAcl"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
+
     ```
 2.  Create IAM Policy with the following command:
 
@@ -96,9 +319,6 @@ The EBS CSI driver is required for persistent volumes.&#x20;
         --policy-document file://iam_policy.json \
         --region <region>
     ```
-
-
-
 3.  Create IAM Service Account with the following command:&#x20;
 
     ```bash
@@ -107,13 +327,14 @@ The EBS CSI driver is required for persistent volumes.&#x20;
     # <region>: Your AWS region (same as above)
 
     eksctl create iamserviceaccount \
-      --cluster=<cluster-name> \
+      --cluster=gravitee-eks-cluster \
       --namespace=kube-system \
       --name=aws-load-balancer-controller \
       --role-name AmazonEKSLoadBalancerControllerRole \
       --attach-policy-arn=arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):policy/AWSLoadBalancerControllerIAMPolicy \
       --region=<region> \
-      --approve
+      --approve \
+      --override-existing-serviceaccounts
     ```
 4.  Install the Controller with Helm:
 
@@ -250,8 +471,8 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
             repository: graviteeio/apim-gateway
             #The gateway version to install. 
             #It has to align with the control plane of your Gravitee Cloud
-            #use it if you need to force the version of the gateway
-            # tag: 4.7.6 
+            #use it if you need to force the version of the gateway, and replace it from the Overview section of your Gravitee Cloud Dashboard. 
+            tag: <>
             pullPolicy: IfNotPresent
         autoscaling:
             enabled: false
@@ -560,8 +781,7 @@ To validate the Gateway logs, complete the following steps:
     ```
 
     \
-    The output will show your configured host and the AWS Load Balancer address: \
-
+    The output will show your configured host and the AWS Load Balancer address:&#x20;
 
     ```
     NAME                              CLASS   HOSTS                           ADDRESS                                                              PORTS   AGE
@@ -569,8 +789,7 @@ To validate the Gateway logs, complete the following steps:
     ```
 
 
-2.  Get the external address of your AWS Load Balancer:\
-
+2.  Get the external address of your AWS Load Balancer:
 
     ```
     kubectl get service -n kube-system
