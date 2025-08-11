@@ -14,16 +14,16 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-* Install [eksctl](https://eksctl.io/installation/)
+* Install [eksctl](https://eksctl.io/installation/).
 * Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and configure it with appropriate credentials using the command: `aws configure`
 * Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
 * Ensure you have access to the [EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html#_step_2_create_cluster) where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
-### Create EKS Cluster&#x20;
+### Create an EKS Cluster&#x20;
 
-If you don't have an existing EKS cluster, create one by following these steps:
+If you do not have an existing EKS cluster, create one by following these steps:
 
 1.  Login to AWS:&#x20;
 
@@ -62,7 +62,7 @@ If you don't have an existing EKS cluster, create one by following these steps:
 
 The EBS CSI driver is required for persistent volumes.&#x20;
 
-1.  Install the EBS driver with `kubectl`&#x20;
+1.  Install the EBS driver with `kubectl` :
 
     ```bash
     kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.35"
@@ -110,7 +110,7 @@ The EBS CSI driver is required for persistent volumes.&#x20;
     volumeBindingMode: Immediate
     allowVolumeExpansion: true
     ```
-2.  Verify storage class:
+2.  Verify the storage class:
 
     ```bash
     kubectl get storageclass
