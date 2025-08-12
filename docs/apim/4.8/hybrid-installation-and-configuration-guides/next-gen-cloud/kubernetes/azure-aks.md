@@ -20,19 +20,19 @@ Before you install a Hybrid Gateway, complete the following steps:
 
 If you don't have an existing AKS cluster, create one by following these steps:
 
-1.  Login to Azure:
+1.  Sign in to Azure using the command:
 
-    ```bash
+    ```sh
     az login
     ```
-2.  Create Resource Group:
+2.  Create the  Resource Group using the following command:
 
     ```bash
     # Replace <resource-group-name> with your desired name (e.g., "my-resource-rg")
     # Replace <location> with your preferred Azure region (e.g., "eastus", "westeurope", "southeastasia")
     az group create --name <resource-group-name> --location <location>
     ```
-3.  Create AKS Cluster:
+3.  Create the AKS Cluster using the following command:
 
     ```bash
     # Replace placeholders with your desired values:
@@ -55,7 +55,7 @@ If you don't have an existing AKS cluster, create one by following these steps:
 This process takes 5-10 minutes to complete.
 {% endhint %}
 
-4.  Connect kubectl to AKS Cluster:&#x20;
+4.  Connect kubectl to AKS Cluster using the following command:&#x20;
 
     ```bash
     # Get credentials to connect kubectl to your cluster
@@ -86,7 +86,7 @@ The gateway requires an ingress controller to handle external traffic.
 
     helm repo update
     ```
-2.  Install the NGINX ingress controller:&#x20;
+2.  Install the NGINX ingress controller using the following command:&#x20;
 
     ```bash
     helm install ingress-nginx ingress-nginx/ingress-nginx \
