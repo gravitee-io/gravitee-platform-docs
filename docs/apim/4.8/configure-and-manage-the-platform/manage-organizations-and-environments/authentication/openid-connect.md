@@ -309,7 +309,7 @@ You can easily test your Keycloak configuration by logging out of the Management
 
 The steps to set up Okta as an OpenID Connect authentication provider are similar to those described in [#keycloak-authentication](openid-connect.md#keycloak-authentication "mention"). The following screen shot shows an example configuration:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (319).png" alt=""><figcaption></figcaption></figure>
 
 ## Next Steps
 
