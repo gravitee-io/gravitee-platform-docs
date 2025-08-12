@@ -4,9 +4,7 @@ hidden: true
 
 # AWS EKS
 
-This is a step-by-step guide to install a self-hosted gateway on your EKS cluster connecting to Gravitee Cloud (Next-Gen).
-
-### Overview&#x20;
+## Overview&#x20;
 
 This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud using Amazon Elastic Kubernetes Service (EKS).
 
@@ -25,13 +23,13 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 
 If you do not have an existing EKS cluster, create one by following these steps:
 
-1.  Login to AWS:&#x20;
+1.  Sign in to AWS with the command:&#x20;
 
     ```bash
     # Configure AWS CLI with your credentials
     aws configure
     ```
-2.  Create EKS Cluster:
+2.  Create EKS Cluster with the following command:
 
     ```bash
     # Replace placeholders with your desired values:
@@ -48,7 +46,7 @@ If you do not have an existing EKS cluster, create one by following these steps:
       --with-oidc \
       --managed
     ```
-3.  Connect kubectl to EKS cluster:
+3.  Connect kubectl to EKS cluster with the following command:
 
     ```bash
     # Replace with your actual cluster name and region
@@ -60,36 +58,37 @@ If you do not have an existing EKS cluster, create one by following these steps:
 
 ### Install EBS CSI Driver&#x20;
 
-The EBS CSI driver is required for persistent volumes.&#x20;
-
-1.  Install the EBS driver with `kubectl` :
+1.  Install the EBS driver with the `kubectl` command:
 
     ```bash
     kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.35"
     ```
-2.  Create IAM service account for EBS CSI driver using the following command:
 
-    ```bash
-    eksctl create iamserviceaccount \
-      --name ebs-csi-controller-sa \
-      --namespace kube-system \
-      --cluster <cluster-name> \
-      --region <region> \
-      --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
-      --approve \
-      --override-existing-serviceaccounts
+{% hint style="info" %}
+The EBS CSI driver is required for persistent volumes.&#x20;
+{% endhint %}
 
-    ```
-3.  Restart EBS CSI controller to pick up permissions:
+2. Create IAM service account for EBS CSI driver using the following command:
 
-    ```bash
+```bash
+eksctl create iamserviceaccount \
+  --name ebs-csi-controller-sa \
+  --namespace kube-system \
+  --cluster <cluster-name> \
+  --region <region> \
+  --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+  --approve \
+  --override-existing-serviceaccounts
+
+```
+
+3.  Restart EBS CSI controller to apply permissions with the command:
+
+    ```sh
     kubectl rollout restart deployment ebs-csi-controller -n kube-system
     ```
-4.  Verify if it's running with:&#x20;
 
-    ```bash
-    kubectl get pods -n kube-system | grep ebs-csi
-    ```
+
 
 ### Create Default Storage Class
 
@@ -110,19 +109,14 @@ The EBS CSI driver is required for persistent volumes.&#x20;
     volumeBindingMode: Immediate
     allowVolumeExpansion: true
     ```
-2.  Verify the storage class:
-
-    ```bash
-    kubectl get storageclass
-    ```
 
 {% hint style="warning" %}
-Without a default storage class, Kubernetes cannot dynamically provision persistent volumes. Redis and other stateful components will fail to start, causing the entire Gravitee deployment to fail.
+Without a default storage class, Kubernetes cannot dynamically provision persistent volumes.
 {% endhint %}
 
 ### Install AWS Load Balancer Controller
 
-1.  Create the IAM Policy file in `iam_policy.json` with `DescribeListenerAttributes` permission using: \
+1.  Create the IAM Policy file named `iam_policy.json` by copying and pasting the following JSON content:\
 
 
     ```json
@@ -311,7 +305,7 @@ Without a default storage class, Kubernetes cannot dynamically provision persist
     }
 
     ```
-2.  Create IAM Policy with the following command:
+2.  Apply the IAM Policy to AWS using the following command:
 
     ```bash
     # Replace <region> with your AWS region (e.g., "eu-west-2", "us-east-1")
@@ -322,7 +316,7 @@ Without a default storage class, Kubernetes cannot dynamically provision persist
         --policy-document file://iam_policy.json \
         --region <region>
     ```
-3.  Create IAM Service Account with the following command:&#x20;
+3.  Create IAM Service Account using the following command:&#x20;
 
     ```bash
     # Replace these values:
@@ -339,11 +333,12 @@ Without a default storage class, Kubernetes cannot dynamically provision persist
       --approve \
       --override-existing-serviceaccounts
     ```
-4.  Install the Controller with Helm:
+4.  Install the Controller with the Helm command:
 
     ```bash
     # Add the EKS Helm repository
     helm repo add eks https://aws.github.io/eks-charts
+
     helm repo update
 
     # Install the controller
@@ -432,9 +427,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 
 ### Prepare `values.yaml` for Helm
 
-To prepare your Gravitee values.yaml file for Helm, complete the following steps:
-
-1.  Copy the following Gravitee values.yaml file. This is the base configuration for your new hybrid Gateway.\
+1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your new hybrid Gateway.\
 
 
     ```yaml
@@ -688,9 +681,13 @@ Your Gateway appears in the Gateways section of your [Gravitee Cloud](https://cl
 To verify that your Gateway is up and running, complete the following steps:
 
 1. [#validate-the-pods](aws-eks.md#validate-the-pods "mention")
-2. [#validate-the-gateway-logs](aws-eks.md#validate-the-gateway-logs "mention")
-3. [#validate-the-ingress-configuration](aws-eks.md#validate-the-ingress-configuration "mention")
-4. [#validate-the-gateway-url](aws-eks.md#validate-the-gateway-url "mention")
+2. [#validate-ebs-csi-driver](aws-eks.md#validate-ebs-csi-driver "mention")
+3. [#validate-storage-class](aws-eks.md#validate-storage-class "mention")
+4. [#validate-load-balancer-controller](aws-eks.md#validate-load-balancer-controller "mention")
+5. [#validate-redis](aws-eks.md#validate-redis "mention")
+6. [#validate-the-gateway-logs](aws-eks.md#validate-the-gateway-logs "mention")
+7. [#validate-the-ingress-configuration](aws-eks.md#validate-the-ingress-configuration "mention")
+8. [#validate-the-gateway-url](aws-eks.md#validate-the-gateway-url "mention")
 
 
 
@@ -712,7 +709,68 @@ To validate your pods, complete the following steps:
     graviteeio-apim-gateway-gateway-6b77d4dd96-8k5l9   1/1     Running   0          6m17s
     ```
 
+### Validate EBS CSI Driver&#x20;
 
+1.  Verify the EBS CSI driver is running with this command:
+
+    ```sh
+    kubectl get pods -n kube-system | grep ebs-csi
+    ```
+2.  The output should show running EBS CSI driver pods:&#x20;
+
+    ```
+    ebs-csi-controller-xxxxxxxxx-xxxxx    6/6     Running   0          5m
+    ebs-csi-controller-xxxxxxxxx-xxxxx    6/6     Running   0          5m
+    ebs-csi-node-xxxxx                    3/3     Running   0          5m
+    ebs-csi-node-xxxxx                    3/3     Running   0          5m
+    ```
+
+### Validate Storage Class&#x20;
+
+1.  Verify the storage class with the following command:
+
+    ```sh
+    kubectl get storageclass
+    ```
+2.  The output should show the gp3 storage class marked as default:
+
+    ```bash
+    NAME            PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+    gp2             kubernetes.io/aws-ebs   Delete          WaitForFirstConsumer   false                  10m
+    gp3 (default)   ebs.csi.aws.com         Delete          Immediate              true                   5m
+    ```
+
+### Validate Load Balancer Controller
+
+1.  Check if  pods are running with this command:&#x20;
+
+    ```sh
+    kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller
+    ```
+2.  The output should show running AWS Load Balancer Controller pods:&#x20;
+
+    ```sh
+    NAME                                           READY   STATUS    RESTARTS   AGE
+    aws-load-balancer-controller-xxxxxxxxx-xxxxx   1/1     Running   0          2m
+    aws-load-balancer-controller-xxxxxxxxx-xxxxx   1/1     Running   0          2m
+    ```
+
+### Validate Redis&#x20;
+
+1.  Check pod status using this command:&#x20;
+
+    ```sh
+    kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-apim-redis
+    ```
+2.  The command generates the following output:&#x20;
+
+    ```sh
+    NAME                              READY   STATUS    RESTARTS   AGE
+    gravitee-apim-redis-master-0      1/1     Running   0          2m
+    gravitee-apim-redis-replicas-0    1/1     Running   0          2m
+    gravitee-apim-redis-replicas-1    1/1     Running   0          2m
+    gravitee-apim-redis-replicas-2    1/1     Running   0          2m
+    ```
 
 ### Validate the Gateway logs&#x20;
 
@@ -784,7 +842,7 @@ To validate the Gateway logs, complete the following steps:
     ```
 
     \
-    The output will show your configured host and the AWS Load Balancer address:&#x20;
+    The output shows your configured host and the AWS Load Balancer address:&#x20;
 
     ```
     NAME                              CLASS   HOSTS                           ADDRESS                                                              PORTS   AGE
