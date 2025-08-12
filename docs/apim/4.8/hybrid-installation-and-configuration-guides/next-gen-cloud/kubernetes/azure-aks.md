@@ -1,9 +1,3 @@
----
-description: >-
-  This is a step-by-step guide to install a self-hosted gateway on your AKS
-  cluster connecting to Gravitee Cloud (Next-Gen).
----
-
 # Azure AKS
 
 ## Overview
