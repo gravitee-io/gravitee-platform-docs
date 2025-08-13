@@ -19,6 +19,17 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
+
+
+### Configure your Cluster&#x20;
+
+Set up and configure your EKS cluster with the necessary components to support the Gravitee Hybrid Gateway.
+
+1. [#create-an-eks-cluster](aws-eks.md#create-an-eks-cluster "mention")
+2. [#install-ebs-csi-driver](aws-eks.md#install-ebs-csi-driver "mention")
+3. [#install-ebs-csi-driver](aws-eks.md#install-ebs-csi-driver "mention")
+4. [#install-aws-load-balancer-controller](aws-eks.md#install-aws-load-balancer-controller "mention")
+
 ### Create an EKS Cluster&#x20;
 
 If you do not have an existing EKS cluster, create one by following these steps:

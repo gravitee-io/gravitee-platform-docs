@@ -42,8 +42,112 @@ Before configuring multi-account support, ensure you have:
 
 You can configure multi-account support using two approaches:
 
-1. [#manual-iam-configuration](aws-api-gateway-multi-account-and-multi-region.md#manual-iam-configuration "mention"): Create roles and policies manually
-2. [#cloudformation-stacksets-deployment](aws-api-gateway-multi-account-and-multi-region.md#cloudformation-stacksets-deployment "mention"): Automated deployment across accounts
+1. [#cloudformation-stacksets-deployment](aws-api-gateway-multi-account-and-multi-region.md#cloudformation-stacksets-deployment "mention"): Automated deployment across accounts
+2. [#manual-iam-configuration](aws-api-gateway-multi-account-and-multi-region.md#manual-iam-configuration "mention"): Create roles and policies manually
+
+
+
+### CloudFormation StackSets Deployment&#x20;
+
+This approach uses AWS CloudFormation StackSets to deploy roles across multiple accounts.
+
+{% hint style="info" %}
+Make sure to enable:&#x20;
+
+* AWS Organizations with `All Features`
+* &#x20;Trusted access between CloudFormation and Organizations&#x20;
+  * Sign in to the AWS Management Console as an administrator in your **management account**
+  * Navigate to **AWS Organizations** → **Services**
+  * Search for `CloudFormation`
+  * Click on **AWS CloudFormation StackSets**
+  * Click **Enable trusted access**
+{% endhint %}
+
+#### Create Stackset Administration Role&#x20;
+
+In the management account:
+
+1.  Create CloudFormation stack using the following template file named `AWSCloudFormationStackSetAdministrationRole.yml` with the following `yaml` content:\
+
+
+    ```yaml
+    AWSTemplateFormatVersion: 2010-09-09
+    Description: Configure the AWSCloudFormationStackSetAdministrationRole to enable use of AWS CloudFormation StackSets.
+
+    Parameters:
+      AdministrationRoleName:
+        Type: String
+        Default: AWSCloudFormationStackSetAdministrationRole
+        Description: "The name of the administration role. Defaults to 'AWSCloudFormationStackSetAdministrationRole'."
+      ExecutionRoleName:
+        Type: String
+        Default: AWSCloudFormationStackSetExecutionRole
+        Description: "The name of the execution role that can assume this role. Defaults to 'AWSCloudFormationStackSetExecutionRole'."
+
+    Resources:
+      AdministrationRole:
+        Type: AWS::IAM::Role
+        Properties:
+          RoleName: !Ref AdministrationRoleName
+          AssumeRolePolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Principal:
+                  Service: cloudformation.amazonaws.com
+                Action:
+                  - sts:AssumeRole
+          Path: /
+          Policies:
+            - PolicyName: AssumeRole-AWSCloudFormationStackSetExecutionRole
+              PolicyDocument:
+                Version: 2012-10-17
+                Statement:
+                  - Effect: Allow
+                    Action:
+                      - sts:AssumeRole
+                    Resource:
+                      - !Sub 'arn:*:iam::*:role/${ExecutionRoleName}'
+    ```
+
+
+
+    * Stack name: `StackSetAdministrationRole`
+2. Verify the role `AWSCloudFormationStackSetAdministrationRole` was created in IAM
+
+#### Deploy Roles to target Accounts via StackSet&#x20;
+
+1. **Download the template**:
+   * [gravitee-target-assumed-roles.yml](https://drive.google.com/file/d/1yf4XlPsKIM15ToGx1ZKv0cQxL3yLvTo9/view?usp=drive_link)
+2. **Create StackSet**:
+   * Navigate to CloudFormation → StackSets → Create StackSet
+   * Choose `Service-managed permissions`
+   * Upload the template file
+   * Specify StackSet details:
+     * StackSet name: `GraviteeFederationRoles`
+     * Parameters:
+       * `AdminAccountId`: Your management account ID
+   * Configure deployment options:
+     * Select target **Organizational Units (OUs)** or specific **Account IDs**
+     * Choose deployment regions
+     * Leave execution role name as default: `AWSCloudFormationStackSetExecutionRole`
+3. **Monitor deployment**:
+   * Check StackSet operations for successful deployment
+   * Verify roles created in target accounts
+
+#### Deploy Federation Agent&#x20;
+
+Use the provided CloudFormation template to deploy the agent:&#x20;
+
+1. Download the template: [gravitee-federation-agent.yaml](https://drive.google.com/file/d/18slpMjKkzpn7ltGgyTHrkWry6832UsqB/view?usp=drive_link)
+2. **Create stack** in management account:
+   * Parameters:
+     * `GraviteeAuth`: Your APIM authentication token
+     * `GraviteeFederationImage`: Agent Docker image
+     * `GraviteeFederationRegion`: Comma-separated regions (e.g., `us-east-1,eu-west-1`)
+     * `GraviteeFederationUrl`: APIM management API URL
+     * `GraviteeIntegrationId`: Your integration ID
+     * `RoleArns`: Comma-separated list of target role ARNs
 
 ### Manual IAM Configuration&#x20;
 
@@ -67,10 +171,33 @@ For each target AWS account, create an IAM role with API Gateway read permission
         {
           "Effect": "Allow",
           "Action": [
-            "apigateway:GET",
+            "apigateway:GET"
+          ],
+          "Resource": [
+            "arn:aws:apigateway:*::/restapis",
+            "arn:aws:apigateway:*::/restapis/*",
+            "arn:aws:apigateway:*::/restapis/*/stages/*",
+            "arn:aws:apigateway:*::/usageplans"
+          ]
+        },
+        {
+          "Effect": "Allow",
+          "Action": [
             "apigateway:POST"
           ],
-          "Resource": "*"
+          "Resource": [
+            "arn:aws:apigateway:*::/apikeys",
+            "arn:aws:apigateway:*::/usageplans/*/keys"
+          ]
+        },
+        {
+          "Effect": "Allow",
+          "Action": [
+            "apigateway:DELETE"
+          ],
+          "Resource": [
+            "arn:aws:apigateway:*::/apikeys/*"
+          ]
         },
         {
           "Effect": "Allow",
@@ -84,7 +211,7 @@ For each target AWS account, create an IAM role with API Gateway read permission
       ]
     }
     ```
-4.  **Update the trust policy**:\
+4.  **Update the trust policy with the following**:\
 
 
     ```json
@@ -127,7 +254,7 @@ For each target AWS account, create an IAM role with API Gateway read permission
 
 #### Test Cross-Account Access
 
-1.  Verify the configuration using AWS CLI:\
+1.  Verify the configuration using AWS CLI command:\
 
 
     ```bash
@@ -136,65 +263,6 @@ For each target AWS account, create an IAM role with API Gateway read permission
       --role-arn "arn:aws:iam::<TARGET-ACCOUNT>:role/GraviteeFederationDiscoveryRole" \
       --role-session-name "test-session"
     ```
-
-### CloudFormation StackSets Deployment&#x20;
-
-This approach uses AWS CloudFormation StackSets to deploy roles across multiple accounts.
-
-{% hint style="info" %}
-Make sure to enable:&#x20;
-
-* AWS Organizations with `All Features`
-* &#x20;Trusted access between CloudFormation and Organizations&#x20;
-  * Sign in to the AWS Management Console as an administrator in your **management account**
-  * Navigate to **AWS Organizations** → **Services**
-  * Search for `CloudFormation`
-  * Click on **AWS CloudFormation StackSets**
-  * Click **Enable trusted access**
-{% endhint %}
-
-#### Create Stackset Administration Role&#x20;
-
-In the management account:
-
-1. Create CloudFormation stack:
-   * Template URL: `https://s3.amazonaws.com/cloudformation-stackset-sample-templates-us-east-1/AWSCloudFormationStackSetAdministrationRole.yml`
-   * Stack name: `StackSetAdministrationRole`
-2. Verify the role `AWSCloudFormationStackSetAdministrationRole` was created in IAM
-
-#### Deploy Roles to target Accuonts via StackSet&#x20;
-
-1. **Download the template**:
-   * [gravitee-target-assumed-roles.yml](https://drive.google.com/file/d/1yf4XlPsKIM15ToGx1ZKv0cQxL3yLvTo9/view?usp=drive_link)
-2. **Create StackSet**:
-   * Navigate to CloudFormation → StackSets → Create StackSet
-   * Choose `Service-managed permissions`
-   * Upload the template file
-   * Specify StackSet details:
-     * StackSet name: `GraviteeFederationRoles`
-     * Parameters:
-       * `AdminAccountId`: Your management account ID
-   * Configure deployment options:
-     * Select target **Organizational Units (OUs)** or specific **Account IDs**
-     * Choose deployment regions
-     * Leave execution role name as default: `AWSCloudFormationStackSetExecutionRole`
-3. **Monitor deployment**:
-   * Check StackSet operations for successful deployment
-   * Verify roles created in target accounts
-
-#### Deploy Federation Agent&#x20;
-
-Use the provided CloudFormation template to deploy the agent:&#x20;
-
-1. Download the template: [gravitee-federation-agent.yaml](https://drive.google.com/file/d/18slpMjKkzpn7ltGgyTHrkWry6832UsqB/view?usp=drive_link)
-2. **Create stack** in management account:
-   * Parameters:
-     * `GraviteeAuth`: Your APIM authentication token
-     * `GraviteeFederationImage`: Agent Docker image
-     * `GraviteeFederationRegion`: Comma-separated regions (e.g., `us-east-1,eu-west-1`)
-     * `GraviteeFederationUrl`: APIM management API URL
-     * `GraviteeIntegrationId`: Your integration ID
-     * `RoleArns`: Comma-separated list of target role ARNs
 
 ### Agent Configuration
 
