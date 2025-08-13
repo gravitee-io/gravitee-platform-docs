@@ -5,10 +5,6 @@ noIndex: true
 
 # GCP GKE
 
-This is a step-by-step guide to install a self-hosted gateway on your GKE cluster connecting to Gravitee Cloud (Next-Gen).
-
-
-
 ## Overview&#x20;
 
 This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud using Google Kubernetes Engine (GKE).
@@ -26,11 +22,18 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 
 
 
+### Configure your Cluster&#x20;
+
+Set up and configure your GKE cluster with the necessary components to support the Gravitee Hybrid Gateway.
+
+1. [#create-a-gke-cluster](gcp-gke.md#create-a-gke-cluster "mention")
+2. [#configure-gke-ingress](gcp-gke.md#configure-gke-ingress "mention")
+
 ### Create a GKE Cluster&#x20;
 
 If you do not have an existing GKE cluster, create one by following these steps:
 
-1.  Login to Google Cloud:\
+1.  Sign in to Google Cloud with this command and set up your `project id`:\
 
 
     ```bash
@@ -44,33 +47,34 @@ If you do not have an existing GKE cluster, create one by following these steps:
 
 
 
-2. Create GKE Cluster:&#x20;
-
-```bash
-# Replace placeholders with your desired values:
-# <cluster-name>: Your cluster name (e.g., "gravitee-gke-cluster")
-# <region>: GCP region (e.g., "us-central1", "europe-west1", "asia-southeast1")
-# <zone>: GCP zone (e.g., "us-central1-a", "europe-west1-b")
-# <node-count>: Number of nodes (e.g., 2 for testing, 3+ for production)
-# <machine-type>: Machine type (e.g., "e2-standard-2" for testing, "e2-standard-4" for production)
-
-gcloud container clusters create <cluster-name> \
-  --zone <zone> \
-  --num-nodes <node-count> \
-  --machine-type <machine-type> \
-  --enable-ip-alias \
-  --network "default" \
-  --enable-autoscaling \
-  --min-nodes 1 \
-  --max-nodes 5 \
-  --enable-autorepair \
-  --enable-autoupgrade \
-  --release-channel regular
-```
+2.  Create the GKE Cluster with the following command:\
 
 
+    ```sh
+    # Replace placeholders with your desired values:
+    # <cluster-name>: Your cluster name (e.g., "gravitee-gke-cluster")
+    # <region>: GCP region (e.g., "us-central1", "europe-west1", "asia-southeast1")
+    # <zone>: GCP zone (e.g., "us-central1-a", "europe-west1-b")
+    # <node-count>: Number of nodes (e.g., 2 for testing, 3+ for production)
+    # <machine-type>: Machine type (e.g., "e2-standard-2" for testing, "e2-standard-4" for production)
 
-3.  Connect kubectl to GKE cluster:\
+    gcloud container clusters create <cluster-name> \
+      --zone <zone> \
+      --num-nodes <node-count> \
+      --machine-type <machine-type> \
+      --enable-ip-alias \
+      --network "default" \
+      --enable-autoscaling \
+      --min-nodes 1 \
+      --max-nodes 5 \
+      --enable-autorepair \
+      --enable-autoupgrade \
+      --release-channel regular
+    ```
+
+
+
+3.  Connect kubectl to GKE cluster with the following command:\
 
 
     ```bash
@@ -80,8 +84,6 @@ gcloud container clusters create <cluster-name> \
     # Verify connection by listing nodes
     kubectl get nodes
     ```
-
-
 
 ### Configure GKE Ingress
 
@@ -335,13 +337,13 @@ The `tag` field specifies the version of your Gravitee Gateway. Your Gateway ver
 
 <summary>Explanations of key predefined <code>values.yaml</code> parameter settings</summary>
 
-#### **Service configuration**&#x20;
+**Service configuration**&#x20;
 
-This uses Azure's native load balancing through the ingress controller, providing SSL termination, path-based routing.&#x20;
+This uses Google Cloud's native load balancing through the GKE ingress controller, providing SSL termination, path-based routing, and automatic integration with Google Cloud Load Balancer.
 
 **Ingress configuration**&#x20;
 
-The ingress is enabled with `NGINX` as the controller class, creating an external endpoint through Azure's load balancer. The hosts field must match at least one of the hosts configured in your Gravitee Cloud setup, and multiple hostnames are supported for multi-domain deployments.
+The ingress is enabled with `gce` as the controller class, creating an external endpoint through Google Cloud Load Balancer. The hosts field must match at least one of the hosts configured in your Gravitee Cloud setup, and multiple hostnames are supported for multi-domain deployments. The path pattern `/*` follows GKE's URL mapping requirements.
 
 **Gateway version**&#x20;
 
@@ -349,11 +351,11 @@ The `tag` field is commented out by default, allowing the Helm chart to use its 
 
 **Resource allocation**&#x20;
 
-The configured limits prevent excessive cluster resource consumption while ensuring adequate performance for API processing. You can adjust these based on your expected load patterns and available node pool capacity.
+The configured limits prevent excessive cluster resource consumption while ensuring adequate performance for API processing. You can adjust these based on your expected load patterns and available GKE node pool capacity.
 
 **Deployment strategy**&#x20;
 
-The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades.&#x20;
+The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtime updates during configuration changes or version upgrades, leveraging GKE's built-in rolling update capabilities.
 
 </details>
 
