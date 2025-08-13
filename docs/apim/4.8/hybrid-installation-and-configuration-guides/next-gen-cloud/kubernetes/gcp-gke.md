@@ -11,6 +11,8 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 
 ### Prerequisites
 
+Before you begin, complete the following:&#x20;
+
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/).
 * Install [gcloud CLI](https://cloud.google.com/sdk/docs/install).
