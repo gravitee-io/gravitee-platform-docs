@@ -6,6 +6,36 @@ description: >-
 
 # APIM 4.5.x
  
+## Gravitee API Management 4.5.24 - August 14, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Management API**
+
+* Searching with ownerName in Developer Portal does not result in correct behaviour after a change in the group name. [#10380](https://github.com/gravitee-io/issues/issues/10380)
+* The first deployments of a v2 API have a repeat publish number in the audit history [#10566](https://github.com/gravitee-io/issues/issues/10566)
+* Updates to individual API endpoint configurations do not prompt the deploy API banner [#10568](https://github.com/gravitee-io/issues/issues/10568)
+* V4 plan update without validation field can cause API error [#10660](https://github.com/gravitee-io/issues/issues/10660)
+* Application creation error [#10717](https://github.com/gravitee-io/issues/issues/10717)
+* Api not being able to be deploy when out of sync [#10725](https://github.com/gravitee-io/issues/issues/10725)
+* Stale Search Index After API Ownership Transfer [#10730](https://github.com/gravitee-io/issues/issues/10730)
+
+**Console**
+
+* Resolver parameter for JWT plan not accessible [#10625](https://github.com/gravitee-io/issues/issues/10625)
+* “Delete” button disappears for folders and pages when the browser window is too narrow [#10692](https://github.com/gravitee-io/issues/issues/10692)
+* APIM Console - Long email in User Account causing display issue [#10734](https://github.com/gravitee-io/issues/issues/10734)
+
+**Other**
+
+* UI Bug: Management Console application logs headers are truncated/squished with long values [#10721](https://github.com/gravitee-io/issues/issues/10721)
+* OOM error in gateway when management repository becomes unresponsive causes worker thread starvation and analytics reporter blockage [#10723](https://github.com/gravitee-io/issues/issues/10723)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.5.23 - August 1, 2025
 <details>
 
