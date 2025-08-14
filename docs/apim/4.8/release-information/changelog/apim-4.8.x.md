@@ -1,5 +1,57 @@
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.4 - August 14, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Bump gravitee-endpoint-rabbitmq post APIM-10477 [#10741](https://github.com/gravitee-io/issues/issues/10741)
+
+**Management API**
+
+* Searching with ownerName in Developer Portal does not result in correct behaviour after a change in the group name. [#10380](https://github.com/gravitee-io/issues/issues/10380)
+* The first deployments of a v2 API have a repeat publish number in the audit history [#10566](https://github.com/gravitee-io/issues/issues/10566)
+* Updates to individual API endpoint configurations do not prompt the deploy API banner [#10568](https://github.com/gravitee-io/issues/issues/10568)
+* V4 plan update without validation field can cause API error [#10660](https://github.com/gravitee-io/issues/issues/10660)
+* Application creation error [#10717](https://github.com/gravitee-io/issues/issues/10717)
+* Api not being able to be deploy when out of sync [#10725](https://github.com/gravitee-io/issues/issues/10725)
+* Stale Search Index After API Ownership Transfer [#10730](https://github.com/gravitee-io/issues/issues/10730)
+
+**Console**
+
+* “Delete” button disappears for folders and pages when the browser window is too narrow [#10692](https://github.com/gravitee-io/issues/issues/10692)
+* APIM Console - Long email in User Account causing display issue [#10734](https://github.com/gravitee-io/issues/issues/10734)
+
+**Portal**
+
+* Use of additional config metadata in portal API when creating applications [#10563](https://github.com/gravitee-io/issues/issues/10563)
+
+**Other**
+
+* Http code 0 in log list while log details gives a code 200 prevent correct count in analytics [#10607](https://github.com/gravitee-io/issues/issues/10607)
+* \[gravitee-policy-kafka-acl] Partial authorization on a multi topics PRODUCE & FETCH [#10714](https://github.com/gravitee-io/issues/issues/10714)
+* \[MCP Entrypoint] POST operation through the MCP server gives a 500 / timeout. [#10720](https://github.com/gravitee-io/issues/issues/10720)
+* UI Bug: Management Console application logs headers are truncated/squished with long values [#10721](https://github.com/gravitee-io/issues/issues/10721)
+* OOM error in gateway when management repository becomes unresponsive causes worker thread starvation and analytics reporter blockage [#10723](https://github.com/gravitee-io/issues/issues/10723)
+* A2A Proxy does not support Strands AI SDK  [#10743](https://github.com/gravitee-io/issues/issues/10743)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Add generic consumer to PROTOBUF-JSON plugin [#10716](https://github.com/gravitee-io/issues/issues/10716)
+* Update oas-validation policy's swagger-request-validator version [#10742](https://github.com/gravitee-io/issues/issues/10742)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.8.3 - August 1, 2025
 <details>
 
