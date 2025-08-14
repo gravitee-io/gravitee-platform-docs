@@ -19,8 +19,6 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
-
-
 ### Configure your Cluster&#x20;
 
 Set up and configure your EKS cluster with the necessary components to support the Gravitee Hybrid Gateway.
@@ -873,14 +871,25 @@ Your Gateway URL is determined by the networking settings you specify in the `in
 
 To validate the Gateway URL, complete the following steps:
 
-1.  Make a GET request to the URL on which you have published the Gateway:
+1. Get and use the ingress details from the [#validate-the-ingress-configuration](aws-eks.md#validate-the-ingress-configuration "mention") section above to find your Load Balancer address.&#x20;
+2.  Make a GET request to the Gateway using the Load Balancer address and your configured hostname:
 
-    ```bash
-    curl http://{my_gateway_url:port}/
+    ```sh
+    curl -H "Host: <hosts>" http://<load-balancer-address>/
+
+    # If you have configured DNS to point your hostname to the Load Balancer address, you can alternatively use:
+
+    curl http://<hosts>/
     ```
-2.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.
 
-    ```bash
+{% hint style="success" %}
+* `<hosts>` is the hostname you configured in the `ingress.hosts` section of your `values.yaml` file
+* `<load-balancer-address>` is the ADDRESS value from the ingress output above
+{% endhint %}
+
+3.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.
+
+    ```sh
     No context-path matches the request URI.
     ```
 
