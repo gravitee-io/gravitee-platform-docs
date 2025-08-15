@@ -10,6 +10,27 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.24 - August 15, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Can't request on values containing + char using filters for searching users [#10495](https://github.com/gravitee-io/issues/issues/10495)
+* Group search base in LDAP Provider in UI does not reflect backend value [#10668](https://github.com/gravitee-io/issues/issues/10668)
+* LDAP connection leak [#10736](https://github.com/gravitee-io/issues/issues/10736)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.23 - August 1, 2025
 
 <details>
