@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.18 - August 15, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Can't request on values containing + char using filters for searching users [#10495](https://github.com/gravitee-io/issues/issues/10495)
+* Missing MAPI audits in Global kafka reporter   [#10609](https://github.com/gravitee-io/issues/issues/10609)
+* Group search base in LDAP Provider in UI does not reflect backend value [#10668](https://github.com/gravitee-io/issues/issues/10668)
+* LDAP connection leak [#10736](https://github.com/gravitee-io/issues/issues/10736)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.17 - August 1, 2025
 
 <details>
