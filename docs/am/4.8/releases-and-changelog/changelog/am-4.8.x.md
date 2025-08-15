@@ -6,6 +6,30 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.4 - August 15, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Can't request on values containing + char using filters for searching users [#10495](https://github.com/gravitee-io/issues/issues/10495)
+* Missing MAPI audits in Global kafka reporter   [#10609](https://github.com/gravitee-io/issues/issues/10609)
+* Group search base in LDAP Provider in UI does not reflect backend value [#10668](https://github.com/gravitee-io/issues/issues/10668)
+* FreeMarker template error [#10722](https://github.com/gravitee-io/issues/issues/10722)
+* Limit concurrent HSM action at gateway level [#10731](https://github.com/gravitee-io/issues/issues/10731)
+* LDAP connection leak [#10736](https://github.com/gravitee-io/issues/issues/10736)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.3 - August 1, 2025
 
 <details>
