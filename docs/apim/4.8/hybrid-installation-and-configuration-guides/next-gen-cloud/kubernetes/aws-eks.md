@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # AWS EKS
 
 ## Overview&#x20;
