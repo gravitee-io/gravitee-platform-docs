@@ -66,9 +66,9 @@ Enable the following features in the AWS Consolee:&#x20;
 
 You can configure your Stacksets deployment by completing the following steps:&#x20;
 
-1. [#create-stackset-administration-role](aws-api-gateway-multi-account-and-multi-region.md#create-stackset-administration-role "mention"): Set up the administration role in management account&#x20;
-2. [#deploy-roles-to-target-accounts-via-stackset](aws-api-gateway-multi-account-and-multi-region.md#deploy-roles-to-target-accounts-via-stackset "mention"): Use StackSet to deploy roles across multiple accounts
-3. [#deploy-federation-agent](aws-api-gateway-multi-account-and-multi-region.md#deploy-federation-agent "mention"): Deploy the agent using CloudFormation template
+1. [#create-stackset-administration-role](aws-api-gateway-multi-account-and-multi-region.md#create-stackset-administration-role "mention")
+2. [#deploy-roles-to-target-accounts-via-stackset](aws-api-gateway-multi-account-and-multi-region.md#deploy-roles-to-target-accounts-via-stackset "mention")
+3. [#deploy-federation-agent](aws-api-gateway-multi-account-and-multi-region.md#deploy-federation-agent "mention")
 
 #### Create Stackset Administration Role&#x20;
 
@@ -205,7 +205,6 @@ After the stack creation completes, verify that the role was created successfull
                       - arn:aws:apigateway:*::/apikeys/*
     ```
 
-    \
 
 2. Create StackSet:
    1. Navigate to CloudFormation, click on StackSets, and then click on Create StackSet
@@ -538,7 +537,7 @@ Create the agent deployment stack in the AWS console using the following steps:&
     ```
 
 
-3. Upload the template and configure the following parameters:
+3. Upload the template in the AWS console, and configure the following parameters:
    * `GraviteeAuth`: Your APIM authentication token
    * `GraviteeFederationImage`: Agent Docker image
    * `GraviteeFederationRegion`: Comma-separated regions. For example, `us-east-1,eu-west-1`
