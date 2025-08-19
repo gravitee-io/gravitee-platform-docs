@@ -1,74 +1,83 @@
 ---
 hidden: true
+noIndex: true
 ---
 
-# AWS API Gateway Multi-Account and Multi-Region
+# Multi-Account and Multi-Region AWS API Gateway Federation
 
 ## Overview
 
 This guide explains how to configure the AWS API Gateway Federation Agent to discover, ingest, and manage APIs across multiple AWS accounts and regions.&#x20;
 
-Multi-account and multi-region support enables organizations to:
+Multi-account and multi-region support enables organizations to complete the following actions:
 
 * Manage API management across all AWS accounts
 * Maintain security boundaries while enabling cross-account access
 * Scale API discovery across global infrastructure
 * Configure API governance for large enterprises
 
+### Components
+
+To enable secure API discovery across AWS accounts, the multi-account setup uses these component:
+
+* Management Account: Hosts the Federation Agent
+* Agent IAM Role: Has permissions to assume roles in target accounts
+* Target Accounts: Contains API Gateway resources to be discovered
+* Discovery IAM Roles: Roles in each target account with API Gateway read permissions
+* Trust Relationships: Allow cross-account role assumption
+
 ## Prerequisites&#x20;
 
-Before configuring multi-account support, ensure you have:
+Before configuring multi-account support, complete the following steps:
 
-1. AWS Organizations Setup (for StackSets deployment):
-   * AWS Organization with All Features enabled
-   * Administrator access to the management account
-   * Trusted access enabled between AWS CloudFormation and AWS Organizations
-2. Agent Requirements:
-   * Agent running in an AWS environment with an IAM identity (e.g., EC2 instance role, ECS task role)
-   * Network connectivity to AWS API Gateway endpoints and Gravitee APIM
-3. IAM Permissions:
-   * The IAM identity running the agent must have permission to assume target roles across accounts
-   * Each target role must have proper trust relationships and required permissions
+* For StackSets deployments, have an AWS organization setup with the following configurations:
+  * AWS Organization with All Features enabled
+  * Administrator access to the management account
+  * Trusted access enabled between AWS CloudFormation and AWS Organizations
+* Configure your agent to meet the following requirements:
+  * Agent running in an AWS environment with an IAM identity. For example, EC2 instance role, ECS task role.
+  * Network connectivity to AWS API Gateway endpoints and Gravitee APIM
+* Configure your IAM Permissions to meet the following requirements:
+  * The IAM identity running the agent must have permission to assume target roles across accounts
+  * Each target role must have proper trust relationships and required permissions
 
-#### Components
+## Implementation Options&#x20;
 
-1. Management Account: Hosts the Federation Agent
-2. Agent IAM Role: Has permissions to assume roles in target accounts
-3. Target Accounts: Contains API Gateway resources to be discovered
-4. Discovery IAM Roles: Roles in each target account with API Gateway read permissions
-5. Trust Relationships: Allow cross-account role assumption
+You can configure multi-account support using either of two methods:
 
-### Setup Options&#x20;
-
-You can configure multi-account support using two approaches:
-
-1. [#cloudformation-stacksets-deployment](aws-api-gateway-multi-account-and-multi-region.md#cloudformation-stacksets-deployment "mention"): Automated deployment across accounts
-2. [#manual-iam-configuration](aws-api-gateway-multi-account-and-multi-region.md#manual-iam-configuration "mention"): Create roles and policies manually
-
-
+* [#cloudformation-stacksets-deployment](aws-api-gateway-multi-account-and-multi-region.md#cloudformation-stacksets-deployment "mention"): Automated deployment across accounts
+* [#manual-iam-configuration](aws-api-gateway-multi-account-and-multi-region.md#manual-iam-configuration "mention"): Create roles and policies manually
 
 ### CloudFormation StackSets Deployment&#x20;
 
 This approach uses AWS CloudFormation StackSets to deploy roles across multiple accounts.
 
 {% hint style="info" %}
-Make sure to enable:&#x20;
+Enable the following features in the AWS Consolee:&#x20;
 
 * AWS Organizations with `All Features`
-* &#x20;Trusted access between CloudFormation and Organizations&#x20;
+* Trusted access between CloudFormation and Organizations&#x20;
   * Sign in to the AWS Management Console as an administrator in your **management account**
-  * Navigate to **AWS Organizations** → **Services**
-  * Search for `CloudFormation`
-  * Click on **AWS CloudFormation StackSets**
-  * Click **Enable trusted access**
+    * Navigate to **AWS Organizations**, and then navigate to **Services**
+    * Search for `CloudFormation`
+    * Click **AWS CloudFormation StackSets**
+    * Click **Enable trusted access**
 {% endhint %}
+
+You can configure your Stacksets deployment by completing the following steps:&#x20;
+
+1. [#create-stackset-administration-role](aws-api-gateway-multi-account-and-multi-region.md#create-stackset-administration-role "mention"): Set up the administration role in management account&#x20;
+2. [#deploy-roles-to-target-accounts-via-stackset](aws-api-gateway-multi-account-and-multi-region.md#deploy-roles-to-target-accounts-via-stackset "mention"): Use StackSet to deploy roles across multiple accounts
+3. [#deploy-federation-agent](aws-api-gateway-multi-account-and-multi-region.md#deploy-federation-agent "mention"): Deploy the agent using CloudFormation template
 
 #### Create Stackset Administration Role&#x20;
 
-In the management account:
+Create an administration role that allows CloudFormation to deploy resources across your management account using the following steps:&#x20;
 
-1.  Create CloudFormation stack using the following template file named `AWSCloudFormationStackSetAdministrationRole.yml` with the following `yaml` content:\
-
+1. Navigate to CloudFormation in the AWS Console
+2. Click **Create stack** and choose With **new resources**
+3. Select upload a template file&#x20;
+4.  Create a file named `AWSCloudFormationStackSetAdministrationRole.yml` with the following content:
 
     ```yaml
     AWSTemplateFormatVersion: 2010-09-09
@@ -111,127 +120,557 @@ In the management account:
     ```
 
 
+5. Upload the template file and click Next&#x20;
+6. Enter the stack name: `StackSetAdministrationRole`
+7. Accept the default parameters and click **Next**
+8. Review and click **Create Stack**
 
-    * Stack name: `StackSetAdministrationRole`
-2. Verify the role `AWSCloudFormationStackSetAdministrationRole` was created in IAM
+#### **Verify the role creation**&#x20;
 
-#### Deploy Roles to target Accounts via StackSet&#x20;
+After the stack creation completes, verify that the role was created successfully using the following steps:
 
-1. **Download the template**:
-   * [gravitee-target-assumed-roles.yml](https://drive.google.com/file/d/1yf4XlPsKIM15ToGx1ZKv0cQxL3yLvTo9/view?usp=drive_link)
-2. **Create StackSet**:
-   * Navigate to CloudFormation → StackSets → Create StackSet
-   * Choose `Service-managed permissions`
-   * Upload the template file
-   * Specify StackSet details:
-     * StackSet name: `GraviteeFederationRoles`
-     * Parameters:
-       * `AdminAccountId`: Your management account ID
-   * Configure deployment options:
-     * Select target **Organizational Units (OUs)** or specific **Account IDs**
-     * Choose deployment regions
-     * Leave execution role name as default: `AWSCloudFormationStackSetExecutionRole`
-3. **Monitor deployment**:
+1. Navigate to IAM in the AWS console, and then click Roles&#x20;
+2. Search for `AWSCloudFormationStackSetAdministrationRole`
+3. Confirm the role exists and has the correct trust relationship
+
+#### Deploy Roles to Target Accounts using StackSet&#x20;
+
+1.  Create a file named `GraviteeFederationRoles.yml` with the following content:\
+
+
+    ```yaml
+    AWSTemplateFormatVersion: '2010-09-09'
+    Description: StackSet to create IAM Role in target accounts for Gravitee Federation Agent
+
+    Parameters:
+      ManagementAccountId:
+        Type: String
+        Description: AWS Account ID of the management account
+      ExecutionRoleName:
+        Type: String
+        Default: AWSCloudFormationStackSetExecutionRole
+        Description: "The name of the execution role. Defaults to 'AWSCloudFormationStackSetExecutionRole'."
+
+    Resources:
+      ExecutionRole:
+        Type: AWS::IAM::Role
+        Properties:
+          RoleName: !Ref ExecutionRoleName
+          AssumeRolePolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Principal:
+                  AWS:
+                    - !Ref ManagementAccountId
+                Action:
+                  - sts:AssumeRole
+          Path: /
+          ManagedPolicyArns:
+            - !Sub arn:${AWS::Partition}:iam::aws:policy/AdministratorAccess
+      GraviteeFederationTargetRole:
+        Type: AWS::IAM::Role
+        Properties:
+          RoleName: !Sub "GFTR-${AWS::AccountId}"
+          AssumeRolePolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Principal:
+                  AWS: !Sub arn:aws:iam::${ManagementAccountId}:root
+                Action: sts:AssumeRole
+          Policies:
+            - PolicyName: AllowAPIGatewayReadAccess
+              PolicyDocument:
+                Version: '2012-10-17'
+                Statement:
+                  - Effect: Allow
+                    Action:
+                      - apigateway:GET
+                    Resource:
+                      - arn:aws:apigateway:*::/restapis
+                      - arn:aws:apigateway:*::/restapis/*
+                      - arn:aws:apigateway:*::/restapis/*/stages/*
+                      - arn:aws:apigateway:*::/usageplans
+                  - Effect: Allow
+                    Action:
+                      - apigateway:POST
+                    Resource:
+                      - arn:aws:apigateway:*::/apikeys
+                      - arn:aws:apigateway:*::/usageplans/*/keys
+                  - Effect: Allow
+                    Action:
+                      - apigateway:DELETE
+                    Resource:
+                      - arn:aws:apigateway:*::/apikeys/*
+    ```
+
+    \
+
+2. Create StackSet:
+   1. Navigate to CloudFormation, click on StackSets, and then click on Create StackSet
+   2. Choose `Service-managed permissions`
+   3. Upload the template file
+   4. Specify StackSet details:
+      * StackSet name: `GraviteeFederationRoles`
+      * Parameters:
+        * `AdminAccountId`: Your management account ID
+   5. Configure deployment options:
+      * Select target Organizational Units (OUs) or specific Account IDs
+      * Choose deployment regions
+      * Leave execution role name as default: `AWSCloudFormationStackSetExecutionRole`
+3. Monitor deployment:
    * Check StackSet operations for successful deployment
    * Verify roles created in target accounts
 
 #### Deploy Federation Agent&#x20;
 
-Use the provided CloudFormation template to deploy the agent:&#x20;
+Create the agent deployment stack in the AWS console using the following steps:&#x20;
 
-1. Download the template: [gravitee-federation-agent.yaml](https://drive.google.com/file/d/18slpMjKkzpn7ltGgyTHrkWry6832UsqB/view?usp=drive_link)
-2. **Create stack** in management account:
-   * Parameters:
-     * `GraviteeAuth`: Your APIM authentication token
-     * `GraviteeFederationImage`: Agent Docker image
-     * `GraviteeFederationRegion`: Comma-separated regions (e.g., `us-east-1,eu-west-1`)
-     * `GraviteeFederationUrl`: APIM management API URL
-     * `GraviteeIntegrationId`: Your integration ID
-     * `RoleArns`: Comma-separated list of target role ARNs
+1. Navigate to **CloudFormation** in the management account, and then click Create Stack&#x20;
+2.  Create a file named `GraviteeFederationAgent.yml` with the following template:\
+
+
+    ```yaml
+    AWSTemplateFormatVersion: '2010-09-09'
+    Description: Deploy Gravitee Federation Agent with full VPC, Subnet, and SecurityGroup setup
+
+    Parameters:
+      VpcCidr:
+        Type: String
+        Default: 10.0.0.0/16
+        Description: CIDR block for the VPC
+
+      PublicSubnetCidr:
+        Type: String
+        Default: 10.0.1.0/24
+        Description: CIDR block for the public subnet
+
+      SecurityGroupIngressCidr:
+        Type: String
+        Default: 0.0.0.0/0
+        Description: CIDR range allowed to access ECS tasks
+
+      RoleArns:
+        Type: CommaDelimitedList
+        Description: Comma-separated ARNs of IAM roles in target AWS accounts (used if RoleBasedAuth is true)
+
+      RoleBasedAuth:
+        Type: String
+        AllowedValues: ["true", "false"]
+        Default: "true"
+        Description: Enable IAM Role-based authentication
+
+      acceptApiWithoutUsagePlan:
+        Type: String
+        AllowedValues: ["true", "false"]
+        Default: "false"
+        Description: Enable APIs without a usage plan
+
+      GraviteeFederationImage:
+        Type: String
+        Default: graviteeio/federation-agent-aws-api-gateway:latest
+
+      GraviteeFederationUrl:
+        Type: String
+        Default: https://apim-master-api.team-apim.gravitee.dev/integration-controller
+
+      GraviteeAuth:
+        Type: String
+        Default: bearer 382518af-c16e-455a-a518-afc16e355a4f
+
+      GraviteeIntegrationId:
+        Type: String
+        Default: c5537ce6-5746-4497-937c-e65746a4973e
+
+      GraviteeFederationRegion:
+        Type: CommaDelimitedList
+        Default: ap-northeast-1
+
+    Conditions:
+      UseAccessKeyAuth: !Equals [!Ref RoleBasedAuth, "false"]
+
+    Resources:
+      FederationUser:
+        Type: AWS::IAM::User
+        Condition: UseAccessKeyAuth
+        Properties:
+          Path: "/"
+          UserName: !Sub "${AWS::StackName}-${AWS::Region}-federation-agent-user"
+      GraviteeVPC:
+        Type: AWS::EC2::VPC
+        Properties:
+          CidrBlock: !Ref VpcCidr
+          EnableDnsSupport: true
+          EnableDnsHostnames: true
+          Tags:
+            - Key: Name
+              Value: GraviteeVPC
+
+      GraviteeInternetGateway:
+        Type: AWS::EC2::InternetGateway
+
+      GraviteeVPCGatewayAttachment:
+        Type: AWS::EC2::VPCGatewayAttachment
+        Properties:
+          VpcId: !Ref GraviteeVPC
+          InternetGatewayId: !Ref GraviteeInternetGateway
+
+      GraviteeRouteTable:
+        Type: AWS::EC2::RouteTable
+        Properties:
+          VpcId: !Ref GraviteeVPC
+
+      GraviteeRoute:
+        Type: AWS::EC2::Route
+        DependsOn: GraviteeVPCGatewayAttachment
+        Properties:
+          RouteTableId: !Ref GraviteeRouteTable
+          DestinationCidrBlock: 0.0.0.0/0
+          GatewayId: !Ref GraviteeInternetGateway
+
+      GraviteePublicSubnet:
+        Type: AWS::EC2::Subnet
+        Properties:
+          VpcId: !Ref GraviteeVPC
+          CidrBlock: !Ref PublicSubnetCidr
+          MapPublicIpOnLaunch: true
+
+      GraviteeSubnetRouteTableAssociation:
+        Type: AWS::EC2::SubnetRouteTableAssociation
+        Properties:
+          SubnetId: !Ref GraviteePublicSubnet
+          RouteTableId: !Ref GraviteeRouteTable
+
+      GraviteeSecurityGroup:
+        Type: AWS::EC2::SecurityGroup
+        Properties:
+          GroupDescription: Access for Gravitee Federation Agent
+          VpcId: !Ref GraviteeVPC
+          SecurityGroupIngress:
+            - IpProtocol: tcp
+              FromPort: 80
+              ToPort: 80
+              CidrIp: !Ref SecurityGroupIngressCidr
+            - IpProtocol: tcp
+              FromPort: 443
+              ToPort: 443
+              CidrIp: !Ref SecurityGroupIngressCidr
+
+      FederationAgentTaskRole:
+        Type: AWS::IAM::Role
+        Properties:
+          RoleName: GraviteeFederationAgentRole1
+          AssumeRolePolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Principal:
+                  Service: ecs-tasks.amazonaws.com
+                Action: sts:AssumeRole
+          Policies:
+            - PolicyName: FederationAgentPolicy
+              PolicyDocument:
+                Version: "2012-10-17"
+                Statement:
+                  - Effect: Allow
+                    Action: sts:AssumeRole
+                    Resource: !Ref RoleArns
+                  - Effect: Allow
+                    Action:
+                      - logs:CreateLogGroup
+                      - logs:CreateLogStream
+                      - logs:PutLogEvents
+                    Resource: arn:aws:logs:*:*:*
+                  - Effect: Allow
+                    Action:
+                      - ecr:GetAuthorizationToken
+                      - ecr:BatchGetImage
+                      - ecr:GetDownloadUrlForLayer
+                      - ecr:BatchCheckLayerAvailability
+                    Resource: "*"
+                  - Effect: Allow
+                    Action:
+                      - apigateway:GET
+                    Resource:
+                      - arn:aws:apigateway:*::/restapis
+                      - arn:aws:apigateway:*::/restapis/*
+                      - arn:aws:apigateway:*::/restapis/*/stages/*
+                      - arn:aws:apigateway:*::/usageplans
+
+
+      FederationUserPolicy:
+        Type: AWS::IAM::Policy
+        Condition: UseAccessKeyAuth
+        Properties:
+          PolicyName: federation-agent-policy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - apigateway:GET
+                Resource:
+                  - arn:aws:apigateway:*::/restapis
+                  - arn:aws:apigateway:*::/restapis/*
+                  - arn:aws:apigateway:*::/restapis/*/stages/*
+                  - arn:aws:apigateway:*::/usageplans
+              - Effect: Allow
+                Action:
+                  - apigateway:POST
+                Resource:
+                  - arn:aws:apigateway:*::/apikeys
+                  - arn:aws:apigateway:*::/usageplans/*/keys
+              - Effect: Allow
+                Action:
+                  - apigateway:DELETE
+                Resource:
+                  - arn:aws:apigateway:*::/apikeys/*
+          Users:
+            - !Ref FederationUser
+        DependsOn:
+            - FederationUser
+
+      FederationUserAccessKey:
+        Type: AWS::IAM::AccessKey
+        Condition: UseAccessKeyAuth
+        Properties:
+          UserName: !Ref FederationUser
+        DependsOn:
+            - FederationUser
+
+      GraviteeECSCluster:
+        Type: AWS::ECS::Cluster
+        Properties:
+          ClusterName: GraviteeFederationAgentCluster
+      TaskExecutionRole:
+        Type: AWS::IAM::Role
+        Properties:
+          RoleName: GraviteeFederationAgentExecutionRole
+          AssumeRolePolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Principal:
+                  Service: ecs-tasks.amazonaws.com
+                Action: sts:AssumeRole
+          ManagedPolicyArns:
+            - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+      AgentLogGroup:
+        Type: AWS::Logs::LogGroup
+        Properties:
+          LogGroupName: /ecs/gravitee-federation-agent
+          RetentionInDays: 7
+
+      FederationAgentTaskDefinition:
+        Type: AWS::ECS::TaskDefinition
+        Properties:
+          Family: gravitee-federation-agent
+          RequiresCompatibilities: [FARGATE]
+          Cpu: '256'
+          Memory: '512'
+          NetworkMode: awsvpc
+          ExecutionRoleArn: !GetAtt FederationAgentTaskRole.Arn
+          TaskRoleArn: !GetAtt FederationAgentTaskRole.Arn
+          ContainerDefinitions:
+            - Name: federation-agent
+              Image: !Ref GraviteeFederationImage
+              Essential: true
+              LogConfiguration:
+                LogDriver: awslogs
+                Options:
+                  awslogs-group: /ecs/gravitee-federation-agent
+                  awslogs-region: !Ref "AWS::Region"
+                  awslogs-stream-prefix: gravitee
+              Environment:
+                - Name: ROLE_BASED_AUTH
+                  Value: !Ref RoleBasedAuth
+                - Name: gravitee_integration_providers_0_configuration_roleArn
+                  Value: !Join [",", !Ref RoleArns]
+                - Name: gravitee_integration_connector_ws_endpoints_0
+                  Value: !Ref GraviteeFederationUrl
+                - Name: gravitee_integration_connector_ws_headers_0_name
+                  Value: Authorization
+                - Name: gravitee_integration_connector_ws_headers_0_value
+                  Value: !Ref GraviteeAuth
+                - Name: gravitee_integration_providers_0_configuration_region
+                  Value: !Join [",", !Ref GraviteeFederationRegion]
+                - Name: gravitee_integration_providers_0_integrationId
+                  Value: !Ref GraviteeIntegrationId
+                - Name: gravitee_integration_providers_0_type
+                  Value: aws-api-gateway
+                - Name: gravitee_integration_providers_0_configuration_accessKeyId
+                  Value: !If [UseAccessKeyAuth, !Ref FederationUserAccessKey, ""]
+                - Name: gravitee_integration_providers_0_configuration_secretAccessKey
+                  Value: !If [UseAccessKeyAuth, !GetAtt FederationUserAccessKey.SecretAccessKey, ""]
+                - Name: gravitee_integration_providers_0_configuration_acceptApiWithoutUsagePlan
+                  Value: !Ref acceptApiWithoutUsagePlan
+      
+
+      FederationAgentService:
+        Type: AWS::ECS::Service
+        DependsOn: GraviteeECSCluster
+        Properties:
+          Cluster: !Ref GraviteeECSCluster
+          DesiredCount: 1
+          LaunchType: FARGATE
+          TaskDefinition: !Ref FederationAgentTaskDefinition
+          NetworkConfiguration:
+            AwsvpcConfiguration:
+              AssignPublicIp: ENABLED
+              Subnets:
+                - !Ref GraviteePublicSubnet
+              SecurityGroups:
+                - !Ref GraviteeSecurityGroup
+
+    Outputs:
+      FederationAgentService:
+        Description: ECS Service running the Gravitee Federation Agent
+        Value: !Ref FederationAgentService
+
+      ECSClusterName:
+        Description: ECS Cluster Name
+        Value: !Ref GraviteeECSCluster
+
+      TaskRoleArn:
+        Description: ARN of the IAM Role used by ECS Task
+        Value: !GetAtt FederationAgentTaskRole.Arn
+    ```
+
+
+3. Upload the template and configure the following parameters:
+   * `GraviteeAuth`: Your APIM authentication token
+   * `GraviteeFederationImage`: Agent Docker image
+   * `GraviteeFederationRegion`: Comma-separated regions. For example, `us-east-1,eu-west-1`
+   * `GraviteeFederationUrl`: APIM management API URL
+   * `GraviteeIntegrationId`: Your integration ID
+   * `RoleArns`: Comma-separated list of target role ARNs
+
+#### Verify the agent deployment&#x20;
+
+After stack creation completes:
+
+1. Navigate to ECS in the AWS Console
+2. Click Clusters and find `GraviteeFederationAgentCluster`
+3. Click the Services tab
+4. Verify the service shows `1/1` tasks running
+
+Your agent is now successfully deployed and discovering APIs across accounts.
 
 ### Manual IAM Configuration&#x20;
 
+If you prefer to configure IAM roles manually instead of using StackSets, follow these steps to set up cross-account access.
+
+1. [#create-discovery-role-in-each-target-account](aws-api-gateway-multi-account-and-multi-region.md#create-discovery-role-in-each-target-account "mention")
+2. [#configure-agent-iam-role-in-management-account](aws-api-gateway-multi-account-and-multi-region.md#configure-agent-iam-role-in-management-account "mention")
+3. [#test-cross-account-access](aws-api-gateway-multi-account-and-multi-region.md#test-cross-account-access "mention")
+4. [#agent-configuration](aws-api-gateway-multi-account-and-multi-region.md#agent-configuration "mention")
+
 #### Create discovery role in each target account
 
-For each target AWS account, create an IAM role with API Gateway read permissions.
+For each target AWS account, create an IAM role with API Gateway read permissions using the following steps:
 
-1. Navigate to IAM Console in the target account
-2. Create a new role:
-   * Choose `AWS Account` as trusted entity
-   * Select `Another AWS account`
-   * Enter the Management Account ID
-   * Role name: `GraviteeFederationDiscoveryRole`
-3.  Attach the following policy:\
+1. Navigate to the IAM Console in the target account
+2. Click Roles in the left navigation, and then click Create role
+3. Configure the trusted entity:
+   1. &#x20;Choose AWS Account
+   2. Select Another AWS account
+   3. Enter the Management Account ID
+   4. Role name: `GraviteeFederationDiscoveryRole`&#x20;
+4.  Create a custom policy by clicking Create policy:
+
+    1. Switch to the JSON tab
+    2.  Paste the following policy:\
 
 
-    ```json
-    {
-      "Version": "2012-10-17",
-      "Statement": [
+        ```json
         {
-          "Effect": "Allow",
-          "Action": [
-            "apigateway:GET"
-          ],
-          "Resource": [
-            "arn:aws:apigateway:*::/restapis",
-            "arn:aws:apigateway:*::/restapis/*",
-            "arn:aws:apigateway:*::/restapis/*/stages/*",
-            "arn:aws:apigateway:*::/usageplans"
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "apigateway:GET"
+              ],
+              "Resource": [
+                "arn:aws:apigateway:*::/restapis",
+                "arn:aws:apigateway:*::/restapis/*",
+                "arn:aws:apigateway:*::/restapis/*/stages/*",
+                "arn:aws:apigateway:*::/usageplans"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "apigateway:POST"
+              ],
+              "Resource": [
+                "arn:aws:apigateway:*::/apikeys",
+                "arn:aws:apigateway:*::/usageplans/*/keys"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "apigateway:DELETE"
+              ],
+              "Resource": [
+                "arn:aws:apigateway:*::/apikeys/*"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams",
+                "logs:GetLogEvents"
+              ],
+              "Resource": "*"
+            }
           ]
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "apigateway:POST"
-          ],
-          "Resource": [
-            "arn:aws:apigateway:*::/apikeys",
-            "arn:aws:apigateway:*::/usageplans/*/keys"
-          ]
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "apigateway:DELETE"
-          ],
-          "Resource": [
-            "arn:aws:apigateway:*::/apikeys/*"
-          ]
-        },
-        {
-          "Effect": "Allow",
-          "Action": [
-            "logs:DescribeLogGroups",
-            "logs:DescribeLogStreams",
-            "logs:GetLogEvents"
-          ],
-          "Resource": "*"
         }
-      ]
-    }
-    ```
-4.  **Update the trust policy with the following**:\
+        ```
 
 
-    ```json
-    {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Effect": "Allow",
-          "Principal": {
-            "AWS": "arn:aws:iam::<MANAGEMENT-ACCOUNT-ID>:role/<AGENT-ROLE-NAME>"
-          },
-          "Action": "sts:AssumeRole"
-        }
-      ]
-    }
-    ```
+
+
+5. Name the policy `GraviteeAPIGatewayDiscoveryPolicy`  and then return to role creation and attach this policy.&#x20;
+6. After creating the role, update its trust policy:
+   1. Click on the role name
+   2. Navigate to the Trust relationships tab
+   3. Click Edit trust policy
+   4.  Replace with the following:\
+
+
+       ```json
+       {
+         "Version": "2012-10-17",
+         "Statement": [
+           {
+             "Effect": "Allow",
+             "Principal": {
+               "AWS": "arn:aws:iam::<MANAGEMENT-ACCOUNT-ID>:role/<AGENT-ROLE-NAME>"
+             },
+             "Action": "sts:AssumeRole"
+           }
+         ]
+       }
+       ```
+
+
+
+#### Verify Role Creation&#x20;
+
+Confirm the role was created successfully by checking that it appears in the IAM Roles list with the correct trust relationship to your management account.
 
 #### Configure Agent IAM Role in Management Account&#x20;
 
-1.  **Attach AssumeRole policy**:\
+In the management account AWS Console:
+
+1. Navigate to IAM Console
+2. Find the role used by your Federation Agent
+3. Click Add permissions, and then Create inline policy
+4.  Switch to the JSON tab and add the following policy:\
 
 
     ```json
@@ -251,10 +690,11 @@ For each target AWS account, create an IAM role with API Gateway read permission
       ]
     }
     ```
+5. Name the policy `AssumeTargetAccountRoles`
 
-#### Test Cross-Account Access
+#### Verify Cross-Account Access
 
-1.  Verify the configuration using AWS CLI command:\
+1.  Test the configuration using the AWS CLI command:\
 
 
     ```bash
@@ -263,14 +703,30 @@ For each target AWS account, create an IAM role with API Gateway read permission
       --role-arn "arn:aws:iam::<TARGET-ACCOUNT>:role/GraviteeFederationDiscoveryRole" \
       --role-session-name "test-session"
     ```
+2.  Verify the configuration was successful. The expected successful output should be similar to the following:&#x20;
 
-### Agent Configuration
+    ```json
+    {
+        "Credentials": {
+            "AccessKeyId": "ASIA...",
+            "SecretAccessKey": "...",
+            "SessionToken": "...",
+            "Expiration": "2024-01-01T12:00:00Z"
+        },
+        "AssumedRoleUser": {
+            "AssumedRoleId": "AROA...:test-session",
+            "Arn": "arn:aws:sts::TARGET-ACCOUNT:assumed-role/GraviteeFederationDiscoveryRole/test-session"
+        }
+    }
+    ```
 
-#### Docker Compose Configuration
+### Docker Configuration for Multi-Account Support
+
+For Docker-based deployments, configure the agent with multi-account support using environment variables by following these steps:&#x20;
 
 For Docker-based deployments, configure multi-account support:
 
-1.  **Create `.env` file**:\
+1.  Create an `.env` file with the following configuration:\
 
 
     ```bash
@@ -279,28 +735,43 @@ For Docker-based deployments, configure multi-account support:
     WS_AUTH_TOKEN=your-gravitee-token
     INTEGRATION_ID=your-integration-id
 
-    # AWS Multi-Account Configuration
-    AWS_REGION=us-east-1,eu-west-1,ap-southeast-1
-    AWS_ROLE_ARNS=arn:aws:iam::111122223333:role/GraviteeFederationDiscoveryRole,arn:aws:iam::444455556666:role/GraviteeFederationDiscoveryRole
+    # AWS Configuration
+    AWS_REGION=us-east-1,eu-west-1
+    AWS_ROLE_ARNS=arn:aws:iam::ACCOUNT-ID-1:role/GraviteeFederationDiscoveryRole,arn:aws:iam::ACCOUNT-ID-2:role/GraviteeFederationDiscoveryRole
+    AWS_ACCESS_KEY_ID=your-aws-access-key-id
+    AWS_SECRET_ACCESS_KEY=your-aws-secret-access-key
 
     # Optional
     ACCEPT_API_WITHOUT_USAGE_PLAN=true
+
+    # Docker Registry Configuration (for custom registry)
+    APIM_REGISTRY=graviteeio.azurecr.io
+    AGENT_VERSION=latest
+
+    # Additional stage configurations (if needed)
+    AWS_0_STAGE=
+    AWS_1_STAGE=
     ```
-2.  **Create `docker-compose.yml`**:\
+2.  Create a `docker-compose.yml`  file in the same directory\
 
 
     ```yaml
     version: '3.8'
 
     services:
-      federation-agent:
-        image: graviteeio/federation-agent-aws-api-gateway:${AGENT_VERSION:-latest}
+      integration-agent:
+        image: ${APIM_REGISTRY:-graviteeio}/federation-agent-aws-api-gateway:${AGENT_VERSION:-latest}
         restart: always
+        platform: linux/amd64
         environment:
           # Gravitee connection
           - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
           - gravitee_integration_connector_ws_headers_0_name=Authorization
           - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
+          
+          # AWS credentials
+          - gravitee_integration_providers_0_configuration_accessKeyId=${AWS_ACCESS_KEY_ID}
+          - gravitee_integration_providers_0_configuration_secretAccessKey=${AWS_SECRET_ACCESS_KEY}
           
           # AWS provider configuration
           - gravitee_integration_providers_0_type=aws-api-gateway
@@ -308,19 +779,37 @@ For Docker-based deployments, configure multi-account support:
           
           # Multi-account and multi-region settings
           - gravitee_integration_providers_0_configuration_region=${AWS_REGION}
-          - gravitee_integration_providers_0_configuration_roleArn=${AWS_ROLE_ARNS}
+          - gravitee_integration_providers_0_configuration_roleArn=${AWS_ROLE_ARNS:-}
           
           # Additional options
           - gravitee_integration_providers_0_configuration_acceptApiWithoutUsagePlan=${ACCEPT_API_WITHOUT_USAGE_PLAN:-false}
+          
+          # Stage configurations (optional)
+          - gravitee_integration_providers_0_configuration_0_stage=${AWS_0_STAGE:-}
+          - gravitee_integration_providers_0_configuration_1_stage=${AWS_1_STAGE:-}
     ```
-3.  **Start the agent**:\
-
+3.  Start the agent using the following command:
 
     ```bash
     docker-compose up -d
     ```
+4.  Verify the agent is running with the following command\
 
-#### Configuration Behaviour
+
+    ```sh
+    docker-compose ps
+    ```
+5.  The command output should be similar to the following:
+
+    ```sh
+    [secondary_label Output]
+    NAME                    COMMAND             SERVICE            STATUS
+    federation-agent-1      "/docker-ent..."    federation-agent   Up 2 minutes
+    ```
+
+#### Configuration Behavior
+
+The agent processes your configuration as follows:&#x20;
 
 * **Region × Account Matrix**: The agent discovers APIs in every combination of region and account
 * **Parallel Discovery**: Multiple discoveries run concurrently for efficiency
@@ -336,34 +825,30 @@ For Docker-based deployments, configure multi-account support:
 
 When both `AWS_REGION` and `AWS_ROLE_ARNS` are set, the agent performs discovery and ingestion for **every combination** of `<region, account>` — resulting in a full `regions × accounts` scan.
 
-It is currently not possible to assign specific regions to specific AWS accounts. The agent will iterate over all combinations provided.
+{% hint style="success" %}
+It is currently not possible to assign specific regions to specific AWS accounts. The agent iterate over all combinations provided.
+{% endhint %}
 
-### Subscription Management
+### Manage Subscriptions
 
-#### Multi-Account Subscription Support
+The agent supports subscription operations across multiple accounts:
 
-The agent supports subscription operations across accounts:
-
-1. Creating Subscriptions: Automatically routes to correct account/region
-2. Revoking Subscriptions: Uses metadata to identify target account
+1. Creating Subscriptions: Automatically routes to the correct account/region
+2. Revoking Subscriptions: Uses metadata to identify the target account
 3. API Key Management: Keys appear in both APIM Console and Portal
+
+{% hint style="danger" %}
+Existing subscriptions created in single-account mode cannot be revoked after upgrading to multi-account mode due to missing routing metadata.
+{% endhint %}
 
 ### Important Upgrade Considerations
 
-Migrating from Single to Multi-Account (v4.8 to v4.9)
-
-Migration Limitation: Existing subscriptions created in single-account mode cannot be revoked after upgrading to multi-account mode due to missing routing metadata.
-
-Recommended Migration Process:
+When migrating from Single to Multi-Account v4.8 to v4.9 consider the following:&#x20;
 
 1. Create new integration for multi-account setup
 2. Re-discover all APIs using new configuration
 3. Recreate subscriptions as needed
 4. Deprecate old integration once migration complete
 
-No Action Required If:
-
-* Continuing with single-account setup after upgrade
-* Starting fresh with v4.9 or later
-* Not migrating existing subscriptions
+No action is required if you are continuing with single-account setup after upgrade or starting fresh with v4.9 or later.
 

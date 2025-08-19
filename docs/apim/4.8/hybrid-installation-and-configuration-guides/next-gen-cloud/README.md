@@ -53,14 +53,14 @@ Deployment methods that are not linked to documentation are still fully supporte
 
 ### Docker
 
-* Docker Compose
+* [Docker Compose](docker/docker-compose.md)
 * [Docker CLI](docker/docker-cli.md)
 
 ### Kubernetes
 
-* Vanilla Kubernetes
+* [Vanilla Kubernetes](kubernetes/vanilla-kubernetes.md)
 * AWS EKS
-* Azure AKS
+* [Azure AKS](kubernetes/azure-aks.md)
 * GCP GKE
 * [OpenShift](kubernetes/openshift.md)
 
