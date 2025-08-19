@@ -93,8 +93,6 @@ eksctl create iamserviceaccount \
     kubectl rollout restart deployment ebs-csi-controller -n kube-system
     ```
 
-
-
 ## Create Default Storage Class
 
 1.  Create an optimized storage class and apply the storage class using `kubectl apply -f storageclass.yaml` \
@@ -580,9 +578,6 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     redis:
         download: true
     ```
-
-
-
 2. Make the following modifications to your `values.yaml` file:
    * Replace `<cloud_token>` with your Cloud Token.
    * Replace `<license_key>` with your License Key.
@@ -667,8 +662,6 @@ To install your Gravitee Gateway with Helm, complete the following steps:
     graviteeio-apim-gateway-gateway-b6fd75949-rjsr4   1/1     Running   0          2m15s
     ```
 
-
-
 {% hint style="info" %}
 To uninstall the Gravitee hybrid Gateway, use the following command:
 
@@ -693,8 +686,6 @@ To verify that your Gateway is up and running, complete the following steps:
 6. [#validate-the-gateway-logs](aws-eks.md#validate-the-gateway-logs "mention")
 7. [#validate-the-ingress-configuration](aws-eks.md#validate-the-ingress-configuration "mention")
 8. [#validate-the-gateway-url](aws-eks.md#validate-the-gateway-url "mention")
-
-
 
 ### Validate the pods&#x20;
 
@@ -723,7 +714,7 @@ To validate your pods, complete the following steps:
     ```
 2.  The output should show running EBS CSI driver pods:&#x20;
 
-    ```
+    ```bash
     ebs-csi-controller-xxxxxxxxx-xxxxx    6/6     Running   0          5m
     ebs-csi-controller-xxxxxxxxx-xxxxx    6/6     Running   0          5m
     ebs-csi-node-xxxxx                    3/3     Running   0          5m
@@ -842,7 +833,7 @@ To validate the Gateway logs, complete the following steps:
 
 1.  Check the ingress configuration:
 
-    ```
+    ```sh
     kubectl get ingress -n gravitee-apim
     ```
 
@@ -857,7 +848,7 @@ To validate the Gateway logs, complete the following steps:
 
 2.  Get the external address of your AWS Load Balancer:
 
-    ```
+    ```sh
     kubectl get service -n kube-system
     ```
 
