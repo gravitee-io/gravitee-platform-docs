@@ -4,7 +4,7 @@
 
 This guide explains how to install and connect a Hybrid Gateway to Gravitee Cloud using Amazon Elastic Kubernetes Service (EKS).
 
-### Prerequisites&#x20;
+## Prerequisites&#x20;
 
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
@@ -15,7 +15,7 @@ This guide explains how to install and connect a Hybrid Gateway to Gravitee Clou
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
-### Configure your Cluster&#x20;
+## Configure your Cluster&#x20;
 
 Set up and configure your EKS cluster with the necessary components to support the Gravitee Hybrid Gateway.
 
@@ -61,7 +61,7 @@ If you do not have an existing EKS cluster, create one by following these steps:
     kubectl get nodes
     ```
 
-### Install EBS CSI Driver&#x20;
+## Install EBS CSI Driver&#x20;
 
 1.  Install the EBS driver with the `kubectl` command:
 
@@ -95,7 +95,7 @@ eksctl create iamserviceaccount \
 
 
 
-### Create Default Storage Class
+## Create Default Storage Class
 
 1.  Create an optimized storage class and apply the storage class using `kubectl apply -f storageclass.yaml` \
 
@@ -119,7 +119,7 @@ eksctl create iamserviceaccount \
 Without a default storage class, Kubernetes cannot dynamically provision persistent volumes.
 {% endhint %}
 
-### Install AWS Load Balancer Controller
+## Install AWS Load Balancer Controller
 
 1.  Create the IAM Policy file named `iam_policy.json` by copying and pasting the following JSON content:\
 
@@ -365,7 +365,7 @@ Without a default storage class, Kubernetes cannot dynamically provision persist
     kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller
     ```
 
-### Install the Gateway&#x20;
+## Install the Gateway&#x20;
 
 To install the Gravitee Gateway, complete the following steps:
 
@@ -677,7 +677,7 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 ```
 {% endhint %}
 
-### Verification&#x20;
+## Verification&#x20;
 
 Your Gateway appears in the Gateways section of your [Gravitee Cloud](https://cloud.gravitee.io/) Dashboard.
 
