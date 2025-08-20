@@ -8,8 +8,8 @@ This guide explains how to install Gravitee API Management (APIM) with Docker Co
 
 Before you install APIM, complete the following steps:
 
-* Install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
-* For Gravitee Enterprise Edition deployments, ensure that you have your license key. For more information about license keys, see [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
+* Install Docker. For more information about installing Docker, go to Install Docker Engine.
+* For Gravitee Enterprise Edition deployments, ensure that you have your license key. For more information about license keys, see Gravitee Platform Pricing.
 
 ## Install Gravitee APIM&#x20;
 
@@ -233,46 +233,25 @@ Gravitee API Management may take a few minutes to initialize.
 
 ## Enable Federation
 
-[Federation](../../govern-apis/federation/) is disabled by default for security and performance reasons. You can enable Federation by adding environment variables to your existing Docker Compose configuration. If you plan to run multiple APIM instances for high availability, configure cluster mode using Hazelcast to ensure data synchronization across all instances.
+Federation is disabled by default for security and performance reasons. You can enable Federation by adding environment variables to your existing Docker Compose configuration. If you plan to run multiple APIM instances for high availability, configure cluster mode using Hazelcast to ensure data synchronization across all instances.
 
-To enable Federation, complete the following steps:
+To enable Federation, complete the following steps:&#x20;
 
 * [#enable-federation-with-docker-compose](docker-compose.md#enable-federation-with-docker-compose "mention")
 * If you are running multiple replicas of APIM for high availability, [#set-up-cluster-mode](docker-compose.md#set-up-cluster-mode "mention")
 
 ### Enable Federation with Docker Compose
 
-To use Federation, you need to add an environment variable to the Gateway and Management API sections of your `docker-compose-apim.yml` file, and then restart these services.
+To use Federation, you need to add an environment variable to the Management API section of your `docker-compose-apim.yml` file, and then restart the service.
 
 To enable Federation, complete the following steps:
 
-1. Open your existing `docker-compose-apim.yml` file and locate the `gateway` and `management_api` service sections.
-2.  Add the Federation environment variable `GRAVITEE_INTEGRATION_ENABLED=true` to the `environment` section of each service. This activates the Federation endpoints in the Gateway and Management API services. \
+1. Open your existing `docker-compose-apim.yml` file and locate the `management_api` service section.
+2.  Add the Federation environment variable `GRAVITEE_INTEGRATION_ENABLED=true` to the environment section of the Management API service. This activates the Federation endpoints in the Management API.\
 
 
     ```yaml
-      gateway:
-        image: graviteeio/apim-gateway:latest
-        container_name: gio_apim_gateway
-        restart: always
-        ports:
-          - "8082:8082"
-        depends_on:
-          - mongodb
-          - elasticsearch
-        volumes:
-          - ./gravitee/apim-gateway/logs:/opt/graviteeio-gateway/logs
-          - ./gravitee/apim-gateway/plugins:/opt/graviteeio-gateway/plugins-ext
-          - ./license.key:/opt/graviteeio-gateway/license/license.key
-        environment:
-          - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
-          - gravitee_ratelimit_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
-          - gravitee_reporters_elasticsearch_endpoints_0=http://elasticsearch:9200
-          - gravitee_plugins_path_0=/opt/graviteeio-gateway/plugins
-          - gravitee_plugins_path_1=/opt/graviteeio-gateway/plugin
-          - GRAVITEE_INTEGRATION_ENABLED=true # activates federation 
-
-      management_api:
+    management_api:
         image: graviteeio/apim-management-api:latest
         container_name: gio_apim_management_api
         restart: always
@@ -286,11 +265,14 @@ To enable Federation, complete the following steps:
           - elasticsearch
         volumes:
           - ./license.key:/opt/graviteeio-management-api/license/license.key
+          - ./apim-management-api/plugins:/opt/graviteeio-management-api/plugins-ext
         environment:
           - gravitee_management_mongodb_uri=mongodb://mongodb:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
           - gravitee_analytics_elasticsearch_endpoints_0=http://elasticsearch:9200
           - gravitee_installation_standalone_portal_url=http://localhost:8085
-          - GRAVITEE_INTEGRATION_ENABLED=true # activates federation 
+          - gravitee_plugins_path_0=/opt/graviteeio-management-api/plugins
+          - gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext
+          - GRAVITEE_INTEGRATION_ENABLED=true # activates federation
     ```
 3.  Restart your APIM services. \
 
@@ -318,7 +300,7 @@ If APIM is running with high availability, you need to set up cluster mode. To s
 1.  Add the following parameter values to the root of your `gravitee.yaml` configuration file:\
 
 
-    ```yaml
+    ```bash
     GRAVITEE_CLUSTER_TYPE = hazelcast
     GRAVITEE_CLUSTER_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast-cluster.xml
     GRAVITEE_CACHE_TYPE = hazelcast
@@ -405,5 +387,5 @@ If APIM is running with high availability, you need to set up cluster mode. To s
         </hazelcast>
     ```
 4. Add the following plugins to APIM:
-   * [https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip ](https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip)
-   * [https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip](https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip)
+   * https://download.gravitee.io/plugins/node-cache/gravitee-node-cache-plugin-hazelcast/gravitee-node-cache-plugin-hazelcast-5.18.1.zip&#x20;
+   * https://download.gravitee.io/plugins/node-cluster/gravitee-node-cluster-plugin-hazelcast/gravitee-node-cluster-plugin-hazelcast-5.18.1.zip
