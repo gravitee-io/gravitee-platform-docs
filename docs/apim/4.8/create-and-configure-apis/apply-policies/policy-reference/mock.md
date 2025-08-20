@@ -17,7 +17,7 @@ When defining the response body content, you can use [Gravitee Expression Langua
 ## Examples
 
 {% hint style="warning" %}
-This policy can only be applied to v2 APIs. It cannot be applied to v4 message APIs or v4 proxy APIs.
+This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
 {% endhint %}
 
 {% tabs %}
