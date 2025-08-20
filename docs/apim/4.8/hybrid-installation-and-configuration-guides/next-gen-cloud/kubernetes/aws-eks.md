@@ -21,7 +21,7 @@ Set up and configure your EKS cluster with the necessary components to support t
 
 1. [#create-an-eks-cluster](aws-eks.md#create-an-eks-cluster "mention")
 2. [#install-ebs-csi-driver](aws-eks.md#install-ebs-csi-driver "mention")
-3. [#install-ebs-csi-driver](aws-eks.md#install-ebs-csi-driver "mention")
+3. [#create-default-storage-class](aws-eks.md#create-default-storage-class "mention")
 4. [#install-aws-load-balancer-controller](aws-eks.md#install-aws-load-balancer-controller "mention")
 
 ### Create an EKS Cluster&#x20;

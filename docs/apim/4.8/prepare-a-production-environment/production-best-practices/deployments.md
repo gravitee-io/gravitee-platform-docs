@@ -56,13 +56,18 @@ jetty:
       password: <keystore_secret>
 ```
 
-## Analytics
+## Logging
 
-We recommend that you disable logging for APIs in a production environment. Logging impacts API performance. Also, to store the data in the Gateway memory, the heap pressure on the Gateway must increase, which can lead to a Gateway crash.&#x20;
+APIM lets you log the headers and payloads of requests at each stage of the processing flow. While logs provide valuable information, the logging process is resource-intensive.
 
-If you need to enable logging in your production environment, complete the following step:
+{% hint style="warning" %}
+Whenever possible, you should disable logging for APIs in a production environment. Logging impacts API performance, and storing data in the Gateway memory increases the heap pressure on the Gateway, which can lead to a Gateway crash.
+{% endhint %}
 
-* In your `gravitee.yml` file, navigate to the `reporters` section, and then set the `max_size` to `256KB`. The default value is `-1`, which indicates no limit.&#x20;
+To enable logging in your production environment, complete the following steps:
+
+1. In your `gravitee.yml` file, navigate to the `reporters` section.
+2. Set the `max_size` to `256KB`. The default value is `-1`, which indicates no limit.&#x20;
 
 Here is an example configuration:
 
@@ -74,5 +79,52 @@ reporters:
 ```
 
 {% hint style="info" %}
-For hybrid Gateways that are connected to Gravitee Cloud, `max_size` is automatically set to 256KB unless the customer specifies a lower value.
+For hybrid Gateways connected to Gravitee Cloud, `max_size` is automatically set to 256KB.
+{% endhint %}
+
+### LogGuard
+
+Gravitee's LogGuard feature prevents the Gateway from experiencing an out-of-memory crash due to high throughput or large payloads. Once the memory pressure of the Gateway exceeds a certain threshold, LogGuard deactivates logging.
+
+To enable LogGuard, you must complete the following steps:
+
+* Enable the health probes in the `health` section of your `gravitee.yaml` file. LogGuard relies on the `gc-pressure` probe.
+* Enable the `memory_pressure_guard` in the `reporters` section of your `gravitee.yaml` file.&#x20;
+
+The GC pressure probe measures the percentage of CPU time used by the GC. To dynamically disable memory-consuming features, the probe output is sampled at a frequency defined by the `delay` parameter of the `health` configuration, and then compared to the pressure threshold specified by the `gcPressureThreshold` parameter.&#x20;
+
+The following example configures the GC pressure probe:
+
+```yaml
+health:
+    enabled: true
+    delay: 5000
+    unit: MILLISECONDS
+    #The thresholds to determine if a probe is healthy or not
+    threshold:
+      cpu: 80 # Default is 80%
+      memory: 80 # Default is 80%
+      gc-pressure: 15 # Default is 15%
+```
+
+If the pressure exceeds the threshold, which is set to a default value of 15%, the `LogGuardService` activates a cooldown strategy with a fixed delay of 1 minute. The `LogGuardService` is configured in the `reporters` section of the `gravitee.yaml` file.
+
+The following example configures `reporters` to enable LogGuard:
+
+```yaml
+reporters:
+# logging configuration
+  logging:
+    max_size: -1 # max size per API log content respectively : client-request, client-response, proxy-request and proxy-response in MB (-1 means no limit)
+    excluded_response_types: video.*|audio.*|image.*|application\/octet-stream|application\/pdf # Response content types to exclude in logging (must be a regular expression)
+    memory_pressure_guard:
+      enabled: true
+      strategy:
+        type: cooldown #type of strategy (default is cooldown)
+        cooldown:
+          duration: 60 #duration in seconds (default is 60 seconds)
+```
+
+{% hint style="warning" %}
+If LogGuard is triggered, both the request body and response body are unavailable to the UI. They are replaced with the message `BODY NOT CAPTURED`. The request body and response body are also unavailable to external monitoring systems, such as Datadog.
 {% endhint %}
