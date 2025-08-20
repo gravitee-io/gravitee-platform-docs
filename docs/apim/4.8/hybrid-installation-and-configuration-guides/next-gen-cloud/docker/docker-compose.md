@@ -77,9 +77,9 @@ This section explains how to run the Gravitee API Management Data Plane (Gateway
     ```
 2.  Place the following `.env` file in the same directory as your `docker-compose.yaml` to centralize configuration values:
 
-    ```env
+    ```bash
     # The Gateway version must match the Control Plane version to ensure compatibility.
-    APIM_VERSION=4.7
+    APIM_VERSION=4.8
 
     # Use a Redis version that is supported by Gravitee.
     # See the list of supported Redis versions: https://documentation.gravitee.io/apim/configure-apim/repositories/redis#supported-databases

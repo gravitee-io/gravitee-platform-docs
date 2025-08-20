@@ -46,9 +46,6 @@ If you do not have an existing GKE cluster, create one by following these steps:
     # Replace <project-id> with your GCP project ID
     gcloud config set project <project-id>
     ```
-
-
-
 2.  Create the GKE Cluster with the following command:\
 
 
@@ -73,9 +70,6 @@ If you do not have an existing GKE cluster, create one by following these steps:
       --enable-autoupgrade \
       --release-channel regular
     ```
-
-
-
 3.  Connect kubectl to GKE cluster with the following command:\
 
 
@@ -525,16 +519,27 @@ To validate the Gateway logs, complete the following steps:
 
 ### Validate the Gateway URL
 
-Your Gateway URL is determined by the networking settings you specify in the `service` section of your `values.yaml` file.
+The Gateway URL is determined by the networking settings you specify in the `ingress` section of your `values.yaml` file.
 
 To validate the Gateway URL, complete the following steps:
 
-1.  Make a GET request to the URL on which you have published the Gateway:
+1. Get and use the ingress details from the [#validate-the-ingress-configuration](gcp-gke.md#validate-the-ingress-configuration "mention") section above to find your Load Balancer address.&#x20;
+2.  Make a GET request to the Gateway using the Load Balancer address and your configured hostname:
 
-    ```bash
-    curl http://{my_gateway_url:port}/
+    ```sh
+    curl -H "Host: <hosts>" http://<load-balancer-address>/
+
+    # If you have configured DNS to point your hostname to the Load Balancer address, you can alternatively use:
+
+    curl http://<hosts>/
     ```
-2.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.
+
+{% hint style="success" %}
+* `<hosts>` is the hostname you configured in the `ingress.hosts` section of your `values.yaml` file
+* `<load-balancer-address>` is the ADDRESS value from the ingress output above
+{% endhint %}
+
+3.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.
 
     ```sh
     No context-path matches the request URI.

@@ -854,7 +854,7 @@ To validate the Gateway logs, complete the following steps:
 
 ### Validate the Gateway URL
 
-Your Gateway URL is determined by the networking settings you specify in the `ingress` section of your `values.yaml` file.
+The Gateway URL is determined by the networking settings you specify in the `ingress` section of your `values.yaml` file.
 
 To validate the Gateway URL, complete the following steps:
 
