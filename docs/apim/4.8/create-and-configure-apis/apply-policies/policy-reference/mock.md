@@ -9,7 +9,7 @@ You can think of the policy as a contract-first approach — you are able to
 Internally, this policy replaces the default HTTP invoker with a mock invoker. There are no more HTTP calls between the Gateway and a remote service or backend.
 
 {% hint style="info" %}
-This policy can be applied to v2 APIs and v4 proxy APIs. It cannot be applied to v4 message APIs.
+The `mock` policy will **not** cause the other policies to be skipped, regardless of its location in the flow.
 {% endhint %}
 
 When defining the response body content, you can use [Gravitee Expression Language (EL)](../../../../4.6/guides/gravitee-expression-language.md) to provide a dynamic mock response.
