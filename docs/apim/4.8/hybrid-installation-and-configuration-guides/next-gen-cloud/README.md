@@ -59,7 +59,7 @@ Deployment methods that are not linked to documentation are still fully supporte
 ### Kubernetes
 
 * [Vanilla Kubernetes](kubernetes/vanilla-kubernetes.md)
-* AWS EKS
+* [AWS EKS](kubernetes/aws-eks.md)
 * [Azure AKS](kubernetes/azure-aks.md)
 * GCP GKE
 * [OpenShift](kubernetes/openshift.md)
