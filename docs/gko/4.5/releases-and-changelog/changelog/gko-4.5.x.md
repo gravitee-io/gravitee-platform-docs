@@ -5,6 +5,13 @@
 There is nothing new in version 4.5.25.
 
 > This version was generated to keep the kubernetes operator in sync with other gravitee products.
+## Gravitee Kubernetes Operator 4.5.24 - August 22, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * GKO-created applications can be deleted through the portal UI [#10651](https://github.com/gravitee-io/issues/issues/10651)
+</details>
 
 
 ## Gravitee Kubernetes Operator 4.5.23 - August 4, 2025
