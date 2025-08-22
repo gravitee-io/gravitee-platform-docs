@@ -1,5 +1,15 @@
 # GKO 4.8.x
 
+## Gravitee Kubernetes Operator 4.8.4 - August 22, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * Redis Cache resource configuration not fully visible in the console UI [#10672](https://github.com/gravitee-io/issues/issues/10672)
+  * GKO-created applications can be deleted through the portal UI [#10651](https://github.com/gravitee-io/issues/issues/10651)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.8.3 - August 4, 2025
     
 <details>
