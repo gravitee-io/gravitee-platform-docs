@@ -1,5 +1,14 @@
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.18 - August 22, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  * GKO-created applications can be deleted through the portal UI [#10651](https://github.com/gravitee-io/issues/issues/10651)
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.6.17 - August 4, 2025
 
 There is nothing new in version 4.6.17.
