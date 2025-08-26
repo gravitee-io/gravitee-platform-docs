@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.12 - August 26, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Ciba notifier custom header config  [#10739](https://github.com/gravitee-io/issues/issues/10739)
+* Unable to configure IDP Http Body request [#10740](https://github.com/gravitee-io/issues/issues/10740)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.11 - August 15, 2025
 
 <details>
