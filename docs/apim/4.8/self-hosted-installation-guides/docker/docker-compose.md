@@ -487,7 +487,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
 
 #### Set up cluster mode <a href="#set-up-cluster-mode" id="set-up-cluster-mode"></a>
 
-If APIM is running with high availability, you need to set up cluster mode. To set up cluster mode, complete the following steps:
+If APIM is running with high availability, you need to set up cluster mode. To set up cluster mode, complete the following steps::
 
 1.  Add the following parameter values to the root of your `gravitee.yaml` configuration file:
 
