@@ -2,26 +2,25 @@
 
 ## Overview&#x20;
 
-This guide focuses on installing the Data Plane using Docker CLI commands. The Data Plane includes core components like the Gateway and Redis for rate limiting.&#x20;
-
-By the end of this guide, your Gravitee Data Plane will be up and running using individual Docker containers, ready to enforce API policies and handle traffic according to your Gravitee Cloud configuration.
+This guide explains how to install the Data Plane using Docker CLI commands. The Data Plane includes core components like the Gateway and Redis for rate limiting.&#x20;
 
 ## Prerequisites
 
 * Install [Docker](https://docs.docker.com/engine/install/).&#x20;
-* Obtain a Gravitee Cloud account. To register for a Gravitee Cloud account, go to [the Gravitee Cloud sign in page](http://cloud.gravitee.io/signup), and then click register.
-* Follow the instructions to [#prepare-your-installation](../#prepare-your-installation "mention").
+* Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
+* Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
 ## Install Gateway and Configure Redis
 
 To enable API rate-limiting, configure your Gateway to use a rate-limiting repository, such as Redis with the following steps:&#x20;
 
-1.  Create a Docker network with the following command:
+1.  Create a Docker network with the following command:\
+
 
     ```sh
     docker network create gravitee-network
     ```
-2.  Run the command below to start Redis. Replace `<redis_password>` with your own secure password:\
+2.  Run the command below to start Redis. \
 
 
     ```sh
@@ -32,6 +31,8 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
       -p 6379:6379 \
       redis:7.2-alpine redis-server --requirepass <redis_password>
     ```
+
+    * Replace `<redis_password>` with your own secure password.
 3.  Run the Gateway with Redis rate limiting enabled with the following command:\
 
 
@@ -51,17 +52,13 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
       graviteeio/apim-gateway:<CONTROL_PLANE_VERSION>
     ```
 
-**Replace the following values:**
-
-* Replace `<cloud_token>` with your Cloud Token from Gravitee Cloud.
-* Replace `<license_key>` with your License Key from Gravitee Cloud.
-* Set `redis_password` environment variable: `export redis_password=your_redis_password` or replace `${redis_password}` with your actual Redis password.
-*   Replace `<CONTROL_PLANE_VERSION>` with the version that matches your Gravitee Cloud Control Plane. For example. 4.8.2.\
+    * Replace `<cloud_token>` with your Cloud Token from Gravitee Cloud.
+    * Replace `<license_key>` with your License Key from Gravitee Cloud.
+    * Set `redis_password` environment variable: `export redis_password=your_redis_password` or replace `${redis_password}` with your actual Redis password.
+    *   Replace `<CONTROL_PLANE_VERSION>` with the version that matches your Gravitee Cloud Control Plane. For example. 4.8.2.\
 
 
-    <figure><img src="../../../.gitbook/assets/image (324).png" alt=""><figcaption></figcaption></figure>
-
-
+        <figure><img src="../../../.gitbook/assets/image (324).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -117,21 +114,20 @@ To confirm that your Hybrid installation is working, complete the following step
     ```bash
     curl -i http://localhost:8082/
     ```
-2.  Verify that the command output is similar to the following expected response:
 
-    ```http
-    HTTP/1.1 404 Not Found
-    Content-Length: 40
-    Content-Type: text/plain
+The command generates the following output:
 
-    No context-path matches the request URI.
-    ```
+```http
+HTTP/1.1 404 Not Found
+Content-Length: 40
+Content-Type: text/plain
 
+No context-path matches the request URI.
+```
 
-
-    {% hint style="info" %}
-    This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths.
-    {% endhint %}
+{% hint style="info" %}
+This response confirms that the Gateway has initialized, but no APIs have been deployed. Once APIs are published through the Control Plane, this message is replaced by valid responses routed through the configured context paths.
+{% endhint %}
 
 ### Verify the Redis Connection&#x20;
 
@@ -204,13 +200,13 @@ To confirm that your Hybrid installation is working, complete the following step
 
 To shut down the Gateway, choose one of the following options.
 
-*   This command stops the containers but keeps them available to restart, and the Redis data is preserved.\
+*   This command stops the containers but keeps them available to restart. The Redis data is preserved.\
 
 
     ```sh
     docker stop gio-apim-hybrid-gateway gio-apim-hybrid-redis
     ```
-*   These commands remove the containers, their data, and the network, and all Redis data will be lost.\
+*   These commands remove the containers, their data, and the network, and all Redis data is lost.\
 
 
     ```sh
