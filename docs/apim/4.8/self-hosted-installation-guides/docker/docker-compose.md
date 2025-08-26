@@ -313,13 +313,26 @@ WS_AUTH_TOKEN=your-auth-token-here
 INTEGRATION_ID=your-integration-id-here
 WS_ORG_ID=DEFAULT
 
-# Additional configuration may be required based on your integration type
-# Example for Confluent Platform integration:
-CLUSTER_API_ENDPOINT=http://rest-proxy:8082
-SCHEMA_REGISTRY_ENDPOINT=http://schema-registry:8081
-BASIC_AUTH_LOGIN=superUser
-BASIC_AUTH_PASSWORD=superUser
-TRUST_ALL=true
+## AWS API GATEWAY PARAMETERS ##
+AWS_REGION=<your-aws-region>
+AWS_ACCESS_KEY_ID=<your-aws-access-key-id>
+AWS_SECRET_ACCESS_KEY=<your-aws-secret-access-key>
+
+## LOGGING ##
+LOG_LEVEL=DEBUG
+
+## For Confluent Platform integration (uncomment if using Confluent):
+# CLUSTER_API_ENDPOINT=http://rest-proxy:8082
+# SCHEMA_REGISTRY_ENDPOINT=http://schema-registry:8081
+# BASIC_AUTH_LOGIN=superUser
+# BASIC_AUTH_PASSWORD=superUser
+# TRUST_ALL=true
+
+## For Solace integration (uncomment if using Solace):
+# SOLACE_HOST=tcp://solace:55555
+# SOLACE_USERNAME=admin
+# SOLACE_PASSWORD=admin
+# SOLACE_VPN=default
 ```
 
 * WS\_ENDPOINTS: Replace `<container_name>` with your Management API container name. The port `8072` is used for WebSocket communication between the agent and the Management API.
@@ -337,6 +350,21 @@ This example shows configuration for Confluent Platform integration. For Solace 
 
 
     ```yaml
+    #
+    # Copyright (C) 2015 The Gravitee team (http://gravitee.io)
+    #
+    # Licensed under the Apache License, Version 2.0 (the "License");
+    # you may not use this file except in compliance with the License.
+    # You may obtain a copy of the License at
+    #
+    #         http://www.apache.org/licenses/LICENSE-2.0
+    #
+    # Unless required by applicable law or agreed to in writing, software
+    # distributed under the License is distributed on an "AS IS" BASIS,
+    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    # See the License for the specific language governing permissions and
+    # limitations under the License.
+    #
     version: '3.5'
 
     networks:
@@ -352,6 +380,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
         restart: always
         volumes:
           - ./mongodb/data:/data/db
+        # Access the MongoDB container logs with: docker logs gio_apim_mongodb
         networks:
           - storage
 
@@ -361,6 +390,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
         restart: always
         volumes:
           - ./elasticsearch/data:/var/lib/elasticsearch/data
+        # Access the Elasticsearch container logs with: docker logs gio_apim_elasticsearch
         environment:
           - http.host=0.0.0.0
           - transport.host=0.0.0.0
@@ -406,7 +436,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
         restart: always
         ports:
           - "8083:8083"
-          - "8072:8072"  # Federation WebSocket port for agents
+          - "8072:8072"  # Federation WebSocket port
         links:
           - mongodb
           - elasticsearch
@@ -422,10 +452,51 @@ This example shows configuration for Confluent Platform integration. For Solace 
           - gravitee_installation_standalone_portal_url=http://localhost:8085
           - gravitee_plugins_path_0=/opt/graviteeio-management-api/plugins
           - gravitee_plugins_path_1=/opt/graviteeio-management-api/plugins-ext
+          
+          # FEDERATION CONFIGURATION - REQUIRED FOR FEDERATION TO WORK
           - gravitee_integration_enabled=true
+          - gravitee_exchange_controller_enabled=true
+          - gravitee_exchange_controller_ws_enabled=true
+          - gravitee_exchange_controller_ws_port=8072
+          - gravitee_exchange_controller_ws_host=0.0.0.0
+          
+          # Enable federation agent support
+          - gravitee_federation_agent_enabled=true
+          
         networks:
           - storage
           - frontend
+
+      # Federation Agent Configuration
+      # Select the correct agent image for your integration type:
+      # * AWS API Gateway: graviteeio/federation-agent-aws-api-gateway:latest
+      # * Confluent Platform: graviteeio/federation-agent-confluent-platform:latest
+      # * Solace: graviteeio/federation-agent-solace:latest
+      federation_agent:
+        image: graviteeio/federation-agent-aws-api-gateway:latest
+        container_name: gravitee_federation_agent
+        restart: always
+        environment:
+          # WebSocket connection configuration
+          - gravitee_integration_connector_ws_endpoints_0=${WS_ENDPOINTS}
+          - gravitee_integration_connector_ws_headers_0_name=Authorization
+          - gravitee_integration_connector_ws_headers_0_value=bearer ${WS_AUTH_TOKEN}
+          
+          # Provider configuration
+          - gravitee_integration_providers_0_type=aws-api-gateway
+          - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
+          - gravitee_integration_providers_0_configuration_accessKeyId=${AWS_ACCESS_KEY_ID}
+          - gravitee_integration_providers_0_configuration_secretAccessKey=${AWS_SECRET_ACCESS_KEY}
+          - gravitee_integration_providers_0_configuration_region=${AWS_REGION}
+          - gravitee_integration_providers_0_configuration_acceptApiWithoutUsagePlan=true
+          
+          # Logging
+          - GRAVITEE_LOG_LEVEL=${LOG_LEVEL}
+        depends_on:
+          - management_api
+        networks:
+          - frontend
+          - storage
 
       management_ui:
         image: graviteeio/apim-management-ui:latest
@@ -456,24 +527,6 @@ This example shows configuration for Confluent Platform integration. For Solace 
           - PORTAL_API_URL=http://localhost:8083/portal/environments/DEFAULT
         networks:
           - frontend
-
-      # Federation Agent Configuration
-      # Select the correct agent image for your integration type:
-      # * Confluent Platform: graviteeio/federation-agent-confluent-platform:latest
-      # * Solace: graviteeio/federation-agent-solace:latest
-      # * AWS API Gateway: graviteeio/federation-agent-aws-api-gateway:latest
-      federation_agent:
-        image: graviteeio/federation-agent-confluent-platform:latest
-        # image: graviteeio/federation-agent-solace:latest
-        # image: graviteeio/federation-agent-aws-api-gateway:latest
-        container_name: gravitee_federation_agent
-        restart: always
-        env_file:
-          - .env
-        networks:
-          - frontend
-        depends_on:
-          - management_api
     ```
 
 
