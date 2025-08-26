@@ -1,42 +1,59 @@
 # Add API Documentation
 
-To add documentation to your API, complete the following steps:
+## Overview
 
-1. From the dashboard, click **APIs**.
+This guide explains how to add documentation to your first API.
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+## Prerequisites&#x20;
 
-2. In your API menu, click **Documentation**.&#x20;
+* Complete the steps in [create-an-api.md](create-an-api.md "mention").
+* Complete the steps in [add-security.md](add-security.md "mention").
+* Complete the steps in [add-a-policy.md](add-a-policy.md "mention").
 
-<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+## Add API documentation
 
-3. Click **Documentation Pages**, and then click **Add new page**.
+1.  From the dashboard, click **APIs**.\
 
-<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
-3. From the **Create New Page** dropdown menu, click Markdown.&#x20;
+    <figure><img src="../../.gitbook/assets/6DD0E65F-0096-4CD0-A5E4-ADFC9815CCB2.jpeg" alt=""><figcaption></figcaption></figure>
+2.  Click the API that you created in [create-an-api.md](create-an-api.md "mention").\
 
-<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
-3. Click **Public**.
+    <figure><img src="../../.gitbook/assets/image (326).png" alt=""><figcaption></figcaption></figure>
+3.  In your API menu, click **Documentation**. \
+    \
 
-<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
-5. In the **Name** field, type the name of your documentation page.
-6. In the **Visibility** section, Click Public, and then click **Next**.
+    <figure><img src="../../.gitbook/assets/7405FAE3-1497-40D0-A658-664B364E8493.jpeg" alt=""><figcaption></figcaption></figure>
+4.  Click **Documentation Pages**, and then click **Add new page**.\
 
-<figure><img src="../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
-5. In the Determine source page, click **Next**.
+    <figure><img src="../../.gitbook/assets/image (327).png" alt=""><figcaption></figcaption></figure>
+5.  From the **Add new page** dropdown menu, click Markdown. \
 
-<figure><img src="../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 
-6. With Markdown language, you can add the documentation for your API.
+    <figure><img src="../../.gitbook/assets/image (328).png" alt=""><figcaption></figcaption></figure>
+6. In the **Name** field, type the name of your documentation page. For example, My first page.&#x20;
+7.  In the **Visibility** section, Click **Public**, and then click **Next**.\
 
-<figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
-7. Click **Save and publish**. Your Documentation page now appears in the **Documentation Pages** section of the **Documentation** screen.
+    <figure><img src="../../.gitbook/assets/image (329).png" alt=""><figcaption></figcaption></figure>
+8.  In the Determine source page, click **Next**.\
 
-<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
-8. ....
+    <figure><img src="../../.gitbook/assets/image (330).png" alt=""><figcaption></figcaption></figure>
+9. In the **Page content** section, add the documentation for your API using Markdown.
+10. Click **Save and publish**.\
+
+
+    <figure><img src="../../.gitbook/assets/image (331).png" alt=""><figcaption></figcaption></figure>
+
+## Verification&#x20;
+
+Your document page appears in the **Documentation pages** tab of the **Documentation** screen.
+
+<figure><img src="../../.gitbook/assets/image (332).png" alt=""><figcaption></figcaption></figure>
+
+## Next steps
+
+Publish your API. For more information about publishing your API, see [publish-your-api.md](publish-your-api.md "mention").
