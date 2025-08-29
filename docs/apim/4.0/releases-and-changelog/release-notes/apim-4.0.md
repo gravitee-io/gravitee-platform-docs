@@ -16,9 +16,9 @@ Gravitee 4.0 was released on July 20th, 2023, and introduced broadened support f
 
 ## The new v4 API creation wizard
 
-{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
+{% @arcade/embed flowid="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
 
-The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs built with the Gravitee v4 API definition.&#x20;
+The new v4 API creation wizard enables you to use the Gravitee API Management Console to create Gateway APIs built with the Gravitee v4 API definition.
 
 The v4 API definition allows organizations to use Gravitee to secure, expose, and govern both their synchronous and asynchronous APIs. With the new creation wizard, you can use the Gravitee API Management Console to create APIs that expose Kafka, MQTT, RabbitMQ (if using AMQP 0-9-1 protocol), Solace, and Mock (simulated for testing purposes) backends as either REST, WebSocket, Webhook, or Server-sent events (SSE) APIs.
 
@@ -28,7 +28,7 @@ For more information on how to use the new v4 API Creation wizard, please refer 
 
 We've released a brand new Policy Studio that enables you to design policy flows and enforcement mechanisms for v4 APIs. This enables greater API governance, as you can now use a single, centralized tool and approach to ensure synchronous and asynchronous APIs are secured, reliable, transformed, etc.
 
-Policies designed using the new v4 API Policy Studio can be designed and enforced at the request, response, publish, and/or subscribe phases. They can also be enforced at the message level for use cases where message-based APIs and communication are employed.&#x20;
+Policies designed using the new v4 API Policy Studio can be designed and enforced at the request, response, publish, and/or subscribe phases. They can also be enforced at the message level for use cases where message-based APIs and communication are employed.
 
 For more information on how to use the v4 Policy Studio, please refer to the [v4 Policy Studio documentation](../../guides/policy-studio/v4-api-policy-studio.md).
 
@@ -68,7 +68,7 @@ For more information on policies, please refer to our [policy reference document
 
 ## Support for Schema registry as a resource
 
-When designing policies and flows, you can now define Confluent Schema Registry as a resource. This allows Gravitee to serialize and deserialize information between Avro and JSON via various serialization and deserialization policies.&#x20;
+When designing policies and flows, you can now define Confluent Schema Registry as a resource. This allows Gravitee to serialize and deserialize information between Avro and JSON via various serialization and deserialization policies.
 
 Serialization and deserialization will be validated against target schemas stored in specified schema registries. The schema ID can be obtained dynamically through a message header or attribute.
 

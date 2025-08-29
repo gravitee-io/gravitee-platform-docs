@@ -22,7 +22,7 @@ The v2 Policy Studio is broken into the following sections:
 * **Resources:** Configure global resources to support your Gateway API's flows
 * **Debug:** Test and troubleshoot your Gateway APIs
 
-{% @arcade/embed flowId="kApsIRtoWrfIFRzd7DQj" url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" %}
+{% @arcade/embed flowid="kApsIRtoWrfIFRzd7DQj" url="https://app.arcade.software/share/kApsIRtoWrfIFRzd7DQj" %}
 
 ## Design
 

@@ -4,7 +4,7 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 # v4 API creation wizard
 
-{% @arcade/embed flowId="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
+{% @arcade/embed flowid="IoH5bZLjSO6ce8UbgMmc" url="https://app.arcade.software/share/IoH5bZLjSO6ce8UbgMmc" %}
 
 ## Introduction
 
@@ -35,9 +35,9 @@ The first part of the Entrypoints step is to choose how you want to expose your 
 {% hint style="info" %}
 The Gravitee documentation adopts concise terminology to differentiate between these API types:
 
-**Proxy API:** An API created using **Proxy upstream protocol**&#x20;
+**Proxy API:** An API created using **Proxy upstream protocol**
 
-**Message API:** An API created using **Introspect messages from event-driven backend**&#x20;
+**Message API:** An API created using **Introspect messages from event-driven backend**
 {% endhint %}
 
 What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information on the exact support that these two methods offer, please [refer to this documentation](../#backend-exposure-methods).
@@ -330,7 +330,7 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
 
 **Recovering Kafka messages**
 
-Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.&#x20;
+Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.
 
 As an example using SSE as an entrypoint, first define the QoS for the entrypoint:
 
@@ -387,7 +387,7 @@ Choosing the **Solace** endpoint enables the Gravitee Gateway to create an API t
   * **Retain settings:** Whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
   * **Message expiry interval:** Defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the `retained=true` option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
   * **Response topic:** Represents the topics on which the responses from the message receivers are expected.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.&#x20;
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.
   * Define the **Topic** from which the Gateway Solace client will consume messages.
   * Toggle Authentication configuration ON or OFF. When OFF, no further configuration is necessary. When ON, you will need to:
     * Define the username used for authentication.
@@ -405,7 +405,7 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
 * **Server port**: define the port that RabbitMQ is using
 * How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
   * **Use Producer:** tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
-  * **Use Consumer:** tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
+  * **Use Consumer:** tells the Gateway to be prepared to consume messages from RabbitMQ that you define as your endpoint
   * **Use Producer and Consumer:** tell the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
 * **Authentication:** define the **userna**me and **password** for RabbitMQ authentication
 * **Producer settings** (if you chose **Use Producer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for producing messages to your backend Kafka topic/broker. You will need to define:
@@ -415,9 +415,7 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
   * Enable or disable **Auto Delete**
   * **Routing Key**
 
-<!---->
-
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
+- **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): define the settings that the Gravitee Gateway Kafka client will rely on for consuming messages from your backend Kafka topic/broker. You will need to define:
   * **Exchange name**
   * **Exchange type**
   * Enable or disable [**Durable**](https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges)**:** Durable exchanges survive broker restart

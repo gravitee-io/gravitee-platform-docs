@@ -25,7 +25,7 @@ The Gravitee "Dashboard" is an area in the UI where you'll be able to create cus
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="bTYh1yLqcbJU6xaGZQZm" url="https://app.arcade.software/share/bTYh1yLqcbJU6xaGZQZm" %}
+{% @arcade/embed flowid="bTYh1yLqcbJU6xaGZQZm" url="https://app.arcade.software/share/bTYh1yLqcbJU6xaGZQZm" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -44,7 +44,7 @@ While there is less "measurement" here, the APIs menu is crucial for being able 
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="6XNg5xzEOEkNwJRZ6Ogm" url="https://app.arcade.software/share/6XNg5xzEOEkNwJRZ6Ogm" %}
+{% @arcade/embed flowid="6XNg5xzEOEkNwJRZ6Ogm" url="https://app.arcade.software/share/6XNg5xzEOEkNwJRZ6Ogm" %}
 {% endtab %}
 
 {% tab title="Second Tab" %}
@@ -66,7 +66,7 @@ The **Applications** page is where you can keep track of and view various inform
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="WvD0RpAfXJIdCJQBSSOz" url="https://app.arcade.software/share/WvD0RpAfXJIdCJQBSSOz" %}
+{% @arcade/embed flowid="WvD0RpAfXJIdCJQBSSOz" url="https://app.arcade.software/share/WvD0RpAfXJIdCJQBSSOz" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -98,7 +98,7 @@ For example, you can use it in conjunction with the analytics feature to identif
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="8cTbVX8QGEQ3XsLURvW0" url="https://app.arcade.software/share/8cTbVX8QGEQ3XsLURvW0" %}
+{% @arcade/embed flowid="8cTbVX8QGEQ3XsLURvW0" url="https://app.arcade.software/share/8cTbVX8QGEQ3XsLURvW0" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -126,7 +126,7 @@ The Gravitee **API Quality** feature enables you to create and automatically ass
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="crEmd5VTMLuJSdb8c9aM" url="https://app.arcade.software/share/crEmd5VTMLuJSdb8c9aM" %}
+{% @arcade/embed flowid="crEmd5VTMLuJSdb8c9aM" url="https://app.arcade.software/share/crEmd5VTMLuJSdb8c9aM" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
