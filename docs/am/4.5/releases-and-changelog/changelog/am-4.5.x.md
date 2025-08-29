@@ -10,6 +10,27 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.5.x
 
+## Gravitee Access Management 4.5.25 - August 29, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Can't get dynamic roles for the user [#10679](https://github.com/gravitee-io/issues/issues/10679)
+* LDAP connection leak [#10736](https://github.com/gravitee-io/issues/issues/10736)
+* Unable to configure IDP Http Body request [#10740](https://github.com/gravitee-io/issues/issues/10740)
+
+</details>
+
+
 ## Gravitee Access Management 4.5.23 - August 1, 2025
 
 <details>
