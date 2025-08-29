@@ -5,7 +5,7 @@
 The Kafka endpoint **mediates the protocol** between the Kafka cluster and the client that connects over HTTP. The API runtime on the gateway includes an embedded Kafka client that can produce and consume directly to and from the cluster.
 
 {% hint style="info" %}
-You can also use the [Gravitee Kafka Gateway](broken-reference) to proxy a Kafka cluster using the Kafka native protocol (over TCP).
+You can also use the [Gravitee Kafka Gateway](../../../kafka-gateway/) to proxy a Kafka cluster using the Kafka native protocol (over TCP).
 {% endhint %}
 
 This page discusses the [configuration](kafka.md#configuration) and [implementation](kafka.md#implementation) of the Kafka endpoint and includes a [reference](kafka.md#reference) section.

@@ -1,8 +1,14 @@
 # Support
 
+{% hint style="warning" %}
+This feature enables support and ticketing between users of Gravitee APIM. **It is not connected to L1/L2/L3 support or to Gravitee itself.**
+{% endhint %}
+
 ## Overview
 
-Gravitee encourages you to engage with our support team if you experience issues with APIM. Messages can be sent and checked via either the Management Console or the Developer Portal.
+Gravitee encourages you to engage with your team if you experience issues with your APIM instance. Messages can be sent and checked via either the Management Console or the Classic Developer Portal.
+
+You can create and list a subject that is related to an application or API. A subject is linked to the user who creates it and is sent via email to the owner of the API.
 
 ## Send a message to Support
 
@@ -32,7 +38,7 @@ You can send a message from either the [user menu](support.md#from-the-user-menu
 
 ### **From the API menu**
 
-You can send a message to the support team from the current API.
+You can send a message from the current API.
 
 1.  From the API header menu, click the **Contact** tab&#x20;
 
