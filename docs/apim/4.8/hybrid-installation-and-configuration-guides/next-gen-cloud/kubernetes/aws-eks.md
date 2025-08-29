@@ -471,7 +471,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
             #The gateway version to install. 
             #It has to align with the control plane of your Gravitee Cloud
             #use it if you need to force the version of the gateway, and replace it from the Overview section of your Gravitee Cloud Dashboard. 
-            tag: <>
+            tag: <add_gateway_tag_here>
             pullPolicy: IfNotPresent
         autoscaling:
             enabled: false
@@ -573,10 +573,6 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
             
     ratelimit:
         type: redis
-            
-    # Auto-download the Gravitee Redis plugin
-    redis:
-        download: true
     ```
 2. Make the following modifications to your `values.yaml` file:
    * Replace `<cloud_token>` with your Cloud Token.

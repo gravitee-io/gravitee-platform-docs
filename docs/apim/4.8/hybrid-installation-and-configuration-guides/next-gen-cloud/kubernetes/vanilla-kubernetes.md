@@ -118,7 +118,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
         replicaCount: 1 #number of replicas of the pod
         image:
             repository: graviteeio/apim-gateway
-            tag: 4.7.6 #The gateway version to install. It has to align with the control plane of your Gravitee Cloud
+            tag: <add_the_gateway_tag> #The gateway version to install. It has to align with the control plane of your Gravitee Cloud
             pullPolicy: IfNotPresent
         autoscaling:
             enabled: false
@@ -187,10 +187,6 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
             
     ratelimit:
         type: redis
-            
-    # Auto-download the Gravitee Redis plugin
-    redis:
-        download: true
     ```
     {% endcode %}
 2. Make the following modifications to your `values.yaml` file:
