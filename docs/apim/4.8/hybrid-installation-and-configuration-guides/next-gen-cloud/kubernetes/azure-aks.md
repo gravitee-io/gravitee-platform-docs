@@ -194,7 +194,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
             #The gateway version to install. 
             #It has to align with the control plane of your Gravitee Cloud
             #use it if you need to force the version of the gateway
-            # tag: 4.7.6 
+            tag: <add_gateway_tag_here> 
             pullPolicy: IfNotPresent
         autoscaling:
             enabled: false
@@ -296,10 +296,6 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
             
     ratelimit:
         type: redis
-            
-    # Auto-download the Gravitee Redis plugin
-    redis:
-        download: true
     ```
 2. Make the following modifications to your `values.yaml` file:
    * Replace `<cloud_token>` with your Cloud Token.

@@ -10,7 +10,7 @@ To expose your API to internal or external consumers, it must have at least one 
 
 Plans are always created by the API publisher. You can create plans in the Management Console as part of the [API creation process](../create-apis/). You can also create them later with the **Portal > Plans** function as shown below.
 
-{% @arcade/embed flowId="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
+{% @arcade/embed flowid="L3b4AWtxtYkNE89ZiR2Y" url="https://app.arcade.software/share/L3b4AWtxtYkNE89ZiR2Y" %}
 
 Creating a plan begins by navigating to your API, selecting **Plans** in the sidebar, and then selecting **Add new plan** in the top right of the page.
 
@@ -298,7 +298,7 @@ Deprecating plans allow consumers of the API time to migrate without breaking th
 
 Publishing a plan is as simple as clicking the **Publish Plan** button, confirming your desire to publish the plan with the modal that appears on your screen, and deploying your API again to synchronize the change.
 
-{% @arcade/embed flowId="vOBfQE9VInuyA1g7b4kF" url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" %}
+{% @arcade/embed flowid="vOBfQE9VInuyA1g7b4kF" url="https://app.arcade.software/share/vOBfQE9VInuyA1g7b4kF" %}
 
 A published plan can either be deprecated or closed. Neither operation can be undone.
 

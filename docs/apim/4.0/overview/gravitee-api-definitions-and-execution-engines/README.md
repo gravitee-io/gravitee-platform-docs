@@ -1,22 +1,8 @@
----
-layout:
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
----
-
 # Gravitee API Definitions and Execution Engines
 
 ## Overview
 
-A Gravitee API definition is very similar to an API specification (e.g., OpenAPI, AsyncAPI) except it is a specification for your Gravitee API Management (APIM) Gateway_._ It’s a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, create plans for, etc., your APIs and their traffic.
+A Gravitee API definition is very similar to an API specification (e.g., OpenAPI, AsyncAPI) except it is a specification for your Gravitee API Management (APIM) Gatewa&#x79;_._ It’s a JSON representation of everything that the APIM Gateway needs to know for it to proxy, apply policies to, create plans for, etc., your APIs and their traffic.
 
 To execute your Gateway APIs and policy flows, the Gateway needs a runtime environment, or engine. This is generally referred to as the execution engine. As of APIM 4.0, there is support for both the v2 and v4 Gravitee API definitions, where v2 API definitions run on the legacy execution engine and v4 API definitions run on the reactive execution engine.
 
