@@ -6,6 +6,28 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.5 - August 29, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Can't get dynamic roles for the user [#10679](https://github.com/gravitee-io/issues/issues/10679)
+* LDAP connection leak [#10736](https://github.com/gravitee-io/issues/issues/10736)
+* Ciba notifier custom header config  [#10739](https://github.com/gravitee-io/issues/issues/10739)
+* Unable to configure IDP Http Body request [#10740](https://github.com/gravitee-io/issues/issues/10740)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.4 - August 15, 2025
 
 <details>
