@@ -83,7 +83,7 @@
 * [Administration](using-the-product/administration/README.md)
   * [Administering organizations and environments](using-the-product/administration/administering-organizations-and-environments.md)
   * [Managing user accounts and user permissions](using-the-product/administration/user-management-and-permissions.md)
-  * [Contacting Support](using-the-product/administration/support.md)
+  * [Support](using-the-product/administration/support.md)
 * [Managing your APIs with Gravitee API Management](using-the-product/managing-your-apis-with-gravitee-api-management/README.md)
   * [Creating and importing APIs with Gravitee API Management](using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/README.md)
     * [Importing APIs to the Gravitee Gateway](using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/import-apis.md)
