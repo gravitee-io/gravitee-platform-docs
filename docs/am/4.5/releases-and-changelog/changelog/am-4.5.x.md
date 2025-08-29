@@ -4,23 +4,19 @@ description: >-
   patch AM 4.5.x releases
 ---
 
+# AM 4.5.x
+
 {% hint style="info" %}
 When managing deployments using Helm, please note that the default startup, liveness, and readiness probes now use the httpGet method by default to request the internal API on the `/_node/health` endpoint. As a result, the internal API listens on `0.0.0.0` to allow the kubelet to check the component's status. If you don't provide custom probe definitions and have explicitly defined either the `api.http.services.core.http.host` or the `gateway.http.services.core.http.host`, ensure the value is set to `0.0.0.0`; otherwise, the probes will fail.
 {% endhint %}
 
-# AM 4.5.x
+## AM 4.5.x
 
-## Gravitee Access Management 4.5.25 - August 29, 2025
+### Gravitee Access Management 4.5.25 - August 29, 2025
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
-
-
-
-
 
 **Other**
 
@@ -30,8 +26,21 @@ When managing deployments using Helm, please note that the default startup, live
 
 </details>
 
+### Gravitee Access Management 4.5.24 - August 15, 2025
 
-## Gravitee Access Management 4.5.23 - August 1, 2025
+<details>
+
+<summary>Bug fixes</summary>
+
+**Other**
+
+* Can't request on values containing + char using filters for searching users [#10495](https://github.com/gravitee-io/issues/issues/10495)
+* Group search base in LDAP Provider in UI does not reflect backend value [#10668](https://github.com/gravitee-io/issues/issues/10668)
+* LDAP connection leak [#10736](https://github.com/gravitee-io/issues/issues/10736)
+
+</details>
+
+### Gravitee Access Management 4.5.23 - August 1, 2025
 
 <details>
 
@@ -40,10 +49,6 @@ When managing deployments using Helm, please note that the default startup, live
 **Gateway**
 
 * Duplicate Key collection errors caused by the mongo Audit Reporter [#10670](https://github.com/gravitee-io/issues/issues/10670)
-
-
-
-
 
 **Other**
 
@@ -56,20 +61,15 @@ When managing deployments using Helm, please note that the default startup, live
 
 </details>
 
-
-## Gravitee Access Management 4.5.22 - July 18, 2025
+### Gravitee Access Management 4.5.22 - July 18, 2025
 
 <details>
 
 <summary>Bug fixes</summary>
 
-
-
 **Management API**
 
 * GET /domain/users with parameter size=0 brings back all users [#10661](https://github.com/gravitee-io/issues/issues/10661)
-
-
 
 **Other**
 
@@ -77,8 +77,7 @@ When managing deployments using Helm, please note that the default startup, live
 
 </details>
 
-
-## Gravitee Access Management 4.5.21 - July 4, 2025
+### Gravitee Access Management 4.5.21 - July 4, 2025
 
 <details>
 
@@ -88,16 +87,9 @@ When managing deployments using Helm, please note that the default startup, live
 
 * Manage Multiple AndroidKey Root CA [#10658](https://github.com/gravitee-io/issues/issues/10658)
 
-
-
-
-
-
-
 </details>
 
-
-## Gravitee Access Management 4.5.20 - July 1, 2025
+### Gravitee Access Management 4.5.20 - July 1, 2025
 
 <details>
 
@@ -108,8 +100,7 @@ When managing deployments using Helm, please note that the default startup, live
 * Cookie Based remember device: it is now possible to use a new DeviceIdentifier plugin based on cookie instead of fingerprint.
 
 {% hint style="info" %}
-If the page templates have been customized, it is necessary to include the JavaScript scripts related to this new plugin.
-For login, reset_password, registration and registration_confirmation, please add:
+If the page templates have been customized, it is necessary to include the JavaScript scripts related to this new plugin. For login, reset\_password, registration and registration\_confirmation, please add:
 
 ```
 <script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{assets/js/device-type-v1.js}"></script>
@@ -121,9 +112,10 @@ For login, reset_password, registration and registration_confirmation, please ad
         $("#form").append('<input type="hidden" name="deviceType" value="' + retrievePlatform(window.navigator) + '"/>');
     });
 </script>
-````
+```
 
-For webauthn_login, please add :
+For webauthn\_login, please add :
+
 ```
 <script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:src="@{../assets/js/device-type-v1.js}"></script>
 <script th:if="${rememberDeviceIsActive && deviceIdentifierProvider == 'CookieDeviceIdentifier'}" th:attr="nonce=${script_inline_nonce}">
@@ -141,26 +133,23 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 </details>
 
-
 <details>
 
 <summary>Bug fixes</summary>
-
 
 **Other**
 
 * add liquibase logger in INFO by default [#10567](https://github.com/gravitee-io/issues/issues/10567)
 * Improve users search queries from database in am management UI/API. [#10573](https://github.com/gravitee-io/issues/issues/10573)
-* [FC] update the sandbox urls [#10636](https://github.com/gravitee-io/issues/issues/10636)
+* \[FC] update the sandbox urls [#10636](https://github.com/gravitee-io/issues/issues/10636)
 
 {% hint style="info" %}
- In [#10573](https://github.com/gravitee-io/issues/issues/10573) a new configuration option is introduced to disable case-insensitive search in MongoDB. Starting from AM 4.9.0, searches will become case-sensitive by default. If you are currently experiencing search performance issues, you can disable case-insensitive search by setting the legacy.mongodb.regexCaseInsensitive property to false in the gravitee.yaml file, or by using the environment variable gravitee_legacy_mongodb_regexCaseInsensitive=false
+In [#10573](https://github.com/gravitee-io/issues/issues/10573) a new configuration option is introduced to disable case-insensitive search in MongoDB. Starting from AM 4.9.0, searches will become case-sensitive by default. If you are currently experiencing search performance issues, you can disable case-insensitive search by setting the legacy.mongodb.regexCaseInsensitive property to false in the gravitee.yaml file, or by using the environment variable gravitee\_legacy\_mongodb\_regexCaseInsensitive=false
 {% endhint %}
 
 </details>
 
-
-## Gravitee Access Management 4.5.19 - June 20, 2025
+### Gravitee Access Management 4.5.19 - June 20, 2025
 
 <details>
 
@@ -174,14 +163,9 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 * Users cannot view the accessPoint field in the domain audit logs if they do not have a domain role permission [#10602](https://github.com/gravitee-io/issues/issues/10602)
 
-
-
-
-
 </details>
 
-
-## Gravitee Access Management 4.5.18 - June 9, 2025
+### Gravitee Access Management 4.5.18 - June 9, 2025
 
 <details>
 
@@ -191,18 +175,14 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 * Improve user login logs [#10588](https://github.com/gravitee-io/issues/issues/10588)
 
-
-
 **Other**
 
 * OpenAPI spec for listDomains is not correct [#10591](https://github.com/gravitee-io/issues/issues/10591)
-* [R2DBC] version 1.0.2 of SQLServer driver not working [#10565](https://github.com/gravitee-io/issues/issues/10565)
-
+* \[R2DBC] version 1.0.2 of SQLServer driver not working [#10565](https://github.com/gravitee-io/issues/issues/10565)
 
 </details>
 
-
-## Gravitee Access Management 4.5.17 - May 28, 2025
+### Gravitee Access Management 4.5.17 - May 28, 2025
 
 <details>
 
@@ -214,31 +194,22 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 * When username contains space the token generation fails [#10569](https://github.com/gravitee-io/issues/issues/10569)
 * PeerCertificate not interpreted properly when it provided by header [#10586](https://github.com/gravitee-io/issues/issues/10586)
 
-
-
-
-
 **Other**
 
 * Access Gateway - X-Request header usage [#10552](https://github.com/gravitee-io/issues/issues/10552)
 
 </details>
 
-
-## Gravitee Access Management 4.5.16 - May 13, 2025
+### Gravitee Access Management 4.5.16 - May 13, 2025
 
 <details>
 
 <summary>Bug fixes</summary>
 
-
-
 **Management API**
 
 * Users and Groups metadata not displayed for /members endpoint [#10515](https://github.com/gravitee-io/issues/issues/10515)
 * Email notification fails when user doesn't have firstName [#10536](https://github.com/gravitee-io/issues/issues/10536)
-
-
 
 **Other**
 
@@ -246,8 +217,7 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 </details>
 
-
-## Gravitee Access Management 4.5.15 - May 6, 2025
+### Gravitee Access Management 4.5.15 - May 6, 2025
 
 <details>
 
@@ -255,8 +225,7 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 **Gateway**
 
-* Filter audit type  [#10518](https://github.com/gravitee-io/issues/issues/10518)
-
+* Filter audit type [#10518](https://github.com/gravitee-io/issues/issues/10518)
 
 **Other**
 
@@ -266,8 +235,7 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 </details>
 
-
-## Gravitee Access Management 4.5.14 - April 25, 2025
+### Gravitee Access Management 4.5.14 - April 25, 2025
 
 <details>
 
@@ -277,7 +245,6 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 * MFA "Remember Device" error when using CAS IDP [#10493](https://github.com/gravitee-io/issues/issues/10493)
 
-
 **Other**
 
 * GIS claim can be overridden with custom claim [#10472](https://github.com/gravitee-io/issues/issues/10472)
@@ -285,8 +252,7 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 </details>
 
-
-## Gravitee Access Management 4.5.13 - April 11, 2025
+### Gravitee Access Management 4.5.13 - April 11, 2025
 
 <details>
 
@@ -297,33 +263,30 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 * Problem with API management console application creation/update and DCR [#10232](https://github.com/gravitee-io/issues/issues/10232)
 * Login button remains disabled when using a password manager [#10411](https://github.com/gravitee-io/issues/issues/10411)
 * Setting max consecutive letters to 0 in password policies using mapi displays unnecessary password requirement [#10416](https://github.com/gravitee-io/issues/issues/10416)
-* Unable to use id_token when configuring Azure though OpenId form [#10453](https://github.com/gravitee-io/issues/issues/10453)
+* Unable to use id\_token when configuring Azure though OpenId form [#10453](https://github.com/gravitee-io/issues/issues/10453)
 * Using of Redis on Production and Crash situation [#10454](https://github.com/gravitee-io/issues/issues/10454)
-* Error handling error=session_expired in Login Form [#10460](https://github.com/gravitee-io/issues/issues/10460)
+* Error handling error=session\_expired in Login Form [#10460](https://github.com/gravitee-io/issues/issues/10460)
 * EL for language entries not resolving correctly [#10465](https://github.com/gravitee-io/issues/issues/10465)
-* Resilient mode is failing  [#10474](https://github.com/gravitee-io/issues/issues/10474)
+* Resilient mode is failing [#10474](https://github.com/gravitee-io/issues/issues/10474)
 
 **Management API**
 
 * Prevent Ogranization IDP selection to send null [#10444](https://github.com/gravitee-io/issues/issues/10444)
 * Fix audit log on user login failed [#10463](https://github.com/gravitee-io/issues/issues/10463)
 
-
-
 **Other**
 
 * Unable to save Group Mapper for Social IDP at organization level in AM UI [#10403](https://github.com/gravitee-io/issues/issues/10403)
 * Error in /ciba/authenticate/callback [#10412](https://github.com/gravitee-io/issues/issues/10412)
 * MinLength value can be greater than maxLength value in a password policy when using the mapi [#10417](https://github.com/gravitee-io/issues/issues/10417)
-* [AM][4.5.11] Error when character "ë" in a token [#10418](https://github.com/gravitee-io/issues/issues/10418)
-* Can't update SAML SP certificate in UI application SAML tab  [#10442](https://github.com/gravitee-io/issues/issues/10442)
+* \[AM]\[4.5.11] Error when character "ë" in a token [#10418](https://github.com/gravitee-io/issues/issues/10418)
+* Can't update SAML SP certificate in UI application SAML tab [#10442](https://github.com/gravitee-io/issues/issues/10442)
 * Group Mapper not apply with JDBC [#10445](https://github.com/gravitee-io/issues/issues/10445)
 * Management API does not check if user exists on domain when added to a group on creation of the group [#10468](https://github.com/gravitee-io/issues/issues/10468)
 
 </details>
 
-
-## Gravitee Access Management 4.5.12 - March 17, 2025
+### Gravitee Access Management 4.5.12 - March 17, 2025
 
 <details>
 
@@ -331,19 +294,12 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 
 **Gateway**
 
-* MFA Challenge policy doesn't work when multiple redirect_uri are declared [#10407](https://github.com/gravitee-io/issues/issues/10407)
+* MFA Challenge policy doesn't work when multiple redirect\_uri are declared [#10407](https://github.com/gravitee-io/issues/issues/10407)
 * Authentication fails when MFA Challenge policy is used [#10421](https://github.com/gravitee-io/issues/issues/10421)
-
-
-
-
-
-
 
 </details>
 
-
-## Gravitee Access Management 4.5.11 - March 11, 2025
+### Gravitee Access Management 4.5.11 - March 11, 2025
 
 <details>
 
@@ -354,20 +310,12 @@ If FingerprintJS Community edition is currently used, you can use the cookie man
 * RememberDevice issue with uBlock [#10388](https://github.com/gravitee-io/issues/issues/10388)
 * Fix regression on redirect URL [#10404](https://github.com/gravitee-io/issues/issues/10404)
 
-
-
-
-
-
-
 </details>
 
-
-## Gravitee Access Management 4.5.10 - February 28, 2025
+### Gravitee Access Management 4.5.10 - February 28, 2025
 
 {% hint style="warning" %}
-This version contains a regression introduced by [#10344](https://github.com/gravitee-io/issues/issues/10344).
-Please do not install this version if you are using Access Management to authenticate users on mobile applications.
+This version contains a regression introduced by [#10344](https://github.com/gravitee-io/issues/issues/10344). Please do not install this version if you are using Access Management to authenticate users on mobile applications.
 {% endhint %}
 
 <details>
@@ -384,18 +332,15 @@ Please do not install this version if you are using Access Management to authent
 
 * Remove default baseURL for loadPreAuthUserResource in HttpIdentityProvider [#10361](https://github.com/gravitee-io/issues/issues/10361)
 
-
-
 **Other**
 
 * Error with MFA (/resetPassword page) [#10341](https://github.com/gravitee-io/issues/issues/10341)
-* [AM][4.4.11] French language in email not working  [#10349](https://github.com/gravitee-io/issues/issues/10349)
+* \[AM]\[4.4.11] French language in email not working [#10349](https://github.com/gravitee-io/issues/issues/10349)
 * Lors d'une redemande d'OPT, même OTP [#10374](https://github.com/gravitee-io/issues/issues/10374)
 
 </details>
 
-
-## Gravitee Access Management 4.5.9 - February 17, 2025
+### Gravitee Access Management 4.5.9 - February 17, 2025
 
 <details>
 
@@ -404,14 +349,10 @@ Please do not install this version if you are using Access Management to authent
 **Gateway**
 
 * Update AM documentation and OpenAPI spec [#10299](https://github.com/gravitee-io/issues/issues/10299)
-* [CIBA] Http Authentication Device Notifier hide some scope [#10309](https://github.com/gravitee-io/issues/issues/10309)
+* \[CIBA] Http Authentication Device Notifier hide some scope [#10309](https://github.com/gravitee-io/issues/issues/10309)
 * No logs from InvalidGrantException in the Audits in the UI [#10313](https://github.com/gravitee-io/issues/issues/10313)
 * No logs from InvalidGrantException in the Audits in the UI [#10314](https://github.com/gravitee-io/issues/issues/10314)
 * Error with MFA (Stuck in a Loop) [#10317](https://github.com/gravitee-io/issues/issues/10317)
-
-
-
-
 
 **Other**
 
@@ -419,8 +360,7 @@ Please do not install this version if you are using Access Management to authent
 
 </details>
 
-
-## Gravitee Access Management 4.5.8 - January 31, 2025
+### Gravitee Access Management 4.5.8 - January 31, 2025
 
 <details>
 
@@ -430,18 +370,13 @@ Please do not install this version if you are using Access Management to authent
 
 * GIS reference not removed from session with prompt=login [#10292](https://github.com/gravitee-io/issues/issues/10292)
 
-
-
-
-
 **Other**
 
 * Double quote prevent HTTP Provider to authenticate [#10277](https://github.com/gravitee-io/issues/issues/10277)
 
 </details>
 
-
-## Gravitee Access Management 4.5.7 - January 16, 2025
+### Gravitee Access Management 4.5.7 - January 16, 2025
 
 <details>
 
@@ -451,11 +386,9 @@ Please do not install this version if you are using Access Management to authent
 
 * Access token is generated from refresh token of deactivated user [#10258](https://github.com/gravitee-io/issues/issues/10258)
 
-
-
 **Console**
 
-* Bug Affichage : Administrative Roles box list illisible.  [#10256](https://github.com/gravitee-io/issues/issues/10256)
+* Bug Affichage : Administrative Roles box list illisible. [#10256](https://github.com/gravitee-io/issues/issues/10256)
 * Memory user provider in fresh install has no permissions/roles [#10257](https://github.com/gravitee-io/issues/issues/10257)
 * Audit log details differ between roles [#10266](https://github.com/gravitee-io/issues/issues/10266)
 
@@ -465,16 +398,11 @@ Please do not install this version if you are using Access Management to authent
 
 </details>
 
-
-## Gravitee Access Management 4.5.6 - January 3, 2025
+### Gravitee Access Management 4.5.6 - January 3, 2025
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
-
-
 
 **Console**
 
@@ -486,18 +414,11 @@ Please do not install this version if you are using Access Management to authent
 
 </details>
 
-
-## Gravitee Access Management 4.5.5 - December 20, 2024
+### Gravitee Access Management 4.5.5 - December 20, 2024
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
-
-
-
-
 
 **Other**
 
@@ -506,8 +427,7 @@ Please do not install this version if you are using Access Management to authent
 
 </details>
 
-
-## Gravitee Access Management 4.5.4 - December 12, 2024
+### Gravitee Access Management 4.5.4 - December 12, 2024
 
 <details>
 
@@ -516,8 +436,7 @@ Please do not install this version if you are using Access Management to authent
 **Gateway**
 
 * SMSFactorProvider - Invalid phone number [#10193](https://github.com/gravitee-io/issues/issues/10193)
-* [4.5.1] Scope OpenID on client credential and JWT bearer [#10196](https://github.com/gravitee-io/issues/issues/10196)
-
+* \[4.5.1] Scope OpenID on client credential and JWT bearer [#10196](https://github.com/gravitee-io/issues/issues/10196)
 
 **Console**
 
@@ -529,8 +448,7 @@ Please do not install this version if you are using Access Management to authent
 
 </details>
 
-
-## Gravitee Access Management 4.5.3 - November 22, 2024
+### Gravitee Access Management 4.5.3 - November 22, 2024
 
 <details>
 
@@ -540,33 +458,24 @@ Please do not install this version if you are using Access Management to authent
 
 * Users are returned randomly via SCIM [#10147](https://github.com/gravitee-io/issues/issues/10147)
 
-
-
-
-
 **Other**
 
-* [Helm Chart] Upgrader job can't be deployed [#10154](https://github.com/gravitee-io/issues/issues/10154)
+* \[Helm Chart] Upgrader job can't be deployed [#10154](https://github.com/gravitee-io/issues/issues/10154)
 * Improve WebAuthn Credential search indexes [#10165](https://github.com/gravitee-io/issues/issues/10165)
 
 </details>
 
-
-## Gravitee Access Management 4.5.2 - November 8, 2024
+### Gravitee Access Management 4.5.2 - November 8, 2024
 
 <details>
 
 <summary>Bug fixes</summary>
-
-
 
 **Management API**
 
 * Target not displaying on audit log for delete events [#10069](https://github.com/gravitee-io/issues/issues/10069)
 * Able to create a admin service user via the create domain user endpoint [#10127](https://github.com/gravitee-io/issues/issues/10127)
 * System reporter can be deleted via API [#10155](https://github.com/gravitee-io/issues/issues/10155)
-
-
 
 **Other**
 
@@ -575,8 +484,7 @@ Please do not install this version if you are using Access Management to authent
 
 </details>
 
-
-## Gravitee Access Management 4.5.1 - October 25, 2024
+### Gravitee Access Management 4.5.1 - October 25, 2024
 
 <details>
 
@@ -598,7 +506,7 @@ Please do not install this version if you are using Access Management to authent
 
 </details>
 
-## Gravitee Access Management 4.5 - October 10, 2024
+### Gravitee Access Management 4.5 - October 10, 2024
 
 {% hint style="warning" %}
 AM 4.5.0 introduce some deprecations which may have an impact on your systems. Please refer to the "Deprecations" section here after for more details.
@@ -608,19 +516,19 @@ AM 4.5.0 introduce some deprecations which may have an impact on your systems. P
 
 <summary>What's new</summary>
 
-### Repositories
+#### Repositories
 
 A new repository scope named `gateway` has been introduced in AM 4.5.0.
 
-### Token generation
+#### Token generation
 
 For all domains created from AM 4.5.0 the `sub` claim will not represent the user internalID as it was the case previously.
 
-### AWS Certificate plugin
+#### AWS Certificate plugin
 
 An AWS certificate plugin is now available as EE feature. Thanks to this plugin you can load certificate provided by AWS Secret Manager.
 
-### Reporters
+#### Reporters
 
 Reporters have been improved in this new version of Access Management:
 
@@ -628,22 +536,21 @@ Reporters have been improved in this new version of Access Management:
 * Events for domain creation and domain deletion are now published in the organization reporters.
 * The kafka reporter has been improved to manage Schema Registry
 
-### OpenID
+#### OpenID
 
 We improved the OAuth2 / OpenID specification more strictly regarding the usage of the response\_mode paramet
 
-### Group mapper
+#### Group mapper
 
 Identity Providers now provide a [Group Mapper](../../guides/identity-providers/user-and-role-mapping.md) section.
 
-### Cache Layer
+#### Cache Layer
 
 A cache layer has been introduce to limit the Database access during the user authentication flow.
 
-### Upgrader framework
+#### Upgrader framework
 
-AM now provide the same upgrader framework as APIM meaning that from 4.5.0, no manual scripts need to be executed before an upgrade.
-When AM is deployed on kuberneetes using Helm, the value `api.upgrader` needs to be set to `true` so before starting the Management API or the Gateway the helm chart will deploy a job to execute the upgraders. 
+AM now provide the same upgrader framework as APIM meaning that from 4.5.0, no manual scripts need to be executed before an upgrade. When AM is deployed on kuberneetes using Helm, the value `api.upgrader` needs to be set to `true` so before starting the Management API or the Gateway the helm chart will deploy a job to execute the upgraders.
 
 </details>
 
@@ -651,17 +558,17 @@ When AM is deployed on kuberneetes using Helm, the value `api.upgrader` needs to
 
 <summary>Breaking Changes</summary>
 
-### Redirect Uris
+#### Redirect Uris
 
 On application creation or update `redirect_uris` is now required for application with type WEB, NATIVE or SPA.
 
-### Token generation
+#### Token generation
 
 For all domains created from AM 4.5.0 the `sub` claim will not represent the user internalID as it was the case previously. The `sub` value is now an opaque value computed based on the user externalId and the identity provider identifier. Even if this value is opaque, it will remain the same for a given user across multiple token generations as per the requirement of the OIDC specification.
 
 <mark style="color:red;">**NOTE:**</mark> For all domains created in previous version, the sub claim remains the user internalId.
 
-### Repositories
+#### Repositories
 
 A new repository scope named `gateway` has been introduced in AM 4.5.0.
 
@@ -723,7 +630,7 @@ If you were using environment variable to provide database settings remember to:
 
 <summary>Deprecations</summary>
 
-### Audits
+#### Audits
 
 For kafka and File reporters, the `status` attribute has been deprecated for removal. The recommended way to get access to the status is now the `outcome` structure which contains the `status` and a `message` fields. If you are using one of these reporter, please update your consumer to rely on the outcome structure
 
