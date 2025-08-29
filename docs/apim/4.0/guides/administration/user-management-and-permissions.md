@@ -23,7 +23,7 @@ By default, **System Admins** (a role created by Gravitee) are the only roles th
 
 ### Roles
 
-{% @arcade/embed flowId="KyYnhU8h2uPwM46fbMdk" url="https://app.arcade.software/share/KyYnhU8h2uPwM46fbMdk" %}
+{% @arcade/embed flowid="KyYnhU8h2uPwM46fbMdk" url="https://app.arcade.software/share/KyYnhU8h2uPwM46fbMdk" %}
 
 Gravitee API Management (APIM) allows you to create custom user roles to fit your needs. A role is a functional group of permissions, and can be defined at the Organization, Environment, API, and/or Application levels.
 
@@ -156,8 +156,8 @@ To create a custom "Writer" role, follow these steps:
 6. Give the role a description, such as **"These users can create, update, read, and delete API documentation."**
 7. (Optional) If you want this to be the default role for new users, toggle **Default role** ON or OFF.
 8. Define the following permissions:\
-   **`Read`** permissions on **`DEFINITION`** and **`GATEWAY_DEFINITION`** : this allows the user to see the API in the API list\
-   **`CRUD`** permissions on **`DOCUMENTATION`**: this allows the user to write new API documentation
+   &#xNAN;**`Read`** permissions on **`DEFINITION`** and **`GATEWAY_DEFINITION`** : this allows the user to see the API in the API list\
+   &#xNAN;**`CRUD`** permissions on **`DOCUMENTATION`**: this allows the user to write new API documentation
 9.  Once you are done, select **Create.** \\
 
     <figure><img src="../../.gitbook/assets/Writer role.gif" alt=""><figcaption><p>Define the "Writer" role permissions</p></figcaption></figure>
