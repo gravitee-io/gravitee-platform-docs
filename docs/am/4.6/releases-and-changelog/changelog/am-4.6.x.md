@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.19 - August 29, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Can't get dynamic roles for the user [#10679](https://github.com/gravitee-io/issues/issues/10679)
+* LDAP connection leak [#10736](https://github.com/gravitee-io/issues/issues/10736)
+* Unable to configure IDP Http Body request [#10740](https://github.com/gravitee-io/issues/issues/10740)
+
+</details>
+
+
 ## Gravitee Access Management 4.6.18 - August 15, 2025
 
 <details>

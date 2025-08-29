@@ -35,7 +35,7 @@ In Gravitee, you can configure several API proxy settings. You can use the inter
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="tn8DhyHNq83ZWp8pyqOC" url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" %}
+{% @arcade/embed flowid="tn8DhyHNq83ZWp8pyqOC" url="https://app.arcade.software/share/tn8DhyHNq83ZWp8pyqOC" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -59,7 +59,7 @@ Load balancing is a technique used to distribute incoming traffic across multipl
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="q2cetEPiktDGaSv7t4gM" url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" %}
+{% @arcade/embed flowid="q2cetEPiktDGaSv7t4gM" url="https://app.arcade.software/share/q2cetEPiktDGaSv7t4gM" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -82,7 +82,7 @@ Failover is a mechanism to ensure high availability and reliability of APIs by r
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="VaRhvOcOU39TQb3PtfRd" url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" %}
+{% @arcade/embed flowid="VaRhvOcOU39TQb3PtfRd" url="https://app.arcade.software/share/VaRhvOcOU39TQb3PtfRd" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}
@@ -99,7 +99,7 @@ A health check is a mechanism used to monitor the availability and health of you
 
 {% tabs %}
 {% tab title="Interactive UI exploration" %}
-{% @arcade/embed flowId="awIKYCvN2m1DusBD9W7a" url="https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a" %}
+{% @arcade/embed flowid="awIKYCvN2m1DusBD9W7a" url="https://app.arcade.software/share/awIKYCvN2m1DusBD9W7a" %}
 {% endtab %}
 
 {% tab title="Text descriptions" %}

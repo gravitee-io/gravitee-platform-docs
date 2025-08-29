@@ -1,5 +1,11 @@
 # Create an API
 
+## Overview&#x20;
+
+This guide explains how to create an API with the Gravitee APIM console.
+
+## Create an API
+
 1.  From the Dashboard, click **APIs**.\
 
 

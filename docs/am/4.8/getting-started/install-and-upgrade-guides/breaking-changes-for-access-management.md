@@ -10,6 +10,14 @@ description: >-
 
 Here are the breaking changes from versions 4.X of Gravitee.
 
+
+
+### 4.8.0
+
+**Client Secret Renewal**&#x20;
+
+The handling of multiple client secrets has been introduced. To renew Application Client Secret, `clientSecretId` needs to be specified `/application/{applicationId}/secrets/{clientSecretId}/_renew`.
+
 ### 4.7.0
 
 **Domain Creation**
