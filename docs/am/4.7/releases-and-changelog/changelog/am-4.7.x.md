@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.13 - August 29, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* Can't get dynamic roles for the user [#10679](https://github.com/gravitee-io/issues/issues/10679)
+* LDAP connection leak [#10736](https://github.com/gravitee-io/issues/issues/10736)
+
+</details>
+
+
 ## Gravitee Access Management 4.7.11 - August 15, 2025
 
 <details>
