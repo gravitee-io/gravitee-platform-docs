@@ -1,5 +1,12 @@
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.6 - September 1, 2025
+<details>
+<summary>Security</summary>
+
+* Harden authorization controls for the automation API [#10771](https://github.com/gravitee-io/issues/issues/10771)
+</details>
+ 
 ## Gravitee API Management 4.8.5 - August 29, 2025
 <details>
 
