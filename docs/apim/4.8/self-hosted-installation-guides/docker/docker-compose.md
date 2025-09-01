@@ -227,7 +227,7 @@ Gravitee API Management may take a few minutes to initialize.
 * To open the APIM Console, go to `http://localhost:8084`. The default username and password are both `admin`.
 * To open the Developer Portal, go to `http://localhost:8085`. The default username and password are both `admin`.
 
-### Enable Federation <a href="#enable-federation" id="enable-federation"></a>
+## Enable Federation <a href="#enable-federation" id="enable-federation"></a>
 
 Federation is disabled by default for security and performance reasons. You can enable Federation by adding environment variables to your existing Docker Compose configuration. If you plan to run multiple APIM instances for high availability, configure cluster mode using Hazelcast to ensure data synchronization across all instances.
 
@@ -236,7 +236,7 @@ To enable Federation, complete the following steps:
 * [Enable Federation with Docker Compose](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-compose#enable-federation-with-docker-compose)
 * If you are running multiple replicas of APIM for high availability, [Set up cluster mode](https://documentation.gravitee.io/apim/~/changes/324/self-hosted-installation-guides/docker/docker-compose#set-up-cluster-mode)
 
-#### Enable Federation with Docker Compose <a href="#enable-federation-with-docker-compose" id="enable-federation-with-docker-compose"></a>
+### Enable Federation with Docker Compose <a href="#enable-federation-with-docker-compose" id="enable-federation-with-docker-compose"></a>
 
 To use Federation, you need to add an environment variable to the Management API section of your `docker-compose-apim.yml` file, and then restart the service.
 
@@ -302,7 +302,7 @@ Docker containers read environment variables only during container startup. The 
     docker compose -f docker-compose-apim.yml up -d
     ```
 
-#### Configure Federation Agent <a href="#configure-federation-agent" id="configure-federation-agent"></a>
+### Configure Federation Agent <a href="#configure-federation-agent" id="configure-federation-agent"></a>
 
 1. When running federation agents in Docker alongside your APIM deployment,configure the agent to connect to your Management API. To configure the agent environment, create a `.env` file for your federation agent with the following configuration. The following configuration example is for Confluent Platform integration:&#x20;
 
@@ -538,7 +538,7 @@ This example shows configuration for Confluent Platform integration. For Solace 
   * Solace: `graviteeio/federation-agent-solace:latest`
   * AWS API Gateway: `graviteeio/federation-agent-aws-api-gateway:latest`
 
-#### Set up cluster mode <a href="#set-up-cluster-mode" id="set-up-cluster-mode"></a>
+### Set up cluster mode <a href="#set-up-cluster-mode" id="set-up-cluster-mode"></a>
 
 If APIM is running with high availability, you need to set up cluster mode. To set up cluster mode, complete the following steps::
 
