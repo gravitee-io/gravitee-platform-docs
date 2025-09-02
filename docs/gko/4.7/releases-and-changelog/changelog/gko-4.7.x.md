@@ -1,5 +1,11 @@
 # GKO 4.7.x
 
+## Gravitee Kubernetes Operator 4.7.13 - September 2, 2025
+
+There is nothing new in version 4.7.13.
+
+> This version was generated to keep the kubernetes operator in sync with other gravitee products.
+> 
 ## Gravitee Kubernetes Operator 4.7.12 - August 22, 2025
     
 <details>
