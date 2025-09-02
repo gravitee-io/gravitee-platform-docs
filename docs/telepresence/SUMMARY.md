@@ -72,3 +72,4 @@
 * [Upgrade Process](upgrade-process.md)
 * [FAQ for v2.15](faq-for-v2.15.md)
 * [Canary Deployments](canary-deployments.md)
+* [Developer-centric GitOps-style deployment](developer-centric-gitops-style-deployment.md)
