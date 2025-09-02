@@ -226,7 +226,7 @@ To enable Federation, complete the following steps:
 
 **Configure Federation Agent**
 
-When running federation agents in Docker alongside your APIM deployment, you need to configure the agent to connect to your Management API. To configure the agent environment, create a `.env` file for your federation agent with the appropriate configuration for your integration type. For exmaple, this configuration below is for Confluent Platform integration:
+When running federation agents in Docker alongside your APIM deployment, you need to configure the agent to connect to your Management API. To configure the agent environment, create a `.env` file for your federation agent with the appropriate configuration for your integration type. For example, this configuration below is for Confluent Platform integration:
 
 ```bash
 ## GRAVITEE PARAMETERS ##

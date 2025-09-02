@@ -41,7 +41,7 @@ If you don't have an existing AKS cluster, create one by following these steps:
     # <node-count>: Number of nodes (e.g., 2 for testing, 3+ for production)
     # <node-vm-size>: VM size (e.g., "Standard_B2s" for testing, "Standard_D2s_v3" for production)
 
-    az aks create \
+    az AKS create \
       --resource-group <resource-group-name> \
       --name <cluster-name> \
       --node-count <node-count> \
@@ -60,7 +60,7 @@ This process takes 5-10 minutes to complete.
     ```bash
     # Get credentials to connect kubectl to your cluster
     # Replace with your actual resource group and cluster names
-    az aks get-credentials --resource-group <resource-group-name> --name <cluster-name>
+    az AKS get-credentials --resource-group <resource-group-name> --name <cluster-name>
 
     # Verify connection by listing nodes
     kubectl get nodes

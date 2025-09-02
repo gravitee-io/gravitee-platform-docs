@@ -60,9 +60,9 @@ Defines a reference to a [Kubernetes ConfigMap](https://kubernetes.io/docs/conce
 
 | **Field**   | **Type** | **Description**                                                              |
 | ----------- | -------- | ---------------------------------------------------------------------------- |
-| `name`      | `string` | Name of the referenced Kuberntes `ConfigMap`.                                |
-| `namespace` | `string` | Namespace of the referenced Kuberntes `ConfigMap`.                           |
-| `key`       | `string` | The key in the referenced Kuberntes `ConfigMap` to pull the rules data from. |
+| `name`      | `string` | Name of the referenced Kubernetes `ConfigMap`.                                |
+| `namespace` | `string` | Namespace of the referenced Kubernetes `ConfigMap`.                           |
+| `key`       | `string` | The key in the referenced Kubernetes `ConfigMap` to pull the rules data from. |
 
 ### Web Application Firewall Usage Guides
 

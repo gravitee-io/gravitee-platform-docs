@@ -298,7 +298,7 @@ telepresenceAPI:
 
 ## Workstation Per-Cluster Configuration
 
-Configuration that is specific to a cluster can also be overriden per-workstation by modifying your `$KUBECONFIG` file. It is recommended that you do not do this, and instead rely on upstream values provided to the Traffic Manager. This ensures that all users that connect to the Traffic Manager will have the same routing and DNS resolution behavior. An important exception to this is the [`manager.namespace` configuration](laptop-side-configuration.md#manager) which must be set locally.
+Configuration that is specific to a cluster can also be overridden per-workstation by modifying your `$KUBECONFIG` file. It is recommended that you do not do this, and instead rely on upstream values provided to the Traffic Manager. This ensures that all users that connect to the Traffic Manager will have the same routing and DNS resolution behavior. An important exception to this is the [`manager.namespace` configuration](laptop-side-configuration.md#manager) which must be set locally.
 
 ### Values
 

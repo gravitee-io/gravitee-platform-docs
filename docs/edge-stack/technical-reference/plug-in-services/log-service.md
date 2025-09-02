@@ -2,7 +2,7 @@
 
 By default, Ambassador Edge Stack puts the access logs on stdout; such that the can be read using `kubectl logs`. The format of those logs, and the local destination of them, can be configured using the [`envoy_log_` settings in the `ambassador Module`](../using-custom-resources/the-module-resource.md). However, the options there only allow for logging local to Ambassador Edge Stack's Pod. By configuring a `LogService`, you can configure Ambassador Edge Stack to report its access logs to a remote service, in addition to the usual `ambassador Module` configured logging.
 
-The remote access log service (or ALS) must implement the `AccessLogService` gRPC interface, defined in [Envoy's `als.proto`](https://github.com/emissary-ingress/emissary/blob/master/api/envoy/service/accesslog/v3/als.proto).
+The remote access log service (or ALSO) must implement the `AccessLogService` gRPC interface, defined in [Envoy's `als.proto`](https://github.com/emissary-ingress/emissary/blob/master/api/envoy/service/accesslog/v3/als.proto).
 
 ```yaml
 ---
@@ -35,8 +35,8 @@ spec:
   * `driver: tcp` has no additional configuration; the config must be set as `driver_config: {}`.
   * `driver: http`
     * `additional_log_headers` identifies HTTP headers to include in the access log, and when in the logged-request's lifecycle to include them.
-* `flush_interval_time` is the maximum number of seconds to buffer accesses for before sending them to the ALS. The logs will be flushed to the ALS every time this duration is reached, or when the buffered data reaches `flush_interval_byte_size`, whichever comes first. See the [Envoy documentation on `buffer_flush_interval`](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/access_loggers/grpc/v3/als.proto.html#extensions-access-loggers-grpc-v3-commongrpcaccesslogconfig) for more information.
-* `flush_interval_byte_size` is a soft size limit for the access log buffer. The logs will be flushed to the ALS every time the buffered data reaches this size, or whenever `flush_interval_time` elapses, whichever comes first. See the [Envoy documentation on `buffer_size_bytes`](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/access_loggers/grpc/v3/als.proto.html#extensions-access-loggers-grpc-v3-commongrpcaccesslogconfig) for more information.
+* `flush_interval_time` is the maximum number of seconds to buffer accesses for before sending them to the ALSO. The logs will be flushed to the ALSO every time this duration is reached, or when the buffered data reaches `flush_interval_byte_size`, whichever comes first. See the [Envoy documentation on `buffer_flush_interval`](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/access_loggers/grpc/v3/als.proto.html#extensions-access-loggers-grpc-v3-commongrpcaccesslogconfig) for more information.
+* `flush_interval_byte_size` is a soft size limit for the access log buffer. The logs will be flushed to the ALSO every time the buffered data reaches this size, or whenever `flush_interval_time` elapses, whichever comes first. See the [Envoy documentation on `buffer_size_bytes`](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/access_loggers/grpc/v3/als.proto.html#extensions-access-loggers-grpc-v3-commongrpcaccesslogconfig) for more information.
 * `grpc` must be `true`.
 * `protocol_version` was used in previous versions of Ambassador Edge Stack to control the gRPC service name used to communicate with the `LogService`. Ambassador Edge Stack 3.x is running an updated version of Envoy that has dropped support for the `v2` protocol, so starting in 3.x, if `protocol_version` is not specified, the default value of `v2` will cause an error to be posted and a static response will be returned. Therefore, you must set it to `protocol_version: v3`. If upgrading from a previous version, you will want to set it to `v3` and ensure it is working before upgrading to Emissary-ingress 3.Y. The default value for `protocol_version` remains `v2` in the `getambassador.io/v3alpha1` CRD specifications to avoid making breaking changes outside of a CRD version change. Future versions of CRD's will deprecate it.
 
@@ -47,7 +47,7 @@ spec:
 apiVersion: getambassador.io/v3alpha1
 kind: LogService
 metadata:
-  name: als
+  name: also
 spec:
   service: "als.default:3000"
   driver: http
