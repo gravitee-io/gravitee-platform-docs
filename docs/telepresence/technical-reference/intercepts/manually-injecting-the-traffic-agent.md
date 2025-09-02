@@ -170,7 +170,7 @@ Enter \`telepresence genyaml container --help\` or \`telepresence genyaml volume
 
 #### 2. Creating (or updating) the configmap
 
-The generated configmap entry must be insterted into the `telepresence-agents` `ConfigMap` in the same namespace as the modified `Deployment`. If the `ConfigMap` doesn't exist yet, it can be created using the following command:
+The generated configmap entry must be inserted into the `telepresence-agents` `ConfigMap` in the same namespace as the modified `Deployment`. If the `ConfigMap` doesn't exist yet, it can be created using the following command:
 
 ```console
 $ kubectl create configmap telepresence-agents --from-file=/tmp/my-service
@@ -180,7 +180,7 @@ If it already exists, new entries can be added under the `Data` key using `kubec
 
 #### 3. Injecting the YAML into the Deployment
 
-You need to add the `Deployment` YAML you genereated to include the container and the volume. These are placed as elements of `spec.template.spec.containers`, `spec.template.spec.initContainers`, and `spec.template.spec.volumes` respectively. You also need to modify `spec.template.metadata.annotations` and add the annotation `telepresence.getambassador.io/manually-injected: "true"`. These changes should look like the following:
+You need to add the `Deployment` YAML you generated to include the container and the volume. These are placed as elements of `spec.template.spec.containers`, `spec.template.spec.initContainers`, and `spec.template.spec.volumes` respectively. You also need to modify `spec.template.metadata.annotations` and add the annotation `telepresence.getambassador.io/manually-injected: "true"`. These changes should look like the following:
 
 ```diff
  apiVersion: apps/v1

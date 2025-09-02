@@ -37,9 +37,9 @@ This also means some of the v2 runtime bootstrap flags have been removed as well
 
 With the upgrade to Envoy **1.22**, the V2 Envoy Transport Protocol is no longer supported and has been removed. Ambassador Edge Stack 3.X **only** supports [V3 Envoy API](https://www.envoyproxy.io/docs/envoy/latest/api-v3/api).
 
-The `AuthService`, `RatelimitService`, `LogService` and `ExternalFilters` that use the `grpc` protocol will now need to explicilty set `protocol_version: "v3"`. If not set or set to `v2` then an error will be posted and a static response will be returned.
+The `AuthService`, `RatelimitService`, `LogService` and `ExternalFilters` that use the `grpc` protocol will now need to explicitly set `protocol_version: "v3"`. If not set or set to `v2` then an error will be posted and a static response will be returned.
 
-### 3. Envoy V2 xDS Configration Support Removed
+### 3. Envoy V2 xDS Configuration Support Removed
 
 Envoy can no longer be configured to use the v2 xDS configuration and will always use v3 xDS configuration. This change removes the `AMBASSADOR_ENVOY_API_VERSION` because it no longer configurable and will have no effect.
 

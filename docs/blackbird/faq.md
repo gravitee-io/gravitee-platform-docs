@@ -6,7 +6,7 @@ Blackbird provides the following primary features:
 
 * **Custom API specifications:** Use AI to generate and edit API specifications based on your use case.
 * **API mocks:** Use dynamic or static mocking instances that enable parallel development of your frontend and backend components.
-* **API code generation:** Covert your API specification into boilerplate code to help you get started with testing.
+* **API code generation:** Convert your API specification into boilerplate code to help you get started with testing.
 * **Code run and debug options:** Use a local container that uses rerouted traffic from the cloud to run and debug your code.
 * **Code deployment:** Use a containerized environment to run and test your code in a production-like environment.
 

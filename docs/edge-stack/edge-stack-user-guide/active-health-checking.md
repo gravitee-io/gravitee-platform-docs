@@ -5,7 +5,7 @@ Ambassador Edge Stack provides support for active health checking of upstreams v
 This feature can only be used with the endpoint resolver (see [#the-kubernetes-endpoint-resolver](../technical-reference/ingress-and-load-balancing/service-discovery-and-resolvers.md#the-kubernetes-endpoint-resolver "mention")). This is necessary because the endpoint resolver allows Envoy to be aware of each individual pod in a deployment as opposed to the kubernetes service resolver (see [#the-kubernetes-service-resolver](../technical-reference/ingress-and-load-balancing/service-discovery-and-resolvers.md#the-kubernetes-service-resolver "mention")) where Envoy is only aware of the upstream as a single endpoint. When envoy is aware of the multiple pods in a deployment then it will allow the active health checks to mark an individual pod as unhealthy while the remaining pods are able to serve requests.
 
 {% hint style="warning" %}
-Active health checking configuration wil only function with the[#the-kubernetes-endpoint-resolver](../technical-reference/ingress-and-load-balancing/service-discovery-and-resolvers.md#the-kubernetes-endpoint-resolver "mention"). If configuration for active health checking is provided on a `Mapping` that does not use the endpoint resolver then the health checking configuration will be ignored.
+Active health checking configuration will only function with the[#the-kubernetes-endpoint-resolver](../technical-reference/ingress-and-load-balancing/service-discovery-and-resolvers.md#the-kubernetes-endpoint-resolver "mention"). If configuration for active health checking is provided on a `Mapping` that does not use the endpoint resolver then the health checking configuration will be ignored.
 {% endhint %}
 
 ### Active Health Checking Configuration
@@ -53,7 +53,7 @@ spec:
 * `unhealthy_threshold`: The number of unexpected responses for an upstream pod to be marked as unhealthy. Regardless of the configuration of `unhealthy_threshold`, a single `503` response will mark the upstream as unhealthy until it passes the required number of health checks. This field is optional and defaults to `2`.
 * `healthy_threshold`: The number of expected responses for an unhealthy upstream pod to be marked as healthy and resume handling traffic. This field is optional and defaults to `1`.
 * `interval`: Specifies the interval for how frequently the health check request should be made. It is divided amongst the pods in a deployment. For example, an `interval` of `1s` on a deployment of 5 pods would result in each pod receiving a health check request about every 5 seconds. This field is optional and defaults to `5s` when not configured.
-* `timeout`: Configures the timeout for the health check requests to an upstream. If a health check request fails the timeout it will be considred a failed check and count towards the `unhealthy_threshold`. This field is optional and defaults to `3s`.
+* `timeout`: Configures the timeout for the health check requests to an upstream. If a health check request fails the timeout it will be considered a failed check and count towards the `unhealthy_threshold`. This field is optional and defaults to `3s`.
 * `health_check`: This field is required and provides the configuration for how the health check requests should be made. Either `grpc` or `http` may be configured for this field depending on whether an HTTP or gRPC health check is desired.
 
 #### HTTP `health_check` Configuration

@@ -283,7 +283,7 @@ If you need more flexible and configurable options, Ambassador Edge Stack suppor
 
 **Modify Default Buffer Size**
 
-By default, the Envoy that ships with Ambassador Edge Stack uses a defailt of 1MiB soft limit for an upstream service's read and write buffer limits. This setting allows you to configure that buffer limit. See the [Envoy docs](https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/cluster/v3/cluster.proto.html?highlight=per_connection_buffer_limit_bytes) for more information.
+By default, the Envoy that ships with Ambassador Edge Stack uses a default of 1MiB soft limit for an upstream service's read and write buffer limits. This setting allows you to configure that buffer limit. See the [Envoy docs](https://www.envoyproxy.io/docs/envoy/latest/api-v3/config/cluster/v3/cluster.proto.html?highlight=per_connection_buffer_limit_bytes) for more information.
 
 ```yaml
 buffer_limit_bytes: 5242880 # Sets the default buffer limit to 5 MiB
@@ -582,7 +582,7 @@ You can override the circuit breaker settings for individual `Mapping`s. By defa
 
 * `default_labels` sets default domains and labels to apply to every request.
 
-For more on how to use the default labels, see the [Rate Limit referenc](../../edge-stack-user-guide/rate-limiting/basic-rate-limiting.md#attaching-labels-to-requests)e.
+For more on how to use the default labels, see the [Rate Limit reference](../../edge-stack-user-guide/rate-limiting/basic-rate-limiting.md#attaching-labels-to-requests)e.
 
 **Default load balancer**
 

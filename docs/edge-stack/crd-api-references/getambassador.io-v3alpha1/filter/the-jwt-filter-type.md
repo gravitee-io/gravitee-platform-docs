@@ -123,7 +123,7 @@ Any headers listed will override (not append to) the original request header wit
 
 | **Field**      | **Type**                                                         | **Description**                                                                                                                                                                                                                                                                                          |
 | -------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `realm`        | `string`                                                         | Indicates the scope of protection or the application that is checking the token. By default, this is set to the fully qualified name of the `JWT Filter` as `"{name}.{namespace}"` to identify which filter rejected the error. This can be overriden to provide more relevant information to end-users. |
+| `realm`        | `string`                                                         | Indicates the scope of protection or the application that is checking the token. By default, this is set to the fully qualified name of the `JWT Filter` as `"{name}.{namespace}"` to identify which filter rejected the error. This can be overridden to provide more relevant information to end-users. |
 | `bodyTemplate` | `string` (GoLang Template)                                       | Golang `text/template` string that will be evaluated and used to build the format returned.                                                                                                                                                                                                              |
 | `headers`      | \[][AddHeaderTemplate](the-jwt-filter-type.md#addheadertemplate) | Allows providing additional http response headers for the error response. The current maximum is 16 headers, which aligns with the Gateway-API and modified headers on HTTPRoutes.                                                                                                                       |
 
@@ -137,6 +137,6 @@ Any headers listed will override (not append to) the original request header wit
 * `.request_id` → The Envoy request ID, for correlation (`string`, hidden from `{{ . | json "" }}` unless `.status_code` is in the `5xx` range)
 * `.requestId` → An alias for .request\_id (`string`, hidden from `{{ . | json "" }}`)
 
-Also availabe to the template are [the standard functions available to Go text/templates](https://pkg.go.dev/text/template#hdr-Functions), as well as:
+Also available to the template are [the standard functions available to Go text/templates](https://pkg.go.dev/text/template#hdr-Functions), as well as:
 
 * A `json` function that formats arg2 as JSON, using the arg1 string as the starting indentation. For example, the template `{{ json "indent>" "value" }}` would yield the string `indent>"value"`.

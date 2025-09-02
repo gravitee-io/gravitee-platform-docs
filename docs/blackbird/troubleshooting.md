@@ -103,7 +103,7 @@ If the service is "headless" (using `ClusterIP: None`), then using named ports w
 
 ## Error connecting to GKE or EKS cluster
 
-GKE and EKS require a plugin that utilizes their resepective IAM providers. You will need to install the gke or eks plugins for Telepresence to connect to your cluster.
+GKE and EKS require a plugin that utilizes their respective IAM providers. You will need to install the gke or eks plugins for Telepresence to connect to your cluster.
 
 ## `too many files open` error when running `blackbird cluster connect` on Linux
 

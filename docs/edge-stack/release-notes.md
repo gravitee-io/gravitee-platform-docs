@@ -260,7 +260,7 @@ In previous versions, if multiple Headers/QueryParameters were used in a `v3alph
 
 When the Ambassador agent is being used, it will no longer attempt to collect and report Envoy metrics. In previous versions, Ambassador Edge Stack would always create an Envoy stats sink for the agent as long as the AMBASSADOR\_GRPC\_METRICS\_SINK environment variable was provided. This environment variable was hardcoded on the release manifests and has now been removed and an Envoy stats sink for the agent is no longer created.
 
-#### Removed default enviornment variable \`HOST\_IP\`
+#### Removed default environment variable \`HOST\_IP\`
 
 The environment variable \`HOST\_IP\` has been removed from the default Ambassador Edge Stack deployments and helm charts for simplicity sake. If you use this environment variable, please make sure to update your deployment.
 
@@ -299,7 +299,7 @@ The `ExternalFilter` now supports configuring a CA certificate and/or client cer
 
 #### Deprecation of insteadOfRedirect.filters argument in FilterPolicy
 
-The `insteadOfRedirect.filters` field within the OAuth2 path-specific arguments has been deprecated and it will be fully removed in a future version of Ambassador Edge Stack. Similiar behavior can be accomplished using `onDeny=continue` and chaining a fallback Filter to run.
+The `insteadOfRedirect.filters` field within the OAuth2 path-specific arguments has been deprecated and it will be fully removed in a future version of Ambassador Edge Stack. Similar behavior can be accomplished using `onDeny=continue` and chaining a fallback Filter to run.
 
 #### Upgrade to Envoy 1.25.4
 
@@ -394,7 +394,7 @@ Upgraded base image to alpine-3.17 as part of continued investment in keeping de
 
 #### Upgrade to Envoy 1.24.2
 
-This upgrades Ambassador Edge Stack to be built on Envoy v1.24.2. This update addresses the folowing notable items:\
+This upgrades Ambassador Edge Stack to be built on Envoy v1.24.2. This update addresses the following notable items:\
 \
 \- Updates boringssl to address High CVE-2023-0286\
 \- Updates c-ares dependency to address issue with cname wildcard dns resolution for upstream clusters\
@@ -413,7 +413,7 @@ Second, a bug was fixed in Envoy 1.24 that changes how the upstream clusters dis
 
 #### Re-add support for getambassador.io/v1
 
-Support for the `getambassador.io/v1` apiVersion has been re-introduced, in order to facilitate smoother migrations from Ambassador Edge Stack 1.y. Previously, in order to make migrations possible, an "unserved" `v1` version was declared to Kubernetes, but was unsupported by Ambassador Edge Stack. That unserved `v1` could cause an excess of errors to be logged by the Kubernetes Nodes (regardless of whether the installation was migrated from 1.y or was a fresh 2.y install). It is still recommeded that \`v3alpha1\` be used but fully supporting `v1` again should resolve these errors.
+Support for the `getambassador.io/v1` apiVersion has been re-introduced, in order to facilitate smoother migrations from Ambassador Edge Stack 1.y. Previously, in order to make migrations possible, an "unserved" `v1` version was declared to Kubernetes, but was unsupported by Ambassador Edge Stack. That unserved `v1` could cause an excess of errors to be logged by the Kubernetes Nodes (regardless of whether the installation was migrated from 1.y or was a fresh 2.y install). It is still recommended that \`v3alpha1\` be used but fully supporting `v1` again should resolve these errors.
 
 #### Add support for active health checking configuration.
 
@@ -449,7 +449,7 @@ Previously, the Agent used for communicating with Ambassador Cloud was bundled i
 
 #### Fix Filters not properly caching large jwks responses
 
-In some cases, a `Filter` would fail to properly cache the response from the jwks endpoint due to the response being too large to cache. This would hurt performance and cause Ambassador Edge Stack to be rate-limited by the iDP. This has been fixed to accomodate iDP's that are configured to support multiple key sets thus returning a response that is larger than the typical default response from most iDP's.
+In some cases, a `Filter` would fail to properly cache the response from the jwks endpoint due to the response being too large to cache. This would hurt performance and cause Ambassador Edge Stack to be rate-limited by the iDP. This has been fixed to accommodate iDP's that are configured to support multiple key sets thus returning a response that is larger than the typical default response from most iDP's.
 
 ### Version 3.3.1 (December 08, 2022) <a href="#id-3.3.1" id="id-3.3.1"></a>
 
@@ -523,7 +523,7 @@ Changes to label matching will change how `Hosts` are associated with `Mappings`
 
 #### Envoy upgraded to 1.23.0
 
-The envoy version included in Ambassador Edge Stack has been upgraded from 1.22 to that latest release of 1.23.0. This provides Ambassador Edge Stack with the latest security patches, performances enhancments,and features offered by the envoy proxy.
+The envoy version included in Ambassador Edge Stack has been upgraded from 1.22 to that latest release of 1.23.0. This provides Ambassador Edge Stack with the latest security patches, performances enhancements,and features offered by the envoy proxy.
 
 #### Properly convert FilterPolicy and ExternalFilter between CRD versions
 
@@ -591,7 +591,7 @@ When an `OAuth2` filter sets cookies for a `protectedOrigin`, it should set a co
 
 When an `OAuth2` filter with multiple `protectedOrigins` needs to adjust the cookies for an active login (which only happens when using a refresh token), it would erroneously redirect the web browser to the last origin listed, rather than returning to the original URL. This has been fixed.
 
-#### Correctly handle CORS and CORs preflight request within the OAuth2 Fitler known endpoints
+#### Correctly handle CORS and CORs preflight request within the OAuth2 Filter known endpoints
 
 Previously, the `OAuth2` filter's known endpoints `/.ambassador/oauth2/logout` and `/.ambassador/oauth2/multicookie` did not understand CORS or CORS preflight request which would cause the browser to reject the request. This has now been fixed and these endpoints will attach the appropriate CORS headers to the response.
 
@@ -717,7 +717,7 @@ When an `OAuth2` filter sets cookies for a `protectedOrigin`, it should set a co
 
 When an `OAuth2` filter with multiple `protectedOrigins` needs to adjust the cookies for an active login (which only happens when using a refresh token), it would erroneously redirect the web browser to the last origin listed, rather than returning to the original URL. This has been fixed.
 
-#### Correctly handle CORS and CORs preflight request within the OAuth2 Fitler known endpoints
+#### Correctly handle CORS and CORs preflight request within the OAuth2 Filter known endpoints
 
 Previously, the `OAuth2` filter's known endpoints `/.ambassador/oauth2/logout` and `/.ambassador/oauth2/multicookie` did not understand CORS or CORS preflight request which would cause the browser to reject the request. This has now been fixed and these endpoints will attach the appropriate CORS headers to the response.
 
@@ -775,7 +775,7 @@ It is now possible for a `TracingService` to specify `collector_endpoint_version
 
 #### Added Support for transport protocol v3 in External Filters
 
-External Filters can now make use of the v3 transport protocol. In addtion to the support for the v3 transport protocol, the default `AuthService` installed with Ambassador Edge Stack will now only operate with transport protocol v3. In order to support existing External Filters using v2, Ambassador Edge Stack will automatically translate v2 to the new default of v3. Any External Filters will be assumed to be using transport protocol v2 and will use the automatic conversion to v3 unless the new `protocol_version` field on the External Filter is explicitly set to `v3`.
+External Filters can now make use of the v3 transport protocol. In addition to the support for the v3 transport protocol, the default `AuthService` installed with Ambassador Edge Stack will now only operate with transport protocol v3. In order to support existing External Filters using v2, Ambassador Edge Stack will automatically translate v2 to the new default of v3. Any External Filters will be assumed to be using transport protocol v2 and will use the automatic conversion to v3 unless the new `protocol_version` field on the External Filter is explicitly set to `v3`.
 
 #### Allow setting propagation modes for Lightstep tracing
 
@@ -1019,7 +1019,7 @@ When Ambassador Edge Stack completes an internal request (such as fetching the J
 
 #### Improved validity checking for error response overrides
 
-Any token delimited by '%' is now validated agains a whitelist of valid Envoy command operators. Any mapping containing an `error_response_overrides` section with invalid command operators will be discarded.
+Any token delimited by '%' is now validated against a whitelist of valid Envoy command operators. Any mapping containing an `error_response_overrides` section with invalid command operators will be discarded.
 
 #### Bug Fix: mappingSelector is now correctly supported in the Host CRD
 

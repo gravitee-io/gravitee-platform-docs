@@ -176,4 +176,4 @@ paths:
 
 ## Other Errors
 
-In case you get an `UNKNOWN` error, or an error not on this list, it likely means this particular edge case isn't handled or not properly documetned. If you encounter one of these, please reach out to the Ambassador support team.
+In case you get an `UNKNOWN` error, or an error not on this list, it likely means this particular edge case isn't handled or not properly documented. If you encounter one of these, please reach out to the Ambassador support team.

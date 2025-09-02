@@ -16,7 +16,7 @@ Lets look at an example:
 
 I have a service `quote` running in the `default` namespace I want to intercept to test changes I've made before opening a Pull Request.
 
-I can use the Intercept Specification below to tell Telepresence to Intercept the quote serivce with a [Personal Intercept](../../technical-reference/intercepts/#personal-intercept), in the default namespace of my cluster `test-cluster`. I also want to start the Intercept Handler, as a Docker container, with the provided image.
+I can use the Intercept Specification below to tell Telepresence to Intercept the quote service with a [Personal Intercept](../../technical-reference/intercepts/#personal-intercept), in the default namespace of my cluster `test-cluster`. I also want to start the Intercept Handler, as a Docker container, with the provided image.
 
 ```yaml
 ---
@@ -70,7 +70,7 @@ docker ps
 
 CONTAINER ID   IMAGE                          COMMAND                  CREATED         STATUS         PORTS                        NAMES
 bdd99d244fbb   datawire/quote:0.5.0           "/bin/qotm"              2 minutes ago   Up 2 minutes                                tp-quote
-5966d7099adf   datawire/telepresence:2.12.1   "telepresence connec…"   2 minutes ago   Up 2 minutes   127.0.0.1:58443->58443/tcp   tp-test-cluster
+5966d7099adf   datawire/telepresence:2.12.1   "telepresence connect…"   2 minutes ago   Up 2 minutes   127.0.0.1:58443->58443/tcp   tp-test-cluster
 ```
 
 ## Key Learnings

@@ -10,7 +10,7 @@ Default: `3000`
 
 ## Idle timeout: `idle_timeout_ms`
 
-`idle_timeout_ms` controls how long a connection should remain open when no traffic is being sent through the connection. `idle_timeout_ms` is distinct from `timeout_ms`, as the idle timeout applies on either down or upstream request events and is reset every time an encode/decode event occurrs or data is processed for the stream. `idle_timeout_ms` operates on a per-route basis and will overwrite behavior of the `cluster_idle_timeout_ms`. If not set, Ambassador Edge Stack will default to the value set by `cluster_idle_timeout_ms`. It can be disabled by setting the value to `0`.
+`idle_timeout_ms` controls how long a connection should remain open when no traffic is being sent through the connection. `idle_timeout_ms` is distinct from `timeout_ms`, as the idle timeout applies on either down or upstream request events and is reset every time an encode/decode event occurs or data is processed for the stream. `idle_timeout_ms` operates on a per-route basis and will overwrite behavior of the `cluster_idle_timeout_ms`. If not set, Ambassador Edge Stack will default to the value set by `cluster_idle_timeout_ms`. It can be disabled by setting the value to `0`.
 
 ## Cluster max connection lifetime: `cluster_max_connection_lifetime_ms`
 

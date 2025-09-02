@@ -36,7 +36,7 @@ spec:
 | `config`            | provides additional configuration options for the selected `driver`. Supported configuration for each driver is found below. |                                                                                           |
 | `tag_headers`       | **Deprecated** - it is recommend that you switch to using `custom_tags`                                                      |                                                                                           |
 | `custom_tags`       | configure tags to attach to traces. See section below for more details.                                                      |                                                                                           |
-| `propagation_modes` | (optional) if present, specifies a list of the propogation modes to be used                                                  | <p>enum:<br><code>ENVOY</code><br><code>B3</code><br><code>TRACE_CONTEXT</code></p>       |
+| `propagation_modes` | (optional) if present, specifies a list of the propagation modes to be used                                                  | <p>enum:<br><code>ENVOY</code><br><code>B3</code><br><code>TRACE_CONTEXT</code></p>       |
 | `sampling`          | (optional) if present, specifies some target percentages of requests that will be traced.                                    |                                                                                           |
 
 Please note that you must use the HTTP/2 pseudo-header names. For example:

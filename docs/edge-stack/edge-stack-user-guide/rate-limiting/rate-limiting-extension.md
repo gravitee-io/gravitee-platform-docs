@@ -25,7 +25,7 @@ spec:
    use_resource_exhausted_code: true # default is false
 ```
 
-* `failure_mode_deny` By default, Ambassador Edge Stack will fail open when unable to communicate with the service due to it becoming unvailable or due to timeouts. When this happens the upstream service that is being protected by a rate limit may be overloaded due to this behavior. When set to `true` Ambassador Edge Stack will be configured to return a `500` status code when it is unable to communicate with the RateLimit service and will fail closed by rejecting request to the upstream service.
+* `failure_mode_deny` By default, Ambassador Edge Stack will fail open when unable to communicate with the service due to it becoming unavailable or due to timeouts. When this happens the upstream service that is being protected by a rate limit may be overloaded due to this behavior. When set to `true` Ambassador Edge Stack will be configured to return a `500` status code when it is unable to communicate with the RateLimit service and will fail closed by rejecting request to the upstream service.
 * `grpc` contains settings for grpc connections
   * `use_resource_exhausted_code` By default, Ambassador Edge Stack will return an `UNAVAILABLE` gRPC code when a request is rate limited. When set to `true`, this field will cause Ambassador Edge Stack will return a `RESOURCE_EXHAUSTED` gRPC code instead.
 
