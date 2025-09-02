@@ -16,7 +16,7 @@
       * [Docker CLI](hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-cli.md)
       * [Docker Compose](hybrid-installation-and-configuration-guides/next-gen-cloud/docker/docker-compose.md)
     * [Kubernetes](hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/README.md)
-      * [Vanilla Kubernetes](hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/README.md)
+      * [Vanilla Kubernetes](hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes.md)
         * [Deploy a Hybrid Gateway with Redis Sentinel](hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/vanilla-kubernetes/deploy-a-hybrid-gateway-with-redis-sentinel.md)
       * [AWS EKS](hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/aws-eks.md)
       * [Azure AKS](hybrid-installation-and-configuration-guides/next-gen-cloud/kubernetes/azure-aks.md)

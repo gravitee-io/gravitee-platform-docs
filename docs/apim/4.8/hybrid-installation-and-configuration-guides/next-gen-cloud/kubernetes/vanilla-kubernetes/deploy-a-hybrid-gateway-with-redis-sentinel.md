@@ -4,6 +4,19 @@ hidden: true
 
 # Deploy a Hybrid Gateway with Redis Sentinel
 
+## Overview
+
+This guide explains how to install a Hybrid Gateway, deploy  custom plugins and connect it to Gravitee Next-Gen Cloud using Redis Sentinel.&#x20;
+
+## Prerequisites
+
+* Install [helm](https://helm.sh/docs/intro/install/).
+* Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
+* Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
+* Ensure you have access to the self-hosted Kubernetes cluster where you want to install the Gateway.
+* Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
+* Complete the steps in [#prepare-your-installation](../../#prepare-your-installation "mention").
+
 ## Deploy Redis with Sentinel
 
 Before installing the Gravitee Hybrid Gateway, a Redis instance with Sentinel for high availability must be running in your Kubernetes cluster. This setup ensures that the gateway's rate-limiting capabilities remain functional even if the primary Redis node fails.&#x20;
@@ -140,131 +153,106 @@ This `values.yaml` file configures the Gravitee Hybrid Gateway Helm chart. It is
 To configure the Gravitee hybrid gateway with custom plugins we support, copy and paste the following configuration:&#x20;
 
 ```yaml
-  #This is the license key provided in your Gravitee Cloud account
-  license:
-      key: "LICENSE KEY"
+#This is the license key provided in your Gravitee Cloud account
+license:
+    key: "LICENSE KEY"
 
-  # The following components are disabled for a hybrid gateway installation
-  api:
-      enabled: false
-  portal:
-      enabled: false
-  ui:
-      enabled: false
-  alerts:
-      enabled: false
-  es:
-      enabled: false
+# The following components are disabled for a hybrid gateway installation
+api:
+    enabled: false
+portal:
+    enabled: false
+ui:
+    enabled: false
+alerts:
+    enabled: false
+es:
+    enabled: false
 
-  gateway:
-      replicaCount: 1
-      image:
-          repository: graviteeio/apim-gateway
-          tag: 4.9.0
-          pullPolicy: IfNotPresent
-      autoscaling:
-          enabled: false
-      podAnnotations:
-          prometheus.io/path: /_node/metrics/prometheus
-          prometheus.io/port: "18082"
-          prometheus.io/scrape: "true"
+gateway:
+    replicaCount: 1
+    image:
+        repository: graviteeio/apim-gateway
+        tag: 4.9.0
+        pullPolicy: IfNotPresent
+    autoscaling:
+        enabled: false
+    podAnnotations:
+        prometheus.io/path: /_node/metrics/prometheus
+        prometheus.io/port: "18082"
+        prometheus.io/scrape: "true"
 
-      # Custom plugins with correct versions from pom.xml
-      additionalPlugins:
-        # Authentication & Security
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-oauth2-4.0.1.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-jwt-6.2.0.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-basic-authentication-1.6.0.zip"
+    # Essential plugins
+    additionalPlugins:
         - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-apikey-5.1.0.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-mtls-1.0.0.zip"
-
-        # Request/Response Transformation
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-transformheaders-4.1.2.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-json-to-json-3.0.1.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-xml-json-2.0.1.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-assign-content-2.0.1.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-assign-attributes-3.0.1.zip"
-
-        # Traffic Management & Resilience
+        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-jwt-6.2.0.zip"
+        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-oauth2-4.0.1.zip"
         - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-ratelimit-3.0.0.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-circuit-breaker-1.1.5.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-retry-3.0.1.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-cache-2.0.7.zip"
-
-        # Integration & Connectivity
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-aws-lambda-3.0.0.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-callout-http-5.0.0.zip"
+        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-transformheaders-4.1.2.zip"
         - "https://internal-s3.company.com/gravitee-plugins/gravitee-connector-http-5.0.5.zip"
+        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-aws-lambda-3.0.0.zip"  # If using AWS Lambda
+        - "https://internal-s3.company.com/gravitee-plugins/gravitee-resource-cache-redis-4.0.1.zip"  # If using Redis caching
+        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-circuit-breaker-1.1.5.zip" 
 
-        # Resources
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-resource-cache-redis-4.0.1.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-resource-oauth2-provider-generic-4.0.3.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-resource-auth-provider-ldap-2.0.0.zip"
+    env:
+        - name: gravitee_cloud_token
+          value: "CLOUD TOKEN"
 
-        # Validation & Security
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-json-validation-2.0.3.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-request-validation-1.15.1.zip"
-        - "https://internal-s3.company.com/gravitee-plugins/gravitee-policy-ipfiltering-1.19.1.zip"
+    services:
+        metrics:
+            enabled: true
+            prometheus:
+                enabled: true
+        core:
+            http:
+                enabled: true
+        sync:
+            kubernetes:
+                enabled: false
+        bridge:
+            enabled: false
 
-      env:
-          - name: gravitee_cloud_token
-            value: "CLOUD TOKEN"
+    service:
+        type: LoadBalancer
+        externalPort: 8082
 
-      services:
-          metrics:
-              enabled: true
-              prometheus:
-                  enabled: true
-          core:
-              http:
-                  enabled: true
-          sync:
-              kubernetes:
-                  enabled: false
-          bridge:
-              enabled: false
+    ingress:
+        enabled: false
 
-      service:
-          type: LoadBalancer
-          externalPort: 8082
+    resources:
+        limits:
+            cpu: 500m
+            memory: 1024Mi
+        requests:
+            cpu: 200m
+            memory: 512Mi
 
-      ingress:
-          enabled: false
+    deployment:
+        revisionHistoryLimit: 1
+        strategy:
+            type: RollingUpdate
+            rollingUpdate:
+                maxUnavailable: 0
 
-      resources:
-          limits:
-              cpu: 500m
-              memory: 1024Mi
-          requests:
-              cpu: 200m
-              memory: 512Mi
+    reporters:
+        file:
+            enabled: false
 
-      deployment:
-          revisionHistoryLimit: 1
-          strategy:
-              type: RollingUpdate
-              rollingUpdate:
-                  maxUnavailable: 0
+    terminationGracePeriod: 50
+    gracefulShutdown:
+        delay: 20
+        unit: SECONDS
 
-      reporters:
-          file:
-              enabled: false
-
-      terminationGracePeriod: 50
-      gracefulShutdown:
-          delay: 20
-          unit: SECONDS
-
-      # Rate limiting configuration using Redis with Sentinel
-      ratelimit:
-          type: redis
-          redis:
-              password: "myredispassword"
-              sentinel:
-                  master: "mymaster"
-                  nodes:
-                    - host: "gravitee-apim-redis-headless.gravitee-apim.svc.cluster.local"
-                      port: 26379
+    # Rate limiting configuration using Redis with Sentinel
+    ratelimit:
+        type: redis
+        redis:
+            password: "myredispassword"
+            sentinel:
+                master: "mymaster"
+                nodes:
+                  - host: "gravitee-apim-redis-headless.gravitee-apim.svc.cluster.local"
+                    port: 26379
 ```
 
 {% hint style="info" %}
