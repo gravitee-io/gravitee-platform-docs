@@ -13,16 +13,16 @@ Before you install a Hybrid Gateway, complete the following steps:
 * Ensure you have access to [Gravitee Cloud](https://cloud.gravitee.io/), with permissions to install new Gateways.
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install the Gateway.
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
-* Complete the steps in [#prepare-your-installation](../../#prepare-your-installation "mention").
+* Complete the steps in [#prepare-your-installation](../#prepare-your-installation "mention").
 
 ## Install the Gateway
 
 To install the Gravitee Gateway, complete the following steps:
 
-1. [#install-redis](./#install-redis "mention")
-2. [#prepare-values.yaml-for-helm](./#prepare-values.yaml-for-helm "mention")
-3. [#ingress-configuration-with-custom-domain-and-kubernetes-secrets](./#ingress-configuration-with-custom-domain-and-kubernetes-secrets "mention")
-4. [#install-with-helm](./#install-with-helm "mention")
+1. [#install-redis](vanilla-kubernetes.md#install-redis "mention")
+2. [#prepare-values.yaml-for-helm](vanilla-kubernetes.md#prepare-values.yaml-for-helm "mention")
+3. [#ingress-configuration-with-custom-domain-and-kubernetes-secrets](vanilla-kubernetes.md#ingress-configuration-with-custom-domain-and-kubernetes-secrets "mention")
+4. [#install-with-helm](vanilla-kubernetes.md#install-with-helm "mention")
 
 ### Install Redis
 
@@ -31,13 +31,13 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:&#x20;
 
     ```bash
-    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis --create-namespace --namespace gravitee-apim
+    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis --version 19.6.4 --create-namespace --namespace gravitee-apim
     ```
 2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:
 
     ```sh
-    Pulled: registry-1.docker.io/bitnamicharts/redis:21.2.1
-    Digest: sha256:b667ef7d2da1a073754e0499a93bb9acc6539e57ce971da39ee5fd2c222a4024
+    Pulled: registry-1.docker.io/bitnamicharts/redis:19.6.4
+    Digest: sha256:[hash_will_vary]
     NAME: gravitee-apim-redis
     LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
     NAMESPACE: gravitee-apim
@@ -46,8 +46,8 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     TEST SUITE: None
     NOTES:
     CHART NAME: redis
-    CHART VERSION: 21.2.1
-    APP VERSION: 8.0.2
+    CHART VERSION: 19.6.4
+    APP VERSION: 7.2.5
 
     ** Please be patient while the chart is being deployed **
 
@@ -198,7 +198,7 @@ To prepare your Gravitee `values.yaml` file for Helm, complete the following ste
    *   Set the `tag` field in the `image` section to the value displayed in the Overview section of your Gravitee Cloud Dashboard.  \
 
 
-       <figure><img src="../../../../.gitbook/assets/gateway-cloud-version.png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../../.gitbook/assets/gateway-cloud-version.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -227,7 +227,7 @@ The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtim
 
 ### Ingress Configuration with Custom Domain and Kubernetes secrets
 
-To configure Ingress and TLS rules, Copy the following `values.yaml` file to deploy the gateway and expose it via an Ingress controller. Fill in the required [placeholders](./#prepare-values.yaml-for-helm) like your license key and domain. To enable HTTPS, uncomment and configure the optional TLS section.
+To configure Ingress and TLS rules, Copy the following `values.yaml` file to deploy the gateway and expose it via an Ingress controller. Fill in the required [placeholders](vanilla-kubernetes.md#prepare-values.yaml-for-helm) like your license key and domain. To enable HTTPS, uncomment and configure the optional TLS section.
 
 ```yaml
 # Hybrid Gateway values.yaml with Ingress and Optional TLS
@@ -373,13 +373,13 @@ helm uninstall graviteeio-apim-gateway --namespace gravitee-apim
 
 Your Gateway appears in the Gateways section of your Gravitee Cloud Dashboard.
 
-<figure><img src="../../../../.gitbook/assets/gravitee-gateway-cloud-verification (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/gravitee-gateway-cloud-verification (1).png" alt=""><figcaption></figcaption></figure>
 
 To verify that your Gateway is up and running, complete the following steps:
 
-1. [#validate-the-pods](./#validate-the-pods "mention")
-2. [#validate-the-gateway-logs](./#validate-the-gateway-logs "mention")
-3. [#validate-the-gateway-url](./#validate-the-gateway-url "mention")
+1. [#validate-the-pods](vanilla-kubernetes.md#validate-the-pods "mention")
+2. [#validate-the-gateway-logs](vanilla-kubernetes.md#validate-the-gateway-logs "mention")
+3. [#validate-the-gateway-url](vanilla-kubernetes.md#validate-the-gateway-url "mention")
 
 ### Validate the pods
 
@@ -498,8 +498,8 @@ You can now create and deploy APIs to your Hybrid Gateway.
   1. Log in to your [Gravitee Cloud](https://cloud.gravitee.io/).
   2. From the Dashboard, navigate to the Environment where you created your Gateway.
   3. Click on **APIM Console** to open the user interface where you can create and manage your APIs.
-* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../../how-to-guides/create-and-publish-your-first-api/ "mention").
-* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
+* Create your first API. For more information about creating your first API, see [create-and-publish-your-first-api](../../../how-to-guides/create-and-publish-your-first-api/ "mention").
+* Add native Kafka capabilities. For more information about adding native Kafka capabilities, see [configure-the-kafka-client-and-gateway.md](../../../kafka-gateway/configure-the-kafka-client-and-gateway.md "mention").
 
 {% hint style="warning" %}
 To access your Gravitee Gateway from outside of your Kubernetes cluster, you must implement a load balancer or ingress.

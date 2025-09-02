@@ -102,13 +102,13 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:&#x20;
 
     ```bash
-    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis --create-namespace --namespace gravitee-apim
+    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis --version 19.6.4 --create-namespace --namespace gravitee-apim
     ```
 2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:
 
     ```sh
-    Pulled: registry-1.docker.io/bitnamicharts/redis:21.2.1
-    Digest: sha256:b667ef7d2da1a073754e0499a93bb9acc6539e57ce971da39ee5fd2c222a4024
+    Pulled: registry-1.docker.io/bitnamicharts/redis:19.6.4
+    Digest: sha256:[hash_will_vary]
     NAME: gravitee-apim-redis
     LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
     NAMESPACE: gravitee-apim
@@ -117,8 +117,8 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     TEST SUITE: None
     NOTES:
     CHART NAME: redis
-    CHART VERSION: 21.2.1
-    APP VERSION: 8.0.2
+    CHART VERSION: 19.6.4
+    APP VERSION: 7.2.5
 
     ** Please be patient while the chart is being deployed **
 
