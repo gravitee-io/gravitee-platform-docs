@@ -188,7 +188,7 @@ Configures Ambassador Edge Stack to bind its health check server to the provided
 
 ### `AMBASSADOR_HEALTHCHECK_IP_FAMILY`
 
-Allows the IP Family used by health check server to be overriden. By default, the health check server will listen for both IPV4 and IPV6 addresses. In some clusters you may want to force `IPV4_ONLY` or `IPV6_ONLY`.
+Allows the IP Family used by health check server to be overridden. By default, the health check server will listen for both IPV4 and IPV6 addresses. In some clusters you may want to force `IPV4_ONLY` or `IPV6_ONLY`.
 
 ### `AMBASSADOR_ISTIO_SECRET_DIR`
 
@@ -258,7 +258,7 @@ More information: [ambassador-edge-stack-and-apiext.md](ambassador-edge-stack-an
 
 ### `DD_ENTITY_ID`
 
-Ambassador Edge Stack supports setting the `dd.internal.entity_id` statitics tag using the `DD_ENTITY_ID` environment variable. If this value is set, statistics will be tagged with the value of the environment variable. Otherwise, this statistics tag will be omitted (the default).
+Ambassador Edge Stack supports setting the `dd.internal.entity_id` statistics tag using the `DD_ENTITY_ID` environment variable. If this value is set, statistics will be tagged with the value of the environment variable. Otherwise, this statistics tag will be omitted (the default).
 
 More information: [#using-datadog-dogstatsd-as-the-statsd-sink](../service-monitoring/envoy-statistics-with-statsd.md#using-datadog-dogstatsd-as-the-statsd-sink "mention")
 
@@ -677,7 +677,7 @@ Configures the optional [--concurrency](https://www.envoyproxy.io/docs/envoy/lat
 
 ### `DISABLE_STRICT_LABEL_SELECTORS`
 
-In Ambassador Edge Stack version `3.2`, a bug with how `Hosts` are associated with `Mappings` was fixed and with how `Listeners` are associated with `Hosts`. The `mappingSelector`\\`selector` fields in `Hosts` and `Listeners` were not properly being enforced in prior versions. If any single label from the selector was matched then the resources would be associated with each other instead of requiring all labels in the selector to be present. Additonally, if the `hostname` of a `Mapping` matched the `hostname` of a `Host` then they would be associated regardless of the configuration of `mappingSelector`\\`selector`.
+In Ambassador Edge Stack version `3.2`, a bug with how `Hosts` are associated with `Mappings` was fixed and with how `Listeners` are associated with `Hosts`. The `mappingSelector`\\`selector` fields in `Hosts` and `Listeners` were not properly being enforced in prior versions. If any single label from the selector was matched then the resources would be associated with each other instead of requiring all labels in the selector to be present. Additionally, if the `hostname` of a `Mapping` matched the `hostname` of a `Host` then they would be associated regardless of the configuration of `mappingSelector`\\`selector`.
 
 In version `3.2` this bug was fixed and resources that configure a selector will only be associated if **all** labels required by the selector are present. This brings the `mappingSelector` and `selector` fields in-line with how label selectors are used throughout Kubernetes. To avoid unexpected behavior after the upgrade, add all labels that configured in any `mappingSelector`\\`selector` to `Mappings` you want to associate with the `Host` or the `Hosts` you want to be associated with the `Listener`. You can opt-out of this fix and return to the old association behavior by setting the environment variable `DISABLE_STRICT_LABEL_SELECTORS` to `"true"` (default: `"false"`). A future version of Ambassador Edge Stack may remove the ability to opt-out of this bugfix.
 

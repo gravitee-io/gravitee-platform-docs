@@ -154,7 +154,7 @@ spec:
          text_format: "Per-mapping 429"
 ```
 
-The `Mapping` rule will prevent an override on the 404 rule defined on the `Module` for this `Mapping`. The rule on the `Mapping` will cause all rules on the `Module` to be ignored, regardless of the status codes specified. A seperate `Mapping` with no override rules defined will follow the 404 rule on the `Module`.
+The `Mapping` rule will prevent an override on the 404 rule defined on the `Module` for this `Mapping`. The rule on the `Mapping` will cause all rules on the `Module` to be ignored, regardless of the status codes specified. A separate `Mapping` with no override rules defined will follow the 404 rule on the `Module`.
 
 ### Disabling response overrides
 

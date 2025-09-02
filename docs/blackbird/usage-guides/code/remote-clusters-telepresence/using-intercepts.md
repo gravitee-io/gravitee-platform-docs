@@ -749,7 +749,7 @@ prerequisites:
     delete: rm-binary
 ```
 
-The follow example defines the parameters availble within the prerequistes section.
+The follow example defines the parameters available within the prerequisites section.
 
 | Options | Description                                       |
 | ------- | ------------------------------------------------- |

@@ -141,7 +141,7 @@ After you containerize the code, you can debug the `say-hello` endpoint using th
     USER 1001
     ENTRYPOINT ["./simple_api"]
     ```
-4.  Run the debug commmand.
+4.  Run the debug command.
 
     ```shell
     blackbird code debug simple-api --dockerfile Dockerfile --context . --local-port 80 --target="debug:2345"

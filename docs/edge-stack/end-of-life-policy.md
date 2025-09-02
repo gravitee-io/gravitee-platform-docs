@@ -25,7 +25,7 @@ Maintenance refers to the previous X-series release, including critical security
 1. We will fix security issues in Ambassador Edge Stack code
 2. We will pick up security fixes from dependencies as they are made available
 3. We will not maintain forks of our major dependencies
-4. We will not attempt our own back ports of critical fixes to depdendencies which are out of support from their own communities
+4. We will not attempt our own back ports of critical fixes to dependencies which are out of support from their own communities
 
 ### CNCF Ecosystem Considerations
 

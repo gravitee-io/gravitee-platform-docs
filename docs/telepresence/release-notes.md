@@ -548,7 +548,7 @@ A new version of Telepresence OSS was published.
 
 ### Version 2.14.1 (July 07, 2023) <a href="#id-2.14.1" id="id-2.14.1"></a>
 
-#### More flexible templating in the Intercept Speficiation.
+#### More flexible templating in the Intercept Specification.
 
 The [Sprig](http://masterminds.github.io/sprig/) template functions can now be used in many unconstrained fields of an Intercept Specification, such as environments, arguments, scripts, commands, and intercept headers.
 
@@ -560,9 +560,9 @@ An attempt to connect on a host where no login has ever been made, could cause t
 
 #### Telepresence with Docker Compose
 
-Telepresence now is integrated with Docker Compose. You can now use a compose file as an Intercept Handler in your Intercept Specifcations to utilize you local dev stack alongside an Intercept.
+Telepresence now is integrated with Docker Compose. You can now use a compose file as an Intercept Handler in your Intercept Specifications to utilize you local dev stack alongside an Intercept.
 
-#### Added the ability to exclude envrionment variables
+#### Added the ability to exclude environment variables
 
 You can now configure your traffic-manager to exclude certain environment variables from being propagated to your local environment while doing an intercept.
 
@@ -888,7 +888,7 @@ The traffic-manager can automatically detect that the node subnets are different
 
 The \`telepresence helm\` command \`--set x=y\` flag didn't correctly set values of other types than \`string\`. The code now uses standard Helm semantics for this flag.
 
-#### Fix \`agent.image\` setting propigation
+#### Fix \`agent.image\` setting propagation
 
 Telepresence now uses the correct \`agent.image\` properties in the Helm chart when copying agent image settings from the \`config.yml\` file.
 
@@ -1266,7 +1266,7 @@ Telepresence no longer fails to inject the traffic agent into the pod generated 
 
 ### Version 2.6.7 (June 22, 2022) <a href="#id-2.6.7" id="id-2.6.7"></a>
 
-#### Persistant Sessions
+#### Persistent Sessions
 
 The Telepresence client will remember and reuse the traffic-manager session after a network failure or other reason that caused an unclean disconnect.
 
@@ -1792,7 +1792,7 @@ To determine whether the environment cluster is air-gapped, the proprietary agen
 
 #### Telepresence correctly reports intercept port conflict
 
-When creating a second intercept targetting the same local port, it now gives the user an informative error message. Additionally, it tells them which intercept is currently using that port to make it easier to remedy.
+When creating a second intercept targeting the same local port, it now gives the user an informative error message. Additionally, it tells them which intercept is currently using that port to make it easier to remedy.
 
 ### Version 2.4.3 (September 15, 2021) <a href="#id-2.4.3" id="id-2.4.3"></a>
 
@@ -1866,7 +1866,7 @@ The user-defined timeout for Helm actions wasn't always respected, causing the d
 
 #### Feature: External cloud variables are now configurable
 
-We now support configuring the host and port for the cloud in your `config.yml`. These are used when logging in to utilize features provided by an extension, and are also passed along as environment variables when installing the `traffic-manager`. Additionally, we now run our testsuite with these variables set to localhost to continue to ensure Telepresence is fully fuctional without depeneding on an external service. The SYSTEMA\_HOST and SYSTEMA\_PORT environment variables are no longer used.
+We now support configuring the host and port for the cloud in your `config.yml`. These are used when logging in to utilize features provided by an extension, and are also passed along as environment variables when installing the `traffic-manager`. Additionally, we now run our testsuite with these variables set to localhost to continue to ensure Telepresence is fully functional without depending on an external service. The SYSTEMA\_HOST and SYSTEMA\_PORT environment variables are no longer used.
 
 #### Helm chart can now regenerate certificate used for mutating webhook on-demand.
 
@@ -1878,7 +1878,7 @@ The traffic-manager is now installed via an embedded version of the Helm chart w
 
 #### traffic-manager gets cluster ID itself instead of via environment variable
 
-The traffic-manager used to get the cluster ID as an environment variable when running `telepresence connnect` or via adding the value in the helm chart. This was clunky so now the traffic-manager gets the value itself as long as it has permissions to "get" and "list" namespaces (this has been updated in the helm chart).
+The traffic-manager used to get the cluster ID as an environment variable when running `telepresence connect` or via adding the value in the helm chart. This was clunky so now the traffic-manager gets the value itself as long as it has permissions to "get" and "list" namespaces (this has been updated in the helm chart).
 
 #### Telepresence now mounts all directories from /var/run/secrets
 
@@ -1890,7 +1890,7 @@ This fixes a bug where the max gRPC receive size was only propagated to some of 
 
 #### Updated our Homebrew packaging to run manually
 
-We made some updates to our script that packages Telepresence for Homebrew so that it can be run manually. This will enable maintainers of Telepresence to run the script manually should we ever need to rollback a release and have `latest` point to an older verison.
+We made some updates to our script that packages Telepresence for Homebrew so that it can be run manually. This will enable maintainers of Telepresence to run the script manually should we ever need to rollback a release and have `latest` point to an older version.
 
 #### Telepresence uses namespace from kubeconfig context on each call
 

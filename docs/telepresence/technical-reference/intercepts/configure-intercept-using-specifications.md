@@ -24,7 +24,7 @@ Telepresence also provides its own set of properties. Currently limited to:
 
 Your intercept specification is where you can create a standard, easy to use, configuration to easily run pre and post tasks, start an intercept, and start your local application to handle the intercepted traffic.
 
-There are many ways to configure your specification to suit your needs, the table below shows the possible options within your specifcation, and you can see the spec's schema, with all available options and formats, [here](configure-intercept-using-specifications.md#ide-integration).
+There are many ways to configure your specification to suit your needs, the table below shows the possible options within your specification, and you can see the spec's schema, with all available options and formats, [here](configure-intercept-using-specifications.md#ide-integration).
 
 | Options                                                                    | Description                                                                                             |
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -146,7 +146,7 @@ handlers:
   - name: no-op
 ```
 
-The table belows defines the parameters that can be used within the handlers section.
+The table below defines the parameters that can be used within the handlers section.
 
 | Options                                                          | Type     | Format                      | Description                                                                               |
 | ---------------------------------------------------------------- | -------- | --------------------------- | ----------------------------------------------------------------------------------------- |
@@ -200,7 +200,7 @@ The docker build element defines the parameters:
 | context | string      | N/A    | Defines either a path to a directory containing a Dockerfile, or a url to a git repository |
 | args    | string list | N/A    | Additional arguments for the docker build command.                                         |
 
-For additional informations on these parameters, please check the docker [documentation](https://docs.docker.com/engine/reference/commandline/run).
+For additional information on these parameters, please check the docker [documentation](https://docs.docker.com/engine/reference/commandline/run).
 
 #### Compose
 
@@ -350,7 +350,7 @@ prerequisites:
     delete: rm-binary
 ```
 
-The table below defines the parameters availble within the prerequistes section.
+The table below defines the parameters available within the prerequisites section.
 
 | Options | Description                                       |
 | ------- | ------------------------------------------------- |
