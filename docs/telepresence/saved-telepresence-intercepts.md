@@ -44,7 +44,7 @@ Once an intercept has been saved, you can reuse it and share it with team member
 telepresence intercept --use-saved-intercept <saved-intercept-name>
 ```
 
-This command fetches the intercpet configuration of the saved intercept and uses it to run a new intercept. This way, you don't need to remember all the arguments required to intercept a service in a particular cluster. sense CLI version v2.7.0 or later.
+This command fetches the intercpet configuration of the saved intercept and uses it to run a new intercept. This way, you don't need to remember all the arguments required to intercept a service in a particular cluster. since CLI version v2.7.0 or later.
 
 ## Managing Saved Intercepts
 
