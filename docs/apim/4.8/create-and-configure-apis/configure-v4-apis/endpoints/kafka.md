@@ -148,12 +148,11 @@ A shared producer is created by the endpoint and reused for all requests with th
 
 ### Dynamic configuration <a href="#user-content-dynamic-configuration" id="user-content-dynamic-configuration"></a>
 
-The Kafka endpoint includes the dynamic configuration feature, meaning that you can:
+The Kafka endpoint includes the dynamic configuration feature, which you can use to complete the following actions:
 
-* Override any configuration parameters using an attribute (via the Assign Attribute policy). Your attribute needs to start with `gravitee.attributes.endpoint.kafka`, followed by the property you want to override.
-  * To override the topic, set `gravitee.attributes.endpoint.kafka.topics`.
-  * To override the consumer group, set `gravitee.attributes.endpoint.kafka.groupId`. By default,  the consumer group is derived from the subscription information passed with the client, as discussed above. You may need to set this attribute if you cannot create consumer groups in your cluster.
-  * To override the record key, set `gravitee.attributes.endpoint.kafka.recordKey.`
+* Override any configuration parameters using an attribute with the Assign Attribute policy. Your attribute must start with `gravitee.attributes.endpoint.kafka`, and then the property that you want to override. Here are examples of overriding configuration parameters:
+  * To override the topic, set `gravitee.attributes.endpoint.kafka.consumer.topics` or `gravitee.attributes.endpoint.kafka.producer.topics` .
+  * To override the SASL mechanism, set `gravitee.attributes.endpoint.kafka.security.sasl.saslMechanism` .
 * Use EL in any "String" type property. The following example shows how to use EL to populate the consumer autoOffsetReset property:
 
 ```json
@@ -174,6 +173,11 @@ The Kafka endpoint includes the dynamic configuration feature, meaning that you 
   }
 }
 ```
+
+Also, you can define specific Kafka client configurations using the [Assign Attributes](../../apply-policies/policy-reference/assign-attributes.md) policy in the Initial Connection-Request/Response phases. Here are examples of defining specific Kafka configurations:
+
+* To override the consumer group, set `gravitee.attribute.kafka.groupId`. If you cannot create consumer groups in your cluster, you may need to set this attribute .
+* To override the record key, set `gravitee.attribute.kafka.recordKey`.
 
 ### Documentation for Specific Environments
 
@@ -283,7 +287,7 @@ YOUR_NAMESPACE.servicebus.windows.net:9093
 
 ### **Recovering Kafka messages**
 
-Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records. The Kafka enrypoint therefore supports the **at-least-one** or **at-most-one** QoS.
+Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records. The Kafka entrypoint therefore supports the **at-least-one** or **at-most-one** QoS.
 
 As an example using SSE as an entrypoint, first define the QoS for the entrypoint:
 
