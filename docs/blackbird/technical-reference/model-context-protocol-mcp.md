@@ -16,7 +16,7 @@ Use the following procedures and resources in this guide to learn how to host an
 
 You can host a third-party MCP server in Blackbird using the Blackbird CLI. The MCP catalog offers several options to fit different use cases. In this procedure, you'll browse the catalog, select a server, deploy it in your environment, and export the connection details to use in a compatible client (e.g., VS Code or Cursor).
 
-> **Note:** The following procedure provides key arguments and flags related to the CLI commands, but you can find more information and examples in the [Blackbird CLI](https://www.getambassador.io/docs/blackbird/latest/reference/cli-commands).
+> **Note:** The following procedure provides key arguments and flags related to the CLI commands, but you can find more information and examples in the [Blackbird CLI](blackbird-cli/).
 
 ### Prerequisites
 
