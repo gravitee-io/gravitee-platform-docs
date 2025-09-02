@@ -90,7 +90,7 @@ The NLB is a second generation AWS Elastic Load Balancer. It can be ensure by a 
     * HTTP(S)
     * Websockets
     * HTTP/2
-  * Connection based load balacing
+  * Connection based load balancing
   * Cannot modify the request
 * Can perform TLS termination
 

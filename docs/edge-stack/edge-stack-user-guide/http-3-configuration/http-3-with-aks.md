@@ -53,5 +53,5 @@ spec:
 In the above example, AKS generates two `LoadBalancer` services, one for UDP and the other for TCP.
 
 {% hint style="info" %}
-You should verify that the Managed Identity or Serivce Principal has permissions to assign the IP address to the newly created `LoadBalancer` services. Refer to the [Azure Docs - Managed Identity](https://docs.microsoft.com/en-us/azure/aks/use-managed-identity) for more information.
+You should verify that the Managed Identity or Service Principal has permissions to assign the IP address to the newly created `LoadBalancer` services. Refer to the [Azure Docs - Managed Identity](https://docs.microsoft.com/en-us/azure/aks/use-managed-identity) for more information.
 {% endhint %}

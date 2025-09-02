@@ -47,7 +47,7 @@ containers:
 Alternatively, if you do **NOT** want to set any label selectors you can remove it:
 
 {% hint style="warning" %}
-Removing the label selector will cause APIExt Server to watch and cache all CRD's within a cluster. If you have alot of CRD's installed in your cluster this can increase the memory usage for your APIExt server pods.The CRD Manager will still only patch the `getambasador.io` resources but it is recommended to add labels to limit the memory usage.
+Removing the label selector will cause APIExt Server to watch and cache all CRD's within a cluster. If you have a of CRD's installed in your cluster this can increase the memory usage for your APIExt server pods.The CRD Manager will still only patch the `getambasador.io` resources but it is recommended to add labels to limit the memory usage.
 {% endhint %}
 
 ```yaml
@@ -62,7 +62,7 @@ containers:
 
 ### Disable CA Certification and CRD Patching
 
-By default, the APIExt server manages its own CA Certificate and patches the CRD with the CABundle but some organizations may already have their own policies and tools that they want to use to manage the CA Certficate and/or CRD Patching. The APIExt server provides the ability to disable the `CRDPatchController` and the `CACertManager`. This can be done by adding the following Environment Variables to the APIExt Deployment.
+By default, the APIExt server manages its own CA Certificate and patches the CRD with the CABundle but some organizations may already have their own policies and tools that they want to use to manage the CA Certificate and/or CRD Patching. The APIExt server provides the ability to disable the `CRDPatchController` and the `CACertManager`. This can be done by adding the following Environment Variables to the APIExt Deployment.
 
 {% hint style="warning" %}
 The CA Certificate and the CRD's being properly patches are required for the APIExt server to properly run so if these components are disabled it is up to the user to ensure these are properly managed or else Ambassador Edge Stack will not properly operate.
