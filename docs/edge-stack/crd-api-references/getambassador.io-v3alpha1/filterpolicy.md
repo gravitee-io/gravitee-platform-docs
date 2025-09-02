@@ -110,4 +110,4 @@ Checks if exact or regular expression matches a value in a request Header to det
 
 #### FilterArguments
 
-The Filter arguments feels is an untyped map that allows for additional configuration specific to each filter to be provided. Refer to the usage guides for each filter type to see if it has any arguments that can be supplied.
+The Filter arguments field is an untyped map that allows for additional configuration specific to each filter to be provided. Refer to the usage guides for each filter type to see if it has any arguments that can be supplied.

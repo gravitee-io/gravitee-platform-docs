@@ -47,7 +47,7 @@ containers:
 Alternatively, if you do **NOT** want to set any label selectors you can remove it:
 
 {% hint style="warning" %}
-Removing the label selector will cause APIExt Server to watch and cache all CRD's within a cluster. If you have a of CRD's installed in your cluster this can increase the memory usage for your APIExt server pods.The CRD Manager will still only patch the `getambasador.io` resources but it is recommended to add labels to limit the memory usage.
+Removing the label selector will cause APIExt Server to watch and cache all CRD's within a cluster. If you have a lot of CRDs installed in your cluster this can increase the memory usage for your APIExt server pods.The CRD Manager will still only patch the `getambasador.io` resources but it is recommended to add labels to limit the memory usage.
 {% endhint %}
 
 ```yaml

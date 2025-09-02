@@ -67,7 +67,7 @@ The WORKLOAD is the deployment, replicaset, statefulset, or argo-rollout in the 
 
 This is particularly useful in two scenarios:
 
-1. The cluster's subnets overlap with those available on the workstation, which is a common issue when using a VPN. This is especially true if the VPN has a board subnet range due to a small subnet mask. To resolve this conflict, you can use the `--proxy-via` flag. Instead of allowing the conflict to occur, this flag gives Blackbird precedence, effectively hiding the conflicting subnets. By rerouting the cluster's subnet, `--proxy-via` prevents the overlap and ensures smooth connectivity.
+1. The cluster's subnets overlap with those available on the workstation, which is a common issue when using a VPN. This is especially true if the VPN has a broad subnet range due to a small subnet mask. To resolve this conflict, you can use the `--proxy-via` flag. Instead of allowing the conflict to occur, this flag gives Blackbird precedence, effectively hiding the conflicting subnets. By rerouting the cluster's subnet, `--proxy-via` prevents the overlap and ensures smooth connectivity.
 2. The cluster's DNS is configured with domains that resolve to loopback addresses (e.g., when the cluster uses a mesh configured to listen to a loopback address and then reroutes from there). A loopback address isn't useful on the client, but the `--proxy-via` flag can reroute the loopback address to a virtual IP that the client can use.
 
 Subnet proxying is done by the client's DNS resolver, which translates the IPs returned by the cluster's DNS resolver to a virtual IP (VIP) to use on the client. Blackbird's VIF will detect when the VIP is used and translate it back to the loopback address on the pod.
