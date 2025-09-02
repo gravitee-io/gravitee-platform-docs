@@ -1,5 +1,13 @@
 # GKO 4.8.x
 
+## Gravitee Kubernetes Operator 4.8.5 - September 2, 2025
+
+<details>
+<summary>Improvements</summary>
+
+  * Implement gateway API reference grants [#10768](https://github.com/gravitee-io/issues/issues/10768)
+</details>
+
 ## Gravitee Kubernetes Operator 4.8.4 - August 22, 2025
     
 <details>
