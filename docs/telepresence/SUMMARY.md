@@ -71,3 +71,4 @@
 * [Saved Telepresence Intercepts](saved-telepresence-intercepts.md)
 * [Upgrade Process](upgrade-process.md)
 * [FAQ for v2.15](faq-for-v2.15.md)
+* [Canary Deployments](canary-deployments.md)
