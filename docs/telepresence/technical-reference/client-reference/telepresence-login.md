@@ -13,7 +13,7 @@ Flags:
 
 ## Description
 
-Use `telepresence login` to explicitly authenticate with [Ambassador Cloud](https://www.getambassador.io/docs/cloud). Other commands will automatically invoke the `telepresence login` interactive login procedure as necessary, so it is rarely necessary to explicitly run `telepresence login`; it should only be truly necessary to explicitly run `telepresence login` when you require a non-interactive login.
+Use `telepresence login` to explicitly authenticate with Ambassador Cloud. Other commands will automatically invoke the `telepresence login` interactive login procedure as necessary, so it is rarely necessary to explicitly run `telepresence login`; it should only be truly necessary to explicitly run `telepresence login` when you require a non-interactive login.
 
 The normal interactive login procedure involves launching a web browser, a user interacting with that web browser, and finally having the web browser make callbacks to the local Telepresence process. If it is not possible to do this (perhaps you are using a headless remote box via SSH, or are using Telepresence in CI), then you may instead have Ambassador Cloud issue an API key that you pass to `telepresence login` with the `--apikey` flag.
 
@@ -24,13 +24,13 @@ When you run `telepresence login`, the CLI installs a Telepresence binary. The T
 ## Acquiring an API key
 
 1. Log in to Ambassador Cloud at [https://app.getambassador.io/](https://app.getambassador.io/).
-2.  Click on your profile icon in the upper-left:&#x20;
+2.  Click on your profile icon in the upper-left:
 
     <figure><img src="../../.gitbook/assets/00 tp 30.png" alt=""><figcaption></figcaption></figure>
-3.  Click on the "API Keys" menu button:&#x20;
+3.  Click on the "API Keys" menu button:
 
     <figure><img src="../../.gitbook/assets/00 tp 31.png" alt=""><figcaption></figcaption></figure>
-4.  Click on the "generate new key" button in the upper-right:&#x20;
+4.  Click on the "generate new key" button in the upper-right:
 
     <figure><img src="../../.gitbook/assets/00 tp 32.png" alt=""><figcaption></figcaption></figure>
 5. Enter a description for the key (perhaps the name of your laptop, or perhaps the "CI"), and click "generate api key" to create it.
