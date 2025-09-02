@@ -2008,7 +2008,7 @@ Fixed an issue that could cause the user daemon to crash during shutdown, as dur
 
 We now support installing multiple traffic managers in the same cluster. This will allow operators to install deployments of telepresence that are limited to certain namespaces.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.5-traffic-manager-namespaces.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 1.png" alt="" width="213"><figcaption></figcaption></figure></div>
 
 #### No more dependence on kubectl
 
@@ -2018,19 +2018,19 @@ Telepresence no longer depends on having an external `kubectl` binary, which mig
 
 We now support configuring which agent image + registry to use in the config. This enables users whose laptop is an air-gapped environment to create personal intercepts without requiring a login. It also makes it easier for those who are developing on Telepresence to specify which agent image should be used. Env vars TELEPRESENCE\_AGENT\_IMAGE and TELEPRESENCE\_REGISTRY are no longer used.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.5-agent-config.png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 2.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 #### Feature: Max gRPC receive size now configurable
 
 The default max size of messages received through gRPC (4 MB) is sometimes insufficient. It can now be configured.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.5-grpc-max-receive-size.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 3.png" alt="" width="291"><figcaption></figcaption></figure></div>
 
 #### Feature: CLI can be used in air-gapped environments
 
-While Telepresence will auto-detect if your cluster is in an air-gapped environment, we've added an option users can add to their config.yml to ensure the cli acts like it is in an air-gapped environment. Air-gapped environments require a manually installed licence.
+While Telepresence will auto-detect if your cluster is in an air-gapped environment, we've added an option users can add to their config.yml to ensure the cli acts like it is in an air-gapped environment. Air-gapped environments require a manually installed license.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.5-skipLogin.png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 4.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 ### Version 2.3.4 (July 09, 2021) <a href="#id-2.3.4" id="id-2.3.4"></a>
 
@@ -2038,13 +2038,13 @@ While Telepresence will auto-detect if your cluster is in an air-gapped environm
 
 Some log statements were printing incorrect characters, when they should have been IP addresses. This has been resolved to include more accurate and useful logging.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.4-ip-error.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 5.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 #### Bug Fix: Improved messaging when multiple services match a workload
 
 If multiple services matched a workload when performing an intercept, Telepresence would crash. It now gives the correct error message, instructing the user on how to specify which service the intercept should use.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.4-improved-error.png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 6.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 #### Traffic-manger creates services in its own namespace to determine subnet
 
@@ -2064,19 +2064,19 @@ The Telepresence Helm chart no longer fails when installing with `--set clientRb
 
 Telepresence now supports installing the Traffic Manager via Helm. This will make it easy for operators to install and configure the server-side components of Telepresence separately from the CLI (which in turn allows for better separation of permissions).
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.3-helm.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 7.png" alt="" width="366"><figcaption></figcaption></figure></div>
 
 #### Feature: Traffic-manager in custom namespace
 
 As the `traffic-manager` can now be installed in any namespace via Helm, Telepresence can now be configured to look for the Traffic Manager in a namespace other than `ambassador`. This can be configured on a per-cluster basis.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.3-namespace-config.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 8.png" alt="" width="284"><figcaption></figcaption></figure></div>
 
 #### Feature: Intercept --to-pod
 
 `telepresence intercept` now supports a `--to-pod` flag that can be used to port-forward sidecars' ports from an intercepted pod.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.3-to-pod.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 9.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 #### Change in migration from edgectl
 
@@ -2096,7 +2096,7 @@ An intercept will survive deletion of the intercepted pod provided that another 
 
 The mutator webhook for injecting traffic-agents now recognizes a `telepresence.getambassador.io/inject-service-port` annotation to specify which port to intercept; bringing the functionality of the `--port` flag to users who use the mutator webook in order to control Telepresence via GitOps.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.2-svcport-annotation.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 10.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 #### Outbound Connections
 
@@ -2118,7 +2118,7 @@ The on-laptop client no longer requires [RBAC permissions](technical-reference/r
 
 Telepresence will now detect the Pod CIDR ranges even if they are not listed in the Nodes.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.2-subnets.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 11.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 #### Dynamic IP ranges
 
@@ -2150,37 +2150,37 @@ When shutting down the user-daemon or root-daemon on the laptop, `telepresence q
 
 Telepresence now supports per-cluster configuration for custom dns behavior, which will enable users to determine which local + remote resolver to use and which suffixes should be ignored + included. These can be configured on a per-cluster basis.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.1-dns.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 12.png" alt="" width="191"><figcaption></figcaption></figure></div>
 
 #### Feature: AlsoProxy Configuration
 
 Telepresence now supports also proxying user-specified subnets so that they can access external services only accessible to the cluster while connected to Telepresence. These can be configured on a per-cluster basis and each subnet is added to the TUN device so that requests are routed to the cluster for IPs that fall within that subnet.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.1-alsoProxy.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 13.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 #### Feature: Mutating Webhook for Injecting Traffic Agents
 
 The Traffic Manager now contains a mutating webhook to automatically add an agent to pods that have the `telepresence.getambassador.io/traffic-agent: enabled` annotation. This enables Telepresence to work well with GitOps CD platforms that rely on higher level kubernetes objects matching what is stored in git. For workloads without the annotation, Telepresence will add the agent the way it has in the past
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.1-inject.png" alt=""><figcaption></figcaption></figure></div>
+<figure><img src=".gitbook/assets/000 tp 14.png" alt=""><figcaption></figcaption></figure>
 
 #### Change: Traffic Manager Connect Timeout
 
 The trafficManagerConnect timeout default has changed from 20 seconds to 60 seconds, in order to facilitate the extended time it takes to apply everything needed for the mutator webhook.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.1-trafficmanagerconnect.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 15.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 #### Bug Fix: Fix for large file transfers
 
 Fix a tun-device bug where sometimes large transfers from services on the cluster would hang indefinitely
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.1-large-file-transfer.png" alt=""><figcaption></figcaption></figure></div>
+<figure><img src=".gitbook/assets/000 tp 16.png" alt=""><figcaption></figcaption></figure>
 
 #### Change: Brew Formula Changed
 
 Now that the Telepresence rewrite is the main version of Telepresence, you can install it via Brew like so: `brew install datawire/blackbird/telepresence`.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.1-brew.png" alt=""><figcaption></figcaption></figure></div>
+<figure><img src=".gitbook/assets/000 tp 17.png" alt=""><figcaption></figcaption></figure>
 
 ### Version 2.3.0 (June 01, 2021) <a href="#id-2.3.0" id="id-2.3.0"></a>
 
@@ -2188,31 +2188,31 @@ Now that the Telepresence rewrite is the main version of Telepresence, you can i
 
 Telepresence can now be installed via brew on macOS, which makes it easier for users to stay up-to-date with the latest telepresence version. To install via brew, you can use the following command: `brew install datawire/blackbird/telepresence2`.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.0-homebrew.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 18.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 #### Feature: TCP and UDP routing via Virtual Network Interface
 
 Telepresence will now perform routing of outbound TCP and UDP traffic via a Virtual Network Interface (VIF). The VIF is a layer 3 TUN-device that exists while Telepresence is connected. It makes the subnets in the cluster available to the workstation and will also route DNS requests to the cluster and forward them to intercepted pods. This means that pods with custom DNS configuration will work as expected. Prior versions of Telepresence would use firewall rules and were only capable of routing TCP.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/tunnel.jpg" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 19.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 #### Change: SSH is no longer used
 
 All traffic between the client and the cluster is now tunneled via the traffic manager gRPC API. This means that Telepresence no longer uses ssh tunnels and that the manager no longer have an `sshd` installed. Volume mounts are still established using `sshfs` but it is now configured to communicate using the sftp-protocol directly, which means that the traffic agent also runs without `sshd`. A desired side effect of this is that the manager and agent containers no longer need a special user configuration.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/no-ssh.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 20.png" alt="" width="191"><figcaption></figcaption></figure></div>
 
 #### Feature: Running in a Docker container
 
 Telepresence can now be run inside a Docker container. This can be useful for avoiding side effects on a workstation's network, establishing multiple sessions with the traffic manager, or working with different clusters simultaneously.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/run-tp-in-docker.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 21.png" alt="" width="311"><figcaption></figcaption></figure></div>
 
 #### Feature: Configurable Log Levels
 
 Telepresence now supports configuring the log level for Root Daemon and User Daemon logs. This provides control over the nature and volume of information that Telepresence generates in `daemon.log` and `connector.log`.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.3.0-loglevels.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 22.png" alt="" width="195"><figcaption></figcaption></figure></div>
 
 ### Version 2.2.2 (May 17, 2021) <a href="#id-2.2.2" id="id-2.2.2"></a>
 
@@ -2220,4 +2220,4 @@ Telepresence now supports configuring the log level for Root Daemon and User Dae
 
 Telepresence is now able to translate common legacy Telepresence commands into native Telepresence commands. So if you want to get started quickly, you can just use the same legacy Telepresence commands you are used to with the new Telepresence binary.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/telepresence/latest/release-notes/telepresence-2.2.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/000 tp 23.png" alt="" width="194"><figcaption></figcaption></figure></div>
