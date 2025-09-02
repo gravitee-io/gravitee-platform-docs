@@ -1,6 +1,6 @@
 # Proxy outbound traffic to my cluster
 
-While preview URLs are a powerful feature, Telepresence offers other options for proxying traffic between your laptop and the cluster. This section discribes how to proxy outbound traffic and control outbound connectivity to your cluster.
+While preview URLs are a powerful feature, Telepresence offers other options for proxying traffic between your laptop and the cluster. This section describes how to proxy outbound traffic and control outbound connectivity to your cluster.
 
 {% hint style="info" %}
 This guide assumes that you have the [quick start](../) sample web app running in your cluster to test accessing the `web-app` service. You can substitute this service for any other service you are running.

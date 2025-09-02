@@ -148,7 +148,7 @@ It makes no difference whether limits are defined together in one `RateLimit` re
       * `.RateLimitResponse.Statuses` → \[`[]*RateLimitResponse_DescriptorStatus]`]`v3.RateLimitResponse_DescriptorStatus` The itemized status codes for each limit that was selected for this request.
       * `.RetryAfter` → `time.Duration` the amount of time until all of the limits would allow access again (0 if they all currently allow access).
 
-      Also availabe to the template are the [standard functions available to Go `text/template`s](https://golang.org/pkg/text/template/#hdr-Functions), as well as:
+      Also available to the template are the [standard functions available to Go `text/template`s](https://golang.org/pkg/text/template/#hdr-Functions), as well as:
 
       * a `json` function that formats arg2 as JSON, using the arg1 string as the starting indentation. For example, the template `{{ json "indent>" "value" }}` would yield the string `indent>"value"`.
 

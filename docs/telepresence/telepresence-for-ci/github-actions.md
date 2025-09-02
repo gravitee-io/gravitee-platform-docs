@@ -2,7 +2,7 @@
 
 ## Telepresence with GitHub Actions
 
-Telepresence combined with [GitHub Actions](https://docs.github.com/en/actions) allows you to run integration tests in your continuous integration/continuous delivery (CI/CD) pipeline without the need to run any dependant service. When you connect to the target Kubernetes cluster, you can intercept traffic of the remote services and send it to an instance of the local service running in CI. This way, you can quickly test the bugfixes, updates, and features that you develop in your project.
+Telepresence combined with [GitHub Actions](https://docs.github.com/en/actions) allows you to run integration tests in your continuous integration/continuous delivery (CI/CD) pipeline without the need to run any dependent service. When you connect to the target Kubernetes cluster, you can intercept traffic of the remote services and send it to an instance of the local service running in CI. This way, you can quickly test the bugfixes, updates, and features that you develop in your project.
 
 You can [register here](https://app.getambassador.io/auth/realms/production/protocol/openid-connect/auth?client_id=telepresence-github-actions\&response_type=code\&code_challenge=qhXI67CwarbmH-pqjDIV1ZE6kqggBKvGfs69cxst43w\&code_challenge_method=S256\&redirect_uri=https://app.getambassador.io) to get a free Ambassador Cloud account to try the GitHub Actions for Telepresence yourself.
 

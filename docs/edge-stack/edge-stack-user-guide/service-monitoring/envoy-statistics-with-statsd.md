@@ -65,4 +65,4 @@ kubectl apply -f statsd-sink/datadog/dd-statsd-sink.yaml
 
 This sets up the `statsd-sink` service and a deployment of the DogStatsD agent that forwards the Ambassador Edge Stack statistics to your Datadog account.
 
-Additionally, Ambassador Edge Stack supports setting the `dd.internal.entity_id` statitics tag using the `DD_ENTITY_ID` environment variable. If this value is set, statistics will be tagged with the value of the environment variable. Otherwise, this statistics tag will be omitted (the default).
+Additionally, Ambassador Edge Stack supports setting the `dd.internal.entity_id` statistics tag using the `DD_ENTITY_ID` environment variable. If this value is set, statistics will be tagged with the value of the environment variable. Otherwise, this statistics tag will be omitted (the default).

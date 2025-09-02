@@ -178,7 +178,7 @@ If the service is "headless" (using `ClusterIP: None`), then using named ports w
 
 ## Error connecting to GKE or EKS cluster
 
-GKE and EKS require a plugin that utilizes their resepective IAM providers. You will need to install the [gke](install-telepresence/cloud-provider-prerequisites.md#gke-authentication-plugin) or [eks](install-telepresence/cloud-provider-prerequisites.md#eks-authentication-plugin) plugins for Telepresence to connect to your cluster.
+GKE and EKS require a plugin that utilizes their respective IAM providers. You will need to install the [gke](install-telepresence/cloud-provider-prerequisites.md#gke-authentication-plugin) or [eks](install-telepresence/cloud-provider-prerequisites.md#eks-authentication-plugin) plugins for Telepresence to connect to your cluster.
 
 ## `too many files open` error when running `telepresence connect` on Linux
 

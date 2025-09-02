@@ -13,7 +13,7 @@ Flags:
 
 ## Description
 
-Use `telepresence login` to explicitly authenticate with [Ambassador Cloud](https://www.getambassador.io/docs/cloud). Other commands will automatically invoke the `telepresence login` interactive login procedure as nescessary, so it is rarely nescessary to explicitly run `telepresence login`; it should only be truly nescessary to explictly run `telepresence login` when you require a non-interactive login.
+Use `telepresence login` to explicitly authenticate with [Ambassador Cloud](https://www.getambassador.io/docs/cloud). Other commands will automatically invoke the `telepresence login` interactive login procedure as necessary, so it is rarely necessary to explicitly run `telepresence login`; it should only be truly necessary to explicitly run `telepresence login` when you require a non-interactive login.
 
 The normal interactive login procedure involves launching a web browser, a user interacting with that web browser, and finally having the web browser make callbacks to the local Telepresence process. If it is not possible to do this (perhaps you are using a headless remote box via SSH, or are using Telepresence in CI), then you may instead have Ambassador Cloud issue an API key that you pass to `telepresence login` with the `--apikey` flag.
 

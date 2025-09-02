@@ -20,7 +20,7 @@ Connected to context default (https://default.cluster.bakerstreet.io)
 
 $ docker ps
 CONTAINER ID   IMAGE                          COMMAND                  CREATED          STATUS          PORTS                        NAMES
-7a0e01cab325   datawire/telepresence:2.12.1   "telepresence connec…"   18 seconds ago   Up 16 seconds   127.0.0.1:58802->58802/tcp   tp-default
+7a0e01cab325   datawire/telepresence:2.12.1   "telepresence connect…"   18 seconds ago   Up 16 seconds   127.0.0.1:58802->58802/tcp   tp-default
 ```
 
 This method limits the scope of the potential networking issues since everything stays inside Docker. The Telepresence daemon can be found under the name `tp-<your-context>` when listing your containers.
