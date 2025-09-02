@@ -6,6 +6,21 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.20 - September 1, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+**Other**
+
+* Closing LDAP connections properly [#10769](https://github.com/gravitee-io/issues/issues/10769)
+
+
+</details>
+
+
 ## Gravitee Access Management 4.6.19 - August 29, 2025
 
 <details>
