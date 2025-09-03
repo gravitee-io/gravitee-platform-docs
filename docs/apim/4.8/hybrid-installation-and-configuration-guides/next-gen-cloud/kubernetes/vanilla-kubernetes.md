@@ -225,7 +225,7 @@ The `RollingUpdate` strategy with `maxUnavailable` set to 0 ensures zero-downtim
 
 </details>
 
-### Ingress Configuration with Custom Domain and Kubernetes secrets
+### Ingress Configuration with Custom Domain and Kubernetes Secrets
 
 To configure Ingress and TLS rules, Copy the following `values.yaml` file to deploy the gateway and expose it via an Ingress controller. Fill in the required [placeholders](vanilla-kubernetes.md#prepare-values.yaml-for-helm) like your license key and domain. To enable HTTPS, uncomment and configure the optional TLS section.
 
