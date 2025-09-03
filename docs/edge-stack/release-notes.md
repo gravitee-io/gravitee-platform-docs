@@ -158,8 +158,7 @@ Multiple Golang and Python dependencies have been updated to ensure Ambassador E
 
 #### Shipped Helm chart v8.10.0
 
-\- Update default image to Ambassador Edge Stack v3.10.0.\
-
+\- Update default image to Ambassador Edge Stack v3.10.0.\\
 
 ### Version 3.9.3 (December 14, 2023) <a href="#id-3.9.3" id="id-3.9.3"></a>
 
@@ -219,8 +218,7 @@ APIExt would previously allow for TLS 1.0 connections. We have updated it to now
 
 #### Shipped Helm chart v8.9.0
 
-\- Update default image to Ambassador Edge Stack v3.9.0.\
-
+\- Update default image to Ambassador Edge Stack v3.9.0.\\
 
 #### Ensure APIExt server is available before starting Edge Stack
 
@@ -272,8 +270,7 @@ This upgrades Ambassador Edge Stack to be built on Envoy v1.26.4 which includes 
 
 #### Shipped Helm chart v8.7.2
 
-\- Update default image to Ambassador Edge Stack v3.7.2.\
-
+\- Update default image to Ambassador Edge Stack v3.7.2.\\
 
 ### Version 3.7.1 (July 13, 2023) <a href="#id-3.7.1" id="id-3.7.1"></a>
 
@@ -831,7 +828,7 @@ Support for the Envoy V2 API is deprecated as of Ambassador Edge Stack v2.1, and
 
 Ambassador Edge Stack will now watch for ConfigMap or Secret resources specified by the `AGENT_CONFIG_RESOURCE_NAME` environment variable in order to allow all components (and not only the Ambassador Agent) to authenticate requests to Ambassador Cloud.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.2.0-cloud.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e1.png" alt="" width="187"><figcaption></figcaption></figure></div>
 
 #### Update Alpine and libraries
 
@@ -845,7 +842,7 @@ Ambassador Edge Stack now supports the metric `ambassador_log_level{label="debug
 
 Ambassador Edge Stack is now leveraging a new Envoy Proxy patch that allows Envoy to accept escaped '%' characters in its configuration. This means that error\_response\_overrides and other custom user content can now contain '%' symbols escaped as '%%'.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.2.0-percent-escape.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e2.png" alt="" width="344"><figcaption></figcaption></figure></div>
 
 #### Stream metrics from Envoy to Ambassador Cloud
 
@@ -859,7 +856,7 @@ The Ambassador agent now receives commands to manipulate Rollouts (pause, contin
 
 Kubernetes Secrets that should contain TLS certificates are now validated before being accepted for configuration. A Secret that contains an invalid TLS certificate will be logged as an invalid resource.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.2.0-tls-cert-validation.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e3.png" alt="" width="223"><figcaption></figcaption></figure></div>
 
 #### Devportal support for using API server definitions from OpenAPI docs
 
@@ -879,7 +876,7 @@ Docker BuildKit is enabled for all Emissary builds. Additionally, the Go build c
 
 In Ambassador Edge Stack 2.1.0 and 2.1.1, an OAuth2 Filter with `clientAuthentication.method=jwtAssertion` would not function correctly as it would fail to select the signing-method-appropriate function to parse the private key.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.2-filter-jwtassertion.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e4.png" alt="" width="283"><figcaption></figcaption></figure></div>
 
 #### Fix ifRequestHeader without a value
 
@@ -889,7 +886,7 @@ In Ambassador Edge Stack 2.1.0 and 2.1.1, an `ifRequestHeader` selector (in a Fi
 
 Ambassador Edge Stack 2.1.1 generated invalid Envoy configuration for `getambassador.io/v2` `Mappings` that set `spec.cors.origins` to a string rather than a list of strings; this has been fixed, and these `Mappings` should once again function correctly.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.2-mapping-cors.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e5.png" alt="" width="301"><figcaption></figcaption></figure></div>
 
 #### Correctly handle canary Mapping weights when reconfiguring
 
@@ -899,13 +896,13 @@ Changes to the `weight` of `Mapping` in a canary group will now always be correc
 
 A `Mapping` that is not part of a canary group, but that has a `weight` less than 100, will be correctly configured to receive all traffic as if the `weight` were 100.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.2-mapping-less-weighted.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e6.png" alt="" width="287"><figcaption></figcaption></figure></div>
 
 #### Bug Fix: Correctly handle empty rewrite in a Mapping
 
 Using `rewrite: ""` in a `Mapping` is correctly handled to mean "do not rewrite the path at all".
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.2-mapping-no-rewrite.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e7.png" alt="" width="280"><figcaption></figcaption></figure></div>
 
 #### Correctly use Mappings with host redirects
 
@@ -915,7 +912,7 @@ Any `Mapping` that uses the `host_redirect` field is now properly discovered and
 
 `Mapping`s with DNS wildcard `hostname` will now be correctly matched with `Host`s. Previously, the case where both the `Host` and the `Mapping` use DNS wildcards for their hostnames could sometimes not correctly match when they should have.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.2-host-mapping-matching.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e8.png" alt="" width="349"><figcaption></figcaption></figure></div>
 
 #### Fix overriding global settings for adding or removing headers
 
@@ -929,7 +926,7 @@ It is now possible to set a `Mapping` `spec.error_response_overrides` `body.text
 
 Resources that exist as `getambassador.io/config` annotations rather than as native Kubernetes resources are now validated and internally converted to v3alpha1 and, the same as native Kubernetes resources.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.2-annotations.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e9.png" alt="" width="323"><figcaption></figcaption></figure></div>
 
 #### Validation error reporting
 
@@ -963,19 +960,19 @@ Support for the Envoy V2 API is deprecated as of Ambassador Edge Stack v2.1, and
 
 Ambassador Edge Stack supports `getambassador.io/v2` CRDs, to simplify migration from Ambassador Edge Stack 1.X. Note: it is important to read the [migration documentation](installation-and-updates/upgrade-or-migrate-to-a-newer-version.md) before starting migration.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.0-smoother-migration.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e10.png" alt="" width="374"><figcaption></figcaption></figure></div>
 
 #### Change: Ambassador Edge Stack CRDs are fully validated
 
 The Ambassador Edge Stack CRDs (`Filter`, `FilterPolicy`, and `RateLimit`) will now be validated for correct syntax by Kubernetes itself. This means that `kubectl apply` will reject invalid CRDs before they are actually applied, preventing them from causing errors.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.0-edge-stack-validation.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e11.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 #### Bug Fix: Correctly handle all changing canary configurations
 
 The incremental reconfiguration cache could miss some updates when multiple `Mapping`s had the same `prefix` ("canary"ing multiple `Mapping`s together). This has been corrected, so that all such updates correctly take effect.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.0-canary.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e12.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 #### Secrets used for ACME private keys will not log errors
 
@@ -985,7 +982,7 @@ When using Kubernetes Secrets to store ACME private keys (as the Edge Stack ACME
 
 When using gzip compression, upstream services will no longer receive compressed data. This bug was introduced in 1.14.0. The fix restores the default behavior of not sending compressed data to upstream services.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.1.0-gzip-enabled.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e13.png" alt="" width="364"><figcaption></figcaption></figure></div>
 
 #### Update to busybox 1.34.1
 
@@ -1005,13 +1002,13 @@ Previous built images included some Python packages used only for test. These ha
 
 When Ambassador Edge Stack makes a cacheable internal request (such as fetching the JWKS endpoint for a `JWT` `Filter`), if a cache-miss occurs but a request for that resource is already in-flight, then instead of performing a second request in parallel, it will now wait for the first request to finish and (if the response is cacheable) use that response. If the response turns out to be non-cacheable, then it will proceed to make the second request. This avoids the situation where if a cache entry expires during a moment with high number of concurrent requests, then Edge Stack creates a deluge of concurrent requests to the resource when one aught to have sufficed; this allows the result to be returned more quickly while putting less load on the remote resource. However, if the response turns out to be non-cacheable, then this does effectively serialize requests, increasing the latency for concurrent requests.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.0.5-cache-change.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e14.png" alt="" width="215"><figcaption></figcaption></figure></div>
 
 #### Feature: AuthService circuit breakers
 
 It is now possible to set the `circuit_breakers` for `AuthServices`, exactly the same as for `Mappings` and `TCPMappings`. This makes it possible to configure your `AuthService` to be able to handle more than 1024 concurrent requests.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.0.5-auth-circuit-breaker.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e15.png" alt="" width="218"><figcaption></figcaption></figure></div>
 
 #### More accurate durations in the logs
 
@@ -1025,7 +1022,7 @@ Any token delimited by '%' is now validated against a whitelist of valid Envoy c
 
 The `Host` CRD now correctly supports the `mappingSelector` element, as documented. As a transition aid, `selector` is a synonym for `mappingSelector`; a future version of Ambassador Edge Stack will remove the `selector` element.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.0.5-mappingselector.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e16.png" alt="" width="199"><figcaption></figcaption></figure></div>
 
 ### Version 2.0.4 (October 19, 2021) <a href="#id-2.0.4" id="id-2.0.4"></a>
 
@@ -1033,25 +1030,25 @@ The `Host` CRD now correctly supports the `mappingSelector` element, as document
 
 We're pleased to introduce Ambassador Edge Stack 2.0.4 for general availability! The 2.X family introduces a number of changes to allow Ambassador Edge Stack to more gracefully handle larger installations, reduce global configuration to better handle multitenant or multiorganizational installations, reduce memory footprint, and improve performance. We welcome feedback!! Join us on [Slack](http://a8r.io/slack) and let us know what you think.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/edge-stack-GA.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e17.png" alt="" width="197"><figcaption></figcaption></figure></div>
 
 #### Change: API version getambassador.io/v3alpha1
 
 The `x.getambassador.io/v3alpha1` API version has become the `getambassador.io/v3alpha1` API version. The `Ambassador-` prefixes from `x.getambassador.io/v3alpha1` resources have been removed for ease of migration. Note that `getambassador.io/v3alpha1` is the only supported API version for 2.0.4 — full support for `getambassador.io/v2` will arrive soon in a later 2.X version.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.0.4-v3alpha1.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e18.png" alt="" width="275"><figcaption></figcaption></figure></div>
 
 #### Feature: Support for Kubernetes 1.22
 
 The `getambassador.io/v3alpha1` API version and the published chart and manifests have been updated to support Kubernetes 1.22. Thanks to [Mohit Sharma](https://github.com/imoisharma) for contributions to this feature!
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.0.4-k8s-1.22.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e19.png" alt="" width="191"><figcaption></figcaption></figure></div>
 
 #### Feature: Mappings support configuring strict or logical DNS
 
 You can now set `dns_type` between `strict_dns` and `logical_dns` in a `Mapping` to configure the Service Discovery Type.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.0.4-mapping-dns-type.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e20.png" alt="" width="276"><figcaption></figcaption></figure></div>
 
 #### Mappings support controlling DNS refresh with DNS TTL
 
@@ -1065,7 +1062,7 @@ You can now set `buffer_limit_bytes` in the `ambassador` `Module` to to change t
 
 The release now shows its actual released version number, rather than the internal development version number.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.0.4-version.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e21.png" alt="" width="194"><figcaption></figcaption></figure></div>
 
 #### Large configurations work correctly with Ambassador Cloud
 
@@ -1075,7 +1072,7 @@ Large configurations no longer cause Ambassador Edge Stack to be unable to commu
 
 The `l7Depth` element of the `Listener` CRD is properly supported.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/v2.0.4-l7depth.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e22.png" alt="" width="281"><figcaption></figcaption></figure></div>
 
 ### Version 2.0.3-ea (September 16, 2021) <a href="#id-2.0.3-ea" id="id-2.0.3-ea"></a>
 
@@ -1169,13 +1166,13 @@ We're pleased to introduce Ambassador Edge Stack 2.0.0 as a developer preview. T
 
 Ambassador Edge Stack 2.0.0 introduces API version `x.getambassador.io/v3alpha1` for configuration changes that are not backwards compatible with the 1.X family. API versions `getambassador.io/v0`, `getambassador.io/v1`, and `getambassador.io/v2` are deprecated. Further details are available in the [changes-in-ambassador-edge-stack-2.x.md](changes-in-ambassador-edge-stack-2.x.md "mention") document.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/edge-stack-2.0.0-v3alpha1.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e23.png" alt="" width="295"><figcaption></figcaption></figure></div>
 
 #### Feature: The AmbassadorListener Resource
 
 The new `AmbassadorListener` CRD defines where and how to listen for requests from the network, and which `AmbassadorHost` definitions should be used to process those requests. Note that the `AmbassadorListener` CRD is mandatory and consolidates _all_ port configuration; see the [`AmbassadorListener` documentation](technical-reference/using-custom-resources/the-listener-resource.md) for more details.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/edge-stack-2.0.0-listener.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e24.png" alt="" width="300"><figcaption></figcaption></figure></div>
 
 #### AmbassadorMapping hostname DNS glob support
 
@@ -1185,19 +1182,19 @@ Where `AmbassadorMapping`'s `host` field is either an exact match or (with `host
 
 The behavior of the Ambassador module `prune_unreachable_routes` field is now automatic, which should reduce Envoy memory requirements for installations with many `AmbassadorHost`s
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/edge-stack-2.0.0-prune_routes.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e25.png" alt="" width="293"><figcaption></figcaption></figure></div>
 
 #### Bug Fix: Independent Host actions supported
 
 Each `AmbassadorHost` can specify its `requestPolicy.insecure.action` independently of any other `AmbassadorHost`, allowing for HTTP routing as flexible as HTTPS routing.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/edge-stack-2.0.0-insecure_action_hosts.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e26.png" alt="" width="208"><figcaption></figcaption></figure></div>
 
 #### Bug Fix: Correctly set Ingress resource status in all cases
 
 Ambassador Edge Stack 2.0.0 fixes a regression in detecting the Ambassador Kubernetes service that could cause the wrong IP or hostname to be used in Ingress statuses -- thanks, [Noah Fontes](https://github.com/impl)!
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/edge-stack-2.0.0-ingressstatus.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e27.png" alt="" width="203"><figcaption></figcaption></figure></div>
 
 #### Stricter mTLS enforcement
 
@@ -1219,7 +1216,7 @@ An `AmbassadorMapping` will only be matched with an `AmbassadorHost` if the `Amb
 
 An `AmbassadorHost` or `Ingress` resource is now required when terminating TLS -- simply creating a `TLSContext` is not sufficient. Further details are available in the [`AmbassadorHost` CRD documentation](changes-in-ambassador-edge-stack-2.x.md#host-tlscontext-and-tls-termination).
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/edge-stack-2.0.0-host_crd.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e28.png" alt="" width="287"><figcaption></figcaption></figure></div>
 
 #### Envoy V3 APIs
 
@@ -1229,7 +1226,7 @@ By default, Ambassador Edge Stack will configure Envoy using the V3 Envoy API. T
 
 The `tls` module and the `tls` field in the Ambassador module are no longer supported. Please use `TLSContext` resources instead.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/release-notes/edge-stack-2.0.0-tlscontext.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e29.png" alt="" width="265"><figcaption></figcaption></figure></div>
 
 #### Higher performance while generating Envoy configuration now enabled by default
 
@@ -1287,7 +1284,7 @@ Logs now include subsecond time resolutions, rather than just seconds.
 
 Fixed a regression when specifying a comma separated string for `cors.origins` on the `Mapping` resource. (\[#3609]\(https://github.com/emissary-ingress/emissary/issues/3609))
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/images/emissary-1.13.10-cors-origin.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e30.png" alt="" width="350"><figcaption></figcaption></figure></div>
 
 #### New Envoy-configuration snapshots for debugging
 
@@ -1301,7 +1298,7 @@ Set `AMBASSADOR_AMBEX_NO_RATELIMIT` to `true` to completely disable ratelimiting
 
 The `Mapping` resource can now specify `docs.timeout_ms` to set the timeout when the Dev Portal is fetching API specifications.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/images/edge-stack-1.13.10-docs-timeout.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e31.png" alt="" width="199"><figcaption></figcaption></figure></div>
 
 #### Dev Portal will strip HTML tags when displaying results
 
@@ -1311,7 +1308,7 @@ The Dev Portal will now strip HTML tags when displaying search results, showing 
 
 Consul certificate-rotation logging now includes the fingerprints and validity timestamps of certificates being rotated.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/images/edge-stack-1.13.10-consul-cert-log.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e32.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### Version 1.13.9 (June 30, 2021) <a href="#id-1.13.9" id="id-1.13.9"></a>
 
@@ -1325,7 +1322,7 @@ Configuring multiple TCPMappings with the same ports (but different hosts) no lo
 
 Ambassador Agent now accurately reports up-to-date Endpoint information to Ambassador Cloud
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/images/edge-stack-1.13.8-cloud-bugfix.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e33.png" alt="" width="234"><figcaption></figcaption></figure></div>
 
 #### Improved Argo Rollouts Experience with Ambassador Cloud
 
@@ -1337,19 +1334,19 @@ Ambassador Agent reports ConfigMaps and Deployments to Ambassador Cloud to provi
 
 Add AMBASSADOR\_JSON\_LOGGING to enable JSON for most of the Ambassador control plane. Some (but few) logs from gunicorn and the Kubernetes client-go package still log text.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/images/edge-stack-1.13.7-json-logging.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e34.png" alt="" width="195"><figcaption></figcaption></figure></div>
 
 #### Bug Fix: Consul resolver bugfix with TCPMappings
 
 Fixed a bug where the Consul resolver would not actually use Consul endpoints with TCPMappings.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/images/edge-stack-1.13.7-tcpmapping-consul.png" alt="" width="188"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e35.png" alt="" width="194"><figcaption></figcaption></figure></div>
 
 #### Change: Memory usage calculation improvements
 
 Ambassador now calculates its own memory usage in a way that is more similar to how the kernel OOMKiller tracks memory.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/images/edge-stack-1.13.7-memory.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e36.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ### Version 1.13.6 (May 24, 2021) <a href="#id-1.13.6" id="id-1.13.6"></a>
 
@@ -1373,4 +1370,4 @@ Fixed a regression in detecting the Ambassador Kubernetes service that could cau
 
 Incorporate the Envoy 1.15.5 security update by adding the `reject_requests_with_escaped_slashes` option to the Ambassador module.
 
-<div align="left"><figure><img src="https://www.getambassador.io/docs/edge-stack/latest/images/edge-stack-1.13.4.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src=".gitbook/assets/0e37.png" alt="" width="375"><figcaption></figcaption></figure></div>
