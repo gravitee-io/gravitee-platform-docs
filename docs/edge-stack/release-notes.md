@@ -1326,7 +1326,7 @@ Ambassador Agent now accurately reports up-to-date Endpoint information to Ambas
 
 #### Improved Argo Rollouts Experience with Ambassador Cloud
 
-Ambassador Agent reports ConfigMaps and Deployments to Ambassador Cloud to provide a better Argo Rollouts experience. See \[Argo+Ambassador documentation]\(https://www.getambassador.io/docs/argo) for more info.
+Ambassador Agent reports ConfigMaps and Deployments to Ambassador Cloud to provide a better Argo Rollouts experience.
 
 ### Version 1.13.7 (June 03, 2021) <a href="#id-1.13.7" id="id-1.13.7"></a>
 
