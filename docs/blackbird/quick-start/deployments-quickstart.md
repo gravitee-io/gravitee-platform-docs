@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Deployments Quickstart
 
 In this tutorial, we'll be using the Blackbird CLI to deploy our code to a dedicated environment.
