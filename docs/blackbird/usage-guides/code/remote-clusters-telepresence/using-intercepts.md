@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using Intercepts
 
 Blackbird cluster (powered by Telepresence) allows you to intercept traffic from a Kubernetes service and route it to your local machine, enabling your local environment to function as if it were running in the cluster. There are two types of intercepts:

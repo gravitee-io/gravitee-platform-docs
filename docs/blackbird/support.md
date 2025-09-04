@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Support
 
 We understand that building and managing APIs can be complex, and our team is ready to assist you.

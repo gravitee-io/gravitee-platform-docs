@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Secure Instances on Blackbird
 
 By default, all mock, code run, code debug, and deployment instances are publicly available. To secure your endpoints, you can use API keys. An API key is a unique identifier used to authenticate requests made to an API using a key value pair. When you send a request to an API endpoint, the API key is included in the request to verify that the request is coming from an authorized source. You can create and manage your API keys from the Blackbird CLI, and you can give the API key any value. If a mock, code run, code debug, or deployment instance has an enabled API key, you’ll see it in the Blackbird UI or CLI details.

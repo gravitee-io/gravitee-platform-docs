@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Code Generation
 
 Generating server or client code from an API specification allows you to interact with your API specification more efficiently during development and testing. Blackbird uses [OpenAPI Generator](https://openapi-generator.tech/) to generate code for the API description. However, you can use any of the available server or client generators. For more information, see the [OpenAPI Generators List](https://openapi-generator.tech/docs/generators).

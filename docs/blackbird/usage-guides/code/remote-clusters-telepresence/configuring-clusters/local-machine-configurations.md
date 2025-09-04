@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Local Machine Configurations
 
 Blackbird cluster (powered by Telepresence) can be configured using various settings. You can configure these settings in two ways:

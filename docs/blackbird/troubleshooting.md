@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Troubleshooting
 
 ## Connecting to a cluster via VPN doesn't work.

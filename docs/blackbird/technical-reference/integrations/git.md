@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Git
 
 Blackbird integrates with Git to simplify how you discover, generate, and manage your APIs. When you connect your GitHub repositories, Blackbird can automatically scan your code to detect OpenAPI and Swagger definitions or generate new specifications by analyzing your routes, handlers, and service patterns. Using this data, Blackbird creates a project, which is a container for one or more API specifications that are imported or generated from a specific GitHub repository. With projects, you can organize and test your individual specifications in a centralized location.

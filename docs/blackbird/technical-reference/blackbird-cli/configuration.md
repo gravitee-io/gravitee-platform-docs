@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Configuration
 
 This reference provides a list of commands and arguments you can use to work with the configuration of your Blackbird installation.

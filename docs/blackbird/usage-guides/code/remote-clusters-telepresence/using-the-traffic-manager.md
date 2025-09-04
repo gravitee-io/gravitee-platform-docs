@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using the Traffic Manager
 
 Blackbird cluster (powered by Telepresence) uses a Traffic Manager to route cloud traffic to and from the user. The Traffic Manager is deployed in your cluster using [Helm](https://helm.sh), which is integrated into the `telepresence` binary. This binary includes both Helm and a Helm chart for the Traffic Manager to ensure version consistency between the binary and the deployed components.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Mock
 
 This reference provides a list of commands, arguments, and flags you can use to work with mock instances in Blackbird.

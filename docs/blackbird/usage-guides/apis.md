@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # APIs
 
 Blackbird provides tools for developing and managing your APIs, whether you're building a new API or iterating on an existing specification. It supports OpenAPI Specifications, which are JSON or YAML documents that follow the OpenAPI standard. After you add an API specification to your Blackbird catalog, it can be used to create mock instances, generate code, and deploy to hosted, non-production environments for testing and iteration.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Model Context Protocol (MCP)
 
 The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) is a framework that delivers contextual data to AI clients in real time. It acts as a bridge that provides AI models with the information they need to improve accuracy and relevance. For example, if you’re developing an AI client that conducts code reviews, it may require specific context from your GitHub repository. To provide this context, you can run the GitHub MCP server and have your AI client query the endpoint.

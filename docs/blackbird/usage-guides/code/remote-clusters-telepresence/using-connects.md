@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using Connects
 
 Blackbird cluster (powered by Telepresence) allows you to connect to a cluster from your local machine, so you can code locally and run the majority of your services within a remote Kubernetes cluster. Ultimately, this empowers you to develop services locally and still test integrations with dependent services or data stores running in the remote cluster.

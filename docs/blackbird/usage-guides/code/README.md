@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Code
 
 Blackbird provides multiple ways for you to quickly spin up code for your API specification and start testing and debugging.

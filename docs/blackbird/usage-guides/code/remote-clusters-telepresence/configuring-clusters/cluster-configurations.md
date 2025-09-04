@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Cluster Configurations
 
 In most cases, Blackbird cluster (powered by Telepresence) doesn't require any configuration within the cluster. It can be used immediately in any cluster, provided you have the necessary role-based access control (RBAC) permissions and the cluster is running Kubernetes version 1.19.0 or later. However, there are several configuration options you can use based on your use case.

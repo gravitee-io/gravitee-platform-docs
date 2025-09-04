@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Token
 
 This reference provides a list of commands, arguments, and flags you can use to work with tokens in Blackbird.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Role-based Access Control Configurations
 
 Blackbird cluster (powered by Telepresence) allows you to manage permissions for components in a cluster for security purposes using role-based access control (RBAC). RBAC is a security model used to restrict system access based on a user's role within an organization. Instead of assigning permissions directly to individuals, RBAC assigns permissions to roles, and users are then assigned to those roles.

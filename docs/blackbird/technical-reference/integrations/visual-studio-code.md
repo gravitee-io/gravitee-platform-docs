@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Visual Studio Code
 
 Blackbird integrates with Visual Studio Code (VS Code) to enhance your development workflow by providing API, mock, and deployment management capabilities in your editor. The [Hosted Dev Environment with Blackbird](https://marketplace.visualstudio.com/items?itemName=Ambassador.blackbird-plugin) extension provides a streamlined experience for managing resources, interacting with APIs, and monitoring your organization’s subscription status.

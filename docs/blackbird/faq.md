@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # FAQ
 
 ## What are the main features of Blackbird?
