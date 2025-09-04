@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Custom Error Responses
 
 Custom error responses set overrides for HTTP response statuses generated either by Ambassador Edge Stack or upstream services.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The Module Resource
 
 ## The **Ambassador** **Module** Resource

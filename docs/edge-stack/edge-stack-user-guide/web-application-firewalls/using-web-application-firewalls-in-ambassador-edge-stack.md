@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using Web Application Firewalls in Ambassador Edge Stack
 
 [Ambassador Edge Stack](https://www.getambassador.io/products/edge-stack/api-gateway) comes fully equipped with a Web Application Firewall solution (commonly referred to as WAF) that is easy to set up and can be configured to help protect your web applications by preventing and mitigating many common attacks. To accomplish this, the [Coraza Web Application Firewall library](https://coraza.io/docs/tutorials/introduction) is used to check incoming requests against a user-defined configuration file containing rules and settings for the firewall to determine whether to allow or deny incoming requests.

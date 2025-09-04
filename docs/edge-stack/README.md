@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Ambassador Edge Stack Quick Start
 
 To begin using Ambassador Edge Stack, you’ll start by obtaining a license, applying the license to your environment, installing Ambassador Edge Stack, and configuring it to route traffic from the edge of your Kubernetes cluster. This guide walks you through each step so you can quickly get started.

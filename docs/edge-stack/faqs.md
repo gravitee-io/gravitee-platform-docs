@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # FAQs
 
 ## Frequently Asked Questions

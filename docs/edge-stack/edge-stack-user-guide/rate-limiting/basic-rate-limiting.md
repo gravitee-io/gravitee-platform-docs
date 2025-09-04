@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Basic Rate Limiting
 
 Rate limiting in Ambassador Edge Stack is composed of two parts:

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Configuring Web Application Firewall rules in Ambassador Edge Stack
 
 When writing your own firewall rules, it's important to consider a few ways that Ambassador Edge Stack's `WebApplicationFirewalls` work.

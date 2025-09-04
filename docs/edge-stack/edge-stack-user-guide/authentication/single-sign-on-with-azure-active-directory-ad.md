@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Single Sign-On with Azure Active Directory (AD)
 
 ## Set up Azure AD

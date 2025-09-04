@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using Web Application Firewall in Production
 
 By default, Ambassador Labs rules are configured to block malicious requests. However, when a Web Application Firewall is first deployed in a production environment, it is recommended to set it in a non-blocking mode and monitor its behavior to identify potential issues.

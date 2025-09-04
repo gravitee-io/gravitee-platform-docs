@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Server Name Indication (SNI)
 
 Ambassador Edge Stack supports serving multiple `Host`s behind a single IP address, each with their own certificate.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Load Balancing
 
 Load balancing configuration can be set for all Ambassador Edge Stack mappings in the `ambassador` `Module`, or set per `Mapping`. If nothing is set, simple round robin balancing is used via Kubernetes services.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Timeouts
 
 Ambassador Edge Stack enables you to control timeouts in several different ways.

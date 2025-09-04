@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Changes in Ambassador Edge Stack 2.X
 
 ## Major Changes in Ambassador Edge Stack 2.X

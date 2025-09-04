@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Gateway API
 
 ## Using the Gateway API

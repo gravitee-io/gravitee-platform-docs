@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The Listener Resource
 
 ## The Listener CRD

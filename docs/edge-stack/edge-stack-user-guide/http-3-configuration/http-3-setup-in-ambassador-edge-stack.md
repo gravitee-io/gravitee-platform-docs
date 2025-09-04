@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # HTTP/3 Setup in Ambassador Edge Stack
 
 HTTP/3 is the third version of the Hypertext Transfer Protocol (HTTP). It is built on the [QUIC](https://www.chromium.org/quic/) network protocol rather than Transmission Control Protocol (TCP) like previous versions.

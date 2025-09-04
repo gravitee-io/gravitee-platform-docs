@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # WebApplicationFirewallPolicy
 
 ## The WebApplicationFirewallPolicy Resource (v1alpha1)

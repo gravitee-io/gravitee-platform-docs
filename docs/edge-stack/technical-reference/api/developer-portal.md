@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Developer Portal
 
 > **Developer Portal API visualization is now available in Ambassador Cloud. These docs will remain as a historical reference for hosted Developer Portal installations.** [**Go to the quick start guide**](../../visualize-your-services-api.md)**.**

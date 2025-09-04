@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # HTTP/3 with EKS
 
 ## Amazon Elastic Kubernetes Service HTTP/3 configuration

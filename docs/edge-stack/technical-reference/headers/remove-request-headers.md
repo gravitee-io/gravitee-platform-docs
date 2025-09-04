@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Remove Request Headers
 
 Ambassador Edge Stack can remove a list of HTTP headers that would be sent to the upstream from the request.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using Wasm Filters
 
 The WebAssembly (Wasm) filter type implements Envoy's [Wasm filter](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/wasm_filter), and it can be used to apply an HTTP filter with a Wasm plugin. The Wasm filter is used in conjunction with the [EnvoyFilter](../../crd-api-references/getambassador.io-v3alpha1/the-envoy-filter-type.md) and [EnvoyFilterPolicy](../../crd-api-references/getambassador.io-v3alpha1/envoyfilterpolicy.md) custom resources to introduce additional processing for incoming or outgoing traffic while maintaining the flow of requests. This allows you to implement highly specific, custom logic.

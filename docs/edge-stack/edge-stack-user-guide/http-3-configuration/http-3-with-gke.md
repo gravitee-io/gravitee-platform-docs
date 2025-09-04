@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # HTTP/3 with GKE
 
 ## Google Kubernetes Service Engine HTTP/3 configuration

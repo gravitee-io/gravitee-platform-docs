@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using API Keys Filter
 
 The `APIKey Filter` validates API Keys present in HTTP headers. The list of authorized API Keys is defined directly in a Secret. If an incoming request does not have the header specified by the `APIKey Filter` or it does not contain one of the key values configured by the `Filter` then the request is denied.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Distributed Tracing with OpenTelemetry and Lightstep
 
 In this tutorial, we'll configure [Ambassador Edge Stack](https://www.getambassador.io/products/edge-stack/api-gateway) to initiate a trace on some sample requests, collect them with the OpenTelemetry Collector and use Lightstep to visualize them.

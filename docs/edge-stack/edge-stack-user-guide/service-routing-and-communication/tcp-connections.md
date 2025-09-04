@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # TCP Connections
 
 ## TCPMapping resources

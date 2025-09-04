@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Prefix Regex
 
 ## Using `prefix` and `prefix_regex`

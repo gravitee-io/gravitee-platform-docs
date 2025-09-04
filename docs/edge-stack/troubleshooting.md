@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Troubleshooting
 
 ## Debugging

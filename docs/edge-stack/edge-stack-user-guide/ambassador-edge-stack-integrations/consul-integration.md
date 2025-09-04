@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Consul Integration
 
 [Consul](https://www.consul.io) is a widely used service mesh. Ambassador Edge Stack natively supports service discovery and unauthenticated communication to services in Consul. Additionally, the _Ambassador Consul Connector_ enables Ambassador Edge Stack to encrypt and authenticate its communication via mTLS with services in Consul that make use of [Consul's _Connect_ feature](https://www.consul.io/docs/connect).

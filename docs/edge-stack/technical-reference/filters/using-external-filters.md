@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using External Filters
 
 The `External` `Filter` calls out to an external service speaking the [`ext_authz` protocol](../plug-in-services/extauth-protocol.md), providing a highly flexible interface to plug in your own authentication, authorization, and filtering logic.

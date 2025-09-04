@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Community
 
 ## Contributor's guide

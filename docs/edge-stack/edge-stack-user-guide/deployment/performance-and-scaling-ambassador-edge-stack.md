@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Performance and Scaling Ambassador Edge Stack
 
 Scaling any cloud native application is inherently domain specific, however the content here reflects common issues, tips, and tricks that come up frequently.

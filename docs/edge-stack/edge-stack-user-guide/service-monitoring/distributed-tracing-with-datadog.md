@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Distributed Tracing with Datadog
 
 In this tutorial, we'll configure Ambassador Edge Stack to initiate a trace on some sample requests, and use DataDog APM to visualize them.

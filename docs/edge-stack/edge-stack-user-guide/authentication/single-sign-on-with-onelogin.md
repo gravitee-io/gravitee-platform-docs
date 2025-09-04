@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Single Sign-On with OneLogin
 
 OneLogin is an application that manages authentication for your users on your network, and can provide backend access to Ambassador Edge Stack.

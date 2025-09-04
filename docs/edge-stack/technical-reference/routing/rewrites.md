@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Rewrites
 
 Once Ambassador Edge Stack uses a prefix to identify the service to which a given request should be passed, it can rewrite the URL before handing it off to the service.

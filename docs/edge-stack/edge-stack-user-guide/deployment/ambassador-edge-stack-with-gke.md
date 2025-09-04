@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Ambassador Edge Stack with GKE
 
 Google offers a [L7 load balancer](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress) to leverage network services such as managed SSL certificates, SSL offloading or the Google content delivery network. A L7 load balancer in front of Ambassador Edge Stack can be configured by hand or by using the Ingress-GCE resource. Using the Ingress resource also allows you to create Google-managed SSL certificates through Kubernetes.

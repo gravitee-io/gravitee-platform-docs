@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Ambassador Edge Stack and Redis
 
 The Ambassador Edge Stack make use of Redis for several purposes. By default, all components of the Ambassador Edge Stack share a Redis connection pool.

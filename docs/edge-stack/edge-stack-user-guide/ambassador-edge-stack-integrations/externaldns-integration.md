@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # ExternalDNS Integration
 
 import Alert from '@material-ui/lab/Alert';

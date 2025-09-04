@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Single Sign-On with Google
 
 ## Create an OAuth client in the Google API Console
