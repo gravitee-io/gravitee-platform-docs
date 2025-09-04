@@ -6,7 +6,7 @@ noIndex: true
 
 ## Telepresence Architecture
 
-![Telepresence Architecture](https://www.getambassador.io/images/documentation/telepresence-architecture.inline.svg)
+<div align="left"><figure><img src="../.gitbook/assets/0 0 tp.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 ### Telepresence CLI
 
