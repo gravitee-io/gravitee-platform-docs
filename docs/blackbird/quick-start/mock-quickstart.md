@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Mock Quickstart
 
 In this tutorial, we'll be creating a mock server of an API in our catalog using the Blackbird CLI

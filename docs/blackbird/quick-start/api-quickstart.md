@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # API Quickstart
 
 In this tutorial, we'll be adding an entry to our API catalog using the Blackbird CLI.
