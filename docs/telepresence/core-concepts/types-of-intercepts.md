@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Types of Intercepts
 
 ## No intercept

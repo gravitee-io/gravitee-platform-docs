@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Send requests to an intercepted service
 
 Ambassador Cloud can inform you about the required request parameters to reach an intercepted service.

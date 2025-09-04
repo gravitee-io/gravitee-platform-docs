@@ -1,5 +1,6 @@
 ---
 hidden: true
+noIndex: true
 ---
 
 # FAQ for v2.15

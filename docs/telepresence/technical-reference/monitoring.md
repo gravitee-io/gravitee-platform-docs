@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Monitoring
 
 Telepresence offers powerful monitoring capabilities to help you keep a close eye on your telepresence activities and traffic manager metrics.

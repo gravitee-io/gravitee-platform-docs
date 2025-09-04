@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The Changing Development Workflow
 
 A changing workflow is one of the main challenges for developers adopting Kubernetes. Software development itself isn’t the challenge. Developers can continue to [code using the languages and tools with which they are most productive and comfortable](https://www.getambassador.io/resources/kubernetes-local-dev-toolkit/). That’s the beauty of containerized development.

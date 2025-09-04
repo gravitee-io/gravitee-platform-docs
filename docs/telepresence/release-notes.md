@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Release Notes
 
 ### Version 2.20.2 (January 23, 2025) <a href="#id-2.20.2" id="id-2.20.2"></a>

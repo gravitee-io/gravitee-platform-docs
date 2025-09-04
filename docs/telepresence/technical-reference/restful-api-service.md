@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # RESTful API Service
 
 ## Telepresence RESTful API server

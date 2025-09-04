@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Proxy outbound traffic to my cluster
 
 While preview URLs are a powerful feature, Telepresence offers other options for proxying traffic between your laptop and the cluster. This section describes how to proxy outbound traffic and control outbound connectivity to your cluster.

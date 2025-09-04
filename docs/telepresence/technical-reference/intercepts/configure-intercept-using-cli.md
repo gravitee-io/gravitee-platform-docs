@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Configure intercept using CLI
 
 ### Specifying a namespace for an intercept

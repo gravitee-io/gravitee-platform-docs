@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Quick Start
 
 ## Telepresence Quick Start

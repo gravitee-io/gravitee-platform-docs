@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Package and share my intercepts
 
 ## Introduction

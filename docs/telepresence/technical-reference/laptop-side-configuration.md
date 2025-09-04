@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Laptop-side Configuration
 
 There are a number of configuration values that can be tweaked to change how Telepresence behaves. These can be set in two ways: globally, by a platform engineer with powers to deploy the Telepresence Traffic Manager, or locally by any user. One important exception is the location of the traffic manager itself, which, if it's different from the default of `ambassador`, [must be set](laptop-side-configuration.md#manager) locally per-cluster to be able to connect.

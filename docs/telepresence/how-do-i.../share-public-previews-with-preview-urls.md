@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Share public previews with preview URLs
 
 import Alert from '@material-ui/lab/Alert';

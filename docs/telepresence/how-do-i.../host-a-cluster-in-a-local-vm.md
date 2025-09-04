@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Host a cluster in a local VM
 
 This page discusses network considerations for locally hosted clusters.

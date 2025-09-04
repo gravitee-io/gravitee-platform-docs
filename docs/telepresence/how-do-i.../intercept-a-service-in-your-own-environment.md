@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Intercept a service in your own environment
 
 Telepresence enables you to create intercepts to a target Kubernetes workload. Once you have created and intercept, you can code and debug your associated service locally.

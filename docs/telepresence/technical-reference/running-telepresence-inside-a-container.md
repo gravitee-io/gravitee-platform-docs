@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Running Telepresence Inside a Container
 
 All Telepresence commands now have the global option `--docker`. This option tells telepresence to start the Telepresence daemon in a docker container.

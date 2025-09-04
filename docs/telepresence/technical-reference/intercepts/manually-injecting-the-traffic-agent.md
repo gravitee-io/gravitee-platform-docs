@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Manually injecting the Traffic Agent
 
 You can directly modify your workload's YAML configuration to add the Telepresence Traffic Agent and enable it to be intercepted.

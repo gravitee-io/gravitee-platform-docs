@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Intercepts
 
 When intercepting a service, the Telepresence Traffic Manager ensures that a Traffic Agent has been injected into the intercepted workload. The injection is triggered by a Kubernetes Mutating Webhook and will only happen once. The Traffic Agent is responsible for redirecting intercepted traffic to the developer's workstation.

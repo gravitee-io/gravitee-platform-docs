@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Troubleshooting
 
 ## Error Acquiring Credentials: kubectl Plugin Unavailable

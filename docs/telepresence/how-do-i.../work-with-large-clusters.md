@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Work with large clusters
 
 ## Large number of namespaces

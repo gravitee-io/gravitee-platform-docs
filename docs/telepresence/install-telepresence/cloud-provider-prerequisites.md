@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Cloud Provider Prerequisites
 
 ## GKE

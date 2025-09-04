@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Intercept Specifications
 
 ## Why?
