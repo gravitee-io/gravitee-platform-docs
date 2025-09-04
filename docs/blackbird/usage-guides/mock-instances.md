@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Mock Instances
 
 A mock instance is a simulated version of your OpenAPI specification that replicates the behavior in a controlled environment.

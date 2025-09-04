@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Docker Configurations
 
 When used with Docker, Blackbird cluster (powered by Telepresence) enables a container running on your local machine to act as if it were inside the cluster. This allows you to accelerate your development cycles by providing a fast and efficient way to iterate code changes without requiring administrative access on your machines.

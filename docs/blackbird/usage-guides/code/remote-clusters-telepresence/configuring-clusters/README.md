@@ -1,2 +1,6 @@
+---
+noIndex: true
+---
+
 # Configuring Clusters
 

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Welcome
 
 Blackbird is an API development tool designed to streamline the way you build, test, and mock API services. With features like AI-assisted spec generation, dynamic mocking, local and ephemeral environment testing, and safe pre-production deployments, Blackbird empowers you to focus on API business logic and deliver results faster.

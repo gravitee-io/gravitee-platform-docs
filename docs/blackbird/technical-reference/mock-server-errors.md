@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Mock Server Errors
 
 There are various possible errors when using Blackbird's Mock Server tooling. This document outlines potential errors and how to troubleshoot. All of these error returns conform to [RFC7807](https://datatracker.ietf.org/doc/html/rfc7807).

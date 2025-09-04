@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Slack
 
 Blackbird integrates with Slack to streamline your workflow and foster a collaborative environment where everyone is immediately informed of your mock and deployment statuses in Blackbird.

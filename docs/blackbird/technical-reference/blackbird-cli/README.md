@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Blackbird CLI
 
 The Ambassador Blackbird Command-Line Interface (CLI) is a versatile command-line tool you can use to streamline your API development process. This document includes installation instructions, command syntax, and usage examples to help you efficiently integrate the CLI into your workflow. It includes CLI details related to the following:

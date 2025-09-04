@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Service Mesh Configurations
 
 Service meshes manage and control all networking functions within a cluster, including traffic routing, DNS resolution, and firewall rule configuration. Because of this, integrating the connectivity and interception capabilities of Blackbird cluster (powered by Telepresence) with a service mesh can be challenging. It's essential to properly configure your system to ensure compatibility and prevent conflicts.

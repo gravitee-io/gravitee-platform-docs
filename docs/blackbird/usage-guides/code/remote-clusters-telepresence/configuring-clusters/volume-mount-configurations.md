@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Volume Mount Configurations
 
 Blackbird cluster (powered by Telepresence) supports locally mounting volumes that are mounted to your Pods. You can specify a command to run when starting the intercept, such as a subshell or local server (e.g., Python or Node).

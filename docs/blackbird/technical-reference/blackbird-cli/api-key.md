@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # API Key
 
 This reference provides a list of commands, arguments, and flags you can use to work with API keys in Blackbird.

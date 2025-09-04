@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Code
 
 ## Code

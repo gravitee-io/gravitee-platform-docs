@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using Headless Authentication in the Blackbird CLI
 
 Headless authentication allows you to use the CLI without interactively signing in with a username and password. Instead, you generate and use a pre-authenticated credential called a token to securely log in. This method is especially beneficial when using the CLI in headless environments, like continuous integration (CI) pipelines, where automated, non-interactive logins are essential.

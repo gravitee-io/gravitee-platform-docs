@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # General
 
 This reference provides a list of basic commands, arguments, and flags you can use to work with Blackbird.

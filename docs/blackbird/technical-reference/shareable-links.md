@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Shareable Links
 
 Blackbird generates shareable links (formerly called preview URLs) that replicate development environments for code run/code debug, mock, and deployment features in Blackbird. Shareable links are stable and globally available to allow you to work on a local copy of your service and share it with teammates to collaborate through pair programming. Anyone with a shareable link can access the environment, but you can secure the URLs with API keys.

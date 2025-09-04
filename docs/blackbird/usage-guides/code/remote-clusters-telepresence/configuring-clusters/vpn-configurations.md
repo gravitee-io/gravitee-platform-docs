@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # VPN Configurations
 
 To enhance security, Kubernetes API server endpoints are often configured to be accessible only through a VPN. In these setups, you must first connect to your VPN before using Blackbird cluster (powered by Telepresence) to access your cluster. However, because Blackbird relies on similar underlying technologies, conflicts can occur.

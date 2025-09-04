@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Outbound Traffic and DNS Resolution Configurations
 
 You can manage how services within a cluster securely connect to external resources by proxying outbound traffic and using Domain Name System (DNS) resolution.

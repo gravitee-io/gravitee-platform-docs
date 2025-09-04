@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Integrations
 
 Blackbird integrates with the following tools in your API development lifecycle to enhance workflow efficiency:
