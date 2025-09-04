@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using Filters and FilterPolicies
 
 Filters are used to extend the Ambassador Edge Stack to modify or intercept a request before sending to your backend service. The most common use case for Filters is authentication, and Edge Stack includes a number of built-in filters for this purpose. Edge Stack also supports developing custom filters.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Ambassador Edge Stack Environment Variables and Ports
 
 Use the following variables for the environment of your Ambassador Edge Stack container:

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # FilterPolicy
 
 ## The FilterPolicy Resource (v3alpha1)

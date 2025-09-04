@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Canary Releases
 
 Canary releasing is a deployment pattern where a small percentage of traffic is diverted to an early ("canary") release of a particular service. This technique lets you test a release on a small subset of users, mitigating the impact of any given bug. Canary releasing also allows you to quickly roll back to a known good version in the event of an unexpected error. Detailed monitoring of core service metrics is an essential part of canary releasing, as monitoring enables the rapid detection of problems in the canary release.

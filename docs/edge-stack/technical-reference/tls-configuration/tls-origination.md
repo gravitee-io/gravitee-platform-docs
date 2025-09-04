@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # TLS Origination
 
 Sometimes you may want traffic from Ambassador Edge Stack to your services to be encrypted. For the cases where terminating TLS at the ingress is not enough, Ambassador Edge Stack can be configured to originate TLS connections to your upstream services.

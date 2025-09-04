@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Single Sign-On with Salesforce
 
 ## Set up Salesforce

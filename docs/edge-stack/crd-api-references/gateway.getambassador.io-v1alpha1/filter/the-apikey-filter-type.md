@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The APIKey Filter Type
 
 ## The APIKey Filter Type (v1alpha1)

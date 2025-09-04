@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Rate Limiting in Ambassador Edge Stack
 
 ## Advanced rate limiting

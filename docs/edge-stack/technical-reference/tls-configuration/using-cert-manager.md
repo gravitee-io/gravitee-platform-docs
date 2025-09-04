@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using cert-manager
 
 Ambassador Edge Stack has simple and easy built-in support for automatically [using ACME](../using-custom-resources/the-host-resource.md) with the `http-01` challenge to create and renew TLS certificates. However, this support is not available in Emissary-ingress, and it is limited to the ACME `http-01` challenge type. If you're running Emissary-ingress, or if you require more flexible certificate management (such as using ACME's `dns-01` challenge, or using a non-ACME certificate source), external certificate management tools are also supported.

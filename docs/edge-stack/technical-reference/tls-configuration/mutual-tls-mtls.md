@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Mutual TLS (mTLS)
 
 Many organizations have security concerns that require all network traffic throughout their cluster be encrypted. With traditional architectures, this was not that complicated of a requirement since internal network traffic was fairly minimal. With microservices, we are making many more requests over the network that must all be authenticated and secured.

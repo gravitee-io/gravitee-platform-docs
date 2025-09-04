@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Upgrade or Migrate to a Newer Version
 
 ## Upgrading Ambassador Edge Stack

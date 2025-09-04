@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Known Issues
 
 ## Known Issues in Ambassador Edge Stack

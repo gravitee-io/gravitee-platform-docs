@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # End of Life Policy
 
 This page describes the End of Life policy and maintenance windows for Ambassador Edge Stack.

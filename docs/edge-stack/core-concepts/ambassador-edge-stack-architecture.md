@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Ambassador Edge Stack Architecture
 
 ## Ambassador Edge Stack is a control plane

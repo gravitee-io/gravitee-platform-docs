@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Statistics and Monitoring
 
 Ambassador Edge Stack collects many statistics internally, and makes it easy to direct this information to a statistics and monitoring tool of your choice.

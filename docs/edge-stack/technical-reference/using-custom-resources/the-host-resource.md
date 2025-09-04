@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The Host Resource
 
 ## The **Host** CRD

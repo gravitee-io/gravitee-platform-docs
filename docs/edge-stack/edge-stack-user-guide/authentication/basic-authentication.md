@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Basic Authentication
 
 {% hint style="info" %}

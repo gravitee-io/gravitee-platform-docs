@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The Mapping Resource
 
 ## Introduction to the Mapping resource

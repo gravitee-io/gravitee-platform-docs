@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Cleartext Support
 
 While most modern web applications choose to encrypt all traffic, there remain cases where supporting cleartext communications is important. Ambassador Edge Stack supports both forcing [automatic redirection to HTTPS](cleartext-support.md#http-https-redirection) and [serving cleartext](cleartext-support.md#cleartext-routing) traffic on a `Host`.

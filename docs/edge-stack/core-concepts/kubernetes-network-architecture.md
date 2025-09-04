@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Kubernetes Network Architecture
 
 ## Kubernetes has its own isolated network

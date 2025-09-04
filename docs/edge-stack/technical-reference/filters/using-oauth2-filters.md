@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using OAuth2 Filters
 
 The OAuth2 filter type performs OAuth2 authorization against an identity provider implementing [OIDC Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html). The filter is both:

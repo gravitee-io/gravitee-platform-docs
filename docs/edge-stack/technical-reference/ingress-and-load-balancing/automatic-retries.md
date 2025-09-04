@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Automatic Retries
 
 Sometimes requests fail. When these requests fail for transient issues, Ambassador Edge Stack can automatically retry the request.

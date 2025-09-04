@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using JWT Filters
 
 import Alert from '@material-ui/lab/Alert';

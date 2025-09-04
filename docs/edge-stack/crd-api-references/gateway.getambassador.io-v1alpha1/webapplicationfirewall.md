@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # WebApplicationFirewall
 
 ## The WebApplicationFirewall Resource (v1alpha1)

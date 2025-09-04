@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The Plugin Filter Type
 
 ## The Plugin Filter Type (v1alpha1)

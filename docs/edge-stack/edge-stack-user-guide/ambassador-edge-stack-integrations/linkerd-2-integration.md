@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Linkerd 2 Integration
 
 [Linkerd 2](https://www.linkerd.io) is a zero-config and ultra-lightweight service mesh. Ambassador Edge Stack natively supports Linkerd 2 for service discovery, end-to-end TLS (including mTLS between services), and (with Linkerd 2.8) multicluster operation.

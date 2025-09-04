@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # EnvoyFilterPolicy
 
 ## The EnvoyFilterPolicy Resource (v3alpha1)

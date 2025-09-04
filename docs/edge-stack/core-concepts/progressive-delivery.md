@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Progressive Delivery
 
 Today's cloud-native applications may consist of hundreds of services, each of which are being updated at any time. Thus, many cloud-native organizations augment regression test strategies with testing in production using progressive delivery techniques.

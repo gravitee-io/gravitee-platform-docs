@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The JWT Filter Type
 
 ## The JWT Filter Type (v3alpha1)

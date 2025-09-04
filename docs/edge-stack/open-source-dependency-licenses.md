@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Open Source Dependency Licenses
 
 Edge Stack incorporates Free and Open Source software under the following licenses:

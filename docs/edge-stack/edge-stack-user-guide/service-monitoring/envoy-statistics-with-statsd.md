@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Envoy Statistics with StatsD
 
 > For an overview of other options for gathering statistics on Ambassador Edge Stack, see the [Statistics and Monitoring](statistics-and-monitoring.md) overview.

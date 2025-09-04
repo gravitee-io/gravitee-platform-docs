@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Deployment Architecture
 
 Ambassador Edge Stack can be deployed in a variety of configurations. The specific configuration depends on your data center.

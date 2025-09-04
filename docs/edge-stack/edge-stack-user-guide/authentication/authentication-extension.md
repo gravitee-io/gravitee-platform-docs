@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Authentication Extension
 
 Edge Stack ships with an authentication service that is enabled to perform OAuth, JWT validation, and custom authentication schemes. It can perform different authentication schemes on different requests allowing you to enforce authentication as your application needs.

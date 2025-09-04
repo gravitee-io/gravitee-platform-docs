@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Traffic Shadowing
 
 Traffic shadowing is a deployment pattern where production traffic is asynchronously copied to a non-production service for testing. Shadowing is a close cousin to two other commonly known deployment patterns, [canary releases](../ingress-and-load-balancing/canary-releases.md) and blue/green deployments. Shadowing traffic has several important benefits over blue/green and canary testing:

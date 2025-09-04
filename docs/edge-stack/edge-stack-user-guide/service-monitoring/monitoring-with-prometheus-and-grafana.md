@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Monitoring with Prometheus and Grafana
 
 Prometheus is an open-source monitoring and alerting system. When used along with Grafana, you can create a dynamic dashboard for monitoring ingress into our Kubernetes cluster.

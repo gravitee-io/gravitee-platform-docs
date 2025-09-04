@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Rate Limiting on Token Claims
 
 {% hint style="info" %}

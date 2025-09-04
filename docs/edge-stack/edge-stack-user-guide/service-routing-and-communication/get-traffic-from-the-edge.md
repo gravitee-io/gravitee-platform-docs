@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Get Traffic from the Edge
 
 The core Ambassador Edge Stack resource used to manage cluster ingress is the `Mapping` resource.

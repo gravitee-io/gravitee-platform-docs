@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Configuring Ambassador Edge Stack Communications
 
 For Ambassador Edge Stack to do its job of managing network communications for your services, it first needs to know how its own communications should be set up. This is handled by a combination of resources: the `Listener`, the `Host`, and the `TLSContext`.

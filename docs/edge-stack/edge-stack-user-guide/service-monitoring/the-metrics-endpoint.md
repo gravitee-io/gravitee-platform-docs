@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The Metrics Endpoint
 
 > For an overview of other options for gathering statistics on Ambassador Edge Stack, see the [Statistics and Monitoring](statistics-and-monitoring.md) overview.

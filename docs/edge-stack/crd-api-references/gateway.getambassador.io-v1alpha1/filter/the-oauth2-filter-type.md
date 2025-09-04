@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # The OAuth2 Filter Type
 
 ## The OAuth2 Filter Type (v1alpha1)
