@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Docker Compose Integration
 
 ## Why?

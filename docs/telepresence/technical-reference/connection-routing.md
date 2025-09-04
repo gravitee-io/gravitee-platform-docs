@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Connection Routing
 
 ## DNS resolution

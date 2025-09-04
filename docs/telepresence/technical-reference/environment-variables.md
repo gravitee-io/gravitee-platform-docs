@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Environment Variables
 
 Telepresence can import environment variables from the cluster pod when running an intercept. You can then use these variables with the code running on your laptop of the service being intercepted.

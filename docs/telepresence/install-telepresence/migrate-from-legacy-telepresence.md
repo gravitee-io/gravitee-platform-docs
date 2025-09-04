@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Migrate from Legacy Telepresence
 
 [Telepresence](https://www.getambassador.io/products/blackbird/api-development) (formerly referenced as Telepresence 2, which is the current major version) has different mechanics and requires a different mental model from legacy [Telepresence 1](https://archive.getambassador.io/docs/telepresence/1.0/discussion/overview) when working with local instances of your services.

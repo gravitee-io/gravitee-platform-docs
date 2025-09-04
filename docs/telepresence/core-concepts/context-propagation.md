@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Context Propagation
 
 **Context propagation** is the transfer of request metadata across the services and remote processes of a distributed system. Telepresence uses context propagation to intelligently route requests to the appropriate destination.

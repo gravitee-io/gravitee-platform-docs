@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Volume Mounts
 
 Telepresence supports locally mounting of volumes that are mounted to your Pods. You can specify a command to run when starting the intercept, this could be a subshell or local server such as Python or Node.

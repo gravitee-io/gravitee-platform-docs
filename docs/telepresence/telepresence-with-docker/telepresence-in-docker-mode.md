@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Telepresence in Docker Mode
 
 Welcome to the quickstart guide for Telepresence Docker mode! In this hands-on tutorial, we will explore the powerful features of Telepresence and learn how to leverage Telepresence Docker mode to enhance local development and debugging workflows.

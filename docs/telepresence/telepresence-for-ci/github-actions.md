@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # GitHub Actions
 
 ## Telepresence with GitHub Actions

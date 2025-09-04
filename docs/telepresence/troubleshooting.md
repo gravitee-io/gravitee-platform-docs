@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Troubleshooting
 
 ## Creating an intercept did not generate a preview URL

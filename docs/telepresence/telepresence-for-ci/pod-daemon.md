@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Pod Daemon
 
 ## Telepresence with Pod Daemon

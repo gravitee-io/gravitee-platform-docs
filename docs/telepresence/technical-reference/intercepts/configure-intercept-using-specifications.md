@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Configure intercept using specifications
 
 This page references the different options available to the telepresence intercept specification.

@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Using Telepresence with Service Meshes
 
 Service meshes take over and operate on all networking functions in your cluster. They route traffic, add DNS entries, and set up firewall rules. Because of this, it can be tricky to get Telepresence's own connectivity and intercepting functionality to work with a service mesh.

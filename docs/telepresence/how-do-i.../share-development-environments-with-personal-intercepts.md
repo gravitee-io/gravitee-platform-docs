@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Share development environments with personal intercepts
 
 When you run `telepresence intercept` Telepresence creates a global intercept by default, and redirects all traffic to a cluster service to your laptop. This can work for some teams, but a major limitation is if two developers need to work on the same application concurrently, or if adding latency or potential bugs to the integration environment is unacceptable.

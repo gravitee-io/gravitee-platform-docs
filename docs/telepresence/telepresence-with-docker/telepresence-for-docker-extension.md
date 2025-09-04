@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Telepresence for Docker Extension
 
 The Telepresence Docker extension is an extension that runs in Docker Desktop. This extension allows you to spin up a selection of your application and run the Telepresence daemons in that container. The Telepresence extension allows you to intercept a service and redirect cloud traffic to containers.

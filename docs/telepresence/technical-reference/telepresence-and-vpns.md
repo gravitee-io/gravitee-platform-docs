@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Telepresence and VPNs
 
 It is often important to set up Kubernetes API server endpoints to be only accessible via a VPN. In setups like these, users need to connect first to their VPN, and then use Telepresence to connect to their cluster. As Telepresence uses many of the same underlying technologies that VPNs use, the two can sometimes conflict. This page will help you identify and resolve such VPN conflicts.

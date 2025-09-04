@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Telepresence for Docker Compose
 
 The [Intercept Specification](../technical-reference/intercepts/configure-intercept-using-specifications.md) can contain an intercept handler that in turn references (or embeds) a [docker compose](../technical-reference/intercepts/configure-intercept-using-specifications.md#compose) specification. The docker compose services will then be used when handling the intercepted traffic.

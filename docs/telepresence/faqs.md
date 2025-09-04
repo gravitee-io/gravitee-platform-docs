@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # FAQs
 
 For questions about the new account changes introduced in v2.15, please see our FAQ [specific to that topic](faq-for-v2.15.md).

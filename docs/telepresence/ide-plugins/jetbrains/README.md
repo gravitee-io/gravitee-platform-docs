@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Jetbrains
 
 ## Telepresence plugin for Jetbrains IDEs
