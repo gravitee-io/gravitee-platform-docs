@@ -15,10 +15,10 @@
 2. (**Enterprise Edition only**) Add you license key by completing the follow sub-steps:
    1. &#x20;In a text editor, open `docker-compose-apim.yml.`
    2. Navigate to `$services.management_api.volumes`.&#x20;
-   3.  On a new line, add the path to the license key. This addition ensures that the Gateway can access the licensing key.
+   3.  On a new line, add the path to the license key. This addition ensures that the Management API can access the licensing key.
 
        ```bash
-        - /gravitee/license.key:/opt/graviteeio-gateway/license/license.key
+       - ./gravitee/license.key:/opt/graviteeio-management-api/license/license.key
        ```
 3.  Start the components using the following command:&#x20;
 
