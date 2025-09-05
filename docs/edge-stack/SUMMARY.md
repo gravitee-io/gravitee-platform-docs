@@ -132,7 +132,6 @@
     * [Custom Error Responses](technical-reference/traffic-management/custom-error-responses.md)
     * [Gzip Compression](technical-reference/traffic-management/gzip-compression.md)
   * [API](technical-reference/api/README.md)
-    * [Gateway API](technical-reference/api/gateway-api.md)
     * [Developer Portal](technical-reference/api/developer-portal.md)
 * [CRD API References](crd-api-references/README.md)
   * [gateway.getambassador.io/v1alpha1](crd-api-references/gateway.getambassador.io-v1alpha1/README.md)
