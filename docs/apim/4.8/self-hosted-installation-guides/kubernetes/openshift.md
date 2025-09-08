@@ -29,7 +29,7 @@ You can configure your deployment for the following configuration types:
 * External configuration
 * Shared configuration
 
-The configuration types for OpenShift are the same configuration types for Kubernetes. For more information about the configuration types, see [#configuration-types](vanilla-kubernetes/#configuration-types "mention").
+The configuration types for OpenShift are the same configuration types for Kubernetes. For more information about the configuration types, see [#configuration-types](vanilla-kubernetes.md#configuration-types "mention").
 
 ### Configure the databases
 
@@ -284,7 +284,7 @@ You can configure the following Gravitee components:
 * Gravitee Gateway
 * Alert Engine
 
-The process for configuring the Gravitee components on OpenShift is the same process as configuring the Gravitee components on Kubernetes with some adjustments. To configure the Gravitee components, see [#gravitee-parameters](vanilla-kubernetes/#gravitee-parameters "mention").
+The process for configuring the Gravitee components on OpenShift is the same process as configuring the Gravitee components on Kubernetes with some adjustments. To configure the Gravitee components, see [#gravitee-parameters](vanilla-kubernetes.md#gravitee-parameters "mention").
 
 #### Adjustments needed for OpenShift
 
