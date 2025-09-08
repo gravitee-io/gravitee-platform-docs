@@ -45,6 +45,7 @@ To install the Gravitee Gateway, complete the following steps:
 4. [#install-redis](vanilla-kubernetes.md#install-redis "mention")
 5. [#install-postgresql](vanilla-kubernetes.md#install-postgresql "mention")
 6. [#prepare-values.yaml-for-helm](vanilla-kubernetes.md#prepare-values.yaml-for-helm "mention")
+7. [#install-with-helm](vanilla-kubernetes.md#install-with-helm "mention")
 
 
 
@@ -52,8 +53,9 @@ To install the Gravitee Gateway, complete the following steps:
 
 Kubernetes namespaces provide logical isolation and organization within a cluster. Creating a dedicated namespace for Gravitee APIM:
 
-* Isolates resources: Separates APIM components from other applications
-* Simplifies management: Groups related services, pods, and configurations together\
+a. Isolates resources: Separates APIM components from other applications
+
+b. Simplifies management: Groups related services, pods, and configurations together\
 
 
 1.  Create the namespace using the following command:&#x20;
