@@ -48,11 +48,11 @@ To add security to your API, complete the following steps:&#x20;
 8.  In the API Key authentication configuration screen, click **Next**. \
 
 
-    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (2) (2).png" alt=""><figcaption></figcaption></figure>
 9.  Click **Create**. \
 
 
-    <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 10. In the **Consumers** screen, click the **Publish the plan** button.\
 
 
@@ -60,7 +60,7 @@ To add security to your API, complete the following steps:&#x20;
 11. In the Publish plan pop-up window, click **Publish.**\
 
 
-    <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
 12. Click **Deploy API**.\
 
 
@@ -68,13 +68,13 @@ To add security to your API, complete the following steps:&#x20;
 13. In the **Deploy your API** pop-up window, click **Deploy**.\
 
 
-    <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (5) (3).png" alt=""><figcaption></figcaption></figure>
 
 #### Verification
 
 The new plan appears in the **PUBLISHED** tab of the **Consumers** screen.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (3).png" alt=""><figcaption></figcaption></figure>
 
 ### Remove the Keyless plan from your API
 

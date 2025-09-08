@@ -2,6 +2,8 @@
 
 ## Overview&#x20;
 
+* Follow the instructions to [#prepare-your-installation](../#prepare-your-installation "mention").
+
 This guide explains how to install the Data Plane using Docker CLI commands. The Data Plane includes core components like the Gateway and Redis for rate limiting.&#x20;
 
 ## Prerequisites
@@ -58,7 +60,7 @@ To enable API rate-limiting, configure your Gateway to use a rate-limiting repos
     *   Replace `<CONTROL_PLANE_VERSION>` with the version that matches your Gravitee Cloud Control Plane. For example. 4.8.2.\
 
 
-        <figure><img src="../../../.gitbook/assets/image (324).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/image (324) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
