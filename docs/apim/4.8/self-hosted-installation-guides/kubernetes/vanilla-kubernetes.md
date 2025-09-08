@@ -468,7 +468,7 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
           memory: "2Gi"
           cpu: "1"
 
-      # Uncomment out to add your license key using the enterprise editiion 
+      # Uncomment out to add your license key using the enterprise edition 
       # # License volume configuration for Management API
       # extraVolumes: |
       #   - name: gravitee-license
@@ -672,8 +672,8 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
 
 2. Make the following modifications to your values.yaml file:
 
-* Replace `<elasticsearch_hostname>` with `http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200`&#x20;
-* Replace `<mongodb_hostname>` with `mongodb://gravitee-mongodb.gravitee-apim.svc.cluster.local:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000`
+* Replace `<elasticsearch_endpoints>` with `http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200`&#x20;
+* Replace `<mongodb_url>` with `mongodb://gravitee-mongodb.gravitee-apim.svc.cluster.local:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000`
 
 3. Save your Gravitee `values.yaml` file in your working directory.
 
@@ -863,7 +863,7 @@ Access the Gravitee APIM web interface using the following steps:&#x20;
 
 ### Validate the Gateway URL
 
-Validate your Gateway URL using using the following steps:&#x20;
+Validate your Gateway URL using the following steps:&#x20;
 
 1. [#validate-gateway-url-using-ingress](vanilla-kubernetes.md#validate-gateway-url-using-ingress "mention")
 2. [#validate-gateway-url-using-port-forwarding](vanilla-kubernetes.md#validate-gateway-url-using-port-forwarding "mention")
