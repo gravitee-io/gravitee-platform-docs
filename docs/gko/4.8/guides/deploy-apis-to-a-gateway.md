@@ -6,7 +6,7 @@ description: Deployment guide for Deploy APIs.
 
 The `state` attribute of the `ApiV4Definition` and `ApiDefinition` CRDs determines if an API should be in the `STARTED` or `STOPPED` state. By default, an API's `state` is set to `STARTED`.
 
-To make this explicit, set the value of `state` to `TRUE` in the configuration for your API definition:
+To make this explicit, set the value of `state` to `STARTED` in the configuration for your API definition:
 
 ```yaml
 kind: ApiDefinition
