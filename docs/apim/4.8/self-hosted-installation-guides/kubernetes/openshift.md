@@ -29,7 +29,7 @@ You can configure your deployment for the following configuration types:
 * External configuration
 * Shared configuration
 
-The configuration types for OpenShift are the same configuration types for Kubernetes. For more information about the configuration types, see [#configuration-types](vanilla-kubernetes.md#configuration-types "mention").
+The configuration types for OpenShift are the same configuration types for Kubernetes. For more information about the configuration types, see [#configuration-types](vanilla-kubernetes/#configuration-types "mention").
 
 ### Configure the databases
 
@@ -43,8 +43,7 @@ To deploy OpenShift, you must configure the MongoDB database. Also, you can conf
 If you have already installed MongoDB, you do not need to install MongoDB again.
 {% endhint %}
 
-*   To install MongoDB with Helm, use the following command:\
-
+*   To install MongoDB with Helm, use the following command:\\
 
     ```sh
     helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -62,8 +61,7 @@ If you have already installed MongoDB, you do not need to install MongoDB again.
 | ----------- | ----------- | ------- |
 | `mongo.uri` | Mongo URI   | `null`  |
 
-*   **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:\
-
+*   **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:\\
 
     ```
     mongo:
@@ -122,8 +120,7 @@ If you have already installed PostgreSQL, you do not need to install PostgreSQL 
 To install a new PostgreSQL database, complete the following steps:
 
 1. Update the `username`, `password`, and `databasename` parameters.
-2.  Run the following commands:\
-
+2.  Run the following commands:\\
 
     ```
     helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -150,8 +147,7 @@ postgres-apim-postgresql-0                1/1     Running      0           98s
 
 **Configure PostgreSQL**
 
-*   Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:\
-
+*   Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:\\
 
     ```
     jdbc:
@@ -288,21 +284,18 @@ You can configure the following Gravitee components:
 * Gravitee Gateway
 * Alert Engine
 
-The process for configuring the Gravitee components on OpenShift is the same process as configuring the Gravitee components on Kubernetes with some adjustments. To configure the Gravitee components, see [#gravitee-parameters](vanilla-kubernetes.md#gravitee-parameters "mention").
+The process for configuring the Gravitee components on OpenShift is the same process as configuring the Gravitee components on Kubernetes with some adjustments. To configure the Gravitee components, see [#gravitee-parameters](vanilla-kubernetes/#gravitee-parameters "mention").
 
 #### Adjustments needed for OpenShift
 
 When you configure your `values.yml` file for OpenShift deployment, you must complete the following actions:
 
 * Use the full host domain instead of paths for all components.
-*   Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of security context that has been overridden:\
+*   Override the security context to let OpenShift automatically define the `user-id` and `group-id` you use to run the containers. Here is an example of security context that has been overridden:\\
 
+    \{% hint style="warning" %\}
 
-    {% hint style="warning" %}
-    * Currently only UID randomization is supported. We do not support random GID.
-    {% endhint %}
-
-
+    * Currently only UID randomization is supported. We do not support random GID. \{% endhint %\}
 
     ```yaml
     api:  
@@ -316,8 +309,7 @@ When you configure your `values.yml` file for OpenShift deployment, you must com
           seccompProfile:
             type: RuntimeDefault
     ```
-*   For OpenShift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is an example of an `ingressClassName` defined as `none`:\
-
+*   For OpenShift to automatically create Routes from the Ingress, define the `ingressClassName` as `none`. Here is an example of an `ingressClassName` defined as `none`:\\
 
     ```yaml
      api:
@@ -331,7 +323,7 @@ When you configure your `values.yml` file for OpenShift deployment, you must com
             route.openshift.io/termination: edge
     ```
 
-#### Disable logging to file inside container&#x20;
+#### Disable logging to file inside container
 
 * To disable logging to file inside the container, add the following configuration to your `values.yaml` file:
 
@@ -391,7 +383,7 @@ For more information about HTTP proxy configuration, see [proxy.md](../../config
 
 **Example**
 
-Here is an example  `values.yml` file that deploys APIM on OpenShift:
+Here is an example `values.yml` file that deploys APIM on OpenShift:
 
 {% hint style="info" %}
 By setting `runAsUser` to `null`, OpenShift is forced to define the correct values when deploying the Helm chart.
