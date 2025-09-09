@@ -52,7 +52,7 @@ The Gravitee Kubernetes Operator Helm Chart supports the configuration of the fo
 {% tab title="RBAC" %}
 Required RBAC resources are created by default for all components involved in the release.
 
-<table><thead><tr><th width="272">Name</th><th width="233">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>serviceAccount.create</code></td><td>Specifies if a service account should be created for the manager pod.</td><td><code>true</code></td></tr><tr><td><code>serviceAccount.name</code></td><td><a data-footnote-ref href="#user-content-fn-1">Specifies the service account name to use. </a>If the operator is deployed in multiple namespaces by setting <code>scope.cluster</code> to <code>false</code>, a different service account name must be used for each installation.</td><td><code>gko-controller-manager</code></td></tr><tr><td><code>rbac.create</code></td><td>Specifies if RBAC resources should be created.</td><td><code>true</code></td></tr><tr><td><code>rbac.skipClusterRoles</code></td><td>Specifies if cluster roles should be created when RBAC resources are created.</td><td><code>false</code></td></tr><tr><td><code>manager.scope.namespaces</code></td><td>Specify a list of namespaces that GKO is going to watch for CRDs in the following form: <code>["ns1", "ns2", "ns3"]</code>. With this parameter,  GKO does not need ClusterRole-Binding and has access to resources in only these specific namespaces. If you provide this list, ensure that <code>manager.scope.cluster=true</code></td><td><code>[]</code></td></tr></tbody></table>
+<table><thead><tr><th width="272">Name</th><th width="233">Description</th><th>Value</th></tr></thead><tbody><tr><td><code>serviceAccount.create</code></td><td>Specifies if a service account should be created for the manager pod.</td><td><code>true</code></td></tr><tr><td><code>serviceAccount.name</code></td><td><a data-footnote-ref href="#user-content-fn-1">Specifies the service account name to use. </a>If the operator is deployed in multiple namespaces by setting <code>scope.cluster</code> to <code>false</code>, a different service account name must be used for each installation.</td><td><code>gko-controller-manager</code></td></tr><tr><td><code>rbac.create</code></td><td>Specifies if RBAC resources should be created.</td><td><code>true</code></td></tr><tr><td><code>rbac.skipClusterRoles</code></td><td>Specifies if cluster roles should be created when RBAC resources are created. You may need to disable templating for the manager to read secrets and ConfigMaps in other namespaces.</td><td><code>false</code></td></tr><tr><td><code>manager.scope.namespaces</code></td><td>Specify a list of namespaces that GKO is going to watch for CRDs in the following form: <code>["ns1", "ns2", "ns3"]</code>. With this parameter,  GKO does not need ClusterRole-Binding and has access to resources in only these specific namespaces. If you provide this list, ensure that <code>manager.scope.cluster=true</code></td><td><code>[]</code></td></tr></tbody></table>
 {% endtab %}
 
 {% tab title="RBAC Proxy" %}
@@ -76,7 +76,7 @@ Use these parameters to configure the deployment, and the ways in which the oper
 | ------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------- |
 | `manager.image.repository`                  | Specifies the Docker registry and image name to use.                                         | `graviteeio/kubernetes-operator` |
 | `manager.image.tag`                         | Specifies the Docker image tag to use.                                                       | `latest`                         |
-| `manager.log.json`                          | If true, the manager logs will be written in JSON format.                                    | `true`                           |
+| `manager.log.json`                          | If true, the manager logs are written in JSON format.                                        | `true`                           |
 | `manager.configMap.name`                    | The name of the ConfigMap used to set the manager config from these values.                  | `gko-config`                     |
 | `manager.resources.limits.cpu`              | The CPU resource limits for the GKO Manager container.                                       | `500m`                           |
 | `manager.resources.limits.memory`           | The memory resources limits for the GKO Manager container.                                   | `128Mi`                          |
@@ -86,6 +86,9 @@ Use these parameters to configure the deployment, and the ways in which the oper
 | `manager.metrics.enabled`                   | If true, a metrics server will be created so that metrics can be scraped using Prometheus.   | `true`                           |
 | `manager.probe.port`                        | The port the readiness and liveness probes will listen to.                                   | `8081`                           |
 | `manager.httpClient.insecureSkipCertVerify` | If true, the manager HTTP client will not verify the certificate used by the Management API. | `false`                          |
+| `manager.templating.enabled`                | If false resources containing markers `[[...]]` will not be evaluated.                       | `true`                           |
+
+
 {% endtab %}
 
 {% tab title="Ingress" %}
