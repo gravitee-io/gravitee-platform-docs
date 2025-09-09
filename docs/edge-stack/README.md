@@ -29,12 +29,12 @@ To manually apply the JWT to your cluster, you need to Base64 encode it.
 
     ```yaml
     apiVersion: v1
-    data:
-    license-key: LICENSE_KEY
     kind: Secret
     metadata:
-    name: ambassador-edge-stack
-    namespace: ambassador
+      name: ambassador-edge-stack
+      namespace: ambassador
+    data:
+      license-key: LICENSE_KEY
     ```
 
     > **Note:** If you're transitioning from an Ambassador Cloud token to a JWT, delete the cloud token secret after applying the new JWT secret. Edge Stack will automatically detect and use the JWT secret for licensing.
@@ -133,37 +133,30 @@ Ambassador Edge Stack uses Kubernetes Custom Resource Definitions (CRDs) to decl
     kubectl apply -f https://app.getambassador.io/yaml/v2-docs/3.9.1/quickstart/qotm.yaml
     ```
 
+    \{% hint style="info" %\} The service and deployment are created in your default namespace. You can use `kubectl get services,deployments quote` to see their status. \{% endhint %\}3. Apply the following YAML to your target cluster to tell Ambassador Edge Stack to route all inbound traffic to the `/backend/` path to the `quote` service.
 
-
-    {% hint style="info" %}
-    The service and deployment are created in your default namespace. You can use `kubectl get services,deployments quote` to see their status.
-    {% endhint %}
-3.  Apply the following YAML to your target cluster to tell Ambassador Edge Stack to route all inbound traffic to the `/backend/` path to the `quote` service.
-
-    ````yaml
-        kubectl apply -f - <<EOF
-     ---
-     apiVersion: getambassador.io/v3alpha1
-     kind: Mapping
-     metadata:
-       name: quote-backend
-     spec:
-       hostname: "*"
-       prefix: /backend/
-       service: quote
-       docs:
-         path: "/.ambassador-internal/openapi-docs"
-     EOF
-        ```
-
-    ````
-4.  Store the Ambassador Edge Stack load balancer IP address using a local environment variable. You'll use this variable to test access to your service.
-
+    ```sh
+    kubectl apply -f - <<EOF
+    ---
+    apiVersion: getambassador.io/v3alpha1
+    kind: Mapping
+    metadata:
+      name: quote-backend
+    spec:
+      hostname: "*"
+      prefix: /backend/
+      service: quote
+      docs:
+        path: "/.ambassador-internal/openapi-docs"
+    EOF
     ```
+3.  Store the Ambassador Edge Stack load balancer IP address using a local environment variable. You'll use this variable to test access to your service.
+
+    ```sh
     export LB_ENDPOINT=$(kubectl -n ambassador get svc  edge-stack \
       -o "go-template={{range .status.loadBalancer.ingress}}{{or .ip .hostname}}{{end}}")
     ```
-5.  Test the configuration by accessing the service through the Ambassador Edge Stack load balancer.
+4.  Test the configuration by accessing the service through the Ambassador Edge Stack load balancer.
 
     ```
     $ curl -Lki https://$LB_ENDPOINT/backend/
