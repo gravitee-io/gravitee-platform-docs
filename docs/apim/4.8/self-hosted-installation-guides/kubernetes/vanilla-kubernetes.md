@@ -846,15 +846,8 @@ Access the Gravitee APIM web interface using the following steps:&#x20;
 
 #### Management Console
 
-1. Open your browser and navigate to: `http://apim.localhost/console` \
-   &#x20;\
-   \
-   \
-   \
-   \
-   \
-
-2. Login with: `admin` / `admin`
+1. Open your browser and navigate to: `http://apim.localhost/console`&#x20;
+2. Login with: `admin / admin`&#x20;
 3. The interface allows you to configure APIs, policies, and monitor your API platform
 
 #### Developer Portal&#x20;
