@@ -122,3 +122,30 @@ When you create this API, it will dynamically load the README.md Markdown file f
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+## Disable templating
+
+When you disable templating the following actions occur:
+
+* GKO stops watching Secrets or ConfigMaps, potentially across all namespaces.
+* Custom resources remain clean. The resources containing templates are not affected.
+
+To disable templating, add the following configuration to your Helm chart:
+
+```yaml
+manager:
+  templating:
+    enabled: false
+```
+
+### Verification&#x20;
+
+Use the following steps to verify that you disabled templating:&#x20;
+
+1.  If a resource contains a templating placeholder check it is not replaced: \
+
+
+    ```bash
+    kubectl get apiv4definitions myapi -o yaml
+    ```
+2. Check the logs for errors. You should see no errors in the logs after the resource have been applied.&#x20;

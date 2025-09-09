@@ -44,8 +44,10 @@ To install the Gravitee Gateway, complete the following steps:
 3. [#install-elasticsearch](vanilla-kubernetes.md#install-elasticsearch "mention")
 4. [#install-redis](vanilla-kubernetes.md#install-redis "mention")
 5. [#install-postgresql](vanilla-kubernetes.md#install-postgresql "mention")
-6. [#prepare-values.yaml-for-helm](vanilla-kubernetes.md#prepare-values.yaml-for-helm "mention")
-7. [#install-with-helm](vanilla-kubernetes.md#install-with-helm "mention")
+6. [#create-secret-enterprise-edition-only](vanilla-kubernetes.md#create-secret-enterprise-edition-only "mention")
+7. [#install-ingress-controller](vanilla-kubernetes.md#install-ingress-controller "mention")
+8. [#prepare-values.yaml-for-helm](vanilla-kubernetes.md#prepare-values.yaml-for-helm "mention")
+9. [#install-with-helm](vanilla-kubernetes.md#install-with-helm "mention")
 
 
 
@@ -337,11 +339,91 @@ Before installing Gravitee APIM for enterprise edition, you need to create a Kub
 
 
 
+### Install Ingress Controller&#x20;
+
+An ingress controller is required to route external traffic to your Gravitee APIM services. The installation method depends on your Kubernetes environment.
+
+#### Install NGINX Ingress Controller with Helm&#x20;
+
+1.  Add the `ingress-nginx` Helm repository using the following command:\
+
+
+    ```bash
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+    helm repo update
+    ```
+2.  Install the NGINX Ingress Controller using the following command:
+
+    ```bash
+    helm install nginx-ingress ingress-nginx/ingress-nginx \
+      --namespace ingress-nginx \
+      --create-namespace \
+      --set controller.service.type=LoadBalancer \
+      --set controller.admissionWebhooks.enabled=false
+    ```
+
+#### Configure DNS Resolution&#x20;
+
+For local development with custom hostnames, you must add DNS entries to your system's hosts file.
+
+1.  In this guide, we are using DNS entries we defined in our [values.yaml](vanilla-kubernetes.md#prepare-values.yaml-for-helm) file, add the required DNS entries using the following commands:
+
+    ```bash
+    echo "127.0.0.1 apim.localhost" | sudo tee -a /etc/hosts
+    echo "127.0.0.1 api.localhost" | sudo tee -a /etc/hosts  
+    echo "127.0.0.1 dev.localhost" | sudo tee -a /etc/hosts
+    ```
+2.  Verify the DNS entries were added using the following command:
+
+    ```bash
+    cat /etc/hosts | tail -5
+    ```
+3.  The output should show the three localhost entries:
+
+    ```bash
+    127.0.0.1 apim.localhost
+    127.0.0.1 api.localhost
+    127.0.0.1 dev.localhost
+    ```
+
+#### Install Ingress Controller for Minikube Environments&#x20;
+
+1.  Enable the built-in ingress addon using the following command:
+
+    ```bash
+    minikube addons enable ingress
+    ```
+2.  Verify the ingress controller is running using the following command:\
+
+
+    ```
+    kubectl get pods -n ingress-nginx
+    ```
+
+
+
+    The output should show the ingress controller pod in Running status:
+
+    ```bash
+    NAME                                       READY   STATUS    RESTARTS   AGE
+    ingress-nginx-controller-xxx-xxx           1/1     Running   0          2m
+    ```
+3.  For Minikube users, enable the network tunnel using the following command:
+
+    ```bash
+    minikube tunnel
+    ```
+
+{% hint style="success" %}
+Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.
+{% endhint %}
+
 ### Prepare `values.yaml` for Helm&#x20;
 
 To prepare your Gravitee values.yaml file for Helm, complete the following steps:
 
-1.  Copy the following Gravitee values.yaml file. This is the base configuration for your self-hosted APIM platform:\
+1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your self-hosted APIM platform:\
 
 
     ```yaml
@@ -435,26 +517,26 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
       ingress:
         management:
           enabled: true
+          ingressClassName: nginx
           scheme: http
           pathType: Prefix
           path: /management
           hosts:
             - apim.localhost
           annotations:
-            kubernetes.io/ingress.class: nginx
             nginx.ingress.kubernetes.io/enable-cors: "true"
             nginx.ingress.kubernetes.io/cors-allow-origin: "*"
             nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
             nginx.ingress.kubernetes.io/cors-allow-headers: "Authorization, Content-Type, X-Requested-With, Accept, Origin"
         portal:
           enabled: true
+          ingressClassName: nginx
           scheme: http
           pathType: Prefix
           path: /portal
           hosts:
             - apim.localhost
           annotations:
-            kubernetes.io/ingress.class: nginx
             nginx.ingress.kubernetes.io/enable-cors: "true"
             nginx.ingress.kubernetes.io/cors-allow-origin: "*"
             nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
@@ -468,8 +550,12 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
           memory: "2Gi"
           cpu: "1"
 
-      # Uncomment out to add your license key using the enterprise edition 
-      # # License volume configuration for Management API
+
+
+      # Uncomment out to add your license key using the enterprise editiion 
+
+      # License volume configuration for Management API
+
       # extraVolumes: |
       #   - name: gravitee-license
       #     secret:
@@ -479,6 +565,7 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
       #     mountPath: "/opt/graviteeio-management-api/license/license.key"
       #     subPath: license.key
       #     readOnly: true
+
 
     # Gateway Configuration
     gateway:
@@ -517,12 +604,11 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
 
       ingress:
         enabled: true
+        ingressClassName: nginx
         pathType: Prefix
         path: /
         hosts:
           - api.localhost
-        annotations:
-          kubernetes.io/ingress.class: nginx
 
       resources:
         requests:
@@ -561,12 +647,12 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
 
       ingress:
         enabled: true
+        ingressClassName: nginx
         pathType: ImplementationSpecific
         path: /console(/.*)?
         hosts:
           - apim.localhost
         annotations:
-          kubernetes.io/ingress.class: nginx
           nginx.ingress.kubernetes.io/rewrite-target: /$1
 
       resources:
@@ -597,12 +683,11 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
 
       ingress:
         enabled: true
+        ingressClassName: nginx
         pathType: Prefix
         path: /
         hosts:
           - dev.localhost
-        annotations:
-          kubernetes.io/ingress.class: nginx
 
       resources:
         requests:
@@ -668,7 +753,7 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
     # 3. Install the required database services (MongoDB, PostgreSQL, Redis)
     ```
 
-
+> Ensure you have completed the[ ingress controller setup, DNS configuration, and (for Minikube) tunnel configuration from the previous sections](vanilla-kubernetes.md#install-ingress-controller) before proceeding.
 
 2. Make the following modifications to your values.yaml file:
 
@@ -748,12 +833,27 @@ Your APIM platform components should now be running in your Kubernetes cluster.
 
 To verify that your Gateway is up and running, complete the following steps:
 
-1. [#validate-the-pods](vanilla-kubernetes.md#validate-the-pods "mention")
-2. [#validate-the-services](vanilla-kubernetes.md#validate-the-services "mention")
-3. [#validate-the-gateway-logs](vanilla-kubernetes.md#validate-the-gateway-logs "mention")
-4. [#validate-ingress](vanilla-kubernetes.md#validate-ingress "mention")
-5. [#access-gravitee-apim-web-interface](vanilla-kubernetes.md#access-gravitee-apim-web-interface "mention")
+1. [#access-gravitee-apim-web-interface](vanilla-kubernetes.md#access-gravitee-apim-web-interface "mention")
+2. [#validate-the-pods](vanilla-kubernetes.md#validate-the-pods "mention")
+3. [#validate-the-services](vanilla-kubernetes.md#validate-the-services "mention")
+4. [#validate-the-gateway-logs](vanilla-kubernetes.md#validate-the-gateway-logs "mention")
+5. [#validate-ingress](vanilla-kubernetes.md#validate-ingress "mention")
 6. [#validate-the-gateway-url](vanilla-kubernetes.md#validate-the-gateway-url "mention")
+
+### Access Gravitee APIM web interface
+
+Access the Gravitee APIM web interface using the following steps:&#x20;
+
+#### Management Console
+
+1. Open your browser and navigate to: `http://apim.localhost/console`&#x20;
+2. Login with: `admin / admin`&#x20;
+3. The interface allows you to configure APIs, policies, and monitor your API platform
+
+#### Developer Portal&#x20;
+
+1. Open your browser and navigate to: `http://dev.localhost/`
+2. This self-service portal allows developers to discover and consume APIs
 
 ### Validate the pods
 
@@ -839,27 +939,7 @@ To validate the Gateway logs, complete the following steps:
     gravitee-apim-ui               <none>   apim.localhost   localhost   80      2d4h
     ```
 
-### Access Gravitee APIM web interface
 
-Access the Gravitee APIM web interface using the following steps:&#x20;
-
-#### Management Console
-
-1. Open your browser and navigate to: `http://apim.localhost/console` \
-   &#x20;\
-   \
-   \
-   \
-   \
-   \
-
-2. Login with: `admin` / `admin`
-3. The interface allows you to configure APIs, policies, and monitor your API platform
-
-#### Developer Portal&#x20;
-
-1. Open your browser and navigate to: `http://dev.localhost/`
-2. This self-service portal allows developers to discover and consume APIs
 
 ### Validate the Gateway URL
 

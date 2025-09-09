@@ -274,6 +274,7 @@
       * [IBM API Connect](govern-apis/federation/3rd-party-providers/ibm-api-connect.md)
       * [Mulesoft Anypoint](govern-apis/federation/3rd-party-providers/mulesoft-anypoint.md)
       * [Solace](govern-apis/federation/3rd-party-providers/solace.md)
+      * [Edge Stack](govern-apis/federation/3rd-party-providers/edge-stack.md)
   * [API Score](govern-apis/api-score/README.md)
     * [Enable API Score](govern-apis/api-score/enable-api-score.md)
     * [View API Scores](govern-apis/api-score/view-api-scores.md)
