@@ -363,6 +363,30 @@ An ingress controller is required to route external traffic to your Gravitee API
       --set controller.admissionWebhooks.enabled=false
     ```
 
+#### Configure DNS Resolution&#x20;
+
+For local development with custom hostnames, you must add DNS entries to your system's hosts file.
+
+1.  In this guide, we are using DNS entries we defined in our [values.yaml](vanilla-kubernetes.md#prepare-values.yaml-for-helm) file, add the required DNS entries using the following commands:
+
+    ```bash
+    echo "127.0.0.1 apim.localhost" | sudo tee -a /etc/hosts
+    echo "127.0.0.1 api.localhost" | sudo tee -a /etc/hosts  
+    echo "127.0.0.1 dev.localhost" | sudo tee -a /etc/hosts
+    ```
+2.  Verify the DNS entries were added using the following command:
+
+    ```bash
+    cat /etc/hosts | tail -5
+    ```
+3.  The output should show the three localhost entries:
+
+    ```bash
+    127.0.0.1 apim.localhost
+    127.0.0.1 api.localhost
+    127.0.0.1 dev.localhost
+    ```
+
 #### Install Ingress Controller for Minikube Environments&#x20;
 
 1.  Enable the built-in ingress addon using the following command:
@@ -385,7 +409,7 @@ An ingress controller is required to route external traffic to your Gravitee API
     NAME                                       READY   STATUS    RESTARTS   AGE
     ingress-nginx-controller-xxx-xxx           1/1     Running   0          2m
     ```
-3.  For minikube users, enable the network tunnel using the following command:
+3.  For Minikube users, enable the network tunnel using the following command:
 
     ```bash
     minikube tunnel
@@ -395,35 +419,11 @@ An ingress controller is required to route external traffic to your Gravitee API
 Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.
 {% endhint %}
 
-#### Configure DNS Resolution&#x20;
-
-For local development with custom hostnames, you must add DNS entries to your system's hosts file.
-
-1.  In this guide, we are using DNS entries we defined in our [values.yaml](vanilla-kubernetes.md#prepare-values.yaml-for-helm) file, add the required DNS entries using the following commands:
-
-    ```bash
-    echo "127.0.0.1 apim.localhost" | sudo tee -a /etc/hosts
-    echo "127.0.0.1 api.localhost" | sudo tee -a /etc/hosts  
-    echo "127.0.0.1 dev.localhost" | sudo tee -a /etc/hosts
-    ```
-2.  Verify the DNS entries were added using the following command:
-
-    ```bash
-    cat /etc/hosts | tail -3
-    ```
-3.  The output should show the three localhost entries:
-
-    ```bash
-    127.0.0.1 apim.localhost
-    127.0.0.1 api.localhost
-    127.0.0.1 dev.localhost
-    ```
-
 ### Prepare `values.yaml` for Helm&#x20;
 
 To prepare your Gravitee values.yaml file for Helm, complete the following steps:
 
-1.  Copy the following Gravitee values.yaml file. This is the base configuration for your self-hosted APIM platform:\
+1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your self-hosted APIM platform:\
 
 
     ```yaml
@@ -753,7 +753,7 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
     # 3. Install the required database services (MongoDB, PostgreSQL, Redis)
     ```
 
-
+> Ensure you have completed the[ ingress controller setup, DNS configuration, and (for Minikube) tunnel configuration from the previous sections](vanilla-kubernetes.md#install-ingress-controller) before proceeding.
 
 2. Make the following modifications to your values.yaml file:
 
@@ -791,8 +791,6 @@ The ingress configuration enables external access with path-based and host-based
 
 </details>
 
-
-
 ### Install with Helm&#x20;
 
 To install your Gravitee APIM with Helm, complete the following steps:
@@ -829,22 +827,40 @@ To install your Gravitee APIM with Helm, complete the following steps:
     helm uninstall gravitee-apim --namespace gravitee-apim
     ```
 
-
-
-
-
 ## Verification&#x20;
 
 Your APIM platform components should now be running in your Kubernetes cluster.
 
 To verify that your Gateway is up and running, complete the following steps:
 
-1. [#validate-the-pods](vanilla-kubernetes.md#validate-the-pods "mention")
-2. [#validate-the-services](vanilla-kubernetes.md#validate-the-services "mention")
-3. [#validate-the-gateway-logs](vanilla-kubernetes.md#validate-the-gateway-logs "mention")
-4. [#validate-ingress](vanilla-kubernetes.md#validate-ingress "mention")
-5. [#access-gravitee-apim-web-interface](vanilla-kubernetes.md#access-gravitee-apim-web-interface "mention")
+1. [#access-gravitee-apim-web-interface](vanilla-kubernetes.md#access-gravitee-apim-web-interface "mention")
+2. [#validate-the-pods](vanilla-kubernetes.md#validate-the-pods "mention")
+3. [#validate-the-services](vanilla-kubernetes.md#validate-the-services "mention")
+4. [#validate-the-gateway-logs](vanilla-kubernetes.md#validate-the-gateway-logs "mention")
+5. [#validate-ingress](vanilla-kubernetes.md#validate-ingress "mention")
 6. [#validate-the-gateway-url](vanilla-kubernetes.md#validate-the-gateway-url "mention")
+
+### Access Gravitee APIM web interface
+
+Access the Gravitee APIM web interface using the following steps:&#x20;
+
+#### Management Console
+
+1. Open your browser and navigate to: `http://apim.localhost/console` \
+   &#x20;\
+   \
+   \
+   \
+   \
+   \
+
+2. Login with: `admin` / `admin`
+3. The interface allows you to configure APIs, policies, and monitor your API platform
+
+#### Developer Portal&#x20;
+
+1. Open your browser and navigate to: `http://dev.localhost/`
+2. This self-service portal allows developers to discover and consume APIs
 
 ### Validate the pods
 
@@ -930,27 +946,7 @@ To validate the Gateway logs, complete the following steps:
     gravitee-apim-ui               <none>   apim.localhost   localhost   80      2d4h
     ```
 
-### Access Gravitee APIM web interface
 
-Access the Gravitee APIM web interface using the following steps:&#x20;
-
-#### Management Console
-
-1. Open your browser and navigate to: `http://apim.localhost/console` \
-   &#x20;\
-   \
-   \
-   \
-   \
-   \
-
-2. Login with: `admin` / `admin`
-3. The interface allows you to configure APIs, policies, and monitor your API platform
-
-#### Developer Portal&#x20;
-
-1. Open your browser and navigate to: `http://dev.localhost/`
-2. This self-service portal allows developers to discover and consume APIs
 
 ### Validate the Gateway URL
 
