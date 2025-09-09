@@ -44,8 +44,10 @@ To install the Gravitee Gateway, complete the following steps:
 3. [#install-elasticsearch](vanilla-kubernetes.md#install-elasticsearch "mention")
 4. [#install-redis](vanilla-kubernetes.md#install-redis "mention")
 5. [#install-postgresql](vanilla-kubernetes.md#install-postgresql "mention")
-6. [#prepare-values.yaml-for-helm](vanilla-kubernetes.md#prepare-values.yaml-for-helm "mention")
-7. [#install-with-helm](vanilla-kubernetes.md#install-with-helm "mention")
+6. [#create-secret-enterprise-edition-only](vanilla-kubernetes.md#create-secret-enterprise-edition-only "mention")
+7. [#install-ingress-controller](vanilla-kubernetes.md#install-ingress-controller "mention")
+8. [#prepare-values.yaml-for-helm](vanilla-kubernetes.md#prepare-values.yaml-for-helm "mention")
+9. [#install-with-helm](vanilla-kubernetes.md#install-with-helm "mention")
 
 
 
@@ -334,6 +336,90 @@ Before installing Gravitee APIM for enterprise edition, you need to create a Kub
 * The secret will be named `gravitee-license` and referenced in your Helm configuration
 * If you don't have a license key, you can still proceed with community features
 {% endhint %}
+
+
+
+### Install Ingress Controller&#x20;
+
+An ingress controller is required to route external traffic to your Gravitee APIM services. The installation method depends on your Kubernetes environment.
+
+#### Install NGINX Ingress Controller with Helm&#x20;
+
+1.  Add the `ingress-nginx` Helm repository using the following command:\
+
+
+    ```bash
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+    helm repo update
+    ```
+2.  Install the NGINX Ingress Controller using the following command:
+
+    ```bash
+    helm install nginx-ingress ingress-nginx/ingress-nginx \
+      --namespace ingress-nginx \
+      --create-namespace \
+      --set controller.service.type=LoadBalancer \
+      --set controller.admissionWebhooks.enabled=false
+    ```
+
+#### Install Ingress Controller for Minikube Environments&#x20;
+
+1.  Enable the built-in ingress addon using the following command:
+
+    ```bash
+    minikube addons enable ingress
+    ```
+2.  Verify the ingress controller is running using the following command:\
+
+
+    ```
+    kubectl get pods -n ingress-nginx
+    ```
+
+
+
+    The output should show the ingress controller pod in Running status:
+
+    ```bash
+    NAME                                       READY   STATUS    RESTARTS   AGE
+    ingress-nginx-controller-xxx-xxx           1/1     Running   0          2m
+    ```
+3.  For minikube users, enable the network tunnel using the following command:
+
+    ```bash
+    minikube tunnel
+    ```
+
+{% hint style="success" %}
+Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.
+{% endhint %}
+
+#### Configure DNS Resolution&#x20;
+
+For local development with custom hostnames, you must add DNS entries to your system's hosts file.
+
+1.  In this guide, we are using DNS entries we defined in our [values.yaml](vanilla-kubernetes.md#prepare-values.yaml-for-helm) file, add the required DNS entries using the following commands:
+
+    ```bash
+    echo "127.0.0.1 apim.localhost" | sudo tee -a /etc/hosts
+    echo "127.0.0.1 api.localhost" | sudo tee -a /etc/hosts  
+    echo "127.0.0.1 dev.localhost" | sudo tee -a /etc/hosts
+    ```
+2.  Verify the DNS entries were added using the following command:
+
+    ```bash
+    cat /etc/hosts | tail -3
+    ```
+3.  The output should show the three localhost entries:
+
+    ```bash
+    127.0.0.1 apim.localhost
+    127.0.0.1 api.localhost
+    127.0.0.1 dev.localhost
+    ```
+
+
 
 
 
@@ -706,6 +792,8 @@ The ingress configuration enables external access with path-based and host-based
 
 </details>
 
+
+
 ### Install with Helm&#x20;
 
 To install your Gravitee APIM with Helm, complete the following steps:
@@ -741,6 +829,10 @@ To install your Gravitee APIM with Helm, complete the following steps:
     ```bash
     helm uninstall gravitee-apim --namespace gravitee-apim
     ```
+
+
+
+
 
 ## Verification&#x20;
 
