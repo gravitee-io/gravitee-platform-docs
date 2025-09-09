@@ -419,10 +419,6 @@ For local development with custom hostnames, you must add DNS entries to your sy
     127.0.0.1 dev.localhost
     ```
 
-
-
-
-
 ### Prepare `values.yaml` for Helm&#x20;
 
 To prepare your Gravitee values.yaml file for Helm, complete the following steps:
@@ -521,26 +517,26 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
       ingress:
         management:
           enabled: true
+          ingressClassName: nginx
           scheme: http
           pathType: Prefix
           path: /management
           hosts:
             - apim.localhost
           annotations:
-            kubernetes.io/ingress.class: nginx
             nginx.ingress.kubernetes.io/enable-cors: "true"
             nginx.ingress.kubernetes.io/cors-allow-origin: "*"
             nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
             nginx.ingress.kubernetes.io/cors-allow-headers: "Authorization, Content-Type, X-Requested-With, Accept, Origin"
         portal:
           enabled: true
+          ingressClassName: nginx
           scheme: http
           pathType: Prefix
           path: /portal
           hosts:
             - apim.localhost
           annotations:
-            kubernetes.io/ingress.class: nginx
             nginx.ingress.kubernetes.io/enable-cors: "true"
             nginx.ingress.kubernetes.io/cors-allow-origin: "*"
             nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, PUT, DELETE, OPTIONS"
@@ -554,8 +550,12 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
           memory: "2Gi"
           cpu: "1"
 
-      # Uncomment out to add your license key using the enterprise edition 
-      # # License volume configuration for Management API
+
+
+      # Uncomment out to add your license key using the enterprise editiion 
+
+      # License volume configuration for Management API
+
       # extraVolumes: |
       #   - name: gravitee-license
       #     secret:
@@ -565,6 +565,7 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
       #     mountPath: "/opt/graviteeio-management-api/license/license.key"
       #     subPath: license.key
       #     readOnly: true
+
 
     # Gateway Configuration
     gateway:
@@ -603,12 +604,11 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
 
       ingress:
         enabled: true
+        ingressClassName: nginx
         pathType: Prefix
         path: /
         hosts:
           - api.localhost
-        annotations:
-          kubernetes.io/ingress.class: nginx
 
       resources:
         requests:
@@ -647,12 +647,12 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
 
       ingress:
         enabled: true
+        ingressClassName: nginx
         pathType: ImplementationSpecific
         path: /console(/.*)?
         hosts:
           - apim.localhost
         annotations:
-          kubernetes.io/ingress.class: nginx
           nginx.ingress.kubernetes.io/rewrite-target: /$1
 
       resources:
@@ -683,12 +683,11 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
 
       ingress:
         enabled: true
+        ingressClassName: nginx
         pathType: Prefix
         path: /
         hosts:
           - dev.localhost
-        annotations:
-          kubernetes.io/ingress.class: nginx
 
       resources:
         requests:
