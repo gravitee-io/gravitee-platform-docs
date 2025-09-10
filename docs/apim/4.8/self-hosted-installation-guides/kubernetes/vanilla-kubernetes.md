@@ -7,17 +7,17 @@ noIndex: true
 
 ## Overview&#x20;
 
-This guide deploys a complete self-hosted Gravitee APIM platform on Kubernetes using Helm charts.&#x20;
+This guide explains a complete self-hosted Gravitee APIM platform on Kubernetes using Helm charts.&#x20;
 
 ## Prerequisites
 
-Before you install a Hybrid Gateway, complete the following steps:
+Before you install the Gravitee APIM, complete the following steps:
 
 * Install [helm](https://helm.sh/docs/intro/install/).
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
-* Ensure you have access to the self-hosted Kubernetes cluster where you want to install the Gateway.
+* Ensure you have access to the self-hosted Kubernetes cluster where you want to install Gravitee APIM.&#x20;
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
-* License key for Enterprise features (optional)
+* (optional) License key for Enterprise features&#x20;
 
 ## Components Overview&#x20;
 
@@ -28,16 +28,17 @@ This self-hosted APIM deployment includes several components that work together 
 * Management Console UI: Web interface for API administrators to configure and monitor APIs
 * Developer Portal UI: Self-service portal for developers to discover and consume APIs
 
-External dependencies:
+The Gravitee APIM platform requires several external dependencies and services to provide complete functionality:
 
 * MongoDB: Stores API definitions, configurations, and rate limiting data
 * Elasticsearch: Provides analytics, logging, and search capabilities for API metrics
 * Redis: Supports advanced caching and distributed rate limiting (optional)
 * PostgreSQL: Alternative database for management data (optional)
+* Ingress Controller: Routes external traffic to APIM services and enables web access
 
-## Install the Gateway
+## Install the Gravitee APIM
 
-To install the Gravitee Gateway, complete the following steps:
+To install the Gravitee APIM, complete the following steps:
 
 1. [#create-namespace](vanilla-kubernetes.md#create-namespace "mention")
 2. [#install-mongodb](vanilla-kubernetes.md#install-mongodb "mention")
@@ -49,30 +50,26 @@ To install the Gravitee Gateway, complete the following steps:
 8. [#prepare-values.yaml-for-helm](vanilla-kubernetes.md#prepare-values.yaml-for-helm "mention")
 9. [#install-with-helm](vanilla-kubernetes.md#install-with-helm "mention")
 
-
-
 ### Create Namespace&#x20;
 
 Kubernetes namespaces provide logical isolation and organization within a cluster. Creating a dedicated namespace for Gravitee APIM:
 
-a. Isolates resources: Separates APIM components from other applications
+* Isolates resources: Separates APIM components from other applications
+* Simplifies management: Groups related services, pods, and configurations together
 
-b. Simplifies management: Groups related services, pods, and configurations together\
+Create the namespace using the following command:&#x20;
 
-
-1.  Create the namespace using the following command:&#x20;
-
-    ```bash
-    kubectl create namespace gravitee-apim
-    ```
+```bash
+kubectl create namespace gravitee-apim
+```
 
 {% hint style="info" %}
-This guide requires **MongoDB** and **Elasticsearch** to be installed for the complete APIM platform to function.
+This guide requires MongoDB and Elasticsearch to be installed for the complete APIM platform to function.
 {% endhint %}
 
 ### Install MongoDB
 
-To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information, see [Bitnami package for MongoDB](https://artifacthub.io/packages/helm/bitnami/mongodb)
+To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see [Bitnami package for MongoDB](https://artifacthub.io/packages/helm/bitnami/mongodb)
 
 1.  Install MongoDB with Helm using the following command: \
 
@@ -96,7 +93,7 @@ To support API definitions and configuration, you must install MongoDB into your
 
 
 
-2.  Extract the MongoDB hostname from the command output and save it for future use. The following sample output lists `gravitee-mongodb.gravitee-apim.svc.cluster.local`  as the MongoDB hostname: \
+2.  Extract the MongoDB hostname from the command output, and then save it for future use. The following sample output lists `gravitee-mongodb.gravitee-apim.svc.cluster.local`  as the MongoDB hostname: \
 
 
     ```
@@ -115,9 +112,10 @@ To support API definitions and configuration, you must install MongoDB into your
 
     ```
 
+#### Verification
 
+1.  To verify that your MongoDB deployment succeeded, check pod status using the following command:\
 
-3.  To verify that your MongoDB deployment succeeded, check pod status using the following command:
 
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-mongodb
@@ -127,17 +125,16 @@ To support API definitions and configuration, you must install MongoDB into your
     The command generates the following output: \
 
 
-    ```
+    ```bash
     NAME                  READY   STATUS    RESTARTS   AGE
     gravitee-mongodb-0    1/1     Running   0          2m
     ```
 
-    \
 
 
 ### Install Elasticsearch&#x20;
 
-To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information, see [Bitnami package for Elasticsearch.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)
+To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see [Bitnami package for Elasticsearch.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)
 
 1.  Install Elasticsearch with Helm using the following command:\
 
@@ -184,9 +181,9 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
         curl http://127.0.0.1:9200/
     ```
 
+#### Verification
 
-
-3.  To verify that your Elasticsearch deployment succeeded, check pod status using the following command:\
+1.  To verify that your Elasticsearch deployment succeeded, check pod status using the following command:\
 
 
     ```bash
@@ -202,9 +199,12 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
     gravitee-elasticsearch-master-0   1/1     Running   0          2m
     ```
 
+    \
+
+
 ### Install Redis
 
-To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis).
+To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information about installing Redis, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis).
 
 1.  Install Redis with Helm using the following command: &#x20;
 
@@ -240,22 +240,28 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     To get your password run:
         export REDIS_PASSWORD=$(kubectl get secret --namespace gravitee-apim gravitee-redis -o jsonpath="{.data.redis-password}" | base64 -d)
     ```
-3.  To verify that your Redis deployment succeeded, check pod status using the following command:
+
+#### Verification
+
+1.  To verify that your Redis deployment succeeded, check pod status using the following command:\
+
 
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-redis
     ```
 
-    The command generates the following output:&#x20;
+    \
+    The command generates the following output: \
 
-    ```sh
+
+    ```bash
     NAME                      READY   STATUS    RESTARTS   AGE
     gravitee-redis-master-0   1/1     Running   0          2m
     ```
 
 ### Install PostgreSQL&#x20;
 
-To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information, see [Bitnami package for PostgreSQL](https://artifacthub.io/packages/helm/bitnami/postgresql)
+To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information on installing PostgreSQL, see [Bitnami package for PostgreSQL](https://artifacthub.io/packages/helm/bitnami/postgresql)
 
 1.  Install PostgreSQL with Helm using the following command:\
 
@@ -296,14 +302,16 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
 
 
 
-3.  To verify that your PostgreSQL deployment succeeded, retrieve the password using the following command:\
+#### Verification&#x20;
 
+1.  To verify that your PostgreSQL deployment succeeded, retrieve the password using the following command:
 
     ```bash
     kubectl get secret --namespace gravitee-apim gravitee-postgresql -o jsonpath="{.data.postgres-password}" | base64 -d
     ```
-4.  Check pod status using the following command:\
 
+
+2.  Check pod status using the following command:
 
     ```bash
     kubectl get pods -n gravitee-apim -l app.kubernetes.io/instance=gravitee-postgresql
@@ -319,11 +327,11 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
 
 
 
-### Create Secret (Enterprise Edition Only)
+### (Enterprise Edition Only) Create Secret&#x20;
 
-Before installing Gravitee APIM for enterprise edition, you need to create a Kubernetes secret for your license key.
+Before installing Gravitee APIM for [enterprise edition](https://documentation.gravitee.io/apim/readme/enterprise-edition), you need to create a Kubernetes secret for your license key.
 
-1.  Create the secret with the following command:
+1.  Create the secret using the following command:
 
     ```bash
     kubectl create secret generic gravitee-license \
@@ -332,21 +340,20 @@ Before installing Gravitee APIM for enterprise edition, you need to create a Kub
     ```
 
 {% hint style="info" %}
-* Ensure your license key file is named `license.key` and located in your current directory
-* The secret will be named `gravitee-license` and referenced in your Helm configuration
-* If you don't have a license key, you can still proceed with community features
+* Ensure your license key file is named `license.key` and located in your current directory.
+* The secret will be named `gravitee-license` and referenced in your Helm configuration.
+* If you don't have a license key, you can still proceed with community features.
 {% endhint %}
 
 
 
 ### Install Ingress Controller&#x20;
 
-An ingress controller is required to route external traffic to your Gravitee APIM services. The installation method depends on your Kubernetes environment.
+An ingress controller is required to route external traffic to your Gravitee APIM services. Choose the installation method based on your Kubernetes environment:
 
 #### Install NGINX Ingress Controller with Helm&#x20;
 
-1.  Add the `ingress-nginx` Helm repository using the following command:\
-
+1.  Add the `ingress-nginx` Helm repository using the following command:
 
     ```bash
     helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
@@ -374,12 +381,20 @@ For local development with custom hostnames, you must add DNS entries to your sy
     echo "127.0.0.1 api.localhost" | sudo tee -a /etc/hosts  
     echo "127.0.0.1 dev.localhost" | sudo tee -a /etc/hosts
     ```
-2.  Verify the DNS entries were added using the following command:
+
+#### Verification&#x20;
+
+1.  Verify the DNS entries were added using the following command:\
+
 
     ```bash
     cat /etc/hosts | tail -5
     ```
-3.  The output should show the three localhost entries:
+
+    \
+    \
+    The output should show the three localhost entries:\
+
 
     ```bash
     127.0.0.1 apim.localhost
@@ -409,21 +424,21 @@ For local development with custom hostnames, you must add DNS entries to your sy
     NAME                                       READY   STATUS    RESTARTS   AGE
     ingress-nginx-controller-xxx-xxx           1/1     Running   0          2m
     ```
-3.  For Minikube users, enable the network tunnel using the following command:
+3.  (Minikube users only), enable the network tunnel using the following command:
 
     ```bash
     minikube tunnel
     ```
 
-{% hint style="success" %}
+{% hint style="danger" %}
 Keep the tunnel command running in a separate terminal window. The tunnel must remain active for ingress to function properly.
 {% endhint %}
 
-### Prepare `values.yaml` for Helm&#x20;
+### Prepare the  `values.yaml` for Helm&#x20;
 
-To prepare your Gravitee values.yaml file for Helm, complete the following steps:
+> Ensure you have completed the[ ingress controller setup, DNS configuration, and (for Minikube) tunnel configuration from the previous sections](vanilla-kubernetes.md#install-ingress-controller) before proceeding.
 
-1.  Copy the following Gravitee `values.yaml` file. This is the base configuration for your self-hosted APIM platform:\
+1.  Create a `values.yaml` file in your working directory and copy the following Gravitee configuration into it. This is the base configuration for your self-hosted APIM platform:\
 
 
     ```yaml
@@ -753,14 +768,9 @@ To prepare your Gravitee values.yaml file for Helm, complete the following steps
     # 3. Install the required database services (MongoDB, PostgreSQL, Redis)
     ```
 
-> Ensure you have completed the[ ingress controller setup, DNS configuration, and (for Minikube) tunnel configuration from the previous sections](vanilla-kubernetes.md#install-ingress-controller) before proceeding.
 
-2. Make the following modifications to your values.yaml file:
 
-* Replace `<elasticsearch_endpoints>` with `http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200`&#x20;
-* Replace `<mongodb_url>` with `mongodb://gravitee-mongodb.gravitee-apim.svc.cluster.local:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000`
-
-3. Save your Gravitee `values.yaml` file in your working directory.
+2. Save your Gravitee `values.yaml` file in your working directory.
 
 <details>
 
@@ -812,26 +822,28 @@ To install your Gravitee APIM with Helm, complete the following steps:
       --namespace gravitee-apim \
       -f ./values.yaml
     ```
-4.  Verify the installation was successful. The command output should be similar to the following:
 
-    ```bash
-    NAME: gravitee-apim
-    LAST DEPLOYED: [DATE]
-    NAMESPACE: gravitee-apim
-    STATUS: deployed
-    REVISION: 1
-    ```
-5.  To uninstall Gravitee APIM, use the following command:
+#### Verification
 
-    ```bash
-    helm uninstall gravitee-apim --namespace gravitee-apim
-    ```
+Verify the installation was successful. The command output should be similar to the following:
+
+```bash
+NAME: gravitee-apim
+LAST DEPLOYED: [DATE]
+NAMESPACE: gravitee-apim
+STATUS: deployed
+REVISION: 1
+```
+
+To uninstall Gravitee APIM, use the following command:
+
+```bash
+helm uninstall gravitee-apim --namespace gravitee-apim
+```
 
 ## Verification&#x20;
 
-Your APIM platform components should now be running in your Kubernetes cluster.
-
-To verify that your Gateway is up and running, complete the following steps:
+To verify that your Gravitee APIM platform is up and running, complete the following steps:
 
 1. [#access-gravitee-apim-web-interface](vanilla-kubernetes.md#access-gravitee-apim-web-interface "mention")
 2. [#validate-the-pods](vanilla-kubernetes.md#validate-the-pods "mention")
@@ -846,14 +858,16 @@ Access the Gravitee APIM web interface using the following steps:&#x20;
 
 #### Management Console
 
-1. Open your browser and navigate to: `http://apim.localhost/console`&#x20;
-2. Login with: `admin / admin`&#x20;
-3. The interface allows you to configure APIs, policies, and monitor your API platform
+1. Open your browser and navigate to: `http://apim.localhost/console` &#x20;
+2. Login with: `admin / admin`  as your username and password
+
+The interface allows you to configure APIs, policies, and monitor your API platform
 
 #### Developer Portal&#x20;
 
 1. Open your browser and navigate to: `http://dev.localhost/`
-2. This self-service portal allows developers to discover and consume APIs
+
+This self-service portal allows developers to discover and consume APIs
 
 ### Validate the pods
 
@@ -861,8 +875,7 @@ A healthy deployment displays all pods with the Running status, `1/1` ready cont
 
 To validate the pods, complete the following steps:&#x20;
 
-1.  Use the following command to query the pod status: \
-
+1.  Use the following command to query the pod status:&#x20;
 
     ```bash
     kubectl get pods --namespace=gravitee-apim
@@ -879,8 +892,6 @@ To validate the pods, complete the following steps:&#x20;
     gravitee-mongodb-0                      1/1     Running   0          10m
     ```
 
-
-
 ### Validate the Services&#x20;
 
 1.  To verify service configuration, run the following command:\
@@ -889,7 +900,7 @@ To validate the pods, complete the following steps:&#x20;
     ```bash
     kubectl get services -n gravitee-apim
     ```
-2.  The output should show all required services:
+2.  Verify that all services are properly configured. The output should show all required services:
 
     ```bash
     NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)
@@ -902,8 +913,6 @@ To validate the pods, complete the following steps:&#x20;
     gravitee-redis-master             ClusterIP   10.x.x.x        <none>        6379/TCP
     ```
 
-
-
 ### Validate the Gateway logs&#x20;
 
 To validate the Gateway logs, complete the following steps:
@@ -915,7 +924,7 @@ To validate the Gateway logs, complete the following steps:
     ```
 
 
-2.  The output should show the Gateway ready and running:
+2.  Verify that the Gateway is running properly. The output should show the Gateway ready and running:
 
     ```bash
     gravitee-apim-gateway-xxx-xxx        1/1     Running   0          5m
@@ -931,15 +940,13 @@ To validate the Gateway logs, complete the following steps:
 2.  The output should show the hosts and address.
 
     ```bash
-    NAME                           CLASS    HOSTS            ADDRESS     PORTS   AGE
-    gravitee-apim-api-management   <none>   apim.localhost   localhost   80      2d4h
-    gravitee-apim-api-portal       <none>   apim.localhost   localhost   80      2d4h
-    gravitee-apim-gateway          <none>   api.localhost    localhost   80      2d4h
-    gravitee-apim-portal           <none>   dev.localhost    localhost   80      2d4h
-    gravitee-apim-ui               <none>   apim.localhost   localhost   80      2d4h
+    NAME                           CLASS   HOSTS            ADDRESS     PORTS   AGE
+    gravitee-apim-api-management   nginx   apim.localhost   localhost   80      27h
+    gravitee-apim-api-portal       nginx   apim.localhost   localhost   80      27h
+    gravitee-apim-gateway          nginx   api.localhost    localhost   80      27h
+    gravitee-apim-portal           nginx   dev.localhost    localhost   80      27h
+    gravitee-apim-ui               nginx   apim.localhost   localhost   80      27h
     ```
-
-
 
 ### Validate the Gateway URL
 
@@ -959,7 +966,7 @@ To validate the Gateway URL, complete the following steps:
     ```bash
     curl http://api.localhost/
     ```
-2.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.
+2.  Verify that the Gateway is responding correctly. The output should show the following message, which confirms that no API is deployed yet for this URL.&#x20;
 
     ```bash
     No context-path matches the request URI.
@@ -967,20 +974,17 @@ To validate the Gateway URL, complete the following steps:
 
 #### Validate Gateway URL using Port Forwarding
 
-1. Set up port forwarding for the Gateway:
+1.  Set up port forwarding for the Gateway:
 
-```bash
-kubectl port-forward svc/gravitee-apim-gateway 8082:82 -n gravitee-apim
-```
+    ```bash
+    kubectl port-forward svc/gravitee-apim-gateway 8082:82 -n gravitee-apim
+    ```
+2.  Test via port forward:
 
-2. Test via port forward:
-
-```bash
-curl http://localhost:8082/
-```
-
-3.  Confirm that the Gateway replies with `No context-path matches the request URI.` This message informs you that an API isn't yet deployed for this URL.\
-
+    ```bash
+    curl http://localhost:8082/
+    ```
+3.  Verify that the Gateway is responding correctly. The output should show the following message, which confirms that no API is deployed yet for this URL.&#x20;
 
     ```bash
     No context-path matches the request URI.
