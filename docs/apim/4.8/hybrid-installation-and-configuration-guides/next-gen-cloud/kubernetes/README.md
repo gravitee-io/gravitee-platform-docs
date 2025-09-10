@@ -4,7 +4,7 @@
 
 {% include "../../../.gitbook/includes/hybrid-installation-support.md" %}
 
-*
+* [vanilla-kubernetes.md](vanilla-kubernetes.md "mention")
 * [AWS EKS](aws-eks.md)
 * [azure-aks.md](azure-aks.md "mention")
 * GCP EKS
