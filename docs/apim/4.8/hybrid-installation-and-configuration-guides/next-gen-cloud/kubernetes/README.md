@@ -7,7 +7,7 @@
 * [vanilla-kubernetes.md](vanilla-kubernetes.md "mention")
 * [AWS EKS](aws-eks.md)
 * [azure-aks.md](azure-aks.md "mention")
-* GCP EKS
+* GCP GKE
 * [openshift.md](openshift.md "mention")
 
 ## Overview
