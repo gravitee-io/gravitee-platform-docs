@@ -5,72 +5,9 @@ noIndex: true
 
 # Migrate APIs
 
-## Overview
+## Migrate v2 APIs to V4 APIs
 
 This guide explains how to migrate your existing V2 APIs to V4 APIs using the Migration feature. V4 APIs provide long-term support and access to the latest features.
-
-### Prerequisites
-
-Before you migrate your API, complete the following:
-
-* Access to Gravitee API Management Console
-* An existing V2 API that you want to migrate
-
-### Initiate the Migration
-
-To initiate the migration, complete the following steps:&#x20;
-
-<figure><img src="../../.gitbook/assets/migrate-tov4-api-kafka.png" alt=""><figcaption></figcaption></figure>
-
-1. Go to **API → General Settings → General Information**.
-2. Click the **Migrate to V4** button.
-
-### Review the Dry Run Results
-
-The system automatically runs a migration dry run to check compatibility. You will see one of these results:
-
-* **Not Migratable:** The API cannot be migrated. A message explains the reason and suggests what to fix.
-* **Partially Migratable:** The API can be migrated, but some settings may not be fully supported or are not recommended. You can choose to fix these first or continue with the migration.
-* **Fully Migratable:** The API is fully compatible with V4. You can proceed directly.
-
-<figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 at 17.26.29.png" alt=""><figcaption></figcaption></figure>
-
-### (If Needed) Fix Migration Issues&#x20;
-
-If the dry run identifies problems, resolve the problem before proceeding with the following steps:&#x20;
-
-1. Address the issues listed in the dry run results
-2. Re-run the dry run to confirm the fixes
-
-### Perform the Migration
-
-Once validation passes, convert your API with the following steps:&#x20;
-
-1. Review the migration summary
-2. Confirm the migration
-3. Wait for the conversion process to complete
-
-Your V2 API will now be converted to a V4 API.
-
-### Debug and Test the Migrated API
-
-1.  After migration, use **Debug Mode** to check endpoints, policies, and configuration.\
-
-
-    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 at 17.51.47.png" alt=""><figcaption></figcaption></figure>
-2. This ensures the API behaves as expected before it is deployed.
-
-### Deploy the Migrated API
-
-Once testing is complete, deploy your V4 API.
-
-## Verification&#x20;
-
-After migration, you should see the following:
-
-* Your API listed as a V4 API in the management interface
-* All endpoints responding correctly in Debug Mode
-* Configuration settings properly transferred
 
 ### Important Notes
 
@@ -83,4 +20,109 @@ After migration, you should see the following:
 
 * Migration is reversible. If the migrated API does not work as expected, you can always roll back to the previous V2 API.
 {% endhint %}
+
+### Prerequisites
+
+Before you migrate your API,  ensure that you completed the following actions:
+
+* You must have Access to Gravitee API Management Console.
+* You have an existing V2 API that you want to migrate to V4.
+
+### Initiate the Migration
+
+To initiate the migration, complete the following steps:&#x20;
+
+1.  Go to **API → General Settings → General Information** in the APIM management console\
+
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 17.50.21 (2).png" alt=""><figcaption></figcaption></figure>
+2.  Click the **Migrate to V4** button.
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 18.14.14.png" alt=""><figcaption></figcaption></figure>
+
+### Review the Compatibility Check Results
+
+The system automatically runs a migration compatibility check to verify compatibility. You will see one of these results:&#x20;
+
+*   **Not Migratable:** The API cannot be migrated, migration blocked: Incompatible elements detected.
+
+    * This occurs when the "Emulate V4 Engine" toggle is not enabled in your API settings.
+    * A message explains the reason and suggests what to fix.
+
+    <figure><img src="../../.gitbook/assets/migrate-api-to-v4-error-message.png" alt=""><figcaption></figcaption></figure>
+*   **Partially Migratable:** The API can be migrated, but some settings may not be fully supported or are not recommended.
+
+    * This occurs when the "Emulate V4 Engine" toggle is enabled but the API has not been deployed.
+    * You can choose to fix these first or continue with the migration.\
+
+
+    <figure><img src="../../.gitbook/assets/migrate-api-v4-warning-message.png" alt=""><figcaption></figcaption></figure>
+* **Fully Migratable:** The API is fully compatible with V4. You can proceed directly.
+  * This occurs when the "Emulate V4 Engine" toggle is enabled, saved, and the API has been deployed.
+
+<figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 at 17.26.29.png" alt=""><figcaption></figcaption></figure>
+
+### (Optional) Fix Migration Issues&#x20;
+
+If the dry run identifies problems, resolve the problem before proceeding with the following steps:&#x20;
+
+1. Address the issues listed in the dry run results
+2. Re-run the compatibility check to confirm the fixes
+
+### Perform the Migration
+
+Once validation passes, convert your API with the following steps:&#x20;
+
+1.  Review the migration summary and confirm you are ready to migrate your API to V4.
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.14.33.png" alt=""><figcaption></figcaption></figure>
+2.  Click the **Continue** button. A pop-up box will appear showing you details about what you should be aware of before migrating to API V4. \
+
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.13.15.png" alt=""><figcaption></figcaption></figure>
+3.  Confirm the migration details in the pop-up, and then click **Start Migration** in the confirmation dialog. \
+
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.13.15 (1).png" alt=""><figcaption></figcaption></figure>
+4. Wait for the conversion process to complete. The migration process will take a few minutes.&#x20;
+5. Verify migration completion. When the process is complete, you will see a "Migration Successful" message.&#x20;
+6.  Your V2 API will now be converted to a V4 API
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.21.01 (1).png" alt=""><figcaption></figcaption></figure>
+
+
+
+### Debug and Test the Migrated API
+
+1.  Click on **Debug Mode** to access the debugging interface for your migrated V4 API. \
+
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.23.28 (2).png" alt=""><figcaption></figcaption></figure>
+2. Test your API thoroughly using Debug Mode to:
+   * Check endpoints, policies, and configuration
+   * Identify, diagnose, and fix any issues in functionality, performance, or integration
+   * Inspect requests, responses, logs, and error messages
+3. Verify proper functionality to ensure the API behaves as expected before deployment to production.
+4. Once the API testing is complete, deploy your V4 API. \
+
+
+## Verification&#x20;
+
+After completing your API migration, follow these verification steps to ensure everything transferred correctly:
+
+1.  Navigate back to the API Management Interface, and then locate your migrated API in the API list.
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.56.10 (1).png" alt=""><figcaption></figcaption></figure>
+2.  Verify the API version update, and then check that your API is now listed as a V4 API in the management interface.&#x20;
+
+    <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.56.10 (2).png" alt=""><figcaption></figcaption></figure>
+3. **Confirm Configuration Transfer:**&#x20;
+   * Click on your migrated API to open its details
+   *   Navigate through the different configuration sections (General Settings, Policies, etc.)
+
+       <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 20.01.42.png" alt=""><figcaption></figcaption></figure>
+   *   Verify that all configuration settings have been properly transferred from V2 to V4\
+
+
+       <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 20.02.44 (1).png" alt=""><figcaption></figcaption></figure>
 
