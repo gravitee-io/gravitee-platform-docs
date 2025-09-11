@@ -294,4 +294,16 @@ Get the version of a node : `{#node.version}`
 {% endtab %}
 {% endtabs %}
 
+## Other helpful examples
+
+Refer to the following links for examples of how to use Gravitee Expression Language:
+
+* [Checking for null values when a JSON attribute may not always exist](create-and-configure-apis/apply-policies/policy-reference/message-filtering.md)
+* [Referencing the HTTP query parameters](create-and-configure-apis/apply-policies/policy-reference/rest-to-soap.md)
+* [Adding the current date and time timestamp](create-and-configure-apis/apply-policies/policy-reference/transform-headers.md#subscribe-phase-example)
+* [Using JWT custom claims in a condition](create-and-configure-apis/apply-policies/policy-reference/resource-filtering.md#examples)
+* [Math calculation](create-and-configure-apis/apply-policies/policy-reference/mock.md#examples)
+* [Use of the Ternary operator](create-and-configure-apis/apply-policies/policy-reference/kafka-topic-mapping.md#example-3-i-want-dynamic-topic-mapping-based-on-user-identity-and-permissions-with-support-from-an-o)
+* [Referencing secrets from 3rd-party Secret Managers](prepare-a-production-environment/sensitive-data-management/configure-secrets.md)
+
 [^1]: `{#request.content}` is only available for policies bound to an `on-request-content` phase.
