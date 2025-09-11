@@ -15,7 +15,7 @@ This policy can be applied to v4 message APIs. It cannot be applied to v2 APIs o
 {% endhint %}
 
 {% tabs %}
-{% tab title="Message API example" %}
+{% tab title="Basic example: Match subscription metadata" %}
 If this is my message:
 
 ```json
@@ -25,7 +25,7 @@ If this is my message:
 }
 ```
 
-I will be able to filter any messages according to subscriptions metadata `productId` by configuring the policy as follows:
+I can use the following configuration to filter any messages according to subscriptions metadata `productId`:
 
 ```json
  {
@@ -38,6 +38,58 @@ I will be able to filter any messages according to subscriptions metadata `produ
     }
 }
 ```
+{% endtab %}
+
+{% tab title="How to filter different payloads" %}
+If a Kafka topic includes messages with different payloads, you can use the Message Filtering policy to selectively consume and forward only messages that match your filters.
+
+Consider a Kafka topic with the following payloads:
+
+```
+{
+  "account": {
+    "id": 112131,
+    "product": "remember",
+    "type": "card",
+    "creditLimit": 30000,
+    "status": "active"
+  }
+}
+```
+
+```
+{
+  "card": {
+    "id": 12345,
+    "accountId": 987654321,
+    "product": "remember",
+    "cardHolder": "John Smith",
+    "status": "active"
+  }
+}
+```
+
+```
+{
+  "contact": {
+    "id": 6789,
+    "personId": 192838475,
+    "email": "john.smith@bigbank.com"
+  }
+}
+```
+
+To consume and forward only the "account" and "card" messages, you can use the following Expression Language in the "Filter condition" field of the Message Filtering policy:
+
+`{(#jsonPath(#message.content, "$.account")!= null && #jsonPath(#message.content, "$.account.product")=='remember') || (#jsonPath(#message.content, "$.contact")!=null && #jsonPath(#message.content, "$.contact.id") > 1)}`
+
+This filters out messages that do not meet the specified criteria, such as the "contact" message and any "card" messages that do not include an "id" value.
+
+**Explanation**
+
+Since the message could contain either the `$.account` or `$.contact` payloads, you must first check for `null` values to avoid referencing an attribute that may not exist. Then you can evaluate your desired filter or condition(s).
+
+<figure><img src="../../../.gitbook/assets/image (339).png" alt="" width="375"><figcaption></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
