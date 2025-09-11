@@ -64,9 +64,9 @@ The system automatically runs a migration compatibility check to verify compatib
 
 ### (Optional) Fix Migration Issues&#x20;
 
-If the dry run identifies problems, resolve the problem before proceeding with the following steps:&#x20;
+If the compatibility check identifies problems, resolve the problem before proceeding with the following steps:
 
-1. Address the issues listed in the dry run results
+1. Address the issues listed in the compatibility check results
 2. Re-run the compatibility check to confirm the fixes
 
 ### Perform the Migration
@@ -89,8 +89,6 @@ Once validation passes, convert your API with the following steps:&#x20;
 6.  Your V2 API will now be converted to a V4 API
 
     <figure><img src="../../.gitbook/assets/Screenshot 2025-09-11 at 19.21.01 (1).png" alt=""><figcaption></figcaption></figure>
-
-
 
 ### Debug and Test the Migrated API
 
