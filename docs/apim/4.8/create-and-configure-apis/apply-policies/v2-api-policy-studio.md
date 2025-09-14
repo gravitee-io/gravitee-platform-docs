@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **Legacy version**
 
-The v2 Policy Studio can only be used to design flows for APIs using the v2 API definition and does not support applying policies at the message level or for pub/sub use cases. Instead, please refer to the [v4 Policy Studio](v4-api-policy-studio.md) documentation.
+The v2 Policy Studio can only be used to design flows for APIs using the v2 API definition and does not support applying policies at the message level or for pub/sub use cases. Instead, please refer to the [v4 Policy Studio](4.9-v4-api-policy-studio.md) documentation.
 {% endhint %}
 
 ## Overview
