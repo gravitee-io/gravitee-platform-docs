@@ -47,7 +47,7 @@ See [API-Level Secrets](apply-secrets-to-apis.md) for more information.
 
 ## API encrypted properties&#x20;
 
-If you wish to protect sensitive information, you can encrypt [API properties](../../create-and-configure-apis/apply-policies/v4-api-policy-studio.md#api-properties). Both v2 and v4 APIs allow you to encrypt data in the database. This data is automatically decrypted when used by the Gateway.&#x20;
+If you wish to protect sensitive information, you can encrypt [API properties](../../create-and-configure-apis/apply-policies/4.9-v4-api-policy-studio.md#api-properties). Both v2 and v4 APIs allow you to encrypt data in the database. This data is automatically decrypted when used by the Gateway.&#x20;
 
 {% hint style="info" %}
 Although the data is encrypted, secret managers are better suited to store secrets. However, they remain a viable and secure option for many use cases.
