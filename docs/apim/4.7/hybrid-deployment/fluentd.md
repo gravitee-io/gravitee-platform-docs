@@ -5,7 +5,6 @@
 1. Install Fluentd. To install Fluentd,  go to either of the following sites:
 
 * [Official Helm charts](https://artifacthub.io/packages/helm/fluent/fluentd)
-* [Bitnami Helm charts](https://bitnami.com/stack/fluentd/helm)
 
 ## Docker
 
@@ -44,7 +43,7 @@ services:
 ## Configure Fluentd
 
 {% code title="fluentd.conf" lineNumbers="true" %}
-```
+```editorconfig
 <source>
   @type tcp
   tag tcp

@@ -1,5 +1,7 @@
 # Hybrid Install with Docker
 
+{% include "../.gitbook/includes/installation-guide-note.md" %}
+
 ## Architecture
 
 The hybrid installation consists of installing the data plane on your infrastructure and connecting it as shown in the following diagram:&#x20;

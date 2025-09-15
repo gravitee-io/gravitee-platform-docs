@@ -10,6 +10,8 @@ You must be familiar with the following topics:
 * Helm
 {% endhint %}
 
+{% include "../.gitbook/includes/installation-guide-note.md" %}
+
 ## Target architecture
 
 In this example, we demonstrate how to deploy a Gravitee Gateway (APIM) in two different GCP regions. Also, we demonstrate how to deploy Gravitee APIM in the follow two different K8s clusters:
