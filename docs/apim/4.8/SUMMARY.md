@@ -283,6 +283,7 @@
     * [Rulesets and Functions](govern-apis/api-score/rulesets-and-functions.md)
     * [Types of Assets](govern-apis/api-score/types-of-assets.md)
 * [Analyze & Monitor APIs](analyze-and-monitor-apis/README.md)
+  * [4.9: API Proxy Dashboard](analyze-and-monitor-apis/4.9-api-proxy-dashboard.md)
   * [Dashboards](analyze-and-monitor-apis/dashboards.md)
   * [API Quality](analyze-and-monitor-apis/api-quality.md)
   * [Audit Trail](analyze-and-monitor-apis/audit-trail.md)
