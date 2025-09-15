@@ -1,4 +1,9 @@
-# Search for APIs in the Console
+---
+hidden: true
+noIndex: true
+---
+
+# 4.9: Search for APIs in the Console
 
 ## Overview
 
@@ -7,8 +12,8 @@ This guide explains how to filter the APIs that appear in the API Console.&#x20;
 From this page, you can complete the following actions:
 
 * Add APIs. For more information about adding APIs, see [.](./ "mention") and [import-apis.md](import-apis.md "mention").
-* [#search-for-apis](search-for-apis-in-the-console.md#search-for-apis "mention")
-* [#filter-apis](search-for-apis-in-the-console.md#filter-apis "mention")
+* [#search-for-apis](search-for-apis-in-the-console-1.md#search-for-apis "mention")
+* [#filter-apis](search-for-apis-in-the-console-1.md#filter-apis "mention")
 
 ## Search for APIs
 

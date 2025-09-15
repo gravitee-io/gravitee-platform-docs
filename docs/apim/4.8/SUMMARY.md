@@ -114,6 +114,7 @@
     * [Import APIs](create-and-configure-apis/create-apis/import-apis.md)
     * [Migrate APIs](create-and-configure-apis/create-apis/migrate-apis.md)
     * [Search for APIs in the Console](create-and-configure-apis/create-apis/search-for-apis-in-the-console.md)
+    * [4.9: Search for APIs in the Console](create-and-configure-apis/create-apis/search-for-apis-in-the-console-1.md)
   * [Configure v4 APIs](create-and-configure-apis/configure-v4-apis/README.md)
     * [General Settings](create-and-configure-apis/configure-v4-apis/general-settings.md)
     * [Entrypoints](create-and-configure-apis/configure-v4-apis/entrypoints/README.md)
