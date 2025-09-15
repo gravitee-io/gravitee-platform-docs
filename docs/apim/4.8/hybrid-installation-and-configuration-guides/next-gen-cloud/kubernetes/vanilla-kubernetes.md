@@ -4,6 +4,8 @@
 
 This guide explains how to install a Hybrid Gateway and connect it to Gravitee Next-Gen Cloud using Kubernetes.
 
+{% include "../../../.gitbook/includes/installation-guide-note.md" %}
+
 ## Prerequisites
 
 Before you install a Hybrid Gateway, complete the following steps:
@@ -31,7 +33,11 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
 1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:&#x20;
 
     ```bash
-    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis --version 19.6.4 --create-namespace --namespace gravitee-apim
+    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis \
+      --version 19.6.4 \
+      --create-namespace \
+      --namespace gravitee-apim \
+      --set image.repository=bitnamilegacy/redis
     ```
 2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:
 
@@ -278,7 +284,7 @@ gateway:
   # Service configured to expose the gateway inside the cluster for the Ingress controller.
   service:
     type: ClusterIP
-    externalPort: 82
+    externalPort: 80
     internalPort: 8082
     internalPortName: http
 

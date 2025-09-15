@@ -113,7 +113,11 @@ To support caching and rate- limiting, you must install Redis into your Kubernet
 1.  Install Redis with Helm using the following command, which also creates a new `gravitee-apim` namespace:&#x20;
 
     ```bash
-    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis --version 19.6.4 --create-namespace --namespace gravitee-apim
+    helm install gravitee-apim-redis oci://registry-1.docker.io/bitnamicharts/redis \
+      --version 19.6.4 \
+      --create-namespace \
+      --namespace gravitee-apim \
+      --set image.repository=bitnamilegacy/redis
     ```
 2.  Extract the Redis hostname from the command output and save it for future use. The following sample output lists `gravitee-apim-redis-master.gravitee-apim.svc.cluster.local` as the Redis hostname:
 

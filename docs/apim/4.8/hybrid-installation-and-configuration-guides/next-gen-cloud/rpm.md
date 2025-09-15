@@ -4,6 +4,10 @@
 
 This guide explains how to install the Gravitee Hybrid Gateway using either the RPM package or ZIP archive. This installation type is suitable for Linux distributions and flexible deployments.
 
+{% hint style="warning" %}
+This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
+{% endhint %}
+
 ## Prerequisites
 
 Before you install a Hybrid Gateway, complete the following steps:
