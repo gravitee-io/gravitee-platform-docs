@@ -1,5 +1,7 @@
 # Hybrid Install with .ZIP
 
+{% include "../.gitbook/includes/installation-guide-note.md" %}
+
 1. Install Gravitee API Management (APIM). For more information about installing Gravitee APIM, see [Install with .ZIP](../install-and-upgrade/.zip.md).
 2. Download, and then mount the Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
 3. Download, and then mount the TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)

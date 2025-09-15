@@ -1,5 +1,7 @@
 # Docker Images
 
+{% include "../../.gitbook/includes/installation-guide-note.md" %}
+
 ## Before you begin
 
 * You must install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).

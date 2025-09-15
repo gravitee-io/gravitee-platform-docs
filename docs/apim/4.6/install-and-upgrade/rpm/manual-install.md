@@ -5,6 +5,7 @@
 {% hint style="warning" %}
 * RPM install is not supported on distributions with old versions of RPM. For example, SLES 11 and CentOS 5 . If you use an old version of RPM, install Gravitee APIM with .zip instead. For more information about installing Gravitee APIM with .zip, see [install APIM with .zip](../.zip.md).
 * If you use Enterprise Edition of Gravitee, you need a license key. For more information about Enterprise Edition licensing, see [Enterprise Edition](../../overview/enterprise-edition.md).
+* This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
 ### Prerequisites for installing Graviitee APIM on an Amazon instance

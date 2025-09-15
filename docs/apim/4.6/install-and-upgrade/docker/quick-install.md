@@ -1,7 +1,8 @@
 # Quick Install
 
 {% hint style="warning" %}
-You cannot install Gravitee API Management (APIM) with custom plugins using this installation method. To install custom plugins, see the [Docker Compose](docker-compose.md) installation guide.
+* You cannot install Gravitee API Management (APIM) with custom plugins using this installation method. To install custom plugins, see the [Docker Compose](docker-compose.md) installation guide.
+* This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
 {% endhint %}
 
 ## Before you begin

@@ -4,16 +4,18 @@ description: This page explains how to customize your Gravitee API Management on
 
 # Customize your Installation
 
+{% include "../../.gitbook/includes/installation-guide-note.md" %}
+
 ## Installing additional plugins
 
-* To add an additional plugin, copy the plugin archive that is contained in a `.zip` folder into the `plugins-ext` folder.&#x20;
+* To add an additional plugin, copy the plugin archive that is contained in a `.zip` folder into the `plugins-ext` folder.
 
 {% hint style="info" %}
 - For the API Gateway, `the plugin-ext` folder is located at `/gravitee/apim-gateway/plugins`.
-- For the Management API, the `plugin-ext` is located at `/gravitee/apim-management-api/plugins.`&#x20;
+- For the Management API, the `plugin-ext` is located at `/gravitee/apim-management-api/plugins.`
 {% endhint %}
 
-You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).&#x20;
+You can download additional plugins from [the plugins download page](https://download.gravitee.io/#graviteeio-apim/plugins/).
 
 For more information about plugin deployment, see [Deployment](../../getting-started/plugins/#deployment).
 
@@ -43,7 +45,7 @@ Your Redis host and port may be different
 {% endtab %}
 
 {% tab title="Use Redis with Docker images" %}
-To use Redis with Docker images, complete the following steps:&#x20;
+To use Redis with Docker images, complete the following steps:
 
 1. In the command that you use to start the API Gateway, add the following environment variables:
 
@@ -72,11 +74,11 @@ Your Redis host and port may be different.
 
 To download the driver, complete the following sub-steps:
 
-1. Download the correct driver for your database. For more information about downloading the correct drive,  go to [Supported databases.](../../configure-apim/repositories/#supported-databases)
-2. Place the driver in the `plugins-ext` folder.&#x20;
+1. Download the correct driver for your database. For more information about downloading the correct drive, go to [Supported databases.](../../configure-apim/repositories/#supported-databases)
+2. Place the driver in the `plugins-ext` folder.
 
 {% hint style="info" %}
-* For the API Gateway, the `plugin-ext` folder is located at `/gravitee/apim-gateway/plugins`.&#x20;
+* For the API Gateway, the `plugin-ext` folder is located at `/gravitee/apim-gateway/plugins`.
 * For the Management API, the `plugin-ext`folder is located at the `/gravitee/apim-management-api/plugins`.
 {% endhint %}
 
@@ -98,16 +100,16 @@ To use JDBC with `docker compose`, complete the following steps:
 2. Remove the following line of code: `gravitee_management_mongodb_uri.`
 
 {% hint style="danger" %}
-* Ensure that your `gravitee_management_jdbc_url` is appropriate for your environment.&#x20;
+* Ensure that your `gravitee_management_jdbc_url` is appropriate for your environment.
 * Use `useSSL=false` with caution in production.
 * Your host, port, username, and password may be different.
 {% endhint %}
 {% endtab %}
 
 {% tab title="Use JDBC with Docker images" %}
-To use JDBC with Docker images, complete the following steps:&#x20;
+To use JDBC with Docker images, complete the following steps:
 
-1. In the command that you use to start the Gateway, add the following environment variables:&#x20;
+1. In the command that you use to start the Gateway, add the following environment variables:
 
 ```bash
 --env gravitee_management_type=jdbc \
@@ -117,7 +119,7 @@ To use JDBC with Docker images, complete the following steps:&#x20;
 2. Remove the `gravitee_management_mongodb_uri` `env`.
 
 {% hint style="danger" %}
-* Ensure that your`gravitee_management_jdbc_url` is appropriate for your environment.&#x20;
+* Ensure that your`gravitee_management_jdbc_url` is appropriate for your environment.
 * Use caution`useSSL=false`if you use in production.
 * Your host, port, username, and password may be different.
 {% endhint %}
