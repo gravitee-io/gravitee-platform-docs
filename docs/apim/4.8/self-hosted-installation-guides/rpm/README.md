@@ -4,6 +4,10 @@
 
 This guide explains how to install Gravitee APIM on RPM-based Linux distributions like Red Hat, CentOS, and Oracle. To install APIM, you must verify prerequisites, create repositories, and start services.
 
+{% hint style="warning" %}
+This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
+{% endhint %}
+
 ## Prerequisites
 
 Before you install APIM with RPM packages, complete the following steps:

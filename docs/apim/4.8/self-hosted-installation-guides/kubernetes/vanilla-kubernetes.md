@@ -19,6 +19,10 @@ Before you install the Gravitee APIM, complete the following steps:
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
 * (optional) License key for Enterprise features&#x20;
 
+{% hint style="warning" %}
+This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
+{% endhint %}
+
 ## Components Overview&#x20;
 
 This self-hosted APIM deployment includes several components that work together to provide a complete API management platform:
@@ -78,8 +82,7 @@ To support API definitions and configuration, you must install MongoDB into your
     helm install gravitee-mongodb oci://registry-1.docker.io/bitnamicharts/mongodb \
       --version 14.12.3 \
       --namespace gravitee-apim \
-      --set image.registry=docker.io \
-      --set image.repository=mongo \
+      --set image.repository=bitnamilegacy/mongodb \
       --set image.tag=5.0 \
       --set auth.enabled=false \
       --set architecture=standalone \
@@ -143,6 +146,7 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
     helm install gravitee-elasticsearch oci://registry-1.docker.io/bitnamicharts/elasticsearch \
       --version 19.13.14 \
       --namespace gravitee-apim \
+      --set image.repository=bitnamilegacy/elasticsearch \
       --set security.enabled=false \
       --set master.replicaCount=1 \
       --set data.replicaCount=0 \
@@ -212,6 +216,7 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     helm install gravitee-redis oci://registry-1.docker.io/bitnamicharts/redis \
       --version 18.6.1 \
       --namespace gravitee-apim \
+      --set image.repository=bitnamilegacy/redis \
       --set architecture=standalone \
       --set auth.enabled=true \
       --set auth.password=redis-password \
@@ -270,6 +275,7 @@ To support management data, you can install PostgreSQL into your Kubernetes clus
     helm install gravitee-postgresql oci://registry-1.docker.io/bitnamicharts/postgresql \
       --version 13.2.24 \
       --namespace gravitee-apim \
+      --set image.repository=bitnamilegacy/postgresql \
       --set auth.database=gravitee \
       --set auth.username=gravitee \
       --set auth.password=changeme \

@@ -5,19 +5,19 @@
 * You must install Docker. For more information about installing Docker, go to [Install Docker Engine](https://docs.docker.com/engine/install/).
 * If you are using the Enterprise Edition (EE) of Gravitee, ensure that you have a licensing key. If you do not know your licensing key, see the [Gravitee Platform Pricing](https://www.gravitee.io/pricing).
 
+{% hint style="warning" %}
+This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
+{% endhint %}
+
 ### Install Gravitee APIM <a href="#install-gravitee-apim" id="install-gravitee-apim"></a>
 
 1. Create a directory structure in which to persist data and store plugins:
    1.  Create a directory structure using the following command:
 
-
-
        ```bash
        mkdir -p /gravitee/{mongodb/data,elasticsearch/data,apim-gateway/plugins,apim-gateway/logs,apim-management-api/plugins,apim-management-api/logs,apim-management-ui/logs,apim-portal-ui/logs}
        ```
    2.  Once you create the directory, verify that the directory has the following structure:
-
-
 
        ```bash
        /gravitee
@@ -39,15 +39,11 @@
 2. (Optional) If you are installing the Enterprise Edition (EE) of Gravitee APIM, copy your license key to `/gravitee/license.key`.
 3.  Create two Docker bridge networks using the following commands:
 
-
-
     ```bash
     docker network create storage
     docker network create frontend
     ```
 4.  Install MongoDB using the following commands:
-
-
 
     ```bash
     docker pull mongo:7.0
@@ -57,8 +53,6 @@
       --detach mongo:7.0
     ```
 5.  Install Elasticsearch using the following commands:
-
-
 
     ```bash
     docker pull docker.elastic.co/elasticsearch/elasticsearch:8.16.1
@@ -80,8 +74,6 @@
     ```
 6.  Install the API Gateway using the following commands. If you use the Community Edition (CE) of Gravitee APIM, remove the following line: `--volume /gravitee/license.key:/opt/graviteeio-gateway/license/license.key`.
 
-
-
     ```bash
     docker pull graviteeio/apim-gateway:latest
 
@@ -101,8 +93,6 @@
     docker network connect frontend gio_apim_gateway
     ```
 7.  Install the Management API using the following commands. If you are installing the CE of Gravitee, remove the following line: `--volume /gravitee/license.key:/opt/graviteeio-management-api/license/license.key` .
-
-
 
     ```bash
     docker pull graviteeio/apim-management-api:latest
@@ -128,8 +118,7 @@
 Port 8072 is exposed for federation agent WebSocket connections. This port is required if you plan to use Federation features with agents.
 {% endhint %}
 
-8.  Install the Console using the following commands:\
-
+8.  Install the Console using the following commands:\\
 
     ```bash
     docker pull graviteeio/apim-management-ui:latest
@@ -141,11 +130,7 @@ Port 8072 is exposed for federation agent WebSocket connections. This port is re
       --env MGMT_API_URL=http://localhost:8083/management/organizations/DEFAULT/environments/DEFAULT/ \
       --detach graviteeio/apim-management-ui:latest
     ```
-
-
-
-9.  Install the Developer portal using the following commands:\
-
+9.  Install the Developer portal using the following commands:\\
 
     ```bash
     docker pull graviteeio/apim-portal-ui:latest
@@ -189,16 +174,12 @@ To enable Federation, complete the following steps:
 
 1.  Stop and Remove Existing Management API Container with the following command:
 
-
-
     ```bash
     docker stop mgmtapi
 
     docker rm mgmtapi
     ```
 2.  Restart management API with Federation enabled with the following command:
-
-
 
     ```bash
     docker run --publish 8083:8083 \
@@ -217,8 +198,6 @@ To enable Federation, complete the following steps:
       --detach graviteeio/apim-management-api:latest
     ```
 3.  Reconnect to the frontend network using the following command:
-
-
 
     ```bash
     docker network connect frontend mgmtapi
@@ -253,7 +232,7 @@ Make the following modificatinos to your `.env` file above:
 
 **Verify Federation Agent**
 
-1. &#x20;Run the federation agent using the following command:
+1. Run the federation agent using the following command:
 
 ```bash
 docker pull graviteeio/federation-agent-confluent-platform:latest
@@ -269,8 +248,6 @@ If APIM is running with high availability, you need to set up cluster mode. To s
 
 1.  Add the following parameter values to the root of your `gravitee.yaml` configuration file:
 
-
-
     ```bash
     GRAVITEE_CLUSTER_TYPE = hazelcast
     GRAVITEE_CLUSTER_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast-cluster.xml
@@ -278,8 +255,6 @@ If APIM is running with high availability, you need to set up cluster mode. To s
     GRAVITEE_CACHE_HAZELCAST_CONFIGPATH = ${gravitee.home}/config/hazelcast-cache.xml
     ```
 2.  Mount a volume with the `hazelcast-cluster.xml` configuration file. This configures Hazelcast to support APIM cluster mode. Here is an example `hazelcast-cluster.xml` configuration file. You may need to customize the values for `join` in the `network` section:
-
-
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -321,8 +296,6 @@ If APIM is running with high availability, you need to set up cluster mode. To s
     ```
 3.  Mount a volume with the `hazelcast-cache.xml` configuration file. This configures the Hazelcast cluster that is used by APIM's caching system. Here is an example `hazelcast-cache.xml` configuration file. You may need to customize the values for `join` in the `network` section:
 
-
-
     ```xml
     ?xml version="1.0" encoding="UTF-8"?>
         <hazelcast xmlns="http://www.hazelcast.com/schema/config"
@@ -356,8 +329,6 @@ If APIM is running with high availability, you need to set up cluster mode. To s
         </hazelcast>
     ```
 4.  Apply the settings using the `docker run` command:
-
-
 
     ```bash
     # For Management API with cluster mode:
