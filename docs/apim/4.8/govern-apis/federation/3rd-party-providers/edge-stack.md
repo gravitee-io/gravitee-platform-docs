@@ -139,7 +139,7 @@ You can run the Edge Stack using either of the following methods:
 
 
     ```
-    docker compose pull
+    docker compose -f docker-compose-apim.yml pull
     ```
 4.  Start the Edge Stack agent with the following command:\
 
@@ -154,27 +154,26 @@ You can run the Edge Stack using either of the following methods:
 
 
     ```bash
-    secrets:
-          kubernetes:
-            enabled: true
-        services:
-          core:
-            http:
-              enabled: false
-        integration:
-          connector:
-            ws:
-              headers:
-                - name: Authorization
-                  value: secret://kubernetes/agent-secret:apimAuthorizationHeader
-              endpoints:
-                - https://<your-APIM-management-API-host]/integration-controller>
-          providers:
-            - integrationId: "<your-integration-id>"
-              configuration:
-                namespace: "<namespace>"
-                isEmissary: "<true | false>"
-              type: edge-stack
+    agent:
+      config:
+        graviteeYml:
+          secrets:
+            kubernetes:
+              enabled: true
+          integration:
+            connector:
+              ws:
+                headers:
+                  - name: Authorization
+                    value: secret://kubernetes/agent-secret:apimAuthorizationHeader
+                endpoints:
+                  - https://<your-APIM-management-API-host]/integration-controller>
+            providers:
+              - integrationId: "<your-integration-id>"
+                configuration:
+                  namespace: "<namespace>"
+                  isEmissary: "<true | false>"
+                type: edge-stack
 
     kubernetes:
       extraObjects:
@@ -210,16 +209,3 @@ You can run the Edge Stack using either of the following methods:
 In the **Integrations** screen of the APIM Console, the agent status shows **Connected**.
 
 <figure><img src="../../../.gitbook/assets/7E1EE616-C0AB-488E-BECC-1CE7B116FCE9_4_5005_c.jpeg" alt=""><figcaption></figcaption></figure>
-
-***
-
-### Minimum Kubernetes permissions required by the agent
-
-The agent needs access to the following resources with the given permissions:
-
-| API Group        | Resource       | Permissions |
-| ---------------- | -------------- | ----------- |
-| getambassador.io | Mappings       | Get, List   |
-| getambassador.io | Filters        | Get, List   |
-| getambassador.io | FilterPolicies | Get, List   |
-|                  | Secrets        | Get, Update |
