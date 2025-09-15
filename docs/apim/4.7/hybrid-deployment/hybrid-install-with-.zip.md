@@ -4,6 +4,8 @@
 2. Download, and then mount the Redis Repository. This repository is used for the rate limits' synchronized counters. To download this repository, go to [Gravitee.io Downloads](https://download.gravitee.io/#graviteeio-apim/plugins/repositories/gravitee-apim-repository-redis).
 3. Download, and then mount the TCP Reporter. This repository is used to push events to Logstash. To download this repository, go to [Gravitee.io Downloads.](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-tcp/)
 
+{% include "../.gitbook/includes/installation-guide-note.md" %}
+
 ### **Configuring the connection between the SaaS Control-Plane and the Bridge Gateway**
 
 {% code title="gravitee.yaml" lineNumbers="true" %}

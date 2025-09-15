@@ -7,6 +7,8 @@
   * [Kubectl or OC](https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html#cli-installing-cli_cli-developer-commands)
   * [Helm](https://docs.openshift.com/container-platform/4.10/applications/working_with_helm_charts/installing-helm.html)
 
+{% include "../.gitbook/includes/installation-guide-note.md" %}
+
 ## Procedure
 
 To install APIM within OpenShift, complete the following steps:
@@ -47,8 +49,12 @@ If you have already installed MongoDB, you do not need to install MongoDB again.
 
 ```sh
 helm repo add bitnami https://charts.bitnami.com/bitnami
+
 helm repo update
-helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
+
+helm install mongodb bitnami/mongodb \
+  --set image.repository=bitnamilegacy/mongodb \
+  --set auth.rootPassword=r00t
 ```
 
 **Configure the connection MongoDB**
@@ -63,7 +69,7 @@ helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
 
 * **Option 2:** Provide a `mongo.servers` raw definition with `mongo.dbname` and an authentication configuration:
 
-```
+```yaml
 mongo:
   servers: |
     - host: mongo1
@@ -122,12 +128,16 @@ To install a new PostgreSQL database, complete the following steps:
 1. Update the `username`, `password`, and `databasename` parameters.
 2. Run the following commands:
 
-```
+```sh
 helm repo add bitnami https://charts.bitnami.com/bitnami
+
 helm repo update
 
-helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
---set postgresqlDatabase=graviteeapim postgres-apim bitnami/postgresql
+helm install postgres-apim bitnami/postgresql \
+  --set image.repository=bitnamilegacy/postgresql \
+  --set postgresqlUsername=postgres \
+  --set postgresqlPassword=P@ssw0rd \
+  --set postgresqlDatabase=graviteeapim
 ```
 
 **Verification**
@@ -149,7 +159,7 @@ postgres-apim-postgresql-0                1/1     Running      0           98s
 
 * Modify the `values.yml` the following content to use the `username`, `password`, `URL`, and `database name` that is specific to your instance:
 
-```
+```yaml
 jdbc:
   driver: https://jdbc.postgresql.org/download/postgresql-42.2.23.jar
   url: jdbc:postgresql://postgres-apim-postgresql:5432/graviteeapim
@@ -170,8 +180,9 @@ management:
 
 To install ElasticSearch, run the following commands:
 
-```
+```sh
 helm repo add elastic https://helm.elastic.co
+
 helm repo update
 
 helm install es-kb-quickstart elastic/eck-stack -n elastic-stack --create-namespace
@@ -203,11 +214,15 @@ If you have already installed Redis, you do not need to install Redis again.
 
 To install Redis using the following commands:
 
-```
+```sh
 helm repo add bitnami https://charts.bitnami.com/bitnami
+
 helm repo update
 
-helm install --set auth.password=p@ssw0rd redis-apim bitnami/redis
+helm install redis-apim bitnami/redis \
+  --version 19.6.4 \
+  --set image.repository=bitnamilegacy/redis \
+  --set auth.password=p@ssw0rd
 ```
 
 For more information about Redis, go to [Redis](https://github.com/bitnami/charts/tree/main/bitnami/redis).
@@ -216,13 +231,13 @@ For more information about Redis, go to [Redis](https://github.com/bitnami/chart
 
 Check that Redis pod works using the following command:
 
-```
+```bash
 kubectl get pods
 ```
 
 If the Redis pod is working correctly, you see an output similar to the following expected output:
 
-```
+```sh
 NAME                    READY   STATUS    RESTARTS   AGE
 redis-apim-master-0     1/1     Running   0          105s
 redis-apim-replicas-0   1/1     Running   0          105s
@@ -234,7 +249,7 @@ redis-apim-replicas-2   1/1     Running   0          40s
 
 To use Redis for rate limit policy, add the following information to the `values.yml` file:
 
-```
+```yaml
 ratelimit:
   type: redis
 gateway:
@@ -250,7 +265,7 @@ gateway:
 * (optional) Enable `ssl` by setting `ssl` to `true`.
 * (optional) To connect to a Sentinel cluster, specify the `master` and the `nodes`.
 
-```
+```yaml
 gateway:
   ratelimit:
       password: p@ssw0rd
