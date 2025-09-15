@@ -7,6 +7,8 @@
   * [Kubectl or OC](https://docs.openshift.com/container-platform/4.9/cli_reference/openshift_cli/getting-started-cli.html#cli-installing-cli_cli-developer-commands)
   * [Helm](https://docs.openshift.com/container-platform/4.10/applications/working_with_helm_charts/installing-helm.html)
 
+{% include "../.gitbook/includes/installation-guide-note.md" %}
+
 ## Procedure
 
 To install APIM within OpenShift, complete the following steps:
@@ -48,7 +50,10 @@ If you have already installed MongoDB, you do not need to install MongoDB again.
 ```sh
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
-helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
+helm install mongodb bitnami/mongodb \
+  --namespace gravitee-apim --create-namespace \
+  --set image.repository=bitnamilegacy/mongodb \
+  --set auth.rootPassword=r00t
 ```
 
 **Configure the connection MongoDB**
@@ -122,12 +127,17 @@ To install a new PostgreSQL database, complete the following steps:
 1. Update the `username`, `password`, and `databasename` parameters.
 2. Run the following commands:
 
-```
+```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
-
-helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
---set postgresqlDatabase=graviteeapim postgres-apim bitnami/postgresql
+helm install postgres-apim bitnami/postgresql \
+  -n gravitee-apim --create-namespace \
+  --set image.repository=bitnamilegacy/postgresql \
+  --set metrics.image.repository=bitnamilegacy/postgres-exporter \
+  --set volumePermissions.image.repository=bitnamilegacy/os-shell \
+  --set postgresqlUsername=postgres \
+  --set postgresqlPassword='P@ssw0rd' \
+  --set postgresqlDatabase=graviteeapim
 ```
 
 **Verification**
@@ -203,11 +213,14 @@ If you have already installed Redis, you do not need to install Redis again.
 
 To install Redis using the following commands:
 
-```
+```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
-
-helm install --set auth.password=p@ssw0rd redis-apim bitnami/redis
+helm install redis-apim bitnami/redis \
+  --namespace gravitee-apim --create-namespace \
+  --set image.repository=bitnamilegacy/redis \
+  --set auth.enabled=true \
+  --set auth.password='p@ssw0rd'
 ```
 
 For more information about Redis, go to [Redis](https://github.com/bitnami/charts/tree/main/bitnami/redis).

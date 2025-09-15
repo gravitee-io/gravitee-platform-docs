@@ -21,6 +21,8 @@ The APIM Helm chart deploys the following components:
 * MongoDB replica set or PostgreSQL
 * Elasticsearch Cluster
 
+{% include "../.gitbook/includes/installation-guide-note.md" %}
+
 ## Installing Gravitee API Management
 
 ### Prerequisites
@@ -185,8 +187,20 @@ To configure the following features, complete the following steps:
 {% tab title="MongoDB" %}
 To install MongoDB with Helm, use the following command:
 
-```
-helm install mongodb bitnami/mongodb --set auth.rootPassword=r00t
+```bash
+helm install gravitee-mongodb oci://registry-1.docker.io/bitnamicharts/mongodb \
+  --version 14.12.3 \
+  --namespace gravitee-apim \
+  --set image.repository=bitnamilegacy/mongodb \
+  --set image.tag=5.0 \
+  --set auth.enabled=false \
+  --set architecture=standalone \
+  --set persistence.enabled=false \
+  --set podSecurityContext.enabled=false \
+  --set containerSecurityContext.enabled=false \
+  --set volumePermissions.enabled=true \
+  --set resources.requests.memory=512Mi \
+  --set resources.requests.cpu=250m
 ```
 
 **Configuring the connection MongoDB**
@@ -245,9 +259,19 @@ To install a new PostgreSQL database using JDBC, complete the following steps:
 1. Update the `username`, `password`, and `databasename` parameters
 2. Run the following command:
 
-```sh
-helm install --set postgresqlUsername=postgres --set postgresqlPassword=P@ssw0rd
---set postgresqlDatabase=graviteeapim postgres-apim bitnami/postgresql
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo update
+
+helm install postgres-apim bitnami/postgresql \
+  -n gravitee-apim --create-namespace \
+  --set image.repository=bitnamilegacy/postgresql \
+  --set metrics.image.repository=bitnamilegacy/postgres-exporter \
+  --set volumePermissions.image.repository=bitnamilegacy/os-shell \
+  --set postgresqlUsername=postgres \
+  --set postgresqlPassword='P@ssw0rd' \
+  --set postgresqlDatabase=graviteeapim
 ```
 
 3. Verify that the PostgreSQL pod works using the following command:
@@ -298,7 +322,13 @@ The Elasticsearch installed by Gravitee is NOT recommended in production. It is 
 1. To install Redis (for caching & rate-limiting), use the following command:
 
 ```sh
-helm install --set auth.password=p@ssw0rd redis-apim bitnami/redis
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm install redis-apim bitnami/redis \
+  --version 19.6.4 \
+  --set image.repository=bitnamilegacy/redis \
+  --set auth.password=p@ssw0rd
 ```
 
 For more information on configuring Redis Helm chart, go to [Redis](https://github.com/bitnami/charts/tree/main/bitnami/redis).

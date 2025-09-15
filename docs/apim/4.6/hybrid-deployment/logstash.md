@@ -9,7 +9,6 @@ Support versions: Please refer to the [compatibility matrix with Elasticsearch](
 1. Install Logstash. To install Logstash, go to either of the following websites:
 
 * [Official Helm charts](https://artifacthub.io/packages/helm/elastic/logstash#how-to-install-oss-version-of-logstash)
-* [Bitnami Helm charts](https://bitnami.com/stack/logstash/helm)
 
 2. Configure Logstash by coping the following file:
 
