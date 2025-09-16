@@ -20,7 +20,6 @@ The APIM Helm chart deploys the following components:
 * APIM Management Console
 * APIM Developer Portal
 * APIM Gateway
-* MongoDB replica set or PostgreSQL
 * Elasticsearch Cluster
 
 ## Installing Gravitee API Management
