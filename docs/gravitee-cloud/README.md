@@ -6,9 +6,10 @@ description: Gravitee's API Platform as a service.
 
 ## Introduction
 
-Formerly known as Cockpit, Gravitee Cloud is a simple and secure method of running the Gravitee API Management (APIM). With the Control Plane hosted by Gravitee, you can count on consistent availability, cutting-edge features, and innovations from the Gravitee team.
+Formerly known as Cockpit, Gravitee Cloud is a simple and secure method of running the Gravitee API Management (APIM). With the Control Plane hosted by Gravitee, you can count on consistent availability, cutting-edge features, and innovations from the Gravitee team.\
 
-<figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption><p>Gravitee Cloud UI.</p></figcaption></figure>
+
+<figure><img src=".gitbook/assets/7A6D3880-01B4-40D4-85CD-8A66AA59211C_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 When you subscribe to to Gravitee Cloud, Gravitee generates a pre-configured and best-practice setup for your APIM, which is ready to help you unlock new potential for your APIs. Whether you choose to run your API Gateways with Gravitee-hosted, hybrid, or federated third-party gateways, we provide a unified platform that adapts to your IT landscape.
 
