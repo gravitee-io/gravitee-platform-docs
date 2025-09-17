@@ -30,12 +30,12 @@ This self-hosted APIM deployment includes several components that work together 
 
 The Gravitee APIM platform requires several external dependencies and services to provide complete functionality:
 
-Required:
+**Required:**
 
 * MongoDB: Stores API definitions, configurations, and rate limiting data
 * Elasticsearch: Provides analytics, logging, and search capabilities for API metrics
 
-Optional (Enhanced functionality):
+**(Enhanced functionality) Optional:**
 
 * Redis: Supports advanced caching and distributed rate limiting
 * PostgreSQL: Alternative database for management data
