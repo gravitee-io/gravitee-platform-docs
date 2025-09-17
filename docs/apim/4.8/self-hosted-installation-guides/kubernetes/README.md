@@ -2,7 +2,7 @@
 
 ## Deployment methods
 
-* Vanilla Kubernetes
+* [Vanilla Kubernetes](vanilla-kubernetes.md)
 * AWS EKS
 * Azure AKS
 * GCP EKE
