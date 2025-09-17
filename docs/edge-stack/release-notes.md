@@ -4,6 +4,20 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.12.7 (September 16th, 2025) <a href="#id-3.12.6" id="id-3.12.6"></a>
+
+#### **Fix SameSite behavior when multiple FilterPolicies point to a single Filter**
+
+Previously there was an error with how the `SameSite` value on the Cookie were set when multiple FilterPolicies pointed to the same Filter. The Cookie would use the FilterPolicy that had the highest precedence for that Filter even if it was on the wrong paths. Now, the `SameSite` value in the FilterPolicy is respected for that path.&#x20;
+
+#### **Added further debug log information on the AuthService**
+
+When using the `debug` log level, more information is now logged when using Filters and other Capabilities related to the AuthService.&#x20;
+
+#### **Upgraded Golang to 1.24.5**
+
+Ambassador Edge Stack now uses Golang version 1.24.5. This update resolves various security fixes.
+
 ### Version 3.12.6 (July 25, 2025) <a href="#id-3.12.6" id="id-3.12.6"></a>
 
 #### Downgraded Coraza to 3.0.4
