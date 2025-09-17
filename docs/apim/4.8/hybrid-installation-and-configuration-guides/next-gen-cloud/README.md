@@ -12,10 +12,10 @@ The following installation steps are common to all supported deployment methods.
 
 
     <figure><img src="../../.gitbook/assets/sign-in-to-gravitee-cloud.png" alt=""><figcaption></figcaption></figure>
-2.  Select **Dashboard** from the menu, and then click **Deploy Gateway**.\
+2.  From the **Dashboard**, click **Deploy Gateway**.\
 
 
-    <figure><img src="../../.gitbook/assets/dashboard-deploy-gateway.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/5458CF8E-7FFE-4961-9EE5-761E3A3E75CB.jpeg" alt=""><figcaption></figcaption></figure>
 3.  In the **Choose Gateway Deployment Method** modal, select **Hybrid Gateway**.\
 
 
