@@ -17,7 +17,7 @@ Before you install the Gravitee APIM, complete the following steps:
 * Install [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 * Ensure you have access to the self-hosted Kubernetes cluster where you want to install Gravitee APIM.&#x20;
 * Ensure the self-hosted target environment has outbound Internet connectivity to Gravitee Cloud using HTTPS/443.
-* (optional) License key for Enterprise features&#x20;
+* (optional) [License key](https://documentation.gravitee.io/platform-overview/gravitee-platform/gravitee-offerings-ce-vs-ee/enterprise-edition-licensing) for Enterprise features&#x20;
 
 {% hint style="warning" %}
 This installation guide is for only development and quick start purposes. Do not use it for production environments. For more information about best practices for production environments, contact your Technical Account Manager.
@@ -30,14 +30,20 @@ This self-hosted APIM deployment includes several components that work together 
 * Management API: Handles API configuration, policies, and administrative operations
 * Gateway: Processes API requests, applies policies, and routes traffic to backend services
 * Management Console UI: Web interface for API administrators to configure and monitor APIs
-* Developer Portal UI: Self-service portal for developers to discover and consume APIs
+* Developer Portal UI: Self-service portal for developers to discover and consume APIs\
+
 
 The Gravitee APIM platform requires several external dependencies and services to provide complete functionality:
 
+Required:
+
 * MongoDB: Stores API definitions, configurations, and rate limiting data
 * Elasticsearch: Provides analytics, logging, and search capabilities for API metrics
-* Redis: Supports advanced caching and distributed rate limiting (optional)
-* PostgreSQL: Alternative database for management data (optional)
+
+Optional (Enhanced functionality):
+
+* Redis: Supports advanced caching and distributed rate limiting
+* PostgreSQL: Alternative database for management data
 * Ingress Controller: Routes external traffic to APIM services and enables web access
 
 ## Install the Gravitee APIM
@@ -67,22 +73,22 @@ Create the namespace using the following command:&#x20;
 kubectl create namespace gravitee-apim
 ```
 
-{% hint style="info" %}
+{% hint style="danger" %}
 This guide requires MongoDB and Elasticsearch to be installed for the complete APIM platform to function.
 {% endhint %}
 
 ### Install MongoDB
 
-To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see [Bitnami package for MongoDB](https://artifacthub.io/packages/helm/bitnami/mongodb)
+To support API definitions and configuration, you must install MongoDB into your Kubernetes cluster. For more information about installing MongoDB, see the [official chart documentation](https://artifacthub.io/packages/helm/bitnami/mongodb)
 
-1.  Install MongoDB with Helm using the following command: \
-
+1.  Install MongoDB with Helm using the following command:&#x20;
 
     ```bash
     helm install gravitee-mongodb oci://registry-1.docker.io/bitnamicharts/mongodb \
       --version 14.12.3 \
       --namespace gravitee-apim \
-      --set image.repository=bitnamilegacy/mongodb \
+      --set image.registry=docker.io \
+      --set image.repository=mongo \
       --set image.tag=5.0 \
       --set auth.enabled=false \
       --set architecture=standalone \
@@ -99,7 +105,7 @@ To support API definitions and configuration, you must install MongoDB into your
 2.  Extract the MongoDB hostname from the command output, and then save it for future use. The following sample output lists `gravitee-mongodb.gravitee-apim.svc.cluster.local`  as the MongoDB hostname: \
 
 
-    ```
+    ```bash
     NAME: gravitee-mongodb
     LAST DEPLOYED: DDD MMM DD HH:MM:SS YYYY
     NAMESPACE: gravitee-apim
@@ -112,6 +118,15 @@ To support API definitions and configuration, you must install MongoDB into your
     APP VERSION: 7.0.11
     ...
     ** Please be patient while the chart is being deployed **
+
+       gravitee-mongodb.gravitee-apim.svc.cluster.local
+
+    To connect to your database, create a MongoDB&reg; client container:
+
+        kubectl run --namespace gravitee-apim gravitee-mongodb-client --rm --tty -i --restart='Never' --env="MONGODB_ROOT_PASSWORD=$MONGODB_ROOT_PASSWORD" --image docker.io/bitnamilegacy/mongodb:5.0 --command -- bash
+
+    Then, run the following command:
+        mongosh admin --host "gravitee-mongodb"
 
     ```
 
@@ -137,7 +152,7 @@ To support API definitions and configuration, you must install MongoDB into your
 
 ### Install Elasticsearch&#x20;
 
-To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see [Bitnami package for Elasticsearch.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)
+To support analytics and logging, you must install Elasticsearch into your Kubernetes cluster. For more information on installing Elasticsearch, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/elasticsearch)&#x20;
 
 1.  Install Elasticsearch with Helm using the following command:\
 
@@ -206,9 +221,9 @@ To support analytics and logging, you must install Elasticsearch into your Kuber
     \
 
 
-### Install Redis
+### (Optional) Install Redis
 
-To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information about installing Redis, see [Bitnami package for Redis®](https://artifacthub.io/packages/helm/bitnami/redis).
+To support caching and rate-limiting, you must install Redis into your Kubernetes cluster. For more information about installing Redis, see the [official chart documentation. ](https://artifacthub.io/packages/helm/bitnami/redis)
 
 1.  Install Redis with Helm using the following command: &#x20;
 
@@ -264,9 +279,9 @@ To support caching and rate-limiting, you must install Redis into your Kubernete
     gravitee-redis-master-0   1/1     Running   0          2m
     ```
 
-### Install PostgreSQL&#x20;
+### (Optional) Install PostgreSQL&#x20;
 
-To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information on installing PostgreSQL, see [Bitnami package for PostgreSQL](https://artifacthub.io/packages/helm/bitnami/postgresql)
+To support management data, you can install PostgreSQL into your Kubernetes cluster. For more information on installing PostgreSQL, see the [official chart documentation.](https://artifacthub.io/packages/helm/bitnami/postgresql)&#x20;
 
 1.  Install PostgreSQL with Helm using the following command:\
 
@@ -351,8 +366,6 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
 * If you don't have a license key, you can still proceed with community features.
 {% endhint %}
 
-
-
 ### Install Ingress Controller&#x20;
 
 An ingress controller is required to route external traffic to your Gravitee APIM services. Choose the installation method based on your Kubernetes environment:
@@ -418,7 +431,7 @@ For local development with custom hostnames, you must add DNS entries to your sy
 2.  Verify the ingress controller is running using the following command:\
 
 
-    ```
+    ```bash
     kubectl get pods -n ingress-nginx
     ```
 
@@ -448,14 +461,11 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
 
 
     ```yaml
-    # Gravitee.io APIM Configuration using Helm Chart
-
-
     # MongoDB Configuration
     mongo:
       uri: mongodb://gravitee-mongodb.gravitee-apim.svc.cluster.local:27017/gravitee?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&socketTimeoutMS=5000
 
-    # # PostgreSQL Configuration (alternative to MongoDB)
+    # # Uncomment to use PostgreSQL Configuration
     # jdbc:
     #   url: jdbc:postgresql://gravitee-postgresql.gravitee-apim.svc.cluster.local:5432/gravitee
     #   username: gravitee
@@ -472,19 +482,26 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
     #     maxPoolSize: 10
     #     registerMbeans: true
 
-    # # Redis Configuration for caching and rate limiting
+    # # Uncomment to us Redis Configuration for caching and rate limiting
     # redis:
-    #   download: true
+    #   download: false
     #   host: gravitee-redis-master.gravitee-apim.svc.cluster.local
     #   port: 6379
     #   password: redis-password
     #   ssl: false
 
-    # Elasticsearch Configuration 
+    # Elasticsearch Configuration
     es:
-      enabled: true
+      enabled: false
       endpoints:
         - http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200
+
+    # Repository types - Using PostgreSQL for management, Redis for rate limiting
+    management:
+      type: mongodb
+
+    ratelimit:
+      type: mongodb
 
     # Management API Configuration
     api:
@@ -519,16 +536,6 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
           value: "/_health"
         - name: gravitee_management_security_exclude_3
           value: "/info"
-
-        # PostgreSQL Configuration
-        - name: gravitee_management_repository_type
-          value: "jdbc"
-        - name: gravitee_management_jdbc_url
-          value: "jdbc:postgresql://gravitee-postgresql.gravitee-apim.svc.cluster.local:5432/gravitee"
-        - name: gravitee_management_jdbc_username
-          value: "gravitee"
-        - name: gravitee_management_jdbc_password
-          value: "changeme"
 
       service:
         type: ClusterIP
@@ -571,12 +578,7 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
           memory: "2Gi"
           cpu: "1"
 
-
-
-      # Uncomment out to add your license key using the enterprise editiion 
-
-      # License volume configuration for Management API
-
+      # License volume configuration for Management API (uncomment for enterprise edition)
       # extraVolumes: |
       #   - name: gravitee-license
       #     secret:
@@ -587,7 +589,6 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
       #     subPath: license.key
       #     readOnly: true
 
-
     # Gateway Configuration
     gateway:
       enabled: true
@@ -596,27 +597,6 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
         repository: graviteeio/apim-gateway
         tag: latest
         pullPolicy: Always
-
-      env:
-        # Redis configuration for Gateway caching and rate limiting
-        - name: gravitee_ratelimit_repository_type
-          value: "redis"
-        - name: gravitee_ratelimit_redis_host
-          value: "gravitee-redis-master.gravitee-apim.svc.cluster.local"
-        - name: gravitee_ratelimit_redis_port
-          value: "6379"
-        - name: gravitee_ratelimit_redis_password
-          value: "redis-password"
-
-        # PostgreSQL for Gateway sync
-        - name: gravitee_management_repository_type
-          value: "jdbc"
-        - name: gravitee_management_jdbc_url
-          value: "jdbc:postgresql://gravitee-postgresql.gravitee-apim.svc.cluster.local:5432/gravitee"
-        - name: gravitee_management_jdbc_username
-          value: "gravitee"
-        - name: gravitee_management_jdbc_password
-          value: "changeme"
 
       service:
         type: ClusterIP
@@ -639,14 +619,6 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
           memory: "2Gi"
           cpu: "1"
 
-      # Redis rate limiting configuration
-      ratelimit:
-        redis:
-          host: gravitee-redis-master.gravitee-apim.svc.cluster.local
-          port: 6379
-          password: redis-password
-          ssl: false
-
     # Management Console UI
     ui:
       enabled: true
@@ -656,7 +628,6 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
         tag: latest
         pullPolicy: Always
 
-      # Fix the HTTPS issue by ensuring UI uses HTTP URLs
       env:
         - name: MGMT_API_URL
           value: "http://apim.localhost/management/organizations/DEFAULT/environments/DEFAULT/"
@@ -736,31 +707,23 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
     apim:
       name: apim
 
-
     # Ingress configuration
     ingress:
       enabled: false
 
-    # Repository types - Using PostgreSQL and Redis
-    management:
-      type: mongodb
+    # Alternative configurations (to switch database types):
 
-    ratelimit:
-      type: mongodb
+    # Option 1: MongoDB for both management and rate limiting
+    # management:
+    #   type: mongodb
+    # ratelimit:
+    #   type: mongodb
 
-    # Alternative configurations (uncomment to use):
-
-    # Option 1: PostgreSQL for management, MongoDB for rate limiting
+    # Option 2: PostgreSQL for management, MongoDB for rate limiting
     # management:
     #   type: jdbc
     # ratelimit:
     #   type: mongodb
-
-    # Option 2: PostgreSQL for management, Redis for rate limiting  
-    # management:
-    #   type: jdbc
-    # ratelimit:
-    #   type: redis
 
     # Option 3: MongoDB for management, Redis for rate limiting
     # management:
@@ -768,10 +731,8 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
     # ratelimit:
     #   type: redis
 
-    # Note: When changing repository types, ensure you also:
-    # 1. Uncomment the corresponding database configuration sections above
-    # 2. Uncomment the relevant environment variables in the API and Gateway sections
-    # 3. Install the required database services (MongoDB, PostgreSQL, Redis)
+    # Current configuration: PostgreSQL for management, Redis for rate limiting
+    # Ensure you have PostgreSQL, Redis, and Elasticsearch services running in your cluster
     ```
 
 
