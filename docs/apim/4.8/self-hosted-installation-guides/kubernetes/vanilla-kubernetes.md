@@ -388,7 +388,7 @@ An ingress controller is required to route external traffic to your Gravitee API
 
 For local development with custom hostnames, you must add DNS entries to your system's hosts file.
 
-1.  In this guide, we are using DNS entries we defined in our [values.yaml](vanilla-kubernetes.md#prepare-values.yaml-for-helm) file, add the required DNS entries using the following commands:
+1.  In this guide, we are using DNS entries we defined in our [values.yaml](vanilla-kubernetes.md#prepare-the-values.yaml-for-helm) file, add the required DNS entries using the following commands:
 
     ```bash
     echo "127.0.0.1 apim.localhost" | sudo tee -a /etc/hosts
