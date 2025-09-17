@@ -1,3 +1,8 @@
+---
+hidden: true
+noIndex: true
+---
+
 # Deploy APIM with Kubernetes Manifest
 
 ## Overview
