@@ -177,6 +177,7 @@
       * [GeoIP Filtering](create-and-configure-apis/apply-policies/policy-reference/geoip-filtering.md)
       * [GraphQL Rate Limit](create-and-configure-apis/apply-policies/policy-reference/graphql-rate-limit.md)
       * [Groovy](create-and-configure-apis/apply-policies/policy-reference/groovy.md)
+      * [4.9: Groovy](create-and-configure-apis/apply-policies/policy-reference/groovy-1.md)
       * [HTML to JSON](create-and-configure-apis/apply-policies/policy-reference/html-to-json.md)
       * [HTTP Callout](create-and-configure-apis/apply-policies/policy-reference/http-callout.md)
       * [HTTP Redirect](create-and-configure-apis/apply-policies/policy-reference/http-redirect.md)
