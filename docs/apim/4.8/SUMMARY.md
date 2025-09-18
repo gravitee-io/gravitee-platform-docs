@@ -276,7 +276,7 @@
     * [3rd-Party Providers](govern-apis/federation/3rd-party-providers/README.md)
       * [Apigee X](govern-apis/federation/3rd-party-providers/apigee-x.md)
       * [AWS API Gateway](govern-apis/federation/3rd-party-providers/aws-api-gateway/README.md)
-        * [4.9 Copy Multi-Account and Multi-Region AWS API Gateway Federation](govern-apis/federation/3rd-party-providers/aws-api-gateway/4.9-copy-multi-account-and-multi-region-aws-api-gateway-federation.md)
+        * [4.9 Multi-Account and Multi-Region AWS API Gateway Federation](govern-apis/federation/3rd-party-providers/aws-api-gateway/4.9-multi-account-and-multi-region-aws-api-gateway-federation.md)
       * [Azure API Management](govern-apis/federation/3rd-party-providers/azure-api-management.md)
       * [Confluent Platform](govern-apis/federation/3rd-party-providers/confluent-platform.md)
       * [IBM API Connect](govern-apis/federation/3rd-party-providers/ibm-api-connect.md)
