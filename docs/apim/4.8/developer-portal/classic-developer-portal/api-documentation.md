@@ -273,3 +273,7 @@ From the **Access Control** tab:
 <figure><img src="https://docs.gravitee.io/images/apim/3.x/api-publisher-guide/documentation/graviteeio-page-documentation-access-control.png" alt=""><figcaption><p>Documentation access control</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
+
+## OpenAPI Viewer configuration
+
+When you use an OpenAPI spec as documentation, various configuration options are available. For more information on configuring the OpenAPI Viewer, see [#openapi-viewer-configuration](../../create-and-configure-apis/configure-v4-apis/documentation.md#openapi-viewer-configuration "mention").
