@@ -6,6 +6,35 @@ description: >-
 
 # AM 4.7.x
 
+## Gravitee Access Management 4.7.14 - September 18, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+
+
+
+
+**Other**
+
+* IDP Domain whitelist [#10790](https://github.com/gravitee-io/issues/issues/10790)
+* When a kafka reporter is inherited from the organization, each domain has it own producer [#10576](https://github.com/gravitee-io/issues/issues/10576)
+* Reduce the number of threads with MongoDB Backend [#10713](https://github.com/gravitee-io/issues/issues/10713)
+* Deleting Organization User Fails on SQL Server Due to Invalid DELETE Syntax [#10838](https://github.com/gravitee-io/issues/issues/10838)
+* Incorrect audit log file formatting [#10757](https://github.com/gravitee-io/issues/issues/10757)
+* Closing LDAP connections properly [#10769](https://github.com/gravitee-io/issues/issues/10769)
+* NullPointerException upon first login with password expiration [#10780](https://github.com/gravitee-io/issues/issues/10780)
+* Error searching for users in the UI [#10808](https://github.com/gravitee-io/issues/issues/10808)
+* Replace Bitnami Mongo [#10789](https://github.com/gravitee-io/issues/issues/10789)
+* Issue AM update [#10801](https://github.com/gravitee-io/issues/issues/10801)
+
+</details>
+
+
+
 ## Gravitee Access Management 4.7.13 - August 29, 2025
 
 <details>
