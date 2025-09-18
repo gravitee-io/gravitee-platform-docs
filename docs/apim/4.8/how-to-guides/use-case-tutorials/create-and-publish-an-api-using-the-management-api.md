@@ -2,13 +2,17 @@
 
 ## Overview
 
-This guide uses the v4-Proxy API definition to create an HTTP Proxy API. The principles are the same for other types of APIs.
+This guide uses the v4 proxy API definition to create an HTTP proxy API. The principles are the same for other types of APIs.
 
 This example uses the Gravitee Echo API to set up an HTTP proxy API. The Gravitee Echo API returns JSON-formatted data through the following URL: [https://api.gravitee.io/echo](https://api.gravitee.io/echo)
 
-{% hint style="info" %}
+{% hint style="warning" %}
 * If the `Enable API Review` option is enabled in your API Management settings, you need to use the "Ask for a review" and "Accept a review" requests to complete the API Review process.&#x20;
 * The `Enable API Review` option ensures that someone other than the API creator reviews and approves an API before the API creator publishes the API to a Gateway or the Developer Portal.
+{% endhint %}
+
+{% hint style="info" %}
+Before using the Management API, be sure to check out the capabilities of the Gravitee Kubernetes Operator and Terraform Provider.  These other "as-code" solutions may be more suitable to your requirements.
 {% endhint %}
 
 To create, deploy, and publish your API to the Developer Portal, you must complete the steps outlined in this article.
@@ -202,3 +206,8 @@ https://${MANAGEMENT_API_URL}/management/v2/organizations/DEFAULT/environments/D
 ```
 
 A  `HTTP 202 Accepted` status informs you the deployment of your API configuration to the Gateway has been started.
+
+## Next steps
+
+* To verify access to your API, call your entrypoint URL.
+* [create-applications-and-subscriptions-using-the-management-api.md](create-applications-and-subscriptions-using-the-management-api.md "mention")
