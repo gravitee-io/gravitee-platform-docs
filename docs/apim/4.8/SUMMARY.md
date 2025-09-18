@@ -195,6 +195,7 @@
       * [JSON Validation](create-and-configure-apis/apply-policies/policy-reference/json-validation.md)
       * [JWS Validator](create-and-configure-apis/apply-policies/policy-reference/jws-validator.md)
       * [JWT Validator](create-and-configure-apis/apply-policies/policy-reference/jwt-validator.md)
+      * [4.9 JWT Validator](create-and-configure-apis/apply-policies/policy-reference/jwt-validator-1.md)
       * [Kafka ACL](create-and-configure-apis/apply-policies/policy-reference/kafka-acl.md)
       * [Kafka Message Filtering](create-and-configure-apis/apply-policies/policy-reference/kafka-message-filtering.md)
       * [Kafka Offloading](create-and-configure-apis/apply-policies/policy-reference/kafka-offloading.md)
