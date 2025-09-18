@@ -101,6 +101,7 @@
       * [4.9 Roles and Groups Mapping](configure-and-manage-the-platform/manage-organizations-and-environments/authentication/roles-and-groups-mapping-1.md)
     * [User Management](configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md)
     * [Applications](configure-and-manage-the-platform/manage-organizations-and-environments/applications.md)
+    * [4.9 Applications](configure-and-manage-the-platform/manage-organizations-and-environments/applications-1.md)
     * [APIM Console](configure-and-manage-the-platform/manage-organizations-and-environments/apim-console.md)
     * [Developer Portal](configure-and-manage-the-platform/manage-organizations-and-environments/developer-portal.md)
     * [SMTP Configuration](configure-and-manage-the-platform/manage-organizations-and-environments/smtp-configuration.md)
