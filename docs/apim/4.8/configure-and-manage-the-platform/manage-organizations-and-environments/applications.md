@@ -6,23 +6,23 @@ To access Gravitee APIs, consumers must register an application and subscribe to
 
 ## Prerequisites
 
-For an API consumer to create an application:
+For an API consumer to create an application, the following must be true:
 
-* An admin must define the types of applications that API consumers are allowed to create:
+* An admin must define the 2 types of applications that API consumers are allowed to create:
   * **Default application type:** API consumers can optionally define the `client_id` when creating a simple application.
   * **Dynamic Client Registration (DCR) for applications:** The API publisher must enable and configure DCR for the allowed application types. The client registration provider is responsible for creating the `client_id` and `client_secret` for each application that registers.
 * An API consumer must have a user account to register an application and subscribe to an API (see [User Management](user-management.md)).
 
 ## Default application configuration
 
-The default simple application enables an API consumer to define the `client_id` for use in JWT and OAuth API plans. To allow API consumers to create a simple application:
+The default simple application enables an API consumer to define the `client_id` for use in JWT and OAuth API plans. To allow API consumers to create a simple application, complete the following steps:
 
 1. Log in to your APIM Console
 2. Select **Settings** from the left nav
-3.  Select **Client Registration** from the inner left nav&#x20;
-
-    <figure><img src="../../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+3. Select **Client Registration** from the inner left nav&#x20;
 4. Under **Default application type**, toggle **Simple** ON
+
+<figure><img src="../../.gitbook/assets/0 app.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="info" %}
 To expedite API consumption, a default application is automatically created for every new user (not including admins). This can be disabled in the `gravitee.yml` file as shown below:
@@ -43,7 +43,9 @@ user:
 Dynamic Client Registration is an [Enterprise Edition](../../readme/enterprise-edition.md) capability
 {% endhint %}
 
-The DCR protocol allows an OAuth client application to register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint. Using DCR, API consumers can register applications via the Developer Portal or APIM Console. This outsources the issuer and management of application credentials to a third party, enabling additional configuration options and compatibility with IdP OIDC features.
+The DCR protocol allows an OAuth client application to dynamically register with an OAuth server through the OpenID Connect (OIDC) client registration endpoint to obtain credentials and access protected resources.&#x20;
+
+Both the Developer Portal and APIM Console allow API consumers to register applications using DCR. DCR outsources the tasks of issuing and managing application credentials to a third party. These third parties may offer additional configuration options and compatibility with IdP OIDC features.
 
 When an API publisher authorizes an application to access a protected resource, the authorization server verifies credentials and returns an access token. Token introspection is performed before requests to the Gateway can access backend APIs protected by OAuth2 plans.
 
@@ -86,14 +88,14 @@ DCR is an OAuth flow. Review relevant OAuth terminology below.
 
 ### Enable DCR
 
-To enable DCR:
+To enable DCR, complete the following steps:
 
 1. Log in to your APIM Console
 2. Select **Settings** from the left nav
-3.  Select **Client Registration** from the inner left nav&#x20;
-
-    <figure><img src="../../.gitbook/assets/client registration.png" alt=""><figcaption><p>Client Registration</p></figcaption></figure>
+3. Select **Client Registration** from the inner left nav&#x20;
 4. Toggle **Enable Dynamic Client Registration** ON
+
+<figure><img src="../../.gitbook/assets/0 app1.png" alt=""><figcaption></figcaption></figure>
 
 ### Add a DCR provider
 
@@ -103,7 +105,7 @@ Any authentication server supporting OIDC can be used as a DCR provider. This gu
 
 At the bottom of the **Client Registration** page, click **+ Add a provider** and configure the following:&#x20;
 
-<figure><img src="../../.gitbook/assets/client registration provider.png" alt=""><figcaption><p>Add a client registration provider</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/0 app3.png" alt=""><figcaption></figcaption></figure>
 
 * Set a **Name** and **Description** for the provider
 *   **OpenID Connect Discovery Endpoint:** Enter the URL where an OIDC-compatible authorization server publishes its metadata
@@ -118,7 +120,7 @@ At the bottom of the **Client Registration** page, click **+ Add a provider** an
     * **Client Secret**
     * **Scopes:** Default scopes to use for application registration
     * **Client Template (software\_id):** Client template ID to use for all applications registering through this provider
-* **Enable renew client\_secret support:** Allow registered clients to call the endpoint with their `client_id` to renew the `client_secret` issued by the authorization server
+* **Enable renew client\_secret support:** Toggle ON to let registered clients call the endpoint with their `client_id` to renew the `client_secret` issued by the authorization server
   * Provide the **HTTP Method**&#x20;
   * Provide the **Endpoint**. This field supports Gravitee Expression Language, e.g.,\
     `https://<your-am-gateway-domain>/<your-security-domain>/oidc/register/{#client_id}/renew_secret`
@@ -246,4 +248,4 @@ To delete an application, the primary owner must:
   * Its subscriptions are closed. In the case of a subscription to an API Key plan, the keys are revoked.
   * Notification settings are deleted.
 * An `ADMIN` can restore applications in the APIM Console and will become the primary owner of the application
-  * An application’s subscriptions will be restored with`PENDING` status. The API publisher must manually reactivate previous subscriptions.
+  * An application’s subscriptions will be restored with `PENDING` status. The API publisher must manually reactivate previous subscriptions.
