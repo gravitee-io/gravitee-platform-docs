@@ -154,6 +154,17 @@ You have the option to save the page with or without publishing it to the Develo
 
 <figure><img src="../../.gitbook/assets/docs_nested 1.png" alt=""><figcaption><p>Test page added to test folder</p></figcaption></figure>
 
+## OpenAPI Viewer configuration
+
+When you add an OpenAPI specification to document your API, the **Configure OpenAPI Viewer** menu tab appears. This tab provides various options to configure the OpenAPI Viewer. For example, it lets you take the following actions:
+
+* Select a viewer for rendering the OpenAPI spec (SwaggerUI or Redoc)
+* Specify a separate URL and/or contextPath for executing the API
+* Enable "Try It!" mode
+* Display vendor extensions
+
+<figure><img src="../../.gitbook/assets/image (359).png" alt="Configure OpenAPI Viewer screenshot" width="563"><figcaption><p>Configure OpenAPI Viewer</p></figcaption></figure>
+
 ## Add metadata
 
 Dynamic v4 API documentation pages can be created by adding metadata. To view metadata keys and values for v4 API documentation, select the **Metadata** header.
