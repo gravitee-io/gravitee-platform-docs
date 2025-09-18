@@ -256,6 +256,7 @@
   * [New Developer Portal](developer-portal/new-developer-portal/README.md)
     * [Configure the New Portal](developer-portal/new-developer-portal/configure-the-new-portal.md)
     * [Layout and Theme](developer-portal/new-developer-portal/layout-and-theme.md)
+    * [4.9 Layout and Theme](developer-portal/new-developer-portal/layout-and-theme-1.md)
     * [Application Logs](developer-portal/new-developer-portal/application-logs.md)
     * [Configure Webhook Subscriptions](developer-portal/new-developer-portal/configure-webhook-subscriptions.md)
   * [Classic Developer Portal](developer-portal/classic-developer-portal/README.md)
