@@ -12,6 +12,23 @@ When managing deployments using Helm, please note that the default startup, live
 
 ## AM 4.5.x
 
+### Gravitee Access Management 4.5.26 - September 18, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Other**
+
+* IDP Domain whitelist [#10790](https://github.com/gravitee-io/issues/issues/10790)
+* Deleting Organization User Fails on SQL Server Due to Invalid DELETE Syntax [#10838](https://github.com/gravitee-io/issues/issues/10838)
+* Incorrect audit log file formatting [#10757](https://github.com/gravitee-io/issues/issues/10757)
+* Closing LDAP connections properly [#10769](https://github.com/gravitee-io/issues/issues/10769)
+* Error searching for users in the UI [#10808](https://github.com/gravitee-io/issues/issues/10808)
+* Replace Bitnami Mongo [#10789](https://github.com/gravitee-io/issues/issues/10789)
+
+</details>
+
 ### Gravitee Access Management 4.5.25 - August 29, 2025
 
 <details>
