@@ -3,7 +3,7 @@ hidden: true
 noIndex: true
 ---
 
-# 4.9: Generate a New Cloud Token
+# Generate a New Cloud Token
 
 ## Overview
 
@@ -55,4 +55,4 @@ When you revoke a Cloud token, you terminate the link between the Cloud and your
 
 ## Next steps
 
-* (Optional) Link your Cloud token to a hybrid Gateway. For more information about linking to a hybrid Gateway, see [4.9-link-to-a-hybrid-gateway.md](4.9-link-to-a-hybrid-gateway.md "mention").
+* (Optional) Link your Cloud token to a hybrid Gateway. For more information about linking to a hybrid Gateway, see [link-to-a-hybrid-gateway.md](link-to-a-hybrid-gateway.md "mention").
