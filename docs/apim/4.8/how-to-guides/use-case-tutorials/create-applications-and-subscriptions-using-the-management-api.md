@@ -35,36 +35,39 @@ Complete the following steps to create an API Key plan and deprecate the existin
          -d '{"definitionVersion":"V4","name":"API Key Plan","description":"Secured using API Keys","security":{"type":"API_KEY"},"mode":"STANDARD"}'
     ```
 
-    {% hint style="success" %}
-    If your request is successful, the mAPI endpoint returns an `HTTP 201 Created` status and the plan's full configuration.
+<details>
 
-    {% code title="Example response" %}
-    ```json
-    {
-      "definitionVersion" : "V4",
-      "flows" : [ ],
-      "id" : "d4896292-61c4-4b3d-8962-9261c46b3d9f",
-      "name" : "API Key Plan",
-      "description" : "Secured using API Keys",
-      "apiId" : "3c054704-65cc-4415-8547-0465cce41582",
-      "security" : {
-        "type" : "API_KEY"
-      },
-      "mode" : "STANDARD",
-      "characteristics" : [ ],
-      "commentRequired" : false,
-      "createdAt" : "2025-09-12T14:59:52.664Z",
-      "excludedGroups" : [ ],
-      "order" : 0,
-      "status" : "STAGING",
-      "tags" : [ ],
-      "type" : "API",
-      "updatedAt" : "2025-09-12T14:59:52.664Z",
-      "validation" : "MANUAL"
-    }
-    ```
-    {% endcode %}
-    {% endhint %}
+<summary>Example response</summary>
+
+If your request is successful, the mAPI endpoint returns an `HTTP 201 Created` status and the plan's full configuration.
+
+```json
+{
+  "definitionVersion" : "V4",
+  "flows" : [ ],
+  "id" : "d4896292-61c4-4b3d-8962-9261c46b3d9f",
+  "name" : "API Key Plan",
+  "description" : "Secured using API Keys",
+  "apiId" : "3c054704-65cc-4415-8547-0465cce41582",
+  "security" : {
+    "type" : "API_KEY"
+  },
+  "mode" : "STANDARD",
+  "characteristics" : [ ],
+  "commentRequired" : false,
+  "createdAt" : "2025-09-12T14:59:52.664Z",
+  "excludedGroups" : [ ],
+  "order" : 0,
+  "status" : "STAGING",
+  "tags" : [ ],
+  "type" : "API",
+  "updatedAt" : "2025-09-12T14:59:52.664Z",
+  "validation" : "MANUAL"
+}
+```
+
+</details>
+
 2.  Capture the plan `id` from the response. You can set this plan `id` as an environment variable for use in subsequent calls. For example:
 
     ```sh
@@ -82,37 +85,39 @@ Complete the following steps to create an API Key plan and deprecate the existin
          -H "Content-Type:application/json;charset=UTF-8"
     ```
 
-    {% hint style="success" %}
-    If the plan is published successfully, an `HTTP 200 OK` status is returned.&#x20;
+<details>
 
-    {% code title="Example response" %}
-    ```json
-    {
-      "definitionVersion" : "V4",
-      "flows" : [ ],
-      "id" : "d4896292-61c4-4b3d-8962-9261c46b3d9f",
-      "name" : "API Key Plan",
-      "description" : "Secured using API Keys",
-      "apiId" : "3c054704-65cc-4415-8547-0465cce41582",
-      "security" : {
-        "type" : "API_KEY"
-      },
-      "mode" : "STANDARD",
-      "characteristics" : [ ],
-      "commentRequired" : false,
-      "createdAt" : "2025-09-12T14:59:52.664Z",
-      "excludedGroups" : [ ],
-      "order" : 4,
-      "publishedAt" : "2025-09-12T15:03:33.582Z",
-      "status" : "PUBLISHED",
-      "tags" : [ ],
-      "type" : "API",
-      "updatedAt" : "2025-09-12T15:03:33.582Z",
-      "validation" : "MANUAL"
-    }
-    ```
-    {% endcode %}
-    {% endhint %}
+<summary>Example response</summary>
+
+If the plan is published successfully, an `HTTP 200 OK` status is returned.&#x20;
+
+```json
+{
+  "definitionVersion" : "V4",
+  "flows" : [ ],
+  "id" : "d4896292-61c4-4b3d-8962-9261c46b3d9f",
+  "name" : "API Key Plan",
+  "description" : "Secured using API Keys",
+  "apiId" : "3c054704-65cc-4415-8547-0465cce41582",
+  "security" : {
+    "type" : "API_KEY"
+  },
+  "mode" : "STANDARD",
+  "characteristics" : [ ],
+  "commentRequired" : false,
+  "createdAt" : "2025-09-12T14:59:52.664Z",
+  "excludedGroups" : [ ],
+  "order" : 4,
+  "publishedAt" : "2025-09-12T15:03:33.582Z",
+  "status" : "PUBLISHED",
+  "tags" : [ ],
+  "type" : "API",
+  "updatedAt" : "2025-09-12T15:03:33.582Z",
+  "validation" : "MANUAL"
+}
+```
+
+</details>
 
 ### Deprecate the existing Keyless plan <a href="#id-5.-publish-the-plan" id="id-5.-publish-the-plan"></a>
 
@@ -127,41 +132,44 @@ Complete the following steps to create an API Key plan and deprecate the existin
             -H "Content-Type:application/json;charset=UTF-8"
        ```
 
-       {% hint style="success" %}
-       If your request is successful, an `HTTP 201 Created` status is returned.  In the example response below, the Keyless Plan `id` is `581ef289-35b6-4bb2-9ef2-8935b64bb2a6`
+<details>
 
-       {% code title="Example response" %}
-       ```json
-       {
-         "data" : [ {
-           "definitionVersion" : "V4",
-           "id" : "581ef289-35b6-4bb2-9ef2-8935b64bb2a6",
-           "name" : "keyless",
-           "description" : "",
-           "apiId" : "3c054704-65cc-4415-8547-0465cce41582",
-           "security" : {
-             "type" : "KEY_LESS",
-             "configuration" : { }
-           },
-           "mode" : "STANDARD",
-           "characteristics" : [ ],
-           "commentMessage" : "",
-           "commentRequired" : false,
-           "createdAt" : "2025-09-12T14:02:01.378Z",
-           "excludedGroups" : [ ],
-           "generalConditions" : "",
-           "order" : 3,
-           "publishedAt" : "2025-09-12T14:02:04.627Z",
-           "status" : "PUBLISHED",
-           "tags" : [ ],
-           "type" : "API",
-           "updatedAt" : "2025-09-12T14:02:04.627Z",
-           "validation" : "MANUAL"
-         } ]
-       }
-       ```
-       {% endcode %}
-       {% endhint %}
+<summary>Example response</summary>
+
+If your request is successful, an `HTTP 201 Created` status is returned.  In the example response below, the Keyless Plan `id` is `581ef289-35b6-4bb2-9ef2-8935b64bb2a6`.
+
+```json
+{
+  "data" : [ {
+    "definitionVersion" : "V4",
+    "id" : "581ef289-35b6-4bb2-9ef2-8935b64bb2a6",
+    "name" : "keyless",
+    "description" : "",
+    "apiId" : "3c054704-65cc-4415-8547-0465cce41582",
+    "security" : {
+      "type" : "KEY_LESS",
+      "configuration" : { }
+    },
+    "mode" : "STANDARD",
+    "characteristics" : [ ],
+    "commentMessage" : "",
+    "commentRequired" : false,
+    "createdAt" : "2025-09-12T14:02:01.378Z",
+    "excludedGroups" : [ ],
+    "generalConditions" : "",
+    "order" : 3,
+    "publishedAt" : "2025-09-12T14:02:04.627Z",
+    "status" : "PUBLISHED",
+    "tags" : [ ],
+    "type" : "API",
+    "updatedAt" : "2025-09-12T14:02:04.627Z",
+    "validation" : "MANUAL"
+  } ]
+}
+```
+
+</details>
+
 2.  Capture the Keyless plan `id` from the response. You can set this plan `id` as an environment variable for use in subsequent calls. For example:
 
     ```sh
@@ -176,9 +184,7 @@ Complete the following steps to create an API Key plan and deprecate the existin
          -H "Content-Type:application/json;charset=UTF-8"     
     ```
 
-    {% hint style="success" %}
     If the plan is deleted successfully, an `HTTP 204 No Content` status is returned.
-    {% endhint %}
 
 ### Redeploy the API configuration <a href="#id-5.-publish-the-plan" id="id-5.-publish-the-plan"></a>
 
@@ -191,9 +197,7 @@ Complete the following steps to create an API Key plan and deprecate the existin
          -H "Content-Type:application/json;charset=UTF-8"
     ```
 
-    {% hint style="success" %}
     If the API redeployment is successful, an `HTTP 202 Accepted` status is returned.
-    {% endhint %}
 
 ## Create an Application
 
@@ -211,34 +215,39 @@ You can opt to use an existing application instead of creating a new one.
          -d '{"name":"My Application 1","description":"An example application to record subscriptions to APIs"}'
     ```
 
+
+
     {% hint style="info" %}
     To create an application, you must use the mAPI v1.
     {% endhint %}
 
-    {% hint style="success" %}
-    If the application is created successfully, an `HTTP 201 Created` status is returned.
+<details>
 
-    {% code title="Example response" %}
-    ```json
-    {
-      "id" : "4984c004-39e1-4ca1-84c0-0439e13ca1a9",
-      "name" : "My Application 1",
-      "description" : "An example application to record subscriptions to APIs",
-      "environmentId" : "DEFAULT",
-      "status" : "ACTIVE",
-      "type" : "SIMPLE",
-      "created_at" : 1757690270995,
-      "updated_at" : 1757690270995,
-      "api_key_mode" : "UNSPECIFIED",
-      "owner" : {
-        "id" : "dbb5eb4c-3fdg-4f5d-b5db-4d3fdb0f5de5",
-        "displayName" : "admin",
-        "type" : "USER"
-      }
-    }  
-    ```
-    {% endcode %}
-    {% endhint %}
+<summary>Example response</summary>
+
+If the application is created successfully, an `HTTP 201 Created` status is returned.
+
+```json
+{
+  "id" : "4984c004-39e1-4ca1-84c0-0439e13ca1a9",
+  "name" : "My Application 1",
+  "description" : "An example application to record subscriptions to APIs",
+  "environmentId" : "DEFAULT",
+  "status" : "ACTIVE",
+  "type" : "SIMPLE",
+  "created_at" : 1757690270995,
+  "updated_at" : 1757690270995,
+  "api_key_mode" : "UNSPECIFIED",
+  "owner" : {
+    "id" : "dbb5eb4c-3fdg-4f5d-b5db-4d3fdb0f5de5",
+    "displayName" : "admin",
+    "type" : "USER"
+  }
+}  
+```
+
+</details>
+
 2.  Capture the application `id` from the response. You can set this application `id` as an environment variable for use in subsequent calls. For example:
 
     ```sh
@@ -259,40 +268,43 @@ A valid subscription links the application to the API Key plan. This enables aut
          -d '{"applicationId":"${APPLICATION_ID}","planId":"${API_KEY_PLAN_ID}"}'
     ```
 
-    {% hint style="success" %}
-    If the subscription is created successfully, an `HTTP 201 Created` status is returned.
+<details>
 
-    {% code title="Example response" %}
-    ```json
-    {
-      "id" : "3a1fb667-0642-44ea-9fb6-670642e4eac8",
-      "api" : {
-        "id" : "3c054704-65cc-4415-8547-0465cce41582"
-      },
-      "plan" : {
-        "id" : "d4896292-61c4-4b3d-8962-9261c46b3d9f"
-      },
-      "application" : {
-        "id" : "4984c004-39e1-4ca1-84c0-0439e13ca1a9"
-      },
-      "metadata" : { },
-      "status" : "ACCEPTED",
-      "consumerStatus" : "STARTED",
-      "processedBy" : {
-        "id" : "dbb5db4c-3fdb-4f5d-b5db-4c3fdb9f5de5"
-      },
-      "subscribedBy" : {
-        "id" : "dbb5db4c-3fdb-4f5d-b5db-4c3fdb9f5de5"
-      },
-      "processedAt" : "2025-09-12T15:36:42.407Z",
-      "startingAt" : "2025-09-12T15:36:42.407Z",
-      "createdAt" : "2025-09-12T15:36:42.351Z",
-      "updatedAt" : "2025-09-12T15:36:42.407Z",
-      "origin" : "MANAGEMENT"
-    }
-    ```
-    {% endcode %}
-    {% endhint %}
+<summary>Example response</summary>
+
+If the subscription is created successfully, an `HTTP 201 Created` status is returned.
+
+```json
+{
+  "id" : "3a1fb667-0642-44ea-9fb6-670642e4eac8",
+  "api" : {
+    "id" : "3c054704-65cc-4415-8547-0465cce41582"
+  },
+  "plan" : {
+    "id" : "d4896292-61c4-4b3d-8962-9261c46b3d9f"
+  },
+  "application" : {
+    "id" : "4984c004-39e1-4ca1-84c0-0439e13ca1a9"
+  },
+  "metadata" : { },
+  "status" : "ACCEPTED",
+  "consumerStatus" : "STARTED",
+  "processedBy" : {
+    "id" : "dbb5db4c-3fdb-4f5d-b5db-4c3fdb9f5de5"
+  },
+  "subscribedBy" : {
+    "id" : "dbb5db4c-3fdb-4f5d-b5db-4c3fdb9f5de5"
+  },
+  "processedAt" : "2025-09-12T15:36:42.407Z",
+  "startingAt" : "2025-09-12T15:36:42.407Z",
+  "createdAt" : "2025-09-12T15:36:42.351Z",
+  "updatedAt" : "2025-09-12T15:36:42.407Z",
+  "origin" : "MANAGEMENT"
+}
+```
+
+</details>
+
 2.  Capture the subscription `id` from the response. You can set this subscription `id` as an environment variable for use in subsequent calls. For example:
 
     ```sh
@@ -306,39 +318,42 @@ A valid subscription links the application to the API Key plan. This enables aut
          -H "Authorization: Bearer ${PERSONAL_ACCESS_TOKEN}"
     ```
 
-    {% hint style="success" %}
-    In this example, the API Key is `3c1da7be-bd10-464f-9da7-bebd10d64fee`.
+<details>
 
-    {% code title="Example response" %}
-    ```json
-    {
-      "data" : [ {
-        "id" : "24904132-4041-475f-9041-324041775fd3",
-        "key" : "3c1da7be-bd10-464f-9da7-bebd10d64fee",
-        "application" : {
-          "id" : "4984c004-39e1-4ca1-84c0-0439e13ca1a9",
-          "name" : "My Application 1",
-          "description" : "An example application to record subscriptions to APIs",
-          "type" : "SIMPLE",
-          "primaryOwner" : {
-            "id" : "dbb5db4c-3fdb-4f5d-b5db-4c3fdb9f5de5",
-            "displayName" : "admin",
-            "type" : "USER"
-          }
-        },
-        "subscriptions" : [ {
-          "id" : "3a1fb667-0642-44ea-9fb6-670642e4eac8"
-        } ],
-        "revoked" : false,
-        "paused" : false,
-        "expired" : false,
-        "createdAt" : "2025-09-12T15:36:42.407Z",
-        "updatedAt" : "2025-09-12T15:36:42.407Z"
-      } ]
-    } 
-    ```
-    {% endcode %}
-    {% endhint %}
+<summary>Example response</summary>
+
+In this example, the API Key is `3c1da7be-bd10-464f-9da7-bebd10d64fee`.
+
+```json
+{
+  "data" : [ {
+    "id" : "24904132-4041-475f-9041-324041775fd3",
+    "key" : "3c1da7be-bd10-464f-9da7-bebd10d64fee",
+    "application" : {
+      "id" : "4984c004-39e1-4ca1-84c0-0439e13ca1a9",
+      "name" : "My Application 1",
+      "description" : "An example application to record subscriptions to APIs",
+      "type" : "SIMPLE",
+      "primaryOwner" : {
+        "id" : "dbb5db4c-3fdb-4f5d-b5db-4c3fdb9f5de5",
+        "displayName" : "admin",
+        "type" : "USER"
+      }
+    },
+    "subscriptions" : [ {
+      "id" : "3a1fb667-0642-44ea-9fb6-670642e4eac8"
+    } ],
+    "revoked" : false,
+    "paused" : false,
+    "expired" : false,
+    "createdAt" : "2025-09-12T15:36:42.407Z",
+    "updatedAt" : "2025-09-12T15:36:42.407Z"
+  } ]
+} 
+```
+
+</details>
+
 4.  Capture the API Key `data[0].key` from the response. You can set this API Key as an environment variable for use in subsequent calls. For example:
 
     ```sh
@@ -355,38 +370,42 @@ A valid subscription links the application to the API Key plan. This enables aut
          -H "X-Gravitee-Api-Key: ${API_KEY}"
     ```
 
-    {% hint style="success" %}
-    A successful response shows a match between the provided and stored API Keys.
+<details>
 
-    {% code title="Example successful response" %}
-    ```json
-    {
-        "headers": {
-            "Host": "api.gravitee.io",
-            "Accept": "*/*",
-            "Postman-Token": "11a0ce89-4e68-4c00-bc73-571c78788fd1",
-            "User-Agent": "PostmanRuntime/7.46.0",
-            "X-Gravitee-Api-Key": "3c1da7be-bd10-464f-9da7-bebd10d64fee",
-            "X-Gravitee-Request-Id": "aa38ca36-1828-4b2d-b8ca-361828fb2dbd",
-            "X-Gravitee-Transaction-Id": "dab113f5-b678-4666-b113-f5b678866631",
-            "accept-encoding": "deflate, gzip"
-        },
-        "query_params": {},
-        "bodySize": 0
-    } 
-    ```
-    {% endcode %}
-    {% endhint %}
+<summary>Example successful response</summary>
 
-    {% hint style="danger" %}
-    An authentication failure occurs when the API Key is missing or incorrect.
+A successful response shows a match between the provided and stored API Keys.
 
-    {% code title="Example failure response" %}
-    ```json
-    {
-        "message": "Unauthorized",
-        "http_status_code": 401
-    } 
-    ```
-    {% endcode %}
-    {% endhint %}
+```json
+{
+    "headers": {
+        "Host": "api.gravitee.io",
+        "Accept": "*/*",
+        "Postman-Token": "11a0ce89-4e68-4c00-bc73-571c78788fd1",
+        "User-Agent": "PostmanRuntime/7.46.0",
+        "X-Gravitee-Api-Key": "3c1da7be-bd10-464f-9da7-bebd10d64fee",
+        "X-Gravitee-Request-Id": "aa38ca36-1828-4b2d-b8ca-361828fb2dbd",
+        "X-Gravitee-Transaction-Id": "dab113f5-b678-4666-b113-f5b678866631",
+        "accept-encoding": "deflate, gzip"
+    },
+    "query_params": {},
+    "bodySize": 0
+} 
+```
+
+</details>
+
+<details>
+
+<summary>Example failure response</summary>
+
+An authentication failure occurs when the API Key is missing or incorrect.
+
+```json
+{
+    "message": "Unauthorized",
+    "http_status_code": 401
+} 
+```
+
+</details>
