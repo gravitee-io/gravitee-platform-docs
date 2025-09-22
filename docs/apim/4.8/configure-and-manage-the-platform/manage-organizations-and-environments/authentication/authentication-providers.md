@@ -75,8 +75,9 @@ htpasswd -bnBC 10 "" new_password | tr -d ':\n'
 
 ## LDAP authentication
 
-There are many ways to configure users via LDAP. To illustrate the basic concepts, here is an example configuration using the `gravitee.yaml` file:
+There are many ways to configure users via LDAP. To illustrate the basic concepts, here are two examples using the `gravitee.yaml` file and the [Gravitee Helm chart](https://github.com/gravitee-io/gravitee-api-management/blob/master/helm/values.yaml) `values.yml` file:
 
+{% code title="gravitee.yaml" %}
 ```yaml
 # ===================================================================
 # LDAP SECURITY PROPERTIES
@@ -112,6 +113,55 @@ security:
           base: "ou=people"
           filter: "(&(objectClass=myObjectClass)(|(cn=*{0}*)(uid={0})))"
 ```
+{% endcode %}
+
+{% code title="values.yml" %}
+```yaml
+ldap:
+  enabled: true
+  context:
+    # User to bind the LDAP
+    user: user@example.com
+    # Password to bind the LDAP
+    password: "secret"
+    # URL to LDAP
+    url: ldap://ldap.example.com
+    # Bind base to be used in authentication and lookup sections
+    base: dc=example,dc=com
+  authentication:
+    user:
+      # Base to search users, must be relative to the context.base
+      base: ou=users
+      # Use sAMAccountName if you are in AD
+      # Use uid if you are in a native LDAP
+      # The {0} will be replaced by user typed to authenticate
+      filter: sAMAccountName={0}
+      # If you have an attribute with the user photo, you can set it here
+      photo: "thumbnailPhoto"
+    group:
+      # Base to search groups, must be relative to the context.base
+      # There an issue here, until fixed only oneleve search is supported
+      base: ou=gravitee,ou=groups
+      # The {0} will be replaced by DN of the user
+      filter: member={0}
+      role:
+        # The attribute that define your group names on your AD/LDAP
+        # You can use sAMAccountName if you're in AD or cn if you're in native LDAP
+        attribute: sAMAccountName
+        consumer: LDAP_GROUP_CONSUMER
+        publisher: LDAP_GROUP_PUBLISHER
+        admin: LDAP_GROUP_ADMIN
+        user: LDAP_GROUP_USER
+  lookup:
+    allowEmailInSearchResults: false
+    # Note that personal information can be exposed without user consentment
+    user:
+      # Base to lookup user, must be relative to context.base
+      base: ou=users
+      # The filter can be any type of complex LDAP query
+      filter: (&(objectClass=person)(|(cn=*{0}*)(sAMAccountName={0})))
+```
+{% endcode %}
 
 ## APIM data source authentication
 
