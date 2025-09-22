@@ -856,8 +856,7 @@ To validate the pods, complete the following steps:&#x20;
 
 ### Validate the Services&#x20;
 
-1.  To verify service configuration, run the following command:\
-
+1.  To verify service configuration, run the following command:
 
     ```bash
     kubectl get services -n gravitee-apim
@@ -923,7 +922,7 @@ The Gateway URL is determined by the ingress configuration in your `values.yaml`
 
 To validate the Gateway URL, complete the following steps:
 
-1.  Test the Gateway endpoint directly:
+1.  Verify the Gateway endpoint directly using the following command:
 
     ```bash
     curl http://api.localhost/
@@ -936,12 +935,12 @@ To validate the Gateway URL, complete the following steps:
 
 #### Validate Gateway URL using Port Forwarding
 
-1.  Set up port forwarding for the Gateway:
+1.  Set up port forwarding for the Gateway using the following command:
 
     ```bash
     kubectl port-forward svc/gravitee-apim-gateway 8082:82 -n gravitee-apim
     ```
-2.  Test via port forward:
+2.  Verify the Gateway URL via port forward:
 
     ```bash
     curl http://localhost:8082/
