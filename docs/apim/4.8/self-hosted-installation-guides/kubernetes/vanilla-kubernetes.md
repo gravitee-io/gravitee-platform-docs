@@ -940,7 +940,7 @@ To validate the Gateway URL, complete the following steps:
     ```bash
     kubectl port-forward svc/gravitee-apim-gateway 8082:82 -n gravitee-apim
     ```
-2.  Verify the Gateway URL via port forward:
+2.  Verify the Gateway URL using the following command:
 
     ```bash
     curl http://localhost:8082/
