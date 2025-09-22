@@ -24,11 +24,41 @@ spec:
       - API_STOPPED
     groupRefs:
       - name: developers
+    groups:
+      - product
 ```
 
-In this example groupRefs defines a reference to a [Group](group.md) custom resource in the same namespace. The group developers will be notified when either the `API_STARTED` or `API_STOPPED` event occurs.
+In this example `groupRefs` defines a reference to a [Group](group.md) Custom Resource in the same namespace. The group developers will be notified when either the `API_STARTED` or `API_STOPPED` event occurs.
+
+Starting from 4.9.0, groups created through the APIM console and not from a Group Custom Resource can be referenced as well using the `groups` property of the Notification Custom Resource. In the example, members of the `product` managed through the APIM console will be notified for the `API_STARTED` and `API_STOPPED` events as well.
 
 Right now, only `console` is available as a target, and `api` as an even type.
+
+### Enabling the notification on an API
+
+For the notification to be effective on an API two conditions must be met:
+
+  - The notification must be referenced in the notificationRefs list of the API
+  - The groups attached to the notification MUST be part of the API as well
+
+```yaml
+apiVersion: gravitee.io/v1alpha1
+kind: ApiV4Definition
+metadata:
+  name: api-v4-with-notification
+spec:
+  contextRef:
+    name: "dev-ctx"
+  name: "api-v4-with-notification"
+  description: "API with notification referencing the produc and developers groups"
+  ## [...]
+  groups: 
+    - product
+  groupRefs:
+    - name: developers
+  notificationsRefs:
+    - name: api-notification-groups
+```
 
 ### List of API-related events that trigger notifications
 
