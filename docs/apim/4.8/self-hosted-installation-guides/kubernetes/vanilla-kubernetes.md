@@ -730,7 +730,7 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
     # Ensure you have PostgreSQL, Redis, and Elasticsearch services running in your cluster
     ```
 
-
+> If your Kubernetes cluster does not support IPV6 networking, both the ui and portal deployments need to define the `IPV4_ONLY` environment variable with `"true"` as a value.
 
 2. Save your Gravitee `values.yaml` file in your working directory.
 
