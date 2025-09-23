@@ -6,6 +6,29 @@ The changelog provides in-depth overviews of what's new in Gravitee major, minor
 
 ## Alert Engine changelog
 
+
+### 2.3.2 (2025-09-16)
+
+_**General**_
+
+* enable skip Xms and Xmx with `GIO_DISABLE_STARTING_MEMORY`
+
+
+### 2.3.1 (2025-06-23)
+
+_**General**_
+
+* fix: update gravitee-notifier-email to v2.0.0 to fix email alerts
+
+
+### 2.3.0 (2025-05-12)
+
+_**General**_
+
+* resolve security vulnerabilities in dependencies (org.json, Logback, Netty)
+* upgrade project to Java 21
+
+
 ### 2.2.1 (2025-04-14)
 
 _**General**_
