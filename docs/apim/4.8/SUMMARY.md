@@ -300,6 +300,7 @@
     * [TCP Reporter](analyze-and-monitor-apis/reporters/tcp-reporter.md)
     * [Datadog Reporter](analyze-and-monitor-apis/reporters/datadog-reporter.md)
   * [Logging](analyze-and-monitor-apis/logging.md)
+  * [4.9: Logging](analyze-and-monitor-apis/logging-1.md)
   * [OpenTelemetry](analyze-and-monitor-apis/opentelemetry.md)
 * [Agent Mesh](agent-mesh/README.md)
   * [Set Up an AI Agent (A2A) Proxy](agent-mesh/create-an-a2a-proxy.md)
