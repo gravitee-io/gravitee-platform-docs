@@ -21,7 +21,7 @@ Gravitee APIM can be installed using the following technology stacks and deploym
 ### Kubernetes
 
 * [kubernetes](kubernetes/ "mention")
-* AWS EKS
+* [AWS EKS](kubernetes/aws-eks.md)
 * Azure AKS
 * GCP GKE
 * [openshift.md](kubernetes/openshift.md "mention")
