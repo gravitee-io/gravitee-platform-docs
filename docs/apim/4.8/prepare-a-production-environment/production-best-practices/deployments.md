@@ -8,13 +8,13 @@ If the Console and Developer Portal are not intended for the same category of us
 
 In the `gravitee.yaml` file of instances dedicated to the Management Console:
 
-* Enable the `console` parameter by setting `enabled = true`.
+* Enable the `management` parameter by setting `enabled = true`.
 * Disable the `portal` parameter by setting `enabled = false`.
 
 ```yaml
 http:
   api:
-    console:
+    management:
       enabled: true
     portal:
       enabled: false
@@ -22,13 +22,13 @@ http:
 
 In the `gravitee.yaml` file of instances dedicated to the Developer Portal:
 
-* Enable the `console` parameter by setting `enabled = false`.
+* Enable the `management` parameter by setting `enabled = false`.
 * Disable the `portal` parameter by setting `enabled = true`.
 
 ```yaml
 http:
   api:
-    console:
+    management:
       enabled: false
     portal:
       enabled: true
