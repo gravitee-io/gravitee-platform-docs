@@ -33,7 +33,6 @@ redirects:
  installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide: install-and-upgrade/upgrade-guide.md
  installation-and-upgrades/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages: install-and-upgrade/rpm/upgrade-with-rpm.md
  overview/changelog/apim-4.5.x: overview/changelog/apim-4.6.x.md
- overview/changelog/readme: overview/changelog/README.md
  overview/gravitee-apim-enterprise-edition/enterprise-support: README.md
  overview/gravitee-apim-enterprise-edition/readme: overview/enterprise-edition.md
  overview/integrations: getting-started/integrations.md
@@ -48,10 +47,7 @@ redirects:
  overview/readme/architecture: overview/architecture.md
  overview/readme/overview: README.md
  overview/release-notes/apim-4.5: README.md
- overview/release-notes/readme: overview/release-notes/README.md
- readme: README.md
  reference/management-api-reference: management-api/management-api-reference.md
- summary: README.md
  using-the-product/administration/administering-organizations-and-environments: administration/organizations-and-environments.md
  using-the-product/administration/authentication/authentication-providers: administration/authentication/authentication-providers.md
  using-the-product/administration/authentication/azure-ad-entra-id: administration/authentication/azure-entra-id.md
