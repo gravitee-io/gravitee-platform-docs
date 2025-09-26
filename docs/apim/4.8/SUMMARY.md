@@ -362,6 +362,7 @@
   * [Deployment](plugins/deployment.md)
   * [Customization](plugins/customization.md)
 * [Gravitee Expression Language](gravitee-expression-language.md)
+* [4.9: Gravitee Expression Language](gravitee-expression-language-1.md)
 * [Management API Reference](management-api-reference.md)
 * [Release Information](release-information/README.md)
   * [Release Notes](release-information/release-notes/README.md)
