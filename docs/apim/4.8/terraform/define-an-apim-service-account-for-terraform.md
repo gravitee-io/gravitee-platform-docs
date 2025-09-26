@@ -2,6 +2,10 @@
 
 ## Overview
 
+{% hint style="warning" %}
+This feature is in tech preview.
+{% endhint %}
+
 For Terraform to use APIM, it needs to authenticate as a user of the APIM instance.&#x20;
 
 To set Terraform up as an APIM user, you need to create a service account with specific roles on the organization and environment. This provides Terraform with the minimum set of permissions to manage APIs, applications, and other assets in APIM.

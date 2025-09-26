@@ -2,6 +2,10 @@
 
 ## Overview
 
+{% hint style="warning" %}
+This feature is in tech preview.
+{% endhint %}
+
 Terraform defines resources as basic infrastructure elements. It creates and manages these resources as part of its Infrastructure as Code (IaC) workflow. This lets you use configuration files to automate reproducible and version controlled APIs.
 
 Resources are classified by type, where a resource type is associated with a particular provider. Gravitee's Terraform provider supports several different resource types, such as v4 APIs and Shared Policy Groups.

@@ -1,5 +1,9 @@
 # Terraform
 
+{% hint style="warning" %}
+This feature is in tech preview
+{% endhint %}
+
 Terraform lets you use configuration files to build and manage your infrastructure. Starting with Gravitee 4.8, local installations of Gravitee support Terraform for an Infrastructure as Code (IaC) approach to API management. This enables users to automate and version control Gravitee APIs.&#x20;
 
 You can use Terraform to interface with Gravitee much like the Gravitee Kubernetes Operator (GKO), where the CI/CD logic that calls the Gravitee Management API (mAPI) and ensures that your API was created properly is generated automatically. This is especially useful if you want to update a large number of APIs, or if you need to ensure that APIs across multiple environments are identical.
