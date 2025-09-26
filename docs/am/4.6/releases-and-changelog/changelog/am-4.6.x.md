@@ -6,6 +6,26 @@ description: >-
 
 # AM 4.6.x
 
+## Gravitee Access Management 4.6.22 - September 26, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* Enhance idp plugin redeployment to avoid downtime [#10778](https://github.com/gravitee-io/issues/issues/10778)
+* Am Is Creating Discrepancies With the Issuer Claim (`iss`) in Generated Access Tokens [#10779](https://github.com/gravitee-io/issues/issues/10779)
+
+
+
+
+
+
+
+</details>
+
+
 ## Gravitee Access Management 4.6.21 - September 18, 2025
 
 <details>
