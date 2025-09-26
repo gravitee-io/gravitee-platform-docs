@@ -2,11 +2,28 @@
 
 In its early iterations, the Gravitee Kubernetes Operator (GKO) focused on managing the most important aspect of any API management platform: the APIs themselves. Over time, GKO has evolved to manage API documentation pages, API access controls, API resources (such as authentication servers and caches), and more. In the future, GKO will continue to expand its reach to cover new parts of the API lifecycle.
 
-## Compatibility
+## Versioning & Compatibility with APIM
 
-Since GKO 4.4, GKO follows a strict compatibility policy where a minor version of GKO requires the same minor version of APIM. So, GKO 4.5 is compatible with only APIM 4.5 and GKO 4.4 is compatible with GKO 4.4.
+Since the release of GKO 4.4, GKO follows the same release cycle and versioning scheme as APIM. This synchronization simplifies management and ensures consistency between the two systems.
 
-For the most part, GKO 4.3 is compatible with APIM 4.3, 4.2, and 4.1. GKO 4.3 is based on the same codebase as GKO 0.13.1 and was tagged as 4.3 to make the new support policy easier to follow.
+### Backward Compatibility
+
+We maintain backward compatibility between APIM and GKO for up to three minor versions. This means you can safely upgrade your APIM instance while using an older GKO version, provided it is within this three-version window. For example, upgrading APIM 4.8.0 to 4.9.0 is supported if your GKO instance is running on 4.7.0 or higher.
+
+### Forward Compatibility
+
+Forward compatibility is not supported. You cannot upgrade your GKO instance while using an older APIM version. For instance, upgrading GKO from 4.8.0 to 4.9.0 with APIM 4.8.0 will result in unexpected behaviors. Always ensure your APIM minor version is equal to or newer than your GKO version.
+
+## Deprecation Policy
+
+Gravitee is committed to providing a transparent and predictable process for feature deprecation. Our goal is to give you ample time to transition and adopt new functionality without disruption.
+
+### Our Policy
+
+  - **Timeline**: A feature marked as deprecated will be available and maintained for a minimum of 12 months from the date of the deprecation announcement. This gives you a full year to adjust your systems and workflows.
+  - **Communication**: Deprecation announcements will be made in our official product release notes and updated in the documentation. We will also provide information on recommended alternatives whenever applicable. 
+  - **Removal**: After the 12-month deprecation period, the feature may be removed in a future minor or major release.
+  - **Maintenance**: During the deprecation period, the feature will continue to receive critical security and stability fixes. However, no new enhancements or functionality will be added.
 
 ## Known limitations and future direction
 
@@ -14,7 +31,7 @@ Below are some examples of resources that are not managed by GKO. Not all of the
 
 **API-level** elements that are not managed by GKO:
 
-* Notification settings
+
 * Picture & background
 * Alerts
 * Documentation page translations
