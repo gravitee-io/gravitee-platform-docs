@@ -6,6 +6,12 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 ## Introduction
 
+{% hint style="warning" %}
+When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [Broken link](broken-reference "mention").
+{% endhint %}
+
 The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. The API creation wizard comprises several steps, each of which requires you to define certain sets of information:
 
 * [API details](v4-api-creation-wizard.md#step-1-api-details)
@@ -37,7 +43,7 @@ The Gravitee documentation adopts concise terminology to differentiate between t
 
 **TCP proxy API:** An API created using **Proxy upstream protocol** and called over TCP
 
-**Message API:** An API created using **Introspect messages from event-driven backend**&#x20;
+**Message API:** An API created using **Introspect messages from event-driven backend**
 {% endhint %}
 
 What you choose will dictate the kinds of entrypoints and endpoints that you can select later on. For more in-depth information what each method supports, refer to [this documentation](../#backend-exposure-methods).
@@ -434,7 +440,7 @@ The **Kafka** endpoint allows the Gateway to open up a persistent connection and
 
 **Recovering Kafka messages**
 
-Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.&#x20;
+Kafka messages are acknowledged automatically or manually by the consumer to avoid consuming messages multiple times. To read previous messages requires specifying the offset at which the Kafka consumer should start consuming records and the entrypoint must support the **at-least-one** or **at-most-one** QoS.
 
 As an example using SSE as an entrypoint, first define the QoS for the entrypoint:
 
@@ -491,7 +497,7 @@ Choosing the **Solace** endpoint enables the Gravitee Gateway to create an API t
   * **Retain settings:** Whether the retain flag must be set for every published message by toggling **Retained** ON or OFF. If enabled, the broker stores the last retained message.
   * **Message expiry interval:** Defines the period of time that the broker stores the PUBLISH message for any matching subscribers that are not currently connected. When no message expiry interval is set, the broker must store the message for matching subscribers indefinitely. When the `retained=true` option is set on the PUBLISH message, this interval also defines how long a message is retained on a topic.
   * **Response topic:** Represents the topics on which the responses from the message receivers are expected.
-* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.&#x20;
+* **Consumer settings** (if you chose **Use Consumer** or **Use Producer and Consumer**): Define the settings that the Gravitee Gateway Solace client will rely on to consume messages from your backend Solace topic/broker.
   * Define the **Topic** from which the Gateway Solace client will consume messages.
   * Toggle Authentication configuration ON or OFF. When OFF, no further configuration is necessary. When ON, you will need to:
     * Define the username used for authentication.
@@ -510,7 +516,7 @@ The **RabbitMQ** endpoint allows the Gateway to open up a persistent connection 
 * **Virtual host:** Define the virtual host to use
 * How the Gateway will interact with RabbitMQ by instructing the Gravitee Gateway to act as either a producer, a consumer, or both a producer and consumer. Choose either **Use Consumer**, **Use Producer**, or **Use Consumer and Producer** from the drop-down menu to do one of the following:
   * **Use Producer:** Tells the Gateway Gateway to be prepared to produce messages and send them to RabbitMQ that you define as your endpoint
-  * **Use Consumer:** Tells the Gateway to be prepared to consume messages from  RabbitMQ that you define as your endpoint
+  * **Use Consumer:** Tells the Gateway to be prepared to consume messages from RabbitMQ that you define as your endpoint
   * **Use Producer and Consumer:** Tells the Gateway to be able to use both **Use Producer** and **Use Consumer** settings
 * **Authentication:** Define the **username** and **password** for RabbitMQ authentication
 * **SSL Options:**
@@ -548,10 +554,10 @@ Next in the API creation wizard is the Security step, where you will configure:
 
 ### Plan information
 
-A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate the details of access.&#x20;
+A plan is essentially an access layer around an API that provides the API producer with a method to secure, monitor, and transparently communicate the details of access.
 
 {% hint style="info" %}
-To learn more about how plans function in Gravitee, refer to the [plans documentation](../../preparing-apis-for-subscribers/plans/).&#x20;
+To learn more about how plans function in Gravitee, refer to the [plans documentation](../../preparing-apis-for-subscribers/plans/).
 {% endhint %}
 
 You will be able to choose between several different plan types:

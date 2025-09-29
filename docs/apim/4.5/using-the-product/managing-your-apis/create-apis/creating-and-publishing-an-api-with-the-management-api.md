@@ -2,6 +2,12 @@
 
 ## Overview
 
+{% hint style="warning" %}
+When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
+{% endhint %}
+
 This guide uses the v4-Proxy API definition to create an HTTP Proxy API. The principles are the same for other types of APIs.
 
 This example uses the Gravitee Echo API to set up an HTTP proxy API. The Gravitee Echo API returns JSON-formatted data through the following URL: [https://api.gravitee.io/echo](https://api.gravitee.io/echo)
