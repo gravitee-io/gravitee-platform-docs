@@ -4,6 +4,12 @@
 
 In Gravitee, your API definition is a JSON representation of your Gateway API. The v2 API definition supports HTTP-based APIs and the legacy version of the Policy Studio. This article describes how to create APIs in Gravitee using the v2 API creation wizard.
 
+{% hint style="warning" %}
+When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention").
+{% endhint %}
+
 ## Access the API creation wizard
 
 To create a v2 API in Gravitee:&#x20;
