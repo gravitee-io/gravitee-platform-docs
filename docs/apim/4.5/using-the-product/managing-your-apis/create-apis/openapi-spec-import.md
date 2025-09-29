@@ -1,6 +1,12 @@
-# Importing an OpenAPI Specification to the Gravitee Gateway
+# Importing an OpenAPI Specification
 
 ## Overview
+
+{% hint style="warning" %}
+When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
+{% endhint %}
 
 A powerful APIM feature is the ability to import an OpenAPI specification to create an API. When you import an existing specification, you do not have to manually populate all of the required fields.&#x20;
 
@@ -21,9 +27,7 @@ To import an API from OpenAPI:
 
 ## **Context-path resolution**
 
-| Spec version                            | Definition                                                                                                                                                                                  | Example                                                                                                                                                                                                         | Context-path |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| Swagger (V2)                            | `basePath` field, if it exists.                                                                                                                                                             | <pre><code>{
+<table><thead><tr><th>Spec version</th><th>Definition</th><th>Example</th><th>Context-path</th></tr></thead><tbody><tr><td>Swagger (V2)</td><td><code>basePath</code> field, if it exists.</td><td><pre><code>{
   "swagger": "2.0",
   "info": {
     "description": "...",
@@ -34,8 +38,7 @@ To import an API from OpenAPI:
   "basePath": "/v2",
   ...
 }
-</code></pre> | /v2          |
-| If not, lowercase trimmed `info.title`. | <pre><code>{
+</code></pre></td><td>/v2</td></tr><tr><td>If not, lowercase trimmed <code>info.title</code>.</td><td><pre><code>{
   "swagger": "2.0",
   "info": {
     "description": "...",
@@ -46,8 +49,7 @@ To import an API from OpenAPI:
 
   ...
 }
-</code></pre> | /swaggerpetstore                                                                                                                                                                                                |              |
-| OpenAPI (V3)                            | <p>Path of the first <code>servers.url</code>, if it exists, without "/".<br></p>                                                                                                           | <pre><code>openapi: "3.0.0"
+</code></pre></td><td>/swaggerpetstore</td><td></td></tr><tr><td>OpenAPI (V3)</td><td>Path of the first <code>servers.url</code>, if it exists, without "/".<br></td><td><pre><code>openapi: "3.0.0"
 info:
   version: 1.0.0
   title: Swagger Petstore
@@ -57,8 +59,7 @@ servers:
   - url: http://petstore.swagger.io/v1
 paths:
 ...
-</code></pre>                                  | /v1          |
-| If not, lowercase trimmed `info.title`. | <pre><code>openapi: "3.0.0"
+</code></pre></td><td>/v1</td></tr><tr><td>If not, lowercase trimmed <code>info.title</code>.</td><td><pre><code>openapi: "3.0.0"
 info:
   version: 1.0.0
   title: Swagger Petstore
@@ -68,7 +69,7 @@ servers:
   - url: http://petstore.swagger.io/
 paths:
   ...
-</code></pre>              | /swaggerpetstore                                                                                                                                                                                                |              |
+</code></pre></td><td>/swaggerpetstore</td><td></td></tr></tbody></table>
 
 ## Vendor Extensions
 

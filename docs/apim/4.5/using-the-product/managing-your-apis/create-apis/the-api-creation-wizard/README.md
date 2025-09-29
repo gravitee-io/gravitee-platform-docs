@@ -2,7 +2,13 @@
 description: Learn how to create your Gravitee APIs using the Gravitee API creation wizard
 ---
 
-# The API Creation Wizard
+# Creating APIs with API Creation Wizard
+
+{% hint style="warning" %}
+When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../../policy-studio/policies-for-your-apis/i-k/json-threat-protection.md "mention").
+{% endhint %}
 
 The Gravitee API creation wizard provides an easy-to-use UI to create Gravitee Gateway APIs. There are two versions of the API creation wizard:
 
