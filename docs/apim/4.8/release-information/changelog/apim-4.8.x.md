@@ -1,4 +1,59 @@
 # APIM 4.8.x
+ 
+## Gravitee API Management 4.8.8 - September 26, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Gateway rejects client certificates missing BEGIN/END markers in X-Gravitee-Client-Cert header [#10816](https://github.com/gravitee-io/issues/issues/10816)
+
+**Management API**
+
+* Unable to search federated APIs using metadata [#10676](https://github.com/gravitee-io/issues/issues/10676)
+* Group edit fails for APIs with missing visibility [#10804](https://github.com/gravitee-io/issues/issues/10804)
+* Health-check endpoint target returns type instead of full URL after 4.8 upgrade [#10818](https://github.com/gravitee-io/issues/issues/10818)
+
+**Console**
+
+* Prevent multiple primary owners when API Primary Owner mode is set to Group [#10629](https://github.com/gravitee-io/issues/issues/10629)
+* Gap between the "Health Check Dashboard" date and the "Dashboard API Traffic" date [#10813](https://github.com/gravitee-io/issues/issues/10813)
+* Audit history shows incorrect API groups and path mappings deletion [#10814](https://github.com/gravitee-io/issues/issues/10814)
+* Image appears too large inside dropdown menu [#10819](https://github.com/gravitee-io/issues/issues/10819)
+
+**Helm Charts**
+
+* Frequent Prometheus endpoint calls can cause OOM errors [#10466](https://github.com/gravitee-io/issues/issues/10466)
+
+**Other**
+
+* IPV6 CIDR ranges do not work in the IP filtering policy [#10656](https://github.com/gravitee-io/issues/issues/10656)
+* Using Check Topic Existence with the AWS MSK IAM SASL mechanism results in errors [#10746](https://github.com/gravitee-io/issues/issues/10746)
+* Remove corrupted subscriptions from database [#10821](https://github.com/gravitee-io/issues/issues/10821)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Management API**
+
+* Character length for entrypoints is only 64 for Postgres [#10698](https://github.com/gravitee-io/issues/issues/10698)
+
+**Helm Charts**
+
+* Add helm.sh/chart to pod template annotations [#10832](https://github.com/gravitee-io/issues/issues/10832)
+
+**Other**
+
+* \[JSON threat protection policy] add an option to block JSON with duplicated keys [#10841](https://github.com/gravitee-io/issues/issues/10841)
+* OAS Plugin decoding issue – validation fails with encoded values [#10845](https://github.com/gravitee-io/issues/issues/10845)
+
+</details>
+
+
 
 ## Gravitee API Management 4.8.7 - September 12, 2025
 <details>
