@@ -1,5 +1,27 @@
 # GKO 4.6.x
 
+## Gravitee Kubernetes Operator 4.6.21 - September 29, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Finalizer of a secret un-referenced by a context don't get removed  on update [#10707](https://github.com/gravitee-io/issues/issues/10707)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Add proxy support for HTTP client [#10830](https://github.com/gravitee-io/issues/issues/10830)
+
+</details>
+
+
 
 ## Gravitee Kubernetes Operator 4.6.19 - September 2, 2025
 
