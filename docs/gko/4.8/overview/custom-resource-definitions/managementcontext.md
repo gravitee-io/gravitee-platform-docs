@@ -47,8 +47,7 @@ Authentication credentials may either be added inline in the `ManagementContext`
 
 The custom resource created in the following example refers to a Management API instance exposed at `https://gravitee-api.acme.com`. It targets the `dev` environment of the `acme` organization, using the `admin` account and basic authentication credentials defined in a Kubernetes Secret. To create this custom resource, complete the following steps:
 
-1.  Create a Secret to store the credentials:\
-
+1.  Create a Secret to store the credentials:\\
 
     ```sh
     kubectl create secret generic management-context-credentials \
@@ -56,11 +55,8 @@ The custom resource created in the following example refers to a Management API 
       --from-literal=password=admin \
       --namespace gravitee
     ```
-
-
 2. Define a `ManagementContext` custom resource using either of the following methods:
-   1.  Define a `ManagementContext` custom resource referencing the Secret:\
-
+   1.  Define a `ManagementContext` custom resource referencing the Secret:\\
 
        ```yaml
        apiVersion: gravitee.io/v1alpha1
@@ -77,20 +73,32 @@ The custom resource created in the following example refers to a Management API 
              name: management-context-credentials
        ```
 
+### Using Cloud Token Authentication
 
-   2.  If you are using the cloud token for authentication, you must use the `cloud` property to define the `ManagementContext` custom resource referencing the Secret:\
+To use cloud token authentication, complete the following steps:&#x20;
+
+1.  Create a Secret to store the cloud token using the following command:&#x20;
+
+    ```bash
+    kubectl create secret generic cloud-management-context-credentials \
+      --from-literal=cloudToken=your-actual-cloud-token \
+      --namespace platform
+    ```
+2.  If you are using the cloud token for authentication, you must use the `cloud` property to define the `ManagementContext` custom resource referencing the Secret:\
 
 
-       ```yaml
-       apiVersion: gravitee.io/v1alpha1
-       kind: ManagementContext
-       metadata:
-         name: dev-ctx
-       spec:
-         cloud:
-           secretRef:
-             name: apim-context-bearer-token
-       ```
+    ```yaml
+    apiVersion: gravitee.io/v1alpha1
+    kind: ManagementContext
+    metadata:
+      name: "ng-gko-management-context"
+      namespace: platform
+    spec:
+      cloud:
+        secretRef:
+          # This MUST match the name from Step 1
+          name: cloud-management-context-credentials
+    ```
 
 If no namespace has been specified for the Secret reference, the `ManagementContext` resource namespace is used to resolve the Secret.
 
@@ -137,8 +145,8 @@ spec:
 Alternatively, here is how to use a Kubernetes Secret to store the token:
 
 ```sh
-kubectl create secret generic management-context-credentials \
-  --from-literal=bearerToken=xxxx-yyyy-zzzz \
+kubectl create secret generic cloud-management-context-credentials \
+  --from-literal=cloudToken=********** \
   --namespace gravitee
 ```
 
@@ -152,9 +160,9 @@ spec:
   baseUrl: https://gravitee-api.acme.com
   environmentId: staging
   organizationId: acme
-  auth:
+  cloud:
     secretRef:
-      name: management-context-credentials
+      name: cloud-management-context-credentials
 ```
 
 ## Reference a `ManagementContext` from an API or Application
