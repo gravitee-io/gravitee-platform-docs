@@ -10,6 +10,12 @@ All items from the import bundle are imported, for example, groups, members, pag
 
 Additional information that applies to importing an OpenAPI specification can be found [below](import-apis.md#importing-an-openapi-spec).
 
+{% hint style="warning" %}
+When you import an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policies/json-threat-protection.md "mention").
+{% endhint %}
+
 ## Import your API
 
 To import your API:
