@@ -150,6 +150,8 @@ kubectl create secret generic cloud-management-context-credentials \
   --namespace gravitee
 ```
 
+Next, update the `ManagementContext` YAML to:
+
 ```yaml
 apiVersion: gravitee.io/v1alpha1
 kind: ManagementContext
