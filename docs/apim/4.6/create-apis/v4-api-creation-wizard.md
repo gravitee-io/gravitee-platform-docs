@@ -6,6 +6,12 @@ description: This article walks through how to use the Gravitee v4 API creation 
 
 ## Introduction
 
+{% hint style="warning" %}
+When you create an API with a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../policies/json-threat-protection.md "mention").
+{% endhint %}
+
 The v4 API creation wizard makes it easy to create new Gateway APIs from scratch. To access the v4 API creation wizard:
 
 1. Log in to your APIM Console
