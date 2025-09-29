@@ -1,5 +1,17 @@
 # GKO 4.5.x
 
+## Gravitee Kubernetes Operator 4.5.27 - September 29, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Finalizer of a secret un-referenced by a context don't get removed  on update [#10707](https://github.com/gravitee-io/issues/issues/10707)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.5.25 - September 2, 2025
 
 There is nothing new in version 4.5.25.
