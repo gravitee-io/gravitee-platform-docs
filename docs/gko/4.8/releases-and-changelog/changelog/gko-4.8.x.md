@@ -1,5 +1,32 @@
 # GKO 4.8.x
 
+## Gravitee Kubernetes Operator 4.8.8 - September 29, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **GKO**
+
+  * Can't delete SharedPolicyGroup [#10827](https://github.com/gravitee-io/issues/issues/10827)
+  * Finalizer of a secret un-referenced by a context don't get removed  on update [#10707](https://github.com/gravitee-io/issues/issues/10707)
+
+  **APIM**
+
+  * Notification settings are not reflected in the UI when inherited from a group [#10700](https://github.com/gravitee-io/issues/issues/10700)
+
+</details>
+
+
+<details>
+<summary>Improvements</summary>
+
+  **GKO**
+
+  * Add proxy support for HTTP client [#10830](https://github.com/gravitee-io/issues/issues/10830)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.8.6 - September 2, 2025
 
 There is nothing new in version 4.8.6.
