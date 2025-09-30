@@ -46,21 +46,14 @@ To install the Gravitee Terraform provider, complete the following steps:
     provider "apim" {
       server_url = "http://<mAPI host and port>/automation"
       bearer_auth = "xxx"
-
+    }
     ```
-
-{% hint style="info" %}
-* The `bearer_auth` of Gravitee Cloud users contains the Gravitee Cloud Token
-* `organization_id` and `environment_id` are set from token claims
-* The URL is `https://eu.cloudgate.gravitee.io/apim/automation` for Europe&#x20;
-{% endhint %}
-
-1.  To start Terraform, run the following command:
+3.  To start Terraform, run the following command:
 
     ```bash
     terraform init
     ```
-2.  In the same directory, create a resource configuration file called `api.tf` that has the following content. This instructs Terraform to add a v4 HTTP proxy API with a Keyless plan to your APIM instance.
+4.  Create a resource configuration file in the same directory called `api.tf` with the following content. This instructs Terraform to add a v4 HTTP proxy API with a Keyless plan to your APIM instance.
 
     ```hcl
     resource "apim_apiv4" "quick-start-api" {
@@ -111,9 +104,20 @@ To install the Gravitee Terraform provider, complete the following steps:
           ]
         }
       ]
-      plans = [ 
-        {
-          hrid = "keyless"
+      flow_execution = {
+        mode           = "DEFAULT"
+        match_required = false
+      }
+      flows = []
+      analytics = {
+        enabled = false
+      }
+      # known limitation: will be fixed in future releases
+      definition_context = {}
+      plans = {
+        # known limitation, key should equal name for clean terraform plans
+        # will be fixed in future release
+        KeyLess = {
           name        = "KeyLess"
           type        = "API"
           mode        = "STANDARD"
@@ -124,16 +128,16 @@ To install the Gravitee Terraform provider, complete the following steps:
             type = "KEY_LESS"
           }
         }
-      ]
+      }
     }
 
     ```
-3.  To apply the v4 API resource, run the following command:
+5.  To apply the v4 API resource, run the following command:
 
     ```bash
     terraform apply
     ```
 
 {% hint style="success" %}
-The API "\[Terraform] Quick Start PROXY API" is created, visible (read only) and deployed to your APIM instance.
+The API "\[Terraform] Quick Start PROXY API" has been created, visible (read-only) and deployed to your APIM instance.
 {% endhint %}
