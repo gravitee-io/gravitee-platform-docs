@@ -1,5 +1,9 @@
 # Configure Webhook Subscriptions
 
+{% hint style="warning" %}
+This feature is in tech preview.
+{% endhint %}
+
 ## Prerequisites&#x20;
 
 * Enable the New Developer Portal. For more information about enabling the New Developer Portal, see [configure-the-new-portal.md](configure-the-new-portal.md "mention").
