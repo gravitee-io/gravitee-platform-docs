@@ -1,5 +1,9 @@
 # Application Logs
 
+{% hint style="warning" %}
+This feature is in tech preview.
+{% endhint %}
+
 As an API subscriber, you can view paginated logs for all of the APIs your application has subscribed to. The list of logs displays the name, timestamp, HTTP method, and response status of each API.
 
 If you have [set the new Developer Portal as your default Developer Portal](broken-reference), you can access it from the Developer Portal button in your APIM Console header. If you have not set the new Developer Portal as your default, follow the instructions to [enable the new Developer Portal](broken-reference).
