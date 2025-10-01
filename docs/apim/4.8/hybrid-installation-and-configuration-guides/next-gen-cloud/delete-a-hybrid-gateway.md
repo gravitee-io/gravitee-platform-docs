@@ -41,7 +41,7 @@ Deleting a hybrid Gateway is a way to maintain control and security within your 
 
 When you delete a hybrid Gateway, you receive the following message: "Gateway has been deleted."
 
-<figure><img src="../../.gitbook/assets/image (5) (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Next steps
 
