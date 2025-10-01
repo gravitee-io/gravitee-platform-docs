@@ -364,6 +364,7 @@
 * [Gravitee Expression Language](gravitee-expression-language.md)
 * [4.9: Gravitee Expression Language](gravitee-expression-language-1.md)
 * [Management API Reference](management-api-reference.md)
+* [4.9: Expose APIM as an MCP Server](4.9-expose-apim-as-an-mcp-server.md)
 * [Release Information](release-information/README.md)
   * [Release Notes](release-information/release-notes/README.md)
     * [APIM 4.8](release-information/release-notes/apim-4.8.md)

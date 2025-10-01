@@ -19,7 +19,7 @@ This guide explains how to Publish your API.
 2.  Click the API that you created in [create-an-api.md](create-an-api.md "mention").\
 
 
-    <figure><img src="../../.gitbook/assets/image (333).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (333) (1).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Danger Zone** section, click **Publish the API**. \
 
 
@@ -27,7 +27,7 @@ This guide explains how to Publish your API.
 4.  In the **Publish API** pop-up window, click **Publish**. Your API is now published to the Developer Portal.\
     &#x20;
 
-    <figure><img src="../../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (334) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Verification
 
@@ -40,7 +40,7 @@ Your API appears on the Developer Portal. To view your API in the Developer Port
 2.  In the Developer Portal, click **Explore APIS.**\
 
 
-    <figure><img src="../../.gitbook/assets/image (335).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (335) (1).png" alt=""><figcaption></figcaption></figure>
 3.  In the **Catalog** page, click **All APIs.**\
 
 
@@ -48,4 +48,4 @@ Your API appears on the Developer Portal. To view your API in the Developer Port
 
 Your API appears in the **All APIs** section.
 
-<figure><img src="../../.gitbook/assets/image (336).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (336) (1).png" alt=""><figcaption></figcaption></figure>
