@@ -187,7 +187,11 @@ Any field that supports Expression Language, supports the AI assistant.&#x20;
 3.  Click **Ask Newt AI**. The AI assistant generates the Expression Language.\
 
 
-    <figure><img src=".gitbook/assets/0A5095E8-D431-4579-B71F-F4450F84AEA2_1_201_a (1).jpeg" alt=""><figcaption></figcaption></figure>
+    <figure><img src=".gitbook/assets/DBE0A0C1-3171-4CA4-A586-A503EBD2B0BD_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
+4.  (Optional) Provide feedback about the answer. To provide feedback, click either the **thumbs u**p or the **thumbs down**.\
+
+
+    <figure><img src=".gitbook/assets/6D6E46F0-AECF-41F9-BE38-53C6EC0EDA38_1_201_a.jpeg" alt=""><figcaption></figcaption></figure>
 
 ### Use case examples
 
