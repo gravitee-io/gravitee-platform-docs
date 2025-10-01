@@ -2,41 +2,63 @@
 
 ## Overview
 
-After you have configured your chosen Identity Provider(s) in Gravitee API Management, you may want to start automatically mapping these user accounts into specific roles and groups within Gravitee. This article focuses on how to configure users' roles/groups/custom claims from your Identity Provider into Roles and Groups in Gravitee API Management.
+Groups let you more efficiently assign roles to users. Users are assigned to groups, and then groups are assigned to APIs and configured with specific roles.
+
+Once you configure your chosen identity provider(s) in API Management, you can automatically map these user accounts into specific roles and groups within Gravitee. This article explains how to convert user roles, groups, and custom claims from your identity provider into Gravitee roles and groups.
 
 ## Configuration
 
-After adding your Identity Provider, two new items will appear within your Identity Provider configuration; **Groups Mapping** and **Roles Mapping** (as shown below).
+After you add your identity provider, two new items appear within your identity provider configuration: **Groups Mapping** and **Roles Mapping**.
 
-<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption><p>Identity Provider Groups and Roles Mapping configuration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
-**Groups Mapping** - used for mapping users into groups that can then be assigned to APIs to control their interaction with your API through the API Management console, as well as control visibility of APIs and Documentation pages within the Developer Portal.
+**Groups Mapping** maps users into groups. Groups can be assigned to APIs. You can use the APIM Console to control the interactions between groups and the APIs to which they are assigned. The visibility of APIs and API documentation pages can be controlled at the group level using the Developer Portal.
 
-_Example 1_:  Because you have some APIs you only want your internal users to access, you want to distinguish between internal users, and external customers, to control the visibility of specific APIs in the Developer Portal.  You need to create two Groups in Gravitee.  Every new customer (signing into the Developer Portal) will be added to the "external-customers" group automatically.  For our known internal users, you can create a Group Mapping that queries the users' access\_token (for a specific claim etc) and if it matches a certain condition, then that user will be added to the "internal-users" group.  Now you can define specific access controls using these Groups in your APIs User Permissions configuration page.
+<details>
 
-_Example 2_:  You want to give a group of users full ownership rights over a specific API in Gravitee.  These users need to grouped together from your Identity Provider (either by a group, metadata, custom claim in their access\_token, etc).  You can create a new Group in Gravitee and link it to your specific API (using the "Manage groups" button).  Now you can create a new Group Mapping so these new users are automatically mapped into this '"full ownership" Group.&#x20;
+<summary>Example 1</summary>
 
+If you want to give only internal users access to certain APIs, you can create two groups in Gravitee to distinguish between internal and external users, and then control API visibility using the Developer Portal.
 
+Every new user who signs into the Developer Portal is automatically added to the "external" users group, while the access tokens of known internal users are queried via Group Mapping against specific conditions. If a known user's access token matches a given condition, the user is added to the "internal" user group.
 
-**Roles Mapping** - used for mapping users to Gravitee Roles.  Roles provide the user with a functional group of individual permissions to perform certain actions, such as create/read/update/delete on specific actions/pages/configs/etc. &#x20;
+You can define access controls via the groups on your API's User Permissions configuration page.
 
-_Example 1_:  The built-in `API:PRIMARY_OWNER` role includes full permissions to make any changes to an API - but requires the user (or Group) to be specifically assigned to an API before those permissions can be actually used.
+</details>
 
-_Example 2_:  The built-in `ENVIRONMENT:USER` role enables users to read APIs, create/delete applications, and read documentation.
+<details>
 
-{% hint style="info" %}
-Ultimately, defining groups helps you to assign roles more efficiently for the users.
+<summary>Example 2</summary>
 
-Users are assigned to Groups.  Groups are added to an API, and then configured with a specific Role.
-{% endhint %}
+To provide certain users with full ownership rights over a specific Gravitee API, these users must be grouped by your identity provider. For example, through a group, metadata, or custom access token claims.
 
-<figure><img src="../../../.gitbook/assets/image (191).png" alt=""><figcaption><p>APIM Console - adding group(s) to the User Permissions page of an API.</p></figcaption></figure>
+You can create a new group in Gravitee, and then link it to your specific API. Next, you can create a new Group Mapping to automatically map these new users into the group with full ownership permissions.
 
-### Creating a Group and Role Mapping
+</details>
 
-So let's say we want to map a specific group of users from the Identity Provider, so they have full ownership of a specific API in Gravitee.  We need to be able to identify the group of users somehow - this is typically done by a common group membership, metadata, or custom claim.  Ultimately, this information will be available in the access\_token provided to Gravitee when the user logs in.
+**Roles Mapping** maps users to Gravitee roles. Roles provide the user with a functional group of individual permissions to perform certain actions. For example, permissions to create, read, update, or delete specific pages or configurations. &#x20;
 
-For example; the following access\_token payload includes both a `roles` claim and a `my_API_Group` custom claim.
+<details>
+
+<summary>Example 1</summary>
+
+The built-in `API:PRIMARY_OWNER` role gives a user or group assigned to an API full permissions to modify that specific API.
+
+</details>
+
+<details>
+
+<summary>Example 2</summary>
+
+The built-in `ENVIRONMENT:USER` role allows the user to read APIs, create and delete applications, and read documentation.
+
+</details>
+
+The specific group of users you intend to map from an identity provider is typically identified by a common group membership, metadata, or custom claim. This information is available in the access token provided to Gravitee when the user logs in.
+
+## Create group and role mapping
+
+In the following example, the access token payload includes both a `roles` claim and a `my_API_Group` custom claim.
 
 ```json
 {
@@ -63,20 +85,22 @@ For example; the following access\_token payload includes both a `roles` claim a
 }
 ```
 
-We want this user to have FULL\_ADMIN permissions (or the equivalent _role_ in Gravitee), and only for the Petstore API.
+The following example configurations grant the user FULL\_ADMIN permissions, or the equivalent role in Gravitee, for the Petstore API only.
 
-#### Group Mapping
+### Groups Mapping
 
-Create a new Group Mapping and specify the name of the Group (that you've already added to your API using the 'User Permissions" configuration page).
+Create a new Groups Mapping and specify the name of the group that you've already added to your API via the **User Permissions** configuration page.
 
-The Condition (using the Gravitee Expression Language) is how Gravitee evaluates the specific data in the access\_token.   In the example below, Gravitee will walk the profile (access\_token) to the "my\_API\_Group" key, and check if its value contains "Petstore-Group".  If true, then the user is added into the "Petstore-Group".
+Gravitee uses Gravitee Expression Language in the **Condition** to evaluate the specific data in the JSON returned by the IdP’s UserInfo endpoint.&#x20;
+
+In the example below, Gravitee walks the profile, which is the UserInfo endpoint's response payload, to the "my\_API\_Group" key, and then checks if its value contains "Petstore-Group."  If true, the user is added to the "Petstore-Group."
 
 <figure><img src="../../../.gitbook/assets/image (192).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
 
-#### Role Mapping
+### Roles Mapping
 
-This can be performed in almost the same way as adding the user into a group.  But you'll need to also specify the Role(s) this user will inherit.
+The procedure for mapping a role is similar to adding a user to a group, but the role(s) the user inherits must also be specified.
 
-In the example screenshot below, this Condition is evaluating the `roles` custom claim (or JSON key) from the access\_token.  If the `roles` array contains `FULL_ADMIN`, then Gravitee will action this role mapping.
+In the example below, the condition evaluates the `roles` custom claim, or JSON key, in the JSON returned by the IdP’s UserInfo endpoint. If the `roles` array contains `FULL_ADMIN`, Gravitee will actions the role mapping.
 
 <figure><img src="../../../.gitbook/assets/image (194).png" alt=""><figcaption><p>Role Mapping configuration</p></figcaption></figure>
