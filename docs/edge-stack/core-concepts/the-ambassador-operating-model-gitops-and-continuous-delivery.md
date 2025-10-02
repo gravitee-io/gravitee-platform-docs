@@ -57,5 +57,4 @@ In a typical Ambassador Edge Stack GitOps workflow:
 
 ## Further reading
 
-* How [Gitops can change](https://www.getambassador.io/blog/cloud-native-workflow-gitops-and-kubernetes) when adopting Kubernetes.
 * Netflix introduces [full cycle development](https://www.getambassador.io/kubernetes-glossary/full-cycle-development), a model for developing microservices

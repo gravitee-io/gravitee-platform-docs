@@ -55,5 +55,4 @@ Ambassador Edge Stack takes full advantage of Kubernetes and Envoy Proxy.
 
 Interested in learning more?
 
-* [Why did we start building Ambassador Edge Stack?](https://www.getambassador.io/blog/envoy-nginx-haproxy-comparison-why-edge-stack-chose-envoy)
 * [Ambassador Edge Stack Architecture overview](core-concepts/ambassador-edge-stack-architecture.md)

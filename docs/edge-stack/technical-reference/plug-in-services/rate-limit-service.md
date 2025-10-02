@@ -83,4 +83,3 @@ The [Emissary-ingress Rate Limiting Tutorial](../../rate-limiting-tutorial.md) h
 
 * [Rate limiting: a useful tool with distributed systems](https://www.gravitee.io/blog/rate-limiting-a-useful-tool-with-distributed-systems)
 * [Rate limiting for API Gateways](https://www.gravitee.io/blog/rate-limiting-for-api-gateways)
-* [Implementing a Java Rate Limiting Service for Ambassador Edge Stack](https://www.getambassador.io/blog/java-rate-limiting-edge-stack-api-gateway)
