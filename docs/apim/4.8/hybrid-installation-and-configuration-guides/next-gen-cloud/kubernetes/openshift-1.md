@@ -3,7 +3,7 @@ hidden: true
 noIndex: true
 ---
 
-# 4.9: OpenShift
+# 4.9 OpenShift
 
 ## Overview
 
