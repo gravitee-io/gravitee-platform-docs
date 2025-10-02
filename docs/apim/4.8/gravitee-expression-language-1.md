@@ -3,7 +3,7 @@ hidden: true
 noIndex: true
 ---
 
-# 4.9: Gravitee Expression Language
+# 4.9 Gravitee Expression Language
 
 ## Overview
 

@@ -3,7 +3,7 @@ hidden: true
 noIndex: true
 ---
 
-# 4.9: Logging
+# 4.9 Logging
 
 ## Overview
 
