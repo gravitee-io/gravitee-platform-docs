@@ -4,7 +4,7 @@ noIndex: true
 
 # Explore Distributed Tracing and Kubernetes Monitoring
 
-The Kubernetes monitoring and distributed tracing landscape is hard to grasp. Although this conceptual approach to [observability is nothing new](https://www.getambassador.io/blog/distributed-tracing-java-kubernetes-edge-stack-api-gateway) — companies like New Relic revolutionized single-application performance monitoring (APM) over a decade ago — it took a few years and the [Dapper publication](https://research.google/pubs/pub36356/) for this idea to migrate to distributed applications. The importance of this technology is only increasing, as more and more of us are building deep systems.
+The Kubernetes monitoring and distributed tracing landscape is hard to grasp. Although this conceptual approach to observability is nothing new — companies like New Relic revolutionized single-application performance monitoring (APM) over a decade ago — it took a few years and the [Dapper publication](https://research.google/pubs/pub36356/) for this idea to migrate to distributed applications. The importance of this technology is only increasing, as more and more of us are building deep systems.
 
 As the industry is slowly but surely maturing, standardization is underway. Standardization means proprietary vendor solutions and open source projects are able to collaborate, making our lives easier. For newcomers, understanding the plethora of options, concepts, specifications, and implementations available is still a daunting task:
 

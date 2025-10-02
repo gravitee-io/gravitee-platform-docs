@@ -6,7 +6,7 @@ noIndex: true
 
 ## Ambassador Edge Stack is a control plane
 
-Ambassador Edge Stack is a specialized [control plane for Envoy Proxy](https://www.getambassador.io/blog/envoy-nginx-haproxy-comparison-why-edge-stack-chose-envoy). In this architecture, Ambassador Edge Stack translates configuration (in the form of Kubernetes Custom Resources) to Envoy configuration. All actual traffic is directly handled by the high-performance [Envoy Proxy](https://www.envoyproxy.io).
+Ambassador Edge Stack is a specialized control plane for Envoy Proxy. In this architecture, Ambassador Edge Stack translates configuration (in the form of Kubernetes Custom Resources) to Envoy configuration. All actual traffic is directly handled by the high-performance [Envoy Proxy](https://www.envoyproxy.io).
 
 <figure><img src="../.gitbook/assets/00 aes 4.png" alt=""><figcaption></figcaption></figure>
 

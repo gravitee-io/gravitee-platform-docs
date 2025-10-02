@@ -8,7 +8,7 @@ Ambassador Edge Stack and Istio: Edge Proxy and Service Mesh together in one. Am
 
 Ambassador Edge Stack and Istio can be deployed together on Kubernetes. In this configuration, Ambassador Edge Stack manages traditional edge functions such as authentication, TLS termination, and edge routing. Istio mediates communication from Ambassador Edge Stack to services, and communication between services.
 
-This allows the operator to have the best of both worlds: a high performance, modern edge service (Ambassador Edge Stack) combined with a state-of-the-art service mesh (Istio). While Istio has introduced a [Gateway](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/) abstraction, Ambassador Edge Stack still has a much broader feature set for edge routing than Istio. For more on this topic, see our blog post on [API Gateway vs Service Mesh](https://www.getambassador.io/blog/edge-stack-istio-kubernetes-microservices-integration).
+This allows the operator to have the best of both worlds: a high performance, modern edge service (Ambassador Edge Stack) combined with a state-of-the-art service mesh (Istio). While Istio has introduced a [Gateway](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/) abstraction, Ambassador Edge Stack still has a much broader feature set for edge routing than Istio.
 
 This guide explains how to take advantage of both Ambassador Edge Stack and Istio to have complete control and observability over how requests are made in your cluster:
 
