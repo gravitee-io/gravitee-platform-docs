@@ -154,7 +154,7 @@ The Secret Manager pack includes generic, configurable, and autonomous clients t
 
 ## Gravitee Alert Engine
 
-Gravitee offers a standalone, enterprise-grade API monitoring solution called Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/ae/overview/introduction-to-gravitee-alert-engine).
+Gravitee offers a standalone, enterprise-grade API monitoring solution called Alert Engine (AE). AE provides APIM and AM users with efficient and flexible API platform monitoring, including advanced alerting configurations and notifications sent through preferred channels such as email, Slack and Webhooks. Alert Engine integrates with Gravitee APIM and AM to enable advanced alerting, new dashboards, etc. For more information, please refer to [the Alert Engine documentation](https://documentation.gravitee.io/alert-engine).
 
 ## Gravitee Cloud
 
