@@ -1,8 +1,3 @@
----
-hidden: true
-noIndex: true
----
-
 # Delete a Hybrid Gateway
 
 ## Overview&#x20;

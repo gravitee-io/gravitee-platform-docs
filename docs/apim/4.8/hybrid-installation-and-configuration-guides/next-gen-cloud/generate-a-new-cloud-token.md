@@ -1,8 +1,3 @@
----
-hidden: true
-noIndex: true
----
-
 # Generate a New Cloud Token
 
 ## Overview

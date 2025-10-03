@@ -1,8 +1,3 @@
----
-hidden: true
-noIndex: true
----
-
 # Link to a Hybrid Gateway
 
 ## Overview&#x20;
