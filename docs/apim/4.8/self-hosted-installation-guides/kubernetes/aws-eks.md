@@ -720,7 +720,7 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
 
     # Elasticsearch Configuration
     es:
-      enabled: false
+      enabled: true
       endpoints:
         - http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200
 
