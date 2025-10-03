@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Azure AKS
 
 ## Overview&#x20;
@@ -27,8 +31,6 @@ This deployment includes the following components:
 * Gateway: Processes API requests, applies policies, and routes traffic to backend services.
 * Management Console UI: Web interface for API administrators to configure and monitor APIs.
 * Developer Portal UI: Self-service portal for developers to discover and consume APIs.
-
-
 
 ## Install NGINX Ingress Controller
 
