@@ -85,42 +85,77 @@ EL supports various operators, such as arithmetic, logical, comparison, and tern
 {% tab title="Functions" %}
 EL provides a variety of built-in functions to manipulate and transform data in expressions. Examples of commonly used functions in Gravitee include:
 
-* String functions: `length(), substring(), replace()`
+* String functions: `length(), substring(), replace()SO`
 * `#jsonPath`: Evaluates a `jsonPath` on a specified object. This function invokes `JsonPathUtils.evaluate(…​)`, which delegates to the [Jayway JsonPath library](https://github.com/json-path/JsonPath). The best way to learn jsonPath syntax is by using the [online evaluator](https://jsonpath.com/).
-* `#xpath`: To evaluate an `xpath` on some provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) in the SpEL documentation.
+  *   **`jsonPath` example**\
 
-**`jsonPath` example**
 
-As an example of how `jsonPath` can be used with EL, suppose you have a JSON payload in the request body that contains the following data:
-
-```json
-{
-  "store": {
-    "book": [
+      ```json
       {
-        "category": "fiction",
-        "author": "Herman Melville",
-        "title": "Moby Dick",
-        "isbn": "0-553-21311-3",
-        "price": 8.99
-      },
-      {
-        "category": "fiction",
-        "author": "J. R. R. Tolkien",
-        "title": "The Lord of the Rings",
-        "isbn": "0-395-19395-8",
-        "price": 22.99
+        "store": {
+          "book": [
+            {
+              "category": "fiction",
+              "author": "Herman Melville",
+              "title": "Moby Dick",
+              "isbn": "0-553-21311-3",
+              "price": 8.99
+            },
+            {
+              "category": "fiction",
+              "author": "J. R. R. Tolkien",
+              "title": "The Lord of the Rings",
+              "isbn": "0-395-19395-8",
+              "price": 22.99
+            }
+          ]
+        }
       }
-    ]
-  }
-}
-```
+      ```
+  *   To extract the value of the `price` property for the book with `title` "The Lord of the Rings," you can use the following expression: `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`\
 
-To extract the value of the `price` property for the book with `title` "The Lord of the Rings," you can use the following expression:
 
-`{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`
+      ```json
+      {
+        "store": {
+          "book": [
+            {
+              "category": "fiction",
+              "author": "Herman Melville",
+              "title": "Moby Dick",
+              "isbn": "0-553-21311-3",
+              "price": 8.99
+            },
+            {
+              "category": "fiction",
+              "author": "J. R. R. Tolkien",
+              "title": "The Lord of the Rings",
+              "isbn": "0-395-19395-8",
+              "price": 22.99
+            }
+          ]
+        }
+      }
+      ```
+* `#xpath`: Evaluates an `xpath` on a provided object. For more information regarding XML and XPath, see [XML Support - Dealing with XML Payloads](https://docs.spring.io/spring-integration/reference/html/xml.html#xml) in the SpEL documentation.
+* `xmlEspace`: Escapes XML content to ensure that it safe for inclusion in XML or SOAP documents, which prevents injection attacks. This function utilizes Apache Commons Text StringEscapeUtils.escapeXml10() for XML 1.0-compliant escaping.
+  *   `xmlEscape example` \
+
+
+      ```jsonp
+      <soap:Envelope>
+        <soap:Body>
+          <web:getUserInfo>
+            <web:id>{#xmlEscape(#request.params['userId'])}</web:id>
+          </web:getUserInfo>
+        </soap:Body>
+      </soap:Envelope>
+      ```
+  * If the userId parameter contains potentially dangerous content like `1</web:id><web:id>2`, the xmlEscape function safely escapes it to `1&lt;/web:id&gt;&lt;/web:id&gt;2`, which prevents XML injection attacks.
 {% endtab %}
 {% endtabs %}
+
+
 
 ## APIs
 
