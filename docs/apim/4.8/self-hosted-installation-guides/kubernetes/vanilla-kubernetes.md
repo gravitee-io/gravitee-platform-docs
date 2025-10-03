@@ -456,7 +456,7 @@ Keep the tunnel command running in a separate terminal window. The tunnel must r
 
     # Elasticsearch Configuration
     es:
-      enabled: false
+      enabled: true
       endpoints:
         - http://gravitee-elasticsearch.gravitee-apim.svc.cluster.local:9200
 
