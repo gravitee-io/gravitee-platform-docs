@@ -747,33 +747,43 @@ Before installing Gravitee APIM for [enterprise edition](https://documentation.g
 
 <summary>Explanations of key predefined <code>values.yaml</code> parameter settings</summary>
 
-**Service Configuration** The self-hosted setup uses `ClusterIP` services with AWS ALB ingress controllers for external access:
+#### **Service Configuration**
+
+The self-hosted setup uses `ClusterIP` services with **NGINX ingress controllers** for external access:
 
 * **ClusterIP**: Internal cluster communication only - no direct external exposure
-* **Ingress**: Routes external traffic through AWS Application Load Balancer to internal services
+* **Ingress**: Routes external traffic through **NGINX Ingress Controller** to internal services
 * **Domain-based routing**: Uses separate domains for Gateway, Management API, Console UI, and Portal UI
-* **HTTPS enforcement**: All traffic redirected to HTTPS with SSL certificates from AWS ACM
+* **HTTPS enforcement**: All traffic can be redirected to HTTPS with SSL certificates from **Azure Key Vault** or **cert-manager**
 
-**Resource Allocation** The configured resource limits ensure optimal performance while preventing resource exhaustion:
+#### **Resource Allocation**
+
+The configured resource limits ensure optimal performance while preventing resource exhaustion:
 
 * **Management API/Gateway**: 1-2Gi memory, 500m-1 CPU (handles API processing, gateway routing, and management operations)
 * **UI Components (Console/Portal)**: 256-512Mi memory, 100-250m CPU (lightweight frontend serving)
 
-**Ingress Strategy** The ingress configuration enables external access with advanced AWS ALB features:
+#### **Ingress Strategy**
+
+The ingress configuration enables external access with **NGINX-specific features**:
 
 * **Multi-domain setup**: Separate domains for each component (gateway.yourdomain.com, api.yourdomain.com, console.yourdomain.com, portal.yourdomain.com)
 * **Path-based routing**: Management API uses `/management` and `/portal` paths on the same domain
-* **CORS enabled**: Comprehensive CORS headers configured at both application and ALB level for cross-origin requests
-* **SSL/TLS**: ACM certificates with automatic HTTP to HTTPS redirection
-* **Health checks**: Custom health check paths for each service (`/_health`, `/management/_health`)
+* **CORS enabled**: Comprehensive CORS headers configured at both application and NGINX ingress level for cross-origin requests
+* **SSL/TLS**: TLS secrets (api-tls-secret, gateway-tls-secret, etc.) for HTTPS termination
+* **NGINX annotations**: Proxy settings, timeouts, body size limits, and rewrite rules
 
-**Autoscaling Configuration** Horizontal Pod Autoscaling is enabled for all components to handle variable load:
+#### **Autoscaling Configuration**
 
-* **Management API/Gateway**: Scales 1-5 replicas based on 70% CPU and 80% memory utilization
+Horizontal Pod Autoscaling is enabled for all components to handle variable load with **Azure metrics**:
+
+* **Management API/Gateway**: Scales 1-5/1-10 replicas based on 70% CPU and 80% memory utilization
 * **UI Components**: Scales 1-3 replicas based on 70% CPU and 80% memory utilization
-* **Dynamic scaling**: Automatically adjusts pod count based on actual resource consumption
+* **Dynamic scaling**: Automatically adjusts pod count based on actual resource consumption via **Azure Monitor metrics**
 
-**Security Configuration** Multiple security layers protect the deployment:
+#### **Security Configuration**
+
+Multiple security layers protect the deployment:
 
 * **CORS policies**: Configured for all public-facing endpoints with specific allowed origins, methods, and headers
 * **Security exclusions**: Public endpoints like `/auth/**`, `/_health`, and `/info`
