@@ -25,4 +25,142 @@ The `Application` custom resource represents the configuration for an applicatio
 
 Finally, the purpose of the `ManagementContext` is to provide a connection from GKO to your Gravitee API Management installation. GKO uses this connection to synchronize the resources it manages (APIs, applications, ...) with the Gravitee Console, Developer Portal, and Gateway.
 
+#  Custom Resource Definition (CRD) Status
+When deploying Custom Resources (CRDs) with the Gravitee Kubernetes Operator (GKO), the `status` field is populated with the latest information about the resource's state within the cluster. The latest release of GKO introduces enhancements to the CRD status fields, providing clearer insights, streamlined troubleshooting, and improved support for GitOps workflows.
+
+These enhancements include more structured, descriptive status information that aligns with best practices and offers consistent conventions across CRDs. This enables tighter integration with tools like ArgoCD and simplifies operational management for platform teams.
+
+
+Prerequisites
+- Gravitee Kubernetes Operator version 4.9.0 or newer
+- A Kubernetes cluster with the GKO installed
+- Access to view CRDs via `kubectl get` commands
+
+## Viewing CRD Status
+1. Get a list of deployed V4 APIs by running:
+
+```bash 
+kubectl get apiv4definitions.gravitee.io
+```
+
+2. Inspect the `status` section of an API V4 CRD:
+
+```bash
+kubectl get apiv4definitions.gravitee.io  <api-name> -o yaml
+```
+
+You'll notice an organized `status` section with fields like:
+
+```yaml
+status:
+  conditions:
+    - lastTransitionTime: "2025-10-03T09:20:04Z"
+      message: Successfully reconciled
+      observedGeneration: 1
+      reason: Accepted
+      status: "True"
+      type: Accepted
+    - lastTransitionTime: "2025-10-03T09:20:04Z"
+      message: All References successfully resolved
+      observedGeneration: 1
+      reason: ResolvedRefs
+      status: "True"
+      type: ResolvedRefs
+  crossId: 8905ba8d-79b9-c446-5cee-71ab8c6ea6f9
+  environmentId: DEFAULT
+  errors: {}
+  id: 3872738b-0aa6-ed7e-1f7b-386d80125412
+  organizationId: DEFAULT
+  plans:
+    KeyLess: d50628d2-cb86-01bc-0393-cdc0a0ce32e4
+  processingStatus: Completed
+  state: STARTED
+```
+The `conditions` array captures key lifecycle states and potential issues, while top-level fields like `state` and `environmentId` provide an operational summary.
+
+
+Similarly, check an Application's status:
+
+```bash
+kubectl get applications.gravitee.io <app-name> -o yaml
+```
+
+```yaml
+status:
+  conditions:
+    - lastTransitionTime: "2025-10-03T09:25:22Z"
+      message: Successfully reconciled
+      observedGeneration: 1
+      reason: Accepted
+      status: "True"
+      type: Accepted
+    - lastTransitionTime: "2025-10-03T09:25:22Z"
+      message: All References successfully resolved
+      observedGeneration: 1
+      reason: ResolvedRefs
+      status: "True"
+      type: ResolvedRefs
+  environmentId: DEFAULT
+  errors: {}
+  id: 011b0a6b-59d8-452b-95a4-30db51783b83
+  organizationId: DEFAULT
+  processingStatus: Completed
+```
+## Possible CRD conditions
+When a Custom Resource Definition (CRD) is successfully applied without issues, your CRD's status section will typically display conditions similar to the following:
+```yaml
+status:
+  conditions:
+    - lastTransitionTime: "2025-10-03T09:25:22Z"
+      message: Successfully reconciled
+      observedGeneration: 1
+      reason: Accepted
+      status: "True"
+      type: Accepted
+    - lastTransitionTime: "2025-10-03T09:25:22Z"
+      message: All References successfully resolved
+      observedGeneration: 1
+      reason: ResolvedRefs
+      status: "True"
+      type: ResolvedRefs
+```
+
+If GKO encounters issues resolving resources referenced within your CRD (such as ManagementContext, Secrets, Groups, APIs), the conditions will reflect a failure, for example:
+```yaml
+status:
+  conditions:
+    - lastTransitionTime: "2025-10-03T09:25:22Z"
+      message: ReconcileFailed
+      observedGeneration: 1
+      reason: Accepted
+      status: "False"
+      type: Accepted
+    - lastTransitionTime: "2025-10-03T09:25:22Z"
+      message: "can not find Management Context [dev-ctx]"
+      observedGeneration: 1
+      reason: ResolvedRefs
+      status: "False"
+      type: ResolvedRefs
+```
+
+Common Causes of Unaccepted CRDs
+- Unresolved References: GKO is unable to resolve references within your CRD, such as Management Contexts, Groups, Shared Policy Groups, or APIs.
+- Runtime Errors: Errors occurring during runtime, such as invalid values or misconfigurations passed when importing your API into APIM.
+
+## Leveraging Status with GitOps
+
+The improved structured status output allows for tighter integration with GitOps tools that watch Kubernetes events.
+
+For example, when using ArgoCD:
+
+1. Define an ArgoCD Application that monitors the GKO namespace
+2. ArgoCD will detect any drifts between desired state (Git repo) and current status fields
+3. Based on the CRD status messages, ArgoCD can take appropriate actions:
+    - Applying resources if creation failed (`*Accepted` condition false)
+    - Setting resource as "Degraded" if operations failed (`*ResolvedRefs` false)
+    - Triggering notifications based on configured events
+
+The standardized schema lets you create cleaner, more automated GitOps workflows around the full API lifecycle on Kubernetes.
+
+
 In the following sections, we run through each CRD one by one.
