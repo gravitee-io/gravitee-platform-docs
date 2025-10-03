@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # Azure AKS
 
 ## Overview&#x20;
