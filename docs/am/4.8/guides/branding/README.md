@@ -13,7 +13,7 @@ Extending the branding AM also enables you to leverage context variables and use
 
 ### Branding on different levels
 
-To fully tend to your application branding and user experience, AM enables you to customize forms either on [security domain level](../security-domains.md) or on the [application level](../applications/). This addresses cases where some applications can be fine with relying on your overall company branding but others may be in need of a more custom branding touch.
+To fully tend to your application branding and user experience, AM enables you to customize forms either on [security domain level](../security-domains/) or on the [application level](../applications/). This addresses cases where some applications can be fine with relying on your overall company branding but others may be in need of a more custom branding touch.
 
 ## Theme builder
 
