@@ -7,24 +7,11 @@ hidden: true
 
 ## Overview
 
-You can use the `rest-to-soap` policy to expose SOAP backend service as a REST API. The policy will pass the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
+You can use the Rest-to-soap policy to expose SOAP backend service as a REST API. The policy passes the SOAP envelope message to the backend service as a POST request. SOAP envelopes support Expression Language to provide dynamic SOAP actions.
 
-Functional and implementation information for the `rest-to-soap` policy is organized into the following sections:
+## Usage
 
-* [Examples](rest-to-soap.md#examples)
-* [Configuration](rest-to-soap.md#configuration)
-* [Compatibility Matrix](rest-to-soap.md#compatibility-matrix)
-* [Changelogs](rest-to-soap.md#changelogs)
-
-## Examples
-
-{% hint style="warning" %}
-This policy can be applied to v2 APIs and v4 HTTP proxy APIs. It cannot be applied to v4 message APIs or v4 TCP proxy APIs.
-{% endhint %}
-
-{% tabs %}
-{% tab title="HTTP proxy API example" %}
-A SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap` policy SOAP envelope content:
+For example, a SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with the following `rest-to-soap`policy SOAP envelope content:
 
 ```xml
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope\\\" xmlns:web=\\\"http://www.oorsprong.org/websamples.countryinfo">
@@ -37,48 +24,178 @@ A SOAP API `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?countryName=France` with th
 </soap:Envelope>
 ```
 
-Will give you the ISO country code for `France`.
-{% endtab %}
-{% endtabs %}
+Gives you the ISO country code for `France`.
 
-## Configuration
+## ⚠️ Security Warning: XML Injection Prevention
 
-Sample policy configuration is shown below:
+**Important**: When you use the REST-to-SOAP policy, you must be aware of potential XML injection vulnerabilities. User input embedded directly into SOAP envelopes without proper escaping might expose your API to security risks.
 
-{% code title="Sample Configuration" %}
-```json
-"rest-to-soap": {
-  "envelope": "<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">
-                 <soap:Header/>
-                 <soap:Body>
-                    <web:ListOfCountryNamesByName/>
-                 </soap:Body>
-              </soap:Envelope>",
-  "soapAction": null
-}
+### Risk Example
+
+For the following SOAP envelope property:
+
+```xml
+<soap:Envelope>
+  <soap:Body>
+    <web:getUserInfo>
+      <web:id>{#request.params['userId']}</web:id>
+    </web:getUserInfo>
+  </soap:Body>
+</soap:Envelope>
 ```
-{% endcode %}
 
-### Phases
+If user input contains XML-like content with the following url: `http(s)://GATEWAY_HOST:GATEWAY_PORT/soap?userId=1</web:id><web:id>2`
 
-The phases checked below are supported by the `rest-to-soap` policy:
+Without escaping, this might break your SOAP structure:
 
-<table data-full-width="false"><thead><tr><th width="209">v2 Phases</th><th width="139" data-type="checkbox">Compatible?</th><th width="198.41136671177264">v4 Phases</th><th data-type="checkbox">Compatible?</th></tr></thead><tbody><tr><td>onRequest</td><td>true</td><td>onRequest</td><td>true</td></tr><tr><td>onResponse</td><td>false</td><td>onResponse</td><td>false</td></tr><tr><td>onRequestContent</td><td>false</td><td>onMessageRequest</td><td>false</td></tr><tr><td>onResponseContent</td><td>false</td><td>onMessageResponse</td><td>false</td></tr></tbody></table>
+```xml
+<soap:Envelope>
+  <soap:Body>
+    <web:getUserInfo>
+      <web:id>1</web:id><web:id>2</web:id>  <!-- BROKEN XML! -->
+    </web:getUserInfo>
+  </soap:Body>
+</soap:Envelope>
+```
 
-### Options
+### Recommended Solution
 
-The `rest-to-soap` policy can be configured with the following options:
+Use the `#xmlEscape()` function in your EL expressions to safely escape user input:
 
-<table><thead><tr><th width="152">Property</th><th width="115" data-type="checkbox">Required</th><th width="126">Description</th><th width="278">Type</th><th>Default</th></tr></thead><tbody><tr><td>SOAP Envelope</td><td>true</td><td></td><td>SOAP envelope used to invoke WS (supports Expression Language)</td><td></td></tr><tr><td>SOAP Action</td><td>false</td><td></td><td>'SOAPAction' HTTP header sent when invoking WS</td><td></td></tr><tr><td>Charset</td><td>false</td><td></td><td>This charset will be appended to the <code>Content-Type</code> header value</td><td></td></tr><tr><td>Preserve Query Parameters</td><td>false</td><td></td><td>Whether the query parameters are propagated to the backend SOAP service</td><td></td></tr></tbody></table>
+```xml
+<soap:Envelope>
+  <soap:Body>
+    <web:getUserInfo>
+      <web:id>{#xmlEscape(#request.params['userId'])}</web:id>
+    </web:getUserInfo>
+  </soap:Body>
+</soap:Envelope>
+```
+
+**Result:**
+
+<pre><code><strong>&#x3C;web:id>1&#x26;lt;/web:id&#x26;gt;&#x26;lt;/web:id&#x26;gt;2&#x3C;/web:id>
+</strong></code></pre>
+
+## Best Practices
+
+✅ Always use `{#xmlEscape()}` for user input in SOAP templates\
+✅ Apply escaping to request parameters, headers, and body content\
+✅ Consider using the `xml-threat-protection` policy for additional security\
+❌ Never embed unescaped user input directly in XML/SOAP structures
+
+## Phases
+
+The `rest-to-soap` policy can be applied to the following API types and flow phases.
+
+#### Compatible API types
+
+* `PROXY`
+
+#### Supported flow phases:
+
+* Request
 
 ## Compatibility matrix
 
-The following is the compatibility matrix for APIM and the `rest-to-soap` policy:
+Strikethrough text indicates that a version is deprecated.
 
-| Plugin version | Supported APIM versions |
-| -------------- | ----------------------- |
-| 1.x            | All                     |
+| Plugin version | APIM                   |
+| -------------- | ---------------------- |
+| 1.x            | All supported versions |
 
-## Changelogs
+## Configuration options
+
+| <p>Name<br><code>json name</code></p>                                | <p>Type<br><code>constraint</code></p> | Mandatory | Default | Description                                                                |
+| -------------------------------------------------------------------- | -------------------------------------- | :-------: | ------- | -------------------------------------------------------------------------- |
+| <p>Charset<br><code>charset</code></p>                               | string                                 |           |         | This charset will be appended to the Content-Type header value.            |
+| <p>SOAP Envelope<br><code>envelope</code></p>                        | string                                 |     ✅     |         | SOAP envelope used to invoke WS. (support EL)                              |
+| <p>Preserve Query Parameters<br><code>preserveQueryParams</code></p> | boolean                                |           |         | Define if the query parameters are propagated to the backend SOAP service. |
+| <p>SOAP Action<br><code>soapAction</code></p>                        | string                                 |           |         | 'SOAPAction' HTTP header send when invoking WS.                            |
+| <p>Strip path<br><code>stripPath</code></p>                          | boolean                                |           |         | Strip the path before propagating it to the backend SOAP service.          |
+
+## Examples
+
+_Proxy API With Defaults_
+
+```json
+{
+  "api": {
+    "definitionVersion": "V4",
+    "type": "PROXY",
+    "name": "Rest to SOAP Transformer example API",
+    "flows": [
+      {
+        "name": "Common Flow",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "STARTS_WITH"
+          }
+        ],
+        "request": [
+          {
+            "name": "Rest to SOAP Transformer",
+            "enabled": true,
+            "policy": "rest-to-soap",
+            "configuration":
+              {
+                "envelope": "<?xml version=\"1.0\"?>\n<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:web=\"http://www.oorsprong.org/websamples.countryinfo\"><soap:Header/><soap:Body><web:ListOfCountryNamesByName/></soap:Body></soap:Envelope>",
+                "preserveQueryParams": false,
+                "stripPath": false
+              }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+_Proxy API on Request phase_
+
+```json
+{
+  "api": {
+    "definitionVersion": "V4",
+    "type": "PROXY",
+    "name": "Rest to SOAP Transformer example API",
+    "flows": [
+      {
+        "name": "Common Flow",
+        "enabled": true,
+        "selectors": [
+          {
+            "type": "HTTP",
+            "path": "/",
+            "pathOperator": "STARTS_WITH"
+          }
+        ],
+        "request": [
+          {
+            "name": "Rest to SOAP Transformer",
+            "enabled": true,
+            "policy": "rest-to-soap",
+            "configuration":
+              {
+                "envelope": "<?xml version=\"1.0\"?>\n<soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:web=\"http://www.oorsprong.org/websamples.countryinfo\"><soap:Header/><soap:Body><web:ListOfCountryNamesByName/></soap:Body></soap:Envelope>",
+                "soapAction": "urn:MyAction",
+                "charset": "UTF-8",
+                "preserveQueryParams": true,
+                "stripPath": false
+              }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+```
+
+## Changelog
 
 {% @github-files/github-code-block url="https://github.com/gravitee-io/gravitee-policy-rest-to-soap/blob/master/CHANGELOG.md" %}
