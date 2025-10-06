@@ -15,6 +15,25 @@ To upgrade your RPM installation, choose the upgrade process depending on your i
 * Upgrade the full APIM stack (includes all components)
 * Upgrade components one-by-one
 
+## Prerequisites
+
+### Backup Configuration Files
+
+The following configuration files will be overwritten during the RPM upgrade process. You must back them up before proceeding:
+
+* `gravitee.yml`  or your single configuration file if everything is consolidated
+* `constants.json`
+* `config.json`  for the Developer Portal
+* `conf.d`  NGINX configuration directory
+
+{% hint style="danger" %}
+Failure to backup these files will result in loss of your custom configurations.
+{% endhint %}
+
+### Java Version Requirement
+
+Starting in version 4.7, Gravitee APIM requires **Java 21**. If you are deploying APIM with RPM or using the distribution bundle, please ensure you upgrade your Java version before proceeding with the APIM upgrade.
+
 ## Upgrade the full APIM stack
 
 To upgrade your APIM installation, perform the package upgrade, and then restart APIM using the following commands:
