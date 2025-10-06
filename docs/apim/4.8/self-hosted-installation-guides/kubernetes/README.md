@@ -4,6 +4,6 @@
 
 * [Vanilla Kubernetes](vanilla-kubernetes.md)
 * [AWS EKS](aws-eks.md)
-* Azure AKS
+* [Azure AKS](azure-aks.md)
 * GCP EKE
 * [openshift.md](openshift.md "mention")
