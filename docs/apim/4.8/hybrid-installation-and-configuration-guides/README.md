@@ -10,7 +10,7 @@
 #### Kubernetes
 
 * [vanilla-kubernetes.md](next-gen-cloud/kubernetes/vanilla-kubernetes.md "mention")
-* AWS EKS
+* [AWS EKS](next-gen-cloud/kubernetes/aws-eks.md)
 * [azure-aks.md](next-gen-cloud/kubernetes/azure-aks.md "mention")
 * GCP EKS
 * [openshift.md](next-gen-cloud/kubernetes/openshift.md "mention")
