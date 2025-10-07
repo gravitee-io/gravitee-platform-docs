@@ -305,6 +305,7 @@
   * [Logging](analyze-and-monitor-apis/logging.md)
   * [4.9: Logging](analyze-and-monitor-apis/logging-1.md)
   * [OpenTelemetry](analyze-and-monitor-apis/opentelemetry.md)
+  * [4.9 Execution Transparency Analytics](analyze-and-monitor-apis/4.9-execution-transparency-analytics.md)
 * [Agent Mesh](agent-mesh/README.md)
   * [Set Up an AI Agent (A2A) Proxy](agent-mesh/create-an-a2a-proxy.md)
   * [Discover and Catalog AI Agents (A2A)](agent-mesh/add-agents-to-your-agent-catalog.md)
