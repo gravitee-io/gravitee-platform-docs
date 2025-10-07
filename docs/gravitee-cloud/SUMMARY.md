@@ -12,8 +12,8 @@
 ## Guides
 
 * [Hybrid Installation & Configuration](https://documentation.gravitee.io/apim/hybrid-installation-and-configuration-guides/next-gen-cloud)
-* [Gravitee Hosted Gateways](guides/gravitee-hosted-gateways.md)
-* [Custom Domains](guides/custom-domains.md)
+* [Deploy a Gravitee Hosted Gateway](guides/gravitee-hosted-gateways.md)
+* [Configure a Custom Domain](guides/custom-domains.md)
 * [Configure Single Sign On](guides/configure-sso.md)
 * [Account Token](guides/account-token.md)
 * [Cloud Tokens](guides/cloud-tokens.md)
