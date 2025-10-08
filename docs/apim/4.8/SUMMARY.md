@@ -61,6 +61,7 @@
   * [Update the Connection to Cloud](upgrade-guides/update-the-connection-to-cloud.md)
   * [APIM 4.4.+ & Hybrid Gateways](upgrade-guides/apim-4.4.+-and-hybrid-gateways.md)
   * [Upgrade with RPM](upgrade-guides/upgrade-with-rpm.md)
+  * [4.9: MongoDB Index Upgrades in APIM 4.9](upgrade-guides/4.9-mongodb-index-upgrades-in-apim-4.9.md)
 * [How-To Guides](how-to-guides/README.md)
   * [Create & Publish Your First API](how-to-guides/create-and-publish-your-first-api/README.md)
     * [Create an API](how-to-guides/create-and-publish-your-first-api/create-an-api.md)
