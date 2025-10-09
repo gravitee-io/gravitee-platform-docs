@@ -18,6 +18,10 @@ You can authenticate users in AM using your own MongoDB database.
 
 MongoDB Identity Providers can be configured using a Data Source defined within the Gravitee environment. For example, using the `gravitee.yaml` file or using environment variables.
 
+{% hint style="info" %}
+the configuration needs to be consistent between the Management API and the Gateway
+{% endhint %}
+
 Data Sources provide a reusable configuration which utilizes a shared connection for all Identity Providers using the same Data Source identifier.
 
 {% hint style="info" %}
