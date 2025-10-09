@@ -4,6 +4,20 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.12.8 (October 9th, 2025) <a href="#id-3.12.6" id="id-3.12.6"></a>
+
+#### **Patch XSRF vulnerability**
+
+Previously there was an error with how we verified XSRF cookies on the redirection endpoint allowing for potential XSRF attacks. This has been patched and further verification of the XSRF cookie has been added.
+
+#### Update to JSON logging format
+
+When using JSON log format, Filter errors would output with the `host` tag to describe the host of the request. This caused issues when importing with Datadog and has been updated to be `hostname`.&#x20;
+
+#### Upgrade to Envoy 1.31.10
+
+Ambassador Edge Stack is now built on Envoy v1.31.10, which includes security enhancements. For more information, see [Envoy Proxy 1.31.10 Release Notes](https://www.envoyproxy.io/docs/envoy/v1.31.10/version_history/version_history).
+
 ### Version 3.12.7 (September 16th, 2025) <a href="#id-3.12.6" id="id-3.12.6"></a>
 
 #### **Fix SameSite behavior when multiple FilterPolicies point to a single Filter**
