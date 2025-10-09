@@ -4,7 +4,7 @@ noIndex: true
 
 # Release Notes
 
-### Version 3.12.8 (October 9th, 2025) <a href="#id-3.12.8" id="id-3.12.8"></a>
+### Version 3.12.8 (October 9, 2025) <a href="#id-3.12.8" id="id-3.12.8"></a>
 
 #### Patch XSRF vulnerability
 
