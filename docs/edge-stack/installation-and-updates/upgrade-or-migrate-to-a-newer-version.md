@@ -26,8 +26,8 @@ See the instructions on updating Emissary-ingress.
 
 | If you're running.                    | You can upgrade to           |
 | ------------------------------------- | ---------------------------- |
-| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.7 |
-| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.7 |
+| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.8 |
+| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.8 |
 | Ambassador Edge Stack 2.4.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 2.0.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 1.14.4          | Ambassador Edge Stack 2.5.1  |
@@ -38,8 +38,8 @@ See the instructions on updating Emissary-ingress.
 
 | If you're running.                    | You can upgrade to           |
 | ------------------------------------- | ---------------------------- |
-| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.7 |
-| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.7 |
+| Ambassador Edge Stack 3.11.X          | Ambassador Edge Stack 3.12.8 |
+| Ambassador Edge Stack 2.5.1           | Ambassador Edge Stack 3.12.8 |
 | Ambassador Edge Stack 2.4.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 2.0.X           | Ambassador Edge Stack 2.5.1  |
 | Ambassador Edge Stack 1.14.4          | Ambassador Edge Stack 2.5.1  |
