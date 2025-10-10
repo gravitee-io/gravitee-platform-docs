@@ -11,6 +11,30 @@ When managing deployments using Helm, please note that the default startup, live
 
 ## AM 4.5.x
 
+## Gravitee Access Management 4.5.28 - October 10, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* France Connect V2 - Review wording of error message [#10738](https://github.com/gravitee-io/issues/issues/10738)
+
+
+
+
+
+**Other**
+
+* AWS HSM Certificate Plugin logs remain at DEBUG level despite global INFO configuration, and Helm chart indentation/mapping issue for extraLoggers. [#10824](https://github.com/gravitee-io/issues/issues/10824)
+* Add helm.sh/chart to pod template annotations [#10849](https://github.com/gravitee-io/issues/issues/10849)
+* User registration completion UI widget is broken [#10865](https://github.com/gravitee-io/issues/issues/10865)
+* Conversion session.timeout for helm value incorrect [#10867](https://github.com/gravitee-io/issues/issues/10867)
+
+</details>
+
+
 ### Gravitee Access Management 4.5.27 - September 26, 2025
 
 <details>
