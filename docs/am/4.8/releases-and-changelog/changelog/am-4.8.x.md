@@ -8,6 +8,11 @@ description: >-
 
 ## Gravitee Access Management 4.8.8 - October 10, 2025
 
+
+{% hint style="warning" %}
+Version 4.8.8 is unstable. We recommend not installing this version.
+{% endhint %}
+
 <details>
 
 <summary>Bug fixes</summary>

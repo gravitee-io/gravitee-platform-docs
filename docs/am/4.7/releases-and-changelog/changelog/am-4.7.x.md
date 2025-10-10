@@ -1,12 +1,17 @@
 ---
 description: >-
-  This page contains the changelog entries for AM 4.6.0 and any future minor or
-  patch AM 4.6.x releases
+  This page contains the changelog entries for AM 4.7.0 and any future minor or
+  patch AM 4.7.x releases
 ---
 
 # AM 4.7.x
 
 ## Gravitee Access Management 4.7.16 - October 10, 2025
+
+{% hint style="warning" %}
+Version 4.7.16 is unstable. We recommend not installing this version.
+{% endhint %}
+
 
 <details>
 
