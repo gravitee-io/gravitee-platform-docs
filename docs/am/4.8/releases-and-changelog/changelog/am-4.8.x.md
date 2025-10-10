@@ -6,6 +6,36 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.8 - October 10, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* France Connect V2 - Review wording of error message [#10738](https://github.com/gravitee-io/issues/issues/10738)
+
+**Management API**
+
+* Sanitize the redirect_uri to avoid empty segment when cockpit try to connect on the console [#10805](https://github.com/gravitee-io/issues/issues/10805)
+* Secrets for old applications can't be renewed [#10871](https://github.com/gravitee-io/issues/issues/10871)
+
+
+
+**Other**
+
+* Introduce common connection pool for MongoIDP [#10719](https://github.com/gravitee-io/issues/issues/10719)
+* AWS HSM Certificate Plugin logs remain at DEBUG level despite global INFO configuration, and Helm chart indentation/mapping issue for extraLoggers. [#10824](https://github.com/gravitee-io/issues/issues/10824)
+* Limit the batchSize on Mongo Reporter request [#10846](https://github.com/gravitee-io/issues/issues/10846)
+* Add helm.sh/chart to pod template annotations [#10849](https://github.com/gravitee-io/issues/issues/10849)
+* User registration completion UI widget is broken [#10865](https://github.com/gravitee-io/issues/issues/10865)
+* Conversion session.timeout for helm value incorrect [#10867](https://github.com/gravitee-io/issues/issues/10867)
+* Improve logging in EnrichAuthFlowPolicy [#10875](https://github.com/gravitee-io/issues/issues/10875)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.7 - September 26, 2025
 
 <details>
