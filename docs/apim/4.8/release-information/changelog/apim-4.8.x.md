@@ -1,5 +1,42 @@
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.9 - October 10, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Read timeout on v4 returns 500 [#10767](https://github.com/gravitee-io/issues/issues/10767)
+* EL request.xmlContent Fails with XML Declaration [#10842](https://github.com/gravitee-io/issues/issues/10842)
+
+**Management API**
+
+* Image not updated with mAPI [#10809](https://github.com/gravitee-io/issues/issues/10809)
+* Error when trying to retrieve the portal notification settings [#10870](https://github.com/gravitee-io/issues/issues/10870)
+
+**Other**
+
+* Two users created with identical email addresses [#10423](https://github.com/gravitee-io/issues/issues/10423)
+* Webhook Entrypoint: "No Retry" configuration ignores setting and uses default linear retry. [#10519](https://github.com/gravitee-io/issues/issues/10519)
+* Upgrader error on PortalNotificationConfig repository when upgrading from 4.2 to 4.8 [#10847](https://github.com/gravitee-io/issues/issues/10847)
+* Custom API keys are truncated to 64 characters when created through the console UI [#10873](https://github.com/gravitee-io/issues/issues/10873)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Other**
+
+* Character length for API description is only 4000 for Postgres [#10825](https://github.com/gravitee-io/issues/issues/10825)
+* File reporter creates empty log files despite event exclusion. [#10853](https://github.com/gravitee-io/issues/issues/10853)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.8.8 - September 26, 2025
 <details>
 
