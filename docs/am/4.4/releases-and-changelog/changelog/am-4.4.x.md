@@ -10,16 +10,25 @@ When managing deployments using Helm, please note that the default startup, live
 
 # AM 4.4.x
 
-## Gravitee Access Management 4.4.32 - August 1, 2025
+## Gravitee Access Management 4.4.33 - October 10, 2025
 
 <details>
 
 <summary>Bug fixes</summary>
 
 
+**Gateway**
+
+* France Connect V2 - Review wording of error message [#10738](https://github.com/gravitee-io/issues/issues/10738)
+
+</details>
 
 
+## Gravitee Access Management 4.4.32 - August 1, 2025
 
+<details>
+
+<summary>Bug fixes</summary>
 
 
 **Other**
