@@ -6,6 +6,27 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.9 - October 13, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* Regression in the way DataPlanes are loaded in the MAPI [#10883](https://github.com/gravitee-io/issues/issues/10883)
+
+
+
+**Other**
+
+* Make datasource configurable using helm values [#10884](https://github.com/gravitee-io/issues/issues/10884)
+
+</details>
+
+
 ## Gravitee Access Management 4.8.8 - October 10, 2025
 
 
