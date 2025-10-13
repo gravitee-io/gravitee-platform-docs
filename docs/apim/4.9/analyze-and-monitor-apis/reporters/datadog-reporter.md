@@ -1,0 +1,186 @@
+# Datadog Reporter
+
+## Download and install
+
+To configure the Datadog Reporter, download the reporter plugin [here](https://download.gravitee.io/#graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/). Once you’ve downloaded the .ZIP file, you can add it to the Gateway in the same way as [other plugins](../../plugins/). Typically, you’ll install plugins in the `/plugins` directory of your installation. As with other reporters, the Datadog Reporter plugin only needs to be installed on the Gateway, not the Management API.
+
+{% hint style="info" %}
+If you want to collect system metrics and logs from the Management API service, use the [Datadog Agent](https://docs.datadoghq.com/agent/?tab=Linux) to tail the Management API logs, or collect them from stdout.
+{% endhint %}
+
+If you are installing the Gravitee Gateway via Helm, add the following entry in the `additionalPlugins` section (changing the version as needed):
+
+```yaml
+gateway:
+  additionalPlugins:
+    - https://download.gravitee.io/graviteeio-ee/apim/plugins/reporters/gravitee-reporter-datadog/gravitee-reporter-datadog-5.0.0.zip
+```
+
+## Configuration
+
+To configure the Datadog Reporter on a Gateway, enable the `reporters` section in your Helm `values.yaml` or  `gravitee.yml`. This will look something like:
+
+{% code title="Datadog Reporter configuration" %}
+```yaml
+reporters:
+  datadog:
+    enabled: true
+    site: "datadoghq.eu"
+    authentication:
+      #apiKeyPrefix: ""
+      apiKey: "YOUR_API_KEY"
+      #appKey: "YOUR_APP_KEY"
+      #tokenScheme: ""
+      #token: "YOUR_TOKEN"
+      #username: "YOUR_USERNAME"
+      #password: "YOUR_PASSWORD"
+    #http:
+    #  proxy:
+    #    type: HTTP #HTTP, SOCK4, SOCK5
+    #    https:
+    #      host: localhost
+    #      port: 3128
+    #      username: user
+    #      password: secret
+    #bulk: # configuration for the processor
+    #  flush_interval: 5
+    #  log:
+    #    size: 5
+    #  metric:
+    #    size: 20
+    #customTags: >
+    #  s1.company.com:9092,
+    #  s2.company.com:9092,
+    #  s3.company.com:9092
+    #log: # (Following mapping section is also available for other types: node, health-check, log, v4-log, v4-metrics, v4-message-metrics, v4-message-log)
+    #  exclude: # Can be a wildcard (ie '*') to exclude all fields (supports json path)
+    #    - clientRequest
+    #    - clientResponse
+    #    - proxyRequest
+    #request: # (Following mapping section is also available for other types: node, health-check, log)
+    #  exclude: # Can be a wildcard (ie '*') to exclude all fields (supports json path)
+    #    - apiResponseTimeMs
+```
+{% endcode %}
+
+Authentication is required for the Gateway to send reporting data to Datadog. Gravitee sends data to Datadog as an [API client](https://docs.datadoghq.com/api/latest/) over HTTP, and so needs to authenticate to Datadog. The basic way to do this is via an [API key](https://docs.datadoghq.com/account_management/api-app-keys/), but you can also configure application keys and client tokens, depending on what your Datadog account requires.
+
+{% hint style="info" %}
+You can obscure the value of this API key by using [configuration-level secrets](broken-reference) in `gravitee.yml`.
+{% endhint %}
+
+## Data type mapping
+
+Gravitee has different types of reporting data, and each type maps to a different resource type in Datadog. The mapping is as follows:
+
+| Gravitee Convention                      | Examples                                                                     | Datadog Convention |
+| ---------------------------------------- | ---------------------------------------------------------------------------- | ------------------ |
+| Metadata                                 | API name, user agent                                                         | Tags               |
+| Monitoring                               | CPU load, memory usage, JVM heap, uptime                                     | Metrics            |
+| EndpointStatus                           | Health check status                                                          | Events             |
+| [Metrics](./#metrics-sent-via-reporters) | Response time (for both gateway and endpoint), content length, request count | Metrics            |
+| [Logs](./#log-data-sent-via-reporters)   | Request body, response body, headers, request id, method                     | Log                |
+
+The reporter sends metrics to Datadog with the prefix `gravitee.apim`. Metrics in Datadog appear with underscores between words, instead of the CamelCase default shown in the metrics page. For example, `proxyResponseTimeMs` appears in Datadog as `proxy_response_time_ms`.
+
+## Tags
+
+[Tags](https://docs.datadoghq.com/getting_started/tagging/) are metadata attached to each metric sent to Datadog. They are raw strings that can be used to search and filter across metrics. By default, tags correspond to the metrics generated by Gravitee reporters.
+
+The tags that Gravitee includes by default are shown in the table below. You can also configure [custom tags](datadog-reporter.md#custom-tags).&#x20;
+
+| Tag Name       | Purpose                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Example value                                                                                |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| nodeid         | ID of the Gateway                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `cce37d76-8f44-46b8-a37d-768f4486b895`                                                       |
+| nodehost       | Hostname of the Gateway                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `cb452984c8c5`                                                                               |
+| message        | A more detailed explanation of the error associated with the error key (if any)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `io.gravitee.policy.icapviruscan.icapexception:java.net.connectionexception:request_timeout` |
+| zone           | Text field set in `gravitee.yml` to indicate additional information about the Gateway instance the API is running on                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                              |
+| applicationid  | The application ID; for a keyless plan, this value is "1"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `1`                                                                                          |
+| api            | ID of the API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `dd94dffe-1a78-4f80-94df-fe1a78bf8071`                                                       |
+| apiname        | Name of the API at the time of the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `z-demo-dynamicrouting`                                                                      |
+| entrypointid   | ID of the entrypoint used in the API connection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `http-proxy`                                                                                 |
+| endpoint       | The URL used by the proxy to forward the request to the upstream service                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `https://api.gravitee.io.echo`                                                               |
+| errorkey       | If the policy chain was interrupted by an error, this key identifies the error type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `icap_virus_scan_error`                                                                      |
+| host           | The content of the `Host` header, passed when the incoming request was issued by the client                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `localhost:8082`                                                                             |
+| httpmethod     | HTTP verb used in the client connection                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `get`                                                                                        |
+| localaddress   | The address used as a destination when the incoming request was issued by the client                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `172.24.0.3`                                                                                 |
+| mappedpath     | If a path mapping has been defined to group requests in your analytics, this is the value of your mapping                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                              |
+| path           | The path used to perform the client request (starting from the context path of the API)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `/`                                                                                          |
+| plan           | ID of the plan                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `df64e3d9-b11c-4da2-a4e3-d9b11c2da260`                                                       |
+| remoteaddress  | The remote address used as a source when the incoming request was issued by the client                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `192.168.65.1`                                                                               |
+| requestid      | Unique identifier Universally Unique Identifier (UUID) identifying the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `00014685-82af-4b15-8146-8582af9b15f4`                                                       |
+| securitytoken  | The security token, if any type of security was used when processing the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                              |
+| status         | HTTP response status code integer                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `200`                                                                                        |
+| subscriptionid | The subscription ID; for a keyless plan, this value will be the same as the value of the remote address field                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `192.168.65.1`                                                                               |
+| tenant         | ID of the tenant evaluated for the API (see [tenants](../../configure-and-manage-the-platform/gravitee-gateway/tenants.md))                                                                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                              |
+| transactionid  | Used to track end-to-end transactions spanning across multiple HTTP requests. The Gateway configuration allows defining an expected correlation ID header passed by a client request. If this header is set, the content of this field will be set to the value of the header. If no correlation header has been passed, the content of this field will be the same as the content of the request ID. This value will be propagated to the upstream service using the correlation header defined in the configuration (the default header is `X-Gravitee-Transaction-Id`). | `00014685-82af-4b15-8146-8582af9b15f4`                                                       |
+| uri            | The URI used by the client to perform its request (this includes the context path of the request and query parameters)                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `/demo-dynamic-routing/`                                                                     |
+| user           | The authenticated user, if any type of security was used when processing the request                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                              |
+| useragent      | The content of the `User-Agent` header, passed by the client when the incoming request was issued                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `postmanruntime/7.43.0`                                                                      |
+
+## Custom tags
+
+You can add custom [tags](https://docs.datadoghq.com/getting_started/tagging/) to metrics sent to Datadog by adding the following section to the reporter configuration. Tags are a comma-separated list of strings; they can have a key-value format, or just be a raw string. No quotes are required.
+
+```yaml
+reporters:
+  datadog:
+    enabled: true
+    # ... rest of the configuration
+    # Set custom tag values
+    # This is a list of strings
+    customTags: >
+      gateway: s1.company.com:9092,
+      anotherCustomTagString
+```
+
+## Custom metrics
+
+You can use the [Assign Metrics](broken-reference) policy to add custom metrics to the output of the Datadog Reporter. They appear in Datadog with the name `gravitee.apim.{metricName}`, where `metricName` is configured in the policy.
+
+{% hint style="info" %}
+The default metrics published by Gravitee can be found [here](./#metrics-sent-via-reporters).
+{% endhint %}
+
+## Removing fields from the Datadog Reporter
+
+For cost or security reasons, you might want to limit the metrics sent to Datadog. To exclude certain metrics, specify which metrics you want to exclude by data type. The configuration below differs slightly for v2 and v4 APIs.
+
+```yaml
+reporters:
+  datadog:
+    enabled: true
+    # ... rest of the configuration
+    # Set elements to exclude here
+    v4-log:
+      exclude:
+        - entrypointRequest
+        - entrypointResponse
+    v4-message-log:
+      exclude:
+        - clientIdentifier
+        - messageId
+        - messagePayload
+    v4-metrics:
+      exclude:
+        - httpMethod
+    v4-message-metrics:
+      exclude:
+        - "*"
+    log:
+      exclude:
+        - "*"
+    health-check:
+      exclude:
+        - "*"
+```
+
+## Gravitee Datadog Dashboard
+
+A Datadog dashboard is a visualization tool within the Datadog platform that provides a real-time overview of the health and performance of your infrastructure and application. It lets you to track key performance indicators (KPIs), monitor trends, identify anomalies, and proactively detect problems.&#x20;
+
+Gravitee offers a pre-built Datadog dashboard that is available from the [Datadog Integrations Marketplace](https://app.datadoghq.com/integrations?search=Gravitee). To install the Gravitee Datadog Dashboard, sign in to Datadog, search for Gravitee APIM, and click Install.
+
+The Gravitee Datadog Dashboard is preconfigured to display the Datadog reporting data generated by your Gateway(s), such as information on Gateway performance and API usage. An example of the entire Gravitee Datadog Dashboard is shown below.
+
+<div data-full-width="false"><figure><img src="../../.gitbook/assets/gravitee-full-datadog-dashboard-screenshot.png" alt="" width="563"><figcaption></figcaption></figure></div>
