@@ -42,6 +42,10 @@ The [Extension Grant](../../guides/auth-protocols/oauth-2.0/extension-grants.md)
 
 Access Management version 4.9 implements a 90-day retention policy on the events table. To achieve this, a TTL (Time-to-Live) index is created for installations that use a MongoDB backend. For installations that use an RDBMS backend, a purge service runs daily, at 11:00 PM by default.&#x20;
 
+## Prompt password changed when password is expired
+
+A new option is available to require users to reset their passwords after a configurable time period has elapsed since their last reset. Upon successful login, if the password has expired, users are immediately prompted to set a new password before continuing the login flow. See the [force reset password page](../../guides/login/force-reset-password-on-expiration.md) for more details.
+
 </details>
 
 <details>

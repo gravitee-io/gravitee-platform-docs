@@ -41,3 +41,7 @@ Access Management version 4.9 implements a 90-day retention policy on the events
 {% hint style="info" %}
 The MongoDB index is created automatically on the Management API, at Gateway startup.
 {% endhint %}
+
+## Prompt password changed when password is expired
+
+A new option is available to require users to reset their passwords after a configurable time period has elapsed since their last reset. Upon successful login, if the password has expired, users are immediately prompted to set a new password before continuing the login flow. See the [force reset password page](../../guides/login/force-reset-password-on-expiration.md) for more details.
