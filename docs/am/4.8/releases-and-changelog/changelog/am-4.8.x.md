@@ -8,17 +8,17 @@ description: >-
 
 ## Gravitee Access Management 4.8.9 - October 13, 2025
 
+{% hint style="danger" %}
+Version 4.8.9 is unstable. We recommend not installing this version.
+{% endhint %}
+
 <details>
 
 <summary>Bug fixes</summary>
 
-
-
 **Management API**
 
 * Regression in the way DataPlanes are loaded in the MAPI [#10883](https://github.com/gravitee-io/issues/issues/10883)
-
-
 
 **Other**
 
@@ -26,11 +26,9 @@ description: >-
 
 </details>
 
-
 ## Gravitee Access Management 4.8.8 - October 10, 2025
 
-
-{% hint style="warning" %}
+{% hint style="danger" %}
 Version 4.8.8 is unstable. We recommend not installing this version.
 {% endhint %}
 
@@ -44,10 +42,8 @@ Version 4.8.8 is unstable. We recommend not installing this version.
 
 **Management API**
 
-* Sanitize the redirect_uri to avoid empty segment when cockpit try to connect on the console [#10805](https://github.com/gravitee-io/issues/issues/10805)
+* Sanitize the redirect\_uri to avoid empty segment when cockpit try to connect on the console [#10805](https://github.com/gravitee-io/issues/issues/10805)
 * Secrets for old applications can't be renewed [#10871](https://github.com/gravitee-io/issues/issues/10871)
-
-
 
 **Other**
 
@@ -60,7 +56,6 @@ Version 4.8.8 is unstable. We recommend not installing this version.
 * Improve logging in EnrichAuthFlowPolicy [#10875](https://github.com/gravitee-io/issues/issues/10875)
 
 </details>
-
 
 ## Gravitee Access Management 4.8.7 - September 26, 2025
 
