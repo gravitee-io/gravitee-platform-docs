@@ -15,7 +15,7 @@
 * Improved observability and debugging capabilities.
 * Execution transparency analytics provide detailed diagnostics for API execution errors and warnings.
 * MongoDB index upgrades introduce 11 new indexes to improve query performance for large datasets.
-* Elasticsearch reporter collects and stores Kafka Gateway runtime metrics for monitoring and analysis.
+* New API-level analytics dashboard for Kafka Gateway APIs.
 
 ## Breaking Changes
 
@@ -60,18 +60,18 @@
   Introduces multi-account and multi-region support for the AWS API Gateway Federation Agent. Supports StackSets and manual IAM setups with CloudFormation/ECS, enabling enterprises to discover and manage APIs across many AWS accounts and regions from APIM.
 * **Edge Stack Federation agent**\
   New Edge Stack Federation provider enables Edge Stack APIs to be discovered and governed from APIM. Once the Edge Stack integration is created, the agent can be run via Docker Compose or Helm.
-* **Kafka Cluster Management**\
+* **Kafka cluster management**\
   The APIM Console now allows users to create and manage Kafka clusters, configure cluster connection information, and manage user access and permissions.
 * **Kafka Console**\
   Introduces Gravitee Kafka Console, which integrates with APIM to provide a user interface with which to browse and manage core Kafka resources, such as topics, partitions, and consumer groups, and to produce and consume messages. Kafka Console is based on Kafbat UI and communicates with the APIM Management API through JWT-based authentication.
 * **Expose APIM as an MCP Server**\
   The Gravitee MCP Server allows AI assistants and other MCP clients to manage APIM resources. For example, clients such as Cursor or Claude Code can list APIs, view API logs, and manage subscriptions and documentation. This feature enables natural-language workflows with permissions scoped by the service account.
-* **Execution Transparency Analytics**\
+* **Execution transparency analytics**\
   Introduces execution transparency analytics that provide clear, actionable diagnostics when errors occur during API execution. This feature enables troubleshooting by exposing detailed information about the root cause of failures and warnings. Available for v4 APIs and v2 APIs running on the v4 execution engine.
-* **MongoDB Index Upgrades**\
+* **MongoDB index upgrades**\
   Introduces 11 new MongoDB indexes designed to improve query performance for large datasets.
-* **Expose Kafka Metrics to Elasticsearch**\
-  The Elasticsearch reporter collects operational metrics from Kafka API operations and stores them in Elasticsearch as time-series data. This enables real-time monitoring and analysis of Kafka API performance, message production, consumption rates, and connection patterns.&#x20;
+* **Expose Kafka analytics**\
+  Introduces a new Kafka analytics dashboard that displays operational metrics for Kafka APIs. These analytics are also stored in the Elasticsearch reporter as time series data. This enables real-time monitoring and analysis of Kafka API performance, message production, consumption rates, and connection patterns.&#x20;
 
 ## Updated features
 
