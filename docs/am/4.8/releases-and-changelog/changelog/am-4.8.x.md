@@ -6,6 +6,24 @@ description: >-
 
 # AM 4.8.x
 
+## Gravitee Access Management 4.8.10 - October 15, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+
+
+**Management API**
+
+* API client Authentication Breakes after Upgrade to 4.8.8 [#10887](https://github.com/gravitee-io/issues/issues/10887)
+
+* ApplicationClientSecretsUpgrader doesn't manage properly secret algorithms [#10887](https://github.com/gravitee-io/issues/issues/10890)
+
+
+</details>
+
+
 ## Gravitee Access Management 4.8.9 - October 13, 2025
 
 {% hint style="danger" %}
