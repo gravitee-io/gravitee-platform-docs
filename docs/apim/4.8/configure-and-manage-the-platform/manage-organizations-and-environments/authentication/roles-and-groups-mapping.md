@@ -93,7 +93,7 @@ Create a new Groups Mapping and specify the name of the group that you've alread
 
 Gravitee uses Gravitee Expression Language in the **Condition** to evaluate the specific data in the JSON returned by the IdP’s UserInfo endpoint.&#x20;
 
-In the example below, Gravitee walks the profile, which is the UserInfo endpoint's response payload, to the "my\_API\_Group" key, and then checks if its value contains "Petstore-Group."  If true, the user is added to the "Petstore-Group."
+In the following example, Gravitee checks if the value of "my_API_Group" in the UserInfo endpoint's response payload contains "Petstore-Group." If true, the user is added to the "Petstore-Group."
 
 <figure><img src="../../../.gitbook/assets/image (192).png" alt=""><figcaption><p>Group Mapping configuration</p></figcaption></figure>
 
