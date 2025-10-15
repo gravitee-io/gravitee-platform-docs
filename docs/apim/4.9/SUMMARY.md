@@ -60,6 +60,7 @@
   * [APIM 4.4.+ & Hybrid Gateways](upgrade-guides/apim-4.4.+-and-hybrid-gateways.md)
   * [Upgrade with RPM](upgrade-guides/upgrade-with-rpm.md)
   * [MongoDB Index Management](upgrade-guides/mongodb-index-management.md)
+  * [APIM 4.9 Elasticsearch Index Template Changes](upgrade-guides/apim-4.9-elasticsearch-index-template-changes.md)
 * [How-To Guides](how-to-guides/README.md)
   * [Create & Publish Your First API](how-to-guides/create-and-publish-your-first-api/README.md)
     * [Create an API](how-to-guides/create-and-publish-your-first-api/create-an-api.md)

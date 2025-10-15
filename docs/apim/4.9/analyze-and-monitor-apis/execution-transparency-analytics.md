@@ -238,7 +238,7 @@ For Example:
 
 #### Warning: Rate Limit Repository Unavailable
 
-A Rate Limit Repository Unavailable warning occurs when the rate limit repository connection is lost, but the call passes through as fallback due to Redis or other rate limit repository connection lost, and Repository temporarily down.&#x20;
+A Rate Limit Repository Unavailable warning occurs when the rate limit repository connection is lost, but the call passes through as a fallback due to Redis or other rate limit repository connection lost, and the Repository temporarily down.&#x20;
 
 Example warning:
 
@@ -250,21 +250,3 @@ Example warning:
   "componentName": "rate-limit-policy"
 }
 ```
-
-### **Template Updates**
-
-The following Elasticsearch index template fields have been added to support execution transparency analytics:
-
-**Error Component Fields**
-
-* `error-component-type`: Identifies the type of component that caused an error
-* `error-component-name`: Identifies the specific component instance that caused an error
-
-**Warnings Field** \
-A nested array structure for capturing multiple warnings per request:
-
-* `warnings.key`: Warning identifier
-* `warnings.message`: Warning description
-* `warnings.component-type`: Component type that generated the warning
-* `warnings.component-name`: Component name that generated the warning
-
