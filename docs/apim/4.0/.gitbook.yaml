@@ -1,0 +1,9 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+
+redirects:
+ 4.1/getting-started/configuration/authentication-and-sso: 4.0/getting-started/configuration/configure-authentication.md
+ 4.1/getting-started/configuration/configure-alerts-and-notifications: 4.0/getting-started/configuration/configure-notifications.md
