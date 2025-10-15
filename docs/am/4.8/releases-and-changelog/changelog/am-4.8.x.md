@@ -18,8 +18,7 @@ description: >-
 
 * API client Authentication Breakes after Upgrade to 4.8.8 [#10887](https://github.com/gravitee-io/issues/issues/10887)
 
-
-
+* ApplicationClientSecretsUpgrader doesn't manage properly secret algorithms [#10887](https://github.com/gravitee-io/issues/issues/10890)
 
 
 </details>
