@@ -36,6 +36,10 @@ api:
 
 If you want the `integration-controller` ingress to use the same host as the `management` ingress, set the same values for `hosts` and `tls` in the `integration-controller` ingress, `management` ingress, and `federation` ingress.
 
+**Elasticsearch template updates required**
+
+When you upgrade to 4.9.0, you must update Elasticsearch templates to support execution transparency analytics with error and warning component tracking. If you manage your own Elasticsearch installation, update index templates before you upgrade. Elasticsearch auto-generates templates if you do not manually update them, but this results in suboptimal field mappings. Gravitee-managed Elasticsearch or SaaS deployments update automatically.
+
 #### 4.8.0
 
 **APIM standalone components**

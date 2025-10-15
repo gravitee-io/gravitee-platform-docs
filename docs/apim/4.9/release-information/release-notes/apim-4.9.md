@@ -38,7 +38,7 @@
             nginx.ingress.kubernetes.io/proxy-read-timeout: 3600   
     ```
 * **Elasticsearch template updates required**\
-  When upgrading to 4.9.0, Elasticsearch templates must be updated to support execution transparency analytics with error and warning component tracking. If you manage your own Elasticsearch installation, update index templates before or after upgrading. Elasticsearch will auto-generate templates if not manually updated, but this may result in suboptimal field mappings. Gravitee-managed Elasticsearch or SaaS deployments will be updated automatically.
+  When you upgrade to 4.9.0, you must update Elasticsearch templates to support execution transparency analytics with error and warning component tracking. If you manage your own Elasticsearch installation, update index templates before you upgrade. Elasticsearch auto-generates templates if you do not manually update them, but this results in suboptimal field mappings. Gravitee-managed Elasticsearch or SaaS deployments update automatically.
 
 ## New Features
 
