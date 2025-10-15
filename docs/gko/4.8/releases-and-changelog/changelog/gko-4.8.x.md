@@ -1,5 +1,17 @@
 # GKO 4.8.x
 
+## Gravitee Kubernetes Operator 4.8.9 - October 15, 2025
+    
+<details>
+<summary>Bug fixes</summary>
+
+  **APIM**
+
+  * Notification settings are showing error in applications [#10879](https://github.com/gravitee-io/issues/issues/10879)
+
+</details>
+
+
 ## Gravitee Kubernetes Operator 4.8.8 - September 29, 2025
     
 <details>
