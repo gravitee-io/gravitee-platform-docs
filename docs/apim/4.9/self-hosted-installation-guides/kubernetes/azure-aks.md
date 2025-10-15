@@ -137,6 +137,7 @@ To support API definitions and configuration, you must install MongoDB into your
       --set podSecurityContext.enabled=false \
       --set containerSecurityContext.enabled=false \
       --set volumePermissions.enabled=true \
+      --set volumePermissions.image.repository=bitnamilegacy/os-shell
       --set resources.requests.memory=512Mi \
       --set resources.requests.cpu=250m
     ```
