@@ -67,7 +67,7 @@ services:
       - gravitee_integration_providers_0_configuration_clientId=${CLIENT_ID}
       - gravitee_integration_providers_0_configuration_clientSecret=${CLIENT_SECRET}
       - gravitee_integration_providers_0_configuration_rootOrganizationId=${MULESOFT_ROOT_ORG_ID}
-      # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+      # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
       # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 
