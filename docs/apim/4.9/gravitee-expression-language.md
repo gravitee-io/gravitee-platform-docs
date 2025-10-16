@@ -120,6 +120,40 @@ To extract the value of the `price` property for the book with `title` "The Lord
 
 `{#jsonPath(#request.content, "$.store.book[?(@.title=='The Lord of the Rings')].price")}`
 {% endtab %}
+
+{% tab title="Request/Response body access" %}
+You can access the request/response raw content using `{#request.content}` .
+
+However, depending on the content-type, you can have access to specific content.
+
+**JSON content**
+
+{% hint style="warning" %}
+If a JSON payload that has duplicate keys, APIM keeps the last key.&#x20;
+
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](create-and-configure-apis/apply-policies/policy-reference/json-threat-protection.md "mention").
+{% endhint %}
+
+You can access specific attribute of a JSON request/response payload with `{#request.jsonContent.foo.bar}` , where the request body is similar to the following example:
+
+```json
+{
+  "foo": {
+      "bar": "something"
+  }
+}
+```
+
+**XML content**
+
+You can access specific tag of a XML request/response payload with `{#request.xmlContent.foo.bar}` , where the request body is similar to the following example:&#x20;
+
+```xml
+<foo>
+  <bar>something</bar>
+</foo>
+```
+{% endtab %}
 {% endtabs %}
 
 ## Expression Language Assistant

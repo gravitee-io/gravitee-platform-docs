@@ -308,9 +308,19 @@ However, defining a policy or a flow condition based on the request or response 
 {% endtab %}
 
 {% tab title="Reactive engine improvements" %}
-Using the reactive execution engine, it is possible to define a condition based on the request or response body. For example, you can create a condition such as `{#request.content == 'something'}`.
+{% hint style="warning" %}
+If a JSON payload has duplicate keys, APIM keeps the last key.&#x20;
 
-Depending on the expected content type, it is also possible to define a condition based on JSON such as `{#request.jsonContent.foo.bar == 'something'}` where the request body looks like this:
+To avoid any errors because of duplicate keys, apply the JSON threat protection policy to the API. For more information about the JSON threat protection policy, see [json-threat-protection.md](../apply-policies/policy-reference/json-threat-protection.md "mention").
+{% endhint %}
+
+Using the reactive execution engine, you can access the request/response raw content using `{#request.content}` .
+
+However, depending on the content-type, you can have access to specific content.
+
+**JSON content**
+
+You can access specific attribute of a JSON request/response payload with `{#request.jsonContent.foo.bar}` , where the request body is similar to the following example:
 
 ```json
 {
@@ -320,7 +330,9 @@ Depending on the expected content type, it is also possible to define a conditio
 }
 ```
 
-The same applies to XML content using `{#request.xmlContent.foo.bar == 'something'}`:
+**XML content**
+
+You can access specific tag of a XML request/response payload with `{#request.xmlContent.foo.bar}` , where the request body is similar to the following example:&#x20;
 
 ```xml
 <foo>
