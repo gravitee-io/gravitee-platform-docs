@@ -1,6 +1,6 @@
 # APIM 4.9
 
-## Release Date: October 13, 2025
+## Release Date: October 16, 2025
 
 ## Highlights
 
