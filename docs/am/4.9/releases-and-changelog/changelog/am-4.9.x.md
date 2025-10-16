@@ -6,6 +6,53 @@ description: >-
 
 # AM 4.9.x
 
+## Gravitee Access Management 4.9.0 - October 16, 2025
+
+<details>
+
+<summary>Bug fixes</summary>
+
+**Gateway**
+
+* France Connect V2 - Review wording of error message [#10738](https://github.com/gravitee-io/issues/issues/10738)
+* Enhance idp plugin redeployment to avoid downtime [#10778](https://github.com/gravitee-io/issues/issues/10778)
+* Am Is Creating Discrepancies With the Issuer Claim (`iss`) in Generated Access Tokens [#10779](https://github.com/gravitee-io/issues/issues/10779)
+* NullPointerException upon first login with password expiration [#10780](https://github.com/gravitee-io/issues/issues/10780)
+
+**Management API**
+
+* Sanitize the redirect_uri to avoid empty segment when cockpit try to connect on the console [#10805](https://github.com/gravitee-io/issues/issues/10805)
+* AM Upgrader are failing with list of mongo servers [#10850](https://github.com/gravitee-io/issues/issues/10850)
+* Secrets for old applications can't be renewed [#10871](https://github.com/gravitee-io/issues/issues/10871)
+* Regression in the way DataPlanes are loaded in the MAPI [#10883](https://github.com/gravitee-io/issues/issues/10883)
+* API client Authentication Breakes after Upgrade to 4.8.8 [#10887](https://github.com/gravitee-io/issues/issues/10887)
+* ApplicationClientSecretsUpgrader doesn't manage properly secret algorithm [#10890](https://github.com/gravitee-io/issues/issues/10890)
+
+
+
+**Other**
+
+* Extension Grant - Allow using a JWKS URL to retrieve public keys [#10687](https://github.com/gravitee-io/issues/issues/10687)
+* [Perf] Reduce the number of threads with MongoDB Backend [#10713](https://github.com/gravitee-io/issues/issues/10713)
+* Introduce common connection pool for MongoIDP [#10719](https://github.com/gravitee-io/issues/issues/10719)
+* FreeMarker template error [#10722](https://github.com/gravitee-io/issues/issues/10722)
+* Incorrect audit log file formatting [#10757](https://github.com/gravitee-io/issues/issues/10757)
+* Closing LDAP connections properly  [#10769](https://github.com/gravitee-io/issues/issues/10769)
+* Replace Bitnami Mongo [#10789](https://github.com/gravitee-io/issues/issues/10789)
+* Issue AM update [#10801](https://github.com/gravitee-io/issues/issues/10801)
+* Error searching for users in the UI [#10808](https://github.com/gravitee-io/issues/issues/10808)
+* AWS HSM Certificate Plugin logs remain at DEBUG level despite global INFO configuration, and Helm chart indentation/mapping issue for extraLoggers. [#10824](https://github.com/gravitee-io/issues/issues/10824)
+* Limit the batchSize on Mongo Reporter request [#10846](https://github.com/gravitee-io/issues/issues/10846)
+* Add helm.sh/chart to pod template annotations [#10849](https://github.com/gravitee-io/issues/issues/10849)
+* User registration completion UI widget is broken [#10865](https://github.com/gravitee-io/issues/issues/10865)
+* Conversion session.timeout for helm value incorrect [#10867](https://github.com/gravitee-io/issues/issues/10867)
+* Improve logging in EnrichAuthFlowPolicy [#10875](https://github.com/gravitee-io/issues/issues/10875)
+* Avoid useless VertxHttpRequest creation [#10877](https://github.com/gravitee-io/issues/issues/10877)
+* Make datasource configurable using helm values [#10884](https://github.com/gravitee-io/issues/issues/10884)
+
+</details>
+
+
 #### Gravitee Access Management 4.9 - Oct 9, 2025 <a href="#gravitee-access-management-4.8" id="gravitee-access-management-4.8"></a>
 
 <details>
