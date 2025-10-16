@@ -9,6 +9,10 @@
 
   * Notification settings are showing error in applications [#10879](https://github.com/gravitee-io/issues/issues/10879)
 
+  **GKO**
+
+  * API controller does not watch group resources [#10574](https://github.com/gravitee-io/issues/issues/10574)
+
 </details>
 
 
