@@ -10,6 +10,7 @@
 * Read timeout on v4 returns 500 [#10767](https://github.com/gravitee-io/issues/issues/10767)
 * Webhook subscription is not stopped on 500 error [#10799](https://github.com/gravitee-io/issues/issues/10799)
 * EL request.xmlContent Fails with XML Declaration [#10842](https://github.com/gravitee-io/issues/issues/10842)
+* Impossible to increase backend HTTP/2 window sizes [#10852](https://github.com/gravitee-io/issues/issues/10852)
 
 **Management API**
 
