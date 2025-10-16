@@ -95,7 +95,7 @@ services:
             - gravitee_integration_providers_0_configuration_auth_username=${BASIC_AUTH_PASSWORD:-}
             - gravitee_integration_providers_0_configuration_topic_prefix=${PREFIX:-}
             - gravitee_integration_providers_0_configuration_trust_all=${TRUST_ALL:-}
-            # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+            # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
             # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 

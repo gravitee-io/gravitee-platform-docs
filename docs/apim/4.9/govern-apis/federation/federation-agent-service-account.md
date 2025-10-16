@@ -29,3 +29,9 @@ Make sure to immediately copy your new personal access token as you won’t be a
 {% endhint %}
 
 You can now use this token as part of your agent's configuration.
+
+## Gravitee Cloud Configuration
+
+If you use Next-Gen Cloud, you must create a **Cloud Token for your Federation Agent**. This token ensures that the Federation Agent service can access your cloud-based Management API. For more information about Cloud tokens, see [Cloud Tokens](https://documentation.gravitee.io/gravitee-cloud/guides/cloud-tokens).
+
+You add the Cloud token to your Federation Configuration file using the following variable: `gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}`
