@@ -1,4 +1,6 @@
-# Table of contents
+
+  
+  # Table of contents
 
 ## OVERVIEW
 
@@ -55,7 +57,8 @@
 
 ***
 <!-- start_release_notes_summary -->
-* [GKO 4.9](releases-and-changelog/release-notes/gko-4.9.md)
+* [GKO 4.10](releases-and-changelog/release-notes/gko-4.10.md)
+* [GKO 4.9](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/release-notes/gko-4.9)
 * [GKO 4.8](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.8/releases-and-changelog/release-notes/gko-4.8)
 * [GKO 4.7](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.7/releases-and-changelog/release-notes/gko-4.7)
 * [GKO 4.6](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.6/releases-and-changelog/release-notes/gko-4.6)
@@ -65,8 +68,8 @@
 <!-- end_release_notes_summary -->
 * [Changelog](releases-and-changelog/changelog/README.md)
 <!-- start_changelogs_summary -->
-* [GKO 4.9.x](gko-4.9.x.md)
-* [GKO 4.8.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.8/releases-and-changelog/changelog/gko-4.8.x)
+* [GKO 4.10.x](releases-and-changelog/changelog/gko-4.10.md)
+* [GKO 4.9.x](https://documentation.gravitee.io/gravitee-kubernetes-operator-gko/4.9/releases-and-changelog/changelog/gko-4.9.x)
 <!-- end_changelogs_summary -->
 
 ## COMMUNITY & SUPPORT
@@ -75,3 +78,5 @@
 * [Community](community-and-support/community/README.md)
   * [Support](https://community.gravitee.io/c/support/11)
   * [Announcements & Events](https://community.gravitee.io/c/announcements/5)
+    
+    
