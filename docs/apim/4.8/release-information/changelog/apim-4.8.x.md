@@ -1,5 +1,36 @@
 # APIM 4.8.x
  
+## Gravitee API Management 4.8.10 - October 17, 2025
+<details>
+
+<summary>Bug Fixes</summary>
+
+**Gateway**
+
+* Debug mode can trigger ThreadBlocked with Bridge repository [#10886](https://github.com/gravitee-io/issues/issues/10886)
+
+**Console**
+
+* Adding a policy at Org level causes a "HTTP 404 Not Found" error in UI. [#10666](https://github.com/gravitee-io/issues/issues/10666)
+
+</details>
+
+<details>
+
+<summary>Improvements</summary>
+
+**Console**
+
+* New updated API picture & background not visible without refreshing the page [#10857](https://github.com/gravitee-io/issues/issues/10857)
+
+**Helm Charts**
+
+* Gravitee Gateway removes password attribute from SSL section when password is empty string "" [#10861](https://github.com/gravitee-io/issues/issues/10861)
+
+</details>
+
+
+ 
 ## Gravitee API Management 4.8.9 - October 10, 2025
 <details>
 
