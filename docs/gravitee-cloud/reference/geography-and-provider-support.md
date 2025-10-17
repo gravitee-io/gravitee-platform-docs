@@ -21,15 +21,15 @@ Gravitee Cloud currently offers the following geography and provider support. If
 
 ### Gravitee hosted API Gateways
 
-| Provider            | Geography             | Region                        |
-| ------------------- | --------------------- | ----------------------------- |
-| Azure               | US (United States)    | Washington (westus2)          |
-| Azure               | US (United States)    | Virginia (eastus2)            |
-| Azure               | EU (Europe)           | Netherlands (westeurope)      |
-| AWS                 | US (United States)    | N. Virginia (us-east-1)       |
-| (_Coming soon) GCP_ | _US (United States)_  | _Iowa (us-central1)_          |
-| (_Coming soon) GCP_ | _EU (Europe)_         | _Frankfurt (europe-west3)_    |
-| (_Coming soon) GCP_ | _APAC (Asia-Pacific)_ | _Singapore (asia-southeast1)_ |
+| Provider | Geography           | Region                      |
+| -------- | ------------------- | --------------------------- |
+| Azure    | US (United States)  | Washington (westus2)        |
+| Azure    | US (United States)  | Virginia (eastus2)          |
+| Azure    | EU (Europe)         | Netherlands (westeurope)    |
+| AWS      | US (United States)  | N. Virginia (us-east-1)     |
+| GCP      | US (United States)  | Iowa (us-central1)          |
+| GCP      | EU (Europe)         | Frankfurt (europe-west3)    |
+| GCP      | APAC (Asia-Pacific) | Singapore (asia-southeast1) |
 
 For more information about Azure regions, go to [Microsoft Datacenters](https://datacenters.microsoft.com/globe/explore/).
 
