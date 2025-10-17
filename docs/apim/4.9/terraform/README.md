@@ -8,7 +8,7 @@ Terraform lets you use configuration files to build and manage your infrastructu
 
 You can use Terraform to interface with Gravitee much like the Gravitee Kubernetes Operator (GKO), where the CI/CD logic that calls the Gravitee Management API (mAPI) and ensures that your API was created properly is generated automatically. This is especially useful if you want to update a large number of APIs, or if you need to ensure that APIs across multiple environments are identical.
 
-The Gravitee Terraform Provider is an open source plugin that is publicly available for download from the Terraform Registry. You can use the provider to create and configure Gravitee components, which Terraform refers to as resources. Examples of Terraform resources in Gravitee are v4 APIs and Shared Policy Groups.
+The Gravitee Terraform Provider is an open source plugin that is publicly available for download from the Terraform Registry. You can use the provider to create and configure Gravitee components, which Terraform refers to as resources. Examples of Terraform resources in Gravitee are v4 APIs, Shared Policy Groups, Applications, and Subscriptions.
 
 Terraform configuration files are written in HashiCorp Configuration Language (HCL). They define the properties of providers and resources, which Terraform stores as the desired state of the system. When you update a configuration file, Terraform detects the changes to your resources and applies them automatically.
 
