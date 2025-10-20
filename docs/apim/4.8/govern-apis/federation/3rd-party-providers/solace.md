@@ -67,7 +67,7 @@ services:
       - gravitee_integration_providers_0_configuration_authToken=${SOLACE_AUTH_TOKEN}
       - gravitee_integration_providers_0_configuration_url=${SOLACE_ENDPOINT:-https://apim-production-api.solace.cloud/api/v2/apim}
       - gravitee_integration_providers_0_configuration_0_appDomains=${SOLACE_APPLICATION_0_DOMAIN:-}
-      # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+      # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
       # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 

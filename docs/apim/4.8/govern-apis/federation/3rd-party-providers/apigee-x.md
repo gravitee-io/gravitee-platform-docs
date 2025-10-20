@@ -82,7 +82,7 @@ services:
       - gravitee_integration_providers_0_configuration_developerUsername=${APIGEE_DEV_USERNAME}
       - gravitee_integration_providers_0_configuration_serviceAccountKeyInline=${SERVICE_ACCOUNT_KEY_INLINE}
       - gravitee_integration_providers_0_type=apigee
-      # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+      # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
       # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 
