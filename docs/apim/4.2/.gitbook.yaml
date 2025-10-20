@@ -943,7 +943,7 @@ redirects:
  4.7/configure-v4-apis/response-templates: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
  4.7/configure-v4-apis/user-permissions: README.md
  4.7/configure-v4-apis/version-history: README.md
- 4.7/create-apis/import-apis: guides/create-apis/import-apis/openapi-spec-import.md
+ 4.7/create-apis/import-apis: 4.2/guides/create-apis/import-apis/openapi-spec-import.md
  4.7/create-apis/overview/execution-engine: overview/gravitee-api-definitions-and-execution-engines.md
  4.7/create-apis/overview/readme: guides/create-apis/README.md
  4.7/create-apis/overview/v2-and-v4-api-comparison: README.md
