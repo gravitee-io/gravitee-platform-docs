@@ -138,7 +138,7 @@ services:
       - gravitee_integration_connector_ws_headers_0_value=Bearer ${WS_AUTH_TOKEN}
       - gravitee_integration_providers_0_integrationId=${INTEGRATION_ID}
       - gravitee_integration_providers_0_type=azure-api-management
-      # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+      # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
       # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
       # Azure APIM authentication
       - gravitee_integration_providers_0_configuration_auth_appId=${APP_ID}

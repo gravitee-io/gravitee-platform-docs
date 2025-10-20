@@ -56,7 +56,7 @@ services:
       - gravitee_integration_providers_0_configuration_secretAccessKey=${AWS_SECRET_ACCESS_KEY}
       - gravitee_integration_providers_0_configuration_region=${AWS_REGION}
       - gravitee_integration_providers_0_configuration_acceptApiWithoutUsagePlan=${ACCEPT_API_WITHOUT_USAGE_PLAN:-false}
-      # If you are using Gravitee Next-Gen Cloud, then you need to also include a Cloud Token for Federation Agent
+      # If you are using Gravitee NextGen Cloud, then you need to also include a Cloud Token for Federation Agent
       # - gravitee_cloud_token=${GRAVITEE_CLOUD_TOKEN}
 ```
 
