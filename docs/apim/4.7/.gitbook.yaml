@@ -530,7 +530,7 @@ redirects:
  4.2/guides/api-measurement-tracking-and-analytics/configure-the-dashboard-with-custom-api-analytics: README.md
  4.2/guides/api-measurement-tracking-and-analytics/readme: README.md
  4.2/guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature: README.md
- 4.2/guides/create-apis/import-apis/openapi-spec-import: create-apis/import-apis.md
+ 4.2/guides/create-apis/import-apis/openapi-spec-import: 4.7/create-apis/import-apis.md
  4.2/guides/create-apis/import-apis/readme: README.md
  4.2/guides/create-apis/readme: create-apis/overview/README.md
  4.2/guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard: create-apis/v2-api-creation-wizard.md
