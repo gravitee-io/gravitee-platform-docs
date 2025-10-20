@@ -111,21 +111,21 @@ Create an API with a fake sensitive that you secure after we make sure everythin
 6.  Click **Validate my details**. \
 
 
-    <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 7.  Select **HTTP Proxy**, and then click **Select my entrypoints**. \
 
 
-    <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 8. In the **context-path** field, type a context path. For example,  `/test/secrets/echo` .
 9.  Click **Validate my entrypoints**. \
 
 
-    <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 10. In the **Configure your API endpoints access**, complete the following sub-steps:&#x20;
     1.  In the **Target url** field, set the target URL to `https://api.gravitee.io/echo` .\
 
 
-        <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+        <figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
     2.  In HTTP Headers section, add the following values:
 
         * KEY: `Authorization`
