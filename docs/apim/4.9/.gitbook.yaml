@@ -144,7 +144,7 @@ redirects:
  4.0/overview/gravitee-api-definitions-and-execution-engines/readme: README.md
  4.0/overview/gravitee-api-definitions-and-execution-engines/timeout-management: README.md
  4.0/overview/integrations: readme/integrations.md
- 4.0/overview/plugins: plugins/README.md
+ 4.0/overview/plugins: plugins.md
  4.0/reference/gravitee-kubernetes-operator-api-reference: README.md
  4.0/reference/management-api-reference: README.md
  4.0/reference/policy-reference/api-key: create-and-configure-apis/apply-policies/policy-reference/api-key.md
@@ -368,7 +368,7 @@ redirects:
  4.1/overview/integrations/readme: readme/integrations.md
  4.1/overview/introduction-to-gravitee-api-management-apim/apim-architecture: README.md
  4.1/overview/introduction-to-gravitee-api-management-apim/plugins: plugins/README.md
- 4.1/overview/plugins: plugins/README.md
+ 4.1/overview/plugins: plugins/deployment.md
  4.1/reference/gravitee-kubernetes-operator-api-reference: README.md
  4.1/reference/policy-reference/api-key: create-and-configure-apis/apply-policies/policy-reference/api-key.md
  4.1/reference/policy-reference/assign-attributes: create-and-configure-apis/apply-policies/policy-reference/assign-attributes.md
@@ -575,7 +575,7 @@ redirects:
  4.2/overview/gravitee-api-definitions-and-execution-engines/readme: create-and-configure-apis/gravitee-api-definitions/execution-engine.md
  4.2/overview/gravitee-apim-enterprise-edition/readme: readme/enterprise-edition.md
  4.2/overview/integrations: readme/integrations.md
- 4.2/overview/plugins: plugins/README.md
+ 4.2/overview/plugins: plugins.md
  4.2/overview/release-notes/readme: README.md
  4.2/reference/endpoint-reference/kafka: create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
  4.2/reference/endpoint-reference/mqtt5: create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md
@@ -717,7 +717,7 @@ redirects:
  4.3/getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide: README.md
  4.3/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management: release-information/breaking-changes-and-deprecations.md
  4.3/getting-started/upgrading-gravitee-api-management/readme: README.md
- 4.3/guides/administration/administering-organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments/README.md
+ 4.3/guides/administration/administering-organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments.md
  4.3/guides/administration/readme: README.md
  4.3/guides/administration/support: configure-and-manage-the-platform/manage-organizations-and-environments/support.md
  4.3/guides/administration/user-management-and-permissions: configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md
@@ -740,7 +740,7 @@ redirects:
  4.3/guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq: create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq.md
  4.3/guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/readme: README.md
  4.3/guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace: create-and-configure-apis/configure-v4-apis/endpoints/solace.md
- 4.3/guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints: create-and-configure-apis/configure-v4-apis/endpoints/README.md
+ 4.3/guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints: create-and-configure-apis/configure-v4-apis/endpoints.md
  4.3/guides/api-configuration/v4-api-configuration/entrypoints/cors: create-and-configure-apis/configure-v4-apis/cors.md
  4.3/guides/api-configuration/v4-api-configuration/entrypoints/readme: README.md
  4.3/guides/api-configuration/v4-api-configuration/entrypoints/response-templates: create-and-configure-apis/configure-v4-apis/response-templates.md
@@ -750,7 +750,7 @@ redirects:
  4.3/guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/server-sent-events: README.md
  4.3/guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook: README.md
  4.3/guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket: create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md
- 4.3/guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints: create-and-configure-apis/configure-v4-apis/entrypoints/README.md
+ 4.3/guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints: create-and-configure-apis/configure-v4-apis/entrypoints.md
  4.3/guides/api-configuration/v4-api-configuration/general-info-settings: create-and-configure-apis/configure-v4-apis/general-settings.md
  4.3/guides/api-configuration/v4-api-configuration/quality-of-service: create-and-configure-apis/configure-v4-apis/quality-of-service.md
  4.3/guides/api-configuration/v4-api-configuration/readme: README.md
@@ -817,7 +817,7 @@ redirects:
  4.3/overview/gravitee-api-definitions-and-execution-engines/readme: README.md
  4.3/overview/gravitee-apim-enterprise-edition/readme: readme/enterprise-edition.md
  4.3/overview/integrations: readme/integrations.md
- 4.3/overview/plugins: plugins/README.md
+ 4.3/overview/plugins: plugins.md
  4.3/overview/release-notes/readme: README.md
  4.3/reference/endpoint-reference/kafka: create-and-configure-apis/configure-v4-apis/endpoints/kafka.md
  4.3/reference/endpoint-reference/mqtt5: create-and-configure-apis/configure-v4-apis/endpoints/mqtt5.md
@@ -944,7 +944,7 @@ redirects:
  4.4/overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/readme: README.md
  4.4/overview/plugins-and-api-definitions-for-gravitee-api-management/readme: README.md
  4.4/overview/release-notes/readme: README.md
- 4.4/using-the-product/administration/administering-organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments/README.md
+ 4.4/using-the-product/administration/administering-organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments.md
  4.4/using-the-product/administration/support: configure-and-manage-the-platform/manage-organizations-and-environments/support.md
  4.4/using-the-product/administration/user-management-and-permissions: configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/applications: configure-and-manage-the-platform/manage-organizations-and-environments/applications.md
@@ -982,7 +982,7 @@ redirects:
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq: create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/readme: README.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/solace: create-and-configure-apis/configure-v4-apis/endpoints/solace.md
- 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-proxy-api-endpoints: create-and-configure-apis/configure-v4-apis/endpoints/README.md
+ 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-proxy-api-endpoints: create-and-configure-apis/configure-v4-apis/endpoints.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/cors: create-and-configure-apis/configure-v4-apis/cors.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/readme: README.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/response-templates: create-and-configure-apis/configure-v4-apis/response-templates.md
@@ -992,7 +992,7 @@ redirects:
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-message-api-entrypoints/server-sent-events: README.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook: README.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket: create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md
- 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints: create-and-configure-apis/configure-v4-apis/entrypoints/README.md
+ 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints: create-and-configure-apis/configure-v4-apis/entrypoints.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/general-info-settings: create-and-configure-apis/configure-v4-apis/general-settings.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/quality-of-service: create-and-configure-apis/configure-v4-apis/quality-of-service.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/readme: README.md
@@ -1071,7 +1071,7 @@ redirects:
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xml-to-json: create-and-configure-apis/apply-policies/policy-reference/xml-to-json.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xml-validation: create-and-configure-apis/apply-policies/policy-reference/xml-validation.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xslt: create-and-configure-apis/apply-policies/policy-reference/xslt.md
- 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policy-reference: create-and-configure-apis/apply-policies/README.md
+ 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policy-reference: create-and-configure-apis/apply-policies.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/readme: README.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v2-api-policy-studio: create-and-configure-apis/apply-policies/v2-api-policy-studio.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v4-api-policy-studio: create-and-configure-apis/apply-policies/v4-api-policy-studio.md
@@ -1169,7 +1169,7 @@ redirects:
  4.5/overview/readme/overview: README.md
  4.5/overview/release-notes/readme: README.md
  4.5/reference/management-api-reference: management-api-reference.md
- 4.5/using-the-product/administration/administering-organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments/README.md
+ 4.5/using-the-product/administration/administering-organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments.md
  4.5/using-the-product/administration/authentication/authentication-providers: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers.md
  4.5/using-the-product/administration/authentication/azure-ad-entra-id: README.md
  4.5/using-the-product/administration/authentication/azure-regions-for-saas-and-hybrid-deployments: README.md
@@ -1181,7 +1181,7 @@ redirects:
  4.5/using-the-product/administration/support: configure-and-manage-the-platform/manage-organizations-and-environments/support.md
  4.5/using-the-product/administration/user-management-and-permissions: configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md
  4.5/using-the-product/federating-your-apis/3rd-party-providers/apigee-x: govern-apis/federation/3rd-party-providers/apigee-x.md
- 4.5/using-the-product/federating-your-apis/3rd-party-providers/aws-api-gateway: govern-apis/federation/3rd-party-providers/aws-api-gateway/README.md
+ 4.5/using-the-product/federating-your-apis/3rd-party-providers/aws-api-gateway: govern-apis/federation/3rd-party-providers/aws-api-gateway.md
  4.5/using-the-product/federating-your-apis/3rd-party-providers/azure-api-management: govern-apis/federation/3rd-party-providers/azure-api-management.md
  4.5/using-the-product/federating-your-apis/3rd-party-providers/confluent-platform: govern-apis/federation/3rd-party-providers/confluent-platform.md
  4.5/using-the-product/federating-your-apis/3rd-party-providers/ibm-api-connect: govern-apis/federation/3rd-party-providers/ibm-api-connect.md
@@ -1216,7 +1216,7 @@ redirects:
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq: create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/readme: README.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace: create-and-configure-apis/configure-v4-apis/endpoints/solace.md
- 4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints: create-and-configure-apis/configure-v4-apis/endpoints/README.md
+ 4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints: create-and-configure-apis/configure-v4-apis/endpoints.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/cors: create-and-configure-apis/configure-v4-apis/cors.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/entrypoint-reference/readme: README.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/entrypoint-reference/server-sent-events: create-and-configure-apis/configure-v4-apis/entrypoints/server-sent-events.md
@@ -1229,7 +1229,7 @@ redirects:
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/server-sent-events: README.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook: README.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket: create-and-configure-apis/configure-v4-apis/entrypoints/websocket.md
- 4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints: create-and-configure-apis/configure-v4-apis/entrypoints/README.md
+ 4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints: create-and-configure-apis/configure-v4-apis/entrypoints.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/general-info-settings: create-and-configure-apis/configure-v4-apis/general-settings.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service: create-and-configure-apis/configure-v4-apis/quality-of-service.md
  4.5/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/readme: README.md
@@ -1311,7 +1311,7 @@ redirects:
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-to-json: create-and-configure-apis/apply-policies/policy-reference/xml-to-json.md
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-validation: create-and-configure-apis/apply-policies/policy-reference/xml-validation.md
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xslt: create-and-configure-apis/apply-policies/policy-reference/xslt.md
- 4.5/using-the-product/managing-your-apis/policy-studio/policy-reference: create-and-configure-apis/apply-policies/README.md
+ 4.5/using-the-product/managing-your-apis/policy-studio/policy-reference: create-and-configure-apis/apply-policies.md
  4.5/using-the-product/managing-your-apis/policy-studio/readme: README.md
  4.5/using-the-product/managing-your-apis/policy-studio/v2-api-policy-studio: create-and-configure-apis/apply-policies/v2-api-policy-studio.md
  4.5/using-the-product/managing-your-apis/policy-studio/v4-api-policy-studio: create-and-configure-apis/apply-policies/v4-api-policy-studio.md
@@ -1383,7 +1383,7 @@ redirects:
  4.6/administration/authentication/readme: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md
  4.6/administration/authentication/roles-and-groups-mapping: README.md
  4.6/administration/authentication/social-providers: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers.md
- 4.6/administration/organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments/README.md
+ 4.6/administration/organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments.md
  4.6/administration/user-management: configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md
  4.6/api-analytics/api-quality: analyze-and-monitor-apis/api-quality.md
  4.6/api-analytics/audit-trail: analyze-and-monitor-apis/audit-trail.md
@@ -1434,7 +1434,7 @@ redirects:
  4.6/configure-v4-apis/user-permissions: create-and-configure-apis/configure-v4-apis/user-permissions.md
  4.6/configure-v4-apis/version-history: create-and-configure-apis/configure-v4-apis/version-history.md
  4.6/create-apis/import-apis: create-and-configure-apis/create-apis/import-apis.md
- 4.6/create-apis/overview: create-and-configure-apis/gravitee-api-definitions/README.md
+ 4.6/create-apis/overview: create-and-configure-apis/gravitee-api-definitions.md
  4.6/create-apis/v2-and-v4-api-comparison: create-and-configure-apis/gravitee-api-definitions/v2-and-v4-api-comparison.md
  4.6/create-apis/v2-api-creation-wizard: create-and-configure-apis/create-apis/v2-api-creation-wizard.md
  4.6/create-apis/v4-api-creation-wizard: create-and-configure-apis/create-apis/v4-api-creation-wizard.md
@@ -1451,7 +1451,7 @@ redirects:
  4.6/expose-apis/applications/readme: kafka-gateway/applications.md
  4.6/expose-apis/applications/subscriptions: README.md
  4.6/expose-apis/applications/user-and-group-access: README.md
- 4.6/expose-apis/overview: secure-and-expose-apis/README.md
+ 4.6/expose-apis/overview: secure-and-expose-apis.md
  4.6/expose-apis/plans/api-key: secure-and-expose-apis/plans/api-key.md
  4.6/expose-apis/plans/jwt: secure-and-expose-apis/plans/jwt.md
  4.6/expose-apis/plans/keyless: secure-and-expose-apis/plans/keyless.md
@@ -1461,7 +1461,7 @@ redirects:
  4.6/expose-apis/plans/readme: secure-and-expose-apis/plans/README.md
  4.6/expose-apis/subscriptions: kafka-gateway/subscriptions.md
  4.6/federation/3rd-party-providers/apigee-x: govern-apis/federation/3rd-party-providers/apigee-x.md
- 4.6/federation/3rd-party-providers/aws-api-gateway: govern-apis/federation/3rd-party-providers/aws-api-gateway/README.md
+ 4.6/federation/3rd-party-providers/aws-api-gateway: govern-apis/federation/3rd-party-providers/aws-api-gateway.md
  4.6/federation/3rd-party-providers/azure-api-management: govern-apis/federation/3rd-party-providers/azure-api-management.md
  4.6/federation/3rd-party-providers/confluent-platform: govern-apis/federation/3rd-party-providers/confluent-platform.md
  4.6/federation/3rd-party-providers/ibm-api-connect: govern-apis/federation/3rd-party-providers/ibm-api-connect.md
@@ -1471,7 +1471,7 @@ redirects:
  4.6/federation/federated-apis: govern-apis/federation/federated-apis.md
  4.6/federation/federation-agent-service-account: govern-apis/federation/federation-agent-service-account.md
  4.6/federation/integrations: govern-apis/federation/integrations.md
- 4.6/federation/overview: govern-apis/federation/README.md
+ 4.6/federation/overview: govern-apis/federation.md
  4.6/getting-started/gravitee-expression-language: gravitee-expression-language.md
  4.6/getting-started/integrations: readme/integrations.md
  4.6/getting-started/plugins/customization: plugins/customization.md
@@ -1554,7 +1554,7 @@ redirects:
  4.6/policies/custom-policies: create-and-configure-apis/apply-policies/custom-policies.md
  4.6/policies/oauth2/generic-oauth2-authorization-server: create-and-configure-apis/apply-policies/policy-reference/oauth2/generic-oauth2-authorization-server.md
  4.6/policies/oauth2/gravitee.io-am-authorization-server: create-and-configure-apis/apply-policies/policy-reference/oauth2/gravitee.io-am-authorization-server.md
- 4.6/policies/overview: create-and-configure-apis/apply-policies/README.md
+ 4.6/policies/overview: create-and-configure-apis/apply-policies.md
  4.6/policies/policy-reference/readme: create-and-configure-apis/apply-policies/policy-reference/README.md
  4.6/policies/resources: create-and-configure-apis/apply-policies/resources.md
  4.6/policies/shared-policy-groups: create-and-configure-apis/apply-policies/shared-policy-groups.md
@@ -1568,7 +1568,7 @@ redirects:
  4.7/administration/authentication/readme: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/README.md
  4.7/administration/authentication/roles-and-groups-mapping: README.md
  4.7/administration/authentication/social-providers: configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers.md
- 4.7/administration/organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments/README.md
+ 4.7/administration/organizations-and-environments: configure-and-manage-the-platform/manage-organizations-and-environments.md
  4.7/administration/user-management: configure-and-manage-the-platform/manage-organizations-and-environments/user-management.md
  4.7/api-analytics/api-quality: analyze-and-monitor-apis/api-quality.md
  4.7/api-analytics/audit-trail: analyze-and-monitor-apis/audit-trail.md
@@ -1633,7 +1633,7 @@ redirects:
  4.7/expose-apis/applications/readme: kafka-gateway/applications.md
  4.7/expose-apis/applications/subscriptions: README.md
  4.7/expose-apis/applications/user-and-group-access: README.md
- 4.7/expose-apis/overview: secure-and-expose-apis/README.md
+ 4.7/expose-apis/overview: secure-and-expose-apis.md
  4.7/expose-apis/plans/api-key: secure-and-expose-apis/plans/api-key.md
  4.7/expose-apis/plans/jwt: secure-and-expose-apis/plans/jwt.md
  4.7/expose-apis/plans/keyless: secure-and-expose-apis/plans/keyless.md
@@ -1662,7 +1662,7 @@ redirects:
  4.7/governance/api-score/types-of-assets: govern-apis/api-score/types-of-assets.md
  4.7/governance/api-score/view-api-scores: govern-apis/api-score/view-api-scores.md
  4.7/governance/federation/3rd-party-providers/apigee-x: govern-apis/federation/3rd-party-providers/apigee-x.md
- 4.7/governance/federation/3rd-party-providers/aws-api-gateway: govern-apis/federation/3rd-party-providers/aws-api-gateway/README.md
+ 4.7/governance/federation/3rd-party-providers/aws-api-gateway: govern-apis/federation/3rd-party-providers/aws-api-gateway.md
  4.7/governance/federation/3rd-party-providers/azure-api-management: govern-apis/federation/3rd-party-providers/azure-api-management.md
  4.7/governance/federation/3rd-party-providers/confluent-platform: govern-apis/federation/3rd-party-providers/confluent-platform.md
  4.7/governance/federation/3rd-party-providers/ibm-api-connect: govern-apis/federation/3rd-party-providers/ibm-api-connect.md
@@ -1738,7 +1738,7 @@ redirects:
  4.7/kafka-gateway/configure-kafka-apis/readme: kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/README.md
  4.7/kafka-gateway/configure-the-kafka-gateway-and-client: kafka-gateway/configure-the-kafka-client-and-gateway.md
  4.7/kafka-gateway/create-kafka-apis: kafka-gateway/create-and-configure-kafka-apis/create-kafka-apis.md
- 4.7/kafka-gateway/overview: kafka-gateway/README.md
+ 4.7/kafka-gateway/overview: kafka-gateway.md
  4.7/management-api/management-api-reference: management-api-reference.md
  4.7/management-api/management-settings: configure-and-manage-the-platform/management-api/settings.md
  4.7/management-api/mapi-internal-api: configure-and-manage-the-platform/management-api/mapi-internal-api.md
@@ -1753,7 +1753,7 @@ redirects:
  4.7/policies/custom-policies: create-and-configure-apis/apply-policies/custom-policies.md
  4.7/policies/oauth2/generic-oauth2-authorization-server: create-and-configure-apis/apply-policies/policy-reference/oauth2/generic-oauth2-authorization-server.md
  4.7/policies/oauth2/gravitee.io-am-authorization-server: create-and-configure-apis/apply-policies/policy-reference/oauth2/gravitee.io-am-authorization-server.md
- 4.7/policies/overview: create-and-configure-apis/apply-policies/README.md
+ 4.7/policies/overview: create-and-configure-apis/apply-policies.md
  4.7/policies/policy-reference/readme: create-and-configure-apis/apply-policies/policy-reference/README.md
  4.7/policies/resources: create-and-configure-apis/apply-policies/resources.md
  4.7/policies/shared-policy-groups: create-and-configure-apis/apply-policies/shared-policy-groups.md

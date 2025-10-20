@@ -7,17 +7,17 @@ structure:
 redirects:
  4.0/community-and-support/enterprise-support: overview/gravitee-apim-enterprise-edition/enterprise-support.md
  4.0/getting-started/configuration/configure-a-production-ready-apim-environment: using-the-product/production-ready-apim-environment/authentication.md
- 4.0/getting-started/configuration/configure-apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console/README.md
+ 4.0/getting-started/configuration/configure-apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console.md
  4.0/getting-started/configuration/configure-apim-developer-portal: README.md
  4.0/getting-started/configuration/configure-apim-gateway/dictionaries: using-the-product/using-the-gravitee-api-management-components/general-configuration/dictionaries.md
- 4.0/getting-started/configuration/configure-apim-gateway/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md
+ 4.0/getting-started/configuration/configure-apim-gateway/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration.md
  4.0/getting-started/configuration/configure-apim-gateway/internal-api: using-the-product/using-the-gravitee-api-management-components/general-configuration/internal-api.md
  4.0/getting-started/configuration/configure-apim-gateway/logging: README.md
  4.0/getting-started/configuration/configure-apim-gateway/opentracing: README.md
  4.0/getting-started/configuration/configure-apim-gateway/readme: README.md
  4.0/getting-started/configuration/configure-apim-gateway/sharding-tags: using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags.md
  4.0/getting-started/configuration/configure-apim-gateway/tenants: using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants.md
- 4.0/getting-started/configuration/configure-apim-management-api/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/README.md
+ 4.0/getting-started/configuration/configure-apim-management-api/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration-1.md
  4.0/getting-started/configuration/configure-apim-management-api/internal-api: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/internal-api.md
  4.0/getting-started/configuration/configure-apim-management-api/logging: README.md
  4.0/getting-started/configuration/configure-apim-management-api/readme: README.md
@@ -205,13 +205,13 @@ redirects:
  4.1/getting-started/configuration/configure-a-production-ready-apim-environment: using-the-product/production-ready-apim-environment/authentication.md
  4.1/getting-started/configuration/configure-alerts-and-notifications: using-the-product/using-the-gravitee-api-management-components/apim-console/notifications.md
  4.1/getting-started/configuration/configure-apim-developer-portal: README.md
- 4.1/getting-started/configuration/configure-apim-management-api/internal-api: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/README.md
+ 4.1/getting-started/configuration/configure-apim-management-api/internal-api: using-the-product/using-the-gravitee-api-management-components/general-configuration-1.md
  4.1/getting-started/configuration/configure-apim-management-api/internal-api-1: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/internal-api.md
  4.1/getting-started/configuration/configure-apim-management-api/logging: using-the-product/using-the-gravitee-api-management-components/general-configuration/logging.md
  4.1/getting-started/configuration/configure-apim-management-api/readme: README.md
  4.1/getting-started/configuration/configure-apim-management-api/security: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/security.md
  4.1/getting-started/configuration/configure-apim-management-api/user-and-management-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/user-and-management-configuration.md
- 4.1/getting-started/configuration/configure-apim-management-ui: using-the-product/using-the-gravitee-api-management-components/apim-console/README.md
+ 4.1/getting-started/configuration/configure-apim-management-ui: using-the-product/using-the-gravitee-api-management-components/apim-console.md
  4.1/getting-started/configuration/configure-authentication/connect-with-google: README.md
  4.1/getting-started/configuration/configure-authentication/connect-with-gravitee.io-access-management: README.md
  4.1/getting-started/configuration/configure-cache: configuration/cache.md
@@ -227,7 +227,7 @@ redirects:
  4.1/getting-started/configuration/readme: README.md
  4.1/getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries: using-the-product/using-the-gravitee-api-management-components/general-configuration/dictionaries.md
  4.1/getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways: using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags.md
- 4.1/getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file: using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md
+ 4.1/getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file: using-the-product/using-the-gravitee-api-management-components/general-configuration.md
  4.1/getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api: using-the-product/using-the-gravitee-api-management-components/general-configuration/internal-api.md
  4.1/getting-started/configuration/the-gravitee-api-gateway/logging: using-the-product/using-the-gravitee-api-management-components/general-configuration/logging.md
  4.1/getting-started/configuration/the-gravitee-api-gateway/opentracing: README.md
@@ -420,9 +420,9 @@ redirects:
  4.1/releases-and-changelog/changelog/readme: overview/changelog/README.md
  4.1/releases-and-changelog/release-notes/readme: overview/release-notes/README.md
  4.2/community-and-support/enterprise-support: overview/gravitee-apim-enterprise-edition/enterprise-support.md
- 4.2/getting-started/configuration/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console/README.md
+ 4.2/getting-started/configuration/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console.md
  4.2/getting-started/configuration/apim-developer-portal: README.md
- 4.2/getting-started/configuration/apim-management-api/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/README.md
+ 4.2/getting-started/configuration/apim-management-api/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration-1.md
  4.2/getting-started/configuration/apim-management-api/internal-api-1: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/internal-api.md
  4.2/getting-started/configuration/apim-management-api/readme: README.md
  4.2/getting-started/configuration/apim-management-api/security: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/security.md
@@ -443,7 +443,7 @@ redirects:
  4.2/getting-started/configuration/secret-providers: configuration/secret-providers.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/dictionaries: using-the-product/using-the-gravitee-api-management-components/general-configuration/dictionaries.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api: using-the-product/using-the-gravitee-api-management-components/general-configuration/internal-api.md
- 4.2/getting-started/configuration/the-gravitee-api-gateway/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md
+ 4.2/getting-started/configuration/the-gravitee-api-gateway/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/logging: using-the-product/using-the-gravitee-api-management-components/general-configuration/logging.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/opentracing: README.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/readme: README.md
@@ -624,17 +624,17 @@ redirects:
  4.2/reference/policy-reference/xml-validation: using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xml-validation.md
  4.2/reference/policy-reference/xslt: using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xslt.md
  4.3/community-and-support/enterprise-support: overview/gravitee-apim-enterprise-edition/enterprise-support.md
- 4.3/getting-started/configuration/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console/README.md
+ 4.3/getting-started/configuration/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console.md
  4.3/getting-started/configuration/apim-developer-portal: using-the-product/using-the-gravitee-api-management-components/developer-portal-101/configuring-and-customizing-the-gravitee-developer-portal/apim-developer-portal.md
  4.3/getting-started/configuration/apim-gateway/dictionaries: using-the-product/using-the-gravitee-api-management-components/general-configuration/dictionaries.md
- 4.3/getting-started/configuration/apim-gateway/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md
+ 4.3/getting-started/configuration/apim-gateway/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration.md
  4.3/getting-started/configuration/apim-gateway/internal-api: using-the-product/using-the-gravitee-api-management-components/general-configuration/internal-api.md
  4.3/getting-started/configuration/apim-gateway/logging: using-the-product/using-the-gravitee-api-management-components/general-configuration/logging.md
  4.3/getting-started/configuration/apim-gateway/opentracing: using-the-product/using-the-gravitee-api-management-components/general-configuration/opentracing.md
  4.3/getting-started/configuration/apim-gateway/readme: README.md
  4.3/getting-started/configuration/apim-gateway/sharding-tags: using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags.md
  4.3/getting-started/configuration/apim-gateway/tenants: using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants.md
- 4.3/getting-started/configuration/apim-management-api/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/README.md
+ 4.3/getting-started/configuration/apim-management-api/general-configuration: using-the-product/using-the-gravitee-api-management-components/general-configuration-1.md
  4.3/getting-started/configuration/apim-management-api/internal-api: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/internal-api.md
  4.3/getting-started/configuration/apim-management-api/readme: README.md
  4.3/getting-started/configuration/apim-management-api/security: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/security.md
@@ -1074,12 +1074,12 @@ redirects:
  4.6/api-analytics/api-quality: using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
  4.6/api-analytics/audit-trail: using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/audit-trail.md
  4.6/api-analytics/dashboards: using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/create-a-dashboard.md
- 4.6/community/community-forum: community-and-support/community/README.md
+ 4.6/community/community-forum: community-and-support/community.md
  4.6/community/contribute-to-apim: community-and-support/developer-contributions.md
- 4.6/configure-apim/apim-components/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console/README.md
+ 4.6/configure-apim/apim-components/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console.md
  4.6/configure-apim/apim-components/developer-portal: README.md
- 4.6/configure-apim/apim-components/gravitee-gateway: using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md
- 4.6/configure-apim/apim-components/management-api: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/README.md
+ 4.6/configure-apim/apim-components/gravitee-gateway: using-the-product/using-the-gravitee-api-management-components/general-configuration.md
+ 4.6/configure-apim/apim-components/management-api: using-the-product/using-the-gravitee-api-management-components/general-configuration-1.md
  4.6/configure-apim/apim-components/readme: using-the-product/using-the-gravitee-api-management-components/configuration.md
  4.6/configure-apim/cache: configuration/cache.md
  4.6/configure-apim/repositories/elasticsearch: configuration/repositories/elasticsearch.md
@@ -1119,7 +1119,7 @@ redirects:
  4.6/configure-v4-apis/response-templates: using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/response-templates.md
  4.6/configure-v4-apis/user-permissions: using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/user-permissions.md
  4.6/configure-v4-apis/version-history: using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/version-history.md
- 4.6/create-apis/overview: using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/README.md
+ 4.6/create-apis/overview: using-the-product/managing-your-apis-with-gravitee-api-management/create-apis.md
  4.6/create-apis/v2-and-v4-api-comparison: README.md
  4.6/create-apis/v2-api-creation-wizard: using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md
  4.6/create-apis/v4-api-creation-wizard: README.md
@@ -1136,7 +1136,7 @@ redirects:
  4.6/expose-apis/applications/readme: README.md
  4.6/expose-apis/applications/subscriptions: README.md
  4.6/expose-apis/applications/user-and-group-access: README.md
- 4.6/expose-apis/overview: using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/README.md
+ 4.6/expose-apis/overview: using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions.md
  4.6/expose-apis/plans/api-key: README.md
  4.6/expose-apis/plans/jwt: README.md
  4.6/expose-apis/plans/keyless: README.md
@@ -1232,7 +1232,7 @@ redirects:
  4.6/management-api/user-settings: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/user-and-management-configuration.md
  4.6/overview/architecture: README.md
  4.6/overview/changelog/apim-4.6.x: overview/changelog/apim-4.4.x.md
- 4.6/overview/enterprise-edition: overview/gravitee-apim-enterprise-edition/README.md
+ 4.6/overview/enterprise-edition: overview/gravitee-apim-enterprise-edition.md
  4.6/overview/execution-engine: overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/engine-comparisons.md
  4.6/overview/support: using-the-product/administration/support.md
  4.6/policies/custom-policies: using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/custom-policies.md
@@ -1257,12 +1257,12 @@ redirects:
  4.7/api-analytics/api-quality: using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
  4.7/api-analytics/audit-trail: using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/audit-trail.md
  4.7/api-analytics/dashboards: using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/create-a-dashboard.md
- 4.7/community/community-forum: community-and-support/community/README.md
+ 4.7/community/community-forum: community-and-support/community.md
  4.7/community/contribute-to-apim: community-and-support/developer-contributions.md
- 4.7/configure-apim/apim-components/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console/README.md
+ 4.7/configure-apim/apim-components/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console.md
  4.7/configure-apim/apim-components/developer-portal: README.md
- 4.7/configure-apim/apim-components/gravitee-gateway: using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md
- 4.7/configure-apim/apim-components/management-api: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/README.md
+ 4.7/configure-apim/apim-components/gravitee-gateway: using-the-product/using-the-gravitee-api-management-components/general-configuration.md
+ 4.7/configure-apim/apim-components/management-api: using-the-product/using-the-gravitee-api-management-components/general-configuration-1.md
  4.7/configure-apim/apim-components/readme: using-the-product/using-the-gravitee-api-management-components/configuration.md
  4.7/configure-apim/cache: configuration/cache.md
  4.7/configure-apim/repositories/elasticsearch: configuration/repositories/elasticsearch.md
@@ -1326,7 +1326,7 @@ redirects:
  4.7/expose-apis/applications/readme: README.md
  4.7/expose-apis/applications/subscriptions: README.md
  4.7/expose-apis/applications/user-and-group-access: README.md
- 4.7/expose-apis/overview: using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/README.md
+ 4.7/expose-apis/overview: using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions.md
  4.7/expose-apis/plans/api-key: README.md
  4.7/expose-apis/plans/jwt: README.md
  4.7/expose-apis/plans/keyless: README.md
@@ -1443,7 +1443,7 @@ redirects:
  4.7/management-api/user-settings: using-the-product/using-the-gravitee-api-management-components/general-configuration-1/user-and-management-configuration.md
  4.7/overview/architecture: README.md
  4.7/overview/changelog/apim-4.7.x: overview/changelog/apim-4.4.x.md
- 4.7/overview/enterprise-edition: overview/gravitee-apim-enterprise-edition/README.md
+ 4.7/overview/enterprise-edition: overview/gravitee-apim-enterprise-edition.md
  4.7/overview/support: using-the-product/administration/support.md
  4.7/policies/custom-policies: using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/custom-policies.md
  4.7/policies/oauth2/generic-oauth2-authorization-server: using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/oauth2/generic-oauth2-authorization-server.md
@@ -1479,7 +1479,7 @@ redirects:
  4.8/configure-and-manage-the-platform/gravitee-gateway/services: README.md
  4.8/configure-and-manage-the-platform/gravitee-gateway/sharding-tags: README.md
  4.8/configure-and-manage-the-platform/gravitee-gateway/tenants: using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants.md
- 4.8/configure-and-manage-the-platform/manage-organizations-and-environments/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console/README.md
+ 4.8/configure-and-manage-the-platform/manage-organizations-and-environments/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console.md
  4.8/configure-and-manage-the-platform/manage-organizations-and-environments/applications: using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/applications.md
  4.8/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers: configuration/authentication/authentication-providers.md
  4.8/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management: configuration/authentication/gravitee-am-authentication.md
@@ -1696,10 +1696,10 @@ redirects:
  4.8/hybrid-installation-and-configuration-guides/next-gen-cloud/readme: README.md
  4.8/hybrid-installation-and-configuration-guides/next-gen-cloud/rpm: README.md
  4.8/hybrid-installation-and-configuration-guides/readme: README.md
- 4.8/introduction/community-forum: community-and-support/community/README.md
+ 4.8/introduction/community-forum: community-and-support/community.md
  4.8/introduction/contribute-to-apim: community-and-support/developer-contributions.md
  4.8/introduction/core-concepts: README.md
- 4.8/introduction/enterprise-edition: overview/gravitee-apim-enterprise-edition/README.md
+ 4.8/introduction/enterprise-edition: overview/gravitee-apim-enterprise-edition.md
  4.8/introduction/integrations: overview/integrations.md
  4.8/kafka-gateway/applications: README.md
  4.8/kafka-gateway/configure-the-kafka-client-and-gateway: README.md
@@ -1724,7 +1724,7 @@ redirects:
  4.8/plugins/customization: overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/custom-plugins.md
  4.8/plugins/deployment: overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md
  4.8/prepare-a-production-environment/cache: configuration/cache.md
- 4.8/prepare-a-production-environment/configure-your-http-server: using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md
+ 4.8/prepare-a-production-environment/configure-your-http-server: using-the-product/using-the-gravitee-api-management-components/general-configuration.md
  4.8/prepare-a-production-environment/gateway-resource-sizing-guidelines: using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning.md
  4.8/prepare-a-production-environment/production-best-practices/authentication: using-the-product/production-ready-apim-environment/authentication.md
  4.8/prepare-a-production-environment/production-best-practices/deployments: README.md
@@ -1821,7 +1821,7 @@ redirects:
  4.9/configure-and-manage-the-platform/gravitee-gateway/services: README.md
  4.9/configure-and-manage-the-platform/gravitee-gateway/sharding-tags: README.md
  4.9/configure-and-manage-the-platform/gravitee-gateway/tenants: using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants.md
- 4.9/configure-and-manage-the-platform/manage-organizations-and-environments/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console/README.md
+ 4.9/configure-and-manage-the-platform/manage-organizations-and-environments/apim-console: using-the-product/using-the-gravitee-api-management-components/apim-console.md
  4.9/configure-and-manage-the-platform/manage-organizations-and-environments/applications: using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/applications.md
  4.9/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers: configuration/authentication/authentication-providers.md
  4.9/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management: configuration/authentication/gravitee-am-authentication.md
@@ -2060,7 +2060,7 @@ redirects:
  4.9/plugins/customization: overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/custom-plugins.md
  4.9/plugins/deployment: overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins.md
  4.9/prepare-a-production-environment/cache: configuration/cache.md
- 4.9/prepare-a-production-environment/configure-your-http-server: using-the-product/using-the-gravitee-api-management-components/general-configuration/README.md
+ 4.9/prepare-a-production-environment/configure-your-http-server: using-the-product/using-the-gravitee-api-management-components/general-configuration.md
  4.9/prepare-a-production-environment/gateway-resource-sizing-guidelines: using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning.md
  4.9/prepare-a-production-environment/production-best-practices/authentication: using-the-product/production-ready-apim-environment/authentication.md
  4.9/prepare-a-production-environment/production-best-practices/deployments: README.md
@@ -2082,10 +2082,10 @@ redirects:
  4.9/prepare-a-production-environment/repositories/readme: README.md
  4.9/prepare-a-production-environment/repositories/redis: configuration/repositories/redis.md
  4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations: README.md
- 4.9/readme/community-forum: community-and-support/community/README.md
+ 4.9/readme/community-forum: community-and-support/community.md
  4.9/readme/contribute-to-apim: community-and-support/developer-contributions.md
  4.9/readme/core-concepts: README.md
- 4.9/readme/enterprise-edition: overview/gravitee-apim-enterprise-edition/README.md
+ 4.9/readme/enterprise-edition: overview/gravitee-apim-enterprise-edition.md
  4.9/readme/integrations: overview/integrations.md
  4.9/release-information/breaking-changes-and-deprecations: installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md
  4.9/release-information/changelog/readme: overview/changelog/README.md

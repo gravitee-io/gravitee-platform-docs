@@ -16,7 +16,7 @@ redirects:
  4.0/getting-started/configuration/configure-apim-gateway/tenants: getting-started/configuration/the-gravitee-api-gateway/tenants.md
  4.0/getting-started/configuration/configure-apim-management-api/general-configuration: getting-started/configuration/configure-apim-management-api/internal-api.md
  4.0/getting-started/configuration/configure-notifications: getting-started/configuration/configure-alerts-and-notifications.md
- 4.0/getting-started/install-and-upgrade-guides/4.0-upgrade-guide: getting-started/install-guides/installation-guide-migration/README.md
+ 4.0/getting-started/install-and-upgrade-guides/4.0-upgrade-guide: getting-started/install-guides/installation-guide-migration.md
  4.0/getting-started/install-and-upgrade-guides/breaking-changes-and-deprecated-functionality-for-api-management: getting-started/install-guides/breaking-changes-and-deprecated-functionality-for-api-management.md
  4.0/getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/apim-components-installation: getting-started/install-guides/install-on-amazon/manual-install/apim-components-installation.md
  4.0/getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/apim-full-stack-installation: getting-started/install-guides/install-on-amazon/manual-install/gravitee-components.md
@@ -32,7 +32,7 @@ redirects:
  4.0/getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration: getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md
  4.0/getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview: getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md
  4.0/getting-started/install-and-upgrade-guides/install-on-kubernetes/readme: getting-started/install-guides/install-on-kubernetes/README.md
- 4.0/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation: getting-started/install-guides/install-on-red-hat-and-centos/apim-components/README.md
+ 4.0/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation: getting-started/install-guides/install-on-red-hat-and-centos/apim-components.md
  4.0/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-full-stack-installation: getting-started/install-guides/install-on-red-hat-and-centos/install-the-full-apim-stack.md
  4.0/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/readme: getting-started/install-guides/install-on-red-hat-and-centos/README.md
  4.0/getting-started/install-and-upgrade-guides/install-with-.zip: getting-started/install-guides/install-with-.zip.md
@@ -81,7 +81,7 @@ redirects:
  4.2/getting-started/configuration/the-gravitee-api-gateway/dictionaries: getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/general-configuration: getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/sharding-tags: getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md
- 4.2/getting-started/install-and-upgrade-guides/4.2-upgrade-guide: getting-started/install-guides/installation-guide-migration/README.md
+ 4.2/getting-started/install-and-upgrade-guides/4.2-upgrade-guide: getting-started/install-guides/installation-guide-migration.md
  4.2/getting-started/install-and-upgrade-guides/breaking-changes-and-deprecated-functionality-for-api-management: getting-started/install-guides/breaking-changes-and-deprecated-functionality-for-api-management.md
  4.2/getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/apim-components-installation: getting-started/install-guides/install-on-amazon/manual-install/apim-components-installation.md
  4.2/getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/apim-full-stack-installation: getting-started/install-guides/install-on-amazon/manual-install/gravitee-components.md
@@ -97,7 +97,7 @@ redirects:
  4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration: getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md
  4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview: getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator.md
  4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/readme: getting-started/install-guides/install-on-kubernetes/README.md
- 4.2/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation: getting-started/install-guides/install-on-red-hat-and-centos/apim-components/README.md
+ 4.2/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation: getting-started/install-guides/install-on-red-hat-and-centos/apim-components.md
  4.2/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-full-stack-installation: getting-started/install-guides/install-on-red-hat-and-centos/install-the-full-apim-stack.md
  4.2/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/readme: getting-started/install-guides/install-on-red-hat-and-centos/README.md
  4.2/getting-started/install-and-upgrade-guides/install-with-.zip: getting-started/install-guides/install-with-.zip.md
@@ -202,7 +202,7 @@ redirects:
  4.3/getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/apim-full-stack-installation: getting-started/install-guides/install-on-amazon/manual-install/gravitee-components.md
  4.3/getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/prerequisites: getting-started/install-guides/install-on-amazon/manual-install/prerequisites.md
  4.3/getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/readme: getting-started/install-guides/install-on-amazon/manual-install/README.md
- 4.3/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation: getting-started/install-guides/install-on-red-hat-and-centos/apim-components/README.md
+ 4.3/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation: getting-started/install-guides/install-on-red-hat-and-centos/apim-components.md
  4.3/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-full-stack-installation: getting-started/install-guides/install-on-red-hat-and-centos/install-the-full-apim-stack.md
  4.3/getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/readme: getting-started/install-guides/install-on-red-hat-and-centos/README.md
  4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-amazon/readme: README.md
@@ -218,7 +218,7 @@ redirects:
  4.3/getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/readme: README.md
  4.3/getting-started/install-and-upgrade-guides/multi-tenancy: README.md
  4.3/getting-started/install-and-upgrade-guides/readme: README.md
- 4.3/getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide: getting-started/install-guides/installation-guide-migration/README.md
+ 4.3/getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide: getting-started/install-guides/installation-guide-migration.md
  4.3/getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management: getting-started/install-guides/breaking-changes-and-deprecated-functionality-for-api-management.md
  4.3/getting-started/upgrading-gravitee-api-management/readme: README.md
  4.3/guides/administration/administering-organizations-and-environments: README.md
@@ -301,7 +301,7 @@ redirects:
  4.3/reference/policy-reference/html-to-json: reference/policy-reference/interrupt.md
  4.3/reference/policy-reference/metrics-reporter: README.md
  4.3/reference/policy-reference/url-rewriting: reference/policy-reference/rest-to-soap.md
- 4.4/community-and-support/developer-contributions: guides/developer-contributions/README.md
+ 4.4/community-and-support/developer-contributions: guides/developer-contributions.md
  4.4/configuration/authentication/authentication-providers: README.md
  4.4/configuration/authentication/azure-ad-entra-id: README.md
  4.4/configuration/authentication/azure-regions-for-saas-and-hybrid-deployments: README.md
@@ -331,14 +331,14 @@ redirects:
  4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/quick-install-with-docker-compose: README.md
  4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/readme: README.md
  4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes: getting-started/install-guides/install-on-kubernetes/configure-helm-chart.md
- 4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-red-hat-and-centos: getting-started/install-guides/install-on-red-hat-and-centos/README.md
+ 4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-red-hat-and-centos: getting-started/install-guides/install-on-red-hat-and-centos.md
  4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-with-.zip: README.md
  4.4/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/readme: README.md
  4.4/installation-and-upgrades/install-gravitee-api-management/multi-tenancy: README.md
  4.4/installation-and-upgrades/install-gravitee-api-management/readme: README.md
  4.4/installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management: getting-started/install-guides/breaking-changes-and-deprecated-functionality-for-api-management.md
  4.4/installation-and-upgrades/upgrading-gravitee-api-management/readme: README.md
- 4.4/installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide: getting-started/install-guides/installation-guide-migration/README.md
+ 4.4/installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide: getting-started/install-guides/installation-guide-migration.md
  4.4/installation-and-upgrades/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages: README.md
  4.4/overview/changelog/apim-4.4.x: README.md
  4.4/overview/changelog/readme: releases-and-changelog/changelog/README.md
@@ -480,7 +480,7 @@ redirects:
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xml-to-json: reference/policy-reference/xml-to-json.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xml-validation: reference/policy-reference/xml-validation.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xslt: reference/policy-reference/xslt.md
- 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policy-reference: reference/policy-reference/README.md
+ 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policy-reference: reference/policy-reference.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/readme: README.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v2-api-policy-studio: README.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v4-api-policy-studio: README.md
@@ -529,12 +529,12 @@ redirects:
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/plans-and-policies-101: README.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/readme: README.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/readme: getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md
- 4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/configuring-reporters-for-gravitee-api-management: getting-started/configuration/configure-reporters/README.md
+ 4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/configuring-reporters-for-gravitee-api-management: getting-started/configuration/configure-reporters.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/formats: getting-started/configuration/configure-reporters/formats.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags: getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants: getting-started/configuration/the-gravitee-api-gateway/tenants.md
  4.4/using-the-product/using-the-gravitee-api-management-components/readme: README.md
- 4.5/community-and-support/community/contributing-to-the-gravitee-api-management-developement: guides/developer-contributions/README.md
+ 4.5/community-and-support/community/contributing-to-the-gravitee-api-management-developement: guides/developer-contributions.md
  4.5/community-and-support/contributing-to-the-gravitee-api-management-developement: guides/developer-contributions/README.md
  4.5/installation-and-upgrades/advanced-hybrid-deployment/gateway-and-bridge-compatibility-versions: README.md
  4.5/installation-and-upgrades/advanced-hybrid-deployment/readme: README.md
@@ -558,7 +558,7 @@ redirects:
  4.5/installation-and-upgrades/repositories/redis: getting-started/configuration/configure-repositories/redis.md
  4.5/installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management: getting-started/install-guides/breaking-changes-and-deprecated-functionality-for-api-management.md
  4.5/installation-and-upgrades/upgrading-gravitee-api-management/readme: README.md
- 4.5/installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide: getting-started/install-guides/installation-guide-migration/README.md
+ 4.5/installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide: getting-started/install-guides/installation-guide-migration.md
  4.5/installation-and-upgrades/upgrading-gravitee-api-management/upgrading-gravitee-api-management-installed-with-rpm-packages: README.md
  4.5/overview/changelog/apim-4.5.x: README.md
  4.5/overview/changelog/readme: releases-and-changelog/changelog/README.md
@@ -717,7 +717,7 @@ redirects:
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-to-json: reference/policy-reference/xml-to-json.md
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-validation: reference/policy-reference/xml-validation.md
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xslt: reference/policy-reference/xslt.md
- 4.5/using-the-product/managing-your-apis/policy-studio/policy-reference: reference/policy-reference/README.md
+ 4.5/using-the-product/managing-your-apis/policy-studio/policy-reference: reference/policy-reference.md
  4.5/using-the-product/managing-your-apis/policy-studio/readme: README.md
  4.5/using-the-product/managing-your-apis/policy-studio/v2-api-policy-studio: README.md
  4.5/using-the-product/managing-your-apis/policy-studio/v4-api-policy-studio: README.md
@@ -794,8 +794,8 @@ redirects:
  4.6/api-analytics/api-quality: README.md
  4.6/api-analytics/audit-trail: README.md
  4.6/api-analytics/dashboards: README.md
- 4.6/community/community-forum: community-and-support/community/README.md
- 4.6/community/contribute-to-apim: guides/developer-contributions/README.md
+ 4.6/community/community-forum: community-and-support/community.md
+ 4.6/community/contribute-to-apim: guides/developer-contributions.md
  4.6/configure-apim/apim-components/apim-console: getting-started/configuration/configure-apim-management-ui.md
  4.6/configure-apim/apim-components/developer-portal: README.md
  4.6/configure-apim/apim-components/gravitee-gateway: getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md
@@ -879,7 +879,7 @@ redirects:
  4.6/federation/integrations: README.md
  4.6/federation/overview: README.md
  4.6/getting-started/gravitee-expression-language: guides/policy-design/gravitee-expression-language.md
- 4.6/getting-started/integrations: overview/integrations/README.md
+ 4.6/getting-started/integrations: overview/integrations.md
  4.6/getting-started/plugins/customization: README.md
  4.6/getting-started/plugins/deployment: overview/plugins.md
  4.6/getting-started/plugins/readme: overview/plugins.md
@@ -908,7 +908,7 @@ redirects:
  4.6/gravitee-gateway/reporters/elasticsearch-reporter: README.md
  4.6/gravitee-gateway/reporters/file-reporter: README.md
  4.6/gravitee-gateway/reporters/readme: README.md
- 4.6/gravitee-gateway/reporters/tcp-reporter: getting-started/configuration/configure-reporters/README.md
+ 4.6/gravitee-gateway/reporters/tcp-reporter: getting-started/configuration/configure-reporters.md
  4.6/gravitee-gateway/sharding-tags: getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways.md
  4.6/gravitee-gateway/tenants: getting-started/configuration/the-gravitee-api-gateway/tenants.md
  4.6/hybrid-deployment/fluentd: README.md
@@ -933,7 +933,7 @@ redirects:
  4.6/install-and-upgrade/rpm/readme: README.md
  4.6/install-and-upgrade/rpm/troubleshooting: README.md
  4.6/install-and-upgrade/rpm/upgrade-with-rpm: README.md
- 4.6/install-and-upgrade/upgrade-guide: getting-started/install-guides/installation-guide-migration/README.md
+ 4.6/install-and-upgrade/upgrade-guide: getting-started/install-guides/installation-guide-migration.md
  4.6/kafka-gateway/applications: README.md
  4.6/kafka-gateway/configure-kafka-apis/configuration: README.md
  4.6/kafka-gateway/configure-kafka-apis/consumers: README.md
@@ -957,14 +957,14 @@ redirects:
  4.6/overview/architecture: overview/apim-architecture.md
  4.6/overview/changelog/apim-4.6.x: README.md
  4.6/overview/changelog/readme: releases-and-changelog/changelog/README.md
- 4.6/overview/enterprise-edition: overview/ee-vs-oss/README.md
+ 4.6/overview/enterprise-edition: overview/ee-vs-oss.md
  4.6/overview/execution-engine: README.md
  4.6/overview/release-notes/readme: releases-and-changelog/release-notes/README.md
  4.6/overview/support: guides/administration/support.md
  4.6/policies/custom-policies: README.md
  4.6/policies/oauth2/generic-oauth2-authorization-server: reference/policy-reference/oauth2/generic-oauth2-authorization-server.md
  4.6/policies/oauth2/gravitee.io-am-authorization-server: reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md
- 4.6/policies/overview: reference/policy-reference/README.md
+ 4.6/policies/overview: reference/policy-reference.md
  4.6/policies/policy-reference/readme: README.md
  4.6/policies/resources: guides/api-configuration/resources.md
  4.6/policies/shared-policy-groups: README.md
@@ -983,8 +983,8 @@ redirects:
  4.7/api-analytics/api-quality: README.md
  4.7/api-analytics/audit-trail: README.md
  4.7/api-analytics/dashboards: README.md
- 4.7/community/community-forum: community-and-support/community/README.md
- 4.7/community/contribute-to-apim: guides/developer-contributions/README.md
+ 4.7/community/community-forum: community-and-support/community.md
+ 4.7/community/contribute-to-apim: guides/developer-contributions.md
  4.7/configure-apim/apim-components/apim-console: getting-started/configuration/configure-apim-management-ui.md
  4.7/configure-apim/apim-components/developer-portal: README.md
  4.7/configure-apim/apim-components/gravitee-gateway: getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file.md
@@ -1063,7 +1063,7 @@ redirects:
  4.7/expose-apis/plans/readme: README.md
  4.7/expose-apis/subscriptions: README.md
  4.7/getting-started/gravitee-expression-language: guides/policy-design/gravitee-expression-language.md
- 4.7/getting-started/integrations: overview/integrations/README.md
+ 4.7/getting-started/integrations: overview/integrations.md
  4.7/getting-started/plugins/customization: README.md
  4.7/getting-started/plugins/deployment: overview/plugins.md
  4.7/getting-started/plugins/readme: overview/plugins.md
@@ -1104,7 +1104,7 @@ redirects:
  4.7/gravitee-gateway/reporters/elasticsearch-reporter: README.md
  4.7/gravitee-gateway/reporters/file-reporter: README.md
  4.7/gravitee-gateway/reporters/readme: README.md
- 4.7/gravitee-gateway/reporters/tcp-reporter: getting-started/configuration/configure-reporters/README.md
+ 4.7/gravitee-gateway/reporters/tcp-reporter: getting-started/configuration/configure-reporters.md
  4.7/gravitee-gateway/sharding-tags: README.md
  4.7/gravitee-gateway/tenants: getting-started/configuration/the-gravitee-api-gateway/tenants.md
  4.7/hybrid-deployment/fluentd: README.md
@@ -1144,7 +1144,7 @@ redirects:
  4.7/install-and-upgrade/rpm/readme: README.md
  4.7/install-and-upgrade/rpm/troubleshooting: README.md
  4.7/install-and-upgrade/rpm/upgrade-with-rpm: README.md
- 4.7/install-and-upgrade/upgrade-guide: getting-started/install-guides/installation-guide-migration/README.md
+ 4.7/install-and-upgrade/upgrade-guide: getting-started/install-guides/installation-guide-migration.md
  4.7/kafka-gateway/applications: README.md
  4.7/kafka-gateway/configure-kafka-apis/configuration: README.md
  4.7/kafka-gateway/configure-kafka-apis/consumers: README.md
@@ -1171,13 +1171,13 @@ redirects:
  4.7/overview/architecture: overview/apim-architecture.md
  4.7/overview/changelog/apim-4.7.x: README.md
  4.7/overview/changelog/readme: releases-and-changelog/changelog/README.md
- 4.7/overview/enterprise-edition: overview/ee-vs-oss/README.md
+ 4.7/overview/enterprise-edition: overview/ee-vs-oss.md
  4.7/overview/release-notes/readme: releases-and-changelog/release-notes/README.md
  4.7/overview/support: guides/administration/support.md
  4.7/policies/custom-policies: README.md
  4.7/policies/oauth2/generic-oauth2-authorization-server: reference/policy-reference/oauth2/generic-oauth2-authorization-server.md
  4.7/policies/oauth2/gravitee.io-am-authorization-server: reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md
- 4.7/policies/overview: reference/policy-reference/README.md
+ 4.7/policies/overview: reference/policy-reference.md
  4.7/policies/policy-reference/readme: README.md
  4.7/policies/resources: guides/api-configuration/resources.md
  4.7/policies/shared-policy-groups: README.md
@@ -1197,7 +1197,7 @@ redirects:
  4.8/analyze-and-monitor-apis/reporters/elasticsearch-reporter: README.md
  4.8/analyze-and-monitor-apis/reporters/file-reporter: README.md
  4.8/analyze-and-monitor-apis/reporters/readme: README.md
- 4.8/analyze-and-monitor-apis/reporters/tcp-reporter: getting-started/configuration/configure-reporters/README.md
+ 4.8/analyze-and-monitor-apis/reporters/tcp-reporter: getting-started/configuration/configure-reporters.md
  4.8/configure-and-manage-the-platform/gravitee-gateway/alerts: getting-started/configuration/configure-alerts-and-notifications.md
  4.8/configure-and-manage-the-platform/gravitee-gateway/dictionaries: getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md
  4.8/configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api: getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md
@@ -1425,11 +1425,11 @@ redirects:
  4.8/hybrid-installation-and-configuration-guides/next-gen-cloud/readme: README.md
  4.8/hybrid-installation-and-configuration-guides/next-gen-cloud/rpm: README.md
  4.8/hybrid-installation-and-configuration-guides/readme: README.md
- 4.8/introduction/community-forum: community-and-support/community/README.md
- 4.8/introduction/contribute-to-apim: guides/developer-contributions/README.md
+ 4.8/introduction/community-forum: community-and-support/community.md
+ 4.8/introduction/contribute-to-apim: guides/developer-contributions.md
  4.8/introduction/core-concepts: README.md
- 4.8/introduction/enterprise-edition: overview/ee-vs-oss/README.md
- 4.8/introduction/integrations: overview/integrations/README.md
+ 4.8/introduction/enterprise-edition: overview/ee-vs-oss.md
+ 4.8/introduction/integrations: overview/integrations.md
  4.8/kafka-gateway/applications: README.md
  4.8/kafka-gateway/configure-the-kafka-client-and-gateway: README.md
  4.8/kafka-gateway/create-and-configure-kafka-apis/configure-kafka-apis/configuration: README.md
@@ -1539,7 +1539,7 @@ redirects:
  4.9/analyze-and-monitor-apis/reporters/elasticsearch-reporter: README.md
  4.9/analyze-and-monitor-apis/reporters/file-reporter: README.md
  4.9/analyze-and-monitor-apis/reporters/readme: README.md
- 4.9/analyze-and-monitor-apis/reporters/tcp-reporter: getting-started/configuration/configure-reporters/README.md
+ 4.9/analyze-and-monitor-apis/reporters/tcp-reporter: getting-started/configuration/configure-reporters.md
  4.9/configure-and-manage-the-platform/gravitee-gateway/alerts: getting-started/configuration/configure-alerts-and-notifications.md
  4.9/configure-and-manage-the-platform/gravitee-gateway/dictionaries: getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries.md
  4.9/configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api: getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api.md
@@ -1811,11 +1811,11 @@ redirects:
  4.9/prepare-a-production-environment/repositories/readme: README.md
  4.9/prepare-a-production-environment/repositories/redis: getting-started/configuration/configure-repositories/redis.md
  4.9/prepare-a-production-environment/sensitive-data-management/configure-secrets/reference-secrets-in-configurations: README.md
- 4.9/readme/community-forum: community-and-support/community/README.md
- 4.9/readme/contribute-to-apim: guides/developer-contributions/README.md
+ 4.9/readme/community-forum: community-and-support/community.md
+ 4.9/readme/contribute-to-apim: guides/developer-contributions.md
  4.9/readme/core-concepts: README.md
- 4.9/readme/enterprise-edition: overview/ee-vs-oss/README.md
- 4.9/readme/integrations: overview/integrations/README.md
+ 4.9/readme/enterprise-edition: overview/ee-vs-oss.md
+ 4.9/readme/integrations: overview/integrations.md
  4.9/release-information/breaking-changes-and-deprecations: getting-started/install-guides/breaking-changes-and-deprecated-functionality-for-api-management.md
  4.9/release-information/changelog/readme: releases-and-changelog/changelog/README.md
  4.9/release-information/readme: README.md
