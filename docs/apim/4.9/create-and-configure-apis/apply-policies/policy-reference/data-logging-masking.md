@@ -11,7 +11,7 @@ If you enable logging on APIs, you can use the `data-logging-masking` policy to 
 {% hint style="info" %}
 **When using V2 APIs:** Place the `data-logging-masking` policy last in both the request and response flows. Putting it at the end ensures that any other policy altering the content is well caught and properly masked in the logs.
 
-**When using For V4 APIs:** Data masking is automatically operated just before the reporting phase, so manual positioning is not required.
+**When using V4 APIs:** Data masking is automatically operated just before the reporting phase, so manual positioning is not required.
 {% endhint %}
 
 ## Examples
