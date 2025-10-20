@@ -9,7 +9,9 @@
 If you enable logging on APIs, you can use the `data-logging-masking` policy to configure rules to conceal sensitive data. You can use `json-path`, `xml-path` or a regular expression to identify the information to hide.
 
 {% hint style="info" %}
-The `data-logging-masking` policy must be the last to run. Don’t forget to add it in final position on both the request and the response.
+**When using V2 APIs:** Place the `data-logging-masking` policy last in both the request and response flows. Putting it at the end ensures that any other policy altering the content is well caught and properly masked in the logs.
+
+**When using For V4 APIs:** Data masking is automatically operated just before the reporting phase, so manual positioning is not required.
 {% endhint %}
 
 ## Examples
