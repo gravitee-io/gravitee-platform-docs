@@ -72,8 +72,6 @@ redirects:
  4.0/overview/gravitee-api-definitions-and-execution-engines/policy-execution: README.md
  4.0/overview/gravitee-api-definitions-and-execution-engines/timeout-management: README.md
  4.0/reference/policy-reference/avro-json: reference/policy-reference/avro-to-json.md
- 4.0/reference/policy-reference/interrupt: reference/policy-reference/html-to-json.md
- 4.0/reference/policy-reference/rest-to-soap: reference/policy-reference/url-rewriting.md
  4.0/releases-and-changelog/changelog/apim-4.0.x: README.md
  4.0/releases-and-changelog/changelog/readme: overview/changelog/README.md
  4.0/releases-and-changelog/release-notes/readme: overview/release-notes/README.md
@@ -128,12 +126,10 @@ redirects:
  4.1/getting-started/install-guides/install-on-kubernetes/configure-helm-chart: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md
  4.1/getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md
  4.1/getting-started/install-guides/install-on-kubernetes/readme: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/README.md
- 4.1/getting-started/install-guides/install-on-red-hat-and-centos/apim-components: getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation.md
  4.1/getting-started/install-guides/install-on-red-hat-and-centos/apim-components/readme: getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation.md
  4.1/getting-started/install-guides/install-on-red-hat-and-centos/install-the-full-apim-stack: getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-full-stack-installation.md
  4.1/getting-started/install-guides/install-on-red-hat-and-centos/readme: getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/README.md
  4.1/getting-started/install-guides/install-with-.zip: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-with-.zip.md
- 4.1/getting-started/install-guides/installation-guide-migration: getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide.md
  4.1/getting-started/install-guides/installation-guide-migration/readme: getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide.md
  4.1/getting-started/install-guides/readme: README.md
  4.1/guides/administration/authentication-and-sso: README.md
@@ -143,7 +139,7 @@ redirects:
  4.1/guides/api-configuration/v2-api-configuration/api-general-settings: README.md
  4.1/guides/api-configuration/v2-api-configuration/api-general-settings (1): README.md
  4.1/guides/api-configuration/v2-api-configuration/api-general-settings-1: README.md
- 4.1/guides/api-configuration/v2-api-configuration/configure-cors: guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md
+ 4.1/guides/api-configuration/v2-api-configuration/configure-cors: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
  4.1/guides/api-configuration/v2-api-configuration/configure-service-discovery: README.md
  4.1/guides/api-configuration/v4-api-configuration/api-general-settings: README.md
  4.1/guides/api-configuration/v4-api-configuration/configure-user-and-group-access: README.md
@@ -195,13 +191,10 @@ redirects:
  4.1/overview/introduction-to-gravitee-api-management-apim/apim-architecture: overview/apim-architecture/README.md
  4.1/overview/introduction-to-gravitee-api-management-apim/plugins: overview/plugins.md
  4.1/reference/policy-reference/avro-json: reference/policy-reference/avro-to-json.md
- 4.1/reference/policy-reference/interrupt: reference/policy-reference/html-to-json.md
- 4.1/reference/policy-reference/rest-to-soap: reference/policy-reference/url-rewriting.md
  4.1/releases-and-changelog/changelog/apim-4.1.x: README.md
  4.1/releases-and-changelog/changelog/readme: overview/changelog/README.md
  4.1/releases-and-changelog/release-notes/readme: overview/release-notes/README.md
  4.2/getting-started/configuration/apim-management-api/internal-api-1: getting-started/configuration/apim-management-api/internal-api.md
- 4.2/getting-started/configuration/production-ready-apim-environment: getting-started/configuration/production-ready-apim-environment/authentication.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/dictionaries: getting-started/configuration/apim-gateway/dictionaries.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api: getting-started/configuration/apim-gateway/internal-api.md
  4.2/getting-started/configuration/the-gravitee-api-gateway/general-configuration: getting-started/configuration/apim-gateway/general-configuration.md
@@ -226,7 +219,6 @@ redirects:
  4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md
  4.2/getting-started/install-and-upgrade-guides/install-on-kubernetes/readme: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/README.md
  4.2/getting-started/install-and-upgrade-guides/install-with-.zip: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-with-.zip.md
- 4.2/guides/api-configuration/v2-api-configuration/general-proxy-settings: guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md
  4.2/guides/api-configuration/v4-api-configuration/endpoint-configuration/v4-message-api-endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
  4.2/guides/api-configuration/v4-api-configuration/user-and-group-access: README.md
  4.2/guides/api-measurement-tracking-and-analytics/configure-and-use-api-logging: README.md
@@ -235,8 +227,651 @@ redirects:
  4.2/guides/gravitee-kubernetes-operator/installation/helm: guides/gravitee-kubernetes-operator/installation.md
  4.2/overview/changelog/apim-4.2.x: overview/changelog/apim-4.3.x.md
  4.2/overview/gravitee-api-definitions-and-execution-engines/message-flow-control: README.md
- 4.2/reference/policy-reference/interrupt: reference/policy-reference/html-to-json.md
- 4.2/reference/policy-reference/rest-to-soap: reference/policy-reference/url-rewriting.md
+ 4.3/administration/applications: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ 4.3/administration/authentication/authentication-providers: getting-started/configuration/authentication/authentication-providers.md
+ 4.3/administration/authentication/azure-entra-id: getting-started/configuration/authentication/azure-ad-entra-id.md
+ 4.3/administration/authentication/gravitee-access-management: getting-started/configuration/authentication/gravitee-am-authentication.md
+ 4.3/administration/authentication/openid-connect: getting-started/configuration/authentication/custom-oauth2-openid-authorization-server.md
+ 4.3/administration/authentication/social-providers: getting-started/configuration/authentication/social-providers.md
+ 4.3/administration/organizations-and-environments: guides/administration/administering-organizations-and-environments.md
+ 4.3/administration/user-management: guides/administration/user-management-and-permissions.md
+ 4.3/analyze-and-monitor-apis/api-quality: guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
+ 4.3/analyze-and-monitor-apis/audit-trail: guides/api-measurement-tracking-and-analytics/audit-trail.md
+ 4.3/analyze-and-monitor-apis/dashboards: guides/api-measurement-tracking-and-analytics/create-a-dashboard.md
+ 4.3/analyze-and-monitor-apis/logging: getting-started/configuration/apim-gateway/logging.md
+ 4.3/analyze-and-monitor-apis/reporters/tcp-reporter: getting-started/configuration/reporters.md
+ 4.3/api-analytics/api-quality: guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
+ 4.3/api-analytics/audit-trail: guides/api-measurement-tracking-and-analytics/audit-trail.md
+ 4.3/api-analytics/dashboards: guides/api-measurement-tracking-and-analytics/create-a-dashboard.md
+ 4.3/community-and-support/community/contributing-to-the-gravitee-api-management-developement: guides/developer-contributions.md
+ 4.3/community-and-support/developer-contributions: guides/developer-contributions.md
+ 4.3/community/community-forum: community-and-support/community.md
+ 4.3/community/contribute-to-apim: guides/developer-contributions.md
+ 4.3/configuration/authentication/authentication-providers: getting-started/configuration/authentication/authentication-providers.md
+ 4.3/configuration/authentication/azure-ad-entra-id: getting-started/configuration/authentication/azure-ad-entra-id.md
+ 4.3/configuration/authentication/custom-oauth2-openid-authorization-server: getting-started/configuration/authentication/custom-oauth2-openid-authorization-server.md
+ 4.3/configuration/authentication/gravitee-am-authentication: getting-started/configuration/authentication/gravitee-am-authentication.md
+ 4.3/configuration/authentication/social-providers: getting-started/configuration/authentication/social-providers.md
+ 4.3/configuration/cache: getting-started/configuration/cache.md
+ 4.3/configuration/http-reverse-proxy: getting-started/configuration/http-reverse-proxy.md
+ 4.3/configuration/repositories/elasticsearch: getting-started/configuration/repositories/elasticsearch.md
+ 4.3/configuration/repositories/jdbc: getting-started/configuration/repositories/jdbc.md
+ 4.3/configuration/repositories/mongodb: getting-started/configuration/repositories/mongodb.md
+ 4.3/configuration/repositories/redis: getting-started/configuration/repositories/redis.md
+ 4.3/configuration/secret-providers: getting-started/configuration/secret-providers.md
+ 4.3/configure-and-manage-the-platform/gravitee-gateway/alerts: getting-started/configuration/notifications.md
+ 4.3/configure-and-manage-the-platform/gravitee-gateway/dictionaries: getting-started/configuration/apim-gateway/dictionaries.md
+ 4.3/configure-and-manage-the-platform/gravitee-gateway/gateway-internal-api: getting-started/configuration/apim-gateway/internal-api.md
+ 4.3/configure-and-manage-the-platform/gravitee-gateway/notifications: getting-started/configuration/notifications.md
+ 4.3/configure-and-manage-the-platform/gravitee-gateway/tenants: getting-started/configuration/apim-gateway/tenants.md
+ 4.3/configure-and-manage-the-platform/manage-organizations-and-environments: guides/administration/administering-organizations-and-environments.md
+ 4.3/configure-and-manage-the-platform/manage-organizations-and-environments/apim-console: getting-started/configuration/apim-console.md
+ 4.3/configure-and-manage-the-platform/manage-organizations-and-environments/applications: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ 4.3/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers: getting-started/configuration/authentication/authentication-providers.md
+ 4.3/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/gravitee-access-management: getting-started/configuration/authentication/gravitee-am-authentication.md
+ 4.3/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/openid-connect: getting-started/configuration/authentication/custom-oauth2-openid-authorization-server.md
+ 4.3/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/social-providers: getting-started/configuration/authentication/social-providers.md
+ 4.3/configure-and-manage-the-platform/manage-organizations-and-environments/support: guides/administration/support.md
+ 4.3/configure-and-manage-the-platform/manage-organizations-and-environments/user-management: guides/administration/user-management-and-permissions.md
+ 4.3/configure-and-manage-the-platform/management-api/mapi-internal-api: getting-started/configuration/apim-management-api/internal-api.md
+ 4.3/configure-and-manage-the-platform/management-api/settings: getting-started/configuration/apim-management-api/user-and-management-configuration.md
+ 4.3/configure-apim/apim-components/apim-console: getting-started/configuration/apim-console.md
+ 4.3/configure-apim/apim-components/gravitee-gateway: getting-started/configuration/apim-gateway/general-configuration.md
+ 4.3/configure-apim/apim-components/management-api: getting-started/configuration/apim-management-api/general-configuration.md
+ 4.3/configure-apim/cache: getting-started/configuration/cache.md
+ 4.3/configure-apim/repositories/elasticsearch: getting-started/configuration/repositories/elasticsearch.md
+ 4.3/configure-apim/repositories/jdbc: getting-started/configuration/repositories/jdbc.md
+ 4.3/configure-apim/repositories/mongodb: getting-started/configuration/repositories/mongodb.md
+ 4.3/configure-apim/repositories/redis: getting-started/configuration/repositories/redis.md
+ 4.3/configure-v2-apis/documentation: guides/api-configuration/v2-api-configuration/documentation.md
+ 4.3/configure-v2-apis/general-settings: guides/api-configuration/v2-api-configuration/general-info-settings.md
+ 4.3/configure-v2-apis/load-balancing-failover-and-health-checks: guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md
+ 4.3/configure-v2-apis/proxy-settings: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
+ 4.3/configure-v2-apis/service-discovery: guides/api-configuration/v2-api-configuration/service-discovery.md
+ 4.3/configure-v2-apis/user-and-group-access: guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md
+ 4.3/configure-v4-apis/audit-logs: guides/api-configuration/v4-api-configuration/audit-logs.md
+ 4.3/configure-v4-apis/cors: guides/api-configuration/v4-api-configuration/entrypoints/cors.md
+ 4.3/configure-v4-apis/documentation: guides/api-configuration/v4-api-configuration/documentation.md
+ 4.3/configure-v4-apis/endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
+ 4.3/configure-v4-apis/endpoints/kafka: reference/endpoint-reference/kafka.md
+ 4.3/configure-v4-apis/endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
+ 4.3/configure-v4-apis/endpoints/mqtt5: reference/endpoint-reference/mqtt5.md
+ 4.3/configure-v4-apis/endpoints/rabbitmq: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md
+ 4.3/configure-v4-apis/endpoints/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
+ 4.3/configure-v4-apis/entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
+ 4.3/configure-v4-apis/entrypoints/server-sent-events: reference/entrypoint-reference/server-sent-events.md
+ 4.3/configure-v4-apis/entrypoints/webhook: reference/entrypoint-reference/webhook.md
+ 4.3/configure-v4-apis/entrypoints/websocket: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket.md
+ 4.3/configure-v4-apis/general-settings: guides/api-configuration/v4-api-configuration/general-info-settings.md
+ 4.3/configure-v4-apis/health-checks: guides/api-configuration/v4-api-configuration/endpoints/health-check.md
+ 4.3/configure-v4-apis/quality-of-service: guides/api-configuration/v4-api-configuration/quality-of-service.md
+ 4.3/configure-v4-apis/response-templates: guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md
+ 4.3/configure-v4-apis/user-permissions: guides/api-configuration/v4-api-configuration/user-permissions.md
+ 4.3/configure-v4-apis/version-history: guides/api-configuration/v4-api-configuration/version-history.md
+ 4.3/create-and-configure-apis/apply-policies/custom-policies: guides/developer-contributions/custom-policies.md
+ 4.3/create-and-configure-apis/apply-policies/debug-mode: guides/policy-studio/v2-api-policy-studio.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/api-key: reference/policy-reference/api-key.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/assign-attributes: reference/policy-reference/assign-attributes.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/assign-metrics: reference/policy-reference/assign-metrics.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/avro-to-json: reference/policy-reference/avro-to-protobuf.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/avro-to-protobuf: reference/policy-reference/avro-to-protobuf.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/basic-authentication: reference/policy-reference/basic-authentication.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/cache: reference/policy-reference/cache.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/circuit-breaker: reference/policy-reference/circuit-breaker.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/custom-query-parameters-parser: reference/policy-reference/custom-query-parameters-parser.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/data-logging-masking: reference/policy-reference/data-logging-masking.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/dynamic-routing: reference/policy-reference/dynamic-routing.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/generate-http-signature: reference/policy-reference/generate-http-signature.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/generate-jwt: reference/policy-reference/generate-jwt.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/graphql-rate-limit: reference/policy-reference/graphql-rate-limit.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/html-to-json: reference/policy-reference/html-to-json.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/http-signature: reference/policy-reference/http-signature.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/interrupt: reference/policy-reference/interrupt.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/ip-filtering: reference/policy-reference/ip-filtering.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/javascript: reference/policy-reference/javascript.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/json-threat-protection: reference/policy-reference/json-threat-protection.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/json-to-xml: reference/policy-reference/json-to-xml.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/json-validation: reference/policy-reference/json-validation.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/jws-validator: reference/policy-reference/json-web-signature-jws.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/keyless: reference/policy-reference/keyless.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/latency: reference/policy-reference/latency.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/message-filtering: reference/policy-reference/message-filtering.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/metrics-reporter: reference/policy-reference/metrics-reporter.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/mock: reference/policy-reference/mock.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/oauth2/generic-oauth2-authorization-server: reference/policy-reference/oauth2/generic-oauth2-authorization-server.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/oauth2/gravitee.io-am-authorization-server: reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/openid-connect-userinfo: reference/policy-reference/openid-connect-userinfo.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/override-http-method: reference/policy-reference/override-http-method.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/protobuf-to-json: reference/policy-reference/protobuf-to-json.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/rate-limit: reference/policy-reference/rate-limit.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/regex-threat-protection: reference/policy-reference/regex-threat-protection.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/request-content-limit: reference/policy-reference/request-content-limit.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/request-validation: reference/policy-reference/request-validation.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/resource-filtering: reference/policy-reference/resource-filtering.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/retry: reference/policy-reference/retry.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/role-based-access-control-rbac: reference/policy-reference/role-based-access-control-rbac.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/ssl-enforcement: reference/policy-reference/ssl-enforcement.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/traffic-shadowing: reference/policy-reference/traffic-shadowing.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/transform-query-parameters: reference/policy-reference/transform-query-parameters.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/url-rewriting: reference/policy-reference/url-rewriting.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/ws-security-authentication: reference/policy-reference/ws-security-authentication.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/xml-threat-protection: reference/policy-reference/xml-threat-protection.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/xml-to-json: reference/policy-reference/xml-to-json.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/xml-validation: reference/policy-reference/xml-validation.md
+ 4.3/create-and-configure-apis/apply-policies/policy-reference/xslt: reference/policy-reference/xslt.md
+ 4.3/create-and-configure-apis/apply-policies/resources: guides/api-configuration/resources.md
+ 4.3/create-and-configure-apis/apply-policies/v2-api-policy-studio: guides/policy-studio/v2-api-policy-studio.md
+ 4.3/create-and-configure-apis/apply-policies/v4-api-policy-studio: guides/policy-studio/v4-api-policy-studio.md
+ 4.3/create-and-configure-apis/configure-v2-apis/documentation: guides/api-configuration/v2-api-configuration/documentation.md
+ 4.3/create-and-configure-apis/configure-v2-apis/general-settings: guides/api-configuration/v2-api-configuration/general-info-settings.md
+ 4.3/create-and-configure-apis/configure-v2-apis/load-balancing-failover-and-health-checks: guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md
+ 4.3/create-and-configure-apis/configure-v2-apis/proxy-settings: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
+ 4.3/create-and-configure-apis/configure-v2-apis/service-discovery: guides/api-configuration/v2-api-configuration/service-discovery.md
+ 4.3/create-and-configure-apis/configure-v2-apis/user-and-group-access: guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md
+ 4.3/create-and-configure-apis/configure-v4-apis/audit-logs: guides/api-configuration/v4-api-configuration/audit-logs.md
+ 4.3/create-and-configure-apis/configure-v4-apis/cors: guides/api-configuration/v4-api-configuration/entrypoints/cors.md
+ 4.3/create-and-configure-apis/configure-v4-apis/documentation: guides/api-configuration/v4-api-configuration/documentation.md
+ 4.3/create-and-configure-apis/configure-v4-apis/endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
+ 4.3/create-and-configure-apis/configure-v4-apis/endpoints/kafka: reference/endpoint-reference/kafka.md
+ 4.3/create-and-configure-apis/configure-v4-apis/endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
+ 4.3/create-and-configure-apis/configure-v4-apis/endpoints/mqtt5: reference/endpoint-reference/mqtt5.md
+ 4.3/create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq: reference/endpoint-reference/rabbitmq.md
+ 4.3/create-and-configure-apis/configure-v4-apis/endpoints/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
+ 4.3/create-and-configure-apis/configure-v4-apis/entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
+ 4.3/create-and-configure-apis/configure-v4-apis/entrypoints/server-sent-events: reference/entrypoint-reference/server-sent-events.md
+ 4.3/create-and-configure-apis/configure-v4-apis/entrypoints/webhook: reference/entrypoint-reference/webhook.md
+ 4.3/create-and-configure-apis/configure-v4-apis/entrypoints/websocket: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket.md
+ 4.3/create-and-configure-apis/configure-v4-apis/general-settings: guides/api-configuration/v4-api-configuration/general-info-settings.md
+ 4.3/create-and-configure-apis/configure-v4-apis/health-checks: guides/api-configuration/v4-api-configuration/endpoints/health-check.md
+ 4.3/create-and-configure-apis/configure-v4-apis/quality-of-service: guides/api-configuration/v4-api-configuration/quality-of-service.md
+ 4.3/create-and-configure-apis/configure-v4-apis/response-templates: guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md
+ 4.3/create-and-configure-apis/configure-v4-apis/user-permissions: guides/api-configuration/v4-api-configuration/user-permissions.md
+ 4.3/create-and-configure-apis/configure-v4-apis/version-history: guides/api-configuration/v4-api-configuration/version-history.md
+ 4.3/create-and-configure-apis/create-apis/import-apis: guides/create-apis/import-apis/openapi-spec.md
+ 4.3/create-and-configure-apis/create-apis/v2-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md
+ 4.3/create-and-configure-apis/gravitee-api-definitions/execution-engine: overview/gravitee-api-definitions-and-execution-engines/engine-comparisons.md
+ 4.3/create-apis/import-apis: guides/create-apis/import-apis/openapi-spec.md
+ 4.3/create-apis/overview: guides/create-apis.md
+ 4.3/create-apis/overview/execution-engine: overview/gravitee-api-definitions-and-execution-engines/engine-comparisons.md
+ 4.3/create-apis/v2-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md
+ 4.3/developer-portal/api-documentation: guides/developer-portal/configuration/documentation.md
+ 4.3/developer-portal/classic-developer-portal/api-documentation: guides/developer-portal/configuration/documentation.md
+ 4.3/developer-portal/classic-developer-portal/configuration-file: getting-started/configuration/apim-developer-portal.md
+ 4.3/developer-portal/classic-developer-portal/create-an-application: guides/developer-portal/tools-and-features/applications.md
+ 4.3/developer-portal/classic-developer-portal/layout-and-theme: guides/developer-portal/configuration/layout-and-theme-customization.md
+ 4.3/developer-portal/classic-developer-portal/manage-users: guides/developer-portal/configuration/user-management.md
+ 4.3/developer-portal/classic-developer-portal/portal-settings: guides/developer-portal/configuration/general-settings.md
+ 4.3/developer-portal/classic-developer-portal/settings: guides/developer-portal/configuration/general-settings.md
+ 4.3/developer-portal/classic-developer-portal/webhook-subscriptions: guides/developer-portal/tools-and-features/webhook-subscription-management.md
+ 4.3/developer-portal/configuration-file: getting-started/configuration/apim-developer-portal.md
+ 4.3/developer-portal/create-an-application: guides/developer-portal/tools-and-features/applications.md
+ 4.3/developer-portal/layout-and-theme: guides/developer-portal/configuration/layout-and-theme-customization.md
+ 4.3/developer-portal/manage-users: guides/developer-portal/configuration/user-management.md
+ 4.3/developer-portal/settings: guides/developer-portal/configuration/general-settings.md
+ 4.3/developer-portal/webhook-subscriptions: guides/developer-portal/tools-and-features/webhook-subscription-management.md
+ 4.3/expose-apis/plans/api-key: guides/api-exposure-plans-applications-and-subscriptions/plans/api-key.md
+ 4.3/expose-apis/plans/jwt: guides/api-exposure-plans-applications-and-subscriptions/plans/jwt.md
+ 4.3/expose-apis/plans/keyless: guides/api-exposure-plans-applications-and-subscriptions/plans/keyless.md
+ 4.3/expose-apis/plans/oauth2: guides/api-exposure-plans-applications-and-subscriptions/plans/oauth2.md
+ 4.3/expose-apis/plans/push: guides/api-exposure-plans-applications-and-subscriptions/plans/push.md
+ 4.3/expose-apis/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
+ 4.3/getting-started/configuration/apim-management-api/internal-api-1: getting-started/configuration/apim-management-api/internal-api.md
+ 4.3/getting-started/configuration/configure-a-production-ready-apim-environment: getting-started/configuration/production-ready-apim-environment/authentication.md
+ 4.3/getting-started/configuration/configure-alerts-and-notifications: getting-started/configuration/notifications.md
+ 4.3/getting-started/configuration/configure-apim-console: getting-started/configuration/apim-console.md
+ 4.3/getting-started/configuration/configure-apim-gateway/dictionaries: getting-started/configuration/apim-gateway/dictionaries.md
+ 4.3/getting-started/configuration/configure-apim-gateway/general-configuration: getting-started/configuration/apim-gateway/general-configuration.md
+ 4.3/getting-started/configuration/configure-apim-gateway/internal-api: getting-started/configuration/apim-gateway/internal-api.md
+ 4.3/getting-started/configuration/configure-apim-gateway/sharding-tags: getting-started/configuration/apim-gateway/sharding-tags.md
+ 4.3/getting-started/configuration/configure-apim-gateway/tenants: getting-started/configuration/apim-gateway/tenants.md
+ 4.3/getting-started/configuration/configure-apim-management-api/general-configuration: getting-started/configuration/apim-management-api/general-configuration.md
+ 4.3/getting-started/configuration/configure-apim-management-api/internal-api: getting-started/configuration/apim-management-api/internal-api.md
+ 4.3/getting-started/configuration/configure-apim-management-api/internal-api-1: getting-started/configuration/apim-management-api/internal-api.md
+ 4.3/getting-started/configuration/configure-apim-management-api/logging: getting-started/configuration/apim-gateway/logging.md
+ 4.3/getting-started/configuration/configure-apim-management-api/security: getting-started/configuration/apim-management-api/security.md
+ 4.3/getting-started/configuration/configure-apim-management-api/user-and-management-configuration: getting-started/configuration/apim-management-api/user-and-management-configuration.md
+ 4.3/getting-started/configuration/configure-apim-management-ui: getting-started/configuration/apim-console.md
+ 4.3/getting-started/configuration/configure-cache: getting-started/configuration/cache.md
+ 4.3/getting-started/configuration/configure-http-reverse-proxy: getting-started/configuration/http-reverse-proxy.md
+ 4.3/getting-started/configuration/configure-notifications: getting-started/configuration/notifications.md
+ 4.3/getting-started/configuration/configure-reporters/formats: getting-started/configuration/reporters/formats.md
+ 4.3/getting-started/configuration/configure-repositories/elasticsearch: getting-started/configuration/repositories/elasticsearch.md
+ 4.3/getting-started/configuration/configure-repositories/jdbc: getting-started/configuration/repositories/jdbc.md
+ 4.3/getting-started/configuration/configure-repositories/mongodb: getting-started/configuration/repositories/mongodb.md
+ 4.3/getting-started/configuration/configure-repositories/redis: getting-started/configuration/repositories/redis.md
+ 4.3/getting-started/configuration/configure-sharding-tags-for-your-gravitee-api-gateways: getting-started/configuration/apim-gateway/sharding-tags.md
+ 4.3/getting-started/configuration/production-ready-apim-environment: getting-started/configuration/production-ready-apim-environment/authentication.md
+ 4.3/getting-started/configuration/the-gravitee-api-gateway/configure-dictionaries: getting-started/configuration/apim-gateway/dictionaries.md
+ 4.3/getting-started/configuration/the-gravitee-api-gateway/configure-sharding-tags-for-your-gravitee-api-gateways: getting-started/configuration/apim-gateway/sharding-tags.md
+ 4.3/getting-started/configuration/the-gravitee-api-gateway/dictionaries: getting-started/configuration/apim-gateway/dictionaries.md
+ 4.3/getting-started/configuration/the-gravitee-api-gateway/environment-variables-system-properties-and-the-gravitee.yaml-file: getting-started/configuration/apim-gateway/general-configuration.md
+ 4.3/getting-started/configuration/the-gravitee-api-gateway/gateway-internal-api: getting-started/configuration/apim-gateway/internal-api.md
+ 4.3/getting-started/configuration/the-gravitee-api-gateway/general-configuration: getting-started/configuration/apim-gateway/general-configuration.md
+ 4.3/getting-started/configuration/the-gravitee-api-gateway/logging: getting-started/configuration/apim-gateway/logging.md
+ 4.3/getting-started/configuration/the-gravitee-api-gateway/sharding-tags: getting-started/configuration/apim-gateway/sharding-tags.md
+ 4.3/getting-started/configuration/the-gravitee-api-gateway/tenants: getting-started/configuration/apim-gateway/tenants.md
+ 4.3/getting-started/gravitee-expression-language: guides/gravitee-expression-language.md
+ 4.3/getting-started/hybrid-deployment/advanced-hybrid-deployment: getting-started/install-and-upgrade-guides/hybrid-deployment/advanced-hybrid-deployment.md
+ 4.3/getting-started/hybrid-deployment/hybrid-deployment-on-kubernetes: getting-started/install-and-upgrade-guides/hybrid-deployment/hybrid-deployment-on-kubernetes.md
+ 4.3/getting-started/install-and-upgrade-guides/4.0-upgrade-guide: getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide.md
+ 4.3/getting-started/install-and-upgrade-guides/4.2-upgrade-guide: getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide.md
+ 4.3/getting-started/install-and-upgrade-guides/breaking-changes-and-deprecated-functionality-for-api-management: getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md
+ 4.3/getting-started/install-and-upgrade-guides/install-on-docker/custom-install-with-docker-compose: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/custom-install-with-docker-compose.md
+ 4.3/getting-started/install-and-upgrade-guides/install-on-docker/further-customization: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/further-customization.md
+ 4.3/getting-started/install-and-upgrade-guides/install-on-docker/quick-install-with-docker-compose: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/quick-install-with-docker-compose.md
+ 4.3/getting-started/install-and-upgrade-guides/install-on-kubernetes/apim-helm-install-and-configuration: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md
+ 4.3/getting-started/install-and-upgrade-guides/install-on-kubernetes/architecture-overview: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md
+ 4.3/getting-started/install-and-upgrade-guides/install-with-.zip: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-with-.zip.md
+ 4.3/getting-started/install-guides/breaking-changes-and-deprecated-functionality-for-api-management: getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md
+ 4.3/getting-started/install-guides/install-on-amazon/manual-install/apim-components-installation: getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/apim-components-installation.md
+ 4.3/getting-started/install-guides/install-on-amazon/manual-install/gravitee-components: getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/apim-full-stack-installation.md
+ 4.3/getting-started/install-guides/install-on-amazon/manual-install/prerequisites: getting-started/install-and-upgrade-guides/install-on-amazon/manual-install/prerequisites.md
+ 4.3/getting-started/install-guides/install-on-docker/custom-install-with-docker-compose: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/custom-install-with-docker-compose.md
+ 4.3/getting-started/install-guides/install-on-docker/further-customization: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/further-customization.md
+ 4.3/getting-started/install-guides/install-on-docker/quick-install-with-docker-compose: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-docker/quick-install-with-docker-compose.md
+ 4.3/getting-started/install-guides/install-on-kubernetes/configure-helm-chart: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md
+ 4.3/getting-started/install-guides/install-on-kubernetes/install-gravitee-kubernetes-operator: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/architecture-overview.md
+ 4.3/getting-started/install-guides/install-on-red-hat-and-centos/apim-components: getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-components-installation.md
+ 4.3/getting-started/install-guides/install-on-red-hat-and-centos/install-the-full-apim-stack: getting-started/install-and-upgrade-guides/install-on-red-hat-and-centos/apim-full-stack-installation.md
+ 4.3/getting-started/install-guides/install-with-.zip: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-with-.zip.md
+ 4.3/getting-started/install-guides/installation-guide-migration: getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide.md
+ 4.3/getting-started/integrations: overview/integrations.md
+ 4.3/getting-started/plugins: overview/plugins.md
+ 4.3/getting-started/plugins/customization: guides/developer-contributions/custom-plugins.md
+ 4.3/getting-started/plugins/deployment: overview/plugins.md
+ 4.3/getting-started/production-ready-environment/authentication: getting-started/configuration/production-ready-apim-environment/authentication.md
+ 4.3/getting-started/production-ready-environment/best-practices: overview/apim-architecture/production-deployments-and-capacity-planning.md
+ 4.3/getting-started/production-ready-environment/deployments: getting-started/configuration/production-ready-apim-environment/deployment.md
+ 4.3/getting-started/production-ready-environment/internal-apis: getting-started/configuration/production-ready-apim-environment/internal-apis.md
+ 4.3/getting-started/production-ready-environment/protections: getting-started/configuration/production-ready-apim-environment/brute-force-an-browser-protection.md
+ 4.3/getting-started/production-ready-environment/settings: getting-started/configuration/production-ready-apim-environment/configuration-settings.md
+ 4.3/getting-started/use-case-tutorials/add-rbac-to-your-jwt-plan: most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan.md
+ 4.3/getting-started/use-case-tutorials/configure-dcr: most-common-use-cases/configure-dynamic-client-registration-with-apim.md
+ 4.3/getting-started/use-case-tutorials/configure-jwt-security: most-common-use-cases/configure-jwt-security-with-apim.md
+ 4.3/getting-started/use-case-tutorials/rate-limit-rest-apis: most-common-use-cases/rate-limiting-rest-api-use-cases.md
+ 4.3/getting-started/use-case-tutorials/secure-and-expose-grpc-services: most-common-use-cases/secure-and-expose-grpc-services-with-gravitee.md
+ 4.3/gravitee-expression-language: guides/gravitee-expression-language.md
+ 4.3/gravitee-gateway/alerts: getting-started/configuration/notifications.md
+ 4.3/gravitee-gateway/dictionaries: getting-started/configuration/apim-gateway/dictionaries.md
+ 4.3/gravitee-gateway/gateway-internal-api: getting-started/configuration/apim-gateway/internal-api.md
+ 4.3/gravitee-gateway/internal-api: getting-started/configuration/apim-gateway/internal-api.md
+ 4.3/gravitee-gateway/logging: getting-started/configuration/apim-gateway/logging.md
+ 4.3/gravitee-gateway/notifications: getting-started/configuration/notifications.md
+ 4.3/gravitee-gateway/reporters/tcp-reporter: getting-started/configuration/reporters.md
+ 4.3/gravitee-gateway/sharding-tags: getting-started/configuration/apim-gateway/sharding-tags.md
+ 4.3/gravitee-gateway/tenants: getting-started/configuration/apim-gateway/tenants.md
+ 4.3/guides/api-configuration/v2-api-configuration/configure-cors: guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md
+ 4.3/guides/api-configuration/v2-api-configuration/configure-general-proxy-settings: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
+ 4.3/guides/api-configuration/v2-api-configuration/general-proxy-settings: guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md
+ 4.3/guides/api-configuration/v4-api-configuration/endpoint-configuration/v4-message-api-endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
+ 4.3/guides/api-measurement-tracking-and-analytics/configure-alerts-and-notifications: getting-started/configuration/notifications.md
+ 4.3/guides/create-apis/how-to/v2-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md
+ 4.3/guides/create-apis/how-to/v4-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md
+ 4.3/guides/create-apis/how-to/v4-api-creation-wizard-docs: guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md
+ 4.3/guides/create-apis/import-apis/openapi-spec-import: guides/create-apis/import-apis/openapi-spec.md
+ 4.3/guides/developer-portal/advanced-developer-portal-configuration/documentation: guides/developer-portal/configuration/documentation.md
+ 4.3/guides/developer-portal/advanced-developer-portal-configuration/general-settings: guides/developer-portal/configuration/general-settings.md
+ 4.3/guides/developer-portal/advanced-developer-portal-configuration/layout-and-theme-customization: guides/developer-portal/configuration/layout-and-theme-customization.md
+ 4.3/guides/developer-portal/advanced-developer-portal-configuration/user-management: guides/developer-portal/configuration/user-management.md
+ 4.3/guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition-crd: guides/gravitee-kubernetes-operator/custom-resource-definitions/apidefinition.md
+ 4.3/guides/gravitee-kubernetes-operator/custom-resource-definitions/apiresource-crd: guides/gravitee-kubernetes-operator/custom-resource-definitions/apiresource.md
+ 4.3/guides/gravitee-kubernetes-operator/custom-resource-definitions/application-crd: guides/gravitee-kubernetes-operator/custom-resource-definitions/application.md
+ 4.3/guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext-resource: guides/gravitee-kubernetes-operator/custom-resource-definitions/managementcontext.md
+ 4.3/guides/gravitee-kubernetes-operator/custom-resource-definitions/sync-crds-with-apim-management-api: guides/gravitee-kubernetes-operator/custom-resource-definitions/sync-crds-with-api-management-api.md
+ 4.3/guides/gravitee-kubernetes-operator/installation/helm: guides/gravitee-kubernetes-operator/installation.md
+ 4.3/guides/policy-design/gravitee-expression-language: guides/gravitee-expression-language.md
+ 4.3/how-to-guides/use-case-tutorials/add-rbac-to-your-jwt-plan: most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan.md
+ 4.3/how-to-guides/use-case-tutorials/configure-dcr: most-common-use-cases/configure-dynamic-client-registration-with-apim.md
+ 4.3/how-to-guides/use-case-tutorials/configure-jwt-security: most-common-use-cases/configure-jwt-security-with-apim.md
+ 4.3/how-to-guides/use-case-tutorials/rate-limit-rest-apis: most-common-use-cases/rate-limiting-rest-api-use-cases.md
+ 4.3/how-to-guides/use-case-tutorials/secure-and-expose-grpc-services: most-common-use-cases/secure-and-expose-grpc-services-with-gravitee.md
+ 4.3/install-and-upgrade/breaking-changes-and-deprecations: getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md
+ 4.3/install-and-upgrade/kubernetes: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md
+ 4.3/install-and-upgrade/multi-tenancy: getting-started/install-and-upgrade-guides/multi-tenancy.md
+ 4.3/install-and-upgrade/production-best-practices/authentication: getting-started/configuration/production-ready-apim-environment/authentication.md
+ 4.3/install-and-upgrade/production-best-practices/deployments: getting-started/configuration/production-ready-apim-environment/deployment.md
+ 4.3/install-and-upgrade/production-best-practices/internal-apis: getting-started/configuration/production-ready-apim-environment/internal-apis.md
+ 4.3/install-and-upgrade/production-best-practices/protections: getting-started/configuration/production-ready-apim-environment/brute-force-an-browser-protection.md
+ 4.3/install-and-upgrade/production-best-practices/settings/api-design: getting-started/configuration/production-ready-apim-environment/apim-safe-practices.md
+ 4.3/install-and-upgrade/production-sizing-guidelines: overview/apim-architecture/production-deployments-and-capacity-planning.md
+ 4.3/install-and-upgrade/upgrade-guide: getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide.md
+ 4.3/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md
+ 4.3/installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-red-hat-and-centos: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-red-hat-and-centos.md
+ 4.3/installation-and-upgrades/install-gravitee-api-management/multi-tenancy: getting-started/install-and-upgrade-guides/multi-tenancy.md
+ 4.3/installation-and-upgrades/install-on-kubernetes: getting-started/install-and-upgrade-guides/installing-a-self-hosted-gravitee-api-management-platform/install-on-kubernetes/apim-helm-install-and-configuration.md
+ 4.3/installation-and-upgrades/multi-tenancy: getting-started/install-and-upgrade-guides/multi-tenancy.md
+ 4.3/installation-and-upgrades/repositories/cache: getting-started/configuration/cache.md
+ 4.3/installation-and-upgrades/repositories/elasticsearch: getting-started/configuration/repositories/elasticsearch.md
+ 4.3/installation-and-upgrades/repositories/jdbc: getting-started/configuration/repositories/jdbc.md
+ 4.3/installation-and-upgrades/repositories/mongodb: getting-started/configuration/repositories/mongodb.md
+ 4.3/installation-and-upgrades/repositories/redis: getting-started/configuration/repositories/redis.md
+ 4.3/installation-and-upgrades/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management: getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md
+ 4.3/installation-and-upgrades/upgrading-gravitee-api-management/upgrade-guide: getting-started/upgrading-gravitee-api-management/4.2-upgrade-guide.md
+ 4.3/introduction/community-forum: community-and-support/community.md
+ 4.3/introduction/contribute-to-apim: guides/developer-contributions.md
+ 4.3/introduction/enterprise-edition: overview/gravitee-apim-enterprise-edition.md
+ 4.3/introduction/integrations: overview/integrations.md
+ 4.3/kafka-gateway/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
+ 4.3/management-api/internal-api: getting-started/configuration/apim-management-api/internal-api.md
+ 4.3/management-api/management-settings: getting-started/configuration/apim-management-api/user-and-management-configuration.md
+ 4.3/management-api/mapi-internal-api: getting-started/configuration/apim-management-api/internal-api.md
+ 4.3/management-api/security: getting-started/configuration/apim-management-api/security.md
+ 4.3/management-api/user-settings: getting-started/configuration/apim-management-api/user-and-management-configuration.md
+ 4.3/overview/architecture: overview/apim-architecture.md
+ 4.3/overview/changelog/apim-4.2.x: overview/changelog/apim-4.3.x.md
+ 4.3/overview/changelog/apim-4.4.x: overview/changelog/apim-4.3.x.md
+ 4.3/overview/changelog/apim-4.5.x: overview/changelog/apim-4.3.x.md
+ 4.3/overview/changelog/apim-4.6.x: overview/changelog/apim-4.3.x.md
+ 4.3/overview/changelog/apim-4.7.x: overview/changelog/apim-4.3.x.md
+ 4.3/overview/enterprise-edition: overview/gravitee-apim-enterprise-edition.md
+ 4.3/overview/execution-engine: overview/gravitee-api-definitions-and-execution-engines/engine-comparisons.md
+ 4.3/overview/gravitee-apim-enterprise-edition/enterprise-support: community-and-support/enterprise-support.md
+ 4.3/overview/introduction-to-gravitee-api-management-apim/plugins: overview/plugins.md
+ 4.3/overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/engine-comparisons: overview/gravitee-api-definitions-and-execution-engines/engine-comparisons.md
+ 4.3/overview/plugins-and-api-definitions-for-gravitee-api-management/gravitee-api-definitions-and-execution-engines/reactive-execution-engine: overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md
+ 4.3/overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/custom-plugins: guides/developer-contributions/custom-plugins.md
+ 4.3/overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/deploying-plugins: overview/plugins.md
+ 4.3/overview/plugins-and-api-definitions-for-gravitee-api-management/plugins/plugins-overview: overview/plugins.md
+ 4.3/overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/engine-comparisons: overview/gravitee-api-definitions-and-execution-engines/engine-comparisons.md
+ 4.3/overview/plugins-and-api-definitions/gravitee-api-definitions-and-execution-engines/reactive-execution-engine: overview/gravitee-api-definitions-and-execution-engines/reactive-execution-engine.md
+ 4.3/overview/plugins-and-api-definitions/plugins/custom-plugins: guides/developer-contributions/custom-plugins.md
+ 4.3/overview/plugins-and-api-definitions/plugins/deploying-plugins: overview/plugins.md
+ 4.3/overview/plugins-and-api-definitions/plugins/plugins: overview/plugins.md
+ 4.3/overview/readme/architecture: overview/apim-architecture.md
+ 4.3/overview/support: guides/administration/support.md
+ 4.3/plugins: overview/plugins.md
+ 4.3/plugins/customization: guides/developer-contributions/custom-plugins.md
+ 4.3/plugins/deployment: overview/plugins.md
+ 4.3/policies/custom-policies: guides/developer-contributions/custom-policies.md
+ 4.3/policies/oauth2/generic-oauth2-authorization-server: reference/policy-reference/oauth2/generic-oauth2-authorization-server.md
+ 4.3/policies/oauth2/gravitee.io-am-authorization-server: reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md
+ 4.3/policies/resources: guides/api-configuration/resources.md
+ 4.3/policies/v2-api-policy-studio: guides/policy-studio/v2-api-policy-studio.md
+ 4.3/policies/v4-api-policy-studio: guides/policy-studio/v4-api-policy-studio.md
+ 4.3/prepare-a-production-environment/cache: getting-started/configuration/cache.md
+ 4.3/prepare-a-production-environment/configure-your-http-server: getting-started/configuration/apim-gateway/general-configuration.md
+ 4.3/prepare-a-production-environment/gateway-resource-sizing-guidelines: overview/apim-architecture/production-deployments-and-capacity-planning.md
+ 4.3/prepare-a-production-environment/production-best-practices/authentication: getting-started/configuration/production-ready-apim-environment/authentication.md
+ 4.3/prepare-a-production-environment/production-best-practices/general-recommendations/api-design: getting-started/configuration/production-ready-apim-environment/apim-safe-practices.md
+ 4.3/prepare-a-production-environment/production-best-practices/internal-apis: getting-started/configuration/production-ready-apim-environment/internal-apis.md
+ 4.3/prepare-a-production-environment/production-best-practices/protections: getting-started/configuration/production-ready-apim-environment/brute-force-an-browser-protection.md
+ 4.3/prepare-a-production-environment/repositories/elasticsearch: getting-started/configuration/repositories/elasticsearch.md
+ 4.3/prepare-a-production-environment/repositories/jdbc: getting-started/configuration/repositories/jdbc.md
+ 4.3/prepare-a-production-environment/repositories/mongodb: getting-started/configuration/repositories/mongodb.md
+ 4.3/prepare-a-production-environment/repositories/redis: getting-started/configuration/repositories/redis.md
+ 4.3/readme/community-forum: community-and-support/community.md
+ 4.3/readme/contribute-to-apim: guides/developer-contributions.md
+ 4.3/readme/enterprise-edition: overview/gravitee-apim-enterprise-edition.md
+ 4.3/readme/integrations: overview/integrations.md
+ 4.3/reference/policy-reference/avro-json: reference/policy-reference/avro-to-json.md
+ 4.3/reference/policy-reference/interrupt: reference/policy-reference/html-to-json.md
+ 4.3/reference/policy-reference/rest-to-soap: reference/policy-reference/url-rewriting.md
+ 4.3/release-information/breaking-changes-and-deprecations: getting-started/upgrading-gravitee-api-management/breaking-changes-and-deprecated-functionality-for-api-management.md
+ 4.3/secure-and-expose-apis/plans/api-key: guides/api-exposure-plans-applications-and-subscriptions/plans/api-key.md
+ 4.3/secure-and-expose-apis/plans/jwt: guides/api-exposure-plans-applications-and-subscriptions/plans/jwt.md
+ 4.3/secure-and-expose-apis/plans/keyless: guides/api-exposure-plans-applications-and-subscriptions/plans/keyless.md
+ 4.3/secure-and-expose-apis/plans/oauth2: guides/api-exposure-plans-applications-and-subscriptions/plans/oauth2.md
+ 4.3/secure-and-expose-apis/subscriptions/subscription-requests: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
+ 4.3/self-hosted-installation-guides/multi-tenancy: getting-started/install-and-upgrade-guides/multi-tenancy.md
+ 4.3/using-the-product/administration/administering-organizations-and-environments: guides/administration/administering-organizations-and-environments.md
+ 4.3/using-the-product/administration/authentication/authentication-providers: getting-started/configuration/authentication/authentication-providers.md
+ 4.3/using-the-product/administration/authentication/azure-ad-entra-id: getting-started/configuration/authentication/azure-ad-entra-id.md
+ 4.3/using-the-product/administration/authentication/custom-oauth2-openid-authorization-server: getting-started/configuration/authentication/custom-oauth2-openid-authorization-server.md
+ 4.3/using-the-product/administration/authentication/gravitee-am-authentication: getting-started/configuration/authentication/gravitee-am-authentication.md
+ 4.3/using-the-product/administration/authentication/social-providers: getting-started/configuration/authentication/social-providers.md
+ 4.3/using-the-product/administration/support: guides/administration/support.md
+ 4.3/using-the-product/administration/user-management-and-permissions: guides/administration/user-management-and-permissions.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/applications: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/plans: guides/api-exposure-plans-applications-and-subscriptions/plans/oauth2.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/api-exposure-plans-applications-and-subscriptions/types-of-plans: guides/api-exposure-plans-applications-and-subscriptions/plans/oauth2.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/audit-trail: guides/api-measurement-tracking-and-analytics/audit-trail.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/create-a-dashboard: guides/api-measurement-tracking-and-analytics/create-a-dashboard.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/api-measurement-tracking-and-analytics/using-the-api-quality-feature: guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/resources: guides/api-configuration/resources.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/configure-user-and-group-access: guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/documentation: guides/api-configuration/v2-api-configuration/documentation.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/general-info-settings: guides/api-configuration/v2-api-configuration/general-info-settings.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/general-proxy-settings: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/load-balancing-failover-and-health-checks: guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v2-api-configuration/service-discovery: guides/api-configuration/v2-api-configuration/service-discovery.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/audit-logs: guides/api-configuration/v4-api-configuration/audit-logs.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/documentation: guides/api-configuration/v4-api-configuration/documentation.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/endpoint-reference/kafka: reference/endpoint-reference/kafka.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/endpoint-reference/mqtt5: reference/endpoint-reference/mqtt5.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/endpoint-reference/rabbitmq: reference/endpoint-reference/rabbitmq.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/endpoint-reference/server-sent-events: reference/entrypoint-reference/server-sent-events.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/endpoint-reference/solace: reference/endpoint-reference/solace.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/endpoint-reference/webhook: reference/entrypoint-reference/webhook.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/health-check: guides/api-configuration/v4-api-configuration/endpoints/health-check.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/mqtt5: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mqtt5.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-message-api-endpoints/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/endpoints/v4-proxy-api-endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/cors: guides/api-configuration/v4-api-configuration/entrypoints/cors.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/response-templates: guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-get: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-get.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-post: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-post.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-message-api-entrypoints/server-sent-events: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/server-sent-events.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/general-info-settings: guides/api-configuration/v4-api-configuration/general-info-settings.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/quality-of-service: guides/api-configuration/v4-api-configuration/quality-of-service.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/user-permissions: guides/api-configuration/v4-api-configuration/user-permissions.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/configuring-apis-with-the-gravitee-api-management/v4-api-configuration/version-history: guides/api-configuration/v4-api-configuration/version-history.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/import-apis: guides/create-apis/import-apis.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/openapi-spec-import: guides/create-apis/import-apis/openapi-spec.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v2-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/create-apis/the-api-creation-wizard/v4-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/gravitee-expression-language: guides/gravitee-expression-language.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/api-key: reference/policy-reference/api-key.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/assign-attributes: reference/policy-reference/assign-attributes.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/assign-content: reference/policy-reference/assign-content.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/assign-metrics: reference/policy-reference/assign-metrics.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/avro-to-json: reference/policy-reference/avro-to-json.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/avro-to-protobuf: reference/policy-reference/avro-to-protobuf.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/aws-lambda: reference/policy-reference/aws-lambda.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/basic-authentication: reference/policy-reference/basic-authentication.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/cache: reference/policy-reference/cache.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/circuit-breaker: reference/policy-reference/circuit-breaker.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/a-c/cloud-events: reference/policy-reference/cloud-events.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/d-h/data-logging-masking: reference/policy-reference/data-logging-masking.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/d-h/dynamic-routing: reference/policy-reference/dynamic-routing.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/d-h/generate-http-signature: reference/policy-reference/generate-http-signature.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/d-h/generate-jwt: reference/policy-reference/generate-jwt.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/d-h/geoip-filtering: reference/policy-reference/geoip-filtering.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/d-h/graphql-rate-limit: reference/policy-reference/graphql-rate-limit.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/d-h/groovy: reference/policy-reference/groovy.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/d-h/http-callout: reference/policy-reference/http-callout.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/d-h/http-signature: reference/policy-reference/http-signature.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/interrupt: reference/policy-reference/interrupt.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/ip-filtering: reference/policy-reference/ip-filtering.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/javascript: reference/policy-reference/javascript.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/json-threat-protection: reference/policy-reference/json-threat-protection.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/json-to-json: reference/policy-reference/json-to-json.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/json-to-xml: reference/policy-reference/json-to-xml.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/json-validation: reference/policy-reference/json-validation.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/json-web-signature-jws: reference/policy-reference/json-web-signature-jws.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/json-web-token-jwt: reference/policy-reference/json-web-token-jwt.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/i-k/keyless: reference/policy-reference/keyless.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/latency: reference/policy-reference/latency.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/message-filtering: reference/policy-reference/message-filtering.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/mock: reference/policy-reference/mock.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/oauth2/generic-oauth2-authorization-server: reference/policy-reference/oauth2/generic-oauth2-authorization-server.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/oauth2/gravitee.io-am-authorization-server: reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/openid-connect-userinfo: reference/policy-reference/openid-connect-userinfo.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/override-http-method: reference/policy-reference/override-http-method.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/l-p/protobuf-to-json: reference/policy-reference/protobuf-to-json.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/rate-limit: reference/policy-reference/rate-limit.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/regex-threat-protection: reference/policy-reference/regex-threat-protection.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/request-content-limit: reference/policy-reference/request-content-limit.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/request-validation: reference/policy-reference/request-validation.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/resource-filtering: reference/policy-reference/resource-filtering.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/rest-to-soap: reference/policy-reference/url-rewriting.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/retry: reference/policy-reference/retry.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/role-based-access-control-rbac: reference/policy-reference/role-based-access-control-rbac.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/ssl-enforcement: reference/policy-reference/ssl-enforcement.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/traffic-shadowing: reference/policy-reference/traffic-shadowing.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/transform-headers: reference/policy-reference/transform-headers.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/transform-query-parameters: reference/policy-reference/transform-query-parameters.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/ws-security-authentication: reference/policy-reference/ws-security-authentication.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xml-threat-protection: reference/policy-reference/xml-threat-protection.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xml-to-json: reference/policy-reference/xml-to-json.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xml-validation: reference/policy-reference/xml-validation.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/t-x/xslt: reference/policy-reference/xslt.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v2-api-policy-studio: guides/policy-studio/v2-api-policy-studio.md
+ 4.3/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/v4-api-policy-studio: guides/policy-studio/v4-api-policy-studio.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v2-api-configuration/configure-user-and-group-access: guides/api-configuration/v2-api-configuration/configure-user-and-group-access.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v2-api-configuration/documentation: guides/api-configuration/v2-api-configuration/documentation.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v2-api-configuration/general-info-settings: guides/api-configuration/v2-api-configuration/general-info-settings.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v2-api-configuration/general-proxy-settings: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks: guides/api-configuration/v2-api-configuration/load-balancing-failover-and-health-checks.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v2-api-configuration/service-discovery: guides/api-configuration/v2-api-configuration/service-discovery.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/audit-logs: guides/api-configuration/v4-api-configuration/audit-logs.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/documentation: guides/api-configuration/v4-api-configuration/documentation.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/kafka: reference/endpoint-reference/kafka.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/mqtt5: reference/endpoint-reference/mqtt5.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/rabbitmq: reference/endpoint-reference/rabbitmq.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/endpoint-reference/solace: reference/endpoint-reference/solace.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/health-check: guides/api-configuration/v4-api-configuration/endpoints/health-check.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/kafka.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mqtt5: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mqtt5.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/cors: guides/api-configuration/v4-api-configuration/entrypoints/cors.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/entrypoint-reference/server-sent-events: reference/entrypoint-reference/server-sent-events.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/entrypoint-reference/webhook: reference/entrypoint-reference/webhook.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/response-templates: guides/api-configuration/v4-api-configuration/entrypoints/response-templates.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-get: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-get.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-post: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/http-post.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/server-sent-events: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/server-sent-events.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/webhook.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket: guides/api-configuration/v4-api-configuration/entrypoints/v4-message-api-entrypoints/websocket.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/general-info-settings: guides/api-configuration/v4-api-configuration/general-info-settings.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/quality-of-service: guides/api-configuration/v4-api-configuration/quality-of-service.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/user-permissions: guides/api-configuration/v4-api-configuration/user-permissions.md
+ 4.3/using-the-product/managing-your-apis/api-configuration/v4-api-configuration/version-history: guides/api-configuration/v4-api-configuration/version-history.md
+ 4.3/using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/audit-trail: guides/api-measurement-tracking-and-analytics/audit-trail.md
+ 4.3/using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/create-a-dashboard: guides/api-measurement-tracking-and-analytics/create-a-dashboard.md
+ 4.3/using-the-product/managing-your-apis/api-measurement-tracking-and-analytics/using-the-api-quality-feature: guides/api-measurement-tracking-and-analytics/using-the-api-quality-feature.md
+ 4.3/using-the-product/managing-your-apis/create-apis/import-apis: guides/create-apis/import-apis.md
+ 4.3/using-the-product/managing-your-apis/create-apis/openapi-spec-import: guides/create-apis/import-apis/openapi-spec.md
+ 4.3/using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v2-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md
+ 4.3/using-the-product/managing-your-apis/create-apis/the-api-creation-wizard/v4-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md
+ 4.3/using-the-product/managing-your-apis/gravitee-expression-language: guides/gravitee-expression-language.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/api-key: reference/policy-reference/api-key.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/assign-attributes: reference/policy-reference/assign-attributes.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/assign-content: reference/policy-reference/assign-content.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/assign-metrics: reference/policy-reference/assign-metrics.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/avro-to-json: reference/policy-reference/avro-to-json.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/avro-to-protobuf: reference/policy-reference/avro-to-protobuf.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/aws-lambda: reference/policy-reference/aws-lambda.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/basic-authentication: reference/policy-reference/basic-authentication.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/cache: reference/policy-reference/cache.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/circuit-breaker: reference/policy-reference/circuit-breaker.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/a-c/cloud-events: reference/policy-reference/cloud-events.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/data-logging-masking: reference/policy-reference/data-logging-masking.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/dynamic-routing: reference/policy-reference/dynamic-routing.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/generate-http-signature: reference/policy-reference/generate-http-signature.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/generate-jwt: reference/policy-reference/generate-jwt.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/geoip-filtering: reference/policy-reference/geoip-filtering.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/graphql-rate-limit: reference/policy-reference/graphql-rate-limit.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/groovy: reference/policy-reference/groovy.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/http-callout: reference/policy-reference/http-callout.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/http-signature: reference/policy-reference/http-signature.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/interrupt: reference/policy-reference/url-rewriting.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/ip-filtering: reference/policy-reference/ip-filtering.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/javascript: reference/policy-reference/javascript.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-threat-protection: reference/policy-reference/json-threat-protection.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-to-json: reference/policy-reference/json-to-json.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-to-xml: reference/policy-reference/json-to-xml.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-validation: reference/policy-reference/json-validation.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-web-signature-jws: reference/policy-reference/json-web-signature-jws.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-web-token-jwt: reference/policy-reference/json-web-token-jwt.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/keyless: reference/policy-reference/keyless.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/latency: reference/policy-reference/latency.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/message-filtering: reference/policy-reference/message-filtering.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/mock: reference/policy-reference/mock.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2/generic-oauth2-authorization-server: reference/policy-reference/oauth2/generic-oauth2-authorization-server.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/oauth2/gravitee.io-am-authorization-server: reference/policy-reference/oauth2/gravitee.io-am-authorization-server.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/openid-connect-userinfo: reference/policy-reference/openid-connect-userinfo.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/override-http-method: reference/policy-reference/override-http-method.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/l-p/protobuf-to-json: reference/policy-reference/protobuf-to-json.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/rate-limit: reference/policy-reference/rate-limit.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/regex-threat-protection: reference/policy-reference/regex-threat-protection.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/request-content-limit: reference/policy-reference/request-content-limit.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/request-validation: reference/policy-reference/request-validation.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/resource-filtering: reference/policy-reference/resource-filtering.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/retry: reference/policy-reference/retry.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/role-based-access-control-rbac: reference/policy-reference/role-based-access-control-rbac.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/r-s/ssl-enforcement: reference/policy-reference/ssl-enforcement.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/traffic-shadowing: reference/policy-reference/traffic-shadowing.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/transform-headers: reference/policy-reference/transform-headers.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/transform-query-parameters: reference/policy-reference/transform-query-parameters.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/ws-security-authentication: reference/policy-reference/ws-security-authentication.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-threat-protection: reference/policy-reference/xml-threat-protection.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-to-json: reference/policy-reference/xml-to-json.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xml-validation: reference/policy-reference/xml-validation.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/t-x/xslt: reference/policy-reference/xslt.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/v2-api-policy-studio: guides/policy-studio/v2-api-policy-studio.md
+ 4.3/using-the-product/managing-your-apis/policy-studio/v4-api-policy-studio: guides/policy-studio/v4-api-policy-studio.md
+ 4.3/using-the-product/managing-your-apis/preparing-apis-for-subscribers/applications: guides/api-exposure-plans-applications-and-subscriptions/applications.md
+ 4.3/using-the-product/managing-your-apis/preparing-apis-for-subscribers/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
+ 4.3/using-the-product/managing-your-apis/preparing-apis-for-subscribers/types-of-plans: guides/api-exposure-plans-applications-and-subscriptions/plans/oauth2.md
+ 4.3/using-the-product/most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan: most-common-use-cases/adding-role-based-access-control-to-your-jwt-plan.md
+ 4.3/using-the-product/most-common-use-cases/configure-dynamic-client-registration-with-apim: most-common-use-cases/configure-dynamic-client-registration-with-apim.md
+ 4.3/using-the-product/most-common-use-cases/configure-jwt-security-with-apim: most-common-use-cases/configure-jwt-security-with-apim.md
+ 4.3/using-the-product/most-common-use-cases/rate-limiting-rest-api-use-cases: most-common-use-cases/rate-limiting-rest-api-use-cases.md
+ 4.3/using-the-product/most-common-use-cases/secure-and-expose-grpc-services-with-gravitee: most-common-use-cases/secure-and-expose-grpc-services-with-gravitee.md
+ 4.3/using-the-product/production-ready-apim-environment/apim-safe-practices: getting-started/configuration/production-ready-apim-environment/apim-safe-practices.md
+ 4.3/using-the-product/production-ready-apim-environment/authentication: getting-started/configuration/production-ready-apim-environment/authentication.md
+ 4.3/using-the-product/production-ready-apim-environment/brute-force-an-browser-protection: getting-started/configuration/production-ready-apim-environment/brute-force-an-browser-protection.md
+ 4.3/using-the-product/production-ready-apim-environment/configuration-settings: getting-started/configuration/production-ready-apim-environment/configuration-settings.md
+ 4.3/using-the-product/production-ready-apim-environment/deployment: getting-started/configuration/production-ready-apim-environment/deployment.md
+ 4.3/using-the-product/production-ready-apim-environment/internal-apis: getting-started/configuration/production-ready-apim-environment/internal-apis.md
+ 4.3/using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning: overview/apim-architecture/production-deployments-and-capacity-planning.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/apim-console: getting-started/configuration/apim-console.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/apim-console/configuring-notifications-and-alerts-for-your-apis: getting-started/configuration/notifications.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/apim-console/notifications: getting-started/configuration/notifications.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/configuration: getting-started/configuration.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/configuring-and-customizing-the-gravitee-developer-portal/apim-developer-portal: getting-started/configuration/apim-developer-portal.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/creating-and-maintaining-applications-with-the-gravitee-developer-portal/applications: guides/developer-portal/tools-and-features/applications.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/webhook-subscription-management: guides/developer-portal/tools-and-features/webhook-subscription-management.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/apim-developer-portal: getting-started/configuration/apim-developer-portal.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/general-settings: guides/developer-portal/configuration/general-settings.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal/configuring-and-customizing-the-gravitee-developer-portal/layout-and-theme-customization: guides/developer-portal/configuration/layout-and-theme-customization.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal/creating-and-maintaining-applications-with-gravitee-developer-portal/applications: guides/developer-portal/tools-and-features/applications.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal/documentation: guides/developer-portal/tools-and-features/documentation.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal/publishing-and-managing-apis-with-the-gravitee-developer-portal/documentation: guides/developer-portal/configuration/documentation.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal/user-management: guides/developer-portal/configuration/user-management.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/developer-portal/webhook-subscription-management: guides/developer-portal/tools-and-features/webhook-subscription-management.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration: getting-started/configuration/apim-gateway/general-configuration.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration-1: getting-started/configuration/apim-management-api/general-configuration.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/configuring-the-internal-api: getting-started/configuration/apim-management-api/internal-api.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/internal-api: getting-started/configuration/apim-management-api/internal-api.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/management-api-reference: reference/management-api-reference.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/security: getting-started/configuration/apim-management-api/security.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/user-and-management-configuration: getting-started/configuration/apim-management-api/user-and-management-configuration.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/alerts: getting-started/configuration/notifications.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/dictionaries: getting-started/configuration/apim-gateway/dictionaries.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/gateway-apis-101-traditional-and-message-proxies/message-proxy: getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/message-proxy.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/gateway-apis-101-traditional-and-message-proxies/traditional-proxy: getting-started/quickstart-guide/gateway-apis-101-traditional-and-message-proxies/traditional-proxy.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/internal-api: getting-started/configuration/apim-gateway/internal-api.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/logging: getting-started/configuration/apim-gateway/logging.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/notifications: getting-started/configuration/notifications.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/opentracing: getting-started/configuration/apim-gateway/opentracing.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/plans-and-policies/custom-policies: guides/developer-contributions/custom-policies.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/configuring-reporters-for-gravitee-api-management: getting-started/configuration/reporters.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/reporters/formats: getting-started/configuration/reporters/formats.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/secret-providers: getting-started/configuration/secret-providers.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/sharding-tags: getting-started/configuration/apim-gateway/sharding-tags.md
+ 4.3/using-the-product/using-the-gravitee-api-management-components/general-configuration/tenants: getting-started/configuration/apim-gateway/tenants.md
  4.4/community-and-support/developer-contributions: guides/developer-contributions.md
  4.4/configuration/authentication/authentication-providers: getting-started/configuration/authentication/authentication-providers.md
  4.4/configuration/authentication/azure-ad-entra-id: getting-started/configuration/authentication/azure-ad-entra-id.md
@@ -396,7 +1031,7 @@ redirects:
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/request-content-limit: reference/policy-reference/request-content-limit.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/request-validation: reference/policy-reference/request-validation.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/resource-filtering: reference/policy-reference/resource-filtering.md
- 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/rest-to-soap: reference/policy-reference/url-rewriting.md
+ 4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/rest-to-soap: reference/policy-reference/rest-to-soap.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/retry: reference/policy-reference/retry.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/role-based-access-control-rbac: reference/policy-reference/role-based-access-control-rbac.md
  4.4/using-the-product/managing-your-apis-with-gravitee-api-management/policy-studio/policies-for-you-apis/r-s/ssl-enforcement: reference/policy-reference/ssl-enforcement.md
@@ -428,7 +1063,6 @@ redirects:
  4.4/using-the-product/production-ready-apim-environment/internal-apis: getting-started/configuration/production-ready-apim-environment/internal-apis.md
  4.4/using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning: overview/apim-architecture/production-deployments-and-capacity-planning.md
  4.4/using-the-product/production-ready-apim-environment/readme: getting-started/configuration/production-ready-apim-environment/README.md
- 4.4/using-the-product/using-the-gravitee-api-management-components/apim-console: getting-started/configuration/apim-console.md
  4.4/using-the-product/using-the-gravitee-api-management-components/apim-console/notifications: getting-started/configuration/notifications.md
  4.4/using-the-product/using-the-gravitee-api-management-components/apim-console/readme: getting-started/configuration/apim-console.md
  4.4/using-the-product/using-the-gravitee-api-management-components/configuration: getting-started/configuration.md
@@ -441,8 +1075,6 @@ redirects:
  4.4/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/publishing-and-managing-apis-with-the-gravitee-developer-portal/readme: README.md
  4.4/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/readme: README.md
  4.4/using-the-product/using-the-gravitee-api-management-components/developer-portal-101/webhook-subscription-management: guides/developer-portal/tools-and-features/webhook-subscription-management.md
- 4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration: getting-started/configuration/apim-gateway/general-configuration.md
- 4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration-1: getting-started/configuration/apim-management-api/general-configuration.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/internal-api: getting-started/configuration/apim-management-api/internal-api.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/management-api-reference: reference/management-api-reference.md
  4.4/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/readme: getting-started/configuration/apim-management-api/general-configuration.md
@@ -605,7 +1237,7 @@ redirects:
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/http-callout: reference/policy-reference/http-callout.md
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/http-signature: reference/policy-reference/http-signature.md
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/d-h/readme: README.md
- 4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/interrupt: reference/policy-reference/url-rewriting.md
+ 4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/interrupt: reference/policy-reference/interrupt.md
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/ip-filtering: reference/policy-reference/ip-filtering.md
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/javascript: reference/policy-reference/javascript.md
  4.5/using-the-product/managing-your-apis/policy-studio/policies-for-your-apis/i-k/json-threat-protection: reference/policy-reference/json-threat-protection.md
@@ -671,7 +1303,6 @@ redirects:
  4.5/using-the-product/production-ready-apim-environment/internal-apis: getting-started/configuration/production-ready-apim-environment/internal-apis.md
  4.5/using-the-product/production-ready-apim-environment/production-deployments-and-capacity-planning: overview/apim-architecture/production-deployments-and-capacity-planning.md
  4.5/using-the-product/production-ready-apim-environment/readme: getting-started/configuration/production-ready-apim-environment/README.md
- 4.5/using-the-product/using-the-gravitee-api-management-components/apim-console: getting-started/configuration/apim-console.md
  4.5/using-the-product/using-the-gravitee-api-management-components/apim-console/configuring-notifications-and-alerts-for-your-apis: getting-started/configuration/notifications.md
  4.5/using-the-product/using-the-gravitee-api-management-components/apim-console/readme: getting-started/configuration/apim-console.md
  4.5/using-the-product/using-the-gravitee-api-management-components/configuration: getting-started/configuration.md
@@ -689,8 +1320,6 @@ redirects:
  4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/readme: README.md
  4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/user-management: guides/developer-portal/configuration/user-management.md
  4.5/using-the-product/using-the-gravitee-api-management-components/developer-portal/webhook-subscription-management: guides/developer-portal/tools-and-features/webhook-subscription-management.md
- 4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration: getting-started/configuration/apim-gateway/general-configuration.md
- 4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration-1: getting-started/configuration/apim-management-api/general-configuration.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/configuring-the-internal-api: getting-started/configuration/apim-management-api/internal-api.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/readme: getting-started/configuration/apim-management-api/general-configuration.md
  4.5/using-the-product/using-the-gravitee-api-management-components/general-configuration-1/security: getting-started/configuration/apim-management-api/security.md
@@ -752,15 +1381,13 @@ redirects:
  4.6/configure-v4-apis/audit-logs: guides/api-configuration/v4-api-configuration/audit-logs.md
  4.6/configure-v4-apis/cors: guides/api-configuration/v4-api-configuration/entrypoints/cors.md
  4.6/configure-v4-apis/documentation: guides/api-configuration/v4-api-configuration/documentation.md
- 4.6/configure-v4-apis/endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
  4.6/configure-v4-apis/endpoints/azure-service-bus: README.md
  4.6/configure-v4-apis/endpoints/kafka: reference/endpoint-reference/kafka.md
  4.6/configure-v4-apis/endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
  4.6/configure-v4-apis/endpoints/mqtt5: reference/endpoint-reference/mqtt5.md
- 4.6/configure-v4-apis/endpoints/rabbitmq: reference/endpoint-reference/rabbitmq.md
+ 4.6/configure-v4-apis/endpoints/rabbitmq: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md
  4.6/configure-v4-apis/endpoints/readme: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
  4.6/configure-v4-apis/endpoints/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
- 4.6/configure-v4-apis/entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
  4.6/configure-v4-apis/entrypoints/http-get: README.md
  4.6/configure-v4-apis/entrypoints/http-post: README.md
  4.6/configure-v4-apis/entrypoints/readme: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
@@ -814,7 +1441,6 @@ redirects:
  4.6/federation/overview: README.md
  4.6/getting-started/gravitee-expression-language: guides/gravitee-expression-language.md
  4.6/getting-started/integrations: overview/integrations.md
- 4.6/getting-started/plugins: overview/plugins.md
  4.6/getting-started/plugins/customization: guides/developer-contributions/custom-plugins.md
  4.6/getting-started/plugins/deployment: overview/plugins.md
  4.6/getting-started/plugins/readme: overview/plugins.md
@@ -942,7 +1568,6 @@ redirects:
  4.7/configure-v4-apis/audit-logs: guides/api-configuration/v4-api-configuration/audit-logs.md
  4.7/configure-v4-apis/cors: guides/api-configuration/v4-api-configuration/entrypoints/cors.md
  4.7/configure-v4-apis/documentation: guides/api-configuration/v4-api-configuration/documentation.md
- 4.7/configure-v4-apis/endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
  4.7/configure-v4-apis/endpoints/azure-service-bus: README.md
  4.7/configure-v4-apis/endpoints/kafka: reference/endpoint-reference/kafka.md
  4.7/configure-v4-apis/endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
@@ -950,7 +1575,6 @@ redirects:
  4.7/configure-v4-apis/endpoints/rabbitmq: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md
  4.7/configure-v4-apis/endpoints/readme: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
  4.7/configure-v4-apis/endpoints/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
- 4.7/configure-v4-apis/entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
  4.7/configure-v4-apis/entrypoints/http-get: README.md
  4.7/configure-v4-apis/entrypoints/http-post: README.md
  4.7/configure-v4-apis/entrypoints/readme: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
@@ -999,7 +1623,6 @@ redirects:
  4.7/expose-apis/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  4.7/getting-started/gravitee-expression-language: guides/gravitee-expression-language.md
  4.7/getting-started/integrations: overview/integrations.md
- 4.7/getting-started/plugins: overview/plugins.md
  4.7/getting-started/plugins/customization: guides/developer-contributions/custom-plugins.md
  4.7/getting-started/plugins/deployment: overview/plugins.md
  4.7/getting-started/plugins/readme: overview/plugins.md
@@ -1142,7 +1765,6 @@ redirects:
  4.8/configure-and-manage-the-platform/gravitee-gateway/services: README.md
  4.8/configure-and-manage-the-platform/gravitee-gateway/sharding-tags: README.md
  4.8/configure-and-manage-the-platform/gravitee-gateway/tenants: getting-started/configuration/apim-gateway/tenants.md
- 4.8/configure-and-manage-the-platform/manage-organizations-and-environments: guides/administration/administering-organizations-and-environments.md
  4.8/configure-and-manage-the-platform/manage-organizations-and-environments/apim-console: getting-started/configuration/apim-console.md
  4.8/configure-and-manage-the-platform/manage-organizations-and-environments/applications: guides/api-exposure-plans-applications-and-subscriptions/applications.md
  4.8/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers: getting-started/configuration/authentication/authentication-providers.md
@@ -1257,15 +1879,13 @@ redirects:
  4.8/create-and-configure-apis/configure-v4-apis/audit-logs: guides/api-configuration/v4-api-configuration/audit-logs.md
  4.8/create-and-configure-apis/configure-v4-apis/cors: guides/api-configuration/v4-api-configuration/entrypoints/cors.md
  4.8/create-and-configure-apis/configure-v4-apis/documentation: guides/api-configuration/v4-api-configuration/documentation.md
- 4.8/create-and-configure-apis/configure-v4-apis/endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
  4.8/create-and-configure-apis/configure-v4-apis/endpoints/azure-service-bus: README.md
  4.8/create-and-configure-apis/configure-v4-apis/endpoints/kafka: reference/endpoint-reference/kafka.md
  4.8/create-and-configure-apis/configure-v4-apis/endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
  4.8/create-and-configure-apis/configure-v4-apis/endpoints/mqtt5: reference/endpoint-reference/mqtt5.md
- 4.8/create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq: reference/endpoint-reference/rabbitmq.md
+ 4.8/create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md
  4.8/create-and-configure-apis/configure-v4-apis/endpoints/readme: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
  4.8/create-and-configure-apis/configure-v4-apis/endpoints/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
- 4.8/create-and-configure-apis/configure-v4-apis/entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
  4.8/create-and-configure-apis/configure-v4-apis/entrypoints/http-get: README.md
  4.8/create-and-configure-apis/configure-v4-apis/entrypoints/http-post: README.md
  4.8/create-and-configure-apis/configure-v4-apis/entrypoints/readme: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
@@ -1388,7 +2008,6 @@ redirects:
  4.8/kafka-gateway/readme: README.md
  4.8/kafka-gateway/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  4.8/management-api-reference: README.md
- 4.8/plugins: overview/plugins.md
  4.8/plugins/customization: guides/developer-contributions/custom-plugins.md
  4.8/plugins/deployment: overview/plugins.md
  4.8/plugins/readme: overview/plugins.md
@@ -1490,7 +2109,6 @@ redirects:
  4.9/configure-and-manage-the-platform/gravitee-gateway/services: README.md
  4.9/configure-and-manage-the-platform/gravitee-gateway/sharding-tags: README.md
  4.9/configure-and-manage-the-platform/gravitee-gateway/tenants: getting-started/configuration/apim-gateway/tenants.md
- 4.9/configure-and-manage-the-platform/manage-organizations-and-environments: guides/administration/administering-organizations-and-environments.md
  4.9/configure-and-manage-the-platform/manage-organizations-and-environments/apim-console: getting-started/configuration/apim-console.md
  4.9/configure-and-manage-the-platform/manage-organizations-and-environments/applications: guides/api-exposure-plans-applications-and-subscriptions/applications.md
  4.9/configure-and-manage-the-platform/manage-organizations-and-environments/authentication/authentication-providers: getting-started/configuration/authentication/authentication-providers.md
@@ -1605,15 +2223,13 @@ redirects:
  4.9/create-and-configure-apis/configure-v4-apis/audit-logs: guides/api-configuration/v4-api-configuration/audit-logs.md
  4.9/create-and-configure-apis/configure-v4-apis/cors: guides/api-configuration/v4-api-configuration/entrypoints/cors.md
  4.9/create-and-configure-apis/configure-v4-apis/documentation: guides/api-configuration/v4-api-configuration/documentation.md
- 4.9/create-and-configure-apis/configure-v4-apis/endpoints: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
  4.9/create-and-configure-apis/configure-v4-apis/endpoints/azure-service-bus: README.md
  4.9/create-and-configure-apis/configure-v4-apis/endpoints/kafka: reference/endpoint-reference/kafka.md
  4.9/create-and-configure-apis/configure-v4-apis/endpoints/mock: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/mock.md
  4.9/create-and-configure-apis/configure-v4-apis/endpoints/mqtt5: reference/endpoint-reference/mqtt5.md
- 4.9/create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq: reference/endpoint-reference/rabbitmq.md
+ 4.9/create-and-configure-apis/configure-v4-apis/endpoints/rabbitmq: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/rabbitmq.md
  4.9/create-and-configure-apis/configure-v4-apis/endpoints/readme: guides/api-configuration/v4-api-configuration/endpoints/v4-proxy-api-endpoints.md
  4.9/create-and-configure-apis/configure-v4-apis/endpoints/solace: guides/api-configuration/v4-api-configuration/endpoints/v4-message-api-endpoints/solace.md
- 4.9/create-and-configure-apis/configure-v4-apis/entrypoints: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
  4.9/create-and-configure-apis/configure-v4-apis/entrypoints/http-get: README.md
  4.9/create-and-configure-apis/configure-v4-apis/entrypoints/http-post: README.md
  4.9/create-and-configure-apis/configure-v4-apis/entrypoints/readme: guides/api-configuration/v4-api-configuration/entrypoints/v4-proxy-api-entrypoints.md
@@ -1730,7 +2346,6 @@ redirects:
  4.9/kafka-gateway/readme: README.md
  4.9/kafka-gateway/subscriptions: guides/api-exposure-plans-applications-and-subscriptions/subscriptions.md
  4.9/management-api-reference: README.md
- 4.9/plugins: overview/plugins.md
  4.9/plugins/customization: guides/developer-contributions/custom-plugins.md
  4.9/plugins/deployment: overview/plugins.md
  4.9/plugins/readme: overview/plugins.md
