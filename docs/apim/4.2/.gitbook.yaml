@@ -388,7 +388,7 @@ redirects:
  4.2/guides/create-apis/how-to/v2-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v2-api-creation-wizard.md
  4.2/guides/create-apis/how-to/v4-api-creation-wizard: guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md
  4.2/guides/create-apis/how-to/v4-api-creation-wizard-docs: guides/create-apis/the-api-creation-wizard/v4-api-creation-wizard.md
- 4.2/guides/create-apis/import-apis/openapi-spec: guides/create-apis/import-apis/openapi-spec-import.md
+ 4.2/guides/create-apis/import-apis/openapi-spec: 4.2/guides/create-apis/import-apis/openapi-spec-import.md
  4.2/guides/developer-contributions/dev-guide-plugins: guides/developer-contributions/custom-plugins.md
  4.2/guides/developer-contributions/dev-guide-policies: guides/developer-contributions/custom-policies.md
  4.2/guides/developer-portal/advanced-developer-portal-configuration/documentation: guides/developer-portal/configuration/documentation.md
@@ -1446,7 +1446,7 @@ redirects:
  4.7/configure-v4-apis/response-templates: guides/api-configuration/v2-api-configuration/general-proxy-settings.md
  4.7/configure-v4-apis/user-permissions: README.md
  4.7/configure-v4-apis/version-history: README.md
- 4.7/create-apis/import-apis: guides/create-apis/import-apis/openapi-spec-import.md
+ 4.7/create-apis/import-apis: 4.2/guides/create-apis/import-apis/openapi-spec-import.md
  4.7/create-apis/overview/execution-engine: overview/gravitee-api-definitions-and-execution-engines.md
  4.7/create-apis/overview/readme: guides/create-apis/README.md
  4.7/create-apis/overview/v2-and-v4-api-comparison: README.md
