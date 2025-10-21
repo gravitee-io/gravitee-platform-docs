@@ -2053,7 +2053,7 @@ redirects:
  4.7/install-and-upgrade/docker/quick-install: installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/quick-install-with-docker-compose.md
  4.7/install-and-upgrade/docker/readme: installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-docker/README.md
  4.7/install-and-upgrade/kubernetes: installation-and-upgrades/install-gravitee-api-management/installing-gravitee-api-management-on-premise/install-on-kubernetes.md
- 4.7/install-and-upgrade/multi-tenancy: installation-and-upgrades/install-gravitee-api-management/multi-tenancy.md
+ install-and-upgrade/multi-tenancy: installation-and-upgrades/install-gravitee-api-management/multi-tenancy.md
  4.7/install-and-upgrade/openshift: README.md
  4.7/install-and-upgrade/production-best-practices/authentication: using-the-product/production-ready-apim-environment/authentication.md
  4.7/install-and-upgrade/production-best-practices/deployments: using-the-product/production-ready-apim-environment/deployment.md
