@@ -1,11 +1,7 @@
----
-hidden: true
-noIndex: true
----
-
 # APIM 4.9.x
- 
+
 ## Gravitee API Management 4.9.1 - October 21, 2025
+
 <details>
 
 <summary>Bug Fixes</summary>
@@ -26,13 +22,10 @@ noIndex: true
 
 **Management API**
 
-* Getting 502 Bad Gateway error while invoking the request.  [#10863](https://github.com/gravitee-io/issues/issues/10863)
+* Getting 502 Bad Gateway error while invoking the request. [#10863](https://github.com/gravitee-io/issues/issues/10863)
 
 **Console**
 
-* Getting 502 Bad Gateway error while invoking the request.  [#10863](https://github.com/gravitee-io/issues/issues/10863)
+* Getting 502 Bad Gateway error while invoking the request. [#10863](https://github.com/gravitee-io/issues/issues/10863)
 
 </details>
-
-
-
