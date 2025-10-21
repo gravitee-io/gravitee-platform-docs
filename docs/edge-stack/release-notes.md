@@ -4,6 +4,12 @@ noIndex: true
 
 # Release Notes
 
+### Version 3.12.9 (October 17, 2025) <a href="#id-3.12.9" id="id-3.12.9"></a>
+
+#### Upgrade Coraza to 3.3.3
+
+Ambassador Edge Stack now uses Coraza version 3.3.3. This update addresses and resolves various security fixes. Please note that with this update Coraza has introduced additional logging around certain variables. These logs can be disabled by updating your WAF rules. Please visit the [WAF rules page](edge-stack-user-guide/web-application-firewalls/configuring-web-application-firewall-rules-in-ambassador-edge-stack.md) for more information.
+
 ### Version 3.12.8 (October 9, 2025) <a href="#id-3.12.8" id="id-3.12.8"></a>
 
 #### Patch XSRF vulnerability
@@ -12,7 +18,7 @@ Previously there was an error with how we verified XSRF cookies on the redirecti
 
 #### Update to JSON logging format
 
-When using JSON log format, Filter errors would output with the `host` tag to describe the host of the request. This caused issues when importing with Datadog and has been updated to be `hostname`.&#x20;
+When using JSON log format, Filter errors would output with the `host` tag to describe the host of the request. This caused issues when importing with Datadog and has been updated to be `hostname`.
 
 #### Upgrade to Envoy 1.31.10
 
@@ -22,11 +28,11 @@ Ambassador Edge Stack is now built on Envoy v1.31.10, which includes security en
 
 #### Fix SameSite behavior when multiple FilterPolicies point to a single Filter
 
-Previously there was an error with how the `SameSite` value on the Cookie were set when multiple FilterPolicies pointed to the same Filter. The Cookie would use the FilterPolicy that had the highest precedence for that Filter even if it was on the wrong paths. Now, the `SameSite` value in the FilterPolicy is respected for that path.&#x20;
+Previously there was an error with how the `SameSite` value on the Cookie were set when multiple FilterPolicies pointed to the same Filter. The Cookie would use the FilterPolicy that had the highest precedence for that Filter even if it was on the wrong paths. Now, the `SameSite` value in the FilterPolicy is respected for that path.
 
 #### Added further debug log information on the AuthService
 
-When using the `debug` log level, more information is now logged when using Filters and other Capabilities related to the AuthService.&#x20;
+When using the `debug` log level, more information is now logged when using Filters and other Capabilities related to the AuthService.
 
 #### Upgraded Golang to 1.24.5
 
